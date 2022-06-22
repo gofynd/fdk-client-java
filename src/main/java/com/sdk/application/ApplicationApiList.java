@@ -162,7 +162,7 @@ interface CartApiList {
     Call<ApplicationModels.CartShipmentsResponse> getShipments(@Query("p") Boolean p , @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("area_code") String areaCode );
     
     @POST ("/service/application/cart/v1.0/checkout")
-    Call<ApplicationModels.CartCheckoutResponse> checkoutCart(@Body ApplicationModels.CartCheckoutDetailRequest payload);
+    Call<ApplicationModels.CartCheckoutResponse> checkoutCart(@Query("buy_now") Boolean buyNow ,@Body ApplicationModels.CartCheckoutDetailRequest payload);
     
     @PUT ("/service/application/cart/v1.0/meta")
     Call<ApplicationModels.CartMetaResponse> updateCartMeta(@Query("id") String id , @Query("buy_now") Boolean buyNow ,@Body ApplicationModels.CartMetaRequest payload);
@@ -540,6 +540,12 @@ interface PaymentApiList {
     @GET ("/service/application/payment/v1.0/rupifi/banner")
     Call<ApplicationModels.RupifiBannerResponse> getRupifiBannerDetails();
     
+    @GET ("/service/application/payment/v1.0/epaylater/banner")
+    Call<ApplicationModels.EpaylaterBannerResponse> getEpaylaterBannerDetails();
+    
+    @POST ("/service/application/payment/v1.0/payment/resend_or_cancel")
+    Call<ApplicationModels.ResendOrCancelPaymentResponse> resendOrCancelPayment(@Body ApplicationModels.ResendOrCancelPaymentRequest payload);
+    
     @GET ("/service/application/payment/v1.0/refund/transfer-mode")
     Call<ApplicationModels.TransferModeResponse> getActiveRefundTransferModes();
     
@@ -569,6 +575,18 @@ interface PaymentApiList {
     
     @POST ("/service/application/payment/v1.0/refund/beneficiary/default")
     Call<ApplicationModels.SetDefaultBeneficiaryResponse> updateDefaultBeneficiary(@Body ApplicationModels.SetDefaultBeneficiaryRequest payload);
+    
+    @GET ("/service/application/payment/v1.0/payment/credit-summary/")
+    Call<ApplicationModels.CustomerCreditSummaryResponse> customerCreditSummary(@Query("aggregator") String aggregator );
+    
+    @GET ("/service/application/payment/v1.0/payment/redirect-to-aggregator/")
+    Call<ApplicationModels.RedirectToAggregatorResponse> redirectToAggregator(@Query("source") String source , @Query("aggregator") String aggregator );
+    
+    @GET ("/service/application/payment/v1.0/check-credits/")
+    Call<ApplicationModels.CheckCreditResponse> checkCredit(@Query("aggregator") String aggregator );
+    
+    @POST ("/service/application/payment/v1.0/credit-onboard/")
+    Call<ApplicationModels.CustomerOnboardingResponse> customerOnboard(@Body ApplicationModels.CustomerOnboardingRequest payload);
     
 }
 
