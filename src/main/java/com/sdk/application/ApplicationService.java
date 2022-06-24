@@ -1423,9 +1423,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartCheckoutResponse checkoutCart(ApplicationModels.CartCheckoutDetailRequest body) throws IOException {
+    public ApplicationModels.CartCheckoutResponse checkoutCart(Boolean buyNow ,ApplicationModels.CartCheckoutDetailRequest body) throws IOException {
     
-        Response<ApplicationModels.CartCheckoutResponse> response = cartApiList.checkoutCart( body).execute();
+        Response<ApplicationModels.CartCheckoutResponse> response = cartApiList.checkoutCart(buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

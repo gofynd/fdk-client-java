@@ -162,7 +162,7 @@ interface CartApiList {
     Call<ApplicationModels.CartShipmentsResponse> getShipments(@Query("p") Boolean p , @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("area_code") String areaCode );
     
     @POST ("/service/application/cart/v1.0/checkout")
-    Call<ApplicationModels.CartCheckoutResponse> checkoutCart(@Body ApplicationModels.CartCheckoutDetailRequest payload);
+    Call<ApplicationModels.CartCheckoutResponse> checkoutCart(@Query("buy_now") Boolean buyNow ,@Body ApplicationModels.CartCheckoutDetailRequest payload);
     
     @PUT ("/service/application/cart/v1.0/meta")
     Call<ApplicationModels.CartMetaResponse> updateCartMeta(@Query("id") String id , @Query("buy_now") Boolean buyNow ,@Body ApplicationModels.CartMetaRequest payload);
