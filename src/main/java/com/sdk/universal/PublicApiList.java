@@ -27,6 +27,12 @@ interface WebhookApiList {
 
 interface InventoryApiList {
     
+    @GET ("/service/common/inventory/v1.0/company/slingshot")
+    Call<PublicModels.ResponseEnvelopeSlingshotConfigurationDetail> getConfigByApiKey(@Query("apikey") String apikey );
+    
+    @GET ("/service/common/inventory/v1.0/company/slingshot/apikey")
+    Call<PublicModels.ResponseEnvelopeApikeyModel> getApiKey(@Query("user_name") String userName , @Query("password") String password );
+    
     @GET ("/service/common/inventory/v1.0/company/jobs/code/{code}")
     Call<PublicModels.ResponseEnvelopeJobConfigDTO> getJobByCode(@Path("code") String code );
     
