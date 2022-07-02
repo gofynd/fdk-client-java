@@ -6019,6 +6019,18 @@ public static class UnArchiveUserRequestSchema {
     
     
     
+    @JsonProperty("reason")
+    private String reason;
+    
+    
+    
+    
+    @JsonProperty("reason_id")
+    private String reasonId;
+    
+    
+    
+    
 }
 
 /*
