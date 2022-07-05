@@ -10,6 +10,7 @@ Authentication Service
 * [searchUsers](#searchusers)
 * [createUser](#createuser)
 * [blockOrUnblockUsers](#blockorunblockusers)
+* [archiveUser](#archiveuser)
 * [updateUser](#updateuser)
 * [createUserSession](#createusersession)
 * [getActiveSessions](#getactivesessions)
@@ -40,7 +41,7 @@ client.application("<APPLICATION_ID>").user.getCustomers( q,  pageSize,  pageNo)
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
 | applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
-| q | String? | no | The search query. Mobile number or email ID of a customer. |   
+| q | Object? | no | The search query. Mobile number or email ID of a customer. |   
 | pageSize | Integer? | no | The number of items to retrieve in each page. Default value is 10. |   
 | pageNo | Integer? | no | The page number to navigate through the given set of results. Default value is 1.  |  
 
@@ -74,9 +75,6 @@ Success. Refer `CustomerListResponseSchema` for more details.
       {
         "_id": "000000000000000023106198",
         "gender": "male",
-        "roles": [
-          "Ark-Qnatemplate-FullAccess"
-        ],
         "active": true,
         "emails": [
           {
@@ -155,7 +153,7 @@ client.application("<APPLICATION_ID>").user.searchUsers( q) {
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
 | applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
-| q | Object? | no | The search query. Mobile number or email ID of a customer. |  
+| q | String? | no | The search query. Mobile number or email ID of a customer. |  
 
 
 
@@ -359,6 +357,62 @@ Block/Unblock user
 
 
 [BlockUserSuccess](#BlockUserSuccess)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "success": true
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### archiveUser
+archive user
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").user.archiveUser(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company ID |   
+| applicationId | String | yes | Application ID |  
+| body | [ArchiveUserRequestSchema](#ArchiveUserRequestSchema) | yes | Request body |
+
+
+archive user
+
+*Returned Response:*
+
+
+
+
+[ArchiveUserSuccess](#ArchiveUserSuccess)
 
 Success
 
@@ -937,6 +991,17 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
 
  
  
+ #### [ArchiveUserRequestSchema](#ArchiveUserRequestSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | userId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [EditEmailRequestSchema](#EditEmailRequestSchema)
 
  | Properties | Type | Nullable | Description |
@@ -1253,6 +1318,12 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | verifyMobileOtp | Boolean? |  yes  |  |
  | email | String? |  yes  |  |
  | requestId | String? |  yes  |  |
+ | countryCode | String? |  yes  |  |
+ | mobile | String? |  yes  |  |
+ | success | Boolean? |  yes  |  |
+ | message | String? |  yes  |  |
+ | resendTimer | Integer? |  yes  |  |
+ | resendToken | String? |  yes  |  |
 
 ---
 
@@ -1353,6 +1424,17 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  
  
  #### [BlockUserSuccess](#BlockUserSuccess)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ArchiveUserSuccess](#ArchiveUserSuccess)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
