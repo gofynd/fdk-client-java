@@ -56,6 +56,8 @@ public class PlatformClient {
     
     public PlatformService.AuditTrailService auditTrail;
     
+    public PlatformService.OrdersService orders;
+    
 
     public PlatformClient(PlatformConfig config)   
     {
@@ -106,6 +108,8 @@ public class PlatformClient {
         this.webhook = new PlatformService.WebhookService(config);
         
         this.auditTrail = new PlatformService.AuditTrailService(config);
+        
+        this.orders = new PlatformService.OrdersService(config);
         
     }
 
@@ -163,6 +167,8 @@ public class PlatformClient {
         
         public PlatformService.AuditTrailService.ApplicationClient auditTrail;
         
+        public PlatformService.OrdersService.ApplicationClient orders;
+        
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
             
@@ -211,6 +217,8 @@ public class PlatformClient {
             this.webhook = new PlatformService.WebhookService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.auditTrail = new PlatformService.AuditTrailService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.orders = new PlatformService.OrdersService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
         }
 
