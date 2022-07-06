@@ -4846,7 +4846,7 @@ Get page meta
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getPageMeta( pageType,  cartPages) {
+client.application("<APPLICATION_ID>").content.getPageMeta() {
   //use response
 }
 ```
@@ -4856,9 +4856,7 @@ client.application("<APPLICATION_ID>").content.getPageMeta( pageType,  cartPages
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
-| pageType | String? | no | Fetch meta by page type. Acceptable values are: system, custom and all |   
-| cartPages | Boolean? | no | Pass this param value as `true` to fetch meta with cart pages |  
+| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |  
 
 
 
@@ -5500,7 +5498,7 @@ Success. Refer `PathMappingSchema` for more details.
 
 ```json
 {
-  "data": {
+  "value": {
     "_id": "615188e9db1e444cb0f40837",
     "application": "000000000000000000000002",
     "redirections": [
@@ -8722,7 +8720,7 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | collection | collection | Symbolic link for Collection: /collection/:slug |
  | collections | collections | Symbolic link for Collections: /collections/ |
  | contactUs | contact-us | Symbolic link for Contact Us: /contact-us/ |
- | external | external | Symbolic link for External Link: /external/:url |
+ | external | external | Symbolic link for External Link: /external/ |
  | faq | faq | Symbolic link for FAQ: /faq/:category |
  | freshchat | freshchat | Symbolic link for Chat by Freshchat: /freshchat |
  | home | home | Symbolic link for Home: / |
@@ -8752,6 +8750,7 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | cartDelivery | cart-delivery | Symbolic link for Cart Delivery: /cart/delivery |
  | cartPayment | cart-payment | Symbolic link for Cart Payment Information: /cart/payment-info |
  | cartReview | cart-review | Symbolic link for Cart Order Review: /cart/order-review |
+ | login | login | Symbolic link for Login: /auth/login |
 
 ---
 
