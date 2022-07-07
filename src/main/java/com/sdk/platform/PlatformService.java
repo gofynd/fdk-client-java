@@ -21967,9 +21967,9 @@ public static class OrdersService {
     
     
     
-    public PlatformModels.ShipmentDetailsResponse getShipmentDetails(String shipmentId ) throws IOException {
+    public PlatformModels.ShipmentDetailsResponse getOrderShipmentDetails(String shipmentId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ShipmentDetailsResponse> response = ordersApiList.getShipmentDetails(this.companyId , shipmentId  ).execute();
+            Response<PlatformModels.ShipmentDetailsResponse> response = ordersApiList.getOrderShipmentDetails(this.companyId , shipmentId  ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -21996,91 +21996,9 @@ public static class OrdersService {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.LaneConfigResponse getLaneConfig(String superLane , String fromDate , String toDate ) throws IOException {
+    public PlatformModels.ShipmentDetailsResponse getShipmentDetails(String orderId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.LaneConfigResponse> response = ordersApiList.getLaneConfig(this.companyId ,superLane , fromDate , toDate ).execute();
-            if (!response.isSuccessful()) {
-                    throw new IOException(response.errorBody() != null
-                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-                }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.ShipmentDetailsResponse getOrderShipmentDetails(String orderId ) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ShipmentDetailsResponse> response = ordersApiList.getOrderShipmentDetails(this.companyId ,orderId ).execute();
-            if (!response.isSuccessful()) {
-                    throw new IOException(response.errorBody() != null
-                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-                }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.ShipmentInternalPlatformViewResponse getShipmentList(String lane , String searchType , String searchId , String fromDate , String toDate ) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ShipmentInternalPlatformViewResponse> response = ordersApiList.getShipmentList(this.companyId ,lane , searchType , searchId , fromDate , toDate ).execute();
+            Response<PlatformModels.ShipmentDetailsResponse> response = ordersApiList.getShipmentDetails(this.companyId ,orderId ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -22145,10 +22063,6 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
-    
-    
-    
-    
     
     
     

@@ -7374,26 +7374,8 @@ interface OrdersApiList {
     
     
     
-    @GET ("/service/platform/orders/v1.0/company/{company_id}/shipment-details/{shipment_id}")
-    Call<PlatformModels.ShipmentDetailsResponse> getShipmentDetails(@Path("company_id")  String companyId , @Path("shipment_id") String  shipmentId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/orders/v1.0/company/{company_id}/lane-config/")
-    Call<PlatformModels.LaneConfigResponse> getLaneConfig(@Path("company_id")  String companyId , @Query("super_lane") String  superLane ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate );
+    @GET ("/service/platform/orders/v1.0/company/{company_id}/shipments-details/{shipment_id}")
+    Call<PlatformModels.ShipmentDetailsResponse> getOrderShipmentDetails(@Path("company_id")  String companyId , @Path("shipment_id") String  shipmentId );
     
     
     
@@ -7405,31 +7387,7 @@ interface OrdersApiList {
     
     
     @GET ("/service/platform/orders/v1.0/company/{company_id}/order-details")
-    Call<PlatformModels.ShipmentDetailsResponse> getOrderShipmentDetails(@Path("company_id")  String companyId , @Query("order_id") String  orderId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/orders/v1.0/company/{company_id}/shipments-internal")
-    Call<PlatformModels.ShipmentInternalPlatformViewResponse> getShipmentList(@Path("company_id")  String companyId , @Query("lane") String  lane ,  @Query("search_type") String  searchType ,  @Query("search_id") String  searchId ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate );
+    Call<PlatformModels.ShipmentDetailsResponse> getShipmentDetails(@Path("company_id")  String companyId , @Query("order_id") String  orderId );
     
     
     
