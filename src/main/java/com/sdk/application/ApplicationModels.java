@@ -30209,6 +30209,12 @@ public static class Shipments{
     
     
     
+    @JsonProperty("show_download_invoice")
+    private Boolean showDownloadInvoice;
+    
+    
+    
+    
     @JsonProperty("prices")
     private Prices prices;
     
