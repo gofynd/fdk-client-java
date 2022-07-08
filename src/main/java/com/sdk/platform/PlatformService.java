@@ -21967,9 +21967,9 @@ public static class OrdersService {
     
     
     
-    public PlatformModels.ShipmentDetailsResponse getOrderShipmentDetails(String shipmentId ) throws IOException {
+    public PlatformModels.ShipmentDetailsResponse getShipmentDetails(String shipmentId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ShipmentDetailsResponse> response = ordersApiList.getOrderShipmentDetails(this.companyId , shipmentId  ).execute();
+            Response<PlatformModels.ShipmentDetailsResponse> response = ordersApiList.getShipmentDetails(this.companyId , shipmentId  ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -21996,9 +21996,119 @@ public static class OrdersService {
     
     
     
-    public PlatformModels.ShipmentDetailsResponse getShipmentDetails(String orderId ) throws IOException {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.LaneConfigResponse getLaneConfig(String superLane , String groupEntity , String fromDate , String toDate ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ShipmentDetailsResponse> response = ordersApiList.getShipmentDetails(this.companyId ,orderId ).execute();
+            Response<PlatformModels.LaneConfigResponse> response = ordersApiList.getLaneConfig(this.companyId ,superLane , groupEntity , fromDate , toDate ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.ShipmentDetailsResponse getOrderShipmentDetails(String orderId ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.ShipmentDetailsResponse> response = ordersApiList.getOrderShipmentDetails(this.companyId ,orderId ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.ShipmentInternalPlatformViewResponse getShipmentList(String lane , String searchType , String searchId , String fromDate , String toDate , String dpIds , String orderingCompanyId , String stores , String salesChannel , String requestByExt , Boolean isPrioritySort ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.ShipmentInternalPlatformViewResponse> response = ordersApiList.getShipmentList(this.companyId ,lane , searchType , searchId , fromDate , toDate , dpIds , orderingCompanyId , stores , salesChannel , requestByExt , isPrioritySort ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -22048,6 +22158,67 @@ public static class OrdersService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.OrderListingResponse getOrders(String lane , String searchType , String searchValue , String fromDate , String toDate , String dpIds , String stores , String salesChannel , Boolean isPrioritySort ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.OrderListingResponse> response = ordersApiList.getOrders(this.companyId ,lane , searchType , searchValue , fromDate , toDate , dpIds , stores , salesChannel , isPrioritySort ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
 
 
 public class ApplicationClient {
@@ -22063,6 +22234,12 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
+    
+    
+    
+    
+    
+    
     
     
     
