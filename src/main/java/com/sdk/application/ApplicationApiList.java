@@ -105,16 +105,16 @@ interface CatalogApiList {
 interface CartApiList {
     
     @GET ("/service/application/cart/v1.0/detail")
-    Call<ApplicationModels.CartDetailResponse> getCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId );
+    Call<ApplicationModels.CartDetailResponse> getCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("area_code") String areaCode );
     
     @HEAD ("/service/application/cart/v1.0/detail")
     Call<Object> getCartLastModified(@Query("id") String id );
     
     @POST ("/service/application/cart/v1.0/detail")
-    Call<ApplicationModels.AddCartDetailResponse> addItems(@Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.AddCartRequest payload);
+    Call<ApplicationModels.AddCartDetailResponse> addItems(@Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode ,@Body ApplicationModels.AddCartRequest payload);
     
     @PUT ("/service/application/cart/v1.0/detail")
-    Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.UpdateCartRequest payload);
+    Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode ,@Body ApplicationModels.UpdateCartRequest payload);
     
     @GET ("/service/application/cart/v1.0/basic")
     Call<ApplicationModels.CartItemCountResponse> getItemCount(@Query("id") String id );
@@ -652,101 +652,19 @@ interface RewardsApiList {
     
 }
 
-interface FeedbackApiList {
-    
-    @POST ("/service/application/feedback/v1.0/abuse/")
-    Call<ApplicationModels.InsertResponse> createAbuseReport(@Body ApplicationModels.ReportAbuseRequest payload);
-    
-    @PUT ("/service/application/feedback/v1.0/abuse/")
-    Call<ApplicationModels.UpdateResponse> updateAbuseReport(@Body ApplicationModels.UpdateAbuseStatusRequest payload);
-    
-    @GET ("/service/application/feedback/v1.0/abuse/entity/{entity_type}/entity-id/{entity_id}")
-    Call<ApplicationModels.ReportAbuseGetResponse> getAbuseReports(@Path("entity_id") String entityId , @Path("entity_type") String entityType , @Query("id") String id , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @GET ("/service/application/feedback/v1.0/attributes/")
-    Call<ApplicationModels.AttributeResponse> getAttributes(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
-    
-    @POST ("/service/application/feedback/v1.0/attributes/")
-    Call<ApplicationModels.InsertResponse> createAttribute(@Body ApplicationModels.SaveAttributeRequest payload);
-    
-    @GET ("/service/application/feedback/v1.0/attributes/{slug}")
-    Call<ApplicationModels.Attribute> getAttribute(@Path("slug") String slug );
-    
-    @PUT ("/service/application/feedback/v1.0/attributes/{slug}")
-    Call<ApplicationModels.UpdateResponse> updateAttribute(@Path("slug") String slug ,@Body ApplicationModels.UpdateAttributeRequest payload);
-    
-    @POST ("/service/application/feedback/v1.0/comment/")
-    Call<ApplicationModels.InsertResponse> createComment(@Body ApplicationModels.CommentRequest payload);
-    
-    @PUT ("/service/application/feedback/v1.0/comment/")
-    Call<ApplicationModels.UpdateResponse> updateComment(@Body ApplicationModels.UpdateCommentRequest payload);
-    
-    @GET ("/service/application/feedback/v1.0/comment/entity/{entity_type}")
-    Call<ApplicationModels.CommentGetResponse> getComments(@Path("entity_type") String entityType , @Query("id") String id , @Query("entity_id") String entityId , @Query("user_id") String userId , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @GET ("/service/application/feedback/v1.0/config/entity/{entity_type}/entity-id/{entity_id}")
-    Call<ApplicationModels.CheckEligibilityResponse> checkEligibility(@Path("entity_type") String entityType , @Path("entity_id") String entityId );
-    
-    @DELETE ("/service/application/feedback/v1.0/media/")
-    Call<ApplicationModels.UpdateResponse> deleteMedia(@Query("ids") List<String> ids );
-    
-    @POST ("/service/application/feedback/v1.0/media/")
-    Call<ApplicationModels.InsertResponse> createMedia(@Body ApplicationModels.AddMediaListRequest payload);
-    
-    @PUT ("/service/application/feedback/v1.0/media/")
-    Call<ApplicationModels.UpdateResponse> updateMedia(@Body ApplicationModels.UpdateMediaListRequest payload);
-    
-    @GET ("/service/application/feedback/v1.0/media/entity/{entity_type}/entity-id/{entity_id}")
-    Call<ApplicationModels.MediaGetResponse> getMedias(@Path("entity_type") String entityType , @Path("entity_id") String entityId , @Query("id") String id , @Query("type") String type , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @GET ("/service/application/feedback/v1.0/rating/summary/entity/{entity_type}/entity-id/{entity_id}")
-    Call<ApplicationModels.ReviewMetricGetResponse> getReviewSummaries(@Path("entity_type") String entityType , @Path("entity_id") String entityId , @Query("id") String id , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @POST ("/service/application/feedback/v1.0/review/")
-    Call<ApplicationModels.UpdateResponse> createReview(@Body ApplicationModels.UpdateReviewRequest payload);
-    
-    @PUT ("/service/application/feedback/v1.0/review/")
-    Call<ApplicationModels.UpdateResponse> updateReview(@Body ApplicationModels.UpdateReviewRequest payload);
-    
-    @GET ("/service/application/feedback/v1.0/review/entity/{entity_type}/entity-id/{entity_id}")
-    Call<ApplicationModels.ReviewGetResponse> getReviews(@Path("entity_type") String entityType , @Path("entity_id") String entityId , @Query("id") String id , @Query("user_id") String userId , @Query("media") String media , @Query("rating") List<Double> rating , @Query("attribute_rating") List<String> attributeRating , @Query("facets") Boolean facets , @Query("sort") String sort , @Query("active") Boolean active , @Query("approve") Boolean approve , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @GET ("/service/application/feedback/v1.0/template/")
-    Call<ApplicationModels.TemplateGetResponse> getTemplates(@Query("template_id") String templateId , @Query("entity_id") String entityId , @Query("entity_type") String entityType );
-    
-    @POST ("/service/application/feedback/v1.0/template/qna/")
-    Call<ApplicationModels.InsertResponse> createQuestion(@Body ApplicationModels.CreateQNARequest payload);
-    
-    @PUT ("/service/application/feedback/v1.0/template/qna/")
-    Call<ApplicationModels.UpdateResponse> updateQuestion(@Body ApplicationModels.UpdateQNARequest payload);
-    
-    @GET ("/service/application/feedback/v1.0/template/qna/entity/{entity_type}/entity-id/{entity_id}")
-    Call<ApplicationModels.QNAGetResponse> getQuestionAndAnswers(@Path("entity_type") String entityType , @Path("entity_id") String entityId , @Query("id") String id , @Query("user_id") String userId , @Query("show_answer") Boolean showAnswer , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @GET ("/service/application/feedback/v1.0/vote/")
-    Call<ApplicationModels.VoteResponse> getVotes(@Query("id") String id , @Query("ref_type") String refType , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
-    
-    @POST ("/service/application/feedback/v1.0/vote/")
-    Call<ApplicationModels.InsertResponse> createVote(@Body ApplicationModels.VoteRequest payload);
-    
-    @PUT ("/service/application/feedback/v1.0/vote/")
-    Call<ApplicationModels.UpdateResponse> updateVote(@Body ApplicationModels.UpdateVoteRequest payload);
-    
-}
-
 interface PosCartApiList {
     
     @GET ("/service/application/pos/cart/v1.0/detail")
-    Call<ApplicationModels.CartDetailResponse> getCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId );
+    Call<ApplicationModels.CartDetailResponse> getCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("area_code") String areaCode );
     
     @HEAD ("/service/application/pos/cart/v1.0/detail")
     Call<Object> getCartLastModified(@Query("id") String id );
     
     @POST ("/service/application/pos/cart/v1.0/detail")
-    Call<ApplicationModels.AddCartDetailResponse> addItems(@Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.AddCartRequest payload);
+    Call<ApplicationModels.AddCartDetailResponse> addItems(@Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode ,@Body ApplicationModels.AddCartRequest payload);
     
     @PUT ("/service/application/pos/cart/v1.0/detail")
-    Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.UpdateCartRequest payload);
+    Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode ,@Body ApplicationModels.UpdateCartRequest payload);
     
     @GET ("/service/application/pos/cart/v1.0/basic")
     Call<ApplicationModels.CartItemCountResponse> getItemCount(@Query("id") String id );

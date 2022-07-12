@@ -4846,7 +4846,7 @@ Get page meta
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getPageMeta() {
+client.application("<APPLICATION_ID>").content.getPageMeta( pageType,  cartPages) {
   //use response
 }
 ```
@@ -4856,7 +4856,9 @@ client.application("<APPLICATION_ID>").content.getPageMeta() {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |  
+| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
+| pageType | String? | no | Fetch meta by page type. Acceptable values are: system, custom and all |   
+| cartPages | Boolean? | no | Pass this param value as `true` to fetch meta with cart pages |  
 
 
 
@@ -5498,7 +5500,7 @@ Success. Refer `PathMappingSchema` for more details.
 
 ```json
 {
-  "value": {
+  "data": {
     "_id": "615188e9db1e444cb0f40837",
     "application": "000000000000000000000002",
     "redirections": [
@@ -7935,6 +7937,7 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | url | String? |  yes  |  |
  | content | String? |  yes  |  |
  | source | [DataLoaderSourceSchema](#DataLoaderSourceSchema)? |  yes  |  |
+ | id | String? |  yes  |  |
 
 ---
 
