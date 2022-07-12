@@ -3220,6 +3220,27 @@ interface OrderApiList {
     
     
     
+    @GET ("/service/platform/order/v1.0/company/{company_id}/application/{application_id}/orders/details")
+    Call<PlatformModels.OrderDetails> getOrderDetails(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("order_id") String  orderId ,  @Query("next") String  next ,  @Query("previous") String  previous );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -7378,7 +7399,7 @@ interface OrdersApiList {
     
     
     @GET ("/service/platform/orders/v1.0/company/{company_id}/shipment-details/{shipment_id}")
-    Call<PlatformModels.ShipmentDetailsResponse> getShipmentDetails(@Path("company_id")  String companyId , @Path("shipment_id") String  shipmentId );
+    Call<PlatformModels.ShipmentInfoResponse> getShipmentDetails(@Path("company_id")  String companyId , @Path("shipment_id") String  shipmentId );
     
     
     
@@ -7535,5 +7556,30 @@ interface OrdersApiList {
     
     @GET ("/service/platform/orders/v1.0/company/{company_id}/filter-listing")
     Call<PlatformModels.FiltersResponse> getfilters(@Path("company_id")  String companyId , @Query("view") String  view );
+    
+}
+
+interface OrderManageApiList {
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/status-internal")
+    Call<PlatformModels.ResponseDetail> statusInternalUpdate(@Path("company_id")  String companyId ,@Body PlatformModels.PlatformShipmentStatusInternal payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
+    Call<PlatformModels.ShipmentHistoryResponse> getShipmentHistory(@Path("company_id")  String companyId , @Query("bag_id") Integer  bagId );
     
 }

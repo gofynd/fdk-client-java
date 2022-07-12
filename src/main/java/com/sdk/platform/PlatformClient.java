@@ -58,6 +58,8 @@ public class PlatformClient {
     
     public PlatformService.OrdersService orders;
     
+    public PlatformService.OrderManageService orderManage;
+    
 
     public PlatformClient(PlatformConfig config)   
     {
@@ -110,6 +112,8 @@ public class PlatformClient {
         this.auditTrail = new PlatformService.AuditTrailService(config);
         
         this.orders = new PlatformService.OrdersService(config);
+        
+        this.orderManage = new PlatformService.OrderManageService(config);
         
     }
 
@@ -169,6 +173,8 @@ public class PlatformClient {
         
         public PlatformService.OrdersService.ApplicationClient orders;
         
+        public PlatformService.OrderManageService.ApplicationClient orderManage;
+        
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
             
@@ -219,6 +225,8 @@ public class PlatformClient {
             this.auditTrail = new PlatformService.AuditTrailService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.orders = new PlatformService.OrdersService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.orderManage = new PlatformService.OrderManageService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
         }
 
