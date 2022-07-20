@@ -25,7 +25,7 @@ public class PublicHeaderInterceptor implements Interceptor {
                 .addHeader("User-Agent", publicConfig.getUserAgent())
                 .addHeader("Accept-Language", "en-IN")
                 .addHeader("Authorization", "Bearer "+bearerToken)
-                .addHeader("x-fp-sdk-version", "0.1.21")
+                .addHeader("x-fp-sdk-version", "0.1.22")
                 .build();
         return chain.proceed(request);
     }
