@@ -1316,7 +1316,7 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | accessToken | String |  no  | Access token to be used for video room |
+ | accessTokenDto | String |  no  | Access token to be used for video room |
 
 ---
 

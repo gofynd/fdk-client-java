@@ -1364,7 +1364,7 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | accessToken | String? |  yes  |  |
+ | accessTokenDto | String? |  yes  |  |
  | expiry | Integer? |  yes  |  |
  | refreshToken | String? |  yes  |  |
 

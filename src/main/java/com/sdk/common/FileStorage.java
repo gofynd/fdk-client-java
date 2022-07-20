@@ -2,7 +2,7 @@ package com.sdk.common;
 
 import com.sdk.application.ApplicationModels;
 import com.sdk.application.ApplicationService;
-import okhttp3.Interceptor;
+import com.sdk.common.model.FDKError;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import org.apache.commons.lang3.StringUtils;
@@ -13,7 +13,6 @@ import retrofit2.http.PUT;
 import retrofit2.http.Url;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
