@@ -159,7 +159,7 @@ public class RequestSigner {
     // Logic to create Path String
     private String canonicalPath() {
         StringBuilder encodedPathPieces = new StringBuilder();
-        updatedReq.url().encodedPathSegments().stream().map(this::encode)
+        updatedReq.url().encodedPathSegments()
                 .forEach(path -> encodedPathPieces.append("/").append(path));
         return encodedPathPieces.toString();
     }

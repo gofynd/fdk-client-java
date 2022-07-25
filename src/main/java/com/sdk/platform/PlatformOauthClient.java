@@ -84,7 +84,7 @@ public class PlatformOauthClient {
     public void setToken(AccessTokenDto accessTokenDto) {
         this.rawToken = accessTokenDto;
         this.tokenExpiresIn = accessTokenDto.getExpiresIn();
-        this.token = accessTokenDto.getToken();
+        this.token = accessTokenDto.getAccessToken();
         this.refreshToken = ObjectUtils.isEmpty(
                 accessTokenDto.getRefreshToken()) ? "" : accessTokenDto.getRefreshToken();
         if (ObjectUtils.isEmpty(this.refreshToken) && this.useAutoRenewTimer.equals(Boolean.TRUE)) {
@@ -126,7 +126,7 @@ public class PlatformOauthClient {
                                 .toUpperCase();
     }
 
-    public void renewAccesstoken() throws IOException {
+    public AccessTokenDto renewAccesstoken() throws IOException {
 
         HashMap<String, String> body = new HashMap<>();
         body.put(Fields.GRANT_TYPE, GrantType.REFRESH_TOKEN.toString()
@@ -136,7 +136,8 @@ public class PlatformOauthClient {
         String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/token";
         AccessTokenDto newToken = getToken(body, url);
         setToken(newToken);
-        this.tokenExpiresAt = (new Date()).getTime() + this.tokenExpiresIn;
+        this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
+        return newToken;
     }
 
     public void verifyCallback(String authorizationCode) throws IOException {
@@ -147,14 +148,14 @@ public class PlatformOauthClient {
         String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/token";
         AccessTokenDto newToken = getToken(body, url);
         setToken(newToken);
-        this.tokenExpiresAt = (new Date()).getTime() + this.tokenExpiresIn;
+        this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
     }
 
     public boolean isAccessTokenValid() {
         return !ObjectUtils.isEmpty(this.token) && this.rawToken.getExpiresIn() > 0;
     }
 
-    public void getOfflineAccessToken(String scopes, String code) {
+    public AccessTokenDto getOfflineAccessToken(String scopes, String code) {
         try {
             HashMap<String, String> body = new HashMap<>();
             body.put(Fields.GRANT_TYPE, GrantType.AUTHORIZATION_CODE.toString()
@@ -166,7 +167,8 @@ public class PlatformOauthClient {
             String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/offline-token";
             AccessTokenDto offlineToken = getOfflineToken(body, url);
             setToken(offlineToken);
-            this.tokenExpiresAt = (new Date()).getTime() + this.tokenExpiresIn;
+            this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
+            return offlineToken;
         } catch (Exception e) {
             log.error("Exception in getting Offline Token", e);
             throw new FDKTokenIssueError(e.getMessage());
@@ -185,13 +187,10 @@ public class PlatformOauthClient {
 
     private AccessTokenDto convertToDto(AccessResponse accessResponse) {
         AccessTokenDto accessTokenDto = new AccessTokenDto();
-        accessTokenDto.setToken(accessResponse.getAccessToken());
-        accessTokenDto.setRefreshToken(accessResponse.getRefreshToken());
-        accessTokenDto.setExpiresIn(
-                TimeUnit.SECONDS.toMillis(accessResponse.getExpiresIn()) + System.currentTimeMillis());
-        accessTokenDto.setAccessMode(accessResponse.getAccessMode());
-        accessTokenDto.setAccessTokenValidity(accessResponse.getAccessTokenValidity());
+        accessTokenDto.setAccessToken(accessResponse.getAccessToken());
+        accessTokenDto.setExpiresIn(accessResponse.getExpiresIn());
         accessTokenDto.setCurrentUser(accessResponse.getCurrentUser());
+        accessTokenDto.setRefreshToken(accessResponse.getRefreshToken());
         return accessTokenDto;
     }
 
@@ -209,7 +208,7 @@ public class PlatformOauthClient {
         List<Interceptor> interceptorList = new ArrayList<>();
         interceptorList.add(new PlatformHeaderInterceptor(config));
         interceptorList.add(new RequestSignerInterceptor());
-        interceptorList.add(new ExtensionInterceptor(config));
+//        interceptorList.add(new ExtensionLibInterceptor(config));
         return retrofitServiceFactory.createService(config.getDomain(), TokenApiList.class, interceptorList);
     }
 
