@@ -901,6 +901,7 @@ Success, the code is valid and returns a SignedUrl
  | image | ArrayList<String>? |  yes  |  |
  | code | String? |  yes  |  |
  | id | Double? |  yes  |  |
+ | sellerIdentifier | String? |  yes  |  |
 
 ---
 

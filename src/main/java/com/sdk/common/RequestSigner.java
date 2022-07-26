@@ -46,7 +46,7 @@ public class RequestSigner {
         try {
             if (this.signQuery) {
                 HttpUrl httpUrl = updatedReq.url().newBuilder().addQueryParameter("x-fp-signature", signature())
-                        .build();
+                .build();
                 updatedReq = updatedReq.newBuilder().url(httpUrl).build();
             } else {
                 updatedReq = updatedReq.newBuilder().header("x-fp-signature", signature()).build();
@@ -61,9 +61,10 @@ public class RequestSigner {
     private Request prepareRequest() {
         Builder newReqBuilder = request.newBuilder();
         if (signQuery) {
-            HttpUrl httpUrl = request.url().newBuilder().addQueryParameter("x-fp-date", getDateTime()).build();
+            HttpUrl httpUrl =
+                    request.url().newBuilder().addQueryParameter("x-fp-date", getDateTime()).build();
             newReqBuilder.url(httpUrl);
-        } else {
+        }else {
             newReqBuilder.header("x-fp-date", getDateTime());
         }
         newReqBuilder.header("host", request.url().host());
@@ -158,8 +159,7 @@ public class RequestSigner {
     // Logic to create Path String
     private String canonicalPath() {
         StringBuilder encodedPathPieces = new StringBuilder();
-        updatedReq.url().encodedPathSegments()
-                // .map(this::encode)
+        updatedReq.url().encodedPathSegments().stream().map(this::encode)
                 .forEach(path -> encodedPathPieces.append("/").append(path));
         return encodedPathPieces.toString();
     }
