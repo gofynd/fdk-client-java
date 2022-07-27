@@ -129,7 +129,7 @@ Get Staus of Label generations
 
 
 ```java
-client.orderinvoiceengine.getLabelStatus() {
+client.orderinvoiceengine.getLabelStatus( uid) {
   //use response
 }
 ```
@@ -138,7 +138,8 @@ client.orderinvoiceengine.getLabelStatus() {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | Company ID |  
+| companyId | Integer | yes | Company ID |   
+| uid | String | yes | UID given at time of generate request |  
 
 
 
@@ -182,7 +183,7 @@ Get Presigned URL to download labels
 
 
 ```java
-client.orderinvoiceengine.getLabelPresignedURL() {
+client.orderinvoiceengine.getLabelPresignedURL( uid) {
   //use response
 }
 ```
@@ -191,7 +192,8 @@ client.orderinvoiceengine.getLabelPresignedURL() {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | Company ID |  
+| companyId | Integer | yes | Company ID |   
+| uid | String | yes | UID given at time of generate request |  
 
 
 
