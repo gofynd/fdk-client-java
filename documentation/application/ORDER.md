@@ -193,7 +193,7 @@ Get reasons behind full or partial cancellation of a shipment
 
 
 ```java
-order.getShipmentReasons( shipmentId) {
+order.getShipmentReasons( shipmentId,  bagId) {
   //use response
 }
 ```
@@ -202,7 +202,8 @@ order.getShipmentReasons( shipmentId) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| shipmentId | String | yes | ID of the shipment. An order may contain multiple items and may get divided into one or more shipment, each having its own ID. |  
+| shipmentId | String | yes | ID of the shipment. An order may contain multiple items and may get divided into one or more shipment, each having its own ID. |   
+| bagId | Integer? | no | Bag Id of a specefic bags which will help to categorize the reasons |  
 
 
 
