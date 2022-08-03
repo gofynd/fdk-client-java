@@ -145,6 +145,34 @@ public static class InventoryService {
 
     
     
+    public PublicModels.ResponseEnvelopeSlingshotConfigurationDetail getConfigByApiKey(String apikey ) throws IOException {
+    
+        Response<PublicModels.ResponseEnvelopeSlingshotConfigurationDetail> response = inventoryApiList.getConfigByApiKey(apikey).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public PublicModels.ResponseEnvelopeApikeyModel getApiKey(String userName , String password ) throws IOException {
+    
+        Response<PublicModels.ResponseEnvelopeApikeyModel> response = inventoryApiList.getApiKey(userName, password).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public PublicModels.ResponseEnvelopeJobConfigDTO getJobByCode(String code ) throws IOException {
     
         Response<PublicModels.ResponseEnvelopeJobConfigDTO> response = inventoryApiList.getJobByCode(code).execute();
