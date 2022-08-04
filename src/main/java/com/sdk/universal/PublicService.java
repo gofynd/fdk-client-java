@@ -63,37 +63,11 @@ public static class ConfigurationService {
 
     
     
-      
-}
-
-
-
-@Getter
-public static class WebhookService {
-    private PublicConfig publicConfig;
-
-    private RetrofitServiceFactory retrofitServiceFactory;
-
-    private WebhookApiList webhookApiList;
-
-    WebhookService(PublicConfig publicConfig) {
-        this.publicConfig = publicConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.webhookApiList = generateWebhookApiList(this.publicConfig.getPersistentCookieStore());
-    }
-
-    private WebhookApiList generateWebhookApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new PublicHeaderInterceptor(publicConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(publicConfig.getDomain(),WebhookApiList.class, interceptorList, cookieStore);
-    }
-
     
     
     public PublicModels.EventConfigResponse fetchAllWebhookEvents() throws IOException {
     
-        Response<PublicModels.EventConfigResponse> response = webhookApiList.fetchAllWebhookEvents().execute();
+        Response<PublicModels.EventConfigResponse> response = configurationApiList.fetchAllWebhookEvents().execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -107,7 +81,7 @@ public static class WebhookService {
     
     public PublicModels.EventConfigResponse queryWebhookEventDetails(List<PublicModels.EventConfigBase> body) throws IOException {
     
-        Response<PublicModels.EventConfigResponse> response = webhookApiList.queryWebhookEventDetails( body).execute();
+        Response<PublicModels.EventConfigResponse> response = configurationApiList.queryWebhookEventDetails( body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -117,37 +91,11 @@ public static class WebhookService {
 
     
     
-      
-}
-
-
-
-@Getter
-public static class InventoryService {
-    private PublicConfig publicConfig;
-
-    private RetrofitServiceFactory retrofitServiceFactory;
-
-    private InventoryApiList inventoryApiList;
-
-    InventoryService(PublicConfig publicConfig) {
-        this.publicConfig = publicConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.inventoryApiList = generateInventoryApiList(this.publicConfig.getPersistentCookieStore());
-    }
-
-    private InventoryApiList generateInventoryApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new PublicHeaderInterceptor(publicConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(publicConfig.getDomain(),InventoryApiList.class, interceptorList, cookieStore);
-    }
-
     
     
     public PublicModels.ResponseEnvelopeListJobConfigDTO getJobConfigByIntegrationType(String integrationType , Boolean disable ) throws IOException {
     
-        Response<PublicModels.ResponseEnvelopeListJobConfigDTO> response = inventoryApiList.getJobConfigByIntegrationType(integrationType, disable).execute();
+        Response<PublicModels.ResponseEnvelopeListJobConfigDTO> response = configurationApiList.getJobConfigByIntegrationType(integrationType, disable).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -161,7 +109,7 @@ public static class InventoryService {
     
     public PublicModels.ResponseEnvelopeObject getJobCodesMetrics(Boolean dailyJob , String jobCode ) throws IOException {
     
-        Response<PublicModels.ResponseEnvelopeObject> response = inventoryApiList.getJobCodesMetrics(dailyJob, jobCode).execute();
+        Response<PublicModels.ResponseEnvelopeObject> response = configurationApiList.getJobCodesMetrics(dailyJob, jobCode).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -175,7 +123,7 @@ public static class InventoryService {
     
     public PublicModels.ResponseEnvelopeEmailJobMetrics saveJobCodesMetrics(PublicModels.EmailJobMetrics body) throws IOException {
     
-        Response<PublicModels.ResponseEnvelopeEmailJobMetrics> response = inventoryApiList.saveJobCodesMetrics( body).execute();
+        Response<PublicModels.ResponseEnvelopeEmailJobMetrics> response = configurationApiList.saveJobCodesMetrics( body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

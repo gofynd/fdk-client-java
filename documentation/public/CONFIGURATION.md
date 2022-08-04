@@ -8,6 +8,11 @@
 Application configuration apis
 * [searchApplication](#searchapplication)
 * [getLocations](#getlocations)
+* [fetchAllWebhookEvents](#fetchallwebhookevents)
+* [queryWebhookEventDetails](#querywebhookeventdetails)
+* [getJobConfigByIntegrationType](#getjobconfigbyintegrationtype)
+* [getJobCodesMetrics](#getjobcodesmetrics)
+* [saveJobCodesMetrics](#savejobcodesmetrics)
 
 
 
@@ -160,6 +165,266 @@ configuration.getLocations( locationType,  id) {
 [Locations](#Locations)
 
 Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### fetchAllWebhookEvents
+Get All Webhook Events
+
+
+
+
+```java
+configuration.fetchAllWebhookEvents() {
+  //use response
+}
+```
+
+
+
+
+Get All Webhook Events
+
+*Returned Response:*
+
+
+
+
+[EventConfigResponse](#EventConfigResponse)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### queryWebhookEventDetails
+Send webhook event name, type, version, category in request body to get complete details of event from server
+
+
+
+
+```java
+configuration.queryWebhookEventDetails(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |
+| body | [List<EventConfigBase>](#List<EventConfigBase>) | yes | Request body |
+
+
+Get Webhook Event Details for provided events
+
+*Returned Response:*
+
+
+
+
+[EventConfigResponse](#EventConfigResponse)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getJobConfigByIntegrationType
+Get Job Configs By Integration Type
+
+
+
+
+```java
+configuration.getJobConfigByIntegrationType( integrationType,  disable) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| integrationType | String | yes | Integration Type |   
+| disable | Boolean? | no | JobConfig current state |  
+
+
+
+REST Endpoint that returns all job Configs by Integration Type
+
+*Returned Response:*
+
+
+
+
+[ResponseEnvelopeListJobConfigDTO](#ResponseEnvelopeListJobConfigDTO)
+
+Successful operation
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getJobCodesMetrics
+Find all the JobCodes from Metrics Collection based on the field Values
+
+
+
+
+```java
+configuration.getJobCodesMetrics( dailyJob,  jobCode) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| dailyJob | Boolean? | no | Daily Job Flag |   
+| jobCode | String? | no | Email Job Code |  
+
+
+
+Endpoint to return all JobCodes present in Metrics Collection
+
+*Returned Response:*
+
+
+
+
+[ResponseEnvelopeObject](#ResponseEnvelopeObject)
+
+Successful operation
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### saveJobCodesMetrics
+Save JobCode Metrics
+
+
+
+
+```java
+configuration.saveJobCodesMetrics(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |
+| body | [EmailJobMetrics](#EmailJobMetrics) | yes | Request body |
+
+
+Endpoint to save JobCode Metrics
+
+*Returned Response:*
+
+
+
+
+[ResponseEnvelopeEmailJobMetrics](#ResponseEnvelopeEmailJobMetrics)
+
+JobCode Metrics entry Created Successfully
 
 
 
@@ -431,6 +696,345 @@ Success
  | items | ArrayList<HashMap<String,Object>>? |  yes  |  |
 
 ---
+
+
+ 
+ 
+ #### [EventConfig](#EventConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | Integer? |  yes  |  |
+ | eventName | String? |  yes  |  |
+ | eventType | String? |  yes  |  |
+ | eventCategory | String? |  yes  |  |
+ | version | String? |  yes  |  |
+ | displayName | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [EventConfigList](#EventConfigList)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | items | ArrayList<[EventConfig](#EventConfig)>? |  yes  |  |
+ | page | [Page](#Page)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [EventConfigResponse](#EventConfigResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | eventConfigs | ArrayList<[EventConfig](#EventConfig)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SubscriberConfigList](#SubscriberConfigList)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | items | ArrayList<[SubscriberResponse](#SubscriberResponse)>? |  yes  |  |
+ | page | [Page](#Page)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [EventProcessedStatus](#EventProcessedStatus)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | Integer? |  yes  |  |
+ | subscriberId | String? |  yes  |  |
+ | attempt | Integer? |  yes  |  |
+ | responseCode | String? |  yes  |  |
+ | responseMessage | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | processedOn | String? |  yes  |  |
+ | status | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [EventPayload](#EventPayload)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | Integer? |  yes  |  |
+ | eventTraceId | String? |  yes  |  |
+ | messageId | String? |  yes  |  |
+ | eventName | String? |  yes  |  |
+ | eventType | String? |  yes  |  |
+ | version | String? |  yes  |  |
+ | status | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SubscriberConfig](#SubscriberConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | webhookUrl | String? |  yes  |  |
+ | association | [Association](#Association)? |  yes  |  |
+ | customHeaders | HashMap<String,Object>? |  yes  |  |
+ | status | [SubscriberStatus](#SubscriberStatus)? |  yes  |  |
+ | emailId | String? |  yes  |  |
+ | authMeta | [AuthMeta](#AuthMeta)? |  yes  |  |
+ | eventId | ArrayList<Integer>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SubscriberResponse](#SubscriberResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | webhookUrl | String? |  yes  |  |
+ | association | [Association](#Association)? |  yes  |  |
+ | customHeaders | HashMap<String,Object>? |  yes  |  |
+ | emailId | String? |  yes  |  |
+ | status | [SubscriberStatus](#SubscriberStatus)? |  yes  |  |
+ | authMeta | [AuthMeta](#AuthMeta)? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | updatedOn | String? |  yes  |  |
+ | eventConfigs | ArrayList<[EventConfig](#EventConfig)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SubscriberEvent](#SubscriberEvent)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | Integer? |  yes  |  |
+ | subscriberId | Integer? |  yes  |  |
+ | eventId | Integer? |  yes  |  |
+ | createdDate | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [AuthMeta](#AuthMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | type | String? |  yes  |  |
+ | secret | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Association](#Association)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | companyId | Integer? |  yes  |  |
+ | applicationId | ArrayList<String>? |  yes  |  |
+ | extensionId | String? |  yes  |  |
+ | criteria | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [EventConfigBase](#EventConfigBase)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | eventName | String? |  yes  |  |
+ | eventType | String? |  yes  |  |
+ | eventCategory | String? |  yes  |  |
+ | version | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DataTresholdDTO](#DataTresholdDTO)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | minPrice | Double? |  yes  |  |
+ | safeStock | Integer? |  yes  |  |
+ | periodThreshold | Integer? |  yes  |  |
+ | periodThresholdType | String? |  yes  |  |
+ | periodTypeList | ArrayList<[GenericDTO](#GenericDTO)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GenericDTO](#GenericDTO)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | text | String? |  yes  |  |
+ | value | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [JobConfigDTO](#JobConfigDTO)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | integration | String |  no  |  |
+ | integrationData | HashMap<String,HashMap<String,Object>>? |  yes  |  |
+ | companyName | String? |  yes  |  |
+ | companyId | Integer |  no  |  |
+ | taskDetails | [TaskDTO](#TaskDTO)? |  yes  |  |
+ | thresholdDetails | [DataTresholdDTO](#DataTresholdDTO)? |  yes  |  |
+ | jobCode | String? |  yes  |  |
+ | alias | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ResponseEnvelopeListJobConfigDTO](#ResponseEnvelopeListJobConfigDTO)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timestamp | String? |  yes  |  |
+ | status | Integer? |  yes  |  |
+ | error | String? |  yes  |  |
+ | exception | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | totalTimeTakenInMillis | Integer? |  yes  |  |
+ | httpStatus | String? |  yes  |  |
+ | items | ArrayList<[JobConfigDTO](#JobConfigDTO)>? |  yes  |  |
+ | payload | ArrayList<[JobConfigDTO](#JobConfigDTO)>? |  yes  |  |
+ | traceId | String? |  yes  |  |
+ | page | [Page](#Page)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [TaskDTO](#TaskDTO)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | type | Integer? |  yes  |  |
+ | groupList | ArrayList<[GenericDTO](#GenericDTO)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [EmailJobMetrics](#EmailJobMetrics)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | executed | Boolean? |  yes  |  |
+ | id | String? |  yes  |  |
+ | jobCode | String? |  yes  |  |
+ | dailyJob | Boolean? |  yes  |  |
+ | lastExecutedOn | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ResponseEnvelopeEmailJobMetrics](#ResponseEnvelopeEmailJobMetrics)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timestamp | String? |  yes  |  |
+ | status | Integer? |  yes  |  |
+ | error | String? |  yes  |  |
+ | exception | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | totalTimeTakenInMillis | Integer? |  yes  |  |
+ | httpStatus | String? |  yes  |  |
+ | items | [EmailJobMetrics](#EmailJobMetrics)? |  yes  |  |
+ | payload | [EmailJobMetrics](#EmailJobMetrics)? |  yes  |  |
+ | traceId | String? |  yes  |  |
+ | page | [Page](#Page)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ResponseEnvelopeObject](#ResponseEnvelopeObject)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | timestamp | String? |  yes  |  |
+ | status | Integer? |  yes  |  |
+ | error | String? |  yes  |  |
+ | exception | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | totalTimeTakenInMillis | Integer? |  yes  |  |
+ | httpStatus | String? |  yes  |  |
+ | items | HashMap<String,Object>? |  yes  |  |
+ | payload | HashMap<String,Object>? |  yes  |  |
+ | traceId | String? |  yes  |  |
+ | page | [Page](#Page)? |  yes  |  |
+
+---
+
+
+
+
+### Enums
+
+
+
+
+
+ #### [SubscriberStatus](#SubscriberStatus)
+ Type : string
+
+ | Name | Value | Description |
+ | ---- | ----- | ----------- |
+ | active | active | Status is active |
+ | inactive | inactive | Status is inactive |
+ | blocked | blocked | Subscriber is blocked by system due to multiple failed delivery attempts. |
+
+---
+
+
 
 
 

@@ -14,6 +14,8 @@ public class PlatformClient {
     
     public PlatformService.LeadService lead;
     
+    public PlatformService.FeedbackService feedback;
+    
     public PlatformService.ThemeService theme;
     
     public PlatformService.UserService user;
@@ -27,10 +29,6 @@ public class PlatformClient {
     public PlatformService.PaymentService payment;
     
     public PlatformService.OrderService order;
-    
-    public PlatformService.CatalogService catalog;
-    
-    public PlatformService.CompanyProfileService companyProfile;
     
     public PlatformService.FileStorageService fileStorage;
     
@@ -65,6 +63,8 @@ public class PlatformClient {
         
         this.lead = new PlatformService.LeadService(config);
         
+        this.feedback = new PlatformService.FeedbackService(config);
+        
         this.theme = new PlatformService.ThemeService(config);
         
         this.user = new PlatformService.UserService(config);
@@ -78,10 +78,6 @@ public class PlatformClient {
         this.payment = new PlatformService.PaymentService(config);
         
         this.order = new PlatformService.OrderService(config);
-        
-        this.catalog = new PlatformService.CatalogService(config);
-        
-        this.companyProfile = new PlatformService.CompanyProfileService(config);
         
         this.fileStorage = new PlatformService.FileStorageService(config);
         
@@ -121,6 +117,8 @@ public class PlatformClient {
         
         public PlatformService.LeadService.ApplicationClient lead;
         
+        public PlatformService.FeedbackService.ApplicationClient feedback;
+        
         public PlatformService.ThemeService.ApplicationClient theme;
         
         public PlatformService.UserService.ApplicationClient user;
@@ -134,10 +132,6 @@ public class PlatformClient {
         public PlatformService.PaymentService.ApplicationClient payment;
         
         public PlatformService.OrderService.ApplicationClient order;
-        
-        public PlatformService.CatalogService.ApplicationClient catalog;
-        
-        public PlatformService.CompanyProfileService.ApplicationClient companyProfile;
         
         public PlatformService.FileStorageService.ApplicationClient fileStorage;
         
@@ -170,6 +164,8 @@ public class PlatformClient {
             
             this.lead = new PlatformService.LeadService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
+            this.feedback = new PlatformService.FeedbackService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
             this.theme = new PlatformService.ThemeService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.user = new PlatformService.UserService(platformConfig).new ApplicationClient(platformConfig, applicationId);
@@ -183,10 +179,6 @@ public class PlatformClient {
             this.payment = new PlatformService.PaymentService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.order = new PlatformService.OrderService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.catalog = new PlatformService.CatalogService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.companyProfile = new PlatformService.CompanyProfileService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.fileStorage = new PlatformService.FileStorageService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
