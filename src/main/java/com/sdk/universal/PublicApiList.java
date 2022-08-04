@@ -13,11 +13,19 @@ interface ConfigurationApiList {
     @GET ("/service/common/configuration/v1.0/location")
     Call<PublicModels.Locations> getLocations(@Query("location_type") String locationType , @Query("id") String id );
     
+}
+
+interface WebhookApiList {
+    
     @GET ("/service/common/webhook/v1.0/events")
     Call<PublicModels.EventConfigResponse> fetchAllWebhookEvents();
     
     @POST ("/service/common/webhook/v1.0/events/query-event-details")
     Call<PublicModels.EventConfigResponse> queryWebhookEventDetails(@Body List<PublicModels.EventConfigBase> payload);
+    
+}
+
+interface InventoryApiList {
     
     @GET ("/service/common/inventory/v1.0/company/job/config")
     Call<PublicModels.ResponseEnvelopeListJobConfigDTO> getJobConfigByIntegrationType(@Query("integration_type") String integrationType , @Query("disable") Boolean disable );

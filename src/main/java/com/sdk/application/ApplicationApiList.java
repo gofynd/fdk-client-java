@@ -285,9 +285,6 @@ interface UserApiList {
     @POST ("/service/application/user/authentication/v1.0/password")
     Call<ApplicationModels.VerifyEmailSuccess> updatePassword(@Body ApplicationModels.UpdatePasswordRequestSchema payload);
     
-    @POST ("/service/application/user/authentication/v1.0/archive")
-    Call<ApplicationModels.ArchiveUserSuccess> archiveUser(@Body ApplicationModels.ArchiveApplicationUserRequestSchema payload);
-    
     @GET ("/service/application/user/authentication/v1.0/logout")
     Call<ApplicationModels.LogoutSuccess> logout();
     

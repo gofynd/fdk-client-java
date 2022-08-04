@@ -744,6 +744,9 @@ public static class Locations{
 }
 
 
+
+
+
 /*
     Model: EventConfig
 */
@@ -1308,6 +1311,32 @@ public static class EventConfigBase{
 }
 
 
+
+    
+    /*
+        Enum: SubscriberStatus
+        Used By: Webhook
+    */
+    @Getter
+    public enum SubscriberStatus {
+
+        
+        active("active"), 
+        
+        inactive("inactive"), 
+        
+        blocked("blocked");
+        
+
+        private String priority;
+        SubscriberStatus(String priority) {
+            this.priority = priority;
+        }
+    }
+
+
+
+
 /*
     Model: DataTresholdDTO
 */
@@ -1765,29 +1794,6 @@ public static class ResponseEnvelopeObject{
     
 }
 
-
-
-    
-    /*
-        Enum: SubscriberStatus
-        Used By: Configuration
-    */
-    @Getter
-    public enum SubscriberStatus {
-
-        
-        active("active"), 
-        
-        inactive("inactive"), 
-        
-        blocked("blocked");
-        
-
-        private String priority;
-        SubscriberStatus(String priority) {
-            this.priority = priority;
-        }
-    }
 
 
 

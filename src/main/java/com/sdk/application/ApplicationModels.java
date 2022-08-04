@@ -12444,86 +12444,6 @@ public static class ArchiveUserRequestSchema{
 
 
 /*
-    Model: ArchiveApplicationUserRequestSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ArchiveApplicationUserRequestSchema{
-    
-    
-    
-    
-    @JsonProperty("user_id")
-    private String userId;
-    
-    
-    
-    
-    @JsonProperty("reason")
-    private String reason;
-    
-    
-    
-    
-    @JsonProperty("reason_id")
-    private String reasonId;
-    
-    
-    
-    
-    @JsonProperty("request_id")
-    private String requestId;
-    
-    
-    
-    
-    @JsonProperty("otp")
-    private String otp;
-    
-    
-    
-}
-
-
-/*
-    Model: UnArchiveUserRequestSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UnArchiveUserRequestSchema{
-    
-    
-    
-    
-    @JsonProperty("user_id")
-    private String userId;
-    
-    
-    
-    
-    @JsonProperty("reason")
-    private String reason;
-    
-    
-    
-    
-    @JsonProperty("reason_id")
-    private String reasonId;
-    
-    
-    
-}
-
-
-/*
     Model: EditEmailRequestSchema
 */
 @AllArgsConstructor
@@ -13774,28 +13694,6 @@ public static class ArchiveUserSuccess{
 
 
 /*
-    Model: UnArchiveUserSuccess
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UnArchiveUserSuccess{
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-}
-
-
-/*
     Model: OtpSuccess
 */
 @AllArgsConstructor
@@ -14842,30 +14740,6 @@ public static class PlatformSchema{
     
     
     
-    
-    @JsonProperty("support_email")
-    private String supportEmail;
-    
-    
-    
-    
-    @JsonProperty("delete_account_day")
-    private Integer deleteAccountDay;
-    
-    
-    
-    
-    @JsonProperty("delete_account_reasons")
-    private List<DeleteAccountReasons> deleteAccountReasons;
-    
-    
-    
-    
-    @JsonProperty("delete_account_consent")
-    private Object deleteAccountConsent;
-    
-    
-    
 }
 
 
@@ -15217,62 +15091,6 @@ public static class SocialTokens{
     
     @JsonProperty("google")
     private Google google;
-    
-    
-    
-}
-
-
-/*
-    Model: DeleteAccountReasons
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeleteAccountReasons{
-    
-    
-    
-    
-    @JsonProperty("reason_text")
-    private String reasonText;
-    
-    
-    
-    
-    @JsonProperty("reason_id")
-    private String reasonId;
-    
-    
-    
-    
-    @JsonProperty("show_text_area")
-    private Boolean showTextArea;
-    
-    
-    
-}
-
-
-/*
-    Model: DeleteAccountConsent
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeleteAccountConsent{
-    
-    
-    
-    
-    @JsonProperty("consent_text")
-    private String consentText;
     
     
     

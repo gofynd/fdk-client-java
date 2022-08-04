@@ -2043,20 +2043,6 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.ArchiveUserSuccess archiveUser(ApplicationModels.ArchiveApplicationUserRequestSchema body) throws IOException {
-    
-        Response<ApplicationModels.ArchiveUserSuccess> response = userApiList.archiveUser( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
     public ApplicationModels.LogoutSuccess logout() throws IOException {
     
         Response<ApplicationModels.LogoutSuccess> response = userApiList.logout().execute();

@@ -30,6 +30,10 @@ public class PlatformClient {
     
     public PlatformService.OrderService order;
     
+    public PlatformService.CatalogService catalog;
+    
+    public PlatformService.CompanyProfileService companyProfile;
+    
     public PlatformService.FileStorageService fileStorage;
     
     public PlatformService.ShareService share;
@@ -78,6 +82,10 @@ public class PlatformClient {
         this.payment = new PlatformService.PaymentService(config);
         
         this.order = new PlatformService.OrderService(config);
+        
+        this.catalog = new PlatformService.CatalogService(config);
+        
+        this.companyProfile = new PlatformService.CompanyProfileService(config);
         
         this.fileStorage = new PlatformService.FileStorageService(config);
         
@@ -133,6 +141,10 @@ public class PlatformClient {
         
         public PlatformService.OrderService.ApplicationClient order;
         
+        public PlatformService.CatalogService.ApplicationClient catalog;
+        
+        public PlatformService.CompanyProfileService.ApplicationClient companyProfile;
+        
         public PlatformService.FileStorageService.ApplicationClient fileStorage;
         
         public PlatformService.ShareService.ApplicationClient share;
@@ -179,6 +191,10 @@ public class PlatformClient {
             this.payment = new PlatformService.PaymentService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.order = new PlatformService.OrderService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.catalog = new PlatformService.CatalogService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.companyProfile = new PlatformService.CompanyProfileService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.fileStorage = new PlatformService.FileStorageService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
