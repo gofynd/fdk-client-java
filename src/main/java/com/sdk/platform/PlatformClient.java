@@ -60,6 +60,8 @@ public class PlatformClient {
     
     public PlatformService.OrderInvoiceEngineService orderInvoiceEngine;
     
+    public PlatformService.ServiceabilityService serviceability;
+    
 
     public PlatformClient(PlatformConfig config)   
     {
@@ -114,6 +116,8 @@ public class PlatformClient {
         this.orderManage = new PlatformService.OrderManageService(config);
         
         this.orderInvoiceEngine = new PlatformService.OrderInvoiceEngineService(config);
+        
+        this.serviceability = new PlatformService.ServiceabilityService(config);
         
     }
 
@@ -175,6 +179,8 @@ public class PlatformClient {
         
         public PlatformService.OrderInvoiceEngineService.ApplicationClient orderInvoiceEngine;
         
+        public PlatformService.ServiceabilityService.ApplicationClient serviceability;
+        
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
             
@@ -227,6 +233,8 @@ public class PlatformClient {
             this.orderManage = new PlatformService.OrderManageService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.orderInvoiceEngine = new PlatformService.OrderInvoiceEngineService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.serviceability = new PlatformService.ServiceabilityService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
         }
 
