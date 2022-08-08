@@ -1,4 +1,4 @@
-package com.sdk.common;
+package com.sdk.common.model;
 
 public class FDKError extends RuntimeException {
 
