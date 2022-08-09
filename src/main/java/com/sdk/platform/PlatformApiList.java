@@ -3272,7 +3272,7 @@ interface OrderApiList {
     
     
     @GET ("/service/platform/order/v1.0/company/{company_id}/application/{application_id}/orders/details")
-    Call<PlatformModels.OrderDetails> getOrderDetails(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("order_id") String  orderId ,  @Query("next") String  next ,  @Query("previous") String  previous );
+    Call<PlatformModels.OrderDetails> getOrderDetails1(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("order_id") String  orderId ,  @Query("next") String  next ,  @Query("previous") String  previous );
     
     
     
@@ -3537,6 +3537,15 @@ interface OrderApiList {
     
     @GET ("/service/platform/order/v1.0/company/{company_id}/voice/click-to-call")
     Call<PlatformModels.GetClickToCallResponse> voiceClickToCall(@Path("company_id")  String companyId , @Query("caller") String  caller ,  @Query("receiver") String  receiver );
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/order/v1.0/company/{company_id}/create-order")
+    Call<PlatformModels.CreateOrderResponse> createOrder(@Path("company_id")  String companyId ,@Body PlatformModels.CreateOrderPayload payload);
     
 }
 

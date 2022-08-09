@@ -9979,6 +9979,31 @@ public static class OrderService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.CreateOrderResponse createOrder(PlatformModels.CreateOrderPayload body) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.CreateOrderResponse> response = orderApiList.createOrder(this.companyId , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
 
 
 public class ApplicationClient {
@@ -10037,9 +10062,9 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.OrderDetails getOrderDetails(String orderId , String next , String previous ) throws IOException {
+    public PlatformModels.OrderDetails getOrderDetails1(String orderId , String next , String previous ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.OrderDetails> response = orderApiList.getOrderDetails(this.companyId , this.applicationId ,orderId , next , previous ).execute();
+            Response<PlatformModels.OrderDetails> response = orderApiList.getOrderDetails1(this.companyId , this.applicationId ,orderId , next , previous ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -10376,6 +10401,8 @@ public class ApplicationClient {
         }    
     }
 
+    
+    
     
     
     
