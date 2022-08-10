@@ -1,16 +1,15 @@
 package com.sdk.universal;
-import com.sdk.common.AccessToken;
+
 import lombok.Getter;
 import lombok.Setter;
 
 import java.net.CookieManager;
 import java.net.CookieStore;
-import java.util.Objects;
 
 @Getter
 @Setter
 public class PublicConfig {
-   private String applicationToken;
+    private String applicationToken;
 
     private String domain = "https://api.fynd.com";
 
