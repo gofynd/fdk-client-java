@@ -41,7 +41,7 @@ client.application("<APPLICATION_ID>").user.getCustomers( q,  pageSize,  pageNo)
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
 | applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
-| q | String? | no | The search query. Mobile number or email ID of a customer. |   
+| q | Object? | no | The search query. Mobile number or email ID of a customer. |   
 | pageSize | Integer? | no | The number of items to retrieve in each page. Default value is 10. |   
 | pageNo | Integer? | no | The page number to navigate through the given set of results. Default value is 1.  |  
 
@@ -153,7 +153,7 @@ client.application("<APPLICATION_ID>").user.searchUsers( q) {
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
 | applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
-| q | Object? | no | The search query. Mobile number or email ID of a customer. |  
+| q | String? | no | The search query. Mobile number or email ID of a customer. |  
 
 
 
@@ -1199,6 +1199,19 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | email | String? |  yes  |  |
+ | captchaCode | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SendResetPasswordMobileRequestSchema](#SendResetPasswordMobileRequestSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | countryCode | String? |  yes  |  |
+ | mobile | String? |  yes  |  |
  | captchaCode | String? |  yes  |  |
 
 ---
