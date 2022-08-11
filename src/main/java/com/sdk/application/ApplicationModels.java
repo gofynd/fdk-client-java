@@ -10439,6 +10439,12 @@ public static class SupportGeneralConfig{
     
     
     
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
     @JsonProperty("support_email")
     private CommunicationDetails supportEmail;
     
