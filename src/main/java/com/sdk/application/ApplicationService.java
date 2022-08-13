@@ -760,9 +760,9 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -774,9 +774,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1028,9 +1028,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlug(String slug , String size , Integer storeId , String pincode ) throws IOException {
+    public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlug(String slug , String size , Integer storeId , String pincode , String depth ) throws IOException {
     
-        Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlug(slug, size, storeId, pincode).execute();
+        Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlug(slug, size, storeId, pincode, depth).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1042,9 +1042,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.ProductSizeSellersResponseV2 getProductSellersBySlug(String slug , String size , String pincode , String strategy , Integer pageNo , Integer pageSize ) throws IOException {
+    public ApplicationModels.ProductSizeSellersResponseV2 getProductSellersBySlug(String slug , String size , String pincode , String strategy , Integer pageNo , Integer pageSize , String depth ) throws IOException {
     
-        Response<ApplicationModels.ProductSizeSellersResponseV2> response = catalogApiList.getProductSellersBySlug(slug, size, pincode, strategy, pageNo, pageSize).execute();
+        Response<ApplicationModels.ProductSizeSellersResponseV2> response = catalogApiList.getProductSellersBySlug(slug, size, pincode, strategy, pageNo, pageSize, depth).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1055,6 +1055,10 @@ public class ApplicationService {
     
     
     
+        
+        
+        
+        
         
         
         
@@ -1095,7 +1099,8 @@ public class ApplicationService {
         String size,
         String pincode,
         String strategy,
-        Integer pageSize
+        Integer pageSize,
+        String depth
         
         ){ 
     
@@ -1114,7 +1119,8 @@ public class ApplicationService {
                  paginator.getPageNo()
                 ,
                  paginator.getPageSize()
-                
+                ,
+                 depth
             );
                 
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
@@ -1157,9 +1163,9 @@ public class ApplicationService {
 
     
     
-    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , Boolean buyNow ) throws IOException {
+    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode ) throws IOException {
     
-        Response<ApplicationModels.CartDetailResponse> response = cartApiList.getCart(id, i, b, assignCardId, buyNow).execute();
+        Response<ApplicationModels.CartDetailResponse> response = cartApiList.getCart(id, i, b, assignCardId, areaCode).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1185,9 +1191,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , Boolean buyNow ,ApplicationModels.AddCartRequest body) throws IOException {
+    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode ,ApplicationModels.AddCartRequest body) throws IOException {
     
-        Response<ApplicationModels.AddCartDetailResponse> response = cartApiList.addItems(i, b, buyNow, body).execute();
+        Response<ApplicationModels.AddCartDetailResponse> response = cartApiList.addItems(i, b, areaCode, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1199,9 +1205,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b , Boolean buyNow ,ApplicationModels.UpdateCartRequest body) throws IOException {
+    public ApplicationModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b , String areaCode ,ApplicationModels.UpdateCartRequest body) throws IOException {
     
-        Response<ApplicationModels.UpdateCartDetailResponse> response = cartApiList.updateCart(id, i, b, buyNow, body).execute();
+        Response<ApplicationModels.UpdateCartDetailResponse> response = cartApiList.updateCart(id, i, b, areaCode, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1213,9 +1219,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartItemCountResponse getItemCount(String id , Boolean buyNow ) throws IOException {
+    public ApplicationModels.CartItemCountResponse getItemCount(String id ) throws IOException {
     
-        Response<ApplicationModels.CartItemCountResponse> response = cartApiList.getItemCount(id, buyNow).execute();
+        Response<ApplicationModels.CartItemCountResponse> response = cartApiList.getItemCount(id).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1227,9 +1233,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.GetCouponResponse getCoupons(String id , Boolean buyNow ) throws IOException {
+    public ApplicationModels.GetCouponResponse getCoupons(String id ) throws IOException {
     
-        Response<ApplicationModels.GetCouponResponse> response = cartApiList.getCoupons(id, buyNow).execute();
+        Response<ApplicationModels.GetCouponResponse> response = cartApiList.getCoupons(id).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1241,9 +1247,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartDetailResponse applyCoupon(Boolean i , Boolean b , Boolean p , String id , Boolean buyNow ,ApplicationModels.ApplyCouponRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse applyCoupon(Boolean i , Boolean b , Boolean p , String id ,ApplicationModels.ApplyCouponRequest body) throws IOException {
     
-        Response<ApplicationModels.CartDetailResponse> response = cartApiList.applyCoupon(i, b, p, id, buyNow, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = cartApiList.applyCoupon(i, b, p, id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1255,9 +1261,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartDetailResponse removeCoupon(String id , Boolean buyNow ) throws IOException {
+    public ApplicationModels.CartDetailResponse removeCoupon(String id ) throws IOException {
     
-        Response<ApplicationModels.CartDetailResponse> response = cartApiList.removeCoupon(id, buyNow).execute();
+        Response<ApplicationModels.CartDetailResponse> response = cartApiList.removeCoupon(id).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1283,9 +1289,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartDetailResponse applyRewardPoints(String id , Boolean i , Boolean b , Boolean buyNow ,ApplicationModels.RewardPointRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse applyRewardPoints(String id , Boolean i , Boolean b ,ApplicationModels.RewardPointRequest body) throws IOException {
     
-        Response<ApplicationModels.CartDetailResponse> response = cartApiList.applyRewardPoints(id, i, b, buyNow, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = cartApiList.applyRewardPoints(id, i, b, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1297,9 +1303,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.GetAddressesResponse getAddresses(String cartId , Boolean buyNow , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws IOException {
+    public ApplicationModels.GetAddressesResponse getAddresses(String cartId , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws IOException {
     
-        Response<ApplicationModels.GetAddressesResponse> response = cartApiList.getAddresses(cartId, buyNow, mobileNo, checkoutMode, tags, isDefault).execute();
+        Response<ApplicationModels.GetAddressesResponse> response = cartApiList.getAddresses(cartId, mobileNo, checkoutMode, tags, isDefault).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1325,9 +1331,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.Address getAddressById(String id , String cartId , Boolean buyNow , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws IOException {
+    public ApplicationModels.Address getAddressById(String id , String cartId , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws IOException {
     
-        Response<ApplicationModels.Address> response = cartApiList.getAddressById(id, cartId, buyNow, mobileNo, checkoutMode, tags, isDefault).execute();
+        Response<ApplicationModels.Address> response = cartApiList.getAddressById(id, cartId, mobileNo, checkoutMode, tags, isDefault).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1367,9 +1373,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartDetailResponse selectAddress(String cartId , Boolean buyNow , Boolean i , Boolean b ,ApplicationModels.SelectCartAddressRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse selectAddress(String cartId , Boolean i , Boolean b ,ApplicationModels.SelectCartAddressRequest body) throws IOException {
     
-        Response<ApplicationModels.CartDetailResponse> response = cartApiList.selectAddress(cartId, buyNow, i, b, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = cartApiList.selectAddress(cartId, i, b, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1381,9 +1387,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartDetailResponse selectPaymentMode(String id , Boolean buyNow ,ApplicationModels.UpdateCartPaymentRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse selectPaymentMode(String id ,ApplicationModels.UpdateCartPaymentRequest body) throws IOException {
     
-        Response<ApplicationModels.CartDetailResponse> response = cartApiList.selectPaymentMode(id, buyNow, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = cartApiList.selectPaymentMode(id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1395,9 +1401,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode ) throws IOException {
+    public ApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode ) throws IOException {
     
-        Response<ApplicationModels.PaymentCouponValidate> response = cartApiList.validateCouponForPayment(id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode).execute();
+        Response<ApplicationModels.PaymentCouponValidate> response = cartApiList.validateCouponForPayment(id, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1409,9 +1415,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartShipmentsResponse getShipments(Boolean p , String id , Boolean buyNow , String addressId , String areaCode ) throws IOException {
+    public ApplicationModels.CartShipmentsResponse getShipments(Boolean p , String id , String addressId , String areaCode ) throws IOException {
     
-        Response<ApplicationModels.CartShipmentsResponse> response = cartApiList.getShipments(p, id, buyNow, addressId, areaCode).execute();
+        Response<ApplicationModels.CartShipmentsResponse> response = cartApiList.getShipments(p, id, addressId, areaCode).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1423,9 +1429,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartCheckoutResponse checkoutCart(Boolean buyNow ,ApplicationModels.CartCheckoutDetailRequest body) throws IOException {
+    public ApplicationModels.CartCheckoutResponse checkoutCart(ApplicationModels.CartCheckoutDetailRequest body) throws IOException {
     
-        Response<ApplicationModels.CartCheckoutResponse> response = cartApiList.checkoutCart(buyNow, body).execute();
+        Response<ApplicationModels.CartCheckoutResponse> response = cartApiList.checkoutCart( body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1437,9 +1443,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartMetaResponse updateCartMeta(String id , Boolean buyNow ,ApplicationModels.CartMetaRequest body) throws IOException {
+    public ApplicationModels.CartMetaResponse updateCartMeta(String id ,ApplicationModels.CartMetaRequest body) throws IOException {
     
-        Response<ApplicationModels.CartMetaResponse> response = cartApiList.updateCartMeta(id, buyNow, body).execute();
+        Response<ApplicationModels.CartMetaResponse> response = cartApiList.updateCartMeta(id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3779,132 +3785,6 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.GetPaymentLinkResponse getPaymentLink(String paymentLinkId ) throws IOException {
-    
-        Response<ApplicationModels.GetPaymentLinkResponse> response = paymentApiList.getPaymentLink(paymentLinkId).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.CreatePaymentLinkResponse createPaymentLink(ApplicationModels.CreatePaymentLinkRequest body) throws IOException {
-    
-        Response<ApplicationModels.CreatePaymentLinkResponse> response = paymentApiList.createPaymentLink( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.ResendPaymentLinkResponse resendPaymentLink(ApplicationModels.CancelOrResendPaymentLinkRequest body) throws IOException {
-    
-        Response<ApplicationModels.ResendPaymentLinkResponse> response = paymentApiList.resendPaymentLink( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.CancelPaymentLinkResponse cancelPaymentLink(ApplicationModels.CancelOrResendPaymentLinkRequest body) throws IOException {
-    
-        Response<ApplicationModels.CancelPaymentLinkResponse> response = paymentApiList.cancelPaymentLink( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.PaymentModeRouteResponse getPaymentModeRoutesPaymentLink(String paymentLinkId ) throws IOException {
-    
-        Response<ApplicationModels.PaymentModeRouteResponse> response = paymentApiList.getPaymentModeRoutesPaymentLink(paymentLinkId).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.PollingPaymentLinkResponse pollingPaymentLink(String paymentLinkId ) throws IOException {
-    
-        Response<ApplicationModels.PollingPaymentLinkResponse> response = paymentApiList.pollingPaymentLink(paymentLinkId).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.CreateOrderUserResponse createOrderHandlerPaymentLink(ApplicationModels.CreateOrderUserRequest body) throws IOException {
-    
-        Response<ApplicationModels.CreateOrderUserResponse> response = paymentApiList.createOrderHandlerPaymentLink( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.PaymentInitializationResponse initialisePaymentPaymentLink(ApplicationModels.PaymentInitializationRequest body) throws IOException {
-    
-        Response<ApplicationModels.PaymentInitializationResponse> response = paymentApiList.initialisePaymentPaymentLink( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.PaymentStatusUpdateResponse checkAndUpdatePaymentStatusPaymentLink(ApplicationModels.PaymentStatusUpdateRequest body) throws IOException {
-    
-        Response<ApplicationModels.PaymentStatusUpdateResponse> response = paymentApiList.checkAndUpdatePaymentStatusPaymentLink( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
     public ApplicationModels.CustomerCreditSummaryResponse customerCreditSummary(String aggregator ) throws IOException {
     
         Response<ApplicationModels.CustomerCreditSummaryResponse> response = paymentApiList.customerCreditSummary(aggregator).execute();
@@ -4032,9 +3912,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.ShipmentReasons getShipmentReasons(String shipmentId ) throws IOException {
+    public ApplicationModels.ShipmentReasons getShipmentReasons(String shipmentId , Integer bagId ) throws IOException {
     
-        Response<ApplicationModels.ShipmentReasons> response = orderApiList.getShipmentReasons(shipmentId).execute();
+        Response<ApplicationModels.ShipmentReasons> response = orderApiList.getShipmentReasons(shipmentId, bagId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -4133,6 +4013,20 @@ public class FileStorageService extends FileStorage {
     public ApplicationModels.ResponseGetInvoiceShipment getInvoiceByShipmentId(String shipmentId ) throws IOException {
     
         Response<ApplicationModels.ResponseGetInvoiceShipment> response = orderApiList.getInvoiceByShipmentId(shipmentId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ResponseGetCreditNoteShipment getCreditNoteByShipmentId(String shipmentId ) throws IOException {
+    
+        Response<ApplicationModels.ResponseGetCreditNoteShipment> response = orderApiList.getCreditNoteByShipmentId(shipmentId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -4323,975 +4217,6 @@ public class FileStorageService extends FileStorage {
 
 
 @Getter
- public class FeedbackService { 
-
-    private ApplicationConfig applicationConfig;
-
-    private RetrofitServiceFactory retrofitServiceFactory;
-
-    private FeedbackApiList feedbackApiList;
-
-    FeedbackService(ApplicationConfig applicationConfig) {
-        this.applicationConfig = applicationConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.feedbackApiList = generateFeedbackApiList(this.applicationConfig.getPersistentCookieStore());
-    }
-
-    private FeedbackApiList generateFeedbackApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),FeedbackApiList.class, interceptorList, cookieStore);
-    }
-
-    
-
-    
-    
-    public ApplicationModels.InsertResponse createAbuseReport(ApplicationModels.ReportAbuseRequest body) throws IOException {
-    
-        Response<ApplicationModels.InsertResponse> response = feedbackApiList.createAbuseReport( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.UpdateResponse updateAbuseReport(ApplicationModels.UpdateAbuseStatusRequest body) throws IOException {
-    
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateAbuseReport( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.ReportAbuseGetResponse getAbuseReports(String entityId , String entityType , String id , String pageId , Integer pageSize ) throws IOException {
-    
-        Response<ApplicationModels.ReportAbuseGetResponse> response = feedbackApiList.getAbuseReports(entityId, entityType, id, pageId, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getAbuseReports
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.ReportAbuseGetResponse> getAbuseReportsPagination(
-        
-        String entityId,
-        String entityType,
-        String id,
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.ReportAbuseGetResponse> paginator = new Paginator<>(pageSize, "cursor");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.ReportAbuseGetResponse callback = this.getAbuseReports(
-                
-                 entityId,
-                 entityType,
-                 id,
-                 paginator.getNextId()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.AttributeResponse getAttributes(Integer pageNo , Integer pageSize ) throws IOException {
-    
-        Response<ApplicationModels.AttributeResponse> response = feedbackApiList.getAttributes(pageNo, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getAttributes
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.AttributeResponse> getAttributesPagination(
-        
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.AttributeResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.AttributeResponse callback = this.getAttributes(
-                
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.InsertResponse createAttribute(ApplicationModels.SaveAttributeRequest body) throws IOException {
-    
-        Response<ApplicationModels.InsertResponse> response = feedbackApiList.createAttribute( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.Attribute getAttribute(String slug ) throws IOException {
-    
-        Response<ApplicationModels.Attribute> response = feedbackApiList.getAttribute(slug).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.UpdateResponse updateAttribute(String slug ,ApplicationModels.UpdateAttributeRequest body) throws IOException {
-    
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateAttribute(slug, body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.InsertResponse createComment(ApplicationModels.CommentRequest body) throws IOException {
-    
-        Response<ApplicationModels.InsertResponse> response = feedbackApiList.createComment( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.UpdateResponse updateComment(ApplicationModels.UpdateCommentRequest body) throws IOException {
-    
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateComment( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.CommentGetResponse getComments(String entityType , String id , String entityId , String userId , String pageId , Integer pageSize ) throws IOException {
-    
-        Response<ApplicationModels.CommentGetResponse> response = feedbackApiList.getComments(entityType, id, entityId, userId, pageId, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getComments
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.CommentGetResponse> getCommentsPagination(
-        
-        String entityType,
-        String id,
-        String entityId,
-        String userId,
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.CommentGetResponse> paginator = new Paginator<>(pageSize, "cursor");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.CommentGetResponse callback = this.getComments(
-                
-                 entityType,
-                 id,
-                 entityId,
-                 userId,
-                 paginator.getNextId()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.CheckEligibilityResponse checkEligibility(String entityType , String entityId ) throws IOException {
-    
-        Response<ApplicationModels.CheckEligibilityResponse> response = feedbackApiList.checkEligibility(entityType, entityId).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.UpdateResponse deleteMedia(List<String> ids ) throws IOException {
-    
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.deleteMedia(ids).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.InsertResponse createMedia(ApplicationModels.AddMediaListRequest body) throws IOException {
-    
-        Response<ApplicationModels.InsertResponse> response = feedbackApiList.createMedia( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.UpdateResponse updateMedia(ApplicationModels.UpdateMediaListRequest body) throws IOException {
-    
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateMedia( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.MediaGetResponse getMedias(String entityType , String entityId , String id , String type , String pageId , Integer pageSize ) throws IOException {
-    
-        Response<ApplicationModels.MediaGetResponse> response = feedbackApiList.getMedias(entityType, entityId, id, type, pageId, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getMedias
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.MediaGetResponse> getMediasPagination(
-        
-        String entityType,
-        String entityId,
-        String id,
-        String type,
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.MediaGetResponse> paginator = new Paginator<>(pageSize, "cursor");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.MediaGetResponse callback = this.getMedias(
-                
-                 entityType,
-                 entityId,
-                 id,
-                 type,
-                 paginator.getNextId()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.ReviewMetricGetResponse getReviewSummaries(String entityType , String entityId , String id , String pageId , Integer pageSize ) throws IOException {
-    
-        Response<ApplicationModels.ReviewMetricGetResponse> response = feedbackApiList.getReviewSummaries(entityType, entityId, id, pageId, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getReviewSummaries
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.ReviewMetricGetResponse> getReviewSummariesPagination(
-        
-        String entityType,
-        String entityId,
-        String id,
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.ReviewMetricGetResponse> paginator = new Paginator<>(pageSize, "cursor");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.ReviewMetricGetResponse callback = this.getReviewSummaries(
-                
-                 entityType,
-                 entityId,
-                 id,
-                 paginator.getNextId()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.UpdateResponse createReview(ApplicationModels.UpdateReviewRequest body) throws IOException {
-    
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.createReview( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.UpdateResponse updateReview(ApplicationModels.UpdateReviewRequest body) throws IOException {
-    
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateReview( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.ReviewGetResponse getReviews(String entityType , String entityId , String id , String userId , String media , List<Double> rating , List<String> attributeRating , Boolean facets , String sort , Boolean active , Boolean approve , String pageId , Integer pageSize ) throws IOException {
-    
-        Response<ApplicationModels.ReviewGetResponse> response = feedbackApiList.getReviews(entityType, entityId, id, userId, media, rating, attributeRating, facets, sort, active, approve, pageId, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getReviews
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.ReviewGetResponse> getReviewsPagination(
-        
-        String entityType,
-        String entityId,
-        String id,
-        String userId,
-        String media,
-        List<Double> rating,
-        List<String> attributeRating,
-        Boolean facets,
-        String sort,
-        Boolean active,
-        Boolean approve,
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.ReviewGetResponse> paginator = new Paginator<>(pageSize, "cursor");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.ReviewGetResponse callback = this.getReviews(
-                
-                 entityType,
-                 entityId,
-                 id,
-                 userId,
-                 media,
-                 rating,
-                 attributeRating,
-                 facets,
-                 sort,
-                 active,
-                 approve,
-                 paginator.getNextId()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.TemplateGetResponse getTemplates(String templateId , String entityId , String entityType ) throws IOException {
-    
-        Response<ApplicationModels.TemplateGetResponse> response = feedbackApiList.getTemplates(templateId, entityId, entityType).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.InsertResponse createQuestion(ApplicationModels.CreateQNARequest body) throws IOException {
-    
-        Response<ApplicationModels.InsertResponse> response = feedbackApiList.createQuestion( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.UpdateResponse updateQuestion(ApplicationModels.UpdateQNARequest body) throws IOException {
-    
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateQuestion( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.QNAGetResponse getQuestionAndAnswers(String entityType , String entityId , String id , String userId , Boolean showAnswer , String pageId , Integer pageSize ) throws IOException {
-    
-        Response<ApplicationModels.QNAGetResponse> response = feedbackApiList.getQuestionAndAnswers(entityType, entityId, id, userId, showAnswer, pageId, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getQuestionAndAnswers
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.QNAGetResponse> getQuestionAndAnswersPagination(
-        
-        String entityType,
-        String entityId,
-        String id,
-        String userId,
-        Boolean showAnswer,
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.QNAGetResponse> paginator = new Paginator<>(pageSize, "cursor");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.QNAGetResponse callback = this.getQuestionAndAnswers(
-                
-                 entityType,
-                 entityId,
-                 id,
-                 userId,
-                 showAnswer,
-                 paginator.getNextId()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.VoteResponse getVotes(String id , String refType , Integer pageNo , Integer pageSize ) throws IOException {
-    
-        Response<ApplicationModels.VoteResponse> response = feedbackApiList.getVotes(id, refType, pageNo, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getVotes
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.VoteResponse> getVotesPagination(
-        
-        String id,
-        String refType,
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.VoteResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.VoteResponse callback = this.getVotes(
-                
-                 id,
-                 refType,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.InsertResponse createVote(ApplicationModels.VoteRequest body) throws IOException {
-    
-        Response<ApplicationModels.InsertResponse> response = feedbackApiList.createVote( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.UpdateResponse updateVote(ApplicationModels.UpdateVoteRequest body) throws IOException {
-    
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateVote( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-      
-}
-
-
-
-@Getter
  public class PosCartService { 
 
     private ApplicationConfig applicationConfig;
@@ -5317,9 +4242,9 @@ public class FileStorageService extends FileStorage {
 
     
     
-    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , Boolean buyNow ) throws IOException {
+    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode ) throws IOException {
     
-        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.getCart(id, i, b, assignCardId, buyNow).execute();
+        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.getCart(id, i, b, assignCardId, areaCode).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5345,9 +4270,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , Boolean buyNow ,ApplicationModels.AddCartRequest body) throws IOException {
+    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode ,ApplicationModels.AddCartRequest body) throws IOException {
     
-        Response<ApplicationModels.AddCartDetailResponse> response = poscartApiList.addItems(i, b, buyNow, body).execute();
+        Response<ApplicationModels.AddCartDetailResponse> response = poscartApiList.addItems(i, b, areaCode, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5359,9 +4284,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b , Boolean buyNow ,ApplicationModels.UpdateCartRequest body) throws IOException {
+    public ApplicationModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b , String areaCode ,ApplicationModels.UpdateCartRequest body) throws IOException {
     
-        Response<ApplicationModels.UpdateCartDetailResponse> response = poscartApiList.updateCart(id, i, b, buyNow, body).execute();
+        Response<ApplicationModels.UpdateCartDetailResponse> response = poscartApiList.updateCart(id, i, b, areaCode, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5373,9 +4298,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CartItemCountResponse getItemCount(String id , Boolean buyNow ) throws IOException {
+    public ApplicationModels.CartItemCountResponse getItemCount(String id ) throws IOException {
     
-        Response<ApplicationModels.CartItemCountResponse> response = poscartApiList.getItemCount(id, buyNow).execute();
+        Response<ApplicationModels.CartItemCountResponse> response = poscartApiList.getItemCount(id).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5387,9 +4312,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.GetCouponResponse getCoupons(String id , Boolean buyNow ) throws IOException {
+    public ApplicationModels.GetCouponResponse getCoupons(String id ) throws IOException {
     
-        Response<ApplicationModels.GetCouponResponse> response = poscartApiList.getCoupons(id, buyNow).execute();
+        Response<ApplicationModels.GetCouponResponse> response = poscartApiList.getCoupons(id).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5401,9 +4326,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CartDetailResponse applyCoupon(Boolean i , Boolean b , Boolean p , String id , Boolean buyNow ,ApplicationModels.ApplyCouponRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse applyCoupon(Boolean i , Boolean b , Boolean p , String id ,ApplicationModels.ApplyCouponRequest body) throws IOException {
     
-        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.applyCoupon(i, b, p, id, buyNow, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.applyCoupon(i, b, p, id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5415,9 +4340,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CartDetailResponse removeCoupon(String id , Boolean buyNow ) throws IOException {
+    public ApplicationModels.CartDetailResponse removeCoupon(String id ) throws IOException {
     
-        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.removeCoupon(id, buyNow).execute();
+        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.removeCoupon(id).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5443,9 +4368,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CartDetailResponse applyRewardPoints(String id , Boolean i , Boolean b , Boolean buyNow ,ApplicationModels.RewardPointRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse applyRewardPoints(String id , Boolean i , Boolean b ,ApplicationModels.RewardPointRequest body) throws IOException {
     
-        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.applyRewardPoints(id, i, b, buyNow, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.applyRewardPoints(id, i, b, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5457,9 +4382,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.GetAddressesResponse getAddresses(String cartId , Boolean buyNow , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws IOException {
+    public ApplicationModels.GetAddressesResponse getAddresses(String cartId , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws IOException {
     
-        Response<ApplicationModels.GetAddressesResponse> response = poscartApiList.getAddresses(cartId, buyNow, mobileNo, checkoutMode, tags, isDefault).execute();
+        Response<ApplicationModels.GetAddressesResponse> response = poscartApiList.getAddresses(cartId, mobileNo, checkoutMode, tags, isDefault).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5485,9 +4410,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.Address getAddressById(String id , String cartId , Boolean buyNow , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws IOException {
+    public ApplicationModels.Address getAddressById(String id , String cartId , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws IOException {
     
-        Response<ApplicationModels.Address> response = poscartApiList.getAddressById(id, cartId, buyNow, mobileNo, checkoutMode, tags, isDefault).execute();
+        Response<ApplicationModels.Address> response = poscartApiList.getAddressById(id, cartId, mobileNo, checkoutMode, tags, isDefault).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5527,9 +4452,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CartDetailResponse selectAddress(String cartId , Boolean buyNow , Boolean i , Boolean b ,ApplicationModels.SelectCartAddressRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse selectAddress(String cartId , Boolean i , Boolean b ,ApplicationModels.SelectCartAddressRequest body) throws IOException {
     
-        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.selectAddress(cartId, buyNow, i, b, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.selectAddress(cartId, i, b, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5541,9 +4466,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CartDetailResponse selectPaymentMode(String id , Boolean buyNow ,ApplicationModels.UpdateCartPaymentRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse selectPaymentMode(String id ,ApplicationModels.UpdateCartPaymentRequest body) throws IOException {
     
-        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.selectPaymentMode(id, buyNow, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.selectPaymentMode(id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5555,9 +4480,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode ) throws IOException {
+    public ApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode ) throws IOException {
     
-        Response<ApplicationModels.PaymentCouponValidate> response = poscartApiList.validateCouponForPayment(id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode).execute();
+        Response<ApplicationModels.PaymentCouponValidate> response = poscartApiList.validateCouponForPayment(id, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5611,9 +4536,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CartMetaResponse updateCartMeta(String id , Boolean buyNow ,ApplicationModels.CartMetaRequest body) throws IOException {
+    public ApplicationModels.CartMetaResponse updateCartMeta(String id ,ApplicationModels.CartMetaRequest body) throws IOException {
     
-        Response<ApplicationModels.CartMetaResponse> response = poscartApiList.updateCartMeta(id, buyNow, body).execute();
+        Response<ApplicationModels.CartMetaResponse> response = poscartApiList.updateCartMeta(id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

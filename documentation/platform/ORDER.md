@@ -309,7 +309,7 @@ Get Orders for company based on Company Id
 
 
 ```java
-client.order.getOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  isPrioritySort,  lockStatus,  q,  stage,  salesChannels,  orderId,  stores,  deploymentStores,  status,  dp,  shortenUrls,  filterType) {
+client.order.getOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  isPrioritySort,  lockStatus,  userId,  q,  stage,  salesChannels,  orderId,  stores,  deploymentStores,  status,  dp,  shortenUrls,  filterType) {
   //use response
 }
 ```
@@ -325,6 +325,7 @@ client.order.getOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  isPri
 | toDate | String? | no | To Date |   
 | isPrioritySort | Boolean? | no | Sorting Order |   
 | lockStatus | Boolean? | no | Hide Lock Status |   
+| userId | String? | no | User Id |   
 | q | String? | no | Keyword for Search |   
 | stage | String? | no | Specefic Order Stage |   
 | salesChannels | String? | no | Selected Sales Channel |   
@@ -1116,7 +1117,7 @@ Get Orders for company based on Company Id
 
 
 ```java
-client.application("<APPLICATION_ID>").order.getOrdersByApplicationId( pageNo,  pageSize,  fromDate,  toDate,  q,  stage,  salesChannels,  orderId,  stores,  status,  dp,  shortenUrls,  filterType) {
+client.application("<APPLICATION_ID>").order.getOrdersByApplicationId( pageNo,  pageSize,  fromDate,  toDate,  q,  stage,  salesChannels,  orderId,  stores,  status,  dp,  userId,  shortenUrls,  filterType) {
   //use response
 }
 ```
@@ -1138,6 +1139,7 @@ client.application("<APPLICATION_ID>").order.getOrdersByApplicationId( pageNo,  
 | stores | String? | no | Selected Stores |   
 | status | String? | no | Status of order |   
 | dp | String? | no | Delivery Partners |   
+| userId | String? | no | User Id |   
 | shortenUrls | Boolean? | no | Shorten URL option |   
 | filterType | String? | no | Filters |  
 
@@ -2389,6 +2391,7 @@ Success
  | image | ArrayList<String>? |  yes  |  |
  | brand | String? |  yes  |  |
  | lastUpdatedAt | String? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
 
 ---
 

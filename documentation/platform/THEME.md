@@ -29,7 +29,6 @@ Responsible for themes
 * [unpublishTheme](#unpublishtheme)
 * [archiveTheme](#archivetheme)
 * [unarchiveTheme](#unarchivetheme)
-* [getThemeLastModified](#getthemelastmodified)
 
 
 
@@ -35041,42 +35040,6 @@ Success. Refer `ThemesSchema` for more details.
 ---
 
 
-### getThemeLastModified
-Fetch last modified timestamp
-
-
-
-
-```java
-client.application("<APPLICATION_ID>").theme.getThemeLastModified( themeId) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
-| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
-| themeId | String | yes | ID allotted to the theme. |  
-
-
-
-Use this API to fetch Last-Modified timestamp in header metadata.
-
-*Returned Response:*
-
-
-
-
-
-
-
-
----
-
-
 
 ### Schemas
 
@@ -35433,7 +35396,6 @@ Use this API to fetch Last-Modified timestamp in header metadata.
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | link | String? |  yes  |  |
- | links | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -35456,7 +35418,6 @@ Use this API to fetch Last-Modified timestamp in header metadata.
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | link | String? |  yes  |  |
- | links | ArrayList<String>? |  yes  |  |
 
 ---
 
