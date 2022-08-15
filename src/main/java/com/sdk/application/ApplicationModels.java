@@ -13198,6 +13198,40 @@ public static class SendResetPasswordEmailRequestSchema{
 
 
 /*
+    Model: SendResetPasswordMobileRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SendResetPasswordMobileRequestSchema{
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+    
+    @JsonProperty("captcha_code")
+    private String captchaCode;
+    
+    
+    
+}
+
+
+/*
     Model: PasswordLoginRequestSchema
 */
 @AllArgsConstructor
