@@ -12508,86 +12508,6 @@ public static class ArchiveUserRequestSchema{
 
 
 /*
-    Model: ArchiveApplicationUserRequestSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ArchiveApplicationUserRequestSchema{
-    
-    
-    
-    
-    @JsonProperty("user_id")
-    private String userId;
-    
-    
-    
-    
-    @JsonProperty("reason")
-    private String reason;
-    
-    
-    
-    
-    @JsonProperty("reason_id")
-    private String reasonId;
-    
-    
-    
-    
-    @JsonProperty("request_id")
-    private String requestId;
-    
-    
-    
-    
-    @JsonProperty("otp")
-    private String otp;
-    
-    
-    
-}
-
-
-/*
-    Model: UnArchiveUserRequestSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UnArchiveUserRequestSchema{
-    
-    
-    
-    
-    @JsonProperty("user_id")
-    private String userId;
-    
-    
-    
-    
-    @JsonProperty("reason")
-    private String reason;
-    
-    
-    
-    
-    @JsonProperty("reason_id")
-    private String reasonId;
-    
-    
-    
-}
-
-
-/*
     Model: EditEmailRequestSchema
 */
 @AllArgsConstructor
@@ -13139,40 +13059,6 @@ public static class SendResetPasswordEmailRequestSchema{
     
     @JsonProperty("email")
     private String email;
-    
-    
-    
-    
-    @JsonProperty("captcha_code")
-    private String captchaCode;
-    
-    
-    
-}
-
-
-/*
-    Model: SendResetPasswordMobileRequestSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendResetPasswordMobileRequestSchema{
-    
-    
-    
-    
-    @JsonProperty("country_code")
-    private String countryCode;
-    
-    
-    
-    
-    @JsonProperty("mobile")
-    private String mobile;
     
     
     
@@ -13859,28 +13745,6 @@ public static class BlockUserSuccess{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ArchiveUserSuccess{
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-}
-
-
-/*
-    Model: UnArchiveUserSuccess
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UnArchiveUserSuccess{
     
     
     
@@ -14940,30 +14804,6 @@ public static class PlatformSchema{
     
     
     
-    
-    @JsonProperty("support_email")
-    private String supportEmail;
-    
-    
-    
-    
-    @JsonProperty("delete_account_day")
-    private Integer deleteAccountDay;
-    
-    
-    
-    
-    @JsonProperty("delete_account_reasons")
-    private List<DeleteAccountReasons> deleteAccountReasons;
-    
-    
-    
-    
-    @JsonProperty("delete_account_consent")
-    private Object deleteAccountConsent;
-    
-    
-    
 }
 
 
@@ -15315,62 +15155,6 @@ public static class SocialTokens{
     
     @JsonProperty("google")
     private Google google;
-    
-    
-    
-}
-
-
-/*
-    Model: DeleteAccountReasons
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeleteAccountReasons{
-    
-    
-    
-    
-    @JsonProperty("reason_text")
-    private String reasonText;
-    
-    
-    
-    
-    @JsonProperty("reason_id")
-    private String reasonId;
-    
-    
-    
-    
-    @JsonProperty("show_text_area")
-    private Boolean showTextArea;
-    
-    
-    
-}
-
-
-/*
-    Model: DeleteAccountConsent
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeleteAccountConsent{
-    
-    
-    
-    
-    @JsonProperty("consent_text")
-    private String consentText;
     
     
     
@@ -17115,7 +16899,7 @@ public static class NavigationReference{
     
     
     @JsonProperty("sub_navigation")
-    private List<NavigationReference> subNavigation;
+    private List<Object> subNavigation;
     
     
     
@@ -17708,6 +17492,28 @@ public static class ContentAPIError{
     
     @JsonProperty("meta")
     private Object meta;
+    
+    
+    
+}
+
+
+/*
+    Model: APIError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class APIError{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     
