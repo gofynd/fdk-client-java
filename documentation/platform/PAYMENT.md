@@ -24,6 +24,8 @@ Collect payment through many payment gateway i.e Stripe, Razorpay, Juspay etc.in
 * [getUserOrderBeneficiaries](#getuserorderbeneficiaries)
 * [getUserBeneficiaries](#getuserbeneficiaries)
 * [confirmPayment](#confirmpayment)
+* [getPosPaymentModeRoutes](#getpospaymentmoderoutes)
+* [getPosPaymentModeRoutes](#getpospaymentmoderoutes)
 
 
 
@@ -2607,6 +2609,127 @@ Success. Returns the status of payment. Check the example shown below or refer `
 ---
 
 
+### getPosPaymentModeRoutes
+Get COD limit for user
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").payment.getPosPaymentModeRoutes() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes | Company Id |   
+| applicationId | String | yes | Application id |  
+
+
+
+Use this API to get user cod limit and reamining limit for the payment
+
+*Returned Response:*
+
+
+
+
+[GetUserCODLimitResponse](#GetUserCODLimitResponse)
+
+Success. Returns user cod limit , remaining limit and usage of user for COD. Check the example shown below or refer `GetUserCODLimitResponseSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "success": true,
+  "user_cod_data": {
+    "is_active": true,
+    "user_id": 5,
+    "limit": 60000,
+    "usages": 10000,
+    "remaining": 50000,
+    "merchant_user_id": "5e199e6998cfe1776f1385dc"
+  }
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getPosPaymentModeRoutes
+Set COD option for user for payment
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").payment.getPosPaymentModeRoutes(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes | Company ID |   
+| applicationId | String | yes | Application id |  
+| body | [SetCODForUserRequest](#SetCODForUserRequest) | yes | Request body |
+
+
+Use this API to set cod option as true or false for the payment
+
+*Returned Response:*
+
+
+
+
+[SetCODOptionResponse](#SetCODOptionResponse)
+
+Success. Returns true/false for user cod option for payment. Check the example shown below or refer `GetUserCODLimitResponseSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "success": true,
+  "message": "COD option for user {} is set to {}"
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 
 ### Schemas
 
@@ -2616,12 +2739,12 @@ Success. Returns the status of payment. Check the example shown below or refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean |  no  | Response is successful or not |
- | displayFields | ArrayList<String> |  no  | List of all included  options with their Details. |
- | created | Boolean |  no  | Response is created or not |
  | aggregators | ArrayList<HashMap<String,Object>>? |  yes  | List of all speceific Payment options with their Details. |
  | excludedFields | ArrayList<String> |  no  | List of all excluded  options with their Details. |
+ | displayFields | ArrayList<String> |  no  | List of all included  options with their Details. |
+ | success | Boolean |  no  | Response is successful or not |
  | appId | String |  no  | Application Id to which Payment config Mapped |
+ | created | Boolean |  no  | Response is created or not |
 
 ---
 
@@ -2645,11 +2768,11 @@ Success. Returns the status of payment. Check the example shown below or refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isActive | Boolean? |  yes  | Enable/ Disable Flag |
- | secret | String |  no  | Secret Key of the payment aggregator |
  | key | String |  no  | Api key of the payment aggregator |
- | merchantSalt | String |  no  | Merchant key of the payment aggregator |
  | configType | String |  no  | Config Type of the aggregator |
+ | secret | String |  no  | Secret Key of the payment aggregator |
+ | isActive | Boolean? |  yes  | Enable/ Disable Flag |
+ | merchantSalt | String |  no  | Merchant key of the payment aggregator |
 
 ---
 
@@ -2660,9 +2783,9 @@ Success. Returns the status of payment. Check the example shown below or refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | isActive | Boolean? |  yes  | Enable/ Disable Flag |
  | appId | String |  no  | Application Id to which Payment config Mapped |
  | aggregatorName | [PaymentGatewayConfig](#PaymentGatewayConfig)? |  yes  |  |
- | isActive | Boolean? |  yes  | Enable/ Disable Flag |
 
 ---
 
@@ -2709,22 +2832,8 @@ Success. Returns the status of payment. Check the example shown below or refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | small | String |  no  | smalll |
  | large | String |  no  | large |
-
----
-
-
- 
- 
- #### [IntentApp](#IntentApp)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | packageName | String? |  yes  | package_name |
- | logos | [PaymentModeLogo](#PaymentModeLogo)? |  yes  | logos |
- | displayName | String? |  yes  | display_name |
- | code | String? |  yes  | code |
+ | small | String |  no  | smalll |
 
 ---
 
@@ -2743,39 +2852,53 @@ Success. Returns the status of payment. Check the example shown below or refer `
 
  
  
+ #### [IntentApp](#IntentApp)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | packageName | String? |  yes  | package_name |
+ | code | String? |  yes  | code |
+ | logos | [PaymentModeLogo](#PaymentModeLogo)? |  yes  | logos |
+ | displayName | String? |  yes  | display_name |
+
+---
+
+
+ 
+ 
  #### [PaymentModeList](#PaymentModeList)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | cardNumber | String? |  yes  | card_number |
- | cardIssuer | String? |  yes  | card_issuer |
- | cardBrandImage | String? |  yes  | card_brand_image |
- | cardType | String? |  yes  | card_type |
- | cardIsin | String? |  yes  | card_isin |
- | cardId | String? |  yes  | card_id |
- | logoUrl | [PaymentModeLogo](#PaymentModeLogo)? |  yes  | Logo |
- | name | String? |  yes  | name |
- | nickname | String? |  yes  | nickname |
- | expYear | Integer? |  yes  | exp_year |
- | intentAppErrorList | ArrayList<String>? |  yes  | intent_app_error_list |
+ | retryCount | Integer? |  yes  | retry_count |
  | intentFlow | Boolean? |  yes  | intent_flow |
+ | timeout | Integer? |  yes  | timeout |
+ | cardFingerprint | String? |  yes  | card_fingerprint |
+ | intentAppErrorDictList | ArrayList<[IntentAppErrorList](#IntentAppErrorList)>? |  yes  | intent_app_error_dict_list |
+ | cardReference | String? |  yes  | card_reference |
+ | merchantCode | String? |  yes  | merchant code |
  | displayPriority | Integer? |  yes  | Dispaly Priority |
+ | cardBrandImage | String? |  yes  | card_brand_image |
+ | expYear | Integer? |  yes  | exp_year |
+ | cardIssuer | String? |  yes  | card_issuer |
+ | code | String? |  yes  | code |
+ | logoUrl | [PaymentModeLogo](#PaymentModeLogo)? |  yes  | Logo |
+ | aggregatorName | String |  no  | aggregator_name |
+ | name | String? |  yes  | name |
+ | cardName | String? |  yes  | card_name |
+ | displayName | String? |  yes  | display name |
  | cardToken | String? |  yes  | card_token |
  | intentApp | ArrayList<[IntentApp](#IntentApp)>? |  yes  | intent_app |
- | cardName | String? |  yes  | card_name |
- | code | String? |  yes  | code |
- | merchantCode | String? |  yes  | merchant code |
- | displayName | String? |  yes  | display name |
- | cardBrand | String? |  yes  | card_brand |
- | cardReference | String? |  yes  | card_reference |
- | timeout | Integer? |  yes  | timeout |
- | expired | Boolean? |  yes  | expired |
- | intentAppErrorDictList | ArrayList<[IntentAppErrorList](#IntentAppErrorList)>? |  yes  | intent_app_error_dict_list |
  | fyndVpa | String? |  yes  | fynd_vpa |
- | retryCount | Integer? |  yes  | retry_count |
- | aggregatorName | String |  no  | aggregator_name |
+ | cardId | String? |  yes  | card_id |
+ | cardIsin | String? |  yes  | card_isin |
+ | cardBrand | String? |  yes  | card_brand |
+ | intentAppErrorList | ArrayList<String>? |  yes  | intent_app_error_list |
+ | nickname | String? |  yes  | nickname |
+ | cardType | String? |  yes  | card_type |
+ | cardNumber | String? |  yes  | card_number |
  | expMonth | Integer? |  yes  | exp_month |
- | cardFingerprint | String? |  yes  | card_fingerprint |
+ | expired | Boolean? |  yes  | expired |
 
 ---
 
@@ -2786,15 +2909,15 @@ Success. Returns the status of payment. Check the example shown below or refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | list | ArrayList<[PaymentModeList](#PaymentModeList)>? |  yes  | Payment mode |
+ | addCardEnabled | Boolean? |  yes  | Annonymous card flag |
+ | anonymousEnable | Boolean? |  yes  | Annonymous card flag |
+ | aggregatorName | String? |  yes  | Dispaly Priority |
+ | displayPriority | Integer |  no  | Dispaly Priority |
+ | name | String |  no  | Payment mode name |
  | logo | String? |  yes  | Logo |
  | displayName | String |  no  | Payment mode display name |
- | addCardEnabled | Boolean? |  yes  | Annonymous card flag |
- | displayPriority | Integer |  no  | Dispaly Priority |
- | aggregatorName | String? |  yes  | Dispaly Priority |
- | anonymousEnable | Boolean? |  yes  | Annonymous card flag |
  | logoUrl | [PaymentModeLogo](#PaymentModeLogo)? |  yes  | Logos dict with small and large logo url |
- | name | String |  no  | Payment mode name |
+ | list | ArrayList<[PaymentModeList](#PaymentModeList)>? |  yes  | Payment mode |
 
 ---
 
@@ -2828,11 +2951,11 @@ Success. Returns the status of payment. Check the example shown below or refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | payoutsAggregators | ArrayList<HashMap<String,Object>> |  no  | payout aggregator object |
  | uniqueTransferNo | HashMap<String,Object> |  no  | display priority of the payment mode |
- | customers | HashMap<String,Object> |  no  | customers details object |
  | isDefault | Boolean |  no  | default or not  |
  | isActive | Boolean |  no  | Enable/DIsable Flag Payout |
- | payoutsAggregators | ArrayList<HashMap<String,Object>> |  no  | payout aggregator object |
+ | customers | HashMap<String,Object> |  no  | customers details object |
  | moreAttributes | HashMap<String,Object> |  no  | bank details object |
  | transferType | String |  no  | transafer type |
 
@@ -2845,16 +2968,16 @@ Success. Returns the status of payment. Check the example shown below or refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | accountHolder | String? |  yes  |  |
- | ifscCode | String |  no  |  |
- | country | String? |  yes  |  |
- | state | String? |  yes  |  |
- | branchName | String? |  yes  |  |
- | accountType | String |  no  |  |
  | city | String? |  yes  |  |
- | accountNo | String? |  yes  |  |
+ | accountType | String |  no  |  |
+ | state | String? |  yes  |  |
+ | ifscCode | String |  no  |  |
  | bankName | String? |  yes  |  |
+ | branchName | String? |  yes  |  |
+ | country | String? |  yes  |  |
  | pincode | Integer? |  yes  |  |
+ | accountNo | String? |  yes  |  |
+ | accountHolder | String? |  yes  |  |
 
 ---
 
@@ -2866,11 +2989,11 @@ Success. Returns the status of payment. Check the example shown below or refer `
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | uniqueExternalId | String |  no  | Unique Id of Payout |
- | isActive | Boolean |  no  | Enable/Disable Flag Payout |
- | users | HashMap<String,Object> |  no  | payout users object |
  | bankDetails | [PayoutBankDetails](#PayoutBankDetails) |  no  | payout bank details object |
- | aggregator | String |  no  | Aggregator Name |
+ | users | HashMap<String,Object> |  no  | payout users object |
+ | isActive | Boolean |  no  | Enable/Disable Flag Payout |
  | transferType | String |  no  | transafer type |
+ | aggregator | String |  no  | Aggregator Name |
 
 ---
 
@@ -2881,16 +3004,16 @@ Success. Returns the status of payment. Check the example shown below or refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean |  no  | Response is successful or not |
- | uniqueTransferNo | String |  no  | unique transfer no |
- | created | Boolean |  no  | created flag |
  | paymentStatus | String |  no  | status of payment |
- | isActive | Boolean |  no  | Enable/DIsable Flag Payout |
+ | uniqueTransferNo | String |  no  | unique transfer no |
+ | bankDetails | HashMap<String,Object> |  no  | payout bank_details object |
  | payouts | HashMap<String,Object> |  no  | payout  object |
  | users | HashMap<String,Object> |  no  | users details object |
- | bankDetails | HashMap<String,Object> |  no  | payout bank_details object |
- | aggregator | String |  no  | Aggregator Name |
+ | isActive | Boolean |  no  | Enable/DIsable Flag Payout |
+ | success | Boolean |  no  | Response is successful or not |
  | transferType | String |  no  | transfer type |
+ | created | Boolean |  no  | created flag |
+ | aggregator | String |  no  | Aggregator Name |
 
 ---
 
@@ -2901,9 +3024,9 @@ Success. Returns the status of payment. Check the example shown below or refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean |  no  | Response is successful or not |
  | isDefault | Boolean |  no  | Enable/Disable Default Payout |
  | isActive | Boolean |  no  | Enable/DIsable Flag Payout |
+ | success | Boolean |  no  | Response is successful or not |
 
 ---
 
@@ -2914,9 +3037,9 @@ Success. Returns the status of payment. Check the example shown below or refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | uniqueExternalId | String |  no  | Unique Id of Payout |
  | isDefault | Boolean |  no  | Enable/Disable Default Payout |
  | isActive | Boolean |  no  | Enable/Disable Flag Payout |
+ | uniqueExternalId | String |  no  | Unique Id of Payout |
 
 ---
 
@@ -2961,8 +3084,8 @@ Success. Returns the status of payment. Check the example shown below or refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean |  no  | Response is successful or not |
  | config | HashMap<String,Object> |  no  | Aggregator Config |
+ | success | Boolean |  no  | Response is successful or not |
  | aggregator | String |  no  | Aggregator Name |
 
 ---
@@ -2997,17 +3120,17 @@ Success. Returns the status of payment. Check the example shown below or refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | accountHolder | String |  no  | Name of the Account Holder |
  | comment | String? |  yes  | Remarks added by The user |
- | ifscCode | String |  no  | Ifsc Code of the Account |
- | address | String? |  yes  | Address of the User |
- | vpa | String? |  yes  |  |
- | branchName | String |  no  | Branch Name of the Account |
  | email | String |  no  | Email of the Account Holder |
  | mobile | String |  no  | Moblie Number of the User |
+ | vpa | String? |  yes  |  |
+ | ifscCode | String |  no  | Ifsc Code of the Account |
+ | bankName | String |  no  | Bank Name of the Account |
+ | branchName | String |  no  | Branch Name of the Account |
+ | address | String? |  yes  | Address of the User |
  | wallet | String? |  yes  |  |
  | accountNo | String |  no  | Account NUmber of the Account Holder |
- | bankName | String |  no  | Bank Name of the Account |
+ | accountHolder | String |  no  | Name of the Account Holder |
 
 ---
 
@@ -3018,13 +3141,13 @@ Success. Returns the status of payment. Check the example shown below or refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | orderId | String |  no  | Merchant Order Id |
  | requestId | String? |  yes  |  |
+ | orderId | String |  no  | Merchant Order Id |
+ | otp | String? |  yes  |  |
+ | transferMode | String |  no  | Transfer Mode of the Beneficiary to be added |
  | shipmentId | String |  no  | Shipment Id of the respective Merchant Order Id |
  | details | [BeneficiaryModeDetails](#BeneficiaryModeDetails) |  no  | Beneficiary bank details |
  | delights | Boolean |  no  | True if  beneficiary to be added by delights or False if by User |
- | otp | String? |  yes  |  |
- | transferMode | String |  no  | Transfer Mode of the Beneficiary to be added |
 
 ---
 
@@ -3035,10 +3158,10 @@ Success. Returns the status of payment. Check the example shown below or refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | HashMap<String,Object>? |  yes  | Refund account data. |
- | success | Boolean |  no  | Success or failure flag. |
  | message | String |  no  | Response message |
  | isVerifiedFlag | Boolean? |  yes  |  |
+ | success | Boolean |  no  | Success or failure flag. |
+ | data | HashMap<String,Object>? |  yes  | Refund account data. |
 
 ---
 
@@ -3063,8 +3186,8 @@ Success. Returns the status of payment. Check the example shown below or refer `
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | branchName | String |  no  | Branch Name Of Account |
- | success | Boolean? |  yes  | Response is successful or not |
  | bankName | String |  no  | Bank Name Of Account |
+ | success | Boolean? |  yes  | Response is successful or not |
 
 ---
 
@@ -3076,24 +3199,24 @@ Success. Returns the status of payment. Check the example shown below or refer `
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | email | String |  no  | EMail of User |
- | id | Integer |  no  |   |
- | accountHolder | String |  no  | Account Holder Name |
- | ifscCode | String |  no  | Ifsc Code Of Account |
- | createdOn | String |  no  | Creation Date of Beneficiary |
- | comment | String? |  yes  | Remarks |
- | bankName | String |  no  | Bank Name Of Account |
  | title | String |  no  | Title Of Account |
- | displayName | String |  no  | Display Name Of Account |
- | subtitle | String |  no  | SHort Title Of Account |
- | modifiedOn | String |  no  | MOdification Date of Beneficiary |
  | branchName | String? |  yes  | Branch Name Of Account |
- | mobile | String? |  yes  | MObile no of User |
- | delightsUserName | String? |  yes  | User Id Who filled the Beneficiary  |
- | accountNo | String |  no  | Account Number |
- | transferMode | String |  no  | Transfer Mode Of Account |
  | address | String |  no  | Address of User |
- | isActive | Boolean |  no  | Boolean Flag whether Beneficiary set or not |
+ | transferMode | String |  no  | Transfer Mode Of Account |
  | beneficiaryId | String |  no  | Benenficiary Id |
+ | delightsUserName | String? |  yes  | User Id Who filled the Beneficiary  |
+ | subtitle | String |  no  | SHort Title Of Account |
+ | createdOn | String |  no  | Creation Date of Beneficiary |
+ | modifiedOn | String |  no  | MOdification Date of Beneficiary |
+ | accountNo | String |  no  | Account Number |
+ | accountHolder | String |  no  | Account Holder Name |
+ | comment | String? |  yes  | Remarks |
+ | mobile | String? |  yes  | MObile no of User |
+ | ifscCode | String |  no  | Ifsc Code Of Account |
+ | isActive | Boolean |  no  | Boolean Flag whether Beneficiary set or not |
+ | displayName | String |  no  | Display Name Of Account |
+ | bankName | String |  no  | Bank Name Of Account |
+ | id | Integer |  no  |   |
 
 ---
 
@@ -3116,10 +3239,10 @@ Success. Returns the status of payment. Check the example shown below or refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | mode | String |  no  | Payment mode |
  | amount | Double |  no  | Payment amount |
- | meta | HashMap<String,Object>? |  yes  | Payment meta i.e payment id, order id, gateway |
  | name | String? |  yes  | Payment mode name |
+ | meta | HashMap<String,Object>? |  yes  | Payment meta i.e payment id, order id, gateway |
+ | mode | String |  no  | Payment mode |
 
 ---
 
@@ -3130,8 +3253,8 @@ Success. Returns the status of payment. Check the example shown below or refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | paymentMethods | ArrayList<[PaymentConfirmationMode](#PaymentConfirmationMode)> |  no  |  |
  | orderId | String |  no  | Unique order id |
+ | paymentMethods | ArrayList<[PaymentConfirmationMode](#PaymentConfirmationMode)> |  no  |  |
 
 ---
 
@@ -3142,9 +3265,59 @@ Success. Returns the status of payment. Check the example shown below or refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | message | String |  no  | Message |
  | success | Boolean |  no  | Payment confirmation updated or not. |
  | orderId | String |  no  | Unique order id |
+
+---
+
+
+ 
+ 
+ #### [CODdata](#CODdata)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | userId | String |  no  | Payment mode name |
+ | isActive | Boolean |  no  | COD option is active or not |
+ | usages | Integer |  no  | Used COD limit from the user Limit |
+ | remaining | Integer |  no  | Remaining Limit for COD of User |
+ | limit | Integer |  no  | Total Limit of user |
+
+---
+
+
+ 
+ 
+ #### [GetUserCODLimitResponse](#GetUserCODLimitResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | userCodData | [CODdata](#CODdata) |  no  | User COD Data |
+ | success | Boolean |  no  | Response is successful or not |
+
+---
+
+
+ 
+ 
+ #### [SetCODForUserRequest](#SetCODForUserRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | isActive | Boolean |  no  | either true or false |
+
+---
+
+
+ 
+ 
+ #### [SetCODOptionResponse](#SetCODOptionResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
  | message | String |  no  | Message |
+ | success | Boolean |  no  | Response is successful or not |
 
 ---
 
