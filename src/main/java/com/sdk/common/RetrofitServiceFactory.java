@@ -1,5 +1,6 @@
 package com.sdk.common;
 
+import com.sdk.common.model.FDKError;
 import okhttp3.*;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;

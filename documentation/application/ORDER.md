@@ -882,6 +882,8 @@ Success, the code is valid and returns a SignedUrl
  | currentStatus | [CurrentStatus](#CurrentStatus)? |  yes  |  |
  | id | Integer? |  yes  |  |
  | financialBreakup | ArrayList<[FinancialBreakup](#FinancialBreakup)>? |  yes  |  |
+ | canCancel | Boolean? |  yes  |  |
+ | canReturn | Boolean? |  yes  |  |
 
 ---
 
@@ -1161,6 +1163,8 @@ Success, the code is valid and returns a SignedUrl
  | beneficiaryDetails | Boolean? |  yes  |  |
  | canReturn | Boolean? |  yes  |  |
  | canBreak | HashMap<String,Object>? |  yes  |  |
+ | deliveryDate | String? |  yes  |  |
+ | returnableDate | String? |  yes  |  |
  | showDownloadInvoice | Boolean? |  yes  |  |
  | showTrackLink | Boolean? |  yes  |  |
  | prices | [Prices](#Prices)? |  yes  |  |
