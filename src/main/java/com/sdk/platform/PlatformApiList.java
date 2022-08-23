@@ -385,6 +385,190 @@ interface LeadApiList {
     
 }
 
+interface FeedbackApiList {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/feedback/v1.0/company/{company_id}/application/{application_id}/attributes/")
+    Call<PlatformModels.FeedbackAttributes> getAttributes(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/feedback/v1.0/company/{company_id}/application/{application_id}/reviews/")
+    Call<PlatformModels.GetReviewResponse> getCustomerReviews(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("entity_id") String  entityId ,  @Query("entity_type") String  entityType ,  @Query("user_id") String  userId ,  @Query("media") String  media ,  @Query("rating") List<Double>  rating ,  @Query("attribute_rating") List<String>  attributeRating ,  @Query("facets") Boolean  facets ,  @Query("sort") String  sort ,  @Query("next") String  next ,  @Query("start") String  start ,  @Query("limit") String  limit ,  @Query("count") String  count ,  @Query("page_id") String  pageId ,  @Query("page_size") Integer  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/feedback/v1.0/company/{company_id}/application/{application_id}/reviews/{review_id}/approve/")
+    Call<PlatformModels.UpdateResponse> updateApprove(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("review_id") String  reviewId ,@Body PlatformModels.ApproveRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/feedback/v1.0/company/{company_id}/application/{application_id}/reviews/{review_id}/history/")
+    Call<List<PlatformModels.ActivityDump>> getHistory(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("review_id") String  reviewId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/feedback/v1.0/company/{company_id}/application/{application_id}/templates/")
+    Call<PlatformModels.TemplateGetResponse> getApplicationTemplates(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_id") String  pageId ,  @Query("page_size") Integer  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/feedback/v1.0/company/{company_id}/application/{application_id}/templates/")
+    Call<PlatformModels.InsertResponse> createTemplate(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.TemplateRequestList payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/feedback/v1.0/company/{company_id}/application/{application_id}/templates/{id}/")
+    Call<PlatformModels.Template> getTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/feedback/v1.0/company/{company_id}/application/{application_id}/templates/{id}/")
+    Call<PlatformModels.UpdateResponse> updateTemplate(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body PlatformModels.UpdateTemplateRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PATCH ("/service/platform/feedback/v1.0/company/{company_id}/application/{application_id}/templates/{id}/status/")
+    Call<PlatformModels.UpdateResponse> updateTemplateStatus(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body PlatformModels.UpdateTemplateStatusRequest payload);
+    
+}
+
 interface ThemeApiList {
     
     
@@ -3383,6 +3567,111 @@ interface OrderApiList {
     
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/update-shipment-status")
     Call<PlatformModels.UpdateShipmentStatusResponse1> updateShipmentStatus(@Path("company_id")  String companyId ,@Body PlatformModels.UpdateShipmentStatusPayload payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/orders/v1.0/company/{company_id}/shipment-details")
+    Call<PlatformModels.ShipmentDetailsPlatformResponse> getShipmentDetailsById(@Path("company_id")  String companyId , @Query("shipment_id") String  shipmentId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/orders/v1.0/company/{company_id}/shipments")
+    Call<PlatformModels.BulkShipmentDetailsPlatformResponse> getShipmentsByShipmentIds(@Path("company_id")  String companyId , @Query("shipment_ids") String  shipmentIds ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/orders/v1.0/company/{company_id}/order-details")
+    Call<PlatformModels.OrderDetailsPlatformResponse> getOrderById(@Path("company_id")  String companyId , @Query("fynd_order_id") String  fyndOrderId ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/orders/v1.0/company/{company_id}/shipment-details-by-affiliate-bag-id")
+    Call<PlatformModels.ShipmentDetailsByAffiliateBagIdResponse> getShipmentByAffiliateBagId(@Path("company_id")  String companyId , @Query("affiliate_bag_id") String  affiliateBagId ,  @Query("affiliate_id") String  affiliateId ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/orders/v1.0/company/{company_id}/shipment-details-by-affiliate-shipment-id")
+    Call<PlatformModels.ShipmentDetailsPlatformResponse> getShipmentByAffiliateShipmentId(@Path("company_id")  String companyId , @Query("affiliate_shipment_id") String  affiliateShipmentId ,  @Query("affiliate_id") String  affiliateId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/orders/v1.0/company/{company_id}/shipment-details-by-affiliate-order-id")
+    Call<PlatformModels.BulkShipmentDetailsPlatformResponse> getShipmentsByAffiliateOrderId(@Path("company_id")  String companyId , @Query("affiliate_id") String  affiliateId ,  @Query("affiliate_order_id") String  affiliateOrderId ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
     
 }
 

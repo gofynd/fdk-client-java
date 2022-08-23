@@ -1106,6 +1106,716 @@ public class ApplicationClient {
 
 }
 
+public static class FeedbackService {
+    private PlatformConfig platformConfig;
+
+    private RetrofitServiceFactory retrofitServiceFactory;
+
+    private String companyId;
+
+    private FeedbackApiList feedbackApiList;
+
+    public FeedbackService(PlatformConfig platformConfig) {
+        this.platformConfig = platformConfig;
+        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.companyId = this.platformConfig.getCompanyId();
+        this.feedbackApiList = generateFeedbackApiList(this.platformConfig.getPersistentCookieStore());
+    }
+
+    private FeedbackApiList generateFeedbackApiList(CookieStore cookieStore) {
+        List<Interceptor> interceptorList = new ArrayList<>();
+        interceptorList.add(new AccessTokenInterceptor(platformConfig));
+        interceptorList.add(new RequestSignerInterceptor());
+        return retrofitServiceFactory.createService(platformConfig.getDomain(),FeedbackApiList.class, interceptorList, cookieStore);
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+public class ApplicationClient {
+    private PlatformConfig platformConfig;
+
+    private String applicationId;
+
+    private String companyId;
+
+    ApplicationClient(PlatformConfig platformConfig, String applicationId) {
+        this.platformConfig = platformConfig;
+        this.applicationId = applicationId;
+        this.companyId = this.platformConfig.getCompanyId();
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.FeedbackAttributes getAttributes(Integer pageNo , Integer pageSize ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.FeedbackAttributes> response = feedbackApiList.getAttributes(this.companyId , this.applicationId ,pageNo , pageSize ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getAttributes
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<PlatformModels.FeedbackAttributes> getAttributesPagination(
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<PlatformModels.FeedbackAttributes> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            PlatformModels.FeedbackAttributes callback = this.getAttributes(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.GetReviewResponse getCustomerReviews(String id , String entityId , String entityType , String userId , String media , List<Double> rating , List<String> attributeRating , Boolean facets , String sort , String next , String start , String limit , String count , String pageId , Integer pageSize ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.GetReviewResponse> response = feedbackApiList.getCustomerReviews(this.companyId , this.applicationId ,id , entityId , entityType , userId , media , rating , attributeRating , facets , sort , next , start , limit , count , pageId , pageSize ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getCustomerReviews
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<PlatformModels.GetReviewResponse> getCustomerReviewsPagination(
+        String id,
+        String entityId,
+        String entityType,
+        String userId,
+        String media,
+        List<Double> rating,
+        List<String> attributeRating,
+        Boolean facets,
+        String sort,
+        String next,
+        String start,
+        String limit,
+        String count,
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<PlatformModels.GetReviewResponse> paginator = new Paginator<>(pageSize, "cursor");
+
+    paginator.setCallback(()-> {
+        try {
+            PlatformModels.GetReviewResponse callback = this.getCustomerReviews(
+                
+                 
+                 
+                 id,
+                 entityId,
+                 entityType,
+                 userId,
+                 media,
+                 rating,
+                 attributeRating,
+                 facets,
+                 sort,
+                 next,
+                 start,
+                 limit,
+                 count,
+                 paginator.getNextId()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.UpdateResponse updateApprove(String reviewId ,PlatformModels.ApproveRequest body) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.UpdateResponse> response = feedbackApiList.updateApprove(this.companyId , this.applicationId , reviewId , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public List<PlatformModels.ActivityDump> getHistory(String reviewId ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<List<PlatformModels.ActivityDump>> response = feedbackApiList.getHistory(this.companyId , this.applicationId , reviewId ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.TemplateGetResponse getApplicationTemplates(String pageId , Integer pageSize ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.TemplateGetResponse> response = feedbackApiList.getApplicationTemplates(this.companyId , this.applicationId ,pageId , pageSize ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getApplicationTemplates
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<PlatformModels.TemplateGetResponse> getApplicationTemplatesPagination(
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<PlatformModels.TemplateGetResponse> paginator = new Paginator<>(pageSize, "cursor");
+
+    paginator.setCallback(()-> {
+        try {
+            PlatformModels.TemplateGetResponse callback = this.getApplicationTemplates(
+                
+                 
+                 
+                 paginator.getNextId()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.InsertResponse createTemplate(PlatformModels.TemplateRequestList body) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.InsertResponse> response = feedbackApiList.createTemplate(this.companyId , this.applicationId , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.Template getTemplateById(String id ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.Template> response = feedbackApiList.getTemplateById(this.companyId , this.applicationId , id ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.UpdateResponse updateTemplate(String id ,PlatformModels.UpdateTemplateRequest body) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.UpdateResponse> response = feedbackApiList.updateTemplate(this.companyId , this.applicationId , id , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.UpdateResponse updateTemplateStatus(String id ,PlatformModels.UpdateTemplateStatusRequest body) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.UpdateResponse> response = feedbackApiList.updateTemplateStatus(this.companyId , this.applicationId , id , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+
+}
+
+}
+
 public static class ThemeService {
     private PlatformConfig platformConfig;
 
@@ -9358,6 +10068,224 @@ public static class OrderService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.ShipmentDetailsPlatformResponse getShipmentDetailsById(String shipmentId ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.ShipmentDetailsPlatformResponse> response = orderApiList.getShipmentDetailsById(this.companyId ,shipmentId ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.BulkShipmentDetailsPlatformResponse getShipmentsByShipmentIds(String shipmentIds , Integer pageNo , Integer pageSize ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.BulkShipmentDetailsPlatformResponse> response = orderApiList.getShipmentsByShipmentIds(this.companyId ,shipmentIds , pageNo , pageSize ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.OrderDetailsPlatformResponse getOrderById(String fyndOrderId , Integer pageNo , Integer pageSize ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.OrderDetailsPlatformResponse> response = orderApiList.getOrderById(this.companyId ,fyndOrderId , pageNo , pageSize ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.ShipmentDetailsByAffiliateBagIdResponse getShipmentByAffiliateBagId(String affiliateBagId , String affiliateId , Integer pageNo , Integer pageSize ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.ShipmentDetailsByAffiliateBagIdResponse> response = orderApiList.getShipmentByAffiliateBagId(this.companyId ,affiliateBagId , affiliateId , pageNo , pageSize ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.ShipmentDetailsPlatformResponse getShipmentByAffiliateShipmentId(String affiliateShipmentId , String affiliateId ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.ShipmentDetailsPlatformResponse> response = orderApiList.getShipmentByAffiliateShipmentId(this.companyId ,affiliateShipmentId , affiliateId ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.BulkShipmentDetailsPlatformResponse getShipmentsByAffiliateOrderId(String affiliateId , String affiliateOrderId , Integer pageNo , Integer pageSize ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.BulkShipmentDetailsPlatformResponse> response = orderApiList.getShipmentsByAffiliateOrderId(this.companyId ,affiliateId , affiliateOrderId , pageNo , pageSize ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
 
 
 public class ApplicationClient {
@@ -9755,6 +10683,18 @@ public class ApplicationClient {
         }    
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
