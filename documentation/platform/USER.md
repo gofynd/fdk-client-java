@@ -42,7 +42,7 @@ client.application("<APPLICATION_ID>").user.getCustomers( q,  pageSize,  pageNo)
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
 | applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
-| q | Object? | no | The search query. Mobile number or email ID of a customer. |   
+| q | String? | no | The search query. Mobile number or email ID of a customer. |   
 | pageSize | Integer? | no | The number of items to retrieve in each page. Default value is 10. |   
 | pageNo | Integer? | no | The page number to navigate through the given set of results. Default value is 1.  |  
 
@@ -154,7 +154,7 @@ client.application("<APPLICATION_ID>").user.searchUsers( q) {
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
 | applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
-| q | String? | no | The search query. Mobile number or email ID of a customer. |  
+| q | Object? | no | The search query. Mobile number or email ID of a customer. |  
 
 
 
@@ -892,7 +892,6 @@ Success. Returns a JSON object containing the all the platform configurations. R
       "appId": "token_123"
     }
   },
-  "support_email": "test@gmail.com",
   "delete_account_reasons": [
     {
       "reason_text": "test",
@@ -1023,7 +1022,6 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
       "appId": "token_123"
     }
   },
-  "support_email": "test@gmail.com",
   "delete_account_reasons": [
     {
       "reason_text": "test",
@@ -1969,7 +1967,6 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | register | Boolean? |  yes  |  |
  | mobileImage | String? |  yes  |  |
  | desktopImage | String? |  yes  |  |
- | supportEmail | String? |  yes  |  |
  | deleteAccountDay | Integer? |  yes  |  |
  | deleteAccountReasons | ArrayList<[DeleteAccountReasons](#DeleteAccountReasons)>? |  yes  |  |
  | deleteAccountConsent | HashMap<String,Object>? |  yes  |  |
