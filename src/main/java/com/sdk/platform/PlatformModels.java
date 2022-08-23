@@ -2386,1811 +2386,6 @@ public static class Ticket {
 
 
 /*
-    Model: Activity
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Activity {
-    
-    
-    
-    
-    @JsonProperty("current_state")
-    private Object currentState;
-    
-    
-    
-    
-    @JsonProperty("document_id")
-    private String documentId;
-    
-    
-    
-    
-    @JsonProperty("previous_state")
-    private Object previousState;
-    
-    
-    
-    
-}
-
-/*
-    Model: ActivityDump
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ActivityDump {
-    
-    
-    
-    
-    @JsonProperty("activity")
-    private Activity activity;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private CreatedBy createdBy;
-    
-    
-    
-    
-    @JsonProperty("date_meta")
-    private DateMeta dateMeta;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-}
-
-/*
-    Model: AddMediaListRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddMediaListRequest {
-    
-    
-    
-    
-    @JsonProperty("entity_id")
-    private String entityId;
-    
-    
-    
-    
-    @JsonProperty("entity_type")
-    private String entityType;
-    
-    
-    
-    
-    @JsonProperty("media_list")
-    private List<AddMediaRequest> mediaList;
-    
-    
-    
-    
-    @JsonProperty("ref_id")
-    private String refId;
-    
-    
-    
-    
-    @JsonProperty("ref_type")
-    private String refType;
-    
-    
-    
-    
-}
-
-/*
-    Model: AddMediaRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddMediaRequest {
-    
-    
-    
-    
-    @JsonProperty("cloud_id")
-    private String cloudId;
-    
-    
-    
-    
-    @JsonProperty("cloud_name")
-    private String cloudName;
-    
-    
-    
-    
-    @JsonProperty("cloud_provider")
-    private String cloudProvider;
-    
-    
-    
-    
-    @JsonProperty("entity_id")
-    private String entityId;
-    
-    
-    
-    
-    @JsonProperty("entity_type")
-    private String entityType;
-    
-    
-    
-    
-    @JsonProperty("media_url")
-    private String mediaUrl;
-    
-    
-    
-    
-    @JsonProperty("ref_id")
-    private String refId;
-    
-    
-    
-    
-    @JsonProperty("ref_type")
-    private String refType;
-    
-    
-    
-    
-    @JsonProperty("tags")
-    private List<String> tags;
-    
-    
-    
-    
-    @JsonProperty("thumbnail_url")
-    private String thumbnailUrl;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-}
-
-/*
-    Model: ApproveRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApproveRequest {
-    
-    
-    
-    
-    @JsonProperty("approve")
-    private Boolean approve;
-    
-    
-    
-    
-    @JsonProperty("entity_type")
-    private String entityType;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("reason")
-    private String reason;
-    
-    
-    
-    
-}
-
-/*
-    Model: Attribute
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Attribute {
-    
-    
-    
-    
-    @JsonProperty("date_meta")
-    private DateMeta dateMeta;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("tags")
-    private List<TagMeta> tags;
-    
-    
-    
-    
-}
-
-/*
-    Model: AttributeObject
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AttributeObject {
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private Double value;
-    
-    
-    
-    
-}
-
-/*
-    Model: CreatedBy
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreatedBy {
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("tags")
-    private List<TagMeta> tags;
-    
-    
-    
-    
-}
-
-/*
-    Model: CursorGetResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CursorGetResponse {
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<Object> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
-}
-
-/*
-    Model: DateMeta
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DateMeta {
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-}
-
-/*
-    Model: DeviceMeta
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeviceMeta {
-    
-    
-    
-    
-    @JsonProperty("app_version")
-    private String appVersion;
-    
-    
-    
-    
-    @JsonProperty("platform")
-    private String platform;
-    
-    
-    
-    
-}
-
-/*
-    Model: Entity
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Entity {
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-}
-
-/*
-    Model: EntityRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EntityRequest {
-    
-    
-    
-    
-    @JsonProperty("entity_id")
-    private String entityId;
-    
-    
-    
-    
-    @JsonProperty("entity_type")
-    private String entityType;
-    
-    
-    
-    
-}
-
-/*
-    Model: FeedbackAttributes
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FeedbackAttributes {
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<Attribute> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
-}
-
-/*
-    Model: FeedbackError
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FeedbackError {
-    
-    
-    
-    
-    @JsonProperty("code")
-    private Object code;
-    
-    
-    
-    
-    @JsonProperty("exception")
-    private String exception;
-    
-    
-    
-    
-    @JsonProperty("info")
-    private String info;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("request_id")
-    private String requestId;
-    
-    
-    
-    
-    @JsonProperty("stack_trace")
-    private String stackTrace;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private Integer status;
-    
-    
-    
-    
-}
-
-/*
-    Model: FeedbackState
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FeedbackState {
-    
-    
-    
-    
-    @JsonProperty("active")
-    private Boolean active;
-    
-    
-    
-    
-    @JsonProperty("archive")
-    private Boolean archive;
-    
-    
-    
-    
-    @JsonProperty("media")
-    private String media;
-    
-    
-    
-    
-    @JsonProperty("qna")
-    private Boolean qna;
-    
-    
-    
-    
-    @JsonProperty("rating")
-    private Boolean rating;
-    
-    
-    
-    
-    @JsonProperty("review")
-    private Boolean review;
-    
-    
-    
-    
-}
-
-/*
-    Model: GetResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetResponse {
-    
-    
-    
-    
-    @JsonProperty("data")
-    private Object data;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
-}
-
-/*
-    Model: GetReviewResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetReviewResponse {
-    
-    
-    
-    
-    @JsonProperty("facets")
-    private List<ReviewFacet> facets;
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<Object> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
-    @JsonProperty("sort")
-    private List<SortMethod> sort;
-    
-    
-    
-    
-}
-
-/*
-    Model: InsertResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InsertResponse {
-    
-    
-    
-    
-    @JsonProperty("count")
-    private Integer count;
-    
-    
-    
-    
-}
-
-/*
-    Model: MediaMeta
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MediaMeta {
-    
-    
-    
-    
-    @JsonProperty("max_count")
-    private Integer maxCount;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private Integer size;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-}
-
-/*
-    Model: MediaMetaRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MediaMetaRequest {
-    
-    
-    
-    
-    @JsonProperty("max_count")
-    private Integer maxCount;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private Integer size;
-    
-    
-    
-    
-}
-
-/*
-    Model: NumberGetResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NumberGetResponse {
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<Object> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
-}
-
-/*
-    Model: PageCursor
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageCursor {
-    
-    
-    
-    
-    @JsonProperty("current")
-    private Integer current;
-    
-    
-    
-    
-    @JsonProperty("has_next")
-    private Boolean hasNext;
-    
-    
-    
-    
-    @JsonProperty("has_previous")
-    private Boolean hasPrevious;
-    
-    
-    
-    
-    @JsonProperty("item_total")
-    private Integer itemTotal;
-    
-    
-    
-    
-    @JsonProperty("next_id")
-    private String nextId;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private Integer size;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-}
-
-/*
-    Model: PageNumber
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageNumber {
-    
-    
-    
-    
-    @JsonProperty("current")
-    private Integer current;
-    
-    
-    
-    
-    @JsonProperty("has_next")
-    private Boolean hasNext;
-    
-    
-    
-    
-    @JsonProperty("item_total")
-    private Integer itemTotal;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private Integer size;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-}
-
-/*
-    Model: Rating
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Rating {
-    
-    
-    
-    
-    @JsonProperty("attributes")
-    private List<Attribute> attributes;
-    
-    
-    
-    
-    @JsonProperty("attributes_slugs")
-    private List<String> attributesSlugs;
-    
-    
-    
-    
-    @JsonProperty("ui")
-    private UI ui;
-    
-    
-    
-    
-}
-
-/*
-    Model: RatingRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RatingRequest {
-    
-    
-    
-    
-    @JsonProperty("attributes")
-    private List<String> attributes;
-    
-    
-    
-    
-    @JsonProperty("ui")
-    private UI ui;
-    
-    
-    
-    
-}
-
-/*
-    Model: ReportAbuseRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReportAbuseRequest {
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("entity_id")
-    private String entityId;
-    
-    
-    
-    
-    @JsonProperty("entity_type")
-    private String entityType;
-    
-    
-    
-    
-}
-
-/*
-    Model: Review
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Review {
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("header")
-    private String header;
-    
-    
-    
-    
-    @JsonProperty("image_meta")
-    private MediaMeta imageMeta;
-    
-    
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("video_meta")
-    private MediaMeta videoMeta;
-    
-    
-    
-    
-    @JsonProperty("vote_allowed")
-    private Boolean voteAllowed;
-    
-    
-    
-    
-}
-
-/*
-    Model: ReviewFacet
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReviewFacet {
-    
-    
-    
-    
-    @JsonProperty("display")
-    private String display;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("selected")
-    private Boolean selected;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-}
-
-/*
-    Model: ReviewRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReviewRequest {
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("header")
-    private String header;
-    
-    
-    
-    
-    @JsonProperty("image_meta")
-    private MediaMetaRequest imageMeta;
-    
-    
-    
-    
-    @JsonProperty("is_vote_allowed")
-    private Boolean isVoteAllowed;
-    
-    
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("video_meta")
-    private MediaMetaRequest videoMeta;
-    
-    
-    
-    
-}
-
-/*
-    Model: SaveAttributeRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SaveAttributeRequest {
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-}
-
-/*
-    Model: SortMethod
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SortMethod {
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("selected")
-    private Boolean selected;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-}
-
-/*
-    Model: TagMeta
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TagMeta {
-    
-    
-    
-    
-    @JsonProperty("media")
-    private List<MediaMeta> media;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-}
-
-/*
-    Model: Template
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Template {
-    
-    
-    
-    
-    @JsonProperty("date_meta")
-    private DateMeta dateMeta;
-    
-    
-    
-    
-    @JsonProperty("entity")
-    private Entity entity;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("rating")
-    private Rating rating;
-    
-    
-    
-    
-    @JsonProperty("review")
-    private Review review;
-    
-    
-    
-    
-    @JsonProperty("state")
-    private FeedbackState state;
-    
-    
-    
-    
-    @JsonProperty("tags")
-    private List<TagMeta> tags;
-    
-    
-    
-    
-}
-
-/*
-    Model: TemplateGetResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TemplateGetResponse {
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<Template> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
-}
-
-/*
-    Model: TemplateRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TemplateRequest {
-    
-    
-    
-    
-    @JsonProperty("active")
-    private Boolean active;
-    
-    
-    
-    
-    @JsonProperty("enable_media_type")
-    private String enableMediaType;
-    
-    
-    
-    
-    @JsonProperty("enable_qna")
-    private Boolean enableQna;
-    
-    
-    
-    
-    @JsonProperty("enable_rating")
-    private Boolean enableRating;
-    
-    
-    
-    
-    @JsonProperty("enable_review")
-    private Boolean enableReview;
-    
-    
-    
-    
-    @JsonProperty("entity")
-    private EntityRequest entity;
-    
-    
-    
-    
-    @JsonProperty("rating")
-    private RatingRequest rating;
-    
-    
-    
-    
-    @JsonProperty("review")
-    private ReviewRequest review;
-    
-    
-    
-    
-}
-
-/*
-    Model: TemplateRequestList
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TemplateRequestList {
-    
-    
-    
-    
-    @JsonProperty("template_list")
-    private List<TemplateRequest> templateList;
-    
-    
-    
-    
-}
-
-/*
-    Model: UI
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UI {
-    
-    
-    
-    
-    @JsonProperty("feedback_question")
-    private List<String> feedbackQuestion;
-    
-    
-    
-    
-    @JsonProperty("icon")
-    private UIIcon icon;
-    
-    
-    
-    
-    @JsonProperty("text")
-    private List<String> text;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-}
-
-/*
-    Model: UIIcon
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UIIcon {
-    
-    
-    
-    
-    @JsonProperty("active")
-    private String active;
-    
-    
-    
-    
-    @JsonProperty("inactive")
-    private String inactive;
-    
-    
-    
-    
-    @JsonProperty("selected")
-    private List<String> selected;
-    
-    
-    
-    
-}
-
-/*
-    Model: UpdateAttributeRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateAttributeRequest {
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-}
-
-/*
-    Model: UpdateResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateResponse {
-    
-    
-    
-    
-    @JsonProperty("count")
-    private Integer count;
-    
-    
-    
-    
-}
-
-/*
-    Model: UpdateReviewRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateReviewRequest {
-    
-    
-    
-    
-    @JsonProperty("active")
-    private Boolean active;
-    
-    
-    
-    
-    @JsonProperty("application")
-    private String application;
-    
-    
-    
-    
-    @JsonProperty("approve")
-    private Boolean approve;
-    
-    
-    
-    
-    @JsonProperty("archive")
-    private Boolean archive;
-    
-    
-    
-    
-    @JsonProperty("attributes_rating")
-    private List<AttributeObject> attributesRating;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("device_meta")
-    private DeviceMeta deviceMeta;
-    
-    
-    
-    
-    @JsonProperty("entity_id")
-    private String entityId;
-    
-    
-    
-    
-    @JsonProperty("entity_type")
-    private String entityType;
-    
-    
-    
-    
-    @JsonProperty("media_resource")
-    private List<MediaMeta> mediaResource;
-    
-    
-    
-    
-    @JsonProperty("rating")
-    private Double rating;
-    
-    
-    
-    
-    @JsonProperty("review_id")
-    private String reviewId;
-    
-    
-    
-    
-    @JsonProperty("template_id")
-    private String templateId;
-    
-    
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-}
-
-/*
-    Model: UpdateTemplateRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateTemplateRequest {
-    
-    
-    
-    
-    @JsonProperty("active")
-    private Boolean active;
-    
-    
-    
-    
-    @JsonProperty("enable_media_type")
-    private String enableMediaType;
-    
-    
-    
-    
-    @JsonProperty("enable_qna")
-    private Boolean enableQna;
-    
-    
-    
-    
-    @JsonProperty("enable_rating")
-    private Boolean enableRating;
-    
-    
-    
-    
-    @JsonProperty("enable_review")
-    private Boolean enableReview;
-    
-    
-    
-    
-    @JsonProperty("entity")
-    private EntityRequest entity;
-    
-    
-    
-    
-    @JsonProperty("rating")
-    private RatingRequest rating;
-    
-    
-    
-    
-    @JsonProperty("review")
-    private ReviewRequest review;
-    
-    
-    
-    
-}
-
-/*
-    Model: UpdateTemplateStatusRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateTemplateStatusRequest {
-    
-    
-    
-    
-    @JsonProperty("active")
-    private Boolean active;
-    
-    
-    
-    
-    @JsonProperty("archive")
-    private Boolean archive;
-    
-    
-    
-    
-}
-
-
-
-
-/*
     Model: AvailablePageSchema
 */
 @AllArgsConstructor
@@ -9559,6 +7754,34 @@ public static class SEOImage {
 }
 
 /*
+    Model: DateMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DateMeta {
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+}
+
+/*
     Model: BlogRequest
 */
 @AllArgsConstructor
@@ -10526,6 +8749,12 @@ public static class DataLoaderSchema {
     
     @JsonProperty("__source")
     private DataLoaderSourceSchema source;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
     
     
     
@@ -12728,7 +10957,9 @@ public static class TagSourceSchema {
         
         cartReview("cart-review"), 
         
-        login("login");
+        login("login"), 
+        
+        register("register");
         
 
         private String priority;
@@ -19374,20 +17605,14 @@ public static class PaymentGatewayConfigResponse {
     
     
     
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
     @JsonProperty("aggregators")
     private List<Object> aggregators;
-    
-    
-    
-    
-    @JsonProperty("created")
-    private Boolean created;
-    
-    
-    
-    
-    @JsonProperty("app_id")
-    private String appId;
     
     
     
@@ -19398,14 +17623,20 @@ public static class PaymentGatewayConfigResponse {
     
     
     
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    
+    
     @JsonProperty("excluded_fields")
     private List<String> excludedFields;
     
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
+    @JsonProperty("created")
+    private Boolean created;
     
     
     
@@ -19426,12 +17657,6 @@ public static class ErrorCodeDescription {
     
     
     
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
     @JsonProperty("code")
     private String code;
     
@@ -19440,6 +17665,12 @@ public static class ErrorCodeDescription {
     
     @JsonProperty("success")
     private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
     
     
     
@@ -19460,8 +17691,8 @@ public static class PaymentGatewayConfig {
     
     
     
-    @JsonProperty("key")
-    private String key;
+    @JsonProperty("secret")
+    private String secret;
     
     
     
@@ -19472,20 +17703,20 @@ public static class PaymentGatewayConfig {
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
     @JsonProperty("config_type")
     private String configType;
     
     
     
     
-    @JsonProperty("secret")
-    private String secret;
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
     
     
     
@@ -19506,8 +17737,8 @@ public static class PaymentGatewayConfigRequest {
     
     
     
-    @JsonProperty("aggregator_name")
-    private PaymentGatewayConfig aggregatorName;
+    @JsonProperty("app_id")
+    private String appId;
     
     
     
@@ -19518,8 +17749,8 @@ public static class PaymentGatewayConfigRequest {
     
     
     
-    @JsonProperty("app_id")
-    private String appId;
+    @JsonProperty("aggregator_name")
+    private PaymentGatewayConfig aggregatorName;
     
     
     
@@ -19540,14 +17771,14 @@ public static class PaymentGatewayToBeReviewed {
     
     
     
-    @JsonProperty("aggregator")
-    private List<String> aggregator;
-    
-    
-    
-    
     @JsonProperty("success")
     private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("aggregator")
+    private List<String> aggregator;
     
     
     
@@ -19568,14 +17799,14 @@ public static class ErrorCodeAndDescription {
     
     
     
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
     @JsonProperty("code")
     private String code;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
     
     
     
@@ -19596,14 +17827,14 @@ public static class HttpErrorCodeAndResponse {
     
     
     
-    @JsonProperty("error")
-    private ErrorCodeAndDescription error;
-    
-    
-    
-    
     @JsonProperty("success")
     private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private ErrorCodeAndDescription error;
     
     
     
@@ -19639,34 +17870,6 @@ public static class PaymentModeLogo {
 }
 
 /*
-    Model: IntentAppErrorList
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class IntentAppErrorList {
-    
-    
-    
-    
-    @JsonProperty("package_name")
-    private String packageName;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-}
-
-/*
     Model: IntentApp
 */
 @AllArgsConstructor
@@ -19680,8 +17883,14 @@ public static class IntentApp {
     
     
     
-    @JsonProperty("logos")
-    private PaymentModeLogo logos;
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
     
     
     
@@ -19692,14 +17901,36 @@ public static class IntentApp {
     
     
     
-    @JsonProperty("display_name")
-    private String displayName;
+    @JsonProperty("logos")
+    private PaymentModeLogo logos;
+    
+    
+    
+    
+}
+
+/*
+    Model: IntentAppErrorList
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class IntentAppErrorList {
     
     
     
     
     @JsonProperty("code")
     private String code;
+    
+    
+    
+    
+    @JsonProperty("package_name")
+    private String packageName;
     
     
     
@@ -19720,32 +17951,8 @@ public static class PaymentModeList {
     
     
     
-    @JsonProperty("card_issuer")
-    private String cardIssuer;
-    
-    
-    
-    
-    @JsonProperty("card_reference")
-    private String cardReference;
-    
-    
-    
-    
-    @JsonProperty("card_brand")
-    private String cardBrand;
-    
-    
-    
-    
-    @JsonProperty("card_brand_image")
-    private String cardBrandImage;
-    
-    
-    
-    
-    @JsonProperty("card_id")
-    private String cardId;
+    @JsonProperty("expired")
+    private Boolean expired;
     
     
     
@@ -19756,32 +17963,20 @@ public static class PaymentModeList {
     
     
     
+    @JsonProperty("exp_month")
+    private Integer expMonth;
+    
+    
+    
+    
+    @JsonProperty("card_reference")
+    private String cardReference;
+    
+    
+    
+    
     @JsonProperty("intent_app_error_list")
     private List<String> intentAppErrorList;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("expired")
-    private Boolean expired;
-    
-    
-    
-    
-    @JsonProperty("logo_url")
-    private PaymentModeLogo logoUrl;
-    
-    
-    
-    
-    @JsonProperty("intent_app_error_dict_list")
-    private List<IntentAppErrorList> intentAppErrorDictList;
     
     
     
@@ -19792,38 +17987,32 @@ public static class PaymentModeList {
     
     
     
-    @JsonProperty("exp_month")
-    private Integer expMonth;
-    
-    
-    
-    
     @JsonProperty("intent_app")
     private List<IntentApp> intentApp;
     
     
     
     
-    @JsonProperty("exp_year")
-    private Integer expYear;
+    @JsonProperty("intent_app_error_dict_list")
+    private List<IntentAppErrorList> intentAppErrorDictList;
     
     
     
     
-    @JsonProperty("display_priority")
-    private Integer displayPriority;
+    @JsonProperty("card_issuer")
+    private String cardIssuer;
     
     
     
     
-    @JsonProperty("code")
-    private String code;
+    @JsonProperty("card_brand_image")
+    private String cardBrandImage;
     
     
     
     
-    @JsonProperty("card_number")
-    private String cardNumber;
+    @JsonProperty("card_token")
+    private String cardToken;
     
     
     
@@ -19834,44 +18023,8 @@ public static class PaymentModeList {
     
     
     
-    @JsonProperty("aggregator_name")
-    private String aggregatorName;
-    
-    
-    
-    
-    @JsonProperty("card_fingerprint")
-    private String cardFingerprint;
-    
-    
-    
-    
-    @JsonProperty("compliant_with_tokenisation_guidelines")
-    private Boolean compliantWithTokenisationGuidelines;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("merchant_code")
-    private String merchantCode;
-    
-    
-    
-    
-    @JsonProperty("fynd_vpa")
-    private String fyndVpa;
-    
-    
-    
-    
-    @JsonProperty("card_isin")
-    private String cardIsin;
+    @JsonProperty("display_priority")
+    private Integer displayPriority;
     
     
     
@@ -19882,20 +18035,98 @@ public static class PaymentModeList {
     
     
     
-    @JsonProperty("nickname")
-    private String nickname;
-    
-    
-    
-    
     @JsonProperty("card_name")
     private String cardName;
     
     
     
     
-    @JsonProperty("card_token")
-    private String cardToken;
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("merchant_code")
+    private String merchantCode;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("card_brand")
+    private String cardBrand;
+    
+    
+    
+    
+    @JsonProperty("card_id")
+    private String cardId;
+    
+    
+    
+    
+    @JsonProperty("card_isin")
+    private String cardIsin;
+    
+    
+    
+    
+    @JsonProperty("card_fingerprint")
+    private String cardFingerprint;
+    
+    
+    
+    
+    @JsonProperty("nickname")
+    private String nickname;
+    
+    
+    
+    
+    @JsonProperty("exp_year")
+    private Integer expYear;
+    
+    
+    
+    
+    @JsonProperty("compliant_with_tokenisation_guidelines")
+    private Boolean compliantWithTokenisationGuidelines;
+    
+    
+    
+    
+    @JsonProperty("logo_url")
+    private PaymentModeLogo logoUrl;
+    
+    
+    
+    
+    @JsonProperty("card_number")
+    private String cardNumber;
+    
+    
+    
+    
+    @JsonProperty("fynd_vpa")
+    private String fyndVpa;
+    
+    
+    
+    
+    @JsonProperty("aggregator_name")
+    private String aggregatorName;
     
     
     
@@ -19916,20 +18147,8 @@ public static class RootPaymentMode {
     
     
     
-    @JsonProperty("aggregator_name")
-    private String aggregatorName;
-    
-    
-    
-    
-    @JsonProperty("save_card")
-    private Boolean saveCard;
-    
-    
-    
-    
-    @JsonProperty("list")
-    private List<PaymentModeList> list;
+    @JsonProperty("display_priority")
+    private Integer displayPriority;
     
     
     
@@ -19940,14 +18159,20 @@ public static class RootPaymentMode {
     
     
     
-    @JsonProperty("is_pay_by_card_pl")
-    private Boolean isPayByCardPl;
+    @JsonProperty("anonymous_enable")
+    private Boolean anonymousEnable;
     
     
     
     
-    @JsonProperty("add_card_enabled")
-    private Boolean addCardEnabled;
+    @JsonProperty("list")
+    private List<PaymentModeList> list;
+    
+    
+    
+    
+    @JsonProperty("save_card")
+    private Boolean saveCard;
     
     
     
@@ -19958,14 +18183,20 @@ public static class RootPaymentMode {
     
     
     
-    @JsonProperty("anonymous_enable")
-    private Boolean anonymousEnable;
+    @JsonProperty("add_card_enabled")
+    private Boolean addCardEnabled;
     
     
     
     
-    @JsonProperty("display_priority")
-    private Integer displayPriority;
+    @JsonProperty("is_pay_by_card_pl")
+    private Boolean isPayByCardPl;
+    
+    
+    
+    
+    @JsonProperty("aggregator_name")
+    private String aggregatorName;
     
     
     
@@ -20008,14 +18239,14 @@ public static class PaymentOptionsResponse {
     
     
     
-    @JsonProperty("payment_options")
-    private PaymentOptions paymentOptions;
-    
-    
-    
-    
     @JsonProperty("success")
     private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("payment_options")
+    private PaymentOptions paymentOptions;
     
     
     
@@ -20032,18 +18263,6 @@ public static class PaymentOptionsResponse {
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PayoutsResponse {
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("unique_transfer_no")
-    private Object uniqueTransferNo;
     
     
     
@@ -20066,14 +18285,26 @@ public static class PayoutsResponse {
     
     
     
-    @JsonProperty("payouts_aggregators")
-    private List<Object> payoutsAggregators;
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
     
     @JsonProperty("is_default")
     private Boolean isDefault;
+    
+    
+    
+    
+    @JsonProperty("unique_transfer_no")
+    private Object uniqueTransferNo;
+    
+    
+    
+    
+    @JsonProperty("payouts_aggregators")
+    private List<Object> payoutsAggregators;
     
     
     
@@ -20094,8 +18325,20 @@ public static class PayoutBankDetails {
     
     
     
-    @JsonProperty("city")
-    private String city;
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("branch_name")
+    private String branchName;
+    
+    
+    
+    
+    @JsonProperty("account_holder")
+    private String accountHolder;
     
     
     
@@ -20112,8 +18355,8 @@ public static class PayoutBankDetails {
     
     
     
-    @JsonProperty("account_holder")
-    private String accountHolder;
+    @JsonProperty("account_no")
+    private String accountNo;
     
     
     
@@ -20124,26 +18367,14 @@ public static class PayoutBankDetails {
     
     
     
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
     @JsonProperty("pincode")
     private Integer pincode;
-    
-    
-    
-    
-    @JsonProperty("branch_name")
-    private String branchName;
-    
-    
-    
-    
-    @JsonProperty("account_no")
-    private String accountNo;
-    
-    
-    
-    
-    @JsonProperty("country")
-    private String country;
     
     
     
@@ -20170,6 +18401,12 @@ public static class PayoutRequest {
     
     
     
+    @JsonProperty("transfer_type")
+    private String transferType;
+    
+    
+    
+    
     @JsonProperty("aggregator")
     private String aggregator;
     
@@ -20182,8 +18419,8 @@ public static class PayoutRequest {
     
     
     
-    @JsonProperty("transfer_type")
-    private String transferType;
+    @JsonProperty("unique_external_id")
+    private String uniqueExternalId;
     
     
     
@@ -20196,12 +18433,6 @@ public static class PayoutRequest {
     
     @JsonProperty("users")
     private Object users;
-    
-    
-    
-    
-    @JsonProperty("unique_external_id")
-    private String uniqueExternalId;
     
     
     
@@ -20222,32 +18453,14 @@ public static class PayoutResponse {
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("aggregator")
-    private String aggregator;
-    
-    
-    
-    
-    @JsonProperty("unique_transfer_no")
-    private String uniqueTransferNo;
-    
-    
-    
-    
     @JsonProperty("transfer_type")
     private String transferType;
     
     
     
     
-    @JsonProperty("payouts")
-    private Object payouts;
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -20258,14 +18471,26 @@ public static class PayoutResponse {
     
     
     
+    @JsonProperty("aggregator")
+    private String aggregator;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
     @JsonProperty("bank_details")
     private Object bankDetails;
     
     
     
     
-    @JsonProperty("created")
-    private Boolean created;
+    @JsonProperty("unique_transfer_no")
+    private String uniqueTransferNo;
     
     
     
@@ -20276,8 +18501,14 @@ public static class PayoutResponse {
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
+    @JsonProperty("created")
+    private Boolean created;
+    
+    
+    
+    
+    @JsonProperty("payouts")
+    private Object payouts;
     
     
     
@@ -20298,6 +18529,12 @@ public static class UpdatePayoutResponse {
     
     
     
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
     @JsonProperty("is_default")
     private Boolean isDefault;
     
@@ -20306,12 +18543,6 @@ public static class UpdatePayoutResponse {
     
     @JsonProperty("is_active")
     private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
     
     
     
@@ -20332,8 +18563,8 @@ public static class UpdatePayoutRequest {
     
     
     
-    @JsonProperty("unique_external_id")
-    private String uniqueExternalId;
+    @JsonProperty("is_default")
+    private Boolean isDefault;
     
     
     
@@ -20344,8 +18575,8 @@ public static class UpdatePayoutRequest {
     
     
     
-    @JsonProperty("is_default")
-    private Boolean isDefault;
+    @JsonProperty("unique_external_id")
+    private String uniqueExternalId;
     
     
     
@@ -20388,14 +18619,14 @@ public static class SubscriptionPaymentMethodResponse {
     
     
     
-    @JsonProperty("data")
-    private List<Object> data;
-    
-    
-    
-    
     @JsonProperty("success")
     private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<Object> data;
     
     
     
@@ -20438,8 +18669,8 @@ public static class SubscriptionConfigResponse {
     
     
     
-    @JsonProperty("config")
-    private Object config;
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -20450,8 +18681,8 @@ public static class SubscriptionConfigResponse {
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
+    @JsonProperty("config")
+    private Object config;
     
     
     
@@ -20494,14 +18725,14 @@ public static class SaveSubscriptionSetupIntentResponse {
     
     
     
-    @JsonProperty("data")
-    private Object data;
-    
-    
-    
-    
     @JsonProperty("success")
     private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private Object data;
     
     
     
@@ -20522,32 +18753,8 @@ public static class BeneficiaryModeDetails {
     
     
     
-    @JsonProperty("address")
-    private String address;
-    
-    
-    
-    
-    @JsonProperty("mobile")
-    private String mobile;
-    
-    
-    
-    
-    @JsonProperty("ifsc_code")
-    private String ifscCode;
-    
-    
-    
-    
-    @JsonProperty("account_holder")
-    private String accountHolder;
-    
-    
-    
-    
-    @JsonProperty("bank_name")
-    private String bankName;
+    @JsonProperty("vpa")
+    private String vpa;
     
     
     
@@ -20558,14 +18765,8 @@ public static class BeneficiaryModeDetails {
     
     
     
-    @JsonProperty("account_no")
-    private String accountNo;
-    
-    
-    
-    
-    @JsonProperty("comment")
-    private String comment;
+    @JsonProperty("account_holder")
+    private String accountHolder;
     
     
     
@@ -20576,14 +18777,44 @@ public static class BeneficiaryModeDetails {
     
     
     
-    @JsonProperty("vpa")
-    private String vpa;
+    @JsonProperty("account_no")
+    private String accountNo;
+    
+    
+    
+    
+    @JsonProperty("ifsc_code")
+    private String ifscCode;
+    
+    
+    
+    
+    @JsonProperty("address")
+    private String address;
+    
+    
+    
+    
+    @JsonProperty("bank_name")
+    private String bankName;
+    
+    
+    
+    
+    @JsonProperty("comment")
+    private String comment;
     
     
     
     
     @JsonProperty("wallet")
     private String wallet;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
     
     
     
@@ -20604,26 +18835,8 @@ public static class AddBeneficiaryDetailsRequest {
     
     
     
-    @JsonProperty("order_id")
-    private String orderId;
-    
-    
-    
-    
     @JsonProperty("details")
     private BeneficiaryModeDetails details;
-    
-    
-    
-    
-    @JsonProperty("shipment_id")
-    private String shipmentId;
-    
-    
-    
-    
-    @JsonProperty("otp")
-    private String otp;
     
     
     
@@ -20634,14 +18847,32 @@ public static class AddBeneficiaryDetailsRequest {
     
     
     
-    @JsonProperty("request_id")
-    private String requestId;
+    @JsonProperty("shipment_id")
+    private String shipmentId;
     
     
     
     
     @JsonProperty("delights")
     private Boolean delights;
+    
+    
+    
+    
+    @JsonProperty("otp")
+    private String otp;
+    
+    
+    
+    
+    @JsonProperty("order_id")
+    private String orderId;
+    
+    
+    
+    
+    @JsonProperty("request_id")
+    private String requestId;
     
     
     
@@ -20658,6 +18889,12 @@ public static class AddBeneficiaryDetailsRequest {
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RefundAccountResponse {
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -20680,12 +18917,6 @@ public static class RefundAccountResponse {
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
 }
 
 /*
@@ -20702,12 +18933,6 @@ public static class NotFoundResourceError {
     
     
     
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
     @JsonProperty("code")
     private String code;
     
@@ -20716,6 +18941,12 @@ public static class NotFoundResourceError {
     
     @JsonProperty("success")
     private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
     
     
     
@@ -20736,14 +18967,14 @@ public static class IfscCodeResponse {
     
     
     
-    @JsonProperty("branch_name")
-    private String branchName;
-    
-    
-    
-    
     @JsonProperty("success")
     private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("branch_name")
+    private String branchName;
     
     
     
@@ -20770,20 +19001,8 @@ public static class OrderBeneficiaryDetails {
     
     
     
-    @JsonProperty("address")
-    private String address;
-    
-    
-    
-    
-    @JsonProperty("ifsc_code")
-    private String ifscCode;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
+    @JsonProperty("title")
+    private String title;
     
     
     
@@ -20794,74 +19013,8 @@ public static class OrderBeneficiaryDetails {
     
     
     
-    @JsonProperty("id")
-    private Integer id;
-    
-    
-    
-    
-    @JsonProperty("account_no")
-    private String accountNo;
-    
-    
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("delights_user_name")
-    private String delightsUserName;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("subtitle")
-    private String subtitle;
-    
-    
-    
-    
-    @JsonProperty("branch_name")
-    private Boolean branchName;
-    
-    
-    
-    
-    @JsonProperty("transfer_mode")
-    private String transferMode;
-    
-    
-    
-    
-    @JsonProperty("comment")
-    private Boolean comment;
-    
-    
-    
-    
-    @JsonProperty("mobile")
-    private Boolean mobile;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("account_holder")
-    private String accountHolder;
+    @JsonProperty("email")
+    private String email;
     
     
     
@@ -20872,14 +19025,92 @@ public static class OrderBeneficiaryDetails {
     
     
     
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
     @JsonProperty("beneficiary_id")
     private String beneficiaryId;
     
     
     
     
-    @JsonProperty("email")
-    private String email;
+    @JsonProperty("ifsc_code")
+    private String ifscCode;
+    
+    
+    
+    
+    @JsonProperty("address")
+    private String address;
+    
+    
+    
+    
+    @JsonProperty("comment")
+    private Boolean comment;
+    
+    
+    
+    
+    @JsonProperty("transfer_mode")
+    private String transferMode;
+    
+    
+    
+    
+    @JsonProperty("delights_user_name")
+    private String delightsUserName;
+    
+    
+    
+    
+    @JsonProperty("account_holder")
+    private String accountHolder;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Integer id;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("branch_name")
+    private Boolean branchName;
+    
+    
+    
+    
+    @JsonProperty("account_no")
+    private String accountNo;
+    
+    
+    
+    
+    @JsonProperty("subtitle")
+    private String subtitle;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private Boolean mobile;
     
     
     
@@ -20900,14 +19131,14 @@ public static class OrderBeneficiaryResponse {
     
     
     
-    @JsonProperty("show_beneficiary_details")
-    private Boolean showBeneficiaryDetails;
-    
-    
-    
-    
     @JsonProperty("beneficiaries")
     private List<OrderBeneficiaryDetails> beneficiaries;
+    
+    
+    
+    
+    @JsonProperty("show_beneficiary_details")
+    private Boolean showBeneficiaryDetails;
     
     
     
@@ -20928,14 +19159,14 @@ public static class MultiTenderPaymentMeta {
     
     
     
-    @JsonProperty("order_id")
-    private String orderId;
-    
-    
-    
-    
     @JsonProperty("payment_id")
     private String paymentId;
+    
+    
+    
+    
+    @JsonProperty("payment_gateway")
+    private String paymentGateway;
     
     
     
@@ -20946,8 +19177,8 @@ public static class MultiTenderPaymentMeta {
     
     
     
-    @JsonProperty("payment_gateway")
-    private String paymentGateway;
+    @JsonProperty("order_id")
+    private String orderId;
     
     
     
@@ -20974,26 +19205,26 @@ public static class MultiTenderPaymentMethod {
     
     
     
-    @JsonProperty("mode")
-    private String mode;
-    
-    
-    
-    
     @JsonProperty("meta")
     private MultiTenderPaymentMeta meta;
     
     
     
     
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("mode")
+    private String mode;
     
     
     
     
     @JsonProperty("amount")
     private Double amount;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -21042,6 +19273,12 @@ public static class PaymentConfirmationResponse {
     
     
     
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
     @JsonProperty("message")
     private String message;
     
@@ -21050,12 +19287,6 @@ public static class PaymentConfirmationResponse {
     
     @JsonProperty("order_id")
     private String orderId;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
     
     
     
@@ -28900,14 +27131,14 @@ public static class SearchKeywordResult {
     
     
     
-    @JsonProperty("query")
-    private Object query;
-    
-    
-    
-    
     @JsonProperty("sort_on")
     private String sortOn;
+    
+    
+    
+    
+    @JsonProperty("query")
+    private Object query;
     
     
     
@@ -28928,14 +27159,8 @@ public static class CreateSearchKeyword {
     
     
     
-    @JsonProperty("result")
-    private SearchKeywordResult result;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
+    @JsonProperty("words")
+    private List<String> words;
     
     
     
@@ -28946,14 +27171,20 @@ public static class CreateSearchKeyword {
     
     
     
-    @JsonProperty("words")
-    private List<String> words;
-    
-    
-    
-    
     @JsonProperty("_custom_json")
     private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("result")
+    private SearchKeywordResult result;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
@@ -28974,14 +27205,8 @@ public static class GetSearchWordsData {
     
     
     
-    @JsonProperty("result")
-    private Object result;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
+    @JsonProperty("words")
+    private List<String> words;
     
     
     
@@ -28992,8 +27217,14 @@ public static class GetSearchWordsData {
     
     
     
-    @JsonProperty("words")
-    private List<String> words;
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("result")
+    private Object result;
     
     
     
@@ -29004,8 +27235,8 @@ public static class GetSearchWordsData {
     
     
     
-    @JsonProperty("_custom_json")
-    private Object customJson;
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
@@ -29026,14 +27257,14 @@ public static class ErrorResponse {
     
     
     
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
     @JsonProperty("status")
     private Integer status;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
     
     
     
@@ -29044,8 +27275,8 @@ public static class ErrorResponse {
     
     
     
-    @JsonProperty("code")
-    private String code;
+    @JsonProperty("meta")
+    private Object meta;
     
     
     
@@ -29066,14 +27297,14 @@ public static class GetSearchWordsDetailResponse {
     
     
     
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
     @JsonProperty("items")
     private GetSearchWordsData items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -29116,14 +27347,14 @@ public static class GetSearchWordsResponse {
     
     
     
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<GetSearchWordsData> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -29144,14 +27375,14 @@ public static class AutocompletePageAction {
     
     
     
-    @JsonProperty("query")
-    private Object query;
-    
-    
-    
-    
     @JsonProperty("type")
     private String type;
+    
+    
+    
+    
+    @JsonProperty("query")
+    private Object query;
     
     
     
@@ -29212,14 +27443,14 @@ public static class Media {
     
     
     
-    @JsonProperty("url")
-    private String url;
-    
-    
-    
-    
     @JsonProperty("type")
     private String type;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
     
     
     
@@ -29246,8 +27477,8 @@ public static class AutocompleteResult {
     
     
     
-    @JsonProperty("action")
-    private AutocompleteAction action;
+    @JsonProperty("display")
+    private String display;
     
     
     
@@ -29258,8 +27489,8 @@ public static class AutocompleteResult {
     
     
     
-    @JsonProperty("display")
-    private String display;
+    @JsonProperty("action")
+    private AutocompleteAction action;
     
     
     
@@ -29286,18 +27517,6 @@ public static class CreateAutocompleteKeyword {
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("app_id")
-    private String appId;
-    
-    
-    
-    
     @JsonProperty("words")
     private List<String> words;
     
@@ -29310,8 +27529,20 @@ public static class CreateAutocompleteKeyword {
     
     
     
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    
+    
     @JsonProperty("_custom_json")
     private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
@@ -29332,20 +27563,8 @@ public static class GetAutocompleteWordsData {
     
     
     
-    @JsonProperty("app_id")
-    private String appId;
-    
-    
-    
-    
     @JsonProperty("words")
     private List<String> words;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private String uid;
     
     
     
@@ -29356,8 +27575,20 @@ public static class GetAutocompleteWordsData {
     
     
     
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    
+    
     @JsonProperty("_custom_json")
     private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private String uid;
     
     
     
@@ -29378,14 +27609,14 @@ public static class GetAutocompleteWordsResponse {
     
     
     
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<GetAutocompleteWordsData> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -29402,12 +27633,6 @@ public static class GetAutocompleteWordsResponse {
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateAutocompleteWordsResponse {
-    
-    
-    
-    
-    @JsonProperty("app_id")
-    private String appId;
     
     
     
@@ -29430,6 +27655,12 @@ public static class CreateAutocompleteWordsResponse {
     
     
     
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    
+    
 }
 
 /*
@@ -29446,20 +27677,14 @@ public static class ProductBundleItem {
     
     
     
-    @JsonProperty("min_quantity")
-    private Integer minQuantity;
-    
-    
-    
-    
-    @JsonProperty("auto_select")
-    private Boolean autoSelect;
-    
-    
-    
-    
     @JsonProperty("auto_add_to_cart")
     private Boolean autoAddToCart;
+    
+    
+    
+    
+    @JsonProperty("min_quantity")
+    private Integer minQuantity;
     
     
     
@@ -29470,148 +27695,20 @@ public static class ProductBundleItem {
     
     
     
-    @JsonProperty("product_uid")
-    private Integer productUid;
-    
-    
-    
-    
     @JsonProperty("allow_remove")
     private Boolean allowRemove;
     
     
     
     
-}
-
-/*
-    Model: GetProductBundleCreateResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetProductBundleCreateResponse {
+    @JsonProperty("product_uid")
+    private Integer productUid;
     
     
     
     
-    @JsonProperty("modified_by")
-    private Object modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("same_store_assignment")
-    private Boolean sameStoreAssignment;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("choice")
-    private String choice;
-    
-    
-    
-    
-    @JsonProperty("products")
-    private List<ProductBundleItem> products;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("page_visibility")
-    private List<String> pageVisibility;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private Object createdBy;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
-    
-    
-    
-    
-}
-
-/*
-    Model: GetProductBundleListingResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetProductBundleListingResponse {
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<GetProductBundleCreateResponse> items;
+    @JsonProperty("auto_select")
+    private Boolean autoSelect;
     
     
     
@@ -29632,50 +27729,8 @@ public static class ProductBundleRequest {
     
     
     
-    @JsonProperty("modified_by")
-    private Object modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("same_store_assignment")
-    private Boolean sameStoreAssignment;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("choice")
-    private String choice;
-    
-    
-    
-    
-    @JsonProperty("products")
-    private List<ProductBundleItem> products;
-    
-    
-    
-    
-    @JsonProperty("page_visibility")
-    private List<String> pageVisibility;
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
@@ -29692,6 +27747,54 @@ public static class ProductBundleRequest {
     
     
     
+    @JsonProperty("choice")
+    private String choice;
+    
+    
+    
+    
+    @JsonProperty("same_store_assignment")
+    private Boolean sameStoreAssignment;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private Object modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("products")
+    private List<ProductBundleItem> products;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("page_visibility")
+    private List<String> pageVisibility;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
     @JsonProperty("company_id")
     private Integer companyId;
     
@@ -29704,14 +27807,142 @@ public static class ProductBundleRequest {
     
     
     
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: GetProductBundleCreateResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetProductBundleCreateResponse {
+    
+    
+    
+    
     @JsonProperty("modified_on")
     private String modifiedOn;
     
     
     
     
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private Object createdBy;
+    
+    
+    
+    
+    @JsonProperty("choice")
+    private String choice;
+    
+    
+    
+    
+    @JsonProperty("same_store_assignment")
+    private Boolean sameStoreAssignment;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private Object modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("products")
+    private List<ProductBundleItem> products;
+    
+    
+    
+    
     @JsonProperty("logo")
     private String logo;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("page_visibility")
+    private List<String> pageVisibility;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: GetProductBundleListingResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetProductBundleListingResponse {
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<GetProductBundleCreateResponse> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -29732,26 +27963,14 @@ public static class ProductBundleUpdateRequest {
     
     
     
-    @JsonProperty("modified_by")
-    private Object modifiedBy;
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
     
-    @JsonProperty("same_store_assignment")
-    private Boolean sameStoreAssignment;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
+    @JsonProperty("slug")
+    private String slug;
     
     
     
@@ -29762,8 +27981,26 @@ public static class ProductBundleUpdateRequest {
     
     
     
+    @JsonProperty("same_store_assignment")
+    private Boolean sameStoreAssignment;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private Object modifiedBy;
+    
+    
+    
+    
     @JsonProperty("products")
     private List<ProductBundleItem> products;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
     
     
     
@@ -29774,8 +28011,8 @@ public static class ProductBundleUpdateRequest {
     
     
     
-    @JsonProperty("slug")
-    private String slug;
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
@@ -29792,100 +28029,8 @@ public static class ProductBundleUpdateRequest {
     
     
     
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
-    
-    
-    
-    
-}
-
-/*
-    Model: Size
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Size {
-    
-    
-    
-    
-    @JsonProperty("is_available")
-    private Boolean isAvailable;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-    
-    @JsonProperty("display")
-    private String display;
-    
-    
-    
-    
-    @JsonProperty("quantity")
-    private Integer quantity;
-    
-    
-    
-    
-}
-
-/*
-    Model: Price
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Price {
-    
-    
-    
-    
-    @JsonProperty("max_effective")
-    private Double maxEffective;
-    
-    
-    
-    
-    @JsonProperty("min_effective")
-    private Double minEffective;
-    
-    
-    
-    
-    @JsonProperty("min_marked")
-    private Double minMarked;
-    
-    
-    
-    
-    @JsonProperty("max_marked")
-    private Double maxMarked;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private String currency;
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -29906,26 +28051,8 @@ public static class LimitedProductData {
     
     
     
-    @JsonProperty("images")
-    private List<String> images;
-    
-    
-    
-    
-    @JsonProperty("item_code")
-    private String itemCode;
-    
-    
-    
-    
     @JsonProperty("attributes")
     private Object attributes;
-    
-    
-    
-    
-    @JsonProperty("quantity")
-    private Integer quantity;
     
     
     
@@ -29936,14 +28063,14 @@ public static class LimitedProductData {
     
     
     
-    @JsonProperty("uid")
-    private Integer uid;
+    @JsonProperty("item_code")
+    private String itemCode;
     
     
     
     
-    @JsonProperty("price")
-    private Object price;
+    @JsonProperty("quantity")
+    private Integer quantity;
     
     
     
@@ -29954,14 +28081,32 @@ public static class LimitedProductData {
     
     
     
-    @JsonProperty("sizes")
-    private List<String> sizes;
-    
-    
-    
-    
     @JsonProperty("country_of_origin")
     private String countryOfOrigin;
+    
+    
+    
+    
+    @JsonProperty("price")
+    private Object price;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("images")
+    private List<String> images;
+    
+    
+    
+    
+    @JsonProperty("sizes")
+    private List<String> sizes;
     
     
     
@@ -29974,6 +28119,92 @@ public static class LimitedProductData {
     
     @JsonProperty("name")
     private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: Price
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Price {
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+    
+    @JsonProperty("min_marked")
+    private Double minMarked;
+    
+    
+    
+    
+    @JsonProperty("max_marked")
+    private Double maxMarked;
+    
+    
+    
+    
+    @JsonProperty("min_effective")
+    private Double minEffective;
+    
+    
+    
+    
+    @JsonProperty("max_effective")
+    private Double maxEffective;
+    
+    
+    
+    
+}
+
+/*
+    Model: Size
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Size {
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+    
+    @JsonProperty("is_available")
+    private Boolean isAvailable;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("quantity")
+    private Integer quantity;
     
     
     
@@ -30000,12 +28231,6 @@ public static class GetProducts {
     
     
     
-    @JsonProperty("auto_select")
-    private Boolean autoSelect;
-    
-    
-    
-    
     @JsonProperty("auto_add_to_cart")
     private Boolean autoAddToCart;
     
@@ -30018,8 +28243,8 @@ public static class GetProducts {
     
     
     
-    @JsonProperty("sizes")
-    private List<Size> sizes;
+    @JsonProperty("allow_remove")
+    private Boolean allowRemove;
     
     
     
@@ -30030,20 +28255,26 @@ public static class GetProducts {
     
     
     
-    @JsonProperty("price")
-    private Price price;
-    
-    
-    
-    
-    @JsonProperty("allow_remove")
-    private Boolean allowRemove;
+    @JsonProperty("auto_select")
+    private Boolean autoSelect;
     
     
     
     
     @JsonProperty("product_details")
     private LimitedProductData productDetails;
+    
+    
+    
+    
+    @JsonProperty("price")
+    private Price price;
+    
+    
+    
+    
+    @JsonProperty("sizes")
+    private List<Size> sizes;
     
     
     
@@ -30064,14 +28295,8 @@ public static class GetProductBundleResponse {
     
     
     
-    @JsonProperty("same_store_assignment")
-    private Boolean sameStoreAssignment;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
+    @JsonProperty("slug")
+    private String slug;
     
     
     
@@ -30082,38 +28307,14 @@ public static class GetProductBundleResponse {
     
     
     
+    @JsonProperty("same_store_assignment")
+    private Boolean sameStoreAssignment;
+    
+    
+    
+    
     @JsonProperty("products")
     private List<GetProducts> products;
-    
-    
-    
-    
-    @JsonProperty("page_visibility")
-    private List<String> pageVisibility;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
     
     
     
@@ -30124,30 +28325,32 @@ public static class GetProductBundleResponse {
     
     
     
-}
-
-/*
-    Model: ListSizeGuide
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ListSizeGuide {
+    @JsonProperty("page_visibility")
+    private List<String> pageVisibility;
     
     
     
     
-    @JsonProperty("page")
-    private Object page;
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
     
-    @JsonProperty("items")
-    private List<Object> items;
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -30168,12 +28371,6 @@ public static class Meta {
     
     
     
-    @JsonProperty("unit")
-    private String unit;
-    
-    
-    
-    
     @JsonProperty("values")
     private List<Object> values;
     
@@ -30182,6 +28379,12 @@ public static class Meta {
     
     @JsonProperty("headers")
     private Object headers;
+    
+    
+    
+    
+    @JsonProperty("unit")
+    private String unit;
     
     
     
@@ -30224,8 +28427,8 @@ public static class ValidateSizeGuide {
     
     
     
-    @JsonProperty("modified_by")
-    private Object modifiedBy;
+    @JsonProperty("active")
+    private Boolean active;
     
     
     
@@ -30236,26 +28439,8 @@ public static class ValidateSizeGuide {
     
     
     
-    @JsonProperty("tag")
-    private String tag;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
+    @JsonProperty("created_by")
+    private Object createdBy;
     
     
     
@@ -30266,32 +28451,50 @@ public static class ValidateSizeGuide {
     
     
     
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("subtitle")
-    private String subtitle;
-    
-    
-    
-    
     @JsonProperty("guide")
     private Guide guide;
     
     
     
     
-    @JsonProperty("created_by")
-    private Object createdBy;
+    @JsonProperty("created_on")
+    private String createdOn;
     
     
     
     
-    @JsonProperty("active")
-    private Boolean active;
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("brand_id")
+    private Integer brandId;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private Object modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("tag")
+    private String tag;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
     
     
     
@@ -30302,14 +28505,14 @@ public static class ValidateSizeGuide {
     
     
     
+    @JsonProperty("subtitle")
+    private String subtitle;
+    
+    
+    
+    
     @JsonProperty("name")
     private String name;
-    
-    
-    
-    
-    @JsonProperty("brand_id")
-    private Integer brandId;
     
     
     
@@ -30339,6 +28542,34 @@ public static class SuccessResponse {
 }
 
 /*
+    Model: ListSizeGuide
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ListSizeGuide {
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<Object> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Object page;
+    
+    
+    
+    
+}
+
+/*
     Model: SizeGuideResponse
 */
 @AllArgsConstructor
@@ -30352,62 +28583,14 @@ public static class SizeGuideResponse {
     
     
     
-    @JsonProperty("brand_id")
-    private Integer brandId;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("tag")
-    private String tag;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("subtitle")
-    private String subtitle;
-    
-    
-    
-    
-    @JsonProperty("guide")
-    private Object guide;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
     @JsonProperty("active")
     private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
@@ -30418,14 +28601,62 @@ public static class SizeGuideResponse {
     
     
     
+    @JsonProperty("guide")
+    private Object guide;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
     @JsonProperty("modified_by")
     private Object modifiedBy;
     
     
     
     
-    @JsonProperty("modified_on")
-    private String modifiedOn;
+    @JsonProperty("tag")
+    private String tag;
+    
+    
+    
+    
+    @JsonProperty("subtitle")
+    private String subtitle;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("brand_id")
+    private Integer brandId;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -30474,14 +28705,14 @@ public static class ApplicationItemMeta {
     
     
     
-    @JsonProperty("_custom_json")
-    private Object customJson;
-    
-    
-    
-    
     @JsonProperty("_custom_meta")
     private List<MetaFields> customMeta;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private Object customJson;
     
     
     
@@ -30530,88 +28761,154 @@ public static class GetConfigMetadataResponse {
     
     
     
-    @JsonProperty("values")
-    private List<Object> values;
-    
-    
-    
-    
-    @JsonProperty("data")
-    private List<Object> data;
-    
-    
-    
-    
     @JsonProperty("condition")
     private List<Object> condition;
     
     
     
     
-}
-
-/*
-    Model: PageResponseType
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageResponseType {
-    
-    
-    
-    
-    @JsonProperty("total_count")
-    private Integer totalCount;
-    
-    
-    
-    
-    @JsonProperty("current")
-    private Integer current;
-    
-    
-    
-    
-    @JsonProperty("has_next")
-    private Boolean hasNext;
-    
-    
-    
-    
-    @JsonProperty("next")
-    private Integer next;
-    
-    
-    
-    
-}
-
-/*
-    Model: GetConfigResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetConfigResponse {
-    
-    
-    
-    
     @JsonProperty("data")
     private List<Object> data;
     
     
     
     
-    @JsonProperty("page")
-    private PageResponseType page;
+    @JsonProperty("values")
+    private List<Object> values;
+    
+    
+    
+    
+}
+
+/*
+    Model: AttributeDetailsGroup
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AttributeDetailsGroup {
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("display_type")
+    private String displayType;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Integer priority;
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("unit")
+    private String unit;
+    
+    
+    
+    
+}
+
+/*
+    Model: AppConfigurationDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AppConfigurationDetail {
+    
+    
+    
+    
+    @JsonProperty("attributes")
+    private List<AttributeDetailsGroup> attributes;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    
+    
+    @JsonProperty("template_slugs")
+    private List<String> templateSlugs;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Integer priority;
+    
+    
+    
+    
+    @JsonProperty("is_default")
+    private Boolean isDefault;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -30641,7 +28938,7 @@ public static class ConfigErrorResponse {
 }
 
 /*
-    Model: AttributeDetailsGroup
+    Model: PageResponseType
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30649,55 +28946,31 @@ public static class ConfigErrorResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AttributeDetailsGroup {
+public static class PageResponseType {
     
     
     
     
-    @JsonProperty("priority")
-    private Integer priority;
+    @JsonProperty("next")
+    private Integer next;
     
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
+    @JsonProperty("current")
+    private Integer current;
     
     
     
     
-    @JsonProperty("key")
-    private String key;
+    @JsonProperty("has_next")
+    private Boolean hasNext;
     
     
     
     
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("display_type")
-    private String displayType;
-    
-    
-    
-    
-    @JsonProperty("unit")
-    private String unit;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
+    @JsonProperty("total_count")
+    private Integer totalCount;
     
     
     
@@ -30705,7 +28978,7 @@ public static class AttributeDetailsGroup {
 }
 
 /*
-    Model: AppConfigurationDetail
+    Model: GetConfigResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30713,61 +28986,19 @@ public static class AttributeDetailsGroup {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AppConfigurationDetail {
+public static class GetConfigResponse {
     
     
     
     
-    @JsonProperty("attributes")
-    private List<AttributeDetailsGroup> attributes;
+    @JsonProperty("data")
+    private List<Object> data;
     
     
     
     
-    @JsonProperty("is_default")
-    private Boolean isDefault;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private Integer priority;
-    
-    
-    
-    
-    @JsonProperty("app_id")
-    private String appId;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("template_slugs")
-    private List<String> templateSlugs;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
+    @JsonProperty("page")
+    private PageResponseType page;
     
     
     
@@ -30810,6 +29041,36 @@ public static class AppConfigurationsSort {
     
     
     
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Integer priority;
+    
+    
+    
+    
+    @JsonProperty("default_key")
+    private String defaultKey;
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
     @JsonProperty("is_default")
     private Boolean isDefault;
     
@@ -30822,38 +29083,8 @@ public static class AppConfigurationsSort {
     
     
     
-    @JsonProperty("priority")
-    private Integer priority;
-    
-    
-    
-    
-    @JsonProperty("key")
-    private String key;
-    
-    
-    
-    
-    @JsonProperty("default_key")
-    private String defaultKey;
-    
-    
-    
-    
-    @JsonProperty("app_id")
-    private String appId;
-    
-    
-    
-    
     @JsonProperty("name")
     private String name;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
     
     
     
@@ -30905,46 +29136,6 @@ public static class DefaultKeyRequest {
 }
 
 /*
-    Model: GetCatalogConfigurationDetailsProduct
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCatalogConfigurationDetailsProduct {
-    
-    
-    
-    
-    @JsonProperty("similar")
-    private Object similar;
-    
-    
-    
-    
-    @JsonProperty("compare")
-    private Object compare;
-    
-    
-    
-    
-    @JsonProperty("detail")
-    private Object detail;
-    
-    
-    
-    
-    @JsonProperty("variant")
-    private Object variant;
-    
-    
-    
-    
-}
-
-/*
     Model: MetaDataListingFilterMetaResponse
 */
 @AllArgsConstructor
@@ -30964,14 +29155,14 @@ public static class MetaDataListingFilterMetaResponse {
     
     
     
-    @JsonProperty("filter_types")
-    private List<String> filterTypes;
-    
-    
-    
-    
     @JsonProperty("key")
     private String key;
+    
+    
+    
+    
+    @JsonProperty("filter_types")
+    private List<String> filterTypes;
     
     
     
@@ -31085,6 +29276,46 @@ public static class MetaDataListingResponse {
 }
 
 /*
+    Model: GetCatalogConfigurationDetailsProduct
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetCatalogConfigurationDetailsProduct {
+    
+    
+    
+    
+    @JsonProperty("detail")
+    private Object detail;
+    
+    
+    
+    
+    @JsonProperty("compare")
+    private Object compare;
+    
+    
+    
+    
+    @JsonProperty("similar")
+    private Object similar;
+    
+    
+    
+    
+    @JsonProperty("variant")
+    private Object variant;
+    
+    
+    
+    
+}
+
+/*
     Model: GetCatalogConfigurationMetaData
 */
 @AllArgsConstructor
@@ -31098,14 +29329,294 @@ public static class GetCatalogConfigurationMetaData {
     
     
     
+    @JsonProperty("listing")
+    private MetaDataListingResponse listing;
+    
+    
+    
+    
     @JsonProperty("product")
     private GetCatalogConfigurationDetailsProduct product;
     
     
     
     
-    @JsonProperty("listing")
-    private MetaDataListingResponse listing;
+}
+
+/*
+    Model: ConfigurationBucketPoints
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ConfigurationBucketPoints {
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+    
+    @JsonProperty("end")
+    private Double end;
+    
+    
+    
+    
+    @JsonProperty("start")
+    private Double start;
+    
+    
+    
+    
+}
+
+/*
+    Model: ConfigurationListingFilterValue
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ConfigurationListingFilterValue {
+    
+    
+    
+    
+    @JsonProperty("map_values")
+    private List<Object> mapValues;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("map")
+    private Object map;
+    
+    
+    
+    
+    @JsonProperty("bucket_points")
+    private List<ConfigurationBucketPoints> bucketPoints;
+    
+    
+    
+    
+    @JsonProperty("sort")
+    private String sort;
+    
+    
+    
+    
+    @JsonProperty("condition")
+    private String condition;
+    
+    
+    
+    
+}
+
+/*
+    Model: ConfigurationListingFilterConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ConfigurationListingFilterConfig {
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Integer priority;
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("value_config")
+    private ConfigurationListingFilterValue valueConfig;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: ConfigurationListingFilter
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ConfigurationListingFilter {
+    
+    
+    
+    
+    @JsonProperty("allow_single")
+    private Boolean allowSingle;
+    
+    
+    
+    
+    @JsonProperty("attribute_config")
+    private List<ConfigurationListingFilterConfig> attributeConfig;
+    
+    
+    
+    
+}
+
+/*
+    Model: ConfigurationListingSortConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ConfigurationListingSortConfig {
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Integer priority;
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: ConfigurationListingSort
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ConfigurationListingSort {
+    
+    
+    
+    
+    @JsonProperty("config")
+    private List<ConfigurationListingSortConfig> config;
+    
+    
+    
+    
+    @JsonProperty("default_key")
+    private String defaultKey;
+    
+    
+    
+    
+}
+
+/*
+    Model: ConfigurationListing
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ConfigurationListing {
+    
+    
+    
+    
+    @JsonProperty("filter")
+    private ConfigurationListingFilter filter;
+    
+    
+    
+    
+    @JsonProperty("sort")
+    private ConfigurationListingSort sort;
     
     
     
@@ -31126,14 +29637,14 @@ public static class ProductSize {
     
     
     
-    @JsonProperty("min")
-    private Integer min;
-    
-    
-    
-    
     @JsonProperty("max")
     private Integer max;
+    
+    
+    
+    
+    @JsonProperty("min")
+    private Integer min;
     
     
     
@@ -31154,8 +29665,20 @@ public static class ConfigurationProductConfig {
     
     
     
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
     @JsonProperty("size")
     private ProductSize size;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
     
     
     
@@ -31166,32 +29689,20 @@ public static class ConfigurationProductConfig {
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
     @JsonProperty("key")
     private String key;
     
     
     
     
-    @JsonProperty("title")
-    private String title;
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
     
     @JsonProperty("subtitle")
     private String subtitle;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
     
     
     
@@ -31234,8 +29745,20 @@ public static class ConfigurationProductVariantConfig {
     
     
     
+    @JsonProperty("display_type")
+    private String displayType;
+    
+    
+    
+    
     @JsonProperty("size")
     private ProductSize size;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
     
     
     
@@ -31246,32 +29769,20 @@ public static class ConfigurationProductVariantConfig {
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
     @JsonProperty("key")
     private String key;
     
     
     
     
-    @JsonProperty("display_type")
-    private String displayType;
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
     
     @JsonProperty("name")
     private String name;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
     
     
     
@@ -31329,7 +29840,7 @@ public static class ConfigurationProduct {
 }
 
 /*
-    Model: ConfigurationBucketPoints
+    Model: AppConfiguration
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31337,271 +29848,67 @@ public static class ConfigurationProduct {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ConfigurationBucketPoints {
+public static class AppConfiguration {
     
     
     
     
-    @JsonProperty("end")
-    private Double end;
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
     
-    @JsonProperty("display")
-    private String display;
+    @JsonProperty("listing")
+    private ConfigurationListing listing;
     
     
     
     
-    @JsonProperty("start")
-    private Double start;
+    @JsonProperty("created_by")
+    private Object createdBy;
     
     
     
     
-}
-
-/*
-    Model: ConfigurationListingFilterValue
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ConfigurationListingFilterValue {
+    @JsonProperty("app_id")
+    private String appId;
     
     
     
     
-    @JsonProperty("bucket_points")
-    private List<ConfigurationBucketPoints> bucketPoints;
+    @JsonProperty("config_type")
+    private String configType;
     
     
     
     
-    @JsonProperty("sort")
-    private String sort;
+    @JsonProperty("created_on")
+    private String createdOn;
     
     
     
     
-    @JsonProperty("map_values")
-    private List<Object> mapValues;
+    @JsonProperty("product")
+    private ConfigurationProduct product;
     
     
     
     
-    @JsonProperty("value")
-    private String value;
+    @JsonProperty("modified_by")
+    private Object modifiedBy;
     
     
     
     
-    @JsonProperty("condition")
-    private String condition;
-    
-    
-    
-    
-    @JsonProperty("map")
-    private Object map;
-    
-    
-    
-    
-}
-
-/*
-    Model: ConfigurationListingFilterConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ConfigurationListingFilterConfig {
-    
-    
-    
-    
-    @JsonProperty("value_config")
-    private ConfigurationListingFilterValue valueConfig;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private Integer priority;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("key")
-    private String key;
+    @JsonProperty("config_id")
+    private String configId;
     
     
     
     
     @JsonProperty("type")
     private String type;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
-    
-    
-    
-    
-}
-
-/*
-    Model: ConfigurationListingFilter
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ConfigurationListingFilter {
-    
-    
-    
-    
-    @JsonProperty("allow_single")
-    private Boolean allowSingle;
-    
-    
-    
-    
-    @JsonProperty("attribute_config")
-    private List<ConfigurationListingFilterConfig> attributeConfig;
-    
-    
-    
-    
-}
-
-/*
-    Model: ConfigurationListingSortConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ConfigurationListingSortConfig {
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private Integer priority;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("key")
-    private String key;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
-    
-    
-    
-    
-}
-
-/*
-    Model: ConfigurationListingSort
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ConfigurationListingSort {
-    
-    
-    
-    
-    @JsonProperty("default_key")
-    private String defaultKey;
-    
-    
-    
-    
-    @JsonProperty("config")
-    private List<ConfigurationListingSortConfig> config;
-    
-    
-    
-    
-}
-
-/*
-    Model: ConfigurationListing
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ConfigurationListing {
-    
-    
-    
-    
-    @JsonProperty("filter")
-    private ConfigurationListingFilter filter;
-    
-    
-    
-    
-    @JsonProperty("sort")
-    private ConfigurationListingSort sort;
     
     
     
@@ -31622,14 +29929,8 @@ public static class AppCatalogConfiguration {
     
     
     
-    @JsonProperty("config_id")
-    private String configId;
-    
-    
-    
-    
-    @JsonProperty("product")
-    private ConfigurationProduct product;
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
@@ -31640,8 +29941,8 @@ public static class AppCatalogConfiguration {
     
     
     
-    @JsonProperty("created_on")
-    private String createdOn;
+    @JsonProperty("created_by")
+    private Object createdBy;
     
     
     
@@ -31652,26 +29953,20 @@ public static class AppCatalogConfiguration {
     
     
     
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
     @JsonProperty("config_type")
     private String configType;
     
     
     
     
-    @JsonProperty("id")
-    private String id;
+    @JsonProperty("created_on")
+    private String createdOn;
     
     
     
     
-    @JsonProperty("created_by")
-    private Object createdBy;
+    @JsonProperty("product")
+    private ConfigurationProduct product;
     
     
     
@@ -31682,8 +29977,20 @@ public static class AppCatalogConfiguration {
     
     
     
-    @JsonProperty("modified_on")
-    private String modifiedOn;
+    @JsonProperty("config_id")
+    private String configId;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
     
     
     
@@ -31712,82 +30019,6 @@ public static class GetAppCatalogConfiguration {
     
     @JsonProperty("is_default")
     private Boolean isDefault;
-    
-    
-    
-    
-}
-
-/*
-    Model: AppConfiguration
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AppConfiguration {
-    
-    
-    
-    
-    @JsonProperty("config_id")
-    private String configId;
-    
-    
-    
-    
-    @JsonProperty("product")
-    private ConfigurationProduct product;
-    
-    
-    
-    
-    @JsonProperty("listing")
-    private ConfigurationListing listing;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("app_id")
-    private String appId;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("config_type")
-    private String configType;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private Object createdBy;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private Object modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
     
     
     
@@ -31836,18 +30067,6 @@ public static class EntityConfiguration {
     
     
     
-    @JsonProperty("config_id")
-    private String configId;
-    
-    
-    
-    
-    @JsonProperty("product")
-    private GetCatalogConfigurationDetailsProduct product;
-    
-    
-    
-    
     @JsonProperty("listing")
     private GetCatalogConfigurationDetailsSchemaListing listing;
     
@@ -31862,6 +30081,18 @@ public static class EntityConfiguration {
     
     @JsonProperty("config_type")
     private String configType;
+    
+    
+    
+    
+    @JsonProperty("product")
+    private GetCatalogConfigurationDetailsProduct product;
+    
+    
+    
+    
+    @JsonProperty("config_id")
+    private String configId;
     
     
     
@@ -31916,14 +30147,60 @@ public static class ProductSortOn {
     
     
     
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
     @JsonProperty("is_selected")
     private Boolean isSelected;
     
     
     
     
-    @JsonProperty("value")
-    private String value;
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: ProductFiltersKey
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductFiltersKey {
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("kind")
+    private String kind;
+    
+    
+    
+    
+    @JsonProperty("operators")
+    private List<String> operators;
     
     
     
@@ -31950,14 +30227,8 @@ public static class ProductFiltersValue {
     
     
     
-    @JsonProperty("min")
-    private Integer min;
-    
-    
-    
-    
-    @JsonProperty("is_selected")
-    private Boolean isSelected;
+    @JsonProperty("currency_code")
+    private String currencyCode;
     
     
     
@@ -31974,26 +30245,8 @@ public static class ProductFiltersValue {
     
     
     
-    @JsonProperty("max")
-    private Integer max;
-    
-    
-    
-    
-    @JsonProperty("currency_symbol")
-    private String currencySymbol;
-    
-    
-    
-    
     @JsonProperty("display")
     private String display;
-    
-    
-    
-    
-    @JsonProperty("display_format")
-    private String displayFormat;
     
     
     
@@ -32004,14 +30257,32 @@ public static class ProductFiltersValue {
     
     
     
-    @JsonProperty("selected_max")
-    private Integer selectedMax;
+    @JsonProperty("max")
+    private Integer max;
     
     
     
     
-    @JsonProperty("currency_code")
-    private String currencyCode;
+    @JsonProperty("is_selected")
+    private Boolean isSelected;
+    
+    
+    
+    
+    @JsonProperty("min")
+    private Integer min;
+    
+    
+    
+    
+    @JsonProperty("currency_symbol")
+    private String currencySymbol;
+    
+    
+    
+    
+    @JsonProperty("display_format")
+    private String displayFormat;
     
     
     
@@ -32022,48 +30293,8 @@ public static class ProductFiltersValue {
     
     
     
-}
-
-/*
-    Model: ProductFiltersKey
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductFiltersKey {
-    
-    
-    
-    
-    @JsonProperty("operators")
-    private List<String> operators;
-    
-    
-    
-    
-    @JsonProperty("display")
-    private String display;
-    
-    
-    
-    
-    @JsonProperty("kind")
-    private String kind;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
+    @JsonProperty("selected_max")
+    private Integer selectedMax;
     
     
     
@@ -32084,14 +30315,14 @@ public static class ProductFilters {
     
     
     
-    @JsonProperty("values")
-    private List<ProductFiltersValue> values;
-    
-    
-    
-    
     @JsonProperty("key")
     private ProductFiltersKey key;
+    
+    
+    
+    
+    @JsonProperty("values")
+    private List<ProductFiltersValue> values;
     
     
     
@@ -32112,12 +30343,6 @@ public static class GetCollectionQueryOptionResponse {
     
     
     
-    @JsonProperty("operators")
-    private HashMap<String,String> operators;
-    
-    
-    
-    
     @JsonProperty("sort_on")
     private List<ProductSortOn> sortOn;
     
@@ -32130,398 +30355,8 @@ public static class GetCollectionQueryOptionResponse {
     
     
     
-}
-
-/*
-    Model: CollectionListingFilterType
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CollectionListingFilterType {
-    
-    
-    
-    
-    @JsonProperty("is_selected")
-    private Boolean isSelected;
-    
-    
-    
-    
-    @JsonProperty("display")
-    private String display;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-}
-
-/*
-    Model: CollectionListingFilterTag
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CollectionListingFilterTag {
-    
-    
-    
-    
-    @JsonProperty("is_selected")
-    private Boolean isSelected;
-    
-    
-    
-    
-    @JsonProperty("display")
-    private String display;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-}
-
-/*
-    Model: CollectionListingFilter
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CollectionListingFilter {
-    
-    
-    
-    
-    @JsonProperty("type")
-    private List<CollectionListingFilterType> type;
-    
-    
-    
-    
-    @JsonProperty("tags")
-    private List<CollectionListingFilterTag> tags;
-    
-    
-    
-    
-}
-
-/*
-    Model: CollectionQuery
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CollectionQuery {
-    
-    
-    
-    
-    @JsonProperty("op")
-    private String op;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private List<Object> value;
-    
-    
-    
-    
-    @JsonProperty("attribute")
-    private String attribute;
-    
-    
-    
-    
-}
-
-/*
-    Model: BannerImage
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BannerImage {
-    
-    
-    
-    
-    @JsonProperty("url")
-    private String url;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("aspect_ratio")
-    private String aspectRatio;
-    
-    
-    
-    
-}
-
-/*
-    Model: ImageUrls
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ImageUrls {
-    
-    
-    
-    
-    @JsonProperty("landscape")
-    private BannerImage landscape;
-    
-    
-    
-    
-    @JsonProperty("portrait")
-    private BannerImage portrait;
-    
-    
-    
-    
-}
-
-/*
-    Model: Media1
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Media1 {
-    
-    
-    
-    
-    @JsonProperty("url")
-    private String url;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-}
-
-/*
-    Model: GetCollectionDetailNest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCollectionDetailNest {
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("visible_facets_keys")
-    private List<String> visibleFacetsKeys;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("cron")
-    private Object cron;
-    
-    
-    
-    
-    @JsonProperty("query")
-    private List<CollectionQuery> query;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("_schedule")
-    private Object schedule;
-    
-    
-    
-    
-    @JsonProperty("allow_sort")
-    private Boolean allowSort;
-    
-    
-    
-    
-    @JsonProperty("badge")
-    private Object badge;
-    
-    
-    
-    
-    @JsonProperty("allow_facets")
-    private Boolean allowFacets;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("action")
-    private Action action;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("tag")
-    private List<String> tag;
-    
-    
-    
-    
-    @JsonProperty("banners")
-    private ImageUrls banners;
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private Integer priority;
-    
-    
-    
-    
-    @JsonProperty("app_id")
-    private String appId;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private String uid;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private Media1 logo;
-    
-    
-    
-    
-}
-
-/*
-    Model: GetCollectionListingResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCollectionListingResponse {
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
-    @JsonProperty("filters")
-    private CollectionListingFilter filters;
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<GetCollectionDetailNest> items;
+    @JsonProperty("operators")
+    private HashMap<String,String> operators;
     
     
     
@@ -32542,8 +30377,8 @@ public static class UserInfo {
     
     
     
-    @JsonProperty("username")
-    private String username;
+    @JsonProperty("uid")
+    private String uid;
     
     
     
@@ -32554,14 +30389,14 @@ public static class UserInfo {
     
     
     
-    @JsonProperty("uid")
-    private String uid;
-    
-    
-    
-    
     @JsonProperty("user_id")
     private String userId;
+    
+    
+    
+    
+    @JsonProperty("username")
+    private String username;
     
     
     
@@ -32582,20 +30417,8 @@ public static class Schedule {
     
     
     
-    @JsonProperty("next_schedule")
-    private List<NextSchedule> nextSchedule;
-    
-    
-    
-    
     @JsonProperty("duration")
     private Integer duration;
-    
-    
-    
-    
-    @JsonProperty("cron")
-    private String cron;
     
     
     
@@ -32612,10 +30435,22 @@ public static class Schedule {
     
     
     
+    @JsonProperty("cron")
+    private String cron;
+    
+    
+    
+    
+    @JsonProperty("next_schedule")
+    private List<NextSchedule> nextSchedule;
+    
+    
+    
+    
 }
 
 /*
-    Model: CollectionBadge
+    Model: CollectionQuery
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32623,19 +30458,25 @@ public static class Schedule {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CollectionBadge {
+public static class CollectionQuery {
     
     
     
     
-    @JsonProperty("color")
-    private String color;
+    @JsonProperty("attribute")
+    private String attribute;
     
     
     
     
-    @JsonProperty("text")
-    private String text;
+    @JsonProperty("value")
+    private List<Object> value;
+    
+    
+    
+    
+    @JsonProperty("op")
+    private String op;
     
     
     
@@ -32727,6 +30568,34 @@ public static class SeoDetail {
 }
 
 /*
+    Model: CollectionBadge
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CollectionBadge {
+    
+    
+    
+    
+    @JsonProperty("color")
+    private String color;
+    
+    
+    
+    
+    @JsonProperty("text")
+    private String text;
+    
+    
+    
+    
+}
+
+/*
     Model: CreateCollection
 */
 @AllArgsConstructor
@@ -32740,86 +30609,8 @@ public static class CreateCollection {
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("visible_facets_keys")
-    private List<String> visibleFacetsKeys;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("query")
-    private List<CollectionQuery> query;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private UserInfo createdBy;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("published")
-    private Boolean published;
-    
-    
-    
-    
-    @JsonProperty("_schedule")
-    private Schedule schedule;
-    
-    
-    
-    
-    @JsonProperty("allow_sort")
-    private Boolean allowSort;
-    
-    
-    
-    
-    @JsonProperty("badge")
-    private CollectionBadge badge;
-    
-    
-    
-    
-    @JsonProperty("allow_facets")
-    private Boolean allowFacets;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("tags")
-    private List<String> tags;
+    @JsonProperty("app_id")
+    private String appId;
     
     
     
@@ -32830,8 +30621,20 @@ public static class CreateCollection {
     
     
     
-    @JsonProperty("_locale_language")
-    private Object localeLanguage;
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("_schedule")
+    private Schedule schedule;
+    
+    
+    
+    
+    @JsonProperty("query")
+    private List<CollectionQuery> query;
     
     
     
@@ -32842,20 +30645,26 @@ public static class CreateCollection {
     
     
     
-    @JsonProperty("priority")
-    private Integer priority;
+    @JsonProperty("published")
+    private Boolean published;
     
     
     
     
-    @JsonProperty("app_id")
-    private String appId;
+    @JsonProperty("visible_facets_keys")
+    private List<String> visibleFacetsKeys;
     
     
     
     
-    @JsonProperty("sort_on")
-    private String sortOn;
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
     
     
     
@@ -32866,8 +30675,20 @@ public static class CreateCollection {
     
     
     
-    @JsonProperty("_custom_json")
-    private Object customJson;
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private UserInfo createdBy;
+    
+    
+    
+    
+    @JsonProperty("_locale_language")
+    private Object localeLanguage;
     
     
     
@@ -32878,14 +30699,124 @@ public static class CreateCollection {
     
     
     
+    @JsonProperty("sort_on")
+    private String sortOn;
+    
+    
+    
+    
     @JsonProperty("meta")
     private Object meta;
     
     
     
     
+    @JsonProperty("badge")
+    private CollectionBadge badge;
+    
+    
+    
+    
+    @JsonProperty("allow_sort")
+    private Boolean allowSort;
+    
+    
+    
+    
     @JsonProperty("logo")
     private CollectionImage logo;
+    
+    
+    
+    
+    @JsonProperty("allow_facets")
+    private Boolean allowFacets;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Integer priority;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: BannerImage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BannerImage {
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("aspect_ratio")
+    private String aspectRatio;
+    
+    
+    
+    
+}
+
+/*
+    Model: ImageUrls
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ImageUrls {
+    
+    
+    
+    
+    @JsonProperty("landscape")
+    private BannerImage landscape;
+    
+    
+    
+    
+    @JsonProperty("portrait")
+    private BannerImage portrait;
     
     
     
@@ -32906,38 +30837,14 @@ public static class CollectionCreateResponse {
     
     
     
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    
+    
     @JsonProperty("is_active")
     private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("visible_facets_keys")
-    private List<String> visibleFacetsKeys;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("cron")
-    private Object cron;
-    
-    
-    
-    
-    @JsonProperty("query")
-    private List<CollectionQuery> query;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
     
     
     
@@ -32948,38 +30855,8 @@ public static class CollectionCreateResponse {
     
     
     
-    @JsonProperty("allow_sort")
-    private Boolean allowSort;
-    
-    
-    
-    
-    @JsonProperty("badge")
-    private Object badge;
-    
-    
-    
-    
-    @JsonProperty("allow_facets")
-    private Boolean allowFacets;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("tag")
-    private List<String> tag;
+    @JsonProperty("query")
+    private List<CollectionQuery> query;
     
     
     
@@ -32990,14 +30867,38 @@ public static class CollectionCreateResponse {
     
     
     
-    @JsonProperty("priority")
-    private Integer priority;
+    @JsonProperty("visible_facets_keys")
+    private List<String> visibleFacetsKeys;
     
     
     
     
-    @JsonProperty("app_id")
-    private String appId;
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("tag")
+    private List<String> tag;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("cron")
+    private Object cron;
     
     
     
@@ -33014,8 +30915,338 @@ public static class CollectionCreateResponse {
     
     
     
+    @JsonProperty("badge")
+    private Object badge;
+    
+    
+    
+    
+    @JsonProperty("allow_sort")
+    private Boolean allowSort;
+    
+    
+    
+    
     @JsonProperty("logo")
     private BannerImage logo;
+    
+    
+    
+    
+    @JsonProperty("allow_facets")
+    private Boolean allowFacets;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Integer priority;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: Media1
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Media1 {
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+}
+
+/*
+    Model: GetCollectionDetailNest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetCollectionDetailNest {
+    
+    
+    
+    
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("_schedule")
+    private Object schedule;
+    
+    
+    
+    
+    @JsonProperty("query")
+    private List<CollectionQuery> query;
+    
+    
+    
+    
+    @JsonProperty("banners")
+    private ImageUrls banners;
+    
+    
+    
+    
+    @JsonProperty("visible_facets_keys")
+    private List<String> visibleFacetsKeys;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("tag")
+    private List<String> tag;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private Action action;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private String uid;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("cron")
+    private Object cron;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("badge")
+    private Object badge;
+    
+    
+    
+    
+    @JsonProperty("allow_sort")
+    private Boolean allowSort;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private Media1 logo;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Integer priority;
+    
+    
+    
+    
+    @JsonProperty("allow_facets")
+    private Boolean allowFacets;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: CollectionListingFilterTag
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CollectionListingFilterTag {
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+    
+    @JsonProperty("is_selected")
+    private Boolean isSelected;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: CollectionListingFilterType
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CollectionListingFilterType {
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+    
+    @JsonProperty("is_selected")
+    private Boolean isSelected;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: CollectionListingFilter
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CollectionListingFilter {
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<CollectionListingFilterTag> tags;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private List<CollectionListingFilterType> type;
+    
+    
+    
+    
+}
+
+/*
+    Model: GetCollectionListingResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetCollectionListingResponse {
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<GetCollectionDetailNest> items;
+    
+    
+    
+    
+    @JsonProperty("filters")
+    private CollectionListingFilter filters;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -33036,14 +31267,8 @@ public static class CollectionDetailResponse {
     
     
     
-    @JsonProperty("badge")
-    private Object badge;
-    
-    
-    
-    
-    @JsonProperty("tag")
-    private List<String> tag;
+    @JsonProperty("slug")
+    private String slug;
     
     
     
@@ -33054,8 +31279,32 @@ public static class CollectionDetailResponse {
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    
+    
+    @JsonProperty("badge")
+    private Object badge;
+    
+    
+    
+    
+    @JsonProperty("visible_facets_keys")
+    private List<String> visibleFacetsKeys;
+    
+    
+    
+    
+    @JsonProperty("allow_sort")
+    private Boolean allowSort;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private Media1 logo;
     
     
     
@@ -33072,12 +31321,6 @@ public static class CollectionDetailResponse {
     
     
     
-    @JsonProperty("app_id")
-    private String appId;
-    
-    
-    
-    
     @JsonProperty("description")
     private String description;
     
@@ -33090,32 +31333,8 @@ public static class CollectionDetailResponse {
     
     
     
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("visible_facets_keys")
-    private List<String> visibleFacetsKeys;
-    
-    
-    
-    
-    @JsonProperty("_schedule")
-    private Object schedule;
-    
-    
-    
-    
-    @JsonProperty("cron")
-    private Object cron;
-    
-    
-    
-    
-    @JsonProperty("query")
-    private List<CollectionQuery> query;
+    @JsonProperty("tag")
+    private List<String> tag;
     
     
     
@@ -33126,20 +31345,32 @@ public static class CollectionDetailResponse {
     
     
     
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("cron")
+    private Object cron;
+    
+    
+    
+    
+    @JsonProperty("_schedule")
+    private Object schedule;
+    
+    
+    
+    
+    @JsonProperty("query")
+    private List<CollectionQuery> query;
+    
+    
+    
+    
     @JsonProperty("name")
     private String name;
-    
-    
-    
-    
-    @JsonProperty("allow_sort")
-    private Boolean allowSort;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private Media1 logo;
     
     
     
@@ -33160,14 +31391,190 @@ public static class UpdateCollection {
     
     
     
+    @JsonProperty("modified_by")
+    private UserInfo modifiedBy;
+    
+    
+    
+    
     @JsonProperty("is_active")
     private Boolean isActive;
     
     
     
     
+    @JsonProperty("_schedule")
+    private Schedule schedule;
+    
+    
+    
+    
+    @JsonProperty("query")
+    private List<CollectionQuery> query;
+    
+    
+    
+    
+    @JsonProperty("banners")
+    private CollectionBanner banners;
+    
+    
+    
+    
+    @JsonProperty("published")
+    private Boolean published;
+    
+    
+    
+    
     @JsonProperty("visible_facets_keys")
     private List<String> visibleFacetsKeys;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("seo")
+    private SeoDetail seo;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("_locale_language")
+    private Object localeLanguage;
+    
+    
+    
+    
+    @JsonProperty("is_visible")
+    private Boolean isVisible;
+    
+    
+    
+    
+    @JsonProperty("sort_on")
+    private String sortOn;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("badge")
+    private CollectionBadge badge;
+    
+    
+    
+    
+    @JsonProperty("allow_sort")
+    private Boolean allowSort;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private CollectionImage logo;
+    
+    
+    
+    
+    @JsonProperty("allow_facets")
+    private Boolean allowFacets;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Integer priority;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: ItemQueryForUserCollection
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ItemQueryForUserCollection {
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("item_id")
+    private Integer itemId;
+    
+    
+    
+    
+}
+
+/*
+    Model: CollectionItemRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CollectionItemRequest {
+    
+    
+    
+    
+    @JsonProperty("item")
+    private List<ItemQueryForUserCollection> item;
     
     
     
@@ -33184,124 +31591,10 @@ public static class UpdateCollection {
     
     
     
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("published")
-    private Boolean published;
-    
-    
-    
-    
-    @JsonProperty("_schedule")
-    private Schedule schedule;
-    
-    
-    
-    
-    @JsonProperty("allow_sort")
-    private Boolean allowSort;
-    
-    
-    
-    
-    @JsonProperty("badge")
-    private CollectionBadge badge;
-    
-    
-    
-    
-    @JsonProperty("allow_facets")
-    private Boolean allowFacets;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("tags")
-    private List<String> tags;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private UserInfo modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("_locale_language")
-    private Object localeLanguage;
-    
-    
-    
-    
-    @JsonProperty("banners")
-    private CollectionBanner banners;
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private Integer priority;
-    
-    
-    
-    
-    @JsonProperty("sort_on")
-    private String sortOn;
-    
-    
-    
-    
-    @JsonProperty("seo")
-    private SeoDetail seo;
-    
-    
-    
-    
-    @JsonProperty("_custom_json")
-    private Object customJson;
-    
-    
-    
-    
-    @JsonProperty("is_visible")
-    private Boolean isVisible;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private CollectionImage logo;
-    
-    
-    
-    
 }
 
 /*
-    Model: Price1
+    Model: UpdatedResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33309,59 +31602,19 @@ public static class UpdateCollection {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Price1 {
+public static class UpdatedResponse {
     
     
     
     
-    @JsonProperty("min")
-    private Double min;
+    @JsonProperty("items_not_updated")
+    private List<Integer> itemsNotUpdated;
     
     
     
     
-    @JsonProperty("currency_symbol")
-    private String currencySymbol;
-    
-    
-    
-    
-    @JsonProperty("currency_code")
-    private String currencyCode;
-    
-    
-    
-    
-    @JsonProperty("max")
-    private Double max;
-    
-    
-    
-    
-}
-
-/*
-    Model: ProductListingPrice
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductListingPrice {
-    
-    
-    
-    
-    @JsonProperty("marked")
-    private Price1 marked;
-    
-    
-    
-    
-    @JsonProperty("effective")
-    private Price1 effective;
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -33431,6 +31684,74 @@ public static class ProductDetailGroupedAttribute {
 }
 
 /*
+    Model: Price1
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Price1 {
+    
+    
+    
+    
+    @JsonProperty("max")
+    private Double max;
+    
+    
+    
+    
+    @JsonProperty("currency_code")
+    private String currencyCode;
+    
+    
+    
+    
+    @JsonProperty("min")
+    private Double min;
+    
+    
+    
+    
+    @JsonProperty("currency_symbol")
+    private String currencySymbol;
+    
+    
+    
+    
+}
+
+/*
+    Model: ProductListingPrice
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductListingPrice {
+    
+    
+    
+    
+    @JsonProperty("effective")
+    private Price1 effective;
+    
+    
+    
+    
+    @JsonProperty("marked")
+    private Price1 marked;
+    
+    
+    
+    
+}
+
+/*
     Model: ProductBrand
 */
 @AllArgsConstructor
@@ -33450,12 +31771,6 @@ public static class ProductBrand {
     
     
     
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
     @JsonProperty("action")
     private Action action;
     
@@ -33464,6 +31779,12 @@ public static class ProductBrand {
     
     @JsonProperty("logo")
     private Media1 logo;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -33484,50 +31805,8 @@ public static class ProductListingDetail {
     
     
     
-    @JsonProperty("item_code")
-    private String itemCode;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("price")
-    private ProductListingPrice price;
-    
-    
-    
-    
-    @JsonProperty("sellable")
-    private Boolean sellable;
-    
-    
-    
-    
-    @JsonProperty("grouped_attributes")
-    private List<ProductDetailGroupedAttribute> groupedAttributes;
-    
-    
-    
-    
-    @JsonProperty("brand")
-    private ProductBrand brand;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("discount")
-    private String discount;
+    @JsonProperty("item_type")
+    private String itemType;
     
     
     
@@ -33538,8 +31817,8 @@ public static class ProductListingDetail {
     
     
     
-    @JsonProperty("item_type")
-    private String itemType;
+    @JsonProperty("highlights")
+    private List<String> highlights;
     
     
     
@@ -33550,68 +31829,8 @@ public static class ProductListingDetail {
     
     
     
-    @JsonProperty("highlights")
-    private List<String> highlights;
-    
-    
-    
-    
     @JsonProperty("short_description")
     private String shortDescription;
-    
-    
-    
-    
-    @JsonProperty("rating")
-    private Double rating;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("has_variant")
-    private Boolean hasVariant;
-    
-    
-    
-    
-    @JsonProperty("product_online_date")
-    private String productOnlineDate;
-    
-    
-    
-    
-    @JsonProperty("tryouts")
-    private List<String> tryouts;
-    
-    
-    
-    
-    @JsonProperty("color")
-    private String color;
-    
-    
-    
-    
-    @JsonProperty("promo_meta")
-    private Object promoMeta;
-    
-    
-    
-    
-    @JsonProperty("image_nature")
-    private String imageNature;
     
     
     
@@ -33622,8 +31841,32 @@ public static class ProductListingDetail {
     
     
     
-    @JsonProperty("medias")
-    private List<Media1> medias;
+    @JsonProperty("color")
+    private String color;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("grouped_attributes")
+    private List<ProductDetailGroupedAttribute> groupedAttributes;
+    
+    
+    
+    
+    @JsonProperty("price")
+    private ProductListingPrice price;
     
     
     
@@ -33634,8 +31877,86 @@ public static class ProductListingDetail {
     
     
     
+    @JsonProperty("promo_meta")
+    private Object promoMeta;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("image_nature")
+    private String imageNature;
+    
+    
+    
+    
+    @JsonProperty("brand")
+    private ProductBrand brand;
+    
+    
+    
+    
+    @JsonProperty("has_variant")
+    private Boolean hasVariant;
+    
+    
+    
+    
+    @JsonProperty("sellable")
+    private Boolean sellable;
+    
+    
+    
+    
+    @JsonProperty("item_code")
+    private String itemCode;
+    
+    
+    
+    
+    @JsonProperty("medias")
+    private List<Media1> medias;
+    
+    
+    
+    
+    @JsonProperty("product_online_date")
+    private String productOnlineDate;
+    
+    
+    
+    
+    @JsonProperty("discount")
+    private String discount;
+    
+    
+    
+    
     @JsonProperty("teaser_tag")
     private Object teaserTag;
+    
+    
+    
+    
+    @JsonProperty("rating")
+    private Double rating;
+    
+    
+    
+    
+    @JsonProperty("tryouts")
+    private List<String> tryouts;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -33656,20 +31977,14 @@ public static class GetCollectionItemsResponse {
     
     
     
-    @JsonProperty("sort_on")
-    private List<ProductSortOn> sortOn;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<ProductListingDetail> items;
     
     
     
     
-    @JsonProperty("page")
-    private Page page;
+    @JsonProperty("sort_on")
+    private List<ProductSortOn> sortOn;
     
     
     
@@ -33680,92 +31995,8 @@ public static class GetCollectionItemsResponse {
     
     
     
-}
-
-/*
-    Model: ItemQueryForUserCollection
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ItemQueryForUserCollection {
-    
-    
-    
-    
-    @JsonProperty("action")
-    private String action;
-    
-    
-    
-    
-    @JsonProperty("item_id")
-    private Integer itemId;
-    
-    
-    
-    
-}
-
-/*
-    Model: CollectionItemRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CollectionItemRequest {
-    
-    
-    
-    
-    @JsonProperty("query")
-    private List<CollectionQuery> query;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("item")
-    private List<ItemQueryForUserCollection> item;
-    
-    
-    
-    
-}
-
-/*
-    Model: UpdatedResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdatedResponse {
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("items_not_updated")
-    private List<Integer> itemsNotUpdated;
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -33786,12 +32017,6 @@ public static class CatalogInsightItem {
     
     
     
-    @JsonProperty("out_of_stock_count")
-    private Integer outOfStockCount;
-    
-    
-    
-    
     @JsonProperty("sellable_count")
     private Integer sellableCount;
     
@@ -33800,6 +32025,12 @@ public static class CatalogInsightItem {
     
     @JsonProperty("count")
     private Integer count;
+    
+    
+    
+    
+    @JsonProperty("out_of_stock_count")
+    private Integer outOfStockCount;
     
     
     
@@ -33820,14 +32051,8 @@ public static class CatalogInsightBrand {
     
     
     
-    @JsonProperty("available_sizes")
-    private Integer availableSizes;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("article_freshness")
+    private Integer articleFreshness;
     
     
     
@@ -33838,20 +32063,26 @@ public static class CatalogInsightBrand {
     
     
     
+    @JsonProperty("total_sizes")
+    private Integer totalSizes;
+    
+    
+    
+    
     @JsonProperty("total_articles")
     private Integer totalArticles;
     
     
     
     
-    @JsonProperty("article_freshness")
-    private Integer articleFreshness;
+    @JsonProperty("available_sizes")
+    private Integer availableSizes;
     
     
     
     
-    @JsonProperty("total_sizes")
-    private Integer totalSizes;
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -33900,14 +32131,14 @@ public static class CrossSellingData {
     
     
     
-    @JsonProperty("articles")
-    private Integer articles;
-    
-    
-    
-    
     @JsonProperty("products")
     private Integer products;
+    
+    
+    
+    
+    @JsonProperty("articles")
+    private Integer articles;
     
     
     
@@ -33968,26 +32199,26 @@ public static class OptInPostRequest {
     
     
     
-    @JsonProperty("platform")
-    private String platform;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
     @JsonProperty("store_ids")
     private List<Integer> storeIds;
     
     
     
     
+    @JsonProperty("platform")
+    private String platform;
+    
+    
+    
+    
     @JsonProperty("enabled")
     private Boolean enabled;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
     
     
     
@@ -34008,8 +32239,8 @@ public static class CompanyOptIn {
     
     
     
-    @JsonProperty("modified_by")
-    private Object modifiedBy;
+    @JsonProperty("modified_on")
+    private Integer modifiedOn;
     
     
     
@@ -34020,32 +32251,8 @@ public static class CompanyOptIn {
     
     
     
-    @JsonProperty("created_on")
-    private Integer createdOn;
-    
-    
-    
-    
     @JsonProperty("brand_ids")
     private List<Integer> brandIds;
-    
-    
-    
-    
-    @JsonProperty("platform")
-    private String platform;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private Object createdBy;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
     
     
     
@@ -34056,14 +32263,38 @@ public static class CompanyOptIn {
     
     
     
-    @JsonProperty("modified_on")
-    private Integer modifiedOn;
+    @JsonProperty("created_by")
+    private Object createdBy;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private Integer createdOn;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private Object modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("platform")
+    private String platform;
     
     
     
     
     @JsonProperty("enabled")
     private Boolean enabled;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
     
     
     
@@ -34084,14 +32315,14 @@ public static class GetOptInPlatform {
     
     
     
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<CompanyOptIn> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -34112,26 +32343,26 @@ public static class OptinCompanyDetail {
     
     
     
-    @JsonProperty("business_type")
-    private String businessType;
-    
-    
-    
-    
     @JsonProperty("uid")
     private Integer uid;
     
     
     
     
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
     @JsonProperty("company_type")
     private String companyType;
+    
+    
+    
+    
+    @JsonProperty("business_type")
+    private String businessType;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -34148,6 +32379,12 @@ public static class OptinCompanyDetail {
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompanyBrandDetail {
+    
+    
+    
+    
+    @JsonProperty("total_article")
+    private Integer totalArticle;
     
     
     
@@ -34170,12 +32407,6 @@ public static class CompanyBrandDetail {
     
     
     
-    @JsonProperty("total_article")
-    private Integer totalArticle;
-    
-    
-    
-    
 }
 
 /*
@@ -34192,14 +32423,14 @@ public static class OptinCompanyBrandDetailsView {
     
     
     
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<CompanyBrandDetail> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -34220,12 +32451,6 @@ public static class OptinCompanyMetrics {
     
     
     
-    @JsonProperty("brand")
-    private Integer brand;
-    
-    
-    
-    
     @JsonProperty("store")
     private Integer store;
     
@@ -34234,6 +32459,12 @@ public static class OptinCompanyMetrics {
     
     @JsonProperty("company")
     private String company;
+    
+    
+    
+    
+    @JsonProperty("brand")
+    private Integer brand;
     
     
     
@@ -34254,38 +32485,8 @@ public static class StoreDetail {
     
     
     
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("additional_contacts")
-    private List<Object> additionalContacts;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("timing")
-    private Object timing;
-    
-    
-    
-    
-    @JsonProperty("store_type")
-    private String storeType;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
@@ -34296,26 +32497,44 @@ public static class StoreDetail {
     
     
     
-    @JsonProperty("manager")
-    private Object manager;
+    @JsonProperty("documents")
+    private List<Object> documents;
     
     
     
     
-    @JsonProperty("company_id")
-    private Integer companyId;
+    @JsonProperty("created_on")
+    private String createdOn;
     
     
     
     
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("store_type")
+    private String storeType;
     
     
     
     
-    @JsonProperty("modified_on")
-    private String modifiedOn;
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("timing")
+    private Object timing;
+    
+    
+    
+    
+    @JsonProperty("additional_contacts")
+    private List<Object> additionalContacts;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
     
     
     
@@ -34326,8 +32545,20 @@ public static class StoreDetail {
     
     
     
-    @JsonProperty("documents")
-    private List<Object> documents;
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("manager")
+    private Object manager;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -34348,48 +32579,14 @@ public static class OptinStoreDetails {
     
     
     
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<StoreDetail> items;
     
     
     
     
-}
-
-/*
-    Model: AttributeMasterFilter
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AttributeMasterFilter {
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private Integer priority;
-    
-    
-    
-    
-    @JsonProperty("depends_on")
-    private List<String> dependsOn;
-    
-    
-    
-    
-    @JsonProperty("indexing")
-    private Boolean indexing;
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -34410,14 +32607,14 @@ public static class AttributeSchemaRange {
     
     
     
-    @JsonProperty("min")
-    private Integer min;
-    
-    
-    
-    
     @JsonProperty("max")
     private Integer max;
+    
+    
+    
+    
+    @JsonProperty("min")
+    private Integer min;
     
     
     
@@ -34438,8 +32635,20 @@ public static class AttributeMaster {
     
     
     
-    @JsonProperty("allowed_values")
-    private List<String> allowedValues;
+    @JsonProperty("range")
+    private AttributeSchemaRange range;
+    
+    
+    
+    
+    @JsonProperty("multi")
+    private Boolean multi;
+    
+    
+    
+    
+    @JsonProperty("mandatory")
+    private Boolean mandatory;
     
     
     
@@ -34456,20 +32665,30 @@ public static class AttributeMaster {
     
     
     
-    @JsonProperty("mandatory")
-    private Boolean mandatory;
+    @JsonProperty("allowed_values")
+    private List<String> allowedValues;
     
     
     
     
-    @JsonProperty("range")
-    private AttributeSchemaRange range;
+}
+
+/*
+    Model: AttributeMasterDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AttributeMasterDetails {
     
     
     
     
-    @JsonProperty("multi")
-    private Boolean multi;
+    @JsonProperty("display_type")
+    private String displayType;
     
     
     
@@ -34512,14 +32731,14 @@ public static class AttributeMasterMeta {
     
     
     
-    @JsonProperty("mandatory_details")
-    private AttributeMasterMandatoryDetails mandatoryDetails;
-    
-    
-    
-    
     @JsonProperty("enriched")
     private Boolean enriched;
+    
+    
+    
+    
+    @JsonProperty("mandatory_details")
+    private AttributeMasterMandatoryDetails mandatoryDetails;
     
     
     
@@ -34527,7 +32746,7 @@ public static class AttributeMasterMeta {
 }
 
 /*
-    Model: AttributeMasterDetails
+    Model: AttributeMasterFilter
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -34535,13 +32754,25 @@ public static class AttributeMasterMeta {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AttributeMasterDetails {
+public static class AttributeMasterFilter {
     
     
     
     
-    @JsonProperty("display_type")
-    private String displayType;
+    @JsonProperty("depends_on")
+    private List<String> dependsOn;
+    
+    
+    
+    
+    @JsonProperty("indexing")
+    private Boolean indexing;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Integer priority;
     
     
     
@@ -34562,26 +32793,26 @@ public static class GenderDetail {
     
     
     
+    @JsonProperty("schema")
+    private AttributeMaster schema;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
     @JsonProperty("departments")
     private List<String> departments;
     
     
     
     
-    @JsonProperty("is_nested")
-    private Boolean isNested;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("filters")
-    private AttributeMasterFilter filters;
+    @JsonProperty("enabled_for_end_consumer")
+    private Boolean enabledForEndConsumer;
     
     
     
@@ -34592,20 +32823,20 @@ public static class GenderDetail {
     
     
     
+    @JsonProperty("details")
+    private AttributeMasterDetails details;
+    
+    
+    
+    
     @JsonProperty("description")
     private String description;
     
     
     
     
-    @JsonProperty("schema")
-    private AttributeMaster schema;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
+    @JsonProperty("is_nested")
+    private Boolean isNested;
     
     
     
@@ -34622,14 +32853,14 @@ public static class GenderDetail {
     
     
     
-    @JsonProperty("enabled_for_end_consumer")
-    private Boolean enabledForEndConsumer;
+    @JsonProperty("filters")
+    private AttributeMasterFilter filters;
     
     
     
     
-    @JsonProperty("details")
-    private AttributeMasterDetails details;
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -34650,14 +32881,14 @@ public static class ProdcutTemplateCategoriesResponse {
     
     
     
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<Object> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -34684,14 +32915,20 @@ public static class PTErrorResponse {
     
     
     
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
     @JsonProperty("status")
     private Integer status;
     
     
     
     
-    @JsonProperty("code")
-    private String code;
+    @JsonProperty("errors")
+    private Object errors;
     
     
     
@@ -34702,8 +32939,134 @@ public static class PTErrorResponse {
     
     
     
-    @JsonProperty("errors")
-    private Object errors;
+}
+
+/*
+    Model: DepartmentCreateUpdate
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DepartmentCreateUpdate {
+    
+    
+    
+    
+    @JsonProperty("priority_order")
+    private Integer priorityOrder;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("_cls")
+    private String cls;
+    
+    
+    
+    
+    @JsonProperty("synonyms")
+    private List<String> synonyms;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("platforms")
+    private Object platforms;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: DepartmentCreateResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DepartmentCreateResponse {
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: DepartmentCreateErrorResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DepartmentCreateErrorResponse {
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
     
     
     
@@ -34724,8 +33087,8 @@ public static class UserSerializer {
     
     
     
-    @JsonProperty("username")
-    private String username;
+    @JsonProperty("contact")
+    private String contact;
     
     
     
@@ -34736,8 +33099,8 @@ public static class UserSerializer {
     
     
     
-    @JsonProperty("_id")
-    private String id;
+    @JsonProperty("username")
+    private String username;
     
     
     
@@ -34748,8 +33111,8 @@ public static class UserSerializer {
     
     
     
-    @JsonProperty("contact")
-    private String contact;
+    @JsonProperty("_id")
+    private String id;
     
     
     
@@ -34770,8 +33133,44 @@ public static class GetDepartment {
     
     
     
-    @JsonProperty("search")
-    private String search;
+    @JsonProperty("priority_order")
+    private Integer priorityOrder;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private UserSerializer createdBy;
+    
+    
+    
+    
+    @JsonProperty("page_no")
+    private Integer pageNo;
+    
+    
+    
+    
+    @JsonProperty("synonyms")
+    private List<String> synonyms;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
     
     
     
@@ -34788,32 +33187,20 @@ public static class GetDepartment {
     
     
     
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("search")
+    private String search;
+    
+    
+    
+    
     @JsonProperty("page_size")
     private Integer pageSize;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("synonyms")
-    private List<String> synonyms;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
     
     
     
@@ -34824,38 +33211,14 @@ public static class GetDepartment {
     
     
     
-    @JsonProperty("page_no")
-    private Integer pageNo;
-    
-    
-    
-    
-    @JsonProperty("priority_order")
-    private Integer priorityOrder;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private UserSerializer createdBy;
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
     
     @JsonProperty("name")
     private String name;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
     
     
     
@@ -34876,14 +33239,14 @@ public static class DepartmentsResponse {
     
     
     
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<GetDepartment> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -34910,14 +33273,20 @@ public static class DepartmentErrorResponse {
     
     
     
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
     @JsonProperty("status")
     private Integer status;
     
     
     
     
-    @JsonProperty("code")
-    private String code;
+    @JsonProperty("errors")
+    private Object errors;
     
     
     
@@ -34928,8 +33297,154 @@ public static class DepartmentErrorResponse {
     
     
     
-    @JsonProperty("errors")
-    private Object errors;
+}
+
+/*
+    Model: UserDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserDetail {
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("username")
+    private String username;
+    
+    
+    
+    
+    @JsonProperty("contact")
+    private String contact;
+    
+    
+    
+    
+    @JsonProperty("super_user")
+    private Boolean superUser;
+    
+    
+    
+    
+}
+
+/*
+    Model: DepartmentModel
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DepartmentModel {
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("verified_by")
+    private UserDetail verifiedBy;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private Object slug;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private UserDetail createdBy;
+    
+    
+    
+    
+    @JsonProperty("priority_order")
+    private Integer priorityOrder;
+    
+    
+    
+    
+    @JsonProperty("_cls")
+    private Object cls;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("synonyms")
+    private List<Object> synonyms;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private UserDetail modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private Object name;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("verified_on")
+    private String verifiedOn;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private Object id;
     
     
     
@@ -34950,62 +33465,8 @@ public static class ProductTemplate {
     
     
     
-    @JsonProperty("departments")
-    private List<String> departments;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private Object modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("is_expirable")
-    private Boolean isExpirable;
-    
-    
-    
-    
-    @JsonProperty("tag")
-    private String tag;
-    
-    
-    
-    
-    @JsonProperty("attributes")
-    private List<String> attributes;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("is_physical")
-    private Boolean isPhysical;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
+    @JsonProperty("categories")
+    private List<String> categories;
     
     
     
@@ -35016,8 +33477,14 @@ public static class ProductTemplate {
     
     
     
-    @JsonProperty("is_archived")
-    private Boolean isArchived;
+    @JsonProperty("departments")
+    private List<String> departments;
+    
+    
+    
+    
+    @JsonProperty("attributes")
+    private List<String> attributes;
     
     
     
@@ -35028,20 +33495,68 @@ public static class ProductTemplate {
     
     
     
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
     @JsonProperty("modified_on")
     private String modifiedOn;
     
     
     
     
-    @JsonProperty("categories")
-    private List<String> categories;
+    @JsonProperty("is_archived")
+    private Boolean isArchived;
+    
+    
+    
+    
+    @JsonProperty("is_expirable")
+    private Boolean isExpirable;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private Object modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("is_physical")
+    private Boolean isPhysical;
+    
+    
+    
+    
+    @JsonProperty("tag")
+    private String tag;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -35062,14 +33577,14 @@ public static class TemplatesResponse {
     
     
     
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
     @JsonProperty("items")
     private ProductTemplate items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -35090,32 +33605,8 @@ public static class Properties {
     
     
     
-    @JsonProperty("item_code")
-    private Object itemCode;
-    
-    
-    
-    
-    @JsonProperty("command")
-    private Object command;
-    
-    
-    
-    
-    @JsonProperty("multi_size")
-    private Object multiSize;
-    
-    
-    
-    
-    @JsonProperty("size_guide")
-    private Object sizeGuide;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Object isActive;
+    @JsonProperty("trader_type")
+    private Object traderType;
     
     
     
@@ -35126,32 +33617,8 @@ public static class Properties {
     
     
     
-    @JsonProperty("trader_type")
-    private Object traderType;
-    
-    
-    
-    
     @JsonProperty("product_publish")
     private Object productPublish;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private Object name;
-    
-    
-    
-    
-    @JsonProperty("media")
-    private Object media;
-    
-    
-    
-    
-    @JsonProperty("hsn_code")
-    private Object hsnCode;
     
     
     
@@ -35162,20 +33629,8 @@ public static class Properties {
     
     
     
-    @JsonProperty("brand_uid")
-    private Object brandUid;
-    
-    
-    
-    
-    @JsonProperty("category_slug")
-    private Object categorySlug;
-    
-    
-    
-    
-    @JsonProperty("country_of_origin")
-    private Object countryOfOrigin;
+    @JsonProperty("variants")
+    private Object variants;
     
     
     
@@ -35186,44 +33641,14 @@ public static class Properties {
     
     
     
-    @JsonProperty("short_description")
-    private Object shortDescription;
+    @JsonProperty("custom_order")
+    private Object customOrder;
     
     
     
     
-    @JsonProperty("no_of_boxes")
-    private Object noOfBoxes;
-    
-    
-    
-    
-    @JsonProperty("moq")
-    private Object moq;
-    
-    
-    
-    
-    @JsonProperty("trader")
-    private Object trader;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private Object description;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private Object slug;
-    
-    
-    
-    
-    @JsonProperty("tags")
-    private Object tags;
+    @JsonProperty("is_active")
+    private Object isActive;
     
     
     
@@ -35234,8 +33659,92 @@ public static class Properties {
     
     
     
+    @JsonProperty("short_description")
+    private Object shortDescription;
+    
+    
+    
+    
+    @JsonProperty("country_of_origin")
+    private Object countryOfOrigin;
+    
+    
+    
+    
+    @JsonProperty("size_guide")
+    private Object sizeGuide;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private Object description;
+    
+    
+    
+    
+    @JsonProperty("hsn_code")
+    private Object hsnCode;
+    
+    
+    
+    
+    @JsonProperty("multi_size")
+    private Object multiSize;
+    
+    
+    
+    
     @JsonProperty("product_group_tag")
     private Object productGroupTag;
+    
+    
+    
+    
+    @JsonProperty("no_of_boxes")
+    private Object noOfBoxes;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private Object slug;
+    
+    
+    
+    
+    @JsonProperty("trader")
+    private Object trader;
+    
+    
+    
+    
+    @JsonProperty("category_slug")
+    private Object categorySlug;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private Object tags;
+    
+    
+    
+    
+    @JsonProperty("command")
+    private Object command;
+    
+    
+    
+    
+    @JsonProperty("item_code")
+    private Object itemCode;
+    
+    
+    
+    
+    @JsonProperty("moq")
+    private Object moq;
     
     
     
@@ -35246,26 +33755,32 @@ public static class Properties {
     
     
     
-    @JsonProperty("variants")
-    private Object variants;
-    
-    
-    
-    
-    @JsonProperty("custom_order")
-    private Object customOrder;
-    
-    
-    
-    
     @JsonProperty("is_dependent")
     private Object isDependent;
     
     
     
     
+    @JsonProperty("media")
+    private Object media;
+    
+    
+    
+    
+    @JsonProperty("brand_uid")
+    private Object brandUid;
+    
+    
+    
+    
     @JsonProperty("teaser_tag")
     private Object teaserTag;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private Object name;
     
     
     
@@ -35286,14 +33801,20 @@ public static class GlobalValidation {
     
     
     
-    @JsonProperty("required")
-    private List<String> required;
+    @JsonProperty("title")
+    private String title;
     
     
     
     
     @JsonProperty("properties")
     private Properties properties;
+    
+    
+    
+    
+    @JsonProperty("definitions")
+    private Object definitions;
     
     
     
@@ -35310,14 +33831,8 @@ public static class GlobalValidation {
     
     
     
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("definitions")
-    private Object definitions;
+    @JsonProperty("required")
+    private List<String> required;
     
     
     
@@ -35366,50 +33881,8 @@ public static class TemplateDetails {
     
     
     
-    @JsonProperty("departments")
-    private List<String> departments;
-    
-    
-    
-    
-    @JsonProperty("is_expirable")
-    private Boolean isExpirable;
-    
-    
-    
-    
-    @JsonProperty("tag")
-    private String tag;
-    
-    
-    
-    
-    @JsonProperty("attributes")
-    private List<String> attributes;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("is_physical")
-    private Boolean isPhysical;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
+    @JsonProperty("categories")
+    private List<String> categories;
     
     
     
@@ -35420,14 +33893,50 @@ public static class TemplateDetails {
     
     
     
+    @JsonProperty("departments")
+    private List<String> departments;
+    
+    
+    
+    
+    @JsonProperty("attributes")
+    private List<String> attributes;
+    
+    
+    
+    
     @JsonProperty("is_archived")
     private Boolean isArchived;
     
     
     
     
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("is_expirable")
+    private Boolean isExpirable;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("is_physical")
+    private Boolean isPhysical;
+    
+    
+    
+    
+    @JsonProperty("tag")
+    private String tag;
     
     
     
@@ -35438,8 +33947,14 @@ public static class TemplateDetails {
     
     
     
-    @JsonProperty("categories")
-    private List<String> categories;
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -35516,14 +34031,14 @@ public static class HSNData {
     
     
     
-    @JsonProperty("country_of_origin")
-    private List<String> countryOfOrigin;
-    
-    
-    
-    
     @JsonProperty("hsn_code")
     private List<String> hsnCode;
+    
+    
+    
+    
+    @JsonProperty("country_of_origin")
+    private List<String> countryOfOrigin;
     
     
     
@@ -35559,40 +34074,6 @@ public static class HSNCodesResponse {
 }
 
 /*
-    Model: ProductDownloadItemsData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductDownloadItemsData {
-    
-    
-    
-    
-    @JsonProperty("brand")
-    private List<String> brand;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("templates")
-    private List<String> templates;
-    
-    
-    
-    
-}
-
-/*
     Model: VerifiedBy
 */
 @AllArgsConstructor
@@ -35606,14 +34087,48 @@ public static class VerifiedBy {
     
     
     
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
     @JsonProperty("username")
     private String username;
     
     
     
     
-    @JsonProperty("user_id")
-    private String userId;
+}
+
+/*
+    Model: ProductDownloadItemsData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductDownloadItemsData {
+    
+    
+    
+    
+    @JsonProperty("templates")
+    private List<String> templates;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("brand")
+    private List<String> brand;
     
     
     
@@ -35634,14 +34149,8 @@ public static class ProductDownloadsItems {
     
     
     
-    @JsonProperty("url")
-    private String url;
-    
-    
-    
-    
-    @JsonProperty("task_id")
-    private String taskId;
+    @JsonProperty("created_by")
+    private VerifiedBy createdBy;
     
     
     
@@ -35658,20 +34167,14 @@ public static class ProductDownloadsItems {
     
     
     
-    @JsonProperty("template_tags")
-    private Object templateTags;
-    
-    
-    
-    
     @JsonProperty("trigger_on")
     private String triggerOn;
     
     
     
     
-    @JsonProperty("completed_on")
-    private String completedOn;
+    @JsonProperty("task_id")
+    private String taskId;
     
     
     
@@ -35682,14 +34185,26 @@ public static class ProductDownloadsItems {
     
     
     
+    @JsonProperty("template_tags")
+    private Object templateTags;
+    
+    
+    
+    
     @JsonProperty("data")
     private ProductDownloadItemsData data;
     
     
     
     
-    @JsonProperty("created_by")
-    private VerifiedBy createdBy;
+    @JsonProperty("completed_on")
+    private String completedOn;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
     
     
     
@@ -35710,14 +34225,14 @@ public static class ProductDownloadsResponse {
     
     
     
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
     @JsonProperty("items")
     private ProductDownloadsItems items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -35746,40 +34261,6 @@ public static class ProductConfigurationDownloads {
     
     @JsonProperty("data")
     private List<Object> data;
-    
-    
-    
-    
-}
-
-/*
-    Model: Media2
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Media2 {
-    
-    
-    
-    
-    @JsonProperty("landscape")
-    private String landscape;
-    
-    
-    
-    
-    @JsonProperty("portrait")
-    private String portrait;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
     
     
     
@@ -35862,8 +34343,8 @@ public static class Hierarchy {
     
     
     
-    @JsonProperty("department")
-    private Integer department;
+    @JsonProperty("l2")
+    private Integer l2;
     
     
     
@@ -35874,8 +34355,8 @@ public static class Hierarchy {
     
     
     
-    @JsonProperty("l2")
-    private Integer l2;
+    @JsonProperty("department")
+    private Integer department;
     
     
     
@@ -35883,7 +34364,7 @@ public static class Hierarchy {
 }
 
 /*
-    Model: Category
+    Model: Media2
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -35891,137 +34372,25 @@ public static class Hierarchy {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Category {
+public static class Media2 {
     
     
     
     
-    @JsonProperty("departments")
-    private List<Integer> departments;
+    @JsonProperty("landscape")
+    private String landscape;
     
     
     
     
-    @JsonProperty("media")
-    private Media2 media;
+    @JsonProperty("portrait")
+    private String portrait;
     
     
     
     
-    @JsonProperty("tryouts")
-    private List<String> tryouts;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private Object modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private Integer priority;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("synonyms")
-    private List<String> synonyms;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private Object createdBy;
-    
-    
-    
-    
-    @JsonProperty("level")
-    private Integer level;
-    
-    
-    
-    
-    @JsonProperty("marketplaces")
-    private CategoryMapping marketplaces;
-    
-    
-    
-    
-    @JsonProperty("hierarchy")
-    private List<Hierarchy> hierarchy;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-}
-
-/*
-    Model: CategoryResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CategoryResponse {
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<Category> items;
+    @JsonProperty("logo")
+    private String logo;
     
     
     
@@ -36048,44 +34417,8 @@ public static class CategoryRequestBody {
     
     
     
-    @JsonProperty("media")
-    private Media2 media;
-    
-    
-    
-    
-    @JsonProperty("tryouts")
-    private List<String> tryouts;
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private Integer priority;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("synonyms")
-    private List<String> synonyms;
-    
-    
-    
-    
     @JsonProperty("slug")
     private String slug;
-    
-    
-    
-    
-    @JsonProperty("level")
-    private Integer level;
     
     
     
@@ -36096,8 +34429,44 @@ public static class CategoryRequestBody {
     
     
     
+    @JsonProperty("synonyms")
+    private List<String> synonyms;
+    
+    
+    
+    
     @JsonProperty("hierarchy")
     private List<Hierarchy> hierarchy;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Integer priority;
+    
+    
+    
+    
+    @JsonProperty("tryouts")
+    private List<String> tryouts;
+    
+    
+    
+    
+    @JsonProperty("media")
+    private Media2 media;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("level")
+    private Integer level;
     
     
     
@@ -36132,6 +34501,152 @@ public static class CategoryCreateResponse {
     
     @JsonProperty("message")
     private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: Category
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Category {
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("departments")
+    private List<Integer> departments;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private Object createdBy;
+    
+    
+    
+    
+    @JsonProperty("media")
+    private Media2 media;
+    
+    
+    
+    
+    @JsonProperty("marketplaces")
+    private CategoryMapping marketplaces;
+    
+    
+    
+    
+    @JsonProperty("synonyms")
+    private List<String> synonyms;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("hierarchy")
+    private List<Hierarchy> hierarchy;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private Object modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Integer priority;
+    
+    
+    
+    
+    @JsonProperty("tryouts")
+    private List<String> tryouts;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("level")
+    private Integer level;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: CategoryResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CategoryResponse {
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<Category> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -36189,420 +34704,6 @@ public static class SingleCategoryResponse {
 }
 
 /*
-    Model: Image
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Image {
-    
-    
-    
-    
-    @JsonProperty("url")
-    private String url;
-    
-    
-    
-    
-    @JsonProperty("secure_url")
-    private String secureUrl;
-    
-    
-    
-    
-    @JsonProperty("aspect_ratio_f")
-    private Double aspectRatioF;
-    
-    
-    
-    
-    @JsonProperty("aspect_ratio")
-    private String aspectRatio;
-    
-    
-    
-    
-}
-
-/*
-    Model: ProductPublished
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductPublished {
-    
-    
-    
-    
-    @JsonProperty("is_set")
-    private Boolean isSet;
-    
-    
-    
-    
-    @JsonProperty("product_online_date")
-    private Integer productOnlineDate;
-    
-    
-    
-    
-}
-
-/*
-    Model: Logo
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Logo {
-    
-    
-    
-    
-    @JsonProperty("url")
-    private String url;
-    
-    
-    
-    
-    @JsonProperty("secure_url")
-    private String secureUrl;
-    
-    
-    
-    
-    @JsonProperty("aspect_ratio_f")
-    private Integer aspectRatioF;
-    
-    
-    
-    
-    @JsonProperty("aspect_ratio")
-    private String aspectRatio;
-    
-    
-    
-    
-}
-
-/*
-    Model: Brand
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Brand {
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private Logo logo;
-    
-    
-    
-    
-}
-
-/*
-    Model: Product
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Product {
-    
-    
-    
-    
-    @JsonProperty("departments")
-    private List<Integer> departments;
-    
-    
-    
-    
-    @JsonProperty("images")
-    private List<Image> images;
-    
-    
-    
-    
-    @JsonProperty("primary_color")
-    private String primaryColor;
-    
-    
-    
-    
-    @JsonProperty("item_code")
-    private String itemCode;
-    
-    
-    
-    
-    @JsonProperty("size_guide")
-    private String sizeGuide;
-    
-    
-    
-    
-    @JsonProperty("multi_size")
-    private Boolean multiSize;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private String currency;
-    
-    
-    
-    
-    @JsonProperty("product_publish")
-    private ProductPublished productPublish;
-    
-    
-    
-    
-    @JsonProperty("brand")
-    private Brand brand;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("media")
-    private List<Media1> media;
-    
-    
-    
-    
-    @JsonProperty("is_expirable")
-    private Boolean isExpirable;
-    
-    
-    
-    
-    @JsonProperty("item_type")
-    private String itemType;
-    
-    
-    
-    
-    @JsonProperty("category_uid")
-    private Integer categoryUid;
-    
-    
-    
-    
-    @JsonProperty("hsn_code")
-    private String hsnCode;
-    
-    
-    
-    
-    @JsonProperty("brand_uid")
-    private Integer brandUid;
-    
-    
-    
-    
-    @JsonProperty("l3_mapping")
-    private List<String> l3Mapping;
-    
-    
-    
-    
-    @JsonProperty("all_sizes")
-    private List<Object> allSizes;
-    
-    
-    
-    
-    @JsonProperty("category_slug")
-    private String categorySlug;
-    
-    
-    
-    
-    @JsonProperty("is_physical")
-    private Boolean isPhysical;
-    
-    
-    
-    
-    @JsonProperty("country_of_origin")
-    private String countryOfOrigin;
-    
-    
-    
-    
-    @JsonProperty("is_set")
-    private Boolean isSet;
-    
-    
-    
-    
-    @JsonProperty("highlights")
-    private List<String> highlights;
-    
-    
-    
-    
-    @JsonProperty("short_description")
-    private String shortDescription;
-    
-    
-    
-    
-    @JsonProperty("moq")
-    private Object moq;
-    
-    
-    
-    
-    @JsonProperty("template_tag")
-    private String templateTag;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("sizes")
-    private List<Object> sizes;
-    
-    
-    
-    
-    @JsonProperty("color")
-    private String color;
-    
-    
-    
-    
-    @JsonProperty("variants")
-    private Object variants;
-    
-    
-    
-    
-    @JsonProperty("image_nature")
-    private String imageNature;
-    
-    
-    
-    
-    @JsonProperty("custom_order")
-    private Object customOrder;
-    
-    
-    
-    
-    @JsonProperty("is_dependent")
-    private Boolean isDependent;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("_custom_json")
-    private Object customJson;
-    
-    
-    
-    
-}
-
-/*
-    Model: ProductListingResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductListingResponse {
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<Product> items;
-    
-    
-    
-    
-}
-
-/*
     Model: ProductPublish
 */
 @AllArgsConstructor
@@ -36631,6 +34732,40 @@ public static class ProductPublish {
 }
 
 /*
+    Model: CustomOrder
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CustomOrder {
+    
+    
+    
+    
+    @JsonProperty("is_custom_order")
+    private Boolean isCustomOrder;
+    
+    
+    
+    
+    @JsonProperty("manufacturing_time")
+    private Integer manufacturingTime;
+    
+    
+    
+    
+    @JsonProperty("manufacturing_time_unit")
+    private String manufacturingTimeUnit;
+    
+    
+    
+    
+}
+
+/*
     Model: TaxIdentifier
 */
 @AllArgsConstructor
@@ -36650,48 +34785,14 @@ public static class TaxIdentifier {
     
     
     
-    @JsonProperty("reporting_hsn")
-    private String reportingHsn;
-    
-    
-    
-    
     @JsonProperty("hsn_code")
     private String hsnCode;
     
     
     
     
-}
-
-/*
-    Model: OrderQuantity
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderQuantity {
-    
-    
-    
-    
-    @JsonProperty("maximum")
-    private Integer maximum;
-    
-    
-    
-    
-    @JsonProperty("minimum")
-    private Integer minimum;
-    
-    
-    
-    
-    @JsonProperty("is_set")
-    private Boolean isSet;
+    @JsonProperty("reporting_hsn")
+    private String reportingHsn;
     
     
     
@@ -36712,6 +34813,12 @@ public static class Trader {
     
     
     
+    @JsonProperty("address")
+    private List<String> address;
+    
+    
+    
+    
     @JsonProperty("type")
     private String type;
     
@@ -36724,8 +34831,36 @@ public static class Trader {
     
     
     
-    @JsonProperty("address")
-    private List<String> address;
+}
+
+/*
+    Model: OrderQuantity
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderQuantity {
+    
+    
+    
+    
+    @JsonProperty("is_set")
+    private Boolean isSet;
+    
+    
+    
+    
+    @JsonProperty("maximum")
+    private Integer maximum;
+    
+    
+    
+    
+    @JsonProperty("minimum")
+    private Integer minimum;
     
     
     
@@ -36746,12 +34881,6 @@ public static class ReturnConfig {
     
     
     
-    @JsonProperty("unit")
-    private String unit;
-    
-    
-    
-    
     @JsonProperty("time")
     private Integer time;
     
@@ -36764,36 +34893,8 @@ public static class ReturnConfig {
     
     
     
-}
-
-/*
-    Model: CustomOrder
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CustomOrder {
-    
-    
-    
-    
-    @JsonProperty("manufacturing_time_unit")
-    private String manufacturingTimeUnit;
-    
-    
-    
-    
-    @JsonProperty("is_custom_order")
-    private Boolean isCustomOrder;
-    
-    
-    
-    
-    @JsonProperty("manufacturing_time")
-    private Integer manufacturingTime;
+    @JsonProperty("unit")
+    private String unit;
     
     
     
@@ -36842,32 +34943,14 @@ public static class ProductCreateUpdate {
     
     
     
+    @JsonProperty("template_tag")
+    private String templateTag;
+    
+    
+    
+    
     @JsonProperty("departments")
     private List<Integer> departments;
-    
-    
-    
-    
-    @JsonProperty("item_code")
-    private String itemCode;
-    
-    
-    
-    
-    @JsonProperty("size_guide")
-    private String sizeGuide;
-    
-    
-    
-    
-    @JsonProperty("multi_size")
-    private Boolean multiSize;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
     
     
     
@@ -36884,74 +34967,14 @@ public static class ProductCreateUpdate {
     
     
     
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("media")
-    private List<Media1> media;
-    
-    
-    
-    
-    @JsonProperty("bulk_job_id")
-    private String bulkJobId;
-    
-    
-    
-    
-    @JsonProperty("is_image_less_product")
-    private Boolean isImageLessProduct;
-    
-    
-    
-    
-    @JsonProperty("change_request_id")
-    private Object changeRequestId;
-    
-    
-    
-    
-    @JsonProperty("requester")
-    private String requester;
-    
-    
-    
-    
     @JsonProperty("item_type")
     private String itemType;
     
     
     
     
-    @JsonProperty("brand_uid")
-    private Integer brandUid;
-    
-    
-    
-    
-    @JsonProperty("category_slug")
-    private String categorySlug;
-    
-    
-    
-    
-    @JsonProperty("country_of_origin")
-    private String countryOfOrigin;
-    
-    
-    
-    
-    @JsonProperty("is_set")
-    private Boolean isSet;
+    @JsonProperty("variants")
+    private Object variants;
     
     
     
@@ -36962,8 +34985,26 @@ public static class ProductCreateUpdate {
     
     
     
-    @JsonProperty("tax_identifier")
-    private TaxIdentifier taxIdentifier;
+    @JsonProperty("is_image_less_product")
+    private Boolean isImageLessProduct;
+    
+    
+    
+    
+    @JsonProperty("custom_order")
+    private CustomOrder customOrder;
+    
+    
+    
+    
+    @JsonProperty("is_set")
+    private Boolean isSet;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
@@ -36974,26 +35015,20 @@ public static class ProductCreateUpdate {
     
     
     
-    @JsonProperty("no_of_boxes")
-    private Integer noOfBoxes;
+    @JsonProperty("country_of_origin")
+    private String countryOfOrigin;
     
     
     
     
-    @JsonProperty("moq")
-    private OrderQuantity moq;
+    @JsonProperty("tax_identifier")
+    private TaxIdentifier taxIdentifier;
     
     
     
     
-    @JsonProperty("trader")
-    private List<Trader> trader;
-    
-    
-    
-    
-    @JsonProperty("template_tag")
-    private String templateTag;
+    @JsonProperty("size_guide")
+    private String sizeGuide;
     
     
     
@@ -37010,14 +35045,14 @@ public static class ProductCreateUpdate {
     
     
     
-    @JsonProperty("slug")
-    private String slug;
+    @JsonProperty("uid")
+    private Integer uid;
     
     
     
     
-    @JsonProperty("tags")
-    private List<String> tags;
+    @JsonProperty("multi_size")
+    private Boolean multiSize;
     
     
     
@@ -37028,32 +35063,74 @@ public static class ProductCreateUpdate {
     
     
     
+    @JsonProperty("no_of_boxes")
+    private Integer noOfBoxes;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("trader")
+    private List<Trader> trader;
+    
+    
+    
+    
+    @JsonProperty("category_slug")
+    private String categorySlug;
+    
+    
+    
+    
+    @JsonProperty("requester")
+    private String requester;
+    
+    
+    
+    
+    @JsonProperty("change_request_id")
+    private Object changeRequestId;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("bulk_job_id")
+    private String bulkJobId;
+    
+    
+    
+    
+    @JsonProperty("item_code")
+    private String itemCode;
+    
+    
+    
+    
+    @JsonProperty("moq")
+    private OrderQuantity moq;
+    
+    
+    
+    
     @JsonProperty("return_config")
     private ReturnConfig returnConfig;
-    
-    
-    
-    
-    @JsonProperty("variants")
-    private Object variants;
-    
-    
-    
-    
-    @JsonProperty("custom_order")
-    private CustomOrder customOrder;
-    
-    
-    
-    
-    @JsonProperty("is_dependent")
-    private Boolean isDependent;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
     
     
     
@@ -37064,8 +35141,446 @@ public static class ProductCreateUpdate {
     
     
     
+    @JsonProperty("is_dependent")
+    private Boolean isDependent;
+    
+    
+    
+    
+    @JsonProperty("media")
+    private List<Media1> media;
+    
+    
+    
+    
+    @JsonProperty("brand_uid")
+    private Integer brandUid;
+    
+    
+    
+    
     @JsonProperty("teaser_tag")
     private TeaserTag teaserTag;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: ProductPublished
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductPublished {
+    
+    
+    
+    
+    @JsonProperty("is_set")
+    private Boolean isSet;
+    
+    
+    
+    
+    @JsonProperty("product_online_date")
+    private Integer productOnlineDate;
+    
+    
+    
+    
+}
+
+/*
+    Model: Logo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Logo {
+    
+    
+    
+    
+    @JsonProperty("aspect_ratio_f")
+    private Integer aspectRatioF;
+    
+    
+    
+    
+    @JsonProperty("secure_url")
+    private String secureUrl;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("aspect_ratio")
+    private String aspectRatio;
+    
+    
+    
+    
+}
+
+/*
+    Model: Brand
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Brand {
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private Logo logo;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: Image
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Image {
+    
+    
+    
+    
+    @JsonProperty("aspect_ratio_f")
+    private Double aspectRatioF;
+    
+    
+    
+    
+    @JsonProperty("secure_url")
+    private String secureUrl;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("aspect_ratio")
+    private String aspectRatio;
+    
+    
+    
+    
+}
+
+/*
+    Model: Product
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Product {
+    
+    
+    
+    
+    @JsonProperty("template_tag")
+    private String templateTag;
+    
+    
+    
+    
+    @JsonProperty("departments")
+    private List<Integer> departments;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+    
+    @JsonProperty("product_publish")
+    private ProductPublished productPublish;
+    
+    
+    
+    
+    @JsonProperty("item_type")
+    private String itemType;
+    
+    
+    
+    
+    @JsonProperty("variants")
+    private Object variants;
+    
+    
+    
+    
+    @JsonProperty("highlights")
+    private List<String> highlights;
+    
+    
+    
+    
+    @JsonProperty("custom_order")
+    private Object customOrder;
+    
+    
+    
+    
+    @JsonProperty("is_set")
+    private Boolean isSet;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("sizes")
+    private List<Object> sizes;
+    
+    
+    
+    
+    @JsonProperty("short_description")
+    private String shortDescription;
+    
+    
+    
+    
+    @JsonProperty("country_of_origin")
+    private String countryOfOrigin;
+    
+    
+    
+    
+    @JsonProperty("l3_mapping")
+    private List<String> l3Mapping;
+    
+    
+    
+    
+    @JsonProperty("all_sizes")
+    private List<Object> allSizes;
+    
+    
+    
+    
+    @JsonProperty("is_expirable")
+    private Boolean isExpirable;
+    
+    
+    
+    
+    @JsonProperty("color")
+    private String color;
+    
+    
+    
+    
+    @JsonProperty("size_guide")
+    private String sizeGuide;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("is_physical")
+    private Boolean isPhysical;
+    
+    
+    
+    
+    @JsonProperty("hsn_code")
+    private String hsnCode;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("category_uid")
+    private Integer categoryUid;
+    
+    
+    
+    
+    @JsonProperty("multi_size")
+    private Boolean multiSize;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("category_slug")
+    private String categorySlug;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("image_nature")
+    private String imageNature;
+    
+    
+    
+    
+    @JsonProperty("brand")
+    private Brand brand;
+    
+    
+    
+    
+    @JsonProperty("item_code")
+    private String itemCode;
+    
+    
+    
+    
+    @JsonProperty("moq")
+    private Object moq;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("is_dependent")
+    private Boolean isDependent;
+    
+    
+    
+    
+    @JsonProperty("primary_color")
+    private String primaryColor;
+    
+    
+    
+    
+    @JsonProperty("media")
+    private List<Media1> media;
+    
+    
+    
+    
+    @JsonProperty("brand_uid")
+    private Integer brandUid;
+    
+    
+    
+    
+    @JsonProperty("images")
+    private List<Image> images;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: ProductListingResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductListingResponse {
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<Product> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -37086,26 +35601,50 @@ public static class AttributeMasterSerializer {
     
     
     
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
     @JsonProperty("departments")
     private List<String> departments;
     
     
     
     
-    @JsonProperty("is_nested")
-    private Boolean isNested;
+    @JsonProperty("modified_by")
+    private Object modifiedBy;
     
     
     
     
-    @JsonProperty("created_on")
-    private String createdOn;
+    @JsonProperty("details")
+    private AttributeMasterDetails details;
     
     
     
     
-    @JsonProperty("suggestion")
-    private String suggestion;
+    @JsonProperty("unit")
+    private String unit;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("schema")
+    private AttributeMaster schema;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
     
     
     
@@ -37116,14 +35655,8 @@ public static class AttributeMasterSerializer {
     
     
     
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("schema")
-    private AttributeMaster schema;
+    @JsonProperty("synonyms")
+    private Object synonyms;
     
     
     
@@ -37140,50 +35673,26 @@ public static class AttributeMasterSerializer {
     
     
     
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("tags")
-    private List<String> tags;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private Object modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
     @JsonProperty("enabled_for_end_consumer")
     private Boolean enabledForEndConsumer;
     
     
     
     
-    @JsonProperty("details")
-    private AttributeMasterDetails details;
+    @JsonProperty("created_on")
+    private String createdOn;
     
     
     
     
-    @JsonProperty("synonyms")
-    private Object synonyms;
+    @JsonProperty("suggestion")
+    private String suggestion;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
     
     
     
@@ -37194,14 +35703,20 @@ public static class AttributeMasterSerializer {
     
     
     
-    @JsonProperty("unit")
-    private String unit;
+    @JsonProperty("tags")
+    private List<String> tags;
     
     
     
     
-    @JsonProperty("logo")
-    private String logo;
+    @JsonProperty("is_nested")
+    private Boolean isNested;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -37253,180 +35768,6 @@ public static class ValidateProduct {
 }
 
 /*
-    Model: UserDetail
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserDetail {
-    
-    
-    
-    
-    @JsonProperty("username")
-    private String username;
-    
-    
-    
-    
-    @JsonProperty("full_name")
-    private String fullName;
-    
-    
-    
-    
-    @JsonProperty("user_id")
-    private String userId;
-    
-    
-    
-    
-}
-
-/*
-    Model: ProductBulkRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductBulkRequest {
-    
-    
-    
-    
-    @JsonProperty("total")
-    private Integer total;
-    
-    
-    
-    
-    @JsonProperty("failed")
-    private Integer failed;
-    
-    
-    
-    
-    @JsonProperty("template")
-    private ProductTemplate template;
-    
-    
-    
-    
-    @JsonProperty("failed_records")
-    private List<String> failedRecords;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("succeed")
-    private Integer succeed;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("cancelled_records")
-    private List<String> cancelledRecords;
-    
-    
-    
-    
-    @JsonProperty("template_tag")
-    private String templateTag;
-    
-    
-    
-    
-    @JsonProperty("file_path")
-    private String filePath;
-    
-    
-    
-    
-    @JsonProperty("cancelled")
-    private Integer cancelled;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private UserDetail createdBy;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private UserDetail modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-}
-
-/*
-    Model: ProductBulkRequestList
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductBulkRequestList {
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
-    @JsonProperty("items")
-    private ProductBulkRequest items;
-    
-    
-    
-    
-}
-
-/*
     Model: UserInfo1
 */
 @AllArgsConstructor
@@ -37440,8 +35781,8 @@ public static class UserInfo1 {
     
     
     
-    @JsonProperty("username")
-    private String username;
+    @JsonProperty("uid")
+    private String uid;
     
     
     
@@ -37452,14 +35793,14 @@ public static class UserInfo1 {
     
     
     
-    @JsonProperty("uid")
-    private String uid;
-    
-    
-    
-    
     @JsonProperty("user_id")
     private String userId;
+    
+    
+    
+    
+    @JsonProperty("username")
+    private String username;
     
     
     
@@ -37480,20 +35821,44 @@ public static class BulkJob {
     
     
     
-    @JsonProperty("total")
-    private Integer total;
-    
-    
-    
-    
-    @JsonProperty("failed")
-    private Integer failed;
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
     
     @JsonProperty("succeed")
     private Integer succeed;
+    
+    
+    
+    
+    @JsonProperty("cancelled_records")
+    private List<Object> cancelledRecords;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private UserInfo1 createdBy;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
+    
+    @JsonProperty("file_path")
+    private String filePath;
+    
+    
+    
+    
+    @JsonProperty("template_tag")
+    private String templateTag;
     
     
     
@@ -37510,62 +35875,8 @@ public static class BulkJob {
     
     
     
-    @JsonProperty("custom_template_tag")
-    private String customTemplateTag;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("cancelled_records")
-    private List<Object> cancelledRecords;
-    
-    
-    
-    
-    @JsonProperty("file_path")
-    private String filePath;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("template_tag")
-    private String templateTag;
-    
-    
-    
-    
-    @JsonProperty("tracking_url")
-    private String trackingUrl;
-    
-    
-    
-    
-    @JsonProperty("cancelled")
-    private Integer cancelled;
-    
-    
-    
-    
     @JsonProperty("stage")
     private String stage;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private UserInfo1 createdBy;
     
     
     
@@ -37576,8 +35887,38 @@ public static class BulkJob {
     
     
     
-    @JsonProperty("modified_on")
-    private String modifiedOn;
+    @JsonProperty("custom_template_tag")
+    private String customTemplateTag;
+    
+    
+    
+    
+    @JsonProperty("tracking_url")
+    private String trackingUrl;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("cancelled")
+    private Integer cancelled;
+    
+    
+    
+    
+    @JsonProperty("failed")
+    private Integer failed;
     
     
     
@@ -37598,20 +35939,8 @@ public static class BulkResponse {
     
     
     
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("batch_id")
-    private String batchId;
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
@@ -37622,14 +35951,200 @@ public static class BulkResponse {
     
     
     
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
     @JsonProperty("modified_by")
     private UserInfo1 modifiedBy;
     
     
     
     
+    @JsonProperty("batch_id")
+    private String batchId;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+}
+
+/*
+    Model: UserDetail1
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserDetail1 {
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("full_name")
+    private String fullName;
+    
+    
+    
+    
+    @JsonProperty("username")
+    private String username;
+    
+    
+    
+    
+}
+
+/*
+    Model: ProductBulkRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductBulkRequest {
+    
+    
+    
+    
     @JsonProperty("modified_on")
     private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("template_tag")
+    private String templateTag;
+    
+    
+    
+    
+    @JsonProperty("cancelled_records")
+    private List<String> cancelledRecords;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private UserDetail1 createdBy;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
+    
+    @JsonProperty("file_path")
+    private String filePath;
+    
+    
+    
+    
+    @JsonProperty("succeed")
+    private Integer succeed;
+    
+    
+    
+    
+    @JsonProperty("template")
+    private ProductTemplate template;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("failed_records")
+    private List<String> failedRecords;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private UserDetail1 modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("cancelled")
+    private Integer cancelled;
+    
+    
+    
+    
+    @JsonProperty("failed")
+    private Integer failed;
+    
+    
+    
+    
+}
+
+/*
+    Model: ProductBulkRequestList
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductBulkRequestList {
+    
+    
+    
+    
+    @JsonProperty("items")
+    private ProductBulkRequest items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -37650,8 +36165,8 @@ public static class BulkProductRequest {
     
     
     
-    @JsonProperty("data")
-    private List<Object> data;
+    @JsonProperty("template_tag")
+    private String templateTag;
     
     
     
@@ -37668,8 +36183,8 @@ public static class BulkProductRequest {
     
     
     
-    @JsonProperty("template_tag")
-    private String templateTag;
+    @JsonProperty("data")
+    private List<Object> data;
     
     
     
@@ -37721,6 +36236,40 @@ public static class ProductTagsViewResponse {
 }
 
 /*
+    Model: ProductBulkAssets
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductBulkAssets {
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("user")
+    private Object user;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+}
+
+/*
     Model: UserCommon
 */
 @AllArgsConstructor
@@ -37734,8 +36283,8 @@ public static class UserCommon {
     
     
     
-    @JsonProperty("username")
-    private String username;
+    @JsonProperty("user_id")
+    private String userId;
     
     
     
@@ -37746,8 +36295,8 @@ public static class UserCommon {
     
     
     
-    @JsonProperty("user_id")
-    private String userId;
+    @JsonProperty("username")
+    private String username;
     
     
     
@@ -37768,20 +36317,38 @@ public static class Items {
     
     
     
-    @JsonProperty("total")
-    private Integer total;
-    
-    
-    
-    
-    @JsonProperty("failed")
-    private Integer failed;
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
     
     @JsonProperty("succeed")
     private Integer succeed;
+    
+    
+    
+    
+    @JsonProperty("cancelled_records")
+    private List<String> cancelledRecords;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private UserCommon createdBy;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
+    
+    @JsonProperty("file_path")
+    private String filePath;
     
     
     
@@ -37798,62 +36365,8 @@ public static class Items {
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("cancelled_records")
-    private List<String> cancelledRecords;
-    
-    
-    
-    
-    @JsonProperty("file_path")
-    private String filePath;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("tracking_url")
-    private String trackingUrl;
-    
-    
-    
-    
-    @JsonProperty("cancelled")
-    private Integer cancelled;
-    
-    
-    
-    
     @JsonProperty("stage")
     private String stage;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("retry")
-    private Integer retry;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private UserCommon createdBy;
     
     
     
@@ -37864,8 +36377,44 @@ public static class Items {
     
     
     
-    @JsonProperty("modified_on")
-    private String modifiedOn;
+    @JsonProperty("tracking_url")
+    private String trackingUrl;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("retry")
+    private Integer retry;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("cancelled")
+    private Integer cancelled;
+    
+    
+    
+    
+    @JsonProperty("failed")
+    private Integer failed;
     
     
     
@@ -37886,48 +36435,14 @@ public static class BulkAssetResponse {
     
     
     
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<Items> items;
     
     
     
     
-}
-
-/*
-    Model: ProductBulkAssets
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductBulkAssets {
-    
-    
-    
-    
-    @JsonProperty("url")
-    private String url;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("user")
-    private Object user;
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -37948,14 +36463,14 @@ public static class ProductSizeDeleteDataResponse {
     
     
     
-    @JsonProperty("size")
-    private String size;
-    
-    
-    
-    
     @JsonProperty("company_id")
     private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private String size;
     
     
     
@@ -37997,128 +36512,6 @@ public static class ProductSizeDeleteResponse {
 }
 
 /*
-    Model: InventoryResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InventoryResponse {
-    
-    
-    
-    
-    @JsonProperty("size")
-    private String size;
-    
-    
-    
-    
-    @JsonProperty("seller_identifier")
-    private String sellerIdentifier;
-    
-    
-    
-    
-    @JsonProperty("price_effective")
-    private Double priceEffective;
-    
-    
-    
-    
-    @JsonProperty("sellable_quantity")
-    private Integer sellableQuantity;
-    
-    
-    
-    
-    @JsonProperty("store")
-    private Object store;
-    
-    
-    
-    
-    @JsonProperty("inventory_updated_on")
-    private String inventoryUpdatedOn;
-    
-    
-    
-    
-    @JsonProperty("quantity")
-    private Integer quantity;
-    
-    
-    
-    
-    @JsonProperty("price_transfer")
-    private Double priceTransfer;
-    
-    
-    
-    
-    @JsonProperty("price")
-    private Double price;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private String currency;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private String uid;
-    
-    
-    
-    
-    @JsonProperty("item_id")
-    private Integer itemId;
-    
-    
-    
-    
-    @JsonProperty("identifiers")
-    private Object identifiers;
-    
-    
-    
-    
-}
-
-/*
-    Model: InventoryResponsePaginated
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InventoryResponsePaginated {
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<InventoryResponse> items;
-    
-    
-    
-    
-}
-
-/*
     Model: ItemQuery
 */
 @AllArgsConstructor
@@ -38132,14 +36525,14 @@ public static class ItemQuery {
     
     
     
-    @JsonProperty("brand_uid")
-    private Integer brandUid;
-    
-    
-    
-    
     @JsonProperty("uid")
     private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("brand_uid")
+    private Integer brandUid;
     
     
     
@@ -38222,14 +36615,14 @@ public static class InventorySet {
     
     
     
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
     @JsonProperty("size_distribution")
     private SizeDistribution sizeDistribution;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -38284,56 +36677,8 @@ public static class InvSize {
     
     
     
-    @JsonProperty("item_weight_unit_of_measure")
-    private String itemWeightUnitOfMeasure;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private String size;
-    
-    
-    
-    
-    @JsonProperty("item_weight")
-    private Double itemWeight;
-    
-    
-    
-    
-    @JsonProperty("set")
-    private InventorySet set;
-    
-    
-    
-    
-    @JsonProperty("price_effective")
-    private Double priceEffective;
-    
-    
-    
-    
-    @JsonProperty("item_height")
-    private Double itemHeight;
-    
-    
-    
-    
-    @JsonProperty("item_length")
-    private Double itemLength;
-    
-    
-    
-    
-    @JsonProperty("store_code")
-    private String storeCode;
-    
-    
-    
-    
-    @JsonProperty("expiration_date")
-    private String expirationDate;
+    @JsonProperty("item_width")
+    private Double itemWidth;
     
     
     
@@ -38344,32 +36689,8 @@ public static class InvSize {
     
     
     
-    @JsonProperty("price")
-    private Double price;
-    
-    
-    
-    
-    @JsonProperty("is_set")
-    private Boolean isSet;
-    
-    
-    
-    
-    @JsonProperty("item_width")
-    private Double itemWidth;
-    
-    
-    
-    
-    @JsonProperty("quantity")
-    private Integer quantity;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private String currency;
+    @JsonProperty("item_length")
+    private Double itemLength;
     
     
     
@@ -38380,8 +36701,80 @@ public static class InvSize {
     
     
     
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+    
+    @JsonProperty("item_height")
+    private Double itemHeight;
+    
+    
+    
+    
+    @JsonProperty("quantity")
+    private Integer quantity;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private String size;
+    
+    
+    
+    
+    @JsonProperty("set")
+    private InventorySet set;
+    
+    
+    
+    
+    @JsonProperty("item_weight_unit_of_measure")
+    private String itemWeightUnitOfMeasure;
+    
+    
+    
+    
+    @JsonProperty("expiration_date")
+    private String expirationDate;
+    
+    
+    
+    
     @JsonProperty("identifiers")
     private List<GTIN> identifiers;
+    
+    
+    
+    
+    @JsonProperty("price")
+    private Double price;
+    
+    
+    
+    
+    @JsonProperty("item_weight")
+    private Double itemWeight;
+    
+    
+    
+    
+    @JsonProperty("is_set")
+    private Boolean isSet;
+    
+    
+    
+    
+    @JsonProperty("store_code")
+    private String storeCode;
+    
+    
+    
+    
+    @JsonProperty("price_effective")
+    private Double priceEffective;
     
     
     
@@ -38402,14 +36795,14 @@ public static class InventoryRequest {
     
     
     
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
     @JsonProperty("item")
     private ItemQuery item;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
     
     
     
@@ -38423,7 +36816,7 @@ public static class InventoryRequest {
 }
 
 /*
-    Model: PriceMeta
+    Model: InventoryResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -38431,25 +36824,13 @@ public static class InventoryRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PriceMeta {
+public static class InventoryResponse {
     
     
     
     
-    @JsonProperty("tp_notes")
-    private Object tpNotes;
-    
-    
-    
-    
-    @JsonProperty("effective")
-    private Double effective;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
+    @JsonProperty("price_effective")
+    private Double priceEffective;
     
     
     
@@ -38460,88 +36841,68 @@ public static class PriceMeta {
     
     
     
-    @JsonProperty("marked")
-    private Double marked;
+    @JsonProperty("price_transfer")
+    private Double priceTransfer;
     
     
     
     
-    @JsonProperty("transfer")
-    private Double transfer;
+    @JsonProperty("quantity")
+    private Integer quantity;
     
     
     
     
-}
-
-/*
-    Model: BrandMeta
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BrandMeta {
+    @JsonProperty("size")
+    private String size;
     
     
     
     
-    @JsonProperty("id")
-    private Integer id;
+    @JsonProperty("seller_identifier")
+    private String sellerIdentifier;
     
     
     
     
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("identifiers")
+    private Object identifiers;
     
     
     
     
-}
-
-/*
-    Model: DimensionResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DimensionResponse {
+    @JsonProperty("price")
+    private Double price;
     
     
     
     
-    @JsonProperty("length")
-    private Double length;
+    @JsonProperty("sellable_quantity")
+    private Integer sellableQuantity;
     
     
     
     
-    @JsonProperty("height")
-    private Double height;
+    @JsonProperty("uid")
+    private String uid;
     
     
     
     
-    @JsonProperty("is_default")
-    private Boolean isDefault;
+    @JsonProperty("store")
+    private Object store;
     
     
     
     
-    @JsonProperty("width")
-    private Double width;
+    @JsonProperty("inventory_updated_on")
+    private String inventoryUpdatedOn;
     
     
     
     
-    @JsonProperty("unit")
-    private String unit;
+    @JsonProperty("item_id")
+    private Integer itemId;
     
     
     
@@ -38549,7 +36910,7 @@ public static class DimensionResponse {
 }
 
 /*
-    Model: CompanyMeta
+    Model: InventoryResponsePaginated
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -38557,13 +36918,19 @@ public static class DimensionResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyMeta {
+public static class InventoryResponsePaginated {
     
     
     
     
-    @JsonProperty("id")
-    private Integer id;
+    @JsonProperty("items")
+    private List<InventoryResponse> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -38584,8 +36951,8 @@ public static class WeightResponse {
     
     
     
-    @JsonProperty("unit")
-    private String unit;
+    @JsonProperty("shipping")
+    private Double shipping;
     
     
     
@@ -38596,8 +36963,8 @@ public static class WeightResponse {
     
     
     
-    @JsonProperty("shipping")
-    private Double shipping;
+    @JsonProperty("unit")
+    private String unit;
     
     
     
@@ -38605,7 +36972,7 @@ public static class WeightResponse {
 }
 
 /*
-    Model: Trader1
+    Model: DimensionResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -38613,25 +36980,89 @@ public static class WeightResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Trader1 {
+public static class DimensionResponse {
     
     
     
     
-    @JsonProperty("type")
-    private String type;
+    @JsonProperty("height")
+    private Double height;
     
     
     
     
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("width")
+    private Double width;
     
     
     
     
-    @JsonProperty("address")
-    private List<String> address;
+    @JsonProperty("length")
+    private Double length;
+    
+    
+    
+    
+    @JsonProperty("is_default")
+    private Boolean isDefault;
+    
+    
+    
+    
+    @JsonProperty("unit")
+    private String unit;
+    
+    
+    
+    
+}
+
+/*
+    Model: PriceMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PriceMeta {
+    
+    
+    
+    
+    @JsonProperty("effective")
+    private Double effective;
+    
+    
+    
+    
+    @JsonProperty("transfer")
+    private Double transfer;
+    
+    
+    
+    
+    @JsonProperty("tp_notes")
+    private Object tpNotes;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+    
+    @JsonProperty("marked")
+    private Double marked;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     
@@ -38674,6 +37105,12 @@ public static class ManufacturerResponse {
     
     
     
+    @JsonProperty("address")
+    private String address;
+    
+    
+    
+    
     @JsonProperty("is_default")
     private Boolean isDefault;
     
@@ -38686,16 +37123,10 @@ public static class ManufacturerResponse {
     
     
     
-    @JsonProperty("address")
-    private String address;
-    
-    
-    
-    
 }
 
 /*
-    Model: ReturnConfig1
+    Model: Trader1
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -38703,25 +37134,25 @@ public static class ManufacturerResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReturnConfig1 {
+public static class Trader1 {
     
     
     
     
-    @JsonProperty("unit")
-    private String unit;
+    @JsonProperty("address")
+    private List<String> address;
     
     
     
     
-    @JsonProperty("time")
-    private Integer time;
+    @JsonProperty("type")
+    private String type;
     
     
     
     
-    @JsonProperty("returnable")
-    private Boolean returnable;
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -38742,14 +37173,98 @@ public static class QuantityBase {
     
     
     
+    @JsonProperty("count")
+    private Integer count;
+    
+    
+    
+    
     @JsonProperty("updated_at")
     private String updatedAt;
     
     
     
     
-    @JsonProperty("count")
-    private Integer count;
+}
+
+/*
+    Model: CompanyMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CompanyMeta {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Integer id;
+    
+    
+    
+    
+}
+
+/*
+    Model: BrandMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BrandMeta {
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Integer id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: ReturnConfig1
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ReturnConfig1 {
+    
+    
+    
+    
+    @JsonProperty("time")
+    private Integer time;
+    
+    
+    
+    
+    @JsonProperty("returnable")
+    private Boolean returnable;
+    
+    
+    
+    
+    @JsonProperty("unit")
+    private String unit;
     
     
     
@@ -38770,98 +37285,8 @@ public static class InventorySellerResponse {
     
     
     
-    @JsonProperty("fragile")
-    private Boolean fragile;
-    
-    
-    
-    
-    @JsonProperty("set")
-    private InventorySet set;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("price")
-    private PriceMeta price;
-    
-    
-    
-    
-    @JsonProperty("identifier")
-    private Object identifier;
-    
-    
-    
-    
-    @JsonProperty("item_id")
-    private Integer itemId;
-    
-    
-    
-    
-    @JsonProperty("brand")
-    private BrandMeta brand;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private UserSerializer createdBy;
-    
-    
-    
-    
-    @JsonProperty("dimension")
-    private DimensionResponse dimension;
-    
-    
-    
-    
-    @JsonProperty("seller_identifier")
-    private String sellerIdentifier;
-    
-    
-    
-    
-    @JsonProperty("country_of_origin")
-    private String countryOfOrigin;
-    
-    
-    
-    
-    @JsonProperty("is_set")
-    private Boolean isSet;
-    
-    
-    
-    
-    @JsonProperty("tax_identifier")
-    private Object taxIdentifier;
-    
-    
-    
-    
-    @JsonProperty("fynd_article_code")
-    private String fyndArticleCode;
-    
-    
-    
-    
-    @JsonProperty("company")
-    private CompanyMeta company;
+    @JsonProperty("modified_by")
+    private UserSerializer modifiedBy;
     
     
     
@@ -38872,14 +37297,86 @@ public static class InventorySellerResponse {
     
     
     
-    @JsonProperty("trader")
-    private List<Trader1> trader;
+    @JsonProperty("set")
+    private InventorySet set;
+    
+    
+    
+    
+    @JsonProperty("expiration_date")
+    private String expirationDate;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("is_set")
+    private Boolean isSet;
+    
+    
+    
+    
+    @JsonProperty("country_of_origin")
+    private String countryOfOrigin;
+    
+    
+    
+    
+    @JsonProperty("tax_identifier")
+    private Object taxIdentifier;
+    
+    
+    
+    
+    @JsonProperty("raw_meta")
+    private Object rawMeta;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("dimension")
+    private DimensionResponse dimension;
+    
+    
+    
+    
+    @JsonProperty("price")
+    private PriceMeta price;
+    
+    
+    
+    
+    @JsonProperty("fynd_article_code")
+    private String fyndArticleCode;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private String uid;
     
     
     
     
     @JsonProperty("store")
     private StoreMeta store;
+    
+    
+    
+    
+    @JsonProperty("fynd_meta")
+    private Object fyndMeta;
     
     
     
@@ -38896,26 +37393,20 @@ public static class InventorySellerResponse {
     
     
     
-    @JsonProperty("modified_by")
-    private UserSerializer modifiedBy;
+    @JsonProperty("created_by")
+    private UserSerializer createdBy;
     
     
     
     
-    @JsonProperty("return_config")
-    private ReturnConfig1 returnConfig;
+    @JsonProperty("trader")
+    private List<Trader1> trader;
     
     
     
     
-    @JsonProperty("total_quantity")
-    private Integer totalQuantity;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private String size;
+    @JsonProperty("seller_identifier")
+    private String sellerIdentifier;
     
     
     
@@ -38926,8 +37417,38 @@ public static class InventorySellerResponse {
     
     
     
-    @JsonProperty("raw_meta")
-    private Object rawMeta;
+    @JsonProperty("company")
+    private CompanyMeta company;
+    
+    
+    
+    
+    @JsonProperty("identifier")
+    private Object identifier;
+    
+    
+    
+    
+    @JsonProperty("brand")
+    private BrandMeta brand;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("item_id")
+    private Integer itemId;
+    
+    
+    
+    
+    @JsonProperty("total_quantity")
+    private Integer totalQuantity;
     
     
     
@@ -38938,14 +37459,8 @@ public static class InventorySellerResponse {
     
     
     
-    @JsonProperty("fynd_meta")
-    private Object fyndMeta;
-    
-    
-    
-    
-    @JsonProperty("expiration_date")
-    private String expirationDate;
+    @JsonProperty("return_config")
+    private ReturnConfig1 returnConfig;
     
     
     
@@ -38956,8 +37471,8 @@ public static class InventorySellerResponse {
     
     
     
-    @JsonProperty("uid")
-    private String uid;
+    @JsonProperty("size")
+    private String size;
     
     
     
@@ -38968,8 +37483,8 @@ public static class InventorySellerResponse {
     
     
     
-    @JsonProperty("meta")
-    private Object meta;
+    @JsonProperty("fragile")
+    private Boolean fragile;
     
     
     
@@ -38990,14 +37505,14 @@ public static class InventorySellerIdentifierResponsePaginated {
     
     
     
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<InventorySellerResponse> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -39018,26 +37533,8 @@ public static class BulkInventoryGetItems {
     
     
     
-    @JsonProperty("total")
-    private Integer total;
-    
-    
-    
-    
-    @JsonProperty("failed")
-    private Integer failed;
-    
-    
-    
-    
-    @JsonProperty("failed_records")
-    private List<String> failedRecords;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
@@ -39048,20 +37545,62 @@ public static class BulkInventoryGetItems {
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
     @JsonProperty("cancelled_records")
     private List<String> cancelledRecords;
     
     
     
     
+    @JsonProperty("created_by")
+    private Object createdBy;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
+    
     @JsonProperty("file_path")
     private String filePath;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("failed_records")
+    private List<String> failedRecords;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private Object modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
@@ -39078,32 +37617,8 @@ public static class BulkInventoryGetItems {
     
     
     
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private Object createdBy;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private Object modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
+    @JsonProperty("failed")
+    private Integer failed;
     
     
     
@@ -39124,14 +37639,14 @@ public static class BulkInventoryGet {
     
     
     
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<BulkInventoryGetItems> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -39152,38 +37667,8 @@ public static class InventoryJobPayload {
     
     
     
-    @JsonProperty("item_weight_unit_of_measure")
-    private String itemWeightUnitOfMeasure;
-    
-    
-    
-    
-    @JsonProperty("seller_identifier")
-    private String sellerIdentifier;
-    
-    
-    
-    
-    @JsonProperty("price_effective")
-    private Double priceEffective;
-    
-    
-    
-    
-    @JsonProperty("expiration_date")
-    private String expirationDate;
-    
-    
-    
-    
-    @JsonProperty("quantity")
-    private Integer quantity;
-    
-    
-    
-    
-    @JsonProperty("price")
-    private Double price;
+    @JsonProperty("total_quantity")
+    private Integer totalQuantity;
     
     
     
@@ -39194,14 +37679,44 @@ public static class InventoryJobPayload {
     
     
     
-    @JsonProperty("price_marked")
-    private Double priceMarked;
-    
-    
-    
-    
     @JsonProperty("item_dimensions_unit_of_measure")
     private String itemDimensionsUnitOfMeasure;
+    
+    
+    
+    
+    @JsonProperty("quantity")
+    private Integer quantity;
+    
+    
+    
+    
+    @JsonProperty("seller_identifier")
+    private String sellerIdentifier;
+    
+    
+    
+    
+    @JsonProperty("expiration_date")
+    private String expirationDate;
+    
+    
+    
+    
+    @JsonProperty("item_weight_unit_of_measure")
+    private String itemWeightUnitOfMeasure;
+    
+    
+    
+    
+    @JsonProperty("price")
+    private Double price;
+    
+    
+    
+    
+    @JsonProperty("price_marked")
+    private Double priceMarked;
     
     
     
@@ -39212,8 +37727,8 @@ public static class InventoryJobPayload {
     
     
     
-    @JsonProperty("total_quantity")
-    private Integer totalQuantity;
+    @JsonProperty("price_effective")
+    private Double priceEffective;
     
     
     
@@ -39261,64 +37776,6 @@ public static class InventoryBulkRequest {
 }
 
 /*
-    Model: InventoryExportJob
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InventoryExportJob {
-    
-    
-    
-    
-    @JsonProperty("url")
-    private String url;
-    
-    
-    
-    
-    @JsonProperty("task_id")
-    private String taskId;
-    
-    
-    
-    
-    @JsonProperty("seller_id")
-    private Integer sellerId;
-    
-    
-    
-    
-    @JsonProperty("request_params")
-    private Object requestParams;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("trigger_on")
-    private String triggerOn;
-    
-    
-    
-    
-    @JsonProperty("completed_on")
-    private String completedOn;
-    
-    
-    
-    
-}
-
-/*
     Model: InventoryExportRequest
 */
 @AllArgsConstructor
@@ -39332,8 +37789,8 @@ public static class InventoryExportRequest {
     
     
     
-    @JsonProperty("brand")
-    private List<Integer> brand;
+    @JsonProperty("store")
+    private List<Integer> store;
     
     
     
@@ -39344,8 +37801,8 @@ public static class InventoryExportRequest {
     
     
     
-    @JsonProperty("store")
-    private List<Integer> store;
+    @JsonProperty("brand")
+    private List<Integer> brand;
     
     
     
@@ -39366,20 +37823,8 @@ public static class InventoryExportResponse {
     
     
     
-    @JsonProperty("task_id")
-    private String taskId;
-    
-    
-    
-    
     @JsonProperty("seller_id")
     private Integer sellerId;
-    
-    
-    
-    
-    @JsonProperty("request_params")
-    private Object requestParams;
     
     
     
@@ -39392,6 +37837,76 @@ public static class InventoryExportResponse {
     
     @JsonProperty("trigger_on")
     private String triggerOn;
+    
+    
+    
+    
+    @JsonProperty("request_params")
+    private Object requestParams;
+    
+    
+    
+    
+    @JsonProperty("task_id")
+    private String taskId;
+    
+    
+    
+    
+}
+
+/*
+    Model: InventoryExportJob
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InventoryExportJob {
+    
+    
+    
+    
+    @JsonProperty("seller_id")
+    private Integer sellerId;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("request_params")
+    private Object requestParams;
+    
+    
+    
+    
+    @JsonProperty("trigger_on")
+    private String triggerOn;
+    
+    
+    
+    
+    @JsonProperty("task_id")
+    private String taskId;
+    
+    
+    
+    
+    @JsonProperty("completed_on")
+    private String completedOn;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
     
     
     
@@ -39412,14 +37927,14 @@ public static class FilerList {
     
     
     
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-    
     @JsonProperty("display")
     private String display;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
     
     
     
@@ -39468,14 +37983,14 @@ public static class InventoryPayload {
     
     
     
+    @JsonProperty("total_quantity")
+    private Integer totalQuantity;
+    
+    
+    
+    
     @JsonProperty("seller_identifier")
     private String sellerIdentifier;
-    
-    
-    
-    
-    @JsonProperty("price_effective")
-    private Double priceEffective;
     
     
     
@@ -39486,20 +38001,20 @@ public static class InventoryPayload {
     
     
     
-    @JsonProperty("store_id")
-    private Integer storeId;
-    
-    
-    
-    
     @JsonProperty("price_marked")
     private Double priceMarked;
     
     
     
     
-    @JsonProperty("total_quantity")
-    private Integer totalQuantity;
+    @JsonProperty("price_effective")
+    private Double priceEffective;
+    
+    
+    
+    
+    @JsonProperty("store_id")
+    private Integer storeId;
     
     
     
@@ -39554,14 +38069,14 @@ public static class InventoryFailedReason {
     
     
     
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
     @JsonProperty("errors")
     private String errors;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -39582,14 +38097,14 @@ public static class InventoryResponseItem {
     
     
     
-    @JsonProperty("data")
-    private InventoryPayload data;
-    
-    
-    
-    
     @JsonProperty("reason")
     private InventoryFailedReason reason;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private InventoryPayload data;
     
     
     
@@ -39610,170 +38125,14 @@ public static class InventoryUpdateResponse {
     
     
     
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<InventoryResponseItem> items;
     
     
     
     
-}
-
-/*
-    Model: PageResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageResponse {
-    
-    
-    
-    
-    @JsonProperty("size")
-    private Integer size;
-    
-    
-    
-    
-    @JsonProperty("item_total")
-    private Integer itemTotal;
-    
-    
-    
-    
-    @JsonProperty("current")
-    private String current;
-    
-    
-    
-    
-    @JsonProperty("has_previous")
-    private Boolean hasPrevious;
-    
-    
-    
-    
-    @JsonProperty("has_next")
-    private Boolean hasNext;
-    
-    
-    
-    
-}
-
-/*
-    Model: HsnCodesObject
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class HsnCodesObject {
-    
-    
-    
-    
-    @JsonProperty("tax_on_esp")
-    private Boolean taxOnEsp;
-    
-    
-    
-    
-    @JsonProperty("threshold2")
-    private Double threshold2;
-    
-    
-    
-    
-    @JsonProperty("tax1")
-    private Double tax1;
-    
-    
-    
-    
-    @JsonProperty("hsn_code")
-    private String hsnCode;
-    
-    
-    
-    
-    @JsonProperty("tax2")
-    private Double tax2;
-    
-    
-    
-    
-    @JsonProperty("hs2_code")
-    private String hs2Code;
-    
-    
-    
-    
-    @JsonProperty("threshold1")
-    private Double threshold1;
-    
-    
-    
-    
-    @JsonProperty("tax_on_mrp")
-    private Boolean taxOnMrp;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-}
-
-/*
-    Model: HsnCodesListingResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class HsnCodesListingResponse {
-    
-    
-    
-    
-    @JsonProperty("page")
-    private PageResponse page;
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<HsnCodesObject> items;
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -39794,6 +38153,30 @@ public static class HsnUpsert {
     
     
     
+    @JsonProperty("tax1")
+    private Double tax1;
+    
+    
+    
+    
+    @JsonProperty("tax2")
+    private Double tax2;
+    
+    
+    
+    
+    @JsonProperty("tax_on_mrp")
+    private Boolean taxOnMrp;
+    
+    
+    
+    
+    @JsonProperty("hs2_code")
+    private String hs2Code;
+    
+    
+    
+    
     @JsonProperty("tax_on_esp")
     private Boolean taxOnEsp;
     
@@ -39806,38 +38189,8 @@ public static class HsnUpsert {
     
     
     
-    @JsonProperty("tax1")
-    private Double tax1;
-    
-    
-    
-    
     @JsonProperty("hsn_code")
     private String hsnCode;
-    
-    
-    
-    
-    @JsonProperty("tax2")
-    private Double tax2;
-    
-    
-    
-    
-    @JsonProperty("hs2_code")
-    private String hs2Code;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("threshold1")
-    private Double threshold1;
     
     
     
@@ -39848,8 +38201,96 @@ public static class HsnUpsert {
     
     
     
+    @JsonProperty("threshold1")
+    private Double threshold1;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+}
+
+/*
+    Model: HsnCodesObject
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class HsnCodesObject {
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("tax1")
+    private Double tax1;
+    
+    
+    
+    
+    @JsonProperty("tax2")
+    private Double tax2;
+    
+    
+    
+    
     @JsonProperty("tax_on_mrp")
     private Boolean taxOnMrp;
+    
+    
+    
+    
+    @JsonProperty("hs2_code")
+    private String hs2Code;
+    
+    
+    
+    
+    @JsonProperty("tax_on_esp")
+    private Boolean taxOnEsp;
+    
+    
+    
+    
+    @JsonProperty("threshold2")
+    private Double threshold2;
+    
+    
+    
+    
+    @JsonProperty("hsn_code")
+    private String hsnCode;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("threshold1")
+    private Double threshold1;
     
     
     
@@ -39878,6 +38319,80 @@ public static class HsnCode {
     
     @JsonProperty("data")
     private HsnCodesObject data;
+    
+    
+    
+    
+}
+
+/*
+    Model: PageResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PageResponse {
+    
+    
+    
+    
+    @JsonProperty("has_next")
+    private Boolean hasNext;
+    
+    
+    
+    
+    @JsonProperty("item_total")
+    private Integer itemTotal;
+    
+    
+    
+    
+    @JsonProperty("has_previous")
+    private Boolean hasPrevious;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private Integer size;
+    
+    
+    
+    
+    @JsonProperty("current")
+    private String current;
+    
+    
+    
+    
+}
+
+/*
+    Model: HsnCodesListingResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class HsnCodesListingResponse {
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<HsnCodesObject> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private PageResponse page;
     
     
     
@@ -39948,12 +38463,6 @@ public static class TaxSlab {
     
     
     
-    @JsonProperty("cess")
-    private Double cess;
-    
-    
-    
-    
     @JsonProperty("effective_date")
     private String effectiveDate;
     
@@ -39962,6 +38471,12 @@ public static class TaxSlab {
     
     @JsonProperty("rate")
     private Double rate;
+    
+    
+    
+    
+    @JsonProperty("cess")
+    private Double cess;
     
     
     
@@ -39988,8 +38503,14 @@ public static class HSNDataInsertV2 {
     
     
     
-    @JsonProperty("hsn_code")
-    private String hsnCode;
+    @JsonProperty("reporting_hsn")
+    private String reportingHsn;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private Object createdBy;
     
     
     
@@ -40000,14 +38521,14 @@ public static class HSNDataInsertV2 {
     
     
     
-    @JsonProperty("reporting_hsn")
-    private String reportingHsn;
+    @JsonProperty("taxes")
+    private List<TaxSlab> taxes;
     
     
     
     
-    @JsonProperty("country_code")
-    private String countryCode;
+    @JsonProperty("modified_by")
+    private Object modifiedBy;
     
     
     
@@ -40024,20 +38545,14 @@ public static class HSNDataInsertV2 {
     
     
     
-    @JsonProperty("created_by")
-    private Object createdBy;
+    @JsonProperty("hsn_code")
+    private String hsnCode;
     
     
     
     
-    @JsonProperty("modified_by")
-    private Object modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("taxes")
-    private List<TaxSlab> taxes;
+    @JsonProperty("country_code")
+    private String countryCode;
     
     
     
@@ -40058,14 +38573,14 @@ public static class HsnCodesListingResponseSchemaV2 {
     
     
     
-    @JsonProperty("page")
-    private PageResponse page;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<HSNDataInsertV2> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private PageResponse page;
     
     
     
@@ -40086,12 +38601,6 @@ public static class BrandItem {
     
     
     
-    @JsonProperty("discount")
-    private String discount;
-    
-    
-    
-    
     @JsonProperty("departments")
     private List<String> departments;
     
@@ -40104,14 +38613,20 @@ public static class BrandItem {
     
     
     
-    @JsonProperty("action")
-    private Action action;
-    
-    
-    
-    
     @JsonProperty("slug")
     private String slug;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private Media logo;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private Action action;
     
     
     
@@ -40122,14 +38637,14 @@ public static class BrandItem {
     
     
     
+    @JsonProperty("discount")
+    private String discount;
+    
+    
+    
+    
     @JsonProperty("name")
     private String name;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private Media logo;
     
     
     
@@ -40150,14 +38665,14 @@ public static class BrandListingResponse {
     
     
     
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<BrandItem> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -40178,8 +38693,20 @@ public static class Department {
     
     
     
+    @JsonProperty("priority_order")
+    private Integer priorityOrder;
+    
+    
+    
+    
     @JsonProperty("slug")
     private String slug;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private Media logo;
     
     
     
@@ -40190,20 +38717,8 @@ public static class Department {
     
     
     
-    @JsonProperty("priority_order")
-    private Integer priorityOrder;
-    
-    
-    
-    
     @JsonProperty("name")
     private String name;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private Media logo;
     
     
     
@@ -40246,14 +38761,14 @@ public static class DepartmentIdentifier {
     
     
     
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
     @JsonProperty("uid")
     private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
     
     
     
@@ -40274,8 +38789,8 @@ public static class ThirdLevelChild {
     
     
     
-    @JsonProperty("childs")
-    private List<Object> childs;
+    @JsonProperty("slug")
+    private String slug;
     
     
     
@@ -40286,26 +38801,26 @@ public static class ThirdLevelChild {
     
     
     
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("childs")
+    private List<Object> childs;
+    
+    
+    
+    
     @JsonProperty("action")
     private Action action;
     
     
     
     
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
     @JsonProperty("uid")
     private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("_custom_json")
-    private Object customJson;
     
     
     
@@ -40332,8 +38847,8 @@ public static class SecondLevelChild {
     
     
     
-    @JsonProperty("childs")
-    private List<ThirdLevelChild> childs;
+    @JsonProperty("slug")
+    private String slug;
     
     
     
@@ -40344,26 +38859,26 @@ public static class SecondLevelChild {
     
     
     
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("childs")
+    private List<ThirdLevelChild> childs;
+    
+    
+    
+    
     @JsonProperty("action")
     private Action action;
     
     
     
     
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
     @JsonProperty("uid")
     private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("_custom_json")
-    private Object customJson;
     
     
     
@@ -40390,8 +38905,8 @@ public static class Child {
     
     
     
-    @JsonProperty("childs")
-    private List<SecondLevelChild> childs;
+    @JsonProperty("slug")
+    private String slug;
     
     
     
@@ -40402,26 +38917,26 @@ public static class Child {
     
     
     
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("childs")
+    private List<SecondLevelChild> childs;
+    
+    
+    
+    
     @JsonProperty("action")
     private Action action;
     
     
     
     
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
     @JsonProperty("uid")
     private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("_custom_json")
-    private Object customJson;
     
     
     
@@ -40448,8 +38963,8 @@ public static class CategoryItems {
     
     
     
-    @JsonProperty("childs")
-    private List<Child> childs;
+    @JsonProperty("slug")
+    private String slug;
     
     
     
@@ -40460,14 +38975,14 @@ public static class CategoryItems {
     
     
     
+    @JsonProperty("childs")
+    private List<Child> childs;
+    
+    
+    
+    
     @JsonProperty("action")
     private Action action;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
     
     
     
@@ -40500,14 +39015,14 @@ public static class DepartmentCategoryTree {
     
     
     
-    @JsonProperty("department")
-    private String department;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<CategoryItems> items;
+    
+    
+    
+    
+    @JsonProperty("department")
+    private String department;
     
     
     
@@ -40556,14 +39071,14 @@ public static class ApplicationProductListingResponse {
     
     
     
-    @JsonProperty("operators")
-    private Object operators;
+    @JsonProperty("page")
+    private Page page;
     
     
     
     
-    @JsonProperty("filters")
-    private List<ProductFilters> filters;
+    @JsonProperty("items")
+    private List<ProductListingDetail> items;
     
     
     
@@ -40574,14 +39089,14 @@ public static class ApplicationProductListingResponse {
     
     
     
-    @JsonProperty("page")
-    private Page page;
+    @JsonProperty("filters")
+    private List<ProductFilters> filters;
     
     
     
     
-    @JsonProperty("items")
-    private List<ProductListingDetail> items;
+    @JsonProperty("operators")
+    private Object operators;
     
     
     
@@ -40602,8 +39117,50 @@ public static class ProductDetail {
     
     
     
-    @JsonProperty("item_code")
-    private String itemCode;
+    @JsonProperty("item_type")
+    private String itemType;
+    
+    
+    
+    
+    @JsonProperty("rating_count")
+    private Integer ratingCount;
+    
+    
+    
+    
+    @JsonProperty("highlights")
+    private List<String> highlights;
+    
+    
+    
+    
+    @JsonProperty("similars")
+    private List<String> similars;
+    
+    
+    
+    
+    @JsonProperty("short_description")
+    private String shortDescription;
+    
+    
+    
+    
+    @JsonProperty("attributes")
+    private Object attributes;
+    
+    
+    
+    
+    @JsonProperty("color")
+    private String color;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
     
     
     
@@ -40620,86 +39177,8 @@ public static class ProductDetail {
     
     
     
-    @JsonProperty("brand")
-    private ProductBrand brand;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("rating_count")
-    private Integer ratingCount;
-    
-    
-    
-    
-    @JsonProperty("item_type")
-    private String itemType;
-    
-    
-    
-    
-    @JsonProperty("similars")
-    private List<String> similars;
-    
-    
-    
-    
-    @JsonProperty("highlights")
-    private List<String> highlights;
-    
-    
-    
-    
-    @JsonProperty("short_description")
-    private String shortDescription;
-    
-    
-    
-    
-    @JsonProperty("rating")
-    private Double rating;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("has_variant")
-    private Boolean hasVariant;
-    
-    
-    
-    
-    @JsonProperty("product_online_date")
-    private String productOnlineDate;
-    
-    
-    
-    
-    @JsonProperty("tryouts")
-    private List<String> tryouts;
-    
-    
-    
-    
-    @JsonProperty("color")
-    private String color;
+    @JsonProperty("uid")
+    private Integer uid;
     
     
     
@@ -40710,14 +39189,32 @@ public static class ProductDetail {
     
     
     
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
     @JsonProperty("image_nature")
     private String imageNature;
     
     
     
     
-    @JsonProperty("attributes")
-    private Object attributes;
+    @JsonProperty("brand")
+    private ProductBrand brand;
+    
+    
+    
+    
+    @JsonProperty("has_variant")
+    private Boolean hasVariant;
+    
+    
+    
+    
+    @JsonProperty("item_code")
+    private String itemCode;
     
     
     
@@ -40728,14 +39225,32 @@ public static class ProductDetail {
     
     
     
-    @JsonProperty("uid")
-    private Integer uid;
+    @JsonProperty("product_online_date")
+    private String productOnlineDate;
     
     
     
     
     @JsonProperty("teaser_tag")
     private Object teaserTag;
+    
+    
+    
+    
+    @JsonProperty("rating")
+    private Double rating;
+    
+    
+    
+    
+    @JsonProperty("tryouts")
+    private List<String> tryouts;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -40756,14 +39271,14 @@ public static class ArticleQuery {
     
     
     
-    @JsonProperty("size")
-    private String size;
-    
-    
-    
-    
     @JsonProperty("ignored_stores")
     private List<Integer> ignoredStores;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private String size;
     
     
     
@@ -40796,26 +39311,26 @@ public static class AssignStoreArticle {
     
     
     
-    @JsonProperty("article_assignment")
-    private ArticleAssignment articleAssignment;
-    
-    
-    
-    
     @JsonProperty("quantity")
     private Integer quantity;
     
     
     
     
-    @JsonProperty("query")
-    private ArticleQuery query;
+    @JsonProperty("article_assignment")
+    private ArticleAssignment articleAssignment;
     
     
     
     
     @JsonProperty("meta")
     private Object meta;
+    
+    
+    
+    
+    @JsonProperty("query")
+    private ArticleQuery query;
     
     
     
@@ -40836,14 +39351,14 @@ public static class AssignStore {
     
     
     
-    @JsonProperty("articles")
-    private List<AssignStoreArticle> articles;
+    @JsonProperty("store_ids")
+    private List<Integer> storeIds;
     
     
     
     
-    @JsonProperty("channel_identifier")
-    private String channelIdentifier;
+    @JsonProperty("channel_type")
+    private String channelType;
     
     
     
@@ -40860,8 +39375,8 @@ public static class AssignStore {
     
     
     
-    @JsonProperty("channel_type")
-    private String channelType;
+    @JsonProperty("channel_identifier")
+    private String channelIdentifier;
     
     
     
@@ -40872,8 +39387,8 @@ public static class AssignStore {
     
     
     
-    @JsonProperty("store_ids")
-    private List<Integer> storeIds;
+    @JsonProperty("articles")
+    private List<AssignStoreArticle> articles;
     
     
     
@@ -40922,32 +39437,8 @@ public static class StoreAssignResponse {
     
     
     
-    @JsonProperty("s_city")
-    private String sCity;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private String size;
-    
-    
-    
-    
     @JsonProperty("group_id")
     private String groupId;
-    
-    
-    
-    
-    @JsonProperty("article_assignment")
-    private ArticleAssignment1 articleAssignment;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private Boolean status;
     
     
     
@@ -40958,8 +39449,8 @@ public static class StoreAssignResponse {
     
     
     
-    @JsonProperty("_id")
-    private String id;
+    @JsonProperty("s_city")
+    private String sCity;
     
     
     
@@ -40970,8 +39461,20 @@ public static class StoreAssignResponse {
     
     
     
-    @JsonProperty("strategy_wise_listing")
-    private List<Object> strategyWiseListing;
+    @JsonProperty("index")
+    private Integer index;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Boolean status;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private String size;
     
     
     
@@ -40982,26 +39485,32 @@ public static class StoreAssignResponse {
     
     
     
-    @JsonProperty("store_id")
-    private Integer storeId;
+    @JsonProperty("strategy_wise_listing")
+    private List<Object> strategyWiseListing;
+    
+    
+    
+    
+    @JsonProperty("article_assignment")
+    private ArticleAssignment1 articleAssignment;
+    
+    
+    
+    
+    @JsonProperty("store_pincode")
+    private Integer storePincode;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
     
     
     
     
     @JsonProperty("uid")
     private String uid;
-    
-    
-    
-    
-    @JsonProperty("item_id")
-    private Integer itemId;
-    
-    
-    
-    
-    @JsonProperty("index")
-    private Integer index;
     
     
     
@@ -41018,8 +39527,14 @@ public static class StoreAssignResponse {
     
     
     
-    @JsonProperty("store_pincode")
-    private Integer storePincode;
+    @JsonProperty("store_id")
+    private Integer storeId;
+    
+    
+    
+    
+    @JsonProperty("item_id")
+    private Integer itemId;
     
     
     
@@ -41027,7 +39542,7 @@ public static class StoreAssignResponse {
 }
 
 /*
-    Model: ProductReturnConfigSerializer
+    Model: LocationIntegrationType
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -41035,19 +39550,115 @@ public static class StoreAssignResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductReturnConfigSerializer {
+public static class LocationIntegrationType {
     
     
     
     
-    @JsonProperty("store_uid")
-    private Integer storeUid;
+    @JsonProperty("inventory")
+    private String inventory;
     
     
     
     
-    @JsonProperty("on_same_store")
-    private Boolean onSameStore;
+    @JsonProperty("order")
+    private String order;
+    
+    
+    
+    
+}
+
+/*
+    Model: UserSerializer1
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserSerializer1 {
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("username")
+    private String username;
+    
+    
+    
+    
+    @JsonProperty("contact")
+    private String contact;
+    
+    
+    
+    
+}
+
+/*
+    Model: InvoiceCredSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoiceCredSerializer {
+    
+    
+    
+    
+    @JsonProperty("password")
+    private String password;
+    
+    
+    
+    
+    @JsonProperty("username")
+    private String username;
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+    
+}
+
+/*
+    Model: InvoiceDetailsSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoiceDetailsSerializer {
+    
+    
+    
+    
+    @JsonProperty("e_invoice")
+    private InvoiceCredSerializer eInvoice;
+    
+    
+    
+    
+    @JsonProperty("e_waybill")
+    private InvoiceCredSerializer eWaybill;
     
     
     
@@ -41117,408 +39728,6 @@ public static class LocationManagerSerializer {
 }
 
 /*
-    Model: UserSerializer1
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserSerializer1 {
-    
-    
-    
-    
-    @JsonProperty("username")
-    private String username;
-    
-    
-    
-    
-    @JsonProperty("contact")
-    private String contact;
-    
-    
-    
-    
-    @JsonProperty("user_id")
-    private String userId;
-    
-    
-    
-    
-}
-
-/*
-    Model: LocationIntegrationType
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationIntegrationType {
-    
-    
-    
-    
-    @JsonProperty("inventory")
-    private String inventory;
-    
-    
-    
-    
-    @JsonProperty("order")
-    private String order;
-    
-    
-    
-    
-}
-
-/*
-    Model: UserSerializer2
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserSerializer2 {
-    
-    
-    
-    
-    @JsonProperty("username")
-    private String username;
-    
-    
-    
-    
-    @JsonProperty("contact")
-    private String contact;
-    
-    
-    
-    
-    @JsonProperty("user_id")
-    private String userId;
-    
-    
-    
-    
-}
-
-/*
-    Model: GetAddressSerializer
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetAddressSerializer {
-    
-    
-    
-    
-    @JsonProperty("latitude")
-    private Double latitude;
-    
-    
-    
-    
-    @JsonProperty("address2")
-    private String address2;
-    
-    
-    
-    
-    @JsonProperty("pincode")
-    private Integer pincode;
-    
-    
-    
-    
-    @JsonProperty("address1")
-    private String address1;
-    
-    
-    
-    
-    @JsonProperty("country")
-    private String country;
-    
-    
-    
-    
-    @JsonProperty("city")
-    private String city;
-    
-    
-    
-    
-    @JsonProperty("longitude")
-    private Double longitude;
-    
-    
-    
-    
-    @JsonProperty("country_code")
-    private String countryCode;
-    
-    
-    
-    
-    @JsonProperty("address_type")
-    private String addressType;
-    
-    
-    
-    
-    @JsonProperty("state")
-    private String state;
-    
-    
-    
-    
-    @JsonProperty("landmark")
-    private String landmark;
-    
-    
-    
-    
-}
-
-/*
-    Model: GetCompanySerializer
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCompanySerializer {
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("reject_reason")
-    private String rejectReason;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("business_type")
-    private String businessType;
-    
-    
-    
-    
-    @JsonProperty("company_type")
-    private String companyType;
-    
-    
-    
-    
-    @JsonProperty("verified_by")
-    private UserSerializer2 verifiedBy;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private UserSerializer2 createdBy;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private UserSerializer2 modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("verified_on")
-    private String verifiedOn;
-    
-    
-    
-    
-    @JsonProperty("addresses")
-    private List<GetAddressSerializer> addresses;
-    
-    
-    
-    
-}
-
-/*
-    Model: InvoiceCredSerializer
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceCredSerializer {
-    
-    
-    
-    
-    @JsonProperty("username")
-    private String username;
-    
-    
-    
-    
-    @JsonProperty("password")
-    private String password;
-    
-    
-    
-    
-    @JsonProperty("enabled")
-    private Boolean enabled;
-    
-    
-    
-    
-}
-
-/*
-    Model: InvoiceDetailsSerializer
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceDetailsSerializer {
-    
-    
-    
-    
-    @JsonProperty("e_invoice")
-    private InvoiceCredSerializer eInvoice;
-    
-    
-    
-    
-    @JsonProperty("e_waybill")
-    private InvoiceCredSerializer eWaybill;
-    
-    
-    
-    
-}
-
-/*
-    Model: LocationTimingSerializer
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationTimingSerializer {
-    
-    
-    
-    
-    @JsonProperty("hour")
-    private Integer hour;
-    
-    
-    
-    
-    @JsonProperty("minute")
-    private Integer minute;
-    
-    
-    
-    
-}
-
-/*
-    Model: LocationDayWiseSerializer
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationDayWiseSerializer {
-    
-    
-    
-    
-    @JsonProperty("weekday")
-    private String weekday;
-    
-    
-    
-    
-    @JsonProperty("open")
-    private Boolean open;
-    
-    
-    
-    
-    @JsonProperty("opening")
-    private LocationTimingSerializer opening;
-    
-    
-    
-    
-    @JsonProperty("closing")
-    private LocationTimingSerializer closing;
-    
-    
-    
-    
-}
-
-/*
     Model: Document
 */
 @AllArgsConstructor
@@ -41528,12 +39737,6 @@ public static class LocationDayWiseSerializer {
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Document {
-    
-    
-    
-    
-    @JsonProperty("url")
-    private String url;
     
     
     
@@ -41562,6 +39765,318 @@ public static class Document {
     
     
     
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+}
+
+/*
+    Model: ProductReturnConfigSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductReturnConfigSerializer {
+    
+    
+    
+    
+    @JsonProperty("store_uid")
+    private Integer storeUid;
+    
+    
+    
+    
+    @JsonProperty("on_same_store")
+    private Boolean onSameStore;
+    
+    
+    
+    
+}
+
+/*
+    Model: GetAddressSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetAddressSerializer {
+    
+    
+    
+    
+    @JsonProperty("longitude")
+    private Double longitude;
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private Integer pincode;
+    
+    
+    
+    
+    @JsonProperty("address2")
+    private String address2;
+    
+    
+    
+    
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("latitude")
+    private Double latitude;
+    
+    
+    
+    
+    @JsonProperty("address_type")
+    private String addressType;
+    
+    
+    
+    
+    @JsonProperty("landmark")
+    private String landmark;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("address1")
+    private String address1;
+    
+    
+    
+    
+}
+
+/*
+    Model: UserSerializer2
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserSerializer2 {
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("username")
+    private String username;
+    
+    
+    
+    
+    @JsonProperty("contact")
+    private String contact;
+    
+    
+    
+    
+}
+
+/*
+    Model: GetCompanySerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetCompanySerializer {
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("verified_by")
+    private UserSerializer2 verifiedBy;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private UserSerializer2 createdBy;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("reject_reason")
+    private String rejectReason;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private UserSerializer2 modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("company_type")
+    private String companyType;
+    
+    
+    
+    
+    @JsonProperty("addresses")
+    private List<GetAddressSerializer> addresses;
+    
+    
+    
+    
+    @JsonProperty("business_type")
+    private String businessType;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("verified_on")
+    private String verifiedOn;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+}
+
+/*
+    Model: LocationTimingSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LocationTimingSerializer {
+    
+    
+    
+    
+    @JsonProperty("minute")
+    private Integer minute;
+    
+    
+    
+    
+    @JsonProperty("hour")
+    private Integer hour;
+    
+    
+    
+    
+}
+
+/*
+    Model: LocationDayWiseSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LocationDayWiseSerializer {
+    
+    
+    
+    
+    @JsonProperty("opening")
+    private LocationTimingSerializer opening;
+    
+    
+    
+    
+    @JsonProperty("closing")
+    private LocationTimingSerializer closing;
+    
+    
+    
+    
+    @JsonProperty("weekday")
+    private String weekday;
+    
+    
+    
+    
+    @JsonProperty("open")
+    private Boolean open;
+    
+    
+    
+    
 }
 
 /*
@@ -41578,56 +40093,8 @@ public static class GetLocationSerializer {
     
     
     
-    @JsonProperty("product_return_config")
-    private ProductReturnConfigSerializer productReturnConfig;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("manager")
-    private LocationManagerSerializer manager;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private UserSerializer1 createdBy;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("verified_on")
-    private String verifiedOn;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("verified_by")
-    private UserSerializer1 verifiedBy;
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
@@ -41638,32 +40105,8 @@ public static class GetLocationSerializer {
     
     
     
-    @JsonProperty("warnings")
-    private Object warnings;
-    
-    
-    
-    
-    @JsonProperty("company")
-    private GetCompanySerializer company;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("phone_number")
-    private String phoneNumber;
-    
-    
-    
-    
-    @JsonProperty("gst_credentials")
-    private InvoiceDetailsSerializer gstCredentials;
+    @JsonProperty("store_type")
+    private String storeType;
     
     
     
@@ -41674,20 +40117,20 @@ public static class GetLocationSerializer {
     
     
     
-    @JsonProperty("modified_on")
-    private String modifiedOn;
+    @JsonProperty("verified_by")
+    private UserSerializer1 verifiedBy;
     
     
     
     
-    @JsonProperty("timing")
-    private List<LocationDayWiseSerializer> timing;
+    @JsonProperty("stage")
+    private String stage;
     
     
     
     
-    @JsonProperty("store_type")
-    private String storeType;
+    @JsonProperty("gst_credentials")
+    private InvoiceDetailsSerializer gstCredentials;
     
     
     
@@ -41704,8 +40147,32 @@ public static class GetLocationSerializer {
     
     
     
-    @JsonProperty("address")
-    private GetAddressSerializer address;
+    @JsonProperty("verified_on")
+    private String verifiedOn;
+    
+    
+    
+    
+    @JsonProperty("manager")
+    private LocationManagerSerializer manager;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private UserSerializer1 createdBy;
+    
+    
+    
+    
+    @JsonProperty("documents")
+    private List<Document> documents;
+    
+    
+    
+    
+    @JsonProperty("product_return_config")
+    private ProductReturnConfigSerializer productReturnConfig;
     
     
     
@@ -41716,14 +40183,62 @@ public static class GetLocationSerializer {
     
     
     
+    @JsonProperty("address")
+    private GetAddressSerializer address;
+    
+    
+    
+    
+    @JsonProperty("company")
+    private GetCompanySerializer company;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("timing")
+    private List<LocationDayWiseSerializer> timing;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
     @JsonProperty("_custom_json")
     private Object customJson;
     
     
     
     
-    @JsonProperty("documents")
-    private List<Document> documents;
+    @JsonProperty("phone_number")
+    private String phoneNumber;
+    
+    
+    
+    
+    @JsonProperty("warnings")
+    private Object warnings;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
@@ -41744,14 +40259,14 @@ public static class LocationListSerializer {
     
     
     
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<GetLocationSerializer> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -41856,6 +40371,40 @@ public static class ContactDetails {
 }
 
 /*
+    Model: CompanyTaxesSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CompanyTaxesSerializer {
+    
+    
+    
+    
+    @JsonProperty("enable")
+    private Boolean enable;
+    
+    
+    
+    
+    @JsonProperty("rate")
+    private Double rate;
+    
+    
+    
+    
+    @JsonProperty("effective_date")
+    private String effectiveDate;
+    
+    
+    
+    
+}
+
+/*
     Model: Website
 */
 @AllArgsConstructor
@@ -41913,48 +40462,14 @@ public static class BusinessCountryInfo {
     
     
     
-    @JsonProperty("country")
-    private String country;
-    
-    
-    
-    
     @JsonProperty("country_code")
     private String countryCode;
     
     
     
     
-}
-
-/*
-    Model: CompanyTaxesSerializer
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyTaxesSerializer {
-    
-    
-    
-    
-    @JsonProperty("enable")
-    private Boolean enable;
-    
-    
-    
-    
-    @JsonProperty("rate")
-    private Double rate;
-    
-    
-    
-    
-    @JsonProperty("effective_date")
-    private String effectiveDate;
+    @JsonProperty("country")
+    private String country;
     
     
     
@@ -41975,68 +40490,8 @@ public static class GetCompanyProfileSerializerResponse {
     
     
     
-    @JsonProperty("company_type")
-    private String companyType;
-    
-    
-    
-    
-    @JsonProperty("documents")
-    private List<Document> documents;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("verified_on")
-    private String verifiedOn;
-    
-    
-    
-    
     @JsonProperty("created_on")
     private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("warnings")
-    private Object warnings;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private UserSerializer modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("contact_details")
-    private ContactDetails contactDetails;
-    
-    
-    
-    
-    @JsonProperty("business_details")
-    private BusinessDetails businessDetails;
-    
-    
-    
-    
-    @JsonProperty("mode")
-    private String mode;
     
     
     
@@ -42047,38 +40502,26 @@ public static class GetCompanyProfileSerializerResponse {
     
     
     
-    @JsonProperty("business_country_info")
-    private BusinessCountryInfo businessCountryInfo;
-    
-    
-    
-    
-    @JsonProperty("verified_by")
-    private UserSerializer verifiedBy;
-    
-    
-    
-    
     @JsonProperty("created_by")
     private UserSerializer createdBy;
     
     
     
     
-    @JsonProperty("business_info")
-    private String businessInfo;
+    @JsonProperty("contact_details")
+    private ContactDetails contactDetails;
     
     
     
     
-    @JsonProperty("addresses")
-    private List<GetAddressSerializer> addresses;
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
     
-    @JsonProperty("business_type")
-    private String businessType;
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -42089,8 +40532,68 @@ public static class GetCompanyProfileSerializerResponse {
     
     
     
+    @JsonProperty("modified_by")
+    private UserSerializer modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("company_type")
+    private String companyType;
+    
+    
+    
+    
+    @JsonProperty("business_type")
+    private String businessType;
+    
+    
+    
+    
+    @JsonProperty("documents")
+    private List<Document> documents;
+    
+    
+    
+    
+    @JsonProperty("mode")
+    private String mode;
+    
+    
+    
+    
+    @JsonProperty("addresses")
+    private List<GetAddressSerializer> addresses;
+    
+    
+    
+    
+    @JsonProperty("verified_by")
+    private UserSerializer verifiedBy;
+    
+    
+    
+    
+    @JsonProperty("business_info")
+    private String businessInfo;
+    
+    
+    
+    
+    @JsonProperty("warnings")
+    private Object warnings;
+    
+    
+    
+    
     @JsonProperty("uid")
     private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
     
     
     
@@ -42101,8 +40604,20 @@ public static class GetCompanyProfileSerializerResponse {
     
     
     
-    @JsonProperty("stage")
-    private String stage;
+    @JsonProperty("business_details")
+    private BusinessDetails businessDetails;
+    
+    
+    
+    
+    @JsonProperty("verified_on")
+    private String verifiedOn;
+    
+    
+    
+    
+    @JsonProperty("business_country_info")
+    private BusinessCountryInfo businessCountryInfo;
     
     
     
@@ -42123,8 +40638,32 @@ public static class CreateUpdateAddressSerializer {
     
     
     
-    @JsonProperty("city")
-    private String city;
+    @JsonProperty("longitude")
+    private Double longitude;
+    
+    
+    
+    
+    @JsonProperty("landmark")
+    private String landmark;
+    
+    
+    
+    
+    @JsonProperty("latitude")
+    private Double latitude;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
+    
+    
+    
+    
+    @JsonProperty("address1")
+    private String address1;
     
     
     
@@ -42135,14 +40674,14 @@ public static class CreateUpdateAddressSerializer {
     
     
     
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
     @JsonProperty("country")
     private String country;
-    
-    
-    
-    
-    @JsonProperty("state")
-    private String state;
     
     
     
@@ -42159,32 +40698,8 @@ public static class CreateUpdateAddressSerializer {
     
     
     
-    @JsonProperty("latitude")
-    private Double latitude;
-    
-    
-    
-    
     @JsonProperty("address2")
     private String address2;
-    
-    
-    
-    
-    @JsonProperty("address1")
-    private String address1;
-    
-    
-    
-    
-    @JsonProperty("longitude")
-    private Double longitude;
-    
-    
-    
-    
-    @JsonProperty("landmark")
-    private String landmark;
     
     
     
@@ -42239,20 +40754,8 @@ public static class UpdateCompany {
     
     
     
-    @JsonProperty("addresses")
-    private List<CreateUpdateAddressSerializer> addresses;
-    
-    
-    
-    
-    @JsonProperty("company_type")
-    private String companyType;
-    
-    
-    
-    
-    @JsonProperty("business_info")
-    private String businessInfo;
+    @JsonProperty("business_type")
+    private String businessType;
     
     
     
@@ -42263,8 +40766,8 @@ public static class UpdateCompany {
     
     
     
-    @JsonProperty("franchise_enabled")
-    private Boolean franchiseEnabled;
+    @JsonProperty("business_details")
+    private BusinessDetails businessDetails;
     
     
     
@@ -42275,32 +40778,32 @@ public static class UpdateCompany {
     
     
     
-    @JsonProperty("business_type")
-    private String businessType;
+    @JsonProperty("reject_reason")
+    private String rejectReason;
     
     
     
     
-    @JsonProperty("notification_emails")
-    private List<String> notificationEmails;
+    @JsonProperty("franchise_enabled")
+    private Boolean franchiseEnabled;
     
     
     
     
-    @JsonProperty("contact_details")
-    private ContactDetails contactDetails;
-    
-    
-    
-    
-    @JsonProperty("business_details")
-    private BusinessDetails businessDetails;
+    @JsonProperty("addresses")
+    private List<CreateUpdateAddressSerializer> addresses;
     
     
     
     
     @JsonProperty("name")
     private String name;
+    
+    
+    
+    
+    @JsonProperty("contact_details")
+    private ContactDetails contactDetails;
     
     
     
@@ -42317,8 +40820,20 @@ public static class UpdateCompany {
     
     
     
-    @JsonProperty("reject_reason")
-    private String rejectReason;
+    @JsonProperty("notification_emails")
+    private List<String> notificationEmails;
+    
+    
+    
+    
+    @JsonProperty("business_info")
+    private String businessInfo;
+    
+    
+    
+    
+    @JsonProperty("company_type")
+    private String companyType;
     
     
     
@@ -42395,8 +40910,14 @@ public static class MetricsSerializer {
     
     
     
-    @JsonProperty("company_documents")
-    private DocumentsObj companyDocuments;
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
     
     
     
@@ -42413,26 +40934,20 @@ public static class MetricsSerializer {
     
     
     
+    @JsonProperty("store")
+    private DocumentsObj store;
+    
+    
+    
+    
     @JsonProperty("store_documents")
     private DocumentsObj storeDocuments;
     
     
     
     
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("store")
-    private DocumentsObj store;
+    @JsonProperty("company_documents")
+    private DocumentsObj companyDocuments;
     
     
     
@@ -42453,14 +40968,14 @@ public static class BrandBannerSerializer {
     
     
     
-    @JsonProperty("portrait")
-    private String portrait;
-    
-    
-    
-    
     @JsonProperty("landscape")
     private String landscape;
+    
+    
+    
+    
+    @JsonProperty("portrait")
+    private String portrait;
     
     
     
@@ -42481,44 +40996,8 @@ public static class GetBrandResponseSerializer {
     
     
     
-    @JsonProperty("synonyms")
-    private List<String> synonyms;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("banner")
-    private BrandBannerSerializer banner;
-    
-    
-    
-    
-    @JsonProperty("slug_key")
-    private String slugKey;
-    
-    
-    
-    
-    @JsonProperty("verified_on")
-    private String verifiedOn;
-    
-    
-    
-    
     @JsonProperty("created_on")
     private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
     
     
     
@@ -42529,14 +41008,14 @@ public static class GetBrandResponseSerializer {
     
     
     
-    @JsonProperty("warnings")
-    private Object warnings;
+    @JsonProperty("reject_reason")
+    private String rejectReason;
     
     
     
     
-    @JsonProperty("modified_by")
-    private UserSerializer modifiedBy;
+    @JsonProperty("created_by")
+    private UserSerializer createdBy;
     
     
     
@@ -42549,6 +41028,24 @@ public static class GetBrandResponseSerializer {
     
     @JsonProperty("description")
     private String description;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private UserSerializer modifiedBy;
     
     
     
@@ -42571,14 +41068,20 @@ public static class GetBrandResponseSerializer {
     
     
     
-    @JsonProperty("reject_reason")
-    private String rejectReason;
+    @JsonProperty("synonyms")
+    private List<String> synonyms;
     
     
     
     
-    @JsonProperty("created_by")
-    private UserSerializer createdBy;
+    @JsonProperty("slug_key")
+    private String slugKey;
+    
+    
+    
+    
+    @JsonProperty("warnings")
+    private Object warnings;
     
     
     
@@ -42591,6 +41094,18 @@ public static class GetBrandResponseSerializer {
     
     @JsonProperty("stage")
     private String stage;
+    
+    
+    
+    
+    @JsonProperty("banner")
+    private BrandBannerSerializer banner;
+    
+    
+    
+    
+    @JsonProperty("verified_on")
+    private String verifiedOn;
     
     
     
@@ -42617,14 +41132,32 @@ public static class CreateUpdateBrandRequestSerializer {
     
     
     
-    @JsonProperty("synonyms")
-    private List<String> synonyms;
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
     
     
     
     
     @JsonProperty("company_id")
     private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -42641,32 +41174,14 @@ public static class CreateUpdateBrandRequestSerializer {
     
     
     
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
+    @JsonProperty("synonyms")
+    private List<String> synonyms;
     
     
     
     
     @JsonProperty("_custom_json")
     private Object customJson;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
     
     
     
@@ -42687,14 +41202,14 @@ public static class CompanySocialAccounts {
     
     
     
-    @JsonProperty("url")
-    private String url;
-    
-    
-    
-    
     @JsonProperty("name")
     private String name;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
     
     
     
@@ -42743,62 +41258,14 @@ public static class CompanySerializer {
     
     
     
-    @JsonProperty("details")
-    private CompanyDetails details;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private UserSerializer createdBy;
-    
-    
-    
-    
-    @JsonProperty("company_type")
-    private String companyType;
-    
-    
-    
-    
-    @JsonProperty("addresses")
-    private List<GetAddressSerializer> addresses;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
     @JsonProperty("business_type")
     private String businessType;
     
     
     
     
-    @JsonProperty("notification_emails")
-    private List<String> notificationEmails;
-    
-    
-    
-    
-    @JsonProperty("business_country_info")
-    private BusinessCountryInfo businessCountryInfo;
-    
-    
-    
-    
-    @JsonProperty("verified_on")
-    private String verifiedOn;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
+    @JsonProperty("market_channels")
+    private List<String> marketChannels;
     
     
     
@@ -42809,8 +41276,32 @@ public static class CompanySerializer {
     
     
     
-    @JsonProperty("modified_by")
-    private UserSerializer modifiedBy;
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("reject_reason")
+    private String rejectReason;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("business_country_info")
+    private BusinessCountryInfo businessCountryInfo;
+    
+    
+    
+    
+    @JsonProperty("addresses")
+    private List<GetAddressSerializer> addresses;
     
     
     
@@ -42827,26 +41318,50 @@ public static class CompanySerializer {
     
     
     
+    @JsonProperty("created_by")
+    private UserSerializer createdBy;
+    
+    
+    
+    
+    @JsonProperty("company_type")
+    private String companyType;
+    
+    
+    
+    
+    @JsonProperty("details")
+    private CompanyDetails details;
+    
+    
+    
+    
     @JsonProperty("_custom_json")
     private Object customJson;
     
     
     
     
-    @JsonProperty("stage")
-    private String stage;
+    @JsonProperty("notification_emails")
+    private List<String> notificationEmails;
     
     
     
     
-    @JsonProperty("reject_reason")
-    private String rejectReason;
+    @JsonProperty("verified_on")
+    private String verifiedOn;
     
     
     
     
-    @JsonProperty("market_channels")
-    private List<String> marketChannels;
+    @JsonProperty("modified_by")
+    private UserSerializer modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
@@ -42867,8 +41382,32 @@ public static class CompanyBrandSerializer {
     
     
     
-    @JsonProperty("created_by")
-    private UserSerializer createdBy;
+    @JsonProperty("warnings")
+    private Object warnings;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("reject_reason")
+    private String rejectReason;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
     
     
     
@@ -42879,14 +41418,14 @@ public static class CompanyBrandSerializer {
     
     
     
-    @JsonProperty("warnings")
-    private Object warnings;
+    @JsonProperty("verified_by")
+    private UserSerializer verifiedBy;
     
     
     
     
-    @JsonProperty("modified_on")
-    private String modifiedOn;
+    @JsonProperty("created_by")
+    private UserSerializer createdBy;
     
     
     
@@ -42903,38 +41442,14 @@ public static class CompanyBrandSerializer {
     
     
     
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
     @JsonProperty("modified_by")
     private UserSerializer modifiedBy;
     
     
     
     
-    @JsonProperty("verified_by")
-    private UserSerializer verifiedBy;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("reject_reason")
-    private String rejectReason;
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
@@ -42955,14 +41470,14 @@ public static class CompanyBrandListSerializer {
     
     
     
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<CompanyBrandSerializer> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -42989,14 +41504,14 @@ public static class CompanyBrandPostRequestSerializer {
     
     
     
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
     @JsonProperty("company")
     private Integer company;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
     
     
     
@@ -43017,8 +41532,8 @@ public static class LocationSerializer {
     
     
     
-    @JsonProperty("documents")
-    private List<Document> documents;
+    @JsonProperty("gst_credentials")
+    private InvoiceDetailsSerializer gstCredentials;
     
     
     
@@ -43029,8 +41544,44 @@ public static class LocationSerializer {
     
     
     
-    @JsonProperty("product_return_config")
-    private ProductReturnConfigSerializer productReturnConfig;
+    @JsonProperty("documents")
+    private List<Document> documents;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("contact_numbers")
+    private List<SellerPhoneNumber> contactNumbers;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("manager")
+    private LocationManagerSerializer manager;
+    
+    
+    
+    
+    @JsonProperty("store_type")
+    private String storeType;
     
     
     
@@ -43041,8 +41592,14 @@ public static class LocationSerializer {
     
     
     
-    @JsonProperty("contact_numbers")
-    private List<SellerPhoneNumber> contactNumbers;
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("product_return_config")
+    private ProductReturnConfigSerializer productReturnConfig;
     
     
     
@@ -43059,38 +41616,8 @@ public static class LocationSerializer {
     
     
     
-    @JsonProperty("gst_credentials")
-    private InvoiceDetailsSerializer gstCredentials;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
     @JsonProperty("display_name")
     private String displayName;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("address")
-    private GetAddressSerializer address;
     
     
     
@@ -43101,20 +41628,8 @@ public static class LocationSerializer {
     
     
     
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("manager")
-    private LocationManagerSerializer manager;
-    
-    
-    
-    
-    @JsonProperty("store_type")
-    private String storeType;
+    @JsonProperty("address")
+    private GetAddressSerializer address;
     
     
     
@@ -54455,7 +52970,7 @@ public static class OrderingStoresResponse {
 
 
 /*
-    Model: CouponAuthor
+    Model: State
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -54463,19 +52978,333 @@ public static class OrderingStoresResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CouponAuthor {
+public static class State {
     
     
     
     
-    @JsonProperty("created_by")
-    private String createdBy;
+    @JsonProperty("is_archived")
+    private Boolean isArchived;
     
     
     
     
-    @JsonProperty("modified_by")
-    private String modifiedBy;
+    @JsonProperty("is_display")
+    private Boolean isDisplay;
+    
+    
+    
+    
+    @JsonProperty("is_public")
+    private Boolean isPublic;
+    
+    
+    
+    
+}
+
+/*
+    Model: Validity
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Validity {
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Integer priority;
+    
+    
+    
+    
+}
+
+/*
+    Model: CouponDateMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CouponDateMeta {
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+}
+
+/*
+    Model: CouponSchedule
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CouponSchedule {
+    
+    
+    
+    
+    @JsonProperty("next_schedule")
+    private List<Object> nextSchedule;
+    
+    
+    
+    
+    @JsonProperty("duration")
+    private Integer duration;
+    
+    
+    
+    
+    @JsonProperty("end")
+    private String end;
+    
+    
+    
+    
+    @JsonProperty("start")
+    private String start;
+    
+    
+    
+    
+    @JsonProperty("cron")
+    private String cron;
+    
+    
+    
+    
+}
+
+/*
+    Model: Rule
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Rule {
+    
+    
+    
+    
+    @JsonProperty("discount_qty")
+    private Double discountQty;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+    
+    @JsonProperty("min")
+    private Double min;
+    
+    
+    
+    
+    @JsonProperty("max")
+    private Double max;
+    
+    
+    
+    
+    @JsonProperty("key")
+    private Double key;
+    
+    
+    
+    
+}
+
+/*
+    Model: Identifier
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Identifier {
+    
+    
+    
+    
+    @JsonProperty("item_id")
+    private List<Integer> itemId;
+    
+    
+    
+    
+    @JsonProperty("store_id")
+    private List<Integer> storeId;
+    
+    
+    
+    
+    @JsonProperty("brand_id")
+    private List<Integer> brandId;
+    
+    
+    
+    
+    @JsonProperty("article_id")
+    private List<String> articleId;
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private List<String> userId;
+    
+    
+    
+    
+    @JsonProperty("category_id")
+    private List<Integer> categoryId;
+    
+    
+    
+    
+    @JsonProperty("exclude_brand_id")
+    private List<Integer> excludeBrandId;
+    
+    
+    
+    
+    @JsonProperty("collection_id")
+    private List<String> collectionId;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private List<Integer> companyId;
+    
+    
+    
+    
+}
+
+/*
+    Model: Validation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Validation {
+    
+    
+    
+    
+    @JsonProperty("user_registered_after")
+    private String userRegisteredAfter;
+    
+    
+    
+    
+    @JsonProperty("anonymous")
+    private Boolean anonymous;
+    
+    
+    
+    
+    @JsonProperty("app_id")
+    private List<String> appId;
+    
+    
+    
+    
+}
+
+/*
+    Model: UsesRemaining
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UsesRemaining {
+    
+    
+    
+    
+    @JsonProperty("user")
+    private Integer user;
+    
+    
+    
+    
+    @JsonProperty("app")
+    private Integer app;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
+    
+}
+
+/*
+    Model: UsesRestriction
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UsesRestriction {
+    
+    
+    
+    
+    @JsonProperty("remaining")
+    private UsesRemaining remaining;
+    
+    
+    
+    
+    @JsonProperty("maximum")
+    private UsesRemaining maximum;
     
     
     
@@ -54496,14 +53325,14 @@ public static class PriceRange {
     
     
     
-    @JsonProperty("max")
-    private Integer max;
-    
-    
-    
-    
     @JsonProperty("min")
     private Integer min;
+    
+    
+    
+    
+    @JsonProperty("max")
+    private Integer max;
     
     
     
@@ -54546,18 +53375,6 @@ public static class PaymentModes {
     
     
     
-    @JsonProperty("codes")
-    private List<String> codes;
-    
-    
-    
-    
-    @JsonProperty("networks")
-    private List<String> networks;
-    
-    
-    
-    
     @JsonProperty("uses")
     private PaymentAllowValue uses;
     
@@ -54566,6 +53383,18 @@ public static class PaymentModes {
     
     @JsonProperty("types")
     private List<String> types;
+    
+    
+    
+    
+    @JsonProperty("codes")
+    private List<String> codes;
+    
+    
+    
+    
+    @JsonProperty("networks")
+    private List<String> networks;
     
     
     
@@ -54595,68 +53424,6 @@ public static class BulkBundleRestriction {
 }
 
 /*
-    Model: UsesRemaining
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UsesRemaining {
-    
-    
-    
-    
-    @JsonProperty("user")
-    private Integer user;
-    
-    
-    
-    
-    @JsonProperty("total")
-    private Integer total;
-    
-    
-    
-    
-    @JsonProperty("app")
-    private Integer app;
-    
-    
-    
-    
-}
-
-/*
-    Model: UsesRestriction
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UsesRestriction {
-    
-    
-    
-    
-    @JsonProperty("remaining")
-    private UsesRemaining remaining;
-    
-    
-    
-    
-    @JsonProperty("maximum")
-    private UsesRemaining maximum;
-    
-    
-    
-    
-}
-
-/*
     Model: PostOrder
 */
 @AllArgsConstructor
@@ -54670,14 +53437,14 @@ public static class PostOrder {
     
     
     
-    @JsonProperty("cancellation_allowed")
-    private Boolean cancellationAllowed;
-    
-    
-    
-    
     @JsonProperty("return_allowed")
     private Boolean returnAllowed;
+    
+    
+    
+    
+    @JsonProperty("cancellation_allowed")
+    private Boolean cancellationAllowed;
     
     
     
@@ -54698,44 +53465,8 @@ public static class Restrictions {
     
     
     
-    @JsonProperty("ordering_stores")
-    private List<Integer> orderingStores;
-    
-    
-    
-    
-    @JsonProperty("price_range")
-    private PriceRange priceRange;
-    
-    
-    
-    
-    @JsonProperty("payments")
-    private HashMap<String,PaymentModes> payments;
-    
-    
-    
-    
-    @JsonProperty("platforms")
-    private List<String> platforms;
-    
-    
-    
-    
-    @JsonProperty("bulk_bundle")
-    private BulkBundleRestriction bulkBundle;
-    
-    
-    
-    
     @JsonProperty("uses")
     private UsesRestriction uses;
-    
-    
-    
-    
-    @JsonProperty("coupon_allowed")
-    private Boolean couponAllowed;
     
     
     
@@ -54746,100 +53477,44 @@ public static class Restrictions {
     
     
     
+    @JsonProperty("coupon_allowed")
+    private Boolean couponAllowed;
+    
+    
+    
+    
+    @JsonProperty("price_range")
+    private PriceRange priceRange;
+    
+    
+    
+    
+    @JsonProperty("ordering_stores")
+    private List<Integer> orderingStores;
+    
+    
+    
+    
+    @JsonProperty("payments")
+    private HashMap<String,PaymentModes> payments;
+    
+    
+    
+    
+    @JsonProperty("bulk_bundle")
+    private BulkBundleRestriction bulkBundle;
+    
+    
+    
+    
+    @JsonProperty("platforms")
+    private List<String> platforms;
+    
+    
+    
+    
     @JsonProperty("post_order")
     private PostOrder postOrder;
-    
-    
-    
-    
-}
-
-/*
-    Model: RuleDefinition
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RuleDefinition {
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("currency_code")
-    private String currencyCode;
-    
-    
-    
-    
-    @JsonProperty("is_exact")
-    private Boolean isExact;
-    
-    
-    
-    
-    @JsonProperty("value_type")
-    private String valueType;
-    
-    
-    
-    
-    @JsonProperty("calculate_on")
-    private String calculateOn;
-    
-    
-    
-    
-    @JsonProperty("applicable_on")
-    private String applicableOn;
-    
-    
-    
-    
-    @JsonProperty("auto_apply")
-    private Boolean autoApply;
-    
-    
-    
-    
-    @JsonProperty("scope")
-    private List<String> scope;
-    
-    
-    
-    
-}
-
-/*
-    Model: Ownership
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Ownership {
-    
-    
-    
-    
-    @JsonProperty("payable_by")
-    private String payableBy;
-    
-    
-    
-    
-    @JsonProperty("payable_category")
-    private String payableCategory;
     
     
     
@@ -54860,60 +53535,14 @@ public static class CouponAction {
     
     
     
-    @JsonProperty("txn_mode")
-    private String txnMode;
-    
-    
-    
-    
     @JsonProperty("action_date")
     private String actionDate;
     
     
     
     
-}
-
-/*
-    Model: Rule
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Rule {
-    
-    
-    
-    
-    @JsonProperty("value")
-    private Double value;
-    
-    
-    
-    
-    @JsonProperty("min")
-    private Double min;
-    
-    
-    
-    
-    @JsonProperty("max")
-    private Double max;
-    
-    
-    
-    
-    @JsonProperty("key")
-    private Double key;
-    
-    
-    
-    
-    @JsonProperty("discount_qty")
-    private Double discountQty;
+    @JsonProperty("txn_mode")
+    private String txnMode;
     
     
     
@@ -54921,7 +53550,7 @@ public static class Rule {
 }
 
 /*
-    Model: Validation
+    Model: CouponAuthor
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -54929,25 +53558,19 @@ public static class Rule {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Validation {
+public static class CouponAuthor {
     
     
     
     
-    @JsonProperty("anonymous")
-    private Boolean anonymous;
+    @JsonProperty("modified_by")
+    private String modifiedBy;
     
     
     
     
-    @JsonProperty("user_registered_after")
-    private String userRegisteredAfter;
-    
-    
-    
-    
-    @JsonProperty("app_id")
-    private List<String> appId;
+    @JsonProperty("created_by")
+    private String createdBy;
     
     
     
@@ -54955,7 +53578,7 @@ public static class Validation {
 }
 
 /*
-    Model: Identifier
+    Model: Ownership
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -54963,61 +53586,19 @@ public static class Validation {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Identifier {
+public static class Ownership {
     
     
     
     
-    @JsonProperty("exclude_brand_id")
-    private List<Integer> excludeBrandId;
+    @JsonProperty("payable_category")
+    private String payableCategory;
     
     
     
     
-    @JsonProperty("collection_id")
-    private List<String> collectionId;
-    
-    
-    
-    
-    @JsonProperty("article_id")
-    private List<String> articleId;
-    
-    
-    
-    
-    @JsonProperty("brand_id")
-    private List<Integer> brandId;
-    
-    
-    
-    
-    @JsonProperty("category_id")
-    private List<Integer> categoryId;
-    
-    
-    
-    
-    @JsonProperty("item_id")
-    private List<Integer> itemId;
-    
-    
-    
-    
-    @JsonProperty("store_id")
-    private List<Integer> storeId;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private List<Integer> companyId;
-    
-    
-    
-    
-    @JsonProperty("user_id")
-    private List<String> userId;
+    @JsonProperty("payable_by")
+    private String payableBy;
     
     
     
@@ -55025,7 +53606,7 @@ public static class Identifier {
 }
 
 /*
-    Model: CouponSchedule
+    Model: RuleDefinition
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -55033,87 +53614,55 @@ public static class Identifier {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CouponSchedule {
+public static class RuleDefinition {
     
     
     
     
-    @JsonProperty("start")
-    private String start;
+    @JsonProperty("is_exact")
+    private Boolean isExact;
     
     
     
     
-    @JsonProperty("next_schedule")
-    private List<Object> nextSchedule;
+    @JsonProperty("scope")
+    private List<String> scope;
     
     
     
     
-    @JsonProperty("end")
-    private String end;
+    @JsonProperty("auto_apply")
+    private Boolean autoApply;
     
     
     
     
-    @JsonProperty("cron")
-    private String cron;
+    @JsonProperty("currency_code")
+    private String currencyCode;
     
     
     
     
-    @JsonProperty("duration")
-    private Integer duration;
+    @JsonProperty("type")
+    private String type;
     
     
     
     
-}
-
-/*
-    Model: CouponDateMeta
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CouponDateMeta {
+    @JsonProperty("applicable_on")
+    private String applicableOn;
     
     
     
     
-    @JsonProperty("created_on")
-    private String createdOn;
+    @JsonProperty("value_type")
+    private String valueType;
     
     
     
     
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-}
-
-/*
-    Model: Validity
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Validity {
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private Integer priority;
+    @JsonProperty("calculate_on")
+    private String calculateOn;
     
     
     
@@ -55162,30 +53711,6 @@ public static class DisplayMeta {
     
     
     
-    @JsonProperty("apply")
-    private DisplayMetaDict apply;
-    
-    
-    
-    
-    @JsonProperty("auto")
-    private DisplayMetaDict auto;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("subtitle")
-    private String subtitle;
-    
-    
-    
-    
     @JsonProperty("title")
     private String title;
     
@@ -55198,36 +53723,26 @@ public static class DisplayMeta {
     
     
     
-}
-
-/*
-    Model: State
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class State {
+    @JsonProperty("apply")
+    private DisplayMetaDict apply;
     
     
     
     
-    @JsonProperty("is_display")
-    private Boolean isDisplay;
+    @JsonProperty("subtitle")
+    private String subtitle;
     
     
     
     
-    @JsonProperty("is_public")
-    private Boolean isPublic;
+    @JsonProperty("auto")
+    private DisplayMetaDict auto;
     
     
     
     
-    @JsonProperty("is_archived")
-    private Boolean isArchived;
+    @JsonProperty("description")
+    private String description;
     
     
     
@@ -55248,80 +53763,8 @@ public static class CouponAdd {
     
     
     
-    @JsonProperty("tags")
-    private List<String> tags;
-    
-    
-    
-    
-    @JsonProperty("author")
-    private CouponAuthor author;
-    
-    
-    
-    
-    @JsonProperty("restrictions")
-    private Restrictions restrictions;
-    
-    
-    
-    
-    @JsonProperty("rule_definition")
-    private RuleDefinition ruleDefinition;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("ownership")
-    private Ownership ownership;
-    
-    
-    
-    
-    @JsonProperty("action")
-    private CouponAction action;
-    
-    
-    
-    
-    @JsonProperty("rule")
-    private List<Rule> rule;
-    
-    
-    
-    
-    @JsonProperty("type_slug")
-    private String typeSlug;
-    
-    
-    
-    
-    @JsonProperty("validation")
-    private Validation validation;
-    
-    
-    
-    
-    @JsonProperty("identifiers")
-    private Identifier identifiers;
-    
-    
-    
-    
-    @JsonProperty("_schedule")
-    private CouponSchedule schedule;
-    
-    
-    
-    
-    @JsonProperty("date_meta")
-    private CouponDateMeta dateMeta;
+    @JsonProperty("state")
+    private State state;
     
     
     
@@ -55332,14 +53775,86 @@ public static class CouponAdd {
     
     
     
+    @JsonProperty("type_slug")
+    private String typeSlug;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("date_meta")
+    private CouponDateMeta dateMeta;
+    
+    
+    
+    
+    @JsonProperty("_schedule")
+    private CouponSchedule schedule;
+    
+    
+    
+    
+    @JsonProperty("rule")
+    private List<Rule> rule;
+    
+    
+    
+    
+    @JsonProperty("identifiers")
+    private Identifier identifiers;
+    
+    
+    
+    
+    @JsonProperty("validation")
+    private Validation validation;
+    
+    
+    
+    
+    @JsonProperty("restrictions")
+    private Restrictions restrictions;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private CouponAction action;
+    
+    
+    
+    
+    @JsonProperty("author")
+    private CouponAuthor author;
+    
+    
+    
+    
+    @JsonProperty("ownership")
+    private Ownership ownership;
+    
+    
+    
+    
+    @JsonProperty("rule_definition")
+    private RuleDefinition ruleDefinition;
+    
+    
+    
+    
     @JsonProperty("display_meta")
     private DisplayMeta displayMeta;
     
     
     
     
-    @JsonProperty("state")
-    private State state;
+    @JsonProperty("tags")
+    private List<String> tags;
     
     
     
@@ -55388,14 +53903,14 @@ public static class SuccessMessage {
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
     @JsonProperty("message")
     private String message;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -55416,14 +53931,14 @@ public static class OperationErrorResponse {
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
     @JsonProperty("message")
     private String message;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -55444,80 +53959,8 @@ public static class CouponUpdate {
     
     
     
-    @JsonProperty("tags")
-    private List<String> tags;
-    
-    
-    
-    
-    @JsonProperty("author")
-    private CouponAuthor author;
-    
-    
-    
-    
-    @JsonProperty("restrictions")
-    private Restrictions restrictions;
-    
-    
-    
-    
-    @JsonProperty("rule_definition")
-    private RuleDefinition ruleDefinition;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("ownership")
-    private Ownership ownership;
-    
-    
-    
-    
-    @JsonProperty("action")
-    private CouponAction action;
-    
-    
-    
-    
-    @JsonProperty("rule")
-    private List<Rule> rule;
-    
-    
-    
-    
-    @JsonProperty("type_slug")
-    private String typeSlug;
-    
-    
-    
-    
-    @JsonProperty("validation")
-    private Validation validation;
-    
-    
-    
-    
-    @JsonProperty("identifiers")
-    private Identifier identifiers;
-    
-    
-    
-    
-    @JsonProperty("_schedule")
-    private CouponSchedule schedule;
-    
-    
-    
-    
-    @JsonProperty("date_meta")
-    private CouponDateMeta dateMeta;
+    @JsonProperty("state")
+    private State state;
     
     
     
@@ -55528,14 +53971,86 @@ public static class CouponUpdate {
     
     
     
+    @JsonProperty("type_slug")
+    private String typeSlug;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("date_meta")
+    private CouponDateMeta dateMeta;
+    
+    
+    
+    
+    @JsonProperty("_schedule")
+    private CouponSchedule schedule;
+    
+    
+    
+    
+    @JsonProperty("rule")
+    private List<Rule> rule;
+    
+    
+    
+    
+    @JsonProperty("identifiers")
+    private Identifier identifiers;
+    
+    
+    
+    
+    @JsonProperty("validation")
+    private Validation validation;
+    
+    
+    
+    
+    @JsonProperty("restrictions")
+    private Restrictions restrictions;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private CouponAction action;
+    
+    
+    
+    
+    @JsonProperty("author")
+    private CouponAuthor author;
+    
+    
+    
+    
+    @JsonProperty("ownership")
+    private Ownership ownership;
+    
+    
+    
+    
+    @JsonProperty("rule_definition")
+    private RuleDefinition ruleDefinition;
+    
+    
+    
+    
     @JsonProperty("display_meta")
     private DisplayMeta displayMeta;
     
     
     
     
-    @JsonProperty("state")
-    private State state;
+    @JsonProperty("tags")
+    private List<String> tags;
     
     
     
@@ -55556,42 +54071,14 @@ public static class CouponPartialUpdate {
     
     
     
-    @JsonProperty("schedule")
-    private CouponSchedule schedule;
-    
-    
-    
-    
     @JsonProperty("archive")
     private Boolean archive;
     
     
     
     
-}
-
-/*
-    Model: PromotionAuthor
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromotionAuthor {
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private String createdBy;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private String modifiedBy;
+    @JsonProperty("schedule")
+    private CouponSchedule schedule;
     
     
     
@@ -55599,7 +54086,7 @@ public static class PromotionAuthor {
 }
 
 /*
-    Model: PaymentAllowValue1
+    Model: PromotionDateMeta
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -55607,13 +54094,19 @@ public static class PromotionAuthor {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentAllowValue1 {
+public static class PromotionDateMeta {
     
     
     
     
-    @JsonProperty("max")
-    private Integer max;
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
     
     
     
@@ -55621,7 +54114,7 @@ public static class PaymentAllowValue1 {
 }
 
 /*
-    Model: PromotionPaymentModes
+    Model: Visibility
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -55629,25 +54122,19 @@ public static class PaymentAllowValue1 {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromotionPaymentModes {
+public static class Visibility {
     
     
     
     
-    @JsonProperty("codes")
-    private List<String> codes;
+    @JsonProperty("coupon_list")
+    private Boolean couponList;
     
     
     
     
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("uses")
-    private PaymentAllowValue1 uses;
+    @JsonProperty("pdp")
+    private Boolean pdp;
     
     
     
@@ -55711,34 +54198,6 @@ public static class UsesRestriction1 {
 }
 
 /*
-    Model: PostOrder1
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PostOrder1 {
-    
-    
-    
-    
-    @JsonProperty("cancellation_allowed")
-    private Boolean cancellationAllowed;
-    
-    
-    
-    
-    @JsonProperty("return_allowed")
-    private Boolean returnAllowed;
-    
-    
-    
-    
-}
-
-/*
     Model: UserRegistered
 */
 @AllArgsConstructor
@@ -55767,6 +54226,90 @@ public static class UserRegistered {
 }
 
 /*
+    Model: PaymentAllowValue1
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentAllowValue1 {
+    
+    
+    
+    
+    @JsonProperty("max")
+    private Integer max;
+    
+    
+    
+    
+}
+
+/*
+    Model: PromotionPaymentModes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PromotionPaymentModes {
+    
+    
+    
+    
+    @JsonProperty("uses")
+    private PaymentAllowValue1 uses;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("codes")
+    private List<String> codes;
+    
+    
+    
+    
+}
+
+/*
+    Model: PostOrder1
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PostOrder1 {
+    
+    
+    
+    
+    @JsonProperty("return_allowed")
+    private Boolean returnAllowed;
+    
+    
+    
+    
+    @JsonProperty("cancellation_allowed")
+    private Boolean cancellationAllowed;
+    
+    
+    
+    
+}
+
+/*
     Model: Restrictions1
 */
 @AllArgsConstructor
@@ -55780,8 +54323,32 @@ public static class Restrictions1 {
     
     
     
-    @JsonProperty("anonymous_users")
-    private Boolean anonymousUsers;
+    @JsonProperty("uses")
+    private UsesRestriction1 uses;
+    
+    
+    
+    
+    @JsonProperty("user_groups")
+    private List<Integer> userGroups;
+    
+    
+    
+    
+    @JsonProperty("order_quantity")
+    private Integer orderQuantity;
+    
+    
+    
+    
+    @JsonProperty("user_registered")
+    private UserRegistered userRegistered;
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private List<String> userId;
     
     
     
@@ -55798,38 +54365,48 @@ public static class Restrictions1 {
     
     
     
-    @JsonProperty("uses")
-    private UsesRestriction1 uses;
-    
-    
-    
-    
-    @JsonProperty("order_quantity")
-    private Integer orderQuantity;
-    
-    
-    
-    
-    @JsonProperty("user_groups")
-    private List<Integer> userGroups;
-    
-    
-    
-    
     @JsonProperty("post_order")
     private PostOrder1 postOrder;
     
     
     
     
-    @JsonProperty("user_registered")
-    private UserRegistered userRegistered;
+    @JsonProperty("anonymous_users")
+    private Boolean anonymousUsers;
     
     
     
     
-    @JsonProperty("user_id")
-    private List<String> userId;
+}
+
+/*
+    Model: DisplayMeta1
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DisplayMeta1 {
+    
+    
+    
+    
+    @JsonProperty("offer_text")
+    private String offerText;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -55856,26 +54433,26 @@ public static class CompareObject {
     
     
     
-    @JsonProperty("less_than_equals")
-    private Double lessThanEquals;
-    
-    
-    
-    
     @JsonProperty("greater_than")
     private Double greaterThan;
     
     
     
     
-    @JsonProperty("greater_than_equals")
-    private Double greaterThanEquals;
+    @JsonProperty("less_than_equals")
+    private Double lessThanEquals;
     
     
     
     
     @JsonProperty("equals")
     private Double equals;
+    
+    
+    
+    
+    @JsonProperty("greater_than_equals")
+    private Double greaterThanEquals;
     
     
     
@@ -55896,66 +54473,6 @@ public static class ItemCriteria {
     
     
     
-    @JsonProperty("item_size")
-    private List<String> itemSize;
-    
-    
-    
-    
-    @JsonProperty("item_exclude_company")
-    private List<Integer> itemExcludeCompany;
-    
-    
-    
-    
-    @JsonProperty("item_brand")
-    private List<Integer> itemBrand;
-    
-    
-    
-    
-    @JsonProperty("all_items")
-    private Boolean allItems;
-    
-    
-    
-    
-    @JsonProperty("item_exclude_brand")
-    private List<Integer> itemExcludeBrand;
-    
-    
-    
-    
-    @JsonProperty("item_sku")
-    private List<String> itemSku;
-    
-    
-    
-    
-    @JsonProperty("item_category")
-    private List<Integer> itemCategory;
-    
-    
-    
-    
-    @JsonProperty("item_company")
-    private List<Integer> itemCompany;
-    
-    
-    
-    
-    @JsonProperty("buy_rules")
-    private List<String> buyRules;
-    
-    
-    
-    
-    @JsonProperty("cart_total")
-    private CompareObject cartTotal;
-    
-    
-    
-    
     @JsonProperty("item_id")
     private List<Integer> itemId;
     
@@ -55968,8 +54485,56 @@ public static class ItemCriteria {
     
     
     
+    @JsonProperty("item_company")
+    private List<Integer> itemCompany;
+    
+    
+    
+    
+    @JsonProperty("item_exclude_category")
+    private List<Integer> itemExcludeCategory;
+    
+    
+    
+    
+    @JsonProperty("item_category")
+    private List<Integer> itemCategory;
+    
+    
+    
+    
+    @JsonProperty("buy_rules")
+    private List<String> buyRules;
+    
+    
+    
+    
+    @JsonProperty("item_exclude_company")
+    private List<Integer> itemExcludeCompany;
+    
+    
+    
+    
     @JsonProperty("item_exclude_store")
     private List<Integer> itemExcludeStore;
+    
+    
+    
+    
+    @JsonProperty("item_size")
+    private List<String> itemSize;
+    
+    
+    
+    
+    @JsonProperty("all_items")
+    private Boolean allItems;
+    
+    
+    
+    
+    @JsonProperty("cart_total")
+    private CompareObject cartTotal;
     
     
     
@@ -55980,14 +54545,26 @@ public static class ItemCriteria {
     
     
     
+    @JsonProperty("item_sku")
+    private List<String> itemSku;
+    
+    
+    
+    
+    @JsonProperty("item_brand")
+    private List<Integer> itemBrand;
+    
+    
+    
+    
+    @JsonProperty("item_exclude_brand")
+    private List<Integer> itemExcludeBrand;
+    
+    
+    
+    
     @JsonProperty("cart_quantity")
     private CompareObject cartQuantity;
-    
-    
-    
-    
-    @JsonProperty("item_exclude_category")
-    private List<Integer> itemExcludeCategory;
     
     
     
@@ -56008,20 +54585,8 @@ public static class DiscountOffer {
     
     
     
-    @JsonProperty("max_offer_quantity")
-    private Integer maxOfferQuantity;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("discount_percentage")
-    private Double discountPercentage;
+    @JsonProperty("min_offer_quantity")
+    private Integer minOfferQuantity;
     
     
     
@@ -56032,8 +54597,8 @@ public static class DiscountOffer {
     
     
     
-    @JsonProperty("min_offer_quantity")
-    private Integer minOfferQuantity;
+    @JsonProperty("code")
+    private String code;
     
     
     
@@ -56044,8 +54609,20 @@ public static class DiscountOffer {
     
     
     
+    @JsonProperty("max_offer_quantity")
+    private Integer maxOfferQuantity;
+    
+    
+    
+    
     @JsonProperty("discount_amount")
     private Double discountAmount;
+    
+    
+    
+    
+    @JsonProperty("discount_percentage")
+    private Double discountPercentage;
     
     
     
@@ -56066,20 +54643,8 @@ public static class DiscountRule {
     
     
     
-    @JsonProperty("discount_type")
-    private String discountType;
-    
-    
-    
-    
     @JsonProperty("item_criteria")
     private ItemCriteria itemCriteria;
-    
-    
-    
-    
-    @JsonProperty("offer")
-    private DiscountOffer offer;
     
     
     
@@ -56090,36 +54655,14 @@ public static class DiscountRule {
     
     
     
-}
-
-/*
-    Model: DisplayMeta1
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DisplayMeta1 {
+    @JsonProperty("discount_type")
+    private String discountType;
     
     
     
     
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("offer_text")
-    private String offerText;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
+    @JsonProperty("offer")
+    private DiscountOffer offer;
     
     
     
@@ -56127,7 +54670,7 @@ public static class DisplayMeta1 {
 }
 
 /*
-    Model: Visibility
+    Model: PromotionAuthor
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -56135,19 +54678,19 @@ public static class DisplayMeta1 {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Visibility {
+public static class PromotionAuthor {
     
     
     
     
-    @JsonProperty("pdp")
-    private Boolean pdp;
+    @JsonProperty("modified_by")
+    private String modifiedBy;
     
     
     
     
-    @JsonProperty("coupon_list")
-    private Boolean couponList;
+    @JsonProperty("created_by")
+    private String createdBy;
     
     
     
@@ -56168,14 +54711,14 @@ public static class PromotionSchedule {
     
     
     
-    @JsonProperty("start")
-    private String start;
-    
-    
-    
-    
     @JsonProperty("next_schedule")
     private List<Object> nextSchedule;
+    
+    
+    
+    
+    @JsonProperty("duration")
+    private Integer duration;
     
     
     
@@ -56186,8 +54729,8 @@ public static class PromotionSchedule {
     
     
     
-    @JsonProperty("cron")
-    private String cron;
+    @JsonProperty("start")
+    private String start;
     
     
     
@@ -56198,8 +54741,8 @@ public static class PromotionSchedule {
     
     
     
-    @JsonProperty("duration")
-    private Integer duration;
+    @JsonProperty("cron")
+    private String cron;
     
     
     
@@ -56220,42 +54763,14 @@ public static class PromotionAction {
     
     
     
-    @JsonProperty("action_date")
-    private String actionDate;
-    
-    
-    
-    
     @JsonProperty("action_type")
     private String actionType;
     
     
     
     
-}
-
-/*
-    Model: PromotionDateMeta
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromotionDateMeta {
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
+    @JsonProperty("action_date")
+    private String actionDate;
     
     
     
@@ -56276,14 +54791,14 @@ public static class Ownership1 {
     
     
     
-    @JsonProperty("payable_by")
-    private String payableBy;
-    
-    
-    
-    
     @JsonProperty("payable_category")
     private String payableCategory;
+    
+    
+    
+    
+    @JsonProperty("payable_by")
+    private String payableBy;
     
     
     
@@ -56304,86 +54819,8 @@ public static class PromotionListItem {
     
     
     
-    @JsonProperty("author")
-    private PromotionAuthor author;
-    
-    
-    
-    
-    @JsonProperty("restrictions")
-    private Restrictions1 restrictions;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("apply_exclusive")
-    private String applyExclusive;
-    
-    
-    
-    
-    @JsonProperty("discount_rules")
-    private List<DiscountRule> discountRules;
-    
-    
-    
-    
-    @JsonProperty("display_meta")
-    private DisplayMeta1 displayMeta;
-    
-    
-    
-    
-    @JsonProperty("mode")
-    private String mode;
-    
-    
-    
-    
-    @JsonProperty("_custom_json")
-    private Object customJson;
-    
-    
-    
-    
-    @JsonProperty("apply_priority")
-    private Integer applyPriority;
-    
-    
-    
-    
-    @JsonProperty("visiblility")
-    private Visibility visiblility;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private String currency;
-    
-    
-    
-    
-    @JsonProperty("_schedule")
-    private PromotionSchedule schedule;
-    
-    
-    
-    
-    @JsonProperty("post_order_action")
-    private PromotionAction postOrderAction;
-    
-    
-    
-    
-    @JsonProperty("buy_rules")
-    private HashMap<String,ItemCriteria> buyRules;
+    @JsonProperty("stackable")
+    private Boolean stackable;
     
     
     
@@ -56394,26 +54831,38 @@ public static class PromotionListItem {
     
     
     
-    @JsonProperty("application_id")
-    private String applicationId;
+    @JsonProperty("visiblility")
+    private Visibility visiblility;
     
     
     
     
-    @JsonProperty("promotion_type")
-    private String promotionType;
+    @JsonProperty("restrictions")
+    private Restrictions1 restrictions;
     
     
     
     
-    @JsonProperty("stackable")
-    private Boolean stackable;
+    @JsonProperty("apply_exclusive")
+    private String applyExclusive;
     
     
     
     
-    @JsonProperty("ownership")
-    private Ownership1 ownership;
+    @JsonProperty("display_meta")
+    private DisplayMeta1 displayMeta;
+    
+    
+    
+    
+    @JsonProperty("buy_rules")
+    private HashMap<String,ItemCriteria> buyRules;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
     
     
     
@@ -56424,8 +54873,74 @@ public static class PromotionListItem {
     
     
     
+    @JsonProperty("discount_rules")
+    private List<DiscountRule> discountRules;
+    
+    
+    
+    
+    @JsonProperty("mode")
+    private String mode;
+    
+    
+    
+    
+    @JsonProperty("author")
+    private PromotionAuthor author;
+    
+    
+    
+    
+    @JsonProperty("apply_priority")
+    private Integer applyPriority;
+    
+    
+    
+    
+    @JsonProperty("promotion_type")
+    private String promotionType;
+    
+    
+    
+    
+    @JsonProperty("_schedule")
+    private PromotionSchedule schedule;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("post_order_action")
+    private PromotionAction postOrderAction;
+    
+    
+    
+    
     @JsonProperty("apply_all_discount")
     private Boolean applyAllDiscount;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("ownership")
+    private Ownership1 ownership;
     
     
     
@@ -56474,86 +54989,8 @@ public static class PromotionAdd {
     
     
     
-    @JsonProperty("author")
-    private PromotionAuthor author;
-    
-    
-    
-    
-    @JsonProperty("restrictions")
-    private Restrictions1 restrictions;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("apply_exclusive")
-    private String applyExclusive;
-    
-    
-    
-    
-    @JsonProperty("discount_rules")
-    private List<DiscountRule> discountRules;
-    
-    
-    
-    
-    @JsonProperty("display_meta")
-    private DisplayMeta1 displayMeta;
-    
-    
-    
-    
-    @JsonProperty("mode")
-    private String mode;
-    
-    
-    
-    
-    @JsonProperty("_custom_json")
-    private Object customJson;
-    
-    
-    
-    
-    @JsonProperty("apply_priority")
-    private Integer applyPriority;
-    
-    
-    
-    
-    @JsonProperty("visiblility")
-    private Visibility visiblility;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private String currency;
-    
-    
-    
-    
-    @JsonProperty("_schedule")
-    private PromotionSchedule schedule;
-    
-    
-    
-    
-    @JsonProperty("post_order_action")
-    private PromotionAction postOrderAction;
-    
-    
-    
-    
-    @JsonProperty("buy_rules")
-    private HashMap<String,ItemCriteria> buyRules;
+    @JsonProperty("stackable")
+    private Boolean stackable;
     
     
     
@@ -56564,26 +55001,38 @@ public static class PromotionAdd {
     
     
     
-    @JsonProperty("application_id")
-    private String applicationId;
+    @JsonProperty("visiblility")
+    private Visibility visiblility;
     
     
     
     
-    @JsonProperty("promotion_type")
-    private String promotionType;
+    @JsonProperty("restrictions")
+    private Restrictions1 restrictions;
     
     
     
     
-    @JsonProperty("stackable")
-    private Boolean stackable;
+    @JsonProperty("apply_exclusive")
+    private String applyExclusive;
     
     
     
     
-    @JsonProperty("ownership")
-    private Ownership1 ownership;
+    @JsonProperty("display_meta")
+    private DisplayMeta1 displayMeta;
+    
+    
+    
+    
+    @JsonProperty("buy_rules")
+    private HashMap<String,ItemCriteria> buyRules;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
     
     
     
@@ -56594,8 +55043,74 @@ public static class PromotionAdd {
     
     
     
+    @JsonProperty("discount_rules")
+    private List<DiscountRule> discountRules;
+    
+    
+    
+    
+    @JsonProperty("mode")
+    private String mode;
+    
+    
+    
+    
+    @JsonProperty("author")
+    private PromotionAuthor author;
+    
+    
+    
+    
+    @JsonProperty("apply_priority")
+    private Integer applyPriority;
+    
+    
+    
+    
+    @JsonProperty("promotion_type")
+    private String promotionType;
+    
+    
+    
+    
+    @JsonProperty("_schedule")
+    private PromotionSchedule schedule;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("post_order_action")
+    private PromotionAction postOrderAction;
+    
+    
+    
+    
     @JsonProperty("apply_all_discount")
     private Boolean applyAllDiscount;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("ownership")
+    private Ownership1 ownership;
     
     
     
@@ -56616,86 +55131,8 @@ public static class PromotionUpdate {
     
     
     
-    @JsonProperty("author")
-    private PromotionAuthor author;
-    
-    
-    
-    
-    @JsonProperty("restrictions")
-    private Restrictions1 restrictions;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("apply_exclusive")
-    private String applyExclusive;
-    
-    
-    
-    
-    @JsonProperty("discount_rules")
-    private List<DiscountRule> discountRules;
-    
-    
-    
-    
-    @JsonProperty("display_meta")
-    private DisplayMeta1 displayMeta;
-    
-    
-    
-    
-    @JsonProperty("mode")
-    private String mode;
-    
-    
-    
-    
-    @JsonProperty("_custom_json")
-    private Object customJson;
-    
-    
-    
-    
-    @JsonProperty("apply_priority")
-    private Integer applyPriority;
-    
-    
-    
-    
-    @JsonProperty("visiblility")
-    private Visibility visiblility;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private String currency;
-    
-    
-    
-    
-    @JsonProperty("_schedule")
-    private PromotionSchedule schedule;
-    
-    
-    
-    
-    @JsonProperty("post_order_action")
-    private PromotionAction postOrderAction;
-    
-    
-    
-    
-    @JsonProperty("buy_rules")
-    private HashMap<String,ItemCriteria> buyRules;
+    @JsonProperty("stackable")
+    private Boolean stackable;
     
     
     
@@ -56706,26 +55143,38 @@ public static class PromotionUpdate {
     
     
     
-    @JsonProperty("application_id")
-    private String applicationId;
+    @JsonProperty("visiblility")
+    private Visibility visiblility;
     
     
     
     
-    @JsonProperty("promotion_type")
-    private String promotionType;
+    @JsonProperty("restrictions")
+    private Restrictions1 restrictions;
     
     
     
     
-    @JsonProperty("stackable")
-    private Boolean stackable;
+    @JsonProperty("apply_exclusive")
+    private String applyExclusive;
     
     
     
     
-    @JsonProperty("ownership")
-    private Ownership1 ownership;
+    @JsonProperty("display_meta")
+    private DisplayMeta1 displayMeta;
+    
+    
+    
+    
+    @JsonProperty("buy_rules")
+    private HashMap<String,ItemCriteria> buyRules;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
     
     
     
@@ -56736,8 +55185,74 @@ public static class PromotionUpdate {
     
     
     
+    @JsonProperty("discount_rules")
+    private List<DiscountRule> discountRules;
+    
+    
+    
+    
+    @JsonProperty("mode")
+    private String mode;
+    
+    
+    
+    
+    @JsonProperty("author")
+    private PromotionAuthor author;
+    
+    
+    
+    
+    @JsonProperty("apply_priority")
+    private Integer applyPriority;
+    
+    
+    
+    
+    @JsonProperty("promotion_type")
+    private String promotionType;
+    
+    
+    
+    
+    @JsonProperty("_schedule")
+    private PromotionSchedule schedule;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("post_order_action")
+    private PromotionAction postOrderAction;
+    
+    
+    
+    
     @JsonProperty("apply_all_discount")
     private Boolean applyAllDiscount;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("ownership")
+    private Ownership1 ownership;
     
     
     
@@ -56758,14 +55273,14 @@ public static class PromotionPartialUpdate {
     
     
     
-    @JsonProperty("schedule")
-    private PromotionSchedule schedule;
-    
-    
-    
-    
     @JsonProperty("archive")
     private Boolean archive;
+    
+    
+    
+    
+    @JsonProperty("schedule")
+    private PromotionSchedule schedule;
     
     
     
@@ -56786,8 +55301,8 @@ public static class CartItem {
     
     
     
-    @JsonProperty("quantity")
-    private Integer quantity;
+    @JsonProperty("size")
+    private String size;
     
     
     
@@ -56798,8 +55313,8 @@ public static class CartItem {
     
     
     
-    @JsonProperty("size")
-    private String size;
+    @JsonProperty("quantity")
+    private Integer quantity;
     
     
     
@@ -56829,34 +55344,6 @@ public static class OpenapiCartDetailsRequest {
 }
 
 /*
-    Model: BaseInfo
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BaseInfo {
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-}
-
-/*
     Model: ProductImage
 */
 @AllArgsConstructor
@@ -56870,14 +55357,14 @@ public static class ProductImage {
     
     
     
-    @JsonProperty("aspect_ratio")
-    private String aspectRatio;
-    
-    
-    
-    
     @JsonProperty("secure_url")
     private String secureUrl;
+    
+    
+    
+    
+    @JsonProperty("aspect_ratio")
+    private String aspectRatio;
     
     
     
@@ -56947,6 +55434,34 @@ public static class ProductAction {
 }
 
 /*
+    Model: BaseInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BaseInfo {
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+}
+
+/*
     Model: CategoryInfo
 */
 @AllArgsConstructor
@@ -56988,26 +55503,8 @@ public static class CartProduct {
     
     
     
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("brand")
-    private BaseInfo brand;
-    
-    
-    
-    
     @JsonProperty("uid")
     private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
     
     
     
@@ -57018,8 +55515,20 @@ public static class CartProduct {
     
     
     
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
     @JsonProperty("action")
     private ProductAction action;
+    
+    
+    
+    
+    @JsonProperty("brand")
+    private BaseInfo brand;
     
     
     
@@ -57032,6 +55541,160 @@ public static class CartProduct {
     
     @JsonProperty("categories")
     private List<CategoryInfo> categories;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+}
+
+/*
+    Model: ProductAvailability
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductAvailability {
+    
+    
+    
+    
+    @JsonProperty("sizes")
+    private List<String> sizes;
+    
+    
+    
+    
+    @JsonProperty("other_store_quantity")
+    private Integer otherStoreQuantity;
+    
+    
+    
+    
+    @JsonProperty("out_of_stock")
+    private Boolean outOfStock;
+    
+    
+    
+    
+    @JsonProperty("deliverable")
+    private Boolean deliverable;
+    
+    
+    
+    
+    @JsonProperty("is_valid")
+    private Boolean isValid;
+    
+    
+    
+    
+}
+
+/*
+    Model: CartProductIdentifer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CartProductIdentifer {
+    
+    
+    
+    
+    @JsonProperty("identifier")
+    private String identifier;
+    
+    
+    
+    
+}
+
+/*
+    Model: ProductPrice
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductPrice {
+    
+    
+    
+    
+    @JsonProperty("currency_code")
+    private String currencyCode;
+    
+    
+    
+    
+    @JsonProperty("currency_symbol")
+    private String currencySymbol;
+    
+    
+    
+    
+    @JsonProperty("marked")
+    private Double marked;
+    
+    
+    
+    
+    @JsonProperty("selling")
+    private Double selling;
+    
+    
+    
+    
+    @JsonProperty("add_on")
+    private Double addOn;
+    
+    
+    
+    
+    @JsonProperty("effective")
+    private Double effective;
+    
+    
+    
+    
+}
+
+/*
+    Model: ProductPriceInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductPriceInfo {
+    
+    
+    
+    
+    @JsonProperty("converted")
+    private ProductPrice converted;
+    
+    
+    
+    
+    @JsonProperty("base")
+    private ProductPrice base;
     
     
     
@@ -57074,12 +55737,6 @@ public static class BasePrice {
     
     
     
-    @JsonProperty("effective")
-    private Double effective;
-    
-    
-    
-    
     @JsonProperty("currency_code")
     private String currencyCode;
     
@@ -57094,6 +55751,12 @@ public static class BasePrice {
     
     @JsonProperty("marked")
     private Double marked;
+    
+    
+    
+    
+    @JsonProperty("effective")
+    private Double effective;
     
     
     
@@ -57114,14 +55777,14 @@ public static class ArticlePriceInfo {
     
     
     
-    @JsonProperty("base")
-    private BasePrice base;
-    
-    
-    
-    
     @JsonProperty("converted")
     private BasePrice converted;
+    
+    
+    
+    
+    @JsonProperty("base")
+    private BasePrice base;
     
     
     
@@ -57142,38 +55805,14 @@ public static class ProductArticle {
     
     
     
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private String uid;
-    
-    
-    
-    
-    @JsonProperty("extra_meta")
-    private Object extraMeta;
-    
-    
-    
-    
-    @JsonProperty("quantity")
-    private Integer quantity;
-    
-    
-    
-    
-    @JsonProperty("price")
-    private ArticlePriceInfo price;
-    
-    
-    
-    
     @JsonProperty("size")
     private String size;
+    
+    
+    
+    
+    @JsonProperty("parent_item_identifiers")
+    private Object parentItemIdentifiers;
     
     
     
@@ -57190,70 +55829,38 @@ public static class ProductArticle {
     
     
     
-}
-
-/*
-    Model: CartProductIdentifer
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartProductIdentifer {
+    @JsonProperty("extra_meta")
+    private Object extraMeta;
     
     
     
     
-    @JsonProperty("identifier")
-    private String identifier;
+    @JsonProperty("product_group_tags")
+    private List<String> productGroupTags;
     
     
     
     
-}
-
-/*
-    Model: ProductAvailability
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductAvailability {
+    @JsonProperty("uid")
+    private String uid;
     
     
     
     
-    @JsonProperty("sizes")
-    private List<String> sizes;
+    @JsonProperty("quantity")
+    private Integer quantity;
     
     
     
     
-    @JsonProperty("deliverable")
-    private Boolean deliverable;
+    @JsonProperty("type")
+    private String type;
     
     
     
     
-    @JsonProperty("is_valid")
-    private Boolean isValid;
-    
-    
-    
-    
-    @JsonProperty("out_of_stock")
-    private Boolean outOfStock;
-    
-    
-    
-    
-    @JsonProperty("other_store_quantity")
-    private Integer otherStoreQuantity;
+    @JsonProperty("price")
+    private ArticlePriceInfo price;
     
     
     
@@ -57274,14 +55881,14 @@ public static class AppliedPromotion {
     
     
     
+    @JsonProperty("promotion_type")
+    private String promotionType;
+    
+    
+    
+    
     @JsonProperty("mrp_promotion")
     private Boolean mrpPromotion;
-    
-    
-    
-    
-    @JsonProperty("promo_id")
-    private String promoId;
     
     
     
@@ -57292,100 +55899,20 @@ public static class AppliedPromotion {
     
     
     
-    @JsonProperty("article_quantity")
-    private Integer articleQuantity;
-    
-    
-    
-    
-    @JsonProperty("promotion_type")
-    private String promotionType;
-    
-    
-    
-    
     @JsonProperty("amount")
     private Double amount;
     
     
     
     
-}
-
-/*
-    Model: ProductPrice
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductPrice {
+    @JsonProperty("article_quantity")
+    private Integer articleQuantity;
     
     
     
     
-    @JsonProperty("add_on")
-    private Double addOn;
-    
-    
-    
-    
-    @JsonProperty("currency_symbol")
-    private String currencySymbol;
-    
-    
-    
-    
-    @JsonProperty("effective")
-    private Double effective;
-    
-    
-    
-    
-    @JsonProperty("marked")
-    private Double marked;
-    
-    
-    
-    
-    @JsonProperty("selling")
-    private Double selling;
-    
-    
-    
-    
-    @JsonProperty("currency_code")
-    private String currencyCode;
-    
-    
-    
-    
-}
-
-/*
-    Model: ProductPriceInfo
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductPriceInfo {
-    
-    
-    
-    
-    @JsonProperty("base")
-    private ProductPrice base;
-    
-    
-    
-    
-    @JsonProperty("converted")
-    private ProductPrice converted;
+    @JsonProperty("promo_id")
+    private String promoId;
     
     
     
@@ -57406,8 +55933,74 @@ public static class CartProductInfo {
     
     
     
+    @JsonProperty("parent_item_identifiers")
+    private Object parentItemIdentifiers;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
     @JsonProperty("product")
     private CartProduct product;
+    
+    
+    
+    
+    @JsonProperty("quantity")
+    private Integer quantity;
+    
+    
+    
+    
+    @JsonProperty("discount")
+    private String discount;
+    
+    
+    
+    
+    @JsonProperty("coupon_message")
+    private String couponMessage;
+    
+    
+    
+    
+    @JsonProperty("availability")
+    private ProductAvailability availability;
+    
+    
+    
+    
+    @JsonProperty("identifiers")
+    private CartProductIdentifer identifiers;
+    
+    
+    
+    
+    @JsonProperty("price")
+    private ProductPriceInfo price;
+    
+    
+    
+    
+    @JsonProperty("bulk_offer")
+    private Object bulkOffer;
+    
+    
+    
+    
+    @JsonProperty("is_set")
+    private Boolean isSet;
+    
+    
+    
+    
+    @JsonProperty("price_per_unit")
+    private ProductPriceInfo pricePerUnit;
     
     
     
@@ -57424,44 +56017,8 @@ public static class CartProductInfo {
     
     
     
-    @JsonProperty("coupon_message")
-    private String couponMessage;
-    
-    
-    
-    
     @JsonProperty("key")
     private String key;
-    
-    
-    
-    
-    @JsonProperty("discount")
-    private String discount;
-    
-    
-    
-    
-    @JsonProperty("quantity")
-    private Integer quantity;
-    
-    
-    
-    
-    @JsonProperty("identifiers")
-    private CartProductIdentifer identifiers;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("availability")
-    private ProductAvailability availability;
     
     
     
@@ -57472,34 +56029,10 @@ public static class CartProductInfo {
     
     
     
-    @JsonProperty("is_set")
-    private Boolean isSet;
-    
-    
-    
-    
-    @JsonProperty("bulk_offer")
-    private Object bulkOffer;
-    
-    
-    
-    
-    @JsonProperty("price_per_unit")
-    private ProductPriceInfo pricePerUnit;
-    
-    
-    
-    
-    @JsonProperty("price")
-    private ProductPriceInfo price;
-    
-    
-    
-    
 }
 
 /*
-    Model: DisplayBreakup
+    Model: RawBreakup
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -57507,43 +56040,79 @@ public static class CartProductInfo {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DisplayBreakup {
+public static class RawBreakup {
     
     
     
     
-    @JsonProperty("value")
-    private Double value;
+    @JsonProperty("fynd_cash")
+    private Double fyndCash;
     
     
     
     
-    @JsonProperty("currency_symbol")
-    private String currencySymbol;
+    @JsonProperty("you_saved")
+    private Double youSaved;
     
     
     
     
-    @JsonProperty("key")
-    private String key;
+    @JsonProperty("discount")
+    private Double discount;
     
     
     
     
-    @JsonProperty("message")
-    private List<String> message;
+    @JsonProperty("delivery_charge")
+    private Double deliveryCharge;
     
     
     
     
-    @JsonProperty("display")
-    private String display;
+    @JsonProperty("gst_charges")
+    private Double gstCharges;
     
     
     
     
-    @JsonProperty("currency_code")
-    private String currencyCode;
+    @JsonProperty("coupon")
+    private Double coupon;
+    
+    
+    
+    
+    @JsonProperty("vog")
+    private Double vog;
+    
+    
+    
+    
+    @JsonProperty("subtotal")
+    private Double subtotal;
+    
+    
+    
+    
+    @JsonProperty("convenience_fee")
+    private Double convenienceFee;
+    
+    
+    
+    
+    @JsonProperty("mrp_total")
+    private Double mrpTotal;
+    
+    
+    
+    
+    @JsonProperty("cod_charge")
+    private Double codCharge;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Double total;
     
     
     
@@ -57570,12 +56139,6 @@ public static class LoyaltyPoints {
     
     
     
-    @JsonProperty("total")
-    private Double total;
-    
-    
-    
-    
     @JsonProperty("applicable")
     private Double applicable;
     
@@ -57584,6 +56147,64 @@ public static class LoyaltyPoints {
     
     @JsonProperty("description")
     private String description;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Double total;
+    
+    
+    
+    
+}
+
+/*
+    Model: DisplayBreakup
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DisplayBreakup {
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private List<String> message;
+    
+    
+    
+    
+    @JsonProperty("currency_code")
+    private String currencyCode;
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+    
+    @JsonProperty("currency_symbol")
+    private String currencySymbol;
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
     
     
     
@@ -57604,20 +56225,20 @@ public static class CouponBreakup {
     
     
     
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
     @JsonProperty("value")
     private Double value;
     
     
     
     
-    @JsonProperty("type")
-    private String type;
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
     
     
     
@@ -57634,96 +56255,8 @@ public static class CouponBreakup {
     
     
     
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-}
-
-/*
-    Model: RawBreakup
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RawBreakup {
-    
-    
-    
-    
-    @JsonProperty("subtotal")
-    private Double subtotal;
-    
-    
-    
-    
-    @JsonProperty("total")
-    private Double total;
-    
-    
-    
-    
-    @JsonProperty("vog")
-    private Double vog;
-    
-    
-    
-    
-    @JsonProperty("convenience_fee")
-    private Double convenienceFee;
-    
-    
-    
-    
-    @JsonProperty("you_saved")
-    private Double youSaved;
-    
-    
-    
-    
-    @JsonProperty("fynd_cash")
-    private Double fyndCash;
-    
-    
-    
-    
-    @JsonProperty("discount")
-    private Double discount;
-    
-    
-    
-    
-    @JsonProperty("gst_charges")
-    private Double gstCharges;
-    
-    
-    
-    
-    @JsonProperty("mrp_total")
-    private Double mrpTotal;
-    
-    
-    
-    
-    @JsonProperty("coupon")
-    private Double coupon;
-    
-    
-    
-    
-    @JsonProperty("cod_charge")
-    private Double codCharge;
-    
-    
-    
-    
-    @JsonProperty("delivery_charge")
-    private Double deliveryCharge;
+    @JsonProperty("type")
+    private String type;
     
     
     
@@ -57744,8 +56277,8 @@ public static class CartBreakup {
     
     
     
-    @JsonProperty("display")
-    private List<DisplayBreakup> display;
+    @JsonProperty("raw")
+    private RawBreakup raw;
     
     
     
@@ -57756,14 +56289,14 @@ public static class CartBreakup {
     
     
     
+    @JsonProperty("display")
+    private List<DisplayBreakup> display;
+    
+    
+    
+    
     @JsonProperty("coupon")
     private CouponBreakup coupon;
-    
-    
-    
-    
-    @JsonProperty("raw")
-    private RawBreakup raw;
     
     
     
@@ -57784,8 +56317,8 @@ public static class OpenapiCartDetailsResponse {
     
     
     
-    @JsonProperty("is_valid")
-    private Boolean isValid;
+    @JsonProperty("items")
+    private List<CartProductInfo> items;
     
     
     
@@ -57796,14 +56329,14 @@ public static class OpenapiCartDetailsResponse {
     
     
     
-    @JsonProperty("items")
-    private List<CartProductInfo> items;
-    
-    
-    
-    
     @JsonProperty("breakup_values")
     private CartBreakup breakupValues;
+    
+    
+    
+    
+    @JsonProperty("is_valid")
+    private Boolean isValid;
     
     
     
@@ -57824,12 +56357,6 @@ public static class OpenApiErrorResponse {
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
     @JsonProperty("message")
     private String message;
     
@@ -57838,6 +56365,12 @@ public static class OpenApiErrorResponse {
     
     @JsonProperty("errors")
     private Object errors;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -57858,50 +56391,8 @@ public static class ShippingAddress {
     
     
     
-    @JsonProperty("country")
-    private String country;
-    
-    
-    
-    
-    @JsonProperty("city")
-    private String city;
-    
-    
-    
-    
-    @JsonProperty("country_code")
-    private String countryCode;
-    
-    
-    
-    
-    @JsonProperty("email")
-    private String email;
-    
-    
-    
-    
-    @JsonProperty("phone")
-    private Integer phone;
-    
-    
-    
-    
-    @JsonProperty("landmark")
-    private String landmark;
-    
-    
-    
-    
-    @JsonProperty("pincode")
-    private Integer pincode;
-    
-    
-    
-    
-    @JsonProperty("address")
-    private String address;
+    @JsonProperty("area")
+    private String area;
     
     
     
@@ -57912,8 +56403,8 @@ public static class ShippingAddress {
     
     
     
-    @JsonProperty("area_code_slug")
-    private String areaCodeSlug;
+    @JsonProperty("city")
+    private String city;
     
     
     
@@ -57924,14 +56415,32 @@ public static class ShippingAddress {
     
     
     
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("landmark")
+    private String landmark;
     
     
     
     
-    @JsonProperty("area")
-    private String area;
+    @JsonProperty("phone")
+    private Integer phone;
+    
+    
+    
+    
+    @JsonProperty("address_type")
+    private String addressType;
+    
+    
+    
+    
+    @JsonProperty("address")
+    private String address;
+    
+    
+    
+    
+    @JsonProperty("area_code_slug")
+    private String areaCodeSlug;
     
     
     
@@ -57942,8 +56451,32 @@ public static class ShippingAddress {
     
     
     
-    @JsonProperty("address_type")
-    private String addressType;
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private Integer pincode;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
     
     
     
@@ -57979,34 +56512,6 @@ public static class OpenApiCartServiceabilityRequest {
 }
 
 /*
-    Model: PromiseTimestamp
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromiseTimestamp {
-    
-    
-    
-    
-    @JsonProperty("max")
-    private Double max;
-    
-    
-    
-    
-    @JsonProperty("min")
-    private Double min;
-    
-    
-    
-    
-}
-
-/*
     Model: PromiseFormatted
 */
 @AllArgsConstructor
@@ -58020,14 +56525,42 @@ public static class PromiseFormatted {
     
     
     
+    @JsonProperty("min")
+    private String min;
+    
+    
+    
+    
     @JsonProperty("max")
     private String max;
     
     
     
     
+}
+
+/*
+    Model: PromiseTimestamp
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PromiseTimestamp {
+    
+    
+    
+    
     @JsonProperty("min")
-    private String min;
+    private Double min;
+    
+    
+    
+    
+    @JsonProperty("max")
+    private Double max;
     
     
     
@@ -58048,14 +56581,14 @@ public static class ShipmentPromise {
     
     
     
-    @JsonProperty("timestamp")
-    private PromiseTimestamp timestamp;
-    
-    
-    
-    
     @JsonProperty("formatted")
     private PromiseFormatted formatted;
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private PromiseTimestamp timestamp;
     
     
     
@@ -58076,20 +56609,8 @@ public static class OpenApiCartServiceabilityResponse {
     
     
     
-    @JsonProperty("breakup_values")
-    private CartBreakup breakupValues;
-    
-    
-    
-    
     @JsonProperty("message")
     private String message;
-    
-    
-    
-    
-    @JsonProperty("delivery_promise")
-    private ShipmentPromise deliveryPromise;
     
     
     
@@ -58100,36 +56621,20 @@ public static class OpenApiCartServiceabilityResponse {
     
     
     
+    @JsonProperty("breakup_values")
+    private CartBreakup breakupValues;
+    
+    
+    
+    
+    @JsonProperty("delivery_promise")
+    private ShipmentPromise deliveryPromise;
+    
+    
+    
+    
     @JsonProperty("is_valid")
     private Boolean isValid;
-    
-    
-    
-    
-}
-
-/*
-    Model: OpenApiFiles
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OpenApiFiles {
-    
-    
-    
-    
-    @JsonProperty("values")
-    private List<String> values;
-    
-    
-    
-    
-    @JsonProperty("key")
-    private String key;
     
     
     
@@ -58165,6 +56670,34 @@ public static class CartItemMeta {
 }
 
 /*
+    Model: OpenApiFiles
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OpenApiFiles {
+    
+    
+    
+    
+    @JsonProperty("values")
+    private List<String> values;
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+}
+
+/*
     Model: OpenApiOrderItem
 */
 @AllArgsConstructor
@@ -58178,14 +56711,8 @@ public static class OpenApiOrderItem {
     
     
     
-    @JsonProperty("size")
-    private String size;
-    
-    
-    
-    
-    @JsonProperty("cod_charges")
-    private Double codCharges;
+    @JsonProperty("product_id")
+    private Integer productId;
     
     
     
@@ -58196,20 +56723,8 @@ public static class OpenApiOrderItem {
     
     
     
-    @JsonProperty("payment_methods")
-    private List<MultiTenderPaymentMethod> paymentMethods;
-    
-    
-    
-    
     @JsonProperty("employee_discount")
     private Double employeeDiscount;
-    
-    
-    
-    
-    @JsonProperty("files")
-    private List<OpenApiFiles> files;
     
     
     
@@ -58220,14 +56735,14 @@ public static class OpenApiOrderItem {
     
     
     
-    @JsonProperty("amount_paid")
-    private Double amountPaid;
+    @JsonProperty("quantity")
+    private Integer quantity;
     
     
     
     
-    @JsonProperty("coupon_effective_discount")
-    private Double couponEffectiveDiscount;
+    @JsonProperty("cashback_applied")
+    private Double cashbackApplied;
     
     
     
@@ -58238,8 +56753,20 @@ public static class OpenApiOrderItem {
     
     
     
-    @JsonProperty("quantity")
-    private Integer quantity;
+    @JsonProperty("meta")
+    private CartItemMeta meta;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private String size;
+    
+    
+    
+    
+    @JsonProperty("coupon_effective_discount")
+    private Double couponEffectiveDiscount;
     
     
     
@@ -58250,8 +56777,14 @@ public static class OpenApiOrderItem {
     
     
     
-    @JsonProperty("product_id")
-    private Integer productId;
+    @JsonProperty("payment_methods")
+    private List<MultiTenderPaymentMethod> paymentMethods;
+    
+    
+    
+    
+    @JsonProperty("amount_paid")
+    private Double amountPaid;
     
     
     
@@ -58268,14 +56801,14 @@ public static class OpenApiOrderItem {
     
     
     
-    @JsonProperty("meta")
-    private CartItemMeta meta;
+    @JsonProperty("cod_charges")
+    private Double codCharges;
     
     
     
     
-    @JsonProperty("cashback_applied")
-    private Double cashbackApplied;
+    @JsonProperty("files")
+    private List<OpenApiFiles> files;
     
     
     
@@ -58296,50 +56829,20 @@ public static class OpenApiPlatformCheckoutReq {
     
     
     
-    @JsonProperty("cart_items")
-    private List<OpenApiOrderItem> cartItems;
-    
-    
-    
-    
-    @JsonProperty("cart_value")
-    private Double cartValue;
-    
-    
-    
-    
-    @JsonProperty("affiliate_order_id")
-    private String affiliateOrderId;
-    
-    
-    
-    
-    @JsonProperty("loyalty_discount")
-    private Double loyaltyDiscount;
-    
-    
-    
-    
-    @JsonProperty("cashback_applied")
-    private Double cashbackApplied;
-    
-    
-    
-    
     @JsonProperty("order_id")
     private String orderId;
     
     
     
     
-    @JsonProperty("cod_charges")
-    private Double codCharges;
+    @JsonProperty("cart_items")
+    private List<OpenApiOrderItem> cartItems;
     
     
     
     
-    @JsonProperty("coupon_value")
-    private Double couponValue;
+    @JsonProperty("gstin")
+    private String gstin;
     
     
     
@@ -58356,32 +56859,8 @@ public static class OpenApiPlatformCheckoutReq {
     
     
     
-    @JsonProperty("employee_discount")
-    private Object employeeDiscount;
-    
-    
-    
-    
-    @JsonProperty("files")
-    private List<OpenApiFiles> files;
-    
-    
-    
-    
-    @JsonProperty("shipping_address")
-    private ShippingAddress shippingAddress;
-    
-    
-    
-    
-    @JsonProperty("billing_address")
-    private ShippingAddress billingAddress;
-    
-    
-    
-    
-    @JsonProperty("gstin")
-    private String gstin;
+    @JsonProperty("comment")
+    private String comment;
     
     
     
@@ -58392,8 +56871,44 @@ public static class OpenApiPlatformCheckoutReq {
     
     
     
-    @JsonProperty("comment")
-    private String comment;
+    @JsonProperty("cod_charges")
+    private Double codCharges;
+    
+    
+    
+    
+    @JsonProperty("files")
+    private List<OpenApiFiles> files;
+    
+    
+    
+    
+    @JsonProperty("affiliate_order_id")
+    private String affiliateOrderId;
+    
+    
+    
+    
+    @JsonProperty("employee_discount")
+    private Object employeeDiscount;
+    
+    
+    
+    
+    @JsonProperty("shipping_address")
+    private ShippingAddress shippingAddress;
+    
+    
+    
+    
+    @JsonProperty("cashback_applied")
+    private Double cashbackApplied;
+    
+    
+    
+    
+    @JsonProperty("currency_code")
+    private String currencyCode;
     
     
     
@@ -58404,14 +56919,32 @@ public static class OpenApiPlatformCheckoutReq {
     
     
     
+    @JsonProperty("cart_value")
+    private Double cartValue;
+    
+    
+    
+    
+    @JsonProperty("loyalty_discount")
+    private Double loyaltyDiscount;
+    
+    
+    
+    
+    @JsonProperty("billing_address")
+    private ShippingAddress billingAddress;
+    
+    
+    
+    
+    @JsonProperty("coupon_value")
+    private Double couponValue;
+    
+    
+    
+    
     @JsonProperty("delivery_charges")
     private Double deliveryCharges;
-    
-    
-    
-    
-    @JsonProperty("currency_code")
-    private String currencyCode;
     
     
     
@@ -58432,8 +56965,14 @@ public static class OpenApiCheckoutResponse {
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
+    @JsonProperty("order_ref_id")
+    private String orderRefId;
+    
+    
+    
+    
+    @JsonProperty("order_id")
+    private String orderId;
     
     
     
@@ -58444,14 +56983,8 @@ public static class OpenApiCheckoutResponse {
     
     
     
-    @JsonProperty("order_ref_id")
-    private String orderRefId;
-    
-    
-    
-    
-    @JsonProperty("order_id")
-    private String orderId;
+    @JsonProperty("success")
+    private Boolean success;
     
     
     

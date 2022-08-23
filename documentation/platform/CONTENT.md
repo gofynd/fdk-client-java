@@ -7935,6 +7935,7 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | url | String? |  yes  |  |
  | content | String? |  yes  |  |
  | source | [DataLoaderSourceSchema](#DataLoaderSourceSchema)? |  yes  |  |
+ | id | String? |  yes  |  |
 
 ---
 
@@ -8751,6 +8752,7 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | cartPayment | cart-payment | Symbolic link for Cart Payment Information: /cart/payment-info |
  | cartReview | cart-review | Symbolic link for Cart Order Review: /cart/order-review |
  | login | login | Symbolic link for Login: /auth/login |
+ | register | register | Symbolic link for Register: /auth/register |
 
 ---
 
