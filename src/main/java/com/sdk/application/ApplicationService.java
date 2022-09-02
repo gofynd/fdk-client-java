@@ -4030,6 +4030,20 @@ public class FileStorageService extends FileStorage {
 
     
     
+    
+    
+    public ApplicationModels.ResponseGetCreditNoteShipment getCreditNoteByShipmentId(String shipmentId ) throws IOException {
+    
+        Response<ApplicationModels.ResponseGetCreditNoteShipment> response = orderApiList.getCreditNoteByShipmentId(shipmentId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
       
 }
 
