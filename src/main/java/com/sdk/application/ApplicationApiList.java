@@ -182,6 +182,9 @@ interface CartApiList {
     @GET ("/service/application/cart/v1.0/available-ladder-prices")
     Call<ApplicationModels.LadderPriceOffers> getLadderOffers(@Query("slug") String slug , @Query("store_id") String storeId , @Query("promotion_id") String promotionId , @Query("page_size") Integer pageSize );
     
+    @POST ("/service/application/cart/v1.0/checkout/over-ride")
+    Call<ApplicationModels.OverrideCheckoutResponse> overrideCart(@Body ApplicationModels.OverrideCheckoutReq payload);
+    
 }
 
 interface CommonApiList {

@@ -1519,6 +1519,20 @@ public class ApplicationService {
 
     
     
+    
+    
+    public ApplicationModels.OverrideCheckoutResponse overrideCart(ApplicationModels.OverrideCheckoutReq body) throws IOException {
+    
+        Response<ApplicationModels.OverrideCheckoutResponse> response = cartApiList.overrideCart( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
       
 }
 
