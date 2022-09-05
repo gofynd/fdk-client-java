@@ -628,6 +628,9 @@ interface OrderApiList {
     @GET ("/service/application/order/v1.0/orders/shipments/{shipment_id}/invoice")
     Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Path("shipment_id") String shipmentId );
     
+    @GET ("/service/application/order/v1.0/orders/shipments/{shipment_id}/credit-note/")
+    Call<ApplicationModels.ResponseGetCreditNoteShipment> getCreditNoteByShipmentId(@Path("shipment_id") String shipmentId );
+    
 }
 
 interface RewardsApiList {
