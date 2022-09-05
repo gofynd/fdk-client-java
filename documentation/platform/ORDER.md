@@ -3416,10 +3416,21 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | shipments | HashMap<String,Object>? |  yes  |  |
- | statuses | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | shipments | HashMap<String,Object> |  no  |  |
+ | statuses | ArrayList<[ShipmentUpdateObject](#ShipmentUpdateObject)> |  no  |  |
  | forceTransition | Boolean |  no  |  |
  | task | Boolean |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ShipmentUpdateObject](#ShipmentUpdateObject)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | shipments | HashMap<String,Object>? |  yes  |  |
 
 ---
 
