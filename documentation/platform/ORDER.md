@@ -3417,7 +3417,7 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | shipments | HashMap<String,Object>? |  yes  |  |
- | statuses | ArrayList<Object>? |  yes  |  |
+ | statuses | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | forceTransition | Boolean |  no  |  |
  | task | Boolean |  no  |  |
 

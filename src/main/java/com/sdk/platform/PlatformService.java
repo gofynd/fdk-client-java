@@ -11720,6 +11720,8 @@ public static class CatalogService {
     
     
     
+    
+    
     public PlatformModels.StoreAssignResponse getOptimalLocations(PlatformModels.AssignStore body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.StoreAssignResponse> response = catalogApiList.getOptimalLocations(this.companyId , body).execute();
@@ -13690,6 +13692,64 @@ public class ApplicationClient {
     public PlatformModels.ProductListingResponse getAppProducts(List<Integer> brandIds , List<Integer> categoryIds , List<Integer> departmentIds , List<String> tags , Integer pageNo , Integer pageSize , String q ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProductListingResponse> response = catalogApiList.getAppProducts(this.companyId , this.applicationId ,brandIds , categoryIds , departmentIds , tags , pageNo , pageSize , q ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.InventoryStockResponse getAppInventory(List<Integer> itemIds , List<Integer> storeIds , List<Integer> brandIds , List<String> sellerIdentifiers , String timestamp , Integer pageSize , String pageId ) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.InventoryStockResponse> response = catalogApiList.getAppInventory(this.companyId , this.applicationId ,itemIds , storeIds , brandIds , sellerIdentifiers , timestamp , pageSize , pageId ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

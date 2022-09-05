@@ -4945,6 +4945,39 @@ interface CatalogApiList {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/inventory/")
+    Call<PlatformModels.InventoryStockResponse> getAppInventory(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("item_ids") List<Integer>  itemIds ,  @Query("store_ids") List<Integer>  storeIds ,  @Query("brand_ids") List<Integer>  brandIds ,  @Query("seller_identifiers") List<String>  sellerIdentifiers ,  @Query("timestamp") String  timestamp ,  @Query("page_size") Integer  pageSize ,  @Query("page_id") String  pageId );
+    
+    
+    
+    
+    
+    
+    
     @POST ("/service/platform/catalog/v1.0/company/{company_id}/location/reassign/")
     Call<PlatformModels.StoreAssignResponse> getOptimalLocations(@Path("company_id")  String companyId ,@Body PlatformModels.AssignStore payload);
     
