@@ -3416,8 +3416,8 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | shipments | HashMap<String,Object> |  no  |  |
- | statuses | ArrayList<[ShipmentUpdateObject](#ShipmentUpdateObject)> |  no  |  |
+ | shipments | HashMap<String,Object>? |  yes  |  |
+ | statuses | ArrayList<Object>? |  yes  |  |
  | forceTransition | Boolean |  no  |  |
  | task | Boolean |  no  |  |
 
