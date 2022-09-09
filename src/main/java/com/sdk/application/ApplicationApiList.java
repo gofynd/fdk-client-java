@@ -70,11 +70,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -115,6 +115,9 @@ interface CartApiList {
     
     @PUT ("/service/application/cart/v1.0/detail")
     Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow ,@Body ApplicationModels.UpdateCartRequest payload);
+    
+    @PUT ("/service/application/cart/v1.0/cart_archive")
+    Call<ApplicationModels.DeleteCartDetailResponse> deleteCart(@Query("id") Integer id );
     
     @GET ("/service/application/cart/v1.0/basic")
     Call<ApplicationModels.CartItemCountResponse> getItemCount(@Query("id") String id , @Query("buy_now") Boolean buyNow );
@@ -575,33 +578,6 @@ interface PaymentApiList {
     
     @POST ("/service/application/payment/v1.0/refund/beneficiary/default")
     Call<ApplicationModels.SetDefaultBeneficiaryResponse> updateDefaultBeneficiary(@Body ApplicationModels.SetDefaultBeneficiaryRequest payload);
-    
-    @GET ("/service/application/payment/v1.0/create-payment-link/")
-    Call<ApplicationModels.GetPaymentLinkResponse> getPaymentLink(@Query("payment_link_id") String paymentLinkId );
-    
-    @POST ("/service/application/payment/v1.0/create-payment-link/")
-    Call<ApplicationModels.CreatePaymentLinkResponse> createPaymentLink(@Body ApplicationModels.CreatePaymentLinkRequest payload);
-    
-    @POST ("/service/application/payment/v1.0/resend-payment-link/")
-    Call<ApplicationModels.ResendPaymentLinkResponse> resendPaymentLink(@Body ApplicationModels.CancelOrResendPaymentLinkRequest payload);
-    
-    @POST ("/service/application/payment/v1.0/cancel-payment-link/")
-    Call<ApplicationModels.CancelPaymentLinkResponse> cancelPaymentLink(@Body ApplicationModels.CancelOrResendPaymentLinkRequest payload);
-    
-    @GET ("/service/application/payment/v1.0/payment/options/link/")
-    Call<ApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutesPaymentLink(@Query("payment_link_id") String paymentLinkId );
-    
-    @GET ("/service/application/payment/v1.0/polling-payment-link/")
-    Call<ApplicationModels.PollingPaymentLinkResponse> pollingPaymentLink(@Query("payment_link_id") String paymentLinkId );
-    
-    @POST ("/service/application/payment/v1.0/create-order/link/")
-    Call<ApplicationModels.CreateOrderUserResponse> createOrderHandlerPaymentLink(@Body ApplicationModels.CreateOrderUserRequest payload);
-    
-    @POST ("/service/application/payment/v1.0/payment/request/link/")
-    Call<ApplicationModels.PaymentInitializationResponse> initialisePaymentPaymentLink(@Body ApplicationModels.PaymentInitializationRequest payload);
-    
-    @POST ("/service/application/payment/v1.0/payment/confirm/polling/link/")
-    Call<ApplicationModels.PaymentStatusUpdateResponse> checkAndUpdatePaymentStatusPaymentLink(@Body ApplicationModels.PaymentStatusUpdateRequest payload);
     
     @GET ("/service/application/payment/v1.0/payment/credit-summary/")
     Call<ApplicationModels.CustomerCreditSummaryResponse> customerCreditSummary(@Query("aggregator") String aggregator );

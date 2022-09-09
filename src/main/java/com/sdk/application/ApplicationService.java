@@ -760,9 +760,9 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -774,9 +774,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1202,6 +1202,20 @@ public class ApplicationService {
     public ApplicationModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b , Boolean buyNow ,ApplicationModels.UpdateCartRequest body) throws IOException {
     
         Response<ApplicationModels.UpdateCartDetailResponse> response = cartApiList.updateCart(id, i, b, buyNow, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.DeleteCartDetailResponse deleteCart(Integer id ) throws IOException {
+    
+        Response<ApplicationModels.DeleteCartDetailResponse> response = cartApiList.deleteCart(id).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3768,132 +3782,6 @@ public class FileStorageService extends FileStorage {
     public ApplicationModels.SetDefaultBeneficiaryResponse updateDefaultBeneficiary(ApplicationModels.SetDefaultBeneficiaryRequest body) throws IOException {
     
         Response<ApplicationModels.SetDefaultBeneficiaryResponse> response = paymentApiList.updateDefaultBeneficiary( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.GetPaymentLinkResponse getPaymentLink(String paymentLinkId ) throws IOException {
-    
-        Response<ApplicationModels.GetPaymentLinkResponse> response = paymentApiList.getPaymentLink(paymentLinkId).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.CreatePaymentLinkResponse createPaymentLink(ApplicationModels.CreatePaymentLinkRequest body) throws IOException {
-    
-        Response<ApplicationModels.CreatePaymentLinkResponse> response = paymentApiList.createPaymentLink( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.ResendPaymentLinkResponse resendPaymentLink(ApplicationModels.CancelOrResendPaymentLinkRequest body) throws IOException {
-    
-        Response<ApplicationModels.ResendPaymentLinkResponse> response = paymentApiList.resendPaymentLink( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.CancelPaymentLinkResponse cancelPaymentLink(ApplicationModels.CancelOrResendPaymentLinkRequest body) throws IOException {
-    
-        Response<ApplicationModels.CancelPaymentLinkResponse> response = paymentApiList.cancelPaymentLink( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.PaymentModeRouteResponse getPaymentModeRoutesPaymentLink(String paymentLinkId ) throws IOException {
-    
-        Response<ApplicationModels.PaymentModeRouteResponse> response = paymentApiList.getPaymentModeRoutesPaymentLink(paymentLinkId).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.PollingPaymentLinkResponse pollingPaymentLink(String paymentLinkId ) throws IOException {
-    
-        Response<ApplicationModels.PollingPaymentLinkResponse> response = paymentApiList.pollingPaymentLink(paymentLinkId).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.CreateOrderUserResponse createOrderHandlerPaymentLink(ApplicationModels.CreateOrderUserRequest body) throws IOException {
-    
-        Response<ApplicationModels.CreateOrderUserResponse> response = paymentApiList.createOrderHandlerPaymentLink( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.PaymentInitializationResponse initialisePaymentPaymentLink(ApplicationModels.PaymentInitializationRequest body) throws IOException {
-    
-        Response<ApplicationModels.PaymentInitializationResponse> response = paymentApiList.initialisePaymentPaymentLink( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.PaymentStatusUpdateResponse checkAndUpdatePaymentStatusPaymentLink(ApplicationModels.PaymentStatusUpdateRequest body) throws IOException {
-    
-        Response<ApplicationModels.PaymentStatusUpdateResponse> response = paymentApiList.checkAndUpdatePaymentStatusPaymentLink( body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
