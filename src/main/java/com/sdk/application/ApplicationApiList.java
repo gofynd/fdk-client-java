@@ -70,11 +70,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -592,41 +592,32 @@ interface PaymentApiList {
 
 interface OrderApiList {
     
-    @GET ("/service/application/order/v1.0/orders")
-    Call<ApplicationModels.OrderList> getOrders(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate , @Query("status") Integer status );
-    
-    @GET ("/service/application/order/v1.0/orders/{order_id}")
-    Call<ApplicationModels.OrderById> getOrderById(@Path("order_id") String orderId );
-    
-    @GET ("/service/application/order/v1.0/orders/shipments/{shipment_id}")
+    @GET ("/service/application/orders/v1.0/orders/shipments/{shipment_id}")
     Call<ApplicationModels.ShipmentById> getShipmentById(@Path("shipment_id") String shipmentId );
     
-    @GET ("/service/application/order/v1.0/orders/shipments/{shipment_id}/reasons")
-    Call<ApplicationModels.ShipmentReasons> getShipmentReasons(@Path("shipment_id") String shipmentId , @Query("bag_id") Integer bagId );
+    @GET ("/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/customer-details")
+    Call<ApplicationModels.CustomerDetailsResponse> getCustomerDetailsByShipmentId(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId );
     
-    @PUT ("/service/application/order/v1.0/orders/shipments/{shipment_id}/status")
-    Call<ApplicationModels.ShipmentStatusUpdate> updateShipmentStatus(@Path("shipment_id") String shipmentId ,@Body ApplicationModels.ShipmentStatusUpdateBody payload);
+    @POST ("/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/send")
+    Call<ApplicationModels.SendOtpToCustomerResponse> sendOtpToShipmentCustomer(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId );
     
-    @GET ("/service/application/order/v1.0/orders/shipments/{shipment_id}/track")
-    Call<ApplicationModels.ShipmentTrack> trackShipment(@Path("shipment_id") String shipmentId );
+    @GET ("/service/application/orders/v1.0/orders/shipments/{shipment_id}/reasons")
+    Call<ApplicationModels.ShipmentReasonsResponse> getReasons(@Path("shipment_id") Integer shipmentId , @Query("bag_id") String bagId );
     
-    @GET ("/service/application/order/v1.0/orders/pos-order/{order_id}")
-    Call<ApplicationModels.PosOrderById> getPosOrderById(@Path("order_id") String orderId );
+    @POST ("/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify")
+    Call<ApplicationModels.VerifyOtpResponse> verifyOtp(@Path("order_id") String orderId , @Path("shipment_id") Integer shipmentId ,@Body ApplicationModels.VerifyOtp payload);
     
-    @GET ("/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/customer-details")
-    Call<ApplicationModels.CustomerDetailsByShipmentId> getCustomerDetailsByShipmentId(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId );
+    @GET ("/service/application/orders/v1.0/orders")
+    Call<ApplicationModels.OrderList> getOrders(@Query("status") Integer status , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate );
     
-    @POST ("/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/send/")
-    Call<ApplicationModels.sendOTPApplicationResponse> sendOtpToShipmentCustomer(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId );
+    @GET ("/service/application/orders/v1.0/orders/{order_id}")
+    Call<ApplicationModels.OrderList> getOrderById(@Path("order_id") String orderId );
     
-    @POST ("/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify")
-    Call<ApplicationModels.ResponseVerifyOTPShipment> verifyOtpShipmentCustomer(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId ,@Body ApplicationModels.ReqBodyVerifyOTPShipment payload);
+    @GET ("/service/application/orders/v1.0/pos-order/{order_id}")
+    Call<ApplicationModels.OrderList> getPosOrderById(@Path("order_id") String orderId );
     
-    @GET ("/service/application/order/v1.0/orders/shipments/{shipment_id}/invoice")
-    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Path("shipment_id") String shipmentId );
-    
-    @GET ("/service/application/order/v1.0/orders/shipments/{shipment_id}/credit-note/")
-    Call<ApplicationModels.ResponseGetCreditNoteShipment> getCreditNoteByShipmentId(@Path("shipment_id") String shipmentId );
+    @GET ("/service/application/orders/v1.0/orders/shipments/{shipment_id}/track")
+    Call<ApplicationModels.TrackShipmentResponse> trackShipment(@Path("shipment_id") String shipmentId );
     
 }
 
