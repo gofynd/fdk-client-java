@@ -7178,3 +7178,37 @@ interface AuditTrailApiList {
     Call<PlatformModels.EntityTypesResponse> getEntityTypes(@Path("company_id")  String companyId );
     
 }
+
+interface OrderManageApiList {
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/status-internal")
+    Call<PlatformModels.ResponseDetail> statusInternalUpdate(@Path("company_id")  String companyId ,@Body PlatformModels.PlatformShipmentStatusInternal payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
+    Call<PlatformModels.ShipmentHistoryResponse> getShipmentHistory(@Path("company_id")  String companyId , @Query("bag_id") Integer  bagId );
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/order-manage/v1.0/company/{company_id}/order/validation")
+    Call<PlatformModels.ResponseDetail> orderUpdate(@Path("company_id")  String companyId ,@Body PlatformModels.PlatformOrderUpdate payload);
+    
+}
