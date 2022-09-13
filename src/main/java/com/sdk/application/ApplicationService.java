@@ -3864,6 +3864,34 @@ public class FileStorageService extends FileStorage {
 
     
     
+    public ApplicationModels.OrderList getOrders(Integer pageNo , Integer pageSize , String fromDate , String toDate , Integer status ) throws IOException {
+    
+        Response<ApplicationModels.OrderList> response = orderApiList.getOrders(pageNo, pageSize, fromDate, toDate, status).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.OrderById getOrderById(String orderId ) throws IOException {
+    
+        Response<ApplicationModels.OrderById> response = orderApiList.getOrderById(orderId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.ShipmentById getShipmentById(String shipmentId ) throws IOException {
     
         Response<ApplicationModels.ShipmentById> response = orderApiList.getShipmentById(shipmentId).execute();
@@ -3878,9 +3906,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CustomerDetailsResponse getCustomerDetailsByShipmentId(String orderId , String shipmentId ) throws IOException {
+    public ApplicationModels.ShipmentReasons getShipmentReasons(String shipmentId , Integer bagId ) throws IOException {
     
-        Response<ApplicationModels.CustomerDetailsResponse> response = orderApiList.getCustomerDetailsByShipmentId(orderId, shipmentId).execute();
+        Response<ApplicationModels.ShipmentReasons> response = orderApiList.getShipmentReasons(shipmentId, bagId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3892,9 +3920,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.SendOtpToCustomerResponse sendOtpToShipmentCustomer(String orderId , String shipmentId ) throws IOException {
+    public ApplicationModels.ShipmentStatusUpdate updateShipmentStatus(String shipmentId ,ApplicationModels.ShipmentStatusUpdateBody body) throws IOException {
     
-        Response<ApplicationModels.SendOtpToCustomerResponse> response = orderApiList.sendOtpToShipmentCustomer(orderId, shipmentId).execute();
+        Response<ApplicationModels.ShipmentStatusUpdate> response = orderApiList.updateShipmentStatus(shipmentId, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3906,9 +3934,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.ShipmentReasonsResponse getReasons(Integer shipmentId , String bagId ) throws IOException {
+    public ApplicationModels.ShipmentTrack trackShipment(String shipmentId ) throws IOException {
     
-        Response<ApplicationModels.ShipmentReasonsResponse> response = orderApiList.getReasons(shipmentId, bagId).execute();
+        Response<ApplicationModels.ShipmentTrack> response = orderApiList.trackShipment(shipmentId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3920,9 +3948,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.VerifyOtpResponse verifyOtp(String orderId , Integer shipmentId ,ApplicationModels.VerifyOtp body) throws IOException {
+    public ApplicationModels.PosOrderById getPosOrderById(String orderId ) throws IOException {
     
-        Response<ApplicationModels.VerifyOtpResponse> response = orderApiList.verifyOtp(orderId, shipmentId, body).execute();
+        Response<ApplicationModels.PosOrderById> response = orderApiList.getPosOrderById(orderId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3934,9 +3962,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.OrderList getOrders(Integer status , Integer pageNo , Integer pageSize , String fromDate , String toDate ) throws IOException {
+    public ApplicationModels.CustomerDetailsByShipmentId getCustomerDetailsByShipmentId(String orderId , String shipmentId ) throws IOException {
     
-        Response<ApplicationModels.OrderList> response = orderApiList.getOrders(status, pageNo, pageSize, fromDate, toDate).execute();
+        Response<ApplicationModels.CustomerDetailsByShipmentId> response = orderApiList.getCustomerDetailsByShipmentId(orderId, shipmentId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3948,9 +3976,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.OrderList getOrderById(String orderId ) throws IOException {
+    public ApplicationModels.sendOTPApplicationResponse sendOtpToShipmentCustomer(String orderId , String shipmentId ) throws IOException {
     
-        Response<ApplicationModels.OrderList> response = orderApiList.getOrderById(orderId).execute();
+        Response<ApplicationModels.sendOTPApplicationResponse> response = orderApiList.sendOtpToShipmentCustomer(orderId, shipmentId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3962,9 +3990,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.OrderList getPosOrderById(String orderId ) throws IOException {
+    public ApplicationModels.ResponseVerifyOTPShipment verifyOtpShipmentCustomer(String orderId , String shipmentId ,ApplicationModels.ReqBodyVerifyOTPShipment body) throws IOException {
     
-        Response<ApplicationModels.OrderList> response = orderApiList.getPosOrderById(orderId).execute();
+        Response<ApplicationModels.ResponseVerifyOTPShipment> response = orderApiList.verifyOtpShipmentCustomer(orderId, shipmentId, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3976,9 +4004,23 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.TrackShipmentResponse trackShipment(String shipmentId ) throws IOException {
+    public ApplicationModels.ResponseGetInvoiceShipment getInvoiceByShipmentId(String shipmentId ) throws IOException {
     
-        Response<ApplicationModels.TrackShipmentResponse> response = orderApiList.trackShipment(shipmentId).execute();
+        Response<ApplicationModels.ResponseGetInvoiceShipment> response = orderApiList.getInvoiceByShipmentId(shipmentId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ResponseGetCreditNoteShipment getCreditNoteByShipmentId(String shipmentId ) throws IOException {
+    
+        Response<ApplicationModels.ResponseGetCreditNoteShipment> response = orderApiList.getCreditNoteByShipmentId(shipmentId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
