@@ -2049,20 +2049,6 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.ArchiveUserSuccess archiveUser(ApplicationModels.ArchiveApplicationUserRequestSchema body) throws IOException {
-    
-        Response<ApplicationModels.ArchiveUserSuccess> response = userApiList.archiveUser( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
     public ApplicationModels.LogoutSuccess logout() throws IOException {
     
         Response<ApplicationModels.LogoutSuccess> response = userApiList.logout().execute();
@@ -4663,9 +4649,9 @@ public class FileStorageService extends FileStorage {
 
     
     
-    public ApplicationModels.GetTatProductResponse getTatProduct(ApplicationModels.GetTatProductReqBody body) throws IOException {
+    public ApplicationModels.PincodeApiResponse getPincodeView(String pincode , String xApplicationId ) throws IOException {
     
-        Response<ApplicationModels.GetTatProductResponse> response = logisticApiList.getTatProduct( body).execute();
+        Response<ApplicationModels.PincodeApiResponse> response = logisticApiList.getPincodeView(pincode, xApplicationId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -4677,23 +4663,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.GetPincodeZonesResponse getPincodeZones(ApplicationModels.GetPincodeZonesReqBody body) throws IOException {
+    public ApplicationModels.TATViewResponse getTATView(String xApplicationId ,ApplicationModels.TATViewRequest body) throws IOException {
     
-        Response<ApplicationModels.GetPincodeZonesResponse> response = logisticApiList.getPincodeZones( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.GetPincodeCityResponse getPincodeCity(String pincode ) throws IOException {
-    
-        Response<ApplicationModels.GetPincodeCityResponse> response = logisticApiList.getPincodeCity(pincode).execute();
+        Response<ApplicationModels.TATViewResponse> response = logisticApiList.getTATView(xApplicationId, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

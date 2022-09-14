@@ -285,9 +285,6 @@ interface UserApiList {
     @POST ("/service/application/user/authentication/v1.0/password")
     Call<ApplicationModels.VerifyEmailSuccess> updatePassword(@Body ApplicationModels.UpdatePasswordRequestSchema payload);
     
-    @POST ("/service/application/user/authentication/v1.0/archive")
-    Call<ApplicationModels.ArchiveUserSuccess> archiveUser(@Body ApplicationModels.ArchiveApplicationUserRequestSchema payload);
-    
     @GET ("/service/application/user/authentication/v1.0/logout")
     Call<ApplicationModels.LogoutSuccess> logout();
     
@@ -745,13 +742,10 @@ interface PosCartApiList {
 
 interface LogisticApiList {
     
-    @POST ("/service/application/logistics/v1.0")
-    Call<ApplicationModels.GetTatProductResponse> getTatProduct(@Body ApplicationModels.GetTatProductReqBody payload);
-    
-    @POST ("/service/application/logistics/v1.0/pincode/zones")
-    Call<ApplicationModels.GetPincodeZonesResponse> getPincodeZones(@Body ApplicationModels.GetPincodeZonesReqBody payload);
-    
     @GET ("/service/application/logistics/v1.0/pincode/{pincode}")
-    Call<ApplicationModels.GetPincodeCityResponse> getPincodeCity(@Path("pincode") String pincode );
+    Call<ApplicationModels.PincodeApiResponse> getPincodeView(@Path("pincode") String pincode , @Header("x-application-id") String xApplicationId );
+    
+    @POST ("/service/application/logistics/v1.0/")
+    Call<ApplicationModels.TATViewResponse> getTATView(@Header("x-application-id") String xApplicationId ,@Body ApplicationModels.TATViewRequest payload);
     
 }
