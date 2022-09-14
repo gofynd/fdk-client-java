@@ -4591,7 +4591,7 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | key | String? |  yes  |  |
- | value | String? |  yes  |  |
+ | value | Object? |  yes  |  |
 
 ---
 
