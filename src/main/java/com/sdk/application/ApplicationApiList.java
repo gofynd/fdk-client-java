@@ -743,9 +743,9 @@ interface PosCartApiList {
 interface LogisticApiList {
     
     @GET ("/service/application/logistics/v1.0/pincode/{pincode}")
-    Call<ApplicationModels.PincodeApiResponse> getPincodeView(@Path("pincode") String pincode , @Header("x-application-id") String xApplicationId );
+    Call<ApplicationModels.PincodeApiResponse> getPincodeCity(@Path("pincode") String pincode , @Header("x-application-id") String xApplicationId );
     
     @POST ("/service/application/logistics/v1.0/")
-    Call<ApplicationModels.TATViewResponse> getTATView(@Header("x-application-id") String xApplicationId ,@Body ApplicationModels.TATViewRequest payload);
+    Call<ApplicationModels.TATViewResponse> getTatProduct(@Header("x-application-id") String xApplicationId ,@Body ApplicationModels.TATViewRequest payload);
     
 }

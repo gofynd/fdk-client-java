@@ -4649,9 +4649,9 @@ public class FileStorageService extends FileStorage {
 
     
     
-    public ApplicationModels.PincodeApiResponse getPincodeView(String pincode , String xApplicationId ) throws IOException {
+    public ApplicationModels.PincodeApiResponse getPincodeCity(String pincode , String xApplicationId ) throws IOException {
     
-        Response<ApplicationModels.PincodeApiResponse> response = logisticApiList.getPincodeView(pincode, xApplicationId).execute();
+        Response<ApplicationModels.PincodeApiResponse> response = logisticApiList.getPincodeCity(pincode, xApplicationId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -4663,9 +4663,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.TATViewResponse getTATView(String xApplicationId ,ApplicationModels.TATViewRequest body) throws IOException {
+    public ApplicationModels.TATViewResponse getTatProduct(String xApplicationId ,ApplicationModels.TATViewRequest body) throws IOException {
     
-        Response<ApplicationModels.TATViewResponse> response = logisticApiList.getTATView(xApplicationId, body).execute();
+        Response<ApplicationModels.TATViewResponse> response = logisticApiList.getTatProduct(xApplicationId, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
