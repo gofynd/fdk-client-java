@@ -1931,6 +1931,20 @@ public class ApplicationService {
     
     
     
+    public ApplicationModels.ResetPasswordSuccess sendResetPasswordMobile(String platform ,ApplicationModels.SendResetPasswordMobileRequestSchema body) throws IOException {
+    
+        Response<ApplicationModels.ResetPasswordSuccess> response = userApiList.sendResetPasswordMobile(platform, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.LoginSuccess forgotPassword(ApplicationModels.ForgotPasswordRequestSchema body) throws IOException {
     
         Response<ApplicationModels.LoginSuccess> response = userApiList.forgotPassword( body).execute();
@@ -2043,9 +2057,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.ArchiveUserSuccess archiveUser(ApplicationModels.ArchiveApplicationUserRequestSchema body) throws IOException {
+    public ApplicationModels.DeleteUserSuccess deleteUser(ApplicationModels.DeleteApplicationUserRequestSchema body) throws IOException {
     
-        Response<ApplicationModels.ArchiveUserSuccess> response = userApiList.archiveUser( body).execute();
+        Response<ApplicationModels.DeleteUserSuccess> response = userApiList.deleteUser( body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3751,9 +3765,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.RefundAccountResponse addRefundBankAccountUsingOTP(ApplicationModels.AddBeneficiaryDetailsOTPRequest body) throws IOException {
+    public ApplicationModels.RefundAccountResponse addRefundBankAccountUsingOTP(Integer companyId , String applicationId ,ApplicationModels.AddBeneficiaryDetailsOTPRequest body) throws IOException {
     
-        Response<ApplicationModels.RefundAccountResponse> response = paymentApiList.addRefundBankAccountUsingOTP( body).execute();
+        Response<ApplicationModels.RefundAccountResponse> response = paymentApiList.addRefundBankAccountUsingOTP(companyId, applicationId, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

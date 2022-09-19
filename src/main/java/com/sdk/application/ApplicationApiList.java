@@ -261,6 +261,9 @@ interface UserApiList {
     @POST ("/service/application/user/authentication/v1.0/login/password/reset")
     Call<ApplicationModels.ResetPasswordSuccess> sendResetPasswordEmail(@Query("platform") String platform ,@Body ApplicationModels.SendResetPasswordEmailRequestSchema payload);
     
+    @POST ("/service/application/user/authentication/v1.0/login/password/mobile/reset")
+    Call<ApplicationModels.ResetPasswordSuccess> sendResetPasswordMobile(@Query("platform") String platform ,@Body ApplicationModels.SendResetPasswordMobileRequestSchema payload);
+    
     @POST ("/service/application/user/authentication/v1.0/login/password/reset/forgot")
     Call<ApplicationModels.LoginSuccess> forgotPassword(@Body ApplicationModels.ForgotPasswordRequestSchema payload);
     
@@ -285,8 +288,8 @@ interface UserApiList {
     @POST ("/service/application/user/authentication/v1.0/password")
     Call<ApplicationModels.VerifyEmailSuccess> updatePassword(@Body ApplicationModels.UpdatePasswordRequestSchema payload);
     
-    @POST ("/service/application/user/authentication/v1.0/archive")
-    Call<ApplicationModels.ArchiveUserSuccess> archiveUser(@Body ApplicationModels.ArchiveApplicationUserRequestSchema payload);
+    @POST ("/service/application/user/authentication/v1.0/delete")
+    Call<ApplicationModels.DeleteUserSuccess> deleteUser(@Body ApplicationModels.DeleteApplicationUserRequestSchema payload);
     
     @GET ("/service/application/user/authentication/v1.0/logout")
     Call<ApplicationModels.LogoutSuccess> logout();
@@ -571,7 +574,7 @@ interface PaymentApiList {
     Call<ApplicationModels.RefundAccountResponse> addBeneficiaryDetails(@Body ApplicationModels.AddBeneficiaryDetailsRequest payload);
     
     @POST ("/service/application/payment/v1.0/refund/account/otp")
-    Call<ApplicationModels.RefundAccountResponse> addRefundBankAccountUsingOTP(@Body ApplicationModels.AddBeneficiaryDetailsOTPRequest payload);
+    Call<ApplicationModels.RefundAccountResponse> addRefundBankAccountUsingOTP(@Path("company_id") Integer companyId , @Path("application_id") String applicationId ,@Body ApplicationModels.AddBeneficiaryDetailsOTPRequest payload);
     
     @POST ("/service/application/payment/v1.0/refund/verification/wallet")
     Call<ApplicationModels.WalletOtpResponse> verifyOtpAndAddBeneficiaryForWallet(@Body ApplicationModels.WalletOtpRequest payload);
