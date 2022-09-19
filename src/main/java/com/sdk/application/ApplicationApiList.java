@@ -70,11 +70,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -284,6 +284,9 @@ interface UserApiList {
     
     @POST ("/service/application/user/authentication/v1.0/password")
     Call<ApplicationModels.VerifyEmailSuccess> updatePassword(@Body ApplicationModels.UpdatePasswordRequestSchema payload);
+    
+    @POST ("/service/application/user/authentication/v1.0/delete")
+    Call<ApplicationModels.DeleteUserSuccess> deleteUser(@Body ApplicationModels.DeleteApplicationUserRequestSchema payload);
     
     @GET ("/service/application/user/authentication/v1.0/logout")
     Call<ApplicationModels.LogoutSuccess> logout();
@@ -743,9 +746,12 @@ interface PosCartApiList {
 interface LogisticApiList {
     
     @GET ("/service/application/logistics/v1.0/pincode/{pincode}")
-    Call<ApplicationModels.PincodeApiResponse> getPincodeCity(@Path("pincode") String pincode , @Header("x-application-id") String xApplicationId );
+    Call<ApplicationModels.PincodeApiResponse> getPincodeCity(@Path("pincode") String pincode );
     
     @POST ("/service/application/logistics/v1.0/")
-    Call<ApplicationModels.TATViewResponse> getTatProduct(@Header("x-application-id") String xApplicationId ,@Body ApplicationModels.TATViewRequest payload);
+    Call<ApplicationModels.TATViewResponse> getTatProduct(@Body ApplicationModels.TATViewRequest payload);
+    
+    @POST ("/service/application/logistics/v1.0/pincode/zones")
+    Call<ApplicationModels.GetZoneFromPincodeViewResponse> getPincodeZones(@Body ApplicationModels.GetZoneFromPincodeViewRequest payload);
     
 }
