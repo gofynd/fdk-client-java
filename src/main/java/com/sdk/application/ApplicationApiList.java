@@ -568,7 +568,7 @@ interface PaymentApiList {
     Call<ApplicationModels.RefundAccountResponse> addBeneficiaryDetails(@Body ApplicationModels.AddBeneficiaryDetailsRequest payload);
     
     @POST ("/service/application/payment/v1.0/refund/account/otp")
-    Call<ApplicationModels.RefundAccountResponse> addRefundBankAccountUsingOTP(@Body ApplicationModels.AddBeneficiaryDetailsOTPRequest payload);
+    Call<ApplicationModels.RefundAccountResponse> addRefundBankAccountUsingOTP(@Path("company_id") Integer companyId , @Path("application_id") String applicationId ,@Body ApplicationModels.AddBeneficiaryDetailsOTPRequest payload);
     
     @POST ("/service/application/payment/v1.0/refund/verification/wallet")
     Call<ApplicationModels.WalletOtpResponse> verifyOtpAndAddBeneficiaryForWallet(@Body ApplicationModels.WalletOtpRequest payload);

@@ -26,9 +26,6 @@ Handles Platform websites OMS
 * [getShipmentAddress](#getshipmentaddress)
 * [updateShipmentAddress](#updateshipmentaddress)
 * [getOrdersByApplicationId](#getordersbyapplicationid)
-* [getPing](#getping)
-* [voiceCallback](#voicecallback)
-* [voiceClickToCall](#voiceclicktocall)
 
 
 
@@ -309,7 +306,7 @@ Get Orders for company based on Company Id
 
 
 ```java
-client.order.getOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  isPrioritySort,  lockStatus,  q,  stage,  salesChannels,  orderId,  stores,  deploymentStores,  status,  dp,  shortenUrls,  filterType) {
+client.order.getOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  isPrioritySort,  lockStatus,  q,  stage,  salesChannels,  orderId,  stores,  deploymentStores,  status,  dp,  filterType) {
   //use response
 }
 ```
@@ -333,7 +330,6 @@ client.order.getOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  isPri
 | deploymentStores | String? | no | Selected Deployment Stores |   
 | status | String? | no | Status of order |   
 | dp | String? | no | Delivery Partners |   
-| shortenUrls | Boolean? | no | Shorten URL option |   
 | filterType | String? | no | Filters |  
 
 
@@ -378,7 +374,7 @@ Get Order Lanes Count for company based on Company Id
 
 
 ```java
-client.order.getOrderLanesCountByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  q,  stage,  salesChannels,  orderId,  stores,  status,  shortenUrls,  filterType) {
+client.order.getOrderLanesCountByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  q,  stage,  salesChannels,  orderId,  stores,  status,  filterType) {
   //use response
 }
 ```
@@ -398,7 +394,6 @@ client.order.getOrderLanesCountByCompanyId( pageNo,  pageSize,  fromDate,  toDat
 | orderId | String? | no | Order Id |   
 | stores | String? | no | Selected Stores |   
 | status | String? | no | Status of order |   
-| shortenUrls | Boolean? | no | Shorten URL option |   
 | filterType | String? | no | Filters |  
 
 
@@ -556,7 +551,7 @@ Get Orders for company based on Company Id
 
 
 ```java
-client.order.getPicklistOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  q,  stage,  salesChannels,  orderId,  stores,  status,  shortenUrls,  filterType) {
+client.order.getPicklistOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  q,  stage,  salesChannels,  orderId,  stores,  status,  filterType) {
   //use response
 }
 ```
@@ -576,7 +571,6 @@ client.order.getPicklistOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate
 | orderId | String? | no | Order Id |   
 | stores | String? | no | Selected Stores |   
 | status | String? | no | Status of order |   
-| shortenUrls | Boolean? | no | Shorten URL option |   
 | filterType | String? | no | Filters |  
 
 
@@ -1116,7 +1110,7 @@ Get Orders for company based on Company Id
 
 
 ```java
-client.application("<APPLICATION_ID>").order.getOrdersByApplicationId( pageNo,  pageSize,  fromDate,  toDate,  q,  stage,  salesChannels,  orderId,  stores,  status,  dp,  shortenUrls,  filterType) {
+client.application("<APPLICATION_ID>").order.getOrdersByApplicationId( pageNo,  pageSize,  fromDate,  toDate,  q,  stage,  salesChannels,  orderId,  stores,  status,  dp,  filterType) {
   //use response
 }
 ```
@@ -1138,7 +1132,6 @@ client.application("<APPLICATION_ID>").order.getOrdersByApplicationId( pageNo,  
 | stores | String? | no | Selected Stores |   
 | status | String? | no | Status of order |   
 | dp | String? | no | Delivery Partners |   
-| shortenUrls | Boolean? | no | Shorten URL option |   
 | filterType | String? | no | Filters |  
 
 
@@ -1151,167 +1144,6 @@ Get Orders at Application Level
 
 
 [OrderListing](#OrderListing)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getPing
-Get Ping
-
-
-
-
-```java
-client.order.getPing() {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Company Id |  
-
-
-
-Get Ping
-
-*Returned Response:*
-
-
-
-
-[GetPingResponse](#GetPingResponse)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### voiceCallback
-Get Voice Callback
-
-
-
-
-```java
-client.order.voiceCallback() {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Company Id |  
-
-
-
-Voice Callback
-
-*Returned Response:*
-
-
-
-
-[GetVoiceCallbackResponse](#GetVoiceCallbackResponse)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### voiceClickToCall
-Get Voice Click to Call
-
-
-
-
-```java
-client.order.voiceClickToCall( caller,  receiver) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Company Id |   
-| caller | String | yes | Caller contact number |   
-| receiver | String | yes | Receiver contact number |  
-
-
-
-Voice Click to Call
-
-*Returned Response:*
-
-
-
-
-[GetClickToCallResponse](#GetClickToCallResponse)
 
 Success
 
