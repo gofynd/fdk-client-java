@@ -1028,9 +1028,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlug(String slug , String size , Integer storeId , String pincode ) throws IOException {
+    public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlug(String slug , String size , Integer storeId , String pincode , Integer moq ) throws IOException {
     
-        Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlug(slug, size, storeId, pincode).execute();
+        Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlug(slug, size, storeId, pincode, moq).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

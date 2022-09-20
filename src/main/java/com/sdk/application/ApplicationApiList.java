@@ -95,7 +95,7 @@ interface CatalogApiList {
     Call<ApplicationModels.ProductBundle> getProductBundlesBySlug(@Query("slug") String slug , @Query("id") String id );
     
     @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/price/")
-    Call<ApplicationModels.ProductSizePriceResponseV2> getProductPriceBySlug(@Path("slug") String slug , @Path("size") String size , @Query("store_id") Integer storeId , @Query("pincode") String pincode );
+    Call<ApplicationModels.ProductSizePriceResponseV2> getProductPriceBySlug(@Path("slug") String slug , @Path("size") String size , @Query("store_id") Integer storeId , @Query("pincode") String pincode , @Query("moq") Integer moq );
     
     @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/sellers/")
     Call<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlug(@Path("slug") String slug , @Path("size") String size , @Query("pincode") String pincode , @Query("strategy") String strategy , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
