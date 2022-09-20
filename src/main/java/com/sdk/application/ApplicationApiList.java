@@ -751,7 +751,4 @@ interface LogisticApiList {
     @POST ("/service/application/logistics/v1.0/")
     Call<ApplicationModels.TATViewResponse> getTatProduct(@Body ApplicationModels.TATViewRequest payload);
     
-    @POST ("/service/application/logistics/v1.0/pincode/zones")
-    Call<ApplicationModels.GetZoneFromPincodeViewResponse> getPincodeZones(@Body ApplicationModels.GetZoneFromPincodeViewRequest payload);
-    
 }
