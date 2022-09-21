@@ -2265,7 +2265,7 @@ Success. Returns a list of pages along with their details. Check the example sho
  | active | Boolean? |  yes  |  |
  | display | String? |  yes  |  |
  | sortOrder | Integer? |  yes  |  |
- | subNavigation | ArrayList<Object>? |  yes  |  |
+ | subNavigation | ArrayList<[NavigationReference](#NavigationReference)>? |  yes  |  |
 
 ---
 
@@ -2482,17 +2482,6 @@ Success. Returns a list of pages along with their details. Check the example sho
  | requestId | String? |  yes  |  |
  | stackTrace | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [CommonError](#CommonError)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
 
 ---
 
