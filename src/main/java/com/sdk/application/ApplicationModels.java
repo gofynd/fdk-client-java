@@ -14472,6 +14472,12 @@ public static class AuthenticationApiErrorSchema{
     
     
     
+    
+    @JsonProperty("is_deleted")
+    private Boolean isDeleted;
+    
+    
+    
 }
 
 
@@ -20197,7 +20203,7 @@ public static class CommunicationConsent{
 
 
 /*
-    Model: BadRequestErr
+    Model: BadRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20205,7 +20211,7 @@ public static class CommunicationConsent{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BadRequestErr{
+public static class BadRequestSchema{
     
     
     

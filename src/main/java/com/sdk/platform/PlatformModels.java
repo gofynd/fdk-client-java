@@ -7783,6 +7783,12 @@ public static class AuthenticationApiErrorSchema {
     
     
     
+    @JsonProperty("is_deleted")
+    private Boolean isDeleted;
+    
+    
+    
+    
 }
 
 /*
@@ -18240,7 +18246,7 @@ public static class PayloadSmsTemplateStructure {
     
     
     @JsonProperty("value")
-    private String value;
+    private Object value;
     
     
     
