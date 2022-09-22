@@ -3628,8 +3628,14 @@ interface OrderApiList {
     
     
     
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/get-reason-codes")
-    Call<PlatformModels.ReasonCodesResponse> getReasonCodes(@Path("company_id")  String companyId , @Query("category") String  category );
+    Call<PlatformModels.ReasonCodesResponse> getReasonCodes(@Path("company_id")  String companyId , @Query("category") String  category ,  @Query("page_size") String  pageSize ,  @Query("page_no") String  pageNo );
     
     
     

@@ -10198,9 +10198,17 @@ public static class OrderService {
     
     
     
-    public PlatformModels.ReasonCodesResponse getReasonCodes(String category ) throws IOException {
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.ReasonCodesResponse getReasonCodes(String category , String pageSize , String pageNo ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ReasonCodesResponse> response = orderApiList.getReasonCodes(this.companyId ,category ).execute();
+            Response<PlatformModels.ReasonCodesResponse> response = orderApiList.getReasonCodes(this.companyId ,category , pageSize , pageNo ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
