@@ -261,6 +261,9 @@ interface UserApiList {
     @POST ("/service/application/user/authentication/v1.0/login/password/reset")
     Call<ApplicationModels.ResetPasswordSuccess> sendResetPasswordEmail(@Query("platform") String platform ,@Body ApplicationModels.SendResetPasswordEmailRequestSchema payload);
     
+    @POST ("/service/application/user/authentication/v1.0/login/password/mobile/reset")
+    Call<ApplicationModels.ResetPasswordSuccess> sendResetPasswordMobile(@Query("platform") String platform ,@Body ApplicationModels.SendResetPasswordMobileRequestSchema payload);
+    
     @POST ("/service/application/user/authentication/v1.0/login/password/reset/forgot")
     Call<ApplicationModels.LoginSuccess> forgotPassword(@Body ApplicationModels.ForgotPasswordRequestSchema payload);
     
@@ -285,6 +288,9 @@ interface UserApiList {
     @POST ("/service/application/user/authentication/v1.0/password")
     Call<ApplicationModels.VerifyEmailSuccess> updatePassword(@Body ApplicationModels.UpdatePasswordRequestSchema payload);
     
+    @POST ("/service/application/user/authentication/v1.0/delete")
+    Call<ApplicationModels.DeleteUserSuccess> deleteUser(@Body ApplicationModels.DeleteApplicationUserRequestSchema payload);
+    
     @GET ("/service/application/user/authentication/v1.0/logout")
     Call<ApplicationModels.LogoutSuccess> logout();
     
@@ -305,6 +311,9 @@ interface UserApiList {
     
     @GET ("/service/application/user/authentication/v1.0/sessions")
     Call<ApplicationModels.SessionListSuccess> getListOfActiveSessions();
+    
+    @GET ("/service/application/user/platform/v1.0/config")
+    Call<ApplicationModels.PlatformSchema> getPlatformConfig(@Query("name") String name );
     
     @POST ("/service/application/user/profile/v1.0/detail")
     Call<ApplicationModels.ProfileEditSuccess> updateProfile(@Query("platform") String platform ,@Body ApplicationModels.EditProfileRequestSchema payload);
