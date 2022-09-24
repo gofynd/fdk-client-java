@@ -70,11 +70,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -159,7 +159,7 @@ interface CartApiList {
     Call<ApplicationModels.PaymentCouponValidate> validateCouponForPayment(@Query("id") String id , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode );
     
     @GET ("/service/application/cart/v1.0/shipment")
-    Call<ApplicationModels.CartShipmentsResponse> getShipments(@Query("p") Boolean p , @Query("id") String id , @Query("address_id") String addressId , @Query("area_code") String areaCode );
+    Call<ApplicationModels.CartShipmentsResponse> getShipments(@Query("p") Boolean p , @Query("id") String id , @Query("address_id") String addressId , @Query("area_code") String areaCode , @Query("order_type") String orderType );
     
     @POST ("/service/application/cart/v1.0/checkout")
     Call<ApplicationModels.CartCheckoutResponse> checkoutCart(@Body ApplicationModels.CartCheckoutDetailRequest payload);
