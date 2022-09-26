@@ -2169,6 +2169,20 @@ public class ApplicationService {
     
     
     
+    public ApplicationModels.PlatformSchema getPlatformConfig(String name ) throws IOException {
+    
+        Response<ApplicationModels.PlatformSchema> response = userApiList.getPlatformConfig(name).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.ProfileEditSuccess updateProfile(String platform ,ApplicationModels.EditProfileRequestSchema body) throws IOException {
     
         Response<ApplicationModels.ProfileEditSuccess> response = userApiList.updateProfile(platform, body).execute();

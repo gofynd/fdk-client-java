@@ -312,6 +312,9 @@ interface UserApiList {
     @GET ("/service/application/user/authentication/v1.0/sessions")
     Call<ApplicationModels.SessionListSuccess> getListOfActiveSessions();
     
+    @GET ("/service/application/user/platform/v1.0/config")
+    Call<ApplicationModels.PlatformSchema> getPlatformConfig(@Query("name") String name );
+    
     @POST ("/service/application/user/profile/v1.0/detail")
     Call<ApplicationModels.ProfileEditSuccess> updateProfile(@Query("platform") String platform ,@Body ApplicationModels.EditProfileRequestSchema payload);
     
