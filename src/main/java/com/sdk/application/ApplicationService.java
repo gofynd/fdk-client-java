@@ -1931,6 +1931,20 @@ public class ApplicationService {
     
     
     
+    public ApplicationModels.ResetPasswordSuccess sendResetPasswordMobile(String platform ,ApplicationModels.SendResetPasswordMobileRequestSchema body) throws IOException {
+    
+        Response<ApplicationModels.ResetPasswordSuccess> response = userApiList.sendResetPasswordMobile(platform, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.LoginSuccess forgotPassword(ApplicationModels.ForgotPasswordRequestSchema body) throws IOException {
     
         Response<ApplicationModels.LoginSuccess> response = userApiList.forgotPassword( body).execute();
