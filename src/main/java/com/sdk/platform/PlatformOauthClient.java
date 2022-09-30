@@ -86,6 +86,7 @@ public class PlatformOauthClient {
         this.rawToken = accessTokenDto;
         this.tokenExpiresIn = accessTokenDto.getExpiresIn();
         this.token = accessTokenDto.getAccessToken();
+        this.tokenExpiresAt = accessTokenDto.getExpiresAt();
         this.refreshToken = ObjectUtils.isEmpty(
                 accessTokenDto.getRefreshToken()) ? "" : accessTokenDto.getRefreshToken();
         if (ObjectUtils.isEmpty(this.refreshToken) && this.useAutoRenewTimer.equals(Boolean.TRUE)) {
@@ -137,8 +138,13 @@ public class PlatformOauthClient {
 
         String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/token";
         AccessTokenDto newToken = getToken(body, url);
+        if (Objects.nonNull(newToken.getExpiresAt())) {
+            newToken.setExpiresAt(newToken.getExpiresAt());
+        } else {
+            newToken.setExpiresAt((new Date()).getTime() + (this.tokenExpiresIn * 1000L));
+        }
+
         setToken(newToken);
-        this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
         return newToken;
     }
 
@@ -149,8 +155,13 @@ public class PlatformOauthClient {
         body.put(Fields.CODE, authorizationCode);
         String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/token";
         AccessTokenDto newToken = getToken(body, url);
+        if (Objects.nonNull(newToken.getExpiresAt())) {
+            newToken.setExpiresAt(newToken.getExpiresAt());
+        } else {
+            newToken.setExpiresAt((new Date()).getTime() + (this.tokenExpiresIn * 1000L));
+        }
+
         setToken(newToken);
-        this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
     }
 
     public boolean isAccessTokenValid() {
@@ -168,8 +179,13 @@ public class PlatformOauthClient {
             body.put(Fields.SCOPE, scopes);
             String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/offline-token";
             AccessTokenDto offlineToken = getOfflineToken(body, url);
+            if (Objects.nonNull(offlineToken.getExpiresAt())) {
+                offlineToken.setExpiresAt(offlineToken.getExpiresAt());
+            } else {
+                offlineToken.setExpiresAt((new Date()).getTime() + (this.tokenExpiresIn * 1000L));
+            }
+
             setToken(offlineToken);
-            this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
             return offlineToken;
         } catch (Exception e) {
             log.error("Exception in getting Offline Token", e);
@@ -219,6 +235,42 @@ public class PlatformOauthClient {
         interceptorList.add(new PlatformHeaderInterceptor(config));
         interceptorList.add(new RequestSignerInterceptor());
         return retrofitServiceFactory.createService(config.getDomain(), TokenApiList.class, interceptorList);
+    }
+
+    public AccessTokenDto getAccessTokenObj(String grant_type, String refresh_token, String code) throws IOException{
+        HashMap<String, String> body = new HashMap<>();
+        body.put(Fields.GRANT_TYPE, grant_type);
+        if (grant_type.equalsIgnoreCase("refresh_token")) {
+            body.put(Fields.REFRESH_CODE, refresh_token);
+        } else if (grant_type.equalsIgnoreCase("authorization_code")) {
+            body.put(Fields.CODE, code);
+        }
+        return getAccessTokenDto(body);
+    }
+
+    public AccessTokenDto getAccessTokenObj(String grant_type) throws IOException{
+       return getAccessTokenObj(grant_type, null,null);
+    }
+
+    public void setTokenNew(AccessTokenDto accessTokenDto) {
+        this.rawToken = accessTokenDto;
+        this.tokenExpiresIn = accessTokenDto.getExpiresIn();
+        this.token = accessTokenDto.getAccessToken();
+        this.tokenExpiresAt = accessTokenDto.getExpiresAt();
+        this.refreshToken = ObjectUtils.isEmpty(
+                accessTokenDto.getRefreshToken()) ? "" : accessTokenDto.getRefreshToken();
+    }
+
+    private AccessTokenDto getAccessTokenDto(HashMap<String, String> body) throws IOException {
+        String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/token";
+        AccessTokenDto newToken = getToken(body, url);
+        if (Objects.nonNull(newToken.getExpiresAt())) {
+            newToken.setExpiresAt(newToken.getExpiresAt());
+        } else {
+            newToken.setExpiresAt((new Date()).getTime() + (this.tokenExpiresIn * 1000L));
+        }
+        setTokenNew(newToken);
+        return newToken;
     }
 
     enum GrantType {

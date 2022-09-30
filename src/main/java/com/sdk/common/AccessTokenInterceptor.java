@@ -23,8 +23,8 @@ public class AccessTokenInterceptor implements Interceptor {
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-        okhttp3.Request original = chain.request();
-        okhttp3.Request.Builder builder = original.newBuilder()
+        Request original = chain.request();
+        Request.Builder builder = original.newBuilder()
                 .addHeader("Authorization", "Bearer "+ platformConfig.getPlatformOauthClient().getToken())
                 .addHeader("Content-Type", "application/x-www-form-urlencoded")
                 .addHeader("x-fp-sdk-version", "0.1.26")
