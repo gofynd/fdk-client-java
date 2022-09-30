@@ -29,7 +29,7 @@ public class AccessTokenInterceptor implements Interceptor {
                 .addHeader("Content-Type", "application/x-www-form-urlencoded")
                 .addHeader("x-fp-sdk-version", "0.1.26")
                 .addHeader("x-ext-lib-version", "js/"+buildVersion);
-        okhttp3.Request request = builder.build();
+        Request request = builder.build();
         return chain.proceed(request);
     }
 
