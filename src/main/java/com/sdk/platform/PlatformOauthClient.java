@@ -240,9 +240,9 @@ public class PlatformOauthClient {
     public AccessTokenDto getAccessTokenObj(String grant_type, String refresh_token, String code) throws IOException{
         HashMap<String, String> body = new HashMap<>();
         body.put(Fields.GRANT_TYPE, grant_type);
-        if (grant_type.equalsIgnoreCase("refresh_token")) {
+        if (grant_type.equalsIgnoreCase(GrantType.REFRESH_TOKEN.getMessage())) {
             body.put(Fields.REFRESH_CODE, refresh_token);
-        } else if (grant_type.equalsIgnoreCase("authorization_code")) {
+        } else if (grant_type.equalsIgnoreCase(GrantType.AUTHORIZATION_CODE.getMessage())) {
             body.put(Fields.CODE, code);
         }
         return getAccessTokenDto(body);
@@ -273,9 +273,17 @@ public class PlatformOauthClient {
         return newToken;
     }
 
+    @Getter
     enum GrantType {
-        AUTHORIZATION_CODE,
-        REFRESH_TOKEN
+        AUTHORIZATION_CODE("authorization_code"),
+        REFRESH_TOKEN("refresh_token");
+
+        private String message;
+
+        GrantType(String message) {
+            this.message = message;
+        }
+
     }
 
     interface Fields {
