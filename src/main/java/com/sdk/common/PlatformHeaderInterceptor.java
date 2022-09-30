@@ -22,7 +22,7 @@ public class PlatformHeaderInterceptor implements Interceptor {
         String bearerToken = Base64.getEncoder().encodeToString((platformConfig.getApiKey()+":"+ platformConfig.getApiSecret()).getBytes());
         Request request = chain.request();
         Request.Builder builder = buildHeaders(request, bearerToken);
-        if ((Objects.nonNull(platformConfig.getExtraHeaders())) && (!platformConfig.getExtraHeaders().isEmpty())) {
+        if (!platformConfig.getExtraHeaders().isEmpty()) {
             HashMap<String, String> extraHeaders = platformConfig.getExtraHeaders();
             for(Map.Entry<String,String> entry:extraHeaders.entrySet()){
                 builder.addHeader(entry.getKey(),entry.getValue());

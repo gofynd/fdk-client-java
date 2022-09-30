@@ -22,7 +22,7 @@ public class PublicHeaderInterceptor implements Interceptor {
         String bearerToken = Base64.getEncoder().encodeToString((publicConfig.getApplicationToken()).getBytes());
         Request request = chain.request();
         Request.Builder builder = buildHeaders(request, bearerToken);
-        if ((Objects.nonNull(publicConfig.getExtraHeaders())) && (!publicConfig.getExtraHeaders().isEmpty())) {
+        if (!publicConfig.getExtraHeaders().isEmpty()) {
             HashMap<String, String> extraHeaders = publicConfig.getExtraHeaders();
             for(Map.Entry<String,String> entry:extraHeaders.entrySet()){
                 builder.addHeader(entry.getKey(),entry.getValue());
