@@ -3765,9 +3765,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.RefundAccountResponse addRefundBankAccountUsingOTP(Integer companyId , String applicationId ,ApplicationModels.AddBeneficiaryDetailsOTPRequest body) throws IOException {
+    public ApplicationModels.RefundAccountResponse addRefundBankAccountUsingOTP(ApplicationModels.AddBeneficiaryDetailsOTPRequest body) throws IOException {
     
-        Response<ApplicationModels.RefundAccountResponse> response = paymentApiList.addRefundBankAccountUsingOTP(companyId, applicationId, body).execute();
+        Response<ApplicationModels.RefundAccountResponse> response = paymentApiList.addRefundBankAccountUsingOTP( body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

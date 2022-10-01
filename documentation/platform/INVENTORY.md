@@ -582,8 +582,8 @@ client.inventory.getJobCodeMetrics( code,  pageNo,  pageSize,  status,  date) {
 | code | String | yes | Code |   
 | pageNo | Integer? | no | Page Number |   
 | pageSize | Integer? | no | Page Size |   
-| status | String? | no | Status |   
-| date | String? | no | From Date |  
+| status | String? | no |  |   
+| date | String? | no |  |  
 
 
 
