@@ -1185,9 +1185,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode ,ApplicationModels.AddCartRequest body) throws IOException {
+    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , String id ,ApplicationModels.AddCartRequest body) throws IOException {
     
-        Response<ApplicationModels.AddCartDetailResponse> response = cartApiList.addItems(i, b, areaCode, body).execute();
+        Response<ApplicationModels.AddCartDetailResponse> response = cartApiList.addItems(i, b, areaCode, id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -4278,9 +4278,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode ,ApplicationModels.AddCartRequest body) throws IOException {
+    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , String id ,ApplicationModels.AddCartRequest body) throws IOException {
     
-        Response<ApplicationModels.AddCartDetailResponse> response = poscartApiList.addItems(i, b, areaCode, body).execute();
+        Response<ApplicationModels.AddCartDetailResponse> response = poscartApiList.addItems(i, b, areaCode, id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

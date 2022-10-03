@@ -111,7 +111,7 @@ interface CartApiList {
     Call<Object> getCartLastModified(@Query("id") String id );
     
     @POST ("/service/application/cart/v1.0/detail")
-    Call<ApplicationModels.AddCartDetailResponse> addItems(@Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode ,@Body ApplicationModels.AddCartRequest payload);
+    Call<ApplicationModels.AddCartDetailResponse> addItems(@Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("id") String id ,@Body ApplicationModels.AddCartRequest payload);
     
     @PUT ("/service/application/cart/v1.0/detail")
     Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode ,@Body ApplicationModels.UpdateCartRequest payload);
@@ -667,7 +667,7 @@ interface PosCartApiList {
     Call<Object> getCartLastModified(@Query("id") String id );
     
     @POST ("/service/application/pos/cart/v1.0/detail")
-    Call<ApplicationModels.AddCartDetailResponse> addItems(@Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode ,@Body ApplicationModels.AddCartRequest payload);
+    Call<ApplicationModels.AddCartDetailResponse> addItems(@Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("id") String id ,@Body ApplicationModels.AddCartRequest payload);
     
     @PUT ("/service/application/pos/cart/v1.0/detail")
     Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode ,@Body ApplicationModels.UpdateCartRequest payload);
