@@ -5460,73 +5460,35 @@ public class FileStorageService extends FileStorage {
 
 
 @Getter
- public class FeedbackService { 
+ public class RewardsService { 
 
     private ApplicationConfig applicationConfig;
 
     private RetrofitServiceFactory retrofitServiceFactory;
 
-    private FeedbackApiList feedbackApiList;
+    private RewardsApiList rewardsApiList;
 
     private HashMap<String,String> relativeUrls  =new HashMap<String,String>();
 
-    FeedbackService(ApplicationConfig applicationConfig) {
+    RewardsService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
         this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.feedbackApiList = generateFeedbackApiList(this.applicationConfig.getPersistentCookieStore());
+        this.rewardsApiList = generateRewardsApiList(this.applicationConfig.getPersistentCookieStore());
 
            
-                    relativeUrls.put("createAbuseReport","/service/application/feedback/v1.0/abuse/".substring(1));
+                    relativeUrls.put("getPointsOnProduct","/service/application/rewards/v1.0/catalogue/offer/order/".substring(1));
             
-                    relativeUrls.put("updateAbuseReport","/service/application/feedback/v1.0/abuse/".substring(1));
+                    relativeUrls.put("getOfferByName","/service/application/rewards/v1.0/offers/{name}/".substring(1));
             
-                    relativeUrls.put("getAbuseReports","/service/application/feedback/v1.0/abuse/entity/{entity_type}/entity-id/{entity_id}".substring(1));
+                    relativeUrls.put("getOrderDiscount","/service/application/rewards/v1.0/user/offers/order-discount/".substring(1));
             
-                    relativeUrls.put("getAttributes","/service/application/feedback/v1.0/attributes/".substring(1));
+                    relativeUrls.put("getUserPoints","/service/application/rewards/v1.0/user/points/".substring(1));
             
-                    relativeUrls.put("createAttribute","/service/application/feedback/v1.0/attributes/".substring(1));
+                    relativeUrls.put("getUserPointsHistory","/service/application/rewards/v1.0/user/points/history/".substring(1));
             
-                    relativeUrls.put("getAttribute","/service/application/feedback/v1.0/attributes/{slug}".substring(1));
+                    relativeUrls.put("getUserReferralDetails","/service/application/rewards/v1.0/user/referral/".substring(1));
             
-                    relativeUrls.put("updateAttribute","/service/application/feedback/v1.0/attributes/{slug}".substring(1));
-            
-                    relativeUrls.put("createComment","/service/application/feedback/v1.0/comment/".substring(1));
-            
-                    relativeUrls.put("updateComment","/service/application/feedback/v1.0/comment/".substring(1));
-            
-                    relativeUrls.put("getComments","/service/application/feedback/v1.0/comment/entity/{entity_type}".substring(1));
-            
-                    relativeUrls.put("checkEligibility","/service/application/feedback/v1.0/config/entity/{entity_type}/entity-id/{entity_id}".substring(1));
-            
-                    relativeUrls.put("deleteMedia","/service/application/feedback/v1.0/media/".substring(1));
-            
-                    relativeUrls.put("createMedia","/service/application/feedback/v1.0/media/".substring(1));
-            
-                    relativeUrls.put("updateMedia","/service/application/feedback/v1.0/media/".substring(1));
-            
-                    relativeUrls.put("getMedias","/service/application/feedback/v1.0/media/entity/{entity_type}/entity-id/{entity_id}".substring(1));
-            
-                    relativeUrls.put("getReviewSummaries","/service/application/feedback/v1.0/rating/summary/entity/{entity_type}/entity-id/{entity_id}".substring(1));
-            
-                    relativeUrls.put("createReview","/service/application/feedback/v1.0/review/".substring(1));
-            
-                    relativeUrls.put("updateReview","/service/application/feedback/v1.0/review/".substring(1));
-            
-                    relativeUrls.put("getReviews","/service/application/feedback/v1.0/review/entity/{entity_type}/entity-id/{entity_id}".substring(1));
-            
-                    relativeUrls.put("getTemplates","/service/application/feedback/v1.0/template/".substring(1));
-            
-                    relativeUrls.put("createQuestion","/service/application/feedback/v1.0/template/qna/".substring(1));
-            
-                    relativeUrls.put("updateQuestion","/service/application/feedback/v1.0/template/qna/".substring(1));
-            
-                    relativeUrls.put("getQuestionAndAnswers","/service/application/feedback/v1.0/template/qna/entity/{entity_type}/entity-id/{entity_id}".substring(1));
-            
-                    relativeUrls.put("getVotes","/service/application/feedback/v1.0/vote/".substring(1));
-            
-                    relativeUrls.put("createVote","/service/application/feedback/v1.0/vote/".substring(1));
-            
-                    relativeUrls.put("updateVote","/service/application/feedback/v1.0/vote/".substring(1));
+                    relativeUrls.put("redeemReferralCode","/service/application/rewards/v1.0/user/referral/redeem/".substring(1));
              
 
     }
@@ -5537,23 +5499,23 @@ public class FileStorageService extends FileStorage {
             }
     }
 
-    private FeedbackApiList generateFeedbackApiList(CookieStore cookieStore) {
+    private RewardsApiList generateRewardsApiList(CookieStore cookieStore) {
         List<Interceptor> interceptorList = new ArrayList<>();
         interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
         interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),FeedbackApiList.class, interceptorList, cookieStore);
+        return retrofitServiceFactory.createService(applicationConfig.getDomain(),RewardsApiList.class, interceptorList, cookieStore);
     }
 
     
 
      
     
-    public ApplicationModels.InsertResponse createAbuseReport(ApplicationModels.ReportAbuseRequest body) throws IOException {
+    public ApplicationModels.CatalogueOrderResponse getPointsOnProduct(ApplicationModels.CatalogueOrderRequest body) throws IOException {
      
-      String fullUrl = relativeUrls.get("createAbuseReport");
+      String fullUrl = relativeUrls.get("getPointsOnProduct");
         
 
-        Response<ApplicationModels.InsertResponse> response = feedbackApiList.createAbuseReport(fullUrl , body).execute();
+        Response<ApplicationModels.CatalogueOrderResponse> response = rewardsApiList.getPointsOnProduct(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5565,12 +5527,14 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.UpdateResponse updateAbuseReport(ApplicationModels.UpdateAbuseStatusRequest body) throws IOException {
+    public ApplicationModels.Offer getOfferByName(String name ) throws IOException {
      
-      String fullUrl = relativeUrls.get("updateAbuseReport");
+      String fullUrl = relativeUrls.get("getOfferByName");
+        
+        fullUrl = fullUrl.replace("{" + "name" +"}",name.toString());
         
 
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateAbuseReport(fullUrl , body).execute();
+        Response<ApplicationModels.Offer> response = rewardsApiList.getOfferByName(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5582,16 +5546,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.ReportAbuseGetResponse getAbuseReports(String entityId , String entityType , String id , String pageId , Integer pageSize ) throws IOException {
+    public ApplicationModels.OrderDiscountResponse getOrderDiscount(ApplicationModels.OrderDiscountRequest body) throws IOException {
      
-      String fullUrl = relativeUrls.get("getAbuseReports");
-        
-        fullUrl = fullUrl.replace("{" + "entity_id" +"}",entityId.toString());
-        
-        fullUrl = fullUrl.replace("{" + "entity_type" +"}",entityType.toString());
+      String fullUrl = relativeUrls.get("getOrderDiscount");
         
 
-        Response<ApplicationModels.ReportAbuseGetResponse> response = feedbackApiList.getAbuseReports(fullUrl  ,id, pageId, pageSize).execute();
+        Response<ApplicationModels.OrderDiscountResponse> response = rewardsApiList.getOrderDiscount(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5602,18 +5562,40 @@ public class FileStorageService extends FileStorage {
     
     
     
+    
+    public ApplicationModels.PointsResponse getUserPoints() throws IOException {
+     
+      String fullUrl = relativeUrls.get("getUserPoints");
         
+
+        Response<ApplicationModels.PointsResponse> response = rewardsApiList.getUserPoints(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PointsHistoryResponse getUserPointsHistory(String pageId , Integer pageSize ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getUserPointsHistory");
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+        Response<ApplicationModels.PointsHistoryResponse> response = rewardsApiList.getUserPointsHistory(fullUrl  ,pageId, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
         
         
         
@@ -5629,29 +5611,23 @@ public class FileStorageService extends FileStorage {
         
 
     /**
-    * Summary: get paginator for getAbuseReports
+    * Summary: get paginator for getUserPointsHistory
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<ApplicationModels.ReportAbuseGetResponse> getAbuseReportsPagination(
+    public Paginator<ApplicationModels.PointsHistoryResponse> getUserPointsHistoryPagination(
         
-        String entityId,
-        String entityType,
-        String id,
         Integer pageSize
         
         ){ 
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<ApplicationModels.ReportAbuseGetResponse> paginator = new Paginator<>(pageSize, "cursor");
+    Paginator<ApplicationModels.PointsHistoryResponse> paginator = new Paginator<>(pageSize, "cursor");
 
     paginator.setCallback(()-> {
         try {
-            ApplicationModels.ReportAbuseGetResponse callback = this.getAbuseReports(
+            ApplicationModels.PointsHistoryResponse callback = this.getUserPointsHistory(
                 
-                 entityId,
-                 entityType,
-                 id,
                  paginator.getNextId()
                 ,
                  paginator.getPageSize()
@@ -5669,77 +5645,12 @@ public class FileStorageService extends FileStorage {
     }
     
     
-    public ApplicationModels.AttributeResponse getAttributes(Integer pageNo , Integer pageSize ) throws IOException {
+    public ApplicationModels.ReferralDetailsResponse getUserReferralDetails() throws IOException {
      
-      String fullUrl = relativeUrls.get("getAttributes");
+      String fullUrl = relativeUrls.get("getUserReferralDetails");
         
 
-        Response<ApplicationModels.AttributeResponse> response = feedbackApiList.getAttributes(fullUrl  ,pageNo, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getAttributes
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.AttributeResponse> getAttributesPagination(
-        
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.AttributeResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.AttributeResponse callback = this.getAttributes(
-                
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.InsertResponse createAttribute(ApplicationModels.SaveAttributeRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("createAttribute");
-        
-
-        Response<ApplicationModels.InsertResponse> response = feedbackApiList.createAttribute(fullUrl , body).execute();
+        Response<ApplicationModels.ReferralDetailsResponse> response = rewardsApiList.getUserReferralDetails(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5751,840 +5662,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.Attribute getAttribute(String slug ) throws IOException {
+    public ApplicationModels.RedeemReferralCodeResponse redeemReferralCode(ApplicationModels.RedeemReferralCodeRequest body) throws IOException {
      
-      String fullUrl = relativeUrls.get("getAttribute");
-        
-        fullUrl = fullUrl.replace("{" + "slug" +"}",slug.toString());
+      String fullUrl = relativeUrls.get("redeemReferralCode");
         
 
-        Response<ApplicationModels.Attribute> response = feedbackApiList.getAttribute(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.UpdateResponse updateAttribute(String slug ,ApplicationModels.UpdateAttributeRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("updateAttribute");
-        
-        fullUrl = fullUrl.replace("{" + "slug" +"}",slug.toString());
-        
-
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateAttribute(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.InsertResponse createComment(ApplicationModels.CommentRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("createComment");
-        
-
-        Response<ApplicationModels.InsertResponse> response = feedbackApiList.createComment(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.UpdateResponse updateComment(ApplicationModels.UpdateCommentRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("updateComment");
-        
-
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateComment(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.CommentGetResponse getComments(String entityType , String id , String entityId , String userId , String pageId , Integer pageSize ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getComments");
-        
-        fullUrl = fullUrl.replace("{" + "entity_type" +"}",entityType.toString());
-        
-
-        Response<ApplicationModels.CommentGetResponse> response = feedbackApiList.getComments(fullUrl  ,id, entityId, userId, pageId, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getComments
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.CommentGetResponse> getCommentsPagination(
-        
-        String entityType,
-        String id,
-        String entityId,
-        String userId,
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.CommentGetResponse> paginator = new Paginator<>(pageSize, "cursor");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.CommentGetResponse callback = this.getComments(
-                
-                 entityType,
-                 id,
-                 entityId,
-                 userId,
-                 paginator.getNextId()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.CheckEligibilityResponse checkEligibility(String entityType , String entityId ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("checkEligibility");
-        
-        fullUrl = fullUrl.replace("{" + "entity_type" +"}",entityType.toString());
-        
-        fullUrl = fullUrl.replace("{" + "entity_id" +"}",entityId.toString());
-        
-
-        Response<ApplicationModels.CheckEligibilityResponse> response = feedbackApiList.checkEligibility(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.UpdateResponse deleteMedia(List<String> ids ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("deleteMedia");
-        
-
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.deleteMedia(fullUrl  ,ids).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.InsertResponse createMedia(ApplicationModels.AddMediaListRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("createMedia");
-        
-
-        Response<ApplicationModels.InsertResponse> response = feedbackApiList.createMedia(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.UpdateResponse updateMedia(ApplicationModels.UpdateMediaListRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("updateMedia");
-        
-
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateMedia(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.MediaGetResponse getMedias(String entityType , String entityId , String id , String type , String pageId , Integer pageSize ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getMedias");
-        
-        fullUrl = fullUrl.replace("{" + "entity_type" +"}",entityType.toString());
-        
-        fullUrl = fullUrl.replace("{" + "entity_id" +"}",entityId.toString());
-        
-
-        Response<ApplicationModels.MediaGetResponse> response = feedbackApiList.getMedias(fullUrl  ,id, type, pageId, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getMedias
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.MediaGetResponse> getMediasPagination(
-        
-        String entityType,
-        String entityId,
-        String id,
-        String type,
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.MediaGetResponse> paginator = new Paginator<>(pageSize, "cursor");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.MediaGetResponse callback = this.getMedias(
-                
-                 entityType,
-                 entityId,
-                 id,
-                 type,
-                 paginator.getNextId()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.ReviewMetricGetResponse getReviewSummaries(String entityType , String entityId , String id , String pageId , Integer pageSize ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getReviewSummaries");
-        
-        fullUrl = fullUrl.replace("{" + "entity_type" +"}",entityType.toString());
-        
-        fullUrl = fullUrl.replace("{" + "entity_id" +"}",entityId.toString());
-        
-
-        Response<ApplicationModels.ReviewMetricGetResponse> response = feedbackApiList.getReviewSummaries(fullUrl  ,id, pageId, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getReviewSummaries
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.ReviewMetricGetResponse> getReviewSummariesPagination(
-        
-        String entityType,
-        String entityId,
-        String id,
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.ReviewMetricGetResponse> paginator = new Paginator<>(pageSize, "cursor");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.ReviewMetricGetResponse callback = this.getReviewSummaries(
-                
-                 entityType,
-                 entityId,
-                 id,
-                 paginator.getNextId()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.UpdateResponse createReview(ApplicationModels.UpdateReviewRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("createReview");
-        
-
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.createReview(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.UpdateResponse updateReview(ApplicationModels.UpdateReviewRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("updateReview");
-        
-
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateReview(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.ReviewGetResponse getReviews(String entityType , String entityId , String id , String userId , String media , List<Double> rating , List<String> attributeRating , Boolean facets , String sort , Boolean active , Boolean approve , String pageId , Integer pageSize ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getReviews");
-        
-        fullUrl = fullUrl.replace("{" + "entity_type" +"}",entityType.toString());
-        
-        fullUrl = fullUrl.replace("{" + "entity_id" +"}",entityId.toString());
-        
-
-        Response<ApplicationModels.ReviewGetResponse> response = feedbackApiList.getReviews(fullUrl  ,id, userId, media, rating, attributeRating, facets, sort, active, approve, pageId, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getReviews
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.ReviewGetResponse> getReviewsPagination(
-        
-        String entityType,
-        String entityId,
-        String id,
-        String userId,
-        String media,
-        List<Double> rating,
-        List<String> attributeRating,
-        Boolean facets,
-        String sort,
-        Boolean active,
-        Boolean approve,
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.ReviewGetResponse> paginator = new Paginator<>(pageSize, "cursor");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.ReviewGetResponse callback = this.getReviews(
-                
-                 entityType,
-                 entityId,
-                 id,
-                 userId,
-                 media,
-                 rating,
-                 attributeRating,
-                 facets,
-                 sort,
-                 active,
-                 approve,
-                 paginator.getNextId()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.TemplateGetResponse getTemplates(String templateId , String entityId , String entityType ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getTemplates");
-        
-
-        Response<ApplicationModels.TemplateGetResponse> response = feedbackApiList.getTemplates(fullUrl  ,templateId, entityId, entityType).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.InsertResponse createQuestion(ApplicationModels.CreateQNARequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("createQuestion");
-        
-
-        Response<ApplicationModels.InsertResponse> response = feedbackApiList.createQuestion(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.UpdateResponse updateQuestion(ApplicationModels.UpdateQNARequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("updateQuestion");
-        
-
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateQuestion(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.QNAGetResponse getQuestionAndAnswers(String entityType , String entityId , String id , String userId , Boolean showAnswer , String pageId , Integer pageSize ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getQuestionAndAnswers");
-        
-        fullUrl = fullUrl.replace("{" + "entity_type" +"}",entityType.toString());
-        
-        fullUrl = fullUrl.replace("{" + "entity_id" +"}",entityId.toString());
-        
-
-        Response<ApplicationModels.QNAGetResponse> response = feedbackApiList.getQuestionAndAnswers(fullUrl  ,id, userId, showAnswer, pageId, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getQuestionAndAnswers
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.QNAGetResponse> getQuestionAndAnswersPagination(
-        
-        String entityType,
-        String entityId,
-        String id,
-        String userId,
-        Boolean showAnswer,
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.QNAGetResponse> paginator = new Paginator<>(pageSize, "cursor");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.QNAGetResponse callback = this.getQuestionAndAnswers(
-                
-                 entityType,
-                 entityId,
-                 id,
-                 userId,
-                 showAnswer,
-                 paginator.getNextId()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.VoteResponse getVotes(String id , String refType , Integer pageNo , Integer pageSize ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getVotes");
-        
-
-        Response<ApplicationModels.VoteResponse> response = feedbackApiList.getVotes(fullUrl  ,id, refType, pageNo, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getVotes
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.VoteResponse> getVotesPagination(
-        
-        String id,
-        String refType,
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.VoteResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.VoteResponse callback = this.getVotes(
-                
-                 id,
-                 refType,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.InsertResponse createVote(ApplicationModels.VoteRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("createVote");
-        
-
-        Response<ApplicationModels.InsertResponse> response = feedbackApiList.createVote(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.UpdateResponse updateVote(ApplicationModels.UpdateVoteRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("updateVote");
-        
-
-        Response<ApplicationModels.UpdateResponse> response = feedbackApiList.updateVote(fullUrl , body).execute();
+        Response<ApplicationModels.RedeemReferralCodeResponse> response = rewardsApiList.redeemReferralCode(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

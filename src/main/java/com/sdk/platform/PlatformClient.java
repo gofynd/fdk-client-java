@@ -14,7 +14,7 @@ public class PlatformClient {
     
     public PlatformService.LeadService lead;
     
-    public PlatformService.FeedbackService feedback;
+    public PlatformService.RewardsService rewards;
     
     public PlatformService.ThemeService theme;
     
@@ -63,7 +63,7 @@ public class PlatformClient {
         
         this.lead = new PlatformService.LeadService(config);
         
-        this.feedback = new PlatformService.FeedbackService(config);
+        this.rewards = new PlatformService.RewardsService(config);
         
         this.theme = new PlatformService.ThemeService(config);
         
@@ -117,7 +117,7 @@ public class PlatformClient {
         
         public PlatformService.LeadService.ApplicationClient lead;
         
-        public PlatformService.FeedbackService.ApplicationClient feedback;
+        public PlatformService.RewardsService.ApplicationClient rewards;
         
         public PlatformService.ThemeService.ApplicationClient theme;
         
@@ -164,7 +164,7 @@ public class PlatformClient {
             
             this.lead = new PlatformService.LeadService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.feedback = new PlatformService.FeedbackService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.rewards = new PlatformService.RewardsService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.theme = new PlatformService.ThemeService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             

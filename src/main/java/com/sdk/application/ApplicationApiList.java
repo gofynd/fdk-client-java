@@ -660,86 +660,29 @@ interface OrderApiList {
     Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Url String url1);
 }
 
-interface FeedbackApiList {
+interface RewardsApiList {
     
     
     @POST 
-    Call<ApplicationModels.InsertResponse> createAbuseReport(@Url String url1 , @Body ApplicationModels.ReportAbuseRequest payload );
-    
-    @PUT 
-    Call<ApplicationModels.UpdateResponse> updateAbuseReport(@Url String url1 , @Body ApplicationModels.UpdateAbuseStatusRequest payload );
+    Call<ApplicationModels.CatalogueOrderResponse> getPointsOnProduct(@Url String url1 , @Body ApplicationModels.CatalogueOrderRequest payload );
     
     @GET 
-    Call<ApplicationModels.ReportAbuseGetResponse> getAbuseReports(@Url String url1, @Query("id") String id , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @GET 
-    Call<ApplicationModels.AttributeResponse> getAttributes(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
+    Call<ApplicationModels.Offer> getOfferByName(@Url String url1);
     
     @POST 
-    Call<ApplicationModels.InsertResponse> createAttribute(@Url String url1 , @Body ApplicationModels.SaveAttributeRequest payload );
+    Call<ApplicationModels.OrderDiscountResponse> getOrderDiscount(@Url String url1 , @Body ApplicationModels.OrderDiscountRequest payload );
     
     @GET 
-    Call<ApplicationModels.Attribute> getAttribute(@Url String url1);
+    Call<ApplicationModels.PointsResponse> getUserPoints(@Url String url1);
     
-    @PUT 
-    Call<ApplicationModels.UpdateResponse> updateAttribute(@Url String url1 , @Body ApplicationModels.UpdateAttributeRequest payload );
+    @GET 
+    Call<ApplicationModels.PointsHistoryResponse> getUserPointsHistory(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
+    
+    @GET 
+    Call<ApplicationModels.ReferralDetailsResponse> getUserReferralDetails(@Url String url1);
     
     @POST 
-    Call<ApplicationModels.InsertResponse> createComment(@Url String url1 , @Body ApplicationModels.CommentRequest payload );
-    
-    @PUT 
-    Call<ApplicationModels.UpdateResponse> updateComment(@Url String url1 , @Body ApplicationModels.UpdateCommentRequest payload );
-    
-    @GET 
-    Call<ApplicationModels.CommentGetResponse> getComments(@Url String url1, @Query("id") String id , @Query("entity_id") String entityId , @Query("user_id") String userId , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @GET 
-    Call<ApplicationModels.CheckEligibilityResponse> checkEligibility(@Url String url1);
-    
-    @DELETE 
-    Call<ApplicationModels.UpdateResponse> deleteMedia(@Url String url1, @Query("ids") List<String> ids );
-    
-    @POST 
-    Call<ApplicationModels.InsertResponse> createMedia(@Url String url1 , @Body ApplicationModels.AddMediaListRequest payload );
-    
-    @PUT 
-    Call<ApplicationModels.UpdateResponse> updateMedia(@Url String url1 , @Body ApplicationModels.UpdateMediaListRequest payload );
-    
-    @GET 
-    Call<ApplicationModels.MediaGetResponse> getMedias(@Url String url1, @Query("id") String id , @Query("type") String type , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @GET 
-    Call<ApplicationModels.ReviewMetricGetResponse> getReviewSummaries(@Url String url1, @Query("id") String id , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @POST 
-    Call<ApplicationModels.UpdateResponse> createReview(@Url String url1 , @Body ApplicationModels.UpdateReviewRequest payload );
-    
-    @PUT 
-    Call<ApplicationModels.UpdateResponse> updateReview(@Url String url1 , @Body ApplicationModels.UpdateReviewRequest payload );
-    
-    @GET 
-    Call<ApplicationModels.ReviewGetResponse> getReviews(@Url String url1, @Query("id") String id , @Query("user_id") String userId , @Query("media") String media , @Query("rating") List<Double> rating , @Query("attribute_rating") List<String> attributeRating , @Query("facets") Boolean facets , @Query("sort") String sort , @Query("active") Boolean active , @Query("approve") Boolean approve , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @GET 
-    Call<ApplicationModels.TemplateGetResponse> getTemplates(@Url String url1, @Query("template_id") String templateId , @Query("entity_id") String entityId , @Query("entity_type") String entityType );
-    
-    @POST 
-    Call<ApplicationModels.InsertResponse> createQuestion(@Url String url1 , @Body ApplicationModels.CreateQNARequest payload );
-    
-    @PUT 
-    Call<ApplicationModels.UpdateResponse> updateQuestion(@Url String url1 , @Body ApplicationModels.UpdateQNARequest payload );
-    
-    @GET 
-    Call<ApplicationModels.QNAGetResponse> getQuestionAndAnswers(@Url String url1, @Query("id") String id , @Query("user_id") String userId , @Query("show_answer") Boolean showAnswer , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @GET 
-    Call<ApplicationModels.VoteResponse> getVotes(@Url String url1, @Query("id") String id , @Query("ref_type") String refType , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
-    
-    @POST 
-    Call<ApplicationModels.InsertResponse> createVote(@Url String url1 , @Body ApplicationModels.VoteRequest payload );
-    
-    @PUT 
-    Call<ApplicationModels.UpdateResponse> updateVote(@Url String url1 , @Body ApplicationModels.UpdateVoteRequest payload );
+    Call<ApplicationModels.RedeemReferralCodeResponse> redeemReferralCode(@Url String url1 , @Body ApplicationModels.RedeemReferralCodeRequest payload );
 }
 
 interface PosCartApiList {
