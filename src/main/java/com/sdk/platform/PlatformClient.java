@@ -44,8 +44,6 @@ public class PlatformClient {
     
     public PlatformService.CartService cart;
     
-    public PlatformService.RewardsService rewards;
-    
     public PlatformService.AnalyticsService analytics;
     
     public PlatformService.DiscountService discount;
@@ -94,8 +92,6 @@ public class PlatformClient {
         this.configuration = new PlatformService.ConfigurationService(config);
         
         this.cart = new PlatformService.CartService(config);
-        
-        this.rewards = new PlatformService.RewardsService(config);
         
         this.analytics = new PlatformService.AnalyticsService(config);
         
@@ -151,8 +147,6 @@ public class PlatformClient {
         
         public PlatformService.CartService.ApplicationClient cart;
         
-        public PlatformService.RewardsService.ApplicationClient rewards;
-        
         public PlatformService.AnalyticsService.ApplicationClient analytics;
         
         public PlatformService.DiscountService.ApplicationClient discount;
@@ -199,8 +193,6 @@ public class PlatformClient {
             this.configuration = new PlatformService.ConfigurationService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.cart = new PlatformService.CartService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.rewards = new PlatformService.RewardsService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.analytics = new PlatformService.AnalyticsService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
