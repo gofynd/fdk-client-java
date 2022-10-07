@@ -591,6 +591,12 @@ interface PaymentApiList {
     @POST ("/service/application/payment/v1.0/credit-onboard/")
     Call<ApplicationModels.CustomerOnboardingResponse> customerOnboard(@Body ApplicationModels.CustomerOnboardingRequest payload);
     
+    @GET ("/service/application/payment/v1.0/payment/outstanding-orders/")
+    Call<ApplicationModels.OutstandingOrderDetailsResponse> outstandingOrderDetails(@Query("merchant_user_id") String merchantUserId );
+    
+    @GET ("/service/application/payment/v1.0/payment/paid-orders/")
+    Call<ApplicationModels.PaidOrderDetailsResponse> paidOrderDetails(@Query("merchant_user_id") String merchantUserId );
+    
 }
 
 interface OrderApiList {

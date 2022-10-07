@@ -3847,6 +3847,34 @@ public class FileStorageService extends FileStorage {
 
     
     
+    
+    
+    public ApplicationModels.OutstandingOrderDetailsResponse outstandingOrderDetails(String merchantUserId ) throws IOException {
+    
+        Response<ApplicationModels.OutstandingOrderDetailsResponse> response = paymentApiList.outstandingOrderDetails(merchantUserId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PaidOrderDetailsResponse paidOrderDetails(String merchantUserId ) throws IOException {
+    
+        Response<ApplicationModels.PaidOrderDetailsResponse> response = paymentApiList.paidOrderDetails(merchantUserId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
       
 }
 
