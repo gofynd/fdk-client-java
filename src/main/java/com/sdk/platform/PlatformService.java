@@ -5738,6 +5738,10 @@ public static class CommunicationService {
     
     
     
+    
+    
+    
+    
 
 
 public class ApplicationClient {
@@ -7356,6 +7360,66 @@ public class ApplicationClient {
     }
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.SendOtpCommsRes sendOtp(PlatformModels.SendOtpCommsReq body) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.SendOtpCommsRes> response = communicationApiList.sendOtp(this.companyId , this.applicationId , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.VerifyOtpCommsSuccessRes verfiyOtp(PlatformModels.VerifyOtpCommsReq body) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.VerifyOtpCommsSuccessRes> response = communicationApiList.verfiyOtp(this.companyId , this.applicationId , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
     
     
     

@@ -2461,6 +2461,30 @@ interface CommunicationApiList {
     
     
     
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/otp/send-otp-comms")
+    Call<PlatformModels.SendOtpCommsRes> sendOtp(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.SendOtpCommsReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/otp/verify-otp-comms")
+    Call<PlatformModels.VerifyOtpCommsSuccessRes> verfiyOtp(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.VerifyOtpCommsReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

@@ -3849,9 +3849,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.OutstandingOrderDetailsResponse outstandingOrderDetails(String merchantUserId ) throws IOException {
+    public ApplicationModels.OutstandingOrderDetailsResponse outstandingOrderDetails(String aggregator ) throws IOException {
     
-        Response<ApplicationModels.OutstandingOrderDetailsResponse> response = paymentApiList.outstandingOrderDetails(merchantUserId).execute();
+        Response<ApplicationModels.OutstandingOrderDetailsResponse> response = paymentApiList.outstandingOrderDetails(aggregator).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3863,9 +3863,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.PaidOrderDetailsResponse paidOrderDetails(String merchantUserId ) throws IOException {
+    public ApplicationModels.PaidOrderDetailsResponse paidOrderDetails(String aggregator ) throws IOException {
     
-        Response<ApplicationModels.PaidOrderDetailsResponse> response = paymentApiList.paidOrderDetails(merchantUserId).execute();
+        Response<ApplicationModels.PaidOrderDetailsResponse> response = paymentApiList.paidOrderDetails(aggregator).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

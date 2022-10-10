@@ -592,10 +592,10 @@ interface PaymentApiList {
     Call<ApplicationModels.CustomerOnboardingResponse> customerOnboard(@Body ApplicationModels.CustomerOnboardingRequest payload);
     
     @GET ("/service/application/payment/v1.0/payment/outstanding-orders/")
-    Call<ApplicationModels.OutstandingOrderDetailsResponse> outstandingOrderDetails(@Query("merchant_user_id") String merchantUserId );
+    Call<ApplicationModels.OutstandingOrderDetailsResponse> outstandingOrderDetails(@Query("aggregator") String aggregator );
     
     @GET ("/service/application/payment/v1.0/payment/paid-orders/")
-    Call<ApplicationModels.PaidOrderDetailsResponse> paidOrderDetails(@Query("merchant_user_id") String merchantUserId );
+    Call<ApplicationModels.PaidOrderDetailsResponse> paidOrderDetails(@Query("aggregator") String aggregator );
     
 }
 
