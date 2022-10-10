@@ -2873,14 +2873,8 @@ interface PaymentApiList {
     
     
     
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/user-cod")
-    Call<PlatformModels.GetUserCODLimitResponse> getUserCODlimitRoutes(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("merchant_user_id") String  merchantUserId ,  @Query("mobile_no") String  mobileNo );
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/repayment-details")
+    Call<PlatformModels.RepaymentResponse> repaymentDetails(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.RepaymentRequestDetails payload);
     
     
     
@@ -2891,8 +2885,8 @@ interface PaymentApiList {
     
     
     
-    @PUT ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/user-cod")
-    Call<PlatformModels.SetCODOptionResponse> setUserCODlimitRoutes(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.SetCODForUserRequest payload);
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/merchant-onboarding")
+    Call<PlatformModels.MerchantOnBoardingResponse> merchantOnBoarding(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.MerchantOnBoardingRequest payload);
     
 }
 

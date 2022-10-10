@@ -8617,17 +8617,9 @@ public class ApplicationClient {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.GetUserCODLimitResponse getUserCODlimitRoutes(String merchantUserId , String mobileNo ) throws IOException {
+    public PlatformModels.RepaymentResponse repaymentDetails(PlatformModels.RepaymentRequestDetails body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetUserCODLimitResponse> response = paymentApiList.getUserCODlimitRoutes(this.companyId , this.applicationId ,merchantUserId , mobileNo ).execute();
+            Response<PlatformModels.RepaymentResponse> response = paymentApiList.repaymentDetails(this.companyId , this.applicationId , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -8655,9 +8647,9 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SetCODOptionResponse setUserCODlimitRoutes(PlatformModels.SetCODForUserRequest body) throws IOException {
+    public PlatformModels.MerchantOnBoardingResponse merchantOnBoarding(PlatformModels.MerchantOnBoardingRequest body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SetCODOptionResponse> response = paymentApiList.setUserCODlimitRoutes(this.companyId , this.applicationId , body).execute();
+            Response<PlatformModels.MerchantOnBoardingResponse> response = paymentApiList.merchantOnBoarding(this.companyId , this.applicationId , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
