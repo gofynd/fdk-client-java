@@ -1769,6 +1769,7 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | message | String? |  yes  |  |
+ | isDeleted | Boolean? |  yes  |  |
 
 ---
 

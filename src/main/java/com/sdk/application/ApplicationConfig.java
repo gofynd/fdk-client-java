@@ -4,6 +4,7 @@ import lombok.Getter;
 
 import java.net.CookieManager;
 import java.net.CookieStore;
+import java.util.HashMap;
 
 @Getter
 public class ApplicationConfig {
@@ -15,6 +16,8 @@ public class ApplicationConfig {
     private String domain = "https://api.fynd.com";
 
     private String userAgent = "google";
+
+    private HashMap<String,String> extraHeaders = new HashMap<>();
 
     private CookieStore persistentCookieStore = new CookieManager().getCookieStore();
 

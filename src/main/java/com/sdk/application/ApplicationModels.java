@@ -14224,6 +14224,12 @@ public static class AuthenticationApiErrorSchema{
     
     
     
+    
+    @JsonProperty("is_deleted")
+    private Boolean isDeleted;
+    
+    
+    
 }
 
 
@@ -24866,20 +24872,14 @@ public static class AggregatorConfigDetail{
     
     
     
+    @JsonProperty("api")
+    private String api;
+    
+    
+    
+    
     @JsonProperty("key")
     private String key;
-    
-    
-    
-    
-    @JsonProperty("verify_api")
-    private String verifyApi;
-    
-    
-    
-    
-    @JsonProperty("pin")
-    private String pin;
     
     
     
@@ -24896,20 +24896,26 @@ public static class AggregatorConfigDetail{
     
     
     
+    @JsonProperty("verify_api")
+    private String verifyApi;
+    
+    
+    
+    
+    @JsonProperty("pin")
+    private String pin;
+    
+    
+    
+    
+    @JsonProperty("config_type")
+    private String configType;
+    
+    
+    
+    
     @JsonProperty("merchant_key")
     private String merchantKey;
-    
-    
-    
-    
-    @JsonProperty("user_id")
-    private String userId;
-    
-    
-    
-    
-    @JsonProperty("api")
-    private String api;
     
     
     
@@ -24920,8 +24926,8 @@ public static class AggregatorConfigDetail{
     
     
     
-    @JsonProperty("config_type")
-    private String configType;
+    @JsonProperty("user_id")
+    private String userId;
     
     
     
@@ -24942,36 +24948,6 @@ public static class AggregatorsConfigDetailResponse{
     
     
     
-    @JsonProperty("razorpay")
-    private AggregatorConfigDetail razorpay;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("payumoney")
-    private AggregatorConfigDetail payumoney;
-    
-    
-    
-    
-    @JsonProperty("mswipe")
-    private AggregatorConfigDetail mswipe;
-    
-    
-    
-    
-    @JsonProperty("simpl")
-    private AggregatorConfigDetail simpl;
-    
-    
-    
-    
     @JsonProperty("stripe")
     private AggregatorConfigDetail stripe;
     
@@ -24984,8 +24960,32 @@ public static class AggregatorsConfigDetailResponse{
     
     
     
-    @JsonProperty("ccavenue")
-    private AggregatorConfigDetail ccavenue;
+    @JsonProperty("mswipe")
+    private AggregatorConfigDetail mswipe;
+    
+    
+    
+    
+    @JsonProperty("rupifi")
+    private AggregatorConfigDetail rupifi;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("simpl")
+    private AggregatorConfigDetail simpl;
+    
+    
+    
+    
+    @JsonProperty("payumoney")
+    private AggregatorConfigDetail payumoney;
     
     
     
@@ -24996,8 +24996,14 @@ public static class AggregatorsConfigDetailResponse{
     
     
     
-    @JsonProperty("rupifi")
-    private AggregatorConfigDetail rupifi;
+    @JsonProperty("razorpay")
+    private AggregatorConfigDetail razorpay;
+    
+    
+    
+    
+    @JsonProperty("ccavenue")
+    private AggregatorConfigDetail ccavenue;
     
     
     
@@ -25018,14 +25024,14 @@ public static class ErrorCodeAndDescription{
     
     
     
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
     @JsonProperty("description")
     private String description;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
     
     
     
@@ -25046,14 +25052,14 @@ public static class HttpErrorCodeAndResponse{
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
     @JsonProperty("error")
     private ErrorCodeAndDescription error;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -25074,8 +25080,8 @@ public static class AttachCardRequest{
     
     
     
-    @JsonProperty("nickname")
-    private String nickname;
+    @JsonProperty("name_on_card")
+    private String nameOnCard;
     
     
     
@@ -25086,14 +25092,14 @@ public static class AttachCardRequest{
     
     
     
+    @JsonProperty("nickname")
+    private String nickname;
+    
+    
+    
+    
     @JsonProperty("refresh")
     private Boolean refresh;
-    
-    
-    
-    
-    @JsonProperty("name_on_card")
-    private String nameOnCard;
     
     
     
@@ -25216,50 +25222,8 @@ public static class Card{
     
     
     
-    @JsonProperty("card_brand")
-    private String cardBrand;
-    
-    
-    
-    
-    @JsonProperty("card_type")
-    private String cardType;
-    
-    
-    
-    
-    @JsonProperty("card_reference")
-    private String cardReference;
-    
-    
-    
-    
     @JsonProperty("card_token")
     private String cardToken;
-    
-    
-    
-    
-    @JsonProperty("nickname")
-    private String nickname;
-    
-    
-    
-    
-    @JsonProperty("card_name")
-    private String cardName;
-    
-    
-    
-    
-    @JsonProperty("expired")
-    private Boolean expired;
-    
-    
-    
-    
-    @JsonProperty("card_fingerprint")
-    private String cardFingerprint;
     
     
     
@@ -25276,26 +25240,8 @@ public static class Card{
     
     
     
-    @JsonProperty("aggregator_name")
-    private String aggregatorName;
-    
-    
-    
-    
-    @JsonProperty("exp_year")
-    private Integer expYear;
-    
-    
-    
-    
     @JsonProperty("card_isin")
     private String cardIsin;
-    
-    
-    
-    
-    @JsonProperty("card_issuer")
-    private String cardIssuer;
     
     
     
@@ -25306,8 +25252,68 @@ public static class Card{
     
     
     
+    @JsonProperty("exp_year")
+    private Integer expYear;
+    
+    
+    
+    
+    @JsonProperty("expired")
+    private Boolean expired;
+    
+    
+    
+    
+    @JsonProperty("aggregator_name")
+    private String aggregatorName;
+    
+    
+    
+    
+    @JsonProperty("card_issuer")
+    private String cardIssuer;
+    
+    
+    
+    
     @JsonProperty("card_brand_image")
     private String cardBrandImage;
+    
+    
+    
+    
+    @JsonProperty("card_brand")
+    private String cardBrand;
+    
+    
+    
+    
+    @JsonProperty("card_fingerprint")
+    private String cardFingerprint;
+    
+    
+    
+    
+    @JsonProperty("card_type")
+    private String cardType;
+    
+    
+    
+    
+    @JsonProperty("card_reference")
+    private String cardReference;
+    
+    
+    
+    
+    @JsonProperty("nickname")
+    private String nickname;
+    
+    
+    
+    
+    @JsonProperty("card_name")
+    private String cardName;
     
     
     
@@ -25418,14 +25424,8 @@ public static class ValidateCustomerRequest{
     
     
     
-    @JsonProperty("aggregator")
-    private String aggregator;
-    
-    
-    
-    
-    @JsonProperty("payload")
-    private String payload;
+    @JsonProperty("phone_number")
+    private String phoneNumber;
     
     
     
@@ -25436,8 +25436,14 @@ public static class ValidateCustomerRequest{
     
     
     
-    @JsonProperty("phone_number")
-    private String phoneNumber;
+    @JsonProperty("payload")
+    private String payload;
+    
+    
+    
+    
+    @JsonProperty("aggregator")
+    private String aggregator;
     
     
     
@@ -25492,6 +25498,12 @@ public static class ChargeCustomerRequest{
     
     
     
+    @JsonProperty("order_id")
+    private String orderId;
+    
+    
+    
+    
     @JsonProperty("aggregator")
     private String aggregator;
     
@@ -25504,20 +25516,14 @@ public static class ChargeCustomerRequest{
     
     
     
-    @JsonProperty("transaction_token")
-    private String transactionToken;
-    
-    
-    
-    
     @JsonProperty("amount")
     private Integer amount;
     
     
     
     
-    @JsonProperty("order_id")
-    private String orderId;
+    @JsonProperty("transaction_token")
+    private String transactionToken;
     
     
     
@@ -25538,24 +25544,6 @@ public static class ChargeCustomerResponse{
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("aggregator")
-    private String aggregator;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
     @JsonProperty("delivery_address_id")
     private String deliveryAddressId;
     
@@ -25568,14 +25556,32 @@ public static class ChargeCustomerResponse{
     
     
     
+    @JsonProperty("order_id")
+    private String orderId;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("aggregator")
+    private String aggregator;
+    
+    
+    
+    
     @JsonProperty("cart_id")
     private String cartId;
     
     
     
     
-    @JsonProperty("order_id")
-    private String orderId;
+    @JsonProperty("status")
+    private String status;
     
     
     
@@ -25596,8 +25602,32 @@ public static class PaymentInitializationRequest{
     
     
     
+    @JsonProperty("timeout")
+    private Integer timeout;
+    
+    
+    
+    
+    @JsonProperty("razorpay_payment_id")
+    private String razorpayPaymentId;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
     @JsonProperty("currency")
     private String currency;
+    
+    
+    
+    
+    @JsonProperty("customer_id")
+    private String customerId;
     
     
     
@@ -25614,14 +25644,8 @@ public static class PaymentInitializationRequest{
     
     
     
-    @JsonProperty("email")
-    private String email;
-    
-    
-    
-    
-    @JsonProperty("aggregator")
-    private String aggregator;
+    @JsonProperty("order_id")
+    private String orderId;
     
     
     
@@ -25632,38 +25656,20 @@ public static class PaymentInitializationRequest{
     
     
     
-    @JsonProperty("razorpay_payment_id")
-    private String razorpayPaymentId;
-    
-    
-    
-    
     @JsonProperty("method")
     private String method;
     
     
     
     
-    @JsonProperty("timeout")
-    private Integer timeout;
+    @JsonProperty("aggregator")
+    private String aggregator;
     
     
     
     
     @JsonProperty("amount")
     private Integer amount;
-    
-    
-    
-    
-    @JsonProperty("customer_id")
-    private String customerId;
-    
-    
-    
-    
-    @JsonProperty("order_id")
-    private String orderId;
     
     
     
@@ -25684,26 +25690,8 @@ public static class PaymentInitializationResponse{
     
     
     
-    @JsonProperty("currency")
-    private String currency;
-    
-    
-    
-    
-    @JsonProperty("amount")
-    private Integer amount;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("vpa")
-    private String vpa;
+    @JsonProperty("timeout")
+    private Integer timeout;
     
     
     
@@ -25714,14 +25702,26 @@ public static class PaymentInitializationResponse{
     
     
     
-    @JsonProperty("polling_url")
-    private String pollingUrl;
+    @JsonProperty("razorpay_payment_id")
+    private String razorpayPaymentId;
     
     
     
     
-    @JsonProperty("aggregator")
-    private String aggregator;
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+    
+    @JsonProperty("customer_id")
+    private String customerId;
+    
+    
+    
+    
+    @JsonProperty("vpa")
+    private String vpa;
     
     
     
@@ -25732,8 +25732,8 @@ public static class PaymentInitializationResponse{
     
     
     
-    @JsonProperty("razorpay_payment_id")
-    private String razorpayPaymentId;
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -25744,20 +25744,14 @@ public static class PaymentInitializationResponse{
     
     
     
-    @JsonProperty("upi_poll_url")
-    private String upiPollUrl;
-    
-    
-    
-    
     @JsonProperty("method")
     private String method;
     
     
     
     
-    @JsonProperty("timeout")
-    private Integer timeout;
+    @JsonProperty("aggregator")
+    private String aggregator;
     
     
     
@@ -25768,14 +25762,26 @@ public static class PaymentInitializationResponse{
     
     
     
+    @JsonProperty("upi_poll_url")
+    private String upiPollUrl;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Integer amount;
+    
+    
+    
+    
     @JsonProperty("status")
     private String status;
     
     
     
     
-    @JsonProperty("customer_id")
-    private String customerId;
+    @JsonProperty("polling_url")
+    private String pollingUrl;
     
     
     
@@ -25796,14 +25802,20 @@ public static class PaymentStatusUpdateRequest{
     
     
     
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
     @JsonProperty("currency")
     private String currency;
     
     
     
     
-    @JsonProperty("amount")
-    private Integer amount;
+    @JsonProperty("customer_id")
+    private String customerId;
     
     
     
@@ -25820,14 +25832,8 @@ public static class PaymentStatusUpdateRequest{
     
     
     
-    @JsonProperty("aggregator")
-    private String aggregator;
-    
-    
-    
-    
-    @JsonProperty("email")
-    private String email;
+    @JsonProperty("order_id")
+    private String orderId;
     
     
     
@@ -25844,20 +25850,20 @@ public static class PaymentStatusUpdateRequest{
     
     
     
+    @JsonProperty("aggregator")
+    private String aggregator;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Integer amount;
+    
+    
+    
+    
     @JsonProperty("status")
     private String status;
-    
-    
-    
-    
-    @JsonProperty("customer_id")
-    private String customerId;
-    
-    
-    
-    
-    @JsonProperty("order_id")
-    private String orderId;
     
     
     
@@ -25878,14 +25884,14 @@ public static class PaymentStatusUpdateResponse{
     
     
     
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
     @JsonProperty("aggregator_name")
     private String aggregatorName;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
     
     
     
@@ -25924,14 +25930,14 @@ public static class AggregatorRoute{
     
     
     
-    @JsonProperty("payment_flow")
-    private String paymentFlow;
-    
-    
-    
-    
     @JsonProperty("api_link")
     private String apiLink;
+    
+    
+    
+    
+    @JsonProperty("payment_flow")
+    private String paymentFlow;
     
     
     
@@ -25952,32 +25958,8 @@ public static class PaymentFlow{
     
     
     
-    @JsonProperty("razorpay")
-    private AggregatorRoute razorpay;
-    
-    
-    
-    
-    @JsonProperty("upi_razorpay")
-    private AggregatorRoute upiRazorpay;
-    
-    
-    
-    
-    @JsonProperty("bqr_razorpay")
-    private AggregatorRoute bqrRazorpay;
-    
-    
-    
-    
-    @JsonProperty("mswipe")
-    private AggregatorRoute mswipe;
-    
-    
-    
-    
-    @JsonProperty("simpl")
-    private AggregatorRoute simpl;
+    @JsonProperty("fynd")
+    private AggregatorRoute fynd;
     
     
     
@@ -25988,32 +25970,14 @@ public static class PaymentFlow{
     
     
     
-    @JsonProperty("ccavenue")
-    private AggregatorRoute ccavenue;
+    @JsonProperty("epaylater")
+    private AggregatorRoute epaylater;
     
     
     
     
-    @JsonProperty("payubiz")
-    private AggregatorRoute payubiz;
-    
-    
-    
-    
-    @JsonProperty("jiopay")
-    private AggregatorRoute jiopay;
-    
-    
-    
-    
-    @JsonProperty("fynd")
-    private AggregatorRoute fynd;
-    
-    
-    
-    
-    @JsonProperty("juspay")
-    private AggregatorRoute juspay;
+    @JsonProperty("mswipe")
+    private AggregatorRoute mswipe;
     
     
     
@@ -26024,8 +25988,50 @@ public static class PaymentFlow{
     
     
     
-    @JsonProperty("epaylater")
-    private AggregatorRoute epaylater;
+    @JsonProperty("jiopay")
+    private AggregatorRoute jiopay;
+    
+    
+    
+    
+    @JsonProperty("bqr_razorpay")
+    private AggregatorRoute bqrRazorpay;
+    
+    
+    
+    
+    @JsonProperty("simpl")
+    private AggregatorRoute simpl;
+    
+    
+    
+    
+    @JsonProperty("juspay")
+    private AggregatorRoute juspay;
+    
+    
+    
+    
+    @JsonProperty("upi_razorpay")
+    private AggregatorRoute upiRazorpay;
+    
+    
+    
+    
+    @JsonProperty("razorpay")
+    private AggregatorRoute razorpay;
+    
+    
+    
+    
+    @JsonProperty("payubiz")
+    private AggregatorRoute payubiz;
+    
+    
+    
+    
+    @JsonProperty("ccavenue")
+    private AggregatorRoute ccavenue;
     
     
     
@@ -26046,14 +26052,14 @@ public static class PaymentModeLogo{
     
     
     
-    @JsonProperty("large")
-    private String large;
-    
-    
-    
-    
     @JsonProperty("small")
     private String small;
+    
+    
+    
+    
+    @JsonProperty("large")
+    private String large;
     
     
     
@@ -26074,8 +26080,8 @@ public static class IntentApp{
     
     
     
-    @JsonProperty("code")
-    private String code;
+    @JsonProperty("logos")
+    private PaymentModeLogo logos;
     
     
     
@@ -26086,14 +26092,14 @@ public static class IntentApp{
     
     
     
-    @JsonProperty("logos")
-    private PaymentModeLogo logos;
-    
-    
-    
-    
     @JsonProperty("package_name")
     private String packageName;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
     
     
     
@@ -26142,26 +26148,32 @@ public static class PaymentModeList{
     
     
     
-    @JsonProperty("card_reference")
-    private String cardReference;
-    
-    
-    
-    
     @JsonProperty("card_token")
     private String cardToken;
     
     
     
     
-    @JsonProperty("card_name")
-    private String cardName;
+    @JsonProperty("timeout")
+    private Integer timeout;
     
     
     
     
-    @JsonProperty("logo_url")
-    private PaymentModeLogo logoUrl;
+    @JsonProperty("fynd_vpa")
+    private String fyndVpa;
+    
+    
+    
+    
+    @JsonProperty("expired")
+    private Boolean expired;
+    
+    
+    
+    
+    @JsonProperty("aggregator_name")
+    private String aggregatorName;
     
     
     
@@ -26172,32 +26184,26 @@ public static class PaymentModeList{
     
     
     
-    @JsonProperty("intent_app_error_list")
-    private List<String> intentAppErrorList;
+    @JsonProperty("merchant_code")
+    private String merchantCode;
     
     
     
     
-    @JsonProperty("code")
-    private String code;
+    @JsonProperty("card_fingerprint")
+    private String cardFingerprint;
     
     
     
     
-    @JsonProperty("intent_app_error_dict_list")
-    private List<IntentAppErrorList> intentAppErrorDictList;
+    @JsonProperty("card_type")
+    private String cardType;
     
     
     
     
-    @JsonProperty("card_brand_image")
-    private String cardBrandImage;
-    
-    
-    
-    
-    @JsonProperty("nickname")
-    private String nickname;
+    @JsonProperty("card_reference")
+    private String cardReference;
     
     
     
@@ -26208,14 +26214,20 @@ public static class PaymentModeList{
     
     
     
-    @JsonProperty("card_id")
-    private String cardId;
+    @JsonProperty("intent_flow")
+    private Boolean intentFlow;
     
     
     
     
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("card_number")
+    private String cardNumber;
+    
+    
+    
+    
+    @JsonProperty("card_isin")
+    private String cardIsin;
     
     
     
@@ -26232,38 +26244,44 @@ public static class PaymentModeList{
     
     
     
-    @JsonProperty("card_fingerprint")
-    private String cardFingerprint;
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
     
-    @JsonProperty("merchant_code")
-    private String merchantCode;
+    @JsonProperty("name")
+    private String name;
     
     
     
     
-    @JsonProperty("card_number")
-    private String cardNumber;
+    @JsonProperty("logo_url")
+    private PaymentModeLogo logoUrl;
     
     
     
     
-    @JsonProperty("intent_flow")
-    private Boolean intentFlow;
+    @JsonProperty("nickname")
+    private String nickname;
     
     
     
     
-    @JsonProperty("aggregator_name")
-    private String aggregatorName;
+    @JsonProperty("card_id")
+    private String cardId;
     
     
     
     
-    @JsonProperty("exp_year")
-    private Integer expYear;
+    @JsonProperty("intent_app_error_dict_list")
+    private List<IntentAppErrorList> intentAppErrorDictList;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
     
     
     
@@ -26274,44 +26292,32 @@ public static class PaymentModeList{
     
     
     
-    @JsonProperty("expired")
-    private Boolean expired;
-    
-    
-    
-    
-    @JsonProperty("card_type")
-    private String cardType;
-    
-    
-    
-    
-    @JsonProperty("fynd_vpa")
-    private String fyndVpa;
-    
-    
-    
-    
-    @JsonProperty("timeout")
-    private Integer timeout;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("card_isin")
-    private String cardIsin;
+    @JsonProperty("card_name")
+    private String cardName;
     
     
     
     
     @JsonProperty("exp_month")
     private Integer expMonth;
+    
+    
+    
+    
+    @JsonProperty("exp_year")
+    private Integer expYear;
+    
+    
+    
+    
+    @JsonProperty("card_brand_image")
+    private String cardBrandImage;
+    
+    
+    
+    
+    @JsonProperty("intent_app_error_list")
+    private List<String> intentAppErrorList;
     
     
     
@@ -26332,20 +26338,8 @@ public static class RootPaymentMode{
     
     
     
-    @JsonProperty("display_priority")
-    private Integer displayPriority;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
+    @JsonProperty("add_card_enabled")
+    private Boolean addCardEnabled;
     
     
     
@@ -26356,14 +26350,26 @@ public static class RootPaymentMode{
     
     
     
-    @JsonProperty("add_card_enabled")
-    private Boolean addCardEnabled;
-    
-    
-    
-    
     @JsonProperty("list")
     private List<PaymentModeList> list;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("display_priority")
+    private Integer displayPriority;
     
     
     
@@ -26446,14 +26452,14 @@ public static class RupifiBannerData{
     
     
     
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
     @JsonProperty("kyc_url")
     private String kycUrl;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
     
     
     
@@ -26502,8 +26508,8 @@ public static class EpaylaterBannerData{
     
     
     
-    @JsonProperty("status")
-    private String status;
+    @JsonProperty("display")
+    private Boolean display;
     
     
     
@@ -26514,8 +26520,8 @@ public static class EpaylaterBannerData{
     
     
     
-    @JsonProperty("display")
-    private Boolean display;
+    @JsonProperty("status")
+    private String status;
     
     
     
@@ -26648,14 +26654,14 @@ public static class TransferItemsDetails{
     
     
     
-    @JsonProperty("logo_large")
-    private String logoLarge;
+    @JsonProperty("logo_small")
+    private String logoSmall;
     
     
     
     
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("id")
+    private Integer id;
     
     
     
@@ -26666,14 +26672,14 @@ public static class TransferItemsDetails{
     
     
     
-    @JsonProperty("logo_small")
-    private String logoSmall;
+    @JsonProperty("logo_large")
+    private String logoLarge;
     
     
     
     
-    @JsonProperty("id")
-    private Integer id;
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -26694,14 +26700,14 @@ public static class TransferModeDetails{
     
     
     
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<TransferItemsDetails> items;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
@@ -26794,44 +26800,8 @@ public static class OrderBeneficiaryDetails{
     
     
     
-    @JsonProperty("delights_user_name")
-    private String delightsUserName;
-    
-    
-    
-    
-    @JsonProperty("beneficiary_id")
-    private String beneficiaryId;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private Integer id;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("account_no")
-    private String accountNo;
+    @JsonProperty("address")
+    private String address;
     
     
     
@@ -26842,14 +26812,62 @@ public static class OrderBeneficiaryDetails{
     
     
     
-    @JsonProperty("email")
-    private String email;
+    @JsonProperty("created_on")
+    private String createdOn;
     
     
     
     
-    @JsonProperty("title")
-    private String title;
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Integer id;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+    
+    @JsonProperty("account_no")
+    private String accountNo;
+    
+    
+    
+    
+    @JsonProperty("bank_name")
+    private String bankName;
+    
+    
+    
+    
+    @JsonProperty("beneficiary_id")
+    private String beneficiaryId;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("transfer_mode")
+    private String transferMode;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
@@ -26866,20 +26884,20 @@ public static class OrderBeneficiaryDetails{
     
     
     
-    @JsonProperty("address")
-    private String address;
+    @JsonProperty("title")
+    private String title;
     
     
     
     
-    @JsonProperty("mobile")
-    private String mobile;
+    @JsonProperty("delights_user_name")
+    private String delightsUserName;
     
     
     
     
-    @JsonProperty("branch_name")
-    private String branchName;
+    @JsonProperty("email")
+    private String email;
     
     
     
@@ -26890,20 +26908,8 @@ public static class OrderBeneficiaryDetails{
     
     
     
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("transfer_mode")
-    private String transferMode;
-    
-    
-    
-    
-    @JsonProperty("bank_name")
-    private String bankName;
+    @JsonProperty("branch_name")
+    private String branchName;
     
     
     
@@ -26952,8 +26958,8 @@ public static class NotFoundResourceError{
     
     
     
-    @JsonProperty("code")
-    private String code;
+    @JsonProperty("description")
+    private String description;
     
     
     
@@ -26964,8 +26970,8 @@ public static class NotFoundResourceError{
     
     
     
-    @JsonProperty("description")
-    private String description;
+    @JsonProperty("code")
+    private String code;
     
     
     
@@ -26986,6 +26992,12 @@ public static class IfscCodeResponse{
     
     
     
+    @JsonProperty("branch_name")
+    private String branchName;
+    
+    
+    
+    
     @JsonProperty("bank_name")
     private String bankName;
     
@@ -26994,12 +27006,6 @@ public static class IfscCodeResponse{
     
     @JsonProperty("success")
     private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("branch_name")
-    private String branchName;
     
     
     
@@ -27020,8 +27026,8 @@ public static class ErrorCodeDescription{
     
     
     
-    @JsonProperty("code")
-    private String code;
+    @JsonProperty("description")
+    private String description;
     
     
     
@@ -27032,8 +27038,8 @@ public static class ErrorCodeDescription{
     
     
     
-    @JsonProperty("description")
-    private String description;
+    @JsonProperty("code")
+    private String code;
     
     
     
@@ -27116,6 +27122,12 @@ public static class WrongOtpError{
     
     
     
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
     @JsonProperty("is_verified_flag")
     private Boolean isVerifiedFlag;
     
@@ -27124,12 +27136,6 @@ public static class WrongOtpError{
     
     @JsonProperty("success")
     private String success;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
     
     
     
@@ -27150,14 +27156,8 @@ public static class BeneficiaryModeDetails{
     
     
     
-    @JsonProperty("comment")
-    private String comment;
-    
-    
-    
-    
-    @JsonProperty("vpa")
-    private String vpa;
+    @JsonProperty("mobile")
+    private String mobile;
     
     
     
@@ -27168,38 +27168,8 @@ public static class BeneficiaryModeDetails{
     
     
     
-    @JsonProperty("email")
-    private String email;
-    
-    
-    
-    
-    @JsonProperty("mobile")
-    private String mobile;
-    
-    
-    
-    
-    @JsonProperty("branch_name")
-    private String branchName;
-    
-    
-    
-    
-    @JsonProperty("ifsc_code")
-    private String ifscCode;
-    
-    
-    
-    
-    @JsonProperty("account_holder")
-    private String accountHolder;
-    
-    
-    
-    
-    @JsonProperty("wallet")
-    private String wallet;
+    @JsonProperty("account_no")
+    private String accountNo;
     
     
     
@@ -27210,8 +27180,44 @@ public static class BeneficiaryModeDetails{
     
     
     
-    @JsonProperty("account_no")
-    private String accountNo;
+    @JsonProperty("vpa")
+    private String vpa;
+    
+    
+    
+    
+    @JsonProperty("wallet")
+    private String wallet;
+    
+    
+    
+    
+    @JsonProperty("comment")
+    private String comment;
+    
+    
+    
+    
+    @JsonProperty("ifsc_code")
+    private String ifscCode;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("account_holder")
+    private String accountHolder;
+    
+    
+    
+    
+    @JsonProperty("branch_name")
+    private String branchName;
     
     
     
@@ -27232,32 +27238,20 @@ public static class AddBeneficiaryDetailsRequest{
     
     
     
-    @JsonProperty("delights")
-    private Boolean delights;
-    
-    
-    
-    
-    @JsonProperty("shipment_id")
-    private String shipmentId;
-    
-    
-    
-    
-    @JsonProperty("otp")
-    private String otp;
-    
-    
-    
-    
     @JsonProperty("request_id")
     private String requestId;
     
     
     
     
-    @JsonProperty("details")
-    private BeneficiaryModeDetails details;
+    @JsonProperty("order_id")
+    private String orderId;
+    
+    
+    
+    
+    @JsonProperty("delights")
+    private Boolean delights;
     
     
     
@@ -27268,8 +27262,20 @@ public static class AddBeneficiaryDetailsRequest{
     
     
     
-    @JsonProperty("order_id")
-    private String orderId;
+    @JsonProperty("otp")
+    private String otp;
+    
+    
+    
+    
+    @JsonProperty("details")
+    private BeneficiaryModeDetails details;
+    
+    
+    
+    
+    @JsonProperty("shipment_id")
+    private String shipmentId;
     
     
     
@@ -27296,6 +27302,12 @@ public static class RefundAccountResponse{
     
     
     
+    @JsonProperty("is_verified_flag")
+    private Boolean isVerifiedFlag;
+    
+    
+    
+    
     @JsonProperty("message")
     private String message;
     
@@ -27304,12 +27316,6 @@ public static class RefundAccountResponse{
     
     @JsonProperty("success")
     private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("is_verified_flag")
-    private Boolean isVerifiedFlag;
     
     
     
@@ -27330,20 +27336,8 @@ public static class BankDetailsForOTP{
     
     
     
-    @JsonProperty("ifsc_code")
-    private String ifscCode;
-    
-    
-    
-    
-    @JsonProperty("branch_name")
-    private String branchName;
-    
-    
-    
-    
-    @JsonProperty("account_holder")
-    private String accountHolder;
+    @JsonProperty("account_no")
+    private String accountNo;
     
     
     
@@ -27354,8 +27348,20 @@ public static class BankDetailsForOTP{
     
     
     
-    @JsonProperty("account_no")
-    private String accountNo;
+    @JsonProperty("ifsc_code")
+    private String ifscCode;
+    
+    
+    
+    
+    @JsonProperty("account_holder")
+    private String accountHolder;
+    
+    
+    
+    
+    @JsonProperty("branch_name")
+    private String branchName;
     
     
     
@@ -27404,14 +27410,14 @@ public static class WalletOtpRequest{
     
     
     
-    @JsonProperty("country_code")
-    private String countryCode;
-    
-    
-    
-    
     @JsonProperty("mobile")
     private String mobile;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
     
     
     
@@ -27438,14 +27444,14 @@ public static class WalletOtpResponse{
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
     @JsonProperty("request_id")
     private String requestId;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -27522,14 +27528,14 @@ public static class BalanceDetails{
     
     
     
-    @JsonProperty("value")
-    private Double value;
-    
-    
-    
-    
     @JsonProperty("currency")
     private String currency;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
     
     
     
@@ -27556,14 +27562,14 @@ public static class CreditSummary{
     
     
     
-    @JsonProperty("balance")
-    private BalanceDetails balance;
-    
-    
-    
-    
     @JsonProperty("status")
     private String status;
+    
+    
+    
+    
+    @JsonProperty("status_message")
+    private String statusMessage;
     
     
     
@@ -27574,8 +27580,8 @@ public static class CreditSummary{
     
     
     
-    @JsonProperty("status_message")
-    private String statusMessage;
+    @JsonProperty("balance")
+    private BalanceDetails balance;
     
     
     
@@ -27624,14 +27630,14 @@ public static class RedirectURL{
     
     
     
-    @JsonProperty("status")
-    private Boolean status;
-    
-    
-    
-    
     @JsonProperty("signup_url")
     private String signupUrl;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Boolean status;
     
     
     
@@ -27680,8 +27686,8 @@ public static class CreditDetail{
     
     
     
-    @JsonProperty("is_registered")
-    private Boolean isRegistered;
+    @JsonProperty("signup_url")
+    private String signupUrl;
     
     
     
@@ -27692,8 +27698,8 @@ public static class CreditDetail{
     
     
     
-    @JsonProperty("signup_url")
-    private String signupUrl;
+    @JsonProperty("is_registered")
+    private Boolean isRegistered;
     
     
     
@@ -27729,7 +27735,7 @@ public static class CheckCreditResponse{
 
 
 /*
-    Model: DeviceDetails
+    Model: KYCAddress
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27737,49 +27743,161 @@ public static class CheckCreditResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeviceDetails{
+public static class KYCAddress{
     
     
     
     
-    @JsonProperty("device_type")
-    private String deviceType;
+    @JsonProperty("state")
+    private String state;
     
     
     
     
-    @JsonProperty("identifier_type")
-    private String identifierType;
+    @JsonProperty("addressline1")
+    private String addressline1;
     
     
     
     
-    @JsonProperty("device_make")
-    private String deviceMake;
+    @JsonProperty("city")
+    private String city;
     
     
     
     
-    @JsonProperty("identification_number")
-    private String identificationNumber;
+    @JsonProperty("ownership_type")
+    private String ownershipType;
     
     
     
     
-    @JsonProperty("os")
-    private String os;
+    @JsonProperty("addressline2")
+    private String addressline2;
     
     
     
     
-    @JsonProperty("os_version")
-    private String osVersion;
+    @JsonProperty("pincode")
+    private String pincode;
     
     
     
     
-    @JsonProperty("device_model")
-    private String deviceModel;
+    @JsonProperty("land_mark")
+    private String landMark;
+    
+    
+    
+}
+
+
+/*
+    Model: UserPersonalInfoInDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserPersonalInfoInDetails{
+    
+    
+    
+    
+    @JsonProperty("passport")
+    private String passport;
+    
+    
+    
+    
+    @JsonProperty("address_as_per_id")
+    private KYCAddress addressAsPerId;
+    
+    
+    
+    
+    @JsonProperty("first_name")
+    private String firstName;
+    
+    
+    
+    
+    @JsonProperty("email_verified")
+    private Boolean emailVerified;
+    
+    
+    
+    
+    @JsonProperty("voter_id")
+    private String voterId;
+    
+    
+    
+    
+    @JsonProperty("middle_name")
+    private String middleName;
+    
+    
+    
+    
+    @JsonProperty("fathers_name")
+    private String fathersName;
+    
+    
+    
+    
+    @JsonProperty("phone")
+    private String phone;
+    
+    
+    
+    
+    @JsonProperty("last_name")
+    private String lastName;
+    
+    
+    
+    
+    @JsonProperty("dob")
+    private String dob;
+    
+    
+    
+    
+    @JsonProperty("mothers_name")
+    private String mothersName;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("pan")
+    private String pan;
+    
+    
+    
+    
+    @JsonProperty("driving_license")
+    private String drivingLicense;
+    
+    
+    
+    
+    @JsonProperty("mobile_verified")
+    private Boolean mobileVerified;
+    
+    
+    
+    
+    @JsonProperty("gender")
+    private String gender;
     
     
     
@@ -27821,64 +27939,6 @@ public static class MarketplaceInfo{
 
 
 /*
-    Model: KYCAddress
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class KYCAddress{
-    
-    
-    
-    
-    @JsonProperty("addressline1")
-    private String addressline1;
-    
-    
-    
-    
-    @JsonProperty("addressline2")
-    private String addressline2;
-    
-    
-    
-    
-    @JsonProperty("ownership_type")
-    private String ownershipType;
-    
-    
-    
-    
-    @JsonProperty("pincode")
-    private String pincode;
-    
-    
-    
-    
-    @JsonProperty("state")
-    private String state;
-    
-    
-    
-    
-    @JsonProperty("land_mark")
-    private String landMark;
-    
-    
-    
-    
-    @JsonProperty("city")
-    private String city;
-    
-    
-    
-}
-
-
-/*
     Model: BusinessDetails
 */
 @AllArgsConstructor
@@ -27892,20 +27952,44 @@ public static class BusinessDetails{
     
     
     
-    @JsonProperty("fda")
-    private String fda;
-    
-    
-    
-    
     @JsonProperty("address")
     private KYCAddress address;
     
     
     
     
-    @JsonProperty("business_type")
-    private String businessType;
+    @JsonProperty("business_ownership_type")
+    private String businessOwnershipType;
+    
+    
+    
+    
+    @JsonProperty("entity_type")
+    private String entityType;
+    
+    
+    
+    
+    @JsonProperty("fssai")
+    private String fssai;
+    
+    
+    
+    
+    @JsonProperty("gstin")
+    private String gstin;
+    
+    
+    
+    
+    @JsonProperty("vintage")
+    private String vintage;
+    
+    
+    
+    
+    @JsonProperty("fda")
+    private String fda;
     
     
     
@@ -27922,38 +28006,14 @@ public static class BusinessDetails{
     
     
     
-    @JsonProperty("entity_type")
-    private String entityType;
-    
-    
-    
-    
-    @JsonProperty("vintage")
-    private String vintage;
-    
-    
-    
-    
-    @JsonProperty("business_ownership_type")
-    private String businessOwnershipType;
-    
-    
-    
-    
-    @JsonProperty("gstin")
-    private String gstin;
-    
-    
-    
-    
     @JsonProperty("pan")
     private String pan;
     
     
     
     
-    @JsonProperty("fssai")
-    private String fssai;
+    @JsonProperty("business_type")
+    private String businessType;
     
     
     
@@ -27961,7 +28021,7 @@ public static class BusinessDetails{
 
 
 /*
-    Model: UserPersonalInfoInDetails
+    Model: DeviceDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27969,103 +28029,49 @@ public static class BusinessDetails{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserPersonalInfoInDetails{
+public static class DeviceDetails{
     
     
     
     
-    @JsonProperty("email_verified")
-    private Boolean emailVerified;
+    @JsonProperty("identification_number")
+    private String identificationNumber;
     
     
     
     
-    @JsonProperty("voter_id")
-    private String voterId;
+    @JsonProperty("os")
+    private String os;
     
     
     
     
-    @JsonProperty("last_name")
-    private String lastName;
+    @JsonProperty("os_version")
+    private String osVersion;
     
     
     
     
-    @JsonProperty("email")
-    private String email;
+    @JsonProperty("device_model")
+    private String deviceModel;
     
     
     
     
-    @JsonProperty("dob")
-    private String dob;
+    @JsonProperty("device_type")
+    private String deviceType;
     
     
     
     
-    @JsonProperty("middle_name")
-    private String middleName;
+    @JsonProperty("identifier_type")
+    private String identifierType;
     
     
     
     
-    @JsonProperty("address_as_per_id")
-    private KYCAddress addressAsPerId;
-    
-    
-    
-    
-    @JsonProperty("first_name")
-    private String firstName;
-    
-    
-    
-    
-    @JsonProperty("passport")
-    private String passport;
-    
-    
-    
-    
-    @JsonProperty("mobile_verified")
-    private Boolean mobileVerified;
-    
-    
-    
-    
-    @JsonProperty("fathers_name")
-    private String fathersName;
-    
-    
-    
-    
-    @JsonProperty("gender")
-    private String gender;
-    
-    
-    
-    
-    @JsonProperty("phone")
-    private String phone;
-    
-    
-    
-    
-    @JsonProperty("driving_license")
-    private String drivingLicense;
-    
-    
-    
-    
-    @JsonProperty("pan")
-    private String pan;
-    
-    
-    
-    
-    @JsonProperty("mothers_name")
-    private String mothersName;
+    @JsonProperty("device_make")
+    private String deviceMake;
     
     
     
@@ -28086,8 +28092,8 @@ public static class CustomerOnboardingRequest{
     
     
     
-    @JsonProperty("device")
-    private DeviceDetails device;
+    @JsonProperty("personal_info")
+    private UserPersonalInfoInDetails personalInfo;
     
     
     
@@ -28104,26 +28110,26 @@ public static class CustomerOnboardingRequest{
     
     
     
-    @JsonProperty("business_info")
-    private BusinessDetails businessInfo;
-    
-    
-    
-    
-    @JsonProperty("aggregator")
-    private String aggregator;
-    
-    
-    
-    
     @JsonProperty("mcc")
     private String mcc;
     
     
     
     
-    @JsonProperty("personal_info")
-    private UserPersonalInfoInDetails personalInfo;
+    @JsonProperty("business_info")
+    private BusinessDetails businessInfo;
+    
+    
+    
+    
+    @JsonProperty("device")
+    private DeviceDetails device;
+    
+    
+    
+    
+    @JsonProperty("aggregator")
+    private String aggregator;
     
     
     
@@ -28150,14 +28156,14 @@ public static class OnboardSummary{
     
     
     
-    @JsonProperty("session")
-    private Object session;
-    
-    
-    
-    
     @JsonProperty("status")
     private Boolean status;
+    
+    
+    
+    
+    @JsonProperty("session")
+    private Object session;
     
     
     
@@ -28196,7 +28202,7 @@ public static class CustomerOnboardingResponse{
 
 
 /*
-    Model: OrderById
+    Model: UserInfo
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28204,815 +28210,31 @@ public static class CustomerOnboardingResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderById{
+public static class UserInfo{
     
     
     
     
-    @JsonProperty("order")
-    private OrderSchema order;
+    @JsonProperty("email")
+    private String email;
     
     
     
-}
-
-
-/*
-    Model: OrderList
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderList{
     
+    @JsonProperty("mobile")
+    private String mobile;
     
     
     
-    @JsonProperty("items")
-    private List<OrderSchema> items;
     
-    
-    
-    
-    @JsonProperty("page")
-    private OrderPage page;
-    
-    
-    
-    
-    @JsonProperty("filters")
-    private OrderFilters filters;
-    
-    
-    
-}
-
-
-/*
-    Model: OrderPage
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderPage{
-    
-    
-    
-    
-    @JsonProperty("item_total")
-    private Integer itemTotal;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private Integer size;
-    
-    
-    
-    
-    @JsonProperty("current")
-    private Integer current;
-    
-    
-    
-    
-    @JsonProperty("has_next")
-    private Boolean hasNext;
-    
-    
-    
-}
-
-
-/*
-    Model: OrderFilters
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderFilters{
-    
-    
-    
-    
-    @JsonProperty("statuses")
-    private List<OrderStatuses> statuses;
-    
-    
-    
-}
-
-
-/*
-    Model: OrderStatuses
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderStatuses{
-    
-    
-    
-    
-    @JsonProperty("display")
-    private String display;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private Integer value;
-    
-    
-    
-    
-    @JsonProperty("is_selected")
-    private Boolean isSelected;
-    
-    
-    
-}
-
-
-/*
-    Model: ReqBodyVerifyOTPShipment
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReqBodyVerifyOTPShipment{
-    
-    
-    
-    
-    @JsonProperty("request_id")
-    private String requestId;
-    
-    
-    
-    
-    @JsonProperty("otp_code")
-    private String otpCode;
-    
-    
-    
-}
-
-
-/*
-    Model: ResponseGetCreditNoteShipment
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResponseGetCreditNoteShipment{
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("presigned_type")
-    private String presignedType;
-    
-    
-    
-    
-    @JsonProperty("shipment_id")
-    private String shipmentId;
-    
-    
-    
-    
-    @JsonProperty("presigned_url")
-    private String presignedUrl;
-    
-    
-    
-}
-
-
-/*
-    Model: ResponseGetInvoiceShipment
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResponseGetInvoiceShipment{
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("presigned_type")
-    private String presignedType;
-    
-    
-    
-    
-    @JsonProperty("shipment_id")
-    private String shipmentId;
-    
-    
-    
-    
-    @JsonProperty("presigned_url")
-    private String presignedUrl;
-    
-    
-    
-}
-
-
-/*
-    Model: ResponseVerifyOTPShipment
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResponseVerifyOTPShipment{
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-}
-
-
-/*
-    Model: sendOTPApplicationResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class sendOTPApplicationResponse{
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("request_id")
-    private String requestId;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("resend_timer")
-    private Integer resendTimer;
-    
-    
-    
-}
-
-
-/*
-    Model: ShipmentById
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShipmentById{
-    
-    
-    
-    
-    @JsonProperty("shipment")
-    private Shipments shipment;
-    
-    
-    
-}
-
-
-/*
-    Model: CustomerDetailsByShipmentId
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CustomerDetailsByShipmentId{
-    
-    
-    
-    
-    @JsonProperty("order_id")
-    private String orderId;
-    
-    
-    
-    
-    @JsonProperty("shipment_id")
-    private String shipmentId;
+    @JsonProperty("gender")
+    private String gender;
     
     
     
     
     @JsonProperty("name")
     private String name;
-    
-    
-    
-    
-    @JsonProperty("phone")
-    private String phone;
-    
-    
-    
-    
-    @JsonProperty("country")
-    private String country;
-    
-    
-    
-}
-
-
-/*
-    Model: ShipmentReasons
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShipmentReasons{
-    
-    
-    
-    
-    @JsonProperty("reasons")
-    private List<Reasons> reasons;
-    
-    
-    
-}
-
-
-/*
-    Model: ShipmentStatusUpdateBody
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShipmentStatusUpdateBody{
-    
-    
-    
-    
-    @JsonProperty("statuses")
-    private List<StatusesBody> statuses;
-    
-    
-    
-    
-    @JsonProperty("force_transition")
-    private Boolean forceTransition;
-    
-    
-    
-    
-    @JsonProperty("task")
-    private Boolean task;
-    
-    
-    
-}
-
-
-/*
-    Model: StatusesBody
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StatusesBody{
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("shipments")
-    private Object shipments;
-    
-    
-    
-}
-
-
-/*
-    Model: ShipmentStatusUpdate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShipmentStatusUpdate{
-    
-    
-    
-    
-    @JsonProperty("message")
-    private List<Object> message;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private Boolean status;
-    
-    
-    
-}
-
-
-/*
-    Model: ShipmentTrack
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShipmentTrack{
-    
-    
-    
-    
-    @JsonProperty("results")
-    private List<Track> results;
-    
-    
-    
-}
-
-
-/*
-    Model: OrderSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderSchema{
-    
-    
-    
-    
-    @JsonProperty("order_id")
-    private String orderId;
-    
-    
-    
-    
-    @JsonProperty("breakup_values")
-    private List<BreakupValues> breakupValues;
-    
-    
-    
-    
-    @JsonProperty("order_created_time")
-    private String orderCreatedTime;
-    
-    
-    
-    
-    @JsonProperty("shipments")
-    private List<Shipments> shipments;
-    
-    
-    
-    
-    @JsonProperty("total_shipments_in_order")
-    private Integer totalShipmentsInOrder;
-    
-    
-    
-    
-    @JsonProperty("user_info")
-    private UserInfo userInfo;
-    
-    
-    
-    
-    @JsonProperty("bags_for_reorder")
-    private List<BagsForReorder> bagsForReorder;
-    
-    
-    
-}
-
-
-/*
-    Model: BagsForReorder
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BagsForReorder{
-    
-    
-    
-    
-    @JsonProperty("item_id")
-    private Integer itemId;
-    
-    
-    
-    
-    @JsonProperty("item_size")
-    private String itemSize;
-    
-    
-    
-    
-    @JsonProperty("store_id")
-    private Integer storeId;
-    
-    
-    
-    
-    @JsonProperty("seller_id")
-    private Integer sellerId;
-    
-    
-    
-    
-    @JsonProperty("quantity")
-    private Integer quantity;
-    
-    
-    
-    
-    @JsonProperty("article_assignment")
-    private BagsForReorderArticleAssignment articleAssignment;
-    
-    
-    
-}
-
-
-/*
-    Model: BagsForReorderArticleAssignment
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BagsForReorderArticleAssignment{
-    
-    
-    
-    
-    @JsonProperty("level")
-    private String level;
-    
-    
-    
-    
-    @JsonProperty("strategy")
-    private String strategy;
-    
-    
-    
-}
-
-
-/*
-    Model: PosOrderById
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PosOrderById{
-    
-    
-    
-    
-    @JsonProperty("order")
-    private OrderSchema order;
-    
-    
-    
-}
-
-
-/*
-    Model: Bags
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Bags{
-    
-    
-    
-    
-    @JsonProperty("item")
-    private Item item;
-    
-    
-    
-    
-    @JsonProperty("prices")
-    private Prices prices;
-    
-    
-    
-    
-    @JsonProperty("current_status")
-    private CurrentStatus currentStatus;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private Integer id;
-    
-    
-    
-    
-    @JsonProperty("financial_breakup")
-    private List<FinancialBreakup> financialBreakup;
-    
-    
-    
-    
-    @JsonProperty("can_cancel")
-    private Boolean canCancel;
-    
-    
-    
-    
-    @JsonProperty("can_return")
-    private Boolean canReturn;
-    
-    
-    
-    
-    @JsonProperty("delivery_date")
-    private String deliveryDate;
-    
-    
-    
-    
-    @JsonProperty("returnable_date")
-    private String returnableDate;
-    
-    
-    
-}
-
-
-/*
-    Model: Item
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Item{
-    
-    
-    
-    
-    @JsonProperty("brand")
-    private ItemBrand brand;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private String size;
-    
-    
-    
-    
-    @JsonProperty("slug_key")
-    private String slugKey;
-    
-    
-    
-    
-    @JsonProperty("image")
-    private List<String> image;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private Double id;
-    
-    
-    
-    
-    @JsonProperty("seller_identifier")
-    private String sellerIdentifier;
     
     
     
@@ -29033,122 +28255,122 @@ public static class Prices{
     
     
     
-    @JsonProperty("amount_paid_roundoff")
-    private Double amountPaidRoundoff;
-    
-    
-    
-    
-    @JsonProperty("fynd_credits")
-    private Double fyndCredits;
-    
-    
-    
-    
-    @JsonProperty("cod_charges")
-    private Double codCharges;
-    
-    
-    
-    
-    @JsonProperty("cashback")
-    private Double cashback;
-    
-    
-    
-    
-    @JsonProperty("added_to_fynd_cash")
-    private Boolean addedToFyndCash;
-    
-    
-    
-    
-    @JsonProperty("price_marked")
-    private Double priceMarked;
-    
-    
-    
-    
-    @JsonProperty("transfer_price")
-    private Double transferPrice;
-    
-    
-    
-    
-    @JsonProperty("coupon_value")
-    private Double couponValue;
-    
-    
-    
-    
-    @JsonProperty("price_effective")
-    private Double priceEffective;
-    
-    
-    
-    
-    @JsonProperty("refund_credit")
-    private Double refundCredit;
-    
-    
-    
-    
-    @JsonProperty("amount_paid")
-    private Double amountPaid;
-    
-    
-    
-    
-    @JsonProperty("refund_amount")
-    private Double refundAmount;
-    
-    
-    
-    
-    @JsonProperty("cashback_applied")
-    private Double cashbackApplied;
-    
-    
-    
-    
-    @JsonProperty("gst_tax_percentage")
-    private Double gstTaxPercentage;
-    
-    
-    
-    
-    @JsonProperty("value_of_good")
-    private Double valueOfGood;
+    @JsonProperty("coupon_effective_discount")
+    private Integer couponEffectiveDiscount;
     
     
     
     
     @JsonProperty("brand_calculated_amount")
-    private Double brandCalculatedAmount;
+    private Integer brandCalculatedAmount;
     
     
     
     
-    @JsonProperty("promotion_effective_discount")
-    private Double promotionEffectiveDiscount;
+    @JsonProperty("coupon_value")
+    private Integer couponValue;
+    
+    
+    
+    
+    @JsonProperty("cashback_applied")
+    private Integer cashbackApplied;
+    
+    
+    
+    
+    @JsonProperty("cod_charges")
+    private Integer codCharges;
     
     
     
     
     @JsonProperty("discount")
-    private Double discount;
+    private Integer discount;
     
     
     
     
-    @JsonProperty("coupon_effective_discount")
-    private Double couponEffectiveDiscount;
+    @JsonProperty("promotion_effective_discount")
+    private Integer promotionEffectiveDiscount;
+    
+    
+    
+    
+    @JsonProperty("cashback")
+    private Integer cashback;
+    
+    
+    
+    
+    @JsonProperty("gst_tax_percentage")
+    private Integer gstTaxPercentage;
+    
+    
+    
+    
+    @JsonProperty("added_to_fynd_cash")
+    private Integer addedToFyndCash;
+    
+    
+    
+    
+    @JsonProperty("price_effective")
+    private Integer priceEffective;
+    
+    
+    
+    
+    @JsonProperty("refund_credit")
+    private Integer refundCredit;
+    
+    
+    
+    
+    @JsonProperty("amount_paid")
+    private Integer amountPaid;
+    
+    
+    
+    
+    @JsonProperty("fynd_credits")
+    private Integer fyndCredits;
+    
+    
+    
+    
+    @JsonProperty("value_of_good")
+    private Integer valueOfGood;
+    
+    
+    
+    
+    @JsonProperty("pm_price_split")
+    private Object pmPriceSplit;
+    
+    
+    
+    
+    @JsonProperty("refund_amount")
+    private Integer refundAmount;
+    
+    
+    
+    
+    @JsonProperty("price_marked")
+    private Integer priceMarked;
+    
+    
+    
+    
+    @JsonProperty("transfer_price")
+    private Integer transferPrice;
     
     
     
     
     @JsonProperty("delivery_charge")
-    private Double deliveryCharge;
+    private Integer deliveryCharge;
     
     
     
@@ -29175,226 +28397,20 @@ public static class CurrentStatus{
     
     
     
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
     @JsonProperty("name")
     private String name;
     
     
     
     
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
     @JsonProperty("journey_type")
     private String journeyType;
-    
-    
-    
-}
-
-
-/*
-    Model: FinancialBreakup
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FinancialBreakup{
-    
-    
-    
-    
-    @JsonProperty("brand_calculated_amount")
-    private Double brandCalculatedAmount;
-    
-    
-    
-    
-    @JsonProperty("coupon_value")
-    private Double couponValue;
-    
-    
-    
-    
-    @JsonProperty("amount_paid_roundoff")
-    private Double amountPaidRoundoff;
-    
-    
-    
-    
-    @JsonProperty("gst_fee")
-    private String gstFee;
-    
-    
-    
-    
-    @JsonProperty("refund_credit")
-    private Double refundCredit;
-    
-    
-    
-    
-    @JsonProperty("cashback")
-    private Double cashback;
-    
-    
-    
-    
-    @JsonProperty("refund_amount")
-    private Double refundAmount;
-    
-    
-    
-    
-    @JsonProperty("value_of_good")
-    private Double valueOfGood;
-    
-    
-    
-    
-    @JsonProperty("promotion_effective_discount")
-    private Double promotionEffectiveDiscount;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private String size;
-    
-    
-    
-    
-    @JsonProperty("total_units")
-    private Integer totalUnits;
-    
-    
-    
-    
-    @JsonProperty("discount")
-    private Double discount;
-    
-    
-    
-    
-    @JsonProperty("amount_paid")
-    private Double amountPaid;
-    
-    
-    
-    
-    @JsonProperty("fynd_credits")
-    private Double fyndCredits;
-    
-    
-    
-    
-    @JsonProperty("added_to_fynd_cash")
-    private Boolean addedToFyndCash;
-    
-    
-    
-    
-    @JsonProperty("delivery_charge")
-    private Double deliveryCharge;
-    
-    
-    
-    
-    @JsonProperty("hsn_code")
-    private String hsnCode;
-    
-    
-    
-    
-    @JsonProperty("coupon_effective_discount")
-    private Double couponEffectiveDiscount;
-    
-    
-    
-    
-    @JsonProperty("transfer_price")
-    private Double transferPrice;
-    
-    
-    
-    
-    @JsonProperty("identifiers")
-    private Identifiers identifiers;
-    
-    
-    
-    
-    @JsonProperty("gst_tag")
-    private String gstTag;
-    
-    
-    
-    
-    @JsonProperty("price_marked")
-    private Double priceMarked;
-    
-    
-    
-    
-    @JsonProperty("price_effective")
-    private Double priceEffective;
-    
-    
-    
-    
-    @JsonProperty("cod_charges")
-    private Double codCharges;
-    
-    
-    
-    
-    @JsonProperty("item_name")
-    private String itemName;
-    
-    
-    
-    
-    @JsonProperty("cashback_applied")
-    private Double cashbackApplied;
-    
-    
-    
-    
-    @JsonProperty("gst_tax_percentage")
-    private Double gstTaxPercentage;
-    
-    
-    
-}
-
-
-/*
-    Model: Identifiers
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Identifiers{
-    
-    
-    
-    
-    @JsonProperty("ean")
-    private String ean;
-    
-    
-    
-    
-    @JsonProperty("sku_code")
-    private String skuCode;
     
     
     
@@ -29415,14 +28431,14 @@ public static class ItemBrand{
     
     
     
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
     @JsonProperty("logo")
     private String logo;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -29430,7 +28446,7 @@ public static class ItemBrand{
 
 
 /*
-    Model: BreakupValues
+    Model: Item
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29438,7 +28454,141 @@ public static class ItemBrand{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BreakupValues{
+public static class Item{
+    
+    
+    
+    
+    @JsonProperty("slug_key")
+    private String slugKey;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Integer id;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("seller_identifier")
+    private String sellerIdentifier;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private String size;
+    
+    
+    
+    
+    @JsonProperty("brand")
+    private ItemBrand brand;
+    
+    
+    
+    
+    @JsonProperty("image")
+    private List<String> image;
+    
+    
+    
+}
+
+
+/*
+    Model: BagsData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BagsData{
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Integer id;
+    
+    
+    
+    
+    @JsonProperty("prices")
+    private Prices prices;
+    
+    
+    
+    
+    @JsonProperty("financial_breakup")
+    private List<Object> financialBreakup;
+    
+    
+    
+    
+    @JsonProperty("can_cancel")
+    private Boolean canCancel;
+    
+    
+    
+    
+    @JsonProperty("can_return")
+    private Boolean canReturn;
+    
+    
+    
+    
+    @JsonProperty("current_status")
+    private CurrentStatus currentStatus;
+    
+    
+    
+    
+    @JsonProperty("item")
+    private Item item;
+    
+    
+    
+    
+    @JsonProperty("quantity")
+    private Integer quantity;
+    
+    
+    
+}
+
+
+/*
+    Model: PricesBreakup
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PricesBreakup{
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -29450,13 +28600,7 @@ public static class BreakupValues{
     
     
     @JsonProperty("value")
-    private Double value;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
+    private Integer value;
     
     
     
@@ -29464,7 +28608,7 @@ public static class BreakupValues{
 
 
 /*
-    Model: DeliveryAddress
+    Model: PaymentInfo
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29472,127 +28616,31 @@ public static class BreakupValues{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeliveryAddress{
+public static class PaymentInfo{
     
     
     
     
-    @JsonProperty("pincode")
-    private String pincode;
+    @JsonProperty("logo")
+    private String logo;
     
     
     
     
-    @JsonProperty("landmark")
-    private String landmark;
+    @JsonProperty("mode")
+    private String mode;
     
     
     
     
-    @JsonProperty("contact_person")
-    private String contactPerson;
+    @JsonProperty("status")
+    private String status;
     
     
     
     
-    @JsonProperty("phone")
-    private String phone;
-    
-    
-    
-    
-    @JsonProperty("state")
-    private String state;
-    
-    
-    
-    
-    @JsonProperty("version")
-    private String version;
-    
-    
-    
-    
-    @JsonProperty("address1")
-    private String address1;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("address_type")
-    private String addressType;
-    
-    
-    
-    
-    @JsonProperty("address_category")
-    private String addressCategory;
-    
-    
-    
-    
-    @JsonProperty("area")
-    private String area;
-    
-    
-    
-    
-    @JsonProperty("city")
-    private String city;
-    
-    
-    
-    
-    @JsonProperty("latitude")
-    private Double latitude;
-    
-    
-    
-    
-    @JsonProperty("longitude")
-    private Double longitude;
-    
-    
-    
-    
-    @JsonProperty("email")
-    private String email;
-    
-    
-    
-    
-    @JsonProperty("country")
-    private String country;
-    
-    
-    
-    
-    @JsonProperty("address2")
-    private String address2;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("address")
-    private String address;
+    @JsonProperty("mop")
+    private String mop;
     
     
     
@@ -29613,8 +28661,8 @@ public static class FulfillingStore{
     
     
     
-    @JsonProperty("code")
-    private String code;
+    @JsonProperty("company_id")
+    private Integer companyId;
     
     
     
@@ -29631,14 +28679,8 @@ public static class FulfillingStore{
     
     
     
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("company_name")
-    private String companyName;
+    @JsonProperty("code")
+    private String code;
     
     
     
@@ -29646,7 +28688,7 @@ public static class FulfillingStore{
 
 
 /*
-    Model: Invoice
+    Model: FulfillingCompany
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29654,25 +28696,19 @@ public static class FulfillingStore{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Invoice{
+public static class FulfillingCompany{
     
     
     
     
-    @JsonProperty("updated_date")
-    private String updatedDate;
+    @JsonProperty("id")
+    private Integer id;
     
     
     
     
-    @JsonProperty("invoice_url")
-    private String invoiceUrl;
-    
-    
-    
-    
-    @JsonProperty("label_url")
-    private String labelUrl;
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -29680,7 +28716,7 @@ public static class Invoice{
 
 
 /*
-    Model: Promise
+    Model: ShipmentById
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29688,19 +28724,13 @@ public static class Invoice{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Promise{
+public static class ShipmentById{
     
     
     
     
-    @JsonProperty("show_promise")
-    private Boolean showPromise;
-    
-    
-    
-    
-    @JsonProperty("timestamp")
-    private Timestamp timestamp;
+    @JsonProperty("shipment")
+    private ShipmentResponse shipment;
     
     
     
@@ -29708,7 +28738,7 @@ public static class Promise{
 
 
 /*
-    Model: Timestamp
+    Model: Error
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29716,19 +28746,13 @@ public static class Promise{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Timestamp{
+public static class Error{
     
     
     
     
-    @JsonProperty("min")
-    private String min;
-    
-    
-    
-    
-    @JsonProperty("max")
-    private String max;
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -29736,7 +28760,7 @@ public static class Timestamp{
 
 
 /*
-    Model: Reasons
+    Model: CustomerDetailsResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29744,127 +28768,19 @@ public static class Timestamp{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Reasons{
+public static class CustomerDetailsResponse{
     
     
     
     
-    @JsonProperty("reason_text")
-    private String reasonText;
+    @JsonProperty("name")
+    private String name;
     
     
     
     
-    @JsonProperty("show_text_area")
-    private Boolean showTextArea;
-    
-    
-    
-    
-    @JsonProperty("feedback_type")
-    private String feedbackType;
-    
-    
-    
-    
-    @JsonProperty("flow")
-    private String flow;
-    
-    
-    
-    
-    @JsonProperty("reason_id")
-    private Integer reasonId;
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private Integer priority;
-    
-    
-    
-}
-
-
-/*
-    Model: ShipmentStatus
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShipmentStatus{
-    
-    
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("hex_code")
-    private String hexCode;
-    
-    
-    
-}
-
-
-/*
-    Model: ShipmentUserInfo
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShipmentUserInfo{
-    
-    
-    
-    
-    @JsonProperty("gender")
-    private String gender;
-    
-    
-    
-    
-    @JsonProperty("mobile")
-    private String mobile;
-    
-    
-    
-    
-    @JsonProperty("first_name")
-    private String firstName;
-    
-    
-    
-    
-    @JsonProperty("last_name")
-    private String lastName;
-    
-    
-    
-}
-
-
-/*
-    Model: Shipments
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Shipments{
+    @JsonProperty("phone")
+    private String phone;
     
     
     
@@ -29875,228 +28791,208 @@ public static class Shipments{
     
     
     
-    @JsonProperty("breakup_values")
-    private List<BreakupValues> breakupValues;
-    
-    
-    
-    
-    @JsonProperty("track_url")
-    private String trackUrl;
-    
-    
-    
-    
-    @JsonProperty("traking_no")
-    private String trakingNo;
-    
-    
-    
-    
-    @JsonProperty("awb_no")
-    private String awbNo;
-    
-    
-    
-    
-    @JsonProperty("dp_name")
-    private String dpName;
-    
-    
-    
-    
-    @JsonProperty("tracking_details")
-    private List<TrackingDetails> trackingDetails;
-    
-    
-    
-    
-    @JsonProperty("beneficiary_details")
-    private Boolean beneficiaryDetails;
-    
-    
-    
-    
-    @JsonProperty("can_return")
-    private Boolean canReturn;
-    
-    
-    
-    
-    @JsonProperty("can_break")
-    private Object canBreak;
-    
-    
-    
-    
-    @JsonProperty("delivery_date")
-    private String deliveryDate;
-    
-    
-    
-    
-    @JsonProperty("returnable_date")
-    private String returnableDate;
-    
-    
-    
-    
-    @JsonProperty("show_download_invoice")
-    private Boolean showDownloadInvoice;
-    
-    
-    
-    
-    @JsonProperty("show_track_link")
-    private Boolean showTrackLink;
-    
-    
-    
-    
-    @JsonProperty("prices")
-    private Prices prices;
-    
-    
-    
-    
-    @JsonProperty("need_help_url")
-    private String needHelpUrl;
-    
-    
-    
-    
     @JsonProperty("shipment_id")
     private String shipmentId;
     
     
     
     
-    @JsonProperty("total_bags")
-    private Integer totalBags;
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+}
+
+
+/*
+    Model: SendOtpToCustomerResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SendOtpToCustomerResponse{
     
     
     
     
-    @JsonProperty("delivery_address")
-    private DeliveryAddress deliveryAddress;
+    @JsonProperty("resend_timer")
+    private Integer resendTimer;
     
     
     
     
-    @JsonProperty("invoice")
-    private Invoice invoice;
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
     
-    @JsonProperty("comment")
-    private String comment;
+    @JsonProperty("request_id")
+    private String requestId;
     
     
     
     
-    @JsonProperty("refund_details")
-    private Object refundDetails;
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentReasonsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentReasonsResponse{
     
     
     
     
-    @JsonProperty("order_type")
-    private String orderType;
+    @JsonProperty("reason_text")
+    private String reasonText;
     
     
     
     
-    @JsonProperty("promise")
-    private Promise promise;
+    @JsonProperty("flow")
+    private String flow;
     
     
     
     
-    @JsonProperty("fulfilling_store")
-    private FulfillingStore fulfillingStore;
+    @JsonProperty("priority")
+    private Integer priority;
     
     
     
     
-    @JsonProperty("bags")
-    private List<Bags> bags;
+    @JsonProperty("reason_id")
+    private Integer reasonId;
     
     
     
     
-    @JsonProperty("can_cancel")
-    private Boolean canCancel;
+    @JsonProperty("feedback_type")
+    private String feedbackType;
     
     
     
     
-    @JsonProperty("payment")
-    private ShipmentPayment payment;
+    @JsonProperty("show_text_area")
+    private Boolean showTextArea;
+    
+    
+    
+}
+
+
+/*
+    Model: VerifyOtp
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VerifyOtp{
     
     
     
     
-    @JsonProperty("shipment_created_at")
-    private String shipmentCreatedAt;
+    @JsonProperty("request_id")
+    private String requestId;
     
     
     
     
-    @JsonProperty("shipment_status")
-    private ShipmentStatus shipmentStatus;
+    @JsonProperty("otp_code")
+    private Integer otpCode;
+    
+    
+    
+}
+
+
+/*
+    Model: VerifyOtpResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VerifyOtpResponse{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+}
+
+
+/*
+    Model: OrderItems
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderItems{
+    
+    
+    
+    
+    @JsonProperty("order_created_time")
+    private String orderCreatedTime;
     
     
     
     
     @JsonProperty("user_info")
-    private ShipmentUserInfo userInfo;
+    private Object userInfo;
     
     
     
     
-    @JsonProperty("size_info")
-    private Object sizeInfo;
+    @JsonProperty("total_shipments_in_order")
+    private Integer totalShipmentsInOrder;
     
     
     
     
-    @JsonProperty("total_details")
-    private ShipmentTotalDetails totalDetails;
-    
-    
-    
-}
-
-
-/*
-    Model: ShipmentTotalDetails
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShipmentTotalDetails{
+    @JsonProperty("bags_for_reorder")
+    private List<Object> bagsForReorder;
     
     
     
     
-    @JsonProperty("total_price")
-    private Double totalPrice;
+    @JsonProperty("shipments")
+    private List<ShipmentResponse> shipments;
     
     
     
     
-    @JsonProperty("sizes")
-    private Integer sizes;
-    
-    
-    
-    
-    @JsonProperty("pieces")
-    private Integer pieces;
+    @JsonProperty("order_id")
+    private String orderId;
     
     
     
@@ -30104,7 +29000,7 @@ public static class ShipmentTotalDetails{
 
 
 /*
-    Model: ShipmentPayment
+    Model: Statuses
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30112,31 +29008,25 @@ public static class ShipmentTotalDetails{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShipmentPayment{
+public static class Statuses{
     
     
     
     
-    @JsonProperty("logo")
-    private String logo;
+    @JsonProperty("display")
+    private String display;
     
     
     
     
-    @JsonProperty("mode")
-    private String mode;
+    @JsonProperty("value")
+    private Integer value;
     
     
     
     
-    @JsonProperty("mop")
-    private String mop;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
+    @JsonProperty("is_selected")
+    private Boolean isSelected;
     
     
     
@@ -30144,7 +29034,7 @@ public static class ShipmentPayment{
 
 
 /*
-    Model: Track
+    Model: Filters
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30152,7 +29042,69 @@ public static class ShipmentPayment{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Track{
+public static class Filters{
+    
+    
+    
+    
+    @JsonProperty("statuses")
+    private List<Statuses> statuses;
+    
+    
+    
+}
+
+
+/*
+    Model: OrderList
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderList{
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<OrderItems> items;
+    
+    
+    
+    
+    @JsonProperty("filters")
+    private Filters filters;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: TrackShipmentResults
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TrackShipmentResults{
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     
@@ -30163,8 +29115,14 @@ public static class Track{
     
     
     
-    @JsonProperty("updated_at")
-    private String updatedAt;
+    @JsonProperty("shipment_type")
+    private String shipmentType;
+    
+    
+    
+    
+    @JsonProperty("account_name")
+    private String accountName;
     
     
     
@@ -30181,12 +29139,6 @@ public static class Track{
     
     
     
-    @JsonProperty("shipment_type")
-    private String shipmentType;
-    
-    
-    
-    
     @JsonProperty("status")
     private String status;
     
@@ -30198,17 +29150,11 @@ public static class Track{
     
     
     
-    
-    @JsonProperty("account_name")
-    private String accountName;
-    
-    
-    
 }
 
 
 /*
-    Model: TrackingDetails
+    Model: TrackShipmentResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30216,13 +29162,97 @@ public static class Track{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TrackingDetails{
+public static class TrackShipmentResponse{
     
     
     
     
-    @JsonProperty("is_current")
-    private Boolean isCurrent;
+    @JsonProperty("results")
+    private List<TrackShipmentResults> results;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentBody{
+    
+    
+    
+    
+    @JsonProperty("data_update")
+    private Object dataUpdate;
+    
+    
+    
+    
+    @JsonProperty("store_invoice_id")
+    private String storeInvoiceId;
+    
+    
+    
+    
+    @JsonProperty("products")
+    private List<ProductDetail> products;
+    
+    
+    
+    
+    @JsonProperty("bags")
+    private List<Integer> bags;
+    
+    
+    
+    
+    @JsonProperty("reason")
+    private List<Integer> reason;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentDetail{
+    
+    
+    
+    
+    @JsonProperty("shipment_id")
+    private ShipmentBody shipmentId;
+    
+    
+    
+}
+
+
+/*
+    Model: Statuses1
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Statuses1{
     
     
     
@@ -30233,54 +29263,14 @@ public static class TrackingDetails{
     
     
     
-    @JsonProperty("time")
-    private String time;
+    @JsonProperty("shipments")
+    private ShipmentDetail shipments;
     
     
     
     
-    @JsonProperty("is_passed")
-    private Boolean isPassed;
-    
-    
-    
-}
-
-
-/*
-    Model: UserInfo
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserInfo{
-    
-    
-    
-    
-    @JsonProperty("gender")
-    private String gender;
-    
-    
-    
-    
-    @JsonProperty("mobile")
-    private String mobile;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("email")
-    private String email;
+    @JsonProperty("exclude_bags_next_state")
+    private String excludeBagsNextState;
     
     
     
@@ -30288,7 +29278,7 @@ public static class UserInfo{
 
 
 /*
-    Model: ApefaceApiError
+    Model: ShipmentStatusUpdateBody
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30296,13 +29286,447 @@ public static class UserInfo{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApefaceApiError{
+public static class ShipmentStatusUpdateBody{
+    
+    
+    
+    
+    @JsonProperty("statuses")
+    private Statuses1 statuses;
+    
+    
+    
+    
+    @JsonProperty("task")
+    private Boolean task;
+    
+    
+    
+    
+    @JsonProperty("force_transition")
+    private Boolean forceTransition;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentStatusUpdate
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentStatusUpdate{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private List<Object> message;
+    
+    
+    
+}
+
+
+/*
+    Model: ErrorDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ErrorDetail{
     
     
     
     
     @JsonProperty("message")
     private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: creditNoteParameter
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class creditNoteParameter{
+    
+    
+    
+    
+    @JsonProperty("expires_in")
+    private Integer expiresIn;
+    
+    
+    
+}
+
+
+/*
+    Model: invoiceParameter
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class invoiceParameter{
+    
+    
+    
+    
+    @JsonProperty("document_type")
+    private String documentType;
+    
+    
+    
+    
+    @JsonProperty("expires_in")
+    private Integer expiresIn;
+    
+    
+    
+}
+
+
+/*
+    Model: getInvoiceByShipmentId200Response
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class getInvoiceByShipmentId200Response{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("presigned_type")
+    private String presignedType;
+    
+    
+    
+    
+    @JsonProperty("shipment_id")
+    private String shipmentId;
+    
+    
+    
+    
+    @JsonProperty("presigned_url")
+    private String presignedUrl;
+    
+    
+    
+}
+
+
+/*
+    Model: getInvoiceByShipmentId400Response
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class getInvoiceByShipmentId400Response{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: getInvoiceByShipmentId500Response
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class getInvoiceByShipmentId500Response{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("presigned_type")
+    private String presignedType;
+    
+    
+    
+}
+
+
+/*
+    Model: ReqBodyPresignedPOST
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ReqBodyPresignedPOST{
+    
+    
+    
+    
+    @JsonProperty("event")
+    private String event;
+    
+    
+    
+    
+    @JsonProperty("media_type")
+    private List<Object> mediaType;
+    
+    
+    
+}
+
+
+/*
+    Model: ResponsePresignedPOST
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ResponsePresignedPOST{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("method")
+    private String method;
+    
+    
+    
+    
+    @JsonProperty("event")
+    private String event;
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private List<Object> payload;
+    
+    
+    
+}
+
+
+/*
+    Model: SignedSuccessResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SignedSuccessResponse{
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private String uid;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("expires_in")
+    private Double expiresIn;
+    
+    
+    
+}
+
+
+/*
+    Model: SignedBadRequestResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SignedBadRequestResponse{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("error_message")
+    private String errorMessage;
+    
+    
+    
+}
+
+
+/*
+    Model: SignedFailedResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SignedFailedResponse{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("error_message")
+    private String errorMessage;
+    
+    
+    
+}
+
+
+/*
+    Model: ResponsePresignedGETURL
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ResponsePresignedGETURL{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("presigned_type")
+    private String presignedType;
+    
+    
+    
+    
+    @JsonProperty("shipment_id")
+    private String shipmentId;
+    
+    
+    
+    
+    @JsonProperty("presigned_url")
+    private String presignedUrl;
+    
+    
+    
+}
+
+
+/*
+    Model: OrderInvoiceEngineError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderInvoiceEngineError{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -30418,46 +29842,6 @@ public static class DiscountProperties{
     
     @JsonProperty("percent")
     private Double percent;
-    
-    
-    
-}
-
-
-/*
-    Model: Error
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Error{
-    
-    
-    
-    
-    @JsonProperty("code")
-    private Integer code;
-    
-    
-    
-    
-    @JsonProperty("exception")
-    private String exception;
-    
-    
-    
-    
-    @JsonProperty("info")
-    private String info;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
     
     
     
@@ -31515,40 +30899,6 @@ public static class StoreDetailsResponse{
 
 
 /*
-    Model: PincodeErrorSchemaResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PincodeErrorSchemaResponse{
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
     Model: PincodeMetaResponse
 */
 @AllArgsConstructor
@@ -31562,14 +30912,48 @@ public static class PincodeMetaResponse{
     
     
     
+    @JsonProperty("zone")
+    private String zone;
+    
+    
+    
+    
     @JsonProperty("internal_zone_id")
     private Integer internalZoneId;
     
     
     
+}
+
+
+/*
+    Model: PincodeErrorSchemaResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PincodeErrorSchemaResponse{
     
-    @JsonProperty("zone")
-    private String zone;
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
     
     
     
@@ -31590,26 +30974,26 @@ public static class PincodeParentsResponse{
     
     
     
-    @JsonProperty("uid")
-    private String uid;
-    
-    
-    
-    
     @JsonProperty("name")
     private String name;
     
     
     
     
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
     @JsonProperty("sub_type")
     private String subType;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private String uid;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
@@ -31630,32 +31014,14 @@ public static class PincodeDataResponse{
     
     
     
-    @JsonProperty("meta")
-    private PincodeMetaResponse meta;
-    
-    
-    
-    
     @JsonProperty("uid")
     private String uid;
     
     
     
     
-    @JsonProperty("parents")
-    private List<PincodeParentsResponse> parents;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("sub_type")
-    private String subType;
+    @JsonProperty("meta")
+    private PincodeMetaResponse meta;
     
     
     
@@ -31666,8 +31032,26 @@ public static class PincodeDataResponse{
     
     
     
+    @JsonProperty("parents")
+    private List<PincodeParentsResponse> parents;
+    
+    
+    
+    
     @JsonProperty("name")
     private String name;
+    
+    
+    
+    
+    @JsonProperty("sub_type")
+    private String subType;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
@@ -31688,8 +31072,8 @@ public static class PincodeApiResponse{
     
     
     
-    @JsonProperty("error")
-    private PincodeErrorSchemaResponse error;
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -31700,8 +31084,8 @@ public static class PincodeApiResponse{
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
+    @JsonProperty("error")
+    private PincodeErrorSchemaResponse error;
     
     
     
@@ -31722,14 +31106,14 @@ public static class TATCategoryRequest{
     
     
     
-    @JsonProperty("level")
-    private String level;
-    
-    
-    
-    
     @JsonProperty("id")
     private Integer id;
+    
+    
+    
+    
+    @JsonProperty("level")
+    private String level;
     
     
     
@@ -31790,14 +31174,14 @@ public static class TATLocationDetailsRequest{
     
     
     
-    @JsonProperty("fulfillment_id")
-    private Integer fulfillmentId;
-    
-    
-    
-    
     @JsonProperty("articles")
     private List<TATArticlesRequest> articles;
+    
+    
+    
+    
+    @JsonProperty("fulfillment_id")
+    private Integer fulfillmentId;
     
     
     
@@ -31818,14 +31202,14 @@ public static class TATViewRequest{
     
     
     
-    @JsonProperty("journey")
-    private String journey;
+    @JsonProperty("source")
+    private String source;
     
     
     
     
-    @JsonProperty("action")
-    private String action;
+    @JsonProperty("location_details")
+    private List<TATLocationDetailsRequest> locationDetails;
     
     
     
@@ -31836,54 +31220,20 @@ public static class TATViewRequest{
     
     
     
-    @JsonProperty("source")
-    private String source;
-    
-    
-    
-    
     @JsonProperty("identifier")
     private String identifier;
     
     
     
     
-    @JsonProperty("location_details")
-    private List<TATLocationDetailsRequest> locationDetails;
-    
-    
-    
-}
-
-
-/*
-    Model: TATErrorSchemaResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TATErrorSchemaResponse{
+    @JsonProperty("action")
+    private String action;
     
     
     
     
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
+    @JsonProperty("journey")
+    private String journey;
     
     
     
@@ -31975,6 +31325,40 @@ public static class TATPromiseResponse{
 
 
 /*
+    Model: TATErrorSchemaResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TATErrorSchemaResponse{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+}
+
+
+/*
     Model: TATArticlesResponse
 */
 @AllArgsConstructor
@@ -31988,8 +31372,8 @@ public static class TATArticlesResponse{
     
     
     
-    @JsonProperty("manufacturing_time")
-    private Integer manufacturingTime;
+    @JsonProperty("category")
+    private TATCategoryRequest category;
     
     
     
@@ -32000,8 +31384,14 @@ public static class TATArticlesResponse{
     
     
     
-    @JsonProperty("category")
-    private TATCategoryRequest category;
+    @JsonProperty("manufacturing_time_unit")
+    private String manufacturingTimeUnit;
+    
+    
+    
+    
+    @JsonProperty("manufacturing_time")
+    private Integer manufacturingTime;
     
     
     
@@ -32014,12 +31404,6 @@ public static class TATArticlesResponse{
     
     @JsonProperty("error")
     private TATErrorSchemaResponse error;
-    
-    
-    
-    
-    @JsonProperty("manufacturing_time_unit")
-    private String manufacturingTimeUnit;
     
     
     
@@ -32052,14 +31436,14 @@ public static class TATLocationDetailsResponse{
     
     
     
-    @JsonProperty("fulfillment_id")
-    private Integer fulfillmentId;
-    
-    
-    
-    
     @JsonProperty("articles")
     private List<TATArticlesResponse> articles;
+    
+    
+    
+    
+    @JsonProperty("fulfillment_id")
+    private Integer fulfillmentId;
     
     
     
@@ -32080,20 +31464,8 @@ public static class TATViewResponse{
     
     
     
-    @JsonProperty("journey")
-    private String journey;
-    
-    
-    
-    
-    @JsonProperty("action")
-    private String action;
-    
-    
-    
-    
-    @JsonProperty("to_pincode")
-    private String toPincode;
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -32104,44 +31476,8 @@ public static class TATViewResponse{
     
     
     
-    @JsonProperty("to_city")
-    private String toCity;
-    
-    
-    
-    
     @JsonProperty("source")
     private String source;
-    
-    
-    
-    
-    @JsonProperty("request_uuid")
-    private String requestUuid;
-    
-    
-    
-    
-    @JsonProperty("error")
-    private TATErrorSchemaResponse error;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("identifier")
-    private String identifier;
-    
-    
-    
-    
-    @JsonProperty("is_cod_available")
-    private Boolean isCodAvailable;
     
     
     
@@ -32152,12 +31488,119 @@ public static class TATViewResponse{
     
     
     
+    @JsonProperty("is_cod_available")
+    private Boolean isCodAvailable;
+    
+    
+    
+    
+    @JsonProperty("to_pincode")
+    private String toPincode;
+    
+    
+    
+    
+    @JsonProperty("request_uuid")
+    private String requestUuid;
+    
+    
+    
+    
+    @JsonProperty("identifier")
+    private String identifier;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private TATErrorSchemaResponse error;
+    
+    
+    
+    
+    @JsonProperty("to_city")
+    private String toCity;
+    
+    
+    
+    
     @JsonProperty("stormbreaker_uuid")
     private String stormbreakerUuid;
     
     
     
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("journey")
+    private String journey;
+    
+    
+    
 }
+
+
+/*
+    Model: GetZoneFromPincodeViewRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetZoneFromPincodeViewRequest{
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private String pincode;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+}
+
+
+/*
+    Model: GetZoneFromPincodeViewResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetZoneFromPincodeViewResponse{
+    
+    
+    
+    
+    @JsonProperty("serviceability_type")
+    private String serviceabilityType;
+    
+    
+    
+    
+    @JsonProperty("zones")
+    private List<String> zones;
+    
+    
+    
+}
+
+
+
 
 
 

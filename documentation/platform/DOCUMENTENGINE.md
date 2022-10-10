@@ -4,7 +4,7 @@
 
 ##### [Back to Platform docs](./README.md)
 
-## OrderInvoiceEngine Methods
+## DocumentEngine Methods
 Handles financial pdf generation of Fulfilment
 * [generateBulkPackageLabel](#generatebulkpackagelabel)
 * [generateBulkBoxLabel](#generatebulkboxlabel)
@@ -12,6 +12,7 @@ Handles financial pdf generation of Fulfilment
 * [generateNoc](#generatenoc)
 * [getLabelStatus](#getlabelstatus)
 * [getNocStatus](#getnocstatus)
+* [getPresignedURL](#getpresignedurl)
 * [getLabelPresignedURL](#getlabelpresignedurl)
 * [getNocPresignedURL](#getnocpresignedurl)
 
@@ -27,7 +28,7 @@ Generate Labels for Packages
 
 
 ```java
-client.orderinvoiceengine.generateBulkPackageLabel(body body) {
+client.documentengine.generateBulkPackageLabel(body body) {
   //use response
 }
 ```
@@ -80,7 +81,7 @@ Generate Labels for Boxes which will go inside package
 
 
 ```java
-client.orderinvoiceengine.generateBulkBoxLabel(body body) {
+client.documentengine.generateBulkBoxLabel(body body) {
   //use response
 }
 ```
@@ -133,7 +134,7 @@ Generate Labels for Shipments which contains packaged
 
 
 ```java
-client.orderinvoiceengine.generateBulkShipmentLabel(body body) {
+client.documentengine.generateBulkShipmentLabel(body body) {
   //use response
 }
 ```
@@ -186,7 +187,7 @@ Generate NOC for Seller having access to a fullfillment center
 
 
 ```java
-client.orderinvoiceengine.generateNoc(body body) {
+client.documentengine.generateNoc(body body) {
   //use response
 }
 ```
@@ -249,7 +250,7 @@ Get Staus of Label generations
 
 
 ```java
-client.orderinvoiceengine.getLabelStatus( uid) {
+client.documentengine.getLabelStatus( uid) {
   //use response
 }
 ```
@@ -303,7 +304,7 @@ Get Staus of NOC generation
 
 
 ```java
-client.orderinvoiceengine.getNocStatus( uid) {
+client.documentengine.getNocStatus( uid) {
   //use response
 }
 ```
@@ -361,6 +362,59 @@ Sucess Response, Status Of NOC Pdf generation
 ---
 
 
+### getPresignedURL
+Get Presigned URL to download PDFs
+
+
+
+
+```java
+client.documentengine.getPresignedURL(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes | Company ID |  
+| body | [InvoiceLabelPresignedRequestBody](#InvoiceLabelPresignedRequestBody) | yes | Request body |
+
+
+Use this API to generate Presigned URLs for downloading PDFs
+
+*Returned Response:*
+
+
+
+
+[SignedSuccessResponse](#SignedSuccessResponse)
+
+Sucess Response, Presigned URL of PDFs
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getLabelPresignedURL
 Get Presigned URL to download labels
 
@@ -368,7 +422,7 @@ Get Presigned URL to download labels
 
 
 ```java
-client.orderinvoiceengine.getLabelPresignedURL( uid) {
+client.documentengine.getLabelPresignedURL( uid) {
   //use response
 }
 ```
@@ -422,7 +476,7 @@ Get Presigned URL to download NOC Pdf
 
 
 ```java
-client.orderinvoiceengine.getNocPresignedURL( uid) {
+client.documentengine.getNocPresignedURL( uid) {
   //use response
 }
 ```
@@ -967,6 +1021,19 @@ Sucess Response, Presigned URL of NOC Pdf
  | ---------- | ---- | -------- | ----------- |
  | success | Boolean? |  yes  |  |
  | error | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [InvoiceLabelPresignedRequestBody](#InvoiceLabelPresignedRequestBody)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | documentType | String |  no  |  |
+ | entityId | String |  no  |  |
+ | expiresIn | Double? |  yes  |  |
 
 ---
 

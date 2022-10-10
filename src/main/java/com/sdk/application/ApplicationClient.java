@@ -40,6 +40,8 @@ public class ApplicationClient {
     
     public ApplicationService.LogisticService logistic;
     
+    public ApplicationService.DocumentEngineService documentEngine;
+    
 
     public ApplicationClient(ApplicationConfig applicationConfig) {
         
@@ -74,6 +76,8 @@ public class ApplicationClient {
         this.posCart = new ApplicationService().new PosCartService(applicationConfig);
         
         this.logistic = new ApplicationService().new LogisticService(applicationConfig);
+        
+        this.documentEngine = new ApplicationService().new DocumentEngineService(applicationConfig);
         
     }
 }
