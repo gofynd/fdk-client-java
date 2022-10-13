@@ -5122,7 +5122,7 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.ShipmentReasonsResponse getShipmentReasons(Integer shipmentId , String bagId ) throws IOException {
+    public ApplicationModels.ShipmentReasonsResponse getShipmentReasons(String shipmentId , String bagId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getShipmentReasons");
         
