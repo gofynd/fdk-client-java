@@ -14394,12 +14394,6 @@ public static class AuthenticationApiErrorSchema{
     
     
     
-    
-    @JsonProperty("is_deleted")
-    private Boolean isDeleted;
-    
-    
-    
 }
 
 
@@ -15056,12 +15050,6 @@ public static class PlatformSchema{
     
     
     
-    
-    @JsonProperty("session_timeout")
-    private Object sessionTimeout;
-    
-    
-    
 }
 
 
@@ -15535,34 +15523,6 @@ public static class Google{
     
     @JsonProperty("app_id")
     private String appId;
-    
-    
-    
-}
-
-
-/*
-    Model: SessionExpiry
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SessionExpiry{
-    
-    
-    
-    
-    @JsonProperty("duration")
-    private Integer duration;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
     
     
     
