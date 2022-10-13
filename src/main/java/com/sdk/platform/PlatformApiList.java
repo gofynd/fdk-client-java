@@ -895,6 +895,72 @@ interface UserApiList {
     @POST ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/platform/config")
     Call<PlatformModels.PlatformSchema> updatePlatformConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.PlatformSchema payload);
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_groups")
+    Call<PlatformModels.UserGroupResponseSchema> createUserGroup(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.CreateUserGroupSchema payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_groups")
+    Call<PlatformModels.UserGroupListResponseSchema> getUserGroups(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") String  pageNo ,  @Query("page_size") String  pageSize ,  @Query("name") String  name ,  @Query("status") String  status );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_groups/{group_id}")
+    Call<PlatformModels.UserGroupResponseSchema> updateUserGroup(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("group_id") String  groupId ,@Body PlatformModels.UpdateUserGroupSchema payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_groups/{group_id}")
+    Call<PlatformModels.UserGroupResponseSchema> getUserGroupById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("group_id") String  groupId );
+    
 }
 
 interface ContentApiList {
