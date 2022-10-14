@@ -29189,6 +29189,12 @@ public static class ShipmentBody{
     
     
     
+    @JsonProperty("store_invoice_id")
+    private String storeInvoiceId;
+    
+    
+    
+    
     @JsonProperty("products")
     private List<ProductDetail> products;
     
@@ -29197,12 +29203,6 @@ public static class ShipmentBody{
     
     @JsonProperty("data_update")
     private Object dataUpdate;
-    
-    
-    
-    
-    @JsonProperty("store_invoice_id")
-    private String storeInvoiceId;
     
     
     
@@ -29291,12 +29291,6 @@ public static class ShipmentStatusUpdateBody{
     
     
     
-    @JsonProperty("statuses")
-    private List<Statuses1> statuses;
-    
-    
-    
-    
     @JsonProperty("task")
     private Boolean task;
     
@@ -29305,6 +29299,12 @@ public static class ShipmentStatusUpdateBody{
     
     @JsonProperty("force_transition")
     private Boolean forceTransition;
+    
+    
+    
+    
+    @JsonProperty("statuses")
+    private List<Statuses1> statuses;
     
     
     
@@ -29325,14 +29325,14 @@ public static class ShipmentStatusUpdate{
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
     @JsonProperty("message")
     private List<Object> message;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
