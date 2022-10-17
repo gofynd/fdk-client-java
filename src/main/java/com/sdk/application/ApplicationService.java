@@ -760,9 +760,9 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -774,9 +774,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
     
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(collectionType, collectionId).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(collectionType, collectionId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1931,6 +1931,20 @@ public class ApplicationService {
     
     
     
+    public ApplicationModels.ResetPasswordSuccess sendResetPasswordMobile(String platform ,ApplicationModels.SendResetPasswordMobileRequestSchema body) throws IOException {
+    
+        Response<ApplicationModels.ResetPasswordSuccess> response = userApiList.sendResetPasswordMobile(platform, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.LoginSuccess forgotPassword(ApplicationModels.ForgotPasswordRequestSchema body) throws IOException {
     
         Response<ApplicationModels.LoginSuccess> response = userApiList.forgotPassword( body).execute();
@@ -2043,9 +2057,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.ArchiveUserSuccess archiveUser(ApplicationModels.ArchiveApplicationUserRequestSchema body) throws IOException {
+    public ApplicationModels.DeleteUserSuccess deleteUser(ApplicationModels.DeleteApplicationUserRequestSchema body) throws IOException {
     
-        Response<ApplicationModels.ArchiveUserSuccess> response = userApiList.archiveUser( body).execute();
+        Response<ApplicationModels.DeleteUserSuccess> response = userApiList.deleteUser( body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

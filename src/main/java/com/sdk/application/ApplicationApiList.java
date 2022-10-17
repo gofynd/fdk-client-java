@@ -70,11 +70,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -261,6 +261,9 @@ interface UserApiList {
     @POST ("/service/application/user/authentication/v1.0/login/password/reset")
     Call<ApplicationModels.ResetPasswordSuccess> sendResetPasswordEmail(@Query("platform") String platform ,@Body ApplicationModels.SendResetPasswordEmailRequestSchema payload);
     
+    @POST ("/service/application/user/authentication/v1.0/login/password/mobile/reset")
+    Call<ApplicationModels.ResetPasswordSuccess> sendResetPasswordMobile(@Query("platform") String platform ,@Body ApplicationModels.SendResetPasswordMobileRequestSchema payload);
+    
     @POST ("/service/application/user/authentication/v1.0/login/password/reset/forgot")
     Call<ApplicationModels.LoginSuccess> forgotPassword(@Body ApplicationModels.ForgotPasswordRequestSchema payload);
     
@@ -285,8 +288,8 @@ interface UserApiList {
     @POST ("/service/application/user/authentication/v1.0/password")
     Call<ApplicationModels.VerifyEmailSuccess> updatePassword(@Body ApplicationModels.UpdatePasswordRequestSchema payload);
     
-    @POST ("/service/application/user/authentication/v1.0/archive")
-    Call<ApplicationModels.ArchiveUserSuccess> archiveUser(@Body ApplicationModels.ArchiveApplicationUserRequestSchema payload);
+    @POST ("/service/application/user/authentication/v1.0/delete")
+    Call<ApplicationModels.DeleteUserSuccess> deleteUser(@Body ApplicationModels.DeleteApplicationUserRequestSchema payload);
     
     @GET ("/service/application/user/authentication/v1.0/logout")
     Call<ApplicationModels.LogoutSuccess> logout();
