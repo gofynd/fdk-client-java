@@ -2331,6 +2331,8 @@ public class ApplicationService {
             
                     relativeUrls.put("updatePassword","/service/application/user/authentication/v1.0/password".substring(1));
             
+                    relativeUrls.put("deleteUser","/service/application/user/authentication/v1.0/delete".substring(1));
+            
                     relativeUrls.put("logout","/service/application/user/authentication/v1.0/logout".substring(1));
             
                     relativeUrls.put("sendOTPOnMobile","/service/application/user/authentication/v1.0/otp/mobile/send".substring(1));
@@ -2663,6 +2665,23 @@ public class ApplicationService {
         
 
         Response<ApplicationModels.VerifyEmailSuccess> response = userApiList.updatePassword(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.DeleteUserSuccess deleteUser(ApplicationModels.DeleteApplicationUserRequestSchema body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("deleteUser");
+        
+
+        Response<ApplicationModels.DeleteUserSuccess> response = userApiList.deleteUser(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

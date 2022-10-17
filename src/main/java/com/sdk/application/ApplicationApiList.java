@@ -289,6 +289,9 @@ interface UserApiList {
     @POST 
     Call<ApplicationModels.VerifyEmailSuccess> updatePassword(@Url String url1 , @Body ApplicationModels.UpdatePasswordRequestSchema payload );
     
+    @POST 
+    Call<ApplicationModels.DeleteUserSuccess> deleteUser(@Url String url1 , @Body ApplicationModels.DeleteApplicationUserRequestSchema payload );
+    
     @GET 
     Call<ApplicationModels.LogoutSuccess> logout(@Url String url1);
     
