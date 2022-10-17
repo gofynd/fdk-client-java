@@ -149,11 +149,11 @@ client.application("<APPLICATION_ID>").configuration.updateBuildConfig( platform
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Current company id |   
 | applicationId | String | yes | Current application id |   
-| platformType | String | yes | Current platform name |  
+| platformType | String | yes | The device current platform name for which the app was built, e.g. android, ios. |  
 | body | [MobileAppConfigRequest](#MobileAppConfigRequest) | yes | Request body |
 
 
-Update build config for next build
+It Updates the build configuration for next build. It updates the details such as app name, landing page image, splash image used in a mobile build.
 
 *Returned Response:*
 
@@ -222,11 +222,17 @@ client.application("<APPLICATION_ID>").configuration.getPreviousVersions( platfo
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Current company id |   
 | applicationId | String | yes | Current application id |   
-| platformType | String | yes | Current platform name |  
+| platformType | String | yes | The device current platform name for which the app was built, e.g. android, ios. |  
 
 
 
-Get previous build versions
+It gives previous build versions info. It contains the details about platform type, build status, version name, and version code in previous build versions.
+Builed status - It shows application build status. Build status can be pending or cancelled or failed or success.
+    * pending
+    * cancelled
+    * failed
+    * success
+
 
 *Returned Response:*
 
@@ -5195,7 +5201,7 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
+ | message | String? |  yes  | Response message for validation failed |
 
 ---
 
@@ -5206,7 +5212,7 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
+ | message | String? |  yes  | Response message for not found |
 
 ---
 
@@ -5255,14 +5261,14 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | isActive | Boolean? |  yes  | Indicates the availability of the mobile build |
- | id | String? |  yes  | 24-digit Mongo Object ID |
+ | id | String? |  yes  | The unique identifier (24-digit Mongo Object ID) for mobile application configuration |
  | appName | String? |  yes  | Shows the name of the mobile app |
  | landingImage | [LandingImage](#LandingImage)? |  yes  |  |
  | splashImage | [SplashImage](#SplashImage)? |  yes  |  |
- | application | String? |  yes  | Application ID of the sales channel |
+ | application | String? |  yes  | Application ID of the current sales channel |
  | platformType | String? |  yes  | The device platform for which the mobile app was built, e.g. android, ios. |
- | createdAt | String? |  yes  | Epoch timestamp of app creation |
- | updatedAt | String? |  yes  | Epoch timestamp of last known modifications to the app |
+ | createdAt | String? |  yes  | Epoch timestamp of application configuration creation |
+ | updatedAt | String? |  yes  | Epoch timestamp of mobile application configuration updation |
  | v | Integer? |  yes  | Version key for tracking revisions. Default value is zero. |
  | packageName | String? |  yes  | Shows bundle identifier if device platform is iOS, and directory of the app if device platform is Android |
 
@@ -5314,7 +5320,7 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | versions | [BuildVersion](#BuildVersion)? |  yes  |  |
- | latestAvailableVersionName | String? |  yes  |  |
+ | latestAvailableVersionName | String? |  yes  | It shows latest available version name of the app build. |
 
 ---
 
@@ -5325,15 +5331,15 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | application | String? |  yes  |  |
- | platformType | String? |  yes  |  |
- | buildStatus | String? |  yes  |  |
- | versionName | String? |  yes  |  |
- | versionCode | Integer? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | v | Integer? |  yes  |  |
+ | id | String? |  yes  | The unique identifier (24-digit Mongo Object ID) for build version |
+ | application | String? |  yes  | Application ID of the current sales channel |
+ | platformType | String? |  yes  | The device platform for which the app was built, e.g. android, ios. |
+ | buildStatus | String? |  yes  | It shows application build status. Build status can be pending or cancelled or failed or success. |
+ | versionName | String? |  yes  | Version name of the app build |
+ | versionCode | Integer? |  yes  | Version code of the app build |
+ | createdAt | String? |  yes  | Epoch timestamp of build version creation |
+ | updatedAt | String? |  yes  | Epoch timestamp of build version updation |
+ | v | Integer? |  yes  | Field is used to track the revisions of a document. Defaul value is 0. |
 
 ---
 
@@ -6080,10 +6086,10 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | tokens | [Tokens](#Tokens)? |  yes  |  |
  | id | String? |  yes  | Unique identifier of the token |
- | application | String? |  yes  | Current application id |
+ | application | String? |  yes  | Current sales channel id |
  | createdAt | String? |  yes  | Epoch timestamp of token creation |
  | updatedAt | String? |  yes  | Epoch timestamp of token updation |
- | v | Integer? |  yes  | Show version of the Token |
+ | v | Integer? |  yes  | Version key for tracking revisions. Default value is zero. |
 
 ---
 
@@ -6424,10 +6430,10 @@ Success
  | pcr | [PcrFeature](#PcrFeature)? |  yes  |  |
  | order | [OrderFeature](#OrderFeature)? |  yes  |  |
  | id | String? |  yes  | The unique identifier for the sales channel features |
- | app | String? |  yes  |  |
+ | app | String? |  yes  | Current sales channel id |
  | createdAt | String? |  yes  | Epoch timestamp of sales channel feature creation |
  | updatedAt | String? |  yes  | Epoch timestamp of sales channel feature updation |
- | v | Integer? |  yes  |  |
+ | v | Integer? |  yes  | Version key for tracking revisions. Default value is zero. |
 
 ---
 
@@ -6565,7 +6571,7 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | application | Boolean? |  yes  | Allow application. Default value is false. |
  | products | Boolean? |  yes  | Allow products. Default value is false. |
- | collections | Boolean? |  yes  | Allow collection. Default value is false. |
+ | collections | Boolean? |  yes  | Allow collections. Default value is false. |
 
 ---
 
@@ -6638,8 +6644,8 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | enabled | Boolean? |  yes  |  |
- | basepath | String? |  yes  |  |
+ | enabled | Boolean? |  yes  | Shows sales channel website url is enabled or not |
+ | basepath | String? |  yes  | Base path for the current sales channel website |
 
 ---
 
@@ -6672,9 +6678,9 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | redirectFrom | String? |  yes  |  |
- | redirectTo | String? |  yes  |  |
- | type | String? |  yes  |  |
+ | redirectFrom | String? |  yes  | Old domain url of the sales channel. |
+ | redirectTo | String? |  yes  | New domain url of the sales channel. User will redirect from old domain to new domain. |
+ | type | String? |  yes  | It shows domain redirection type. Permanent redirection is for long time period redirection and temporary redirection for the short time period. |
 
 ---
 
@@ -6697,7 +6703,7 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | secureUrl | String? |  yes  | hosted Url of the image |
+ | secureUrl | String? |  yes  | Hosted Url of the image |
 
 ---
 
@@ -6711,26 +6717,26 @@ Success
  | website | [ApplicationWebsite](#ApplicationWebsite)? |  yes  |  |
  | cors | [ApplicationCors](#ApplicationCors)? |  yes  |  |
  | auth | [ApplicationAuth](#ApplicationAuth)? |  yes  |  |
- | description | String? |  yes  |  |
- | channelType | String? |  yes  |  |
+ | description | String? |  yes  | It contains details information about the sales channel. |
+ | channelType | String? |  yes  | It indicates different channel types like store, website-and-mobile-apps. Default value is store |
  | cacheTtl | Integer? |  yes  |  |
  | isInternal | Boolean? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | id | String? |  yes  |  |
- | name | String? |  yes  |  |
- | owner | String? |  yes  |  |
- | companyId | Integer? |  yes  |  |
+ | isActive | Boolean? |  yes  | Indicates sales channel is active or not active |
+ | id | String? |  yes  | The unique identifier of the sales channel |
+ | name | String? |  yes  | Name of the sales channel |
+ | owner | String? |  yes  | Unique id of the owner to identify owner |
+ | companyId | Integer? |  yes  | Company ID for the sales channel |
  | token | String? |  yes  |  |
  | redirections | ArrayList<[ApplicationRedirections](#ApplicationRedirections)>? |  yes  |  |
  | meta | ArrayList<[ApplicationMeta](#ApplicationMeta)>? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | v | Integer? |  yes  |  |
+ | createdAt | String? |  yes  | Epoch timestamp of sales channel creation |
+ | updatedAt | String? |  yes  | Epoch timestamp of sales channel updation |
+ | v | Integer? |  yes  | Version key for tracking revisions. Default value is zero. |
  | banner | [SecureUrl](#SecureUrl)? |  yes  |  |
  | logo | [SecureUrl](#SecureUrl)? |  yes  |  |
  | favicon | [SecureUrl](#SecureUrl)? |  yes  |  |
  | domains | ArrayList<[Domain](#Domain)>? |  yes  |  |
- | appType | String? |  yes  |  |
+ | appType | String? |  yes  | It shows application is live or in development mode. |
  | mobileLogo | [SecureUrl](#SecureUrl)? |  yes  |  |
  | domain | [Domain](#Domain)? |  yes  |  |
 
@@ -6849,13 +6855,13 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | pincode | Integer? |  yes  |  |
- | address1 | String? |  yes  |  |
- | address2 | String? |  yes  |  |
- | city | String? |  yes  |  |
- | state | String? |  yes  |  |
- | country | String? |  yes  |  |
- | addressType | String? |  yes  |  |
+ | pincode | Integer? |  yes  | Pin code of the city |
+ | address1 | String? |  yes  | Primary details about the address of the comapany |
+ | address2 | String? |  yes  | Secondary details about the address of the comapany |
+ | city | String? |  yes  | City name |
+ | state | String? |  yes  | State name |
+ | country | String? |  yes  | Country name |
+ | addressType | String? |  yes  | Indicates different office types like office, registered and home. |
 
 ---
 
@@ -6866,10 +6872,10 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | active | Boolean? |  yes  |  |
- | primary | Boolean? |  yes  |  |
- | verified | Boolean? |  yes  |  |
- | email | String? |  yes  |  |
+ | active | Boolean? |  yes  | Current email is active or not active |
+ | primary | Boolean? |  yes  | Indicates current email is primay email or not primary email of user |
+ | verified | Boolean? |  yes  | Indicates current email is verified email or not verified email |
+ | email | String? |  yes  | Email address of the user |
 
 ---
 
@@ -6880,11 +6886,11 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | active | Boolean? |  yes  |  |
- | primary | Boolean? |  yes  |  |
- | verified | Boolean? |  yes  |  |
- | countryCode | Integer? |  yes  |  |
- | phone | String? |  yes  |  |
+ | active | Boolean? |  yes  | Current phone number is active or not active |
+ | primary | Boolean? |  yes  | Indicates current phone number is primay  or not primary of user |
+ | verified | Boolean? |  yes  | Indicates current phone number is verified or not verified |
+ | countryCode | Integer? |  yes  | Country code |
+ | phone | String? |  yes  | Phone nubmer of the user |
 
 ---
 
@@ -6916,13 +6922,13 @@ Success
  | support | [InformationSupport](#InformationSupport)? |  yes  |  |
  | socialLinks | [SocialLinks](#SocialLinks)? |  yes  |  |
  | links | [Links](#Links)? |  yes  |  |
- | copyrightText | String? |  yes  | Copyright text |
+ | copyrightText | String? |  yes  | Copyright text for current sales channel |
  | id | String? |  yes  | Unique identifier of the application information |
  | businessHighlights | [BusinessHighlights](#BusinessHighlights)? |  yes  |  |
- | application | String? |  yes  | Application id |
+ | application | String? |  yes  | Current application id |
  | createdAt | String? |  yes  | Epoch timestamp of the application information creation |
  | updatedAt | String? |  yes  | Epoch timestamp of the application information updation |
- | v | Integer? |  yes  | Show version of the application information |
+ | v | Integer? |  yes  | Version key for tracking revisions. Default value is zero. |
 
 ---
 
@@ -6934,7 +6940,7 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | loc | String? |  yes  | Contain Address location |
- | addressLine | ArrayList<String>? |  yes  | Detailed address info of the company |
+ | addressLine | ArrayList<String>? |  yes  |  |
  | phone | [InformationPhone](#InformationPhone)? |  yes  |  |
  | city | String? |  yes  | City name |
  | country | String? |  yes  | Country name |
@@ -6949,8 +6955,8 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | code | String? |  yes  |  |
- | number | String? |  yes  |  |
+ | code | String? |  yes  | Unique code related to country for contact number |
+ | number | String? |  yes  | Contact number for application information |
 
 ---
 
@@ -6963,7 +6969,7 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | phone | ArrayList<String>? |  yes  |  |
  | email | ArrayList<String>? |  yes  |  |
- | timing | String? |  yes  |  |
+ | timing | String? |  yes  | Information support available timing for user |
 
 ---
 
@@ -7232,7 +7238,7 @@ Success
  | deployedStores | ArrayList<Integer>? |  yes  |  |
  | allStores | Boolean? |  yes  | Allow all stores of the ordering stores |
  | enabled | Boolean? |  yes  | Allow ordering stores |
- | type | String? |  yes  |  |
+ | type | String? |  yes  | For hard type delivery store selection is compulsory and for soft type delivery store selection is optional. |
  | id | String? |  yes  | The unique identifier of the ordering stores |
  | app | String? |  yes  | Current application id |
  | v | Integer? |  yes  | Version of the ordering stores |
