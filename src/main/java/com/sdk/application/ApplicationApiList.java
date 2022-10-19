@@ -24,9 +24,6 @@ interface CatalogApiList {
     Call<ApplicationModels.ProductFrequentlyComparedSimilarResponse> getComparedFrequentlyProductBySlug(@Url String url1);
     
     @GET 
-    Call<ApplicationModels.SimilarProductByTypeResponse> getProductSimilarByIdentifier(@Url String url1);
-    
-    @GET 
     Call<ApplicationModels.ProductVariantsResponse> getProductVariantsBySlug(@Url String url1);
     
     @GET 

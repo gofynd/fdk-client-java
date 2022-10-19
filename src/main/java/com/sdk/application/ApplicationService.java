@@ -41,8 +41,6 @@ public class ApplicationService {
             
                     relativeUrls.put("getComparedFrequentlyProductBySlug","/service/application/catalog/v1.0/products/{slug}/similar/compared-frequently/".substring(1));
             
-                    relativeUrls.put("getProductSimilarByIdentifier","/service/application/catalog/v1.0/products/{slug}/similar/{similar_type}/".substring(1));
-            
                     relativeUrls.put("getProductVariantsBySlug","/service/application/catalog/v1.0/products/{slug}/variants/".substring(1));
             
                     relativeUrls.put("getProductStockByIds","/service/application/catalog/v1.0/products/stock-status/".substring(1));
@@ -195,27 +193,6 @@ public class ApplicationService {
         
 
         Response<ApplicationModels.ProductFrequentlyComparedSimilarResponse> response = catalogApiList.getComparedFrequentlyProductBySlug(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.SimilarProductByTypeResponse getProductSimilarByIdentifier(String slug , String similarType ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getProductSimilarByIdentifier");
-        
-        fullUrl = fullUrl.replace("{" + "slug" +"}",slug.toString());
-        
-        fullUrl = fullUrl.replace("{" + "similar_type" +"}",similarType.toString());
-        
-
-        Response<ApplicationModels.SimilarProductByTypeResponse> response = catalogApiList.getProductSimilarByIdentifier(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
