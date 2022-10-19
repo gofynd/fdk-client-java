@@ -70,11 +70,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -548,6 +548,9 @@ interface PaymentApiList {
     
     @POST ("/service/application/payment/v1.0/payment/resend_or_cancel")
     Call<ApplicationModels.ResendOrCancelPaymentResponse> resendOrCancelPayment(@Body ApplicationModels.ResendOrCancelPaymentRequest payload);
+    
+    @POST ("/service/application/payment/v1.0/payment/html/render/")
+    Call<ApplicationModels.renderHTMLResponse> renderHTML(@Body ApplicationModels.renderHTMLRequest payload);
     
     @GET ("/service/application/payment/v1.0/refund/transfer-mode")
     Call<ApplicationModels.TransferModeResponse> getActiveRefundTransferModes();
