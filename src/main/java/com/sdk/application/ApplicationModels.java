@@ -19834,7 +19834,11 @@ public static class TagSourceSchema{
         
         login("login"), 
         
-        register("register");
+        register("register"), 
+        
+        shipmentPolicy("shipment-policy"), 
+        
+        returnPolicy("return-policy");
         
 
         private String priority;
