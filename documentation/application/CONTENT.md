@@ -2609,7 +2609,7 @@ Success. Returns a list of pages along with their details. Check the example sho
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | faqs | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | faqs | ArrayList<[FaqSchema](#FaqSchema)>? |  yes  |  |
 
 ---
 

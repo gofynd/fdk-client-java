@@ -18401,7 +18401,7 @@ public static class GetFaqSchema{
     
     
     @JsonProperty("faqs")
-    private List<Object> faqs;
+    private List<FaqSchema> faqs;
     
     
     
