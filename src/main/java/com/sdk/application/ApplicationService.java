@@ -1765,12 +1765,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartCheckoutResponse checkoutCart(String id ,ApplicationModels.CartCheckoutDetailRequest body) throws IOException {
+    public ApplicationModels.CartCheckoutResponse checkoutCart(ApplicationModels.CartCheckoutDetailRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("checkoutCart");
         
 
-        Response<ApplicationModels.CartCheckoutResponse> response = cartApiList.checkoutCart(fullUrl  ,id, body).execute();
+        Response<ApplicationModels.CartCheckoutResponse> response = cartApiList.checkoutCart(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

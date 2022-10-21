@@ -163,7 +163,7 @@ interface CartApiList {
     Call<ApplicationModels.CartShipmentsResponse> getShipments(@Url String url1, @Query("p") Boolean p , @Query("id") String id , @Query("address_id") String addressId , @Query("area_code") String areaCode );
     
     @POST 
-    Call<ApplicationModels.CartCheckoutResponse> checkoutCart(@Url String url1, @Query("id") String id  , @Body ApplicationModels.CartCheckoutDetailRequest payload );
+    Call<ApplicationModels.CartCheckoutResponse> checkoutCart(@Url String url1 , @Body ApplicationModels.CartCheckoutDetailRequest payload );
     
     @PUT 
     Call<ApplicationModels.CartMetaResponse> updateCartMeta(@Url String url1, @Query("id") String id  , @Body ApplicationModels.CartMetaRequest payload );
