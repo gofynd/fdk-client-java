@@ -14,8 +14,6 @@ public class PlatformClient {
     
     public PlatformService.LeadService lead;
     
-    public PlatformService.FeedbackService feedback;
-    
     public PlatformService.ThemeService theme;
     
     public PlatformService.UserService user;
@@ -64,8 +62,6 @@ public class PlatformClient {
         this.common = new PlatformService.CommonService(config);
         
         this.lead = new PlatformService.LeadService(config);
-        
-        this.feedback = new PlatformService.FeedbackService(config);
         
         this.theme = new PlatformService.ThemeService(config);
         
@@ -121,8 +117,6 @@ public class PlatformClient {
         
         public PlatformService.LeadService.ApplicationClient lead;
         
-        public PlatformService.FeedbackService.ApplicationClient feedback;
-        
         public PlatformService.ThemeService.ApplicationClient theme;
         
         public PlatformService.UserService.ApplicationClient user;
@@ -169,8 +163,6 @@ public class PlatformClient {
             this.common = new PlatformService.CommonService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.lead = new PlatformService.LeadService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.feedback = new PlatformService.FeedbackService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.theme = new PlatformService.ThemeService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
