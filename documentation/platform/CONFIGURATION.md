@@ -2634,6 +2634,18 @@ Success
 
 ```json
 {
+  "deployment_meta": {
+    "deployed_stores": [
+      1,
+      10
+    ],
+    "all_stores": false,
+    "enabled": true,
+    "type": "hard",
+    "_id": "5e7e5e4d6b5f3b4b54c95f9c",
+    "app": "000000000000000000000004",
+    "__v": 6
+  },
   "deployed_stores": [
     1,
     10
@@ -3388,7 +3400,7 @@ Success
 
 
 ### getIntegrationById
-Get integration data
+Get integration data by integration id
 
 
 
@@ -3408,7 +3420,7 @@ client.configuration.getIntegrationById( id) {
 
 
 
-Get integration data
+Get integration data by integration id for the current company
 
 *Returned Response:*
 
@@ -3550,7 +3562,7 @@ client.configuration.getAvailableOptIns( pageNo,  pageSize) {
 
 
 
-Get all available integration opt-ins
+Get all available integration opt-ins fot the current company
 
 *Returned Response:*
 
@@ -3714,7 +3726,7 @@ client.configuration.getSelectedOptIns( level,  uid,  pageNo,  pageSize) {
 
 
 
-Get company/store level integration opt-ins
+Get company/store level integration opt-ins for the current company
 
 *Returned Response:*
 
@@ -3955,7 +3967,7 @@ client.configuration.getIntegrationByLevelId( id,  level,  uid) {
 
 
 
-Get level data for integration
+Get level data for integration for current company
 
 *Returned Response:*
 
@@ -4028,7 +4040,7 @@ client.configuration.updateLevelUidIntegration( id,  level,  uid, body body) {
 | body | [IntegrationLevel](#IntegrationLevel) | yes | Request body |
 
 
-Update a store level opt-in for integration
+Update a store level opt-in for integration by store uid
 
 *Returned Response:*
 
@@ -5424,11 +5436,11 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | name | String? |  yes  | Full domain name |
+ | id | String? |  yes  | The unique identifier of the sales channel domain |
  | verified | Boolean? |  yes  | Domain is verified or not |
  | isPrimary | Boolean? |  yes  | Domain is primary or not |
  | isShortlink | Boolean? |  yes  | Shortlink is present or not for the domain |
- | id | String? |  yes  | The unique identifier of the sales channel domain |
- | name | String? |  yes  | Full domain name |
 
 ---
 
@@ -5524,9 +5536,9 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String |  no  |  |
+ | name | String |  no  | Domain url of the custom domain |
  | unsupported | Boolean? |  yes  | Whether TLD domain is supported or not |
- | isAvailable | Boolean |  no  |  |
+ | isAvailable | Boolean |  no  | Custom domain is available or not available |
  | price | Double? |  yes  | Price for purchasing a custom domain. Not present for fynd domain |
  | currency | String? |  yes  | Custom domain price currency. Not present for fynd domain |
 
@@ -5550,7 +5562,8 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
+ | success | Boolean? |  yes  | True when domain is deleted successfully |
+ | message | String? |  yes  | Domain removed successfully |
 
 ---
 
@@ -5574,21 +5587,21 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | validators | [Validators](#Validators)? |  yes  |  |
- | description | String? |  yes  |  |
- | descriptionHtml | String? |  yes  |  |
+ | description | String? |  yes  | Basic description about the opted integration |
+ | descriptionHtml | String? |  yes  | Basic html description about the opted integration |
  | constants | String? |  yes  |  |
  | companies | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | support | ArrayList<String>? |  yes  |  |
- | id | String? |  yes  |  |
- | name | String? |  yes  |  |
+ | id | String? |  yes  | The unique identifier for the opted integration. |
+ | name | String? |  yes  | Nmae of opted integration |
  | meta | ArrayList<[IntegrationMeta](#IntegrationMeta)>? |  yes  |  |
- | icon | String? |  yes  |  |
- | owner | String? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | token | String? |  yes  |  |
- | secret | String? |  yes  |  |
- | v | Integer? |  yes  |  |
+ | icon | String? |  yes  | Hosted url of the icon image |
+ | owner | String? |  yes  | Integration created user id |
+ | createdAt | String? |  yes  | Epoch timestamp of opted integration creation |
+ | updatedAt | String? |  yes  | Epoch timestamp of opted integration creation |
+ | token | String? |  yes  | Random generated fix length string for opted integration. It is auto-generated. It never going to changes once it is generated. |
+ | secret | String? |  yes  | Random generated fix length string for opted integration. It is auto-generated. It never going to changes once it is generated. |
+ | v | Integer? |  yes  | Version key for tracking revisions. Default value is zero. |
 
 ---
 
@@ -5614,7 +5627,7 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | jsonSchema | ArrayList<[JsonSchema](#JsonSchema)>? |  yes  |  |
- | browserScript | String? |  yes  |  |
+ | browserScript | String? |  yes  | Browser script for the company validator. |
 
 ---
 
@@ -5625,10 +5638,10 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | display | String? |  yes  |  |
- | key | String? |  yes  |  |
- | type | String? |  yes  |  |
- | tooltip | String? |  yes  |  |
+ | display | String? |  yes  | Display text of the validator json schema. It will show in the UI. |
+ | key | String? |  yes  | Key related to display text of the validator json schema. |
+ | type | String? |  yes  | Indicates the UI form field type, etc Text, dropdown. |
+ | tooltip | String? |  yes  | Tooltip text for the UI of the validator json schema. It will show in the UI. |
 
 ---
 
@@ -5640,7 +5653,7 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | jsonSchema | ArrayList<[JsonSchema](#JsonSchema)>? |  yes  |  |
- | browserScript | String? |  yes  |  |
+ | browserScript | String? |  yes  | Browser script for the store validator. |
 
 ---
 
@@ -5652,7 +5665,7 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | jsonSchema | ArrayList<[JsonSchema](#JsonSchema)>? |  yes  |  |
- | browserScript | String? |  yes  |  |
+ | browserScript | String? |  yes  | Browser script for the inventory validator. |
 
 ---
 
@@ -5664,7 +5677,7 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | jsonSchema | ArrayList<[JsonSchema](#JsonSchema)>? |  yes  |  |
- | browserScript | String? |  yes  |  |
+ | browserScript | String? |  yes  | Browser script for the order validator. |
 
 ---
 
@@ -5676,9 +5689,9 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | isPublic | Boolean? |  yes  |  |
- | id | String? |  yes  |  |
- | name | String? |  yes  |  |
- | value | String? |  yes  |  |
+ | id | String? |  yes  | The unique identifier of the integration meta |
+ | name | String? |  yes  | Nmae of integration meta |
+ | value | String? |  yes  | Value related to integration meta name |
 
 ---
 
@@ -5690,21 +5703,21 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | validators | [Validators](#Validators)? |  yes  |  |
- | description | String? |  yes  |  |
- | descriptionHtml | String? |  yes  |  |
+ | description | String? |  yes  | Basic description about the integration |
+ | descriptionHtml | String? |  yes  | Basic html description about the integration |
  | constants | HashMap<String,Object>? |  yes  |  |
  | companies | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | support | ArrayList<String>? |  yes  |  |
- | id | String? |  yes  |  |
- | name | String? |  yes  |  |
+ | id | String? |  yes  | The unique identifier of the integration |
+ | name | String? |  yes  | Name of the integration |
  | meta | ArrayList<[IntegrationMeta](#IntegrationMeta)>? |  yes  |  |
- | icon | String? |  yes  |  |
- | owner | String? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | token | String? |  yes  |  |
- | secret | String? |  yes  |  |
- | v | Integer? |  yes  |  |
+ | icon | String? |  yes  | Hosted url of the icon image |
+ | owner | String? |  yes  | Integration created user id |
+ | createdAt | String? |  yes  | Epoch timestamp of integration creation |
+ | updatedAt | String? |  yes  | Epoch timestamp of integration updation |
+ | token | String? |  yes  | Random generated fix length string. It is auto-generated. It never going to changes once it is generated. |
+ | secret | String? |  yes  | Random generated fix length string. It is auto-generated. It never going to changes once it is generated. |
+ | v | Integer? |  yes  | Version key for tracking revisions. Default value is zero. |
 
 ---
 
@@ -5726,19 +5739,19 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | opted | Boolean? |  yes  |  |
+ | opted | Boolean? |  yes  | Shows this integration is opted or not opted for the current company |
  | permissions | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | lastPatch | ArrayList<[LastPatch](#LastPatch)>? |  yes  |  |
- | id | String? |  yes  |  |
- | integration | String? |  yes  |  |
- | level | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
+ | id | String? |  yes  | The unique identifier of the integration config |
+ | integration | String? |  yes  | Integration id. Shows which integration you are enabling. |
+ | level | String? |  yes  | Indicates integration level. It can be company level or store level. |
+ | uid | Integer? |  yes  | It can be store uid or company uid. Depends on the level of integration. |
  | meta | ArrayList<[IntegrationMeta](#IntegrationMeta)>? |  yes  |  |
- | token | String? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | v | Integer? |  yes  |  |
- | data | HashMap<String,Object>? |  yes  |  |
+ | token | String? |  yes  | Random generated fix length string. It is auto-generated. It never going to changes once it is generated. |
+ | createdAt | String? |  yes  | Epoch timestamp of integration config creation |
+ | updatedAt | String? |  yes  | Epoch timestamp of integration config updation |
+ | v | Integer? |  yes  | Version key for tracking revisions. Default value is zero. |
+ | data | HashMap<String,Object>? |  yes  | Key value paired store data of schema of the integration |
 
 ---
 
@@ -5760,7 +5773,7 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | otherOpted | Boolean? |  yes  |  |
+ | otherOpted | Boolean? |  yes  | Allow store opted in other integration |
  | otherIntegration | [IntegrationOptIn](#IntegrationOptIn)? |  yes  |  |
  | otherEntity | [OtherEntity](#OtherEntity)? |  yes  |  |
 
@@ -5773,19 +5786,19 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | opted | Boolean? |  yes  |  |
+ | opted | Boolean? |  yes  | Allow other entity opted in integration |
  | permissions | ArrayList<String>? |  yes  |  |
  | lastPatch | ArrayList<[LastPatch](#LastPatch)>? |  yes  |  |
- | id | String? |  yes  |  |
- | integration | String? |  yes  |  |
- | level | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
+ | id | String? |  yes  | The unique identifier of the other entity for opted store integration |
+ | integration | String? |  yes  | Integration id. Shows which integration you are enabling. |
+ | level | String? |  yes  | Indicates integration level. It can be company level or store level. |
+ | uid | Integer? |  yes  | It can be store uid or company uid. Depends on the level of integration. |
  | data | [OtherEntityData](#OtherEntityData)? |  yes  |  |
  | meta | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | token | String? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | v | Integer? |  yes  |  |
+ | token | String? |  yes  | Random generated fix length string. It is auto-generated. It never going to changes once it is generated. |
+ | createdAt | String? |  yes  | Epoch timestamp of other entity creation for opted store integration |
+ | updatedAt | String? |  yes  | Epoch timestamp of other entity updation for opted store integration |
+ | v | Integer? |  yes  | Version key for tracking revisions. Default value is zero. |
 
 ---
 
@@ -5798,7 +5811,7 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | op | String? |  yes  |  |
  | path | String? |  yes  |  |
- | value | String? |  yes  |  |
+ | value | String? |  yes  | Indicates which integration level you are doing. It can be inventory level or order level. |
 
 ---
 
