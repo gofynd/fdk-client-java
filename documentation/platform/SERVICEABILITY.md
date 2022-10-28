@@ -6,29 +6,31 @@
 
 ## Serviceability Methods
 Logistics Configuration API's allows you to configure zone, application logistics and many more useful features. 
-* [postApplicationServiceability](#postapplicationserviceability)
 * [getApplicationServiceability](#getapplicationserviceability)
+* [postApplicationServiceability](#postapplicationserviceability)
 * [getEntityRegionView](#getentityregionview)
 * [getListView](#getlistview)
 * [getCompanyStoreView](#getcompanystoreview)
-* [updateZoneControllerView](#updatezonecontrollerview)
 * [getZoneDataView](#getzonedataview)
+* [updateZoneControllerView](#updatezonecontrollerview)
 * [upsertZoneControllerView](#upsertzonecontrollerview)
-* [upsertZoneControllerView](#upsertzonecontrollerview)
+* [getZonesFromApplicationIdView](#getzonesfromapplicationidview)
+* [getZoneFromPincodeView](#getzonefrompincodeview)
+* [getZoneListView](#getzonelistview)
 
 
 
 ## Methods with example and description
 
 
-### postApplicationServiceability
+### getApplicationServiceability
 Zone configuration of application.
 
 
 
 
 ```java
-client.application("<APPLICATION_ID>").serviceability.postApplicationServiceability(body body) {
+client.application("<APPLICATION_ID>").serviceability.getApplicationServiceability() {
   //use response
 }
 ```
@@ -39,7 +41,7 @@ client.application("<APPLICATION_ID>").serviceability.postApplicationServiceabil
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | A `company_id` is a unique identifier for a particular seller account. |   
 | applicationId | String | yes | A `application_id` is a unique identifier for a particular sale channel. |  
-| body | [ApplicationServiceabilityConfig](#ApplicationServiceabilityConfig) | yes | Request body |
+
 
 
 This API returns serviceability config of the application.
@@ -87,14 +89,14 @@ Response Data
 ---
 
 
-### getApplicationServiceability
+### postApplicationServiceability
 Zone configuration of application.
 
 
 
 
 ```java
-client.application("<APPLICATION_ID>").serviceability.getApplicationServiceability() {
+client.application("<APPLICATION_ID>").serviceability.postApplicationServiceability(body body) {
   //use response
 }
 ```
@@ -105,7 +107,7 @@ client.application("<APPLICATION_ID>").serviceability.getApplicationServiceabili
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | A `company_id` is a unique identifier for a particular seller account. |   
 | applicationId | String | yes | A `application_id` is a unique identifier for a particular sale channel. |  
-
+| body | [ApplicationServiceabilityConfig](#ApplicationServiceabilityConfig) | yes | Request body |
 
 
 This API returns serviceability config of the application.
@@ -213,7 +215,7 @@ Zone List of application.
 
 
 ```java
-client.serviceability.getListView( pageNumber,  pageSize,  name,  isActive,  channelIds,  q) {
+client.serviceability.getListView( pageNumber,  pageNo,  pageSize,  name,  isActive,  channelIds,  q,  zoneId) {
   //use response
 }
 ```
@@ -224,11 +226,13 @@ client.serviceability.getListView( pageNumber,  pageSize,  name,  isActive,  cha
 | --------- | -----  | -------- | ----------- | 
 | companyId | Integer | yes | A `company_id` is a unique identifier for a particular sale channel. |   
 | pageNumber | Integer? | no | index of the item to start returning with |   
+| pageNo | Integer? | no | index of the item to start returning with |   
 | pageSize | Integer? | no | determines the items to be displayed in a page |   
 | name | String? | no | Name of particular zone in the seller account |   
 | isActive | Boolean? | no | status of  zone whether active or inactive |   
 | channelIds | String? | no | zones associated with the given channel ids' |   
-| q | String? | no | search with name as a free text |  
+| q | String? | no | search with name as a free text |   
+| zoneId | List<String>? | no | list of zones to query for |  
 
 
 
@@ -318,60 +322,6 @@ Get Company Store View Data
 ---
 
 
-### updateZoneControllerView
-Updation of zone collections in database.
-
-
-
-
-```java
-client.serviceability.updateZoneControllerView( zoneId, body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| zoneId | String | yes | A `zone_id` is a unique identifier for a particular zone. |   
-| companyId | Integer | yes | A `company_id` is a unique identifier for a particular sale channel. |  
-| body | [ZoneUpdateRequest](#ZoneUpdateRequest) | yes | Request body |
-
-
-This API returns response of updation of zone in mongo database.
-
-*Returned Response:*
-
-
-
-
-[ZoneSuccessResponse](#ZoneSuccessResponse)
-
-Response status_code
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### getZoneDataView
 Zone Data View of application.
 
@@ -403,6 +353,60 @@ This API returns Zone Data View of the application.
 [GetSingleZoneDataViewResponse](#GetSingleZoneDataViewResponse)
 
 Get Application Zone Data
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### updateZoneControllerView
+Updation of zone collections in database.
+
+
+
+
+```java
+client.serviceability.updateZoneControllerView( zoneId, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| zoneId | String | yes | A `zone_id` is a unique identifier for a particular zone. |   
+| companyId | Integer | yes | A `company_id` is a unique identifier for a particular sale channel. |  
+| body | [ZoneUpdateRequest](#ZoneUpdateRequest) | yes | Request body |
+
+
+This API returns response of updation of zone in mongo database.
+
+*Returned Response:*
+
+
+
+
+[ZoneSuccessResponse](#ZoneSuccessResponse)
+
+Response status_code
 
 
 
@@ -479,14 +483,72 @@ Response status_code
 ---
 
 
-### upsertZoneControllerView
+### getZonesFromApplicationIdView
+GET zones from the application_id.
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").serviceability.getZonesFromApplicationIdView( pageNo,  pageSize,  zoneId,  q) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes | A `company_id` contains a specific ID of a company. |   
+| applicationId | String | yes | A `application_id` contains a unique ID. |   
+| pageNo | Integer? | no | index of the item to start returning with |   
+| pageSize | Integer? | no | determines the items to be displayed in a page |   
+| zoneId | List<String>? | no | list of zones to query for |   
+| q | String? | no | search with name as a free text |  
+
+
+
+This API returns zones from the application_id View.
+
+*Returned Response:*
+
+
+
+
+[GetZoneFromApplicationIdViewResponse](#GetZoneFromApplicationIdViewResponse)
+
+List of zones for the given application_id
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getZoneFromPincodeView
 GET zone from the Pincode.
 
 
 
 
 ```java
-client.application("<APPLICATION_ID>").serviceability.upsertZoneControllerView(body body) {
+client.application("<APPLICATION_ID>").serviceability.getZoneFromPincodeView(body body) {
   //use response
 }
 ```
@@ -533,16 +595,79 @@ Response status_code
 ---
 
 
+### getZoneListView
+Zone List of application.
+
+
+
+
+```java
+client.serviceability.getZoneListView( pageNumber,  pageNo,  pageSize,  name,  isActive,  channelIds,  q,  zoneId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes | A `company_id` is a unique identifier for a particular sale channel. |   
+| pageNumber | Integer? | no | index of the item to start returning with |   
+| pageNo | Integer? | no | index of the item to start returning with |   
+| pageSize | Integer? | no | determines the items to be displayed in a page |   
+| name | String? | no | Name of particular zone in the seller account |   
+| isActive | Boolean? | no | status of  zone whether active or inactive |   
+| channelIds | String? | no | zones associated with the given channel ids' |   
+| q | String? | no | search with name as a free text |   
+| zoneId | List<String>? | no | list of zones to query for |  
+
+
+
+This API returns Zone List View of the application.
+
+*Returned Response:*
+
+
+
+
+[ListViewResponse](#ListViewResponse)
+
+Zone List of application in descending order of their last modified date.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 
 ### Schemas
 
  
  
- #### [ApplicationServiceabilityConfig](#ApplicationServiceabilityConfig)
+ #### [ApplicationServiceabilityResponse](#ApplicationServiceabilityResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | serviceabilityType | String |  no  |  |
+ | channelType | String |  no  |  |
+ | channelId | String |  no  |  |
 
 ---
 
@@ -562,26 +687,24 @@ Response status_code
 
  
  
- #### [ApplicationServiceabilityResponse](#ApplicationServiceabilityResponse)
+ #### [ApplicationServiceabilityConfigResponse](#ApplicationServiceabilityConfigResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | channelType | String |  no  |  |
- | channelId | String |  no  |  |
- | serviceabilityType | String |  no  |  |
+ | success | Boolean |  no  |  |
+ | data | [ApplicationServiceabilityResponse](#ApplicationServiceabilityResponse)? |  yes  |  |
+ | error | [ServiceabilityErrorResponse](#ServiceabilityErrorResponse)? |  yes  |  |
 
 ---
 
 
  
  
- #### [ApplicationServiceabilityConfigResponse](#ApplicationServiceabilityConfigResponse)
+ #### [ApplicationServiceabilityConfig](#ApplicationServiceabilityConfig)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | error | [ServiceabilityErrorResponse](#ServiceabilityErrorResponse)? |  yes  |  |
- | success | Boolean |  no  |  |
- | data | [ApplicationServiceabilityResponse](#ApplicationServiceabilityResponse)? |  yes  |  |
+ | serviceabilityType | String |  no  |  |
 
 ---
 
@@ -592,8 +715,36 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | parentId | ArrayList<String>? |  yes  |  |
  | subType | ArrayList<String> |  no  |  |
+ | parentId | ArrayList<String>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [EntityRegionViewItems](#EntityRegionViewItems)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | subType | String |  no  |  |
+ | uid | String |  no  |  |
+ | name | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [EntityRegionViewPage](#EntityRegionViewPage)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | itemTotal | Integer |  no  |  |
+ | current | Integer |  no  |  |
+ | type | String |  no  |  |
+ | size | Integer |  no  |  |
+ | hasNext | Boolean |  no  |  |
 
 ---
 
@@ -613,42 +764,27 @@ Response status_code
 
  
  
- #### [EntityRegionViewPage](#EntityRegionViewPage)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | size | Integer |  no  |  |
- | type | String |  no  |  |
- | hasNext | Boolean |  no  |  |
- | itemTotal | Integer |  no  |  |
- | current | Integer |  no  |  |
-
----
-
-
- 
- 
- #### [EntityRegionViewItems](#EntityRegionViewItems)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String |  no  |  |
- | uid | String |  no  |  |
- | subType | String |  no  |  |
-
----
-
-
- 
- 
  #### [EntityRegionViewResponse](#EntityRegionViewResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | error | [EntityRegionViewError](#EntityRegionViewError) |  no  |  |
- | page | [EntityRegionViewPage](#EntityRegionViewPage) |  no  |  |
- | data | ArrayList<[EntityRegionViewItems](#EntityRegionViewItems)> |  no  |  |
  | success | Boolean |  no  |  |
+ | data | ArrayList<[EntityRegionViewItems](#EntityRegionViewItems)> |  no  |  |
+ | page | [EntityRegionViewPage](#EntityRegionViewPage) |  no  |  |
+ | error | [EntityRegionViewError](#EntityRegionViewError) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ListViewSummary](#ListViewSummary)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | totalZones | Integer |  no  |  |
+ | totalPincodesServed | Integer |  no  |  |
+ | totalActiveZones | Integer |  no  |  |
 
 ---
 
@@ -671,8 +807,8 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String |  no  |  |
  | count | Integer |  no  |  |
+ | type | String |  no  |  |
 
 ---
 
@@ -683,13 +819,13 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | channels | [ListViewChannels](#ListViewChannels) |  no  |  |
- | pincodesCount | Integer |  no  |  |
- | name | String |  no  |  |
  | isActive | Boolean |  no  |  |
- | storesCount | Integer |  no  |  |
- | companyId | Integer |  no  |  |
  | slug | String |  no  |  |
+ | storesCount | Integer |  no  |  |
+ | channels | [ListViewChannels](#ListViewChannels) |  no  |  |
+ | companyId | Integer |  no  |  |
+ | name | String |  no  |  |
+ | pincodesCount | Integer |  no  |  |
  | product | [ListViewProduct](#ListViewProduct) |  no  |  |
  | zoneId | String |  no  |  |
 
@@ -702,24 +838,11 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | size | Integer |  no  |  |
- | hasNext | Boolean |  no  |  |
- | type | String |  no  |  |
  | itemTotal | Integer |  no  |  |
  | current | Integer |  no  |  |
-
----
-
-
- 
- 
- #### [ListViewSummary](#ListViewSummary)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | totalPincodesServed | Integer |  no  |  |
- | totalZones | Integer |  no  |  |
- | totalActiveZones | Integer |  no  |  |
+ | type | String |  no  |  |
+ | size | Integer |  no  |  |
+ | hasNext | Boolean |  no  |  |
 
 ---
 
@@ -730,9 +853,9 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | summary | ArrayList<[ListViewSummary](#ListViewSummary)> |  no  |  |
  | items | ArrayList<[ListViewItems](#ListViewItems)> |  no  |  |
  | page | ArrayList<[ZoneDataItem](#ZoneDataItem)> |  no  |  |
- | summary | ArrayList<[ListViewSummary](#ListViewSummary)> |  no  |  |
 
 ---
 
@@ -743,11 +866,11 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | size | Integer |  no  |  |
- | type | String |  no  |  |
- | hasNext | Boolean |  no  |  |
  | itemTotal | Integer |  no  |  |
  | current | Integer |  no  |  |
+ | type | String |  no  |  |
+ | size | Integer |  no  |  |
+ | hasNext | Boolean |  no  |  |
 
 ---
 
@@ -794,9 +917,43 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | pincode | ArrayList<String>? |  yes  |  |
  | state | ArrayList<String>? |  yes  |  |
  | country | String |  no  |  |
- | pincode | ArrayList<String>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GetZoneDataViewItems](#GetZoneDataViewItems)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | zoneId | String |  no  |  |
+ | name | String |  no  |  |
+ | slug | String |  no  |  |
+ | companyId | Integer |  no  |  |
+ | isActive | Boolean |  no  |  |
+ | channels | ArrayList<[GetZoneDataViewChannels](#GetZoneDataViewChannels)> |  no  |  |
+ | product | [ZoneProductTypes](#ZoneProductTypes) |  no  |  |
+ | storeIds | ArrayList<Integer> |  no  |  |
+ | regionType | String |  no  |  |
+ | mapping | ArrayList<[ZoneMappingType](#ZoneMappingType)> |  no  |  |
+ | assignmentPreference | String? |  yes  |  |
+ | storesCount | Integer |  no  |  |
+ | pincodesCount | Integer |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GetSingleZoneDataViewResponse](#GetSingleZoneDataViewResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | data | [GetZoneDataViewItems](#GetZoneDataViewItems) |  no  |  |
 
 ---
 
@@ -840,42 +997,8 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | statusCode | Integer |  no  |  |
  | success | Boolean |  no  |  |
-
----
-
-
- 
- 
- #### [GetZoneDataViewItems](#GetZoneDataViewItems)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | zoneId | String |  no  |  |
- | name | String |  no  |  |
- | slug | String |  no  |  |
- | companyId | Integer |  no  |  |
- | isActive | Boolean |  no  |  |
- | channels | ArrayList<[GetZoneDataViewChannels](#GetZoneDataViewChannels)> |  no  |  |
- | product | [ZoneProductTypes](#ZoneProductTypes) |  no  |  |
- | storeIds | ArrayList<Integer> |  no  |  |
- | regionType | String |  no  |  |
- | mapping | ArrayList<[ZoneMappingType](#ZoneMappingType)> |  no  |  |
- | assignmentPreference | String? |  yes  |  |
- | storesCount | Integer |  no  |  |
- | pincodesCount | Integer |  no  |  |
-
----
-
-
- 
- 
- #### [GetSingleZoneDataViewResponse](#GetSingleZoneDataViewResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | data | [GetZoneDataViewItems](#GetZoneDataViewItems) |  no  |  |
+ | statusCode | Integer |  no  |  |
 
 ---
 
@@ -918,9 +1041,21 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | statusCode | Integer |  no  |  |
  | success | Boolean |  no  |  |
  | zoneId | String |  no  |  |
+ | statusCode | Integer |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GetZoneFromApplicationIdViewResponse](#GetZoneFromApplicationIdViewResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | items | ArrayList<[ListViewItems](#ListViewItems)> |  no  |  |
+ | page | ArrayList<[ZoneDataItem](#ZoneDataItem)> |  no  |  |
 
 ---
 
@@ -931,8 +1066,8 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | country | String |  no  |  |
  | pincode | String |  no  |  |
+ | country | String |  no  |  |
 
 ---
 
@@ -943,8 +1078,8 @@ Response status_code
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | serviceabilityType | String |  no  |  |
  | zones | ArrayList<String> |  no  |  |
+ | serviceabilityType | String |  no  |  |
 
 ---
 
