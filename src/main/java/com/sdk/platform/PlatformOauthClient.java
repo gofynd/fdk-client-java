@@ -86,7 +86,6 @@ public class PlatformOauthClient {
         this.rawToken = accessTokenDto;
         this.tokenExpiresIn = accessTokenDto.getExpiresIn();
         this.token = accessTokenDto.getAccessToken();
-        this.tokenExpiresAt = accessTokenDto.getExpiresAt();
         this.refreshToken = ObjectUtils.isEmpty(
                 accessTokenDto.getRefreshToken()) ? "" : accessTokenDto.getRefreshToken();
         if (ObjectUtils.isEmpty(this.refreshToken) && this.useAutoRenewTimer.equals(Boolean.TRUE)) {
@@ -139,9 +138,12 @@ public class PlatformOauthClient {
         String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/token";
         AccessTokenDto newToken = getToken(body, url);
         if (Objects.nonNull(newToken.getExpiresAt())) {
-            newToken.setExpiresAt(newToken.getExpiresAt());
+            Long tokenExpires = newToken.getExpiresAt();
+            newToken.setExpiresAt(tokenExpires);
+            this.tokenExpiresAt = tokenExpires;
         } else {
             newToken.setExpiresAt((new Date()).getTime() + (this.tokenExpiresIn * 1000L));
+            this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
         }
 
         setToken(newToken);
@@ -156,9 +158,12 @@ public class PlatformOauthClient {
         String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/token";
         AccessTokenDto newToken = getToken(body, url);
         if (Objects.nonNull(newToken.getExpiresAt())) {
-            newToken.setExpiresAt(newToken.getExpiresAt());
+            Long tokenExpires = newToken.getExpiresAt();
+            newToken.setExpiresAt(tokenExpires);
+            this.tokenExpiresAt = tokenExpires;
         } else {
             newToken.setExpiresAt((new Date()).getTime() + (this.tokenExpiresIn * 1000L));
+            this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
         }
 
         setToken(newToken);
@@ -180,9 +185,12 @@ public class PlatformOauthClient {
             String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/offline-token";
             AccessTokenDto offlineToken = getOfflineToken(body, url);
             if (Objects.nonNull(offlineToken.getExpiresAt())) {
-                offlineToken.setExpiresAt(offlineToken.getExpiresAt());
+                Long tokenExpires = offlineToken.getExpiresAt();
+                offlineToken.setExpiresAt(tokenExpires);
+                this.tokenExpiresAt = tokenExpires;
             } else {
                 offlineToken.setExpiresAt((new Date()).getTime() + (this.tokenExpiresIn * 1000L));
+                this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
             }
 
             setToken(offlineToken);
@@ -256,7 +264,6 @@ public class PlatformOauthClient {
         this.rawToken = accessTokenDto;
         this.tokenExpiresIn = accessTokenDto.getExpiresIn();
         this.token = accessTokenDto.getAccessToken();
-        this.tokenExpiresAt = accessTokenDto.getExpiresAt();
         this.refreshToken = ObjectUtils.isEmpty(
                 accessTokenDto.getRefreshToken()) ? "" : accessTokenDto.getRefreshToken();
     }
@@ -265,9 +272,12 @@ public class PlatformOauthClient {
         String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/token";
         AccessTokenDto newToken = getToken(body, url);
         if (Objects.nonNull(newToken.getExpiresAt())) {
-            newToken.setExpiresAt(newToken.getExpiresAt());
+            Long tokenExpires = newToken.getExpiresAt();
+            newToken.setExpiresAt(tokenExpires);
+            this.tokenExpiresAt = tokenExpires;
         } else {
             newToken.setExpiresAt((new Date()).getTime() + (this.tokenExpiresIn * 1000L));
+            this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
         }
         setTokenNew(newToken);
         return newToken;
