@@ -2061,6 +2061,8 @@ public static class UserService {
     
     
     
+    
+    
 
 
 public class ApplicationClient {
@@ -2230,6 +2232,36 @@ public class ApplicationClient {
     public PlatformModels.ArchiveUserSuccess archiveUser(PlatformModels.ArchiveUserRequestSchema body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ArchiveUserSuccess> response = userApiList.archiveUser(this.companyId , this.applicationId , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.UnDeleteUserSuccess unDeleteUser(PlatformModels.UnDeleteUserRequestSchema body) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.UnDeleteUserSuccess> response = userApiList.unDeleteUser(this.companyId , this.applicationId , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5765,6 +5797,10 @@ public static class CommunicationService {
     
     
     
+    
+    
+    
+    
 
 
 public class ApplicationClient {
@@ -7383,6 +7419,66 @@ public class ApplicationClient {
     }
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.SendOtpCommsRes sendOtp(PlatformModels.SendOtpCommsReq body) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.SendOtpCommsRes> response = communicationApiList.sendOtp(this.companyId , this.applicationId , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.VerifyOtpCommsSuccessRes verfiyOtp(PlatformModels.VerifyOtpCommsReq body) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.VerifyOtpCommsSuccessRes> response = communicationApiList.verfiyOtp(this.companyId , this.applicationId , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
     
     
     
@@ -14948,9 +15044,9 @@ public static class FileStorageService {
     
     
     
-    public PlatformModels.BulkResponse copyFiles(Boolean sync ,PlatformModels.BulkRequest body) throws IOException {
+    public PlatformModels.BulkUploadResponse copyFiles(Boolean sync ,PlatformModels.BulkRequest body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.BulkResponse> response = filestorageApiList.copyFiles(this.companyId ,sync , body).execute();
+            Response<PlatformModels.BulkUploadResponse> response = filestorageApiList.copyFiles(this.companyId ,sync , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -15194,9 +15290,9 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.BulkResponse appCopyFiles(Boolean sync ,PlatformModels.BulkRequest body) throws IOException {
+    public PlatformModels.BulkUploadResponse appCopyFiles(Boolean sync ,PlatformModels.BulkRequest body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.BulkResponse> response = filestorageApiList.appCopyFiles(this.companyId , this.applicationId ,sync , body).execute();
+            Response<PlatformModels.BulkUploadResponse> response = filestorageApiList.appCopyFiles(this.companyId , this.applicationId ,sync , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

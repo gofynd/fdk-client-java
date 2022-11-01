@@ -273,9 +273,9 @@ We are processing the order!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | forceTransition | Boolean? |  yes  |  |
  | task | Boolean? |  yes  |  |
  | statuses | [Statuses](#Statuses)? |  yes  |  |
+ | forceTransition | Boolean? |  yes  |  |
 
 ---
 
@@ -286,8 +286,8 @@ We are processing the order!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
  | message | ArrayList<String>? |  yes  |  |
+ | success | Boolean? |  yes  |  |
 
 ---
 
@@ -298,8 +298,8 @@ We are processing the order!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
  | message | String? |  yes  |  |
+ | success | Boolean? |  yes  |  |
 
 ---
 
@@ -310,15 +310,15 @@ We are processing the order!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | l1Detail | String? |  yes  |  |
- | l3Detail | String? |  yes  |  |
- | type | String |  no  |  |
- | user | String |  no  |  |
  | message | String |  no  |  |
- | ticketId | String? |  yes  |  |
- | l2Detail | String? |  yes  |  |
+ | type | String |  no  |  |
  | createdat | String |  no  |  |
+ | user | String |  no  |  |
+ | ticketId | String? |  yes  |  |
  | ticketUrl | String? |  yes  |  |
+ | l1Detail | String? |  yes  |  |
+ | l2Detail | String? |  yes  |  |
+ | l3Detail | String? |  yes  |  |
 
 ---
 

@@ -832,6 +832,18 @@ interface UserApiList {
     
     
     
+    @PUT ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/undelete")
+    Call<PlatformModels.UnDeleteUserSuccess> unDeleteUser(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.UnDeleteUserRequestSchema payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -2460,6 +2472,30 @@ interface CommunicationApiList {
     
     @GET ("/service/platform/communication/v1.0/company/{company_id}/notification/system-notifications/")
     Call<PlatformModels.SystemNotifications> getSystemNotifications(@Path("company_id")  String companyId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/otp/send-otp-comms")
+    Call<PlatformModels.SendOtpCommsRes> sendOtp(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.SendOtpCommsReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/otp/verify-otp-comms")
+    Call<PlatformModels.VerifyOtpCommsSuccessRes> verfiyOtp(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.VerifyOtpCommsReq payload);
     
     
     
@@ -5332,7 +5368,7 @@ interface FileStorageApiList {
     
     
     @POST ("/service/platform/assets/v1.0/company/{company_id}/uploads/copy/")
-    Call<PlatformModels.BulkResponse> copyFiles(@Path("company_id")  String companyId , @Query("sync") Boolean  sync ,@Body PlatformModels.BulkRequest payload);
+    Call<PlatformModels.BulkUploadResponse> copyFiles(@Path("company_id")  String companyId , @Query("sync") Boolean  sync ,@Body PlatformModels.BulkRequest payload);
     
     
     
@@ -5347,7 +5383,7 @@ interface FileStorageApiList {
     
     
     @POST ("/service/platform/assets/v1.0/company/{company_id}/application/{application_id}/uploads/copy/")
-    Call<PlatformModels.BulkResponse> appCopyFiles(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("sync") Boolean  sync ,@Body PlatformModels.BulkRequest payload);
+    Call<PlatformModels.BulkUploadResponse> appCopyFiles(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("sync") Boolean  sync ,@Body PlatformModels.BulkRequest payload);
     
     
     
