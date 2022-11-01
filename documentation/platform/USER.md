@@ -2554,6 +2554,7 @@ Success. User Group details. `UserGroupResponseSchema` for more details.
  | ---------- | ---- | -------- | ----------- |
  | duration | Integer? |  yes  |  |
  | type | String? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
 
 ---
 

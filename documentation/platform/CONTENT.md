@@ -8030,7 +8030,7 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | id | String? |  yes  |  |
  | question | String? |  yes  |  |
  | answer | String? |  yes  |  |
- | tags | Object? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
 
 ---
 
