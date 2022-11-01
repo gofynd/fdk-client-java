@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Map;
-import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter
@@ -32,23 +30,5 @@ public class AccessTokenDto {
 
     @JsonProperty("expires_in")
     Long expiresIn;
-
-    @JsonProperty("id")
-    String id;
-
-    @JsonProperty("expire")
-    Date expire;
-    
-    @JsonProperty("extension_Id")
-    String extensionId;
-
-    @JsonProperty("state")
-    String state;
-
-    private List<String> scope;
-
-    @JsonProperty("expires_at")
-    Long expiresAt;
-
 
 }
