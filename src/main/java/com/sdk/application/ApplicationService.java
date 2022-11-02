@@ -4475,6 +4475,10 @@ public class FileStorageService extends FileStorage {
                     relativeUrls.put("checkCredit","/service/application/payment/v1.0/check-credits/".substring(1));
             
                     relativeUrls.put("customerOnboard","/service/application/payment/v1.0/credit-onboard/".substring(1));
+            
+                    relativeUrls.put("outstandingOrderDetails","/service/application/payment/v1.0/payment/outstanding-orders/".substring(1));
+            
+                    relativeUrls.put("paidOrderDetails","/service/application/payment/v1.0/payment/paid-orders/".substring(1));
              
 
     }
@@ -4970,6 +4974,40 @@ public class FileStorageService extends FileStorage {
 
     
     
+    
+    
+    public ApplicationModels.OutstandingOrderDetailsResponse outstandingOrderDetails(String aggregator ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("outstandingOrderDetails");
+        
+
+        Response<ApplicationModels.OutstandingOrderDetailsResponse> response = paymentApiList.outstandingOrderDetails(fullUrl  ,aggregator).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PaidOrderDetailsResponse paidOrderDetails(String aggregator ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("paidOrderDetails");
+        
+
+        Response<ApplicationModels.PaidOrderDetailsResponse> response = paymentApiList.paidOrderDetails(fullUrl  ,aggregator).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
       
 }
 
@@ -5036,12 +5074,12 @@ public class FileStorageService extends FileStorage {
 
      
     
-    public ApplicationModels.OrderList getOrders(Integer pageNo , Integer pageSize , String fromDate , String toDate , Integer status ) throws IOException {
+    public ApplicationModels.OrderList getOrders(Integer pageNo , Integer pageSize , String fromDate , String toDate , String status , String customMeta ) throws IOException {
      
       String fullUrl = relativeUrls.get("getOrders");
         
 
-        Response<ApplicationModels.OrderList> response = orderApiList.getOrders(fullUrl  ,pageNo, pageSize, fromDate, toDate, status).execute();
+        Response<ApplicationModels.OrderList> response = orderApiList.getOrders(fullUrl  ,pageNo, pageSize, fromDate, toDate, status, customMeta).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

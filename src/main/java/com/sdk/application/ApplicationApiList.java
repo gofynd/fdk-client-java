@@ -588,13 +588,19 @@ interface PaymentApiList {
     
     @POST 
     Call<ApplicationModels.CustomerOnboardingResponse> customerOnboard(@Url String url1 , @Body ApplicationModels.CustomerOnboardingRequest payload );
+    
+    @GET 
+    Call<ApplicationModels.OutstandingOrderDetailsResponse> outstandingOrderDetails(@Url String url1, @Query("aggregator") String aggregator );
+    
+    @GET 
+    Call<ApplicationModels.PaidOrderDetailsResponse> paidOrderDetails(@Url String url1, @Query("aggregator") String aggregator );
 }
 
 interface OrderApiList {
     
     
     @GET 
-    Call<ApplicationModels.OrderList> getOrders(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate , @Query("status") Integer status );
+    Call<ApplicationModels.OrderList> getOrders(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate , @Query("status") String status , @Query("custom_meta") String customMeta );
     
     @GET 
     Call<ApplicationModels.OrderById> getOrderById(@Url String url1);
