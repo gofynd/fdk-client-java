@@ -600,40 +600,40 @@ interface OrderApiList {
     
     
     @GET 
-    Call<ApplicationModels.OrderList> getOrders(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate , @Query("status") Integer status );
-    
-    @GET 
-    Call<ApplicationModels.OrderById> getOrderById(@Url String url1);
-    
-    @GET 
     Call<ApplicationModels.ShipmentById> getShipmentById(@Url String url1);
     
     @GET 
-    Call<ApplicationModels.ShipmentReasons> getShipmentReasons(@Url String url1, @Query("bag_id") Integer bagId );
+    Call<ApplicationModels.CustomerDetailsResponse> getCustomerDetailsByShipmentId(@Url String url1);
+    
+    @POST 
+    Call<ApplicationModels.SendOtpToCustomerResponse> sendOtpToShipmentCustomer(@Url String url1);
+    
+    @GET 
+    Call<ApplicationModels.ShipmentReasonsResponse> getShipmentReasons(@Url String url1, @Query("bag_id") String bagId );
+    
+    @POST 
+    Call<ApplicationModels.VerifyOtpResponse> verifyOtpShipmentCustomer(@Url String url1 , @Body ApplicationModels.VerifyOtp payload );
+    
+    @GET 
+    Call<ApplicationModels.OrderList> getOrders(@Url String url1, @Query("status") Integer status , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate );
+    
+    @GET 
+    Call<ApplicationModels.OrderList> getOrderById(@Url String url1);
+    
+    @GET 
+    Call<ApplicationModels.OrderList> getPosOrderById(@Url String url1);
+    
+    @GET 
+    Call<ApplicationModels.TrackShipmentResponse> trackShipment(@Url String url1);
     
     @PUT 
     Call<ApplicationModels.ShipmentStatusUpdate> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.ShipmentStatusUpdateBody payload );
     
     @GET 
-    Call<ApplicationModels.ShipmentTrack> trackShipment(@Url String url1);
+    Call<ApplicationModels.getInvoiceByShipmentId200Response> getInvoiceByShipmentId(@Url String url1, @Query("parameters") invoiceParameter parameters );
     
     @GET 
-    Call<ApplicationModels.PosOrderById> getPosOrderById(@Url String url1);
-    
-    @GET 
-    Call<ApplicationModels.CustomerDetailsByShipmentId> getCustomerDetailsByShipmentId(@Url String url1);
-    
-    @POST 
-    Call<ApplicationModels.sendOTPApplicationResponse> sendOtpToShipmentCustomer(@Url String url1);
-    
-    @POST 
-    Call<ApplicationModels.ResponseVerifyOTPShipment> verifyOtpShipmentCustomer(@Url String url1 , @Body ApplicationModels.ReqBodyVerifyOTPShipment payload );
-    
-    @GET 
-    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Url String url1);
-    
-    @GET 
-    Call<ApplicationModels.ResponseGetCreditNoteShipment> getCreditNoteByShipmentId(@Url String url1);
+    Call<ApplicationModels.getInvoiceByShipmentId200Response> getCreditNoteByShipmentId(@Url String url1, @Query("parameters") creditNoteParameter parameters );
 }
 
 interface RewardsApiList {
