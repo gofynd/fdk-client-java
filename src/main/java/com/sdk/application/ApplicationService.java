@@ -1372,6 +1372,8 @@ public class ApplicationService {
             
                     relativeUrls.put("updateCart","/service/application/cart/v1.0/detail".substring(1));
             
+                    relativeUrls.put("deleteCart","/service/application/cart/v1.0/cart_archive".substring(1));
+            
                     relativeUrls.put("getItemCount","/service/application/cart/v1.0/basic".substring(1));
             
                     relativeUrls.put("getCoupons","/service/application/cart/v1.0/coupon".substring(1));
@@ -1493,6 +1495,23 @@ public class ApplicationService {
         
 
         Response<ApplicationModels.UpdateCartDetailResponse> response = cartApiList.updateCart(fullUrl  ,id, i, b, areaCode, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.DeleteCartDetailResponse deleteCart(Integer id ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("deleteCart");
+        
+
+        Response<ApplicationModels.DeleteCartDetailResponse> response = cartApiList.deleteCart(fullUrl  ,id).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
