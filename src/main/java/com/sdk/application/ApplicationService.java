@@ -5074,12 +5074,12 @@ public class FileStorageService extends FileStorage {
 
      
     
-    public ApplicationModels.OrderList getOrders(Integer pageNo , Integer pageSize , String fromDate , String toDate , Integer status ) throws IOException {
+    public ApplicationModels.OrderList getOrders(Integer pageNo , Integer pageSize , String fromDate , String toDate , Integer status , String customMeta ) throws IOException {
      
       String fullUrl = relativeUrls.get("getOrders");
         
 
-        Response<ApplicationModels.OrderList> response = orderApiList.getOrders(fullUrl  ,pageNo, pageSize, fromDate, toDate, status).execute();
+        Response<ApplicationModels.OrderList> response = orderApiList.getOrders(fullUrl  ,pageNo, pageSize, fromDate, toDate, status, customMeta).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
