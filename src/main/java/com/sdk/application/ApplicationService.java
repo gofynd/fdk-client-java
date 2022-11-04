@@ -5074,7 +5074,7 @@ public class FileStorageService extends FileStorage {
 
      
     
-    public ApplicationModels.OrderList getOrders(Integer pageNo , Integer pageSize , String fromDate , String toDate , String status , String customMeta ) throws IOException {
+    public ApplicationModels.OrderList getOrders(Integer pageNo , Integer pageSize , String fromDate , String toDate , Integer status , String customMeta ) throws IOException {
      
       String fullUrl = relativeUrls.get("getOrders");
         
