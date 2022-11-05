@@ -22,9 +22,6 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/products/{slug}/similar/compared-frequently/")
     Call<ApplicationModels.ProductFrequentlyComparedSimilarResponse> getComparedFrequentlyProductBySlug(@Path("slug") String slug );
     
-    @GET ("/service/application/catalog/v1.0/products/{slug}/similar/{similar_type}/")
-    Call<ApplicationModels.SimilarProductByTypeResponse> getProductSimilarByIdentifier(@Path("slug") String slug , @Path("similar_type") String similarType );
-    
     @GET ("/service/application/catalog/v1.0/products/{slug}/variants/")
     Call<ApplicationModels.ProductVariantsResponse> getProductVariantsBySlug(@Path("slug") String slug );
     
@@ -552,6 +549,9 @@ interface PaymentApiList {
     @POST ("/service/application/payment/v1.0/payment/resend_or_cancel")
     Call<ApplicationModels.ResendOrCancelPaymentResponse> resendOrCancelPayment(@Body ApplicationModels.ResendOrCancelPaymentRequest payload);
     
+    @POST ("/service/application/payment/v1.0/payment/html/render/")
+    Call<ApplicationModels.renderHTMLResponse> renderHTML(@Body ApplicationModels.renderHTMLRequest payload);
+    
     @GET ("/service/application/payment/v1.0/refund/transfer-mode")
     Call<ApplicationModels.TransferModeResponse> getActiveRefundTransferModes();
     
@@ -599,7 +599,7 @@ interface PaymentApiList {
 interface OrderApiList {
     
     @GET ("/service/application/order/v1.0/orders")
-    Call<ApplicationModels.OrderList> getOrders(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate , @Query("status") Integer status );
+    Call<ApplicationModels.OrderList> getOrders(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate , @Query("status") Integer status , @Query("custom_meta") String customMeta );
     
     @GET ("/service/application/order/v1.0/orders/{order_id}")
     Call<ApplicationModels.OrderById> getOrderById(@Path("order_id") String orderId );

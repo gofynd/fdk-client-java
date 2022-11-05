@@ -110,20 +110,6 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.SimilarProductByTypeResponse getProductSimilarByIdentifier(String slug , String similarType ) throws IOException {
-    
-        Response<ApplicationModels.SimilarProductByTypeResponse> response = catalogApiList.getProductSimilarByIdentifier(slug, similarType).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
     public ApplicationModels.ProductVariantsResponse getProductVariantsBySlug(String slug ) throws IOException {
     
         Response<ApplicationModels.ProductVariantsResponse> response = catalogApiList.getProductVariantsBySlug(slug).execute();
@@ -3667,6 +3653,20 @@ public class FileStorageService extends FileStorage {
     
     
     
+    public ApplicationModels.renderHTMLResponse renderHTML(ApplicationModels.renderHTMLRequest body) throws IOException {
+    
+        Response<ApplicationModels.renderHTMLResponse> response = paymentApiList.renderHTML( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.TransferModeResponse getActiveRefundTransferModes() throws IOException {
     
         Response<ApplicationModels.TransferModeResponse> response = paymentApiList.getActiveRefundTransferModes().execute();
@@ -3892,9 +3892,9 @@ public class FileStorageService extends FileStorage {
 
     
     
-    public ApplicationModels.OrderList getOrders(Integer pageNo , Integer pageSize , String fromDate , String toDate , Integer status ) throws IOException {
+    public ApplicationModels.OrderList getOrders(Integer pageNo , Integer pageSize , String fromDate , String toDate , Integer status , String customMeta ) throws IOException {
     
-        Response<ApplicationModels.OrderList> response = orderApiList.getOrders(pageNo, pageSize, fromDate, toDate, status).execute();
+        Response<ApplicationModels.OrderList> response = orderApiList.getOrders(pageNo, pageSize, fromDate, toDate, status, customMeta).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
