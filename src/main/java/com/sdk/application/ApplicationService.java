@@ -110,20 +110,6 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.SimilarProductByTypeResponse getProductSimilarByIdentifier(String slug , String similarType ) throws IOException {
-    
-        Response<ApplicationModels.SimilarProductByTypeResponse> response = catalogApiList.getProductSimilarByIdentifier(slug, similarType).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
     public ApplicationModels.ProductVariantsResponse getProductVariantsBySlug(String slug ) throws IOException {
     
         Response<ApplicationModels.ProductVariantsResponse> response = catalogApiList.getProductVariantsBySlug(slug).execute();

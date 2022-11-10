@@ -22,9 +22,6 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/products/{slug}/similar/compared-frequently/")
     Call<ApplicationModels.ProductFrequentlyComparedSimilarResponse> getComparedFrequentlyProductBySlug(@Path("slug") String slug );
     
-    @GET ("/service/application/catalog/v1.0/products/{slug}/similar/{similar_type}/")
-    Call<ApplicationModels.SimilarProductByTypeResponse> getProductSimilarByIdentifier(@Path("slug") String slug , @Path("similar_type") String similarType );
-    
     @GET ("/service/application/catalog/v1.0/products/{slug}/variants/")
     Call<ApplicationModels.ProductVariantsResponse> getProductVariantsBySlug(@Path("slug") String slug );
     
