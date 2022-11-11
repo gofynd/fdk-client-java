@@ -2255,7 +2255,7 @@ Success. Returns a list of pages along with their details. Check the example sho
  | active | Boolean? |  yes  |  |
  | display | String? |  yes  |  |
  | sortOrder | Integer? |  yes  |  |
- | subNavigation | ArrayList<Object>? |  yes  |  |
+ | subNavigation | ArrayList<[NavigationReference](#NavigationReference)>? |  yes  |  |
 
 ---
 
