@@ -611,6 +611,9 @@ interface OrderApiList {
     @GET 
     Call<ApplicationModels.ShipmentReasons> getShipmentReasons(@Url String url1);
     
+    @GET 
+    Call<ApplicationModels.ShipmentBagReasons> getShipmentBagReasons(@Url String url1);
+    
     @PUT 
     Call<ApplicationModels.ShipmentStatusUpdate> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.ShipmentStatusUpdateBody payload );
     

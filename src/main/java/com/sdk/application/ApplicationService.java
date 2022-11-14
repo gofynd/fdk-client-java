@@ -5038,6 +5038,8 @@ public class FileStorageService extends FileStorage {
             
                     relativeUrls.put("getShipmentReasons","/service/application/order/v1.0/orders/shipments/{shipment_id}/reasons".substring(1));
             
+                    relativeUrls.put("getShipmentBagReasons","/service/application/order/v1.0/orders/shipments/{shipment_id}/bags/{bag_id}/reasons/".substring(1));
+            
                     relativeUrls.put("updateShipmentStatus","/service/application/order/v1.0/orders/shipments/{shipment_id}/status".substring(1));
             
                     relativeUrls.put("trackShipment","/service/application/order/v1.0/orders/shipments/{shipment_id}/track".substring(1));
@@ -5137,6 +5139,27 @@ public class FileStorageService extends FileStorage {
         
 
         Response<ApplicationModels.ShipmentReasons> response = orderApiList.getShipmentReasons(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ShipmentBagReasons getShipmentBagReasons(String shipmentId , String bagId ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getShipmentBagReasons");
+        
+        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
+        
+        fullUrl = fullUrl.replace("{" + "bag_id" +"}",bagId.toString());
+        
+
+        Response<ApplicationModels.ShipmentBagReasons> response = orderApiList.getShipmentBagReasons(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
