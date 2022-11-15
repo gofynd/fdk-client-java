@@ -374,6 +374,15 @@ interface LeadApiList {
     @DELETE ("/service/platform/lead/v1.0/company/{company_id}/application/{application_id}/video/room/{unique_name}")
     Call<PlatformModels.CloseVideoRoomResponse> closeVideoRoom(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("unique_name") String  uniqueName );
     
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/lead/v1.0/company/{company_id}/general-config")
+    Call<PlatformModels.CloseVideoRoomResponse> getGeneralConfig(@Path("company_id")  String companyId );
+    
 }
 
 interface FeedbackApiList {
@@ -5633,7 +5642,7 @@ interface FileStorageApiList {
     
     
     @POST ("/service/platform/assets/v1.0/company/{company_id}/uploads/copy/")
-    Call<PlatformModels.BulkResponse> copyFiles(@Path("company_id")  String companyId , @Query("sync") Boolean  sync ,@Body PlatformModels.BulkRequest payload);
+    Call<PlatformModels.BulkUploadResponse> copyFiles(@Path("company_id")  String companyId , @Query("sync") Boolean  sync ,@Body PlatformModels.BulkRequest payload);
     
     
     
@@ -5648,7 +5657,7 @@ interface FileStorageApiList {
     
     
     @POST ("/service/platform/assets/v1.0/company/{company_id}/application/{application_id}/uploads/copy/")
-    Call<PlatformModels.BulkResponse> appCopyFiles(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("sync") Boolean  sync ,@Body PlatformModels.BulkRequest payload);
+    Call<PlatformModels.BulkUploadResponse> appCopyFiles(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("sync") Boolean  sync ,@Body PlatformModels.BulkRequest payload);
     
     
     

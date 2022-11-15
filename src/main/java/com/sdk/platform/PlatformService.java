@@ -588,6 +588,31 @@ public static class LeadService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.CloseVideoRoomResponse getGeneralConfig() throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.CloseVideoRoomResponse> response = leadApiList.getGeneralConfig(this.companyId ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
 
 
 public class ApplicationClient {
@@ -1071,6 +1096,8 @@ public class ApplicationClient {
         }    
     }
 
+    
+    
     
     
     
@@ -15930,9 +15957,9 @@ public static class FileStorageService {
     
     
     
-    public PlatformModels.BulkResponse copyFiles(Boolean sync ,PlatformModels.BulkRequest body) throws IOException {
+    public PlatformModels.BulkUploadResponse copyFiles(Boolean sync ,PlatformModels.BulkRequest body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.BulkResponse> response = filestorageApiList.copyFiles(this.companyId ,sync , body).execute();
+            Response<PlatformModels.BulkUploadResponse> response = filestorageApiList.copyFiles(this.companyId ,sync , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -16176,9 +16203,9 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.BulkResponse appCopyFiles(Boolean sync ,PlatformModels.BulkRequest body) throws IOException {
+    public PlatformModels.BulkUploadResponse appCopyFiles(Boolean sync ,PlatformModels.BulkRequest body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.BulkResponse> response = filestorageApiList.appCopyFiles(this.companyId , this.applicationId ,sync , body).execute();
+            Response<PlatformModels.BulkUploadResponse> response = filestorageApiList.appCopyFiles(this.companyId , this.applicationId ,sync , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
