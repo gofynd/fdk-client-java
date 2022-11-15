@@ -4755,12 +4755,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public Object renderHTML(ApplicationModels.renderHTMLRequest body) throws IOException {
+    public ApplicationModels.renderHTMLResponse renderHTML(ApplicationModels.renderHTMLRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("renderHTML");
         
 
-        Response<Object> response = paymentApiList.renderHTML(fullUrl , body).execute();
+        Response<ApplicationModels.renderHTMLResponse> response = paymentApiList.renderHTML(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

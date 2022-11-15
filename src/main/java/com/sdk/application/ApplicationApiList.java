@@ -551,7 +551,7 @@ interface PaymentApiList {
     Call<ApplicationModels.ResendOrCancelPaymentResponse> resendOrCancelPayment(@Url String url1 , @Body ApplicationModels.ResendOrCancelPaymentRequest payload );
     
     @POST 
-    Call<Object> renderHTML(@Url String url1 , @Body ApplicationModels.renderHTMLRequest payload );
+    Call<ApplicationModels.renderHTMLResponse> renderHTML(@Url String url1 , @Body ApplicationModels.renderHTMLRequest payload );
     
     @GET 
     Call<ApplicationModels.TransferModeResponse> getActiveRefundTransferModes(@Url String url1);
