@@ -5024,6 +5024,8 @@ public class FileStorageService extends FileStorage {
                     relativeUrls.put("verifyOtpShipmentCustomer","/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify/".substring(1));
             
                     relativeUrls.put("getPlatformShipmentReasons","/service/application/orders/v1.0/orders/bags/{bag_id}/reasons".substring(1));
+            
+                    relativeUrls.put("updateShipmentStatus","/service/application/order-manage/v1.0/orders/shipments/{shipment_id}/status".substring(1));
              
 
     }
@@ -5209,6 +5211,25 @@ public class FileStorageService extends FileStorage {
         
 
         Response<ApplicationModels.ShipmentReasonsResponse> response = orderApiList.getPlatformShipmentReasons(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.StatusUpdateInternalResponse updateShipmentStatus(String shipmentId ,ApplicationModels.StatusUpdateInternalRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("updateShipmentStatus");
+        
+        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
+        
+
+        Response<ApplicationModels.StatusUpdateInternalResponse> response = orderApiList.updateShipmentStatus(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

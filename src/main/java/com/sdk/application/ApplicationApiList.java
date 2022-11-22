@@ -622,6 +622,9 @@ interface OrderApiList {
     
     @GET 
     Call<ApplicationModels.ShipmentReasonsResponse> getPlatformShipmentReasons(@Url String url1);
+    
+    @PUT 
+    Call<ApplicationModels.StatusUpdateInternalResponse> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.StatusUpdateInternalRequest payload );
 }
 
 interface RewardsApiList {
