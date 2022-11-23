@@ -5609,7 +5609,7 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.VerifyOtpResponse verifyOtpShipmentCustomer1(String orderId , Integer shipmentId ,ApplicationModels.VerifyOtp body) throws IOException {
+    public ApplicationModels.VerifyOtpResponse verifyOtpShipmentCustomer1(String orderId , String shipmentId ,ApplicationModels.VerifyOtp body) throws IOException {
      
       String fullUrl = relativeUrls.get("verifyOtpShipmentCustomer1");
         
