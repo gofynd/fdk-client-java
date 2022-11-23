@@ -17411,7 +17411,7 @@ public static class NavigationReference{
     
     
     @JsonProperty("sub_navigation")
-    private List<_NavigationReference> subNavigation;
+    private List<SubNavigationReference> subNavigation;
     
     
     
@@ -17419,7 +17419,7 @@ public static class NavigationReference{
 
 
 /*
-    Model: _NavigationReference
+    Model: SubNavigationReference
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17427,7 +17427,7 @@ public static class NavigationReference{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class _NavigationReference{
+public static class SubNavigationReference{
     
     
     
