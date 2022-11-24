@@ -68,11 +68,11 @@ interface CatalogApiList {
     @GET 
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE 
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
-    
     @POST 
     Call<ApplicationModels.FollowPostResponse> followById(@Url String url1);
+    
+    @DELETE 
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
     
     @GET 
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Url String url1);
@@ -597,10 +597,10 @@ interface OrderApiList {
     
     
     @GET 
-    Call<ApplicationModels.OrderList> getOrders(@Url String url1, @Query("status") Integer status , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate );
+    Call<ApplicationModels.OrderList> getOrders(@Url String url1, @Query("status") Integer status , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate , @Query("custom_meta") String customMeta );
     
     @GET 
-    Call<ApplicationModels.OrderList> getOrderById(@Url String url1);
+    Call<ApplicationModels.OrderById> getOrderById(@Url String url1);
     
     @GET 
     Call<ApplicationModels.OrderList> getPosOrderById(@Url String url1);
@@ -621,7 +621,7 @@ interface OrderApiList {
     Call<ApplicationModels.VerifyOtpResponse> verifyOtpShipmentCustomer(@Url String url1 , @Body ApplicationModels.VerifyOtp payload );
     
     @GET 
-    Call<ApplicationModels.ShipmentReasonsResponse> getShipmentBagReasons(@Url String url1);
+    Call<ApplicationModels.ShipmentBagReasons> getShipmentBagReasons(@Url String url1);
     
     @PUT 
     Call<ApplicationModels.StatusUpdateInternalResponse> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.StatusUpdateInternalRequest payload );
