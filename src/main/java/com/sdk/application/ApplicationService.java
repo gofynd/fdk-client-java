@@ -5026,6 +5026,10 @@ public class FileStorageService extends FileStorage {
                     relativeUrls.put("getShipmentBagReasons","/service/application/orders/v1.0/orders/shipments/{shipment_id}/bags/{bag_id}/reasons".substring(1));
             
                     relativeUrls.put("updateShipmentStatus","/service/application/order-manage/v1.0/orders/shipments/{shipment_id}/status".substring(1));
+            
+                    relativeUrls.put("getInvoiceByShipmentId","/service/application/document/v1.0/orders/shipments/{shipment_id}/invoice".substring(1));
+            
+                    relativeUrls.put("getCreditNoteByShipmentId","/service/application/document/v1.0/orders/shipments/{shipment_id}/credit-note".substring(1));
              
 
     }
@@ -5232,6 +5236,44 @@ public class FileStorageService extends FileStorage {
         
 
         Response<ApplicationModels.StatusUpdateInternalResponse> response = orderApiList.updateShipmentStatus(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.getInvoiceByShipmentId200Response getInvoiceByShipmentId(String shipmentId , ApplicationModels.invoiceParameter parameters ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getInvoiceByShipmentId");
+        
+        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
+        
+
+        Response<ApplicationModels.getInvoiceByShipmentId200Response> response = orderApiList.getInvoiceByShipmentId(fullUrl  ,parameters).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.getInvoiceByShipmentId200Response getCreditNoteByShipmentId(String shipmentId , ApplicationModels.creditNoteParameter parameters ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getCreditNoteByShipmentId");
+        
+        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
+        
+
+        Response<ApplicationModels.getInvoiceByShipmentId200Response> response = orderApiList.getCreditNoteByShipmentId(fullUrl  ,parameters).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

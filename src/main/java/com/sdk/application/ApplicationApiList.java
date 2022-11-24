@@ -625,6 +625,12 @@ interface OrderApiList {
     
     @PUT 
     Call<ApplicationModels.StatusUpdateInternalResponse> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.StatusUpdateInternalRequest payload );
+    
+    @GET 
+    Call<ApplicationModels.getInvoiceByShipmentId200Response> getInvoiceByShipmentId(@Url String url1, @Query("parameters") invoiceParameter parameters );
+    
+    @GET 
+    Call<ApplicationModels.getInvoiceByShipmentId200Response> getCreditNoteByShipmentId(@Url String url1, @Query("parameters") creditNoteParameter parameters );
 }
 
 interface RewardsApiList {
