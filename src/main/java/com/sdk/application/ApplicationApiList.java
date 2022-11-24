@@ -68,11 +68,11 @@ interface CatalogApiList {
     @GET 
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST 
-    Call<ApplicationModels.FollowPostResponse> followById(@Url String url1);
-    
     @DELETE 
     Call<ApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
+    
+    @POST 
+    Call<ApplicationModels.FollowPostResponse> followById(@Url String url1);
     
     @GET 
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Url String url1);
@@ -609,7 +609,7 @@ interface OrderApiList {
     Call<ApplicationModels.ShipmentById> getShipmentById(@Url String url1);
     
     @GET 
-    Call<ApplicationModels.TrackShipmentResponse> trackShipment(@Url String url1);
+    Call<ApplicationModels.ShipmentTrack> trackShipment(@Url String url1);
     
     @GET 
     Call<ApplicationModels.CustomerDetailsResponse> getCustomerDetailsByShipmentId(@Url String url1);
@@ -624,13 +624,13 @@ interface OrderApiList {
     Call<ApplicationModels.ShipmentBagReasons> getShipmentBagReasons(@Url String url1);
     
     @PUT 
-    Call<ApplicationModels.StatusUpdateInternalResponse> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.StatusUpdateInternalRequest payload );
+    Call<ApplicationModels.ShipmentStatusUpdate> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.ShipmentStatusUpdateBody payload );
     
     @GET 
-    Call<ApplicationModels.getInvoiceByShipmentId200Response> getInvoiceByShipmentId(@Url String url1, @Query("parameters") invoiceParameter parameters );
+    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Url String url1, @Query("parameters") invoiceParameter parameters );
     
     @GET 
-    Call<ApplicationModels.getInvoiceByShipmentId200Response> getCreditNoteByShipmentId(@Url String url1, @Query("parameters") creditNoteParameter parameters );
+    Call<ApplicationModels.ResponseGetInvoiceShipment> getCreditNoteByShipmentId(@Url String url1, @Query("parameters") creditNoteParameter parameters );
 }
 
 interface RewardsApiList {
