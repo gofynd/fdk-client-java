@@ -110,20 +110,6 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.SimilarProductByTypeResponse getProductSimilarByIdentifier(String slug , String similarType ) throws IOException {
-    
-        Response<ApplicationModels.SimilarProductByTypeResponse> response = catalogApiList.getProductSimilarByIdentifier(slug, similarType).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
     public ApplicationModels.ProductVariantsResponse getProductVariantsBySlug(String slug ) throws IOException {
     
         Response<ApplicationModels.ProductVariantsResponse> response = catalogApiList.getProductVariantsBySlug(slug).execute();
@@ -1028,9 +1014,9 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlug(String slug , String size , Integer storeId , String pincode ) throws IOException {
+    public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlug(String slug , String size , Integer storeId , String pincode , Integer moq ) throws IOException {
     
-        Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlug(slug, size, storeId, pincode).execute();
+        Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlug(slug, size, storeId, pincode, moq).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1931,6 +1917,20 @@ public class ApplicationService {
     
     
     
+    public ApplicationModels.ResetPasswordSuccess sendResetPasswordMobile(String platform ,ApplicationModels.SendResetPasswordMobileRequestSchema body) throws IOException {
+    
+        Response<ApplicationModels.ResetPasswordSuccess> response = userApiList.sendResetPasswordMobile(platform, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.LoginSuccess forgotPassword(ApplicationModels.ForgotPasswordRequestSchema body) throws IOException {
     
         Response<ApplicationModels.LoginSuccess> response = userApiList.forgotPassword( body).execute();
@@ -2032,6 +2032,20 @@ public class ApplicationService {
     public ApplicationModels.VerifyEmailSuccess updatePassword(ApplicationModels.UpdatePasswordRequestSchema body) throws IOException {
     
         Response<ApplicationModels.VerifyEmailSuccess> response = userApiList.updatePassword( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.DeleteUserSuccess deleteUser(ApplicationModels.DeleteApplicationUserRequestSchema body) throws IOException {
+    
+        Response<ApplicationModels.DeleteUserSuccess> response = userApiList.deleteUser( body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3864,76 +3878,6 @@ public class FileStorageService extends FileStorage {
 
     
     
-    public ApplicationModels.ShipmentById getShipmentById(String shipmentId ) throws IOException {
-    
-        Response<ApplicationModels.ShipmentById> response = orderApiList.getShipmentById(shipmentId).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.CustomerDetailsResponse getCustomerDetailsByShipmentId(String orderId , String shipmentId ) throws IOException {
-    
-        Response<ApplicationModels.CustomerDetailsResponse> response = orderApiList.getCustomerDetailsByShipmentId(orderId, shipmentId).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.SendOtpToCustomerResponse sendOtpToShipmentCustomer(String orderId , String shipmentId ) throws IOException {
-    
-        Response<ApplicationModels.SendOtpToCustomerResponse> response = orderApiList.sendOtpToShipmentCustomer(orderId, shipmentId).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.ShipmentReasonsResponse getShipmentReasons(String shipmentId , String bagId ) throws IOException {
-    
-        Response<ApplicationModels.ShipmentReasonsResponse> response = orderApiList.getShipmentReasons(shipmentId, bagId).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.VerifyOtpResponse verifyOtpShipmentCustomer(String orderId , Integer shipmentId ,ApplicationModels.VerifyOtp body) throws IOException {
-    
-        Response<ApplicationModels.VerifyOtpResponse> response = orderApiList.verifyOtpShipmentCustomer(orderId, shipmentId, body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
     public ApplicationModels.OrderList getOrders(Integer status , Integer pageNo , Integer pageSize , String fromDate , String toDate ) throws IOException {
     
         Response<ApplicationModels.OrderList> response = orderApiList.getOrders(status, pageNo, pageSize, fromDate, toDate).execute();
@@ -3976,6 +3920,20 @@ public class FileStorageService extends FileStorage {
     
     
     
+    public ApplicationModels.ShipmentById getShipmentById(String shipmentId ) throws IOException {
+    
+        Response<ApplicationModels.ShipmentById> response = orderApiList.getShipmentById(shipmentId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.TrackShipmentResponse trackShipment(String shipmentId ) throws IOException {
     
         Response<ApplicationModels.TrackShipmentResponse> response = orderApiList.trackShipment(shipmentId).execute();
@@ -3990,9 +3948,65 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.ShipmentStatusUpdate updateShipmentStatus(String shipmentId ,ApplicationModels.ShipmentStatusUpdateBody body) throws IOException {
+    public ApplicationModels.CustomerDetailsResponse getCustomerDetailsByShipmentId(String orderId , String shipmentId ) throws IOException {
     
-        Response<ApplicationModels.ShipmentStatusUpdate> response = orderApiList.updateShipmentStatus(shipmentId, body).execute();
+        Response<ApplicationModels.CustomerDetailsResponse> response = orderApiList.getCustomerDetailsByShipmentId(orderId, shipmentId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.SendOtpToCustomerResponse sendOtpToShipmentCustomer(String orderId , String shipmentId ) throws IOException {
+    
+        Response<ApplicationModels.SendOtpToCustomerResponse> response = orderApiList.sendOtpToShipmentCustomer(orderId, shipmentId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.VerifyOtpResponse verifyOtpShipmentCustomer(String orderId , String shipmentId ,ApplicationModels.VerifyOtp body) throws IOException {
+    
+        Response<ApplicationModels.VerifyOtpResponse> response = orderApiList.verifyOtpShipmentCustomer(orderId, shipmentId, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ShipmentReasonsResponse getShipmentBagReasons(String shipmentId , Integer bagId ) throws IOException {
+    
+        Response<ApplicationModels.ShipmentReasonsResponse> response = orderApiList.getShipmentBagReasons(shipmentId, bagId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.StatusUpdateInternalResponse updateShipmentStatus(String shipmentId ,ApplicationModels.StatusUpdateInternalRequest body) throws IOException {
+    
+        Response<ApplicationModels.StatusUpdateInternalResponse> response = orderApiList.updateShipmentStatus(shipmentId, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

@@ -22,9 +22,6 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/products/{slug}/similar/compared-frequently/")
     Call<ApplicationModels.ProductFrequentlyComparedSimilarResponse> getComparedFrequentlyProductBySlug(@Path("slug") String slug );
     
-    @GET ("/service/application/catalog/v1.0/products/{slug}/similar/{similar_type}/")
-    Call<ApplicationModels.SimilarProductByTypeResponse> getProductSimilarByIdentifier(@Path("slug") String slug , @Path("similar_type") String similarType );
-    
     @GET ("/service/application/catalog/v1.0/products/{slug}/variants/")
     Call<ApplicationModels.ProductVariantsResponse> getProductVariantsBySlug(@Path("slug") String slug );
     
@@ -95,7 +92,7 @@ interface CatalogApiList {
     Call<ApplicationModels.ProductBundle> getProductBundlesBySlug(@Query("slug") String slug , @Query("id") String id );
     
     @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/price/")
-    Call<ApplicationModels.ProductSizePriceResponseV2> getProductPriceBySlug(@Path("slug") String slug , @Path("size") String size , @Query("store_id") Integer storeId , @Query("pincode") String pincode );
+    Call<ApplicationModels.ProductSizePriceResponseV2> getProductPriceBySlug(@Path("slug") String slug , @Path("size") String size , @Query("store_id") Integer storeId , @Query("pincode") String pincode , @Query("moq") Integer moq );
     
     @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/sellers/")
     Call<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlug(@Path("slug") String slug , @Path("size") String size , @Query("pincode") String pincode , @Query("strategy") String strategy , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
@@ -261,6 +258,9 @@ interface UserApiList {
     @POST ("/service/application/user/authentication/v1.0/login/password/reset")
     Call<ApplicationModels.ResetPasswordSuccess> sendResetPasswordEmail(@Query("platform") String platform ,@Body ApplicationModels.SendResetPasswordEmailRequestSchema payload);
     
+    @POST ("/service/application/user/authentication/v1.0/login/password/mobile/reset")
+    Call<ApplicationModels.ResetPasswordSuccess> sendResetPasswordMobile(@Query("platform") String platform ,@Body ApplicationModels.SendResetPasswordMobileRequestSchema payload);
+    
     @POST ("/service/application/user/authentication/v1.0/login/password/reset/forgot")
     Call<ApplicationModels.LoginSuccess> forgotPassword(@Body ApplicationModels.ForgotPasswordRequestSchema payload);
     
@@ -284,6 +284,9 @@ interface UserApiList {
     
     @POST ("/service/application/user/authentication/v1.0/password")
     Call<ApplicationModels.VerifyEmailSuccess> updatePassword(@Body ApplicationModels.UpdatePasswordRequestSchema payload);
+    
+    @POST ("/service/application/user/authentication/v1.0/delete")
+    Call<ApplicationModels.DeleteUserSuccess> deleteUser(@Body ApplicationModels.DeleteApplicationUserRequestSchema payload);
     
     @GET ("/service/application/user/authentication/v1.0/logout")
     Call<ApplicationModels.LogoutSuccess> logout();
@@ -592,35 +595,35 @@ interface PaymentApiList {
 
 interface OrderApiList {
     
-    @GET ("/service/application/orders/v1.0/orders/shipments/{shipment_id}")
-    Call<ApplicationModels.ShipmentById> getShipmentById(@Path("shipment_id") String shipmentId );
-    
-    @GET ("/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/customer-details")
-    Call<ApplicationModels.CustomerDetailsResponse> getCustomerDetailsByShipmentId(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId );
-    
-    @POST ("/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/send")
-    Call<ApplicationModels.SendOtpToCustomerResponse> sendOtpToShipmentCustomer(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId );
-    
-    @GET ("/service/application/orders/v1.0/orders/shipments/{shipment_id}/reasons")
-    Call<ApplicationModels.ShipmentReasonsResponse> getShipmentReasons(@Path("shipment_id") String shipmentId , @Query("bag_id") String bagId );
-    
-    @POST ("/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify")
-    Call<ApplicationModels.VerifyOtpResponse> verifyOtpShipmentCustomer(@Path("order_id") String orderId , @Path("shipment_id") Integer shipmentId ,@Body ApplicationModels.VerifyOtp payload);
-    
     @GET ("/service/application/orders/v1.0/orders")
     Call<ApplicationModels.OrderList> getOrders(@Query("status") Integer status , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate );
     
     @GET ("/service/application/orders/v1.0/orders/{order_id}")
     Call<ApplicationModels.OrderList> getOrderById(@Path("order_id") String orderId );
     
-    @GET ("/service/application/orders/v1.0/pos-order/{order_id}")
+    @GET ("/service/application/orders/v1.0/orders/pos-order/{order_id}")
     Call<ApplicationModels.OrderList> getPosOrderById(@Path("order_id") String orderId );
+    
+    @GET ("/service/application/orders/v1.0/orders/shipments/{shipment_id}")
+    Call<ApplicationModels.ShipmentById> getShipmentById(@Path("shipment_id") String shipmentId );
     
     @GET ("/service/application/orders/v1.0/orders/shipments/{shipment_id}/track")
     Call<ApplicationModels.TrackShipmentResponse> trackShipment(@Path("shipment_id") String shipmentId );
     
+    @GET ("/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/customer-details")
+    Call<ApplicationModels.CustomerDetailsResponse> getCustomerDetailsByShipmentId(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId );
+    
+    @POST ("/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/send/")
+    Call<ApplicationModels.SendOtpToCustomerResponse> sendOtpToShipmentCustomer(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId );
+    
+    @POST ("/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify/")
+    Call<ApplicationModels.VerifyOtpResponse> verifyOtpShipmentCustomer(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId ,@Body ApplicationModels.VerifyOtp payload);
+    
+    @GET ("/service/application/orders/v1.0/orders/shipments/{shipment_id}/bags/{bag_id}/reasons")
+    Call<ApplicationModels.ShipmentReasonsResponse> getShipmentBagReasons(@Path("shipment_id") String shipmentId , @Path("bag_id") Integer bagId );
+    
     @PUT ("/service/application/order-manage/v1.0/orders/shipments/{shipment_id}/status")
-    Call<ApplicationModels.ShipmentStatusUpdate> updateShipmentStatus(@Path("shipment_id") String shipmentId ,@Body ApplicationModels.ShipmentStatusUpdateBody payload);
+    Call<ApplicationModels.StatusUpdateInternalResponse> updateShipmentStatus(@Path("shipment_id") String shipmentId ,@Body ApplicationModels.StatusUpdateInternalRequest payload);
     
     @GET ("/service/application/document/v1.0/orders/shipments/{shipment_id}/invoice")
     Call<ApplicationModels.getInvoiceByShipmentId200Response> getInvoiceByShipmentId(@Path("shipment_id") String shipmentId , @Query("parameters") ApplicationModels.invoiceParameter parameters );
