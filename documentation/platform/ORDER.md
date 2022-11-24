@@ -305,7 +305,7 @@ Get Orders for company based on Company Id
 
 
 ```java
-client.order.getOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  isPrioritySort,  lockStatus,  userId,  q,  stage,  salesChannels,  orderId,  stores,  deploymentStores,  status,  dp,  shortenUrls,  filterType) {
+client.order.getOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  isPrioritySort,  lockStatus,  userId,  q,  stage,  salesChannels,  orderId,  stores,  deploymentStores,  status,  dp,  filterType) {
   //use response
 }
 ```
@@ -330,7 +330,6 @@ client.order.getOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  isPri
 | deploymentStores | String? | no | Selected Deployment Stores |   
 | status | String? | no | Status of order |   
 | dp | String? | no | Delivery Partners |   
-| shortenUrls | Boolean? | no | Shorten URL option |   
 | filterType | String? | no | Filters |  
 
 
@@ -488,7 +487,7 @@ Get Orders for company based on Company Id
 
 
 ```java
-client.order.getPicklistOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  q,  stage,  salesChannels,  orderId,  stores,  status,  shortenUrls,  filterType) {
+client.order.getPicklistOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate,  q,  stage,  salesChannels,  orderId,  stores,  status,  filterType) {
   //use response
 }
 ```
@@ -508,7 +507,6 @@ client.order.getPicklistOrdersByCompanyId( pageNo,  pageSize,  fromDate,  toDate
 | orderId | String? | no | Order Id |   
 | stores | String? | no | Selected Stores |   
 | status | String? | no | Status of order |   
-| shortenUrls | Boolean? | no | Shorten URL option |   
 | filterType | String? | no | Filters |  
 
 
@@ -1071,7 +1069,7 @@ client.application("<APPLICATION_ID>").order.getOrdersByApplicationId( pageNo,  
 | status | String? | no | Status of order |   
 | dp | String? | no | Delivery Partners |   
 | userId | String? | no | User Id |   
-| shortenUrls | Boolean? | no | Shorten URL option |   
+| shortenUrls | String? | no | User Id |   
 | filterType | String? | no | Filters |  
 
 
@@ -2472,7 +2470,7 @@ Success
  | hsnCode | String? |  yes  |  |
  | priceEffective | Double? |  yes  |  |
  | codCharges | Double? |  yes  |  |
- | gstFee | String? |  yes  |  |
+ | gstFee | Double? |  yes  |  |
  | fyndCredits | Double? |  yes  |  |
  | refundAmount | Double? |  yes  |  |
  | cashbackApplied | Double? |  yes  |  |
@@ -2612,7 +2610,7 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | brandCalculatedAmount | Double? |  yes  |  |
- | gstFee | String? |  yes  |  |
+ | gstFee | Double? |  yes  |  |
  | gstTag | String? |  yes  |  |
  | hsnCode | String? |  yes  |  |
  | valueOfGood | Double? |  yes  |  |
@@ -3416,21 +3414,10 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | shipments | HashMap<String,Object>? |  yes  |  |
+ | shipments | HashMap<String,Object> |  no  |  |
  | statuses | ArrayList<Object>? |  yes  |  |
  | forceTransition | Boolean |  no  |  |
  | task | Boolean |  no  |  |
-
----
-
-
- 
- 
- #### [ShipmentUpdateObject](#ShipmentUpdateObject)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | shipments | HashMap<String,Object>? |  yes  |  |
 
 ---
 

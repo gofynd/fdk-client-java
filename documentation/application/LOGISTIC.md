@@ -181,8 +181,8 @@ Success. Returns a JSON object containing the city name, state and country ident
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | requestUuid | String |  no  |  |
- | stormbreakerUuid | String |  no  |  |
+ | requestUuid | String? |  yes  |  |
+ | stormbreakerUuid | String? |  yes  |  |
  | success | Boolean |  no  |  |
  | data | ArrayList<[LogisticPincodeData](#LogisticPincodeData)> |  no  |  |
 
@@ -327,13 +327,13 @@ Success. Returns a JSON object containing the city name, state and country ident
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | locationDetails | ArrayList<[LocationDetails](#LocationDetails)> |  no  |  |
- | requestUuid | String |  no  |  |
+ | requestUuid | String? |  yes  |  |
  | error | HashMap<String,Object> |  no  |  |
  | toCity | String |  no  |  |
  | source | String |  no  |  |
  | toPincode | String |  no  |  |
  | action | String |  no  |  |
- | stormbreakerUuid | String |  no  |  |
+ | stormbreakerUuid | String? |  yes  |  |
  | success | Boolean |  no  |  |
  | identifier | String |  no  |  |
  | journey | String |  no  |  |
