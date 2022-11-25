@@ -24,9 +24,6 @@ interface CatalogApiList {
     Call<ApplicationModels.ProductFrequentlyComparedSimilarResponse> getComparedFrequentlyProductBySlug(@Url String url1);
     
     @GET 
-    Call<ApplicationModels.SimilarProductByTypeResponse> getProductSimilarByIdentifier(@Url String url1);
-    
-    @GET 
     Call<ApplicationModels.ProductVariantsResponse> getProductVariantsBySlug(@Url String url1);
     
     @GET 
@@ -71,11 +68,11 @@ interface CatalogApiList {
     @GET 
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST 
-    Call<ApplicationModels.FollowPostResponse> followById(@Url String url1);
-    
     @DELETE 
     Call<ApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
+    
+    @POST 
+    Call<ApplicationModels.FollowPostResponse> followById(@Url String url1);
     
     @GET 
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Url String url1);
@@ -288,6 +285,9 @@ interface UserApiList {
     
     @POST 
     Call<ApplicationModels.VerifyEmailSuccess> updatePassword(@Url String url1 , @Body ApplicationModels.UpdatePasswordRequestSchema payload );
+    
+    @POST 
+    Call<ApplicationModels.DeleteUserSuccess> deleteUser(@Url String url1 , @Body ApplicationModels.DeleteApplicationUserRequestSchema payload );
     
     @GET 
     Call<ApplicationModels.LogoutSuccess> logout(@Url String url1);
@@ -613,6 +613,9 @@ interface OrderApiList {
     
     @GET 
     Call<ApplicationModels.ShipmentReasons> getShipmentReasons(@Url String url1);
+    
+    @GET 
+    Call<ApplicationModels.ShipmentBagReasons> getShipmentBagReasons(@Url String url1);
     
     @PUT 
     Call<ApplicationModels.ShipmentStatusUpdate> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.ShipmentStatusUpdateBody payload );

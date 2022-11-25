@@ -5079,7 +5079,19 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | key | String? |  yes  |  |
- | value | String? |  yes  |  |
+ | value | Object? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SendOtpSmsCommsProvider](#SendOtpSmsCommsProvider)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | slug | String? |  yes  |  |
+ | id | String? |  yes  |  |
 
 ---
 
@@ -5091,7 +5103,7 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | key | String? |  yes  |  |
- | value | String? |  yes  |  |
+ | value | Object? |  yes  |  |
 
 ---
 
@@ -5119,6 +5131,7 @@ Success
  | otpLength | Integer? |  yes  |  |
  | expiry | Integer? |  yes  |  |
  | template | [SendOtpSmsCommsTemplate](#SendOtpSmsCommsTemplate)? |  yes  |  |
+ | provider | [SendOtpSmsCommsProvider](#SendOtpSmsCommsProvider)? |  yes  |  |
 
 ---
 
@@ -5131,7 +5144,7 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | otpLength | Integer? |  yes  |  |
  | expiry | Integer? |  yes  |  |
- | template | [SendOtpSmsCommsTemplate](#SendOtpSmsCommsTemplate)? |  yes  |  |
+ | template | [SendOtpEmailCommsTemplate](#SendOtpEmailCommsTemplate)? |  yes  |  |
 
 ---
 
