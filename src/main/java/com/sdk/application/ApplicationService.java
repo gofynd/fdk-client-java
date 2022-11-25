@@ -4018,9 +4018,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.getInvoiceByShipmentId200Response getInvoiceByShipmentId(String shipmentId , ApplicationModels.invoiceParameter parameters ) throws IOException {
+    public ApplicationModels.ResponseGetInvoiceShipment getInvoiceByShipmentId(String shipmentId , ApplicationModels.invoiceParameter parameters ) throws IOException {
     
-        Response<ApplicationModels.getInvoiceByShipmentId200Response> response = orderApiList.getInvoiceByShipmentId(shipmentId, parameters).execute();
+        Response<ApplicationModels.ResponseGetInvoiceShipment> response = orderApiList.getInvoiceByShipmentId(shipmentId, parameters).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -4032,9 +4032,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.getInvoiceByShipmentId200Response getCreditNoteByShipmentId(String shipmentId , ApplicationModels.creditNoteParameter parameters ) throws IOException {
+    public ApplicationModels.ResponseGetInvoiceShipment getCreditNoteByShipmentId(String shipmentId , ApplicationModels.creditNoteParameter parameters ) throws IOException {
     
-        Response<ApplicationModels.getInvoiceByShipmentId200Response> response = orderApiList.getCreditNoteByShipmentId(shipmentId, parameters).execute();
+        Response<ApplicationModels.ResponseGetInvoiceShipment> response = orderApiList.getCreditNoteByShipmentId(shipmentId, parameters).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

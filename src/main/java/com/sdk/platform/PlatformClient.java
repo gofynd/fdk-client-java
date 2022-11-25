@@ -60,6 +60,8 @@ public class PlatformClient {
     
     public PlatformService.ServiceabilityService serviceability;
     
+    public PlatformService.DocumentEngineService documentEngine;
+    
 
     public PlatformClient(PlatformConfig config)   
     {
@@ -114,6 +116,8 @@ public class PlatformClient {
         this.orderManage = new PlatformService.OrderManageService(config);
         
         this.serviceability = new PlatformService.ServiceabilityService(config);
+        
+        this.documentEngine = new PlatformService.DocumentEngineService(config);
         
     }
 
@@ -175,6 +179,8 @@ public class PlatformClient {
         
         public PlatformService.ServiceabilityService.ApplicationClient serviceability;
         
+        public PlatformService.DocumentEngineService.ApplicationClient documentEngine;
+        
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
             
@@ -227,6 +233,8 @@ public class PlatformClient {
             this.orderManage = new PlatformService.OrderManageService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.serviceability = new PlatformService.ServiceabilityService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.documentEngine = new PlatformService.DocumentEngineService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
         }
 

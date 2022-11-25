@@ -626,10 +626,10 @@ interface OrderApiList {
     Call<ApplicationModels.StatusUpdateInternalResponse> updateShipmentStatus(@Path("shipment_id") String shipmentId ,@Body ApplicationModels.StatusUpdateInternalRequest payload);
     
     @GET ("/service/application/document/v1.0/orders/shipments/{shipment_id}/invoice")
-    Call<ApplicationModels.getInvoiceByShipmentId200Response> getInvoiceByShipmentId(@Path("shipment_id") String shipmentId , @Query("parameters") ApplicationModels.invoiceParameter parameters );
+    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Path("shipment_id") String shipmentId , @Query("parameters") ApplicationModels.invoiceParameter parameters );
     
     @GET ("/service/application/document/v1.0/orders/shipments/{shipment_id}/credit-note")
-    Call<ApplicationModels.getInvoiceByShipmentId200Response> getCreditNoteByShipmentId(@Path("shipment_id") String shipmentId , @Query("parameters") ApplicationModels.creditNoteParameter parameters );
+    Call<ApplicationModels.ResponseGetInvoiceShipment> getCreditNoteByShipmentId(@Path("shipment_id") String shipmentId , @Query("parameters") ApplicationModels.creditNoteParameter parameters );
     
 }
 
