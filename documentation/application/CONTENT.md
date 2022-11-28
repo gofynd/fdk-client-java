@@ -2265,7 +2265,7 @@ Success. Returns a list of pages along with their details. Check the example sho
  | active | Boolean? |  yes  |  |
  | display | String? |  yes  |  |
  | sortOrder | Integer? |  yes  |  |
- | subNavigation | ArrayList<Object>? |  yes  |  |
+ | subNavigation | ArrayList<[NavigationReference](#NavigationReference)>? |  yes  |  |
 
 ---
 
@@ -2618,7 +2618,7 @@ Success. Returns a list of pages along with their details. Check the example sho
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | faqs | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | faqs | ArrayList<[FaqSchema](#FaqSchema)>? |  yes  |  |
 
 ---
 
