@@ -5210,6 +5210,8 @@ public class FileStorageService extends FileStorage {
             
                     relativeUrls.put("getShipmentById1","/service/application/orders/v1.0/orders/shipments/{shipment_id}".substring(1));
             
+                    relativeUrls.put("getInvoiceByShipmentId1","/service/application/orders/v1.0/orders/shipments/{shipment_id}/invoice".substring(1));
+            
                     relativeUrls.put("trackShipment1","/service/application/orders/v1.0/orders/shipments/{shipment_id}/track".substring(1));
             
                     relativeUrls.put("getCustomerDetailsByShipmentId1","/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/customer-details".substring(1));
@@ -5219,6 +5221,8 @@ public class FileStorageService extends FileStorage {
                     relativeUrls.put("verifyOtpShipmentCustomer1","/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify/".substring(1));
             
                     relativeUrls.put("getShipmentBagReasons1","/service/application/orders/v1.0/orders/shipments/{shipment_id}/bags/{bag_id}/reasons".substring(1));
+            
+                    relativeUrls.put("getShipmentReasons1","/service/application/orders/v1.0/orders/shipments/{shipment_id}/reasons".substring(1));
              
 
     }
@@ -5548,6 +5552,25 @@ public class FileStorageService extends FileStorage {
     
     
     
+    public ApplicationModels.ResponseGetInvoiceShipment1 getInvoiceByShipmentId1(String shipmentId ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getInvoiceByShipmentId1");
+        
+        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
+        
+
+        Response<ApplicationModels.ResponseGetInvoiceShipment1> response = orderApiList.getInvoiceByShipmentId1(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.ShipmentTrack1 trackShipment1(String shipmentId ) throws IOException {
      
       String fullUrl = relativeUrls.get("trackShipment1");
@@ -5640,6 +5663,25 @@ public class FileStorageService extends FileStorage {
         
 
         Response<ApplicationModels.ShipmentBagReasons1> response = orderApiList.getShipmentBagReasons1(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ShipmentReasons1 getShipmentReasons1(String shipmentId ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getShipmentReasons1");
+        
+        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
+        
+
+        Response<ApplicationModels.ShipmentReasons1> response = orderApiList.getShipmentReasons1(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

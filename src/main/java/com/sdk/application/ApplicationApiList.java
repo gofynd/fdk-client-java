@@ -672,6 +672,9 @@ interface OrderApiList {
     Call<ApplicationModels.ShipmentById1> getShipmentById1(@Url String url1);
     
     @GET 
+    Call<ApplicationModels.ResponseGetInvoiceShipment1> getInvoiceByShipmentId1(@Url String url1);
+    
+    @GET 
     Call<ApplicationModels.ShipmentTrack1> trackShipment1(@Url String url1);
     
     @GET 
@@ -685,6 +688,9 @@ interface OrderApiList {
     
     @GET 
     Call<ApplicationModels.ShipmentBagReasons1> getShipmentBagReasons1(@Url String url1);
+    
+    @GET 
+    Call<ApplicationModels.ShipmentReasons1> getShipmentReasons1(@Url String url1);
 }
 
 interface RewardsApiList {
