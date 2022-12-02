@@ -609,6 +609,9 @@ interface OrderApiList {
     Call<ApplicationModels.ShipmentById> getShipmentById(@Url String url1);
     
     @GET 
+    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Url String url1);
+    
+    @GET 
     Call<ApplicationModels.ShipmentTrack> trackShipment(@Url String url1);
     
     @GET 
@@ -627,13 +630,13 @@ interface OrderApiList {
     Call<ApplicationModels.ShipmentReasons> getShipmentReasons(@Url String url1);
     
     @PUT 
-    Call<ApplicationModels.ShipmentStatusUpdate> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.ShipmentStatusUpdateBody payload );
+    Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.ShipmentStatusUpdateBody payload );
     
     @GET 
-    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Url String url1, @Query("parameters") invoiceParameter parameters );
+    Call<ApplicationModels.ResponseGetInvoiceShipment1> getInvoiceByShipmentId1(@Url String url1, @Query("parameters") invoiceParameter parameters );
     
     @GET 
-    Call<ApplicationModels.ResponseGetInvoiceShipment> getCreditNoteByShipmentId(@Url String url1, @Query("parameters") creditNoteParameter parameters );
+    Call<ApplicationModels.ResponseGetInvoiceShipment1> getCreditNoteByShipmentId(@Url String url1, @Query("parameters") creditNoteParameter parameters );
 }
 
 interface RewardsApiList {
