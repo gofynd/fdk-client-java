@@ -68,11 +68,11 @@ interface CatalogApiList {
     @GET 
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST 
-    Call<ApplicationModels.FollowPostResponse> followById(@Url String url1);
-    
     @DELETE 
     Call<ApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
+    
+    @POST 
+    Call<ApplicationModels.FollowPostResponse> followById(@Url String url1);
     
     @GET 
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Url String url1);
@@ -93,7 +93,7 @@ interface CatalogApiList {
     Call<ApplicationModels.ProductBundle> getProductBundlesBySlug(@Url String url1, @Query("slug") String slug , @Query("id") String id );
     
     @GET 
-    Call<ApplicationModels.ProductSizePriceResponseV2> getProductPriceBySlug(@Url String url1, @Query("store_id") Integer storeId , @Query("pincode") String pincode , @Query("moq") Integer moq );
+    Call<ApplicationModels.ProductSizePriceResponseV2> getProductPriceBySlug(@Url String url1, @Query("store_id") Integer storeId , @Query("pincode") String pincode );
     
     @GET 
     Call<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlug(@Url String url1, @Query("pincode") String pincode , @Query("strategy") String strategy , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
@@ -103,16 +103,16 @@ interface CartApiList {
     
     
     @GET 
-    Call<ApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow );
+    Call<ApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("buy_now") Boolean buyNow );
     
     @HEAD 
     Call<Object> getCartLastModified(@Url String url1, @Query("id") String id );
     
     @POST 
-    Call<ApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.AddCartRequest payload );
+    Call<ApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.AddCartRequest payload );
     
     @PUT 
-    Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.UpdateCartRequest payload );
+    Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.UpdateCartRequest payload );
     
     @GET 
     Call<ApplicationModels.CartItemCountResponse> getItemCount(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow );
@@ -635,6 +635,9 @@ interface OrderApiList {
     @GET 
     Call<ApplicationModels.ShipmentReasons> getShipmentReasons(@Url String url1);
     
+    @GET 
+    Call<ApplicationModels.ShipmentBagReasons> getShipmentBagReasons(@Url String url1);
+    
     @PUT 
     Call<ApplicationModels.ShipmentStatusUpdate> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.ShipmentStatusUpdateBody payload );
     
@@ -686,16 +689,16 @@ interface PosCartApiList {
     
     
     @GET 
-    Call<ApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow );
+    Call<ApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("buy_now") Boolean buyNow );
     
     @HEAD 
     Call<Object> getCartLastModified(@Url String url1, @Query("id") String id );
     
     @POST 
-    Call<ApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.AddCartRequest payload );
+    Call<ApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.AddCartRequest payload );
     
     @PUT 
-    Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.UpdateCartRequest payload );
+    Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.UpdateCartRequest payload );
     
     @GET 
     Call<ApplicationModels.CartItemCountResponse> getItemCount(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow );
