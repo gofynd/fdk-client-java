@@ -12288,13 +12288,9 @@ public class ApplicationClient {
     
     
     
-    
-    
-    
-    
-    public PlatformModels.ApplicationItemResponse getAppProduct(String itemId , String sliceAttr ) throws IOException {
+    public PlatformModels.SuccessResponse1 updateAppProduct(String itemId ,PlatformModels.ApplicationItemMeta body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ApplicationItemResponse> response = catalogApiList.getAppProduct(this.companyId , this.applicationId , itemId ,sliceAttr ).execute();
+            Response<PlatformModels.SuccessResponse1> response = catalogApiList.updateAppProduct(this.companyId , this.applicationId , itemId , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -12326,9 +12322,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SuccessResponse1 updateAppProduct(String itemId ,PlatformModels.ApplicationItemMeta body) throws IOException {
+    
+    
+    
+    
+    public PlatformModels.ApplicationItemResponse getAppProduct(String itemId , String sliceAttr ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse1> response = catalogApiList.updateAppProduct(this.companyId , this.applicationId , itemId , body).execute();
+            Response<PlatformModels.ApplicationItemResponse> response = catalogApiList.getAppProduct(this.companyId , this.applicationId , itemId ,sliceAttr ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -18530,6 +18530,8 @@ public static class CartService {
     
     
     
+    
+    
 
 
 public class ApplicationClient {
@@ -19135,6 +19137,36 @@ public class ApplicationClient {
     public PlatformModels.SuccessMessage updatePromotionPartially(String id ,PlatformModels.PromotionPartialUpdate body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessMessage> response = cartApiList.updatePromotionPartially(this.companyId , this.applicationId , id , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.ActivePromosResponse getPromosCouponConfig() throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.ActivePromosResponse> response = cartApiList.getPromosCouponConfig(this.companyId , this.applicationId ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
