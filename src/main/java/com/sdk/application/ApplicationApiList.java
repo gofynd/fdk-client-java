@@ -68,11 +68,11 @@ interface CatalogApiList {
     @GET 
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE 
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
-    
     @POST 
     Call<ApplicationModels.FollowPostResponse> followById(@Url String url1);
+    
+    @DELETE 
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
     
     @GET 
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Url String url1);
@@ -672,7 +672,7 @@ interface OrderApiList {
     Call<ApplicationModels.ShipmentById1> getShipmentById1(@Url String url1);
     
     @GET 
-    Call<ApplicationModels.ResponseGetInvoiceShipment1> getInvoiceByShipmentId1(@Url String url1);
+    Call<ApplicationModels.ResponseGetInvoiceShipment1> getInvoiceByShipmentIds(@Url String url1);
     
     @GET 
     Call<ApplicationModels.ShipmentTrack1> trackShipment1(@Url String url1);
