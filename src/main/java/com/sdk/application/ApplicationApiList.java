@@ -24,9 +24,6 @@ interface CatalogApiList {
     Call<ApplicationModels.ProductFrequentlyComparedSimilarResponse> getComparedFrequentlyProductBySlug(@Url String url1);
     
     @GET 
-    Call<ApplicationModels.SimilarProductByTypeResponse> getProductSimilarByIdentifier(@Url String url1);
-    
-    @GET 
     Call<ApplicationModels.ProductVariantsResponse> getProductVariantsBySlug(@Url String url1);
     
     @GET 
@@ -112,7 +109,7 @@ interface CartApiList {
     Call<Object> getCartLastModified(@Url String url1, @Query("id") String id );
     
     @POST 
-    Call<ApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode  , @Body ApplicationModels.AddCartRequest payload );
+    Call<ApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("id") String id  , @Body ApplicationModels.AddCartRequest payload );
     
     @PUT 
     Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode  , @Body ApplicationModels.UpdateCartRequest payload );
@@ -288,6 +285,9 @@ interface UserApiList {
     
     @POST 
     Call<ApplicationModels.VerifyEmailSuccess> updatePassword(@Url String url1 , @Body ApplicationModels.UpdatePasswordRequestSchema payload );
+    
+    @POST 
+    Call<ApplicationModels.DeleteUserSuccess> deleteUser(@Url String url1 , @Body ApplicationModels.DeleteApplicationUserRequestSchema payload );
     
     @GET 
     Call<ApplicationModels.LogoutSuccess> logout(@Url String url1);
@@ -677,7 +677,7 @@ interface PosCartApiList {
     Call<Object> getCartLastModified(@Url String url1, @Query("id") String id );
     
     @POST 
-    Call<ApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode  , @Body ApplicationModels.AddCartRequest payload );
+    Call<ApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("id") String id  , @Body ApplicationModels.AddCartRequest payload );
     
     @PUT 
     Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode  , @Body ApplicationModels.UpdateCartRequest payload );

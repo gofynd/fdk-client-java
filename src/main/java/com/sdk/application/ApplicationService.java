@@ -41,8 +41,6 @@ public class ApplicationService {
             
                     relativeUrls.put("getComparedFrequentlyProductBySlug","/service/application/catalog/v1.0/products/{slug}/similar/compared-frequently/".substring(1));
             
-                    relativeUrls.put("getProductSimilarByIdentifier","/service/application/catalog/v1.0/products/{slug}/similar/{similar_type}/".substring(1));
-            
                     relativeUrls.put("getProductVariantsBySlug","/service/application/catalog/v1.0/products/{slug}/variants/".substring(1));
             
                     relativeUrls.put("getProductStockByIds","/service/application/catalog/v1.0/products/stock-status/".substring(1));
@@ -195,27 +193,6 @@ public class ApplicationService {
         
 
         Response<ApplicationModels.ProductFrequentlyComparedSimilarResponse> response = catalogApiList.getComparedFrequentlyProductBySlug(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.SimilarProductByTypeResponse getProductSimilarByIdentifier(String slug , String similarType ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getProductSimilarByIdentifier");
-        
-        fullUrl = fullUrl.replace("{" + "slug" +"}",slug.toString());
-        
-        fullUrl = fullUrl.replace("{" + "similar_type" +"}",similarType.toString());
-        
-
-        Response<ApplicationModels.SimilarProductByTypeResponse> response = catalogApiList.getProductSimilarByIdentifier(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1470,12 +1447,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode ,ApplicationModels.AddCartRequest body) throws IOException {
+    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , String id ,ApplicationModels.AddCartRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("addItems");
         
 
-        Response<ApplicationModels.AddCartDetailResponse> response = cartApiList.addItems(fullUrl  ,i, b, areaCode, body).execute();
+        Response<ApplicationModels.AddCartDetailResponse> response = cartApiList.addItems(fullUrl  ,i, b, areaCode, id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -2331,6 +2308,8 @@ public class ApplicationService {
             
                     relativeUrls.put("updatePassword","/service/application/user/authentication/v1.0/password".substring(1));
             
+                    relativeUrls.put("deleteUser","/service/application/user/authentication/v1.0/delete".substring(1));
+            
                     relativeUrls.put("logout","/service/application/user/authentication/v1.0/logout".substring(1));
             
                     relativeUrls.put("sendOTPOnMobile","/service/application/user/authentication/v1.0/otp/mobile/send".substring(1));
@@ -2663,6 +2642,23 @@ public class ApplicationService {
         
 
         Response<ApplicationModels.VerifyEmailSuccess> response = userApiList.updatePassword(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.DeleteUserSuccess deleteUser(ApplicationModels.DeleteApplicationUserRequestSchema body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("deleteUser");
+        
+
+        Response<ApplicationModels.DeleteUserSuccess> response = userApiList.deleteUser(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5699,12 +5695,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode ,ApplicationModels.AddCartRequest body) throws IOException {
+    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , String id ,ApplicationModels.AddCartRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("addItems");
         
 
-        Response<ApplicationModels.AddCartDetailResponse> response = poscartApiList.addItems(fullUrl  ,i, b, areaCode, body).execute();
+        Response<ApplicationModels.AddCartDetailResponse> response = poscartApiList.addItems(fullUrl  ,i, b, areaCode, id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
