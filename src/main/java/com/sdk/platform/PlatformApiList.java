@@ -2470,6 +2470,30 @@ interface CommunicationApiList {
     
     
     
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/otp/send-otp-comms")
+    Call<PlatformModels.SendOtpCommsRes> sendOtp(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.SendOtpCommsReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/otp/verify-otp-comms")
+    Call<PlatformModels.VerifyOtpCommsSuccessRes> verfiyOtp(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.VerifyOtpCommsReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -3268,23 +3292,23 @@ interface CatalogApiList {
     
     
     
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
-    Call<PlatformModels.GetSearchWordsDetailResponse> getSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
     Call<PlatformModels.DeleteResponse> deleteSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
+    Call<PlatformModels.GetSearchWordsDetailResponse> getSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
     
     
@@ -3337,23 +3361,23 @@ interface CatalogApiList {
     
     
     
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
-    Call<PlatformModels.GetAutocompleteWordsResponse> getAutocompleteKeywordDetail(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
     Call<PlatformModels.DeleteResponse> deleteAutocompleteKeyword(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
+    Call<PlatformModels.GetAutocompleteWordsResponse> getAutocompleteKeywordDetail(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
     
     
@@ -4321,6 +4345,18 @@ interface CatalogApiList {
     
     
     
+    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/products/{item_id}/")
+    Call<PlatformModels.SuccessResponse> deleteProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -4329,18 +4365,6 @@ interface CatalogApiList {
     
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/products/{item_id}/")
     Call<PlatformModels.Product> getProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId , @Query("item_code") String  itemCode ,  @Query("brand_uid") Integer  brandUid );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/products/{item_id}/")
-    Call<PlatformModels.SuccessResponse> deleteProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId );
     
     
     
@@ -4971,6 +4995,15 @@ interface CatalogApiList {
     
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/inventory/")
     Call<PlatformModels.InventoryStockResponse> getAppInventory(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("item_ids") List<Integer>  itemIds ,  @Query("store_ids") List<Integer>  storeIds ,  @Query("brand_ids") List<Integer>  brandIds ,  @Query("seller_identifiers") List<String>  sellerIdentifiers ,  @Query("timestamp") String  timestamp ,  @Query("page_size") Integer  pageSize ,  @Query("page_id") String  pageId );
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/catalog/v1.0/company/{company_id}/location/reassign/")
+    Call<PlatformModels.StoreAssignResponse> getOptimalLocations(@Path("company_id")  String companyId ,@Body PlatformModels.AssignStore payload);
     
     
     
@@ -7167,5 +7200,102 @@ interface AuditTrailApiList {
     
     @GET ("/service/platform/audit-trail/v1.0/company/{company_id}/entity-types")
     Call<PlatformModels.EntityTypesResponse> getEntityTypes(@Path("company_id")  String companyId );
+    
+}
+
+interface DocumentEngineApiList {
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/document/v1.0/company/{company_id}/generate-bulk-package-label")
+    Call<PlatformModels.SuccessResponseGenerateBulk> generateBulkPackageLabel(@Path("company_id")  String companyId ,@Body PlatformModels.GenerateBulkPackageLabel payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/document/v1.0/company/{company_id}/generate-bulk-box-label")
+    Call<PlatformModels.SuccessResponseGenerateBulk> generateBulkBoxLabel(@Path("company_id")  String companyId ,@Body PlatformModels.GenerateBulkBoxLabel payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/document/v1.0/company/{company_id}/generate-bulk-shipment-label")
+    Call<PlatformModels.SuccessResponseGenerateBulk> generateBulkShipmentLabel(@Path("company_id")  String companyId ,@Body PlatformModels.GenerateBulkShipmentLabel payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/document/v1.0/company/{company_id}/generate-noc")
+    Call<PlatformModels.SuccessResponseGenerateBulk> generateNoc(@Path("company_id")  String companyId ,@Body PlatformModels.GenerateNoc payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/document/v1.0/company/{company_id}/get-label-list")
+    Call<PlatformModels.StatusSuccessResponse> getLabelStatus(@Path("company_id")  String companyId , @Query("uid") String  uid );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/document/v1.0/company/{company_id}/get-noc-status")
+    Call<PlatformModels.StatusSuccessResponse> getNocStatus(@Path("company_id")  String companyId , @Query("uid") String  uid );
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/document/v1.0/company/{company_id}/get-single-presigned-url")
+    Call<PlatformModels.SignedSuccessResponse> getPresignedURL(@Path("company_id")  String companyId ,@Body PlatformModels.InvoiceLabelPresignedRequestBody payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/document/v1.0/company/{company_id}/get-label-presigned-url")
+    Call<PlatformModels.SignedSuccessResponse> getLabelPresignedURL(@Path("company_id")  String companyId , @Query("uid") String  uid );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/document/v1.0/company/{company_id}/get-noc-presigned-url")
+    Call<PlatformModels.SignedSuccessResponse> getNocPresignedURL(@Path("company_id")  String companyId , @Query("uid") String  uid );
     
 }
