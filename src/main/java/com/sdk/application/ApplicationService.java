@@ -71,9 +71,9 @@ public class ApplicationService {
             
                     relativeUrls.put("getFollowedListing","/service/application/catalog/v1.0/follow/{collection_type}/".substring(1));
             
-                    relativeUrls.put("followById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
-            
                     relativeUrls.put("unfollowById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
+            
+                    relativeUrls.put("followById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
             
                     relativeUrls.put("getFollowerCountById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/".substring(1));
             
@@ -901,16 +901,16 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
      
-      String fullUrl = relativeUrls.get("followById");
+      String fullUrl = relativeUrls.get("unfollowById");
         
         fullUrl = fullUrl.replace("{" + "collection_type" +"}",collectionType.toString());
         
         fullUrl = fullUrl.replace("{" + "collection_id" +"}",collectionId.toString());
         
 
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(fullUrl ).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -922,16 +922,16 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
      
-      String fullUrl = relativeUrls.get("unfollowById");
+      String fullUrl = relativeUrls.get("followById");
         
         fullUrl = fullUrl.replace("{" + "collection_type" +"}",collectionType.toString());
         
         fullUrl = fullUrl.replace("{" + "collection_id" +"}",collectionId.toString());
         
 
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(fullUrl ).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5186,6 +5186,8 @@ public class FileStorageService extends FileStorage {
             
                     relativeUrls.put("getShipmentReasons","/service/application/order/v1.0/orders/shipments/{shipment_id}/reasons".substring(1));
             
+                    relativeUrls.put("getShipmentBagReasons","/service/application/order/v1.0/orders/shipments/{shipment_id}/bags/{bag_id}/reasons/".substring(1));
+            
                     relativeUrls.put("updateShipmentStatus","/service/application/order/v1.0/orders/shipments/{shipment_id}/status".substring(1));
             
                     relativeUrls.put("trackShipment","/service/application/order/v1.0/orders/shipments/{shipment_id}/track".substring(1));
@@ -5283,6 +5285,27 @@ public class FileStorageService extends FileStorage {
         
 
         Response<ApplicationModels.ShipmentReasons> response = orderApiList.getShipmentReasons(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ShipmentBagReasons getShipmentBagReasons(String shipmentId , String bagId ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getShipmentBagReasons");
+        
+        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
+        
+        fullUrl = fullUrl.replace("{" + "bag_id" +"}",bagId.toString());
+        
+
+        Response<ApplicationModels.ShipmentBagReasons> response = orderApiList.getShipmentBagReasons(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
