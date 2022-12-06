@@ -636,7 +636,7 @@ interface OrderApiList {
     Call<ApplicationModels.ShipmentById> getShipmentById(@Url String url1);
     
     @GET 
-    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentIds(@Url String url1);
+    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Url String url1);
     
     @GET 
     Call<ApplicationModels.ShipmentTrack> trackShipment(@Url String url1);
