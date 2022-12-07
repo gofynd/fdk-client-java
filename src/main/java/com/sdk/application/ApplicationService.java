@@ -71,9 +71,9 @@ public class ApplicationService {
             
                     relativeUrls.put("getFollowedListing","/service/application/catalog/v1.0/follow/{collection_type}/".substring(1));
             
-                    relativeUrls.put("unfollowById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
-            
                     relativeUrls.put("followById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
+            
+                    relativeUrls.put("unfollowById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
             
                     relativeUrls.put("getFollowerCountById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/".substring(1));
             
@@ -901,16 +901,16 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
      
-      String fullUrl = relativeUrls.get("unfollowById");
+      String fullUrl = relativeUrls.get("followById");
         
         fullUrl = fullUrl.replace("{" + "collection_type" +"}",collectionType.toString());
         
         fullUrl = fullUrl.replace("{" + "collection_id" +"}",collectionId.toString());
         
 
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(fullUrl ).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -922,16 +922,16 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
      
-      String fullUrl = relativeUrls.get("followById");
+      String fullUrl = relativeUrls.get("unfollowById");
         
         fullUrl = fullUrl.replace("{" + "collection_type" +"}",collectionType.toString());
         
         fullUrl = fullUrl.replace("{" + "collection_id" +"}",collectionId.toString());
         
 
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(fullUrl ).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5031,9 +5031,9 @@ public class FileStorageService extends FileStorage {
             
                     relativeUrls.put("updateShipmentStatus","/service/application/order-manage/v1.0/orders/shipments/{shipment_id}/status".substring(1));
             
-                    relativeUrls.put("createOrderConfig","/service/application/order-manage/v1.0/orders/co-config".substring(1));
+                    relativeUrls.put("createChannelConfig","/service/application/order-manage/v1.0/orders/co-config".substring(1));
             
-                    relativeUrls.put("getCreateOrderConfig","/service/application/order-manage/v1.0/orders/co-config".substring(1));
+                    relativeUrls.put("getChannelConfig","/service/application/order-manage/v1.0/orders/co-config".substring(1));
             
                     relativeUrls.put("getInvoiceByShipmentId1","/service/application/document/v1.0/orders/shipments/{shipment_id}/invoice".substring(1));
             
@@ -5274,7 +5274,7 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.ShipmentApplicationStatusResponse updateShipmentStatus(String shipmentId ,ApplicationModels.ShipmentStatusUpdateBody body) throws IOException {
+    public ApplicationModels.ShipmentApplicationStatusResponse updateShipmentStatus(String shipmentId ,ApplicationModels.StatusUpdateInternalRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("updateShipmentStatus");
         
@@ -5293,12 +5293,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CreateOrderConfigDataResponse createOrderConfig(ApplicationModels.CreateOrderConfigData body) throws IOException {
+    public ApplicationModels.CreateOrderConfigDataResponse createChannelConfig(ApplicationModels.CreateOrderConfigData body) throws IOException {
      
-      String fullUrl = relativeUrls.get("createOrderConfig");
+      String fullUrl = relativeUrls.get("createChannelConfig");
         
 
-        Response<ApplicationModels.CreateOrderConfigDataResponse> response = orderApiList.createOrderConfig(fullUrl , body).execute();
+        Response<ApplicationModels.CreateOrderConfigDataResponse> response = orderApiList.createChannelConfig(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5310,12 +5310,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CreateOrderConfigData getCreateOrderConfig() throws IOException {
+    public ApplicationModels.CreateOrderConfigData getChannelConfig() throws IOException {
      
-      String fullUrl = relativeUrls.get("getCreateOrderConfig");
+      String fullUrl = relativeUrls.get("getChannelConfig");
         
 
-        Response<ApplicationModels.CreateOrderConfigData> response = orderApiList.getCreateOrderConfig(fullUrl ).execute();
+        Response<ApplicationModels.CreateOrderConfigData> response = orderApiList.getChannelConfig(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

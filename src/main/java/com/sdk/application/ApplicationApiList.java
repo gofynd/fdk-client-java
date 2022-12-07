@@ -68,11 +68,11 @@ interface CatalogApiList {
     @GET 
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE 
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
-    
     @POST 
     Call<ApplicationModels.FollowPostResponse> followById(@Url String url1);
+    
+    @DELETE 
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
     
     @GET 
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Url String url1);
@@ -630,13 +630,13 @@ interface OrderApiList {
     Call<ApplicationModels.ShipmentReasons> getShipmentReasons(@Url String url1);
     
     @PUT 
-    Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.ShipmentStatusUpdateBody payload );
+    Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.StatusUpdateInternalRequest payload );
     
     @POST 
-    Call<ApplicationModels.CreateOrderConfigDataResponse> createOrderConfig(@Url String url1 , @Body ApplicationModels.CreateOrderConfigData payload );
+    Call<ApplicationModels.CreateOrderConfigDataResponse> createChannelConfig(@Url String url1 , @Body ApplicationModels.CreateOrderConfigData payload );
     
     @GET 
-    Call<ApplicationModels.CreateOrderConfigData> getCreateOrderConfig(@Url String url1);
+    Call<ApplicationModels.CreateOrderConfigData> getChannelConfig(@Url String url1);
     
     @GET 
     Call<ApplicationModels.ResponseGetInvoiceShipment1> getInvoiceByShipmentId1(@Url String url1, @Query("parameters") invoiceParameter parameters );

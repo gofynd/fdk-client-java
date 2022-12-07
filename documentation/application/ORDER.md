@@ -18,8 +18,8 @@ Handles all Application order and shipment api(s)
 * [getShipmentBagReasons](#getshipmentbagreasons)
 * [getShipmentReasons](#getshipmentreasons)
 * [updateShipmentStatus](#updateshipmentstatus)
-* [createOrderConfig](#createorderconfig)
-* [getCreateOrderConfig](#getcreateorderconfig)
+* [createChannelConfig](#createchannelconfig)
+* [getChannelConfig](#getchannelconfig)
 * [getInvoiceByShipmentId1](#getinvoicebyshipmentid1)
 * [getCreditNoteByShipmentId](#getcreditnotebyshipmentid)
 
@@ -2368,7 +2368,7 @@ order.updateShipmentStatus( shipmentId, body body) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | shipmentId | String | yes |  |  
-| body | [ShipmentStatusUpdateBody](#ShipmentStatusUpdateBody) | yes | Request body |
+| body | [StatusUpdateInternalRequest](#StatusUpdateInternalRequest) | yes | Request body |
 
 
 updateShipmentStatus
@@ -2417,14 +2417,14 @@ Successfully updateShipmentStatus!
 ---
 
 
-### createOrderConfig
+### createChannelConfig
 
 
 
 
 
 ```java
-order.createOrderConfig(body body) {
+order.createChannelConfig(body body) {
   //use response
 }
 ```
@@ -2436,7 +2436,7 @@ order.createOrderConfig(body body) {
 | body | [CreateOrderConfigData](#CreateOrderConfigData) | yes | Request body |
 
 
-createOrderConfig
+createChannelConfig
 
 *Returned Response:*
 
@@ -2475,14 +2475,14 @@ Successfully updateShipmentStatus!
 ---
 
 
-### getCreateOrderConfig
+### getChannelConfig
 
 
 
 
 
 ```java
-order.getCreateOrderConfig() {
+order.getChannelConfig() {
   //use response
 }
 ```
@@ -2490,7 +2490,7 @@ order.getCreateOrderConfig() {
 
 
 
-getCreateOrderConfig
+getChannelConfig
 
 *Returned Response:*
 
@@ -3376,28 +3376,127 @@ Success Response, Presigned URL of Invoice
 
  
  
- #### [StatusesBody](#StatusesBody)
+ #### [EntitiesReasons](#EntitiesReasons)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | excludeBagsNextState | String? |  yes  |  |
- | shipments | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | status | String? |  yes  |  |
+ | filters | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | data | HashMap<String,Object>? |  yes  |  |
 
 ---
 
 
  
  
- #### [ShipmentStatusUpdateBody](#ShipmentStatusUpdateBody)
+ #### [ProductsReasons](#ProductsReasons)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | statuses | ArrayList<[StatusesBody](#StatusesBody)>? |  yes  |  |
- | unlockBeforeTransition | Boolean? |  yes  |  |
+ | filters | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | data | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ReasonsData](#ReasonsData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | entities | ArrayList<[EntitiesReasons](#EntitiesReasons)>? |  yes  |  |
+ | products | ArrayList<[ProductsReasons](#ProductsReasons)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [EntitiesDataUpdates](#EntitiesDataUpdates)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | filters | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | data | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductsDataUpdates](#ProductsDataUpdates)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | filters | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | data | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DataUpdates](#DataUpdates)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | entities | ArrayList<[EntitiesDataUpdates](#EntitiesDataUpdates)>? |  yes  |  |
+ | products | ArrayList<[ProductsDataUpdates](#ProductsDataUpdates)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Products](#Products)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | quantity | Integer? |  yes  |  |
+ | identifier | String? |  yes  |  |
+ | lineNumber | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ShipmentsRequest](#ShipmentsRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | reasons | [ReasonsData](#ReasonsData)? |  yes  |  |
+ | identifier | String |  no  |  |
+ | dataUpdates | [DataUpdates](#DataUpdates)? |  yes  |  |
+ | products | ArrayList<[Products](#Products)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [StatuesRequest](#StatuesRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | status | String? |  yes  |  |
+ | excludeBagsNextState | String? |  yes  |  |
+ | shipments | ArrayList<[ShipmentsRequest](#ShipmentsRequest)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [StatusUpdateInternalRequest](#StatusUpdateInternalRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | task | Boolean? |  yes  |  |
+ | statues | ArrayList<[StatuesRequest](#StatuesRequest)>? |  yes  |  |
  | lockAfterTransition | Boolean? |  yes  |  |
  | forceTransition | Boolean? |  yes  |  |
- | task | Boolean? |  yes  |  |
+ | unlockBeforeTransition | Boolean? |  yes  |  |
 
 ---
 
@@ -3426,24 +3525,13 @@ Success Response, Presigned URL of Invoice
 
  
  
- #### [DpConfiguration](#DpConfiguration)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | shippingBy | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [PaymentMethods](#PaymentMethods)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | refundBy | String? |  yes  |  |
  | collectBy | String? |  yes  |  |
  | mode | String? |  yes  |  |
+ | refundBy | String? |  yes  |  |
 
 ---
 
@@ -3463,16 +3551,27 @@ Success Response, Presigned URL of Invoice
 
  
  
+ #### [DpConfiguration](#DpConfiguration)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | shippingBy | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [CreateOrderConfig](#CreateOrderConfig)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | logoUrl | HashMap<String,Object>? |  yes  |  |
- | dpConfiguration | [DpConfiguration](#DpConfiguration)? |  yes  |  |
- | lockStates | String? |  yes  |  |
+ | shipmentAssignment | String? |  yes  |  |
  | locationReassignment | Boolean? |  yes  |  |
  | paymentInfo | [PaymentInfo](#PaymentInfo)? |  yes  |  |
- | shipmentAssignment | String? |  yes  |  |
+ | logoUrl | HashMap<String,Object>? |  yes  |  |
+ | lockStates | String? |  yes  |  |
+ | dpConfiguration | [DpConfiguration](#DpConfiguration)? |  yes  |  |
 
 ---
 
@@ -3494,9 +3593,9 @@ Success Response, Presigned URL of Invoice
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | isInserted | Boolean? |  yes  |  |
  | acknowledged | Boolean? |  yes  |  |
  | isUpserted | Boolean? |  yes  |  |
- | isInserted | Boolean? |  yes  |  |
 
 ---
 
