@@ -660,10 +660,10 @@ interface OrderApiList {
     Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.ShipmentStatusUpdateBody payload );
     
     @POST 
-    Call<ApplicationModels.CreateOrderConfigDataResponse> createOrderConfig(@Url String url1 , @Body ApplicationModels.CreateOrderConfigData payload );
+    Call<ApplicationModels.CreateOrderConfigDataResponse> createChannelConfig(@Url String url1 , @Body ApplicationModels.CreateOrderConfigData payload );
     
     @GET 
-    Call<ApplicationModels.CreateOrderConfigData> getCreateOrderConfig(@Url String url1);
+    Call<ApplicationModels.CreateOrderConfigData> getChannelConfig(@Url String url1);
 }
 
 interface RewardsApiList {

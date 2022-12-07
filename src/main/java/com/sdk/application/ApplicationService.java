@@ -5202,9 +5202,9 @@ public class FileStorageService extends FileStorage {
             
                     relativeUrls.put("updateShipmentStatus","/service/application/order-manage/v1.0/orders/shipments/{shipment_id}/status".substring(1));
             
-                    relativeUrls.put("createOrderConfig","/service/application/order-manage/v1.0/orders/co-config".substring(1));
+                    relativeUrls.put("createChannelConfig","/service/application/order-manage/v1.0/orders/co-config".substring(1));
             
-                    relativeUrls.put("getCreateOrderConfig","/service/application/order-manage/v1.0/orders/co-config".substring(1));
+                    relativeUrls.put("getChannelConfig","/service/application/order-manage/v1.0/orders/co-config".substring(1));
              
 
     }
@@ -5460,12 +5460,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CreateOrderConfigDataResponse createOrderConfig(ApplicationModels.CreateOrderConfigData body) throws IOException {
+    public ApplicationModels.CreateOrderConfigDataResponse createChannelConfig(ApplicationModels.CreateOrderConfigData body) throws IOException {
      
-      String fullUrl = relativeUrls.get("createOrderConfig");
+      String fullUrl = relativeUrls.get("createChannelConfig");
         
 
-        Response<ApplicationModels.CreateOrderConfigDataResponse> response = orderApiList.createOrderConfig(fullUrl , body).execute();
+        Response<ApplicationModels.CreateOrderConfigDataResponse> response = orderApiList.createChannelConfig(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5477,12 +5477,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CreateOrderConfigData getCreateOrderConfig() throws IOException {
+    public ApplicationModels.CreateOrderConfigData getChannelConfig() throws IOException {
      
-      String fullUrl = relativeUrls.get("getCreateOrderConfig");
+      String fullUrl = relativeUrls.get("getChannelConfig");
         
 
-        Response<ApplicationModels.CreateOrderConfigData> response = orderApiList.getCreateOrderConfig(fullUrl ).execute();
+        Response<ApplicationModels.CreateOrderConfigData> response = orderApiList.getChannelConfig(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
