@@ -106,7 +106,7 @@ interface CartApiList {
     
     
     @GET 
-    Call<ApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("area_code") String areaCode );
+    Call<ApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("area_code") String areaCode , @Query("empty_cart") String emptyCart );
     
     @HEAD 
     Call<Object> getCartLastModified(@Url String url1, @Query("id") String id );
@@ -668,7 +668,7 @@ interface PosCartApiList {
     
     
     @GET 
-    Call<ApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("area_code") String areaCode );
+    Call<ApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("area_code") String areaCode , @Query("empty_cart") String emptyCart );
     
     @HEAD 
     Call<Object> getCartLastModified(@Url String url1, @Query("id") String id );

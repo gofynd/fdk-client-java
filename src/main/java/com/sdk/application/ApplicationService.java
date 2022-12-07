@@ -1438,12 +1438,12 @@ public class ApplicationService {
 
      
     
-    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode ) throws IOException {
+    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode , String emptyCart ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCart");
         
 
-        Response<ApplicationModels.CartDetailResponse> response = cartApiList.getCart(fullUrl  ,id, i, b, assignCardId, areaCode).execute();
+        Response<ApplicationModels.CartDetailResponse> response = cartApiList.getCart(fullUrl  ,id, i, b, assignCardId, areaCode, emptyCart).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5642,12 +5642,12 @@ public class FileStorageService extends FileStorage {
 
      
     
-    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode ) throws IOException {
+    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode , String emptyCart ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCart");
         
 
-        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.getCart(fullUrl  ,id, i, b, assignCardId, areaCode).execute();
+        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.getCart(fullUrl  ,id, i, b, assignCardId, areaCode, emptyCart).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
