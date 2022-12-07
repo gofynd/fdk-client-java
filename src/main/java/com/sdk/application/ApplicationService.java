@@ -1438,7 +1438,7 @@ public class ApplicationService {
 
      
     
-    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode , String emptyCart ) throws IOException {
+    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode , Boolean emptyCart ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCart");
         
@@ -5642,7 +5642,7 @@ public class FileStorageService extends FileStorage {
 
      
     
-    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode , String emptyCart ) throws IOException {
+    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode , Boolean emptyCart ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCart");
         
