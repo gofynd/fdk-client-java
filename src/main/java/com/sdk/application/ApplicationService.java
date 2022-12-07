@@ -3878,9 +3878,9 @@ public class FileStorageService extends FileStorage {
 
     
     
-    public ApplicationModels.OrderList getOrders(Integer status , Integer pageNo , Integer pageSize , String fromDate , String toDate ) throws IOException {
+    public ApplicationModels.OrderList getOrders(Integer status , Integer pageNo , Integer pageSize , String fromDate , String toDate , String customMeta ) throws IOException {
     
-        Response<ApplicationModels.OrderList> response = orderApiList.getOrders(status, pageNo, pageSize, fromDate, toDate).execute();
+        Response<ApplicationModels.OrderList> response = orderApiList.getOrders(status, pageNo, pageSize, fromDate, toDate, customMeta).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3892,9 +3892,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.OrderList getOrderById(String orderId ) throws IOException {
+    public ApplicationModels.OrderById getOrderById(String orderId ) throws IOException {
     
-        Response<ApplicationModels.OrderList> response = orderApiList.getOrderById(orderId).execute();
+        Response<ApplicationModels.OrderById> response = orderApiList.getOrderById(orderId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3934,9 +3934,23 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.TrackShipmentResponse trackShipment(String shipmentId ) throws IOException {
+    public ApplicationModels.ResponseGetInvoiceShipment getInvoiceByShipmentId(String shipmentId ) throws IOException {
     
-        Response<ApplicationModels.TrackShipmentResponse> response = orderApiList.trackShipment(shipmentId).execute();
+        Response<ApplicationModels.ResponseGetInvoiceShipment> response = orderApiList.getInvoiceByShipmentId(shipmentId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ShipmentTrack trackShipment(String shipmentId ) throws IOException {
+    
+        Response<ApplicationModels.ShipmentTrack> response = orderApiList.trackShipment(shipmentId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -3990,9 +4004,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.ShipmentReasonsResponse getShipmentBagReasons(String shipmentId , Integer bagId ) throws IOException {
+    public ApplicationModels.ShipmentBagReasons getShipmentBagReasons(String shipmentId , String bagId ) throws IOException {
     
-        Response<ApplicationModels.ShipmentReasonsResponse> response = orderApiList.getShipmentBagReasons(shipmentId, bagId).execute();
+        Response<ApplicationModels.ShipmentBagReasons> response = orderApiList.getShipmentBagReasons(shipmentId, bagId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -4004,7 +4018,21 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.ShipmentApplicationStatusResponse updateShipmentStatus(String shipmentId ,ApplicationModels.ShipmentStatusUpdateBody body) throws IOException {
+    public ApplicationModels.ShipmentReasons getShipmentReasons(String shipmentId ) throws IOException {
+    
+        Response<ApplicationModels.ShipmentReasons> response = orderApiList.getShipmentReasons(shipmentId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ShipmentApplicationStatusResponse updateShipmentStatus(String shipmentId ,ApplicationModels.StatusUpdateInternalRequest body) throws IOException {
     
         Response<ApplicationModels.ShipmentApplicationStatusResponse> response = orderApiList.updateShipmentStatus(shipmentId, body).execute();
         if(!response.isSuccessful()) {
@@ -4018,9 +4046,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.ResponseGetInvoiceShipment getInvoiceByShipmentId(String shipmentId , ApplicationModels.invoiceParameter parameters ) throws IOException {
+    public ApplicationModels.CreateOrderConfigData getChannelConfig() throws IOException {
     
-        Response<ApplicationModels.ResponseGetInvoiceShipment> response = orderApiList.getInvoiceByShipmentId(shipmentId, parameters).execute();
+        Response<ApplicationModels.CreateOrderConfigData> response = orderApiList.getChannelConfig().execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -4032,9 +4060,37 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.ResponseGetInvoiceShipment getCreditNoteByShipmentId(String shipmentId , ApplicationModels.creditNoteParameter parameters ) throws IOException {
+    public ApplicationModels.CreateOrderConfigDataResponse createChannelConfig(ApplicationModels.CreateOrderConfigData body) throws IOException {
     
-        Response<ApplicationModels.ResponseGetInvoiceShipment> response = orderApiList.getCreditNoteByShipmentId(shipmentId, parameters).execute();
+        Response<ApplicationModels.CreateOrderConfigDataResponse> response = orderApiList.createChannelConfig( body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ResponseGetInvoiceShipment1 getInvoiceByShipmentId1(String shipmentId , ApplicationModels.invoiceParameter parameters ) throws IOException {
+    
+        Response<ApplicationModels.ResponseGetInvoiceShipment1> response = orderApiList.getInvoiceByShipmentId1(shipmentId, parameters).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ResponseGetInvoiceShipment1 getCreditNoteByShipmentId(String shipmentId , ApplicationModels.creditNoteParameter parameters ) throws IOException {
+    
+        Response<ApplicationModels.ResponseGetInvoiceShipment1> response = orderApiList.getCreditNoteByShipmentId(shipmentId, parameters).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

@@ -596,10 +596,10 @@ interface PaymentApiList {
 interface OrderApiList {
     
     @GET ("/service/application/orders/v1.0/orders")
-    Call<ApplicationModels.OrderList> getOrders(@Query("status") Integer status , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate );
+    Call<ApplicationModels.OrderList> getOrders(@Query("status") Integer status , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate , @Query("custom_meta") String customMeta );
     
     @GET ("/service/application/orders/v1.0/orders/{order_id}")
-    Call<ApplicationModels.OrderList> getOrderById(@Path("order_id") String orderId );
+    Call<ApplicationModels.OrderById> getOrderById(@Path("order_id") String orderId );
     
     @GET ("/service/application/orders/v1.0/orders/pos-order/{order_id}")
     Call<ApplicationModels.OrderList> getPosOrderById(@Path("order_id") String orderId );
@@ -607,8 +607,11 @@ interface OrderApiList {
     @GET ("/service/application/orders/v1.0/orders/shipments/{shipment_id}")
     Call<ApplicationModels.ShipmentById> getShipmentById(@Path("shipment_id") String shipmentId );
     
+    @GET ("/service/application/orders/v1.0/orders/shipments/{shipment_id}/invoice")
+    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Path("shipment_id") String shipmentId );
+    
     @GET ("/service/application/orders/v1.0/orders/shipments/{shipment_id}/track")
-    Call<ApplicationModels.TrackShipmentResponse> trackShipment(@Path("shipment_id") String shipmentId );
+    Call<ApplicationModels.ShipmentTrack> trackShipment(@Path("shipment_id") String shipmentId );
     
     @GET ("/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/customer-details")
     Call<ApplicationModels.CustomerDetailsResponse> getCustomerDetailsByShipmentId(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId );
@@ -620,16 +623,25 @@ interface OrderApiList {
     Call<ApplicationModels.VerifyOtpResponse> verifyOtpShipmentCustomer(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId ,@Body ApplicationModels.VerifyOtp payload);
     
     @GET ("/service/application/orders/v1.0/orders/shipments/{shipment_id}/bags/{bag_id}/reasons")
-    Call<ApplicationModels.ShipmentReasonsResponse> getShipmentBagReasons(@Path("shipment_id") String shipmentId , @Path("bag_id") Integer bagId );
+    Call<ApplicationModels.ShipmentBagReasons> getShipmentBagReasons(@Path("shipment_id") String shipmentId , @Path("bag_id") String bagId );
+    
+    @GET ("/service/application/orders/v1.0/orders/shipments/{shipment_id}/reasons")
+    Call<ApplicationModels.ShipmentReasons> getShipmentReasons(@Path("shipment_id") String shipmentId );
     
     @PUT ("/service/application/order-manage/v1.0/orders/shipments/{shipment_id}/status")
-    Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Path("shipment_id") String shipmentId ,@Body ApplicationModels.ShipmentStatusUpdateBody payload);
+    Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Path("shipment_id") String shipmentId ,@Body ApplicationModels.StatusUpdateInternalRequest payload);
+    
+    @GET ("/service/application/order-manage/v1.0/orders/co-config")
+    Call<ApplicationModels.CreateOrderConfigData> getChannelConfig();
+    
+    @POST ("/service/application/order-manage/v1.0/orders/co-config")
+    Call<ApplicationModels.CreateOrderConfigDataResponse> createChannelConfig(@Body ApplicationModels.CreateOrderConfigData payload);
     
     @GET ("/service/application/document/v1.0/orders/shipments/{shipment_id}/invoice")
-    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Path("shipment_id") String shipmentId , @Query("parameters") ApplicationModels.invoiceParameter parameters );
+    Call<ApplicationModels.ResponseGetInvoiceShipment1> getInvoiceByShipmentId1(@Path("shipment_id") String shipmentId , @Query("parameters") ApplicationModels.invoiceParameter parameters );
     
     @GET ("/service/application/document/v1.0/orders/shipments/{shipment_id}/credit-note")
-    Call<ApplicationModels.ResponseGetInvoiceShipment> getCreditNoteByShipmentId(@Path("shipment_id") String shipmentId , @Query("parameters") ApplicationModels.creditNoteParameter parameters );
+    Call<ApplicationModels.ResponseGetInvoiceShipment1> getCreditNoteByShipmentId(@Path("shipment_id") String shipmentId , @Query("parameters") ApplicationModels.creditNoteParameter parameters );
     
 }
 
