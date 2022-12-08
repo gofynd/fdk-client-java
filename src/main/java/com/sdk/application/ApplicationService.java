@@ -5201,10 +5201,6 @@ public class FileStorageService extends FileStorage {
                     relativeUrls.put("getShipmentReasons","/service/application/orders/v1.0/orders/shipments/{shipment_id}/reasons".substring(1));
             
                     relativeUrls.put("updateShipmentStatus","/service/application/order-manage/v1.0/orders/shipments/{shipment_id}/status".substring(1));
-            
-                    relativeUrls.put("getChannelConfig","/service/application/order-manage/v1.0/orders/co-config".substring(1));
-            
-                    relativeUrls.put("createChannelConfig","/service/application/order-manage/v1.0/orders/co-config".substring(1));
              
 
     }
@@ -5449,40 +5445,6 @@ public class FileStorageService extends FileStorage {
         
 
         Response<ApplicationModels.ShipmentApplicationStatusResponse> response = orderApiList.updateShipmentStatus(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.CreateOrderConfigData getChannelConfig() throws IOException {
-     
-      String fullUrl = relativeUrls.get("getChannelConfig");
-        
-
-        Response<ApplicationModels.CreateOrderConfigData> response = orderApiList.getChannelConfig(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.CreateOrderConfigDataResponse createChannelConfig(ApplicationModels.CreateOrderConfigData body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("createChannelConfig");
-        
-
-        Response<ApplicationModels.CreateOrderConfigDataResponse> response = orderApiList.createChannelConfig(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
