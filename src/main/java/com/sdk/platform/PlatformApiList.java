@@ -2928,8 +2928,17 @@ interface OrderApiList {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/orders/v1.0/company/{company_id}/shipments-listing")
-    Call<PlatformModels.ShipmentInternalPlatformViewResponse> getShipmentList(@Path("company_id")  String companyId , @Query("lane") String  lane ,  @Query("search_type") String  searchType ,  @Query("search_value") String  searchValue ,  @Query("search_id") String  searchId ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("dp_ids") String  dpIds ,  @Query("ordering_company_id") String  orderingCompanyId ,  @Query("stores") String  stores ,  @Query("sales_channel") String  salesChannel ,  @Query("request_by_ext") String  requestByExt ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("customer_id") String  customerId ,  @Query("is_priority_sort") Boolean  isPrioritySort ,  @Query("exclude_locked_shipments") Boolean  excludeLockedShipments );
+    Call<PlatformModels.ShipmentInternalPlatformViewResponse> getShipments(@Path("company_id")  String companyId , @Query("lane") String  lane ,  @Query("search_type") String  searchType ,  @Query("search_value") String  searchValue ,  @Query("search_id") String  searchId ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("dp_ids") String  dpIds ,  @Query("ordering_company_id") String  orderingCompanyId ,  @Query("stores") String  stores ,  @Query("sales_channel") String  salesChannel ,  @Query("request_by_ext") String  requestByExt ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("customer_id") String  customerId ,  @Query("is_priority_sort") Boolean  isPrioritySort ,  @Query("exclude_locked_shipments") Boolean  excludeLockedShipments ,  @Query("payment_methods") String  paymentMethods ,  @Query("channel_shipment_id") String  channelShipmentId ,  @Query("channel_order_id") String  channelOrderId );
     
     
     
@@ -2946,8 +2955,8 @@ interface OrderApiList {
     
     
     
-    @GET ("/service/platform/orders/v1.0/company/{company_id}/shipment-details/{shipment_id}")
-    Call<PlatformModels.ShipmentInfoResponse> getShipmentDetails(@Path("company_id")  String companyId , @Path("shipment_id") String  shipmentId , @Query("ordering_company_id") String  orderingCompanyId ,  @Query("request_by_ext") String  requestByExt );
+    @GET ("/service/platform/orders/v1.0/company/{company_id}/shipment-details/{channel_shipment_id}")
+    Call<PlatformModels.ShipmentInfoResponse> getShipmentById(@Path("company_id")  String companyId , @Path("channel_shipment_id") String  channelShipmentId , @Query("ordering_company_id") String  orderingCompanyId ,  @Query("request_by_ext") String  requestByExt );
     
     
     
@@ -2959,7 +2968,7 @@ interface OrderApiList {
     
     
     @GET ("/service/platform/orders/v1.0/company/{company_id}/order-details")
-    Call<PlatformModels.ShipmentDetailsResponse> getOrderShipmentDetails(@Path("company_id")  String companyId , @Query("order_id") String  orderId );
+    Call<PlatformModels.ShipmentDetailsResponse> getOrderById(@Path("company_id")  String companyId , @Query("order_id") String  orderId );
     
     
     
@@ -3459,7 +3468,7 @@ interface OrderApiList {
     
     
     
-    @GET ("/service/platform/orders/v1.0/company/{company_id}/bag-details")
+    @GET ("/service/platform/orders/v1.0/company/{company_id}/bag-details/")
     Call<PlatformModels.BagDetailsPlatformResponse> getBagById(@Path("company_id")  String companyId , @Query("bag_id") String  bagId ,  @Query("channel_bag_id") String  channelBagId ,  @Query("channel_id") String  channelId );
     
     
@@ -3613,7 +3622,7 @@ interface OrderApiList {
     
     
     @PUT ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/status-internal")
-    Call<PlatformModels.StatusUpdateInternalResponse> statusUpdateInternalV4(@Path("company_id")  String companyId ,@Body PlatformModels.StatusUpdateInternalRequest payload);
+    Call<PlatformModels.UpdateShipmentStatusResponseBody> updateShipmentStatus(@Path("company_id")  String companyId ,@Body PlatformModels.UpdateShipmentStatusRequest payload);
     
     
     
@@ -3623,6 +3632,15 @@ interface OrderApiList {
     
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/process-manifest")
     Call<PlatformModels.CreateOrderResponse> processManifest(@Path("company_id")  String companyId ,@Body PlatformModels.CreateOrderPayload payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/dispatch")
+    Call<PlatformModels.SuccessResponse> dispatchManifest(@Path("company_id")  String companyId ,@Body PlatformModels.DispatchManifest payload);
     
     
     
@@ -3690,12 +3708,54 @@ interface OrderApiList {
     
     
     
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/orders/co-config")
+    Call<PlatformModels.CreateChannelConfigData> getChannelConfig(@Path("company_id")  String companyId );
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/orders/co-config")
+    Call<PlatformModels.CreateChannelConfigResponse> createChannelConfig(@Path("company_id")  String companyId ,@Body PlatformModels.CreateChannelConfigData payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/uploadConsent")
+    Call<PlatformModels.SuccessResponse> uploadConsent(@Path("company_id")  String companyId ,@Body PlatformModels.UploadConsent payload);
+    
+    
+    
+    
+    
+    
+    
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/debug/order_status")
     Call<PlatformModels.OrderStatusResult> checkOrderStatus(@Path("company_id")  String companyId ,@Body PlatformModels.OrderStatus payload);
     
 }
 
 interface CatalogApiList {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
+    Call<PlatformModels.GetSearchWordsData> updateSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body PlatformModels.CreateSearchKeyword payload);
     
     
     
@@ -3736,21 +3796,6 @@ interface CatalogApiList {
     
     
     
-    
-    
-    
-    @PUT ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
-    Call<PlatformModels.GetSearchWordsData> updateSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body PlatformModels.CreateSearchKeyword payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @POST ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/")
     Call<PlatformModels.GetSearchWordsData> createCustomKeyword(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.CreateSearchKeyword payload);
     
@@ -3765,6 +3810,21 @@ interface CatalogApiList {
     
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/")
     Call<PlatformModels.GetSearchWordsResponse> getAllSearchKeyword(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
+    Call<PlatformModels.GetAutocompleteWordsResponse> updateAutocompleteKeyword(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body PlatformModels.CreateAutocompleteKeyword payload);
     
     
     
@@ -3795,21 +3855,6 @@ interface CatalogApiList {
     
     @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
     Call<PlatformModels.DeleteResponse> deleteAutocompleteKeyword(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @PUT ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
-    Call<PlatformModels.GetAutocompleteWordsResponse> updateAutocompleteKeyword(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body PlatformModels.CreateAutocompleteKeyword payload);
     
     
     
@@ -3868,20 +3913,20 @@ interface CatalogApiList {
     
     
     
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/product-bundle/{id}/")
-    Call<PlatformModels.GetProductBundleResponse> getProductBundleDetail(@Path("company_id")  String companyId , @Path("id") String  id );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PUT ("/service/platform/catalog/v1.0/company/{company_id}/product-bundle/{id}/")
     Call<PlatformModels.GetProductBundleCreateResponse> updateProductBundle(@Path("company_id")  String companyId , @Path("id") String  id ,@Body PlatformModels.ProductBundleUpdateRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/product-bundle/{id}/")
+    Call<PlatformModels.GetProductBundleResponse> getProductBundleDetail(@Path("company_id")  String companyId , @Path("id") String  id );
     
     
     
@@ -3925,20 +3970,20 @@ interface CatalogApiList {
     
     
     
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/sizeguide/{id}/")
-    Call<PlatformModels.SizeGuideResponse> getSizeGuide(@Path("company_id")  String companyId , @Path("id") String  id );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PUT ("/service/platform/catalog/v1.0/company/{company_id}/sizeguide/{id}/")
     Call<PlatformModels.SuccessResponse> updateSizeGuide(@Path("company_id")  String companyId , @Path("id") String  id ,@Body PlatformModels.ValidateSizeGuide payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/sizeguide/{id}/")
+    Call<PlatformModels.SizeGuideResponse> getSizeGuide(@Path("company_id")  String companyId , @Path("id") String  id );
     
     
     
@@ -4048,26 +4093,26 @@ interface CatalogApiList {
     
     
     
-    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/product-configuration/{config_type}/groups/{group_slug}")
-    Call<PlatformModels.ConfigSuccessResponse> deleteGroupConfiguration(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("config_type") String  configType , @Path("group_slug") String  groupSlug );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PUT ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/product-configuration/{config_type}/groups/{group_slug}")
     Call<PlatformModels.AppConfigurationDetail> updateGroupConfiguration(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("config_type") String  configType , @Path("group_slug") String  groupSlug ,@Body PlatformModels.AppConfigurationDetail payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/product-configuration/{config_type}/groups/{group_slug}")
+    Call<PlatformModels.ConfigSuccessResponse> deleteGroupConfiguration(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("config_type") String  configType , @Path("group_slug") String  groupSlug );
     
     
     
@@ -4123,26 +4168,26 @@ interface CatalogApiList {
     
     
     
-    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/product-configuration/{config_type}/item/{config_id}/")
-    Call<PlatformModels.ConfigSuccessResponse> deleteListingConfiguration(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("config_type") String  configType , @Path("config_id") String  configId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PUT ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/product-configuration/{config_type}/item/{config_id}/")
     Call<PlatformModels.AppConfigurationsSort> updateListingConfiguration(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("config_type") String  configType , @Path("config_id") String  configId ,@Body PlatformModels.AppConfigurationsSort payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/product-configuration/{config_type}/item/{config_id}/")
+    Call<PlatformModels.ConfigSuccessResponse> deleteListingConfiguration(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("config_type") String  configType , @Path("config_id") String  configId );
     
     
     
@@ -4318,23 +4363,23 @@ interface CatalogApiList {
     
     
     
-    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/collections/{id}/")
-    Call<PlatformModels.DeleteResponse> deleteCollection(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PUT ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/collections/{id}/")
     Call<PlatformModels.UpdateCollection> updateCollection(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body PlatformModels.UpdateCollection payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/collections/{id}/")
+    Call<PlatformModels.DeleteResponse> deleteCollection(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
     
     
@@ -4552,20 +4597,20 @@ interface CatalogApiList {
     
     
     
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/departments/{uid}/")
-    Call<PlatformModels.DepartmentsResponse> getDepartmentData(@Path("company_id")  String companyId , @Path("uid") String  uid );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PUT ("/service/platform/catalog/v1.0/company/{company_id}/departments/{uid}/")
     Call<PlatformModels.DepartmentModel> updateDepartment(@Path("company_id")  String companyId , @Path("uid") String  uid ,@Body PlatformModels.DepartmentCreateUpdate payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/departments/{uid}/")
+    Call<PlatformModels.DepartmentsResponse> getDepartmentData(@Path("company_id")  String companyId , @Path("uid") String  uid );
     
     
     
@@ -4699,20 +4744,20 @@ interface CatalogApiList {
     
     
     
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/category/{uid}/")
-    Call<PlatformModels.SingleCategoryResponse> getCategoryData(@Path("company_id")  String companyId , @Path("uid") String  uid );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PUT ("/service/platform/catalog/v1.0/company/{company_id}/category/{uid}/")
     Call<PlatformModels.CategoryUpdateResponse> updateCategory(@Path("company_id")  String companyId , @Path("uid") String  uid ,@Body PlatformModels.CategoryRequestBody payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/category/{uid}/")
+    Call<PlatformModels.SingleCategoryResponse> getCategoryData(@Path("company_id")  String companyId , @Path("uid") String  uid );
     
     
     
@@ -4783,6 +4828,18 @@ interface CatalogApiList {
     
     
     
+    @PUT ("/service/platform/catalog/v1.0/company/{company_id}/products/{item_id}/")
+    Call<PlatformModels.SuccessResponse> editProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId ,@Body PlatformModels.ProductCreateUpdate payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -4803,18 +4860,6 @@ interface CatalogApiList {
     
     @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/products/{item_id}/")
     Call<PlatformModels.SuccessResponse> deleteProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @PUT ("/service/platform/catalog/v1.0/company/{company_id}/products/{item_id}/")
-    Call<PlatformModels.SuccessResponse> editProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId ,@Body PlatformModels.ProductCreateUpdate payload);
     
     
     
@@ -5212,20 +5257,20 @@ interface CatalogApiList {
     
     
     
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/hsn/{id}/")
-    Call<PlatformModels.HsnCode> getHsnCode(@Path("company_id")  String companyId , @Path("id") String  id );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PUT ("/service/platform/catalog/v1.0/company/{company_id}/hsn/{id}/")
     Call<PlatformModels.HsnCode> updateHsnCode(@Path("company_id")  String companyId , @Path("id") String  id ,@Body PlatformModels.HsnUpsert payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/hsn/{id}/")
+    Call<PlatformModels.HsnCode> getHsnCode(@Path("company_id")  String companyId , @Path("id") String  id );
     
     
     
