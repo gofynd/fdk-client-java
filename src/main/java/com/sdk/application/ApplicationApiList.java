@@ -68,11 +68,11 @@ interface CatalogApiList {
     @GET 
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE 
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
-    
     @POST 
     Call<ApplicationModels.FollowPostResponse> followById(@Url String url1);
+    
+    @DELETE 
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
     
     @GET 
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Url String url1);
@@ -581,6 +581,33 @@ interface PaymentApiList {
     Call<ApplicationModels.SetDefaultBeneficiaryResponse> updateDefaultBeneficiary(@Url String url1 , @Body ApplicationModels.SetDefaultBeneficiaryRequest payload );
     
     @GET 
+    Call<ApplicationModels.GetPaymentLinkResponse> getPaymentLink(@Url String url1, @Query("payment_link_id") String paymentLinkId );
+    
+    @POST 
+    Call<ApplicationModels.CreatePaymentLinkResponse> createPaymentLink(@Url String url1 , @Body ApplicationModels.CreatePaymentLinkRequest payload );
+    
+    @POST 
+    Call<ApplicationModels.ResendPaymentLinkResponse> resendPaymentLink(@Url String url1 , @Body ApplicationModels.CancelOrResendPaymentLinkRequest payload );
+    
+    @POST 
+    Call<ApplicationModels.CancelPaymentLinkResponse> cancelPaymentLink(@Url String url1 , @Body ApplicationModels.CancelOrResendPaymentLinkRequest payload );
+    
+    @GET 
+    Call<ApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutesPaymentLink(@Url String url1, @Query("payment_link_id") String paymentLinkId );
+    
+    @GET 
+    Call<ApplicationModels.PollingPaymentLinkResponse> pollingPaymentLink(@Url String url1, @Query("payment_link_id") String paymentLinkId );
+    
+    @POST 
+    Call<ApplicationModels.CreateOrderUserResponse> createOrderHandlerPaymentLink(@Url String url1 , @Body ApplicationModels.CreateOrderUserRequest payload );
+    
+    @POST 
+    Call<ApplicationModels.PaymentInitializationResponse> initialisePaymentPaymentLink(@Url String url1 , @Body ApplicationModels.PaymentInitializationRequest payload );
+    
+    @POST 
+    Call<ApplicationModels.PaymentStatusUpdateResponse> checkAndUpdatePaymentStatusPaymentLink(@Url String url1 , @Body ApplicationModels.PaymentStatusUpdateRequest payload );
+    
+    @GET 
     Call<ApplicationModels.CustomerCreditSummaryResponse> customerCreditSummary(@Url String url1, @Query("aggregator") String aggregator );
     
     @GET 
@@ -630,13 +657,7 @@ interface OrderApiList {
     Call<ApplicationModels.ShipmentReasons> getShipmentReasons(@Url String url1);
     
     @PUT 
-    Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.StatusUpdateInternalRequest payload );
-    
-    @POST 
-    Call<ApplicationModels.CreateOrderConfigDataResponse> createChannelConfig(@Url String url1 , @Body ApplicationModels.CreateOrderConfigData payload );
-    
-    @GET 
-    Call<ApplicationModels.CreateOrderConfigData> getChannelConfig(@Url String url1);
+    Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.UpdateShipmentStatusRequest payload );
     
     @GET 
     Call<ApplicationModels.ResponseGetInvoiceShipment1> getInvoiceByShipmentId1(@Url String url1, @Query("parameters") invoiceParameter parameters );

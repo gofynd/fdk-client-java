@@ -71,9 +71,9 @@ public class ApplicationService {
             
                     relativeUrls.put("getFollowedListing","/service/application/catalog/v1.0/follow/{collection_type}/".substring(1));
             
-                    relativeUrls.put("unfollowById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
-            
                     relativeUrls.put("followById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
+            
+                    relativeUrls.put("unfollowById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
             
                     relativeUrls.put("getFollowerCountById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/".substring(1));
             
@@ -901,16 +901,16 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
      
-      String fullUrl = relativeUrls.get("unfollowById");
+      String fullUrl = relativeUrls.get("followById");
         
         fullUrl = fullUrl.replace("{" + "collection_type" +"}",collectionType.toString());
         
         fullUrl = fullUrl.replace("{" + "collection_id" +"}",collectionId.toString());
         
 
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(fullUrl ).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -922,16 +922,16 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
      
-      String fullUrl = relativeUrls.get("followById");
+      String fullUrl = relativeUrls.get("unfollowById");
         
         fullUrl = fullUrl.replace("{" + "collection_type" +"}",collectionType.toString());
         
         fullUrl = fullUrl.replace("{" + "collection_id" +"}",collectionId.toString());
         
 
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(fullUrl ).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -4466,6 +4466,24 @@ public class FileStorageService extends FileStorage {
             
                     relativeUrls.put("updateDefaultBeneficiary","/service/application/payment/v1.0/refund/beneficiary/default".substring(1));
             
+                    relativeUrls.put("getPaymentLink","/service/application/payment/v1.0/create-payment-link/".substring(1));
+            
+                    relativeUrls.put("createPaymentLink","/service/application/payment/v1.0/create-payment-link/".substring(1));
+            
+                    relativeUrls.put("resendPaymentLink","/service/application/payment/v1.0/resend-payment-link/".substring(1));
+            
+                    relativeUrls.put("cancelPaymentLink","/service/application/payment/v1.0/cancel-payment-link/".substring(1));
+            
+                    relativeUrls.put("getPaymentModeRoutesPaymentLink","/service/application/payment/v1.0/payment/options/link/".substring(1));
+            
+                    relativeUrls.put("pollingPaymentLink","/service/application/payment/v1.0/polling-payment-link/".substring(1));
+            
+                    relativeUrls.put("createOrderHandlerPaymentLink","/service/application/payment/v1.0/create-order/link/".substring(1));
+            
+                    relativeUrls.put("initialisePaymentPaymentLink","/service/application/payment/v1.0/payment/request/link/".substring(1));
+            
+                    relativeUrls.put("checkAndUpdatePaymentStatusPaymentLink","/service/application/payment/v1.0/payment/confirm/polling/link/".substring(1));
+            
                     relativeUrls.put("customerCreditSummary","/service/application/payment/v1.0/payment/credit-summary/".substring(1));
             
                     relativeUrls.put("redirectToAggregator","/service/application/payment/v1.0/payment/redirect-to-aggregator/".substring(1));
@@ -4919,6 +4937,159 @@ public class FileStorageService extends FileStorage {
     
     
     
+    public ApplicationModels.GetPaymentLinkResponse getPaymentLink(String paymentLinkId ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getPaymentLink");
+        
+
+        Response<ApplicationModels.GetPaymentLinkResponse> response = paymentApiList.getPaymentLink(fullUrl  ,paymentLinkId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CreatePaymentLinkResponse createPaymentLink(ApplicationModels.CreatePaymentLinkRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("createPaymentLink");
+        
+
+        Response<ApplicationModels.CreatePaymentLinkResponse> response = paymentApiList.createPaymentLink(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ResendPaymentLinkResponse resendPaymentLink(ApplicationModels.CancelOrResendPaymentLinkRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("resendPaymentLink");
+        
+
+        Response<ApplicationModels.ResendPaymentLinkResponse> response = paymentApiList.resendPaymentLink(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CancelPaymentLinkResponse cancelPaymentLink(ApplicationModels.CancelOrResendPaymentLinkRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("cancelPaymentLink");
+        
+
+        Response<ApplicationModels.CancelPaymentLinkResponse> response = paymentApiList.cancelPaymentLink(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PaymentModeRouteResponse getPaymentModeRoutesPaymentLink(String paymentLinkId ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getPaymentModeRoutesPaymentLink");
+        
+
+        Response<ApplicationModels.PaymentModeRouteResponse> response = paymentApiList.getPaymentModeRoutesPaymentLink(fullUrl  ,paymentLinkId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PollingPaymentLinkResponse pollingPaymentLink(String paymentLinkId ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("pollingPaymentLink");
+        
+
+        Response<ApplicationModels.PollingPaymentLinkResponse> response = paymentApiList.pollingPaymentLink(fullUrl  ,paymentLinkId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CreateOrderUserResponse createOrderHandlerPaymentLink(ApplicationModels.CreateOrderUserRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("createOrderHandlerPaymentLink");
+        
+
+        Response<ApplicationModels.CreateOrderUserResponse> response = paymentApiList.createOrderHandlerPaymentLink(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PaymentInitializationResponse initialisePaymentPaymentLink(ApplicationModels.PaymentInitializationRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("initialisePaymentPaymentLink");
+        
+
+        Response<ApplicationModels.PaymentInitializationResponse> response = paymentApiList.initialisePaymentPaymentLink(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PaymentStatusUpdateResponse checkAndUpdatePaymentStatusPaymentLink(ApplicationModels.PaymentStatusUpdateRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("checkAndUpdatePaymentStatusPaymentLink");
+        
+
+        Response<ApplicationModels.PaymentStatusUpdateResponse> response = paymentApiList.checkAndUpdatePaymentStatusPaymentLink(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.CustomerCreditSummaryResponse customerCreditSummary(String aggregator ) throws IOException {
      
       String fullUrl = relativeUrls.get("customerCreditSummary");
@@ -5030,10 +5201,6 @@ public class FileStorageService extends FileStorage {
                     relativeUrls.put("getShipmentReasons","/service/application/orders/v1.0/orders/shipments/{shipment_id}/reasons".substring(1));
             
                     relativeUrls.put("updateShipmentStatus","/service/application/order-manage/v1.0/orders/shipments/{shipment_id}/status".substring(1));
-            
-                    relativeUrls.put("createChannelConfig","/service/application/order-manage/v1.0/orders/co-config".substring(1));
-            
-                    relativeUrls.put("getChannelConfig","/service/application/order-manage/v1.0/orders/co-config".substring(1));
             
                     relativeUrls.put("getInvoiceByShipmentId1","/service/application/document/v1.0/orders/shipments/{shipment_id}/invoice".substring(1));
             
@@ -5274,7 +5441,7 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.ShipmentApplicationStatusResponse updateShipmentStatus(String shipmentId ,ApplicationModels.StatusUpdateInternalRequest body) throws IOException {
+    public ApplicationModels.ShipmentApplicationStatusResponse updateShipmentStatus(String shipmentId ,ApplicationModels.UpdateShipmentStatusRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("updateShipmentStatus");
         
@@ -5282,40 +5449,6 @@ public class FileStorageService extends FileStorage {
         
 
         Response<ApplicationModels.ShipmentApplicationStatusResponse> response = orderApiList.updateShipmentStatus(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.CreateOrderConfigDataResponse createChannelConfig(ApplicationModels.CreateOrderConfigData body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("createChannelConfig");
-        
-
-        Response<ApplicationModels.CreateOrderConfigDataResponse> response = orderApiList.createChannelConfig(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.CreateOrderConfigData getChannelConfig() throws IOException {
-     
-      String fullUrl = relativeUrls.get("getChannelConfig");
-        
-
-        Response<ApplicationModels.CreateOrderConfigData> response = orderApiList.getChannelConfig(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
