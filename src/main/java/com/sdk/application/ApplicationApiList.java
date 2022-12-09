@@ -67,11 +67,11 @@ interface CatalogApiList {
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
-    
     @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
     Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    
+    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
     
     @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
@@ -629,13 +629,7 @@ interface OrderApiList {
     Call<ApplicationModels.ShipmentReasons> getShipmentReasons(@Path("shipment_id") String shipmentId );
     
     @PUT ("/service/application/order-manage/v1.0/orders/shipments/{shipment_id}/status")
-    Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Path("shipment_id") String shipmentId ,@Body ApplicationModels.StatusUpdateInternalRequest payload);
-    
-    @GET ("/service/application/order-manage/v1.0/orders/co-config")
-    Call<ApplicationModels.CreateOrderConfigData> getChannelConfig();
-    
-    @POST ("/service/application/order-manage/v1.0/orders/co-config")
-    Call<ApplicationModels.CreateOrderConfigDataResponse> createChannelConfig(@Body ApplicationModels.CreateOrderConfigData payload);
+    Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Path("shipment_id") String shipmentId ,@Body ApplicationModels.UpdateShipmentStatusRequest payload);
     
     @GET ("/service/application/document/v1.0/orders/shipments/{shipment_id}/invoice")
     Call<ApplicationModels.ResponseGetInvoiceShipment1> getInvoiceByShipmentId1(@Path("shipment_id") String shipmentId , @Query("parameters") ApplicationModels.invoiceParameter parameters );
