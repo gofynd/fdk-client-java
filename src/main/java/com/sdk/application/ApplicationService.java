@@ -41,8 +41,6 @@ public class ApplicationService {
             
                     relativeUrls.put("getComparedFrequentlyProductBySlug","/service/application/catalog/v1.0/products/{slug}/similar/compared-frequently/".substring(1));
             
-                    relativeUrls.put("getProductSimilarByIdentifier","/service/application/catalog/v1.0/products/{slug}/similar/{similar_type}/".substring(1));
-            
                     relativeUrls.put("getProductVariantsBySlug","/service/application/catalog/v1.0/products/{slug}/variants/".substring(1));
             
                     relativeUrls.put("getProductStockByIds","/service/application/catalog/v1.0/products/stock-status/".substring(1));
@@ -73,9 +71,9 @@ public class ApplicationService {
             
                     relativeUrls.put("getFollowedListing","/service/application/catalog/v1.0/follow/{collection_type}/".substring(1));
             
-                    relativeUrls.put("followById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
-            
                     relativeUrls.put("unfollowById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
+            
+                    relativeUrls.put("followById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
             
                     relativeUrls.put("getFollowerCountById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/".substring(1));
             
@@ -195,27 +193,6 @@ public class ApplicationService {
         
 
         Response<ApplicationModels.ProductFrequentlyComparedSimilarResponse> response = catalogApiList.getComparedFrequentlyProductBySlug(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.SimilarProductByTypeResponse getProductSimilarByIdentifier(String slug , String similarType ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getProductSimilarByIdentifier");
-        
-        fullUrl = fullUrl.replace("{" + "slug" +"}",slug.toString());
-        
-        fullUrl = fullUrl.replace("{" + "similar_type" +"}",similarType.toString());
-        
-
-        Response<ApplicationModels.SimilarProductByTypeResponse> response = catalogApiList.getProductSimilarByIdentifier(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -924,16 +901,16 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
      
-      String fullUrl = relativeUrls.get("followById");
+      String fullUrl = relativeUrls.get("unfollowById");
         
         fullUrl = fullUrl.replace("{" + "collection_type" +"}",collectionType.toString());
         
         fullUrl = fullUrl.replace("{" + "collection_id" +"}",collectionId.toString());
         
 
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(fullUrl ).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -945,16 +922,16 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
      
-      String fullUrl = relativeUrls.get("unfollowById");
+      String fullUrl = relativeUrls.get("followById");
         
         fullUrl = fullUrl.replace("{" + "collection_type" +"}",collectionType.toString());
         
         fullUrl = fullUrl.replace("{" + "collection_id" +"}",collectionId.toString());
         
 
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(fullUrl ).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1230,7 +1207,7 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlug(String slug , String size , Integer storeId , String pincode ) throws IOException {
+    public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlug(String slug , String size , Integer storeId , String pincode , Integer moq ) throws IOException {
      
       String fullUrl = relativeUrls.get("getProductPriceBySlug");
         
@@ -1239,7 +1216,7 @@ public class ApplicationService {
         fullUrl = fullUrl.replace("{" + "size" +"}",size.toString());
         
 
-        Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlug(fullUrl  ,storeId, pincode).execute();
+        Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlug(fullUrl  ,storeId, pincode, moq).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1436,12 +1413,12 @@ public class ApplicationService {
 
      
     
-    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode ) throws IOException {
+    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode , Boolean buyNow ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCart");
         
 
-        Response<ApplicationModels.CartDetailResponse> response = cartApiList.getCart(fullUrl  ,id, i, b, assignCardId, areaCode).execute();
+        Response<ApplicationModels.CartDetailResponse> response = cartApiList.getCart(fullUrl  ,id, i, b, assignCardId, areaCode, buyNow).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1470,12 +1447,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode ,ApplicationModels.AddCartRequest body) throws IOException {
+    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , Boolean buyNow ,ApplicationModels.AddCartRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("addItems");
         
 
-        Response<ApplicationModels.AddCartDetailResponse> response = cartApiList.addItems(fullUrl  ,i, b, areaCode, body).execute();
+        Response<ApplicationModels.AddCartDetailResponse> response = cartApiList.addItems(fullUrl  ,i, b, areaCode, buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1487,12 +1464,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b , String areaCode ,ApplicationModels.UpdateCartRequest body) throws IOException {
+    public ApplicationModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b , String areaCode , Boolean buyNow ,ApplicationModels.UpdateCartRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("updateCart");
         
 
-        Response<ApplicationModels.UpdateCartDetailResponse> response = cartApiList.updateCart(fullUrl  ,id, i, b, areaCode, body).execute();
+        Response<ApplicationModels.UpdateCartDetailResponse> response = cartApiList.updateCart(fullUrl  ,id, i, b, areaCode, buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1504,12 +1481,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartItemCountResponse getItemCount(String id ) throws IOException {
+    public ApplicationModels.CartItemCountResponse getItemCount(String id , Boolean buyNow ) throws IOException {
      
       String fullUrl = relativeUrls.get("getItemCount");
         
 
-        Response<ApplicationModels.CartItemCountResponse> response = cartApiList.getItemCount(fullUrl  ,id).execute();
+        Response<ApplicationModels.CartItemCountResponse> response = cartApiList.getItemCount(fullUrl  ,id, buyNow).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1521,12 +1498,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.GetCouponResponse getCoupons(String id ) throws IOException {
+    public ApplicationModels.GetCouponResponse getCoupons(String id , Boolean buyNow ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCoupons");
         
 
-        Response<ApplicationModels.GetCouponResponse> response = cartApiList.getCoupons(fullUrl  ,id).execute();
+        Response<ApplicationModels.GetCouponResponse> response = cartApiList.getCoupons(fullUrl  ,id, buyNow).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1538,12 +1515,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartDetailResponse applyCoupon(Boolean i , Boolean b , Boolean p , String id ,ApplicationModels.ApplyCouponRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse applyCoupon(Boolean i , Boolean b , Boolean p , String id , Boolean buyNow ,ApplicationModels.ApplyCouponRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("applyCoupon");
         
 
-        Response<ApplicationModels.CartDetailResponse> response = cartApiList.applyCoupon(fullUrl  ,i, b, p, id, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = cartApiList.applyCoupon(fullUrl  ,i, b, p, id, buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1555,12 +1532,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartDetailResponse removeCoupon(String id ) throws IOException {
+    public ApplicationModels.CartDetailResponse removeCoupon(String id , Boolean buyNow ) throws IOException {
      
       String fullUrl = relativeUrls.get("removeCoupon");
         
 
-        Response<ApplicationModels.CartDetailResponse> response = cartApiList.removeCoupon(fullUrl  ,id).execute();
+        Response<ApplicationModels.CartDetailResponse> response = cartApiList.removeCoupon(fullUrl  ,id, buyNow).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1589,12 +1566,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartDetailResponse applyRewardPoints(String id , Boolean i , Boolean b ,ApplicationModels.RewardPointRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse applyRewardPoints(String id , Boolean i , Boolean b , Boolean buyNow ,ApplicationModels.RewardPointRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("applyRewardPoints");
         
 
-        Response<ApplicationModels.CartDetailResponse> response = cartApiList.applyRewardPoints(fullUrl  ,id, i, b, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = cartApiList.applyRewardPoints(fullUrl  ,id, i, b, buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1606,12 +1583,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.GetAddressesResponse getAddresses(String cartId , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws IOException {
+    public ApplicationModels.GetAddressesResponse getAddresses(String cartId , Boolean buyNow , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws IOException {
      
       String fullUrl = relativeUrls.get("getAddresses");
         
 
-        Response<ApplicationModels.GetAddressesResponse> response = cartApiList.getAddresses(fullUrl  ,cartId, mobileNo, checkoutMode, tags, isDefault).execute();
+        Response<ApplicationModels.GetAddressesResponse> response = cartApiList.getAddresses(fullUrl  ,cartId, buyNow, mobileNo, checkoutMode, tags, isDefault).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1640,14 +1617,14 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.Address getAddressById(String id , String cartId , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws IOException {
+    public ApplicationModels.Address getAddressById(String id , String cartId , Boolean buyNow , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws IOException {
      
       String fullUrl = relativeUrls.get("getAddressById");
         
         fullUrl = fullUrl.replace("{" + "id" +"}",id.toString());
         
 
-        Response<ApplicationModels.Address> response = cartApiList.getAddressById(fullUrl  ,cartId, mobileNo, checkoutMode, tags, isDefault).execute();
+        Response<ApplicationModels.Address> response = cartApiList.getAddressById(fullUrl  ,cartId, buyNow, mobileNo, checkoutMode, tags, isDefault).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1697,12 +1674,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartDetailResponse selectAddress(String cartId , Boolean i , Boolean b ,ApplicationModels.SelectCartAddressRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse selectAddress(String cartId , Boolean buyNow , Boolean i , Boolean b ,ApplicationModels.SelectCartAddressRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("selectAddress");
         
 
-        Response<ApplicationModels.CartDetailResponse> response = cartApiList.selectAddress(fullUrl  ,cartId, i, b, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = cartApiList.selectAddress(fullUrl  ,cartId, buyNow, i, b, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1714,12 +1691,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartDetailResponse selectPaymentMode(String id ,ApplicationModels.UpdateCartPaymentRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse selectPaymentMode(String id , Boolean buyNow ,ApplicationModels.UpdateCartPaymentRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("selectPaymentMode");
         
 
-        Response<ApplicationModels.CartDetailResponse> response = cartApiList.selectPaymentMode(fullUrl  ,id, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = cartApiList.selectPaymentMode(fullUrl  ,id, buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1731,12 +1708,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode ) throws IOException {
+    public ApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode ) throws IOException {
      
       String fullUrl = relativeUrls.get("validateCouponForPayment");
         
 
-        Response<ApplicationModels.PaymentCouponValidate> response = cartApiList.validateCouponForPayment(fullUrl  ,id, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode).execute();
+        Response<ApplicationModels.PaymentCouponValidate> response = cartApiList.validateCouponForPayment(fullUrl  ,id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1748,12 +1725,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartShipmentsResponse getShipments(Boolean p , String id , String addressId , String areaCode ) throws IOException {
+    public ApplicationModels.CartShipmentsResponse getShipments(Boolean p , String id , Boolean buyNow , String addressId , String areaCode ) throws IOException {
      
       String fullUrl = relativeUrls.get("getShipments");
         
 
-        Response<ApplicationModels.CartShipmentsResponse> response = cartApiList.getShipments(fullUrl  ,p, id, addressId, areaCode).execute();
+        Response<ApplicationModels.CartShipmentsResponse> response = cartApiList.getShipments(fullUrl  ,p, id, buyNow, addressId, areaCode).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1765,12 +1742,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartCheckoutResponse checkoutCart(ApplicationModels.CartCheckoutDetailRequest body) throws IOException {
+    public ApplicationModels.CartCheckoutResponse checkoutCart(Boolean buyNow ,ApplicationModels.CartCheckoutDetailRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("checkoutCart");
         
 
-        Response<ApplicationModels.CartCheckoutResponse> response = cartApiList.checkoutCart(fullUrl , body).execute();
+        Response<ApplicationModels.CartCheckoutResponse> response = cartApiList.checkoutCart(fullUrl  ,buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1782,12 +1759,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.CartMetaResponse updateCartMeta(String id ,ApplicationModels.CartMetaRequest body) throws IOException {
+    public ApplicationModels.CartMetaResponse updateCartMeta(String id , Boolean buyNow ,ApplicationModels.CartMetaRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("updateCartMeta");
         
 
-        Response<ApplicationModels.CartMetaResponse> response = cartApiList.updateCartMeta(fullUrl  ,id, body).execute();
+        Response<ApplicationModels.CartMetaResponse> response = cartApiList.updateCartMeta(fullUrl  ,id, buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5665,12 +5642,12 @@ public class FileStorageService extends FileStorage {
 
      
     
-    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode ) throws IOException {
+    public ApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode , Boolean buyNow ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCart");
         
 
-        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.getCart(fullUrl  ,id, i, b, assignCardId, areaCode).execute();
+        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.getCart(fullUrl  ,id, i, b, assignCardId, areaCode, buyNow).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5699,12 +5676,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode ,ApplicationModels.AddCartRequest body) throws IOException {
+    public ApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , Boolean buyNow ,ApplicationModels.AddCartRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("addItems");
         
 
-        Response<ApplicationModels.AddCartDetailResponse> response = poscartApiList.addItems(fullUrl  ,i, b, areaCode, body).execute();
+        Response<ApplicationModels.AddCartDetailResponse> response = poscartApiList.addItems(fullUrl  ,i, b, areaCode, buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5716,12 +5693,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b , String areaCode ,ApplicationModels.UpdateCartRequest body) throws IOException {
+    public ApplicationModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b , String areaCode , Boolean buyNow ,ApplicationModels.UpdateCartRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("updateCart");
         
 
-        Response<ApplicationModels.UpdateCartDetailResponse> response = poscartApiList.updateCart(fullUrl  ,id, i, b, areaCode, body).execute();
+        Response<ApplicationModels.UpdateCartDetailResponse> response = poscartApiList.updateCart(fullUrl  ,id, i, b, areaCode, buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5733,12 +5710,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CartItemCountResponse getItemCount(String id ) throws IOException {
+    public ApplicationModels.CartItemCountResponse getItemCount(String id , Boolean buyNow ) throws IOException {
      
       String fullUrl = relativeUrls.get("getItemCount");
         
 
-        Response<ApplicationModels.CartItemCountResponse> response = poscartApiList.getItemCount(fullUrl  ,id).execute();
+        Response<ApplicationModels.CartItemCountResponse> response = poscartApiList.getItemCount(fullUrl  ,id, buyNow).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5750,12 +5727,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.GetCouponResponse getCoupons(String id ) throws IOException {
+    public ApplicationModels.GetCouponResponse getCoupons(String id , Boolean buyNow ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCoupons");
         
 
-        Response<ApplicationModels.GetCouponResponse> response = poscartApiList.getCoupons(fullUrl  ,id).execute();
+        Response<ApplicationModels.GetCouponResponse> response = poscartApiList.getCoupons(fullUrl  ,id, buyNow).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5767,12 +5744,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CartDetailResponse applyCoupon(Boolean i , Boolean b , Boolean p , String id ,ApplicationModels.ApplyCouponRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse applyCoupon(Boolean i , Boolean b , Boolean p , String id , Boolean buyNow ,ApplicationModels.ApplyCouponRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("applyCoupon");
         
 
-        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.applyCoupon(fullUrl  ,i, b, p, id, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.applyCoupon(fullUrl  ,i, b, p, id, buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5784,12 +5761,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CartDetailResponse removeCoupon(String id ) throws IOException {
+    public ApplicationModels.CartDetailResponse removeCoupon(String id , Boolean buyNow ) throws IOException {
      
       String fullUrl = relativeUrls.get("removeCoupon");
         
 
-        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.removeCoupon(fullUrl  ,id).execute();
+        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.removeCoupon(fullUrl  ,id, buyNow).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5818,12 +5795,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CartDetailResponse applyRewardPoints(String id , Boolean i , Boolean b ,ApplicationModels.RewardPointRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse applyRewardPoints(String id , Boolean i , Boolean b , Boolean buyNow ,ApplicationModels.RewardPointRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("applyRewardPoints");
         
 
-        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.applyRewardPoints(fullUrl  ,id, i, b, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.applyRewardPoints(fullUrl  ,id, i, b, buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5835,12 +5812,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.GetAddressesResponse getAddresses(String cartId , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws IOException {
+    public ApplicationModels.GetAddressesResponse getAddresses(String cartId , Boolean buyNow , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws IOException {
      
       String fullUrl = relativeUrls.get("getAddresses");
         
 
-        Response<ApplicationModels.GetAddressesResponse> response = poscartApiList.getAddresses(fullUrl  ,cartId, mobileNo, checkoutMode, tags, isDefault).execute();
+        Response<ApplicationModels.GetAddressesResponse> response = poscartApiList.getAddresses(fullUrl  ,cartId, buyNow, mobileNo, checkoutMode, tags, isDefault).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5869,14 +5846,14 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.Address getAddressById(String id , String cartId , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws IOException {
+    public ApplicationModels.Address getAddressById(String id , String cartId , Boolean buyNow , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws IOException {
      
       String fullUrl = relativeUrls.get("getAddressById");
         
         fullUrl = fullUrl.replace("{" + "id" +"}",id.toString());
         
 
-        Response<ApplicationModels.Address> response = poscartApiList.getAddressById(fullUrl  ,cartId, mobileNo, checkoutMode, tags, isDefault).execute();
+        Response<ApplicationModels.Address> response = poscartApiList.getAddressById(fullUrl  ,cartId, buyNow, mobileNo, checkoutMode, tags, isDefault).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5926,12 +5903,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CartDetailResponse selectAddress(String cartId , Boolean i , Boolean b ,ApplicationModels.SelectCartAddressRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse selectAddress(String cartId , Boolean buyNow , Boolean i , Boolean b ,ApplicationModels.SelectCartAddressRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("selectAddress");
         
 
-        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.selectAddress(fullUrl  ,cartId, i, b, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.selectAddress(fullUrl  ,cartId, buyNow, i, b, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5943,12 +5920,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CartDetailResponse selectPaymentMode(String id ,ApplicationModels.UpdateCartPaymentRequest body) throws IOException {
+    public ApplicationModels.CartDetailResponse selectPaymentMode(String id , Boolean buyNow ,ApplicationModels.UpdateCartPaymentRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("selectPaymentMode");
         
 
-        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.selectPaymentMode(fullUrl  ,id, body).execute();
+        Response<ApplicationModels.CartDetailResponse> response = poscartApiList.selectPaymentMode(fullUrl  ,id, buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5960,12 +5937,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode ) throws IOException {
+    public ApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode ) throws IOException {
      
       String fullUrl = relativeUrls.get("validateCouponForPayment");
         
 
-        Response<ApplicationModels.PaymentCouponValidate> response = poscartApiList.validateCouponForPayment(fullUrl  ,id, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode).execute();
+        Response<ApplicationModels.PaymentCouponValidate> response = poscartApiList.validateCouponForPayment(fullUrl  ,id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -6028,12 +6005,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.CartMetaResponse updateCartMeta(String id ,ApplicationModels.CartMetaRequest body) throws IOException {
+    public ApplicationModels.CartMetaResponse updateCartMeta(String id , Boolean buyNow ,ApplicationModels.CartMetaRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("updateCartMeta");
         
 
-        Response<ApplicationModels.CartMetaResponse> response = poscartApiList.updateCartMeta(fullUrl  ,id, body).execute();
+        Response<ApplicationModels.CartMetaResponse> response = poscartApiList.updateCartMeta(fullUrl  ,id, buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
