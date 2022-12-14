@@ -10,6 +10,7 @@ Discount
 * [createDiscount](#creatediscount)
 * [getDiscount](#getdiscount)
 * [updateDiscount](#updatediscount)
+* [upsertDiscountItems](#upsertdiscountitems)
 * [validateDiscountFile](#validatediscountfile)
 * [downloadDiscountFile](#downloaddiscountfile)
 * [getValidationJob](#getvalidationjob)
@@ -220,6 +221,60 @@ Create Discount.
 
 
 [DiscountJob](#DiscountJob)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### upsertDiscountItems
+Create custom discount from bulk.
+
+
+
+
+```java
+client.discount.upsertDiscountItems( id, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes | A `company_id` is the unique identifier of the company. |   
+| id | String | yes | Job ID of the discount. |  
+| body | [BulkDiscount](#BulkDiscount) | yes | Request body |
+
+
+Create custom discounts through API.
+
+*Returned Response:*
+
+
+
+
+[Object](#Object)
 
 Success
 
@@ -643,6 +698,33 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | items | ArrayList<[DiscountJob](#DiscountJob)> |  no  |  |
  | page | [Page](#Page) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [DiscountItems](#DiscountItems)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | itemCode | String? |  yes  |  |
+ | brandUid | Integer? |  yes  |  |
+ | sellerIdentifier | String? |  yes  |  |
+ | discountType | String |  no  |  |
+ | value | Double |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [BulkDiscount](#BulkDiscount)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | companyId | Integer |  no  |  |
+ | items | ArrayList<[DiscountItems](#DiscountItems)> |  no  |  |
 
 ---
 
