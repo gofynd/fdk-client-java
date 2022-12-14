@@ -3,7 +3,6 @@ package com.sdk.common;
 import com.sdk.common.model.FDKError;
 import okhttp3.*;
 import okhttp3.logging.HttpLoggingInterceptor;
-import org.apache.commons.lang3.BooleanUtils;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
