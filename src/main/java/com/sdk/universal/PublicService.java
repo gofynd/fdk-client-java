@@ -145,34 +145,6 @@ public static class InventoryService {
 
     
     
-    public PublicModels.ResponseEnvelopeObject getJobCodesMetrics(Boolean dailyJob , String jobCode ) throws IOException {
-    
-        Response<PublicModels.ResponseEnvelopeObject> response = inventoryApiList.getJobCodesMetrics(dailyJob, jobCode).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public PublicModels.ResponseEnvelopeEmailJobMetrics saveJobCodesMetrics(PublicModels.EmailJobMetrics body) throws IOException {
-    
-        Response<PublicModels.ResponseEnvelopeEmailJobMetrics> response = inventoryApiList.saveJobCodesMetrics( body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
     public PublicModels.ResponseEnvelopeSlingshotConfigurationDetail getConfigByApiKey(String apikey ) throws IOException {
     
         Response<PublicModels.ResponseEnvelopeSlingshotConfigurationDetail> response = inventoryApiList.getConfigByApiKey(apikey).execute();
@@ -218,6 +190,34 @@ public static class InventoryService {
     public PublicModels.ResponseEnvelopeListJobConfigDTO getJobConfigByIntegrationType(String integrationType , Boolean disable ) throws IOException {
     
         Response<PublicModels.ResponseEnvelopeListJobConfigDTO> response = inventoryApiList.getJobConfigByIntegrationType(integrationType, disable).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public PublicModels.ResponseEnvelopeObject getJobCodesMetrics(Boolean dailyJob , String jobCode ) throws IOException {
+    
+        Response<PublicModels.ResponseEnvelopeObject> response = inventoryApiList.getJobCodesMetrics(dailyJob, jobCode).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public PublicModels.ResponseEnvelopeEmailJobMetrics saveJobCodesMetrics(PublicModels.EmailJobMetrics body) throws IOException {
+    
+        Response<PublicModels.ResponseEnvelopeEmailJobMetrics> response = inventoryApiList.saveJobCodesMetrics( body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

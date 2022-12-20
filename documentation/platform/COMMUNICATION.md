@@ -4339,29 +4339,6 @@ Success
 
  
  
- #### [BadRequestSchema](#BadRequestSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | status | String? |  yes  | Response status. |
- | message | String? |  yes  | Failure message. |
-
----
-
-
- 
- 
- #### [NotFound](#NotFound)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  | Failure message. |
-
----
-
-
- 
- 
  #### [BigqueryHeadersReq](#BigqueryHeadersReq)
 
  | Properties | Type | Nullable | Description |
@@ -4796,7 +4773,7 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | key | String? |  yes  |  |
- | value | Object? |  yes  |  |
+ | value | String? |  yes  |  |
 
 ---
 
@@ -5102,19 +5079,7 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | key | String? |  yes  |  |
- | value | Object? |  yes  |  |
-
----
-
-
- 
- 
- #### [SendOtpSmsCommsProvider](#SendOtpSmsCommsProvider)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | slug | String? |  yes  |  |
- | id | String? |  yes  |  |
+ | value | String? |  yes  |  |
 
 ---
 
@@ -5126,7 +5091,7 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | key | String? |  yes  |  |
- | value | Object? |  yes  |  |
+ | value | String? |  yes  |  |
 
 ---
 
@@ -5154,7 +5119,6 @@ Success
  | otpLength | Integer? |  yes  |  |
  | expiry | Integer? |  yes  |  |
  | template | [SendOtpSmsCommsTemplate](#SendOtpSmsCommsTemplate)? |  yes  |  |
- | provider | [SendOtpSmsCommsProvider](#SendOtpSmsCommsProvider)? |  yes  |  |
 
 ---
 
@@ -5167,7 +5131,7 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | otpLength | Integer? |  yes  |  |
  | expiry | Integer? |  yes  |  |
- | template | [SendOtpEmailCommsTemplate](#SendOtpEmailCommsTemplate)? |  yes  |  |
+ | template | [SendOtpSmsCommsTemplate](#SendOtpSmsCommsTemplate)? |  yes  |  |
 
 ---
 
