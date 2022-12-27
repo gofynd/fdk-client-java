@@ -14,7 +14,7 @@ Handles Platform websites OMS
 * [getOrdersByCompanyId](#getordersbycompanyid)
 * [getOrderLanesCountByCompanyId](#getorderlanescountbycompanyid)
 * [getOrderDetails](#getorderdetails)
-* [getOrderDetails](#getorderdetails)
+* [getApplicationOrderDetails](#getapplicationorderdetails)
 * [getPicklistOrdersByCompanyId](#getpicklistordersbycompanyid)
 * [trackShipmentPlatform](#trackshipmentplatform)
 * [trackOrder](#trackorder)
@@ -488,14 +488,14 @@ Success
 ---
 
 
-### getOrderDetails
+### getApplicationOrderDetails
 Get Order Details for company based on Company Id and Order Id
 
 
 
 
 ```java
-client.application("<APPLICATION_ID>").order.getOrderDetails( orderId,  next,  previous) {
+client.application("<APPLICATION_ID>").order.getApplicationOrderDetails( orderId,  next,  previous) {
   //use response
 }
 ```
@@ -2401,7 +2401,7 @@ Success
  | channel | [Channel](#Channel)? |  yes  |  |
  | fyndstoreEmp | HashMap<String,Object>? |  yes  |  |
  | orderingStore | HashMap<String,Object>? |  yes  |  |
- | breakupValues | [PlatformBreakupValues](#PlatformBreakupValues)? |  yes  |  |
+ | breakupValues | ArrayList<[PlatformBreakupValues](#PlatformBreakupValues)>? |  yes  |  |
  | id | String? |  yes  |  |
  | application | [PlatformApplication](#PlatformApplication)? |  yes  |  |
  | shipments | [PlatformShipmentDetails](#PlatformShipmentDetails)? |  yes  |  |
@@ -2445,9 +2445,9 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | status | [PlatformShipmentDetailsStatus](#PlatformShipmentDetailsStatus)? |  yes  |  |
- | bags | [BagsDetails](#BagsDetails)? |  yes  |  |
+ | bags | ArrayList<[BagsDetails](#BagsDetails)>? |  yes  |  |
  | prices | [ShipmentPrices](#ShipmentPrices)? |  yes  |  |
- | breakupValues | [ShipmentBreakupValues](#ShipmentBreakupValues)? |  yes  |  |
+ | breakupValues | ArrayList<[ShipmentBreakupValues](#ShipmentBreakupValues)>? |  yes  |  |
  | id | String? |  yes  |  |
  | dpDetails | [DpDetails](#DpDetails)? |  yes  |  |
  | paymentMethods | HashMap<String,Object>? |  yes  |  |
@@ -2463,7 +2463,7 @@ Success
  | canBreak | HashMap<String,Object>? |  yes  |  |
  | comment | String? |  yes  |  |
  | promise | [Promise](#Promise)? |  yes  |  |
- | trackingDetails | [ShipmentTrackingDetails](#ShipmentTrackingDetails)? |  yes  |  |
+ | trackingDetails | ArrayList<[ShipmentTrackingDetails](#ShipmentTrackingDetails)>? |  yes  |  |
  | isFyndCoupon | Boolean? |  yes  |  |
  | orderType | String? |  yes  |  |
  | totalShipmentBags | Integer? |  yes  |  |
@@ -2512,7 +2512,7 @@ Success
  | id | Integer? |  yes  |  |
  | prices | [BagPrices](#BagPrices)? |  yes  |  |
  | gstDetails | [GstDetails](#GstDetails)? |  yes  |  |
- | breakupValues | [BagBreakupValues](#BagBreakupValues)? |  yes  |  |
+ | breakupValues | ArrayList<[BagBreakupValues](#BagBreakupValues)>? |  yes  |  |
  | updateTime | Integer? |  yes  |  |
  | currentStatus | [BagCurrentStatus](#BagCurrentStatus)? |  yes  |  |
  | bagStatus | [BagStatus](#BagStatus)? |  yes  |  |
@@ -3209,11 +3209,11 @@ Success
  | deliveryAddress | [PlatformDeliveryAddress](#PlatformDeliveryAddress)? |  yes  |  |
  | channel | [Channel](#Channel)? |  yes  |  |
  | fyndstoreEmp | HashMap<String,Object>? |  yes  |  |
- | orderingStore | HashMap<String,Object>? |  yes  |  |
- | breakupValues | [PlatformBreakupValues](#PlatformBreakupValues)? |  yes  |  |
+ | orderingStore | [PlatformFulfillingStore](#PlatformFulfillingStore)? |  yes  |  |
+ | breakupValues | ArrayList<[PlatformBreakupValues](#PlatformBreakupValues)>? |  yes  |  |
  | id | String? |  yes  |  |
  | application | [PlatformApplication](#PlatformApplication)? |  yes  |  |
- | shipments | [PlatformShipmentDetails](#PlatformShipmentDetails)? |  yes  |  |
+ | shipments | ArrayList<[PlatformShipmentDetails](#PlatformShipmentDetails)>? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | totalShipmentsInOrder | Integer? |  yes  |  |
  | payments | [ItemsPayments](#ItemsPayments)? |  yes  |  |
