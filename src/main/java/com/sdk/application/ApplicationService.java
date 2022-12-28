@@ -4465,6 +4465,8 @@ public class FileStorageService extends FileStorage {
             
                     relativeUrls.put("renderHTML","/service/application/payment/v1.0/payment/html/render/".substring(1));
             
+                    relativeUrls.put("validateVPA","/service/application/payment/v1.0/validate-vpa".substring(1));
+            
                     relativeUrls.put("getActiveRefundTransferModes","/service/application/payment/v1.0/refund/transfer-mode".substring(1));
             
                     relativeUrls.put("enableOrDisableRefundTransferMode","/service/application/payment/v1.0/refund/transfer-mode".substring(1));
@@ -4775,6 +4777,23 @@ public class FileStorageService extends FileStorage {
         
 
         Response<ApplicationModels.renderHTMLResponse> response = paymentApiList.renderHTML(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ValidateVPAResponse validateVPA(ApplicationModels.ValidateVPARequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("validateVPA");
+        
+
+        Response<ApplicationModels.ValidateVPAResponse> response = paymentApiList.validateVPA(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
