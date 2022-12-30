@@ -68,11 +68,11 @@ interface CatalogApiList {
     @GET 
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE 
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
-    
     @POST 
     Call<ApplicationModels.FollowPostResponse> followById(@Url String url1);
+    
+    @DELETE 
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
     
     @GET 
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Url String url1);
@@ -550,6 +550,12 @@ interface PaymentApiList {
     @POST 
     Call<ApplicationModels.ResendOrCancelPaymentResponse> resendOrCancelPayment(@Url String url1 , @Body ApplicationModels.ResendOrCancelPaymentRequest payload );
     
+    @POST 
+    Call<ApplicationModels.renderHTMLResponse> renderHTML(@Url String url1 , @Body ApplicationModels.renderHTMLRequest payload );
+    
+    @POST 
+    Call<ApplicationModels.ValidateVPAResponse> validateVPA(@Url String url1 , @Body ApplicationModels.ValidateVPARequest payload );
+    
     @GET 
     Call<ApplicationModels.TransferModeResponse> getActiveRefundTransferModes(@Url String url1);
     
@@ -579,6 +585,33 @@ interface PaymentApiList {
     
     @POST 
     Call<ApplicationModels.SetDefaultBeneficiaryResponse> updateDefaultBeneficiary(@Url String url1 , @Body ApplicationModels.SetDefaultBeneficiaryRequest payload );
+    
+    @GET 
+    Call<ApplicationModels.GetPaymentLinkResponse> getPaymentLink(@Url String url1, @Query("payment_link_id") String paymentLinkId );
+    
+    @POST 
+    Call<ApplicationModels.CreatePaymentLinkResponse> createPaymentLink(@Url String url1 , @Body ApplicationModels.CreatePaymentLinkRequest payload );
+    
+    @POST 
+    Call<ApplicationModels.ResendPaymentLinkResponse> resendPaymentLink(@Url String url1 , @Body ApplicationModels.CancelOrResendPaymentLinkRequest payload );
+    
+    @POST 
+    Call<ApplicationModels.CancelPaymentLinkResponse> cancelPaymentLink(@Url String url1 , @Body ApplicationModels.CancelOrResendPaymentLinkRequest payload );
+    
+    @GET 
+    Call<ApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutesPaymentLink(@Url String url1, @Query("payment_link_id") String paymentLinkId );
+    
+    @GET 
+    Call<ApplicationModels.PollingPaymentLinkResponse> pollingPaymentLink(@Url String url1, @Query("payment_link_id") String paymentLinkId );
+    
+    @POST 
+    Call<ApplicationModels.CreateOrderUserResponse> createOrderHandlerPaymentLink(@Url String url1 , @Body ApplicationModels.CreateOrderUserRequest payload );
+    
+    @POST 
+    Call<ApplicationModels.PaymentInitializationResponse> initialisePaymentPaymentLink(@Url String url1 , @Body ApplicationModels.PaymentInitializationRequest payload );
+    
+    @POST 
+    Call<ApplicationModels.PaymentStatusUpdateResponse> checkAndUpdatePaymentStatusPaymentLink(@Url String url1 , @Body ApplicationModels.PaymentStatusUpdateRequest payload );
     
     @GET 
     Call<ApplicationModels.CustomerCreditSummaryResponse> customerCreditSummary(@Url String url1, @Query("aggregator") String aggregator );
