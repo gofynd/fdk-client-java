@@ -14,8 +14,6 @@ public class PlatformClient {
     
     public PlatformService.LeadService lead;
     
-    public PlatformService.RewardsService rewards;
-    
     public PlatformService.ThemeService theme;
     
     public PlatformService.UserService user;
@@ -44,11 +42,11 @@ public class PlatformClient {
     
     public PlatformService.CartService cart;
     
+    public PlatformService.RewardsService rewards;
+    
     public PlatformService.AnalyticsService analytics;
     
     public PlatformService.DiscountService discount;
-    
-    public PlatformService.PartnerService partner;
     
     public PlatformService.WebhookService webhook;
     
@@ -64,8 +62,6 @@ public class PlatformClient {
         this.common = new PlatformService.CommonService(config);
         
         this.lead = new PlatformService.LeadService(config);
-        
-        this.rewards = new PlatformService.RewardsService(config);
         
         this.theme = new PlatformService.ThemeService(config);
         
@@ -95,11 +91,11 @@ public class PlatformClient {
         
         this.cart = new PlatformService.CartService(config);
         
+        this.rewards = new PlatformService.RewardsService(config);
+        
         this.analytics = new PlatformService.AnalyticsService(config);
         
         this.discount = new PlatformService.DiscountService(config);
-        
-        this.partner = new PlatformService.PartnerService(config);
         
         this.webhook = new PlatformService.WebhookService(config);
         
@@ -120,8 +116,6 @@ public class PlatformClient {
         public PlatformService.CommonService.ApplicationClient common;
         
         public PlatformService.LeadService.ApplicationClient lead;
-        
-        public PlatformService.RewardsService.ApplicationClient rewards;
         
         public PlatformService.ThemeService.ApplicationClient theme;
         
@@ -151,11 +145,11 @@ public class PlatformClient {
         
         public PlatformService.CartService.ApplicationClient cart;
         
+        public PlatformService.RewardsService.ApplicationClient rewards;
+        
         public PlatformService.AnalyticsService.ApplicationClient analytics;
         
         public PlatformService.DiscountService.ApplicationClient discount;
-        
-        public PlatformService.PartnerService.ApplicationClient partner;
         
         public PlatformService.WebhookService.ApplicationClient webhook;
         
@@ -169,8 +163,6 @@ public class PlatformClient {
             this.common = new PlatformService.CommonService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.lead = new PlatformService.LeadService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.rewards = new PlatformService.RewardsService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.theme = new PlatformService.ThemeService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
@@ -200,11 +192,11 @@ public class PlatformClient {
             
             this.cart = new PlatformService.CartService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
+            this.rewards = new PlatformService.RewardsService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
             this.analytics = new PlatformService.AnalyticsService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.discount = new PlatformService.DiscountService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.partner = new PlatformService.PartnerService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.webhook = new PlatformService.WebhookService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             

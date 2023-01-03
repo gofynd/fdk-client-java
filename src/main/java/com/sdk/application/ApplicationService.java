@@ -1207,7 +1207,7 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlug(String slug , String size , Integer storeId , String pincode ) throws IOException {
+    public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlug(String slug , String size , Integer storeId , String pincode , Integer moq ) throws IOException {
      
       String fullUrl = relativeUrls.get("getProductPriceBySlug");
         
@@ -1216,7 +1216,7 @@ public class ApplicationService {
         fullUrl = fullUrl.replace("{" + "size" +"}",size.toString());
         
 
-        Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlug(fullUrl  ,storeId, pincode).execute();
+        Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlug(fullUrl  ,storeId, pincode, moq).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5734,19 +5734,7 @@ public class FileStorageService extends FileStorage {
         this.rewardsApiList = generateRewardsApiList(this.applicationConfig.getPersistentCookieStore());
 
            
-                    relativeUrls.put("getPointsOnProduct","/service/application/rewards/v1.0/catalogue/offer/order/".substring(1));
-            
                     relativeUrls.put("getOfferByName","/service/application/rewards/v1.0/offers/{name}/".substring(1));
-            
-                    relativeUrls.put("getOrderDiscount","/service/application/rewards/v1.0/user/offers/order-discount/".substring(1));
-            
-                    relativeUrls.put("getUserPoints","/service/application/rewards/v1.0/user/points/".substring(1));
-            
-                    relativeUrls.put("getUserPointsHistory","/service/application/rewards/v1.0/user/points/history/".substring(1));
-            
-                    relativeUrls.put("getUserReferralDetails","/service/application/rewards/v1.0/user/referral/".substring(1));
-            
-                    relativeUrls.put("redeemReferralCode","/service/application/rewards/v1.0/user/referral/redeem/".substring(1));
              
 
     }
@@ -5768,23 +5756,6 @@ public class FileStorageService extends FileStorage {
 
      
     
-    public ApplicationModels.CatalogueOrderResponse getPointsOnProduct(ApplicationModels.CatalogueOrderRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getPointsOnProduct");
-        
-
-        Response<ApplicationModels.CatalogueOrderResponse> response = rewardsApiList.getPointsOnProduct(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
     public ApplicationModels.Offer getOfferByName(String name ) throws IOException {
      
       String fullUrl = relativeUrls.get("getOfferByName");
@@ -5793,139 +5764,6 @@ public class FileStorageService extends FileStorage {
         
 
         Response<ApplicationModels.Offer> response = rewardsApiList.getOfferByName(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.OrderDiscountResponse getOrderDiscount(ApplicationModels.OrderDiscountRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getOrderDiscount");
-        
-
-        Response<ApplicationModels.OrderDiscountResponse> response = rewardsApiList.getOrderDiscount(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.PointsResponse getUserPoints() throws IOException {
-     
-      String fullUrl = relativeUrls.get("getUserPoints");
-        
-
-        Response<ApplicationModels.PointsResponse> response = rewardsApiList.getUserPoints(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.PointsHistoryResponse getUserPointsHistory(String pageId , Integer pageSize ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getUserPointsHistory");
-        
-
-        Response<ApplicationModels.PointsHistoryResponse> response = rewardsApiList.getUserPointsHistory(fullUrl  ,pageId, pageSize).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getUserPointsHistory
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ApplicationModels.PointsHistoryResponse> getUserPointsHistoryPagination(
-        
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ApplicationModels.PointsHistoryResponse> paginator = new Paginator<>(pageSize, "cursor");
-
-    paginator.setCallback(()-> {
-        try {
-            ApplicationModels.PointsHistoryResponse callback = this.getUserPointsHistory(
-                
-                 paginator.getNextId()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    public ApplicationModels.ReferralDetailsResponse getUserReferralDetails() throws IOException {
-     
-      String fullUrl = relativeUrls.get("getUserReferralDetails");
-        
-
-        Response<ApplicationModels.ReferralDetailsResponse> response = rewardsApiList.getUserReferralDetails(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.RedeemReferralCodeResponse redeemReferralCode(ApplicationModels.RedeemReferralCodeRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("redeemReferralCode");
-        
-
-        Response<ApplicationModels.RedeemReferralCodeResponse> response = rewardsApiList.redeemReferralCode(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -6527,6 +6365,8 @@ public class FileStorageService extends FileStorage {
                     relativeUrls.put("getTatProduct","/service/application/logistics/v1.0/".substring(1));
             
                     relativeUrls.put("getPincodeZones","/service/application/logistics/v1.0/pincode/zones".substring(1));
+            
+                    relativeUrls.put("assignStore","/service/application/logistics/v1.0/assign_stores".substring(1));
              
 
     }
@@ -6590,6 +6430,23 @@ public class FileStorageService extends FileStorage {
         
 
         Response<ApplicationModels.GetZoneFromPincodeViewResponse> response = logisticApiList.getPincodeZones(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.AssignStoreResponse assignStore(ApplicationModels.AssignStoreRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("assignStore");
+        
+
+        Response<ApplicationModels.AssignStoreResponse> response = logisticApiList.assignStore(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

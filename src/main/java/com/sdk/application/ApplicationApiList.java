@@ -93,7 +93,7 @@ interface CatalogApiList {
     Call<ApplicationModels.ProductBundle> getProductBundlesBySlug(@Url String url1, @Query("slug") String slug , @Query("id") String id );
     
     @GET 
-    Call<ApplicationModels.ProductSizePriceResponseV2> getProductPriceBySlug(@Url String url1, @Query("store_id") Integer storeId , @Query("pincode") String pincode );
+    Call<ApplicationModels.ProductSizePriceResponseV2> getProductPriceBySlug(@Url String url1, @Query("store_id") Integer storeId , @Query("pincode") String pincode , @Query("moq") Integer moq );
     
     @GET 
     Call<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlug(@Url String url1, @Query("pincode") String pincode , @Query("strategy") String strategy , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
@@ -699,26 +699,8 @@ interface OrderApiList {
 interface RewardsApiList {
     
     
-    @POST 
-    Call<ApplicationModels.CatalogueOrderResponse> getPointsOnProduct(@Url String url1 , @Body ApplicationModels.CatalogueOrderRequest payload );
-    
     @GET 
     Call<ApplicationModels.Offer> getOfferByName(@Url String url1);
-    
-    @POST 
-    Call<ApplicationModels.OrderDiscountResponse> getOrderDiscount(@Url String url1 , @Body ApplicationModels.OrderDiscountRequest payload );
-    
-    @GET 
-    Call<ApplicationModels.PointsResponse> getUserPoints(@Url String url1);
-    
-    @GET 
-    Call<ApplicationModels.PointsHistoryResponse> getUserPointsHistory(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
-    
-    @GET 
-    Call<ApplicationModels.ReferralDetailsResponse> getUserReferralDetails(@Url String url1);
-    
-    @POST 
-    Call<ApplicationModels.RedeemReferralCodeResponse> redeemReferralCode(@Url String url1 , @Body ApplicationModels.RedeemReferralCodeRequest payload );
 }
 
 interface PosCartApiList {
@@ -817,5 +799,8 @@ interface LogisticApiList {
     
     @POST 
     Call<ApplicationModels.GetZoneFromPincodeViewResponse> getPincodeZones(@Url String url1 , @Body ApplicationModels.GetZoneFromPincodeViewRequest payload );
+    
+    @POST 
+    Call<ApplicationModels.AssignStoreResponse> assignStore(@Url String url1 , @Body ApplicationModels.AssignStoreRequest payload );
 }
 
