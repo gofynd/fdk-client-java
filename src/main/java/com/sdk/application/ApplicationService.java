@@ -5735,6 +5735,18 @@ public class FileStorageService extends FileStorage {
 
            
                     relativeUrls.put("getOfferByName","/service/application/rewards/v1.0/offers/{name}/".substring(1));
+            
+                    relativeUrls.put("catalogueOrder","/service/application/rewards/v1.0/catalogue/offer/order/".substring(1));
+            
+                    relativeUrls.put("getPointsHistory","/service/application/rewards/v1.0/user/points/history/".substring(1));
+            
+                    relativeUrls.put("getPoints","/service/application/rewards/v1.0/user/points/".substring(1));
+            
+                    relativeUrls.put("referral","/service/application/rewards/v1.0/user/referral/".substring(1));
+            
+                    relativeUrls.put("orderDiscount","/service/application/rewards/v1.0/user/offer/order-discount/".substring(1));
+            
+                    relativeUrls.put("redeemReferralCode","/service/application/rewards/v1.0/user/referral/redeem/".substring(1));
              
 
     }
@@ -5764,6 +5776,156 @@ public class FileStorageService extends FileStorage {
         
 
         Response<ApplicationModels.Offer> response = rewardsApiList.getOfferByName(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CatalogueOrderResponse catalogueOrder(ApplicationModels.CatalogueOrderRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("catalogueOrder");
+        
+
+        Response<ApplicationModels.CatalogueOrderResponse> response = rewardsApiList.catalogueOrder(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PointsHistoryResponse getPointsHistory(String pageId , Integer pageSize ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getPointsHistory");
+        
+
+        Response<ApplicationModels.PointsHistoryResponse> response = rewardsApiList.getPointsHistory(fullUrl  ,pageId, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getPointsHistory
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.PointsHistoryResponse> getPointsHistoryPagination(
+        
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.PointsHistoryResponse> paginator = new Paginator<>(pageSize, "cursor");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.PointsHistoryResponse callback = this.getPointsHistory(
+                
+                 paginator.getNextId()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    public ApplicationModels.PointsResponse getPoints() throws IOException {
+     
+      String fullUrl = relativeUrls.get("getPoints");
+        
+
+        Response<ApplicationModels.PointsResponse> response = rewardsApiList.getPoints(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ReferralDetailsResponse referral() throws IOException {
+     
+      String fullUrl = relativeUrls.get("referral");
+        
+
+        Response<ApplicationModels.ReferralDetailsResponse> response = rewardsApiList.referral(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.OrderDiscountResponse orderDiscount(ApplicationModels.OrderDiscountRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("orderDiscount");
+        
+
+        Response<ApplicationModels.OrderDiscountResponse> response = rewardsApiList.orderDiscount(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.RedeemReferralCodeResponse redeemReferralCode(ApplicationModels.RedeemReferralCodeRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("redeemReferralCode");
+        
+
+        Response<ApplicationModels.RedeemReferralCodeResponse> response = rewardsApiList.redeemReferralCode(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
