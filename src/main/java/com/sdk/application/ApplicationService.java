@@ -2290,6 +2290,8 @@ public class ApplicationService {
             
                     relativeUrls.put("sendResetPasswordEmail","/service/application/user/authentication/v1.0/login/password/reset".substring(1));
             
+                    relativeUrls.put("sendResetPasswordMobile","/service/application/user/authentication/v1.0/login/password/mobile/reset".substring(1));
+            
                     relativeUrls.put("forgotPassword","/service/application/user/authentication/v1.0/login/password/reset/forgot".substring(1));
             
                     relativeUrls.put("sendResetToken","/service/application/user/authentication/v1.0/login/password/reset/token".substring(1));
@@ -2487,6 +2489,23 @@ public class ApplicationService {
         
 
         Response<ApplicationModels.ResetPasswordSuccess> response = userApiList.sendResetPasswordEmail(fullUrl  ,platform, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ResetPasswordSuccess sendResetPasswordMobile(String platform ,ApplicationModels.SendResetPasswordMobileRequestSchema body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("sendResetPasswordMobile");
+        
+
+        Response<ApplicationModels.ResetPasswordSuccess> response = userApiList.sendResetPasswordMobile(fullUrl  ,platform, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

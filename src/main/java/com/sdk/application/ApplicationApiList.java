@@ -260,6 +260,9 @@ interface UserApiList {
     Call<ApplicationModels.ResetPasswordSuccess> sendResetPasswordEmail(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.SendResetPasswordEmailRequestSchema payload );
     
     @POST 
+    Call<ApplicationModels.ResetPasswordSuccess> sendResetPasswordMobile(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.SendResetPasswordMobileRequestSchema payload );
+    
+    @POST 
     Call<ApplicationModels.LoginSuccess> forgotPassword(@Url String url1 , @Body ApplicationModels.ForgotPasswordRequestSchema payload );
     
     @POST 

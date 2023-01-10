@@ -14,6 +14,7 @@ Authentication Service
 * [loginWithOTP](#loginwithotp)
 * [loginWithEmailAndPassword](#loginwithemailandpassword)
 * [sendResetPasswordEmail](#sendresetpasswordemail)
+* [sendResetPasswordMobile](#sendresetpasswordmobile)
 * [forgotPassword](#forgotpassword)
 * [sendResetToken](#sendresettoken)
 * [loginWithToken](#loginwithtoken)
@@ -648,6 +649,61 @@ user.sendResetPasswordEmail( platform, body body) {
 
 
 Use this API to reset a password using the link sent on email.
+
+*Returned Response:*
+
+
+
+
+[ResetPasswordSuccess](#ResetPasswordSuccess)
+
+Success. Check the example shown below or refer `ResetPasswordSuccess` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "status": "sent"
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### sendResetPasswordMobile
+Reset Password
+
+
+
+
+```java
+user.sendResetPasswordMobile( platform, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| platform | String? | no | ID of the application |  
+| body | [SendResetPasswordMobileRequestSchema](#SendResetPasswordMobileRequestSchema) | yes | Request body |
+
+
+Use this API to reset a password using the link sent on mobile.
 
 *Returned Response:*
 
@@ -3133,6 +3189,19 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
 
  
  
+ #### [SendResetPasswordMobileRequestSchema](#SendResetPasswordMobileRequestSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | countryCode | String? |  yes  |  |
+ | mobile | String? |  yes  |  |
+ | captchaCode | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [PasswordLoginRequestSchema](#PasswordLoginRequestSchema)
 
  | Properties | Type | Nullable | Description |
@@ -3153,7 +3222,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | countryCode | String? |  yes  |  |
  | captchaCode | String? |  yes  |  |
  | mobile | String? |  yes  |  |
- | androidHash | String? |  yes  |  |
 
 ---
 
@@ -3590,7 +3658,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | message | String? |  yes  |  |
- | isDeleted | Boolean? |  yes  |  |
 
 ---
 
