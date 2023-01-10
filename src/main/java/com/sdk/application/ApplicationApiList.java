@@ -657,43 +657,46 @@ interface OrderApiList {
     Call<ApplicationModels.ShipmentReasons> getShipmentReasons(@Url String url1);
     
     @PUT 
+    Call<ApplicationModels.UpdateShipmentResponse> updateShipmentExternal(@Url String url1 , @Body ApplicationModels.UpdateShipmentExternalRequest payload );
+    
+    @PUT 
     Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.UpdateShipmentStatusRequest payload );
     
     @GET 
-    Call<ApplicationModels.OrderList1> getOrders1(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate , @Query("status") Integer status );
+    Call<ApplicationModels.OrderList> getOrders1(@Url String url1, @Query("status") Integer status , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate , @Query("custom_meta") String customMeta );
     
     @GET 
-    Call<ApplicationModels.OrderById1> getOrderById1(@Url String url1);
+    Call<ApplicationModels.OrderById> getOrderById1(@Url String url1);
     
     @GET 
-    Call<ApplicationModels.ShipmentById1> getShipmentById1(@Url String url1);
+    Call<ApplicationModels.OrderList> getPosOrderById1(@Url String url1);
     
     @GET 
-    Call<ApplicationModels.ShipmentReasons1> getShipmentReasons1(@Url String url1);
+    Call<ApplicationModels.ShipmentById> getShipmentById1(@Url String url1);
     
     @GET 
-    Call<ApplicationModels.ShipmentBagReasons1> getShipmentBagReasons1(@Url String url1);
+    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId1(@Url String url1);
+    
+    @GET 
+    Call<ApplicationModels.ShipmentTrack> trackShipment1(@Url String url1);
+    
+    @GET 
+    Call<ApplicationModels.CustomerDetailsResponse> getCustomerDetailsByShipmentId1(@Url String url1);
+    
+    @POST 
+    Call<ApplicationModels.SendOtpToCustomerResponse> sendOtpToShipmentCustomer1(@Url String url1);
+    
+    @POST 
+    Call<ApplicationModels.VerifyOtpResponse> verifyOtpShipmentCustomer1(@Url String url1 , @Body ApplicationModels.VerifyOtp payload );
+    
+    @GET 
+    Call<ApplicationModels.ShipmentBagReasons> getShipmentBagReasons1(@Url String url1);
+    
+    @GET 
+    Call<ApplicationModels.ShipmentReasons> getShipmentReasons1(@Url String url1);
     
     @PUT 
-    Call<ApplicationModels.ShipmentStatusUpdate> updateShipmentStatus1(@Url String url1 , @Body ApplicationModels.ShipmentStatusUpdateBody payload );
-    
-    @GET 
-    Call<ApplicationModels.ShipmentTrack1> trackShipment1(@Url String url1);
-    
-    @GET 
-    Call<ApplicationModels.PosOrderById> getPosOrderById1(@Url String url1);
-    
-    @GET 
-    Call<ApplicationModels.CustomerDetailsByShipmentId> getCustomerDetailsByShipmentId1(@Url String url1);
-    
-    @POST 
-    Call<ApplicationModels.sendOTPApplicationResponse> sendOtpToShipmentCustomer1(@Url String url1);
-    
-    @POST 
-    Call<ApplicationModels.ResponseVerifyOTPShipment> verifyOtpShipmentCustomer1(@Url String url1 , @Body ApplicationModels.ReqBodyVerifyOTPShipment payload );
-    
-    @GET 
-    Call<ApplicationModels.ResponseGetInvoiceShipment1> getInvoiceByShipmentId1(@Url String url1);
+    Call<ApplicationModels.UpdateShipmentResponse> updateShipmentExternal1(@Url String url1 , @Body ApplicationModels.UpdateShipmentExternalRequest payload );
 }
 
 interface RewardsApiList {

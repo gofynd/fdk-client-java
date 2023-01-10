@@ -450,7 +450,7 @@ Success. Check example below or refer `RedeemReferralCodeResponse` for more deta
  | schedule | [Schedule](#Schedule)? |  yes  |  |
  | active | Boolean? |  yes  |  |
  | applicationId | String? |  yes  |  |
- | bannerImage | Object? |  yes  |  |
+ | bannerImage | [Asset](#Asset)? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | name | String? |  yes  |  |
  | rule | HashMap<String,Object>? |  yes  |  |

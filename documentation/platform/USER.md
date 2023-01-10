@@ -2338,7 +2338,7 @@ Success. User Group details. `UserGroupResponseSchema` for more details.
  | deleteAccountDay | Integer? |  yes  |  |
  | deleteAccountReasons | ArrayList<[DeleteAccountReasons](#DeleteAccountReasons)>? |  yes  |  |
  | deleteAccountConsent | HashMap<String,Object>? |  yes  |  |
- | sessionTimeout | HashMap<String,Object>? |  yes  |  |
+ | sessionConfig | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2555,7 +2555,7 @@ Success. User Group details. `UserGroupResponseSchema` for more details.
  | ---------- | ---- | -------- | ----------- |
  | duration | Integer? |  yes  |  |
  | type | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
+ | isRolling | Boolean? |  yes  |  |
 
 ---
 
