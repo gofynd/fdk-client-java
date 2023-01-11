@@ -1346,6 +1346,7 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | countryCode | String? |  yes  |  |
  | captchaCode | String? |  yes  |  |
  | mobile | String? |  yes  |  |
+ | androidHash | String? |  yes  |  |
 
 ---
 
@@ -1994,6 +1995,7 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | deleteAccountDay | Integer? |  yes  |  |
  | deleteAccountReasons | ArrayList<[DeleteAccountReasons](#DeleteAccountReasons)>? |  yes  |  |
  | deleteAccountConsent | HashMap<String,Object>? |  yes  |  |
+ | sessionConfig | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2198,6 +2200,19 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | appId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SessionExpiry](#SessionExpiry)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | duration | Integer? |  yes  |  |
+ | type | String? |  yes  |  |
+ | isRolling | Boolean? |  yes  |  |
 
 ---
 
