@@ -7,748 +7,752 @@ import java.util.*;
 
 interface CatalogApiList {
     
-    @GET ("/service/application/catalog/v1.0/products/{slug}/")
-    Call<ApplicationModels.ProductDetail> getProductDetailBySlug(@Path("slug") String slug );
     
-    @GET ("/service/application/catalog/v1.0/products/{slug}/sizes/")
-    Call<ApplicationModels.ProductSizes> getProductSizesBySlug(@Path("slug") String slug , @Query("store_id") Integer storeId );
+    @GET 
+    Call<ApplicationModels.ProductDetail> getProductDetailBySlug(@Url String url1);
     
-    @GET ("/service/application/catalog/v1.0/products/compare/")
-    Call<ApplicationModels.ProductsComparisonResponse> getProductComparisonBySlugs(@Query("slug") List<String> slug );
+    @GET 
+    Call<ApplicationModels.ProductSizes> getProductSizesBySlug(@Url String url1, @Query("store_id") Integer storeId );
     
-    @GET ("/service/application/catalog/v1.0/products/{slug}/similar/compare/")
-    Call<ApplicationModels.ProductCompareResponse> getSimilarComparisonProductBySlug(@Path("slug") String slug );
+    @GET 
+    Call<ApplicationModels.ProductsComparisonResponse> getProductComparisonBySlugs(@Url String url1, @Query("slug") List<String> slug );
     
-    @GET ("/service/application/catalog/v1.0/products/{slug}/similar/compared-frequently/")
-    Call<ApplicationModels.ProductFrequentlyComparedSimilarResponse> getComparedFrequentlyProductBySlug(@Path("slug") String slug );
+    @GET 
+    Call<ApplicationModels.ProductCompareResponse> getSimilarComparisonProductBySlug(@Url String url1);
     
-    @GET ("/service/application/catalog/v1.0/products/{slug}/similar/{similar_type}/")
-    Call<ApplicationModels.SimilarProductByTypeResponse> getProductSimilarByIdentifier(@Path("slug") String slug , @Path("similar_type") String similarType );
+    @GET 
+    Call<ApplicationModels.ProductFrequentlyComparedSimilarResponse> getComparedFrequentlyProductBySlug(@Url String url1);
     
-    @GET ("/service/application/catalog/v1.0/products/{slug}/variants/")
-    Call<ApplicationModels.ProductVariantsResponse> getProductVariantsBySlug(@Path("slug") String slug );
+    @GET 
+    Call<ApplicationModels.ProductVariantsResponse> getProductVariantsBySlug(@Url String url1);
     
-    @GET ("/service/application/catalog/v1.0/products/stock-status/")
-    Call<ApplicationModels.ProductStockStatusResponse> getProductStockByIds(@Query("item_id") String itemId , @Query("alu") String alu , @Query("sku_code") String skuCode , @Query("ean") String ean , @Query("upc") String upc );
+    @GET 
+    Call<ApplicationModels.ProductStockStatusResponse> getProductStockByIds(@Url String url1, @Query("item_id") String itemId , @Query("alu") String alu , @Query("sku_code") String skuCode , @Query("ean") String ean , @Query("upc") String upc );
     
-    @GET ("/service/application/catalog/v1.0/products/stock-status/poll/")
-    Call<ApplicationModels.ProductStockPolling> getProductStockForTimeByIds(@Query("timestamp") String timestamp , @Query("page_size") Integer pageSize , @Query("page_id") String pageId );
+    @GET 
+    Call<ApplicationModels.ProductStockPolling> getProductStockForTimeByIds(@Url String url1, @Query("timestamp") String timestamp , @Query("page_size") Integer pageSize , @Query("page_id") String pageId );
     
-    @GET ("/service/application/catalog/v1.0/products/")
-    Call<ApplicationModels.ProductListingResponse> getProducts(@Query("q") String q , @Query("f") String f , @Query("filters") Boolean filters , @Query("sort_on") String sortOn , @Query("page_id") String pageId , @Query("page_size") Integer pageSize , @Query("page_no") Integer pageNo , @Query("page_type") String pageType );
+    @GET 
+    Call<ApplicationModels.ProductListingResponse> getProducts(@Url String url1, @Query("q") String q , @Query("f") String f , @Query("filters") Boolean filters , @Query("sort_on") String sortOn , @Query("page_id") String pageId , @Query("page_size") Integer pageSize , @Query("page_no") Integer pageNo , @Query("page_type") String pageType );
     
-    @GET ("/service/application/catalog/v1.0/brands/")
-    Call<ApplicationModels.BrandListingResponse> getBrands(@Query("department") String department , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
+    @GET 
+    Call<ApplicationModels.BrandListingResponse> getBrands(@Url String url1, @Query("department") String department , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
-    @GET ("/service/application/catalog/v1.0/brands/{slug}/")
-    Call<ApplicationModels.BrandDetailResponse> getBrandDetailBySlug(@Path("slug") String slug );
+    @GET 
+    Call<ApplicationModels.BrandDetailResponse> getBrandDetailBySlug(@Url String url1);
     
-    @GET ("/service/application/catalog/v1.0/categories/")
-    Call<ApplicationModels.CategoryListingResponse> getCategories(@Query("department") String department );
+    @GET 
+    Call<ApplicationModels.CategoryListingResponse> getCategories(@Url String url1, @Query("department") String department );
     
-    @GET ("/service/application/catalog/v1.0/categories/{slug}/")
-    Call<ApplicationModels.CategoryMetaResponse> getCategoryDetailBySlug(@Path("slug") String slug );
+    @GET 
+    Call<ApplicationModels.CategoryMetaResponse> getCategoryDetailBySlug(@Url String url1);
     
-    @GET ("/service/application/catalog/v1.0/home/listing/")
-    Call<ApplicationModels.HomeListingResponse> getHomeProducts(@Query("sort_on") String sortOn , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
+    @GET 
+    Call<ApplicationModels.HomeListingResponse> getHomeProducts(@Url String url1, @Query("sort_on") String sortOn , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @GET ("/service/application/catalog/v1.0/departments/")
-    Call<ApplicationModels.DepartmentResponse> getDepartments();
+    @GET 
+    Call<ApplicationModels.DepartmentResponse> getDepartments(@Url String url1);
     
-    @GET ("/service/application/catalog/v1.0/auto-complete/")
-    Call<ApplicationModels.AutoCompleteResponse> getSearchResults(@Query("q") String q );
+    @GET 
+    Call<ApplicationModels.AutoCompleteResponse> getSearchResults(@Url String url1, @Query("q") String q );
     
-    @GET ("/service/application/catalog/v1.0/collections/")
-    Call<ApplicationModels.GetCollectionListingResponse> getCollections(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("tag") List<String> tag );
+    @GET 
+    Call<ApplicationModels.GetCollectionListingResponse> getCollections(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("tag") List<String> tag );
     
-    @GET ("/service/application/catalog/v1.0/collections/{slug}/items/")
-    Call<ApplicationModels.ProductListingResponse> getCollectionItemsBySlug(@Path("slug") String slug , @Query("f") String f , @Query("filters") Boolean filters , @Query("sort_on") String sortOn , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
+    @GET 
+    Call<ApplicationModels.ProductListingResponse> getCollectionItemsBySlug(@Url String url1, @Query("f") String f , @Query("filters") Boolean filters , @Query("sort_on") String sortOn , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @GET ("/service/application/catalog/v1.0/collections/{slug}/")
-    Call<ApplicationModels.CollectionDetailResponse> getCollectionDetailBySlug(@Path("slug") String slug );
+    @GET 
+    Call<ApplicationModels.CollectionDetailResponse> getCollectionDetailBySlug(@Url String url1);
     
-    @GET ("/service/application/catalog/v1.0/follow/{collection_type}/")
-    Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Path("collection_type") String collectionType , @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
+    @GET 
+    Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> followById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    @POST 
+    Call<ApplicationModels.FollowPostResponse> followById(@Url String url1);
     
-    @DELETE ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/")
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    @DELETE 
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
     
-    @GET ("/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/")
-    Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Path("collection_type") String collectionType , @Path("collection_id") String collectionId );
+    @GET 
+    Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Url String url1);
     
-    @GET ("/service/application/catalog/v1.0/follow/ids/")
-    Call<ApplicationModels.FollowIdsResponse> getFollowIds(@Query("collection_type") String collectionType );
+    @GET 
+    Call<ApplicationModels.FollowIdsResponse> getFollowIds(@Url String url1, @Query("collection_type") String collectionType );
     
-    @GET ("/service/application/catalog/v1.0/locations/")
-    Call<ApplicationModels.StoreListingResponse> getStores(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q , @Query("city") String city , @Query("range") Integer range , @Query("latitude") Double latitude , @Query("longitude") Double longitude );
+    @GET 
+    Call<ApplicationModels.StoreListingResponse> getStores(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q , @Query("city") String city , @Query("range") Integer range , @Query("latitude") Double latitude , @Query("longitude") Double longitude );
     
-    @GET ("/service/application/catalog/v1.0/in-stock/locations/")
-    Call<ApplicationModels.ApplicationStoreListing> getInStockLocations(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q , @Query("city") String city , @Query("range") Integer range , @Query("latitude") Double latitude , @Query("longitude") Double longitude );
+    @GET 
+    Call<ApplicationModels.ApplicationStoreListing> getInStockLocations(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q , @Query("city") String city , @Query("range") Integer range , @Query("latitude") Double latitude , @Query("longitude") Double longitude );
     
-    @GET ("/service/application/catalog/v1.0/locations/{location_id}/")
-    Call<ApplicationModels.StoreDetails> getLocationDetailsById(@Path("location_id") Integer locationId );
+    @GET 
+    Call<ApplicationModels.StoreDetails> getLocationDetailsById(@Url String url1);
     
-    @GET ("/service/application/catalog/v1.0/product-grouping/")
-    Call<ApplicationModels.ProductBundle> getProductBundlesBySlug(@Query("slug") String slug , @Query("id") String id );
+    @GET 
+    Call<ApplicationModels.ProductBundle> getProductBundlesBySlug(@Url String url1, @Query("slug") String slug , @Query("id") String id );
     
-    @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/price/")
-    Call<ApplicationModels.ProductSizePriceResponseV2> getProductPriceBySlug(@Path("slug") String slug , @Path("size") String size , @Query("store_id") Integer storeId , @Query("pincode") String pincode );
+    @GET 
+    Call<ApplicationModels.ProductSizePriceResponseV2> getProductPriceBySlug(@Url String url1, @Query("store_id") Integer storeId , @Query("pincode") String pincode );
     
-    @GET ("/service/application/catalog/v2.0/products/{slug}/sizes/{size}/sellers/")
-    Call<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlug(@Path("slug") String slug , @Path("size") String size , @Query("pincode") String pincode , @Query("strategy") String strategy , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
-    
+    @GET 
+    Call<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlug(@Url String url1, @Query("pincode") String pincode , @Query("strategy") String strategy , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
 }
 
 interface CartApiList {
     
-    @GET ("/service/application/cart/v1.0/detail")
-    Call<ApplicationModels.CartDetailResponse> getCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("buy_now") Boolean buyNow );
     
-    @HEAD ("/service/application/cart/v1.0/detail")
-    Call<Object> getCartLastModified(@Query("id") String id );
+    @GET 
+    Call<ApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("buy_now") Boolean buyNow );
     
-    @POST ("/service/application/cart/v1.0/detail")
-    Call<ApplicationModels.AddCartDetailResponse> addItems(@Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow ,@Body ApplicationModels.AddCartRequest payload);
+    @HEAD 
+    Call<Object> getCartLastModified(@Url String url1, @Query("id") String id );
     
-    @PUT ("/service/application/cart/v1.0/detail")
-    Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow ,@Body ApplicationModels.UpdateCartRequest payload);
+    @POST 
+    Call<ApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.AddCartRequest payload );
     
-    @PUT ("/service/application/cart/v1.0/cart_archive")
-    Call<ApplicationModels.DeleteCartDetailResponse> deleteCart(@Query("id") Integer id );
+    @PUT 
+    Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.UpdateCartRequest payload );
     
-    @GET ("/service/application/cart/v1.0/basic")
-    Call<ApplicationModels.CartItemCountResponse> getItemCount(@Query("id") String id , @Query("buy_now") Boolean buyNow );
+    @PUT 
+    Call<ApplicationModels.DeleteCartDetailResponse> deleteCart(@Url String url1, @Query("id") Integer id );
     
-    @GET ("/service/application/cart/v1.0/coupon")
-    Call<ApplicationModels.GetCouponResponse> getCoupons(@Query("id") String id , @Query("buy_now") Boolean buyNow );
+    @GET 
+    Call<ApplicationModels.CartItemCountResponse> getItemCount(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow );
     
-    @POST ("/service/application/cart/v1.0/coupon")
-    Call<ApplicationModels.CartDetailResponse> applyCoupon(@Query("i") Boolean i , @Query("b") Boolean b , @Query("p") Boolean p , @Query("id") String id , @Query("buy_now") Boolean buyNow ,@Body ApplicationModels.ApplyCouponRequest payload);
+    @GET 
+    Call<ApplicationModels.GetCouponResponse> getCoupons(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow );
     
-    @DELETE ("/service/application/cart/v1.0/coupon")
-    Call<ApplicationModels.CartDetailResponse> removeCoupon(@Query("id") String id , @Query("buy_now") Boolean buyNow );
+    @POST 
+    Call<ApplicationModels.CartDetailResponse> applyCoupon(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("p") Boolean p , @Query("id") String id , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.ApplyCouponRequest payload );
     
-    @GET ("/service/application/cart/v1.0/bulk-price")
-    Call<ApplicationModels.BulkPriceResponse> getBulkDiscountOffers(@Query("item_id") Integer itemId , @Query("article_id") String articleId , @Query("uid") Integer uid , @Query("slug") String slug );
+    @DELETE 
+    Call<ApplicationModels.CartDetailResponse> removeCoupon(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow );
     
-    @POST ("/service/application/cart/v1.0/redeem/points/")
-    Call<ApplicationModels.CartDetailResponse> applyRewardPoints(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow ,@Body ApplicationModels.RewardPointRequest payload);
+    @GET 
+    Call<ApplicationModels.BulkPriceResponse> getBulkDiscountOffers(@Url String url1, @Query("item_id") Integer itemId , @Query("article_id") String articleId , @Query("uid") Integer uid , @Query("slug") String slug );
     
-    @GET ("/service/application/cart/v1.0/address")
-    Call<ApplicationModels.GetAddressesResponse> getAddresses(@Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault );
+    @POST 
+    Call<ApplicationModels.CartDetailResponse> applyRewardPoints(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.RewardPointRequest payload );
     
-    @POST ("/service/application/cart/v1.0/address")
-    Call<ApplicationModels.SaveAddressResponse> addAddress(@Body ApplicationModels.Address payload);
+    @GET 
+    Call<ApplicationModels.GetAddressesResponse> getAddresses(@Url String url1, @Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault );
     
-    @GET ("/service/application/cart/v1.0/address/{id}")
-    Call<ApplicationModels.Address> getAddressById(@Path("id") String id , @Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault );
+    @POST 
+    Call<ApplicationModels.SaveAddressResponse> addAddress(@Url String url1 , @Body ApplicationModels.Address payload );
     
-    @PUT ("/service/application/cart/v1.0/address/{id}")
-    Call<ApplicationModels.UpdateAddressResponse> updateAddress(@Path("id") String id ,@Body ApplicationModels.Address payload);
+    @GET 
+    Call<ApplicationModels.Address> getAddressById(@Url String url1, @Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault );
     
-    @DELETE ("/service/application/cart/v1.0/address/{id}")
-    Call<ApplicationModels.DeleteAddressResponse> removeAddress(@Path("id") String id );
+    @PUT 
+    Call<ApplicationModels.UpdateAddressResponse> updateAddress(@Url String url1 , @Body ApplicationModels.Address payload );
     
-    @POST ("/service/application/cart/v1.0/select-address")
-    Call<ApplicationModels.CartDetailResponse> selectAddress(@Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.SelectCartAddressRequest payload);
+    @DELETE 
+    Call<ApplicationModels.DeleteAddressResponse> removeAddress(@Url String url1);
     
-    @PUT ("/service/application/cart/v1.0/payment")
-    Call<ApplicationModels.CartDetailResponse> selectPaymentMode(@Query("id") String id , @Query("buy_now") Boolean buyNow ,@Body ApplicationModels.UpdateCartPaymentRequest payload);
+    @POST 
+    Call<ApplicationModels.CartDetailResponse> selectAddress(@Url String url1, @Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("i") Boolean i , @Query("b") Boolean b  , @Body ApplicationModels.SelectCartAddressRequest payload );
     
-    @GET ("/service/application/cart/v1.0/payment/validate/")
-    Call<ApplicationModels.PaymentCouponValidate> validateCouponForPayment(@Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode );
+    @PUT 
+    Call<ApplicationModels.CartDetailResponse> selectPaymentMode(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.UpdateCartPaymentRequest payload );
     
-    @GET ("/service/application/cart/v1.0/shipment")
-    Call<ApplicationModels.CartShipmentsResponse> getShipments(@Query("p") Boolean p , @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("area_code") String areaCode );
+    @GET 
+    Call<ApplicationModels.PaymentCouponValidate> validateCouponForPayment(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode );
     
-    @POST ("/service/application/cart/v1.0/checkout")
-    Call<ApplicationModels.CartCheckoutResponse> checkoutCart(@Query("buy_now") Boolean buyNow ,@Body ApplicationModels.CartCheckoutDetailRequest payload);
+    @GET 
+    Call<ApplicationModels.CartShipmentsResponse> getShipments(@Url String url1, @Query("p") Boolean p , @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("area_code") String areaCode );
     
-    @PUT ("/service/application/cart/v1.0/meta")
-    Call<ApplicationModels.CartMetaResponse> updateCartMeta(@Query("id") String id , @Query("buy_now") Boolean buyNow ,@Body ApplicationModels.CartMetaRequest payload);
+    @POST 
+    Call<ApplicationModels.CartCheckoutResponse> checkoutCart(@Url String url1, @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.CartCheckoutDetailRequest payload );
     
-    @POST ("/service/application/cart/v1.0/share-cart")
-    Call<ApplicationModels.GetShareCartLinkResponse> getCartShareLink(@Body ApplicationModels.GetShareCartLinkRequest payload);
+    @PUT 
+    Call<ApplicationModels.CartMetaResponse> updateCartMeta(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.CartMetaRequest payload );
     
-    @GET ("/service/application/cart/v1.0/share-cart/{token}")
-    Call<ApplicationModels.SharedCartResponse> getCartSharedItems(@Path("token") String token );
+    @POST 
+    Call<ApplicationModels.GetShareCartLinkResponse> getCartShareLink(@Url String url1 , @Body ApplicationModels.GetShareCartLinkRequest payload );
     
-    @POST ("/service/application/cart/v1.0/share-cart/{token}/{action}")
-    Call<ApplicationModels.SharedCartResponse> updateCartWithSharedItems(@Path("token") String token , @Path("action") String action );
+    @GET 
+    Call<ApplicationModels.SharedCartResponse> getCartSharedItems(@Url String url1);
     
-    @GET ("/service/application/cart/v1.0/available-promotions")
-    Call<ApplicationModels.PromotionOffersResponse> getPromotionOffers(@Query("slug") String slug , @Query("page_size") Integer pageSize , @Query("promotion_group") String promotionGroup );
+    @POST 
+    Call<ApplicationModels.SharedCartResponse> updateCartWithSharedItems(@Url String url1);
     
-    @GET ("/service/application/cart/v1.0/available-ladder-prices")
-    Call<ApplicationModels.LadderPriceOffers> getLadderOffers(@Query("slug") String slug , @Query("store_id") String storeId , @Query("promotion_id") String promotionId , @Query("page_size") Integer pageSize );
+    @GET 
+    Call<ApplicationModels.PromotionOffersResponse> getPromotionOffers(@Url String url1, @Query("slug") String slug , @Query("page_size") Integer pageSize , @Query("promotion_group") String promotionGroup );
     
+    @GET 
+    Call<ApplicationModels.LadderPriceOffers> getLadderOffers(@Url String url1, @Query("slug") String slug , @Query("store_id") String storeId , @Query("promotion_id") String promotionId , @Query("page_size") Integer pageSize );
 }
 
 interface CommonApiList {
     
-    @GET ("/service/common/configuration/v1.0/application/search-application")
-    Call<ApplicationModels.ApplicationResponse> searchApplication(@Header("authorization") String authorization , @Query("query") String query );
     
-    @GET ("/service/common/configuration/v1.0/location")
-    Call<ApplicationModels.Locations> getLocations(@Query("location_type") String locationType , @Query("id") String id );
+    @GET 
+    Call<ApplicationModels.ApplicationResponse> searchApplication(@Url String url1,@Header("authorization")String authorization , @Query("query") String query );
     
+    @GET 
+    Call<ApplicationModels.Locations> getLocations(@Url String url1, @Query("location_type") String locationType , @Query("id") String id );
 }
 
 interface LeadApiList {
     
-    @GET ("/service/application/lead/v1.0/ticket/{id}")
-    Call<ApplicationModels.Ticket> getTicket(@Path("id") String id );
     
-    @POST ("/service/application/lead/v1.0/ticket/{id}/history")
-    Call<ApplicationModels.TicketHistory> createHistory(@Path("id") String id ,@Body ApplicationModels.TicketHistoryPayload payload);
+    @GET 
+    Call<ApplicationModels.Ticket> getTicket(@Url String url1);
     
-    @POST ("/service/application/lead/v1.0/ticket/")
-    Call<ApplicationModels.Ticket> createTicket(@Body ApplicationModels.AddTicketPayload payload);
+    @POST 
+    Call<ApplicationModels.TicketHistory> createHistory(@Url String url1 , @Body ApplicationModels.TicketHistoryPayload payload );
     
-    @GET ("/service/application/lead/v1.0/form/{slug}")
-    Call<ApplicationModels.CustomForm> getCustomForm(@Path("slug") String slug );
+    @POST 
+    Call<ApplicationModels.Ticket> createTicket(@Url String url1 , @Body ApplicationModels.AddTicketPayload payload );
     
-    @POST ("/service/application/lead/v1.0/form/{slug}/submit")
-    Call<ApplicationModels.SubmitCustomFormResponse> submitCustomForm(@Path("slug") String slug ,@Body ApplicationModels.CustomFormSubmissionPayload payload);
+    @GET 
+    Call<ApplicationModels.CustomForm> getCustomForm(@Url String url1);
     
-    @GET ("/service/application/lead/v1.0/video/room/{unique_name}/participants")
-    Call<ApplicationModels.GetParticipantsInsideVideoRoomResponse> getParticipantsInsideVideoRoom(@Path("unique_name") String uniqueName );
+    @POST 
+    Call<ApplicationModels.SubmitCustomFormResponse> submitCustomForm(@Url String url1 , @Body ApplicationModels.CustomFormSubmissionPayload payload );
     
-    @GET ("/service/application/lead/v1.0/video/room/{unique_name}/token")
-    Call<ApplicationModels.GetTokenForVideoRoomResponse> getTokenForVideoRoom(@Path("unique_name") String uniqueName );
+    @GET 
+    Call<ApplicationModels.GetParticipantsInsideVideoRoomResponse> getParticipantsInsideVideoRoom(@Url String url1);
     
+    @GET 
+    Call<ApplicationModels.GetTokenForVideoRoomResponse> getTokenForVideoRoom(@Url String url1);
 }
 
 interface ThemeApiList {
     
-    @GET ("/service/application/theme/v1.0/{theme_id}/page")
-    Call<ApplicationModels.AllAvailablePageSchema> getAllPages(@Path("theme_id") String themeId );
     
-    @GET ("/service/application/theme/v1.0/{theme_id}/{page_value}")
-    Call<ApplicationModels.AvailablePageSchema> getPage(@Path("theme_id") String themeId , @Path("page_value") String pageValue );
+    @GET 
+    Call<ApplicationModels.AllAvailablePageSchema> getAllPages(@Url String url1);
     
-    @GET ("/service/application/theme/v1.0/applied-theme")
-    Call<ApplicationModels.ThemesSchema> getAppliedTheme();
+    @GET 
+    Call<ApplicationModels.AvailablePageSchema> getPage(@Url String url1);
     
-    @GET ("/service/application/theme/v1.0/{theme_id}/preview")
-    Call<ApplicationModels.ThemesSchema> getThemeForPreview(@Path("theme_id") String themeId );
+    @GET 
+    Call<ApplicationModels.ThemesSchema> getAppliedTheme(@Url String url1);
     
+    @GET 
+    Call<ApplicationModels.ThemesSchema> getThemeForPreview(@Url String url1);
 }
 
 interface UserApiList {
     
-    @POST ("/service/application/user/authentication/v1.0/login/facebook-token")
-    Call<ApplicationModels.AuthSuccess> loginWithFacebook(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
     
-    @POST ("/service/application/user/authentication/v1.0/login/google-token")
-    Call<ApplicationModels.AuthSuccess> loginWithGoogle(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
+    @POST 
+    Call<ApplicationModels.AuthSuccess> loginWithFacebook(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.OAuthRequestSchema payload );
     
-    @POST ("/service/application/user/authentication/v1.0/login/google-android")
-    Call<ApplicationModels.AuthSuccess> loginWithGoogleAndroid(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
+    @POST 
+    Call<ApplicationModels.AuthSuccess> loginWithGoogle(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.OAuthRequestSchema payload );
     
-    @POST ("/service/application/user/authentication/v1.0/login/google-ios")
-    Call<ApplicationModels.AuthSuccess> loginWithGoogleIOS(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestSchema payload);
+    @POST 
+    Call<ApplicationModels.AuthSuccess> loginWithGoogleAndroid(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.OAuthRequestSchema payload );
     
-    @POST ("/service/application/user/authentication/v1.0/login/apple-ios")
-    Call<ApplicationModels.AuthSuccess> loginWithAppleIOS(@Query("platform") String platform ,@Body ApplicationModels.OAuthRequestAppleSchema payload);
+    @POST 
+    Call<ApplicationModels.AuthSuccess> loginWithGoogleIOS(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.OAuthRequestSchema payload );
     
-    @POST ("/service/application/user/authentication/v1.0/login/otp")
-    Call<ApplicationModels.SendOtpResponse> loginWithOTP(@Query("platform") String platform ,@Body ApplicationModels.SendOtpRequestSchema payload);
+    @POST 
+    Call<ApplicationModels.AuthSuccess> loginWithAppleIOS(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.OAuthRequestAppleSchema payload );
     
-    @POST ("/service/application/user/authentication/v1.0/login/password")
-    Call<ApplicationModels.LoginSuccess> loginWithEmailAndPassword(@Body ApplicationModels.PasswordLoginRequestSchema payload);
+    @POST 
+    Call<ApplicationModels.SendOtpResponse> loginWithOTP(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.SendOtpRequestSchema payload );
     
-    @POST ("/service/application/user/authentication/v1.0/login/password/reset")
-    Call<ApplicationModels.ResetPasswordSuccess> sendResetPasswordEmail(@Query("platform") String platform ,@Body ApplicationModels.SendResetPasswordEmailRequestSchema payload);
+    @POST 
+    Call<ApplicationModels.LoginSuccess> loginWithEmailAndPassword(@Url String url1 , @Body ApplicationModels.PasswordLoginRequestSchema payload );
     
-    @POST ("/service/application/user/authentication/v1.0/login/password/reset/forgot")
-    Call<ApplicationModels.LoginSuccess> forgotPassword(@Body ApplicationModels.ForgotPasswordRequestSchema payload);
+    @POST 
+    Call<ApplicationModels.ResetPasswordSuccess> sendResetPasswordEmail(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.SendResetPasswordEmailRequestSchema payload );
     
-    @POST ("/service/application/user/authentication/v1.0/login/password/reset/token")
-    Call<ApplicationModels.ResetPasswordSuccess> sendResetToken(@Body ApplicationModels.CodeRequestBodySchema payload);
+    @POST 
+    Call<ApplicationModels.ResetPasswordSuccess> sendResetPasswordMobile(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.SendResetPasswordMobileRequestSchema payload );
     
-    @POST ("/service/application/user/authentication/v1.0/login/token")
-    Call<ApplicationModels.LoginSuccess> loginWithToken(@Body ApplicationModels.TokenRequestBodySchema payload);
+    @POST 
+    Call<ApplicationModels.LoginSuccess> forgotPassword(@Url String url1 , @Body ApplicationModels.ForgotPasswordRequestSchema payload );
     
-    @POST ("/service/application/user/authentication/v1.0/register/form")
-    Call<ApplicationModels.RegisterFormSuccess> registerWithForm(@Query("platform") String platform ,@Body ApplicationModels.FormRegisterRequestSchema payload);
+    @POST 
+    Call<ApplicationModels.ResetPasswordSuccess> sendResetToken(@Url String url1 , @Body ApplicationModels.CodeRequestBodySchema payload );
     
-    @POST ("/service/application/user/authentication/v1.0/verify/email")
-    Call<ApplicationModels.VerifyEmailSuccess> verifyEmail(@Body ApplicationModels.CodeRequestBodySchema payload);
+    @POST 
+    Call<ApplicationModels.LoginSuccess> loginWithToken(@Url String url1 , @Body ApplicationModels.TokenRequestBodySchema payload );
     
-    @POST ("/service/application/user/authentication/v1.0/verify/mobile")
-    Call<ApplicationModels.VerifyEmailSuccess> verifyMobile(@Body ApplicationModels.CodeRequestBodySchema payload);
+    @POST 
+    Call<ApplicationModels.RegisterFormSuccess> registerWithForm(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.FormRegisterRequestSchema payload );
     
-    @GET ("/service/application/user/authentication/v1.0/has-password")
-    Call<ApplicationModels.HasPasswordSuccess> hasPassword();
+    @POST 
+    Call<ApplicationModels.VerifyEmailSuccess> verifyEmail(@Url String url1 , @Body ApplicationModels.CodeRequestBodySchema payload );
     
-    @POST ("/service/application/user/authentication/v1.0/password")
-    Call<ApplicationModels.VerifyEmailSuccess> updatePassword(@Body ApplicationModels.UpdatePasswordRequestSchema payload);
+    @POST 
+    Call<ApplicationModels.VerifyEmailSuccess> verifyMobile(@Url String url1 , @Body ApplicationModels.CodeRequestBodySchema payload );
     
-    @GET ("/service/application/user/authentication/v1.0/logout")
-    Call<ApplicationModels.LogoutSuccess> logout();
+    @GET 
+    Call<ApplicationModels.HasPasswordSuccess> hasPassword(@Url String url1);
     
-    @POST ("/service/application/user/authentication/v1.0/otp/mobile/send")
-    Call<ApplicationModels.OtpSuccess> sendOTPOnMobile(@Query("platform") String platform ,@Body ApplicationModels.SendMobileOtpRequestSchema payload);
+    @POST 
+    Call<ApplicationModels.VerifyEmailSuccess> updatePassword(@Url String url1 , @Body ApplicationModels.UpdatePasswordRequestSchema payload );
     
-    @POST ("/service/application/user/authentication/v1.0/otp/mobile/verify")
-    Call<ApplicationModels.VerifyOtpSuccess> verifyMobileOTP(@Query("platform") String platform ,@Body ApplicationModels.VerifyOtpRequestSchema payload);
+    @POST 
+    Call<ApplicationModels.DeleteUserSuccess> deleteUser(@Url String url1 , @Body ApplicationModels.DeleteApplicationUserRequestSchema payload );
     
-    @POST ("/service/application/user/authentication/v1.0/otp/email/send")
-    Call<ApplicationModels.EmailOtpSuccess> sendOTPOnEmail(@Query("platform") String platform ,@Body ApplicationModels.SendEmailOtpRequestSchema payload);
+    @GET 
+    Call<ApplicationModels.LogoutSuccess> logout(@Url String url1);
     
-    @POST ("/service/application/user/authentication/v1.0/otp/email/verify")
-    Call<ApplicationModels.VerifyOtpSuccess> verifyEmailOTP(@Query("platform") String platform ,@Body ApplicationModels.VerifyEmailOtpRequestSchema payload);
+    @POST 
+    Call<ApplicationModels.OtpSuccess> sendOTPOnMobile(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.SendMobileOtpRequestSchema payload );
     
-    @GET ("/service/application/user/authentication/v1.0/session")
-    Call<ApplicationModels.UserObjectSchema> getLoggedInUser();
+    @POST 
+    Call<ApplicationModels.VerifyOtpSuccess> verifyMobileOTP(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.VerifyOtpRequestSchema payload );
     
-    @GET ("/service/application/user/authentication/v1.0/sessions")
-    Call<ApplicationModels.SessionListSuccess> getListOfActiveSessions();
+    @POST 
+    Call<ApplicationModels.EmailOtpSuccess> sendOTPOnEmail(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.SendEmailOtpRequestSchema payload );
     
-    @GET ("/service/application/user/platform/v1.0/config")
-    Call<ApplicationModels.PlatformSchema> getPlatformConfig(@Query("name") String name );
+    @POST 
+    Call<ApplicationModels.VerifyOtpSuccess> verifyEmailOTP(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.VerifyEmailOtpRequestSchema payload );
     
-    @POST ("/service/application/user/profile/v1.0/detail")
-    Call<ApplicationModels.ProfileEditSuccess> updateProfile(@Query("platform") String platform ,@Body ApplicationModels.EditProfileRequestSchema payload);
+    @GET 
+    Call<ApplicationModels.UserObjectSchema> getLoggedInUser(@Url String url1);
     
-    @PUT ("/service/application/user/profile/v1.0/mobile")
-    Call<ApplicationModels.VerifyMobileOTPSuccess> addMobileNumber(@Query("platform") String platform ,@Body ApplicationModels.EditMobileRequestSchema payload);
+    @GET 
+    Call<ApplicationModels.SessionListSuccess> getListOfActiveSessions(@Url String url1);
     
-    @DELETE ("/service/application/user/profile/v1.0/mobile")
-    Call<ApplicationModels.LoginSuccess> deleteMobileNumber(@Query("platform") String platform , @Query("active") Boolean active , @Query("primary") Boolean primary , @Query("verified") Boolean verified , @Query("country_code") String countryCode , @Query("phone") String phone );
+    @GET 
+    Call<ApplicationModels.PlatformSchema> getPlatformConfig(@Url String url1, @Query("name") String name );
     
-    @POST ("/service/application/user/profile/v1.0/mobile/primary")
-    Call<ApplicationModels.LoginSuccess> setMobileNumberAsPrimary(@Body ApplicationModels.SendVerificationLinkMobileRequestSchema payload);
+    @POST 
+    Call<ApplicationModels.ProfileEditSuccess> updateProfile(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.EditProfileRequestSchema payload );
     
-    @POST ("/service/application/user/profile/v1.0/mobile/link/send")
-    Call<ApplicationModels.SendMobileVerifyLinkSuccess> sendVerificationLinkToMobile(@Query("platform") String platform ,@Body ApplicationModels.SendVerificationLinkMobileRequestSchema payload);
+    @PUT 
+    Call<ApplicationModels.VerifyMobileOTPSuccess> addMobileNumber(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.EditMobileRequestSchema payload );
     
-    @PUT ("/service/application/user/profile/v1.0/email")
-    Call<ApplicationModels.VerifyEmailOTPSuccess> addEmail(@Query("platform") String platform ,@Body ApplicationModels.EditEmailRequestSchema payload);
+    @DELETE 
+    Call<ApplicationModels.LoginSuccess> deleteMobileNumber(@Url String url1, @Query("platform") String platform , @Query("active") Boolean active , @Query("primary") Boolean primary , @Query("verified") Boolean verified , @Query("country_code") String countryCode , @Query("phone") String phone );
     
-    @DELETE ("/service/application/user/profile/v1.0/email")
-    Call<ApplicationModels.LoginSuccess> deleteEmail(@Query("platform") String platform , @Query("active") Boolean active , @Query("primary") Boolean primary , @Query("verified") Boolean verified , @Query("email") String email );
+    @POST 
+    Call<ApplicationModels.LoginSuccess> setMobileNumberAsPrimary(@Url String url1 , @Body ApplicationModels.SendVerificationLinkMobileRequestSchema payload );
     
-    @POST ("/service/application/user/profile/v1.0/email/primary")
-    Call<ApplicationModels.LoginSuccess> setEmailAsPrimary(@Body ApplicationModels.EditEmailRequestSchema payload);
+    @POST 
+    Call<ApplicationModels.SendMobileVerifyLinkSuccess> sendVerificationLinkToMobile(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.SendVerificationLinkMobileRequestSchema payload );
     
-    @POST ("/service/application/user/profile/v1.0/email/link/send")
-    Call<ApplicationModels.SendEmailVerifyLinkSuccess> sendVerificationLinkToEmail(@Query("platform") String platform ,@Body ApplicationModels.EditEmailRequestSchema payload);
+    @PUT 
+    Call<ApplicationModels.VerifyEmailOTPSuccess> addEmail(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.EditEmailRequestSchema payload );
     
+    @DELETE 
+    Call<ApplicationModels.LoginSuccess> deleteEmail(@Url String url1, @Query("platform") String platform , @Query("active") Boolean active , @Query("primary") Boolean primary , @Query("verified") Boolean verified , @Query("email") String email );
+    
+    @POST 
+    Call<ApplicationModels.LoginSuccess> setEmailAsPrimary(@Url String url1 , @Body ApplicationModels.EditEmailRequestSchema payload );
+    
+    @POST 
+    Call<ApplicationModels.SendEmailVerifyLinkSuccess> sendVerificationLinkToEmail(@Url String url1, @Query("platform") String platform  , @Body ApplicationModels.EditEmailRequestSchema payload );
 }
 
 interface ContentApiList {
     
-    @GET ("/service/application/content/v1.0/announcements")
-    Call<ApplicationModels.AnnouncementsResponseSchema> getAnnouncements();
     
-    @GET ("/service/application/content/v1.0/blogs/{slug}")
-    Call<ApplicationModels.BlogSchema> getBlog(@Path("slug") String slug , @Query("root_id") String rootId );
+    @GET 
+    Call<ApplicationModels.AnnouncementsResponseSchema> getAnnouncements(@Url String url1);
     
-    @GET ("/service/application/content/v1.0/blogs/")
-    Call<ApplicationModels.BlogGetResponse> getBlogs(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
+    @GET 
+    Call<ApplicationModels.BlogSchema> getBlog(@Url String url1, @Query("root_id") String rootId );
     
-    @GET ("/service/application/content/v1.0/data-loader")
-    Call<ApplicationModels.DataLoadersSchema> getDataLoaders();
+    @GET 
+    Call<ApplicationModels.BlogGetResponse> getBlogs(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
-    @GET ("/service/application/content/v1.0/faq")
-    Call<ApplicationModels.FaqResponseSchema> getFaqs();
+    @GET 
+    Call<ApplicationModels.DataLoadersSchema> getDataLoaders(@Url String url1);
     
-    @GET ("/service/application/content/v1.0/faq/categories")
-    Call<ApplicationModels.GetFaqCategoriesSchema> getFaqCategories();
+    @GET 
+    Call<ApplicationModels.FaqResponseSchema> getFaqs(@Url String url1);
     
-    @GET ("/service/application/content/v1.0/faq/{slug}")
-    Call<ApplicationModels.FaqSchema> getFaqBySlug(@Path("slug") String slug );
+    @GET 
+    Call<ApplicationModels.GetFaqCategoriesSchema> getFaqCategories(@Url String url1);
     
-    @GET ("/service/application/content/v1.0/faq/category/{slug}")
-    Call<ApplicationModels.GetFaqCategoryBySlugSchema> getFaqCategoryBySlug(@Path("slug") String slug );
+    @GET 
+    Call<ApplicationModels.FaqSchema> getFaqBySlug(@Url String url1);
     
-    @GET ("/service/application/content/v1.0/faq/category/{slug}/faqs")
-    Call<ApplicationModels.GetFaqSchema> getFaqsByCategorySlug(@Path("slug") String slug );
+    @GET 
+    Call<ApplicationModels.GetFaqCategoryBySlugSchema> getFaqCategoryBySlug(@Url String url1);
     
-    @GET ("/service/application/content/v1.0/landing-page")
-    Call<ApplicationModels.LandingPageSchema> getLandingPage();
+    @GET 
+    Call<ApplicationModels.GetFaqSchema> getFaqsByCategorySlug(@Url String url1);
     
-    @GET ("/service/application/content/v1.0/legal")
-    Call<ApplicationModels.ApplicationLegal> getLegalInformation();
+    @GET 
+    Call<ApplicationModels.LandingPageSchema> getLandingPage(@Url String url1);
     
-    @GET ("/service/application/content/v1.0/navigations/")
-    Call<ApplicationModels.NavigationGetResponse> getNavigations(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
+    @GET 
+    Call<ApplicationModels.ApplicationLegal> getLegalInformation(@Url String url1);
     
-    @GET ("/service/application/content/v1.0/seo")
-    Call<ApplicationModels.SeoComponent> getSEOConfiguration();
+    @GET 
+    Call<ApplicationModels.NavigationGetResponse> getNavigations(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
-    @GET ("/service/application/content/v1.0/slideshow/")
-    Call<ApplicationModels.SlideshowGetResponse> getSlideshows(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
+    @GET 
+    Call<ApplicationModels.SeoComponent> getSEOConfiguration(@Url String url1);
     
-    @GET ("/service/application/content/v1.0/slideshow/{slug}")
-    Call<ApplicationModels.SlideshowSchema> getSlideshow(@Path("slug") String slug );
+    @GET 
+    Call<ApplicationModels.SlideshowGetResponse> getSlideshows(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
     
-    @GET ("/service/application/content/v1.0/support")
-    Call<ApplicationModels.Support> getSupportInformation();
+    @GET 
+    Call<ApplicationModels.SlideshowSchema> getSlideshow(@Url String url1);
     
-    @GET ("/service/application/content/v1.0/tags")
-    Call<ApplicationModels.TagsSchema> getTags();
+    @GET 
+    Call<ApplicationModels.Support> getSupportInformation(@Url String url1);
     
-    @GET ("/service/application/content/v2.0/pages/{slug}")
-    Call<ApplicationModels.PageSchema> getPage(@Path("slug") String slug , @Query("root_id") String rootId );
+    @GET 
+    Call<ApplicationModels.TagsSchema> getTags(@Url String url1);
     
-    @GET ("/service/application/content/v2.0/pages/")
-    Call<ApplicationModels.PageGetResponse> getPages(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
+    @GET 
+    Call<ApplicationModels.PageSchema> getPage(@Url String url1, @Query("root_id") String rootId );
     
+    @GET 
+    Call<ApplicationModels.PageGetResponse> getPages(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize );
 }
 
 interface CommunicationApiList {
     
-    @GET ("/service/application/communication/v1.0/consent")
-    Call<ApplicationModels.CommunicationConsent> getCommunicationConsent();
     
-    @POST ("/service/application/communication/v1.0/consent")
-    Call<ApplicationModels.CommunicationConsentRes> upsertCommunicationConsent(@Body ApplicationModels.CommunicationConsentReq payload);
+    @GET 
+    Call<ApplicationModels.CommunicationConsent> getCommunicationConsent(@Url String url1);
     
-    @POST ("/service/application/communication/v1.0/pn-token")
-    Call<ApplicationModels.PushtokenRes> upsertAppPushtoken(@Body ApplicationModels.PushtokenReq payload);
+    @POST 
+    Call<ApplicationModels.CommunicationConsentRes> upsertCommunicationConsent(@Url String url1 , @Body ApplicationModels.CommunicationConsentReq payload );
     
+    @POST 
+    Call<ApplicationModels.PushtokenRes> upsertAppPushtoken(@Url String url1 , @Body ApplicationModels.PushtokenReq payload );
 }
 
 interface ShareApiList {
     
-    @POST ("/service/application/share/v1.0/qr/")
-    Call<ApplicationModels.QRCodeResp> getApplicationQRCode();
     
-    @POST ("/service/application/share/v1.0/qr/products/{slug}/")
-    Call<ApplicationModels.QRCodeResp> getProductQRCodeBySlug(@Path("slug") String slug );
+    @POST 
+    Call<ApplicationModels.QRCodeResp> getApplicationQRCode(@Url String url1);
     
-    @POST ("/service/application/share/v1.0/qr/collection/{slug}/")
-    Call<ApplicationModels.QRCodeResp> getCollectionQRCodeBySlug(@Path("slug") String slug );
+    @POST 
+    Call<ApplicationModels.QRCodeResp> getProductQRCodeBySlug(@Url String url1);
     
-    @POST ("/service/application/share/v1.0/qr/url/")
-    Call<ApplicationModels.QRCodeResp> getUrlQRCode(@Query("url") String url );
+    @POST 
+    Call<ApplicationModels.QRCodeResp> getCollectionQRCodeBySlug(@Url String url1);
     
-    @POST ("/service/application/share/v1.0/links/short-link/")
-    Call<ApplicationModels.ShortLinkRes> createShortLink(@Body ApplicationModels.ShortLinkReq payload);
+    @POST 
+    Call<ApplicationModels.QRCodeResp> getUrlQRCode(@Url String url1, @Query("url") String url );
     
-    @GET ("/service/application/share/v1.0/links/short-link/{hash}/")
-    Call<ApplicationModels.ShortLinkRes> getShortLinkByHash(@Path("hash") String hash );
+    @POST 
+    Call<ApplicationModels.ShortLinkRes> createShortLink(@Url String url1 , @Body ApplicationModels.ShortLinkReq payload );
     
-    @GET ("/service/application/share/v1.0/links/short-link/{hash}/original/")
-    Call<ApplicationModels.ShortLinkRes> getOriginalShortLinkByHash(@Path("hash") String hash );
+    @GET 
+    Call<ApplicationModels.ShortLinkRes> getShortLinkByHash(@Url String url1);
     
+    @GET 
+    Call<ApplicationModels.ShortLinkRes> getOriginalShortLinkByHash(@Url String url1);
 }
 
 interface FileStorageApiList {
     
-    @POST ("/service/application/assets/v1.0/namespaces/{namespace}/upload/start/")
-    Call<ApplicationModels.StartResponse> startUpload(@Path("namespace") String namespace ,@Body ApplicationModels.StartRequest payload);
     
-    @POST ("/service/application/assets/v1.0/namespaces/{namespace}/upload/complete/")
-    Call<ApplicationModels.CompleteResponse> completeUpload(@Path("namespace") String namespace ,@Body ApplicationModels.StartResponse payload);
+    @POST 
+    Call<ApplicationModels.StartResponse> startUpload(@Url String url1 , @Body ApplicationModels.StartRequest payload );
     
-    @POST ("/service/application/assets/v1.0/sign-urls/")
-    Call<ApplicationModels.SignUrlResponse> signUrls(@Body ApplicationModels.SignUrlRequest payload);
+    @POST 
+    Call<ApplicationModels.CompleteResponse> completeUpload(@Url String url1 , @Body ApplicationModels.StartResponse payload );
     
+    @POST 
+    Call<ApplicationModels.SignUrlResponse> signUrls(@Url String url1 , @Body ApplicationModels.SignUrlRequest payload );
 }
 
 interface ConfigurationApiList {
     
-    @GET ("/service/application/configuration/v1.0/application")
-    Call<ApplicationModels.Application> getApplication();
     
-    @GET ("/service/application/configuration/v1.0/about")
-    Call<ApplicationModels.ApplicationAboutResponse> getOwnerInfo();
+    @GET 
+    Call<ApplicationModels.Application> getApplication(@Url String url1);
     
-    @GET ("/service/application/configuration/v1.0/detail")
-    Call<ApplicationModels.ApplicationDetail> getBasicDetails();
+    @GET 
+    Call<ApplicationModels.ApplicationAboutResponse> getOwnerInfo(@Url String url1);
     
-    @GET ("/service/application/configuration/v1.0/token")
-    Call<ApplicationModels.AppTokenResponse> getIntegrationTokens();
+    @GET 
+    Call<ApplicationModels.ApplicationDetail> getBasicDetails(@Url String url1);
     
-    @GET ("/service/application/configuration/v1.0/ordering-store/stores")
-    Call<ApplicationModels.OrderingStores> getOrderingStores(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q );
+    @GET 
+    Call<ApplicationModels.AppTokenResponse> getIntegrationTokens(@Url String url1);
     
-    @GET ("/service/application/configuration/v1.0/ordering-store/stores/{store_id}")
-    Call<ApplicationModels.OrderingStore> getStoreDetailById(@Path("store_id") Integer storeId );
+    @GET 
+    Call<ApplicationModels.OrderingStores> getOrderingStores(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q );
     
-    @GET ("/service/application/configuration/v1.0/feature")
-    Call<ApplicationModels.AppFeatureResponse> getFeatures();
+    @GET 
+    Call<ApplicationModels.OrderingStore> getStoreDetailById(@Url String url1);
     
-    @GET ("/service/application/configuration/v1.0/information")
-    Call<ApplicationModels.ApplicationInformation> getContactInfo();
+    @GET 
+    Call<ApplicationModels.AppFeatureResponse> getFeatures(@Url String url1);
     
-    @GET ("/service/application/configuration/v1.0/currencies")
-    Call<ApplicationModels.CurrenciesResponse> getCurrencies();
+    @GET 
+    Call<ApplicationModels.ApplicationInformation> getContactInfo(@Url String url1);
     
-    @GET ("/service/application/configuration/v1.0/currency/{id}")
-    Call<ApplicationModels.Currency> getCurrencyById(@Path("id") String id );
+    @GET 
+    Call<ApplicationModels.CurrenciesResponse> getCurrencies(@Url String url1);
     
-    @GET ("/service/application/configuration/v1.0/currency")
-    Call<ApplicationModels.AppCurrencyResponse> getAppCurrencies();
+    @GET 
+    Call<ApplicationModels.Currency> getCurrencyById(@Url String url1);
     
-    @GET ("/service/application/configuration/v1.0/languages")
-    Call<ApplicationModels.LanguageResponse> getLanguages();
+    @GET 
+    Call<ApplicationModels.AppCurrencyResponse> getAppCurrencies(@Url String url1);
     
-    @POST ("/service/application/configuration/v1.0/ordering-store/select")
-    Call<ApplicationModels.SuccessMessageResponse> getOrderingStoreCookie(@Body ApplicationModels.OrderingStoreSelectRequest payload);
+    @GET 
+    Call<ApplicationModels.LanguageResponse> getLanguages(@Url String url1);
     
-    @DELETE ("/service/application/configuration/v1.0/ordering-store/select")
-    Call<ApplicationModels.SuccessMessageResponse> removeOrderingStoreCookie();
+    @POST 
+    Call<ApplicationModels.SuccessMessageResponse> getOrderingStoreCookie(@Url String url1 , @Body ApplicationModels.OrderingStoreSelectRequest payload );
     
-    @GET ("/service/application/configuration/v1.0/staff/list")
-    Call<ApplicationModels.AppStaffListResponse> getAppStaffList(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("order_incent") Boolean orderIncent , @Query("ordering_store") Integer orderingStore , @Query("user") String user );
+    @DELETE 
+    Call<ApplicationModels.SuccessMessageResponse> removeOrderingStoreCookie(@Url String url1);
     
-    @GET ("/service/application/configuration/v1.0/staff")
-    Call<ApplicationModels.AppStaffResponse> getAppStaffs(@Query("order_incent") Boolean orderIncent , @Query("ordering_store") Integer orderingStore , @Query("user") String user );
+    @GET 
+    Call<ApplicationModels.AppStaffListResponse> getAppStaffList(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("order_incent") Boolean orderIncent , @Query("ordering_store") Integer orderingStore , @Query("user") String user );
     
+    @GET 
+    Call<ApplicationModels.AppStaffResponse> getAppStaffs(@Url String url1, @Query("order_incent") Boolean orderIncent , @Query("ordering_store") Integer orderingStore , @Query("user") String user );
 }
 
 interface PaymentApiList {
     
-    @GET ("/service/application/payment/v1.0/config/aggregators/key")
-    Call<ApplicationModels.AggregatorsConfigDetailResponse> getAggregatorsConfig(@Header("x-api-token") String xApiToken , @Query("refresh") Boolean refresh );
     
-    @POST ("/service/application/payment/v1.0/card/attach")
-    Call<ApplicationModels.AttachCardsResponse> attachCardToCustomer(@Body ApplicationModels.AttachCardRequest payload);
+    @GET 
+    Call<ApplicationModels.AggregatorsConfigDetailResponse> getAggregatorsConfig(@Url String url1,@Header("x-api-token")String xApiToken , @Query("refresh") Boolean refresh );
     
-    @GET ("/service/application/payment/v1.0/card/aggregator")
-    Call<ApplicationModels.ActiveCardPaymentGatewayResponse> getActiveCardAggregator(@Query("refresh") Boolean refresh );
+    @POST 
+    Call<ApplicationModels.AttachCardsResponse> attachCardToCustomer(@Url String url1 , @Body ApplicationModels.AttachCardRequest payload );
     
-    @GET ("/service/application/payment/v1.0/cards")
-    Call<ApplicationModels.ListCardsResponse> getActiveUserCards(@Query("force_refresh") Boolean forceRefresh );
+    @GET 
+    Call<ApplicationModels.ActiveCardPaymentGatewayResponse> getActiveCardAggregator(@Url String url1, @Query("refresh") Boolean refresh );
     
-    @POST ("/service/application/payment/v1.0/card/remove")
-    Call<ApplicationModels.DeleteCardsResponse> deleteUserCard(@Body ApplicationModels.DeletehCardRequest payload);
+    @GET 
+    Call<ApplicationModels.ListCardsResponse> getActiveUserCards(@Url String url1, @Query("force_refresh") Boolean forceRefresh );
     
-    @POST ("/service/application/payment/v1.0/payment/customer/validation")
-    Call<ApplicationModels.ValidateCustomerResponse> verifyCustomerForPayment(@Body ApplicationModels.ValidateCustomerRequest payload);
+    @POST 
+    Call<ApplicationModels.DeleteCardsResponse> deleteUserCard(@Url String url1 , @Body ApplicationModels.DeletehCardRequest payload );
     
-    @POST ("/service/application/payment/v1.0/payment/confirm/charge")
-    Call<ApplicationModels.ChargeCustomerResponse> verifyAndChargePayment(@Body ApplicationModels.ChargeCustomerRequest payload);
+    @POST 
+    Call<ApplicationModels.ValidateCustomerResponse> verifyCustomerForPayment(@Url String url1 , @Body ApplicationModels.ValidateCustomerRequest payload );
     
-    @POST ("/service/application/payment/v1.0/payment/request")
-    Call<ApplicationModels.PaymentInitializationResponse> initialisePayment(@Body ApplicationModels.PaymentInitializationRequest payload);
+    @POST 
+    Call<ApplicationModels.ChargeCustomerResponse> verifyAndChargePayment(@Url String url1 , @Body ApplicationModels.ChargeCustomerRequest payload );
     
-    @POST ("/service/application/payment/v1.0/payment/confirm/polling")
-    Call<ApplicationModels.PaymentStatusUpdateResponse> checkAndUpdatePaymentStatus(@Body ApplicationModels.PaymentStatusUpdateRequest payload);
+    @POST 
+    Call<ApplicationModels.PaymentInitializationResponse> initialisePayment(@Url String url1 , @Body ApplicationModels.PaymentInitializationRequest payload );
     
-    @GET ("/service/application/payment/v1.0/payment/options")
-    Call<ApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutes(@Query("amount") Integer amount , @Query("cart_id") String cartId , @Query("pincode") String pincode , @Query("checkout_mode") String checkoutMode , @Query("refresh") Boolean refresh , @Query("card_reference") String cardReference , @Query("user_details") String userDetails );
+    @POST 
+    Call<ApplicationModels.PaymentStatusUpdateResponse> checkAndUpdatePaymentStatus(@Url String url1 , @Body ApplicationModels.PaymentStatusUpdateRequest payload );
     
-    @GET ("/service/application/payment/v1.0/payment/options/pos")
-    Call<ApplicationModels.PaymentModeRouteResponse> getPosPaymentModeRoutes(@Query("amount") Integer amount , @Query("cart_id") String cartId , @Query("pincode") String pincode , @Query("checkout_mode") String checkoutMode , @Query("refresh") Boolean refresh , @Query("card_reference") String cardReference , @Query("order_type") String orderType , @Query("user_details") String userDetails );
+    @GET 
+    Call<ApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutes(@Url String url1, @Query("amount") Integer amount , @Query("cart_id") String cartId , @Query("pincode") String pincode , @Query("checkout_mode") String checkoutMode , @Query("refresh") Boolean refresh , @Query("card_reference") String cardReference , @Query("user_details") String userDetails );
     
-    @GET ("/service/application/payment/v1.0/rupifi/banner")
-    Call<ApplicationModels.RupifiBannerResponse> getRupifiBannerDetails();
+    @GET 
+    Call<ApplicationModels.PaymentModeRouteResponse> getPosPaymentModeRoutes(@Url String url1, @Query("amount") Integer amount , @Query("cart_id") String cartId , @Query("pincode") String pincode , @Query("checkout_mode") String checkoutMode , @Query("refresh") Boolean refresh , @Query("card_reference") String cardReference , @Query("order_type") String orderType , @Query("user_details") String userDetails );
     
-    @GET ("/service/application/payment/v1.0/epaylater/banner")
-    Call<ApplicationModels.EpaylaterBannerResponse> getEpaylaterBannerDetails();
+    @GET 
+    Call<ApplicationModels.RupifiBannerResponse> getRupifiBannerDetails(@Url String url1);
     
-    @POST ("/service/application/payment/v1.0/payment/resend_or_cancel")
-    Call<ApplicationModels.ResendOrCancelPaymentResponse> resendOrCancelPayment(@Body ApplicationModels.ResendOrCancelPaymentRequest payload);
+    @GET 
+    Call<ApplicationModels.EpaylaterBannerResponse> getEpaylaterBannerDetails(@Url String url1);
     
-    @GET ("/service/application/payment/v1.0/refund/transfer-mode")
-    Call<ApplicationModels.TransferModeResponse> getActiveRefundTransferModes();
+    @POST 
+    Call<ApplicationModels.ResendOrCancelPaymentResponse> resendOrCancelPayment(@Url String url1 , @Body ApplicationModels.ResendOrCancelPaymentRequest payload );
     
-    @PUT ("/service/application/payment/v1.0/refund/transfer-mode")
-    Call<ApplicationModels.UpdateRefundTransferModeResponse> enableOrDisableRefundTransferMode(@Body ApplicationModels.UpdateRefundTransferModeRequest payload);
+    @GET 
+    Call<ApplicationModels.TransferModeResponse> getActiveRefundTransferModes(@Url String url1);
     
-    @GET ("/service/application/payment/v1.0/refund/user/beneficiary")
-    Call<ApplicationModels.OrderBeneficiaryResponse> getUserBeneficiariesDetail(@Query("order_id") String orderId );
+    @PUT 
+    Call<ApplicationModels.UpdateRefundTransferModeResponse> enableOrDisableRefundTransferMode(@Url String url1 , @Body ApplicationModels.UpdateRefundTransferModeRequest payload );
     
-    @GET ("/service/application/payment/v1.0/ifsc-code/verify")
-    Call<ApplicationModels.IfscCodeResponse> verifyIfscCode(@Query("ifsc_code") String ifscCode );
+    @GET 
+    Call<ApplicationModels.OrderBeneficiaryResponse> getUserBeneficiariesDetail(@Url String url1, @Query("order_id") String orderId );
     
-    @GET ("/service/application/payment/v1.0/refund/order/beneficiaries")
-    Call<ApplicationModels.OrderBeneficiaryResponse> getOrderBeneficiariesDetail(@Query("order_id") String orderId );
+    @GET 
+    Call<ApplicationModels.IfscCodeResponse> verifyIfscCode(@Url String url1, @Query("ifsc_code") String ifscCode );
     
-    @POST ("/service/application/payment/v1.0/refund/verification/bank")
-    Call<ApplicationModels.AddBeneficiaryViaOtpVerificationResponse> verifyOtpAndAddBeneficiaryForBank(@Body ApplicationModels.AddBeneficiaryViaOtpVerificationRequest payload);
+    @GET 
+    Call<ApplicationModels.OrderBeneficiaryResponse> getOrderBeneficiariesDetail(@Url String url1, @Query("order_id") String orderId );
     
-    @POST ("/service/application/payment/v1.0/refund/account")
-    Call<ApplicationModels.RefundAccountResponse> addBeneficiaryDetails(@Body ApplicationModels.AddBeneficiaryDetailsRequest payload);
+    @POST 
+    Call<ApplicationModels.AddBeneficiaryViaOtpVerificationResponse> verifyOtpAndAddBeneficiaryForBank(@Url String url1 , @Body ApplicationModels.AddBeneficiaryViaOtpVerificationRequest payload );
     
-    @POST ("/service/application/payment/v1.0/refund/account/otp")
-    Call<ApplicationModels.RefundAccountResponse> addRefundBankAccountUsingOTP(@Body ApplicationModels.AddBeneficiaryDetailsOTPRequest payload);
+    @POST 
+    Call<ApplicationModels.RefundAccountResponse> addBeneficiaryDetails(@Url String url1 , @Body ApplicationModels.AddBeneficiaryDetailsRequest payload );
     
-    @POST ("/service/application/payment/v1.0/refund/verification/wallet")
-    Call<ApplicationModels.WalletOtpResponse> verifyOtpAndAddBeneficiaryForWallet(@Body ApplicationModels.WalletOtpRequest payload);
+    @POST 
+    Call<ApplicationModels.RefundAccountResponse> addRefundBankAccountUsingOTP(@Url String url1 , @Body ApplicationModels.AddBeneficiaryDetailsOTPRequest payload );
     
-    @POST ("/service/application/payment/v1.0/refund/beneficiary/default")
-    Call<ApplicationModels.SetDefaultBeneficiaryResponse> updateDefaultBeneficiary(@Body ApplicationModels.SetDefaultBeneficiaryRequest payload);
+    @POST 
+    Call<ApplicationModels.WalletOtpResponse> verifyOtpAndAddBeneficiaryForWallet(@Url String url1 , @Body ApplicationModels.WalletOtpRequest payload );
     
-    @GET ("/service/application/payment/v1.0/payment/credit-summary/")
-    Call<ApplicationModels.CustomerCreditSummaryResponse> customerCreditSummary(@Query("aggregator") String aggregator );
+    @POST 
+    Call<ApplicationModels.SetDefaultBeneficiaryResponse> updateDefaultBeneficiary(@Url String url1 , @Body ApplicationModels.SetDefaultBeneficiaryRequest payload );
     
-    @GET ("/service/application/payment/v1.0/payment/redirect-to-aggregator/")
-    Call<ApplicationModels.RedirectToAggregatorResponse> redirectToAggregator(@Query("source") String source , @Query("aggregator") String aggregator );
+    @GET 
+    Call<ApplicationModels.CustomerCreditSummaryResponse> customerCreditSummary(@Url String url1, @Query("aggregator") String aggregator );
     
-    @GET ("/service/application/payment/v1.0/check-credits/")
-    Call<ApplicationModels.CheckCreditResponse> checkCredit(@Query("aggregator") String aggregator );
+    @GET 
+    Call<ApplicationModels.RedirectToAggregatorResponse> redirectToAggregator(@Url String url1, @Query("source") String source , @Query("aggregator") String aggregator );
     
-    @POST ("/service/application/payment/v1.0/credit-onboard/")
-    Call<ApplicationModels.CustomerOnboardingResponse> customerOnboard(@Body ApplicationModels.CustomerOnboardingRequest payload);
+    @GET 
+    Call<ApplicationModels.CheckCreditResponse> checkCredit(@Url String url1, @Query("aggregator") String aggregator );
     
+    @POST 
+    Call<ApplicationModels.CustomerOnboardingResponse> customerOnboard(@Url String url1 , @Body ApplicationModels.CustomerOnboardingRequest payload );
 }
 
 interface OrderApiList {
     
-    @GET ("/service/application/order/v1.0/orders")
-    Call<ApplicationModels.OrderList> getOrders(@Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate , @Query("status") Integer status );
     
-    @GET ("/service/application/order/v1.0/orders/{order_id}")
-    Call<ApplicationModels.OrderById> getOrderById(@Path("order_id") String orderId );
+    @GET 
+    Call<ApplicationModels.OrderList> getOrders(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate , @Query("status") Integer status );
     
-    @GET ("/service/application/order/v1.0/orders/shipments/{shipment_id}")
-    Call<ApplicationModels.ShipmentById> getShipmentById(@Path("shipment_id") String shipmentId );
+    @GET 
+    Call<ApplicationModels.OrderById> getOrderById(@Url String url1);
     
-    @GET ("/service/application/order/v1.0/orders/shipments/{shipment_id}/reasons")
-    Call<ApplicationModels.ShipmentReasons> getShipmentReasons(@Path("shipment_id") String shipmentId );
+    @GET 
+    Call<ApplicationModels.ShipmentById> getShipmentById(@Url String url1);
     
-    @PUT ("/service/application/order/v1.0/orders/shipments/{shipment_id}/status")
-    Call<ApplicationModels.ShipmentStatusUpdate> updateShipmentStatus(@Path("shipment_id") String shipmentId ,@Body ApplicationModels.ShipmentStatusUpdateBody payload);
+    @GET 
+    Call<ApplicationModels.ShipmentReasons> getShipmentReasons(@Url String url1);
     
-    @GET ("/service/application/order/v1.0/orders/shipments/{shipment_id}/track")
-    Call<ApplicationModels.ShipmentTrack> trackShipment(@Path("shipment_id") String shipmentId );
+    @PUT 
+    Call<ApplicationModels.ShipmentStatusUpdate> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.ShipmentStatusUpdateBody payload );
     
-    @GET ("/service/application/order/v1.0/orders/pos-order/{order_id}")
-    Call<ApplicationModels.PosOrderById> getPosOrderById(@Path("order_id") String orderId );
+    @GET 
+    Call<ApplicationModels.ShipmentTrack> trackShipment(@Url String url1);
     
-    @GET ("/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/customer-details")
-    Call<ApplicationModels.CustomerDetailsByShipmentId> getCustomerDetailsByShipmentId(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId );
+    @GET 
+    Call<ApplicationModels.PosOrderById> getPosOrderById(@Url String url1);
     
-    @POST ("/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/send/")
-    Call<ApplicationModels.sendOTPApplicationResponse> sendOtpToShipmentCustomer(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId );
+    @GET 
+    Call<ApplicationModels.CustomerDetailsByShipmentId> getCustomerDetailsByShipmentId(@Url String url1);
     
-    @POST ("/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify")
-    Call<ApplicationModels.ResponseVerifyOTPShipment> verifyOtpShipmentCustomer(@Path("order_id") String orderId , @Path("shipment_id") String shipmentId ,@Body ApplicationModels.ReqBodyVerifyOTPShipment payload);
+    @POST 
+    Call<ApplicationModels.sendOTPApplicationResponse> sendOtpToShipmentCustomer(@Url String url1);
     
-    @GET ("/service/application/order/v1.0/orders/shipments/{shipment_id}/invoice")
-    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Path("shipment_id") String shipmentId );
+    @POST 
+    Call<ApplicationModels.ResponseVerifyOTPShipment> verifyOtpShipmentCustomer(@Url String url1 , @Body ApplicationModels.ReqBodyVerifyOTPShipment payload );
     
+    @GET 
+    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Url String url1);
 }
 
 interface RewardsApiList {
     
-    @POST ("/service/application/rewards/v1.0/catalogue/offer/order/")
-    Call<ApplicationModels.CatalogueOrderResponse> getPointsOnProduct(@Body ApplicationModels.CatalogueOrderRequest payload);
     
-    @GET ("/service/application/rewards/v1.0/offers/{name}/")
-    Call<ApplicationModels.Offer> getOfferByName(@Path("name") String name );
+    @POST 
+    Call<ApplicationModels.CatalogueOrderResponse> getPointsOnProduct(@Url String url1 , @Body ApplicationModels.CatalogueOrderRequest payload );
     
-    @POST ("/service/application/rewards/v1.0/user/offers/order-discount/")
-    Call<ApplicationModels.OrderDiscountResponse> getOrderDiscount(@Body ApplicationModels.OrderDiscountRequest payload);
+    @GET 
+    Call<ApplicationModels.Offer> getOfferByName(@Url String url1);
     
-    @GET ("/service/application/rewards/v1.0/user/points/")
-    Call<ApplicationModels.PointsResponse> getUserPoints();
+    @POST 
+    Call<ApplicationModels.OrderDiscountResponse> getOrderDiscount(@Url String url1 , @Body ApplicationModels.OrderDiscountRequest payload );
     
-    @GET ("/service/application/rewards/v1.0/user/points/history/")
-    Call<ApplicationModels.PointsHistoryResponse> getUserPointsHistory(@Query("page_id") String pageId , @Query("page_size") Integer pageSize );
+    @GET 
+    Call<ApplicationModels.PointsResponse> getUserPoints(@Url String url1);
     
-    @GET ("/service/application/rewards/v1.0/user/referral/")
-    Call<ApplicationModels.ReferralDetailsResponse> getUserReferralDetails();
+    @GET 
+    Call<ApplicationModels.PointsHistoryResponse> getUserPointsHistory(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST ("/service/application/rewards/v1.0/user/referral/redeem/")
-    Call<ApplicationModels.RedeemReferralCodeResponse> redeemReferralCode(@Body ApplicationModels.RedeemReferralCodeRequest payload);
+    @GET 
+    Call<ApplicationModels.ReferralDetailsResponse> getUserReferralDetails(@Url String url1);
     
+    @POST 
+    Call<ApplicationModels.RedeemReferralCodeResponse> redeemReferralCode(@Url String url1 , @Body ApplicationModels.RedeemReferralCodeRequest payload );
 }
 
 interface PosCartApiList {
     
-    @GET ("/service/application/pos/cart/v1.0/detail")
-    Call<ApplicationModels.CartDetailResponse> getCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("buy_now") Boolean buyNow );
     
-    @HEAD ("/service/application/pos/cart/v1.0/detail")
-    Call<Object> getCartLastModified(@Query("id") String id );
+    @GET 
+    Call<ApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("buy_now") Boolean buyNow );
     
-    @POST ("/service/application/pos/cart/v1.0/detail")
-    Call<ApplicationModels.AddCartDetailResponse> addItems(@Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow ,@Body ApplicationModels.AddCartRequest payload);
+    @HEAD 
+    Call<Object> getCartLastModified(@Url String url1, @Query("id") String id );
     
-    @PUT ("/service/application/pos/cart/v1.0/detail")
-    Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow ,@Body ApplicationModels.UpdateCartRequest payload);
+    @POST 
+    Call<ApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.AddCartRequest payload );
     
-    @GET ("/service/application/pos/cart/v1.0/basic")
-    Call<ApplicationModels.CartItemCountResponse> getItemCount(@Query("id") String id , @Query("buy_now") Boolean buyNow );
+    @PUT 
+    Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.UpdateCartRequest payload );
     
-    @GET ("/service/application/pos/cart/v1.0/coupon")
-    Call<ApplicationModels.GetCouponResponse> getCoupons(@Query("id") String id , @Query("buy_now") Boolean buyNow );
+    @GET 
+    Call<ApplicationModels.CartItemCountResponse> getItemCount(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow );
     
-    @POST ("/service/application/pos/cart/v1.0/coupon")
-    Call<ApplicationModels.CartDetailResponse> applyCoupon(@Query("i") Boolean i , @Query("b") Boolean b , @Query("p") Boolean p , @Query("id") String id , @Query("buy_now") Boolean buyNow ,@Body ApplicationModels.ApplyCouponRequest payload);
+    @GET 
+    Call<ApplicationModels.GetCouponResponse> getCoupons(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow );
     
-    @DELETE ("/service/application/pos/cart/v1.0/coupon")
-    Call<ApplicationModels.CartDetailResponse> removeCoupon(@Query("id") String id , @Query("buy_now") Boolean buyNow );
+    @POST 
+    Call<ApplicationModels.CartDetailResponse> applyCoupon(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("p") Boolean p , @Query("id") String id , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.ApplyCouponRequest payload );
     
-    @GET ("/service/application/pos/cart/v1.0/bulk-price")
-    Call<ApplicationModels.BulkPriceResponse> getBulkDiscountOffers(@Query("item_id") Integer itemId , @Query("article_id") String articleId , @Query("uid") Integer uid , @Query("slug") String slug );
+    @DELETE 
+    Call<ApplicationModels.CartDetailResponse> removeCoupon(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow );
     
-    @POST ("/service/application/pos/cart/v1.0/redeem/points/")
-    Call<ApplicationModels.CartDetailResponse> applyRewardPoints(@Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow ,@Body ApplicationModels.RewardPointRequest payload);
+    @GET 
+    Call<ApplicationModels.BulkPriceResponse> getBulkDiscountOffers(@Url String url1, @Query("item_id") Integer itemId , @Query("article_id") String articleId , @Query("uid") Integer uid , @Query("slug") String slug );
     
-    @GET ("/service/application/pos/cart/v1.0/address")
-    Call<ApplicationModels.GetAddressesResponse> getAddresses(@Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault );
+    @POST 
+    Call<ApplicationModels.CartDetailResponse> applyRewardPoints(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.RewardPointRequest payload );
     
-    @POST ("/service/application/pos/cart/v1.0/address")
-    Call<ApplicationModels.SaveAddressResponse> addAddress(@Body ApplicationModels.Address payload);
+    @GET 
+    Call<ApplicationModels.GetAddressesResponse> getAddresses(@Url String url1, @Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault );
     
-    @GET ("/service/application/pos/cart/v1.0/address/{id}")
-    Call<ApplicationModels.Address> getAddressById(@Path("id") String id , @Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault );
+    @POST 
+    Call<ApplicationModels.SaveAddressResponse> addAddress(@Url String url1 , @Body ApplicationModels.Address payload );
     
-    @PUT ("/service/application/pos/cart/v1.0/address/{id}")
-    Call<ApplicationModels.UpdateAddressResponse> updateAddress(@Path("id") String id ,@Body ApplicationModels.Address payload);
+    @GET 
+    Call<ApplicationModels.Address> getAddressById(@Url String url1, @Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault );
     
-    @DELETE ("/service/application/pos/cart/v1.0/address/{id}")
-    Call<ApplicationModels.DeleteAddressResponse> removeAddress(@Path("id") String id );
+    @PUT 
+    Call<ApplicationModels.UpdateAddressResponse> updateAddress(@Url String url1 , @Body ApplicationModels.Address payload );
     
-    @POST ("/service/application/pos/cart/v1.0/select-address")
-    Call<ApplicationModels.CartDetailResponse> selectAddress(@Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("i") Boolean i , @Query("b") Boolean b ,@Body ApplicationModels.SelectCartAddressRequest payload);
+    @DELETE 
+    Call<ApplicationModels.DeleteAddressResponse> removeAddress(@Url String url1);
     
-    @PUT ("/service/application/pos/cart/v1.0/payment")
-    Call<ApplicationModels.CartDetailResponse> selectPaymentMode(@Query("id") String id , @Query("buy_now") Boolean buyNow ,@Body ApplicationModels.UpdateCartPaymentRequest payload);
+    @POST 
+    Call<ApplicationModels.CartDetailResponse> selectAddress(@Url String url1, @Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("i") Boolean i , @Query("b") Boolean b  , @Body ApplicationModels.SelectCartAddressRequest payload );
     
-    @GET ("/service/application/pos/cart/v1.0/payment/validate/")
-    Call<ApplicationModels.PaymentCouponValidate> validateCouponForPayment(@Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode );
+    @PUT 
+    Call<ApplicationModels.CartDetailResponse> selectPaymentMode(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.UpdateCartPaymentRequest payload );
     
-    @GET ("/service/application/pos/cart/v1.0/shipment")
-    Call<ApplicationModels.CartShipmentsResponse> getShipments(@Query("pick_at_store_uid") Integer pickAtStoreUid , @Query("ordering_store_id") Integer orderingStoreId , @Query("p") Boolean p , @Query("id") String id , @Query("address_id") String addressId , @Query("area_code") String areaCode , @Query("order_type") String orderType );
+    @GET 
+    Call<ApplicationModels.PaymentCouponValidate> validateCouponForPayment(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode );
     
-    @PUT ("/service/application/pos/cart/v1.0/shipment")
-    Call<ApplicationModels.CartShipmentsResponse> updateShipments(@Query("i") Boolean i , @Query("p") Boolean p , @Query("id") String id , @Query("address_id") String addressId , @Query("order_type") String orderType ,@Body ApplicationModels.UpdateCartShipmentRequest payload);
+    @GET 
+    Call<ApplicationModels.CartShipmentsResponse> getShipments(@Url String url1, @Query("pick_at_store_uid") Integer pickAtStoreUid , @Query("ordering_store_id") Integer orderingStoreId , @Query("p") Boolean p , @Query("id") String id , @Query("address_id") String addressId , @Query("area_code") String areaCode , @Query("order_type") String orderType );
     
-    @POST ("/service/application/pos/cart/v1.0/checkout")
-    Call<ApplicationModels.CartCheckoutResponse> checkoutCart(@Query("id") String id ,@Body ApplicationModels.CartPosCheckoutDetailRequest payload);
+    @PUT 
+    Call<ApplicationModels.CartShipmentsResponse> updateShipments(@Url String url1, @Query("i") Boolean i , @Query("p") Boolean p , @Query("id") String id , @Query("address_id") String addressId , @Query("order_type") String orderType  , @Body ApplicationModels.UpdateCartShipmentRequest payload );
     
-    @PUT ("/service/application/pos/cart/v1.0/meta")
-    Call<ApplicationModels.CartMetaResponse> updateCartMeta(@Query("id") String id , @Query("buy_now") Boolean buyNow ,@Body ApplicationModels.CartMetaRequest payload);
+    @POST 
+    Call<ApplicationModels.CartCheckoutResponse> checkoutCart(@Url String url1, @Query("id") String id  , @Body ApplicationModels.CartPosCheckoutDetailRequest payload );
     
-    @GET ("/service/application/pos/cart/v1.0/available-delivery-mode")
-    Call<ApplicationModels.CartDeliveryModesResponse> getAvailableDeliveryModes(@Query("area_code") String areaCode , @Query("id") String id );
+    @PUT 
+    Call<ApplicationModels.CartMetaResponse> updateCartMeta(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.CartMetaRequest payload );
     
-    @GET ("/service/application/pos/cart/v1.0/store-address")
-    Call<ApplicationModels.StoreDetailsResponse> getStoreAddressByUid(@Query("store_uid") Integer storeUid );
+    @GET 
+    Call<ApplicationModels.CartDeliveryModesResponse> getAvailableDeliveryModes(@Url String url1, @Query("area_code") String areaCode , @Query("id") String id );
     
-    @POST ("/service/application/pos/cart/v1.0/share-cart")
-    Call<ApplicationModels.GetShareCartLinkResponse> getCartShareLink(@Body ApplicationModels.GetShareCartLinkRequest payload);
+    @GET 
+    Call<ApplicationModels.StoreDetailsResponse> getStoreAddressByUid(@Url String url1, @Query("store_uid") Integer storeUid );
     
-    @GET ("/service/application/pos/cart/v1.0/share-cart/{token}")
-    Call<ApplicationModels.SharedCartResponse> getCartSharedItems(@Path("token") String token );
+    @POST 
+    Call<ApplicationModels.GetShareCartLinkResponse> getCartShareLink(@Url String url1 , @Body ApplicationModels.GetShareCartLinkRequest payload );
     
-    @POST ("/service/application/pos/cart/v1.0/share-cart/{token}/{action}")
-    Call<ApplicationModels.SharedCartResponse> updateCartWithSharedItems(@Path("token") String token , @Path("action") String action );
+    @GET 
+    Call<ApplicationModels.SharedCartResponse> getCartSharedItems(@Url String url1);
     
+    @POST 
+    Call<ApplicationModels.SharedCartResponse> updateCartWithSharedItems(@Url String url1);
 }
 
 interface LogisticApiList {
     
-    @POST ("/service/application/logistics/v1.0")
-    Call<ApplicationModels.GetTatProductResponse> getTatProduct(@Body ApplicationModels.GetTatProductReqBody payload);
     
-    @POST ("/service/application/logistics/v1.0/pincode/zones")
-    Call<ApplicationModels.GetPincodeZonesResponse> getPincodeZones(@Body ApplicationModels.GetPincodeZonesReqBody payload);
+    @POST 
+    Call<ApplicationModels.GetTatProductResponse> getTatProduct(@Url String url1 , @Body ApplicationModels.GetTatProductReqBody payload );
     
-    @GET ("/service/application/logistics/v1.0/pincode/{pincode}")
-    Call<ApplicationModels.GetPincodeCityResponse> getPincodeCity(@Path("pincode") String pincode );
+    @POST 
+    Call<ApplicationModels.GetPincodeZonesResponse> getPincodeZones(@Url String url1 , @Body ApplicationModels.GetPincodeZonesReqBody payload );
     
+    @GET 
+    Call<ApplicationModels.GetPincodeCityResponse> getPincodeCity(@Url String url1);
 }
+
