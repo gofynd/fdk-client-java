@@ -657,10 +657,10 @@ interface OrderApiList {
     Call<ApplicationModels.ShipmentReasons> getShipmentReasons(@Url String url1);
     
     @PUT 
-    Call<ApplicationModels.UpdateShipmentResponse> updateShipmentExternal(@Url String url1 , @Body ApplicationModels.UpdateShipmentExternalRequest payload );
+    Call<ApplicationModels.ShipmentStatusUpdate> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.ShipmentStatusUpdateBody payload );
     
     @PUT 
-    Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.UpdateShipmentStatusRequest payload );
+    Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus1(@Url String url1 , @Body ApplicationModels.UpdateShipmentStatusRequest payload );
     
     @GET 
     Call<ApplicationModels.OrderList> getOrders1(@Url String url1, @Query("status") Integer status , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate , @Query("custom_meta") String customMeta );
@@ -696,7 +696,7 @@ interface OrderApiList {
     Call<ApplicationModels.ShipmentReasons> getShipmentReasons1(@Url String url1);
     
     @PUT 
-    Call<ApplicationModels.UpdateShipmentResponse> updateShipmentExternal1(@Url String url1 , @Body ApplicationModels.UpdateShipmentExternalRequest payload );
+    Call<ApplicationModels.ShipmentStatusUpdate> updateShipmentStatus2(@Url String url1 , @Body ApplicationModels.ShipmentStatusUpdateBody payload );
 }
 
 interface RewardsApiList {

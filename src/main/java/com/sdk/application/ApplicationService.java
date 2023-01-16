@@ -5200,9 +5200,9 @@ public class FileStorageService extends FileStorage {
             
                     relativeUrls.put("getShipmentReasons","/service/application/orders/v1.0/orders/shipments/{shipment_id}/reasons".substring(1));
             
-                    relativeUrls.put("updateShipmentExternal","/service/application/orders/v1.0/orders/shipments/{shipment_id}/status".substring(1));
+                    relativeUrls.put("updateShipmentStatus","/service/application/orders/v1.0/orders/shipments/{shipment_id}/status".substring(1));
             
-                    relativeUrls.put("updateShipmentStatus","/service/application/order-manage/v1.0/orders/shipments/{shipment_id}/status".substring(1));
+                    relativeUrls.put("updateShipmentStatus1","/service/application/order-manage/v1.0/orders/shipments/{shipment_id}/status".substring(1));
             
                     relativeUrls.put("getOrders1","/service/application/order/v1.0/orders".substring(1));
             
@@ -5226,7 +5226,7 @@ public class FileStorageService extends FileStorage {
             
                     relativeUrls.put("getShipmentReasons1","/service/application/order/v1.0/orders/shipments/{shipment_id}/reasons".substring(1));
             
-                    relativeUrls.put("updateShipmentExternal1","/service/application/order/v1.0/orders/shipments/{shipment_id}/status".substring(1));
+                    relativeUrls.put("updateShipmentStatus2","/service/application/order/v1.0/orders/shipments/{shipment_id}/status".substring(1));
              
 
     }
@@ -5463,14 +5463,14 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.UpdateShipmentResponse updateShipmentExternal(Integer shipmentId ,ApplicationModels.UpdateShipmentExternalRequest body) throws IOException {
+    public ApplicationModels.ShipmentStatusUpdate updateShipmentStatus(Integer shipmentId ,ApplicationModels.ShipmentStatusUpdateBody body) throws IOException {
      
-      String fullUrl = relativeUrls.get("updateShipmentExternal");
+      String fullUrl = relativeUrls.get("updateShipmentStatus");
         
         fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
         
 
-        Response<ApplicationModels.UpdateShipmentResponse> response = orderApiList.updateShipmentExternal(fullUrl , body).execute();
+        Response<ApplicationModels.ShipmentStatusUpdate> response = orderApiList.updateShipmentStatus(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5482,14 +5482,14 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.ShipmentApplicationStatusResponse updateShipmentStatus(String shipmentId ,ApplicationModels.UpdateShipmentStatusRequest body) throws IOException {
+    public ApplicationModels.ShipmentApplicationStatusResponse updateShipmentStatus1(String shipmentId ,ApplicationModels.UpdateShipmentStatusRequest body) throws IOException {
      
-      String fullUrl = relativeUrls.get("updateShipmentStatus");
+      String fullUrl = relativeUrls.get("updateShipmentStatus1");
         
         fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
         
 
-        Response<ApplicationModels.ShipmentApplicationStatusResponse> response = orderApiList.updateShipmentStatus(fullUrl , body).execute();
+        Response<ApplicationModels.ShipmentApplicationStatusResponse> response = orderApiList.updateShipmentStatus1(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5716,14 +5716,14 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.UpdateShipmentResponse updateShipmentExternal1(Integer shipmentId ,ApplicationModels.UpdateShipmentExternalRequest body) throws IOException {
+    public ApplicationModels.ShipmentStatusUpdate updateShipmentStatus2(Integer shipmentId ,ApplicationModels.ShipmentStatusUpdateBody body) throws IOException {
      
-      String fullUrl = relativeUrls.get("updateShipmentExternal1");
+      String fullUrl = relativeUrls.get("updateShipmentStatus2");
         
         fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
         
 
-        Response<ApplicationModels.UpdateShipmentResponse> response = orderApiList.updateShipmentExternal1(fullUrl , body).execute();
+        Response<ApplicationModels.ShipmentStatusUpdate> response = orderApiList.updateShipmentStatus2(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
