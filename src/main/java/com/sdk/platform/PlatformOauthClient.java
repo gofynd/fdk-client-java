@@ -137,7 +137,6 @@ public class PlatformOauthClient {
 
         String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/token";
         AccessTokenDto newToken = getToken(body, url);
-        setToken(newToken);
         if (Objects.nonNull(newToken.getExpiresAt())) {
             Long tokenExpires = newToken.getExpiresAt();
             newToken.setExpiresAt(tokenExpires);
@@ -147,6 +146,7 @@ public class PlatformOauthClient {
             this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
         }
 
+        setToken(newToken);
         return newToken;
     }
 
@@ -157,7 +157,6 @@ public class PlatformOauthClient {
         body.put(Fields.CODE, authorizationCode);
         String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/token";
         AccessTokenDto newToken = getToken(body, url);
-        setToken(newToken);
         if (Objects.nonNull(newToken.getExpiresAt())) {
             Long tokenExpires = newToken.getExpiresAt();
             newToken.setExpiresAt(tokenExpires);
@@ -167,6 +166,7 @@ public class PlatformOauthClient {
             this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
         }
 
+        setToken(newToken);
     }
 
     public boolean isAccessTokenValid() {
@@ -184,7 +184,6 @@ public class PlatformOauthClient {
             body.put(Fields.SCOPE, scopes);
             String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/offline-token";
             AccessTokenDto offlineToken = getOfflineToken(body, url);
-            setToken(offlineToken);
             if (Objects.nonNull(offlineToken.getExpiresAt())) {
                 Long tokenExpires = offlineToken.getExpiresAt();
                 offlineToken.setExpiresAt(tokenExpires);
@@ -194,6 +193,7 @@ public class PlatformOauthClient {
                 this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
             }
 
+            setToken(offlineToken);
             return offlineToken;
         } catch (Exception e) {
             log.error("Exception in getting Offline Token", e);

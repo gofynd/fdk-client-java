@@ -666,10 +666,10 @@ interface OrderApiList {
     Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.UpdateShipmentStatusRequest payload );
     
     @GET 
-    Call<ApplicationModels.ResponseGetInvoiceShipment1> getInvoiceByShipmentId1(@Url String url1, @Query("parameters") ApplicationModels.invoiceParameter parameters );
+    Call<ApplicationModels.ResponseGetInvoiceShipment1> getInvoiceByShipmentId1(@Url String url1, @Query("parameters") invoiceParameter parameters );
     
     @GET 
-    Call<ApplicationModels.ResponseGetInvoiceShipment1> getCreditNoteByShipmentId(@Url String url1, @Query("parameters") ApplicationModels.creditNoteParameter parameters );
+    Call<ApplicationModels.ResponseGetInvoiceShipment1> getCreditNoteByShipmentId(@Url String url1, @Query("parameters") creditNoteParameter parameters );
 }
 
 interface RewardsApiList {
