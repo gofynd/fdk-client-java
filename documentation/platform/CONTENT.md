@@ -50,11 +50,8 @@ Content System
 * [createPagePreview](#createpagepreview)
 * [updatePagePreview](#updatepagepreview)
 * [deletePage](#deletepage)
-* [addPathRedirectionRules](#addpathredirectionrules)
-* [getPathRedirectionRules](#getpathredirectionrules)
-* [getPathRedirectionRule](#getpathredirectionrule)
 * [updatePathRedirectionRules](#updatepathredirectionrules)
-* [deletePathRedirectionRules](#deletepathredirectionrules)
+* [getPathRedirectionRules](#getpathredirectionrules)
 * [getSEOConfiguration](#getseoconfiguration)
 * [updateSEOConfiguration](#updateseoconfiguration)
 * [getSlideshows](#getslideshows)
@@ -5307,14 +5304,14 @@ Success.
 ---
 
 
-### addPathRedirectionRules
+### updatePathRedirectionRules
 Save path based redirection rules
 
 
 
 
 ```java
-client.application("<APPLICATION_ID>").content.addPathRedirectionRules(body body) {
+client.application("<APPLICATION_ID>").content.updatePathRedirectionRules(body body) {
   //use response
 }
 ```
@@ -5328,7 +5325,7 @@ client.application("<APPLICATION_ID>").content.addPathRedirectionRules(body body
 | body | [PathMappingSchema](#PathMappingSchema) | yes | Request body |
 
 
-Use this API to add redirection rules
+Use this API to add, update or delete path-based redirection rules
 
 *Returned Response:*
 
@@ -5343,26 +5340,18 @@ Success. Refer `PathMappingSchema` for more details.
 
 
 <details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; Success</i></summary>
+<summary><i>&nbsp; Example:</i></summary>
 
 ```json
 {
-  "value": {
-    "_id": "615188e9db1e444cb0f40837",
-    "application": "000000000000000000000002",
-    "redirect_from": "/from",
-    "redirect_to": "/to",
-    "createdAt": "2021-09-27T09:03:37.053Z",
-    "updatedAt": "2021-09-27T09:09:25.587Z"
-  }
+  "redirections": [
+    {
+      "redirect_from": "test.hostfynd.dev/redirect_from",
+      "redirect_to": "/redirect_to"
+    }
+  ]
 }
 ```
-</details>
-
 </details>
 
 
@@ -5383,7 +5372,7 @@ Get path based redirection rules
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getPathRedirectionRules( pageSize,  pageNo) {
+client.application("<APPLICATION_ID>").content.getPathRedirectionRules() {
   //use response
 }
 ```
@@ -5393,9 +5382,7 @@ client.application("<APPLICATION_ID>").content.getPathRedirectionRules( pageSize
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
-| pageSize | Integer? | no | The number of items to retrieve in each page. Default value is 5.  |   
-| pageNo | Integer? | no | The page number to navigate through the given set of results. Default value is 1. |  
+| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |  
 
 
 
@@ -5425,8 +5412,12 @@ Success. Refer `PathMappingSchema` for more details.
   "value": {
     "_id": "615188e9db1e444cb0f40837",
     "application": "000000000000000000000002",
-    "redirect_from": "/from",
-    "redirect_to": "/to",
+    "redirections": [
+      {
+        "redirect_from": "/from",
+        "redirect_to": "/to"
+      }
+    ],
     "createdAt": "2021-09-27T09:03:37.053Z",
     "updatedAt": "2021-09-27T09:09:25.587Z"
   }
@@ -5434,203 +5425,6 @@ Success. Refer `PathMappingSchema` for more details.
 ```
 </details>
 
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getPathRedirectionRule
-Get path based redirection rule
-
-
-
-
-```java
-client.application("<APPLICATION_ID>").content.getPathRedirectionRule( pathId) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
-| pathId | String | yes | ID allotted to the path redirection rule. |  
-
-
-
-Use this API to get path based redirection rule.
-
-*Returned Response:*
-
-
-
-
-[PathMappingSchema](#PathMappingSchema)
-
-Success. Refer `PathMappingSchema` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; Success</i></summary>
-
-```json
-{
-  "value": {
-    "_id": "615188e9db1e444cb0f40837",
-    "application": "000000000000000000000002",
-    "redirect_from": "/from",
-    "redirect_to": "/to",
-    "createdAt": "2021-09-27T09:03:37.053Z",
-    "updatedAt": "2021-09-27T09:09:25.587Z"
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### updatePathRedirectionRules
-Update path based redirection rules
-
-
-
-
-```java
-client.application("<APPLICATION_ID>").content.updatePathRedirectionRules( pathId, body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
-| pathId | String | yes | ID allotted to the path redirection rule. |  
-| body | [PathMappingSchema](#PathMappingSchema) | yes | Request body |
-
-
-Use this API to update redirection rules
-
-*Returned Response:*
-
-
-
-
-[PathMappingSchema](#PathMappingSchema)
-
-Success. Refer `PathMappingSchema` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; Success</i></summary>
-
-```json
-{
-  "value": {
-    "_id": "615188e9db1e444cb0f40837",
-    "application": "000000000000000000000002",
-    "redirect_from": "/from",
-    "redirect_to": "/to",
-    "createdAt": "2021-09-27T09:03:37.053Z",
-    "updatedAt": "2021-09-27T09:09:25.587Z"
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### deletePathRedirectionRules
-Delete path based redirection rules
-
-
-
-
-```java
-client.application("<APPLICATION_ID>").content.deletePathRedirectionRules( pathId) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
-| pathId | String | yes | ID allotted to the path redirection rule. |  
-
-
-
-Use this API to delete redirection rules
-
-*Returned Response:*
-
-
-
-
-[Object](#Object)
-
-Success.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-{
-  "message": "Redirection deleted successfully"
-}
-```
 </details>
 
 
@@ -7431,12 +7225,22 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | application | String? |  yes  |  |
+ | redirections | ArrayList<[RedirectionSchema](#RedirectionSchema)>? |  yes  |  |
  | id | String? |  yes  |  |
- | redirectFrom | String? |  yes  |  |
- | redirectTo | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
- | source | [TagSourceSchema](#TagSourceSchema)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RedirectionSchema](#RedirectionSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | redirectFrom | String? |  yes  |  |
+ | redirectTo | String? |  yes  |  |
 
 ---
 
@@ -8207,7 +8011,6 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | id | String? |  yes  |  |
  | question | String? |  yes  |  |
  | answer | String? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
 
 ---
 
