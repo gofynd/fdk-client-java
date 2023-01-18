@@ -656,10 +656,10 @@ interface OrderApiList {
     Call<ApplicationModels.ShipmentReasons> getShipmentReasons(@Path("shipment_id") String shipmentId );
     
     @PUT ("/service/application/orders/v1.0/orders/shipments/{shipment_id}/status")
-    Call<ApplicationModels.UpdateShipmentResponse> updateShipmentExternal(@Path("shipment_id") Integer shipmentId ,@Body ApplicationModels.UpdateShipmentExternalRequest payload);
+    Call<ApplicationModels.ShipmentStatusUpdate> updateShipmentStatus(@Path("shipment_id") Integer shipmentId ,@Body ApplicationModels.ShipmentStatusUpdateBody payload);
     
     @PUT ("/service/application/order-manage/v1.0/orders/shipments/{shipment_id}/status")
-    Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Path("shipment_id") String shipmentId ,@Body ApplicationModels.UpdateShipmentStatusRequest payload);
+    Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus1(@Path("shipment_id") String shipmentId ,@Body ApplicationModels.UpdateShipmentStatusRequest payload);
     
     @GET ("/service/application/document/v1.0/orders/shipments/{shipment_id}/invoice")
     Call<ApplicationModels.ResponseGetInvoiceShipment1> getInvoiceByShipmentId1(@Path("shipment_id") String shipmentId , @Query("parameters") ApplicationModels.invoiceParameter parameters );

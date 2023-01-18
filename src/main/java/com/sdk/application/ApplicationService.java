@@ -4158,9 +4158,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.UpdateShipmentResponse updateShipmentExternal(Integer shipmentId ,ApplicationModels.UpdateShipmentExternalRequest body) throws IOException {
+    public ApplicationModels.ShipmentStatusUpdate updateShipmentStatus(Integer shipmentId ,ApplicationModels.ShipmentStatusUpdateBody body) throws IOException {
     
-        Response<ApplicationModels.UpdateShipmentResponse> response = orderApiList.updateShipmentExternal(shipmentId, body).execute();
+        Response<ApplicationModels.ShipmentStatusUpdate> response = orderApiList.updateShipmentStatus(shipmentId, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -4172,9 +4172,9 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.ShipmentApplicationStatusResponse updateShipmentStatus(String shipmentId ,ApplicationModels.UpdateShipmentStatusRequest body) throws IOException {
+    public ApplicationModels.ShipmentApplicationStatusResponse updateShipmentStatus1(String shipmentId ,ApplicationModels.UpdateShipmentStatusRequest body) throws IOException {
     
-        Response<ApplicationModels.ShipmentApplicationStatusResponse> response = orderApiList.updateShipmentStatus(shipmentId, body).execute();
+        Response<ApplicationModels.ShipmentApplicationStatusResponse> response = orderApiList.updateShipmentStatus1(shipmentId, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
