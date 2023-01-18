@@ -71,9 +71,9 @@ public class ApplicationService {
             
                     relativeUrls.put("getFollowedListing","/service/application/catalog/v1.0/follow/{collection_type}/".substring(1));
             
-                    relativeUrls.put("followById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
-            
                     relativeUrls.put("unfollowById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
+            
+                    relativeUrls.put("followById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
             
                     relativeUrls.put("getFollowerCountById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/".substring(1));
             
@@ -901,16 +901,16 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
      
-      String fullUrl = relativeUrls.get("followById");
+      String fullUrl = relativeUrls.get("unfollowById");
         
         fullUrl = fullUrl.replace("{" + "collection_type" +"}",collectionType.toString());
         
         fullUrl = fullUrl.replace("{" + "collection_id" +"}",collectionId.toString());
         
 
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(fullUrl ).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -922,16 +922,16 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
      
-      String fullUrl = relativeUrls.get("unfollowById");
+      String fullUrl = relativeUrls.get("followById");
         
         fullUrl = fullUrl.replace("{" + "collection_type" +"}",collectionType.toString());
         
         fullUrl = fullUrl.replace("{" + "collection_id" +"}",collectionId.toString());
         
 
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(fullUrl ).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5178,55 +5178,29 @@ public class FileStorageService extends FileStorage {
         this.orderApiList = generateOrderApiList(this.applicationConfig.getPersistentCookieStore());
 
            
-                    relativeUrls.put("getOrders","/service/application/orders/v1.0/orders".substring(1));
+                    relativeUrls.put("getOrders","/service/application/order/v1.0/orders".substring(1));
             
-                    relativeUrls.put("getOrderById","/service/application/orders/v1.0/orders/{order_id}".substring(1));
+                    relativeUrls.put("getOrderById","/service/application/order/v1.0/orders/{order_id}".substring(1));
             
-                    relativeUrls.put("getPosOrderById","/service/application/orders/v1.0/orders/pos-order/{order_id}".substring(1));
+                    relativeUrls.put("getPosOrderById","/service/application/order/v1.0/orders/pos-order/{order_id}".substring(1));
             
-                    relativeUrls.put("getShipmentById","/service/application/orders/v1.0/orders/shipments/{shipment_id}".substring(1));
+                    relativeUrls.put("getShipmentById","/service/application/order/v1.0/orders/shipments/{shipment_id}".substring(1));
             
-                    relativeUrls.put("getInvoiceByShipmentId","/service/application/orders/v1.0/orders/shipments/{shipment_id}/invoice".substring(1));
+                    relativeUrls.put("getInvoiceByShipmentId","/service/application/order/v1.0/orders/shipments/{shipment_id}/invoice".substring(1));
             
-                    relativeUrls.put("trackShipment","/service/application/orders/v1.0/orders/shipments/{shipment_id}/track".substring(1));
+                    relativeUrls.put("trackShipment","/service/application/order/v1.0/orders/shipments/{shipment_id}/track".substring(1));
             
-                    relativeUrls.put("getCustomerDetailsByShipmentId","/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/customer-details".substring(1));
+                    relativeUrls.put("getCustomerDetailsByShipmentId","/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/customer-details".substring(1));
             
-                    relativeUrls.put("sendOtpToShipmentCustomer","/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/send/".substring(1));
+                    relativeUrls.put("sendOtpToShipmentCustomer","/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/send/".substring(1));
             
-                    relativeUrls.put("verifyOtpShipmentCustomer","/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify/".substring(1));
+                    relativeUrls.put("verifyOtpShipmentCustomer","/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify/".substring(1));
             
-                    relativeUrls.put("getShipmentBagReasons","/service/application/orders/v1.0/orders/shipments/{shipment_id}/bags/{bag_id}/reasons".substring(1));
+                    relativeUrls.put("getShipmentBagReasons","/service/application/order/v1.0/orders/shipments/{shipment_id}/bags/{bag_id}/reasons".substring(1));
             
-                    relativeUrls.put("getShipmentReasons","/service/application/orders/v1.0/orders/shipments/{shipment_id}/reasons".substring(1));
+                    relativeUrls.put("getShipmentReasons","/service/application/order/v1.0/orders/shipments/{shipment_id}/reasons".substring(1));
             
-                    relativeUrls.put("updateShipmentStatus","/service/application/orders/v1.0/orders/shipments/{shipment_id}/status".substring(1));
-            
-                    relativeUrls.put("updateShipmentStatus1","/service/application/order-manage/v1.0/orders/shipments/{shipment_id}/status".substring(1));
-            
-                    relativeUrls.put("getOrders1","/service/application/order/v1.0/orders".substring(1));
-            
-                    relativeUrls.put("getOrderById1","/service/application/order/v1.0/orders/{order_id}".substring(1));
-            
-                    relativeUrls.put("getPosOrderById1","/service/application/order/v1.0/orders/pos-order/{order_id}".substring(1));
-            
-                    relativeUrls.put("getShipmentById1","/service/application/order/v1.0/orders/shipments/{shipment_id}".substring(1));
-            
-                    relativeUrls.put("getInvoiceByShipmentId1","/service/application/order/v1.0/orders/shipments/{shipment_id}/invoice".substring(1));
-            
-                    relativeUrls.put("trackShipment1","/service/application/order/v1.0/orders/shipments/{shipment_id}/track".substring(1));
-            
-                    relativeUrls.put("getCustomerDetailsByShipmentId1","/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/customer-details".substring(1));
-            
-                    relativeUrls.put("sendOtpToShipmentCustomer1","/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/send/".substring(1));
-            
-                    relativeUrls.put("verifyOtpShipmentCustomer1","/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify/".substring(1));
-            
-                    relativeUrls.put("getShipmentBagReasons1","/service/application/order/v1.0/orders/shipments/{shipment_id}/bags/{bag_id}/reasons".substring(1));
-            
-                    relativeUrls.put("getShipmentReasons1","/service/application/order/v1.0/orders/shipments/{shipment_id}/reasons".substring(1));
-            
-                    relativeUrls.put("updateShipmentStatus2","/service/application/order/v1.0/orders/shipments/{shipment_id}/status".substring(1));
+                    relativeUrls.put("updateShipmentStatus","/service/application/order/v1.0/orders/shipments/{shipment_id}/status".substring(1));
              
 
     }
@@ -5471,259 +5445,6 @@ public class FileStorageService extends FileStorage {
         
 
         Response<ApplicationModels.ShipmentApplicationStatusResponse> response = orderApiList.updateShipmentStatus(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.ShipmentApplicationStatusResponse updateShipmentStatus1(String shipmentId ,ApplicationModels.UpdateShipmentStatusRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("updateShipmentStatus1");
-        
-        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
-        
-
-        Response<ApplicationModels.ShipmentApplicationStatusResponse> response = orderApiList.updateShipmentStatus1(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.OrderList getOrders1(Integer status , Integer pageNo , Integer pageSize , String fromDate , String toDate , String customMeta ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getOrders1");
-        
-
-        Response<ApplicationModels.OrderList> response = orderApiList.getOrders1(fullUrl  ,status, pageNo, pageSize, fromDate, toDate, customMeta).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.OrderById getOrderById1(String orderId ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getOrderById1");
-        
-        fullUrl = fullUrl.replace("{" + "order_id" +"}",orderId.toString());
-        
-
-        Response<ApplicationModels.OrderById> response = orderApiList.getOrderById1(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.OrderList getPosOrderById1(String orderId ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getPosOrderById1");
-        
-        fullUrl = fullUrl.replace("{" + "order_id" +"}",orderId.toString());
-        
-
-        Response<ApplicationModels.OrderList> response = orderApiList.getPosOrderById1(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.ShipmentById getShipmentById1(String shipmentId ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getShipmentById1");
-        
-        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
-        
-
-        Response<ApplicationModels.ShipmentById> response = orderApiList.getShipmentById1(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.ResponseGetInvoiceShipment getInvoiceByShipmentId1(String shipmentId ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getInvoiceByShipmentId1");
-        
-        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
-        
-
-        Response<ApplicationModels.ResponseGetInvoiceShipment> response = orderApiList.getInvoiceByShipmentId1(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.ShipmentTrack trackShipment1(String shipmentId ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("trackShipment1");
-        
-        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
-        
-
-        Response<ApplicationModels.ShipmentTrack> response = orderApiList.trackShipment1(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.CustomerDetailsResponse getCustomerDetailsByShipmentId1(String orderId , String shipmentId ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getCustomerDetailsByShipmentId1");
-        
-        fullUrl = fullUrl.replace("{" + "order_id" +"}",orderId.toString());
-        
-        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
-        
-
-        Response<ApplicationModels.CustomerDetailsResponse> response = orderApiList.getCustomerDetailsByShipmentId1(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.SendOtpToCustomerResponse sendOtpToShipmentCustomer1(String orderId , String shipmentId ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("sendOtpToShipmentCustomer1");
-        
-        fullUrl = fullUrl.replace("{" + "order_id" +"}",orderId.toString());
-        
-        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
-        
-
-        Response<ApplicationModels.SendOtpToCustomerResponse> response = orderApiList.sendOtpToShipmentCustomer1(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.VerifyOtpResponse verifyOtpShipmentCustomer1(String orderId , String shipmentId ,ApplicationModels.VerifyOtp body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("verifyOtpShipmentCustomer1");
-        
-        fullUrl = fullUrl.replace("{" + "order_id" +"}",orderId.toString());
-        
-        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
-        
-
-        Response<ApplicationModels.VerifyOtpResponse> response = orderApiList.verifyOtpShipmentCustomer1(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.ShipmentBagReasons getShipmentBagReasons1(String shipmentId , String bagId ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getShipmentBagReasons1");
-        
-        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
-        
-        fullUrl = fullUrl.replace("{" + "bag_id" +"}",bagId.toString());
-        
-
-        Response<ApplicationModels.ShipmentBagReasons> response = orderApiList.getShipmentBagReasons1(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.ShipmentReasons getShipmentReasons1(String shipmentId ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getShipmentReasons1");
-        
-        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
-        
-
-        Response<ApplicationModels.ShipmentReasons> response = orderApiList.getShipmentReasons1(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.ShipmentApplicationStatusResponse updateShipmentStatus2(String shipmentId ,ApplicationModels.UpdateShipmentStatusRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("updateShipmentStatus2");
-        
-        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
-        
-
-        Response<ApplicationModels.ShipmentApplicationStatusResponse> response = orderApiList.updateShipmentStatus2(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

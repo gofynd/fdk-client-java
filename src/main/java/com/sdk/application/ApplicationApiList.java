@@ -68,11 +68,11 @@ interface CatalogApiList {
     @GET 
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST 
-    Call<ApplicationModels.FollowPostResponse> followById(@Url String url1);
-    
     @DELETE 
     Call<ApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
+    
+    @POST 
+    Call<ApplicationModels.FollowPostResponse> followById(@Url String url1);
     
     @GET 
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Url String url1);
@@ -658,45 +658,6 @@ interface OrderApiList {
     
     @PUT 
     Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.UpdateShipmentStatusRequest payload );
-    
-    @PUT 
-    Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus1(@Url String url1 , @Body ApplicationModels.UpdateShipmentStatusRequest payload );
-    
-    @GET 
-    Call<ApplicationModels.OrderList> getOrders1(@Url String url1, @Query("status") Integer status , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate , @Query("custom_meta") String customMeta );
-    
-    @GET 
-    Call<ApplicationModels.OrderById> getOrderById1(@Url String url1);
-    
-    @GET 
-    Call<ApplicationModels.OrderList> getPosOrderById1(@Url String url1);
-    
-    @GET 
-    Call<ApplicationModels.ShipmentById> getShipmentById1(@Url String url1);
-    
-    @GET 
-    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId1(@Url String url1);
-    
-    @GET 
-    Call<ApplicationModels.ShipmentTrack> trackShipment1(@Url String url1);
-    
-    @GET 
-    Call<ApplicationModels.CustomerDetailsResponse> getCustomerDetailsByShipmentId1(@Url String url1);
-    
-    @POST 
-    Call<ApplicationModels.SendOtpToCustomerResponse> sendOtpToShipmentCustomer1(@Url String url1);
-    
-    @POST 
-    Call<ApplicationModels.VerifyOtpResponse> verifyOtpShipmentCustomer1(@Url String url1 , @Body ApplicationModels.VerifyOtp payload );
-    
-    @GET 
-    Call<ApplicationModels.ShipmentBagReasons> getShipmentBagReasons1(@Url String url1);
-    
-    @GET 
-    Call<ApplicationModels.ShipmentReasons> getShipmentReasons1(@Url String url1);
-    
-    @PUT 
-    Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus2(@Url String url1 , @Body ApplicationModels.UpdateShipmentStatusRequest payload );
 }
 
 interface RewardsApiList {
