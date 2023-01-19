@@ -27,12 +27,6 @@ interface WebhookApiList {
 
 interface InventoryApiList {
     
-    @GET ("/service/common/inventory/v1.0/company/email/jobCode")
-    Call<PublicModels.ResponseEnvelopeObject> getJobCodesMetrics(@Query("daily_job") Boolean dailyJob , @Query("job_code") String jobCode );
-    
-    @POST ("/service/common/inventory/v1.0/company/email/jobCode")
-    Call<PublicModels.ResponseEnvelopeEmailJobMetrics> saveJobCodesMetrics(@Body PublicModels.EmailJobMetrics payload);
-    
     @GET ("/service/common/inventory/v1.0/company/slingshot")
     Call<PublicModels.ResponseEnvelopeSlingshotConfigurationDetail> getConfigByApiKey(@Query("apikey") String apikey );
     
@@ -44,5 +38,11 @@ interface InventoryApiList {
     
     @GET ("/service/common/inventory/v1.0/company/job/config")
     Call<PublicModels.ResponseEnvelopeListJobConfigDTO> getJobConfigByIntegrationType(@Query("integration_type") String integrationType , @Query("disable") Boolean disable );
+    
+    @GET ("/service/common/inventory/v1.0/company/email/jobCode")
+    Call<PublicModels.ResponseEnvelopeObject> getJobCodesMetrics(@Query("daily_job") Boolean dailyJob , @Query("job_code") String jobCode );
+    
+    @POST ("/service/common/inventory/v1.0/company/email/jobCode")
+    Call<PublicModels.ResponseEnvelopeEmailJobMetrics> saveJobCodesMetrics(@Body PublicModels.EmailJobMetrics payload);
     
 }

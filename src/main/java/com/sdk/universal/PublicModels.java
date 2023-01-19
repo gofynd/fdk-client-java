@@ -139,12 +139,6 @@ public static class Domain{
     
     
     
-    
-    @JsonProperty("is_predefined")
-    private Boolean isPredefined;
-    
-    
-    
 }
 
 
@@ -1344,134 +1338,6 @@ public static class EventConfigBase{
 
 
 /*
-    Model: EmailJobMetrics
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailJobMetrics{
-    
-    
-    
-    
-    @JsonProperty("executed")
-    private Boolean executed;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("job_code")
-    private String jobCode;
-    
-    
-    
-    
-    @JsonProperty("daily_job")
-    private Boolean dailyJob;
-    
-    
-    
-    
-    @JsonProperty("last_executed_on")
-    private String lastExecutedOn;
-    
-    
-    
-}
-
-
-/*
-    Model: ResponseEnvelopeEmailJobMetrics
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResponseEnvelopeEmailJobMetrics{
-    
-    
-    
-    
-    @JsonProperty("timestamp")
-    private String timestamp;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private Integer status;
-    
-    
-    
-    
-    @JsonProperty("error")
-    private String error;
-    
-    
-    
-    
-    @JsonProperty("exception")
-    private String exception;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("total_time_taken_in_millis")
-    private Integer totalTimeTakenInMillis;
-    
-    
-    
-    
-    @JsonProperty("http_status")
-    private String httpStatus;
-    
-    
-    
-    
-    @JsonProperty("items")
-    private EmailJobMetrics items;
-    
-    
-    
-    
-    @JsonProperty("payload")
-    private EmailJobMetrics payload;
-    
-    
-    
-    
-    @JsonProperty("trace_id")
-    private String traceId;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-}
-
-
-/*
     Model: GCompany
 */
 @AllArgsConstructor
@@ -1535,6 +1401,12 @@ public static class GCompany{
     
     @JsonProperty("stores")
     private List<GStore> stores;
+    
+    
+    
+    
+    @JsonProperty("gstores")
+    private List<GStore> gstores;
     
     
     
@@ -2027,6 +1899,12 @@ public static class JobConfigDTO{
     
     
     
+    @JsonProperty("integration")
+    private String integration;
+    
+    
+    
+    
     @JsonProperty("integration_data")
     private HashMap<String,Object> integrationData;
     
@@ -2035,12 +1913,6 @@ public static class JobConfigDTO{
     
     @JsonProperty("company_name")
     private String companyName;
-    
-    
-    
-    
-    @JsonProperty("integration")
-    private String integration;
     
     
     
@@ -2251,6 +2123,134 @@ public static class ResponseEnvelopeListJobConfigDTO{
     
     @JsonProperty("payload")
     private List<JobConfigDTO> payload;
+    
+    
+    
+    
+    @JsonProperty("trace_id")
+    private String traceId;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: EmailJobMetrics
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EmailJobMetrics{
+    
+    
+    
+    
+    @JsonProperty("executed")
+    private Boolean executed;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("job_code")
+    private String jobCode;
+    
+    
+    
+    
+    @JsonProperty("daily_job")
+    private Boolean dailyJob;
+    
+    
+    
+    
+    @JsonProperty("last_executed_on")
+    private String lastExecutedOn;
+    
+    
+    
+}
+
+
+/*
+    Model: ResponseEnvelopeEmailJobMetrics
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ResponseEnvelopeEmailJobMetrics{
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Integer status;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("total_time_taken_in_millis")
+    private Integer totalTimeTakenInMillis;
+    
+    
+    
+    
+    @JsonProperty("http_status")
+    private String httpStatus;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private EmailJobMetrics items;
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private EmailJobMetrics payload;
     
     
     
