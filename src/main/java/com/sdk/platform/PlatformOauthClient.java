@@ -138,7 +138,15 @@ public class PlatformOauthClient {
         String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/token";
         AccessTokenDto newToken = getToken(body, url);
         setToken(newToken);
-        this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
+        if (Objects.nonNull(newToken.getExpiresAt())) {
+            Long tokenExpires = newToken.getExpiresAt();
+            newToken.setExpiresAt(tokenExpires);
+            this.tokenExpiresAt = tokenExpires;
+        } else {
+            newToken.setExpiresAt((new Date()).getTime() + (this.tokenExpiresIn * 1000L));
+            this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
+        }
+
         return newToken;
     }
 
@@ -150,7 +158,15 @@ public class PlatformOauthClient {
         String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/token";
         AccessTokenDto newToken = getToken(body, url);
         setToken(newToken);
-        this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
+        if (Objects.nonNull(newToken.getExpiresAt())) {
+            Long tokenExpires = newToken.getExpiresAt();
+            newToken.setExpiresAt(tokenExpires);
+            this.tokenExpiresAt = tokenExpires;
+        } else {
+            newToken.setExpiresAt((new Date()).getTime() + (this.tokenExpiresIn * 1000L));
+            this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
+        }
+
     }
 
     public boolean isAccessTokenValid() {
@@ -169,7 +185,15 @@ public class PlatformOauthClient {
             String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/offline-token";
             AccessTokenDto offlineToken = getOfflineToken(body, url);
             setToken(offlineToken);
-            this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
+            if (Objects.nonNull(offlineToken.getExpiresAt())) {
+                Long tokenExpires = offlineToken.getExpiresAt();
+                offlineToken.setExpiresAt(tokenExpires);
+                this.tokenExpiresAt = tokenExpires;
+            } else {
+                offlineToken.setExpiresAt((new Date()).getTime() + (this.tokenExpiresIn * 1000L));
+                this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
+            }
+
             return offlineToken;
         } catch (Exception e) {
             log.error("Exception in getting Offline Token", e);
@@ -221,9 +245,55 @@ public class PlatformOauthClient {
         return retrofitServiceFactory.createService(config.getDomain(), TokenApiList.class, interceptorList);
     }
 
+    public AccessTokenDto getAccessTokenObj(String grant_type, String refresh_token, String code) throws IOException{
+        HashMap<String, String> body = new HashMap<>();
+        body.put(Fields.GRANT_TYPE, grant_type);
+        if (grant_type.equalsIgnoreCase(GrantType.REFRESH_TOKEN.getMessage())) {
+            body.put(Fields.REFRESH_CODE, refresh_token);
+        } else if (grant_type.equalsIgnoreCase(GrantType.AUTHORIZATION_CODE.getMessage())) {
+            body.put(Fields.CODE, code);
+        }
+        return getAccessTokenDto(body);
+    }
+
+    public AccessTokenDto getAccessTokenObj(String grant_type) throws IOException{
+       return getAccessTokenObj(grant_type, null,null);
+    }
+
+    public void setTokenNew(AccessTokenDto accessTokenDto) {
+        this.rawToken = accessTokenDto;
+        this.tokenExpiresIn = accessTokenDto.getExpiresIn();
+        this.token = accessTokenDto.getAccessToken();
+        this.refreshToken = ObjectUtils.isEmpty(
+                accessTokenDto.getRefreshToken()) ? "" : accessTokenDto.getRefreshToken();
+    }
+
+    private AccessTokenDto getAccessTokenDto(HashMap<String, String> body) throws IOException {
+        String url = config.getDomain() + URI + config.getCompanyId() + "/oauth/token";
+        AccessTokenDto newToken = getToken(body, url);
+        if (Objects.nonNull(newToken.getExpiresAt())) {
+            Long tokenExpires = newToken.getExpiresAt();
+            newToken.setExpiresAt(tokenExpires);
+            this.tokenExpiresAt = tokenExpires;
+        } else {
+            newToken.setExpiresAt((new Date()).getTime() + (this.tokenExpiresIn * 1000L));
+            this.tokenExpiresAt = (new Date()).getTime() + (this.tokenExpiresIn * 1000L);
+        }
+        setTokenNew(newToken);
+        return newToken;
+    }
+
+    @Getter
     enum GrantType {
-        AUTHORIZATION_CODE,
-        REFRESH_TOKEN
+        AUTHORIZATION_CODE("authorization_code"),
+        REFRESH_TOKEN("refresh_token");
+
+        private String message;
+
+        GrantType(String message) {
+            this.message = message;
+        }
+
     }
 
     interface Fields {
