@@ -587,6 +587,33 @@ interface PaymentApiList {
     Call<ApplicationModels.SetDefaultBeneficiaryResponse> updateDefaultBeneficiary(@Url String url1 , @Body ApplicationModels.SetDefaultBeneficiaryRequest payload );
     
     @GET 
+    Call<ApplicationModels.GetPaymentLinkResponse> getPaymentLink(@Url String url1, @Query("payment_link_id") String paymentLinkId );
+    
+    @POST 
+    Call<ApplicationModels.CreatePaymentLinkResponse> createPaymentLink(@Url String url1 , @Body ApplicationModels.CreatePaymentLinkRequest payload );
+    
+    @POST 
+    Call<ApplicationModels.ResendPaymentLinkResponse> resendPaymentLink(@Url String url1 , @Body ApplicationModels.CancelOrResendPaymentLinkRequest payload );
+    
+    @POST 
+    Call<ApplicationModels.CancelPaymentLinkResponse> cancelPaymentLink(@Url String url1 , @Body ApplicationModels.CancelOrResendPaymentLinkRequest payload );
+    
+    @GET 
+    Call<ApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutesPaymentLink(@Url String url1, @Query("payment_link_id") String paymentLinkId );
+    
+    @GET 
+    Call<ApplicationModels.PollingPaymentLinkResponse> pollingPaymentLink(@Url String url1, @Query("payment_link_id") String paymentLinkId );
+    
+    @POST 
+    Call<ApplicationModels.CreateOrderUserResponse> createOrderHandlerPaymentLink(@Url String url1 , @Body ApplicationModels.CreateOrderUserRequest payload );
+    
+    @POST 
+    Call<ApplicationModels.PaymentInitializationResponse> initialisePaymentPaymentLink(@Url String url1 , @Body ApplicationModels.PaymentInitializationRequest payload );
+    
+    @POST 
+    Call<ApplicationModels.PaymentStatusUpdateResponse> checkAndUpdatePaymentStatusPaymentLink(@Url String url1 , @Body ApplicationModels.PaymentStatusUpdateRequest payload );
+    
+    @GET 
     Call<ApplicationModels.CustomerCreditSummaryResponse> customerCreditSummary(@Url String url1, @Query("aggregator") String aggregator );
     
     @GET 

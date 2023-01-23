@@ -4521,6 +4521,24 @@ public class FileStorageService extends FileStorage {
             
                     relativeUrls.put("updateDefaultBeneficiary","/service/application/payment/v1.0/refund/beneficiary/default".substring(1));
             
+                    relativeUrls.put("getPaymentLink","/service/application/payment/v1.0/create-payment-link/".substring(1));
+            
+                    relativeUrls.put("createPaymentLink","/service/application/payment/v1.0/create-payment-link/".substring(1));
+            
+                    relativeUrls.put("resendPaymentLink","/service/application/payment/v1.0/resend-payment-link/".substring(1));
+            
+                    relativeUrls.put("cancelPaymentLink","/service/application/payment/v1.0/cancel-payment-link/".substring(1));
+            
+                    relativeUrls.put("getPaymentModeRoutesPaymentLink","/service/application/payment/v1.0/payment/options/link/".substring(1));
+            
+                    relativeUrls.put("pollingPaymentLink","/service/application/payment/v1.0/polling-payment-link/".substring(1));
+            
+                    relativeUrls.put("createOrderHandlerPaymentLink","/service/application/payment/v1.0/create-order/link/".substring(1));
+            
+                    relativeUrls.put("initialisePaymentPaymentLink","/service/application/payment/v1.0/payment/request/link/".substring(1));
+            
+                    relativeUrls.put("checkAndUpdatePaymentStatusPaymentLink","/service/application/payment/v1.0/payment/confirm/polling/link/".substring(1));
+            
                     relativeUrls.put("customerCreditSummary","/service/application/payment/v1.0/payment/credit-summary/".substring(1));
             
                     relativeUrls.put("redirectToAggregator","/service/application/payment/v1.0/payment/redirect-to-aggregator/".substring(1));
@@ -4946,6 +4964,159 @@ public class FileStorageService extends FileStorage {
         
 
         Response<ApplicationModels.SetDefaultBeneficiaryResponse> response = paymentApiList.updateDefaultBeneficiary(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.GetPaymentLinkResponse getPaymentLink(String paymentLinkId ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getPaymentLink");
+        
+
+        Response<ApplicationModels.GetPaymentLinkResponse> response = paymentApiList.getPaymentLink(fullUrl  ,paymentLinkId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CreatePaymentLinkResponse createPaymentLink(ApplicationModels.CreatePaymentLinkRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("createPaymentLink");
+        
+
+        Response<ApplicationModels.CreatePaymentLinkResponse> response = paymentApiList.createPaymentLink(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ResendPaymentLinkResponse resendPaymentLink(ApplicationModels.CancelOrResendPaymentLinkRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("resendPaymentLink");
+        
+
+        Response<ApplicationModels.ResendPaymentLinkResponse> response = paymentApiList.resendPaymentLink(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CancelPaymentLinkResponse cancelPaymentLink(ApplicationModels.CancelOrResendPaymentLinkRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("cancelPaymentLink");
+        
+
+        Response<ApplicationModels.CancelPaymentLinkResponse> response = paymentApiList.cancelPaymentLink(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PaymentModeRouteResponse getPaymentModeRoutesPaymentLink(String paymentLinkId ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getPaymentModeRoutesPaymentLink");
+        
+
+        Response<ApplicationModels.PaymentModeRouteResponse> response = paymentApiList.getPaymentModeRoutesPaymentLink(fullUrl  ,paymentLinkId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PollingPaymentLinkResponse pollingPaymentLink(String paymentLinkId ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("pollingPaymentLink");
+        
+
+        Response<ApplicationModels.PollingPaymentLinkResponse> response = paymentApiList.pollingPaymentLink(fullUrl  ,paymentLinkId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CreateOrderUserResponse createOrderHandlerPaymentLink(ApplicationModels.CreateOrderUserRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("createOrderHandlerPaymentLink");
+        
+
+        Response<ApplicationModels.CreateOrderUserResponse> response = paymentApiList.createOrderHandlerPaymentLink(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PaymentInitializationResponse initialisePaymentPaymentLink(ApplicationModels.PaymentInitializationRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("initialisePaymentPaymentLink");
+        
+
+        Response<ApplicationModels.PaymentInitializationResponse> response = paymentApiList.initialisePaymentPaymentLink(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.PaymentStatusUpdateResponse checkAndUpdatePaymentStatusPaymentLink(ApplicationModels.PaymentStatusUpdateRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("checkAndUpdatePaymentStatusPaymentLink");
+        
+
+        Response<ApplicationModels.PaymentStatusUpdateResponse> response = paymentApiList.checkAndUpdatePaymentStatusPaymentLink(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
