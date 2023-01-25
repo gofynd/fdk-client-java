@@ -557,7 +557,7 @@ interface PaymentApiList {
     Call<ApplicationModels.ValidateVPAResponse> validateVPA(@Url String url1 , @Body ApplicationModels.ValidateVPARequest payload );
     
     @POST 
-    Call<ApplicationModels.cardDetailsResponse> cardDetails(@Url String url1 , @Body ApplicationModels.cardDetails payload );
+    Call<ApplicationModels.cardDetailsResponse> cardDetails(@Url String url1 , @Body ApplicationModels.cardDetailsRequest payload );
     
     @GET 
     Call<ApplicationModels.TransferModeResponse> getActiveRefundTransferModes(@Url String url1);

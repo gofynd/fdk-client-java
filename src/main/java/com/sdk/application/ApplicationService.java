@@ -4807,7 +4807,7 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.cardDetailsResponse cardDetails(ApplicationModels.cardDetails body) throws IOException {
+    public ApplicationModels.cardDetailsResponse cardDetails(ApplicationModels.cardDetailsRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("cardDetails");
         
