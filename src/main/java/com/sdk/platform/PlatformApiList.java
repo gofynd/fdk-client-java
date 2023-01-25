@@ -4111,23 +4111,23 @@ interface CatalogApiList {
     
     
     
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/product/{item_id}/")
-    Call<PlatformModels.OwnerAppItemResponse> getAppProduct(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("item_id") String  itemId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PATCH ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/product/{item_id}/")
     Call<PlatformModels.SuccessResponse1> updateAppProduct(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("item_id") String  itemId ,@Body PlatformModels.ApplicationItemMeta payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/product/{item_id}/")
+    Call<PlatformModels.OwnerAppItemResponse> getAppProduct(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("item_id") String  itemId );
     
     
     
