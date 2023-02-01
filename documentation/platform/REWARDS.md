@@ -580,7 +580,7 @@ Get all transactions of reward points
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.getPointsHistory( pageId,  pageSize,  userId) {
+client.application("<APPLICATION_ID>").rewards.getPointsHistory( userId,  pageId,  pageSize) {
   //use response
 }
 ```
@@ -589,11 +589,11 @@ client.application("<APPLICATION_ID>").rewards.getPointsHistory( pageId,  pageSi
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| pageId | String? | no | PageID is the ID of the requested page. For first request it should be kept empty. |   
-| pageSize | Integer? | no | The number of items to retrieve in each page. |   
 | userId | String | yes | user id |   
 | companyId | String | yes | company id |   
-| applicationId | String | yes | application id |  
+| applicationId | String | yes | application id |   
+| pageId | String? | no | PageID is the ID of the requested page. For first request it should be kept empty. |   
+| pageSize | Integer? | no | The number of items to retrieve in each page. |  
 
 
 

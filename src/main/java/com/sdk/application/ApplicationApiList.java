@@ -783,6 +783,6 @@ interface LogisticApiList {
     Call<ApplicationModels.GetZoneFromPincodeViewResponse> getPincodeZones(@Url String url1 , @Body ApplicationModels.GetZoneFromPincodeViewRequest payload );
     
     @POST 
-    Call<ApplicationModels.AssignStoreResponse> upsertZoneControllerView(@Url String url1 , @Body ApplicationModels.AssignStoreRequest payload );
+    Call<ApplicationModels.AssignStoreResponse> assignLocations(@Url String url1 , @Body ApplicationModels.AssignStoreRequest payload );
 }
 
