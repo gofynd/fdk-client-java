@@ -9,9 +9,9 @@ Earn and redeem reward points
 * [getOfferByName](#getofferbyname)
 * [catalogueOrder](#catalogueorder)
 * [getPointsHistory](#getpointshistory)
-* [getPoints](#getpoints)
-* [referral](#referral)
-* [orderDiscount](#orderdiscount)
+* [getUserPoints](#getuserpoints)
+* [getUserReferralDetails](#getuserreferraldetails)
+* [getOrderDiscount](#getorderdiscount)
 * [redeemReferralCode](#redeemreferralcode)
 
 
@@ -178,14 +178,14 @@ Success. Check example below or refer `PointsHistoryResponse` for more details.
 ---
 
 
-### getPoints
+### getUserPoints
 Get referral details of a user
 
 
 
 
 ```java
-rewards.getPoints() {
+rewards.getUserPoints() {
   //use response
 }
 ```
@@ -226,14 +226,14 @@ Success. Check example below or refer `PointsResponse` for more details.
 ---
 
 
-### referral
+### getUserReferralDetails
 Get referral details of a user
 
 
 
 
 ```java
-rewards.referral() {
+rewards.getUserReferralDetails() {
   //use response
 }
 ```
@@ -274,14 +274,14 @@ Success. Check example below or refer `ReferralDetailsResponse` for more details
 ---
 
 
-### orderDiscount
+### getOrderDiscount
 Calculates the discount on order-amount
 
 
 
 
 ```java
-rewards.orderDiscount(body body) {
+rewards.getOrderDiscount(body body) {
   //use response
 }
 ```
