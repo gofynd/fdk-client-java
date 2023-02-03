@@ -3910,21 +3910,6 @@ interface CatalogApiList {
     
     
     
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
-    Call<PlatformModels.GetSearchWordsDetailResponse> getSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PUT ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
     Call<PlatformModels.GetSearchWordsData> updateSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body PlatformModels.CreateSearchKeyword payload);
     
@@ -3942,6 +3927,21 @@ interface CatalogApiList {
     
     @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
     Call<PlatformModels.DeleteResponse> deleteSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
+    Call<PlatformModels.GetSearchWordsDetailResponse> getSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
     
     
@@ -3979,21 +3979,6 @@ interface CatalogApiList {
     
     
     
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
-    Call<PlatformModels.GetAutocompleteWordsResponse> getAutocompleteKeywordDetail(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PUT ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
     Call<PlatformModels.GetAutocompleteWordsResponse> updateAutocompleteKeyword(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body PlatformModels.CreateAutocompleteKeyword payload);
     
@@ -4011,6 +3996,21 @@ interface CatalogApiList {
     
     @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
     Call<PlatformModels.DeleteResponse> deleteAutocompleteKeyword(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
+    Call<PlatformModels.GetAutocompleteWordsResponse> getAutocompleteKeywordDetail(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
     
     
@@ -5008,20 +5008,20 @@ interface CatalogApiList {
     
     
     
-    @PATCH ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
-    Call<PlatformModels.SuccessResponse> patchProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId ,@Body PlatformModels.ProductPatch payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PUT ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
     Call<PlatformModels.SuccessResponseProduct> editProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId ,@Body PlatformModels.ProductCreateUpdateV2 payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PATCH ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
+    Call<PlatformModels.SuccessResponse> patchProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId ,@Body PlatformModels.ProductPatch payload);
     
     
     

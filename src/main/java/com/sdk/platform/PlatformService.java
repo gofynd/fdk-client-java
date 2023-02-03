@@ -15077,11 +15077,11 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse patchProduct(Integer itemId ,PlatformModels.ProductPatch body) throws FDKException {
+    public PlatformModels.SuccessResponseProduct editProduct(Integer itemId ,PlatformModels.ProductCreateUpdateV2 body) throws FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponse> response = null;
+            Response<PlatformModels.SuccessResponseProduct> response = null;
             try {
-                response = catalogApiList.patchProduct(this.companyId , itemId  , body).execute();
+                response = catalogApiList.editProduct(this.companyId , itemId  , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKException(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -15116,11 +15116,11 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponseProduct editProduct(Integer itemId ,PlatformModels.ProductCreateUpdateV2 body) throws FDKException {
+    public PlatformModels.SuccessResponse patchProduct(Integer itemId ,PlatformModels.ProductPatch body) throws FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.SuccessResponseProduct> response = null;
+            Response<PlatformModels.SuccessResponse> response = null;
             try {
-                response = catalogApiList.editProduct(this.companyId , itemId  , body).execute();
+                response = catalogApiList.patchProduct(this.companyId , itemId  , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKException(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -16758,50 +16758,6 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetSearchWordsDetailResponse getSearchKeywords(String id ) throws FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetSearchWordsDetailResponse> response = null;
-            try {
-            response = catalogApiList.getSearchKeywords(this.companyId , this.applicationId , id ).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public PlatformModels.GetSearchWordsData updateSearchKeywords(String id ,PlatformModels.CreateSearchKeyword body) throws FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetSearchWordsData> response = null;
@@ -16851,6 +16807,50 @@ public class ApplicationClient {
             Response<PlatformModels.DeleteResponse> response = null;
             try {
             response = catalogApiList.deleteSearchKeywords(this.companyId , this.applicationId , id ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKException(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage(), e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.GetSearchWordsDetailResponse getSearchKeywords(String id ) throws FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.GetSearchWordsDetailResponse> response = null;
+            try {
+            response = catalogApiList.getSearchKeywords(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKException(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -16970,50 +16970,6 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetAutocompleteWordsResponse getAutocompleteKeywordDetail(String id ) throws FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetAutocompleteWordsResponse> response = null;
-            try {
-            response = catalogApiList.getAutocompleteKeywordDetail(this.companyId , this.applicationId , id ).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public PlatformModels.GetAutocompleteWordsResponse updateAutocompleteKeyword(String id ,PlatformModels.CreateAutocompleteKeyword body) throws FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetAutocompleteWordsResponse> response = null;
@@ -17063,6 +17019,50 @@ public class ApplicationClient {
             Response<PlatformModels.DeleteResponse> response = null;
             try {
             response = catalogApiList.deleteAutocompleteKeyword(this.companyId , this.applicationId , id ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKException(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage(), e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.GetAutocompleteWordsResponse getAutocompleteKeywordDetail(String id ) throws FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.GetAutocompleteWordsResponse> response = null;
+            try {
+            response = catalogApiList.getAutocompleteKeywordDetail(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKException(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
