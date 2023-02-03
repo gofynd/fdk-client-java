@@ -3771,139 +3771,13 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  
  
- #### [DisplayMetaDict](#DisplayMetaDict)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | title | String? |  yes  |  |
- | subtitle | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [DisplayMeta](#DisplayMeta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | apply | [DisplayMetaDict](#DisplayMetaDict)? |  yes  |  |
- | remove | [DisplayMetaDict](#DisplayMetaDict)? |  yes  |  |
- | subtitle | String? |  yes  |  |
- | title | String? |  yes  |  |
- | description | String? |  yes  |  |
- | auto | [DisplayMetaDict](#DisplayMetaDict)? |  yes  |  |
-
----
-
-
- 
- 
- #### [Validity](#Validity)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | priority | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [CouponSchedule](#CouponSchedule)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | cron | String? |  yes  |  |
- | start | String? |  yes  |  |
- | end | String? |  yes  |  |
- | nextSchedule | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | duration | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [Rule](#Rule)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | min | Double? |  yes  |  |
- | key | Double? |  yes  |  |
- | max | Double? |  yes  |  |
- | discountQty | Double? |  yes  |  |
- | value | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [State](#State)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | isArchived | Boolean? |  yes  |  |
- | isDisplay | Boolean? |  yes  |  |
- | isPublic | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [CouponDateMeta](#CouponDateMeta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | modifiedOn | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Validation](#Validation)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | userRegisteredAfter | String? |  yes  |  |
- | anonymous | Boolean? |  yes  |  |
- | appId | ArrayList<String>? |  yes  |  |
-
----
-
-
- 
- 
- #### [Identifier](#Identifier)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | companyId | ArrayList<Integer>? |  yes  |  |
- | itemId | ArrayList<Integer>? |  yes  |  |
- | storeId | ArrayList<Integer>? |  yes  |  |
- | articleId | ArrayList<String>? |  yes  |  |
- | userId | ArrayList<String>? |  yes  |  |
- | collectionId | ArrayList<String>? |  yes  |  |
- | excludeBrandId | ArrayList<Integer>? |  yes  |  |
- | categoryId | ArrayList<Integer>? |  yes  |  |
- | brandId | ArrayList<Integer>? |  yes  |  |
-
----
-
-
- 
- 
  #### [UsesRemaining](#UsesRemaining)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | user | Integer? |  yes  |  |
- | total | Integer? |  yes  |  |
  | app | Integer? |  yes  |  |
+ | total | Integer? |  yes  |  |
 
 ---
 
@@ -3933,6 +3807,18 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  
  
+ #### [PostOrder](#PostOrder)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | returnAllowed | Boolean? |  yes  |  |
+ | cancellationAllowed | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [PaymentAllowValue](#PaymentAllowValue)
 
  | Properties | Type | Nullable | Description |
@@ -3948,22 +3834,11 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | types | ArrayList<String>? |  yes  |  |
- | networks | ArrayList<String>? |  yes  |  |
- | codes | ArrayList<String>? |  yes  |  |
+ | iins | ArrayList<String>? |  yes  |  |
  | uses | [PaymentAllowValue](#PaymentAllowValue)? |  yes  |  |
-
----
-
-
- 
- 
- #### [PostOrder](#PostOrder)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | returnAllowed | Boolean? |  yes  |  |
- | cancellationAllowed | Boolean? |  yes  |  |
+ | codes | ArrayList<String>? |  yes  |  |
+ | networks | ArrayList<String>? |  yes  |  |
+ | types | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -3974,8 +3849,8 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | min | Integer? |  yes  |  |
  | max | Integer? |  yes  |  |
+ | min | Integer? |  yes  |  |
 
 ---
 
@@ -3987,13 +3862,13 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | uses | [UsesRestriction](#UsesRestriction)? |  yes  |  |
- | platforms | ArrayList<String>? |  yes  |  |
- | orderingStores | ArrayList<Integer>? |  yes  |  |
  | bulkBundle | [BulkBundleRestriction](#BulkBundleRestriction)? |  yes  |  |
- | couponAllowed | Boolean? |  yes  |  |
- | userGroups | ArrayList<Integer>? |  yes  |  |
- | payments | HashMap<String,[PaymentModes](#PaymentModes)>? |  yes  |  |
  | postOrder | [PostOrder](#PostOrder)? |  yes  |  |
+ | platforms | ArrayList<String>? |  yes  |  |
+ | couponAllowed | Boolean? |  yes  |  |
+ | orderingStores | ArrayList<Integer>? |  yes  |  |
+ | payments | HashMap<String,[PaymentModes](#PaymentModes)>? |  yes  |  |
+ | userGroups | ArrayList<Integer>? |  yes  |  |
  | priceRange | [PriceRange](#PriceRange)? |  yes  |  |
 
 ---
@@ -4001,12 +3876,53 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  
  
- #### [CouponAuthor](#CouponAuthor)
+ #### [DisplayMetaDict](#DisplayMetaDict)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | modifiedBy | String? |  yes  |  |
- | createdBy | String? |  yes  |  |
+ | subtitle | String? |  yes  |  |
+ | title | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DisplayMeta](#DisplayMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | subtitle | String? |  yes  |  |
+ | title | String? |  yes  |  |
+ | apply | [DisplayMetaDict](#DisplayMetaDict)? |  yes  |  |
+ | description | String? |  yes  |  |
+ | auto | [DisplayMetaDict](#DisplayMetaDict)? |  yes  |  |
+ | remove | [DisplayMetaDict](#DisplayMetaDict)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CouponDateMeta](#CouponDateMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | modifiedOn | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [State](#State)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | isDisplay | Boolean? |  yes  |  |
+ | isPublic | Boolean? |  yes  |  |
+ | isArchived | Boolean? |  yes  |  |
 
 ---
 
@@ -4025,18 +3941,103 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  
  
+ #### [CouponAuthor](#CouponAuthor)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | modifiedBy | String? |  yes  |  |
+ | createdBy | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Rule](#Rule)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | max | Double? |  yes  |  |
+ | discountQty | Double? |  yes  |  |
+ | min | Double? |  yes  |  |
+ | value | Double? |  yes  |  |
+ | key | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Validity](#Validity)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | priority | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [RuleDefinition](#RuleDefinition)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String |  no  |  |
- | scope | ArrayList<String>? |  yes  |  |
- | calculateOn | String |  no  |  |
- | isExact | Boolean? |  yes  |  |
  | currencyCode | String? |  yes  |  |
  | valueType | String |  no  |  |
- | applicableOn | String |  no  |  |
+ | scope | ArrayList<String>? |  yes  |  |
  | autoApply | Boolean? |  yes  |  |
+ | calculateOn | String |  no  |  |
+ | isExact | Boolean? |  yes  |  |
+ | type | String |  no  |  |
+ | applicableOn | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [Identifier](#Identifier)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | itemId | ArrayList<Integer>? |  yes  |  |
+ | storeId | ArrayList<Integer>? |  yes  |  |
+ | articleId | ArrayList<String>? |  yes  |  |
+ | companyId | ArrayList<Integer>? |  yes  |  |
+ | collectionId | ArrayList<String>? |  yes  |  |
+ | userId | ArrayList<String>? |  yes  |  |
+ | categoryId | ArrayList<Integer>? |  yes  |  |
+ | excludeBrandId | ArrayList<Integer>? |  yes  |  |
+ | brandId | ArrayList<Integer>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CouponSchedule](#CouponSchedule)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | cron | String? |  yes  |  |
+ | end | String? |  yes  |  |
+ | nextSchedule | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | start | String? |  yes  |  |
+ | duration | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Validation](#Validation)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | appId | ArrayList<String>? |  yes  |  |
+ | userRegisteredAfter | String? |  yes  |  |
+ | anonymous | Boolean? |  yes  |  |
 
 ---
 
@@ -4048,21 +4049,21 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | action | [CouponAction](#CouponAction)? |  yes  |  |
- | displayMeta | [DisplayMeta](#DisplayMeta) |  no  |  |
- | validity | [Validity](#Validity) |  no  |  |
- | schedule | [CouponSchedule](#CouponSchedule)? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | typeSlug | String |  no  |  |
- | rule | ArrayList<[Rule](#Rule)> |  no  |  |
- | state | [State](#State)? |  yes  |  |
- | dateMeta | [CouponDateMeta](#CouponDateMeta)? |  yes  |  |
- | validation | [Validation](#Validation)? |  yes  |  |
- | identifiers | [Identifier](#Identifier) |  no  |  |
- | code | String |  no  |  |
  | restrictions | [Restrictions](#Restrictions)? |  yes  |  |
- | author | [CouponAuthor](#CouponAuthor)? |  yes  |  |
+ | displayMeta | [DisplayMeta](#DisplayMeta) |  no  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | dateMeta | [CouponDateMeta](#CouponDateMeta)? |  yes  |  |
+ | state | [State](#State)? |  yes  |  |
  | ownership | [Ownership](#Ownership) |  no  |  |
+ | author | [CouponAuthor](#CouponAuthor)? |  yes  |  |
+ | code | String |  no  |  |
+ | rule | ArrayList<[Rule](#Rule)> |  no  |  |
+ | validity | [Validity](#Validity) |  no  |  |
  | ruleDefinition | [RuleDefinition](#RuleDefinition) |  no  |  |
+ | typeSlug | String |  no  |  |
+ | identifiers | [Identifier](#Identifier) |  no  |  |
+ | schedule | [CouponSchedule](#CouponSchedule)? |  yes  |  |
+ | validation | [Validation](#Validation)? |  yes  |  |
 
 ---
 
@@ -4073,15 +4074,15 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String |  no  |  |
+ | itemTotal | Integer? |  yes  | Total coupon count in system |
  | size | Integer? |  yes  | Current request page size |
+ | current | Integer? |  yes  | Current page no |
+ | lastId | String? |  yes  | Last objects id |
+ | hasPrevious | Boolean? |  yes  | True if more records are present for previous pages. Sent for cursor pagination |
+ | nextId | String? |  yes  | Cursor id for next set of records. |
+ | type | String |  no  |  |
  | page | Integer? |  yes  | Page requested |
  | hasNext | Boolean? |  yes  | True if more records are present for next pages |
- | hasPrevious | Boolean? |  yes  | True if more records are present for previous pages. Sent for cursor pagination |
- | lastId | String? |  yes  | Last objects id |
- | current | Integer? |  yes  | Current page no |
- | nextId | String? |  yes  | Cursor id for next set of records. |
- | itemTotal | Integer? |  yes  | Total coupon count in system |
 
 ---
 
@@ -4129,21 +4130,21 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | action | [CouponAction](#CouponAction)? |  yes  |  |
- | displayMeta | [DisplayMeta](#DisplayMeta) |  no  |  |
- | validity | [Validity](#Validity) |  no  |  |
- | schedule | [CouponSchedule](#CouponSchedule)? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | typeSlug | String |  no  |  |
- | rule | ArrayList<[Rule](#Rule)> |  no  |  |
- | state | [State](#State)? |  yes  |  |
- | dateMeta | [CouponDateMeta](#CouponDateMeta)? |  yes  |  |
- | validation | [Validation](#Validation)? |  yes  |  |
- | identifiers | [Identifier](#Identifier) |  no  |  |
- | code | String |  no  |  |
  | restrictions | [Restrictions](#Restrictions)? |  yes  |  |
- | author | [CouponAuthor](#CouponAuthor)? |  yes  |  |
+ | displayMeta | [DisplayMeta](#DisplayMeta) |  no  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | dateMeta | [CouponDateMeta](#CouponDateMeta)? |  yes  |  |
+ | state | [State](#State)? |  yes  |  |
  | ownership | [Ownership](#Ownership) |  no  |  |
+ | author | [CouponAuthor](#CouponAuthor)? |  yes  |  |
+ | code | String |  no  |  |
+ | rule | ArrayList<[Rule](#Rule)> |  no  |  |
+ | validity | [Validity](#Validity) |  no  |  |
  | ruleDefinition | [RuleDefinition](#RuleDefinition) |  no  |  |
+ | typeSlug | String |  no  |  |
+ | identifiers | [Identifier](#Identifier) |  no  |  |
+ | schedule | [CouponSchedule](#CouponSchedule)? |  yes  |  |
+ | validation | [Validation](#Validation)? |  yes  |  |
 
 ---
 
@@ -4154,65 +4155,8 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | archive | Boolean? |  yes  | Send true to unpublish coupon |
  | schedule | [CouponSchedule](#CouponSchedule)? |  yes  |  |
-
----
-
-
- 
- 
- #### [Visibility](#Visibility)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | pdp | Boolean |  no  |  |
- | couponList | Boolean |  no  |  |
-
----
-
-
- 
- 
- #### [CompareObject](#CompareObject)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | lessThan | Double? |  yes  |  |
- | greaterThanEquals | Double? |  yes  |  |
- | lessThanEquals | Double? |  yes  |  |
- | greaterThan | Double? |  yes  |  |
- | equals | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [ItemCriteria](#ItemCriteria)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | cartUniqueItemAmount | [CompareObject](#CompareObject)? |  yes  |  |
- | cartQuantity | [CompareObject](#CompareObject)? |  yes  |  |
- | itemCategory | ArrayList<Integer>? |  yes  |  |
- | buyRules | ArrayList<String>? |  yes  |  |
- | cartUniqueItemQuantity | [CompareObject](#CompareObject)? |  yes  |  |
- | itemExcludeSku | ArrayList<String>? |  yes  |  |
- | availableZones | ArrayList<String>? |  yes  |  |
- | itemSize | ArrayList<String>? |  yes  |  |
- | itemStore | ArrayList<Integer>? |  yes  |  |
- | itemExcludeCompany | ArrayList<Integer>? |  yes  |  |
- | itemId | ArrayList<Integer>? |  yes  |  |
- | itemCompany | ArrayList<Integer>? |  yes  |  |
- | allItems | Boolean? |  yes  |  |
- | cartTotal | [CompareObject](#CompareObject)? |  yes  |  |
- | itemExcludeId | ArrayList<Integer>? |  yes  |  |
- | itemExcludeBrand | ArrayList<Integer>? |  yes  |  |
- | itemExcludeCategory | ArrayList<Integer>? |  yes  |  |
- | itemSku | ArrayList<String>? |  yes  |  |
- | itemExcludeStore | ArrayList<Integer>? |  yes  |  |
- | itemBrand | ArrayList<Integer>? |  yes  |  |
+ | archive | Boolean? |  yes  | Send true to unpublish coupon |
 
 ---
 
@@ -4224,10 +4168,10 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | cron | String? |  yes  |  |
- | start | String |  no  |  |
+ | published | Boolean |  no  |  |
  | end | String? |  yes  |  |
  | nextSchedule | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | published | Boolean |  no  |  |
+ | start | String |  no  |  |
  | duration | Integer? |  yes  |  |
 
 ---
@@ -4235,46 +4179,13 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  
  
- #### [PromotionDateMeta](#PromotionDateMeta)
+ #### [DisplayMeta1](#DisplayMeta1)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | modifiedOn | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [DiscountOffer](#DiscountOffer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | maxUsagePerTransaction | Integer? |  yes  |  |
- | partialCanRet | Boolean? |  yes  |  |
- | maxOfferQuantity | Integer? |  yes  |  |
- | minOfferQuantity | Integer? |  yes  |  |
- | discountPercentage | Double? |  yes  |  |
- | discountPrice | Double? |  yes  |  |
- | apportionDiscount | Boolean? |  yes  |  |
- | code | String? |  yes  |  |
- | discountAmount | Double? |  yes  |  |
- | maxDiscountAmount | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [DiscountRule](#DiscountRule)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | offer | [DiscountOffer](#DiscountOffer) |  no  |  |
- | discountType | String |  no  |  |
- | buyCondition | String |  no  |  |
- | itemCriteria | [ItemCriteria](#ItemCriteria) |  no  |  |
+ | offerText | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | description | String? |  yes  |  |
 
 ---
 
@@ -4293,37 +4204,12 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  
  
- #### [Ownership1](#Ownership1)
+ #### [UserRegistered](#UserRegistered)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | payableBy | String |  no  |  |
- | payableCategory | String |  no  |  |
-
----
-
-
- 
- 
- #### [PromotionAction](#PromotionAction)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | actionType | String |  no  |  |
- | actionDate | String |  no  |  |
-
----
-
-
- 
- 
- #### [DisplayMeta1](#DisplayMeta1)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | description | String? |  yes  |  |
- | name | String? |  yes  |  |
- | offerText | String? |  yes  |  |
+ | start | String? |  yes  |  |
+ | end | String? |  yes  |  |
 
 ---
 
@@ -4348,18 +4234,6 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
  | ---------- | ---- | -------- | ----------- |
  | remaining | [UsesRemaining1](#UsesRemaining1)? |  yes  |  |
  | maximum | [UsesRemaining1](#UsesRemaining1)? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserRegistered](#UserRegistered)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | start | String? |  yes  |  |
- | end | String? |  yes  |  |
 
 ---
 
@@ -4393,9 +4267,9 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | uses | [PaymentAllowValue1](#PaymentAllowValue1)? |  yes  |  |
- | type | String |  no  |  |
  | codes | ArrayList<String>? |  yes  |  |
+ | type | String |  no  |  |
+ | uses | [PaymentAllowValue1](#PaymentAllowValue1)? |  yes  |  |
 
 ---
 
@@ -4406,15 +4280,142 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | uses | [UsesRestriction1](#UsesRestriction1) |  no  |  |
- | platforms | ArrayList<String>? |  yes  |  |
  | anonymousUsers | Boolean? |  yes  |  |
- | userGroups | ArrayList<Integer>? |  yes  |  |
  | userRegistered | [UserRegistered](#UserRegistered)? |  yes  |  |
- | userId | ArrayList<String>? |  yes  |  |
+ | uses | [UsesRestriction1](#UsesRestriction1) |  no  |  |
  | postOrder | [PostOrder1](#PostOrder1)? |  yes  |  |
  | orderQuantity | Integer? |  yes  |  |
+ | userId | ArrayList<String>? |  yes  |  |
+ | platforms | ArrayList<String>? |  yes  |  |
  | payments | ArrayList<[PromotionPaymentModes](#PromotionPaymentModes)>? |  yes  |  |
+ | userGroups | ArrayList<Integer>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Visibility](#Visibility)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | couponList | Boolean |  no  |  |
+ | pdp | Boolean |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [CompareObject](#CompareObject)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | lessThanEquals | Double? |  yes  |  |
+ | greaterThan | Double? |  yes  |  |
+ | greaterThanEquals | Double? |  yes  |  |
+ | lessThan | Double? |  yes  |  |
+ | equals | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ItemCriteria](#ItemCriteria)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | itemExcludeCompany | ArrayList<Integer>? |  yes  |  |
+ | itemExcludeCategory | ArrayList<Integer>? |  yes  |  |
+ | itemStore | ArrayList<Integer>? |  yes  |  |
+ | cartUniqueItemAmount | [CompareObject](#CompareObject)? |  yes  |  |
+ | itemId | ArrayList<Integer>? |  yes  |  |
+ | itemCompany | ArrayList<Integer>? |  yes  |  |
+ | itemCategory | ArrayList<Integer>? |  yes  |  |
+ | cartTotal | [CompareObject](#CompareObject)? |  yes  |  |
+ | availableZones | ArrayList<String>? |  yes  |  |
+ | itemBrand | ArrayList<Integer>? |  yes  |  |
+ | itemSize | ArrayList<String>? |  yes  |  |
+ | itemExcludeBrand | ArrayList<Integer>? |  yes  |  |
+ | itemExcludeStore | ArrayList<Integer>? |  yes  |  |
+ | itemExcludeId | ArrayList<Integer>? |  yes  |  |
+ | buyRules | ArrayList<String>? |  yes  |  |
+ | cartQuantity | [CompareObject](#CompareObject)? |  yes  |  |
+ | itemSku | ArrayList<String>? |  yes  |  |
+ | itemExcludeSku | ArrayList<String>? |  yes  |  |
+ | cartUniqueItemQuantity | [CompareObject](#CompareObject)? |  yes  |  |
+ | allItems | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DiscountOffer](#DiscountOffer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | discountPrice | Double? |  yes  |  |
+ | discountPercentage | Double? |  yes  |  |
+ | maxUsagePerTransaction | Integer? |  yes  |  |
+ | maxOfferQuantity | Integer? |  yes  |  |
+ | discountAmount | Double? |  yes  |  |
+ | apportionDiscount | Boolean? |  yes  |  |
+ | code | String? |  yes  |  |
+ | minOfferQuantity | Integer? |  yes  |  |
+ | partialCanRet | Boolean? |  yes  |  |
+ | maxDiscountAmount | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DiscountRule](#DiscountRule)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | discountType | String |  no  |  |
+ | itemCriteria | [ItemCriteria](#ItemCriteria) |  no  |  |
+ | offer | [DiscountOffer](#DiscountOffer) |  no  |  |
+ | buyCondition | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [PromotionAction](#PromotionAction)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | actionDate | String |  no  |  |
+ | actionType | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [PromotionDateMeta](#PromotionDateMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | modifiedOn | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Ownership1](#Ownership1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | payableBy | String |  no  |  |
+ | payableCategory | String |  no  |  |
 
 ---
 
@@ -4425,28 +4426,28 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | visiblility | [Visibility](#Visibility)? |  yes  |  |
- | promoGroup | String |  no  |  |
- | buyRules | HashMap<String,[ItemCriteria](#ItemCriteria)> |  no  |  |
- | promotionType | String |  no  |  |
- | applyPriority | Integer? |  yes  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
+ | promoGroup | String |  no  |  |
+ | applyPriority | Integer? |  yes  |  |
+ | code | String? |  yes  |  |
  | schedule | [PromotionSchedule](#PromotionSchedule)? |  yes  |  |
+ | currency | String? |  yes  |  |
+ | displayMeta | [DisplayMeta1](#DisplayMeta1) |  no  |  |
+ | author | [PromotionAuthor](#PromotionAuthor)? |  yes  |  |
+ | promotionType | String |  no  |  |
  | applyExclusive | String? |  yes  |  |
+ | restrictions | [Restrictions1](#Restrictions1)? |  yes  |  |
+ | visiblility | [Visibility](#Visibility)? |  yes  |  |
  | calculateOn | String? |  yes  | Only available for Contract pricing and Ladder pricing promotion type |
- | dateMeta | [PromotionDateMeta](#PromotionDateMeta)? |  yes  |  |
+ | buyRules | HashMap<String,[ItemCriteria](#ItemCriteria)> |  no  |  |
  | discountRules | ArrayList<[DiscountRule](#DiscountRule)> |  no  |  |
  | stackable | Boolean? |  yes  |  |
- | author | [PromotionAuthor](#PromotionAuthor)? |  yes  |  |
- | code | String? |  yes  |  |
- | ownership | [Ownership1](#Ownership1) |  no  |  |
  | postOrderAction | [PromotionAction](#PromotionAction)? |  yes  |  |
- | displayMeta | [DisplayMeta1](#DisplayMeta1) |  no  |  |
  | mode | String |  no  |  |
+ | dateMeta | [PromotionDateMeta](#PromotionDateMeta)? |  yes  |  |
  | applicationId | String |  no  |  |
+ | ownership | [Ownership1](#Ownership1) |  no  |  |
  | applyAllDiscount | Boolean? |  yes  |  |
- | restrictions | [Restrictions1](#Restrictions1)? |  yes  |  |
- | currency | String? |  yes  |  |
 
 ---
 
@@ -4469,28 +4470,28 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | visiblility | [Visibility](#Visibility)? |  yes  |  |
- | promoGroup | String |  no  |  |
- | buyRules | HashMap<String,[ItemCriteria](#ItemCriteria)> |  no  |  |
- | promotionType | String |  no  |  |
- | applyPriority | Integer? |  yes  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
+ | promoGroup | String |  no  |  |
+ | applyPriority | Integer? |  yes  |  |
+ | code | String? |  yes  |  |
  | schedule | [PromotionSchedule](#PromotionSchedule)? |  yes  |  |
+ | currency | String? |  yes  |  |
+ | displayMeta | [DisplayMeta1](#DisplayMeta1) |  no  |  |
+ | author | [PromotionAuthor](#PromotionAuthor)? |  yes  |  |
+ | promotionType | String |  no  |  |
  | applyExclusive | String? |  yes  |  |
+ | restrictions | [Restrictions1](#Restrictions1)? |  yes  |  |
+ | visiblility | [Visibility](#Visibility)? |  yes  |  |
  | calculateOn | String? |  yes  | Only available for Contract pricing and Ladder pricing promotion type |
- | dateMeta | [PromotionDateMeta](#PromotionDateMeta)? |  yes  |  |
+ | buyRules | HashMap<String,[ItemCriteria](#ItemCriteria)> |  no  |  |
  | discountRules | ArrayList<[DiscountRule](#DiscountRule)> |  no  |  |
  | stackable | Boolean? |  yes  |  |
- | author | [PromotionAuthor](#PromotionAuthor)? |  yes  |  |
- | code | String? |  yes  |  |
- | ownership | [Ownership1](#Ownership1) |  no  |  |
  | postOrderAction | [PromotionAction](#PromotionAction)? |  yes  |  |
- | displayMeta | [DisplayMeta1](#DisplayMeta1) |  no  |  |
  | mode | String |  no  |  |
+ | dateMeta | [PromotionDateMeta](#PromotionDateMeta)? |  yes  |  |
  | applicationId | String |  no  |  |
+ | ownership | [Ownership1](#Ownership1) |  no  |  |
  | applyAllDiscount | Boolean? |  yes  |  |
- | restrictions | [Restrictions1](#Restrictions1)? |  yes  |  |
- | currency | String? |  yes  |  |
 
 ---
 
@@ -4501,28 +4502,28 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | visiblility | [Visibility](#Visibility)? |  yes  |  |
- | promoGroup | String |  no  |  |
- | buyRules | HashMap<String,[ItemCriteria](#ItemCriteria)> |  no  |  |
- | promotionType | String |  no  |  |
- | applyPriority | Integer? |  yes  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
+ | promoGroup | String |  no  |  |
+ | applyPriority | Integer? |  yes  |  |
+ | code | String? |  yes  |  |
  | schedule | [PromotionSchedule](#PromotionSchedule)? |  yes  |  |
+ | currency | String? |  yes  |  |
+ | displayMeta | [DisplayMeta1](#DisplayMeta1) |  no  |  |
+ | author | [PromotionAuthor](#PromotionAuthor)? |  yes  |  |
+ | promotionType | String |  no  |  |
  | applyExclusive | String? |  yes  |  |
+ | restrictions | [Restrictions1](#Restrictions1)? |  yes  |  |
+ | visiblility | [Visibility](#Visibility)? |  yes  |  |
  | calculateOn | String? |  yes  | Only available for Contract pricing and Ladder pricing promotion type |
- | dateMeta | [PromotionDateMeta](#PromotionDateMeta)? |  yes  |  |
+ | buyRules | HashMap<String,[ItemCriteria](#ItemCriteria)> |  no  |  |
  | discountRules | ArrayList<[DiscountRule](#DiscountRule)> |  no  |  |
  | stackable | Boolean? |  yes  |  |
- | author | [PromotionAuthor](#PromotionAuthor)? |  yes  |  |
- | code | String? |  yes  |  |
- | ownership | [Ownership1](#Ownership1) |  no  |  |
  | postOrderAction | [PromotionAction](#PromotionAction)? |  yes  |  |
- | displayMeta | [DisplayMeta1](#DisplayMeta1) |  no  |  |
  | mode | String |  no  |  |
+ | dateMeta | [PromotionDateMeta](#PromotionDateMeta)? |  yes  |  |
  | applicationId | String |  no  |  |
+ | ownership | [Ownership1](#Ownership1) |  no  |  |
  | applyAllDiscount | Boolean? |  yes  |  |
- | restrictions | [Restrictions1](#Restrictions1)? |  yes  |  |
- | currency | String? |  yes  |  |
 
 ---
 
@@ -4533,8 +4534,8 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | archive | Boolean? |  yes  | Send true to unpublish promotion |
  | schedule | [PromotionSchedule](#PromotionSchedule)? |  yes  |  |
+ | archive | Boolean? |  yes  | Send true to unpublish promotion |
 
 ---
 
@@ -4545,16 +4546,16 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  | Coupon type |
- | isHidden | Boolean? |  yes  | If the promo is active or not |
- | modifiedOn | String? |  yes  | Coupon modification date |
- | createdOn | String? |  yes  | Coupon creation date |
- | subtitle | String? |  yes  | Small description of the current offer |
- | entityType | String? |  yes  | Type of entity to be selected from : ['coupon', 'promotion'] |
- | title | String? |  yes  | Name of the promotion |
  | entitySlug | String? |  yes  |  |
- | description | String? |  yes  | The description of the offer in the form of an HTML |
+ | subtitle | String? |  yes  | Small description of the current offer |
+ | modifiedOn | String? |  yes  | Coupon modification date |
  | example | String? |  yes  | Discount offers examples |
+ | createdOn | String? |  yes  | Coupon creation date |
+ | isHidden | Boolean? |  yes  | If the promo is active or not |
+ | description | String? |  yes  | The description of the offer in the form of an HTML |
+ | entityType | String? |  yes  | Type of entity to be selected from : ['coupon', 'promotion'] |
+ | type | String? |  yes  | Coupon type |
+ | title | String? |  yes  | Name of the promotion |
 
 ---
 
@@ -4565,9 +4566,9 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | quantity | Integer? |  yes  |  |
  | size | String |  no  |  |
  | productId | String |  no  |  |
+ | quantity | Integer? |  yes  |  |
 
 ---
 
@@ -4585,105 +4586,16 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  
  
- #### [LoyaltyPoints](#LoyaltyPoints)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | applicable | Double? |  yes  |  |
- | description | String? |  yes  |  |
- | isApplied | Boolean? |  yes  |  |
- | total | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [RawBreakup](#RawBreakup)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | subtotal | Double? |  yes  |  |
- | discount | Double? |  yes  |  |
- | gstCharges | Double? |  yes  |  |
- | youSaved | Double? |  yes  |  |
- | fyndCash | Double? |  yes  |  |
- | codCharge | Double? |  yes  |  |
- | total | Double? |  yes  |  |
- | coupon | Double? |  yes  |  |
- | vog | Double? |  yes  |  |
- | deliveryCharge | Double? |  yes  |  |
- | mrpTotal | Double? |  yes  |  |
- | convenienceFee | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [CouponBreakup](#CouponBreakup)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | uid | String? |  yes  |  |
- | type | String? |  yes  |  |
- | isApplied | Boolean? |  yes  |  |
- | couponValue | Double? |  yes  |  |
- | minimumCartValue | Double? |  yes  |  |
- | title | String? |  yes  |  |
- | code | String? |  yes  |  |
- | subTitle | String? |  yes  |  |
- | couponType | String? |  yes  |  |
- | message | String? |  yes  |  |
- | description | String? |  yes  |  |
- | value | Double? |  yes  |  |
- | maxDiscountValue | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [DisplayBreakup](#DisplayBreakup)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | display | String? |  yes  |  |
- | currencyCode | String? |  yes  |  |
- | key | String? |  yes  |  |
- | currencySymbol | String? |  yes  |  |
- | message | ArrayList<String>? |  yes  |  |
- | value | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [CartBreakup](#CartBreakup)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | loyaltyPoints | [LoyaltyPoints](#LoyaltyPoints)? |  yes  |  |
- | raw | [RawBreakup](#RawBreakup)? |  yes  |  |
- | coupon | [CouponBreakup](#CouponBreakup)? |  yes  |  |
- | display | ArrayList<[DisplayBreakup](#DisplayBreakup)>? |  yes  |  |
-
----
-
-
- 
- 
  #### [ProductPrice](#ProductPrice)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | currencyCode | String? |  yes  |  |
- | selling | Double? |  yes  |  |
- | marked | Double? |  yes  |  |
- | effective | Double? |  yes  |  |
  | currencySymbol | String? |  yes  |  |
  | addOn | Double? |  yes  |  |
+ | effective | Double? |  yes  |  |
+ | selling | Double? |  yes  |  |
+ | marked | Double? |  yes  |  |
 
 ---
 
@@ -4694,30 +4606,100 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | converted | [ProductPrice](#ProductPrice)? |  yes  |  |
  | base | [ProductPrice](#ProductPrice)? |  yes  |  |
+ | converted | [ProductPrice](#ProductPrice)? |  yes  |  |
 
 ---
 
 
  
  
- #### [PromoMeta](#PromoMeta)
+ #### [ProductAvailability](#ProductAvailability)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
+ | outOfStock | Boolean? |  yes  |  |
+ | otherStoreQuantity | Integer? |  yes  |  |
+ | isValid | Boolean? |  yes  |  |
+ | deliverable | Boolean? |  yes  |  |
+ | sizes | ArrayList<String>? |  yes  |  |
 
 ---
 
 
  
  
- #### [CartProductIdentifer](#CartProductIdentifer)
+ #### [DiscountRulesApp](#DiscountRulesApp)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | identifier | String? |  yes  | Article idenfier generated by cart |
+ | rawOffer | HashMap<String,Object>? |  yes  | raw offer details for promotion |
+ | offer | HashMap<String,Object>? |  yes  | offer for promotion |
+ | matchedBuyRules | ArrayList<String>? |  yes  | Matched buy rules for promotion |
+ | itemCriteria | HashMap<String,Object>? |  yes  | Item criteria of promotion |
+
+---
+
+
+ 
+ 
+ #### [FreeGiftItem](#FreeGiftItem)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | itemSlug | String? |  yes  | item slug |
+ | itemId | Integer? |  yes  | Item id |
+ | itemPriceDetails | HashMap<String,Object>? |  yes  | item price details |
+ | itemBrandName | String? |  yes  | item brand name |
+ | itemName | String? |  yes  | Item name |
+ | itemImagesUrl | ArrayList<String>? |  yes  | item images URL |
+
+---
+
+
+ 
+ 
+ #### [AppliedFreeArticles](#AppliedFreeArticles)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | quantity | Integer? |  yes  | Free article quantity |
+ | freeGiftItemDetails | [FreeGiftItem](#FreeGiftItem)? |  yes  | Free gift items details |
+ | articleId | String? |  yes  | free article id |
+ | parentItemIdentifier | String? |  yes  | Parent item identifier for free article |
+
+---
+
+
+ 
+ 
+ #### [BuyRules](#BuyRules)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | cartConditions | HashMap<String,Object>? |  yes  | Cart conditions details for promotion |
+ | itemCriteria | HashMap<String,Object>? |  yes  | Item criteria of promotion |
+
+---
+
+
+ 
+ 
+ #### [AppliedPromotion](#AppliedPromotion)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | promotionName | String? |  yes  | Promotion name of current promotion |
+ | discountRules | ArrayList<[DiscountRulesApp](#DiscountRulesApp)>? |  yes  | Discount rules for promotions |
+ | promoId | String? |  yes  | Promotion id |
+ | amount | Double? |  yes  | Per unit discount amount applied with current promotion |
+ | appliedFreeArticles | ArrayList<[AppliedFreeArticles](#AppliedFreeArticles)>? |  yes  | Applied free article for free gift item promotions |
+ | mrpPromotion | Boolean? |  yes  | If applied promotion is applied on product MRP or ESP |
+ | articleQuantity | Integer? |  yes  | Quantity of article on which promotion is applicable |
+ | promotionType | String? |  yes  | Promotion type of current promotion |
+ | buyRules | ArrayList<[BuyRules](#BuyRules)>? |  yes  | Buy rules for promotions |
+ | promotionGroup | String? |  yes  | Promotion group for the promotion |
+ | offerText | String? |  yes  | Offer text of current promotion |
 
 ---
 
@@ -4728,54 +4710,8 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | uid | Integer? |  yes  |  |
  | name | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [BasePrice](#BasePrice)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | currencyCode | String? |  yes  |  |
- | currencySymbol | String? |  yes  |  |
- | effective | Double? |  yes  |  |
- | marked | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [ArticlePriceInfo](#ArticlePriceInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | converted | [BasePrice](#BasePrice)? |  yes  |  |
- | base | [BasePrice](#BasePrice)? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductArticle](#ProductArticle)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | uid | String? |  yes  |  |
- | type | String? |  yes  |  |
- | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
- | size | String? |  yes  |  |
- | store | [BaseInfo](#BaseInfo)? |  yes  |  |
- | quantity | Integer? |  yes  |  |
- | productGroupTags | ArrayList<String>? |  yes  |  |
- | price | [ArticlePriceInfo](#ArticlePriceInfo)? |  yes  |  |
- | extraMeta | HashMap<String,Object>? |  yes  |  |
- | seller | [BaseInfo](#BaseInfo)? |  yes  |  |
+ | uid | Integer? |  yes  |  |
 
 ---
 
@@ -4797,9 +4733,9 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | query | [ActionQuery](#ActionQuery)? |  yes  |  |
  | type | String? |  yes  |  |
  | url | String? |  yes  |  |
+ | query | [ActionQuery](#ActionQuery)? |  yes  |  |
 
 ---
 
@@ -4810,8 +4746,8 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | uid | Integer? |  yes  | Product Category Id |
  | name | String? |  yes  |  |
+ | uid | Integer? |  yes  | Product Category Id |
 
 ---
 
@@ -4822,9 +4758,9 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | secureUrl | String? |  yes  |  |
  | aspectRatio | String? |  yes  |  |
  | url | String? |  yes  |  |
- | secureUrl | String? |  yes  |  |
 
 ---
 
@@ -4835,106 +4771,82 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | slug | String? |  yes  | Unique product url name generated via product name and other meta data |
+ | brand | [BaseInfo](#BaseInfo)? |  yes  |  |
+ | name | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
- | type | String? |  yes  |  |
  | action | [ProductAction](#ProductAction)? |  yes  |  |
  | categories | ArrayList<[CategoryInfo](#CategoryInfo)>? |  yes  |  |
+ | type | String? |  yes  |  |
  | images | ArrayList<[ProductImage](#ProductImage)>? |  yes  |  |
- | slug | String? |  yes  | Unique product url name generated via product name and other meta data |
- | name | String? |  yes  |  |
- | brand | [BaseInfo](#BaseInfo)? |  yes  |  |
 
 ---
 
 
  
  
- #### [ProductAvailability](#ProductAvailability)
+ #### [BasePrice](#BasePrice)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isValid | Boolean? |  yes  |  |
- | sizes | ArrayList<String>? |  yes  |  |
- | otherStoreQuantity | Integer? |  yes  |  |
- | outOfStock | Boolean? |  yes  |  |
- | deliverable | Boolean? |  yes  |  |
+ | currencyCode | String? |  yes  |  |
+ | marked | Double? |  yes  |  |
+ | currencySymbol | String? |  yes  |  |
+ | effective | Double? |  yes  |  |
 
 ---
 
 
  
  
- #### [BuyRules](#BuyRules)
+ #### [ArticlePriceInfo](#ArticlePriceInfo)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | itemCriteria | HashMap<String,Object>? |  yes  | Item criteria of promotion |
- | cartConditions | HashMap<String,Object>? |  yes  | Cart conditions details for promotion |
+ | base | [BasePrice](#BasePrice)? |  yes  |  |
+ | converted | [BasePrice](#BasePrice)? |  yes  |  |
 
 ---
 
 
  
  
- #### [FreeGiftItem](#FreeGiftItem)
+ #### [ProductArticle](#ProductArticle)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | itemSlug | String? |  yes  | item slug |
- | itemPriceDetails | HashMap<String,Object>? |  yes  | item price details |
- | itemId | Integer? |  yes  | Item id |
- | itemBrandName | String? |  yes  | item brand name |
- | itemName | String? |  yes  | Item name |
- | itemImagesUrl | ArrayList<String>? |  yes  | item images URL |
+ | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
+ | size | String? |  yes  |  |
+ | productGroupTags | ArrayList<String>? |  yes  |  |
+ | store | [BaseInfo](#BaseInfo)? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
+ | seller | [BaseInfo](#BaseInfo)? |  yes  |  |
+ | type | String? |  yes  |  |
+ | price | [ArticlePriceInfo](#ArticlePriceInfo)? |  yes  |  |
 
 ---
 
 
  
  
- #### [AppliedFreeArticles](#AppliedFreeArticles)
+ #### [CartProductIdentifer](#CartProductIdentifer)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | articleId | String? |  yes  | free article id |
- | freeGiftItemDetails | [FreeGiftItem](#FreeGiftItem)? |  yes  | Free gift items details |
- | parentItemIdentifier | String? |  yes  | Parent item identifier for free article |
- | quantity | Integer? |  yes  | Free article quantity |
+ | identifier | String? |  yes  | Article idenfier generated by cart |
 
 ---
 
 
  
  
- #### [DiscountRulesApp](#DiscountRulesApp)
+ #### [PromoMeta](#PromoMeta)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | offer | HashMap<String,Object>? |  yes  | offer for promotion |
- | itemCriteria | HashMap<String,Object>? |  yes  | Item criteria of promotion |
- | rawOffer | HashMap<String,Object>? |  yes  | raw offer details for promotion |
- | matchedBuyRules | ArrayList<String>? |  yes  | Matched buy rules for promotion |
-
----
-
-
- 
- 
- #### [AppliedPromotion](#AppliedPromotion)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | promotionGroup | String? |  yes  | Promotion group for the promotion |
- | amount | Double? |  yes  | Per unit discount amount applied with current promotion |
- | buyRules | ArrayList<[BuyRules](#BuyRules)>? |  yes  | Buy rules for promotions |
- | promotionType | String? |  yes  | Promotion type of current promotion |
- | appliedFreeArticles | ArrayList<[AppliedFreeArticles](#AppliedFreeArticles)>? |  yes  | Applied free article for free gift item promotions |
- | articleQuantity | Integer? |  yes  | Quantity of article on which promotion is applicable |
- | promoId | String? |  yes  | Promotion id |
- | discountRules | ArrayList<[DiscountRulesApp](#DiscountRulesApp)>? |  yes  | Discount rules for promotions |
- | mrpPromotion | Boolean? |  yes  | If applied promotion is applied on product MRP or ESP |
- | offerText | String? |  yes  | Offer text of current promotion |
- | promotionName | String? |  yes  | Promotion name of current promotion |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -4946,21 +4858,110 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
- | discount | String? |  yes  |  |
- | couponMessage | String? |  yes  |  |
  | pricePerUnit | [ProductPriceInfo](#ProductPriceInfo)? |  yes  |  |
- | bulkOffer | HashMap<String,Object>? |  yes  |  |
- | promoMeta | [PromoMeta](#PromoMeta)? |  yes  |  |
- | key | String? |  yes  |  |
  | quantity | Integer? |  yes  |  |
- | identifiers | [CartProductIdentifer](#CartProductIdentifer) |  no  |  |
- | message | String? |  yes  |  |
- | price | [ProductPriceInfo](#ProductPriceInfo)? |  yes  |  |
- | article | [ProductArticle](#ProductArticle)? |  yes  |  |
- | product | [CartProduct](#CartProduct)? |  yes  |  |
+ | discount | String? |  yes  |  |
+ | bulkOffer | HashMap<String,Object>? |  yes  |  |
+ | couponMessage | String? |  yes  |  |
  | availability | [ProductAvailability](#ProductAvailability)? |  yes  |  |
  | promotionsApplied | ArrayList<[AppliedPromotion](#AppliedPromotion)>? |  yes  |  |
+ | message | String? |  yes  |  |
+ | product | [CartProduct](#CartProduct)? |  yes  |  |
+ | article | [ProductArticle](#ProductArticle)? |  yes  |  |
+ | identifiers | [CartProductIdentifer](#CartProductIdentifer) |  no  |  |
+ | promoMeta | [PromoMeta](#PromoMeta)? |  yes  |  |
+ | key | String? |  yes  |  |
+ | price | [ProductPriceInfo](#ProductPriceInfo)? |  yes  |  |
  | isSet | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DisplayBreakup](#DisplayBreakup)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | display | String? |  yes  |  |
+ | currencyCode | String? |  yes  |  |
+ | currencySymbol | String? |  yes  |  |
+ | value | Double? |  yes  |  |
+ | message | ArrayList<String>? |  yes  |  |
+ | key | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RawBreakup](#RawBreakup)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | gstCharges | Double? |  yes  |  |
+ | mrpTotal | Double? |  yes  |  |
+ | youSaved | Double? |  yes  |  |
+ | deliveryCharge | Double? |  yes  |  |
+ | convenienceFee | Double? |  yes  |  |
+ | fyndCash | Double? |  yes  |  |
+ | coupon | Double? |  yes  |  |
+ | discount | Double? |  yes  |  |
+ | total | Double? |  yes  |  |
+ | codCharge | Double? |  yes  |  |
+ | subtotal | Double? |  yes  |  |
+ | vog | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CouponBreakup](#CouponBreakup)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | maxDiscountValue | Double? |  yes  |  |
+ | isApplied | Boolean? |  yes  |  |
+ | minimumCartValue | Double? |  yes  |  |
+ | subTitle | String? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | code | String? |  yes  |  |
+ | value | Double? |  yes  |  |
+ | description | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | couponType | String? |  yes  |  |
+ | couponValue | Double? |  yes  |  |
+ | type | String? |  yes  |  |
+ | title | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LoyaltyPoints](#LoyaltyPoints)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | isApplied | Boolean? |  yes  |  |
+ | description | String? |  yes  |  |
+ | applicable | Double? |  yes  |  |
+ | total | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CartBreakup](#CartBreakup)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | display | ArrayList<[DisplayBreakup](#DisplayBreakup)>? |  yes  |  |
+ | raw | [RawBreakup](#RawBreakup)? |  yes  |  |
+ | coupon | [CouponBreakup](#CouponBreakup)? |  yes  |  |
+ | loyaltyPoints | [LoyaltyPoints](#LoyaltyPoints)? |  yes  |  |
 
 ---
 
@@ -4971,10 +4972,10 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
  | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
- | message | String? |  yes  |  |
  | isValid | Boolean? |  yes  |  |
+ | message | String? |  yes  |  |
+ | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
 
 ---
 
@@ -4986,8 +4987,8 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | success | Boolean? |  yes  |  |
- | errors | HashMap<String,Object>? |  yes  | Contains field name which has error as key and error message as value |
  | message | String? |  yes  |  |
+ | errors | HashMap<String,Object>? |  yes  | Contains field name which has error as key and error message as value |
 
 ---
 
@@ -4999,20 +5000,20 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | phone | Integer? |  yes  |  |
- | addressType | String? |  yes  |  |
- | pincode | Integer? |  yes  |  |
- | country | String? |  yes  |  |
- | address | String? |  yes  |  |
- | countryCode | String? |  yes  |  |
- | landmark | String? |  yes  |  |
- | state | String? |  yes  |  |
- | city | String? |  yes  |  |
- | areaCodeSlug | String? |  yes  |  |
- | name | String? |  yes  |  |
  | email | String? |  yes  |  |
  | areaCode | String |  no  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
+ | areaCodeSlug | String? |  yes  |  |
  | area | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | addressType | String? |  yes  |  |
+ | state | String? |  yes  |  |
+ | countryCode | String? |  yes  |  |
+ | landmark | String? |  yes  |  |
+ | pincode | Integer? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | country | String? |  yes  |  |
+ | address | String? |  yes  |  |
+ | city | String? |  yes  |  |
 
 ---
 
@@ -5023,20 +5024,8 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | shippingAddress | [ShippingAddress](#ShippingAddress) |  no  |  |
  | cartItems | [CartItem](#CartItem)? |  yes  |  |
-
----
-
-
- 
- 
- #### [PromiseTimestamp](#PromiseTimestamp)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | min | Double? |  yes  |  |
- | max | Double? |  yes  |  |
+ | shippingAddress | [ShippingAddress](#ShippingAddress) |  no  |  |
 
 ---
 
@@ -5047,8 +5036,20 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | min | String? |  yes  |  |
  | max | String? |  yes  |  |
+ | min | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PromiseTimestamp](#PromiseTimestamp)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | max | Double? |  yes  |  |
+ | min | Double? |  yes  |  |
 
 ---
 
@@ -5059,8 +5060,8 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | timestamp | [PromiseTimestamp](#PromiseTimestamp)? |  yes  |  |
  | formatted | [PromiseFormatted](#PromiseFormatted)? |  yes  |  |
+ | timestamp | [PromiseTimestamp](#PromiseTimestamp)? |  yes  |  |
 
 ---
 
@@ -5073,9 +5074,9 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
  | ---------- | ---- | -------- | ----------- |
  | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
  | isValid | Boolean? |  yes  |  |
- | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
  | message | String? |  yes  |  |
  | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
+ | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
 
 ---
 
@@ -5086,11 +5087,11 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | currentStatus | String? |  yes  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
  | paymentGateway | String? |  yes  |  |
  | orderId | String? |  yes  |  |
  | paymentId | String? |  yes  |  |
- | extraMeta | HashMap<String,Object>? |  yes  |  |
- | currentStatus | String? |  yes  |  |
 
 ---
 
@@ -5101,22 +5102,10 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | mode | String |  no  |  |
- | name | String? |  yes  | Payment mode name |
  | meta | [MultiTenderPaymentMeta](#MultiTenderPaymentMeta)? |  yes  |  |
+ | name | String? |  yes  | Payment mode name |
  | amount | Double |  no  | Payment amount |
-
----
-
-
- 
- 
- #### [CartItemMeta](#CartItemMeta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | primaryItem | Boolean? |  yes  |  |
- | groupId | String? |  yes  |  |
+ | mode | String |  no  |  |
 
 ---
 
@@ -5135,27 +5124,39 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  
  
+ #### [CartItemMeta](#CartItemMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | groupId | String? |  yes  |  |
+ | primaryItem | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [OpenApiOrderItem](#OpenApiOrderItem)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | cashbackApplied | Double |  no  |  |
- | amountPaid | Double |  no  |  |
+ | deliveryCharges | Double |  no  |  |
+ | productId | Integer |  no  |  |
+ | priceMarked | Double |  no  |  |
+ | codCharges | Double |  no  |  |
+ | paymentMethods | ArrayList<[MultiTenderPaymentMethod](#MultiTenderPaymentMethod)> |  no  |  |
  | priceEffective | Double |  no  |  |
- | couponEffectiveDiscount | Double |  no  |  |
+ | employeeDiscount | Double? |  yes  |  |
+ | size | String |  no  |  |
+ | quantity | Integer? |  yes  |  |
  | discount | Double |  no  |  |
  | loyaltyDiscount | Double? |  yes  |  |
- | paymentMethods | ArrayList<[MultiTenderPaymentMethod](#MultiTenderPaymentMethod)> |  no  |  |
- | codCharges | Double |  no  |  |
- | size | String |  no  |  |
- | productId | Integer |  no  |  |
- | quantity | Integer? |  yes  |  |
- | deliveryCharges | Double |  no  |  |
- | employeeDiscount | Double? |  yes  |  |
- | meta | [CartItemMeta](#CartItemMeta)? |  yes  |  |
- | extraMeta | HashMap<String,Object>? |  yes  |  |
  | files | ArrayList<[OpenApiFiles](#OpenApiFiles)>? |  yes  |  |
- | priceMarked | Double |  no  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
+ | cashbackApplied | Double |  no  |  |
+ | amountPaid | Double |  no  |  |
+ | meta | [CartItemMeta](#CartItemMeta)? |  yes  |  |
+ | couponEffectiveDiscount | Double |  no  |  |
 
 ---
 
@@ -5166,26 +5167,26 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | deliveryCharges | Double |  no  |  |
+ | currencyCode | String? |  yes  |  |
+ | codCharges | Double |  no  |  |
+ | paymentMethods | ArrayList<[MultiTenderPaymentMethod](#MultiTenderPaymentMethod)> |  no  |  |
+ | cartItems | ArrayList<[OpenApiOrderItem](#OpenApiOrderItem)> |  no  |  |
+ | coupon | String? |  yes  |  |
+ | affiliateOrderId | String? |  yes  |  |
+ | shippingAddress | [ShippingAddress](#ShippingAddress)? |  yes  |  |
  | cashbackApplied | Double |  no  |  |
+ | paymentMode | String? |  yes  |  |
+ | cartValue | Double |  no  |  |
+ | gstin | String? |  yes  |  |
+ | employeeDiscount | HashMap<String,Object>? |  yes  |  |
  | billingAddress | [ShippingAddress](#ShippingAddress) |  no  |  |
  | loyaltyDiscount | Double? |  yes  |  |
- | gstin | String? |  yes  |  |
- | affiliateOrderId | String? |  yes  |  |
+ | couponCode | String |  no  |  |
+ | files | ArrayList<[OpenApiFiles](#OpenApiFiles)>? |  yes  |  |
  | comment | String? |  yes  |  |
  | orderId | String? |  yes  |  |
- | couponCode | String |  no  |  |
- | cartValue | Double |  no  |  |
- | employeeDiscount | HashMap<String,Object>? |  yes  |  |
- | paymentMode | String? |  yes  |  |
  | couponValue | Double |  no  |  |
- | paymentMethods | ArrayList<[MultiTenderPaymentMethod](#MultiTenderPaymentMethod)> |  no  |  |
- | codCharges | Double |  no  |  |
- | currencyCode | String? |  yes  |  |
- | coupon | String? |  yes  |  |
- | deliveryCharges | Double |  no  |  |
- | shippingAddress | [ShippingAddress](#ShippingAddress)? |  yes  |  |
- | cartItems | ArrayList<[OpenApiOrderItem](#OpenApiOrderItem)> |  no  |  |
- | files | ArrayList<[OpenApiFiles](#OpenApiFiles)>? |  yes  |  |
 
 ---
 
@@ -5197,8 +5198,8 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | orderId | String |  no  | Fynd order id |
- | success | Boolean? |  yes  |  |
  | orderRefId | String? |  yes  | Order id sent in request |
+ | success | Boolean? |  yes  |  |
  | message | String? |  yes  |  |
 
 ---
@@ -5210,39 +5211,39 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | bulkCouponDiscount | Double? |  yes  |  |
- | articles | ArrayList<HashMap<String,Object>> |  no  |  |
+ | deliveryCharges | HashMap<String,Object>? |  yes  |  |
+ | codCharges | HashMap<String,Object>? |  yes  |  |
+ | paymentMethods | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | coupon | HashMap<String,Object>? |  yes  |  |
+ | shipments | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | uid | Integer |  no  |  |
  | checkoutMode | String? |  yes  |  |
+ | payments | HashMap<String,Object>? |  yes  |  |
+ | cashback | HashMap<String,Object> |  no  |  |
+ | buyNow | Boolean? |  yes  |  |
+ | discount | Double? |  yes  |  |
  | id | String |  no  |  |
- | orderId | String? |  yes  |  |
+ | comment | String? |  yes  |  |
  | pickUpCustomerDetails | HashMap<String,Object>? |  yes  |  |
+ | fcIndexMap | ArrayList<Integer>? |  yes  |  |
+ | fyndCredits | HashMap<String,Object>? |  yes  |  |
+ | mergeQty | Boolean? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | orderId | String? |  yes  |  |
+ | expireAt | String |  no  |  |
+ | isArchive | Boolean? |  yes  |  |
+ | lastModified | String |  no  |  |
+ | createdOn | String |  no  |  |
+ | isDefault | Boolean |  no  |  |
+ | articles | ArrayList<HashMap<String,Object>> |  no  |  |
  | cartValue | Double? |  yes  |  |
  | paymentMode | String? |  yes  |  |
- | paymentMethods | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | discount | Double? |  yes  |  |
- | lastModified | String |  no  |  |
- | coupon | HashMap<String,Object>? |  yes  |  |
- | userId | String |  no  |  |
- | deliveryCharges | HashMap<String,Object>? |  yes  |  |
- | payments | HashMap<String,Object>? |  yes  |  |
- | shipments | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | expireAt | String |  no  |  |
- | uid | Integer |  no  |  |
- | cashback | HashMap<String,Object> |  no  |  |
  | gstin | String? |  yes  |  |
- | fyndCredits | HashMap<String,Object>? |  yes  |  |
- | isDefault | Boolean |  no  |  |
- | comment | String? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | appId | String? |  yes  |  |
- | isArchive | Boolean? |  yes  |  |
- | fcIndexMap | ArrayList<Integer>? |  yes  |  |
- | createdOn | String |  no  |  |
- | promotion | HashMap<String,Object>? |  yes  |  |
- | codCharges | HashMap<String,Object>? |  yes  |  |
- | buyNow | Boolean? |  yes  |  |
- | mergeQty | Boolean? |  yes  |  |
  | isActive | Boolean? |  yes  |  |
+ | promotion | HashMap<String,Object>? |  yes  |  |
+ | userId | String |  no  |  |
+ | bulkCouponDiscount | Double? |  yes  |  |
+ | appId | String? |  yes  |  |
 
 ---
 
@@ -5253,11 +5254,11 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | page | [Page](#Page)? |  yes  |  |
  | success | Boolean? |  yes  | the request success is defined |
  | result | HashMap<String,Object>? |  yes  |  |
  | message | String? |  yes  | message of the response |
  | items | ArrayList<[AbandonedCart](#AbandonedCart)>? |  yes  |  |
+ | page | [Page](#Page)? |  yes  |  |
 
 ---
 
@@ -5268,17 +5269,17 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | itemId | Integer? |  yes  |  |
  | display | String? |  yes  |  |
  | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
- | itemSize | String? |  yes  |  |
- | pos | Boolean? |  yes  |  |
- | itemId | Integer? |  yes  |  |
- | sellerId | Integer? |  yes  |  |
- | quantity | Integer? |  yes  |  |
- | storeId | Integer? |  yes  |  |
  | articleAssignment | HashMap<String,Object>? |  yes  |  |
- | articleId | String? |  yes  |  |
+ | itemSize | String? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
  | productGroupTags | ArrayList<String>? |  yes  |  |
+ | sellerId | Integer? |  yes  |  |
+ | storeId | Integer? |  yes  |  |
+ | articleId | String? |  yes  |  |
+ | pos | Boolean? |  yes  |  |
  | extraMeta | HashMap<String,Object>? |  yes  |  |
 
 ---
@@ -5297,19 +5298,6 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  
  
- #### [PaymentSelectionLock](#PaymentSelectionLock)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | paymentIdentifier | String? |  yes  |  |
- | defaultOptions | String? |  yes  |  |
- | enabled | Boolean? |  yes  |  |
-
----
-
-
- 
- 
  #### [CartCurrency](#CartCurrency)
 
  | Properties | Type | Nullable | Description |
@@ -5322,26 +5310,39 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  
  
+ #### [PaymentSelectionLock](#PaymentSelectionLock)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | paymentIdentifier | String? |  yes  |  |
+ | enabled | Boolean? |  yes  |  |
+ | defaultOptions | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [CartDetailResponse](#CartDetailResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
- | id | String? |  yes  |  |
  | gstin | String? |  yes  |  |
+ | buyNow | Boolean? |  yes  |  |
  | restrictCheckout | Boolean? |  yes  |  |
  | lastModified | String? |  yes  |  |
- | buyNow | Boolean? |  yes  |  |
+ | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
+ | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
+ | couponText | String? |  yes  |  |
+ | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
+ | comment | String? |  yes  |  |
  | checkoutMode | String? |  yes  |  |
  | isValid | Boolean? |  yes  |  |
- | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
- | comment | String? |  yes  |  |
- | couponText | String? |  yes  |  |
- | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
  | message | String? |  yes  |  |
- | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
- | deliveryChargeInfo | String? |  yes  |  |
  | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
+ | deliveryChargeInfo | String? |  yes  |  |
+ | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
+ | id | String? |  yes  |  |
 
 ---
 
@@ -5352,9 +5353,9 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | partial | Boolean? |  yes  | When adding multiple items check if all added. True if only few are added. |
- | success | Boolean? |  yes  | True if all items are added successfully. False if partially added or not added. |
  | cart | [CartDetailResponse](#CartDetailResponse)? |  yes  |  |
+ | success | Boolean? |  yes  | True if all items are added successfully. False if partially added or not added. |
+ | partial | Boolean? |  yes  | When adding multiple items check if all added. True if only few are added. |
  | message | String? |  yes  |  |
 
 ---
@@ -5366,14 +5367,14 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | itemId | Integer? |  yes  |  |
  | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
  | itemSize | String? |  yes  |  |
- | itemIndex | Integer? |  yes  |  |
- | itemId | Integer? |  yes  |  |
  | quantity | Integer? |  yes  |  |
  | articleId | String? |  yes  |  |
- | identifiers | [CartProductIdentifer](#CartProductIdentifer) |  no  |  |
+ | itemIndex | Integer? |  yes  |  |
  | extraMeta | HashMap<String,Object>? |  yes  |  |
+ | identifiers | [CartProductIdentifer](#CartProductIdentifer) |  no  |  |
 
 ---
 
@@ -5384,8 +5385,8 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | operation | String |  no  |  |
  | items | ArrayList<[UpdateProductCart](#UpdateProductCart)>? |  yes  |  |
+ | operation | String |  no  |  |
 
 ---
 
@@ -5396,8 +5397,8 @@ Success. Updates and returns a cart object as shown below. Refer `UpdateCartDeta
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  | True if all items are added successfully. False if partially added or not added. |
  | cart | [CartDetailResponse](#CartDetailResponse)? |  yes  |  |
+ | success | Boolean? |  yes  | True if all items are added successfully. False if partially added or not added. |
  | message | String? |  yes  |  |
 
 ---

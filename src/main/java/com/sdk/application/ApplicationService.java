@@ -1708,12 +1708,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode ) throws IOException {
+    public ApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode , String iin , String network , String type ) throws IOException {
      
       String fullUrl = relativeUrls.get("validateCouponForPayment");
         
 
-        Response<ApplicationModels.PaymentCouponValidate> response = cartApiList.validateCouponForPayment(fullUrl  ,id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode).execute();
+        Response<ApplicationModels.PaymentCouponValidate> response = cartApiList.validateCouponForPayment(fullUrl  ,id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode, iin, network, type).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -4807,12 +4807,14 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.cardDetailsResponse cardDetails(ApplicationModels.cardDetailsRequest body) throws IOException {
+    public ApplicationModels.cardDetailsResponse cardDetails(String cardBin , String aggregator ) throws IOException {
      
       String fullUrl = relativeUrls.get("cardDetails");
         
+        fullUrl = fullUrl.replace("{" + "card_bin" +"}",cardBin.toString());
+        
 
-        Response<ApplicationModels.cardDetailsResponse> response = paymentApiList.cardDetails(fullUrl , body).execute();
+        Response<ApplicationModels.cardDetailsResponse> response = paymentApiList.cardDetails(fullUrl  ,aggregator).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -6125,12 +6127,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode ) throws IOException {
+    public ApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode , String iin , String network , String type ) throws IOException {
      
       String fullUrl = relativeUrls.get("validateCouponForPayment");
         
 
-        Response<ApplicationModels.PaymentCouponValidate> response = poscartApiList.validateCouponForPayment(fullUrl  ,id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode).execute();
+        Response<ApplicationModels.PaymentCouponValidate> response = poscartApiList.validateCouponForPayment(fullUrl  ,id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode, iin, network, type).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

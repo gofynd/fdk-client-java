@@ -2425,9 +2425,9 @@ Successfully updateShipmentStatus!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | value | Integer? |  yes  |  |
- | display | String? |  yes  |  |
  | isSelected | Boolean? |  yes  |  |
+ | display | String? |  yes  |  |
+ | value | Integer? |  yes  |  |
 
 ---
 
@@ -2445,195 +2445,13 @@ Successfully updateShipmentStatus!
 
  
  
- #### [OrderPage](#OrderPage)
+ #### [NestedTrackingDetails](#NestedTrackingDetails)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
- | current | Integer? |  yes  |  |
- | hasNext | Boolean? |  yes  |  |
- | itemTotal | Integer? |  yes  |  |
- | size | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserInfo](#UserInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | mobile | String? |  yes  |  |
- | gender | String? |  yes  |  |
- | email | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [BreakupValues](#BreakupValues)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | value | Double? |  yes  |  |
- | display | String? |  yes  |  |
- | name | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Prices](#Prices)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | amountPaidRoundoff | Double? |  yes  |  |
- | cashback | Double? |  yes  |  |
- | couponValue | Double? |  yes  |  |
- | transferPrice | Double? |  yes  |  |
- | amountPaid | Double? |  yes  |  |
- | discount | Double? |  yes  |  |
- | gstTaxPercentage | Double? |  yes  |  |
- | fyndCredits | Double? |  yes  |  |
- | codCharges | Double? |  yes  |  |
- | priceMarked | Double? |  yes  |  |
- | refundCredit | Double? |  yes  |  |
- | addedToFyndCash | Boolean? |  yes  |  |
- | promotionEffectiveDiscount | Double? |  yes  |  |
- | cashbackApplied | Double? |  yes  |  |
- | priceEffective | Double? |  yes  |  |
- | refundAmount | Double? |  yes  |  |
- | valueOfGood | Double? |  yes  |  |
- | deliveryCharge | Double? |  yes  |  |
- | brandCalculatedAmount | Double? |  yes  |  |
- | couponEffectiveDiscount | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [AppliedFreeArticles](#AppliedFreeArticles)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | parentItemIdentifier | String? |  yes  |  |
- | quantity | Double? |  yes  |  |
- | articleId | String? |  yes  |  |
- | freeGiftItemDetails | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [AppliedPromos](#AppliedPromos)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | promoId | String? |  yes  |  |
- | mrpPromotion | Boolean? |  yes  |  |
- | appliedFreeArticles | ArrayList<[AppliedFreeArticles](#AppliedFreeArticles)>? |  yes  |  |
- | amount | Double? |  yes  |  |
- | articleQuantity | Double? |  yes  |  |
- | promotionType | String? |  yes  |  |
- | promotionName | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Identifiers](#Identifiers)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | ean | String? |  yes  |  |
- | skuCode | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [FinancialBreakup](#FinancialBreakup)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | amountPaidRoundoff | Double? |  yes  |  |
- | hsnCode | String? |  yes  |  |
- | cashback | Double? |  yes  |  |
- | couponValue | Double? |  yes  |  |
- | transferPrice | Double? |  yes  |  |
- | amountPaid | Double? |  yes  |  |
- | gstTag | String? |  yes  |  |
- | discount | Double? |  yes  |  |
- | gstTaxPercentage | Double? |  yes  |  |
- | fyndCredits | Double? |  yes  |  |
- | codCharges | Double? |  yes  |  |
- | priceMarked | Double? |  yes  |  |
- | refundCredit | Double? |  yes  |  |
- | totalUnits | Integer? |  yes  |  |
- | itemName | String? |  yes  |  |
- | promotionEffectiveDiscount | Double? |  yes  |  |
- | addedToFyndCash | Boolean? |  yes  |  |
- | identifiers | [Identifiers](#Identifiers)? |  yes  |  |
- | cashbackApplied | Double? |  yes  |  |
- | gstFee | Double? |  yes  |  |
- | priceEffective | Double? |  yes  |  |
- | refundAmount | Double? |  yes  |  |
- | valueOfGood | Double? |  yes  |  |
- | deliveryCharge | Double? |  yes  |  |
- | brandCalculatedAmount | Double? |  yes  |  |
- | size | String? |  yes  |  |
- | couponEffectiveDiscount | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [ItemBrand](#ItemBrand)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | logo | String? |  yes  |  |
- | name | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Item](#Item)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | image | ArrayList<String>? |  yes  |  |
- | brand | [ItemBrand](#ItemBrand)? |  yes  |  |
- | code | String? |  yes  |  |
- | id | Double? |  yes  |  |
- | name | String? |  yes  |  |
- | size | String? |  yes  |  |
- | sellerIdentifier | String? |  yes  |  |
- | slugKey | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [CurrentStatus](#CurrentStatus)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | journeyType | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | name | String? |  yes  |  |
+ | isCurrent | Boolean? |  yes  |  |
+ | isPassed | Boolean? |  yes  |  |
+ | time | String? |  yes  |  |
  | status | String? |  yes  |  |
 
 ---
@@ -2641,24 +2459,15 @@ Successfully updateShipmentStatus!
 
  
  
- #### [Bags](#Bags)
+ #### [TrackingDetails](#TrackingDetails)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | prices | [Prices](#Prices)? |  yes  |  |
- | lineNumber | Integer? |  yes  |  |
- | appliedPromos | ArrayList<[AppliedPromos](#AppliedPromos)>? |  yes  |  |
- | deliveryDate | String? |  yes  |  |
- | financialBreakup | ArrayList<[FinancialBreakup](#FinancialBreakup)>? |  yes  |  |
- | canReturn | Boolean? |  yes  |  |
- | returnableDate | String? |  yes  |  |
- | canCancel | Boolean? |  yes  |  |
- | quantity | Integer? |  yes  |  |
- | parentPromoBags | HashMap<String,Object>? |  yes  |  |
- | item | [Item](#Item)? |  yes  |  |
- | sellerIdentifier | String? |  yes  |  |
- | currentStatus | [CurrentStatus](#CurrentStatus)? |  yes  |  |
- | id | Integer? |  yes  |  |
+ | isCurrent | Boolean? |  yes  |  |
+ | status | String? |  yes  |  |
+ | trackingDetails | ArrayList<[NestedTrackingDetails](#NestedTrackingDetails)>? |  yes  |  |
+ | isPassed | Boolean? |  yes  |  |
+ | time | String? |  yes  |  |
 
 ---
 
@@ -2670,22 +2479,9 @@ Successfully updateShipmentStatus!
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | mobile | String? |  yes  |  |
- | gender | String? |  yes  |  |
- | firstName | String? |  yes  |  |
  | lastName | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Invoice](#Invoice)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | updatedDate | String? |  yes  |  |
- | labelUrl | String? |  yes  |  |
- | invoiceUrl | String? |  yes  |  |
+ | firstName | String? |  yes  |  |
+ | gender | String? |  yes  |  |
 
 ---
 
@@ -2696,11 +2492,24 @@ Successfully updateShipmentStatus!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | code | String? |  yes  |  |
- | companyName | String? |  yes  |  |
- | name | String? |  yes  |  |
  | companyId | Integer? |  yes  |  |
+ | code | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | companyName | String? |  yes  |  |
  | id | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Invoice](#Invoice)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | invoiceUrl | String? |  yes  |  |
+ | labelUrl | String? |  yes  |  |
+ | updatedDate | String? |  yes  |  |
 
 ---
 
@@ -2731,59 +2540,181 @@ Successfully updateShipmentStatus!
 
  
  
- #### [ShipmentTotalDetails](#ShipmentTotalDetails)
+ #### [Prices](#Prices)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sizes | Integer? |  yes  |  |
- | pieces | Integer? |  yes  |  |
- | totalPrice | Double? |  yes  |  |
+ | valueOfGood | Double? |  yes  |  |
+ | priceMarked | Double? |  yes  |  |
+ | refundAmount | Double? |  yes  |  |
+ | refundCredit | Double? |  yes  |  |
+ | cashback | Double? |  yes  |  |
+ | transferPrice | Double? |  yes  |  |
+ | priceEffective | Double? |  yes  |  |
+ | brandCalculatedAmount | Double? |  yes  |  |
+ | amountPaid | Double? |  yes  |  |
+ | codCharges | Double? |  yes  |  |
+ | gstTaxPercentage | Double? |  yes  |  |
+ | discount | Double? |  yes  |  |
+ | cashbackApplied | Double? |  yes  |  |
+ | amountPaidRoundoff | Double? |  yes  |  |
+ | promotionEffectiveDiscount | Double? |  yes  |  |
+ | couponValue | Double? |  yes  |  |
+ | deliveryCharge | Double? |  yes  |  |
+ | addedToFyndCash | Boolean? |  yes  |  |
+ | fyndCredits | Double? |  yes  |  |
+ | couponEffectiveDiscount | Double? |  yes  |  |
 
 ---
 
 
  
  
- #### [DeliveryAddress](#DeliveryAddress)
+ #### [Identifiers](#Identifiers)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | address1 | String? |  yes  |  |
- | addressType | String? |  yes  |  |
- | longitude | Double? |  yes  |  |
- | email | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | landmark | String? |  yes  |  |
- | city | String? |  yes  |  |
- | address2 | String? |  yes  |  |
- | pincode | String? |  yes  |  |
- | phone | String? |  yes  |  |
- | area | String? |  yes  |  |
+ | ean | String? |  yes  |  |
+ | skuCode | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [FinancialBreakup](#FinancialBreakup)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | totalUnits | Integer? |  yes  |  |
+ | identifiers | [Identifiers](#Identifiers)? |  yes  |  |
+ | gstFee | Double? |  yes  |  |
+ | valueOfGood | Double? |  yes  |  |
+ | hsnCode | String? |  yes  |  |
+ | priceMarked | Double? |  yes  |  |
+ | refundAmount | Double? |  yes  |  |
+ | refundCredit | Double? |  yes  |  |
+ | cashback | Double? |  yes  |  |
+ | transferPrice | Double? |  yes  |  |
+ | itemName | String? |  yes  |  |
+ | priceEffective | Double? |  yes  |  |
+ | brandCalculatedAmount | Double? |  yes  |  |
+ | amountPaid | Double? |  yes  |  |
+ | codCharges | Double? |  yes  |  |
+ | size | String? |  yes  |  |
+ | gstTaxPercentage | Double? |  yes  |  |
+ | gstTag | String? |  yes  |  |
+ | discount | Double? |  yes  |  |
+ | cashbackApplied | Double? |  yes  |  |
+ | amountPaidRoundoff | Double? |  yes  |  |
+ | promotionEffectiveDiscount | Double? |  yes  |  |
+ | couponValue | Double? |  yes  |  |
+ | deliveryCharge | Double? |  yes  |  |
+ | addedToFyndCash | Boolean? |  yes  |  |
+ | fyndCredits | Double? |  yes  |  |
+ | couponEffectiveDiscount | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [AppliedFreeArticles](#AppliedFreeArticles)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | parentItemIdentifier | String? |  yes  |  |
+ | freeGiftItemDetails | HashMap<String,Object>? |  yes  |  |
+ | articleId | String? |  yes  |  |
+ | quantity | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [AppliedPromos](#AppliedPromos)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | promotionName | String? |  yes  |  |
+ | amount | Double? |  yes  |  |
+ | promoId | String? |  yes  |  |
+ | promotionType | String? |  yes  |  |
+ | appliedFreeArticles | ArrayList<[AppliedFreeArticles](#AppliedFreeArticles)>? |  yes  |  |
+ | articleQuantity | Double? |  yes  |  |
+ | mrpPromotion | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ItemBrand](#ItemBrand)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
  | name | String? |  yes  |  |
- | contactPerson | String? |  yes  |  |
- | latitude | Double? |  yes  |  |
- | addressCategory | String? |  yes  |  |
- | country | String? |  yes  |  |
- | address | String? |  yes  |  |
- | state | String? |  yes  |  |
- | version | String? |  yes  |  |
- | createdAt | String? |  yes  |  |
+ | logo | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [ShipmentPayment](#ShipmentPayment)
+ #### [Item](#Item)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | logo | String? |  yes  |  |
- | mop | String? |  yes  |  |
- | paymentMode | String? |  yes  |  |
+ | l1Categories | ArrayList<String>? |  yes  |  |
+ | id | Double? |  yes  |  |
+ | code | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | sellerIdentifier | String? |  yes  |  |
+ | l2Categories | ArrayList<String>? |  yes  |  |
+ | image | ArrayList<String>? |  yes  |  |
+ | size | String? |  yes  |  |
+ | slugKey | String? |  yes  |  |
+ | l3CategoryName | String? |  yes  |  |
+ | brand | [ItemBrand](#ItemBrand)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CurrentStatus](#CurrentStatus)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
  | status | String? |  yes  |  |
- | mode | String? |  yes  |  |
- | displayName | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
+ | journeyType | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Bags](#Bags)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | Integer? |  yes  |  |
+ | lineNumber | Integer? |  yes  |  |
+ | deliveryDate | String? |  yes  |  |
+ | prices | [Prices](#Prices)? |  yes  |  |
+ | financialBreakup | ArrayList<[FinancialBreakup](#FinancialBreakup)>? |  yes  |  |
+ | canReturn | Boolean? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | parentPromoBags | HashMap<String,Object>? |  yes  |  |
+ | canCancel | Boolean? |  yes  |  |
+ | sellerIdentifier | String? |  yes  |  |
+ | appliedPromos | ArrayList<[AppliedPromos](#AppliedPromos)>? |  yes  |  |
+ | item | [Item](#Item)? |  yes  |  |
+ | returnableDate | String? |  yes  |  |
+ | currentStatus | [CurrentStatus](#CurrentStatus)? |  yes  |  |
 
 ---
 
@@ -2802,6 +2733,49 @@ Successfully updateShipmentStatus!
 
  
  
+ #### [DeliveryAddress](#DeliveryAddress)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | address1 | String? |  yes  |  |
+ | country | String? |  yes  |  |
+ | area | String? |  yes  |  |
+ | landmark | String? |  yes  |  |
+ | contactPerson | String? |  yes  |  |
+ | state | String? |  yes  |  |
+ | addressType | String? |  yes  |  |
+ | address | String? |  yes  |  |
+ | address2 | String? |  yes  |  |
+ | phone | String? |  yes  |  |
+ | createdAt | String? |  yes  |  |
+ | addressCategory | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | latitude | Double? |  yes  |  |
+ | longitude | Double? |  yes  |  |
+ | pincode | String? |  yes  |  |
+ | version | String? |  yes  |  |
+ | city | String? |  yes  |  |
+ | email | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ShipmentTotalDetails](#ShipmentTotalDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | totalPrice | Double? |  yes  |  |
+ | pieces | Integer? |  yes  |  |
+ | sizes | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [ShipmentStatus](#ShipmentStatus)
 
  | Properties | Type | Nullable | Description |
@@ -2814,29 +2788,29 @@ Successfully updateShipmentStatus!
 
  
  
- #### [NestedTrackingDetails](#NestedTrackingDetails)
+ #### [BreakupValues](#BreakupValues)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | status | String? |  yes  |  |
- | isCurrent | Boolean? |  yes  |  |
- | isPassed | Boolean? |  yes  |  |
- | time | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | display | String? |  yes  |  |
+ | value | Double? |  yes  |  |
 
 ---
 
 
  
  
- #### [TrackingDetails](#TrackingDetails)
+ #### [ShipmentPayment](#ShipmentPayment)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isCurrent | Boolean? |  yes  |  |
  | status | String? |  yes  |  |
- | isPassed | Boolean? |  yes  |  |
- | trackingDetails | ArrayList<[NestedTrackingDetails](#NestedTrackingDetails)>? |  yes  |  |
- | time | String? |  yes  |  |
+ | paymentMode | String? |  yes  |  |
+ | mop | String? |  yes  |  |
+ | mode | String? |  yes  |  |
+ | displayName | String? |  yes  |  |
+ | logo | String? |  yes  |  |
 
 ---
 
@@ -2847,41 +2821,41 @@ Successfully updateShipmentStatus!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | bags | ArrayList<[Bags](#Bags)>? |  yes  |  |
- | userInfo | [ShipmentUserInfo](#ShipmentUserInfo)? |  yes  |  |
- | showTrackLink | Boolean? |  yes  |  |
- | breakupValues | ArrayList<[BreakupValues](#BreakupValues)>? |  yes  |  |
- | canCancel | Boolean? |  yes  |  |
- | invoice | [Invoice](#Invoice)? |  yes  |  |
- | orderType | String? |  yes  |  |
- | prices | [Prices](#Prices)? |  yes  |  |
- | deliveryDate | String? |  yes  |  |
- | awbNo | String? |  yes  |  |
- | fulfillingStore | [FulfillingStore](#FulfillingStore)? |  yes  |  |
+ | dpName | String? |  yes  |  |
  | shipmentId | String? |  yes  |  |
- | showDownloadInvoice | Boolean? |  yes  |  |
+ | orderType | String? |  yes  |  |
+ | canReturn | Boolean? |  yes  |  |
+ | trackingDetails | ArrayList<[TrackingDetails](#TrackingDetails)>? |  yes  |  |
+ | canBreak | HashMap<String,Object>? |  yes  |  |
+ | userInfo | [ShipmentUserInfo](#ShipmentUserInfo)? |  yes  |  |
+ | fulfillingStore | [FulfillingStore](#FulfillingStore)? |  yes  |  |
+ | awbNo | String? |  yes  |  |
+ | invoice | [Invoice](#Invoice)? |  yes  |  |
+ | totalBags | Integer? |  yes  |  |
+ | trakingNo | String? |  yes  |  |
  | promise | [Promise](#Promise)? |  yes  |  |
+ | showDownloadInvoice | Boolean? |  yes  |  |
+ | bags | ArrayList<[Bags](#Bags)>? |  yes  |  |
+ | fulfillingCompany | [FulfillingCompany](#FulfillingCompany)? |  yes  |  |
  | refundDetails | HashMap<String,Object>? |  yes  |  |
  | trackUrl | String? |  yes  |  |
- | trakingNo | String? |  yes  |  |
- | totalDetails | [ShipmentTotalDetails](#ShipmentTotalDetails)? |  yes  |  |
- | returnableDate | String? |  yes  |  |
  | deliveryAddress | [DeliveryAddress](#DeliveryAddress)? |  yes  |  |
- | payment | [ShipmentPayment](#ShipmentPayment)? |  yes  |  |
- | totalBags | Integer? |  yes  |  |
- | comment | String? |  yes  |  |
- | beneficiaryDetails | Boolean? |  yes  |  |
- | orderId | String? |  yes  |  |
+ | prices | [Prices](#Prices)? |  yes  |  |
  | shipmentCreatedAt | String? |  yes  |  |
- | sizeInfo | HashMap<String,Object>? |  yes  |  |
- | canBreak | HashMap<String,Object>? |  yes  |  |
- | canReturn | Boolean? |  yes  |  |
- | customMeta | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | fulfillingCompany | [FulfillingCompany](#FulfillingCompany)? |  yes  |  |
+ | totalDetails | [ShipmentTotalDetails](#ShipmentTotalDetails)? |  yes  |  |
+ | beneficiaryDetails | Boolean? |  yes  |  |
+ | canCancel | Boolean? |  yes  |  |
+ | showTrackLink | Boolean? |  yes  |  |
  | shipmentStatus | [ShipmentStatus](#ShipmentStatus)? |  yes  |  |
- | dpName | String? |  yes  |  |
- | trackingDetails | ArrayList<[TrackingDetails](#TrackingDetails)>? |  yes  |  |
+ | breakupValues | ArrayList<[BreakupValues](#BreakupValues)>? |  yes  |  |
+ | returnableDate | String? |  yes  |  |
+ | payment | [ShipmentPayment](#ShipmentPayment)? |  yes  |  |
+ | customMeta | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | comment | String? |  yes  |  |
+ | deliveryDate | String? |  yes  |  |
+ | sizeInfo | HashMap<String,Object>? |  yes  |  |
  | needHelpUrl | String? |  yes  |  |
+ | orderId | String? |  yes  |  |
 
 ---
 
@@ -2906,10 +2880,24 @@ Successfully updateShipmentStatus!
  | ---------- | ---- | -------- | ----------- |
  | itemId | Integer? |  yes  |  |
  | itemSize | String? |  yes  |  |
- | storeId | Integer? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
  | sellerId | Integer? |  yes  |  |
  | articleAssignment | [BagsForReorderArticleAssignment](#BagsForReorderArticleAssignment)? |  yes  |  |
- | quantity | Integer? |  yes  |  |
+ | storeId | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UserInfo](#UserInfo)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | mobile | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | gender | String? |  yes  |  |
+ | email | String? |  yes  |  |
 
 ---
 
@@ -2920,13 +2908,28 @@ Successfully updateShipmentStatus!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | totalShipmentsInOrder | Integer? |  yes  |  |
- | userInfo | [UserInfo](#UserInfo)? |  yes  |  |
- | breakupValues | ArrayList<[BreakupValues](#BreakupValues)>? |  yes  |  |
  | shipments | ArrayList<[Shipments](#Shipments)>? |  yes  |  |
  | bagsForReorder | ArrayList<[BagsForReorder](#BagsForReorder)>? |  yes  |  |
+ | breakupValues | ArrayList<[BreakupValues](#BreakupValues)>? |  yes  |  |
+ | userInfo | [UserInfo](#UserInfo)? |  yes  |  |
  | orderCreatedTime | String? |  yes  |  |
+ | totalShipmentsInOrder | Integer? |  yes  |  |
  | orderId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OrderPage](#OrderPage)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | type | String? |  yes  |  |
+ | hasNext | Boolean? |  yes  |  |
+ | itemTotal | Integer? |  yes  |  |
+ | size | Integer? |  yes  |  |
+ | current | Integer? |  yes  |  |
 
 ---
 
@@ -2938,8 +2941,8 @@ Successfully updateShipmentStatus!
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | filters | [OrderFilters](#OrderFilters)? |  yes  |  |
- | page | [OrderPage](#OrderPage)? |  yes  |  |
  | items | ArrayList<[OrderSchema](#OrderSchema)>? |  yes  |  |
+ | page | [OrderPage](#OrderPage)? |  yes  |  |
 
 ---
 
@@ -2950,8 +2953,8 @@ Successfully updateShipmentStatus!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
  | message | String? |  yes  |  |
+ | success | Boolean? |  yes  |  |
 
 ---
 
@@ -2984,10 +2987,10 @@ Successfully updateShipmentStatus!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean |  no  |  |
  | presignedType | String |  no  |  |
- | presignedUrl | String |  no  |  |
  | shipmentId | String |  no  |  |
+ | presignedUrl | String |  no  |  |
+ | success | Boolean |  no  |  |
 
 ---
 
@@ -2998,14 +3001,14 @@ Successfully updateShipmentStatus!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | awb | String? |  yes  |  |
  | shipmentType | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | status | String? |  yes  |  |
- | reason | String? |  yes  |  |
- | updatedTime | String? |  yes  |  |
  | accountName | String? |  yes  |  |
+ | status | String? |  yes  |  |
+ | updatedTime | String? |  yes  |  |
+ | reason | String? |  yes  |  |
+ | awb | String? |  yes  |  |
  | lastLocationRecievedAt | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
 
 ---
 
@@ -3027,10 +3030,10 @@ Successfully updateShipmentStatus!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | country | String? |  yes  |  |
  | phone | String? |  yes  |  |
- | shipmentId | String? |  yes  |  |
  | name | String? |  yes  |  |
+ | shipmentId | String? |  yes  |  |
+ | country | String? |  yes  |  |
  | orderId | String? |  yes  |  |
 
 ---
@@ -3042,10 +3045,10 @@ Successfully updateShipmentStatus!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
- | requestId | String? |  yes  |  |
  | message | String? |  yes  |  |
+ | requestId | String? |  yes  |  |
  | resendTimer | Integer? |  yes  |  |
+ | success | Boolean? |  yes  |  |
 
 ---
 
@@ -3056,8 +3059,8 @@ Successfully updateShipmentStatus!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | otpCode | String? |  yes  |  |
  | requestId | String? |  yes  |  |
+ | otpCode | String? |  yes  |  |
 
 ---
 
@@ -3103,11 +3106,11 @@ Successfully updateShipmentStatus!
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | meta | [BagReasonMeta](#BagReasonMeta)? |  yes  |  |
- | qcType | ArrayList<String>? |  yes  |  |
- | displayName | String? |  yes  |  |
  | questionSet | ArrayList<[QuestionSet](#QuestionSet)>? |  yes  |  |
  | reasons | ArrayList<[BagReasons](#BagReasons)>? |  yes  |  |
+ | displayName | String? |  yes  |  |
  | id | Integer? |  yes  |  |
+ | qcType | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -3118,8 +3121,8 @@ Successfully updateShipmentStatus!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
  | reasons | ArrayList<[BagReasons](#BagReasons)>? |  yes  |  |
+ | success | Boolean? |  yes  |  |
 
 ---
 
@@ -3131,11 +3134,11 @@ Successfully updateShipmentStatus!
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | flow | String? |  yes  |  |
- | showTextArea | Boolean? |  yes  |  |
  | feedbackType | String? |  yes  |  |
+ | showTextArea | Boolean? |  yes  |  |
+ | reasonId | Integer? |  yes  |  |
  | reasonText | String? |  yes  |  |
  | priority | Integer? |  yes  |  |
- | reasonId | Integer? |  yes  |  |
 
 ---
 
@@ -3153,37 +3156,13 @@ Successfully updateShipmentStatus!
 
  
  
- #### [ProductsReasonsData](#ProductsReasonsData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | reasonId | Integer? |  yes  |  |
- | reasonText | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductsReasonsFilters](#ProductsReasonsFilters)
+ #### [Products](#Products)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | identifier | String? |  yes  |  |
  | lineNumber | Integer? |  yes  |  |
  | quantity | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductsReasons](#ProductsReasons)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | data | [ProductsReasonsData](#ProductsReasonsData)? |  yes  |  |
- | filters | ArrayList<[ProductsReasonsFilters](#ProductsReasonsFilters)>? |  yes  |  |
 
 ---
 
@@ -3206,8 +3185,45 @@ Successfully updateShipmentStatus!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | [EntityReasonData](#EntityReasonData)? |  yes  |  |
  | filters | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | data | [EntityReasonData](#EntityReasonData)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductsReasonsFilters](#ProductsReasonsFilters)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | identifier | String? |  yes  |  |
+ | lineNumber | Integer? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductsReasonsData](#ProductsReasonsData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | reasonId | Integer? |  yes  |  |
+ | reasonText | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductsReasons](#ProductsReasons)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | filters | ArrayList<[ProductsReasonsFilters](#ProductsReasonsFilters)>? |  yes  |  |
+ | data | [ProductsReasonsData](#ProductsReasonsData)? |  yes  |  |
 
 ---
 
@@ -3218,21 +3234,20 @@ Successfully updateShipmentStatus!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | products | ArrayList<[ProductsReasons](#ProductsReasons)>? |  yes  |  |
  | entities | ArrayList<[EntitiesReasons](#EntitiesReasons)>? |  yes  |  |
+ | products | ArrayList<[ProductsReasons](#ProductsReasons)>? |  yes  |  |
 
 ---
 
 
  
  
- #### [Products](#Products)
+ #### [EntitiesDataUpdates](#EntitiesDataUpdates)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | identifier | String? |  yes  |  |
- | lineNumber | Integer? |  yes  |  |
- | quantity | Integer? |  yes  |  |
+ | filters | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | data | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -3255,20 +3270,8 @@ Successfully updateShipmentStatus!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | HashMap<String,Object>? |  yes  |  |
  | filters | ArrayList<[ProductsDataUpdatesFilters](#ProductsDataUpdatesFilters)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [EntitiesDataUpdates](#EntitiesDataUpdates)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
  | data | HashMap<String,Object>? |  yes  |  |
- | filters | ArrayList<HashMap<String,Object>>? |  yes  |  |
 
 ---
 
@@ -3279,8 +3282,8 @@ Successfully updateShipmentStatus!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | products | ArrayList<[ProductsDataUpdates](#ProductsDataUpdates)>? |  yes  |  |
  | entities | ArrayList<[EntitiesDataUpdates](#EntitiesDataUpdates)>? |  yes  |  |
+ | products | ArrayList<[ProductsDataUpdates](#ProductsDataUpdates)>? |  yes  |  |
 
 ---
 
@@ -3292,8 +3295,8 @@ Successfully updateShipmentStatus!
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | identifier | String |  no  |  |
- | reasons | [ReasonsData](#ReasonsData)? |  yes  |  |
  | products | ArrayList<[Products](#Products)>? |  yes  |  |
+ | reasons | [ReasonsData](#ReasonsData)? |  yes  |  |
  | dataUpdates | [DataUpdates](#DataUpdates)? |  yes  |  |
 
 ---
@@ -3305,8 +3308,8 @@ Successfully updateShipmentStatus!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | excludeBagsNextState | String? |  yes  |  |
  | shipments | ArrayList<[ShipmentsRequest](#ShipmentsRequest)>? |  yes  |  |
+ | excludeBagsNextState | String? |  yes  |  |
  | status | String? |  yes  |  |
 
 ---
@@ -3318,10 +3321,10 @@ Successfully updateShipmentStatus!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | lockAfterTransition | Boolean? |  yes  |  |
- | forceTransition | Boolean? |  yes  |  |
  | task | Boolean? |  yes  |  |
  | statuses | ArrayList<[StatuesRequest](#StatuesRequest)>? |  yes  |  |
+ | forceTransition | Boolean? |  yes  |  |
+ | lockAfterTransition | Boolean? |  yes  |  |
  | unlockBeforeTransition | Boolean? |  yes  |  |
 
 ---

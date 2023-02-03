@@ -154,7 +154,7 @@ interface CartApiList {
     Call<ApplicationModels.CartDetailResponse> selectPaymentMode(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.UpdateCartPaymentRequest payload );
     
     @GET 
-    Call<ApplicationModels.PaymentCouponValidate> validateCouponForPayment(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode );
+    Call<ApplicationModels.PaymentCouponValidate> validateCouponForPayment(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode , @Query("iin") String iin , @Query("network") String network , @Query("type") String type );
     
     @GET 
     Call<ApplicationModels.CartShipmentsResponse> getShipments(@Url String url1, @Query("p") Boolean p , @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("area_code") String areaCode );
@@ -556,8 +556,8 @@ interface PaymentApiList {
     @POST 
     Call<ApplicationModels.ValidateVPAResponse> validateVPA(@Url String url1 , @Body ApplicationModels.ValidateVPARequest payload );
     
-    @POST 
-    Call<ApplicationModels.cardDetailsResponse> cardDetails(@Url String url1 , @Body ApplicationModels.cardDetailsRequest payload );
+    @GET 
+    Call<ApplicationModels.cardDetailsResponse> cardDetails(@Url String url1, @Query("aggregator") String aggregator );
     
     @GET 
     Call<ApplicationModels.TransferModeResponse> getActiveRefundTransferModes(@Url String url1);
@@ -749,7 +749,7 @@ interface PosCartApiList {
     Call<ApplicationModels.CartDetailResponse> selectPaymentMode(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.UpdateCartPaymentRequest payload );
     
     @GET 
-    Call<ApplicationModels.PaymentCouponValidate> validateCouponForPayment(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode );
+    Call<ApplicationModels.PaymentCouponValidate> validateCouponForPayment(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode , @Query("iin") String iin , @Query("network") String network , @Query("type") String type );
     
     @GET 
     Call<ApplicationModels.CartShipmentsResponse> getShipments(@Url String url1, @Query("pick_at_store_uid") Integer pickAtStoreUid , @Query("ordering_store_id") Integer orderingStoreId , @Query("p") Boolean p , @Query("id") String id , @Query("address_id") String addressId , @Query("area_code") String areaCode , @Query("order_type") String orderType );
