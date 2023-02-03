@@ -670,7 +670,7 @@ interface RewardsApiList {
     Call<ApplicationModels.CatalogueOrderResponse> catalogueOrder(@Url String url1 , @Body ApplicationModels.CatalogueOrderRequest payload );
     
     @GET 
-    Call<ApplicationModels.PointsHistoryResponse> getPointsHistory(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
+    Call<ApplicationModels.PointsHistoryResponse> getUserPointsHistory(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
     @GET 
     Call<ApplicationModels.PointsResponse> getUserPoints(@Url String url1);

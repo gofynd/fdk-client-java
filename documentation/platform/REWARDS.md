@@ -16,7 +16,7 @@ Earn and redeem reward points
 * [updateOfferByName](#updateofferbyname)
 * [updateUserStatus](#updateuserstatus)
 * [user](#user)
-* [getPointsHistory](#getpointshistory)
+* [getUserPointsHistory](#getuserpointshistory)
 
 
 
@@ -573,14 +573,14 @@ Success. Check example below or refer `UserRes` for more details.
 ---
 
 
-### getPointsHistory
+### getUserPointsHistory
 Get all transactions of reward points
 
 
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.getPointsHistory( userId,  pageId,  pageSize) {
+client.application("<APPLICATION_ID>").rewards.getUserPointsHistory( userId,  pageId,  pageSize) {
   //use response
 }
 ```

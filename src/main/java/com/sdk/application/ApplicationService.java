@@ -5480,7 +5480,7 @@ public class FileStorageService extends FileStorage {
             
                     relativeUrls.put("catalogueOrder","/service/application/rewards/v1.0/catalogue/offer/order/".substring(1));
             
-                    relativeUrls.put("getPointsHistory","/service/application/rewards/v1.0/user/points/history/".substring(1));
+                    relativeUrls.put("getUserPointsHistory","/service/application/rewards/v1.0/user/points/history/".substring(1));
             
                     relativeUrls.put("getUserPoints","/service/application/rewards/v1.0/user/points/".substring(1));
             
@@ -5546,12 +5546,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.PointsHistoryResponse getPointsHistory(String pageId , Integer pageSize ) throws IOException {
+    public ApplicationModels.PointsHistoryResponse getUserPointsHistory(String pageId , Integer pageSize ) throws IOException {
      
-      String fullUrl = relativeUrls.get("getPointsHistory");
+      String fullUrl = relativeUrls.get("getUserPointsHistory");
         
 
-        Response<ApplicationModels.PointsHistoryResponse> response = rewardsApiList.getPointsHistory(fullUrl  ,pageId, pageSize).execute();
+        Response<ApplicationModels.PointsHistoryResponse> response = rewardsApiList.getUserPointsHistory(fullUrl  ,pageId, pageSize).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5577,10 +5577,10 @@ public class FileStorageService extends FileStorage {
         
 
     /**
-    * Summary: get paginator for getPointsHistory
+    * Summary: get paginator for getUserPointsHistory
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<ApplicationModels.PointsHistoryResponse> getPointsHistoryPagination(
+    public Paginator<ApplicationModels.PointsHistoryResponse> getUserPointsHistoryPagination(
         
         Integer pageSize
         
@@ -5592,7 +5592,7 @@ public class FileStorageService extends FileStorage {
 
     paginator.setCallback(()-> {
         try {
-            ApplicationModels.PointsHistoryResponse callback = this.getPointsHistory(
+            ApplicationModels.PointsHistoryResponse callback = this.getUserPointsHistory(
                 
                  paginator.getNextId()
                 ,
