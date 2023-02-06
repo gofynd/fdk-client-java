@@ -610,6 +610,20 @@ Sucess Response, Presigned URL of NOC Pdf
  | ---------- | ---- | -------- | ----------- |
  | success | Boolean |  no  |  |
  | jobId | Double |  no  |  |
+ | traceId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SuccessResponseBulkStatus](#SuccessResponseBulkStatus)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean |  no  |  |
+ | status | String |  no  |  |
+ | traceId | String? |  yes  |  |
 
 ---
 
@@ -648,6 +662,10 @@ Sucess Response, Presigned URL of NOC Pdf
  | ---------- | ---- | -------- | ----------- |
  | success | Boolean |  no  |  |
  | message | String |  no  |  |
+ | requestId | String? |  yes  |  |
+ | exception | String? |  yes  |  |
+ | stackTrace | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -660,6 +678,44 @@ Sucess Response, Presigned URL of NOC Pdf
  | ---------- | ---- | -------- | ----------- |
  | success | Boolean |  no  |  |
  | message | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GenerateBulkShipment](#GenerateBulkShipment)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | uid | String |  no  |  |
+ | storeCode | String |  no  |  |
+ | batchId | String |  no  |  |
+ | documentType | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GenerateBulkUrl](#GenerateBulkUrl)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | expiresIn | Double? |  yes  |  |
+ | documentType | String |  no  |  |
+ | batchId | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GetBulkStatusRequest](#GetBulkStatusRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | batchId | String |  no  |  |
 
 ---
 
@@ -902,6 +958,21 @@ Sucess Response, Presigned URL of NOC Pdf
 
  
  
+ #### [BulkPresignedSuccessResponse](#BulkPresignedSuccessResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | String |  no  |  |
+ | batchId | String? |  yes  |  |
+ | presignedType | String? |  yes  |  |
+ | presignedUrl | String |  no  |  |
+ | expiresIn | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [SignedBadRequestResponse](#SignedBadRequestResponse)
 
  | Properties | Type | Nullable | Description |
@@ -1034,18 +1105,6 @@ Sucess Response, Presigned URL of NOC Pdf
  | documentType | String |  no  |  |
  | entityId | String |  no  |  |
  | expiresIn | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [OrderInvoiceEngineError](#OrderInvoiceEngineError)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
- | success | Boolean? |  yes  |  |
 
 ---
 
