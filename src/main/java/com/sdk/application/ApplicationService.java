@@ -71,9 +71,9 @@ public class ApplicationService {
             
                     relativeUrls.put("getFollowedListing","/service/application/catalog/v1.0/follow/{collection_type}/".substring(1));
             
-                    relativeUrls.put("unfollowById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
-            
                     relativeUrls.put("followById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
+            
+                    relativeUrls.put("unfollowById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
             
                     relativeUrls.put("getFollowerCountById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/".substring(1));
             
@@ -90,6 +90,10 @@ public class ApplicationService {
                     relativeUrls.put("getProductPriceBySlug","/service/application/catalog/v2.0/products/{slug}/sizes/{size}/price/".substring(1));
             
                     relativeUrls.put("getProductSellersBySlug","/service/application/catalog/v2.0/products/{slug}/sizes/{size}/sellers/".substring(1));
+            
+                    relativeUrls.put("getProductPriceBySlugV3","/service/application/catalog/v3.0/products/{slug}/sizes/{size}/price/".substring(1));
+            
+                    relativeUrls.put("getProductSellersBySlugV3","/service/application/catalog/v3.0/products/{slug}/sizes/{size}/sellers/".substring(1));
              
 
     }
@@ -901,16 +905,16 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
      
-      String fullUrl = relativeUrls.get("unfollowById");
+      String fullUrl = relativeUrls.get("followById");
         
         fullUrl = fullUrl.replace("{" + "collection_type" +"}",collectionType.toString());
         
         fullUrl = fullUrl.replace("{" + "collection_id" +"}",collectionId.toString());
         
 
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(fullUrl ).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -922,16 +926,16 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
      
-      String fullUrl = relativeUrls.get("followById");
+      String fullUrl = relativeUrls.get("unfollowById");
         
         fullUrl = fullUrl.replace("{" + "collection_type" +"}",collectionType.toString());
         
         fullUrl = fullUrl.replace("{" + "collection_id" +"}",collectionId.toString());
         
 
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(fullUrl ).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1207,7 +1211,7 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlug(String slug , String size , Integer storeId , String pincode , Integer moq ) throws IOException {
+    public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlug(String slug , String size , Integer storeId , String pincode ) throws IOException {
      
       String fullUrl = relativeUrls.get("getProductPriceBySlug");
         
@@ -1216,7 +1220,7 @@ public class ApplicationService {
         fullUrl = fullUrl.replace("{" + "size" +"}",size.toString());
         
 
-        Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlug(fullUrl  ,storeId, pincode, moq).execute();
+        Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlug(fullUrl  ,storeId, pincode).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1299,6 +1303,120 @@ public class ApplicationService {
     paginator.setCallback(()-> {
         try {
             ApplicationModels.ProductSizeSellersResponseV2 callback = this.getProductSellersBySlug(
+                
+                 slug,
+                 size,
+                 pincode,
+                 strategy,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    public ApplicationModels.ProductSizePriceResponseV3 getProductPriceBySlugV3(String slug , String size , Integer storeId , String pincode , Integer moq ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getProductPriceBySlugV3");
+        
+        fullUrl = fullUrl.replace("{" + "slug" +"}",slug.toString());
+        
+        fullUrl = fullUrl.replace("{" + "size" +"}",size.toString());
+        
+
+        Response<ApplicationModels.ProductSizePriceResponseV3> response = catalogApiList.getProductPriceBySlugV3(fullUrl  ,storeId, pincode, moq).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.ProductSizeSellersResponseV3 getProductSellersBySlugV3(String slug , String size , String pincode , String strategy , Integer pageNo , Integer pageSize ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getProductSellersBySlugV3");
+        
+        fullUrl = fullUrl.replace("{" + "slug" +"}",slug.toString());
+        
+        fullUrl = fullUrl.replace("{" + "size" +"}",size.toString());
+        
+
+        Response<ApplicationModels.ProductSizeSellersResponseV3> response = catalogApiList.getProductSellersBySlugV3(fullUrl  ,pincode, strategy, pageNo, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getProductSellersBySlugV3
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ApplicationModels.ProductSizeSellersResponseV3> getProductSellersBySlugV3Pagination(
+        
+        String slug,
+        String size,
+        String pincode,
+        String strategy,
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ApplicationModels.ProductSizeSellersResponseV3> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ApplicationModels.ProductSizeSellersResponseV3 callback = this.getProductSellersBySlugV3(
                 
                  slug,
                  size,
@@ -6270,7 +6388,9 @@ public class FileStorageService extends FileStorage {
             
                     relativeUrls.put("getPincodeZones","/service/application/logistics/v1.0/pincode/zones".substring(1));
             
-                    relativeUrls.put("upsertZoneControllerView","/service/application/logistics/v1.0/assign_stores".substring(1));
+                    relativeUrls.put("assignLocations","/service/application/logistics/v1.0/assign_stores".substring(1));
+            
+                    relativeUrls.put("getLocationDetails","/service/application/logistics/v1.0/location/{pincode}".substring(1));
              
 
     }
@@ -6345,16 +6465,31 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.AssignStoreResponse upsertZoneControllerView(Integer companyId , String applicationId ,ApplicationModels.AssignStoreRequest body) throws IOException {
+    public ApplicationModels.AssignStoreResponse assignLocations(ApplicationModels.AssignStoreRequest body) throws IOException {
      
-      String fullUrl = relativeUrls.get("upsertZoneControllerView");
-        
-        fullUrl = fullUrl.replace("{" + "company_id" +"}",companyId.toString());
-        
-        fullUrl = fullUrl.replace("{" + "application_id" +"}",applicationId.toString());
+      String fullUrl = relativeUrls.get("assignLocations");
         
 
-        Response<ApplicationModels.AssignStoreResponse> response = logisticApiList.upsertZoneControllerView(fullUrl , body).execute();
+        Response<ApplicationModels.AssignStoreResponse> response = logisticApiList.assignLocations(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.LocationApiResponse getLocationDetails(String pincode ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getLocationDetails");
+        
+        fullUrl = fullUrl.replace("{" + "pincode" +"}",pincode.toString());
+        
+
+        Response<ApplicationModels.LocationApiResponse> response = logisticApiList.getLocationDetails(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
