@@ -28654,11 +28654,31 @@ public static class LogisticService {
     
     
     
-    public PlatformModels.CompanyStoreView_Response getCompanyStoreView() throws FDKException {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.CompanyStoreView_Response getCompanyStoreView(Integer pageNumber , Integer pageSize , String zoneId , String enabled , String q ) throws FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CompanyStoreView_Response> response = null;
             try {
-                response = logisticApiList.getCompanyStoreView(this.companyId ).execute();
+                response = logisticApiList.getCompanyStoreView(this.companyId ,pageNumber , pageSize , zoneId , enabled , q ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKException(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

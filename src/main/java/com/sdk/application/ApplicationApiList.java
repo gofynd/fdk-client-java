@@ -790,8 +790,5 @@ interface LogisticApiList {
     
     @POST 
     Call<ApplicationModels.AssignStoreResponse> assignLocations(@Url String url1 , @Body ApplicationModels.AssignStoreRequest payload );
-    
-    @GET 
-    Call<ApplicationModels.LocationApiResponse> getLocationDetails(@Url String url1);
 }
 

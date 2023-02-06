@@ -8125,8 +8125,23 @@ interface LogisticApiList {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/all-stores")
-    Call<PlatformModels.CompanyStoreView_Response> getCompanyStoreView(@Path("company_id")  String companyId );
+    Call<PlatformModels.CompanyStoreView_Response> getCompanyStoreView(@Path("company_id")  String companyId , @Query("page_number") Integer  pageNumber ,  @Query("page_size") Integer  pageSize ,  @Query("zone_id") String  zoneId ,  @Query("enabled") String  enabled ,  @Query("q") String  q );
     
     
     

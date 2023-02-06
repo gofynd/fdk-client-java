@@ -6389,8 +6389,6 @@ public class FileStorageService extends FileStorage {
                     relativeUrls.put("getPincodeZones","/service/application/logistics/v1.0/pincode/zones".substring(1));
             
                     relativeUrls.put("assignLocations","/service/application/logistics/v1.0/assign_stores".substring(1));
-            
-                    relativeUrls.put("getLocationDetails","/service/application/logistics/v1.0/location/{pincode}".substring(1));
              
 
     }
@@ -6471,25 +6469,6 @@ public class FileStorageService extends FileStorage {
         
 
         Response<ApplicationModels.AssignStoreResponse> response = logisticApiList.assignLocations(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.LocationApiResponse getLocationDetails(String pincode ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getLocationDetails");
-        
-        fullUrl = fullUrl.replace("{" + "pincode" +"}",pincode.toString());
-        
-
-        Response<ApplicationModels.LocationApiResponse> response = logisticApiList.getLocationDetails(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
