@@ -71,9 +71,9 @@ public class ApplicationService {
             
                     relativeUrls.put("getFollowedListing","/service/application/catalog/v1.0/follow/{collection_type}/".substring(1));
             
-                    relativeUrls.put("unfollowById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
-            
                     relativeUrls.put("followById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
+            
+                    relativeUrls.put("unfollowById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
             
                     relativeUrls.put("getFollowerCountById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/".substring(1));
             
@@ -905,16 +905,16 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
      
-      String fullUrl = relativeUrls.get("unfollowById");
+      String fullUrl = relativeUrls.get("followById");
         
         fullUrl = fullUrl.replace("{" + "collection_type" +"}",collectionType.toString());
         
         fullUrl = fullUrl.replace("{" + "collection_id" +"}",collectionId.toString());
         
 
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(fullUrl ).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -926,16 +926,16 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
      
-      String fullUrl = relativeUrls.get("followById");
+      String fullUrl = relativeUrls.get("unfollowById");
         
         fullUrl = fullUrl.replace("{" + "collection_type" +"}",collectionType.toString());
         
         fullUrl = fullUrl.replace("{" + "collection_id" +"}",collectionId.toString());
         
 
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(fullUrl ).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5296,29 +5296,29 @@ public class FileStorageService extends FileStorage {
         this.orderApiList = generateOrderApiList(this.applicationConfig.getPersistentCookieStore());
 
            
-                    relativeUrls.put("getOrders","/service/application/order/v1.0/orders".substring(1));
+                    relativeUrls.put("getOrders","/service/application/orders/v1.0/orders".substring(1));
             
-                    relativeUrls.put("getOrderById","/service/application/order/v1.0/orders/{order_id}".substring(1));
+                    relativeUrls.put("getOrderById","/service/application/orders/v1.0/orders/{order_id}".substring(1));
             
-                    relativeUrls.put("getPosOrderById","/service/application/order/v1.0/orders/pos-order/{order_id}".substring(1));
+                    relativeUrls.put("getPosOrderById","/service/application/orders/v1.0/orders/pos-order/{order_id}".substring(1));
             
-                    relativeUrls.put("getShipmentById","/service/application/order/v1.0/orders/shipments/{shipment_id}".substring(1));
+                    relativeUrls.put("getShipmentById","/service/application/orders/v1.0/orders/shipments/{shipment_id}".substring(1));
             
-                    relativeUrls.put("getInvoiceByShipmentId","/service/application/order/v1.0/orders/shipments/{shipment_id}/invoice".substring(1));
+                    relativeUrls.put("getInvoiceByShipmentId","/service/application/orders/v1.0/orders/shipments/{shipment_id}/invoice".substring(1));
             
-                    relativeUrls.put("trackShipment","/service/application/order/v1.0/orders/shipments/{shipment_id}/track".substring(1));
+                    relativeUrls.put("trackShipment","/service/application/orders/v1.0/orders/shipments/{shipment_id}/track".substring(1));
             
-                    relativeUrls.put("getCustomerDetailsByShipmentId","/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/customer-details".substring(1));
+                    relativeUrls.put("getCustomerDetailsByShipmentId","/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/customer-details".substring(1));
             
-                    relativeUrls.put("sendOtpToShipmentCustomer","/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/send/".substring(1));
+                    relativeUrls.put("sendOtpToShipmentCustomer","/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/send/".substring(1));
             
-                    relativeUrls.put("verifyOtpShipmentCustomer","/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify/".substring(1));
+                    relativeUrls.put("verifyOtpShipmentCustomer","/service/application/orders/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify/".substring(1));
             
-                    relativeUrls.put("getShipmentBagReasons","/service/application/order/v1.0/orders/shipments/{shipment_id}/bags/{bag_id}/reasons".substring(1));
+                    relativeUrls.put("getShipmentBagReasons","/service/application/orders/v1.0/orders/shipments/{shipment_id}/bags/{bag_id}/reasons".substring(1));
             
-                    relativeUrls.put("getShipmentReasons","/service/application/order/v1.0/orders/shipments/{shipment_id}/reasons".substring(1));
+                    relativeUrls.put("getShipmentReasons","/service/application/orders/v1.0/orders/shipments/{shipment_id}/reasons".substring(1));
             
-                    relativeUrls.put("updateShipmentStatus","/service/application/order/v1.0/orders/shipments/{shipment_id}/status".substring(1));
+                    relativeUrls.put("updateShipmentStatus","/service/application/orders/v1.0/orders/shipments/{shipment_id}/status".substring(1));
              
 
     }
@@ -5598,13 +5598,13 @@ public class FileStorageService extends FileStorage {
             
                     relativeUrls.put("catalogueOrder","/service/application/rewards/v1.0/catalogue/offer/order/".substring(1));
             
-                    relativeUrls.put("getPointsHistory","/service/application/rewards/v1.0/user/points/history/".substring(1));
+                    relativeUrls.put("getUserPointsHistory","/service/application/rewards/v1.0/user/points/history/".substring(1));
             
-                    relativeUrls.put("getPoints","/service/application/rewards/v1.0/user/points/".substring(1));
+                    relativeUrls.put("getUserPoints","/service/application/rewards/v1.0/user/points/".substring(1));
             
-                    relativeUrls.put("referral","/service/application/rewards/v1.0/user/referral/".substring(1));
+                    relativeUrls.put("getUserReferralDetails","/service/application/rewards/v1.0/user/referral/".substring(1));
             
-                    relativeUrls.put("orderDiscount","/service/application/rewards/v1.0/user/offer/order-discount/".substring(1));
+                    relativeUrls.put("getOrderDiscount","/service/application/rewards/v1.0/user/offer/order-discount/".substring(1));
             
                     relativeUrls.put("redeemReferralCode","/service/application/rewards/v1.0/user/referral/redeem/".substring(1));
              
@@ -5664,12 +5664,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.PointsHistoryResponse getPointsHistory(String pageId , Integer pageSize ) throws IOException {
+    public ApplicationModels.PointsHistoryResponse getUserPointsHistory(String pageId , Integer pageSize ) throws IOException {
      
-      String fullUrl = relativeUrls.get("getPointsHistory");
+      String fullUrl = relativeUrls.get("getUserPointsHistory");
         
 
-        Response<ApplicationModels.PointsHistoryResponse> response = rewardsApiList.getPointsHistory(fullUrl  ,pageId, pageSize).execute();
+        Response<ApplicationModels.PointsHistoryResponse> response = rewardsApiList.getUserPointsHistory(fullUrl  ,pageId, pageSize).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5695,10 +5695,10 @@ public class FileStorageService extends FileStorage {
         
 
     /**
-    * Summary: get paginator for getPointsHistory
+    * Summary: get paginator for getUserPointsHistory
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<ApplicationModels.PointsHistoryResponse> getPointsHistoryPagination(
+    public Paginator<ApplicationModels.PointsHistoryResponse> getUserPointsHistoryPagination(
         
         Integer pageSize
         
@@ -5710,7 +5710,7 @@ public class FileStorageService extends FileStorage {
 
     paginator.setCallback(()-> {
         try {
-            ApplicationModels.PointsHistoryResponse callback = this.getPointsHistory(
+            ApplicationModels.PointsHistoryResponse callback = this.getUserPointsHistory(
                 
                  paginator.getNextId()
                 ,
@@ -5729,12 +5729,12 @@ public class FileStorageService extends FileStorage {
     }
     
     
-    public ApplicationModels.PointsResponse getPoints() throws IOException {
+    public ApplicationModels.PointsResponse getUserPoints() throws IOException {
      
-      String fullUrl = relativeUrls.get("getPoints");
+      String fullUrl = relativeUrls.get("getUserPoints");
         
 
-        Response<ApplicationModels.PointsResponse> response = rewardsApiList.getPoints(fullUrl ).execute();
+        Response<ApplicationModels.PointsResponse> response = rewardsApiList.getUserPoints(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5746,12 +5746,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.ReferralDetailsResponse referral() throws IOException {
+    public ApplicationModels.ReferralDetailsResponse getUserReferralDetails() throws IOException {
      
-      String fullUrl = relativeUrls.get("referral");
+      String fullUrl = relativeUrls.get("getUserReferralDetails");
         
 
-        Response<ApplicationModels.ReferralDetailsResponse> response = rewardsApiList.referral(fullUrl ).execute();
+        Response<ApplicationModels.ReferralDetailsResponse> response = rewardsApiList.getUserReferralDetails(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5763,12 +5763,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.OrderDiscountResponse orderDiscount(ApplicationModels.OrderDiscountRequest body) throws IOException {
+    public ApplicationModels.OrderDiscountResponse getOrderDiscount(ApplicationModels.OrderDiscountRequest body) throws IOException {
      
-      String fullUrl = relativeUrls.get("orderDiscount");
+      String fullUrl = relativeUrls.get("getOrderDiscount");
         
 
-        Response<ApplicationModels.OrderDiscountResponse> response = rewardsApiList.orderDiscount(fullUrl , body).execute();
+        Response<ApplicationModels.OrderDiscountResponse> response = rewardsApiList.getOrderDiscount(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

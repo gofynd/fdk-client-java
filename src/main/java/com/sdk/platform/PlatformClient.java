@@ -48,11 +48,11 @@ public class PlatformClient {
     
     public PlatformService.DiscountService discount;
     
-    public PlatformService.PartnerService partner;
-    
     public PlatformService.WebhookService webhook;
     
     public PlatformService.AuditTrailService auditTrail;
+    
+    public PlatformService.LogisticService logistic;
     
 
     public PlatformClient(PlatformConfig config)   
@@ -97,11 +97,11 @@ public class PlatformClient {
         
         this.discount = new PlatformService.DiscountService(config);
         
-        this.partner = new PlatformService.PartnerService(config);
-        
         this.webhook = new PlatformService.WebhookService(config);
         
         this.auditTrail = new PlatformService.AuditTrailService(config);
+        
+        this.logistic = new PlatformService.LogisticService(config);
         
     }
 
@@ -151,11 +151,11 @@ public class PlatformClient {
         
         public PlatformService.DiscountService.ApplicationClient discount;
         
-        public PlatformService.PartnerService.ApplicationClient partner;
-        
         public PlatformService.WebhookService.ApplicationClient webhook;
         
         public PlatformService.AuditTrailService.ApplicationClient auditTrail;
+        
+        public PlatformService.LogisticService.ApplicationClient logistic;
         
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
@@ -198,11 +198,11 @@ public class PlatformClient {
             
             this.discount = new PlatformService.DiscountService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.partner = new PlatformService.PartnerService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
             this.webhook = new PlatformService.WebhookService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.auditTrail = new PlatformService.AuditTrailService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.logistic = new PlatformService.LogisticService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
         }
 
