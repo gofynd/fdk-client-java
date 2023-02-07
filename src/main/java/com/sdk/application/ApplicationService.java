@@ -5539,13 +5539,13 @@ public class FileStorageService extends FileStorage {
             
                     relativeUrls.put("catalogueOrder","/service/application/rewards/v1.0/catalogue/offer/order/".substring(1));
             
-                    relativeUrls.put("getPointsHistory","/service/application/rewards/v1.0/user/points/history/".substring(1));
+                    relativeUrls.put("getUserPointsHistory","/service/application/rewards/v1.0/user/points/history/".substring(1));
             
-                    relativeUrls.put("getPoints","/service/application/rewards/v1.0/user/points/".substring(1));
+                    relativeUrls.put("getUserPoints","/service/application/rewards/v1.0/user/points/".substring(1));
             
-                    relativeUrls.put("referral","/service/application/rewards/v1.0/user/referral/".substring(1));
+                    relativeUrls.put("getUserReferralDetails","/service/application/rewards/v1.0/user/referral/".substring(1));
             
-                    relativeUrls.put("orderDiscount","/service/application/rewards/v1.0/user/offer/order-discount/".substring(1));
+                    relativeUrls.put("getOrderDiscount","/service/application/rewards/v1.0/user/offer/order-discount/".substring(1));
             
                     relativeUrls.put("redeemReferralCode","/service/application/rewards/v1.0/user/referral/redeem/".substring(1));
              
@@ -5605,12 +5605,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.PointsHistoryResponse getPointsHistory(String pageId , Integer pageSize ) throws IOException {
+    public ApplicationModels.PointsHistoryResponse getUserPointsHistory(String pageId , Integer pageSize ) throws IOException {
      
-      String fullUrl = relativeUrls.get("getPointsHistory");
+      String fullUrl = relativeUrls.get("getUserPointsHistory");
         
 
-        Response<ApplicationModels.PointsHistoryResponse> response = rewardsApiList.getPointsHistory(fullUrl  ,pageId, pageSize).execute();
+        Response<ApplicationModels.PointsHistoryResponse> response = rewardsApiList.getUserPointsHistory(fullUrl  ,pageId, pageSize).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5636,10 +5636,10 @@ public class FileStorageService extends FileStorage {
         
 
     /**
-    * Summary: get paginator for getPointsHistory
+    * Summary: get paginator for getUserPointsHistory
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<ApplicationModels.PointsHistoryResponse> getPointsHistoryPagination(
+    public Paginator<ApplicationModels.PointsHistoryResponse> getUserPointsHistoryPagination(
         
         Integer pageSize
         
@@ -5651,7 +5651,7 @@ public class FileStorageService extends FileStorage {
 
     paginator.setCallback(()-> {
         try {
-            ApplicationModels.PointsHistoryResponse callback = this.getPointsHistory(
+            ApplicationModels.PointsHistoryResponse callback = this.getUserPointsHistory(
                 
                  paginator.getNextId()
                 ,
@@ -5670,12 +5670,12 @@ public class FileStorageService extends FileStorage {
     }
     
     
-    public ApplicationModels.PointsResponse getPoints() throws IOException {
+    public ApplicationModels.PointsResponse getUserPoints() throws IOException {
      
-      String fullUrl = relativeUrls.get("getPoints");
+      String fullUrl = relativeUrls.get("getUserPoints");
         
 
-        Response<ApplicationModels.PointsResponse> response = rewardsApiList.getPoints(fullUrl ).execute();
+        Response<ApplicationModels.PointsResponse> response = rewardsApiList.getUserPoints(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5687,12 +5687,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.ReferralDetailsResponse referral() throws IOException {
+    public ApplicationModels.ReferralDetailsResponse getUserReferralDetails() throws IOException {
      
-      String fullUrl = relativeUrls.get("referral");
+      String fullUrl = relativeUrls.get("getUserReferralDetails");
         
 
-        Response<ApplicationModels.ReferralDetailsResponse> response = rewardsApiList.referral(fullUrl ).execute();
+        Response<ApplicationModels.ReferralDetailsResponse> response = rewardsApiList.getUserReferralDetails(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5704,12 +5704,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.OrderDiscountResponse orderDiscount(ApplicationModels.OrderDiscountRequest body) throws IOException {
+    public ApplicationModels.OrderDiscountResponse getOrderDiscount(ApplicationModels.OrderDiscountRequest body) throws IOException {
      
-      String fullUrl = relativeUrls.get("orderDiscount");
+      String fullUrl = relativeUrls.get("getOrderDiscount");
         
 
-        Response<ApplicationModels.OrderDiscountResponse> response = rewardsApiList.orderDiscount(fullUrl , body).execute();
+        Response<ApplicationModels.OrderDiscountResponse> response = rewardsApiList.getOrderDiscount(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
