@@ -226,7 +226,6 @@ Success
  | isShortlink | Boolean? |  yes  |  |
  | id | String? |  yes  |  |
  | name | String? |  yes  |  |
- | isPredefined | Boolean? |  yes  | Domain is hosting domain or not. |
 
 ---
 
