@@ -6751,6 +6751,7 @@ Success
  | appType | String? |  yes  | It shows application is live or in development mode. |
  | mobileLogo | [SecureUrl](#SecureUrl)? |  yes  |  |
  | domain | [Domain](#Domain)? |  yes  |  |
+ | slug | String? |  yes  | Unique slug for the sales channel |
 
 ---
 
@@ -6953,7 +6954,7 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | loc | String? |  yes  | Co-ordinates of the location |
  | addressLine | ArrayList<String>? |  yes  | Contact address of the sales channel |
- | phone | [InformationPhone](#InformationPhone)? |  yes  |  |
+ | phone | ArrayList<[InformationPhone](#InformationPhone)>? |  yes  |  |
  | city | String? |  yes  | Name of the city, e.g. Mumbai |
  | country | String? |  yes  | Name of the country, e.g. India |
  | pincode | Integer? |  yes  | 6-digit PIN Code of the city, e.g. 400001 |
@@ -7163,6 +7164,7 @@ Success
  | domain | [Domain](#Domain)? |  yes  |  |
  | domains | ArrayList<[Domain](#Domain)>? |  yes  |  |
  | id | String? |  yes  | The unique identifier (24-digit Mongo Object ID) for the sales channel details |
+ | slug | String? |  yes  | Unique slug for the sales channel |
 
 ---
 
