@@ -16,7 +16,7 @@ Earn and redeem reward points
 * [updateOfferByName](#updateofferbyname)
 * [updateUserStatus](#updateuserstatus)
 * [user](#user)
-* [getUserPointsHistory](#getuserpointshistory)
+* [getPointsHistory](#getpointshistory)
 
 
 
@@ -573,14 +573,14 @@ Success. Check example below or refer `UserRes` for more details.
 ---
 
 
-### getUserPointsHistory
+### getPointsHistory
 Get all transactions of reward points
 
 
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.getUserPointsHistory( userId,  pageId,  pageSize) {
+client.application("<APPLICATION_ID>").rewards.getPointsHistory( pageId,  pageSize,  userId) {
   //use response
 }
 ```
@@ -589,11 +589,11 @@ client.application("<APPLICATION_ID>").rewards.getUserPointsHistory( userId,  pa
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
+| pageId | String? | no | PageID is the ID of the requested page. For first request it should be kept empty. |   
+| pageSize | Integer? | no | The number of items to retrieve in each page. |   
 | userId | String | yes | user id |   
 | companyId | String | yes | company id |   
-| applicationId | String | yes | application id |   
-| pageId | String? | no | PageID is the ID of the requested page. For first request it should be kept empty. |   
-| pageSize | Integer? | no | The number of items to retrieve in each page. |  
+| applicationId | String | yes | application id |  
 
 
 
