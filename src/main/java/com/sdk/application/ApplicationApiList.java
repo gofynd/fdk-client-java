@@ -774,10 +774,13 @@ interface LogisticApiList {
     
     
     @GET 
-    Call<ApplicationModels.PincodeApiResponse> getPincodeCity(@Url String url1);
+    Call<ApplicationModels.PincodeApiResponse> getPincodeCity(@Url String url1, @Query("country_code") String countryCode );
     
     @POST 
     Call<ApplicationModels.TATViewResponse> getTatProduct(@Url String url1 , @Body ApplicationModels.TATViewRequest payload );
+    
+    @POST 
+    Call<ApplicationModels.EntityListResponse> getEntityList(@Url String url1, @Query("page") String page , @Query("limit") String limit  , @Body ApplicationModels.EntityListRequest payload );
     
     @POST 
     Call<ApplicationModels.GetZoneFromPincodeViewResponse> getPincodeZones(@Url String url1 , @Body ApplicationModels.GetZoneFromPincodeViewRequest payload );

@@ -6268,6 +6268,8 @@ public class FileStorageService extends FileStorage {
             
                     relativeUrls.put("getTatProduct","/service/application/logistics/v1.0/".substring(1));
             
+                    relativeUrls.put("getEntityList","/service/application/logistics/v1.0/entity-list".substring(1));
+            
                     relativeUrls.put("getPincodeZones","/service/application/logistics/v1.0/pincode/zones".substring(1));
             
                     relativeUrls.put("assignLocations","/service/application/logistics/v1.0/assign_stores".substring(1));
@@ -6292,14 +6294,14 @@ public class FileStorageService extends FileStorage {
 
      
     
-    public ApplicationModels.PincodeApiResponse getPincodeCity(String pincode ) throws IOException {
+    public ApplicationModels.PincodeApiResponse getPincodeCity(String pincode , String countryCode ) throws IOException {
      
       String fullUrl = relativeUrls.get("getPincodeCity");
         
         fullUrl = fullUrl.replace("{" + "pincode" +"}",pincode.toString());
         
 
-        Response<ApplicationModels.PincodeApiResponse> response = logisticApiList.getPincodeCity(fullUrl ).execute();
+        Response<ApplicationModels.PincodeApiResponse> response = logisticApiList.getPincodeCity(fullUrl  ,countryCode).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -6317,6 +6319,23 @@ public class FileStorageService extends FileStorage {
         
 
         Response<ApplicationModels.TATViewResponse> response = logisticApiList.getTatProduct(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.EntityListResponse getEntityList(String page , String limit ,ApplicationModels.EntityListRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getEntityList");
+        
+
+        Response<ApplicationModels.EntityListResponse> response = logisticApiList.getEntityList(fullUrl  ,page, limit, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
