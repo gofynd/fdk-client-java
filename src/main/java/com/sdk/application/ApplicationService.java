@@ -6306,7 +6306,7 @@ public class FileStorageService extends FileStorage {
             
                     relativeUrls.put("getTatProduct","/service/application/logistics/v1.0/".substring(1));
             
-                    relativeUrls.put("getEntityList","/service/application/logistics/v1.0/entity-list".substring(1));
+                    relativeUrls.put("getAllCountries","/service/application/logistics/v1.0/country-list".substring(1));
             
                     relativeUrls.put("getPincodeZones","/service/application/logistics/v1.0/pincode/zones".substring(1));
              
@@ -6366,12 +6366,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.EntityListResponse getEntityList(String page , String limit ,ApplicationModels.EntityListRequest body) throws IOException {
+    public ApplicationModels.CountryListResponse getAllCountries() throws IOException {
      
-      String fullUrl = relativeUrls.get("getEntityList");
+      String fullUrl = relativeUrls.get("getAllCountries");
         
 
-        Response<ApplicationModels.EntityListResponse> response = logisticApiList.getEntityList(fullUrl  ,page, limit, body).execute();
+        Response<ApplicationModels.CountryListResponse> response = logisticApiList.getAllCountries(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

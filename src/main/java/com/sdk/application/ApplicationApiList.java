@@ -785,8 +785,8 @@ interface LogisticApiList {
     @POST 
     Call<ApplicationModels.TATViewResponse> getTatProduct(@Url String url1 , @Body ApplicationModels.TATViewRequest payload );
     
-    @POST 
-    Call<ApplicationModels.EntityListResponse> getEntityList(@Url String url1, @Query("page") String page , @Query("limit") String limit  , @Body ApplicationModels.EntityListRequest payload );
+    @GET 
+    Call<ApplicationModels.CountryListResponse> getAllCountries(@Url String url1);
     
     @POST 
     Call<ApplicationModels.GetZoneFromPincodeViewResponse> getPincodeZones(@Url String url1 , @Body ApplicationModels.GetZoneFromPincodeViewRequest payload );
