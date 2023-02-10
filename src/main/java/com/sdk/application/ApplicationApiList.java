@@ -103,7 +103,7 @@ interface CartApiList {
     
     
     @GET 
-    Call<ApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow );
+    Call<ApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("buy_now") Boolean buyNow );
     
     @HEAD 
     Call<Object> getCartLastModified(@Url String url1, @Query("id") String id );
@@ -133,7 +133,7 @@ interface CartApiList {
     Call<ApplicationModels.CartDetailResponse> applyRewardPoints(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.RewardPointRequest payload );
     
     @GET 
-    Call<ApplicationModels.GetAddressesResponse> getAddresses(@Url String url1, @Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault );
+    Call<ApplicationModels.GetAddressesResponse> getAddresses(@Url String url1, @Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault , @Query("user_id") String userId );
     
     @POST 
     Call<ApplicationModels.SaveAddressResponse> addAddress(@Url String url1 , @Body ApplicationModels.Address payload );
@@ -145,10 +145,10 @@ interface CartApiList {
     Call<ApplicationModels.UpdateAddressResponse> updateAddress(@Url String url1 , @Body ApplicationModels.Address payload );
     
     @DELETE 
-    Call<ApplicationModels.DeleteAddressResponse> removeAddress(@Url String url1);
+    Call<ApplicationModels.DeleteAddressResponse> removeAddress(@Url String url1, @Query("user_id") String userId );
     
     @POST 
-    Call<ApplicationModels.CartDetailResponse> selectAddress(@Url String url1, @Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("i") Boolean i , @Query("b") Boolean b  , @Body ApplicationModels.SelectCartAddressRequest payload );
+    Call<ApplicationModels.CartDetailResponse> selectAddress(@Url String url1, @Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("i") Boolean i , @Query("b") Boolean b , @Query("user_id") String userId  , @Body ApplicationModels.SelectCartAddressRequest payload );
     
     @PUT 
     Call<ApplicationModels.CartDetailResponse> selectPaymentMode(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.UpdateCartPaymentRequest payload );
@@ -689,7 +689,7 @@ interface PosCartApiList {
     
     
     @GET 
-    Call<ApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow );
+    Call<ApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("buy_now") Boolean buyNow );
     
     @HEAD 
     Call<Object> getCartLastModified(@Url String url1, @Query("id") String id );
@@ -719,7 +719,7 @@ interface PosCartApiList {
     Call<ApplicationModels.CartDetailResponse> applyRewardPoints(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.RewardPointRequest payload );
     
     @GET 
-    Call<ApplicationModels.GetAddressesResponse> getAddresses(@Url String url1, @Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault );
+    Call<ApplicationModels.GetAddressesResponse> getAddresses(@Url String url1, @Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault , @Query("user_id") String userId );
     
     @POST 
     Call<ApplicationModels.SaveAddressResponse> addAddress(@Url String url1 , @Body ApplicationModels.Address payload );
@@ -731,10 +731,10 @@ interface PosCartApiList {
     Call<ApplicationModels.UpdateAddressResponse> updateAddress(@Url String url1 , @Body ApplicationModels.Address payload );
     
     @DELETE 
-    Call<ApplicationModels.DeleteAddressResponse> removeAddress(@Url String url1);
+    Call<ApplicationModels.DeleteAddressResponse> removeAddress(@Url String url1, @Query("user_id") String userId );
     
     @POST 
-    Call<ApplicationModels.CartDetailResponse> selectAddress(@Url String url1, @Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("i") Boolean i , @Query("b") Boolean b  , @Body ApplicationModels.SelectCartAddressRequest payload );
+    Call<ApplicationModels.CartDetailResponse> selectAddress(@Url String url1, @Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("i") Boolean i , @Query("b") Boolean b , @Query("user_id") String userId  , @Body ApplicationModels.SelectCartAddressRequest payload );
     
     @PUT 
     Call<ApplicationModels.CartDetailResponse> selectPaymentMode(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.UpdateCartPaymentRequest payload );
