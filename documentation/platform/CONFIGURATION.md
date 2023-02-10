@@ -6705,6 +6705,7 @@ Success
  | appType | String? |  yes  |  |
  | mobileLogo | [SecureUrl](#SecureUrl)? |  yes  |  |
  | domain | [Domain](#Domain)? |  yes  |  |
+ | slug | String? |  yes  |  |
 
 ---
 
@@ -6929,7 +6930,7 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | loc | String? |  yes  |  |
  | addressLine | ArrayList<String>? |  yes  |  |
- | phone | [InformationPhone](#InformationPhone)? |  yes  |  |
+ | phone | ArrayList<[InformationPhone](#InformationPhone)>? |  yes  |  |
  | city | String? |  yes  |  |
  | country | String? |  yes  |  |
  | pincode | Integer? |  yes  |  |
@@ -7139,6 +7140,7 @@ Success
  | domain | [Domain](#Domain)? |  yes  |  |
  | domains | ArrayList<[Domain](#Domain)>? |  yes  |  |
  | id | String? |  yes  |  |
+ | slug | String? |  yes  |  |
 
 ---
 
