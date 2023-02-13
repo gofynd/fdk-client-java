@@ -5,16 +5,17 @@
 ##### [Back to Platform docs](./README.md)
 
 ## Rewards Methods
-Rewards
-* [getGiveaways](#getgiveaways)
-* [createGiveaway](#creategiveaway)
-* [getGiveawayByID](#getgiveawaybyid)
-* [updateGiveaway](#updategiveaway)
-* [getOffers](#getoffers)
+Earn and redeem reward points
+* [showGiveaways](#showgiveaways)
+* [saveGiveAway](#savegiveaway)
+* [getGiveawayById](#getgiveawaybyid)
+* [updateGiveAway](#updategiveaway)
+* [getGiveawayAudienceStatus](#getgiveawayaudiencestatus)
+* [showOffers](#showoffers)
 * [getOfferByName](#getofferbyname)
 * [updateOfferByName](#updateofferbyname)
-* [getUserAvailablePoints](#getuseravailablepoints)
 * [updateUserStatus](#updateuserstatus)
+* [user](#user)
 * [getUserPointsHistory](#getuserpointshistory)
 
 
@@ -22,14 +23,14 @@ Rewards
 ## Methods with example and description
 
 
-### getGiveaways
+### showGiveaways
 List of giveaways of the current application.
 
 
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.getGiveaways( pageId,  pageSize) {
+client.application("<APPLICATION_ID>").rewards.showGiveaways( pageId,  pageSize) {
   //use response
 }
 ```
@@ -40,8 +41,8 @@ client.application("<APPLICATION_ID>").rewards.getGiveaways( pageId,  pageSize) 
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | company id |   
 | applicationId | String | yes | application id |   
-| pageId | String? | no | pagination page id |   
-| pageSize | Integer? | no | pagination page size |  
+| pageId | String | yes | pagination page id |   
+| pageSize | Integer | yes | pagination page size |  
 
 
 
@@ -78,14 +79,14 @@ ok
 ---
 
 
-### createGiveaway
-Adds a new giveaway.
+### saveGiveAway
+List of giveaways of the current application.
 
 
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.createGiveaway(body body) {
+client.application("<APPLICATION_ID>").rewards.saveGiveAway(body body) {
   //use response
 }
 ```
@@ -132,14 +133,14 @@ ok
 ---
 
 
-### getGiveawayByID
+### getGiveawayById
 Get giveaway by ID.
 
 
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.getGiveawayByID( id) {
+client.application("<APPLICATION_ID>").rewards.getGiveawayById( id) {
   //use response
 }
 ```
@@ -187,14 +188,14 @@ ok
 ---
 
 
-### updateGiveaway
+### updateGiveAway
 Updates the giveaway by it's ID.
 
 
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.updateGiveaway( id, body body) {
+client.application("<APPLICATION_ID>").rewards.updateGiveAway( id, body body) {
   //use response
 }
 ```
@@ -242,14 +243,69 @@ ok
 ---
 
 
-### getOffers
-List of offer of the current application.
+### getGiveawayAudienceStatus
+Get the Giveaway audience status
 
 
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.getOffers() {
+client.application("<APPLICATION_ID>").rewards.getGiveawayAudienceStatus( audienceId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| audienceId | String | yes | audience id |   
+| companyId | String | yes | company id |   
+| applicationId | String | yes | application id |  
+
+
+
+Get giveaway audience status
+
+*Returned Response:*
+
+
+
+
+[GiveawayAudience](#GiveawayAudience)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### showOffers
+List of offers of the current application.
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").rewards.showOffers() {
   //use response
 }
 ```
@@ -263,7 +319,7 @@ client.application("<APPLICATION_ID>").rewards.getOffers() {
 
 
 
-List of offer of the current application.
+List of offers of the current application.
 
 *Returned Response:*
 
@@ -297,13 +353,13 @@ ok
 
 
 ### getOfferByName
-Get offer by name.
+Get offer by name
 
 
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.getOfferByName( cookie,  name) {
+client.application("<APPLICATION_ID>").rewards.getOfferByName( name,  cookie) {
   //use response
 }
 ```
@@ -312,14 +368,14 @@ client.application("<APPLICATION_ID>").rewards.getOfferByName( cookie,  name) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
+| name | String | yes | The name given to the offer. |   
 | companyId | String | yes | company id |   
 | applicationId | String | yes | application id |   
-| cookie | String | yes | User's session cookie. This cookie is set in browser cookie when logged-in to fynd's authentication system i.e. `Grimlock` or by using grimlock-backend SDK for backend implementation. |   
-| name | String | yes | Offer name |  
+| cookie | String | yes | User's session cookie. This cookie is set in browser cookie when logged-in to fynd's authentication system i.e. `Grimlock` or by using grimlock-backend SDK for backend implementation. |  
 
 
 
-Get offer by name.
+Use this API to get the offer details and configuration by entering the name of the offer.
 
 *Returned Response:*
 
@@ -328,7 +384,7 @@ Get offer by name.
 
 [Offer](#Offer)
 
-ok
+Success. Check example below or refer `Offer` for more details.
 
 
 
@@ -353,7 +409,7 @@ ok
 
 
 ### updateOfferByName
-Updates the offer by name.
+Update offer by name
 
 
 
@@ -368,13 +424,13 @@ client.application("<APPLICATION_ID>").rewards.updateOfferByName( name, body bod
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
+| name | String | yes | The name given to the offer. |   
 | companyId | String | yes | company id |   
-| applicationId | String | yes | application id |   
-| name | String | yes | Offer name |  
+| applicationId | String | yes | application id |  
 | body | [Offer](#Offer) | yes | Request body |
 
 
-Updates the offer by name.
+Use this API to update the offer details
 
 *Returned Response:*
 
@@ -383,62 +439,7 @@ Updates the offer by name.
 
 [Offer](#Offer)
 
-ok
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getUserAvailablePoints
-User's reward details.
-
-
-
-
-```java
-client.application("<APPLICATION_ID>").rewards.getUserAvailablePoints( userId) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | company id |   
-| applicationId | String | yes | application id |   
-| userId | String | yes | user id |  
-
-
-
-User's reward details.
-
-*Returned Response:*
-
-
-
-
-[UserRes](#UserRes)
-
-ok
+Success. Check example below or refer `Offer` for more details.
 
 
 
@@ -463,7 +464,7 @@ ok
 
 
 ### updateUserStatus
-Update User status
+Update user status
 
 
 
@@ -478,13 +479,13 @@ client.application("<APPLICATION_ID>").rewards.updateUserStatus( userId, body bo
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
+| userId | String | yes | user id |   
 | companyId | String | yes | company id |   
-| applicationId | String | yes | application id |   
-| userId | String | yes | user id |  
+| applicationId | String | yes | application id |  
 | body | [AppUser](#AppUser) | yes | Request body |
 
 
-Update user status, active/archive
+Use this API to update the user status active/archive
 
 *Returned Response:*
 
@@ -517,14 +518,14 @@ Success
 ---
 
 
-### getUserPointsHistory
-Get list of points transactions.
+### user
+Get user reward details
 
 
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.getUserPointsHistory( userId,  pageId,  pageLimit,  pageSize) {
+client.application("<APPLICATION_ID>").rewards.user( userId) {
   //use response
 }
 ```
@@ -533,17 +534,70 @@ client.application("<APPLICATION_ID>").rewards.getUserPointsHistory( userId,  pa
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
+| userId | String | yes | user id |   
+| companyId | String | yes | company id |   
+| applicationId | String | yes | application id |  
+
+
+
+Use this API to get the user reward details
+
+*Returned Response:*
+
+
+
+
+[UserRes](#UserRes)
+
+Success. Check example below or refer `UserRes` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getUserPointsHistory
+Get all transactions of reward points
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").rewards.getUserPointsHistory( userId,  pageId,  pageSize) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| userId | String | yes | user id |   
 | companyId | String | yes | company id |   
 | applicationId | String | yes | application id |   
-| userId | String | yes | user id |   
 | pageId | String? | no | PageID is the ID of the requested page. For first request it should be kept empty. |   
-| pageLimit | Integer? | no | PageLimit is the number of requested items in response. |   
-| pageSize | Integer? | no | PageSize is the number of requested items in response. |  
+| pageSize | Integer? | no | The number of items to retrieve in each page. |  
 
 
 
-Get list of points transactions.
-The list of points history is paginated.
+Use this API to get a list of points transactions.
 
 *Returned Response:*
 
@@ -552,7 +606,7 @@ The list of points history is paginated.
 
 [HistoryRes](#HistoryRes)
 
-ok
+Success. Check example below or refer `HistoryRes` for more details.
 
 
 
@@ -581,47 +635,26 @@ ok
 
  
  
- #### [AppUser](#AppUser)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | active | Boolean? |  yes  |  |
- | applicationId | String? |  yes  |  |
- | blockReason | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | updatedBy | String? |  yes  |  |
- | userId | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Asset](#Asset)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | aspectRatio | String? |  yes  |  |
- | id | String? |  yes  |  |
- | secureUrl | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [E](#E)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | code | HashMap<String,Object>? |  yes  |  |
+ | code | Integer? |  yes  |  |
  | exception | String? |  yes  |  |
  | info | String? |  yes  |  |
  | message | String? |  yes  |  |
- | requestId | String? |  yes  |  |
- | stackTrace | String? |  yes  |  |
- | status | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GiveawayResponse](#GiveawayResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | items | ArrayList<[Giveaway](#Giveaway)>? |  yes  |  |
+ | page | [Page](#Page)? |  yes  |  |
 
 ---
 
@@ -650,48 +683,67 @@ ok
 
  
  
- #### [GiveawayResponse](#GiveawayResponse)
+ #### [Schedule](#Schedule)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[Giveaway](#Giveaway)>? |  yes  |  |
- | page | [Page](#Page)? |  yes  |  |
+ | duration | Integer? |  yes  |  |
+ | end | String? |  yes  |  |
+ | start | String? |  yes  |  |
+ | cron | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [HistoryPretty](#HistoryPretty)
+ #### [RewardsAudience](#RewardsAudience)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | headerUserId | String? |  yes  |  |
  | id | String? |  yes  |  |
- | applicationId | String? |  yes  |  |
- | claimed | Boolean? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | expiresOn | String? |  yes  |  |
- | points | Double? |  yes  |  |
- | remainingPoints | Double? |  yes  |  |
- | text1 | String? |  yes  |  |
- | text2 | String? |  yes  |  |
- | text3 | String? |  yes  |  |
- | txnName | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | userId | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [HistoryRes](#HistoryRes)
+ #### [Asset](#Asset)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[HistoryPretty](#HistoryPretty)>? |  yes  |  |
- | page | [Page](#Page)? |  yes  |  |
- | points | Double? |  yes  |  |
+ | aspectRatio | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | secureUrl | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RewardsRule](#RewardsRule)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | amount | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Page](#Page)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | current | Integer? |  yes  |  |
+ | hasNext | Boolean? |  yes  |  |
+ | hasPrevious | Boolean? |  yes  |  |
+ | itemTotal | Integer? |  yes  |  |
+ | nextId | String? |  yes  |  |
+ | size | Integer? |  yes  |  |
+ | type | String |  no  |  |
 
 ---
 
@@ -722,17 +774,31 @@ ok
 
  
  
- #### [Page](#Page)
+ #### [ShareMessages](#ShareMessages)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | current | Integer? |  yes  |  |
- | hasNext | Boolean? |  yes  |  |
- | hasPrevious | Boolean? |  yes  |  |
- | itemTotal | Integer? |  yes  |  |
- | nextId | String? |  yes  |  |
- | size | Integer? |  yes  |  |
- | type | String |  no  |  |
+ | email | Integer? |  yes  |  |
+ | facebook | String? |  yes  |  |
+ | fallback | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | messenger | String? |  yes  |  |
+ | sms | String? |  yes  |  |
+ | text | String? |  yes  |  |
+ | twitter | String? |  yes  |  |
+ | whatsapp | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UserRes](#UserRes)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | points | [Points](#Points)? |  yes  |  |
+ | user | [RewardUser](#RewardUser)? |  yes  |  |
 
 ---
 
@@ -744,17 +810,6 @@ ok
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | available | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [Referral](#Referral)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | code | String? |  yes  |  |
 
 ---
 
@@ -779,68 +834,77 @@ ok
 
  
  
- #### [RewardsAudience](#RewardsAudience)
+ #### [Referral](#Referral)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | headerUserId | String? |  yes  |  |
+ | code | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [AppUser](#AppUser)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
  | id | String? |  yes  |  |
+ | active | Boolean? |  yes  |  |
+ | applicationId | String? |  yes  |  |
+ | blockReason | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
+ | updatedBy | String? |  yes  |  |
+ | userId | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [RewardsRule](#RewardsRule)
+ #### [GiveawayAudience](#GiveawayAudience)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | amount | Double? |  yes  |  |
+ | audienceId | String? |  yes  |  |
+ | currentCount | Double? |  yes  |  |
 
 ---
 
 
  
  
- #### [Schedule](#Schedule)
+ #### [HistoryRes](#HistoryRes)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | cron | String? |  yes  |  |
- | duration | Integer? |  yes  |  |
- | end | String? |  yes  |  |
- | start | String? |  yes  |  |
+ | items | ArrayList<[PointsHistory](#PointsHistory)>? |  yes  | History is the list of points transaction. |
+ | page | [Page](#Page)? |  yes  |  |
+ | points | Double? |  yes  |  |
 
 ---
 
 
  
  
- #### [ShareMessages](#ShareMessages)
+ #### [PointsHistory](#PointsHistory)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | email | String? |  yes  |  |
- | facebook | String? |  yes  |  |
- | fallback | String? |  yes  |  |
- | message | String? |  yes  |  |
- | messenger | String? |  yes  |  |
- | sms | String? |  yes  |  |
- | text | String? |  yes  |  |
- | twitter | String? |  yes  |  |
- | whatsapp | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserRes](#UserRes)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | points | [Points](#Points)? |  yes  |  |
- | user | [RewardUser](#RewardUser)? |  yes  |  |
+ | id | String? |  yes  |  |
+ | applicationId | String? |  yes  |  |
+ | claimed | Boolean? |  yes  |  |
+ | createdAt | String? |  yes  |  |
+ | expiresOn | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | points | Double? |  yes  |  |
+ | remainingPoints | Double? |  yes  |  |
+ | text1 | String? |  yes  |  |
+ | text2 | String? |  yes  |  |
+ | text3 | String? |  yes  |  |
+ | txnName | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
+ | userId | String? |  yes  |  |
 
 ---
 
