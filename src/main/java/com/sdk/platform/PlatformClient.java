@@ -113,8 +113,14 @@ public class PlatformClient {
         return new ApplicationClient(config, applicationId);
     }
 
+     public void setExtraHeader(String key, String value){
+        this.config.getExtraHeaders().put(key, value);
+     }
+
     @Getter
     public class ApplicationClient{
+
+        private PlatformConfig config;
 
         
         public PlatformService.CommonService.ApplicationClient common;
@@ -165,6 +171,7 @@ public class PlatformClient {
         
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
+            this.config = platformConfig;
             
             this.common = new PlatformService.CommonService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
