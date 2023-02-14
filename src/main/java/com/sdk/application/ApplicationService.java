@@ -5577,17 +5577,17 @@ public class FileStorageService extends FileStorage {
         this.rewardsApiList = generateRewardsApiList(this.applicationConfig.getPersistentCookieStore());
 
            
-                    relativeUrls.put("getPointsOnProduct","/service/application/rewards/v1.0/catalogue/offer/order/".substring(1));
-            
                     relativeUrls.put("getOfferByName","/service/application/rewards/v1.0/offers/{name}/".substring(1));
             
-                    relativeUrls.put("getOrderDiscount","/service/application/rewards/v1.0/user/offers/order-discount/".substring(1));
-            
-                    relativeUrls.put("getUserPoints","/service/application/rewards/v1.0/user/points/".substring(1));
+                    relativeUrls.put("catalogueOrder","/service/application/rewards/v1.0/catalogue/offer/order/".substring(1));
             
                     relativeUrls.put("getUserPointsHistory","/service/application/rewards/v1.0/user/points/history/".substring(1));
             
+                    relativeUrls.put("getUserPoints","/service/application/rewards/v1.0/user/points/".substring(1));
+            
                     relativeUrls.put("getUserReferralDetails","/service/application/rewards/v1.0/user/referral/".substring(1));
+            
+                    relativeUrls.put("getOrderDiscount","/service/application/rewards/v1.0/user/offer/order-discount/".substring(1));
             
                     relativeUrls.put("redeemReferralCode","/service/application/rewards/v1.0/user/referral/redeem/".substring(1));
              
@@ -5611,23 +5611,6 @@ public class FileStorageService extends FileStorage {
 
      
     
-    public ApplicationModels.CatalogueOrderResponse getPointsOnProduct(ApplicationModels.CatalogueOrderRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getPointsOnProduct");
-        
-
-        Response<ApplicationModels.CatalogueOrderResponse> response = rewardsApiList.getPointsOnProduct(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
     public ApplicationModels.Offer getOfferByName(String name ) throws IOException {
      
       String fullUrl = relativeUrls.get("getOfferByName");
@@ -5647,29 +5630,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.OrderDiscountResponse getOrderDiscount(ApplicationModels.OrderDiscountRequest body) throws IOException {
+    public ApplicationModels.CatalogueOrderResponse catalogueOrder(ApplicationModels.CatalogueOrderRequest body) throws IOException {
      
-      String fullUrl = relativeUrls.get("getOrderDiscount");
+      String fullUrl = relativeUrls.get("catalogueOrder");
         
 
-        Response<ApplicationModels.OrderDiscountResponse> response = rewardsApiList.getOrderDiscount(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.PointsResponse getUserPoints() throws IOException {
-     
-      String fullUrl = relativeUrls.get("getUserPoints");
-        
-
-        Response<ApplicationModels.PointsResponse> response = rewardsApiList.getUserPoints(fullUrl ).execute();
+        Response<ApplicationModels.CatalogueOrderResponse> response = rewardsApiList.catalogueOrder(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -5746,12 +5712,46 @@ public class FileStorageService extends FileStorage {
     }
     
     
+    public ApplicationModels.PointsResponse getUserPoints() throws IOException {
+     
+      String fullUrl = relativeUrls.get("getUserPoints");
+        
+
+        Response<ApplicationModels.PointsResponse> response = rewardsApiList.getUserPoints(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
     public ApplicationModels.ReferralDetailsResponse getUserReferralDetails() throws IOException {
      
       String fullUrl = relativeUrls.get("getUserReferralDetails");
         
 
         Response<ApplicationModels.ReferralDetailsResponse> response = rewardsApiList.getUserReferralDetails(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.OrderDiscountResponse getOrderDiscount(ApplicationModels.OrderDiscountRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getOrderDiscount");
+        
+
+        Response<ApplicationModels.OrderDiscountResponse> response = rewardsApiList.getOrderDiscount(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
