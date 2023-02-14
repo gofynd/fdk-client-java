@@ -2,6 +2,7 @@ package com.sdk.platform;
 
 import com.sdk.common.*;
 import com.sdk.common.model.FDKException;
+import com.sdk.common.model.FDKServerResponseError;
 import okhttp3.Interceptor;
 import retrofit2.Response;
 
@@ -52,13 +53,13 @@ public static class CommonService {
     
     
     
-    public PlatformModels.ApplicationResponse searchApplication(String authorization , String query ) throws FDKException {
+    public PlatformModels.ApplicationResponse searchApplication(String authorization , String query ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ApplicationResponse> response = null;
             try {
                 response = commonApiList.searchApplication(query ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -67,7 +68,7 @@ public static class CommonService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -91,13 +92,13 @@ public static class CommonService {
     
     
     
-    public PlatformModels.Locations getLocations(String locationType , String id ) throws FDKException {
+    public PlatformModels.Locations getLocations(String locationType , String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Locations> response = null;
             try {
                 response = commonApiList.getLocations(locationType , id ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -106,7 +107,7 @@ public static class CommonService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -207,13 +208,13 @@ public static class LeadService {
     
     
     
-    public PlatformModels.TicketList getTickets(Boolean items , Boolean filters , String q , String status , PlatformModels.PriorityEnum priority , String category , Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.TicketList getTickets(Boolean items , Boolean filters , String q , String status , PlatformModels.PriorityEnum priority , String category , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TicketList> response = null;
             try {
                 response = leadApiList.getTickets(this.companyId ,items , filters , q , status , priority , category , pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -222,7 +223,7 @@ public static class LeadService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -346,13 +347,13 @@ public static class LeadService {
     
     
     
-    public PlatformModels.Ticket createTicket(PlatformModels.AddTicketPayload body) throws FDKException {
+    public PlatformModels.Ticket createTicket(PlatformModels.AddTicketPayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Ticket> response = null;
             try {
                 response = leadApiList.createTicket(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -361,7 +362,7 @@ public static class LeadService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -387,13 +388,13 @@ public static class LeadService {
     
     
     
-    public PlatformModels.Ticket getTicket(String id ) throws FDKException {
+    public PlatformModels.Ticket getTicket(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Ticket> response = null;
             try {
                 response = leadApiList.getTicket(this.companyId , id  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -402,7 +403,7 @@ public static class LeadService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -426,13 +427,13 @@ public static class LeadService {
     
     
     
-    public PlatformModels.Ticket editTicket(String id ,PlatformModels.EditTicketPayload body) throws FDKException {
+    public PlatformModels.Ticket editTicket(String id ,PlatformModels.EditTicketPayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Ticket> response = null;
             try {
                 response = leadApiList.editTicket(this.companyId , id  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -441,7 +442,7 @@ public static class LeadService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -469,13 +470,13 @@ public static class LeadService {
     
     
     
-    public PlatformModels.TicketHistory createHistory(String id ,PlatformModels.TicketHistoryPayload body) throws FDKException {
+    public PlatformModels.TicketHistory createHistory(String id ,PlatformModels.TicketHistoryPayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TicketHistory> response = null;
             try {
                 response = leadApiList.createHistory(this.companyId , id  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -484,7 +485,7 @@ public static class LeadService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -508,13 +509,13 @@ public static class LeadService {
     
     
     
-    public PlatformModels.TicketHistoryList getTicketHistory(String id ) throws FDKException {
+    public PlatformModels.TicketHistoryList getTicketHistory(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TicketHistoryList> response = null;
             try {
                 response = leadApiList.getTicketHistory(this.companyId , id  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -523,7 +524,7 @@ public static class LeadService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -547,13 +548,13 @@ public static class LeadService {
     
     
     
-    public PlatformModels.TicketFeedbackList getFeedbacks(String id ) throws FDKException {
+    public PlatformModels.TicketFeedbackList getFeedbacks(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TicketFeedbackList> response = null;
             try {
                 response = leadApiList.getFeedbacks(this.companyId , id  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -562,7 +563,7 @@ public static class LeadService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -586,13 +587,13 @@ public static class LeadService {
     
     
     
-    public PlatformModels.TicketFeedback submitFeedback(String id ,PlatformModels.TicketFeedbackPayload body) throws FDKException {
+    public PlatformModels.TicketFeedback submitFeedback(String id ,PlatformModels.TicketFeedbackPayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TicketFeedback> response = null;
             try {
                 response = leadApiList.submitFeedback(this.companyId , id  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -601,7 +602,7 @@ public static class LeadService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -637,13 +638,13 @@ public static class LeadService {
     
     
     
-    public PlatformModels.GetTokenForVideoRoomResponse getTokenForVideoRoom(String uniqueName ) throws FDKException {
+    public PlatformModels.GetTokenForVideoRoomResponse getTokenForVideoRoom(String uniqueName ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetTokenForVideoRoomResponse> response = null;
             try {
                 response = leadApiList.getTokenForVideoRoom(this.companyId , uniqueName  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -652,7 +653,7 @@ public static class LeadService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -678,13 +679,13 @@ public static class LeadService {
     
     
     
-    public PlatformModels.GetParticipantsInsideVideoRoomResponse getVideoParticipants(String uniqueName ) throws FDKException {
+    public PlatformModels.GetParticipantsInsideVideoRoomResponse getVideoParticipants(String uniqueName ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetParticipantsInsideVideoRoomResponse> response = null;
             try {
                 response = leadApiList.getVideoParticipants(this.companyId , uniqueName  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -693,7 +694,7 @@ public static class LeadService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -719,13 +720,13 @@ public static class LeadService {
     
     
     
-    public PlatformModels.CloseVideoRoomResponse getGeneralConfig() throws FDKException {
+    public PlatformModels.CloseVideoRoomResponse getGeneralConfig() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CloseVideoRoomResponse> response = null;
             try {
                 response = leadApiList.getGeneralConfig(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -734,7 +735,7 @@ public static class LeadService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -802,13 +803,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.TicketList getTickets(Boolean items , Boolean filters , String q , String status , PlatformModels.PriorityEnum priority , String category ) throws FDKException {
+    public PlatformModels.TicketList getTickets(Boolean items , Boolean filters , String q , String status , PlatformModels.PriorityEnum priority , String category ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TicketList> response = null;
             try {
             response = leadApiList.getTickets(this.companyId , this.applicationId ,items , filters , q , status , priority , category ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -817,7 +818,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -850,13 +851,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Ticket getTicket(String id ) throws FDKException {
+    public PlatformModels.Ticket getTicket(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Ticket> response = null;
             try {
             response = leadApiList.getTicket(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -865,7 +866,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -894,13 +895,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Ticket editTicket(String id ,PlatformModels.EditTicketPayload body) throws FDKException {
+    public PlatformModels.Ticket editTicket(String id ,PlatformModels.EditTicketPayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Ticket> response = null;
             try {
             response = leadApiList.editTicket(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -909,7 +910,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -946,13 +947,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.TicketHistory createHistory(String id ,PlatformModels.TicketHistoryPayload body) throws FDKException {
+    public PlatformModels.TicketHistory createHistory(String id ,PlatformModels.TicketHistoryPayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TicketHistory> response = null;
             try {
             response = leadApiList.createHistory(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -961,7 +962,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -990,13 +991,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.TicketHistoryList getTicketHistory(String id ) throws FDKException {
+    public PlatformModels.TicketHistoryList getTicketHistory(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TicketHistoryList> response = null;
             try {
             response = leadApiList.getTicketHistory(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1005,7 +1006,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1034,13 +1035,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CustomForm getCustomForm(String slug ) throws FDKException {
+    public PlatformModels.CustomForm getCustomForm(String slug ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CustomForm> response = null;
             try {
             response = leadApiList.getCustomForm(this.companyId , this.applicationId , slug ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1049,7 +1050,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1078,13 +1079,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CustomForm editCustomForm(String slug ,PlatformModels.EditCustomFormPayload body) throws FDKException {
+    public PlatformModels.CustomForm editCustomForm(String slug ,PlatformModels.EditCustomFormPayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CustomForm> response = null;
             try {
             response = leadApiList.editCustomForm(this.companyId , this.applicationId , slug , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1093,7 +1094,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1118,13 +1119,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CustomFormList getCustomForms() throws FDKException {
+    public PlatformModels.CustomFormList getCustomForms() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CustomFormList> response = null;
             try {
             response = leadApiList.getCustomForms(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1133,7 +1134,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1158,13 +1159,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CustomForm createCustomForm(PlatformModels.CreateCustomFormPayload body) throws FDKException {
+    public PlatformModels.CustomForm createCustomForm(PlatformModels.CreateCustomFormPayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CustomForm> response = null;
             try {
             response = leadApiList.createCustomForm(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1173,7 +1174,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1204,13 +1205,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetTokenForVideoRoomResponse getTokenForVideoRoom(String uniqueName ) throws FDKException {
+    public PlatformModels.GetTokenForVideoRoomResponse getTokenForVideoRoom(String uniqueName ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetTokenForVideoRoomResponse> response = null;
             try {
             response = leadApiList.getTokenForVideoRoom(this.companyId , this.applicationId , uniqueName ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1219,7 +1220,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1250,13 +1251,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetParticipantsInsideVideoRoomResponse getVideoParticipants(String uniqueName ) throws FDKException {
+    public PlatformModels.GetParticipantsInsideVideoRoomResponse getVideoParticipants(String uniqueName ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetParticipantsInsideVideoRoomResponse> response = null;
             try {
             response = leadApiList.getVideoParticipants(this.companyId , this.applicationId , uniqueName ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1265,7 +1266,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1290,13 +1291,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CreateVideoRoomResponse openVideoRoom(PlatformModels.CreateVideoRoomPayload body) throws FDKException {
+    public PlatformModels.CreateVideoRoomResponse openVideoRoom(PlatformModels.CreateVideoRoomPayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateVideoRoomResponse> response = null;
             try {
             response = leadApiList.openVideoRoom(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1305,7 +1306,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1334,13 +1335,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CloseVideoRoomResponse closeVideoRoom(String uniqueName ) throws FDKException {
+    public PlatformModels.CloseVideoRoomResponse closeVideoRoom(String uniqueName ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CloseVideoRoomResponse> response = null;
             try {
             response = leadApiList.closeVideoRoom(this.companyId , this.applicationId , uniqueName ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1349,7 +1350,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1359,6 +1360,806 @@ public class ApplicationClient {
 
     
     
+    
+    
+    
+
+}
+
+}
+
+public static class FeedbackService {
+    private PlatformConfig platformConfig;
+
+    private RetrofitServiceFactory retrofitServiceFactory;
+
+    private String companyId;
+
+    private FeedbackApiList feedbackApiList;
+
+    public FeedbackService(PlatformConfig platformConfig) {
+        this.platformConfig = platformConfig;
+        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.companyId = this.platformConfig.getCompanyId();
+        this.feedbackApiList = generateFeedbackApiList(this.platformConfig.getPersistentCookieStore());
+    }
+
+    private FeedbackApiList generateFeedbackApiList(CookieStore cookieStore) {
+        List<Interceptor> interceptorList = new ArrayList<>();
+        interceptorList.add(new AccessTokenInterceptor(platformConfig));
+        interceptorList.add(new RequestSignerInterceptor());
+        return retrofitServiceFactory.createService(platformConfig.getDomain(),FeedbackApiList.class, interceptorList, cookieStore);
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+public class ApplicationClient {
+    private PlatformConfig platformConfig;
+
+    private String applicationId;
+
+    private String companyId;
+
+    ApplicationClient(PlatformConfig platformConfig, String applicationId) {
+        this.platformConfig = platformConfig;
+        this.applicationId = applicationId;
+        this.companyId = this.platformConfig.getCompanyId();
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.FeedbackAttributes getAttributes(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.FeedbackAttributes> response = null;
+            try {
+            response = feedbackApiList.getAttributes(this.companyId , this.applicationId ,pageNo , pageSize ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getAttributes
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<PlatformModels.FeedbackAttributes> getAttributesPagination(
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<PlatformModels.FeedbackAttributes> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            PlatformModels.FeedbackAttributes callback = this.getAttributes(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.GetReviewResponse getCustomerReviews(String id , String entityId , String entityType , String userId , String media , List<Double> rating , List<String> attributeRating , Boolean facets , String sort , String next , String start , String limit , String count , String pageId , Integer pageSize ) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.GetReviewResponse> response = null;
+            try {
+            response = feedbackApiList.getCustomerReviews(this.companyId , this.applicationId ,id , entityId , entityType , userId , media , rating , attributeRating , facets , sort , next , start , limit , count , pageId , pageSize ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getCustomerReviews
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<PlatformModels.GetReviewResponse> getCustomerReviewsPagination(
+        String id,
+        String entityId,
+        String entityType,
+        String userId,
+        String media,
+        List<Double> rating,
+        List<String> attributeRating,
+        Boolean facets,
+        String sort,
+        String next,
+        String start,
+        String limit,
+        String count,
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<PlatformModels.GetReviewResponse> paginator = new Paginator<>(pageSize, "cursor");
+
+    paginator.setCallback(()-> {
+        try {
+            PlatformModels.GetReviewResponse callback = this.getCustomerReviews(
+                
+                 
+                 
+                 id,
+                 entityId,
+                 entityType,
+                 userId,
+                 media,
+                 rating,
+                 attributeRating,
+                 facets,
+                 sort,
+                 next,
+                 start,
+                 limit,
+                 count,
+                 paginator.getNextId()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.UpdateResponse updateApprove(String reviewId ,PlatformModels.ApproveRequest body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.UpdateResponse> response = null;
+            try {
+            response = feedbackApiList.updateApprove(this.companyId , this.applicationId , reviewId , body).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public List<PlatformModels.ActivityDump> getHistory(String reviewId ) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<List<PlatformModels.ActivityDump>> response = null;
+            try {
+            response = feedbackApiList.getHistory(this.companyId , this.applicationId , reviewId ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.TemplateGetResponse getApplicationTemplates(String pageId , Integer pageSize ) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.TemplateGetResponse> response = null;
+            try {
+            response = feedbackApiList.getApplicationTemplates(this.companyId , this.applicationId ,pageId , pageSize ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getApplicationTemplates
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<PlatformModels.TemplateGetResponse> getApplicationTemplatesPagination(
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<PlatformModels.TemplateGetResponse> paginator = new Paginator<>(pageSize, "cursor");
+
+    paginator.setCallback(()-> {
+        try {
+            PlatformModels.TemplateGetResponse callback = this.getApplicationTemplates(
+                
+                 
+                 
+                 paginator.getNextId()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.InsertResponse createTemplate(PlatformModels.TemplateRequestList body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.InsertResponse> response = null;
+            try {
+            response = feedbackApiList.createTemplate(this.companyId , this.applicationId , body).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.Template getTemplateById(String id ) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.Template> response = null;
+            try {
+            response = feedbackApiList.getTemplateById(this.companyId , this.applicationId , id ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.UpdateResponse updateTemplate(String id ,PlatformModels.UpdateTemplateRequest body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.UpdateResponse> response = null;
+            try {
+            response = feedbackApiList.updateTemplate(this.companyId , this.applicationId , id , body).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.UpdateResponse updateTemplateStatus(String id ,PlatformModels.UpdateTemplateStatusRequest body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.UpdateResponse> response = null;
+            try {
+            response = feedbackApiList.updateTemplateStatus(this.companyId , this.applicationId , id , body).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
     
     
     
@@ -1473,13 +2274,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AllAvailablePageSchema getAllPages(String themeId ) throws FDKException {
+    public PlatformModels.AllAvailablePageSchema getAllPages(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AllAvailablePageSchema> response = null;
             try {
             response = themeApiList.getAllPages(this.companyId , this.applicationId , themeId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1488,7 +2289,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1517,13 +2318,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AvailablePageSchema createPage(String themeId ,PlatformModels.AvailablePageSchema body) throws FDKException {
+    public PlatformModels.AvailablePageSchema createPage(String themeId ,PlatformModels.AvailablePageSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AvailablePageSchema> response = null;
             try {
             response = themeApiList.createPage(this.companyId , this.applicationId , themeId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1532,7 +2333,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1561,13 +2362,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AllAvailablePageSchema updateMultiplePages(String themeId ,PlatformModels.AllAvailablePageSchema body) throws FDKException {
+    public PlatformModels.AllAvailablePageSchema updateMultiplePages(String themeId ,PlatformModels.AllAvailablePageSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AllAvailablePageSchema> response = null;
             try {
             response = themeApiList.updateMultiplePages(this.companyId , this.applicationId , themeId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1576,7 +2377,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1609,13 +2410,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AvailablePageSchema getPage(String themeId , String pageValue ) throws FDKException {
+    public PlatformModels.AvailablePageSchema getPage(String themeId , String pageValue ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AvailablePageSchema> response = null;
             try {
             response = themeApiList.getPage(this.companyId , this.applicationId , themeId , pageValue ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1624,7 +2425,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1657,13 +2458,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AvailablePageSchema updatePage(String themeId , String pageValue ,PlatformModels.AvailablePageSchema body) throws FDKException {
+    public PlatformModels.AvailablePageSchema updatePage(String themeId , String pageValue ,PlatformModels.AvailablePageSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AvailablePageSchema> response = null;
             try {
             response = themeApiList.updatePage(this.companyId , this.applicationId , themeId , pageValue , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1672,7 +2473,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1705,13 +2506,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AvailablePageSchema deletePage(String themeId , String pageValue ) throws FDKException {
+    public PlatformModels.AvailablePageSchema deletePage(String themeId , String pageValue ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AvailablePageSchema> response = null;
             try {
             response = themeApiList.deletePage(this.companyId , this.applicationId , themeId , pageValue ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1720,7 +2521,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1753,13 +2554,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ThemesListingResponseSchema getThemeLibrary(Integer pageSize , Integer pageNo ) throws FDKException {
+    public PlatformModels.ThemesListingResponseSchema getThemeLibrary(Integer pageSize , Integer pageNo ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ThemesListingResponseSchema> response = null;
             try {
             response = themeApiList.getThemeLibrary(this.companyId , this.applicationId ,pageSize , pageNo ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1768,7 +2569,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1793,13 +2594,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ThemesSchema addToThemeLibrary(PlatformModels.AddThemeRequestSchema body) throws FDKException {
+    public PlatformModels.ThemesSchema addToThemeLibrary(PlatformModels.AddThemeRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ThemesSchema> response = null;
             try {
             response = themeApiList.addToThemeLibrary(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1808,7 +2609,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1833,13 +2634,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ThemesSchema applyTheme(PlatformModels.AddThemeRequestSchema body) throws FDKException {
+    public PlatformModels.ThemesSchema applyTheme(PlatformModels.AddThemeRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ThemesSchema> response = null;
             try {
             response = themeApiList.applyTheme(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1848,7 +2649,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1877,13 +2678,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.UpgradableThemeSchema isUpgradable(String themeId ) throws FDKException {
+    public PlatformModels.UpgradableThemeSchema isUpgradable(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.UpgradableThemeSchema> response = null;
             try {
             response = themeApiList.isUpgradable(this.companyId , this.applicationId , themeId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1892,7 +2693,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1921,13 +2722,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ThemesSchema upgradeTheme(String themeId ) throws FDKException {
+    public PlatformModels.ThemesSchema upgradeTheme(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ThemesSchema> response = null;
             try {
             response = themeApiList.upgradeTheme(this.companyId , this.applicationId , themeId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1936,7 +2737,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1969,13 +2770,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ThemesListingResponseSchema getPublicThemes(Integer pageSize , Integer pageNo ) throws FDKException {
+    public PlatformModels.ThemesListingResponseSchema getPublicThemes(Integer pageSize , Integer pageNo ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ThemesListingResponseSchema> response = null;
             try {
             response = themeApiList.getPublicThemes(this.companyId , this.applicationId ,pageSize , pageNo ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -1984,7 +2785,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2009,13 +2810,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ThemesSchema createTheme(PlatformModels.ThemesSchema body) throws FDKException {
+    public PlatformModels.ThemesSchema createTheme(PlatformModels.ThemesSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ThemesSchema> response = null;
             try {
             response = themeApiList.createTheme(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2024,7 +2825,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2049,13 +2850,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ThemesSchema getAppliedTheme() throws FDKException {
+    public PlatformModels.ThemesSchema getAppliedTheme() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ThemesSchema> response = null;
             try {
             response = themeApiList.getAppliedTheme(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2064,7 +2865,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2089,13 +2890,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.FontsSchema getFonts() throws FDKException {
+    public PlatformModels.FontsSchema getFonts() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.FontsSchema> response = null;
             try {
             response = themeApiList.getFonts(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2104,7 +2905,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2133,13 +2934,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ThemesSchema getThemeById(String themeId ) throws FDKException {
+    public PlatformModels.ThemesSchema getThemeById(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ThemesSchema> response = null;
             try {
             response = themeApiList.getThemeById(this.companyId , this.applicationId , themeId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2148,7 +2949,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2177,13 +2978,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ThemesSchema updateTheme(String themeId ,PlatformModels.ThemesSchema body) throws FDKException {
+    public PlatformModels.ThemesSchema updateTheme(String themeId ,PlatformModels.ThemesSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ThemesSchema> response = null;
             try {
             response = themeApiList.updateTheme(this.companyId , this.applicationId , themeId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2192,7 +2993,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2221,13 +3022,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ThemesSchema deleteTheme(String themeId ) throws FDKException {
+    public PlatformModels.ThemesSchema deleteTheme(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ThemesSchema> response = null;
             try {
             response = themeApiList.deleteTheme(this.companyId , this.applicationId , themeId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2236,7 +3037,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2265,13 +3066,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ThemesSchema getThemeForPreview(String themeId ) throws FDKException {
+    public PlatformModels.ThemesSchema getThemeForPreview(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ThemesSchema> response = null;
             try {
             response = themeApiList.getThemeForPreview(this.companyId , this.applicationId , themeId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2280,7 +3081,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2309,13 +3110,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ThemesSchema publishTheme(String themeId ) throws FDKException {
+    public PlatformModels.ThemesSchema publishTheme(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ThemesSchema> response = null;
             try {
             response = themeApiList.publishTheme(this.companyId , this.applicationId , themeId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2324,7 +3125,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2353,13 +3154,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ThemesSchema unpublishTheme(String themeId ) throws FDKException {
+    public PlatformModels.ThemesSchema unpublishTheme(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ThemesSchema> response = null;
             try {
             response = themeApiList.unpublishTheme(this.companyId , this.applicationId , themeId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2368,7 +3169,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2397,13 +3198,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ThemesSchema archiveTheme(String themeId ) throws FDKException {
+    public PlatformModels.ThemesSchema archiveTheme(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ThemesSchema> response = null;
             try {
             response = themeApiList.archiveTheme(this.companyId , this.applicationId , themeId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2412,7 +3213,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2441,13 +3242,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ThemesSchema unarchiveTheme(String themeId ) throws FDKException {
+    public PlatformModels.ThemesSchema unarchiveTheme(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ThemesSchema> response = null;
             try {
             response = themeApiList.unarchiveTheme(this.companyId , this.applicationId , themeId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2456,7 +3257,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2485,13 +3286,13 @@ public class ApplicationClient {
     
     
     
-    public Object getThemeLastModified(String themeId ) throws FDKException {
+    public Object getThemeLastModified(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<Object> response = null;
             try {
             response = themeApiList.getThemeLastModified(this.companyId , this.applicationId , themeId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2500,7 +3301,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2604,13 +3405,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CustomerListResponseSchema getCustomers(Object q , Integer pageSize , Integer pageNo ) throws FDKException {
+    public PlatformModels.CustomerListResponseSchema getCustomers(Object q , Integer pageSize , Integer pageNo ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CustomerListResponseSchema> response = null;
             try {
             response = userApiList.getCustomers(this.companyId , this.applicationId ,q , pageSize , pageNo ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2619,7 +3420,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2648,13 +3449,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.UserSearchResponseSchema searchUsers(String q ) throws FDKException {
+    public PlatformModels.UserSearchResponseSchema searchUsers(String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.UserSearchResponseSchema> response = null;
             try {
             response = userApiList.searchUsers(this.companyId , this.applicationId ,q ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2663,7 +3464,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2688,13 +3489,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CreateUserResponseSchema createUser(PlatformModels.CreateUserRequestSchema body) throws FDKException {
+    public PlatformModels.CreateUserResponseSchema createUser(PlatformModels.CreateUserRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateUserResponseSchema> response = null;
             try {
             response = userApiList.createUser(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2703,7 +3504,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2728,13 +3529,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.BlockUserSuccess blockOrUnblockUsers(PlatformModels.BlockUserRequestSchema body) throws FDKException {
+    public PlatformModels.BlockUserSuccess blockOrUnblockUsers(PlatformModels.BlockUserRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BlockUserSuccess> response = null;
             try {
             response = userApiList.blockOrUnblockUsers(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2743,7 +3544,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2768,13 +3569,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ArchiveUserSuccess archiveUser(PlatformModels.ArchiveUserRequestSchema body) throws FDKException {
+    public PlatformModels.ArchiveUserSuccess archiveUser(PlatformModels.ArchiveUserRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ArchiveUserSuccess> response = null;
             try {
             response = userApiList.archiveUser(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2783,7 +3584,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2808,13 +3609,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.UnDeleteUserSuccess unDeleteUser(PlatformModels.UnDeleteUserRequestSchema body) throws FDKException {
+    public PlatformModels.UnDeleteUserSuccess unDeleteUser(PlatformModels.UnDeleteUserRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.UnDeleteUserSuccess> response = null;
             try {
             response = userApiList.unDeleteUser(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2823,7 +3624,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2852,13 +3653,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CreateUserResponseSchema updateUser(String userId ,PlatformModels.UpdateUserRequestSchema body) throws FDKException {
+    public PlatformModels.CreateUserResponseSchema updateUser(String userId ,PlatformModels.UpdateUserRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateUserResponseSchema> response = null;
             try {
             response = userApiList.updateUser(this.companyId , this.applicationId , userId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2867,7 +3668,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2892,13 +3693,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CreateUserSessionResponseSchema createUserSession(PlatformModels.CreateUserSessionRequestSchema body) throws FDKException {
+    public PlatformModels.CreateUserSessionResponseSchema createUserSession(PlatformModels.CreateUserSessionRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateUserSessionResponseSchema> response = null;
             try {
             response = userApiList.createUserSession(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2907,7 +3708,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2936,13 +3737,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SessionListResponseSchema getActiveSessions(String id ) throws FDKException {
+    public PlatformModels.SessionListResponseSchema getActiveSessions(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SessionListResponseSchema> response = null;
             try {
             response = userApiList.getActiveSessions(this.companyId , this.applicationId ,id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2951,7 +3752,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2976,13 +3777,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PlatformSchema getPlatformConfig() throws FDKException {
+    public PlatformModels.PlatformSchema getPlatformConfig() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PlatformSchema> response = null;
             try {
             response = userApiList.getPlatformConfig(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -2991,7 +3792,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -3016,13 +3817,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PlatformSchema updatePlatformConfig(PlatformModels.PlatformSchema body) throws FDKException {
+    public PlatformModels.PlatformSchema updatePlatformConfig(PlatformModels.PlatformSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PlatformSchema> response = null;
             try {
             response = userApiList.updatePlatformConfig(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -3031,7 +3832,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -3243,13 +4044,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetAnnouncementListSchema getAnnouncementsList(Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.GetAnnouncementListSchema getAnnouncementsList(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetAnnouncementListSchema> response = null;
             try {
             response = contentApiList.getAnnouncementsList(this.companyId , this.applicationId ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -3258,7 +4059,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -3342,13 +4143,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CreateAnnouncementSchema createAnnouncement(PlatformModels.AdminAnnouncementSchema body) throws FDKException {
+    public PlatformModels.CreateAnnouncementSchema createAnnouncement(PlatformModels.AdminAnnouncementSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateAnnouncementSchema> response = null;
             try {
             response = contentApiList.createAnnouncement(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -3357,7 +4158,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -3386,13 +4187,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AdminAnnouncementSchema getAnnouncementById(String announcementId ) throws FDKException {
+    public PlatformModels.AdminAnnouncementSchema getAnnouncementById(String announcementId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AdminAnnouncementSchema> response = null;
             try {
             response = contentApiList.getAnnouncementById(this.companyId , this.applicationId , announcementId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -3401,7 +4202,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -3430,13 +4231,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CreateAnnouncementSchema updateAnnouncement(String announcementId ,PlatformModels.AdminAnnouncementSchema body) throws FDKException {
+    public PlatformModels.CreateAnnouncementSchema updateAnnouncement(String announcementId ,PlatformModels.AdminAnnouncementSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateAnnouncementSchema> response = null;
             try {
             response = contentApiList.updateAnnouncement(this.companyId , this.applicationId , announcementId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -3445,7 +4246,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -3474,13 +4275,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CreateAnnouncementSchema updateAnnouncementSchedule(String announcementId ,PlatformModels.ScheduleSchema body) throws FDKException {
+    public PlatformModels.CreateAnnouncementSchema updateAnnouncementSchedule(String announcementId ,PlatformModels.ScheduleSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateAnnouncementSchema> response = null;
             try {
             response = contentApiList.updateAnnouncementSchedule(this.companyId , this.applicationId , announcementId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -3489,7 +4290,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -3518,13 +4319,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CreateAnnouncementSchema deleteAnnouncement(String announcementId ) throws FDKException {
+    public PlatformModels.CreateAnnouncementSchema deleteAnnouncement(String announcementId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateAnnouncementSchema> response = null;
             try {
             response = contentApiList.deleteAnnouncement(this.companyId , this.applicationId , announcementId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -3533,7 +4334,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -3558,13 +4359,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.BlogSchema createBlog(PlatformModels.BlogRequest body) throws FDKException {
+    public PlatformModels.BlogSchema createBlog(PlatformModels.BlogRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BlogSchema> response = null;
             try {
             response = contentApiList.createBlog(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -3573,7 +4374,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -3606,13 +4407,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.BlogGetResponse getBlogs(Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.BlogGetResponse getBlogs(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BlogGetResponse> response = null;
             try {
             response = contentApiList.getBlogs(this.companyId , this.applicationId ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -3621,7 +4422,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -3709,13 +4510,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.BlogSchema updateBlog(String id ,PlatformModels.BlogRequest body) throws FDKException {
+    public PlatformModels.BlogSchema updateBlog(String id ,PlatformModels.BlogRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BlogSchema> response = null;
             try {
             response = contentApiList.updateBlog(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -3724,7 +4525,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -3753,13 +4554,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.BlogSchema deleteBlog(String id ) throws FDKException {
+    public PlatformModels.BlogSchema deleteBlog(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BlogSchema> response = null;
             try {
             response = contentApiList.deleteBlog(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -3768,7 +4569,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -3797,13 +4598,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.BlogSchema getComponentById(String slug ) throws FDKException {
+    public PlatformModels.BlogSchema getComponentById(String slug ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BlogSchema> response = null;
             try {
             response = contentApiList.getComponentById(this.companyId , this.applicationId , slug ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -3812,7 +4613,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -3837,13 +4638,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DataLoaderResponseSchema addDataLoader(PlatformModels.DataLoaderSchema body) throws FDKException {
+    public PlatformModels.DataLoaderResponseSchema addDataLoader(PlatformModels.DataLoaderSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DataLoaderResponseSchema> response = null;
             try {
             response = contentApiList.addDataLoader(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -3852,7 +4653,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -3877,13 +4678,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DataLoadersSchema getDataLoaders() throws FDKException {
+    public PlatformModels.DataLoadersSchema getDataLoaders() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DataLoadersSchema> response = null;
             try {
             response = contentApiList.getDataLoaders(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -3892,7 +4693,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -3921,13 +4722,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DataLoaderResponseSchema deleteDataLoader(String dataLoaderId ) throws FDKException {
+    public PlatformModels.DataLoaderResponseSchema deleteDataLoader(String dataLoaderId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DataLoaderResponseSchema> response = null;
             try {
             response = contentApiList.deleteDataLoader(this.companyId , this.applicationId , dataLoaderId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -3936,7 +4737,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -3965,13 +4766,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DataLoaderResponseSchema editDataLoader(String dataLoaderId ,PlatformModels.DataLoaderSchema body) throws FDKException {
+    public PlatformModels.DataLoaderResponseSchema editDataLoader(String dataLoaderId ,PlatformModels.DataLoaderSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DataLoaderResponseSchema> response = null;
             try {
             response = contentApiList.editDataLoader(this.companyId , this.applicationId , dataLoaderId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -3980,7 +4781,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4009,13 +4810,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DataLoaderResponseSchema selectDataLoader(String dataLoaderId ) throws FDKException {
+    public PlatformModels.DataLoaderResponseSchema selectDataLoader(String dataLoaderId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DataLoaderResponseSchema> response = null;
             try {
             response = contentApiList.selectDataLoader(this.companyId , this.applicationId , dataLoaderId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4024,7 +4825,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4057,13 +4858,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DataLoaderResetResponseSchema resetDataLoader(String service , String operationId ) throws FDKException {
+    public PlatformModels.DataLoaderResetResponseSchema resetDataLoader(String service , String operationId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DataLoaderResetResponseSchema> response = null;
             try {
             response = contentApiList.resetDataLoader(this.companyId , this.applicationId , service , operationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4072,7 +4873,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4097,13 +4898,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetFaqCategoriesSchema getFaqCategories() throws FDKException {
+    public PlatformModels.GetFaqCategoriesSchema getFaqCategories() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetFaqCategoriesSchema> response = null;
             try {
             response = contentApiList.getFaqCategories(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4112,7 +4913,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4141,13 +4942,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetFaqCategoryBySlugSchema getFaqCategoryBySlugOrId(String idOrSlug ) throws FDKException {
+    public PlatformModels.GetFaqCategoryBySlugSchema getFaqCategoryBySlugOrId(String idOrSlug ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetFaqCategoryBySlugSchema> response = null;
             try {
             response = contentApiList.getFaqCategoryBySlugOrId(this.companyId , this.applicationId , idOrSlug ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4156,7 +4957,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4181,13 +4982,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CreateFaqCategorySchema createFaqCategory(PlatformModels.CreateFaqCategoryRequestSchema body) throws FDKException {
+    public PlatformModels.CreateFaqCategorySchema createFaqCategory(PlatformModels.CreateFaqCategoryRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateFaqCategorySchema> response = null;
             try {
             response = contentApiList.createFaqCategory(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4196,7 +4997,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4225,13 +5026,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CreateFaqCategorySchema updateFaqCategory(String id ,PlatformModels.UpdateFaqCategoryRequestSchema body) throws FDKException {
+    public PlatformModels.CreateFaqCategorySchema updateFaqCategory(String id ,PlatformModels.UpdateFaqCategoryRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateFaqCategorySchema> response = null;
             try {
             response = contentApiList.updateFaqCategory(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4240,7 +5041,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4269,13 +5070,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.FaqSchema deleteFaqCategory(String id ) throws FDKException {
+    public PlatformModels.FaqSchema deleteFaqCategory(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.FaqSchema> response = null;
             try {
             response = contentApiList.deleteFaqCategory(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4284,7 +5085,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4313,13 +5114,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetFaqSchema getFaqsByCategoryIdOrSlug(String idOrSlug ) throws FDKException {
+    public PlatformModels.GetFaqSchema getFaqsByCategoryIdOrSlug(String idOrSlug ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetFaqSchema> response = null;
             try {
             response = contentApiList.getFaqsByCategoryIdOrSlug(this.companyId , this.applicationId , idOrSlug ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4328,7 +5129,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4357,13 +5158,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CreateFaqResponseSchema addFaq(String categoryId ,PlatformModels.CreateFaqSchema body) throws FDKException {
+    public PlatformModels.CreateFaqResponseSchema addFaq(String categoryId ,PlatformModels.CreateFaqSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateFaqResponseSchema> response = null;
             try {
             response = contentApiList.addFaq(this.companyId , this.applicationId , categoryId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4372,7 +5173,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4405,13 +5206,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CreateFaqResponseSchema updateFaq(String categoryId , String faqId ,PlatformModels.CreateFaqSchema body) throws FDKException {
+    public PlatformModels.CreateFaqResponseSchema updateFaq(String categoryId , String faqId ,PlatformModels.CreateFaqSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateFaqResponseSchema> response = null;
             try {
             response = contentApiList.updateFaq(this.companyId , this.applicationId , categoryId , faqId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4420,7 +5221,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4453,13 +5254,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CreateFaqResponseSchema deleteFaq(String categoryId , String faqId ) throws FDKException {
+    public PlatformModels.CreateFaqResponseSchema deleteFaq(String categoryId , String faqId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateFaqResponseSchema> response = null;
             try {
             response = contentApiList.deleteFaq(this.companyId , this.applicationId , categoryId , faqId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4468,7 +5269,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4497,13 +5298,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CreateFaqResponseSchema getFaqByIdOrSlug(String idOrSlug ) throws FDKException {
+    public PlatformModels.CreateFaqResponseSchema getFaqByIdOrSlug(String idOrSlug ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateFaqResponseSchema> response = null;
             try {
             response = contentApiList.getFaqByIdOrSlug(this.companyId , this.applicationId , idOrSlug ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4512,7 +5313,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4545,13 +5346,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.LandingPageGetResponse getLandingPages(Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.LandingPageGetResponse getLandingPages(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.LandingPageGetResponse> response = null;
             try {
             response = contentApiList.getLandingPages(this.companyId , this.applicationId ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4560,7 +5361,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4644,13 +5445,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.LandingPageSchema createLandingPage(PlatformModels.LandingPageSchema body) throws FDKException {
+    public PlatformModels.LandingPageSchema createLandingPage(PlatformModels.LandingPageSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.LandingPageSchema> response = null;
             try {
             response = contentApiList.createLandingPage(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4659,7 +5460,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4688,13 +5489,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.LandingPageSchema updateLandingPage(String id ,PlatformModels.LandingPageSchema body) throws FDKException {
+    public PlatformModels.LandingPageSchema updateLandingPage(String id ,PlatformModels.LandingPageSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.LandingPageSchema> response = null;
             try {
             response = contentApiList.updateLandingPage(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4703,7 +5504,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4732,13 +5533,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.LandingPageSchema deleteLandingPage(String id ) throws FDKException {
+    public PlatformModels.LandingPageSchema deleteLandingPage(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.LandingPageSchema> response = null;
             try {
             response = contentApiList.deleteLandingPage(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4747,7 +5548,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4772,13 +5573,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ApplicationLegal getLegalInformation() throws FDKException {
+    public PlatformModels.ApplicationLegal getLegalInformation() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ApplicationLegal> response = null;
             try {
             response = contentApiList.getLegalInformation(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4787,7 +5588,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4812,13 +5613,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ApplicationLegal updateLegalInformation(PlatformModels.ApplicationLegal body) throws FDKException {
+    public PlatformModels.ApplicationLegal updateLegalInformation(PlatformModels.ApplicationLegal body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ApplicationLegal> response = null;
             try {
             response = contentApiList.updateLegalInformation(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4827,7 +5628,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4864,13 +5665,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.NavigationGetResponse getNavigations(String devicePlatform , Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.NavigationGetResponse getNavigations(String devicePlatform , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.NavigationGetResponse> response = null;
             try {
             response = contentApiList.getNavigations(this.companyId , this.applicationId ,devicePlatform , pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4879,7 +5680,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -4971,13 +5772,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.NavigationSchema createNavigation(PlatformModels.NavigationRequest body) throws FDKException {
+    public PlatformModels.NavigationSchema createNavigation(PlatformModels.NavigationRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.NavigationSchema> response = null;
             try {
             response = contentApiList.createNavigation(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -4986,7 +5787,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5011,13 +5812,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DefaultNavigationResponse getDefaultNavigations() throws FDKException {
+    public PlatformModels.DefaultNavigationResponse getDefaultNavigations() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DefaultNavigationResponse> response = null;
             try {
             response = contentApiList.getDefaultNavigations(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5026,7 +5827,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5059,13 +5860,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.NavigationSchema getNavigationBySlug(String slug , String devicePlatform ) throws FDKException {
+    public PlatformModels.NavigationSchema getNavigationBySlug(String slug , String devicePlatform ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.NavigationSchema> response = null;
             try {
             response = contentApiList.getNavigationBySlug(this.companyId , this.applicationId , slug ,devicePlatform ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5074,7 +5875,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5103,13 +5904,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.NavigationSchema updateNavigation(String id ,PlatformModels.NavigationRequest body) throws FDKException {
+    public PlatformModels.NavigationSchema updateNavigation(String id ,PlatformModels.NavigationRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.NavigationSchema> response = null;
             try {
             response = contentApiList.updateNavigation(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5118,7 +5919,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5147,13 +5948,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.NavigationSchema deleteNavigation(String id ) throws FDKException {
+    public PlatformModels.NavigationSchema deleteNavigation(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.NavigationSchema> response = null;
             try {
             response = contentApiList.deleteNavigation(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5162,7 +5963,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5195,13 +5996,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PageMetaSchema getPageMeta(String pageType , Boolean cartPages ) throws FDKException {
+    public PlatformModels.PageMetaSchema getPageMeta(String pageType , Boolean cartPages ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PageMetaSchema> response = null;
             try {
             response = contentApiList.getPageMeta(this.companyId , this.applicationId ,pageType , cartPages ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5210,7 +6011,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5235,13 +6036,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PageSpec getPageSpec() throws FDKException {
+    public PlatformModels.PageSpec getPageSpec() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PageSpec> response = null;
             try {
             response = contentApiList.getPageSpec(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5250,7 +6051,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5279,13 +6080,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PageSchema updatePagePreview(String slug ,PlatformModels.PagePublishRequest body) throws FDKException {
+    public PlatformModels.PageSchema updatePagePreview(String slug ,PlatformModels.PagePublishRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PageSchema> response = null;
             try {
             response = contentApiList.updatePagePreview(this.companyId , this.applicationId , slug , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5294,7 +6095,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5323,13 +6124,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PageSchema deletePage(String id ) throws FDKException {
+    public PlatformModels.PageSchema deletePage(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PageSchema> response = null;
             try {
             response = contentApiList.deletePage(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5338,7 +6139,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5363,13 +6164,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PathMappingSchema addPathRedirectionRules(PlatformModels.PathMappingSchema body) throws FDKException {
+    public PlatformModels.PathMappingSchema addPathRedirectionRules(PlatformModels.PathMappingSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PathMappingSchema> response = null;
             try {
             response = contentApiList.addPathRedirectionRules(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5378,7 +6179,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5411,13 +6212,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PathMappingSchema getPathRedirectionRules(Integer pageSize , Integer pageNo ) throws FDKException {
+    public PlatformModels.PathMappingSchema getPathRedirectionRules(Integer pageSize , Integer pageNo ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PathMappingSchema> response = null;
             try {
             response = contentApiList.getPathRedirectionRules(this.companyId , this.applicationId ,pageSize , pageNo ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5426,7 +6227,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5455,13 +6256,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PathMappingSchema getPathRedirectionRule(String pathId ) throws FDKException {
+    public PlatformModels.PathMappingSchema getPathRedirectionRule(String pathId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PathMappingSchema> response = null;
             try {
             response = contentApiList.getPathRedirectionRule(this.companyId , this.applicationId , pathId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5470,7 +6271,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5499,13 +6300,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PathMappingSchema updatePathRedirectionRules(String pathId ,PlatformModels.PathMappingSchema body) throws FDKException {
+    public PlatformModels.PathMappingSchema updatePathRedirectionRules(String pathId ,PlatformModels.PathMappingSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PathMappingSchema> response = null;
             try {
             response = contentApiList.updatePathRedirectionRules(this.companyId , this.applicationId , pathId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5514,7 +6315,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5543,13 +6344,13 @@ public class ApplicationClient {
     
     
     
-    public Object deletePathRedirectionRules(String pathId ) throws FDKException {
+    public Object deletePathRedirectionRules(String pathId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<Object> response = null;
             try {
             response = contentApiList.deletePathRedirectionRules(this.companyId , this.applicationId , pathId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5558,7 +6359,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5583,13 +6384,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SeoComponent getSEOConfiguration() throws FDKException {
+    public PlatformModels.SeoComponent getSEOConfiguration() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SeoComponent> response = null;
             try {
             response = contentApiList.getSEOConfiguration(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5598,7 +6399,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5623,13 +6424,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SeoSchema updateSEOConfiguration(PlatformModels.SeoComponent body) throws FDKException {
+    public PlatformModels.SeoSchema updateSEOConfiguration(PlatformModels.SeoComponent body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SeoSchema> response = null;
             try {
             response = contentApiList.updateSEOConfiguration(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5638,7 +6439,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5675,13 +6476,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SlideshowGetResponse getSlideshows(String devicePlatform , Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.SlideshowGetResponse getSlideshows(String devicePlatform , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SlideshowGetResponse> response = null;
             try {
             response = contentApiList.getSlideshows(this.companyId , this.applicationId ,devicePlatform , pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5690,7 +6491,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5782,13 +6583,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SlideshowSchema createSlideshow(PlatformModels.SlideshowRequest body) throws FDKException {
+    public PlatformModels.SlideshowSchema createSlideshow(PlatformModels.SlideshowRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SlideshowSchema> response = null;
             try {
             response = contentApiList.createSlideshow(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5797,7 +6598,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5830,13 +6631,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SlideshowSchema getSlideshowBySlug(String slug , String devicePlatform ) throws FDKException {
+    public PlatformModels.SlideshowSchema getSlideshowBySlug(String slug , String devicePlatform ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SlideshowSchema> response = null;
             try {
             response = contentApiList.getSlideshowBySlug(this.companyId , this.applicationId , slug ,devicePlatform ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5845,7 +6646,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5874,13 +6675,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SlideshowSchema updateSlideshow(String id ,PlatformModels.SlideshowRequest body) throws FDKException {
+    public PlatformModels.SlideshowSchema updateSlideshow(String id ,PlatformModels.SlideshowRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SlideshowSchema> response = null;
             try {
             response = contentApiList.updateSlideshow(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5889,7 +6690,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5918,13 +6719,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SlideshowSchema deleteSlideshow(String id ) throws FDKException {
+    public PlatformModels.SlideshowSchema deleteSlideshow(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SlideshowSchema> response = null;
             try {
             response = contentApiList.deleteSlideshow(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5933,7 +6734,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5958,13 +6759,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Support getSupportInformation() throws FDKException {
+    public PlatformModels.Support getSupportInformation() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Support> response = null;
             try {
             response = contentApiList.getSupportInformation(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -5973,7 +6774,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -5998,13 +6799,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Support updateSupportInformation(PlatformModels.Support body) throws FDKException {
+    public PlatformModels.Support updateSupportInformation(PlatformModels.Support body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Support> response = null;
             try {
             response = contentApiList.updateSupportInformation(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6013,7 +6814,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6038,13 +6839,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.TagsSchema updateInjectableTag(PlatformModels.CreateTagRequestSchema body) throws FDKException {
+    public PlatformModels.TagsSchema updateInjectableTag(PlatformModels.CreateTagRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TagsSchema> response = null;
             try {
             response = contentApiList.updateInjectableTag(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6053,7 +6854,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6078,13 +6879,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.TagsSchema deleteAllInjectableTags() throws FDKException {
+    public PlatformModels.TagsSchema deleteAllInjectableTags() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TagsSchema> response = null;
             try {
             response = contentApiList.deleteAllInjectableTags(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6093,7 +6894,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6118,13 +6919,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.TagsSchema getInjectableTags() throws FDKException {
+    public PlatformModels.TagsSchema getInjectableTags() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TagsSchema> response = null;
             try {
             response = contentApiList.getInjectableTags(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6133,7 +6934,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6158,13 +6959,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.TagsSchema addInjectableTag(PlatformModels.CreateTagRequestSchema body) throws FDKException {
+    public PlatformModels.TagsSchema addInjectableTag(PlatformModels.CreateTagRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TagsSchema> response = null;
             try {
             response = contentApiList.addInjectableTag(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6173,7 +6974,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6198,13 +6999,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.TagDeleteSuccessResponse removeInjectableTag(PlatformModels.RemoveHandpickedSchema body) throws FDKException {
+    public PlatformModels.TagDeleteSuccessResponse removeInjectableTag(PlatformModels.RemoveHandpickedSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TagDeleteSuccessResponse> response = null;
             try {
             response = contentApiList.removeInjectableTag(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6213,7 +7014,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6242,13 +7043,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.TagsSchema editInjectableTag(String tagId ,PlatformModels.UpdateHandpickedSchema body) throws FDKException {
+    public PlatformModels.TagsSchema editInjectableTag(String tagId ,PlatformModels.UpdateHandpickedSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TagsSchema> response = null;
             try {
             response = contentApiList.editInjectableTag(this.companyId , this.applicationId , tagId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6257,7 +7058,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6282,13 +7083,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PageSchema createPage(PlatformModels.PageRequest body) throws FDKException {
+    public PlatformModels.PageSchema createPage(PlatformModels.PageRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PageSchema> response = null;
             try {
             response = contentApiList.createPage(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6297,7 +7098,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6330,13 +7131,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PageGetResponse getPages(Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.PageGetResponse getPages(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PageGetResponse> response = null;
             try {
             response = contentApiList.getPages(this.companyId , this.applicationId ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6345,7 +7146,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6433,13 +7234,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PageSchema updatePage(String id ,PlatformModels.PageSchema body) throws FDKException {
+    public PlatformModels.PageSchema updatePage(String id ,PlatformModels.PageSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PageSchema> response = null;
             try {
             response = contentApiList.updatePage(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6448,7 +7249,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6477,13 +7278,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PageSchema getPageBySlug(String slug ) throws FDKException {
+    public PlatformModels.PageSchema getPageBySlug(String slug ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PageSchema> response = null;
             try {
             response = contentApiList.getPageBySlug(this.companyId , this.applicationId , slug ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6492,7 +7293,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6550,13 +7351,13 @@ public static class BillingService {
     
     
     
-    public PlatformModels.CheckValidityResponse checkCouponValidity(String plan , String couponCode ) throws FDKException {
+    public PlatformModels.CheckValidityResponse checkCouponValidity(String plan , String couponCode ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CheckValidityResponse> response = null;
             try {
                 response = billingApiList.checkCouponValidity(this.companyId ,plan , couponCode ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6565,7 +7366,7 @@ public static class BillingService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6589,13 +7390,13 @@ public static class BillingService {
     
     
     
-    public PlatformModels.CreateSubscriptionResponse createSubscriptionCharge(String extensionId ,PlatformModels.CreateSubscriptionCharge body) throws FDKException {
+    public PlatformModels.CreateSubscriptionResponse createSubscriptionCharge(String extensionId ,PlatformModels.CreateSubscriptionCharge body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateSubscriptionResponse> response = null;
             try {
                 response = billingApiList.createSubscriptionCharge(this.companyId , extensionId  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6604,7 +7405,7 @@ public static class BillingService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6632,13 +7433,13 @@ public static class BillingService {
     
     
     
-    public PlatformModels.EntitySubscription getSubscriptionCharge(String extensionId , String subscriptionId ) throws FDKException {
+    public PlatformModels.EntitySubscription getSubscriptionCharge(String extensionId , String subscriptionId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.EntitySubscription> response = null;
             try {
                 response = billingApiList.getSubscriptionCharge(this.companyId , extensionId  , subscriptionId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6647,7 +7448,7 @@ public static class BillingService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6675,13 +7476,13 @@ public static class BillingService {
     
     
     
-    public PlatformModels.EntitySubscription cancelSubscriptionCharge(String extensionId , String subscriptionId ) throws FDKException {
+    public PlatformModels.EntitySubscription cancelSubscriptionCharge(String extensionId , String subscriptionId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.EntitySubscription> response = null;
             try {
                 response = billingApiList.cancelSubscriptionCharge(this.companyId , extensionId  , subscriptionId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6690,7 +7491,7 @@ public static class BillingService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6714,13 +7515,13 @@ public static class BillingService {
     
     
     
-    public PlatformModels.CreateOneTimeChargeResponse createOneTimeCharge(String extensionId ,PlatformModels.CreateOneTimeCharge body) throws FDKException {
+    public PlatformModels.CreateOneTimeChargeResponse createOneTimeCharge(String extensionId ,PlatformModels.CreateOneTimeCharge body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateOneTimeChargeResponse> response = null;
             try {
                 response = billingApiList.createOneTimeCharge(this.companyId , extensionId  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6729,7 +7530,7 @@ public static class BillingService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6757,13 +7558,13 @@ public static class BillingService {
     
     
     
-    public PlatformModels.OneTimeChargeEntity getChargeDetails(String extensionId , String chargeId ) throws FDKException {
+    public PlatformModels.OneTimeChargeEntity getChargeDetails(String extensionId , String chargeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OneTimeChargeEntity> response = null;
             try {
                 response = billingApiList.getChargeDetails(this.companyId , extensionId  , chargeId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6772,7 +7573,7 @@ public static class BillingService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6792,13 +7593,13 @@ public static class BillingService {
     
     
     
-    public PlatformModels.Invoices getInvoices() throws FDKException {
+    public PlatformModels.Invoices getInvoices() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Invoices> response = null;
             try {
                 response = billingApiList.getInvoices(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6807,7 +7608,7 @@ public static class BillingService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6831,13 +7632,13 @@ public static class BillingService {
     
     
     
-    public PlatformModels.Invoice getInvoiceById(String invoiceId ) throws FDKException {
+    public PlatformModels.Invoice getInvoiceById(String invoiceId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Invoice> response = null;
             try {
                 response = billingApiList.getInvoiceById(this.companyId , invoiceId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6846,7 +7647,7 @@ public static class BillingService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6866,13 +7667,13 @@ public static class BillingService {
     
     
     
-    public PlatformModels.SubscriptionCustomer getCustomerDetail() throws FDKException {
+    public PlatformModels.SubscriptionCustomer getCustomerDetail() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SubscriptionCustomer> response = null;
             try {
                 response = billingApiList.getCustomerDetail(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6881,7 +7682,7 @@ public static class BillingService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6901,13 +7702,13 @@ public static class BillingService {
     
     
     
-    public PlatformModels.SubscriptionCustomer upsertCustomerDetail(PlatformModels.SubscriptionCustomerCreate body) throws FDKException {
+    public PlatformModels.SubscriptionCustomer upsertCustomerDetail(PlatformModels.SubscriptionCustomerCreate body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SubscriptionCustomer> response = null;
             try {
                 response = billingApiList.upsertCustomerDetail(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6916,7 +7717,7 @@ public static class BillingService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6936,13 +7737,13 @@ public static class BillingService {
     
     
     
-    public PlatformModels.SubscriptionStatus getSubscription() throws FDKException {
+    public PlatformModels.SubscriptionStatus getSubscription() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SubscriptionStatus> response = null;
             try {
                 response = billingApiList.getSubscription(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6951,7 +7752,7 @@ public static class BillingService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -6971,13 +7772,13 @@ public static class BillingService {
     
     
     
-    public PlatformModels.SubscriptionLimit getFeatureLimitConfig() throws FDKException {
+    public PlatformModels.SubscriptionLimit getFeatureLimitConfig() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SubscriptionLimit> response = null;
             try {
                 response = billingApiList.getFeatureLimitConfig(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -6986,7 +7787,7 @@ public static class BillingService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -7006,13 +7807,13 @@ public static class BillingService {
     
     
     
-    public PlatformModels.SubscriptionActivateRes activateSubscriptionPlan(PlatformModels.SubscriptionActivateReq body) throws FDKException {
+    public PlatformModels.SubscriptionActivateRes activateSubscriptionPlan(PlatformModels.SubscriptionActivateReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SubscriptionActivateRes> response = null;
             try {
                 response = billingApiList.activateSubscriptionPlan(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -7021,7 +7822,7 @@ public static class BillingService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -7041,13 +7842,13 @@ public static class BillingService {
     
     
     
-    public PlatformModels.CancelSubscriptionRes cancelSubscriptionPlan(PlatformModels.CancelSubscriptionReq body) throws FDKException {
+    public PlatformModels.CancelSubscriptionRes cancelSubscriptionPlan(PlatformModels.CancelSubscriptionReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CancelSubscriptionRes> response = null;
             try {
                 response = billingApiList.cancelSubscriptionPlan(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -7056,7 +7857,7 @@ public static class BillingService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -7213,13 +8014,13 @@ public static class CommunicationService {
     
     
     
-    public PlatformModels.SystemNotifications getSystemNotifications(Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.SystemNotifications getSystemNotifications(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SystemNotifications> response = null;
             try {
                 response = communicationApiList.getSystemNotifications(this.companyId ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -7228,7 +8029,7 @@ public static class CommunicationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -7360,13 +8161,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Campaigns getCampaigns(Integer pageNo , Integer pageSize , Object sort ) throws FDKException {
+    public PlatformModels.Campaigns getCampaigns(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Campaigns> response = null;
             try {
             response = communicationApiList.getCampaigns(this.companyId , this.applicationId ,pageNo , pageSize , sort ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -7375,7 +8176,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -7467,13 +8268,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Campaign createCampaign(PlatformModels.CampaignReq body) throws FDKException {
+    public PlatformModels.Campaign createCampaign(PlatformModels.CampaignReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Campaign> response = null;
             try {
             response = communicationApiList.createCampaign(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -7482,7 +8283,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -7511,13 +8312,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Campaign getCampaignById(String id ) throws FDKException {
+    public PlatformModels.Campaign getCampaignById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Campaign> response = null;
             try {
             response = communicationApiList.getCampaignById(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -7526,7 +8327,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -7555,13 +8356,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Campaign updateCampaignById(String id ,PlatformModels.CampaignReq body) throws FDKException {
+    public PlatformModels.Campaign updateCampaignById(String id ,PlatformModels.CampaignReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Campaign> response = null;
             try {
             response = communicationApiList.updateCampaignById(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -7570,7 +8371,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -7599,13 +8400,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetStats getStatsOfCampaignById(String id ) throws FDKException {
+    public PlatformModels.GetStats getStatsOfCampaignById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetStats> response = null;
             try {
             response = communicationApiList.getStatsOfCampaignById(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -7614,7 +8415,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -7651,13 +8452,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Audiences getAudiences(Integer pageNo , Integer pageSize , Object sort ) throws FDKException {
+    public PlatformModels.Audiences getAudiences(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Audiences> response = null;
             try {
             response = communicationApiList.getAudiences(this.companyId , this.applicationId ,pageNo , pageSize , sort ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -7666,7 +8467,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -7758,13 +8559,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Audience createAudience(PlatformModels.AudienceReq body) throws FDKException {
+    public PlatformModels.Audience createAudience(PlatformModels.AudienceReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Audience> response = null;
             try {
             response = communicationApiList.createAudience(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -7773,7 +8574,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -7798,13 +8599,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.BigqueryHeadersRes getBigqueryHeaders(PlatformModels.BigqueryHeadersReq body) throws FDKException {
+    public PlatformModels.BigqueryHeadersRes getBigqueryHeaders(PlatformModels.BigqueryHeadersReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BigqueryHeadersRes> response = null;
             try {
             response = communicationApiList.getBigqueryHeaders(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -7813,7 +8614,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -7842,13 +8643,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Audience getAudienceById(String id ) throws FDKException {
+    public PlatformModels.Audience getAudienceById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Audience> response = null;
             try {
             response = communicationApiList.getAudienceById(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -7857,7 +8658,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -7886,13 +8687,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Audience updateAudienceById(String id ,PlatformModels.AudienceReq body) throws FDKException {
+    public PlatformModels.Audience updateAudienceById(String id ,PlatformModels.AudienceReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Audience> response = null;
             try {
             response = communicationApiList.updateAudienceById(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -7901,7 +8702,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -7926,13 +8727,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetNRecordsCsvRes getNSampleRecordsFromCsv(PlatformModels.GetNRecordsCsvReq body) throws FDKException {
+    public PlatformModels.GetNRecordsCsvRes getNSampleRecordsFromCsv(PlatformModels.GetNRecordsCsvReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetNRecordsCsvRes> response = null;
             try {
             response = communicationApiList.getNSampleRecordsFromCsv(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -7941,7 +8742,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -7978,13 +8779,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.EmailProviders getEmailProviders(Integer pageNo , Integer pageSize , Object sort ) throws FDKException {
+    public PlatformModels.EmailProviders getEmailProviders(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.EmailProviders> response = null;
             try {
             response = communicationApiList.getEmailProviders(this.companyId , this.applicationId ,pageNo , pageSize , sort ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -7993,7 +8794,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -8085,13 +8886,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.EmailProvider createEmailProvider(PlatformModels.EmailProviderReq body) throws FDKException {
+    public PlatformModels.EmailProvider createEmailProvider(PlatformModels.EmailProviderReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.EmailProvider> response = null;
             try {
             response = communicationApiList.createEmailProvider(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -8100,7 +8901,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -8129,13 +8930,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.EmailProvider getEmailProviderById(String id ) throws FDKException {
+    public PlatformModels.EmailProvider getEmailProviderById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.EmailProvider> response = null;
             try {
             response = communicationApiList.getEmailProviderById(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -8144,7 +8945,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -8173,13 +8974,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.EmailProvider updateEmailProviderById(String id ,PlatformModels.EmailProviderReq body) throws FDKException {
+    public PlatformModels.EmailProvider updateEmailProviderById(String id ,PlatformModels.EmailProviderReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.EmailProvider> response = null;
             try {
             response = communicationApiList.updateEmailProviderById(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -8188,7 +8989,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -8225,13 +9026,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.EmailTemplates getEmailTemplates(Integer pageNo , Integer pageSize , Object sort ) throws FDKException {
+    public PlatformModels.EmailTemplates getEmailTemplates(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.EmailTemplates> response = null;
             try {
             response = communicationApiList.getEmailTemplates(this.companyId , this.applicationId ,pageNo , pageSize , sort ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -8240,7 +9041,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -8332,13 +9133,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.EmailTemplateRes createEmailTemplate(PlatformModels.EmailTemplateReq body) throws FDKException {
+    public PlatformModels.EmailTemplateRes createEmailTemplate(PlatformModels.EmailTemplateReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.EmailTemplateRes> response = null;
             try {
             response = communicationApiList.createEmailTemplate(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -8347,7 +9148,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -8384,13 +9185,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SystemEmailTemplates getSystemEmailTemplates(Integer pageNo , Integer pageSize , Object sort ) throws FDKException {
+    public PlatformModels.SystemEmailTemplates getSystemEmailTemplates(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SystemEmailTemplates> response = null;
             try {
             response = communicationApiList.getSystemEmailTemplates(this.companyId , this.applicationId ,pageNo , pageSize , sort ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -8399,7 +9200,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -8495,13 +9296,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.EmailTemplate getEmailTemplateById(String id ) throws FDKException {
+    public PlatformModels.EmailTemplate getEmailTemplateById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.EmailTemplate> response = null;
             try {
             response = communicationApiList.getEmailTemplateById(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -8510,7 +9311,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -8539,13 +9340,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.EmailTemplateRes updateEmailTemplateById(String id ,PlatformModels.EmailTemplateReq body) throws FDKException {
+    public PlatformModels.EmailTemplateRes updateEmailTemplateById(String id ,PlatformModels.EmailTemplateReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.EmailTemplateRes> response = null;
             try {
             response = communicationApiList.updateEmailTemplateById(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -8554,7 +9355,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -8583,13 +9384,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.EmailTemplateDeleteSuccessRes deleteEmailTemplateById(String id ) throws FDKException {
+    public PlatformModels.EmailTemplateDeleteSuccessRes deleteEmailTemplateById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.EmailTemplateDeleteSuccessRes> response = null;
             try {
             response = communicationApiList.deleteEmailTemplateById(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -8598,7 +9399,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -8623,13 +9424,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.EngineResponse sendCommunicationSynchronously(PlatformModels.EngineRequest body) throws FDKException {
+    public PlatformModels.EngineResponse sendCommunicationSynchronously(PlatformModels.EngineRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.EngineResponse> response = null;
             try {
             response = communicationApiList.sendCommunicationSynchronously(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -8638,7 +9439,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -8663,13 +9464,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.EngineResponse sendCommunicationAsynchronously(PlatformModels.EngineRequest body) throws FDKException {
+    public PlatformModels.EngineResponse sendCommunicationAsynchronously(PlatformModels.EngineRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.EngineResponse> response = null;
             try {
             response = communicationApiList.sendCommunicationAsynchronously(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -8678,7 +9479,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -8715,13 +9516,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.EventSubscriptions getEventSubscriptions(Integer pageNo , Integer pageSize , String populate ) throws FDKException {
+    public PlatformModels.EventSubscriptions getEventSubscriptions(Integer pageNo , Integer pageSize , String populate ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.EventSubscriptions> response = null;
             try {
             response = communicationApiList.getEventSubscriptions(this.companyId , this.applicationId ,pageNo , pageSize , populate ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -8730,7 +9531,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -8834,13 +9635,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Jobs getJobs(Integer pageNo , Integer pageSize , Object sort ) throws FDKException {
+    public PlatformModels.Jobs getJobs(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Jobs> response = null;
             try {
             response = communicationApiList.getJobs(this.companyId , this.applicationId ,pageNo , pageSize , sort ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -8849,7 +9650,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -8941,13 +9742,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.TriggerJobResponse triggerCampaignJob(PlatformModels.TriggerJobRequest body) throws FDKException {
+    public PlatformModels.TriggerJobResponse triggerCampaignJob(PlatformModels.TriggerJobRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TriggerJobResponse> response = null;
             try {
             response = communicationApiList.triggerCampaignJob(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -8956,7 +9757,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -8993,13 +9794,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.JobLogs getJobLogs(Integer pageNo , Integer pageSize , Object sort ) throws FDKException {
+    public PlatformModels.JobLogs getJobLogs(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.JobLogs> response = null;
             try {
             response = communicationApiList.getJobLogs(this.companyId , this.applicationId ,pageNo , pageSize , sort ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -9008,7 +9809,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -9116,13 +9917,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Logs getCommunicationLogs(String pageId , Integer pageSize , Object sort , Object query ) throws FDKException {
+    public PlatformModels.Logs getCommunicationLogs(String pageId , Integer pageSize , Object sort , Object query ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Logs> response = null;
             try {
             response = communicationApiList.getCommunicationLogs(this.companyId , this.applicationId ,pageId , pageSize , sort , query ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -9131,7 +9932,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -9233,13 +10034,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SendOtpCommsRes sendOtp(PlatformModels.SendOtpCommsReq body) throws FDKException {
+    public PlatformModels.SendOtpCommsRes sendOtp(PlatformModels.SendOtpCommsReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SendOtpCommsRes> response = null;
             try {
             response = communicationApiList.sendOtp(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -9248,7 +10049,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -9273,13 +10074,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.VerifyOtpCommsSuccessRes verfiyOtp(PlatformModels.VerifyOtpCommsReq body) throws FDKException {
+    public PlatformModels.VerifyOtpCommsSuccessRes verfiyOtp(PlatformModels.VerifyOtpCommsReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.VerifyOtpCommsSuccessRes> response = null;
             try {
             response = communicationApiList.verfiyOtp(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -9288,7 +10089,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -9325,13 +10126,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SmsProviders getSmsProviders(Integer pageNo , Integer pageSize , Object sort ) throws FDKException {
+    public PlatformModels.SmsProviders getSmsProviders(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SmsProviders> response = null;
             try {
             response = communicationApiList.getSmsProviders(this.companyId , this.applicationId ,pageNo , pageSize , sort ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -9340,7 +10141,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -9432,13 +10233,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SmsProvider createSmsProvider(PlatformModels.SmsProviderReq body) throws FDKException {
+    public PlatformModels.SmsProvider createSmsProvider(PlatformModels.SmsProviderReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SmsProvider> response = null;
             try {
             response = communicationApiList.createSmsProvider(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -9447,7 +10248,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -9476,13 +10277,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SmsProvider getSmsProviderById(String id ) throws FDKException {
+    public PlatformModels.SmsProvider getSmsProviderById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SmsProvider> response = null;
             try {
             response = communicationApiList.getSmsProviderById(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -9491,7 +10292,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -9520,13 +10321,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SmsProvider updateSmsProviderById(String id ,PlatformModels.SmsProviderReq body) throws FDKException {
+    public PlatformModels.SmsProvider updateSmsProviderById(String id ,PlatformModels.SmsProviderReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SmsProvider> response = null;
             try {
             response = communicationApiList.updateSmsProviderById(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -9535,7 +10336,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -9572,13 +10373,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SmsTemplates getSmsTemplates(Integer pageNo , Integer pageSize , Object sort ) throws FDKException {
+    public PlatformModels.SmsTemplates getSmsTemplates(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SmsTemplates> response = null;
             try {
             response = communicationApiList.getSmsTemplates(this.companyId , this.applicationId ,pageNo , pageSize , sort ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -9587,7 +10388,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -9679,13 +10480,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SmsTemplateRes createSmsTemplate(PlatformModels.SmsTemplateReq body) throws FDKException {
+    public PlatformModels.SmsTemplateRes createSmsTemplate(PlatformModels.SmsTemplateReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SmsTemplateRes> response = null;
             try {
             response = communicationApiList.createSmsTemplate(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -9694,7 +10495,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -9723,13 +10524,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SmsTemplate getSmsTemplateById(String id ) throws FDKException {
+    public PlatformModels.SmsTemplate getSmsTemplateById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SmsTemplate> response = null;
             try {
             response = communicationApiList.getSmsTemplateById(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -9738,7 +10539,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -9767,13 +10568,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SmsTemplateRes updateSmsTemplateById(String id ,PlatformModels.SmsTemplateReq body) throws FDKException {
+    public PlatformModels.SmsTemplateRes updateSmsTemplateById(String id ,PlatformModels.SmsTemplateReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SmsTemplateRes> response = null;
             try {
             response = communicationApiList.updateSmsTemplateById(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -9782,7 +10583,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -9811,13 +10612,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SmsTemplateDeleteSuccessRes deleteSmsTemplateById(String id ) throws FDKException {
+    public PlatformModels.SmsTemplateDeleteSuccessRes deleteSmsTemplateById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SmsTemplateDeleteSuccessRes> response = null;
             try {
             response = communicationApiList.deleteSmsTemplateById(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -9826,7 +10627,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -9863,13 +10664,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SystemSmsTemplates getSystemSystemTemplates(Integer pageNo , Integer pageSize , Object sort ) throws FDKException {
+    public PlatformModels.SystemSmsTemplates getSystemSystemTemplates(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SystemSmsTemplates> response = null;
             try {
             response = communicationApiList.getSystemSystemTemplates(this.companyId , this.applicationId ,pageNo , pageSize , sort ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -9878,7 +10679,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10007,13 +10808,13 @@ public static class PaymentService {
     
     
     
-    public PlatformModels.PayoutsResponse getAllPayouts(String uniqueExternalId ) throws FDKException {
+    public PlatformModels.PayoutsResponse getAllPayouts(String uniqueExternalId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PayoutsResponse> response = null;
             try {
                 response = paymentApiList.getAllPayouts(this.companyId ,uniqueExternalId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10022,7 +10823,7 @@ public static class PaymentService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10042,13 +10843,13 @@ public static class PaymentService {
     
     
     
-    public PlatformModels.PayoutResponse savePayout(PlatformModels.PayoutRequest body) throws FDKException {
+    public PlatformModels.PayoutResponse savePayout(PlatformModels.PayoutRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PayoutResponse> response = null;
             try {
                 response = paymentApiList.savePayout(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10057,7 +10858,7 @@ public static class PaymentService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10081,13 +10882,13 @@ public static class PaymentService {
     
     
     
-    public PlatformModels.UpdatePayoutResponse updatePayout(String uniqueTransferNo ,PlatformModels.PayoutRequest body) throws FDKException {
+    public PlatformModels.UpdatePayoutResponse updatePayout(String uniqueTransferNo ,PlatformModels.PayoutRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.UpdatePayoutResponse> response = null;
             try {
                 response = paymentApiList.updatePayout(this.companyId , uniqueTransferNo  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10096,7 +10897,7 @@ public static class PaymentService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10120,13 +10921,13 @@ public static class PaymentService {
     
     
     
-    public PlatformModels.UpdatePayoutResponse activateAndDectivatePayout(String uniqueTransferNo ,PlatformModels.UpdatePayoutRequest body) throws FDKException {
+    public PlatformModels.UpdatePayoutResponse activateAndDectivatePayout(String uniqueTransferNo ,PlatformModels.UpdatePayoutRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.UpdatePayoutResponse> response = null;
             try {
                 response = paymentApiList.activateAndDectivatePayout(this.companyId , uniqueTransferNo  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10135,7 +10936,7 @@ public static class PaymentService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10159,13 +10960,13 @@ public static class PaymentService {
     
     
     
-    public PlatformModels.DeletePayoutResponse deletePayout(String uniqueTransferNo ) throws FDKException {
+    public PlatformModels.DeletePayoutResponse deletePayout(String uniqueTransferNo ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DeletePayoutResponse> response = null;
             try {
                 response = paymentApiList.deletePayout(this.companyId , uniqueTransferNo  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10174,7 +10975,7 @@ public static class PaymentService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10198,13 +10999,13 @@ public static class PaymentService {
     
     
     
-    public PlatformModels.SubscriptionPaymentMethodResponse getSubscriptionPaymentMethod(String uniqueExternalId ) throws FDKException {
+    public PlatformModels.SubscriptionPaymentMethodResponse getSubscriptionPaymentMethod(String uniqueExternalId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SubscriptionPaymentMethodResponse> response = null;
             try {
                 response = paymentApiList.getSubscriptionPaymentMethod(this.companyId ,uniqueExternalId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10213,7 +11014,7 @@ public static class PaymentService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10241,13 +11042,13 @@ public static class PaymentService {
     
     
     
-    public PlatformModels.DeleteSubscriptionPaymentMethodResponse deleteSubscriptionPaymentMethod(String uniqueExternalId , String paymentMethodId ) throws FDKException {
+    public PlatformModels.DeleteSubscriptionPaymentMethodResponse deleteSubscriptionPaymentMethod(String uniqueExternalId , String paymentMethodId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DeleteSubscriptionPaymentMethodResponse> response = null;
             try {
                 response = paymentApiList.deleteSubscriptionPaymentMethod(this.companyId ,uniqueExternalId , paymentMethodId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10256,7 +11057,7 @@ public static class PaymentService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10276,13 +11077,13 @@ public static class PaymentService {
     
     
     
-    public PlatformModels.SubscriptionConfigResponse getSubscriptionConfig() throws FDKException {
+    public PlatformModels.SubscriptionConfigResponse getSubscriptionConfig() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SubscriptionConfigResponse> response = null;
             try {
                 response = paymentApiList.getSubscriptionConfig(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10291,7 +11092,7 @@ public static class PaymentService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10311,13 +11112,13 @@ public static class PaymentService {
     
     
     
-    public PlatformModels.SaveSubscriptionSetupIntentResponse saveSubscriptionSetupIntent(PlatformModels.SaveSubscriptionSetupIntentRequest body) throws FDKException {
+    public PlatformModels.SaveSubscriptionSetupIntentResponse saveSubscriptionSetupIntent(PlatformModels.SaveSubscriptionSetupIntentRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SaveSubscriptionSetupIntentResponse> response = null;
             try {
                 response = paymentApiList.saveSubscriptionSetupIntent(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10326,7 +11127,7 @@ public static class PaymentService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10354,13 +11155,13 @@ public static class PaymentService {
     
     
     
-    public PlatformModels.IfscCodeResponse verifyIfscCode(String ifscCode ) throws FDKException {
+    public PlatformModels.IfscCodeResponse verifyIfscCode(String ifscCode ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.IfscCodeResponse> response = null;
             try {
                 response = paymentApiList.verifyIfscCode(this.companyId ,ifscCode ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10369,7 +11170,7 @@ public static class PaymentService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10419,13 +11220,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PaymentGatewayConfigResponse getBrandPaymentGatewayConfig() throws FDKException {
+    public PlatformModels.PaymentGatewayConfigResponse getBrandPaymentGatewayConfig() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PaymentGatewayConfigResponse> response = null;
             try {
             response = paymentApiList.getBrandPaymentGatewayConfig(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10434,7 +11235,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10459,13 +11260,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PaymentGatewayToBeReviewed saveBrandPaymentGatewayConfig(PlatformModels.PaymentGatewayConfigRequest body) throws FDKException {
+    public PlatformModels.PaymentGatewayToBeReviewed saveBrandPaymentGatewayConfig(PlatformModels.PaymentGatewayConfigRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PaymentGatewayToBeReviewed> response = null;
             try {
             response = paymentApiList.saveBrandPaymentGatewayConfig(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10474,7 +11275,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10499,13 +11300,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PaymentGatewayToBeReviewed updateBrandPaymentGatewayConfig(PlatformModels.PaymentGatewayConfigRequest body) throws FDKException {
+    public PlatformModels.PaymentGatewayToBeReviewed updateBrandPaymentGatewayConfig(PlatformModels.PaymentGatewayConfigRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PaymentGatewayToBeReviewed> response = null;
             try {
             response = paymentApiList.updateBrandPaymentGatewayConfig(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10514,7 +11315,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10547,13 +11348,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PaymentOptionsResponse getPaymentModeRoutes(Boolean refresh , String requestType ) throws FDKException {
+    public PlatformModels.PaymentOptionsResponse getPaymentModeRoutes(Boolean refresh , String requestType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PaymentOptionsResponse> response = null;
             try {
             response = paymentApiList.getPaymentModeRoutes(this.companyId , this.applicationId ,refresh , requestType ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10562,7 +11363,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10613,13 +11414,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.RefundAccountResponse getBankAccountDetailsOpenAPI(String orderId , String requestHash ) throws FDKException {
+    public PlatformModels.RefundAccountResponse getBankAccountDetailsOpenAPI(String orderId , String requestHash ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.RefundAccountResponse> response = null;
             try {
             response = paymentApiList.getBankAccountDetailsOpenAPI(this.companyId , this.applicationId ,orderId , requestHash ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10628,7 +11429,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10653,13 +11454,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.RefundAccountResponse addRefundBankAccountUsingOTP(PlatformModels.AddBeneficiaryDetailsOTPRequest body) throws FDKException {
+    public PlatformModels.RefundAccountResponse addRefundBankAccountUsingOTP(PlatformModels.AddBeneficiaryDetailsOTPRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.RefundAccountResponse> response = null;
             try {
             response = paymentApiList.addRefundBankAccountUsingOTP(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10668,7 +11469,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10699,13 +11500,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.OrderBeneficiaryResponse getUserOrderBeneficiaries(String orderId ) throws FDKException {
+    public PlatformModels.OrderBeneficiaryResponse getUserOrderBeneficiaries(String orderId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OrderBeneficiaryResponse> response = null;
             try {
             response = paymentApiList.getUserOrderBeneficiaries(this.companyId , this.applicationId ,orderId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10714,7 +11515,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10743,13 +11544,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.OrderBeneficiaryResponse getUserBeneficiaries(String orderId ) throws FDKException {
+    public PlatformModels.OrderBeneficiaryResponse getUserBeneficiaries(String orderId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OrderBeneficiaryResponse> response = null;
             try {
             response = paymentApiList.getUserBeneficiaries(this.companyId , this.applicationId ,orderId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10758,7 +11559,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10783,13 +11584,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PaymentConfirmationResponse confirmPayment(PlatformModels.PaymentConfirmationRequest body) throws FDKException {
+    public PlatformModels.PaymentConfirmationResponse confirmPayment(PlatformModels.PaymentConfirmationRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PaymentConfirmationResponse> response = null;
             try {
             response = paymentApiList.confirmPayment(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10798,7 +11599,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10831,13 +11632,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetUserCODLimitResponse getUserCODlimitRoutes(String merchantUserId , String mobileNo ) throws FDKException {
+    public PlatformModels.GetUserCODLimitResponse getUserCODlimitRoutes(String merchantUserId , String mobileNo ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetUserCODLimitResponse> response = null;
             try {
             response = paymentApiList.getUserCODlimitRoutes(this.companyId , this.applicationId ,merchantUserId , mobileNo ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10846,7 +11647,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -10871,13 +11672,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SetCODOptionResponse setUserCODlimitRoutes(PlatformModels.SetCODForUserRequest body) throws FDKException {
+    public PlatformModels.SetCODOptionResponse setUserCODlimitRoutes(PlatformModels.SetCODForUserRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SetCODOptionResponse> response = null;
             try {
             response = paymentApiList.setUserCODlimitRoutes(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -10886,7 +11687,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11012,13 +11813,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.ShipmentInternalPlatformViewResponse getShipments(String lane , String searchType , String searchValue , String searchId , String fromDate , String toDate , String dpIds , String orderingCompanyId , String stores , String salesChannels , String requestByExt , Integer pageNo , Integer pageSize , Boolean isPrioritySort , Boolean excludeLockedShipments , String paymentMethods , String channelShipmentId , String channelOrderId , String customMeta ) throws FDKException {
+    public PlatformModels.ShipmentInternalPlatformViewResponse getShipments(String lane , String searchType , String searchValue , String searchId , String fromDate , String toDate , String dpIds , String orderingCompanyId , String stores , String salesChannels , String requestByExt , Integer pageNo , Integer pageSize , Boolean isPrioritySort , Boolean excludeLockedShipments , String paymentMethods , String channelShipmentId , String channelOrderId , String customMeta ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ShipmentInternalPlatformViewResponse> response = null;
             try {
                 response = orderApiList.getShipments(this.companyId ,lane , searchType , searchValue , searchId , fromDate , toDate , dpIds , orderingCompanyId , stores , salesChannels , requestByExt , pageNo , pageSize , isPrioritySort , excludeLockedShipments , paymentMethods , channelShipmentId , channelOrderId , customMeta ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11027,7 +11828,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11063,13 +11864,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.ShipmentInfoResponse getShipmentById(String channelShipmentId , String shipmentId , String orderingCompanyId , String requestByExt ) throws FDKException {
+    public PlatformModels.ShipmentInfoResponse getShipmentById(String channelShipmentId , String shipmentId , String orderingCompanyId , String requestByExt ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ShipmentInfoResponse> response = null;
             try {
                 response = orderApiList.getShipmentById(this.companyId ,channelShipmentId , shipmentId , orderingCompanyId , requestByExt ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11078,7 +11879,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11102,13 +11903,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.ShipmentDetailsResponse getOrderById(String orderId ) throws FDKException {
+    public PlatformModels.ShipmentDetailsResponse getOrderById(String orderId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ShipmentDetailsResponse> response = null;
             try {
                 response = orderApiList.getOrderById(this.companyId ,orderId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11117,7 +11918,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11173,13 +11974,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.LaneConfigResponse getLaneConfig(String superLane , String groupEntity , String fromDate , String toDate , String dpIds , String stores , String salesChannel , String paymentMode , String bagStatus ) throws FDKException {
+    public PlatformModels.LaneConfigResponse getLaneConfig(String superLane , String groupEntity , String fromDate , String toDate , String dpIds , String stores , String salesChannel , String paymentMode , String bagStatus ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.LaneConfigResponse> response = null;
             try {
                 response = orderApiList.getLaneConfig(this.companyId ,superLane , groupEntity , fromDate , toDate , dpIds , stores , salesChannel , paymentMode , bagStatus ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11188,7 +11989,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11258,13 +12059,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.OrderListingResponse getOrders(String lane , String searchType , String searchValue , String fromDate , String toDate , String dpIds , String stores , String salesChannels , Integer pageNo , Integer pageSize , Boolean isPrioritySort , String customMeta ) throws FDKException {
+    public PlatformModels.OrderListingResponse getOrders(String lane , String searchType , String searchValue , String fromDate , String toDate , String dpIds , String stores , String salesChannels , Integer pageNo , Integer pageSize , Boolean isPrioritySort , String customMeta ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OrderListingResponse> response = null;
             try {
                 response = orderApiList.getOrders(this.companyId ,lane , searchType , searchValue , fromDate , toDate , dpIds , stores , salesChannels , pageNo , pageSize , isPrioritySort , customMeta ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11273,7 +12074,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11301,13 +12102,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.MetricCountResponse getMetricCount(String fromDate , String toDate ) throws FDKException {
+    public PlatformModels.MetricCountResponse getMetricCount(String fromDate , String toDate ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.MetricCountResponse> response = null;
             try {
                 response = orderApiList.getMetricCount(this.companyId ,fromDate , toDate ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11316,7 +12117,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11348,13 +12149,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.FiltersResponse getfilters(String view , String groupEntity ) throws FDKException {
+    public PlatformModels.FiltersResponse getfilters(String view , String groupEntity ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.FiltersResponse> response = null;
             try {
                 response = orderApiList.getfilters(this.companyId ,view , groupEntity ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11363,7 +12164,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11391,13 +12192,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.Success createShipmentReport(String fromDate , String toDate ) throws FDKException {
+    public PlatformModels.Success createShipmentReport(String fromDate , String toDate ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Success> response = null;
             try {
                 response = orderApiList.createShipmentReport(this.companyId ,fromDate , toDate ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11406,7 +12207,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11434,13 +12235,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.OmsReports getReportsShipmentListing(Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.OmsReports getReportsShipmentListing(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OmsReports> response = null;
             try {
                 response = orderApiList.getReportsShipmentListing(this.companyId ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11449,7 +12250,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11469,13 +12270,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.JioCodeUpsertResponse upsertJioCode(PlatformModels.JioCodeUpsertPayload body) throws FDKException {
+    public PlatformModels.JioCodeUpsertResponse upsertJioCode(PlatformModels.JioCodeUpsertPayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.JioCodeUpsertResponse> response = null;
             try {
                 response = orderApiList.upsertJioCode(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11484,7 +12285,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11512,13 +12313,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.BulkInvoicingResponse getBulkInvoice(String batchId , String docType ) throws FDKException {
+    public PlatformModels.BulkInvoicingResponse getBulkInvoice(String batchId , String docType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BulkInvoicingResponse> response = null;
             try {
                 response = orderApiList.getBulkInvoice(this.companyId ,batchId , docType ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11527,7 +12328,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11551,13 +12352,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.BulkInvoiceLabelResponse getBulkInvoiceLabel(String batchId ) throws FDKException {
+    public PlatformModels.BulkInvoiceLabelResponse getBulkInvoiceLabel(String batchId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BulkInvoiceLabelResponse> response = null;
             try {
                 response = orderApiList.getBulkInvoiceLabel(this.companyId ,batchId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11566,7 +12367,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11642,13 +12443,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.FileResponse getBulkShipmentExcelFile(String lane , String searchType , String searchId , String fromDate , String toDate , String dpIds , String orderingCompanyId , String stores , String salesChannel , String requestByExt , Integer pageNo , Integer pageSize , String customerId , Boolean isPrioritySort ) throws FDKException {
+    public PlatformModels.FileResponse getBulkShipmentExcelFile(String lane , String searchType , String searchId , String fromDate , String toDate , String dpIds , String orderingCompanyId , String stores , String salesChannel , String requestByExt , Integer pageNo , Integer pageSize , String customerId , Boolean isPrioritySort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.FileResponse> response = null;
             try {
                 response = orderApiList.getBulkShipmentExcelFile(this.companyId ,lane , searchType , searchId , fromDate , toDate , dpIds , orderingCompanyId , stores , salesChannel , requestByExt , pageNo , pageSize , customerId , isPrioritySort ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11657,7 +12458,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11733,13 +12534,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.BulkListingResponse getBulkList(String lane , String searchType , String searchId , String fromDate , String toDate , String dpIds , String orderingCompanyId , String stores , String salesChannel , String requestByExt , Integer pageNo , Integer pageSize , String customerId , Boolean isPrioritySort ) throws FDKException {
+    public PlatformModels.BulkListingResponse getBulkList(String lane , String searchType , String searchId , String fromDate , String toDate , String dpIds , String orderingCompanyId , String stores , String salesChannel , String requestByExt , Integer pageNo , Integer pageSize , String customerId , Boolean isPrioritySort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BulkListingResponse> response = null;
             try {
                 response = orderApiList.getBulkList(this.companyId ,lane , searchType , searchId , fromDate , toDate , dpIds , orderingCompanyId , stores , salesChannel , requestByExt , pageNo , pageSize , customerId , isPrioritySort ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11748,7 +12549,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11776,13 +12577,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.FileResponse getBulkActionFailedReport(String batchId , String reportType ) throws FDKException {
+    public PlatformModels.FileResponse getBulkActionFailedReport(String batchId , String reportType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.FileResponse> response = null;
             try {
                 response = orderApiList.getBulkActionFailedReport(this.companyId ,batchId , reportType ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11791,7 +12592,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11823,13 +12624,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.PlatformShipmentReasonsResponse getShipmentReasons(String shipmentId , String bagId , String state ) throws FDKException {
+    public PlatformModels.PlatformShipmentReasonsResponse getShipmentReasons(String shipmentId , String bagId , String state ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PlatformShipmentReasonsResponse> response = null;
             try {
                 response = orderApiList.getShipmentReasons(this.companyId , shipmentId  , bagId  , state  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11838,7 +12639,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11858,13 +12659,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.BulkActionResponse bulkActionProcessXlsxFile(PlatformModels.BulkActionPayload body) throws FDKException {
+    public PlatformModels.BulkActionResponse bulkActionProcessXlsxFile(PlatformModels.BulkActionPayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BulkActionResponse> response = null;
             try {
                 response = orderApiList.bulkActionProcessXlsxFile(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11873,7 +12674,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11897,13 +12698,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.BulkActionDetailsResponse bulkActionDetails(String batchId ) throws FDKException {
+    public PlatformModels.BulkActionDetailsResponse bulkActionDetails(String batchId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BulkActionDetailsResponse> response = null;
             try {
                 response = orderApiList.bulkActionDetails(this.companyId , batchId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11912,7 +12713,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -11944,13 +12745,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.BagDetailsPlatformResponse getBagById(String bagId , String channelBagId , String channelId ) throws FDKException {
+    public PlatformModels.BagDetailsPlatformResponse getBagById(String bagId , String channelBagId , String channelId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BagDetailsPlatformResponse> response = null;
             try {
                 response = orderApiList.getBagById(this.companyId ,bagId , channelBagId , channelId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -11959,7 +12760,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12015,13 +12816,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.GetBagsPlatformResponse getBags(String bagIds , String shipmentIds , String orderIds , String channelBagIds , String channelShipmentIds , String channelOrderIds , String channelId , Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.GetBagsPlatformResponse getBags(String bagIds , String shipmentIds , String orderIds , String channelBagIds , String channelShipmentIds , String channelOrderIds , String channelId , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetBagsPlatformResponse> response = null;
             try {
                 response = orderApiList.getBags(this.companyId ,bagIds , shipmentIds , orderIds , channelBagIds , channelShipmentIds , channelOrderIds , channelId , pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12030,7 +12831,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12050,13 +12851,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.InvalidateShipmentCacheResponse invalidateShipmentCache(PlatformModels.InvalidateShipmentCachePayload body) throws FDKException {
+    public PlatformModels.InvalidateShipmentCacheResponse invalidateShipmentCache(PlatformModels.InvalidateShipmentCachePayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.InvalidateShipmentCacheResponse> response = null;
             try {
                 response = orderApiList.invalidateShipmentCache(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12065,7 +12866,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12085,13 +12886,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.StoreReassignResponse reassignLocation(PlatformModels.StoreReassign body) throws FDKException {
+    public PlatformModels.StoreReassignResponse reassignLocation(PlatformModels.StoreReassign body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.StoreReassignResponse> response = null;
             try {
                 response = orderApiList.reassignLocation(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12100,7 +12901,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12120,13 +12921,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.UpdateShipmentLockResponse updateShipmentLock(PlatformModels.UpdateShipmentLockPayload body) throws FDKException {
+    public PlatformModels.UpdateShipmentLockResponse updateShipmentLock(PlatformModels.UpdateShipmentLockPayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.UpdateShipmentLockResponse> response = null;
             try {
                 response = orderApiList.updateShipmentLock(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12135,7 +12936,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12159,13 +12960,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.AnnouncementsResponse getAnnouncements(String date ) throws FDKException {
+    public PlatformModels.AnnouncementsResponse getAnnouncements(String date ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AnnouncementsResponse> response = null;
             try {
                 response = orderApiList.getAnnouncements(this.companyId ,date ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12174,7 +12975,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12242,13 +13043,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.BaseResponse updateAddress(String shipmentId , String name , String address , String addressType , String pincode , String phone , String email , String landmark , String addressCategory , String city , String state , String country ) throws FDKException {
+    public PlatformModels.BaseResponse updateAddress(String shipmentId , String name , String address , String addressType , String pincode , String phone , String email , String landmark , String addressCategory , String city , String state , String country ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BaseResponse> response = null;
             try {
                 response = orderApiList.updateAddress(this.companyId ,shipmentId , name , address , addressType , pincode , phone , email , landmark , addressCategory , city , state , country ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12257,7 +13058,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12297,13 +13098,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.Click2CallResponse click2Call(String caller , String receiver , String bagId , String callingTo , String callerId ) throws FDKException {
+    public PlatformModels.Click2CallResponse click2Call(String caller , String receiver , String bagId , String callingTo , String callerId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Click2CallResponse> response = null;
             try {
                 response = orderApiList.click2Call(this.companyId ,caller , receiver , bagId , callingTo , callerId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12312,7 +13113,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12332,13 +13133,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.UpdateShipmentStatusResponseBody updateShipmentStatus(PlatformModels.UpdateShipmentStatusRequest body) throws FDKException {
+    public PlatformModels.UpdateShipmentStatusResponseBody updateShipmentStatus(PlatformModels.UpdateShipmentStatusRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.UpdateShipmentStatusResponseBody> response = null;
             try {
                 response = orderApiList.updateShipmentStatus(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12347,7 +13148,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12367,13 +13168,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.CreateOrderResponse processManifest(PlatformModels.CreateOrderPayload body) throws FDKException {
+    public PlatformModels.CreateOrderResponse processManifest(PlatformModels.CreateOrderPayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateOrderResponse> response = null;
             try {
                 response = orderApiList.processManifest(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12382,7 +13183,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12402,13 +13203,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.SuccessResponse dispatchManifest(PlatformModels.DispatchManifest body) throws FDKException {
+    public PlatformModels.SuccessResponse dispatchManifest(PlatformModels.DispatchManifest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse> response = null;
             try {
                 response = orderApiList.dispatchManifest(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12417,7 +13218,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12437,13 +13238,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.GetActionsResponse getRoleBasedActions() throws FDKException {
+    public PlatformModels.GetActionsResponse getRoleBasedActions() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetActionsResponse> response = null;
             try {
                 response = orderApiList.getRoleBasedActions(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12452,7 +13253,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12480,13 +13281,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.ShipmentHistoryResponse getShipmentHistory(Integer shipmentId , Integer bagId ) throws FDKException {
+    public PlatformModels.ShipmentHistoryResponse getShipmentHistory(Integer shipmentId , Integer bagId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ShipmentHistoryResponse> response = null;
             try {
                 response = orderApiList.getShipmentHistory(this.companyId ,shipmentId , bagId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12495,7 +13296,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12515,13 +13316,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.ShipmentHistoryResponse postShipmentHistory(PlatformModels.PostShipmentHistory body) throws FDKException {
+    public PlatformModels.ShipmentHistoryResponse postShipmentHistory(PlatformModels.PostShipmentHistory body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ShipmentHistoryResponse> response = null;
             try {
                 response = orderApiList.postShipmentHistory(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12530,7 +13331,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12550,13 +13351,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.OrderStatusResult sendSmsNinja(PlatformModels.SendSmsPayload body) throws FDKException {
+    public PlatformModels.OrderStatusResult sendSmsNinja(PlatformModels.SendSmsPayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OrderStatusResult> response = null;
             try {
                 response = orderApiList.sendSmsNinja(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12565,7 +13366,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12585,13 +13386,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.ManualAssignDPToShipmentResponse platformManualAssignDPToShipment(PlatformModels.ManualAssignDPToShipment body) throws FDKException {
+    public PlatformModels.ManualAssignDPToShipmentResponse platformManualAssignDPToShipment(PlatformModels.ManualAssignDPToShipment body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ManualAssignDPToShipmentResponse> response = null;
             try {
                 response = orderApiList.platformManualAssignDPToShipment(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12600,7 +13401,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12620,13 +13421,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.CreateOrderResponse updatePackagingDimensions(PlatformModels.CreateOrderPayload body) throws FDKException {
+    public PlatformModels.CreateOrderResponse updatePackagingDimensions(PlatformModels.CreateOrderPayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateOrderResponse> response = null;
             try {
                 response = orderApiList.updatePackagingDimensions(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12635,7 +13436,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12655,13 +13456,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.CreateOrderResponse createOrder(PlatformModels.CreateOrderAPI body) throws FDKException {
+    public PlatformModels.CreateOrderResponse createOrder(PlatformModels.CreateOrderAPI body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateOrderResponse> response = null;
             try {
                 response = orderApiList.createOrder(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12670,7 +13471,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12690,13 +13491,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.CreateChannelConfigData getChannelConfig() throws FDKException {
+    public PlatformModels.CreateChannelConfigData getChannelConfig() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateChannelConfigData> response = null;
             try {
                 response = orderApiList.getChannelConfig(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12705,7 +13506,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12725,13 +13526,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.CreateChannelConfigResponse createChannelConfig(PlatformModels.CreateChannelConfigData body) throws FDKException {
+    public PlatformModels.CreateChannelConfigResponse createChannelConfig(PlatformModels.CreateChannelConfigData body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateChannelConfigResponse> response = null;
             try {
                 response = orderApiList.createChannelConfig(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12740,7 +13541,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12760,13 +13561,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.SuccessResponse uploadConsent(PlatformModels.UploadConsent body) throws FDKException {
+    public PlatformModels.SuccessResponse uploadConsent(PlatformModels.UploadConsent body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse> response = null;
             try {
                 response = orderApiList.uploadConsent(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12775,7 +13576,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12795,13 +13596,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.ResponseDetail orderUpdate(PlatformModels.PlatformOrderUpdate body) throws FDKException {
+    public PlatformModels.ResponseDetail orderUpdate(PlatformModels.PlatformOrderUpdate body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ResponseDetail> response = null;
             try {
                 response = orderApiList.orderUpdate(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12810,7 +13611,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12830,13 +13631,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.OrderStatusResult checkOrderStatus(PlatformModels.OrderStatus body) throws FDKException {
+    public PlatformModels.OrderStatusResult checkOrderStatus(PlatformModels.OrderStatus body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OrderStatusResult> response = null;
             try {
                 response = orderApiList.checkOrderStatus(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12845,7 +13646,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12865,13 +13666,13 @@ public static class OrderService {
     
     
     
-    public PlatformModels.OrderStatusResult sendSmsNinjaPlatform() throws FDKException {
+    public PlatformModels.OrderStatusResult sendSmsNinjaPlatform() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OrderStatusResult> response = null;
             try {
                 response = orderApiList.sendSmsNinjaPlatform(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12880,7 +13681,7 @@ public static class OrderService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -12984,13 +13785,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ShipmentInternalPlatformViewResponse getApplicationShipments(String lane , String searchType , String searchId , String fromDate , String toDate , String dpIds , String orderingCompanyId , String stores , String salesChannel , String requestByExt , Integer pageNo , Integer pageSize , String customerId , Boolean isPrioritySort ) throws FDKException {
+    public PlatformModels.ShipmentInternalPlatformViewResponse getApplicationShipments(String lane , String searchType , String searchId , String fromDate , String toDate , String dpIds , String orderingCompanyId , String stores , String salesChannel , String requestByExt , Integer pageNo , Integer pageSize , String customerId , Boolean isPrioritySort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ShipmentInternalPlatformViewResponse> response = null;
             try {
             response = orderApiList.getApplicationShipments(this.companyId , this.applicationId ,lane , searchType , searchId , fromDate , toDate , dpIds , orderingCompanyId , stores , salesChannel , requestByExt , pageNo , pageSize , customerId , isPrioritySort ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -12999,7 +13800,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13032,13 +13833,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ShipmentDetailsResponse getAppOrderShipmentDetails(String orderId ) throws FDKException {
+    public PlatformModels.ShipmentDetailsResponse getAppOrderShipmentDetails(String orderId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ShipmentDetailsResponse> response = null;
             try {
             response = orderApiList.getAppOrderShipmentDetails(this.companyId , this.applicationId ,orderId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13047,7 +13848,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13076,13 +13877,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PlatformShipmentTrack trackPlatformShipment(String shipmentId ) throws FDKException {
+    public PlatformModels.PlatformShipmentTrack trackPlatformShipment(String shipmentId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PlatformShipmentTrack> response = null;
             try {
             response = orderApiList.trackPlatformShipment(this.companyId , this.applicationId , shipmentId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13091,7 +13892,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13241,13 +14042,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.GetProductBundleListingResponse getProductBundle(String q , List<String> slug ) throws FDKException {
+    public PlatformModels.GetProductBundleListingResponse getProductBundle(String q , List<String> slug ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetProductBundleListingResponse> response = null;
             try {
                 response = catalogApiList.getProductBundle(this.companyId ,q , slug ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13256,7 +14057,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13276,13 +14077,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.GetProductBundleCreateResponse createProductBundle(PlatformModels.ProductBundleRequest body) throws FDKException {
+    public PlatformModels.GetProductBundleCreateResponse createProductBundle(PlatformModels.ProductBundleRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetProductBundleCreateResponse> response = null;
             try {
                 response = catalogApiList.createProductBundle(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13291,7 +14092,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13315,13 +14116,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.GetProductBundleResponse getProductBundleDetail(String id ) throws FDKException {
+    public PlatformModels.GetProductBundleResponse getProductBundleDetail(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetProductBundleResponse> response = null;
             try {
                 response = catalogApiList.getProductBundleDetail(this.companyId , id  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13330,7 +14131,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13354,13 +14155,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.GetProductBundleCreateResponse updateProductBundle(String id ,PlatformModels.ProductBundleUpdateRequest body) throws FDKException {
+    public PlatformModels.GetProductBundleCreateResponse updateProductBundle(String id ,PlatformModels.ProductBundleUpdateRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetProductBundleCreateResponse> response = null;
             try {
                 response = catalogApiList.updateProductBundle(this.companyId , id  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13369,7 +14170,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13409,13 +14210,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.ListSizeGuide getSizeGuides(Boolean active , String q , String tag , Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.ListSizeGuide getSizeGuides(Boolean active , String q , String tag , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ListSizeGuide> response = null;
             try {
                 response = catalogApiList.getSizeGuides(this.companyId ,active , q , tag , pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13424,7 +14225,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13444,13 +14245,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse createSizeGuide(PlatformModels.ValidateSizeGuide body) throws FDKException {
+    public PlatformModels.SuccessResponse createSizeGuide(PlatformModels.ValidateSizeGuide body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogApiList.createSizeGuide(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13459,7 +14260,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13483,13 +14284,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SizeGuideResponse getSizeGuide(String id ) throws FDKException {
+    public PlatformModels.SizeGuideResponse getSizeGuide(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SizeGuideResponse> response = null;
             try {
                 response = catalogApiList.getSizeGuide(this.companyId , id  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13498,7 +14299,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13522,13 +14323,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse updateSizeGuide(String id ,PlatformModels.ValidateSizeGuide body) throws FDKException {
+    public PlatformModels.SuccessResponse updateSizeGuide(String id ,PlatformModels.ValidateSizeGuide body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogApiList.updateSizeGuide(this.companyId , id  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13537,7 +14338,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13615,13 +14416,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.CrossSellingResponse getSellerInsights(String sellerAppId ) throws FDKException {
+    public PlatformModels.CrossSellingResponse getSellerInsights(String sellerAppId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CrossSellingResponse> response = null;
             try {
                 response = catalogApiList.getSellerInsights(this.companyId , sellerAppId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13630,7 +14431,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13654,13 +14455,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.UpdatedResponse createMarketplaceOptin(String marketplace ,PlatformModels.OptInPostRequest body) throws FDKException {
+    public PlatformModels.UpdatedResponse createMarketplaceOptin(String marketplace ,PlatformModels.OptInPostRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.UpdatedResponse> response = null;
             try {
                 response = catalogApiList.createMarketplaceOptin(this.companyId , marketplace  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13669,7 +14470,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13689,13 +14490,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.GetOptInPlatform getMarketplaceOptinDetail() throws FDKException {
+    public PlatformModels.GetOptInPlatform getMarketplaceOptinDetail() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetOptInPlatform> response = null;
             try {
                 response = catalogApiList.getMarketplaceOptinDetail(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13704,7 +14505,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13724,13 +14525,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.OptinCompanyDetail getCompanyDetail() throws FDKException {
+    public PlatformModels.OptinCompanyDetail getCompanyDetail() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OptinCompanyDetail> response = null;
             try {
                 response = catalogApiList.getCompanyDetail(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13739,7 +14540,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13779,13 +14580,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.OptinCompanyBrandDetailsView getCompanyBrandDetail(Boolean isActive , Boolean q , Integer pageNo , Integer pageSize , String marketplace ) throws FDKException {
+    public PlatformModels.OptinCompanyBrandDetailsView getCompanyBrandDetail(Boolean isActive , Boolean q , Integer pageNo , Integer pageSize , String marketplace ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OptinCompanyBrandDetailsView> response = null;
             try {
                 response = catalogApiList.getCompanyBrandDetail(this.companyId ,isActive , q , pageNo , pageSize , marketplace ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13794,7 +14595,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13814,13 +14615,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.OptinCompanyMetrics getCompanyMetrics() throws FDKException {
+    public PlatformModels.OptinCompanyMetrics getCompanyMetrics() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OptinCompanyMetrics> response = null;
             try {
                 response = catalogApiList.getCompanyMetrics(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13829,7 +14630,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13861,13 +14662,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.OptinStoreDetails getStoreDetail(String q , Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.OptinStoreDetails getStoreDetail(String q , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OptinStoreDetails> response = null;
             try {
                 response = catalogApiList.getStoreDetail(this.companyId ,q , pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13876,7 +14677,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13900,13 +14701,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.GenderDetail getGenderAttribute(String attributeSlug ) throws FDKException {
+    public PlatformModels.GenderDetail getGenderAttribute(String attributeSlug ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GenderDetail> response = null;
             try {
                 response = catalogApiList.getGenderAttribute(this.companyId , attributeSlug  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13915,7 +14716,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13943,13 +14744,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.ProdcutTemplateCategoriesResponse listProductTemplateCategories(String departments , String itemType ) throws FDKException {
+    public PlatformModels.ProdcutTemplateCategoriesResponse listProductTemplateCategories(String departments , String itemType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProdcutTemplateCategoriesResponse> response = null;
             try {
                 response = catalogApiList.listProductTemplateCategories(this.companyId ,departments , itemType ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -13958,7 +14759,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -13998,13 +14799,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.DepartmentsResponse listDepartmentsData(Integer pageNo , Integer pageSize , String name , String search , Boolean isActive ) throws FDKException {
+    public PlatformModels.DepartmentsResponse listDepartmentsData(Integer pageNo , Integer pageSize , String name , String search , Boolean isActive ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DepartmentsResponse> response = null;
             try {
                 response = catalogApiList.listDepartmentsData(this.companyId ,pageNo , pageSize , name , search , isActive ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14013,7 +14814,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14033,13 +14834,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.DepartmentCreateResponse createDepartments(PlatformModels.DepartmentCreateUpdate body) throws FDKException {
+    public PlatformModels.DepartmentCreateResponse createDepartments(PlatformModels.DepartmentCreateUpdate body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DepartmentCreateResponse> response = null;
             try {
                 response = catalogApiList.createDepartments(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14048,7 +14849,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14072,13 +14873,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.DepartmentsResponse getDepartmentData(String uid ) throws FDKException {
+    public PlatformModels.DepartmentsResponse getDepartmentData(String uid ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DepartmentsResponse> response = null;
             try {
                 response = catalogApiList.getDepartmentData(this.companyId , uid  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14087,7 +14888,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14111,13 +14912,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.DepartmentModel updateDepartment(String uid ,PlatformModels.DepartmentCreateUpdate body) throws FDKException {
+    public PlatformModels.DepartmentModel updateDepartment(String uid ,PlatformModels.DepartmentCreateUpdate body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DepartmentModel> response = null;
             try {
                 response = catalogApiList.updateDepartment(this.companyId , uid  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14126,7 +14927,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14150,13 +14951,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.TemplatesResponse listProductTemplate(String department ) throws FDKException {
+    public PlatformModels.TemplatesResponse listProductTemplate(String department ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TemplatesResponse> response = null;
             try {
                 response = catalogApiList.listProductTemplate(this.companyId ,department ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14165,7 +14966,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14189,13 +14990,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.TemplatesValidationResponse validateProductTemplate(String slug ) throws FDKException {
+    public PlatformModels.TemplatesValidationResponse validateProductTemplate(String slug ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TemplatesValidationResponse> response = null;
             try {
                 response = catalogApiList.validateProductTemplate(this.companyId , slug  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14204,7 +15005,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14228,13 +15029,13 @@ public static class CatalogService {
     
     
     
-    public String downloadProductTemplateViews(String slug ) throws FDKException {
+    public String downloadProductTemplateViews(String slug ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<String> response = null;
             try {
                 response = catalogApiList.downloadProductTemplateViews(this.companyId , slug  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14243,7 +15044,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14267,13 +15068,13 @@ public static class CatalogService {
     
     
     
-    public String downloadInventoryTemplateView(String itemType ) throws FDKException {
+    public String downloadInventoryTemplateView(String itemType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<String> response = null;
             try {
                 response = catalogApiList.downloadInventoryTemplateView(this.companyId ,itemType ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14282,7 +15083,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14306,13 +15107,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.InventoryValidationResponse validateProductTemplateSchema(String itemType ) throws FDKException {
+    public PlatformModels.InventoryValidationResponse validateProductTemplateSchema(String itemType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.InventoryValidationResponse> response = null;
             try {
                 response = catalogApiList.validateProductTemplateSchema(this.companyId ,itemType ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14321,7 +15122,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14341,13 +15142,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.HSNCodesResponse listHSNCodes() throws FDKException {
+    public PlatformModels.HSNCodesResponse listHSNCodes() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.HSNCodesResponse> response = null;
             try {
                 response = catalogApiList.listHSNCodes(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14356,7 +15157,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14376,13 +15177,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.ProductDownloadsResponse listProductTemplateExportDetails() throws FDKException {
+    public PlatformModels.ProductDownloadsResponse listProductTemplateExportDetails() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProductDownloadsResponse> response = null;
             try {
                 response = catalogApiList.listProductTemplateExportDetails(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14391,7 +15192,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14423,13 +15224,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.ProductConfigurationDownloads listTemplateBrandTypeValues(String filter , String templateTag , String itemType ) throws FDKException {
+    public PlatformModels.ProductConfigurationDownloads listTemplateBrandTypeValues(String filter , String templateTag , String itemType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProductConfigurationDownloads> response = null;
             try {
                 response = catalogApiList.listTemplateBrandTypeValues(this.companyId ,filter , templateTag , itemType ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14438,7 +15239,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14478,13 +15279,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.CategoryResponse listCategories(String level , String department , String q , Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.CategoryResponse listCategories(String level , String department , String q , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CategoryResponse> response = null;
             try {
                 response = catalogApiList.listCategories(this.companyId ,level , department , q , pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14493,7 +15294,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14513,13 +15314,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.CategoryCreateResponse createCategories(PlatformModels.CategoryRequestBody body) throws FDKException {
+    public PlatformModels.CategoryCreateResponse createCategories(PlatformModels.CategoryRequestBody body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CategoryCreateResponse> response = null;
             try {
                 response = catalogApiList.createCategories(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14528,7 +15329,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14552,13 +15353,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SingleCategoryResponse getCategoryData(String uid ) throws FDKException {
+    public PlatformModels.SingleCategoryResponse getCategoryData(String uid ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SingleCategoryResponse> response = null;
             try {
                 response = catalogApiList.getCategoryData(this.companyId , uid  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14567,7 +15368,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14591,13 +15392,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.CategoryUpdateResponse updateCategory(String uid ,PlatformModels.CategoryRequestBody body) throws FDKException {
+    public PlatformModels.CategoryUpdateResponse updateCategory(String uid ,PlatformModels.CategoryRequestBody body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CategoryUpdateResponse> response = null;
             try {
                 response = catalogApiList.updateCategory(this.companyId , uid  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14606,7 +15407,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14662,13 +15463,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.ProductListingResponse getProducts(List<Integer> brandIds , List<Integer> categoryIds , List<Integer> itemIds , List<Integer> departmentIds , List<String> itemCode , String q , List<String> tags , Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.ProductListingResponse getProducts(List<Integer> brandIds , List<Integer> categoryIds , List<Integer> itemIds , List<Integer> departmentIds , List<String> itemCode , String q , List<String> tags , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProductListingResponse> response = null;
             try {
                 response = catalogApiList.getProducts(this.companyId ,brandIds , categoryIds , itemIds , departmentIds , itemCode , q , tags , pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14677,7 +15478,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14697,13 +15498,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse createProduct(PlatformModels.ProductCreateUpdateSchemaV2 body) throws FDKException {
+    public PlatformModels.SuccessResponse createProduct(PlatformModels.ProductCreateUpdateSchemaV2 body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogApiList.createProduct(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14712,7 +15513,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14748,13 +15549,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.ProductVariantsResponse getVariantsOfProducts(Integer itemId , String variantType , Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.ProductVariantsResponse getVariantsOfProducts(Integer itemId , String variantType , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProductVariantsResponse> response = null;
             try {
                 response = catalogApiList.getVariantsOfProducts(this.companyId , itemId  , variantType  ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14763,7 +15564,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14791,13 +15592,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.ProductAttributesResponse getProductAttributes(String category , Boolean filter ) throws FDKException {
+    public PlatformModels.ProductAttributesResponse getProductAttributes(String category , Boolean filter ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProductAttributesResponse> response = null;
             try {
                 response = catalogApiList.getProductAttributes(this.companyId ,category , filter ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14806,7 +15607,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14838,13 +15639,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.Product getProduct(String itemCode , Integer itemId , Integer brandUid ) throws FDKException {
+    public PlatformModels.Product getProduct(String itemCode , Integer itemId , Integer brandUid ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Product> response = null;
             try {
                 response = catalogApiList.getProduct(this.companyId , itemId  ,itemCode , brandUid ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14853,7 +15654,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14877,13 +15678,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse deleteProduct(Integer itemId ) throws FDKException {
+    public PlatformModels.SuccessResponse deleteProduct(Integer itemId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogApiList.deleteProduct(this.companyId , itemId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14892,7 +15693,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14916,13 +15717,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse editProduct(Integer itemId ,PlatformModels.ProductCreateUpdateRequest body) throws FDKException {
+    public PlatformModels.SuccessResponse editProduct(Integer itemId ,PlatformModels.ProductCreateUpdateRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogApiList.editProduct(this.companyId , itemId  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14931,7 +15732,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14955,13 +15756,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse patchProduct(Integer itemId ,PlatformModels.ProductPatch body) throws FDKException {
+    public PlatformModels.SuccessResponse patchProduct(Integer itemId ,PlatformModels.ProductPatch body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogApiList.patchProduct(this.companyId , itemId  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -14970,7 +15771,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -14994,13 +15795,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.ListALLSizes allSizes(Integer itemId ) throws FDKException {
+    public PlatformModels.ListALLSizes allSizes(Integer itemId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ListALLSizes> response = null;
             try {
                 response = catalogApiList.allSizes(this.companyId , itemId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15009,7 +15810,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15029,13 +15830,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.ValidateProduct getProductValidation() throws FDKException {
+    public PlatformModels.ValidateProduct getProductValidation() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ValidateProduct> response = null;
             try {
                 response = catalogApiList.getProductValidation(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15044,7 +15845,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15080,13 +15881,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.ProductListingResponse getProductSize(String itemCode , Integer itemId , Integer brandUid , Integer uid ) throws FDKException {
+    public PlatformModels.ProductListingResponse getProductSize(String itemCode , Integer itemId , Integer brandUid , Integer uid ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProductListingResponse> response = null;
             try {
                 response = catalogApiList.getProductSize(this.companyId , itemId  ,itemCode , brandUid , uid ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15095,7 +15896,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15127,13 +15928,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.ProductBulkRequestList getProductBulkUploadHistory(String search , Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.ProductBulkRequestList getProductBulkUploadHistory(String search , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProductBulkRequestList> response = null;
             try {
                 response = catalogApiList.getProductBulkUploadHistory(this.companyId ,search , pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15142,7 +15943,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15162,13 +15963,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.BulkResponse createBulkProductUploadJob(PlatformModels.BulkJob body) throws FDKException {
+    public PlatformModels.BulkResponse createBulkProductUploadJob(PlatformModels.BulkJob body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BulkResponse> response = null;
             try {
                 response = catalogApiList.createBulkProductUploadJob(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15177,7 +15978,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15205,13 +16006,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.BulkResponse uploadBulkProducts(String department , String productType ,PlatformModels.BulkJob body) throws FDKException {
+    public PlatformModels.BulkResponse uploadBulkProducts(String department , String productType ,PlatformModels.BulkJob body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BulkResponse> response = null;
             try {
                 response = catalogApiList.uploadBulkProducts(this.companyId ,department , productType , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15220,7 +16021,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15244,13 +16045,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse createProductsInBulk(String batchId ,PlatformModels.BulkProductRequest body) throws FDKException {
+    public PlatformModels.SuccessResponse createProductsInBulk(String batchId ,PlatformModels.BulkProductRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogApiList.createProductsInBulk(this.companyId , batchId  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15259,7 +16060,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15283,13 +16084,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse deleteProductBulkJob(Integer batchId ) throws FDKException {
+    public PlatformModels.SuccessResponse deleteProductBulkJob(Integer batchId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogApiList.deleteProductBulkJob(this.companyId , batchId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15298,7 +16099,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15318,13 +16119,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.ProductTagsViewResponse getProductTags() throws FDKException {
+    public PlatformModels.ProductTagsViewResponse getProductTags() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProductTagsViewResponse> response = null;
             try {
                 response = catalogApiList.getProductTags(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15333,7 +16134,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15361,13 +16162,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.BulkAssetResponse getProductAssetsInBulk(Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.BulkAssetResponse getProductAssetsInBulk(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BulkAssetResponse> response = null;
             try {
                 response = catalogApiList.getProductAssetsInBulk(this.companyId ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15376,7 +16177,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15396,13 +16197,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse createProductAssetsInBulk(PlatformModels.ProductBulkAssets body) throws FDKException {
+    public PlatformModels.SuccessResponse createProductAssetsInBulk(PlatformModels.ProductBulkAssets body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogApiList.createProductAssetsInBulk(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15411,7 +16212,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15439,13 +16240,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.ProductSizeDeleteResponse deleteSize(Integer itemId , Integer size ) throws FDKException {
+    public PlatformModels.ProductSizeDeleteResponse deleteSize(Integer itemId , Integer size ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProductSizeDeleteResponse> response = null;
             try {
                 response = catalogApiList.deleteSize(this.companyId , itemId  , size  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15454,7 +16255,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15498,13 +16299,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.InventoryResponsePaginated getInventoryBySize(String itemId , String size , Integer pageNo , Integer pageSize , String q , Boolean sellable ) throws FDKException {
+    public PlatformModels.InventoryResponsePaginated getInventoryBySize(String itemId , String size , Integer pageNo , Integer pageSize , String q , Boolean sellable ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.InventoryResponsePaginated> response = null;
             try {
                 response = catalogApiList.getInventoryBySize(this.companyId , itemId  , size  ,pageNo , pageSize , q , sellable ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15513,7 +16314,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15541,13 +16342,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse addInventory(Double itemId , String size ,PlatformModels.InventoryRequest body) throws FDKException {
+    public PlatformModels.SuccessResponse addInventory(Double itemId , String size ,PlatformModels.InventoryRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogApiList.addInventory(this.companyId , itemId  , size  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15556,7 +16357,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15600,13 +16401,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.InventorySellerIdentifierResponsePaginated getInventoryBySizeIdentifier(String itemId , String sizeIdentifier , Integer pageNo , Integer pageSize , String q , List<Integer> locationIds ) throws FDKException {
+    public PlatformModels.InventorySellerIdentifierResponsePaginated getInventoryBySizeIdentifier(String itemId , String sizeIdentifier , Integer pageNo , Integer pageSize , String q , List<Integer> locationIds ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.InventorySellerIdentifierResponsePaginated> response = null;
             try {
                 response = catalogApiList.getInventoryBySizeIdentifier(this.companyId , itemId  , sizeIdentifier  ,pageNo , pageSize , q , locationIds ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15615,7 +16416,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15649,13 +16450,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse deleteInventory(String size , Integer itemId , Double locationId ) throws FDKException {
+    public PlatformModels.SuccessResponse deleteInventory(String size , Integer itemId , Double locationId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogApiList.deleteInventory(this.companyId , size  , itemId  , locationId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15664,7 +16465,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15692,13 +16493,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.BulkInventoryGet getInventoryBulkUploadHistory(Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.BulkInventoryGet getInventoryBulkUploadHistory(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BulkInventoryGet> response = null;
             try {
                 response = catalogApiList.getInventoryBulkUploadHistory(this.companyId ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15707,7 +16508,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15727,13 +16528,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.BulkResponse createBulkInventoryJob(PlatformModels.BulkJob body) throws FDKException {
+    public PlatformModels.BulkResponse createBulkInventoryJob(PlatformModels.BulkJob body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BulkResponse> response = null;
             try {
                 response = catalogApiList.createBulkInventoryJob(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15742,7 +16543,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15794,13 +16595,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.GetInventoriesResponse getInventories(String itemId , String size , Integer pageNo , Integer pageSize , String q , Boolean sellable , List<Integer> storeIds , String sizeIdentifier ) throws FDKException {
+    public PlatformModels.GetInventoriesResponse getInventories(String itemId , String size , Integer pageNo , Integer pageSize , String q , Boolean sellable , List<Integer> storeIds , String sizeIdentifier ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetInventoriesResponse> response = null;
             try {
                 response = catalogApiList.getInventories(this.companyId ,itemId , size , pageNo , pageSize , q , sellable , storeIds , sizeIdentifier ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15809,7 +16610,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15833,13 +16634,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse createBulkInventory(String batchId ,PlatformModels.InventoryBulkRequest body) throws FDKException {
+    public PlatformModels.SuccessResponse createBulkInventory(String batchId ,PlatformModels.InventoryBulkRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogApiList.createBulkInventory(this.companyId , batchId  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15848,7 +16649,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15872,13 +16673,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse deleteBulkInventoryJob(String batchId ) throws FDKException {
+    public PlatformModels.SuccessResponse deleteBulkInventoryJob(String batchId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogApiList.deleteBulkInventoryJob(this.companyId , batchId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15887,7 +16688,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15923,13 +16724,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.InventoryExportJob getInventoryExport(String status , String fromDate , String toDate , String q ) throws FDKException {
+    public PlatformModels.InventoryExportJob getInventoryExport(String status , String fromDate , String toDate , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.InventoryExportJob> response = null;
             try {
                 response = catalogApiList.getInventoryExport(this.companyId ,status , fromDate , toDate , q ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15938,7 +16739,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15958,13 +16759,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.InventoryExportResponse createInventoryExportJob(PlatformModels.InventoryExportRequest body) throws FDKException {
+    public PlatformModels.InventoryExportResponse createInventoryExportJob(PlatformModels.InventoryExportRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.InventoryExportResponse> response = null;
             try {
                 response = catalogApiList.createInventoryExportJob(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -15973,7 +16774,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -15997,13 +16798,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.InventoryConfig exportInventoryConfig(String filterType ) throws FDKException {
+    public PlatformModels.InventoryConfig exportInventoryConfig(String filterType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.InventoryConfig> response = null;
             try {
                 response = catalogApiList.exportInventoryConfig(this.companyId ,filterType ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16012,7 +16813,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16040,13 +16841,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.SuccessResponse updateRealtimeInventory(Double itemId , String sellerIdentifier ,PlatformModels.InventoryRequestSchemaV2 body) throws FDKException {
+    public PlatformModels.SuccessResponse updateRealtimeInventory(Double itemId , String sellerIdentifier ,PlatformModels.InventoryRequestSchemaV2 body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogApiList.updateRealtimeInventory(this.companyId , itemId  , sellerIdentifier  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16055,7 +16856,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16083,13 +16884,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.InventoryUpdateResponse deleteRealtimeInventory(Double itemId , String sellerIdentifier ,PlatformModels.InventoryRequestSchemaV2 body) throws FDKException {
+    public PlatformModels.InventoryUpdateResponse deleteRealtimeInventory(Double itemId , String sellerIdentifier ,PlatformModels.InventoryRequestSchemaV2 body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.InventoryUpdateResponse> response = null;
             try {
                 response = catalogApiList.deleteRealtimeInventory(this.companyId , itemId  , sellerIdentifier  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16098,7 +16899,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16118,13 +16919,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.InventoryUpdateResponse updateInventories(PlatformModels.InventoryRequestSchemaV2 body) throws FDKException {
+    public PlatformModels.InventoryUpdateResponse updateInventories(PlatformModels.InventoryRequestSchemaV2 body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.InventoryUpdateResponse> response = null;
             try {
                 response = catalogApiList.updateInventories(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16133,7 +16934,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16165,13 +16966,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.HsnCodesListingResponse getAllHsnCodes(Integer pageNo , Integer pageSize , String q ) throws FDKException {
+    public PlatformModels.HsnCodesListingResponse getAllHsnCodes(Integer pageNo , Integer pageSize , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.HsnCodesListingResponse> response = null;
             try {
                 response = catalogApiList.getAllHsnCodes(this.companyId ,pageNo , pageSize , q ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16180,7 +16981,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16200,13 +17001,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.HsnCode createHsnCode(PlatformModels.HsnUpsert body) throws FDKException {
+    public PlatformModels.HsnCode createHsnCode(PlatformModels.HsnUpsert body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.HsnCode> response = null;
             try {
                 response = catalogApiList.createHsnCode(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16215,7 +17016,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16239,13 +17040,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.HsnCode getHsnCode(String id ) throws FDKException {
+    public PlatformModels.HsnCode getHsnCode(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.HsnCode> response = null;
             try {
                 response = catalogApiList.getHsnCode(this.companyId , id  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16254,7 +17055,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16278,13 +17079,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.HsnCode updateHsnCode(String id ,PlatformModels.HsnUpsert body) throws FDKException {
+    public PlatformModels.HsnCode updateHsnCode(String id ,PlatformModels.HsnUpsert body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.HsnCode> response = null;
             try {
                 response = catalogApiList.updateHsnCode(this.companyId , id  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16293,7 +17094,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16313,13 +17114,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.BulkHsnResponse bulkHsnCode(PlatformModels.BulkHsnUpsert body) throws FDKException {
+    public PlatformModels.BulkHsnResponse bulkHsnCode(PlatformModels.BulkHsnUpsert body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BulkHsnResponse> response = null;
             try {
                 response = catalogApiList.bulkHsnCode(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16328,7 +17129,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16364,13 +17165,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.HsnCodesListingResponseSchemaV2 getAllProductHsnCodes(Integer pageNo , Integer pageSize , String q , String type ) throws FDKException {
+    public PlatformModels.HsnCodesListingResponseSchemaV2 getAllProductHsnCodes(Integer pageNo , Integer pageSize , String q , String type ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.HsnCodesListingResponseSchemaV2> response = null;
             try {
                 response = catalogApiList.getAllProductHsnCodes(this.companyId ,pageNo , pageSize , q , type ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16379,7 +17180,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16399,13 +17200,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.StoreAssignResponse getOptimalLocations(PlatformModels.AssignStore body) throws FDKException {
+    public PlatformModels.StoreAssignResponse getOptimalLocations(PlatformModels.AssignStore body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.StoreAssignResponse> response = null;
             try {
                 response = catalogApiList.getOptimalLocations(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16414,7 +17215,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16438,13 +17239,13 @@ public static class CatalogService {
     
     
     
-    public PlatformModels.HSNDataInsertV2 getSingleProductHSNCode(String reportingHsn ) throws FDKException {
+    public PlatformModels.HSNDataInsertV2 getSingleProductHSNCode(String reportingHsn ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.HSNDataInsertV2> response = null;
             try {
                 response = catalogApiList.getSingleProductHSNCode(reportingHsn  , this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16453,7 +17254,7 @@ public static class CatalogService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16527,13 +17328,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetSearchWordsDetailResponse getSearchKeywords(String id ) throws FDKException {
+    public PlatformModels.GetSearchWordsDetailResponse getSearchKeywords(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetSearchWordsDetailResponse> response = null;
             try {
             response = catalogApiList.getSearchKeywords(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16542,7 +17343,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16571,13 +17372,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DeleteResponse deleteSearchKeywords(String id ) throws FDKException {
+    public PlatformModels.DeleteResponse deleteSearchKeywords(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DeleteResponse> response = null;
             try {
             response = catalogApiList.deleteSearchKeywords(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16586,7 +17387,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16615,13 +17416,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetSearchWordsData updateSearchKeywords(String id ,PlatformModels.CreateSearchKeyword body) throws FDKException {
+    public PlatformModels.GetSearchWordsData updateSearchKeywords(String id ,PlatformModels.CreateSearchKeyword body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetSearchWordsData> response = null;
             try {
             response = catalogApiList.updateSearchKeywords(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16630,7 +17431,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16655,13 +17456,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetSearchWordsResponse getAllSearchKeyword() throws FDKException {
+    public PlatformModels.GetSearchWordsResponse getAllSearchKeyword() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetSearchWordsResponse> response = null;
             try {
             response = catalogApiList.getAllSearchKeyword(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16670,7 +17471,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16695,13 +17496,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetSearchWordsData createCustomKeyword(PlatformModels.CreateSearchKeyword body) throws FDKException {
+    public PlatformModels.GetSearchWordsData createCustomKeyword(PlatformModels.CreateSearchKeyword body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetSearchWordsData> response = null;
             try {
             response = catalogApiList.createCustomKeyword(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16710,7 +17511,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16739,13 +17540,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetAutocompleteWordsResponse getAutocompleteKeywordDetail(String id ) throws FDKException {
+    public PlatformModels.GetAutocompleteWordsResponse getAutocompleteKeywordDetail(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetAutocompleteWordsResponse> response = null;
             try {
             response = catalogApiList.getAutocompleteKeywordDetail(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16754,7 +17555,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16783,13 +17584,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DeleteResponse deleteAutocompleteKeyword(String id ) throws FDKException {
+    public PlatformModels.DeleteResponse deleteAutocompleteKeyword(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DeleteResponse> response = null;
             try {
             response = catalogApiList.deleteAutocompleteKeyword(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16798,7 +17599,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16827,13 +17628,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetAutocompleteWordsResponse updateAutocompleteKeyword(String id ,PlatformModels.CreateAutocompleteKeyword body) throws FDKException {
+    public PlatformModels.GetAutocompleteWordsResponse updateAutocompleteKeyword(String id ,PlatformModels.CreateAutocompleteKeyword body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetAutocompleteWordsResponse> response = null;
             try {
             response = catalogApiList.updateAutocompleteKeyword(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16842,7 +17643,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16867,13 +17668,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetAutocompleteWordsResponse getAutocompleteConfig() throws FDKException {
+    public PlatformModels.GetAutocompleteWordsResponse getAutocompleteConfig() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetAutocompleteWordsResponse> response = null;
             try {
             response = catalogApiList.getAutocompleteConfig(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16882,7 +17683,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16907,13 +17708,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CreateAutocompleteWordsResponse createCustomAutocompleteRule(PlatformModels.CreateAutocompleteKeyword body) throws FDKException {
+    public PlatformModels.CreateAutocompleteWordsResponse createCustomAutocompleteRule(PlatformModels.CreateAutocompleteKeyword body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateAutocompleteWordsResponse> response = null;
             try {
             response = catalogApiList.createCustomAutocompleteRule(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16922,7 +17723,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -16967,13 +17768,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.OwnerAppItemResponse getAppProduct(String itemId ) throws FDKException {
+    public PlatformModels.OwnerAppItemResponse getAppProduct(String itemId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OwnerAppItemResponse> response = null;
             try {
             response = catalogApiList.getAppProduct(this.companyId , this.applicationId , itemId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -16982,7 +17783,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17011,13 +17812,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SuccessResponse1 updateAppProduct(String itemId ,PlatformModels.ApplicationItemMeta body) throws FDKException {
+    public PlatformModels.SuccessResponse1 updateAppProduct(String itemId ,PlatformModels.ApplicationItemMeta body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse1> response = null;
             try {
             response = catalogApiList.updateAppProduct(this.companyId , this.applicationId , itemId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17026,7 +17827,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17059,13 +17860,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetConfigMetadataResponse getConfigurationMetadata(String configType , String templateSlug ) throws FDKException {
+    public PlatformModels.GetConfigMetadataResponse getConfigurationMetadata(String configType , String templateSlug ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetConfigMetadataResponse> response = null;
             try {
             response = catalogApiList.getConfigurationMetadata(this.companyId , this.applicationId , configType ,templateSlug ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17074,7 +17875,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17119,13 +17920,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetConfigResponse getGroupConfigurations(String configType , Integer pageNo , Integer pageSize , String search , String templateSlug ) throws FDKException {
+    public PlatformModels.GetConfigResponse getGroupConfigurations(String configType , Integer pageNo , Integer pageSize , String search , String templateSlug ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetConfigResponse> response = null;
             try {
             response = catalogApiList.getGroupConfigurations(this.companyId , this.applicationId , configType ,pageNo , pageSize , search , templateSlug ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17134,7 +17935,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17163,13 +17964,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AppConfigurationDetail createGroupConfiguration(String configType ,PlatformModels.AppConfigurationDetail body) throws FDKException {
+    public PlatformModels.AppConfigurationDetail createGroupConfiguration(String configType ,PlatformModels.AppConfigurationDetail body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AppConfigurationDetail> response = null;
             try {
             response = catalogApiList.createGroupConfiguration(this.companyId , this.applicationId , configType , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17178,7 +17979,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17211,13 +18012,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ConfigSuccessResponse deleteGroupConfiguration(String configType , String groupSlug ) throws FDKException {
+    public PlatformModels.ConfigSuccessResponse deleteGroupConfiguration(String configType , String groupSlug ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ConfigSuccessResponse> response = null;
             try {
             response = catalogApiList.deleteGroupConfiguration(this.companyId , this.applicationId , configType , groupSlug ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17226,7 +18027,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17259,13 +18060,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AppConfigurationDetail updateGroupConfiguration(String configType , String groupSlug ,PlatformModels.AppConfigurationDetail body) throws FDKException {
+    public PlatformModels.AppConfigurationDetail updateGroupConfiguration(String configType , String groupSlug ,PlatformModels.AppConfigurationDetail body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AppConfigurationDetail> response = null;
             try {
             response = catalogApiList.updateGroupConfiguration(this.companyId , this.applicationId , configType , groupSlug , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17274,7 +18075,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17315,13 +18116,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetConfigResponse getListingConfigurations(String configType , Integer pageNo , Integer pageSize , String search ) throws FDKException {
+    public PlatformModels.GetConfigResponse getListingConfigurations(String configType , Integer pageNo , Integer pageSize , String search ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetConfigResponse> response = null;
             try {
             response = catalogApiList.getListingConfigurations(this.companyId , this.applicationId , configType ,pageNo , pageSize , search ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17330,7 +18131,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17359,13 +18160,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AppConfigurationsSort createListingConfiguration(String configType ,PlatformModels.AppConfigurationsSort body) throws FDKException {
+    public PlatformModels.AppConfigurationsSort createListingConfiguration(String configType ,PlatformModels.AppConfigurationsSort body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AppConfigurationsSort> response = null;
             try {
             response = catalogApiList.createListingConfiguration(this.companyId , this.applicationId , configType , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17374,7 +18175,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17407,13 +18208,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ConfigSuccessResponse deleteListingConfiguration(String configType , String configId ) throws FDKException {
+    public PlatformModels.ConfigSuccessResponse deleteListingConfiguration(String configType , String configId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ConfigSuccessResponse> response = null;
             try {
             response = catalogApiList.deleteListingConfiguration(this.companyId , this.applicationId , configType , configId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17422,7 +18223,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17455,13 +18256,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AppConfigurationsSort updateListingConfiguration(String configType , String configId ,PlatformModels.AppConfigurationsSort body) throws FDKException {
+    public PlatformModels.AppConfigurationsSort updateListingConfiguration(String configType , String configId ,PlatformModels.AppConfigurationsSort body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AppConfigurationsSort> response = null;
             try {
             response = catalogApiList.updateListingConfiguration(this.companyId , this.applicationId , configType , configId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17470,7 +18271,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17495,13 +18296,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ConfigSuccessResponse updateAllowSingle(PlatformModels.AllowSingleRequest body) throws FDKException {
+    public PlatformModels.ConfigSuccessResponse updateAllowSingle(PlatformModels.AllowSingleRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ConfigSuccessResponse> response = null;
             try {
             response = catalogApiList.updateAllowSingle(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17510,7 +18311,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17535,13 +18336,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ConfigSuccessResponse updateDefaultSort(PlatformModels.DefaultKeyRequest body) throws FDKException {
+    public PlatformModels.ConfigSuccessResponse updateDefaultSort(PlatformModels.DefaultKeyRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ConfigSuccessResponse> response = null;
             try {
             response = catalogApiList.updateDefaultSort(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17550,7 +18351,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17575,13 +18376,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetCatalogConfigurationMetaData getCatalogConfiguration() throws FDKException {
+    public PlatformModels.GetCatalogConfigurationMetaData getCatalogConfiguration() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetCatalogConfigurationMetaData> response = null;
             try {
             response = catalogApiList.getCatalogConfiguration(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17590,7 +18391,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17615,13 +18416,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetAppCatalogConfiguration getConfigurations() throws FDKException {
+    public PlatformModels.GetAppCatalogConfiguration getConfigurations() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetAppCatalogConfiguration> response = null;
             try {
             response = catalogApiList.getConfigurations(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17630,7 +18431,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17655,13 +18456,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetAppCatalogConfiguration createConfigurationProductListing(PlatformModels.AppConfiguration body) throws FDKException {
+    public PlatformModels.GetAppCatalogConfiguration createConfigurationProductListing(PlatformModels.AppConfiguration body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetAppCatalogConfiguration> response = null;
             try {
             response = catalogApiList.createConfigurationProductListing(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17670,7 +18471,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17699,13 +18500,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetAppCatalogEntityConfiguration getConfigurationByType(String type ) throws FDKException {
+    public PlatformModels.GetAppCatalogEntityConfiguration getConfigurationByType(String type ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetAppCatalogEntityConfiguration> response = null;
             try {
             response = catalogApiList.getConfigurationByType(this.companyId , this.applicationId , type ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17714,7 +18515,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17743,13 +18544,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetAppCatalogConfiguration createConfigurationByType(String type ,PlatformModels.AppConfiguration body) throws FDKException {
+    public PlatformModels.GetAppCatalogConfiguration createConfigurationByType(String type ,PlatformModels.AppConfiguration body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetAppCatalogConfiguration> response = null;
             try {
             response = catalogApiList.createConfigurationByType(this.companyId , this.applicationId , type , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17758,7 +18559,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17783,13 +18584,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetCollectionQueryOptionResponse getQueryFilters() throws FDKException {
+    public PlatformModels.GetCollectionQueryOptionResponse getQueryFilters() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetCollectionQueryOptionResponse> response = null;
             try {
             response = catalogApiList.getQueryFilters(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17798,7 +18599,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17851,13 +18652,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetCollectionListingResponse getAllCollections(String q , String scheduleStatus , String type , List<String> tags , Boolean isActive , Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.GetCollectionListingResponse getAllCollections(String q , String scheduleStatus , String type , List<String> tags , Boolean isActive , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetCollectionListingResponse> response = null;
             try {
             response = catalogApiList.getAllCollections(this.companyId , this.applicationId ,q , scheduleStatus , type , tags , isActive , pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17866,7 +18667,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17891,13 +18692,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CollectionCreateResponse createCollection(PlatformModels.CreateCollection body) throws FDKException {
+    public PlatformModels.CollectionCreateResponse createCollection(PlatformModels.CreateCollection body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CollectionCreateResponse> response = null;
             try {
             response = catalogApiList.createCollection(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17906,7 +18707,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17935,13 +18736,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CollectionDetailResponse getCollectionDetail(String slug ) throws FDKException {
+    public PlatformModels.CollectionDetailResponse getCollectionDetail(String slug ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CollectionDetailResponse> response = null;
             try {
             response = catalogApiList.getCollectionDetail(this.companyId , this.applicationId , slug ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17950,7 +18751,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -17979,13 +18780,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DeleteResponse deleteCollection(String id ) throws FDKException {
+    public PlatformModels.DeleteResponse deleteCollection(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DeleteResponse> response = null;
             try {
             response = catalogApiList.deleteCollection(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -17994,7 +18795,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -18023,13 +18824,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.UpdateCollection updateCollection(String id ,PlatformModels.UpdateCollection body) throws FDKException {
+    public PlatformModels.UpdateCollection updateCollection(String id ,PlatformModels.UpdateCollection body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.UpdateCollection> response = null;
             try {
             response = catalogApiList.updateCollection(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -18038,7 +18839,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -18079,13 +18880,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetCollectionItemsResponse getCollectionItems(String id , String sortOn , String pageId , Integer pageSize ) throws FDKException {
+    public PlatformModels.GetCollectionItemsResponse getCollectionItems(String id , String sortOn , String pageId , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetCollectionItemsResponse> response = null;
             try {
             response = catalogApiList.getCollectionItems(this.companyId , this.applicationId , id ,sortOn , pageId , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -18094,7 +18895,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -18123,13 +18924,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.UpdatedResponse addCollectionItems(String id ,PlatformModels.CollectionItemRequest body) throws FDKException {
+    public PlatformModels.UpdatedResponse addCollectionItems(String id ,PlatformModels.CollectionItemRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.UpdatedResponse> response = null;
             try {
             response = catalogApiList.addCollectionItems(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -18138,7 +18939,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -18167,13 +18968,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CatalogInsightResponse getCatalogInsights(String brand ) throws FDKException {
+    public PlatformModels.CatalogInsightResponse getCatalogInsights(String brand ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CatalogInsightResponse> response = null;
             try {
             response = catalogApiList.getCatalogInsights(this.companyId , this.applicationId ,brand ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -18182,7 +18983,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -18327,13 +19128,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.InventorySellerIdentifierResponsePaginated getDiscountedInventoryBySizeIdentifier(Integer itemId , String sizeIdentifier , Integer pageNo , Integer pageSize , String q , List<Integer> locationIds ) throws FDKException {
+    public PlatformModels.InventorySellerIdentifierResponsePaginated getDiscountedInventoryBySizeIdentifier(Integer itemId , String sizeIdentifier , Integer pageNo , Integer pageSize , String q , List<Integer> locationIds ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.InventorySellerIdentifierResponsePaginated> response = null;
             try {
             response = catalogApiList.getDiscountedInventoryBySizeIdentifier(this.companyId , this.applicationId , itemId , sizeIdentifier ,pageNo , pageSize , q , locationIds ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -18342,7 +19143,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -18427,13 +19228,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.BrandListingResponse getApplicationBrands(String department , Integer pageNo , Integer pageSize , String q , List<Integer> brandId ) throws FDKException {
+    public PlatformModels.BrandListingResponse getApplicationBrands(String department , Integer pageNo , Integer pageSize , String q , List<Integer> brandId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BrandListingResponse> response = null;
             try {
             response = catalogApiList.getApplicationBrands(this.companyId , this.applicationId ,department , pageNo , pageSize , q , brandId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -18442,7 +19243,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -18550,13 +19351,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DepartmentResponse getDepartments() throws FDKException {
+    public PlatformModels.DepartmentResponse getDepartments() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DepartmentResponse> response = null;
             try {
             response = catalogApiList.getDepartments(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -18565,7 +19366,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -18594,13 +19395,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CategoryListingResponse getCategories(String department ) throws FDKException {
+    public PlatformModels.CategoryListingResponse getCategories(String department ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CategoryListingResponse> response = null;
             try {
             response = catalogApiList.getCategories(this.companyId , this.applicationId ,department ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -18609,7 +19410,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -18678,13 +19479,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ApplicationProductListingResponse getAppicationProducts(String q , String f , String c , Boolean filters , Boolean isDependent , String sortOn , String pageId , Integer pageSize , Integer pageNo , String pageType , List<Integer> itemIds ) throws FDKException {
+    public PlatformModels.ApplicationProductListingResponse getAppicationProducts(String q , String f , String c , Boolean filters , Boolean isDependent , String sortOn , String pageId , Integer pageSize , Integer pageNo , String pageType , List<Integer> itemIds ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ApplicationProductListingResponse> response = null;
             try {
             response = catalogApiList.getAppicationProducts(this.companyId , this.applicationId ,q , f , c , filters , isDependent , sortOn , pageId , pageSize , pageNo , pageType , itemIds ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -18693,7 +19494,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -18853,13 +19654,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ProductDetail getProductDetailBySlug(String slug ) throws FDKException {
+    public PlatformModels.ProductDetail getProductDetailBySlug(String slug ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProductDetail> response = null;
             try {
             response = catalogApiList.getProductDetailBySlug(this.companyId , this.applicationId , slug ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -18868,7 +19669,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -18925,13 +19726,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ProductListingResponse getAppProducts(List<Integer> brandIds , List<Integer> categoryIds , List<Integer> departmentIds , List<String> tags , Boolean isDependent , Integer pageNo , Integer pageSize , String q ) throws FDKException {
+    public PlatformModels.ProductListingResponse getAppProducts(List<Integer> brandIds , List<Integer> categoryIds , List<Integer> departmentIds , List<String> tags , Boolean isDependent , Integer pageNo , Integer pageSize , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProductListingResponse> response = null;
             try {
             response = catalogApiList.getAppProducts(this.companyId , this.applicationId ,brandIds , categoryIds , departmentIds , tags , isDependent , pageNo , pageSize , q ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -18940,7 +19741,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -18993,13 +19794,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.InventoryStockResponse getAppInventory(List<Integer> itemIds , List<Integer> storeIds , List<Integer> brandIds , List<String> sellerIdentifiers , String timestamp , Integer pageSize , String pageId ) throws FDKException {
+    public PlatformModels.InventoryStockResponse getAppInventory(List<Integer> itemIds , List<Integer> storeIds , List<Integer> brandIds , List<String> sellerIdentifiers , String timestamp , Integer pageSize , String pageId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.InventoryStockResponse> response = null;
             try {
             response = catalogApiList.getAppInventory(this.companyId , this.applicationId ,itemIds , storeIds , brandIds , sellerIdentifiers , timestamp , pageSize , pageId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -19008,7 +19809,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -19057,13 +19858,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.LocationListSerializer getAppLocations(String storeType , List<Integer> uid , String q , String stage , Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.LocationListSerializer getAppLocations(String storeType , List<Integer> uid , String q , String stage , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.LocationListSerializer> response = null;
             try {
             response = catalogApiList.getAppLocations(this.companyId , this.applicationId ,storeType , uid , q , stage , pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -19072,7 +19873,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -19200,13 +20001,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.BrandListingResponse getApplicationBrandListing(Integer pageNo , Integer pageSize , String q ) throws FDKException {
+    public PlatformModels.BrandListingResponse getApplicationBrandListing(Integer pageNo , Integer pageSize , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BrandListingResponse> response = null;
             try {
             response = catalogApiList.getApplicationBrandListing(this.companyId , this.applicationId ,pageNo , pageSize , q ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -19215,7 +20016,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -19311,13 +20112,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SuccessResponse1 updateAppBrand(String brandUid ,PlatformModels.ApplicationBrandJson body) throws FDKException {
+    public PlatformModels.SuccessResponse1 updateAppBrand(String brandUid ,PlatformModels.ApplicationBrandJson body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse1> response = null;
             try {
             response = catalogApiList.updateAppBrand(this.companyId , this.applicationId , brandUid , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -19326,7 +20127,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -19367,13 +20168,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.BrandListingResponse getApplicationCategoryListing(Integer departmentId , Integer pageNo , Integer pageSize , String q ) throws FDKException {
+    public PlatformModels.BrandListingResponse getApplicationCategoryListing(Integer departmentId , Integer pageNo , Integer pageSize , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BrandListingResponse> response = null;
             try {
             response = catalogApiList.getApplicationCategoryListing(this.companyId , this.applicationId ,departmentId , pageNo , pageSize , q ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -19382,7 +20183,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -19486,13 +20287,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SuccessResponse1 updateAppCategory(String categoryUid ,PlatformModels.ApplicationCategoryJson body) throws FDKException {
+    public PlatformModels.SuccessResponse1 updateAppCategory(String categoryUid ,PlatformModels.ApplicationCategoryJson body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse1> response = null;
             try {
             response = catalogApiList.updateAppCategory(this.companyId , this.applicationId , categoryUid , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -19501,7 +20302,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -19538,13 +20339,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ApplicationDepartmentListingResponse getApplicationDepartmentListing(Integer pageNo , Integer pageSize , String q ) throws FDKException {
+    public PlatformModels.ApplicationDepartmentListingResponse getApplicationDepartmentListing(Integer pageNo , Integer pageSize , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ApplicationDepartmentListingResponse> response = null;
             try {
             response = catalogApiList.getApplicationDepartmentListing(this.companyId , this.applicationId ,pageNo , pageSize , q ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -19553,7 +20354,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -19649,13 +20450,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SuccessResponse1 updateAppDepartment(String departmentUid ,PlatformModels.ApplicationDepartmentJson body) throws FDKException {
+    public PlatformModels.SuccessResponse1 updateAppDepartment(String departmentUid ,PlatformModels.ApplicationDepartmentJson body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse1> response = null;
             try {
             response = catalogApiList.updateAppDepartment(this.companyId , this.applicationId , departmentUid , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -19664,7 +20465,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -19693,13 +20494,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SuccessResponse1 updateAppLocation(String storeUid ,PlatformModels.ApplicationStoreJson body) throws FDKException {
+    public PlatformModels.SuccessResponse1 updateAppLocation(String storeUid ,PlatformModels.ApplicationStoreJson body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessResponse1> response = null;
             try {
             response = catalogApiList.updateAppLocation(this.companyId , this.applicationId , storeUid , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -19708,7 +20509,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -19758,13 +20559,13 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.GetCompanyProfileSerializerResponse cbsOnboardGet() throws FDKException {
+    public PlatformModels.GetCompanyProfileSerializerResponse cbsOnboardGet() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetCompanyProfileSerializerResponse> response = null;
             try {
                 response = companyprofileApiList.cbsOnboardGet(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -19773,7 +20574,7 @@ public static class CompanyProfileService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -19793,13 +20594,13 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.ProfileSuccessResponse updateCompany(PlatformModels.UpdateCompany body) throws FDKException {
+    public PlatformModels.ProfileSuccessResponse updateCompany(PlatformModels.UpdateCompany body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProfileSuccessResponse> response = null;
             try {
                 response = companyprofileApiList.updateCompany(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -19808,7 +20609,7 @@ public static class CompanyProfileService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -19828,13 +20629,13 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.MetricsSerializer getCompanyMetrics() throws FDKException {
+    public PlatformModels.MetricsSerializer getCompanyMetrics() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.MetricsSerializer> response = null;
             try {
                 response = companyprofileApiList.getCompanyMetrics(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -19843,7 +20644,7 @@ public static class CompanyProfileService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -19867,13 +20668,13 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.GetBrandResponseSerializer getBrand(String brandId ) throws FDKException {
+    public PlatformModels.GetBrandResponseSerializer getBrand(String brandId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetBrandResponseSerializer> response = null;
             try {
                 response = companyprofileApiList.getBrand(this.companyId , brandId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -19882,7 +20683,7 @@ public static class CompanyProfileService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -19906,13 +20707,13 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.ProfileSuccessResponse editBrand(String brandId ,PlatformModels.CreateUpdateBrandRequestSerializer body) throws FDKException {
+    public PlatformModels.ProfileSuccessResponse editBrand(String brandId ,PlatformModels.CreateUpdateBrandRequestSerializer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProfileSuccessResponse> response = null;
             try {
                 response = companyprofileApiList.editBrand(this.companyId , brandId  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -19921,7 +20722,7 @@ public static class CompanyProfileService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -19941,13 +20742,13 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.ProfileSuccessResponse createBrand(PlatformModels.CreateUpdateBrandRequestSerializer body) throws FDKException {
+    public PlatformModels.ProfileSuccessResponse createBrand(PlatformModels.CreateUpdateBrandRequestSerializer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProfileSuccessResponse> response = null;
             try {
                 response = companyprofileApiList.createBrand(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -19956,7 +20757,7 @@ public static class CompanyProfileService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -19988,13 +20789,13 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.CompanyBrandListSerializer getBrands(Integer pageNo , Integer pageSize , String q ) throws FDKException {
+    public PlatformModels.CompanyBrandListSerializer getBrands(Integer pageNo , Integer pageSize , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CompanyBrandListSerializer> response = null;
             try {
                 response = companyprofileApiList.getBrands(this.companyId ,pageNo , pageSize , q ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -20003,7 +20804,7 @@ public static class CompanyProfileService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -20087,13 +20888,13 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.ProfileSuccessResponse createCompanyBrandMapping(PlatformModels.CompanyBrandPostRequestSerializer body) throws FDKException {
+    public PlatformModels.ProfileSuccessResponse createCompanyBrandMapping(PlatformModels.CompanyBrandPostRequestSerializer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProfileSuccessResponse> response = null;
             try {
                 response = companyprofileApiList.createCompanyBrandMapping(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -20102,7 +20903,7 @@ public static class CompanyProfileService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -20146,13 +20947,13 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.LocationListSerializer getLocations(String storeType , String q , String stage , Integer pageNo , Integer pageSize , List<Integer> locationIds ) throws FDKException {
+    public PlatformModels.LocationListSerializer getLocations(String storeType , String q , String stage , Integer pageNo , Integer pageSize , List<Integer> locationIds ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.LocationListSerializer> response = null;
             try {
                 response = companyprofileApiList.getLocations(this.companyId ,storeType , q , stage , pageNo , pageSize , locationIds ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -20161,7 +20962,7 @@ public static class CompanyProfileService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -20269,13 +21070,13 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.ProfileSuccessResponse createLocation(PlatformModels.LocationSerializer body) throws FDKException {
+    public PlatformModels.ProfileSuccessResponse createLocation(PlatformModels.LocationSerializer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProfileSuccessResponse> response = null;
             try {
                 response = companyprofileApiList.createLocation(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -20284,7 +21085,7 @@ public static class CompanyProfileService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -20308,13 +21109,13 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.GetLocationSerializer getLocationDetail(String locationId ) throws FDKException {
+    public PlatformModels.GetLocationSerializer getLocationDetail(String locationId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetLocationSerializer> response = null;
             try {
                 response = companyprofileApiList.getLocationDetail(this.companyId , locationId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -20323,7 +21124,7 @@ public static class CompanyProfileService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -20347,13 +21148,13 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.ProfileSuccessResponse updateLocation(String locationId ,PlatformModels.LocationSerializer body) throws FDKException {
+    public PlatformModels.ProfileSuccessResponse updateLocation(String locationId ,PlatformModels.LocationSerializer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProfileSuccessResponse> response = null;
             try {
                 response = companyprofileApiList.updateLocation(this.companyId , locationId  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -20362,7 +21163,7 @@ public static class CompanyProfileService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -20382,13 +21183,13 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.ProfileSuccessResponse createLocationBulk(PlatformModels.BulkLocationSerializer body) throws FDKException {
+    public PlatformModels.ProfileSuccessResponse createLocationBulk(PlatformModels.BulkLocationSerializer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ProfileSuccessResponse> response = null;
             try {
                 response = companyprofileApiList.createLocationBulk(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -20397,7 +21198,7 @@ public static class CompanyProfileService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -20417,13 +21218,13 @@ public static class CompanyProfileService {
     
     
     
-    public PlatformModels.AssignStoreResponseSerializer getOptimalLocations(PlatformModels.AssignStoreRequestValidator body) throws FDKException {
+    public PlatformModels.AssignStoreResponseSerializer getOptimalLocations(PlatformModels.AssignStoreRequestValidator body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AssignStoreResponseSerializer> response = null;
             try {
                 response = companyprofileApiList.getOptimalLocations(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -20432,7 +21233,7 @@ public static class CompanyProfileService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -20529,13 +21330,13 @@ public static class FileStorageService {
     
     
     
-    public PlatformModels.StartResponse startUpload(String namespace ,PlatformModels.StartRequest body) throws FDKException {
+    public PlatformModels.StartResponse startUpload(String namespace ,PlatformModels.StartRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.StartResponse> response = null;
             try {
                 response = filestorageApiList.startUpload(namespace  , this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -20544,7 +21345,7 @@ public static class FileStorageService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -20568,13 +21369,13 @@ public static class FileStorageService {
     
     
     
-    public PlatformModels.CompleteResponse completeUpload(String namespace ,PlatformModels.StartResponse body) throws FDKException {
+    public PlatformModels.CompleteResponse completeUpload(String namespace ,PlatformModels.StartResponse body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CompleteResponse> response = null;
             try {
                 response = filestorageApiList.completeUpload(namespace  , this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -20583,7 +21384,7 @@ public static class FileStorageService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -20607,13 +21408,13 @@ public static class FileStorageService {
     
     
     
-    public PlatformModels.SignUrlResponse getSignUrls(PlatformModels.SignUrlRequest body) throws FDKException {
+    public PlatformModels.SignUrlResponse getSignUrls(PlatformModels.SignUrlRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SignUrlResponse> response = null;
             try {
                 response = filestorageApiList.getSignUrls(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -20622,7 +21423,7 @@ public static class FileStorageService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -20646,13 +21447,13 @@ public static class FileStorageService {
     
     
     
-    public PlatformModels.BulkUploadResponse copyFiles(Boolean sync ,PlatformModels.BulkRequest body) throws FDKException {
+    public PlatformModels.BulkUploadResponse copyFiles(Boolean sync ,PlatformModels.BulkRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BulkUploadResponse> response = null;
             try {
                 response = filestorageApiList.copyFiles(this.companyId ,sync , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -20661,7 +21462,7 @@ public static class FileStorageService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -20691,13 +21492,13 @@ public static class FileStorageService {
     
     
     
-    public PlatformModels.BrowseResponse browse(String namespace , Integer pageNo ) throws FDKException {
+    public PlatformModels.BrowseResponse browse(String namespace , Integer pageNo ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BrowseResponse> response = null;
             try {
                 response = filestorageApiList.browse(namespace  , this.companyId ,pageNo ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -20706,7 +21507,7 @@ public static class FileStorageService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -20787,13 +21588,13 @@ public static class FileStorageService {
     
     
     
-    public String proxy(String url ) throws FDKException {
+    public String proxy(String url ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<String> response = null;
             try {
                 response = filestorageApiList.proxy(this.companyId ,url ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -20802,7 +21603,7 @@ public static class FileStorageService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -20850,13 +21651,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.StartResponse appStartUpload(String namespace ,PlatformModels.StartRequest body) throws FDKException {
+    public PlatformModels.StartResponse appStartUpload(String namespace ,PlatformModels.StartRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.StartResponse> response = null;
             try {
             response = filestorageApiList.appStartUpload(namespace , this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -20865,7 +21666,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -20894,13 +21695,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CompleteResponse appCompleteUpload(String namespace ,PlatformModels.StartResponse body) throws FDKException {
+    public PlatformModels.CompleteResponse appCompleteUpload(String namespace ,PlatformModels.StartResponse body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CompleteResponse> response = null;
             try {
             response = filestorageApiList.appCompleteUpload(namespace , this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -20909,7 +21710,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -20942,13 +21743,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.BulkUploadResponse appCopyFiles(Boolean sync ,PlatformModels.BulkRequest body) throws FDKException {
+    public PlatformModels.BulkUploadResponse appCopyFiles(Boolean sync ,PlatformModels.BulkRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BulkUploadResponse> response = null;
             try {
             response = filestorageApiList.appCopyFiles(this.companyId , this.applicationId ,sync , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -20957,7 +21758,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -20992,13 +21793,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.BrowseResponse browse(String namespace , Integer pageNo ) throws FDKException {
+    public PlatformModels.BrowseResponse browse(String namespace , Integer pageNo ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BrowseResponse> response = null;
             try {
             response = filestorageApiList.browse(namespace , this.companyId , this.applicationId ,pageNo ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -21007,7 +21808,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -21145,13 +21946,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ShortLinkRes createShortLink(PlatformModels.ShortLinkReq body) throws FDKException {
+    public PlatformModels.ShortLinkRes createShortLink(PlatformModels.ShortLinkReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ShortLinkRes> response = null;
             try {
             response = shareApiList.createShortLink(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -21160,7 +21961,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -21205,13 +22006,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ShortLinkList getShortLinks(Integer pageNo , Integer pageSize , String createdBy , String active , String q ) throws FDKException {
+    public PlatformModels.ShortLinkList getShortLinks(Integer pageNo , Integer pageSize , String createdBy , String active , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ShortLinkList> response = null;
             try {
             response = shareApiList.getShortLinks(this.companyId , this.applicationId ,pageNo , pageSize , createdBy , active , q ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -21220,7 +22021,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -21332,13 +22133,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ShortLinkRes getShortLinkByHash(String hash ) throws FDKException {
+    public PlatformModels.ShortLinkRes getShortLinkByHash(String hash ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ShortLinkRes> response = null;
             try {
             response = shareApiList.getShortLinkByHash(this.companyId , this.applicationId , hash ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -21347,7 +22148,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -21376,13 +22177,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ShortLinkRes updateShortLinkById(String id ,PlatformModels.ShortLinkReq body) throws FDKException {
+    public PlatformModels.ShortLinkRes updateShortLinkById(String id ,PlatformModels.ShortLinkReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ShortLinkRes> response = null;
             try {
             response = shareApiList.updateShortLinkById(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -21391,7 +22192,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -21449,13 +22250,13 @@ public static class InventoryService {
     
     
     
-    public PlatformModels.ResponseEnvelopeListJobConfigRawDTO getJobsByCompany(Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.ResponseEnvelopeListJobConfigRawDTO getJobsByCompany(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ResponseEnvelopeListJobConfigRawDTO> response = null;
             try {
                 response = inventoryApiList.getJobsByCompany(this.companyId ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -21464,7 +22265,7 @@ public static class InventoryService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -21484,13 +22285,13 @@ public static class InventoryService {
     
     
     
-    public PlatformModels.ResponseEnvelopeString updateJob(PlatformModels.JobConfigDTO body) throws FDKException {
+    public PlatformModels.ResponseEnvelopeString updateJob(PlatformModels.JobConfigDTO body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ResponseEnvelopeString> response = null;
             try {
                 response = inventoryApiList.updateJob(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -21499,7 +22300,7 @@ public static class InventoryService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -21519,13 +22320,13 @@ public static class InventoryService {
     
     
     
-    public PlatformModels.ResponseEnvelopeString createJob(PlatformModels.JobConfigDTO body) throws FDKException {
+    public PlatformModels.ResponseEnvelopeString createJob(PlatformModels.JobConfigDTO body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ResponseEnvelopeString> response = null;
             try {
                 response = inventoryApiList.createJob(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -21534,7 +22335,7 @@ public static class InventoryService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -21558,13 +22359,13 @@ public static class InventoryService {
     
     
     
-    public PlatformModels.ResponseEnvelopeListJobStepsDTO getJobSteps(Integer jobId ) throws FDKException {
+    public PlatformModels.ResponseEnvelopeListJobStepsDTO getJobSteps(Integer jobId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ResponseEnvelopeListJobStepsDTO> response = null;
             try {
                 response = inventoryApiList.getJobSteps(this.companyId , jobId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -21573,7 +22374,7 @@ public static class InventoryService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -21605,13 +22406,13 @@ public static class InventoryService {
     
     
     
-    public PlatformModels.ResponseEnvelopeListJobConfigDTO getJobByCompanyAndIntegration(String integrationId , Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.ResponseEnvelopeListJobConfigDTO getJobByCompanyAndIntegration(String integrationId , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ResponseEnvelopeListJobConfigDTO> response = null;
             try {
                 response = inventoryApiList.getJobByCompanyAndIntegration(this.companyId , integrationId  ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -21620,7 +22421,7 @@ public static class InventoryService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -21644,13 +22445,13 @@ public static class InventoryService {
     
     
     
-    public PlatformModels.ResponseEnvelopeString disable(String integrationId ) throws FDKException {
+    public PlatformModels.ResponseEnvelopeString disable(String integrationId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ResponseEnvelopeString> response = null;
             try {
                 response = inventoryApiList.disable(this.companyId , integrationId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -21659,7 +22460,7 @@ public static class InventoryService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -21679,13 +22480,13 @@ public static class InventoryService {
     
     
     
-    public PlatformModels.ResponseEnvelopeJobConfigDTO getJobConfigDefaults() throws FDKException {
+    public PlatformModels.ResponseEnvelopeJobConfigDTO getJobConfigDefaults() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ResponseEnvelopeJobConfigDTO> response = null;
             try {
                 response = inventoryApiList.getJobConfigDefaults(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -21694,7 +22495,7 @@ public static class InventoryService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -21718,13 +22519,13 @@ public static class InventoryService {
     
     
     
-    public PlatformModels.ResponseEnvelopeJobConfigDTO getJobByCode(String code ) throws FDKException {
+    public PlatformModels.ResponseEnvelopeJobConfigDTO getJobByCode(String code ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ResponseEnvelopeJobConfigDTO> response = null;
             try {
                 response = inventoryApiList.getJobByCode(this.companyId , code  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -21733,7 +22534,7 @@ public static class InventoryService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -21773,13 +22574,13 @@ public static class InventoryService {
     
     
     
-    public PlatformModels.ResponseEnvelopeJobMetricsDto getJobCodeMetrics(String code , Integer pageNo , Integer pageSize , String status , String date ) throws FDKException {
+    public PlatformModels.ResponseEnvelopeJobMetricsDto getJobCodeMetrics(String code , Integer pageNo , Integer pageSize , String status , String date ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ResponseEnvelopeJobMetricsDto> response = null;
             try {
                 response = inventoryApiList.getJobCodeMetrics(this.companyId , code  ,pageNo , pageSize , status , date ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -21788,7 +22589,7 @@ public static class InventoryService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -21820,13 +22621,13 @@ public static class InventoryService {
     
     
     
-    public PlatformModels.ResponseEnvelopeListJobConfigListDTO getJobCodesByCompanyAndIntegration(String integrationId , Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.ResponseEnvelopeListJobConfigListDTO getJobCodesByCompanyAndIntegration(String integrationId , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ResponseEnvelopeListJobConfigListDTO> response = null;
             try {
                 response = inventoryApiList.getJobCodesByCompanyAndIntegration(this.companyId , integrationId  ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -21835,7 +22636,7 @@ public static class InventoryService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -21974,13 +22775,13 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.CreateAppResponse createApplication(PlatformModels.CreateApplicationRequest body) throws FDKException {
+    public PlatformModels.CreateAppResponse createApplication(PlatformModels.CreateApplicationRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateAppResponse> response = null;
             try {
                 response = configurationApiList.createApplication(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -21989,7 +22790,7 @@ public static class ConfigurationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -22021,13 +22822,13 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.ApplicationsResponse getApplications(Integer pageNo , Integer pageSize , String q ) throws FDKException {
+    public PlatformModels.ApplicationsResponse getApplications(Integer pageNo , Integer pageSize , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ApplicationsResponse> response = null;
             try {
                 response = configurationApiList.getApplications(this.companyId ,pageNo , pageSize , q ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -22036,7 +22837,7 @@ public static class ConfigurationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -22122,13 +22923,13 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.CurrenciesResponse getCurrencies() throws FDKException {
+    public PlatformModels.CurrenciesResponse getCurrencies() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CurrenciesResponse> response = null;
             try {
                 response = configurationApiList.getCurrencies(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -22137,7 +22938,7 @@ public static class ConfigurationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -22157,13 +22958,13 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.DomainSuggestionsResponse getDomainAvailibility(PlatformModels.DomainSuggestionsRequest body) throws FDKException {
+    public PlatformModels.DomainSuggestionsResponse getDomainAvailibility(PlatformModels.DomainSuggestionsRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DomainSuggestionsResponse> response = null;
             try {
                 response = configurationApiList.getDomainAvailibility(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -22172,7 +22973,7 @@ public static class ConfigurationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -22196,13 +22997,13 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.Integration getIntegrationById(Integer id ) throws FDKException {
+    public PlatformModels.Integration getIntegrationById(Integer id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Integration> response = null;
             try {
                 response = configurationApiList.getIntegrationById(this.companyId , id  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -22211,7 +23012,7 @@ public static class ConfigurationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -22239,13 +23040,13 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.GetIntegrationsOptInsResponse getAvailableOptIns(Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.GetIntegrationsOptInsResponse getAvailableOptIns(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetIntegrationsOptInsResponse> response = null;
             try {
                 response = configurationApiList.getAvailableOptIns(this.companyId ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -22254,7 +23055,7 @@ public static class ConfigurationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -22346,13 +23147,13 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.GetIntegrationsOptInsResponse getSelectedOptIns(String level , Integer uid , Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.GetIntegrationsOptInsResponse getSelectedOptIns(String level , Integer uid , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetIntegrationsOptInsResponse> response = null;
             try {
                 response = configurationApiList.getSelectedOptIns(this.companyId , level  , uid  ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -22361,7 +23162,7 @@ public static class ConfigurationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -22469,13 +23270,13 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.IntegrationConfigResponse getIntegrationLevelConfig(String id , String level , Boolean opted , Boolean checkPermission ) throws FDKException {
+    public PlatformModels.IntegrationConfigResponse getIntegrationLevelConfig(String id , String level , Boolean opted , Boolean checkPermission ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.IntegrationConfigResponse> response = null;
             try {
                 response = configurationApiList.getIntegrationLevelConfig(this.companyId , id  , level  ,opted , checkPermission ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -22484,7 +23285,7 @@ public static class ConfigurationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -22516,13 +23317,13 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.IntegrationLevel getIntegrationByLevelId(String id , String level , Integer uid ) throws FDKException {
+    public PlatformModels.IntegrationLevel getIntegrationByLevelId(String id , String level , Integer uid ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.IntegrationLevel> response = null;
             try {
                 response = configurationApiList.getIntegrationByLevelId(this.companyId , id  , level  , uid  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -22531,7 +23332,7 @@ public static class ConfigurationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -22563,13 +23364,13 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.IntegrationLevel updateLevelUidIntegration(String id , String level , Integer uid ,PlatformModels.IntegrationLevel body) throws FDKException {
+    public PlatformModels.IntegrationLevel updateLevelUidIntegration(String id , String level , Integer uid ,PlatformModels.IntegrationLevel body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.IntegrationLevel> response = null;
             try {
                 response = configurationApiList.updateLevelUidIntegration(this.companyId , id  , level  , uid  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -22578,7 +23379,7 @@ public static class ConfigurationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -22614,13 +23415,13 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.OptedStoreIntegration getLevelActiveIntegrations(String id , String level , Integer uid , String permission ) throws FDKException {
+    public PlatformModels.OptedStoreIntegration getLevelActiveIntegrations(String id , String level , Integer uid , String permission ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OptedStoreIntegration> response = null;
             try {
                 response = configurationApiList.getLevelActiveIntegrations(this.companyId , id  , level  , uid  ,permission ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -22629,7 +23430,7 @@ public static class ConfigurationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -22657,13 +23458,13 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.IntegrationLevel updateLevelIntegration(String id , String level ,PlatformModels.UpdateIntegrationLevelRequest body) throws FDKException {
+    public PlatformModels.IntegrationLevel updateLevelIntegration(String id , String level ,PlatformModels.UpdateIntegrationLevelRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.IntegrationLevel> response = null;
             try {
                 response = configurationApiList.updateLevelIntegration(this.companyId , id  , level  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -22672,7 +23473,7 @@ public static class ConfigurationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -22696,13 +23497,13 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.BrandsByCompanyResponse getBrandsByCompany(String q ) throws FDKException {
+    public PlatformModels.BrandsByCompanyResponse getBrandsByCompany(String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BrandsByCompanyResponse> response = null;
             try {
                 response = configurationApiList.getBrandsByCompany(this.companyId ,q ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -22711,7 +23512,7 @@ public static class ConfigurationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -22739,13 +23540,13 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.CompanyByBrandsResponse getCompanyByBrands(Integer pageNo , Integer pageSize ,PlatformModels.CompanyByBrandsRequest body) throws FDKException {
+    public PlatformModels.CompanyByBrandsResponse getCompanyByBrands(Integer pageNo , Integer pageSize ,PlatformModels.CompanyByBrandsRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CompanyByBrandsResponse> response = null;
             try {
                 response = configurationApiList.getCompanyByBrands(this.companyId ,pageNo , pageSize , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -22754,7 +23555,7 @@ public static class ConfigurationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -22838,13 +23639,13 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.StoreByBrandsResponse getStoreByBrands(Integer pageNo , Integer pageSize ,PlatformModels.StoreByBrandsRequest body) throws FDKException {
+    public PlatformModels.StoreByBrandsResponse getStoreByBrands(Integer pageNo , Integer pageSize ,PlatformModels.StoreByBrandsRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.StoreByBrandsResponse> response = null;
             try {
                 response = configurationApiList.getStoreByBrands(this.companyId ,pageNo , pageSize , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -22853,7 +23654,7 @@ public static class ConfigurationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -22937,13 +23738,13 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.OtherSellerApplications getOtherSellerApplications(Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.OtherSellerApplications getOtherSellerApplications(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OtherSellerApplications> response = null;
             try {
                 response = configurationApiList.getOtherSellerApplications(this.companyId ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -22952,7 +23753,7 @@ public static class ConfigurationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23032,13 +23833,13 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.OptedApplicationResponse getOtherSellerApplicationById(String id ) throws FDKException {
+    public PlatformModels.OptedApplicationResponse getOtherSellerApplicationById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OptedApplicationResponse> response = null;
             try {
                 response = configurationApiList.getOtherSellerApplicationById(this.companyId , id  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23047,7 +23848,7 @@ public static class ConfigurationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23071,13 +23872,13 @@ public static class ConfigurationService {
     
     
     
-    public PlatformModels.SuccessMessageResponse optOutFromApplication(String id ,PlatformModels.OptOutInventory body) throws FDKException {
+    public PlatformModels.SuccessMessageResponse optOutFromApplication(String id ,PlatformModels.OptOutInventory body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessMessageResponse> response = null;
             try {
                 response = configurationApiList.optOutFromApplication(this.companyId , id  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23086,7 +23887,7 @@ public static class ConfigurationService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23130,13 +23931,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.MobileAppConfiguration getBuildConfig(String platformType ) throws FDKException {
+    public PlatformModels.MobileAppConfiguration getBuildConfig(String platformType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.MobileAppConfiguration> response = null;
             try {
             response = configurationApiList.getBuildConfig(this.companyId , this.applicationId , platformType ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23145,7 +23946,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23174,13 +23975,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.MobileAppConfiguration updateBuildConfig(String platformType ,PlatformModels.MobileAppConfigRequest body) throws FDKException {
+    public PlatformModels.MobileAppConfiguration updateBuildConfig(String platformType ,PlatformModels.MobileAppConfigRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.MobileAppConfiguration> response = null;
             try {
             response = configurationApiList.updateBuildConfig(this.companyId , this.applicationId , platformType , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23189,7 +23990,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23218,13 +24019,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.BuildVersionHistory getPreviousVersions(String platformType ) throws FDKException {
+    public PlatformModels.BuildVersionHistory getPreviousVersions(String platformType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.BuildVersionHistory> response = null;
             try {
             response = configurationApiList.getPreviousVersions(this.companyId , this.applicationId , platformType ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23233,7 +24034,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23258,13 +24059,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AppFeatureResponse getAppFeatures() throws FDKException {
+    public PlatformModels.AppFeatureResponse getAppFeatures() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AppFeatureResponse> response = null;
             try {
             response = configurationApiList.getAppFeatures(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23273,7 +24074,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23298,13 +24099,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AppFeature updateAppFeatures(PlatformModels.AppFeatureRequest body) throws FDKException {
+    public PlatformModels.AppFeature updateAppFeatures(PlatformModels.AppFeatureRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AppFeature> response = null;
             try {
             response = configurationApiList.updateAppFeatures(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23313,7 +24114,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23338,13 +24139,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ApplicationDetail getAppBasicDetails() throws FDKException {
+    public PlatformModels.ApplicationDetail getAppBasicDetails() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ApplicationDetail> response = null;
             try {
             response = configurationApiList.getAppBasicDetails(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23353,7 +24154,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23378,13 +24179,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ApplicationDetail updateAppBasicDetails(PlatformModels.ApplicationDetail body) throws FDKException {
+    public PlatformModels.ApplicationDetail updateAppBasicDetails(PlatformModels.ApplicationDetail body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ApplicationDetail> response = null;
             try {
             response = configurationApiList.updateAppBasicDetails(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23393,7 +24194,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23418,13 +24219,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ApplicationInformation getAppContactInfo() throws FDKException {
+    public PlatformModels.ApplicationInformation getAppContactInfo() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ApplicationInformation> response = null;
             try {
             response = configurationApiList.getAppContactInfo(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23433,7 +24234,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23458,13 +24259,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ApplicationInformation updateAppContactInfo(PlatformModels.ApplicationInformation body) throws FDKException {
+    public PlatformModels.ApplicationInformation updateAppContactInfo(PlatformModels.ApplicationInformation body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ApplicationInformation> response = null;
             try {
             response = configurationApiList.updateAppContactInfo(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23473,7 +24274,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23498,13 +24299,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.TokenResponse getAppApiTokens() throws FDKException {
+    public PlatformModels.TokenResponse getAppApiTokens() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TokenResponse> response = null;
             try {
             response = configurationApiList.getAppApiTokens(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23513,7 +24314,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23538,13 +24339,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.TokenResponse updateAppApiTokens(PlatformModels.TokenResponse body) throws FDKException {
+    public PlatformModels.TokenResponse updateAppApiTokens(PlatformModels.TokenResponse body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.TokenResponse> response = null;
             try {
             response = configurationApiList.updateAppApiTokens(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23553,7 +24354,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23590,13 +24391,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CompaniesResponse getAppCompanies(Integer uid , Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.CompaniesResponse getAppCompanies(Integer uid , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CompaniesResponse> response = null;
             try {
             response = configurationApiList.getAppCompanies(this.companyId , this.applicationId ,uid , pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23605,7 +24406,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23705,13 +24506,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.StoresResponse getAppStores(Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.StoresResponse getAppStores(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.StoresResponse> response = null;
             try {
             response = configurationApiList.getAppStores(this.companyId , this.applicationId ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23720,7 +24521,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23804,13 +24605,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ApplicationInventory getInventoryConfig() throws FDKException {
+    public PlatformModels.ApplicationInventory getInventoryConfig() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ApplicationInventory> response = null;
             try {
             response = configurationApiList.getInventoryConfig(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23819,7 +24620,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23844,13 +24645,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ApplicationInventory updateInventoryConfig(PlatformModels.ApplicationInventory body) throws FDKException {
+    public PlatformModels.ApplicationInventory updateInventoryConfig(PlatformModels.ApplicationInventory body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ApplicationInventory> response = null;
             try {
             response = configurationApiList.updateInventoryConfig(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23859,7 +24660,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23884,13 +24685,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ApplicationInventory partiallyUpdateInventoryConfig(PlatformModels.AppInventoryPartialUpdate body) throws FDKException {
+    public PlatformModels.ApplicationInventory partiallyUpdateInventoryConfig(PlatformModels.AppInventoryPartialUpdate body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ApplicationInventory> response = null;
             try {
             response = configurationApiList.partiallyUpdateInventoryConfig(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23899,7 +24700,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23924,13 +24725,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AppSupportedCurrency getAppCurrencyConfig() throws FDKException {
+    public PlatformModels.AppSupportedCurrency getAppCurrencyConfig() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AppSupportedCurrency> response = null;
             try {
             response = configurationApiList.getAppCurrencyConfig(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23939,7 +24740,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -23964,13 +24765,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AppSupportedCurrency updateAppCurrencyConfig(PlatformModels.AppSupportedCurrency body) throws FDKException {
+    public PlatformModels.AppSupportedCurrency updateAppCurrencyConfig(PlatformModels.AppSupportedCurrency body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AppSupportedCurrency> response = null;
             try {
             response = configurationApiList.updateAppCurrencyConfig(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -23979,7 +24780,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -24004,13 +24805,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AppCurrencyResponse getAppSupportedCurrency() throws FDKException {
+    public PlatformModels.AppCurrencyResponse getAppSupportedCurrency() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AppCurrencyResponse> response = null;
             try {
             response = configurationApiList.getAppSupportedCurrency(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -24019,7 +24820,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -24052,13 +24853,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.OrderingStores getOrderingStoresByFilter(Integer pageNo , Integer pageSize ,PlatformModels.FilterOrderingStoreRequest body) throws FDKException {
+    public PlatformModels.OrderingStores getOrderingStoresByFilter(Integer pageNo , Integer pageSize ,PlatformModels.FilterOrderingStoreRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OrderingStores> response = null;
             try {
             response = configurationApiList.getOrderingStoresByFilter(this.companyId , this.applicationId ,pageNo , pageSize , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -24067,7 +24868,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -24151,13 +24952,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DeploymentMeta updateOrderingStoreConfig(PlatformModels.OrderingStoreConfig body) throws FDKException {
+    public PlatformModels.DeploymentMeta updateOrderingStoreConfig(PlatformModels.OrderingStoreConfig body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DeploymentMeta> response = null;
             try {
             response = configurationApiList.updateOrderingStoreConfig(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -24166,7 +24967,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -24203,13 +25004,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.OrderingStoresResponse getStaffOrderingStores(Integer pageNo , Integer pageSize , String q ) throws FDKException {
+    public PlatformModels.OrderingStoresResponse getStaffOrderingStores(Integer pageNo , Integer pageSize , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OrderingStoresResponse> response = null;
             try {
             response = configurationApiList.getStaffOrderingStores(this.companyId , this.applicationId ,pageNo , pageSize , q ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -24218,7 +25019,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -24310,13 +25111,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DomainsResponse getDomains() throws FDKException {
+    public PlatformModels.DomainsResponse getDomains() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DomainsResponse> response = null;
             try {
             response = configurationApiList.getDomains(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -24325,7 +25126,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -24350,13 +25151,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Domain addDomain(PlatformModels.DomainAddRequest body) throws FDKException {
+    public PlatformModels.Domain addDomain(PlatformModels.DomainAddRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Domain> response = null;
             try {
             response = configurationApiList.addDomain(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -24365,7 +25166,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -24394,13 +25195,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SuccessMessageResponse removeDomainById(String id ) throws FDKException {
+    public PlatformModels.SuccessMessageResponse removeDomainById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessMessageResponse> response = null;
             try {
             response = configurationApiList.removeDomainById(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -24409,7 +25210,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -24434,13 +25235,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DomainsResponse changeDomainType(PlatformModels.UpdateDomainTypeRequest body) throws FDKException {
+    public PlatformModels.DomainsResponse changeDomainType(PlatformModels.UpdateDomainTypeRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DomainsResponse> response = null;
             try {
             response = configurationApiList.changeDomainType(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -24449,7 +25250,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -24474,13 +25275,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DomainStatusResponse getDomainStatus(PlatformModels.DomainStatusRequest body) throws FDKException {
+    public PlatformModels.DomainStatusResponse getDomainStatus(PlatformModels.DomainStatusRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DomainStatusResponse> response = null;
             try {
             response = configurationApiList.getDomainStatus(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -24489,7 +25290,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -24518,13 +25319,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Application getApplicationById() throws FDKException {
+    public PlatformModels.Application getApplicationById() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Application> response = null;
             try {
             response = configurationApiList.getApplicationById(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -24533,7 +25334,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -24741,13 +25542,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CouponsResponse getCoupons(Integer pageNo , Integer pageSize , Boolean isArchived , String title , Boolean isPublic , Boolean isDisplay , String typeSlug , String code ) throws FDKException {
+    public PlatformModels.CouponsResponse getCoupons(Integer pageNo , Integer pageSize , Boolean isArchived , String title , Boolean isPublic , Boolean isDisplay , String typeSlug , String code ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CouponsResponse> response = null;
             try {
             response = cartApiList.getCoupons(this.companyId , this.applicationId ,pageNo , pageSize , isArchived , title , isPublic , isDisplay , typeSlug , code ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -24756,7 +25557,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -24888,13 +25689,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SuccessMessage createCoupon(PlatformModels.CouponAdd body) throws FDKException {
+    public PlatformModels.SuccessMessage createCoupon(PlatformModels.CouponAdd body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessMessage> response = null;
             try {
             response = cartApiList.createCoupon(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -24903,7 +25704,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -24932,13 +25733,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CouponUpdate getCouponById(String id ) throws FDKException {
+    public PlatformModels.CouponUpdate getCouponById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CouponUpdate> response = null;
             try {
             response = cartApiList.getCouponById(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -24947,7 +25748,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -24976,13 +25777,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SuccessMessage updateCoupon(String id ,PlatformModels.CouponUpdate body) throws FDKException {
+    public PlatformModels.SuccessMessage updateCoupon(String id ,PlatformModels.CouponUpdate body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessMessage> response = null;
             try {
             response = cartApiList.updateCoupon(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -24991,7 +25792,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -25020,13 +25821,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SuccessMessage updateCouponPartially(String id ,PlatformModels.CouponPartialUpdate body) throws FDKException {
+    public PlatformModels.SuccessMessage updateCouponPartially(String id ,PlatformModels.CouponPartialUpdate body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessMessage> response = null;
             try {
             response = cartApiList.updateCouponPartially(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -25035,7 +25836,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -25092,13 +25893,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PromotionsResponse getPromotions(Integer pageNo , Integer pageSize , String q , String status , String promoGroup , String promotionType , String fpPanel , String promotionId ) throws FDKException {
+    public PlatformModels.PromotionsResponse getPromotions(Integer pageNo , Integer pageSize , String q , String status , String promoGroup , String promotionType , String fpPanel , String promotionId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PromotionsResponse> response = null;
             try {
             response = cartApiList.getPromotions(this.companyId , this.applicationId ,pageNo , pageSize , q , status , promoGroup , promotionType , fpPanel , promotionId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -25107,7 +25908,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -25239,13 +26040,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PromotionAdd createPromotion(PlatformModels.PromotionAdd body) throws FDKException {
+    public PlatformModels.PromotionAdd createPromotion(PlatformModels.PromotionAdd body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PromotionAdd> response = null;
             try {
             response = cartApiList.createPromotion(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -25254,7 +26055,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -25283,13 +26084,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PromotionUpdate getPromotionById(String id ) throws FDKException {
+    public PlatformModels.PromotionUpdate getPromotionById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PromotionUpdate> response = null;
             try {
             response = cartApiList.getPromotionById(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -25298,7 +26099,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -25327,13 +26128,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.PromotionUpdate updatePromotion(String id ,PlatformModels.PromotionUpdate body) throws FDKException {
+    public PlatformModels.PromotionUpdate updatePromotion(String id ,PlatformModels.PromotionUpdate body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.PromotionUpdate> response = null;
             try {
             response = cartApiList.updatePromotion(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -25342,7 +26143,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -25371,13 +26172,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SuccessMessage updatePromotionPartially(String id ,PlatformModels.PromotionPartialUpdate body) throws FDKException {
+    public PlatformModels.SuccessMessage updatePromotionPartially(String id ,PlatformModels.PromotionPartialUpdate body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SuccessMessage> response = null;
             try {
             response = cartApiList.updatePromotionPartially(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -25386,7 +26187,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -25411,13 +26212,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.ActivePromosResponse getPromosCouponConfig() throws FDKException {
+    public PlatformModels.ActivePromosResponse getPromosCouponConfig() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ActivePromosResponse> response = null;
             try {
             response = cartApiList.getPromosCouponConfig(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -25426,7 +26227,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -25451,13 +26252,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.OpenapiCartDetailsResponse fetchAndvalidateCartItems(PlatformModels.OpenapiCartDetailsRequest body) throws FDKException {
+    public PlatformModels.OpenapiCartDetailsResponse fetchAndvalidateCartItems(PlatformModels.OpenapiCartDetailsRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OpenapiCartDetailsResponse> response = null;
             try {
             response = cartApiList.fetchAndvalidateCartItems(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -25466,7 +26267,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -25491,13 +26292,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.OpenApiCartServiceabilityResponse checkCartServiceability(PlatformModels.OpenApiCartServiceabilityRequest body) throws FDKException {
+    public PlatformModels.OpenApiCartServiceabilityResponse checkCartServiceability(PlatformModels.OpenApiCartServiceabilityRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OpenApiCartServiceabilityResponse> response = null;
             try {
             response = cartApiList.checkCartServiceability(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -25506,7 +26307,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -25531,13 +26332,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.OpenApiCheckoutResponse checkoutCart(PlatformModels.OpenApiPlatformCheckoutReq body) throws FDKException {
+    public PlatformModels.OpenApiCheckoutResponse checkoutCart(PlatformModels.OpenApiPlatformCheckoutReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.OpenApiCheckoutResponse> response = null;
             try {
             response = cartApiList.checkoutCart(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -25546,7 +26347,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -25599,13 +26400,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AbandonedCartResponse getAbandonedCart(Integer pageNo , Integer pageSize , String fromDate , String toDate , Boolean anonymousCart , String lastId , String sortOn ) throws FDKException {
+    public PlatformModels.AbandonedCartResponse getAbandonedCart(Integer pageNo , Integer pageSize , String fromDate , String toDate , Boolean anonymousCart , String lastId , String sortOn ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AbandonedCartResponse> response = null;
             try {
             response = cartApiList.getAbandonedCart(this.companyId , this.applicationId ,pageNo , pageSize , fromDate , toDate , anonymousCart , lastId , sortOn ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -25614,7 +26415,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -25750,13 +26551,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CartDetailResponse getAbandonedCartDetails(String id , Boolean i , Boolean b ) throws FDKException {
+    public PlatformModels.CartDetailResponse getAbandonedCartDetails(String id , Boolean i , Boolean b ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CartDetailResponse> response = null;
             try {
             response = cartApiList.getAbandonedCartDetails(this.companyId , this.applicationId ,id , i , b ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -25765,7 +26566,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -25798,13 +26599,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AddCartDetailResponse addItems(String cartId , Boolean b ,PlatformModels.AddCartRequest body) throws FDKException {
+    public PlatformModels.AddCartDetailResponse addItems(String cartId , Boolean b ,PlatformModels.AddCartRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AddCartDetailResponse> response = null;
             try {
             response = cartApiList.addItems(this.companyId , this.applicationId , cartId ,b , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -25813,7 +26614,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -25846,13 +26647,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.UpdateCartDetailResponse updateCart(String cartId , Boolean b ,PlatformModels.UpdateCartRequest body) throws FDKException {
+    public PlatformModels.UpdateCartDetailResponse updateCart(String cartId , Boolean b ,PlatformModels.UpdateCartRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.UpdateCartDetailResponse> response = null;
             try {
             response = cartApiList.updateCart(this.companyId , this.applicationId , cartId ,b , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -25861,7 +26662,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -25886,13 +26687,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CartList getCartList() throws FDKException {
+    public PlatformModels.CartList getCartList() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CartList> response = null;
             try {
             response = cartApiList.getCartList(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -25901,7 +26702,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -25930,13 +26731,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.UserCartMappingResponse updateCartUser(String id ) throws FDKException {
+    public PlatformModels.UserCartMappingResponse updateCartUser(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.UserCartMappingResponse> response = null;
             try {
             response = cartApiList.updateCartUser(this.companyId , this.applicationId ,id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -25945,7 +26746,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -25990,13 +26791,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , Boolean buyNow ) throws FDKException {
+    public PlatformModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , Boolean buyNow ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CartDetailResponse> response = null;
             try {
             response = cartApiList.getCart(this.companyId , this.applicationId ,id , i , b , assignCardId , buyNow ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -26005,7 +26806,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -26034,13 +26835,13 @@ public class ApplicationClient {
     
     
     
-    public Object getCartLastModified(String id ) throws FDKException {
+    public Object getCartLastModified(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<Object> response = null;
             try {
             response = cartApiList.getCartLastModified(this.companyId , this.applicationId ,id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -26049,7 +26850,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -26090,13 +26891,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , Boolean buyNow ,PlatformModels.AddCartRequest body) throws FDKException {
+    public PlatformModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , Boolean buyNow ,PlatformModels.AddCartRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AddCartDetailResponse> response = null;
             try {
             response = cartApiList.addItems(this.companyId , this.applicationId ,i , b , areaCode , buyNow , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -26105,7 +26906,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -26150,13 +26951,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b , String areaCode , Boolean buyNow ,PlatformModels.UpdateCartRequest body) throws FDKException {
+    public PlatformModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b , String areaCode , Boolean buyNow ,PlatformModels.UpdateCartRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.UpdateCartDetailResponse> response = null;
             try {
             response = cartApiList.updateCart(this.companyId , this.applicationId ,id , i , b , areaCode , buyNow , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -26165,7 +26966,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -26198,13 +26999,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CartItemCountResponse getItemCount(String id , Boolean buyNow ) throws FDKException {
+    public PlatformModels.CartItemCountResponse getItemCount(String id , Boolean buyNow ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CartItemCountResponse> response = null;
             try {
             response = cartApiList.getItemCount(this.companyId , this.applicationId ,id , buyNow ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -26213,7 +27014,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -26266,13 +27067,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetAddressesResponse getAddresses(String cartId , Boolean buyNow , String mobileNo , String checkoutMode , String tags , Boolean isDefault , String userId ) throws FDKException {
+    public PlatformModels.GetAddressesResponse getAddresses(String cartId , Boolean buyNow , String mobileNo , String checkoutMode , String tags , Boolean isDefault , String userId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetAddressesResponse> response = null;
             try {
             response = cartApiList.getAddresses(this.companyId , this.applicationId ,cartId , buyNow , mobileNo , checkoutMode , tags , isDefault , userId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -26281,7 +27082,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -26306,13 +27107,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.SaveAddressResponse addAddress(PlatformModels.Address body) throws FDKException {
+    public PlatformModels.SaveAddressResponse addAddress(PlatformModels.Address body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SaveAddressResponse> response = null;
             try {
             response = cartApiList.addAddress(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -26321,7 +27122,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -26374,13 +27175,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Address getAddressById(String id , String cartId , Boolean buyNow , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws FDKException {
+    public PlatformModels.Address getAddressById(String id , String cartId , Boolean buyNow , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Address> response = null;
             try {
             response = cartApiList.getAddressById(this.companyId , this.applicationId , id ,cartId , buyNow , mobileNo , checkoutMode , tags , isDefault ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -26389,7 +27190,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -26418,13 +27219,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.UpdateAddressResponse updateAddress(String id ,PlatformModels.Address body) throws FDKException {
+    public PlatformModels.UpdateAddressResponse updateAddress(String id ,PlatformModels.Address body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.UpdateAddressResponse> response = null;
             try {
             response = cartApiList.updateAddress(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -26433,7 +27234,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -26466,13 +27267,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DeleteAddressResponse removeAddress(String id , String userId ) throws FDKException {
+    public PlatformModels.DeleteAddressResponse removeAddress(String id , String userId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DeleteAddressResponse> response = null;
             try {
             response = cartApiList.removeAddress(this.companyId , this.applicationId , id ,userId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -26481,7 +27282,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -26526,13 +27327,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CartDetailResponse selectAddress(String cartId , Boolean buyNow , Boolean i , Boolean b , String userId ,PlatformModels.SelectCartAddressRequest body) throws FDKException {
+    public PlatformModels.CartDetailResponse selectAddress(String cartId , Boolean buyNow , Boolean i , Boolean b , String userId ,PlatformModels.SelectCartAddressRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CartDetailResponse> response = null;
             try {
             response = cartApiList.selectAddress(this.companyId , this.applicationId ,cartId , buyNow , i , b , userId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -26541,7 +27342,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -26594,13 +27395,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CartShipmentsResponse getShipments(Integer pickAtStoreUid , Integer orderingStoreId , Boolean p , String id , String addressId , String areaCode , String orderType ) throws FDKException {
+    public PlatformModels.CartShipmentsResponse getShipments(Integer pickAtStoreUid , Integer orderingStoreId , Boolean p , String id , String addressId , String areaCode , String orderType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CartShipmentsResponse> response = null;
             try {
             response = cartApiList.getShipments(this.companyId , this.applicationId ,pickAtStoreUid , orderingStoreId , p , id , addressId , areaCode , orderType ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -26609,7 +27410,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -26654,13 +27455,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CartShipmentsResponse updateShipments(Boolean i , Boolean p , String id , String addressId , String orderType ,PlatformModels.UpdateCartShipmentRequest body) throws FDKException {
+    public PlatformModels.CartShipmentsResponse updateShipments(Boolean i , Boolean p , String id , String addressId , String orderType ,PlatformModels.UpdateCartShipmentRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CartShipmentsResponse> response = null;
             try {
             response = cartApiList.updateShipments(this.companyId , this.applicationId ,i , p , id , addressId , orderType , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -26669,7 +27470,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -26698,13 +27499,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CartCheckoutResponse checkoutCart(String id ,PlatformModels.CartPosCheckoutDetailRequest body) throws FDKException {
+    public PlatformModels.CartCheckoutResponse checkoutCart(String id ,PlatformModels.CartPosCheckoutDetailRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CartCheckoutResponse> response = null;
             try {
             response = cartApiList.checkoutCart(this.companyId , this.applicationId ,id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -26713,7 +27514,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -26746,13 +27547,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CartMetaResponse updateCartMeta(String id , Boolean buyNow ,PlatformModels.CartMetaRequest body) throws FDKException {
+    public PlatformModels.CartMetaResponse updateCartMeta(String id , Boolean buyNow ,PlatformModels.CartMetaRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CartMetaResponse> response = null;
             try {
             response = cartApiList.updateCartMeta(this.companyId , this.applicationId ,id , buyNow , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -26761,7 +27562,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -26794,13 +27595,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CartDeliveryModesResponse getAvailableDeliveryModes(String areaCode , String id ) throws FDKException {
+    public PlatformModels.CartDeliveryModesResponse getAvailableDeliveryModes(String areaCode , String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CartDeliveryModesResponse> response = null;
             try {
             response = cartApiList.getAvailableDeliveryModes(this.companyId , this.applicationId ,areaCode , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -26809,7 +27610,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -26838,13 +27639,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.StoreDetailsResponse getStoreAddressByUid(Integer storeUid ) throws FDKException {
+    public PlatformModels.StoreDetailsResponse getStoreAddressByUid(Integer storeUid ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.StoreDetailsResponse> response = null;
             try {
             response = cartApiList.getStoreAddressByUid(this.companyId , this.applicationId ,storeUid ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -26853,7 +27654,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -26957,13 +27758,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GiveawayResponse showGiveaways(String pageId , Integer pageSize ) throws FDKException {
+    public PlatformModels.GiveawayResponse showGiveaways(String pageId , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GiveawayResponse> response = null;
             try {
             response = rewardsApiList.showGiveaways(this.companyId , this.applicationId ,pageId , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -26972,7 +27773,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -26997,13 +27798,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Giveaway saveGiveAway(PlatformModels.Giveaway body) throws FDKException {
+    public PlatformModels.Giveaway saveGiveAway(PlatformModels.Giveaway body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Giveaway> response = null;
             try {
             response = rewardsApiList.saveGiveAway(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -27012,7 +27813,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -27041,13 +27842,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Giveaway getGiveawayById(String id ) throws FDKException {
+    public PlatformModels.Giveaway getGiveawayById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Giveaway> response = null;
             try {
             response = rewardsApiList.getGiveawayById(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -27056,7 +27857,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -27085,13 +27886,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Giveaway updateGiveAway(String id ,PlatformModels.Giveaway body) throws FDKException {
+    public PlatformModels.Giveaway updateGiveAway(String id ,PlatformModels.Giveaway body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Giveaway> response = null;
             try {
             response = rewardsApiList.updateGiveAway(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -27100,7 +27901,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -27129,13 +27930,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GiveawayAudience getGiveawayAudienceStatus(String audienceId ) throws FDKException {
+    public PlatformModels.GiveawayAudience getGiveawayAudienceStatus(String audienceId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GiveawayAudience> response = null;
             try {
             response = rewardsApiList.getGiveawayAudienceStatus(audienceId , this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -27144,7 +27945,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -27169,13 +27970,13 @@ public class ApplicationClient {
     
     
     
-    public List<PlatformModels.Offer> showOffers() throws FDKException {
+    public List<PlatformModels.Offer> showOffers() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<List<PlatformModels.Offer>> response = null;
             try {
             response = rewardsApiList.showOffers(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -27184,7 +27985,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -27217,13 +28018,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Offer getOfferByName(String name , String cookie ) throws FDKException {
+    public PlatformModels.Offer getOfferByName(String name , String cookie ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Offer> response = null;
             try {
             response = rewardsApiList.getOfferByName(name , this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -27232,7 +28033,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -27261,13 +28062,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.Offer updateOfferByName(String name ,PlatformModels.Offer body) throws FDKException {
+    public PlatformModels.Offer updateOfferByName(String name ,PlatformModels.Offer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.Offer> response = null;
             try {
             response = rewardsApiList.updateOfferByName(name , this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -27276,7 +28077,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -27305,13 +28106,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AppUser updateUserStatus(String userId ,PlatformModels.AppUser body) throws FDKException {
+    public PlatformModels.AppUser updateUserStatus(String userId ,PlatformModels.AppUser body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AppUser> response = null;
             try {
             response = rewardsApiList.updateUserStatus(userId , this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -27320,7 +28121,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -27349,13 +28150,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.UserRes user(String userId ) throws FDKException {
+    public PlatformModels.UserRes user(String userId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.UserRes> response = null;
             try {
             response = rewardsApiList.user(userId , this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -27364,7 +28165,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -27401,13 +28202,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.HistoryRes getUserPointsHistory(String userId , String pageId , Integer pageSize ) throws FDKException {
+    public PlatformModels.HistoryRes getUserPointsHistory(String userId , String pageId , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.HistoryRes> response = null;
             try {
             response = rewardsApiList.getUserPointsHistory(userId , this.companyId , this.applicationId ,pageId , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -27416,7 +28217,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -27508,13 +28309,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AndroidPathsRes getAndroidPaths() throws FDKException {
+    public PlatformModels.AndroidPathsRes getAndroidPaths() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AndroidPathsRes> response = null;
             try {
             response = rewardsApiList.getAndroidPaths(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -27523,7 +28324,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -27548,13 +28349,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AndroidPathsRes updateAndroidPaths(PlatformModels.AndroidPathReq body) throws FDKException {
+    public PlatformModels.AndroidPathsRes updateAndroidPaths(PlatformModels.AndroidPathReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AndroidPathsRes> response = null;
             try {
             response = rewardsApiList.updateAndroidPaths(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -27563,7 +28364,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -27633,13 +28434,13 @@ public static class AnalyticsService {
     
     
     
-    public PlatformModels.ExportJobRes createExportJob(String exportType ,PlatformModels.ExportJobReq body) throws FDKException {
+    public PlatformModels.ExportJobRes createExportJob(String exportType ,PlatformModels.ExportJobReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ExportJobRes> response = null;
             try {
                 response = analyticsApiList.createExportJob(this.companyId , exportType  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -27648,7 +28449,7 @@ public static class AnalyticsService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -27676,13 +28477,13 @@ public static class AnalyticsService {
     
     
     
-    public PlatformModels.ExportJobStatusRes getExportJobStatus(String exportType , String jobId ) throws FDKException {
+    public PlatformModels.ExportJobStatusRes getExportJobStatus(String exportType , String jobId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ExportJobStatusRes> response = null;
             try {
                 response = analyticsApiList.getExportJobStatus(this.companyId , exportType  , jobId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -27691,7 +28492,7 @@ public static class AnalyticsService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -27723,13 +28524,13 @@ public static class AnalyticsService {
     
     
     
-    public PlatformModels.GetLogsListRes getLogsList(String logType , Integer pageNo , Integer pageSize ,PlatformModels.GetLogsListReq body) throws FDKException {
+    public PlatformModels.GetLogsListRes getLogsList(String logType , Integer pageNo , Integer pageSize ,PlatformModels.GetLogsListReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.GetLogsListRes> response = null;
             try {
                 response = analyticsApiList.getLogsList(this.companyId , logType  ,pageNo , pageSize , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -27738,7 +28539,7 @@ public static class AnalyticsService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -27834,13 +28635,13 @@ public static class AnalyticsService {
     
     
     
-    public PlatformModels.SearchLogRes searchLogs(Integer pageNo , Integer pageSize , String logType ,PlatformModels.SearchLogReq body) throws FDKException {
+    public PlatformModels.SearchLogRes searchLogs(Integer pageNo , Integer pageSize , String logType ,PlatformModels.SearchLogReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SearchLogRes> response = null;
             try {
                 response = analyticsApiList.searchLogs(this.companyId , logType  ,pageNo , pageSize , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -27849,7 +28650,7 @@ public static class AnalyticsService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -27953,13 +28754,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.StatsGroups getStatiscticsGroups() throws FDKException {
+    public PlatformModels.StatsGroups getStatiscticsGroups() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.StatsGroups> response = null;
             try {
             response = analyticsApiList.getStatiscticsGroups(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -27968,7 +28769,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -27997,13 +28798,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.StatsGroupComponents getStatiscticsGroupComponents(String groupName ) throws FDKException {
+    public PlatformModels.StatsGroupComponents getStatiscticsGroupComponents(String groupName ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.StatsGroupComponents> response = null;
             try {
             response = analyticsApiList.getStatiscticsGroupComponents(this.companyId , this.applicationId , groupName ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28012,7 +28813,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28041,13 +28842,13 @@ public class ApplicationClient {
     
     
     
-    public String getComponentStatsCSV(String componentName ) throws FDKException {
+    public String getComponentStatsCSV(String componentName ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<String> response = null;
             try {
             response = analyticsApiList.getComponentStatsCSV(this.companyId , this.applicationId , componentName ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28056,7 +28857,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28085,13 +28886,13 @@ public class ApplicationClient {
     
     
     
-    public String getComponentStatsPDF(String componentName ) throws FDKException {
+    public String getComponentStatsPDF(String componentName ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<String> response = null;
             try {
             response = analyticsApiList.getComponentStatsPDF(this.companyId , this.applicationId , componentName ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28100,7 +28901,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28129,13 +28930,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.StatsRes getComponentStats(String componentName ) throws FDKException {
+    public PlatformModels.StatsRes getComponentStats(String componentName ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.StatsRes> response = null;
             try {
             response = analyticsApiList.getComponentStats(this.companyId , this.applicationId , componentName ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28144,7 +28945,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28185,13 +28986,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AbandonCartsList getAbandonCartList(String fromDate , String toDate , Integer pageNo , Integer pageSize ) throws FDKException {
+    public PlatformModels.AbandonCartsList getAbandonCartList(String fromDate , String toDate , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AbandonCartsList> response = null;
             try {
             response = analyticsApiList.getAbandonCartList(this.companyId , this.applicationId , fromDate , toDate ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28200,7 +29001,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28308,13 +29109,13 @@ public class ApplicationClient {
     
     
     
-    public String getAbandonCartsCSV(String fromDate , String toDate ) throws FDKException {
+    public String getAbandonCartsCSV(String fromDate , String toDate ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<String> response = null;
             try {
             response = analyticsApiList.getAbandonCartsCSV(this.companyId , this.applicationId , fromDate , toDate ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28323,7 +29124,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28352,13 +29153,13 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.AbandonCartDetail getAbandonCartDetail(String cartId ) throws FDKException {
+    public PlatformModels.AbandonCartDetail getAbandonCartDetail(String cartId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.AbandonCartDetail> response = null;
             try {
             response = analyticsApiList.getAbandonCartDetail(this.companyId , this.applicationId , cartId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28367,7 +29168,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28461,13 +29262,13 @@ public static class DiscountService {
     
     
     
-    public PlatformModels.ListOrCalender getDiscounts(String view , String q , Integer pageNo , Integer pageSize , Boolean archived , Integer month , Integer year , String type , List<String> appIds ) throws FDKException {
+    public PlatformModels.ListOrCalender getDiscounts(String view , String q , Integer pageNo , Integer pageSize , Boolean archived , Integer month , Integer year , String type , List<String> appIds ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ListOrCalender> response = null;
             try {
                 response = discountApiList.getDiscounts(this.companyId ,view , q , pageNo , pageSize , archived , month , year , type , appIds ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28476,7 +29277,7 @@ public static class DiscountService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28496,13 +29297,13 @@ public static class DiscountService {
     
     
     
-    public PlatformModels.DiscountJob createDiscount(PlatformModels.CreateUpdateDiscount body) throws FDKException {
+    public PlatformModels.DiscountJob createDiscount(PlatformModels.CreateUpdateDiscount body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DiscountJob> response = null;
             try {
                 response = discountApiList.createDiscount(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28511,7 +29312,7 @@ public static class DiscountService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28535,13 +29336,13 @@ public static class DiscountService {
     
     
     
-    public PlatformModels.DiscountJob getDiscount(String id ) throws FDKException {
+    public PlatformModels.DiscountJob getDiscount(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DiscountJob> response = null;
             try {
                 response = discountApiList.getDiscount(this.companyId , id  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28550,7 +29351,7 @@ public static class DiscountService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28574,13 +29375,13 @@ public static class DiscountService {
     
     
     
-    public PlatformModels.DiscountJob updateDiscount(String id ,PlatformModels.CreateUpdateDiscount body) throws FDKException {
+    public PlatformModels.DiscountJob updateDiscount(String id ,PlatformModels.CreateUpdateDiscount body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DiscountJob> response = null;
             try {
                 response = discountApiList.updateDiscount(this.companyId , id  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28589,7 +29390,7 @@ public static class DiscountService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28613,13 +29414,13 @@ public static class DiscountService {
     
     
     
-    public Object upsertDiscountItems(String id ,PlatformModels.BulkDiscount body) throws FDKException {
+    public Object upsertDiscountItems(String id ,PlatformModels.BulkDiscount body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<Object> response = null;
             try {
                 response = discountApiList.upsertDiscountItems(this.companyId , id  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28628,7 +29429,7 @@ public static class DiscountService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28652,13 +29453,13 @@ public static class DiscountService {
     
     
     
-    public PlatformModels.FileJobResponse validateDiscountFile(String discount ,PlatformModels.DiscountJob body) throws FDKException {
+    public PlatformModels.FileJobResponse validateDiscountFile(String discount ,PlatformModels.DiscountJob body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.FileJobResponse> response = null;
             try {
                 response = discountApiList.validateDiscountFile(this.companyId ,discount , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28667,7 +29468,7 @@ public static class DiscountService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28691,13 +29492,13 @@ public static class DiscountService {
     
     
     
-    public PlatformModels.FileJobResponse downloadDiscountFile(String type ,PlatformModels.DownloadFileJob body) throws FDKException {
+    public PlatformModels.FileJobResponse downloadDiscountFile(String type ,PlatformModels.DownloadFileJob body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.FileJobResponse> response = null;
             try {
                 response = discountApiList.downloadDiscountFile(this.companyId , type  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28706,7 +29507,7 @@ public static class DiscountService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28730,13 +29531,13 @@ public static class DiscountService {
     
     
     
-    public PlatformModels.FileJobResponse getValidationJob(String id ) throws FDKException {
+    public PlatformModels.FileJobResponse getValidationJob(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.FileJobResponse> response = null;
             try {
                 response = discountApiList.getValidationJob(this.companyId , id  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28745,7 +29546,7 @@ public static class DiscountService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28769,13 +29570,13 @@ public static class DiscountService {
     
     
     
-    public PlatformModels.CancelJobResponse cancelValidationJob(String id ) throws FDKException {
+    public PlatformModels.CancelJobResponse cancelValidationJob(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CancelJobResponse> response = null;
             try {
                 response = discountApiList.cancelValidationJob(this.companyId , id  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28784,7 +29585,7 @@ public static class DiscountService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28808,13 +29609,13 @@ public static class DiscountService {
     
     
     
-    public PlatformModels.FileJobResponse getDownloadJob(String id ) throws FDKException {
+    public PlatformModels.FileJobResponse getDownloadJob(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.FileJobResponse> response = null;
             try {
                 response = discountApiList.getDownloadJob(this.companyId , id  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28823,7 +29624,7 @@ public static class DiscountService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28847,13 +29648,13 @@ public static class DiscountService {
     
     
     
-    public PlatformModels.CancelJobResponse cancelDownloadJob(String id ) throws FDKException {
+    public PlatformModels.CancelJobResponse cancelDownloadJob(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CancelJobResponse> response = null;
             try {
                 response = discountApiList.cancelDownloadJob(this.companyId , id  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28862,7 +29663,7 @@ public static class DiscountService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28907,6 +29708,147 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+
+}
+
+}
+
+public static class PartnerService {
+    private PlatformConfig platformConfig;
+
+    private RetrofitServiceFactory retrofitServiceFactory;
+
+    private String companyId;
+
+    private PartnerApiList partnerApiList;
+
+    public PartnerService(PlatformConfig platformConfig) {
+        this.platformConfig = platformConfig;
+        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.companyId = this.platformConfig.getCompanyId();
+        this.partnerApiList = generatePartnerApiList(this.platformConfig.getPersistentCookieStore());
+    }
+
+    private PartnerApiList generatePartnerApiList(CookieStore cookieStore) {
+        List<Interceptor> interceptorList = new ArrayList<>();
+        interceptorList.add(new AccessTokenInterceptor(platformConfig));
+        interceptorList.add(new RequestSignerInterceptor());
+        return retrofitServiceFactory.createService(platformConfig.getDomain(),PartnerApiList.class, interceptorList, cookieStore);
+    }
+
+    
+    
+    
+    
+    
+
+
+public class ApplicationClient {
+    private PlatformConfig platformConfig;
+
+    private String applicationId;
+
+    private String companyId;
+
+    ApplicationClient(PlatformConfig platformConfig, String applicationId) {
+        this.platformConfig = platformConfig;
+        this.applicationId = applicationId;
+        this.companyId = this.platformConfig.getCompanyId();
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.AddProxyResponse addProxyPath(String extensionId ,PlatformModels.AddProxyReq body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.AddProxyResponse> response = null;
+            try {
+            response = partnerApiList.addProxyPath(this.companyId , this.applicationId , extensionId , body).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.RemoveProxyResponse removeProxyPath(String extensionId , String attachedPath ) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.RemoveProxyResponse> response = null;
+            try {
+            response = partnerApiList.removeProxyPath(this.companyId , this.applicationId , extensionId , attachedPath ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
     
     
     
@@ -28961,13 +29903,13 @@ public static class WebhookService {
     
     
     
-    public PlatformModels.SubscriberResponse getSubscribersByCompany(Integer pageNo , Integer pageSize , String extensionId ) throws FDKException {
+    public PlatformModels.SubscriberResponse getSubscribersByCompany(Integer pageNo , Integer pageSize , String extensionId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SubscriberResponse> response = null;
             try {
                 response = webhookApiList.getSubscribersByCompany(this.companyId ,pageNo , pageSize , extensionId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -28976,7 +29918,7 @@ public static class WebhookService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -28996,13 +29938,13 @@ public static class WebhookService {
     
     
     
-    public PlatformModels.SubscriberConfig registerSubscriberToEvent(PlatformModels.SubscriberConfig body) throws FDKException {
+    public PlatformModels.SubscriberConfig registerSubscriberToEvent(PlatformModels.SubscriberConfig body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SubscriberConfig> response = null;
             try {
                 response = webhookApiList.registerSubscriberToEvent(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -29011,7 +29953,7 @@ public static class WebhookService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -29031,13 +29973,13 @@ public static class WebhookService {
     
     
     
-    public PlatformModels.SubscriberConfig updateSubscriberConfig(PlatformModels.SubscriberConfig body) throws FDKException {
+    public PlatformModels.SubscriberConfig updateSubscriberConfig(PlatformModels.SubscriberConfig body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SubscriberConfig> response = null;
             try {
                 response = webhookApiList.updateSubscriberConfig(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -29046,7 +29988,7 @@ public static class WebhookService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -29078,13 +30020,13 @@ public static class WebhookService {
     
     
     
-    public PlatformModels.SubscriberConfigList getSubscribersByExtensionId(Integer pageNo , Integer pageSize , String extensionId ) throws FDKException {
+    public PlatformModels.SubscriberConfigList getSubscribersByExtensionId(Integer pageNo , Integer pageSize , String extensionId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SubscriberConfigList> response = null;
             try {
                 response = webhookApiList.getSubscribersByExtensionId(this.companyId , extensionId  ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -29093,7 +30035,7 @@ public static class WebhookService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -29117,13 +30059,13 @@ public static class WebhookService {
     
     
     
-    public PlatformModels.SubscriberResponse getSubscriberById(Integer subscriberId ) throws FDKException {
+    public PlatformModels.SubscriberResponse getSubscriberById(Integer subscriberId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.SubscriberResponse> response = null;
             try {
                 response = webhookApiList.getSubscriberById(this.companyId , subscriberId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -29132,7 +30074,7 @@ public static class WebhookService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -29152,13 +30094,13 @@ public static class WebhookService {
     
     
     
-    public PlatformModels.EventConfigResponse fetchAllEventConfigurations() throws FDKException {
+    public PlatformModels.EventConfigResponse fetchAllEventConfigurations() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.EventConfigResponse> response = null;
             try {
                 response = webhookApiList.fetchAllEventConfigurations(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -29167,7 +30109,7 @@ public static class WebhookService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -29248,13 +30190,13 @@ public static class AuditTrailService {
     
     
     
-    public PlatformModels.LogSchemaResponse getAuditLogs(String qs ) throws FDKException {
+    public PlatformModels.LogSchemaResponse getAuditLogs(String qs ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.LogSchemaResponse> response = null;
             try {
                 response = audittrailApiList.getAuditLogs(this.companyId ,qs ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -29263,7 +30205,7 @@ public static class AuditTrailService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -29283,13 +30225,13 @@ public static class AuditTrailService {
     
     
     
-    public PlatformModels.CreateLogResponse createAuditLog(PlatformModels.RequestBodyAuditLog body) throws FDKException {
+    public PlatformModels.CreateLogResponse createAuditLog(PlatformModels.RequestBodyAuditLog body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CreateLogResponse> response = null;
             try {
                 response = audittrailApiList.createAuditLog(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -29298,7 +30240,7 @@ public static class AuditTrailService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -29322,13 +30264,13 @@ public static class AuditTrailService {
     
     
     
-    public PlatformModels.LogSchemaResponse getAuditLog(String id ) throws FDKException {
+    public PlatformModels.LogSchemaResponse getAuditLog(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.LogSchemaResponse> response = null;
             try {
                 response = audittrailApiList.getAuditLog(this.companyId , id  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -29337,7 +30279,7 @@ public static class AuditTrailService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -29357,13 +30299,13 @@ public static class AuditTrailService {
     
     
     
-    public PlatformModels.EntityTypesResponse getEntityTypes() throws FDKException {
+    public PlatformModels.EntityTypesResponse getEntityTypes() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.EntityTypesResponse> response = null;
             try {
                 response = audittrailApiList.getEntityTypes(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -29372,7 +30314,7 @@ public static class AuditTrailService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -29399,463 +30341,6 @@ public class ApplicationClient {
 
     
     
-    
-    
-    
-    
-    
-    
-    
-
-}
-
-}
-
-public static class LogisticService {
-    private PlatformConfig platformConfig;
-
-    private RetrofitServiceFactory retrofitServiceFactory;
-
-    private String companyId;
-
-    private LogisticApiList logisticApiList;
-
-    public LogisticService(PlatformConfig platformConfig) {
-        this.platformConfig = platformConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.companyId = this.platformConfig.getCompanyId();
-        this.logisticApiList = generateLogisticApiList(this.platformConfig.getPersistentCookieStore());
-    }
-
-    private LogisticApiList generateLogisticApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(platformConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(platformConfig.getDomain(),LogisticApiList.class, interceptorList, cookieStore);
-    }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.EntityRegionView_Response getEntityRegionView(PlatformModels.EntityRegionView_Request body) throws FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.EntityRegionView_Response> response = null;
-            try {
-                response = logisticApiList.getEntityRegionView(this.companyId , body).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.ListViewResponse getListView(Integer pageNumber , Integer pageSize , String name , Boolean isActive , String channelIds ) throws FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ListViewResponse> response = null;
-            try {
-                response = logisticApiList.getListView(this.companyId ,pageNumber , pageSize , name , isActive , channelIds ).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.CompanyStoreView_Response getCompanyStoreView() throws FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.CompanyStoreView_Response> response = null;
-            try {
-                response = logisticApiList.getCompanyStoreView(this.companyId ).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.ZoneSuccessResponse updateZoneControllerView(String zoneId ,PlatformModels.ZoneUpdateRequest body) throws FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ZoneSuccessResponse> response = null;
-            try {
-                response = logisticApiList.updateZoneControllerView(zoneId  , this.companyId , body).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetSingleZoneDataViewResponse> response = null;
-            try {
-                response = logisticApiList.getZoneDataView(this.companyId , zoneId  ).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.ZoneResponse insertZoneControllerView(PlatformModels.ZoneRequest body) throws FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ZoneResponse> response = null;
-            try {
-                response = logisticApiList.insertZoneControllerView(this.companyId , body).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.GetStoresViewResponse getStore(Integer storeUid ) throws FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetStoresViewResponse> response = null;
-            try {
-                response = logisticApiList.getStore(this.companyId , storeUid  ).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.GetStoresViewResponse getAllStores() throws FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetStoresViewResponse> response = null;
-            try {
-                response = logisticApiList.getAllStores(this.companyId ).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-
-
-public class ApplicationClient {
-    private PlatformConfig platformConfig;
-
-    private String applicationId;
-
-    private String companyId;
-
-    ApplicationClient(PlatformConfig platformConfig, String applicationId) {
-        this.platformConfig = platformConfig;
-        this.applicationId = applicationId;
-        this.companyId = this.platformConfig.getCompanyId();
-    }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.ApplicationServiceabilityConfigResponse getApplicationServiceability() throws FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ApplicationServiceabilityConfigResponse> response = null;
-            try {
-            response = logisticApiList.getApplicationServiceability(this.companyId , this.applicationId ).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.GetZoneFromPincodeViewResponse upsertZoneControllerView(PlatformModels.GetZoneFromPincodeViewRequest body) throws FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetZoneFromPincodeViewResponse> response = null;
-            try {
-            response = logisticApiList.upsertZoneControllerView(this.companyId , this.applicationId , body).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
     
     
     

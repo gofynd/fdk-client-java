@@ -385,6 +385,190 @@ interface LeadApiList {
     
 }
 
+interface FeedbackApiList {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/feedback/v1.0/company/{company_id}/application/{application_id}/attributes/")
+    Call<PlatformModels.FeedbackAttributes> getAttributes(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/feedback/v1.0/company/{company_id}/application/{application_id}/reviews/")
+    Call<PlatformModels.GetReviewResponse> getCustomerReviews(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("entity_id") String  entityId ,  @Query("entity_type") String  entityType ,  @Query("user_id") String  userId ,  @Query("media") String  media ,  @Query("rating") List<Double>  rating ,  @Query("attribute_rating") List<String>  attributeRating ,  @Query("facets") Boolean  facets ,  @Query("sort") String  sort ,  @Query("next") String  next ,  @Query("start") String  start ,  @Query("limit") String  limit ,  @Query("count") String  count ,  @Query("page_id") String  pageId ,  @Query("page_size") Integer  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/feedback/v1.0/company/{company_id}/application/{application_id}/reviews/{review_id}/approve/")
+    Call<PlatformModels.UpdateResponse> updateApprove(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("review_id") String  reviewId ,@Body PlatformModels.ApproveRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/feedback/v1.0/company/{company_id}/application/{application_id}/reviews/{review_id}/history/")
+    Call<List<PlatformModels.ActivityDump>> getHistory(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("review_id") String  reviewId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/feedback/v1.0/company/{company_id}/application/{application_id}/templates/")
+    Call<PlatformModels.TemplateGetResponse> getApplicationTemplates(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_id") String  pageId ,  @Query("page_size") Integer  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/feedback/v1.0/company/{company_id}/application/{application_id}/templates/")
+    Call<PlatformModels.InsertResponse> createTemplate(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.TemplateRequestList payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/feedback/v1.0/company/{company_id}/application/{application_id}/templates/{id}/")
+    Call<PlatformModels.Template> getTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/feedback/v1.0/company/{company_id}/application/{application_id}/templates/{id}/")
+    Call<PlatformModels.UpdateResponse> updateTemplate(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body PlatformModels.UpdateTemplateRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PATCH ("/service/platform/feedback/v1.0/company/{company_id}/application/{application_id}/templates/{id}/status/")
+    Call<PlatformModels.UpdateResponse> updateTemplateStatus(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body PlatformModels.UpdateTemplateStatusRequest payload);
+    
+}
+
 interface ThemeApiList {
     
     
@@ -8298,6 +8482,43 @@ interface DiscountApiList {
     
 }
 
+interface PartnerApiList {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/partners/v1.0/company/{company_id}/application/{application_id}/proxy/{extension_id}")
+    Call<PlatformModels.AddProxyResponse> addProxyPath(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("extension_id") String  extensionId ,@Body PlatformModels.AddProxyReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/partners/v1.0/company/{company_id}/application/{application_id}/proxy/{extension_id}/{attached_path}")
+    Call<PlatformModels.RemoveProxyResponse> removeProxyPath(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("extension_id") String  extensionId , @Path("attached_path") String  attachedPath );
+    
+}
+
 interface WebhookApiList {
     
     
@@ -8420,129 +8641,5 @@ interface AuditTrailApiList {
     
     @GET ("/service/platform/audit-trail/v1.0/company/{company_id}/entity-types")
     Call<PlatformModels.EntityTypesResponse> getEntityTypes(@Path("company_id")  String companyId );
-    
-}
-
-interface LogisticApiList {
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/serviceability")
-    Call<PlatformModels.ApplicationServiceabilityConfigResponse> getApplicationServiceability(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/logistics/v1.0/company/{company_id}/regions")
-    Call<PlatformModels.EntityRegionView_Response> getEntityRegionView(@Path("company_id")  String companyId ,@Body PlatformModels.EntityRegionView_Request payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/zones")
-    Call<PlatformModels.ListViewResponse> getListView(@Path("company_id")  String companyId , @Query("page_number") Integer  pageNumber ,  @Query("page_size") Integer  pageSize ,  @Query("name") String  name ,  @Query("is_active") Boolean  isActive ,  @Query("channel_ids") String  channelIds );
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/all-stores")
-    Call<PlatformModels.CompanyStoreView_Response> getCompanyStoreView(@Path("company_id")  String companyId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
-    Call<PlatformModels.ZoneSuccessResponse> updateZoneControllerView(@Path("zone_id") String  zoneId , @Path("company_id")  String companyId ,@Body PlatformModels.ZoneUpdateRequest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
-    Call<PlatformModels.GetSingleZoneDataViewResponse> getZoneDataView(@Path("company_id")  String companyId , @Path("zone_id") String  zoneId );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/logistics/v1.0/company/{company_id}/zone/")
-    Call<PlatformModels.ZoneResponse> insertZoneControllerView(@Path("company_id")  String companyId ,@Body PlatformModels.ZoneRequest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/zones")
-    Call<PlatformModels.GetZoneFromPincodeViewResponse> upsertZoneControllerView(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.GetZoneFromPincodeViewRequest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/stores/{store_uid}")
-    Call<PlatformModels.GetStoresViewResponse> getStore(@Path("company_id")  String companyId , @Path("store_uid") Integer  storeUid );
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/logistics/stores")
-    Call<PlatformModels.GetStoresViewResponse> getAllStores(@Path("company_id")  String companyId );
     
 }
