@@ -114,6 +114,9 @@ interface CartApiList {
     @PUT 
     Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.UpdateCartRequest payload );
     
+    @PUT 
+    Call<ApplicationModels.DeleteCartDetailResponse> deleteCart(@Url String url1, @Query("id") Integer id );
+    
     @GET 
     Call<ApplicationModels.CartItemCountResponse> getItemCount(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow );
     
@@ -550,12 +553,6 @@ interface PaymentApiList {
     @POST 
     Call<ApplicationModels.ResendOrCancelPaymentResponse> resendOrCancelPayment(@Url String url1 , @Body ApplicationModels.ResendOrCancelPaymentRequest payload );
     
-    @POST 
-    Call<ApplicationModels.renderHTMLResponse> renderHTML(@Url String url1 , @Body ApplicationModels.renderHTMLRequest payload );
-    
-    @POST 
-    Call<ApplicationModels.ValidateVPAResponse> validateVPA(@Url String url1 , @Body ApplicationModels.ValidateVPARequest payload );
-    
     @GET 
     Call<ApplicationModels.TransferModeResponse> getActiveRefundTransferModes(@Url String url1);
     
@@ -587,33 +584,6 @@ interface PaymentApiList {
     Call<ApplicationModels.SetDefaultBeneficiaryResponse> updateDefaultBeneficiary(@Url String url1 , @Body ApplicationModels.SetDefaultBeneficiaryRequest payload );
     
     @GET 
-    Call<ApplicationModels.GetPaymentLinkResponse> getPaymentLink(@Url String url1, @Query("payment_link_id") String paymentLinkId );
-    
-    @POST 
-    Call<ApplicationModels.CreatePaymentLinkResponse> createPaymentLink(@Url String url1 , @Body ApplicationModels.CreatePaymentLinkRequest payload );
-    
-    @POST 
-    Call<ApplicationModels.ResendPaymentLinkResponse> resendPaymentLink(@Url String url1 , @Body ApplicationModels.CancelOrResendPaymentLinkRequest payload );
-    
-    @POST 
-    Call<ApplicationModels.CancelPaymentLinkResponse> cancelPaymentLink(@Url String url1 , @Body ApplicationModels.CancelOrResendPaymentLinkRequest payload );
-    
-    @GET 
-    Call<ApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutesPaymentLink(@Url String url1, @Query("payment_link_id") String paymentLinkId );
-    
-    @GET 
-    Call<ApplicationModels.PollingPaymentLinkResponse> pollingPaymentLink(@Url String url1, @Query("payment_link_id") String paymentLinkId );
-    
-    @POST 
-    Call<ApplicationModels.CreateOrderUserResponse> createOrderHandlerPaymentLink(@Url String url1 , @Body ApplicationModels.CreateOrderUserRequest payload );
-    
-    @POST 
-    Call<ApplicationModels.PaymentInitializationResponse> initialisePaymentPaymentLink(@Url String url1 , @Body ApplicationModels.PaymentInitializationRequest payload );
-    
-    @POST 
-    Call<ApplicationModels.PaymentStatusUpdateResponse> checkAndUpdatePaymentStatusPaymentLink(@Url String url1 , @Body ApplicationModels.PaymentStatusUpdateRequest payload );
-    
-    @GET 
     Call<ApplicationModels.CustomerCreditSummaryResponse> customerCreditSummary(@Url String url1, @Query("aggregator") String aggregator );
     
     @GET 
@@ -630,62 +600,62 @@ interface OrderApiList {
     
     
     @GET 
-    Call<ApplicationModels.OrderList> getOrders(@Url String url1, @Query("status") Integer status , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate , @Query("custom_meta") String customMeta );
+    Call<ApplicationModels.OrderList> getOrders(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate , @Query("status") Integer status );
     
     @GET 
     Call<ApplicationModels.OrderById> getOrderById(@Url String url1);
     
     @GET 
-    Call<ApplicationModels.OrderList> getPosOrderById(@Url String url1);
-    
-    @GET 
     Call<ApplicationModels.ShipmentById> getShipmentById(@Url String url1);
     
     @GET 
-    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Url String url1);
+    Call<ApplicationModels.ShipmentReasons> getShipmentReasons(@Url String url1);
+    
+    @GET 
+    Call<ApplicationModels.ShipmentBagReasons> getShipmentBagReasons(@Url String url1);
+    
+    @PUT 
+    Call<ApplicationModels.ShipmentStatusUpdate> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.ShipmentStatusUpdateBody payload );
     
     @GET 
     Call<ApplicationModels.ShipmentTrack> trackShipment(@Url String url1);
     
     @GET 
-    Call<ApplicationModels.CustomerDetailsResponse> getCustomerDetailsByShipmentId(@Url String url1);
-    
-    @POST 
-    Call<ApplicationModels.SendOtpToCustomerResponse> sendOtpToShipmentCustomer(@Url String url1);
-    
-    @POST 
-    Call<ApplicationModels.VerifyOtpResponse> verifyOtpShipmentCustomer(@Url String url1 , @Body ApplicationModels.VerifyOtp payload );
+    Call<ApplicationModels.PosOrderById> getPosOrderById(@Url String url1);
     
     @GET 
-    Call<ApplicationModels.ShipmentBagReasons> getShipmentBagReasons(@Url String url1);
+    Call<ApplicationModels.CustomerDetailsByShipmentId> getCustomerDetailsByShipmentId(@Url String url1);
+    
+    @POST 
+    Call<ApplicationModels.sendOTPApplicationResponse> sendOtpToShipmentCustomer(@Url String url1);
+    
+    @POST 
+    Call<ApplicationModels.ResponseVerifyOTPShipment> verifyOtpShipmentCustomer(@Url String url1 , @Body ApplicationModels.ReqBodyVerifyOTPShipment payload );
     
     @GET 
-    Call<ApplicationModels.ShipmentReasons> getShipmentReasons(@Url String url1);
-    
-    @PUT 
-    Call<ApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Url String url1 , @Body ApplicationModels.UpdateShipmentStatusRequest payload );
+    Call<ApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Url String url1);
 }
 
 interface RewardsApiList {
     
     
+    @POST 
+    Call<ApplicationModels.CatalogueOrderResponse> getPointsOnProduct(@Url String url1 , @Body ApplicationModels.CatalogueOrderRequest payload );
+    
     @GET 
     Call<ApplicationModels.Offer> getOfferByName(@Url String url1);
     
     @POST 
-    Call<ApplicationModels.CatalogueOrderResponse> catalogueOrder(@Url String url1 , @Body ApplicationModels.CatalogueOrderRequest payload );
-    
-    @GET 
-    Call<ApplicationModels.PointsHistoryResponse> getUserPointsHistory(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
+    Call<ApplicationModels.OrderDiscountResponse> getOrderDiscount(@Url String url1 , @Body ApplicationModels.OrderDiscountRequest payload );
     
     @GET 
     Call<ApplicationModels.PointsResponse> getUserPoints(@Url String url1);
     
     @GET 
-    Call<ApplicationModels.ReferralDetailsResponse> getUserReferralDetails(@Url String url1);
+    Call<ApplicationModels.PointsHistoryResponse> getUserPointsHistory(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @POST 
-    Call<ApplicationModels.OrderDiscountResponse> getOrderDiscount(@Url String url1 , @Body ApplicationModels.OrderDiscountRequest payload );
+    @GET 
+    Call<ApplicationModels.ReferralDetailsResponse> getUserReferralDetails(@Url String url1);
     
     @POST 
     Call<ApplicationModels.RedeemReferralCodeResponse> redeemReferralCode(@Url String url1 , @Body ApplicationModels.RedeemReferralCodeRequest payload );
