@@ -1833,12 +1833,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.PromotionOffersResponse getPromotionOffers(String slug , Integer pageSize , String promotionGroup ) throws IOException {
+    public ApplicationModels.PromotionOffersResponse getPromotionOffers(String slug , Integer pageSize , String promotionGroup , Integer storeId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getPromotionOffers");
         
 
-        Response<ApplicationModels.PromotionOffersResponse> response = cartApiList.getPromotionOffers(fullUrl  ,slug, pageSize, promotionGroup).execute();
+        Response<ApplicationModels.PromotionOffersResponse> response = cartApiList.getPromotionOffers(fullUrl  ,slug, pageSize, promotionGroup, storeId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

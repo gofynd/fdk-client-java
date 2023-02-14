@@ -175,7 +175,7 @@ interface CartApiList {
     Call<ApplicationModels.SharedCartResponse> updateCartWithSharedItems(@Url String url1);
     
     @GET 
-    Call<ApplicationModels.PromotionOffersResponse> getPromotionOffers(@Url String url1, @Query("slug") String slug , @Query("page_size") Integer pageSize , @Query("promotion_group") String promotionGroup );
+    Call<ApplicationModels.PromotionOffersResponse> getPromotionOffers(@Url String url1, @Query("slug") String slug , @Query("page_size") Integer pageSize , @Query("promotion_group") String promotionGroup , @Query("store_id") Integer storeId );
     
     @GET 
     Call<ApplicationModels.LadderPriceOffers> getLadderOffers(@Url String url1, @Query("slug") String slug , @Query("store_id") String storeId , @Query("promotion_id") String promotionId , @Query("page_size") Integer pageSize );
