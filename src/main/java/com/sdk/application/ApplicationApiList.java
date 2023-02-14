@@ -676,16 +676,16 @@ interface RewardsApiList {
     Call<ApplicationModels.CatalogueOrderResponse> catalogueOrder(@Url String url1 , @Body ApplicationModels.CatalogueOrderRequest payload );
     
     @GET 
-    Call<ApplicationModels.PointsHistoryResponse> getPointsHistory(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
+    Call<ApplicationModels.PointsHistoryResponse> getUserPointsHistory(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
     @GET 
-    Call<ApplicationModels.PointsResponse> getPoints(@Url String url1);
+    Call<ApplicationModels.PointsResponse> getUserPoints(@Url String url1);
     
     @GET 
-    Call<ApplicationModels.ReferralDetailsResponse> referral(@Url String url1);
+    Call<ApplicationModels.ReferralDetailsResponse> getUserReferralDetails(@Url String url1);
     
     @POST 
-    Call<ApplicationModels.OrderDiscountResponse> orderDiscount(@Url String url1 , @Body ApplicationModels.OrderDiscountRequest payload );
+    Call<ApplicationModels.OrderDiscountResponse> getOrderDiscount(@Url String url1 , @Body ApplicationModels.OrderDiscountRequest payload );
     
     @POST 
     Call<ApplicationModels.RedeemReferralCodeResponse> redeemReferralCode(@Url String url1 , @Body ApplicationModels.RedeemReferralCodeRequest payload );
