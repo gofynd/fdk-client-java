@@ -54,11 +54,7 @@ public class PlatformClient {
     
     public PlatformService.AuditTrailService auditTrail;
     
-    public PlatformService.OrderManageService orderManage;
-    
     public PlatformService.DocumentEngineService documentEngine;
-    
-    public PlatformService.OrdersService orders;
     
 
     public PlatformClient(PlatformConfig config)   
@@ -109,11 +105,7 @@ public class PlatformClient {
         
         this.auditTrail = new PlatformService.AuditTrailService(config);
         
-        this.orderManage = new PlatformService.OrderManageService(config);
-        
         this.documentEngine = new PlatformService.DocumentEngineService(config);
-        
-        this.orders = new PlatformService.OrdersService(config);
         
     }
 
@@ -169,11 +161,7 @@ public class PlatformClient {
         
         public PlatformService.AuditTrailService.ApplicationClient auditTrail;
         
-        public PlatformService.OrderManageService.ApplicationClient orderManage;
-        
         public PlatformService.DocumentEngineService.ApplicationClient documentEngine;
-        
-        public PlatformService.OrdersService.ApplicationClient orders;
         
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
@@ -222,11 +210,7 @@ public class PlatformClient {
             
             this.auditTrail = new PlatformService.AuditTrailService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.orderManage = new PlatformService.OrderManageService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
             this.documentEngine = new PlatformService.DocumentEngineService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.orders = new PlatformService.OrdersService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
         }
 
