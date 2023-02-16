@@ -5210,20 +5210,20 @@ interface CatalogApiList {
     
     
     
-    @PUT ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
-    Call<PlatformModels.SuccessResponse> editProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId ,@Body PlatformModels.ProductCreateUpdateSchemaV2 payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PATCH ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
     Call<PlatformModels.SuccessResponse> patchProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId ,@Body PlatformModels.ProductCreateUpdate payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
+    Call<PlatformModels.SuccessResponse> editProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId ,@Body PlatformModels.ProductCreateUpdateSchemaV2 payload);
     
     
     
