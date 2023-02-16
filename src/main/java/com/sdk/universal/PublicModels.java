@@ -25,7 +25,7 @@ public static class ApplicationResponse{
     
     
     @JsonProperty("application")
-    private Application application;
+    private ApplicationData application;
     
     
     
@@ -305,7 +305,7 @@ public static class SecureUrl{
 
 
 /*
-    Model: Application
+    Model: ApplicationData
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -313,7 +313,7 @@ public static class SecureUrl{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Application{
+public static class ApplicationData{
     
     
     
@@ -464,6 +464,12 @@ public static class Application{
     
     @JsonProperty("domain")
     private Domain domain;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
     
     
     
