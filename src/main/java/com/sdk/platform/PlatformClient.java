@@ -14,8 +14,6 @@ public class PlatformClient {
     
     public PlatformService.LeadService lead;
     
-    public PlatformService.FeedbackService feedback;
-    
     public PlatformService.ThemeService theme;
     
     public PlatformService.UserService user;
@@ -50,11 +48,11 @@ public class PlatformClient {
     
     public PlatformService.DiscountService discount;
     
-    public PlatformService.PartnerService partner;
-    
     public PlatformService.WebhookService webhook;
     
     public PlatformService.AuditTrailService auditTrail;
+    
+    public PlatformService.LogisticService logistic;
     
 
     public PlatformClient(PlatformConfig config)   
@@ -64,8 +62,6 @@ public class PlatformClient {
         this.common = new PlatformService.CommonService(config);
         
         this.lead = new PlatformService.LeadService(config);
-        
-        this.feedback = new PlatformService.FeedbackService(config);
         
         this.theme = new PlatformService.ThemeService(config);
         
@@ -101,11 +97,11 @@ public class PlatformClient {
         
         this.discount = new PlatformService.DiscountService(config);
         
-        this.partner = new PlatformService.PartnerService(config);
-        
         this.webhook = new PlatformService.WebhookService(config);
         
         this.auditTrail = new PlatformService.AuditTrailService(config);
+        
+        this.logistic = new PlatformService.LogisticService(config);
         
     }
 
@@ -126,8 +122,6 @@ public class PlatformClient {
         public PlatformService.CommonService.ApplicationClient common;
         
         public PlatformService.LeadService.ApplicationClient lead;
-        
-        public PlatformService.FeedbackService.ApplicationClient feedback;
         
         public PlatformService.ThemeService.ApplicationClient theme;
         
@@ -163,11 +157,11 @@ public class PlatformClient {
         
         public PlatformService.DiscountService.ApplicationClient discount;
         
-        public PlatformService.PartnerService.ApplicationClient partner;
-        
         public PlatformService.WebhookService.ApplicationClient webhook;
         
         public PlatformService.AuditTrailService.ApplicationClient auditTrail;
+        
+        public PlatformService.LogisticService.ApplicationClient logistic;
         
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
@@ -176,8 +170,6 @@ public class PlatformClient {
             this.common = new PlatformService.CommonService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.lead = new PlatformService.LeadService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.feedback = new PlatformService.FeedbackService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.theme = new PlatformService.ThemeService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
@@ -213,11 +205,11 @@ public class PlatformClient {
             
             this.discount = new PlatformService.DiscountService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.partner = new PlatformService.PartnerService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
             this.webhook = new PlatformService.WebhookService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.auditTrail = new PlatformService.AuditTrailService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.logistic = new PlatformService.LogisticService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
         }
 
