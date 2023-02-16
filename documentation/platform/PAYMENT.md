@@ -3348,10 +3348,10 @@ Success. Returns the list of devices linked to the application Check the example
  | ---------- | ---- | -------- | ----------- |
  | success | Boolean |  no  | Response is successful or not |
  | aggregators | ArrayList<HashMap<String,Object>>? |  yes  | List of all speceific Payment options with their Details. |
- | excludedFields | ArrayList<String> |  no  | List of all excluded  options with their Details. |
- | displayFields | ArrayList<String> |  no  | List of all included  options with their Details. |
  | appId | String |  no  | Application Id to which Payment config Mapped |
+ | excludedFields | ArrayList<String> |  no  | List of all excluded  options with their Details. |
  | created | Boolean |  no  | Response is created or not |
+ | displayFields | ArrayList<String> |  no  | List of all included  options with their Details. |
 
 ---
 
@@ -3362,8 +3362,8 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean |  no  | Response is successful or not |
  | description | String |  no  | Error human understandable description. |
+ | success | Boolean |  no  | Response is successful or not |
  | code | String |  no  | Error descrption code. |
 
 ---
@@ -3375,11 +3375,11 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | configType | String |  no  | Config Type of the aggregator |
  | secret | String |  no  | Secret Key of the payment aggregator |
- | merchantSalt | String |  no  | Merchant key of the payment aggregator |
- | key | String |  no  | Api key of the payment aggregator |
  | isActive | Boolean? |  yes  | Enable/ Disable Flag |
+ | key | String |  no  | Api key of the payment aggregator |
+ | merchantSalt | String |  no  | Merchant key of the payment aggregator |
+ | configType | String |  no  | Config Type of the aggregator |
 
 ---
 
@@ -3390,9 +3390,9 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | aggregatorName | [PaymentGatewayConfig](#PaymentGatewayConfig)? |  yes  |  |
  | isActive | Boolean? |  yes  | Enable/ Disable Flag |
  | appId | String |  no  | Application Id to which Payment config Mapped |
- | aggregatorName | [PaymentGatewayConfig](#PaymentGatewayConfig)? |  yes  |  |
 
 ---
 
@@ -3435,6 +3435,18 @@ Success. Returns the list of devices linked to the application Check the example
 
  
  
+ #### [IntentAppErrorList](#IntentAppErrorList)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | code | String? |  yes  | code |
+ | packageName | String? |  yes  | package_name |
+
+---
+
+
+ 
+ 
  #### [PaymentModeLogo](#PaymentModeLogo)
 
  | Properties | Type | Nullable | Description |
@@ -3452,21 +3464,9 @@ Success. Returns the list of devices linked to the application Check the example
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | displayName | String? |  yes  | display_name |
- | packageName | String? |  yes  | package_name |
  | logos | [PaymentModeLogo](#PaymentModeLogo)? |  yes  | logos |
  | code | String? |  yes  | code |
-
----
-
-
- 
- 
- #### [IntentAppErrorList](#IntentAppErrorList)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
  | packageName | String? |  yes  | package_name |
- | code | String? |  yes  | code |
 
 ---
 
@@ -3477,39 +3477,39 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | cardBrand | String? |  yes  | card_brand |
- | retryCount | Integer? |  yes  | retry_count |
- | cardFingerprint | String? |  yes  | card_fingerprint |
- | cardIssuer | String? |  yes  | card_issuer |
- | aggregatorName | String |  no  | aggregator_name |
- | name | String? |  yes  | name |
- | timeout | Integer? |  yes  | timeout |
- | codLimitPerOrder | Double? |  yes  | Cod limit per order |
- | cardType | String? |  yes  | card_type |
- | codLimit | Double? |  yes  | cod limit |
- | code | String? |  yes  | code |
- | intentAppErrorList | ArrayList<String>? |  yes  | intent_app_error_list |
- | cardBrandImage | String? |  yes  | card_brand_image |
  | displayName | String? |  yes  | display name |
- | intentApp | ArrayList<[IntentApp](#IntentApp)>? |  yes  | intent_app |
+ | cardIssuer | String? |  yes  | card_issuer |
  | intentAppErrorDictList | ArrayList<[IntentAppErrorList](#IntentAppErrorList)>? |  yes  | intent_app_error_dict_list |
- | nickname | String? |  yes  | nickname |
- | displayPriority | Integer? |  yes  | Dispaly Priority |
- | merchantCode | String? |  yes  | merchant code |
- | intentFlow | Boolean? |  yes  | intent_flow |
- | remainingLimit | Double? |  yes  | Remaining limit |
- | expMonth | Integer? |  yes  | exp_month |
- | cardNumber | String? |  yes  | card_number |
- | cardReference | String? |  yes  | card_reference |
- | logoUrl | [PaymentModeLogo](#PaymentModeLogo)? |  yes  | Logo |
- | cardId | String? |  yes  | card_id |
- | cardIsin | String? |  yes  | card_isin |
- | compliantWithTokenisationGuidelines | Boolean? |  yes  | If card is tokenised or not |
- | expYear | Integer? |  yes  | exp_year |
+ | codLimit | Double? |  yes  | cod limit |
+ | cardToken | String? |  yes  | card_token |
  | expired | Boolean? |  yes  | expired |
  | fyndVpa | String? |  yes  | fynd_vpa |
+ | displayPriority | Integer? |  yes  | Dispaly Priority |
+ | intentAppErrorList | ArrayList<String>? |  yes  | intent_app_error_list |
+ | expYear | Integer? |  yes  | exp_year |
+ | codLimitPerOrder | Double? |  yes  | Cod limit per order |
+ | name | String? |  yes  | name |
+ | cardType | String? |  yes  | card_type |
+ | cardIsin | String? |  yes  | card_isin |
+ | cardId | String? |  yes  | card_id |
+ | merchantCode | String? |  yes  | merchant code |
+ | intentFlow | Boolean? |  yes  | intent_flow |
+ | code | String? |  yes  | code |
+ | cardBrandImage | String? |  yes  | card_brand_image |
+ | remainingLimit | Double? |  yes  | Remaining limit |
+ | cardReference | String? |  yes  | card_reference |
+ | logoUrl | [PaymentModeLogo](#PaymentModeLogo)? |  yes  | Logo |
+ | compliantWithTokenisationGuidelines | Boolean? |  yes  | If card is tokenised or not |
  | cardName | String? |  yes  | card_name |
- | cardToken | String? |  yes  | card_token |
+ | aggregatorName | String |  no  | aggregator_name |
+ | nickname | String? |  yes  | nickname |
+ | intentApp | ArrayList<[IntentApp](#IntentApp)>? |  yes  | intent_app |
+ | cardNumber | String? |  yes  | card_number |
+ | cardFingerprint | String? |  yes  | card_fingerprint |
+ | cardBrand | String? |  yes  | card_brand |
+ | timeout | Integer? |  yes  | timeout |
+ | retryCount | Integer? |  yes  | retry_count |
+ | expMonth | Integer? |  yes  | exp_month |
 
 ---
 
@@ -3520,15 +3520,15 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String |  no  | Payment mode name |
- | saveCard | Boolean? |  yes  | Card save or not |
- | displayPriority | Integer |  no  | Dispaly Priority |
- | anonymousEnable | Boolean? |  yes  | Annonymous card flag |
+ | aggregatorName | String? |  yes  | Dispaly Priority |
  | isPayByCardPl | Boolean? |  yes  | This flag will be true in case of Payment link payment through card |
  | displayName | String |  no  | Payment mode display name |
+ | saveCard | Boolean? |  yes  | Card save or not |
  | list | ArrayList<[PaymentModeList](#PaymentModeList)>? |  yes  | Payment mode |
+ | anonymousEnable | Boolean? |  yes  | Annonymous card flag |
+ | name | String |  no  | Payment mode name |
+ | displayPriority | Integer |  no  | Dispaly Priority |
  | addCardEnabled | Boolean? |  yes  | Annonymous card flag |
- | aggregatorName | String? |  yes  | Dispaly Priority |
 
 ---
 
@@ -3562,13 +3562,13 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | payoutsAggregators | ArrayList<HashMap<String,Object>> |  no  | payout aggregator object |
  | moreAttributes | HashMap<String,Object> |  no  | bank details object |
- | uniqueTransferNo | HashMap<String,Object> |  no  | display priority of the payment mode |
- | isDefault | Boolean |  no  | default or not  |
- | isActive | Boolean |  no  | Enable/DIsable Flag Payout |
  | customers | HashMap<String,Object> |  no  | customers details object |
+ | payoutsAggregators | ArrayList<HashMap<String,Object>> |  no  | payout aggregator object |
+ | isActive | Boolean |  no  | Enable/DIsable Flag Payout |
+ | isDefault | Boolean |  no  | default or not  |
  | transferType | String |  no  | transafer type |
+ | uniqueTransferNo | HashMap<String,Object> |  no  | display priority of the payment mode |
 
 ---
 
@@ -3591,16 +3591,16 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | accountHolder | String? |  yes  |  |
  | pincode | Integer? |  yes  |  |
- | state | String? |  yes  |  |
- | city | String? |  yes  |  |
- | branchName | String? |  yes  |  |
  | accountType | String |  no  |  |
- | accountNo | String? |  yes  |  |
- | ifscCode | String |  no  |  |
- | country | String? |  yes  |  |
  | bankName | String? |  yes  |  |
+ | ifscCode | String |  no  |  |
+ | state | String? |  yes  |  |
+ | accountNo | String? |  yes  |  |
+ | accountHolder | String? |  yes  |  |
+ | city | String? |  yes  |  |
+ | country | String? |  yes  |  |
+ | branchName | String? |  yes  |  |
 
 ---
 
@@ -3611,10 +3611,10 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | aggregator | String |  no  | Aggregator Name |
- | bankDetails | [PayoutBankDetails](#PayoutBankDetails) |  no  | payout bank details object |
- | users | HashMap<String,Object> |  no  | payout users object |
  | uniqueExternalId | String |  no  | Unique Id of Payout |
+ | aggregator | String |  no  | Aggregator Name |
+ | users | HashMap<String,Object> |  no  | payout users object |
+ | bankDetails | [PayoutBankDetails](#PayoutBankDetails) |  no  | payout bank details object |
  | isActive | Boolean |  no  | Enable/Disable Flag Payout |
  | transferType | String |  no  | transafer type |
 
@@ -3627,16 +3627,16 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | aggregator | String |  no  | Aggregator Name |
  | success | Boolean |  no  | Response is successful or not |
+ | aggregator | String |  no  | Aggregator Name |
+ | users | HashMap<String,Object> |  no  | users details object |
  | bankDetails | HashMap<String,Object> |  no  | payout bank_details object |
+ | payouts | HashMap<String,Object> |  no  | payout  object |
+ | isActive | Boolean |  no  | Enable/DIsable Flag Payout |
+ | transferType | String |  no  | transfer type |
+ | created | Boolean |  no  | created flag |
  | uniqueTransferNo | String |  no  | unique transfer no |
  | paymentStatus | String |  no  | status of payment |
- | users | HashMap<String,Object> |  no  | users details object |
- | isActive | Boolean |  no  | Enable/DIsable Flag Payout |
- | created | Boolean |  no  | created flag |
- | transferType | String |  no  | transfer type |
- | payouts | HashMap<String,Object> |  no  | payout  object |
 
 ---
 
@@ -3647,9 +3647,9 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | isDefault | Boolean |  no  | Enable/Disable Default Payout |
  | success | Boolean |  no  | Response is successful or not |
  | isActive | Boolean |  no  | Enable/DIsable Flag Payout |
- | isDefault | Boolean |  no  | Enable/Disable Default Payout |
 
 ---
 
@@ -3660,9 +3660,9 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isActive | Boolean |  no  | Enable/Disable Flag Payout |
  | isDefault | Boolean |  no  | Enable/Disable Default Payout |
  | uniqueExternalId | String |  no  | Unique Id of Payout |
+ | isActive | Boolean |  no  | Enable/Disable Flag Payout |
 
 ---
 
@@ -3744,9 +3744,9 @@ Success. Returns the list of devices linked to the application Check the example
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | success | Boolean |  no  | Success or failure flag. |
- | message | String |  no  | Response message |
  | isVerifiedFlag | Boolean? |  yes  |  |
  | data | HashMap<String,Object>? |  yes  | Refund account data. |
+ | message | String |  no  | Response message |
 
 ---
 
@@ -3757,8 +3757,8 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean |  no  | Response is successful or not |
  | description | String |  no  | Not Found |
+ | success | Boolean |  no  | Response is successful or not |
  | code | String |  no  | Bad Request Data |
 
 ---
@@ -3770,11 +3770,11 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | bankName | String |  no  |  |
+ | ifscCode | String |  no  |  |
+ | accountNo | String |  no  |  |
  | accountHolder | String |  no  |  |
  | branchName | String |  no  |  |
- | accountNo | String |  no  |  |
- | ifscCode | String |  no  |  |
- | bankName | String |  no  |  |
 
 ---
 
@@ -3797,8 +3797,8 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  | Response is successful or not |
  | bankName | String |  no  | Bank Name Of Account |
+ | success | Boolean? |  yes  | Response is successful or not |
  | branchName | String |  no  | Branch Name Of Account |
 
 ---
@@ -3810,25 +3810,25 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | branchName | String? |  yes  | Branch Name Of Account |
- | title | String |  no  | Title Of Account |
- | subtitle | String |  no  | SHort Title Of Account |
- | beneficiaryId | String |  no  | Benenficiary Id |
+ | email | String |  no  | EMail of User |
+ | delightsUserName | String? |  yes  | User Id Who filled the Beneficiary  |
+ | displayName | String |  no  | Display Name Of Account |
+ | accountNo | String |  no  | Account Number |
  | transferMode | String |  no  | Transfer Mode Of Account |
+ | mobile | String? |  yes  | MObile no of User |
+ | isActive | Boolean |  no  | Boolean Flag whether Beneficiary set or not |
+ | branchName | String? |  yes  | Branch Name Of Account |
+ | modifiedOn | String |  no  | MOdification Date of Beneficiary |
+ | id | Integer |  no  |   |
  | accountHolder | String |  no  | Account Holder Name |
+ | subtitle | String |  no  | SHort Title Of Account |
  | address | String |  no  | Address of User |
  | comment | String? |  yes  | Remarks |
- | email | String |  no  | EMail of User |
- | displayName | String |  no  | Display Name Of Account |
+ | beneficiaryId | String |  no  | Benenficiary Id |
  | bankName | String |  no  | Bank Name Of Account |
- | delightsUserName | String? |  yes  | User Id Who filled the Beneficiary  |
  | ifscCode | String |  no  | Ifsc Code Of Account |
+ | title | String |  no  | Title Of Account |
  | createdOn | String |  no  | Creation Date of Beneficiary |
- | isActive | Boolean |  no  | Boolean Flag whether Beneficiary set or not |
- | id | Integer |  no  |   |
- | accountNo | String |  no  | Account Number |
- | mobile | String? |  yes  | MObile no of User |
- | modifiedOn | String |  no  | MOdification Date of Beneficiary |
 
 ---
 
@@ -3851,11 +3851,11 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | paymentGateway | String? |  yes  |  |
  | extraMeta | HashMap<String,Object>? |  yes  |  |
+ | paymentId | String? |  yes  |  |
  | orderId | String? |  yes  |  |
  | currentStatus | String? |  yes  |  |
- | paymentId | String? |  yes  |  |
- | paymentGateway | String? |  yes  |  |
 
 ---
 
@@ -3866,10 +3866,10 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | mode | String |  no  |  |
  | name | String? |  yes  | Payment mode name |
- | meta | [MultiTenderPaymentMeta](#MultiTenderPaymentMeta)? |  yes  |  |
  | amount | Double |  no  | Payment amount |
+ | mode | String |  no  |  |
+ | meta | [MultiTenderPaymentMeta](#MultiTenderPaymentMeta)? |  yes  |  |
 
 ---
 
@@ -3880,8 +3880,8 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | paymentMethods | ArrayList<[MultiTenderPaymentMethod](#MultiTenderPaymentMethod)> |  no  |  |
  | orderId | String |  no  | Unique order id |
+ | paymentMethods | ArrayList<[MultiTenderPaymentMethod](#MultiTenderPaymentMethod)> |  no  |  |
 
 ---
 
@@ -3893,8 +3893,8 @@ Success. Returns the list of devices linked to the application Check the example
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | success | Boolean |  no  | Payment confirmation updated or not. |
- | message | String |  no  | Message |
  | orderId | String |  no  | Unique order id |
+ | message | String |  no  | Message |
 
 ---
 
@@ -3905,15 +3905,15 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | source | String |  no  |  |
  | paymentSelectionLock | HashMap<String,Object>? |  yes  |  |
- | codAmountLimit | Integer? |  yes  |  |
- | modeOfPayment | String |  no  |  |
- | codCharges | Integer? |  yes  |  |
- | callbackUrl | HashMap<String,Object>? |  yes  |  |
  | anonymousCod | Boolean? |  yes  |  |
- | methods | HashMap<String,Object> |  no  |  |
  | enabled | Boolean |  no  |  |
+ | modeOfPayment | String |  no  |  |
+ | codAmountLimit | Integer? |  yes  |  |
+ | codCharges | Integer? |  yes  |  |
+ | methods | HashMap<String,Object> |  no  |  |
+ | source | String |  no  |  |
+ | callbackUrl | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -3925,8 +3925,8 @@ Success. Returns the list of devices linked to the application Check the example
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | success | Boolean |  no  |  |
- | message | String |  no  | Human readable message. |
  | data | [PlatformPaymentOptions](#PlatformPaymentOptions) |  no  |  |
+ | message | String |  no  | Human readable message. |
 
 ---
 
@@ -3938,10 +3938,10 @@ Success. Returns the list of devices linked to the application Check the example
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | paymentSelectionLock | HashMap<String,Object>? |  yes  |  |
- | methods | HashMap<String,Object> |  no  |  |
- | codCharges | Integer? |  yes  |  |
  | anonymousCod | Boolean? |  yes  |  |
  | codAmountLimit | Integer? |  yes  |  |
+ | codCharges | Integer? |  yes  |  |
+ | methods | HashMap<String,Object> |  no  |  |
 
 ---
 
@@ -3952,11 +3952,11 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | limit | Integer |  no  | Total Limit of user |
- | remainingLimit | Integer |  no  | Remaining Limit for COD of User |
- | usages | Integer |  no  | Used COD limit from the user Limit |
- | isActive | Boolean |  no  | COD option is active or not |
  | userId | String |  no  | Payment mode name |
+ | isActive | Boolean |  no  | COD option is active or not |
+ | remainingLimit | Integer |  no  | Remaining Limit for COD of User |
+ | limit | Integer |  no  | Total Limit of user |
+ | usages | Integer |  no  | Used COD limit from the user Limit |
 
 ---
 
@@ -4015,13 +4015,13 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | edcSerialNo | String? |  yes  |  |
- | storeId | Integer? |  yes  |  |
- | merchantStorePosCode | String? |  yes  |  |
  | terminalSerialNo | String? |  yes  |  |
  | appId | String? |  yes  |  |
- | deviceTag | String? |  yes  |  |
  | isActive | Boolean? |  yes  |  |
+ | deviceTag | String? |  yes  |  |
+ | storeId | Integer? |  yes  |  |
+ | edcSerialNo | String? |  yes  |  |
+ | merchantStorePosCode | String? |  yes  |  |
 
 ---
 
@@ -4044,10 +4044,10 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isActive | String? |  yes  | State whether device is active or inactive |
- | terminalSerialNo | String |  no  | Device serial number of terminal(android tablet) |
  | deviceTag | String? |  yes  | Device tag of edc device to identify it |
+ | terminalSerialNo | String |  no  | Device serial number of terminal(android tablet) |
  | storeId | Integer |  no  | Store at which devices is to used |
+ | isActive | String? |  yes  | State whether device is active or inactive |
 
 ---
 
@@ -4069,12 +4069,12 @@ Success. Returns the list of devices linked to the application Check the example
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | edcSerialNo | String |  no  | Serial number or imei of EDC device |
- | storeId | Integer |  no  | Store at which devices is to used |
- | merchantStorePosCode | String |  no  | This is provided by pinelabs |
  | terminalSerialNo | String |  no  | Device serial number of terminal(android tablet) |
- | deviceTag | String |  no  | Device tag of edc device to identify it |
  | isActive | String |  no  | State whether device is active or inactive |
+ | deviceTag | String |  no  | Device tag of edc device to identify it |
+ | storeId | Integer |  no  | Store at which devices is to used |
+ | edcSerialNo | String |  no  | Serial number or imei of EDC device |
+ | merchantStorePosCode | String |  no  | This is provided by pinelabs |
 
 ---
 
