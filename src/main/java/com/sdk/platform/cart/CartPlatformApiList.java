@@ -368,6 +368,24 @@ interface CartPlatformApiList {
     
     
     
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/share-cart/{token}/{action}")
+    Call<CartPlatformModels.SharedCartResponse> updateCartWithSharedItems(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("token") String  token , @Path("action") String  action );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart-list")
     Call<CartPlatformModels.CartList> getCartList(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
@@ -536,6 +554,24 @@ interface CartPlatformApiList {
     
     
     
+    @DELETE ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/platform-pos-coupon")
+    Call<CartPlatformModels.CartDetailResponse> removeCoupon(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("uid") String  uid ,  @Query("buy_now") Boolean  buyNow );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -685,6 +721,60 @@ interface CartPlatformApiList {
     
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/shipment")
     Call<CartPlatformModels.CartShipmentsResponse> getShipments(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("p") Boolean  p ,  @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow ,  @Query("address_id") String  addressId ,  @Query("area_code") String  areaCode );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/shipments/delivery")
+    Call<CartPlatformModels.CartShipmentsResponse> getShipmentDelivery(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("i") Boolean  i ,  @Query("p") Boolean  p ,  @Query("id") String  id ,  @Query("address_id") String  addressId ,  @Query("order_type") String  orderType );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/shipments/delivery")
+    Call<CartPlatformModels.CartShipmentsResponse> updateShipments(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("i") Boolean  i ,  @Query("p") Boolean  p ,  @Query("id") String  id ,  @Query("address_id") String  addressId ,  @Query("order_type") String  orderType ,@Body CartPlatformModels.UpdateCartShipmentRequest payload);
     
     
     

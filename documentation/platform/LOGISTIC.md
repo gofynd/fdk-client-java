@@ -16,10 +16,6 @@ Logistics Configuration API's allows you to configure zone, application logistic
 * [upsertZoneControllerView](#upsertzonecontrollerview)
 * [getStore](#getstore)
 * [getAllStores](#getallstores)
-* [updatePincodeMopView](#updatepincodemopview)
-* [updatePincodeBulkView](#updatepincodebulkview)
-* [updatePincodeCoDListing](#updatepincodecodlisting)
-* [updatePincodeAuditHistory](#updatepincodeaudithistory)
 
 
 
@@ -210,7 +206,7 @@ Company Store View of application.
 
 
 ```java
-client.logistic.getCompanyStoreView() {
+client.logistic.getCompanyStoreView( pageNumber,  pageSize,  zoneId,  enabled,  q) {
   //use response
 }
 ```
@@ -219,7 +215,12 @@ client.logistic.getCompanyStoreView() {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | A `company_id` is a unique identifier for a particular company. |  
+| companyId | Integer | yes | A `company_id` is a unique identifier for a particular company. |   
+| pageNumber | Integer? | no | index of the item to start returning with |   
+| pageSize | Integer? | no | determines the items to be displayed in a page |   
+| zoneId | String? | no | A `zone_id` is a unique identifier for a particular zone. |   
+| enabled | String? | no | select enabled/all stores. |   
+| q | String? | no | search with name as a free text |  
 
 
 
@@ -384,7 +385,7 @@ client.logistic.insertZoneControllerView(body body) {
 | body | [ZoneRequest](#ZoneRequest) | yes | Request body |
 
 
-This API returns response of insertion of zone in mongo database.<br>Correction- `zone_id` in the path must be removed.<br> path is `/service/platform/logistics-internal/v1.0/company/{}/zone/`
+This API returns response of insertion of zone in mongo database.<br>Correction- `zone_id` in the path must be removed.<br> path is `/service/platform/logistics-internal/v1.0/company/{company_id}/zone/`
 
 *Returned Response:*
 
@@ -507,220 +508,231 @@ Response status_code
 
 
 <details>
-<summary><i>&nbsp; Example:</i></summary>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; items</i></summary>
+
+```json
+[
+  {
+    "uid": 2,
+    "_cls": "Store",
+    "address": {
+      "city": "MUMBAI",
+      "country": "INDIA",
+      "address2": "",
+      "address1": "POLARIS 2ND FLOOR, ANDHERI",
+      "landmark": "",
+      "state": "MAHARASHTRA",
+      "pincode": 400001,
+      "longitude": 72.8776559,
+      "latitude": 19.0759837
+    },
+    "code": "HS-a0c85",
+    "company_id": 2,
+    "contact_numbers": [
+      {
+        "country_code": 91,
+        "number": "9096686804"
+      }
+    ],
+    "created_by": {
+      "user_id": "605e8e86493f54a9ccaa47be",
+      "username": "parvezshaikh_gofynd_com_07710"
+    },
+    "created_on": "2021-08-07T06:21:25.293000",
+    "display_name": "Test",
+    "documents": [
+      {
+        "type": "gst",
+        "verified": true,
+        "value": "27AALCA0442L1ZM",
+        "legal_name": "SHOPSENSE RETAIL TECHNOLOGIES PRIVATE LIMITED"
+      }
+    ],
+    "gst_credentials": {
+      "e_waybill": {
+        "enabled": false
+      },
+      "e_invoice": {
+        "enabled": false
+      }
+    },
+    "integration_type": {
+      "order": "pulse",
+      "inventory": "pulse"
+    },
+    "logistics": {
+      "dp": {
+        "1": {
+          "fm_priority": 1,
+          "lm_priority": 1,
+          "rvp_priority": 1,
+          "payment_mode": "all",
+          "operations": [
+            "inter_city"
+          ],
+          "area_code": null,
+          "assign_dp_from_sb": true,
+          "transport_mode": "air",
+          "external_account_id": null,
+          "internal_account_id": "1"
+        },
+        "19": {
+          "fm_priority": 2,
+          "lm_priority": 2,
+          "rvp_priority": 2,
+          "payment_mode": "all",
+          "operations": "inter_city",
+          "area_code": null,
+          "assign_dp_from_sb": true,
+          "transport_mode": "air",
+          "external_account_id": null,
+          "internal_account_id": "19"
+        }
+      },
+      "override": false
+    },
+    "manager": {
+      "name": "Parvez Shaikh",
+      "mobile_no": {
+        "country_code": 91,
+        "number": "9096686804"
+      },
+      "email": "parvezshaikh@gofynd.com"
+    },
+    "modified_by": {
+      "user_id": "38ac93a8a5495305fc794e76",
+      "username": "919594495254_32111"
+    },
+    "modified_on": "2021-08-17T14:18:10.788000",
+    "name": "Test",
+    "notification_emails": [
+      "parvezshaikh@gofynd.com"
+    ],
+    "product_return_config": {
+      "on_same_store": true
+    },
+    "stage": "verified",
+    "store_type": "high_street",
+    "sub_type": "store",
+    "timing": [
+      {
+        "open": true,
+        "opening": {
+          "hour": 11,
+          "minute": 0
+        },
+        "closing": {
+          "hour": 21,
+          "minute": 30
+        },
+        "weekday": "monday"
+      },
+      {
+        "open": true,
+        "opening": {
+          "hour": 11,
+          "minute": 0
+        },
+        "closing": {
+          "hour": 21,
+          "minute": 30
+        },
+        "weekday": "tuesday"
+      },
+      {
+        "open": true,
+        "opening": {
+          "hour": 11,
+          "minute": 0
+        },
+        "closing": {
+          "hour": 21,
+          "minute": 30
+        },
+        "weekday": "wednesday"
+      },
+      {
+        "open": true,
+        "opening": {
+          "hour": 11,
+          "minute": 0
+        },
+        "closing": {
+          "hour": 21,
+          "minute": 30
+        },
+        "weekday": "thursday"
+      },
+      {
+        "open": true,
+        "opening": {
+          "hour": 11,
+          "minute": 0
+        },
+        "closing": {
+          "hour": 21,
+          "minute": 30
+        },
+        "weekday": "friday"
+      },
+      {
+        "open": true,
+        "opening": {
+          "hour": 11,
+          "minute": 0
+        },
+        "closing": {
+          "hour": 21,
+          "minute": 30
+        },
+        "weekday": "saturday"
+      },
+      {
+        "open": true,
+        "opening": {
+          "hour": 11,
+          "minute": 0
+        },
+        "closing": {
+          "hour": 21,
+          "minute": 30
+        },
+        "weekday": "sunday"
+      }
+    ],
+    "verified_by": {
+      "user_id": "0",
+      "username": "Silverbolt"
+    },
+    "verified_on": "2022-03-23T13:35:46.869000",
+    "warnings": {
+      "store_address": "Address: Address seems to be inappropriate this might affect the delivery."
+    },
+    "_custom_json": {},
+    "company": 2
+  }
+]
+```
+</details>
+
+<details>
+<summary><i>&nbsp; page</i></summary>
 
 ```json
 {
-  "items": [
-    {
-      "uid": 2,
-      "_cls": "Store",
-      "address": {
-        "city": "MUMBAI",
-        "country": "INDIA",
-        "address2": "",
-        "address1": "POLARIS 2ND FLOOR, ANDHERI",
-        "landmark": "",
-        "state": "MAHARASHTRA",
-        "pincode": 400001,
-        "longitude": 72.8776559,
-        "latitude": 19.0759837
-      },
-      "code": "HS-a0c85",
-      "company_id": 2,
-      "contact_numbers": [
-        {
-          "country_code": 91,
-          "number": "9096686804"
-        }
-      ],
-      "created_by": {
-        "user_id": "605e8e86493f54a9ccaa47be",
-        "username": "parvezshaikh_gofynd_com_07710"
-      },
-      "created_on": "2021-08-07T06:21:25.293000",
-      "display_name": "Test",
-      "documents": [
-        {
-          "type": "gst",
-          "verified": true,
-          "value": "27AALCA0442L1ZM",
-          "legal_name": "SHOPSENSE RETAIL TECHNOLOGIES PRIVATE LIMITED"
-        }
-      ],
-      "gst_credentials": {
-        "e_waybill": {
-          "enabled": false
-        },
-        "e_invoice": {
-          "enabled": false
-        }
-      },
-      "integration_type": {
-        "order": "pulse",
-        "inventory": "pulse"
-      },
-      "logistics": {
-        "dp": {
-          "1": {
-            "fm_priority": 1,
-            "lm_priority": 1,
-            "rvp_priority": 1,
-            "payment_mode": "all",
-            "operations": [
-              "inter_city"
-            ],
-            "area_code": null,
-            "assign_dp_from_sb": true,
-            "transport_mode": "air",
-            "external_account_id": null,
-            "internal_account_id": "1"
-          },
-          "19": {
-            "fm_priority": 2,
-            "lm_priority": 2,
-            "rvp_priority": 2,
-            "payment_mode": "all",
-            "operations": "inter_city",
-            "area_code": null,
-            "assign_dp_from_sb": true,
-            "transport_mode": "air",
-            "external_account_id": null,
-            "internal_account_id": "19"
-          }
-        },
-        "override": false
-      },
-      "manager": {
-        "name": "Parvez Shaikh",
-        "mobile_no": {
-          "country_code": 91,
-          "number": "9096686804"
-        },
-        "email": "parvezshaikh@gofynd.com"
-      },
-      "modified_by": {
-        "user_id": "38ac93a8a5495305fc794e76",
-        "username": "919594495254_32111"
-      },
-      "modified_on": "2021-08-17T14:18:10.788000",
-      "name": "Test",
-      "notification_emails": [
-        "parvezshaikh@gofynd.com"
-      ],
-      "product_return_config": {
-        "on_same_store": true
-      },
-      "stage": "verified",
-      "store_type": "high_street",
-      "sub_type": "store",
-      "timing": [
-        {
-          "open": true,
-          "opening": {
-            "hour": 11,
-            "minute": 0
-          },
-          "closing": {
-            "hour": 21,
-            "minute": 30
-          },
-          "weekday": "monday"
-        },
-        {
-          "open": true,
-          "opening": {
-            "hour": 11,
-            "minute": 0
-          },
-          "closing": {
-            "hour": 21,
-            "minute": 30
-          },
-          "weekday": "tuesday"
-        },
-        {
-          "open": true,
-          "opening": {
-            "hour": 11,
-            "minute": 0
-          },
-          "closing": {
-            "hour": 21,
-            "minute": 30
-          },
-          "weekday": "wednesday"
-        },
-        {
-          "open": true,
-          "opening": {
-            "hour": 11,
-            "minute": 0
-          },
-          "closing": {
-            "hour": 21,
-            "minute": 30
-          },
-          "weekday": "thursday"
-        },
-        {
-          "open": true,
-          "opening": {
-            "hour": 11,
-            "minute": 0
-          },
-          "closing": {
-            "hour": 21,
-            "minute": 30
-          },
-          "weekday": "friday"
-        },
-        {
-          "open": true,
-          "opening": {
-            "hour": 11,
-            "minute": 0
-          },
-          "closing": {
-            "hour": 21,
-            "minute": 30
-          },
-          "weekday": "saturday"
-        },
-        {
-          "open": true,
-          "opening": {
-            "hour": 11,
-            "minute": 0
-          },
-          "closing": {
-            "hour": 21,
-            "minute": 30
-          },
-          "weekday": "sunday"
-        }
-      ],
-      "verified_by": {
-        "user_id": "0",
-        "username": "Silverbolt"
-      },
-      "verified_on": "2022-03-23T13:35:46.869000",
-      "warnings": {
-        "store_address": "Address: Address seems to be inappropriate this might affect the delivery."
-      },
-      "_custom_json": {},
-      "company": 2
-    }
-  ],
-  "page": {
-    "type": "number",
-    "size": 2,
-    "current": 1,
-    "has_next": true,
-    "item_total": 3276
-  }
+  "type": "number",
+  "size": 2,
+  "current": 1,
+  "has_next": true,
+  "item_total": 3276
 }
 ```
+</details>
+
 </details>
 
 
@@ -787,237 +799,18 @@ Response status_code
 ---
 
 
-### updatePincodeMopView
-PincodeView update of MOP.
-
-
-
-
-```java
-client.application("<APPLICATION_ID>").logistic.updatePincodeMopView(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | A `company_id` is a unique identifier for a particular seller account. |   
-| applicationId | String | yes | A `application_id` is a unique identifier for a particular sale channel. |  
-| body | [PincodeMopData](#PincodeMopData) | yes | Request body |
-
-
-This API updates Pincode method of payment.
-
-*Returned Response:*
-
-
-
-
-[PincodeMOPresponse](#PincodeMOPresponse)
-
-Response Data
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### updatePincodeBulkView
-Bulk Update of pincode in the application.
-
-
-
-
-```java
-client.application("<APPLICATION_ID>").logistic.updatePincodeBulkView(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | A `company_id` is a unique identifier for a particular seller account. |   
-| applicationId | String | yes | A `application_id` is a unique identifier for a particular sale channel. |  
-| body | [PincodeMopBulkData](#PincodeMopBulkData) | yes | Request body |
-
-
-This API constructs bulk write operations to update the MOP data for each pincode in the payload.
-
-*Returned Response:*
-
-
-
-
-[PincodeBulkViewResponse](#PincodeBulkViewResponse)
-
-Response Data
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-{
-  "batch_id": "string",
-  "s3_url": "string"
-}
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### updatePincodeCoDListing
-Pincode count view of application.
-
-
-
-
-```java
-client.application("<APPLICATION_ID>").logistic.updatePincodeCoDListing(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | A `company_id` is a unique identifier for a particular seller account. |   
-| applicationId | String | yes | A `application_id` is a unique identifier for a particular sale channel. |  
-| body | [PincodeCodStatusListingRequest](#PincodeCodStatusListingRequest) | yes | Request body |
-
-
-This API returns count of active pincode.
-
-*Returned Response:*
-
-
-
-
-[PincodeCodStatusListingResponse](#PincodeCodStatusListingResponse)
-
-Response Data
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### updatePincodeAuditHistory
-Auditlog configuration of application.
-
-
-
-
-```java
-client.application("<APPLICATION_ID>").logistic.updatePincodeAuditHistory(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | A `company_id` is a unique identifier for a particular seller account. |   
-| applicationId | String | yes | A `application_id` is a unique identifier for a particular sale channel. |  
-| body | [PincodeMopUpdateAuditHistoryRequest](#PincodeMopUpdateAuditHistoryRequest) | yes | Request body |
-
-
-This API returns Audit logs of Pincode.
-
-*Returned Response:*
-
-
-
-
-[PincodeMopUpdateAuditHistoryResponseData](#PincodeMopUpdateAuditHistoryResponseData)
-
-Response Data
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 
 ### Schemas
 
  
  
- #### [ServiceabilityrErrorResponse](#ServiceabilityrErrorResponse)
+ #### [ServiceabilityErrorResponse](#ServiceabilityErrorResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | value | String |  no  |  |
  | message | String |  no  |  |
  | type | String |  no  |  |
+ | value | String |  no  |  |
 
 ---
 
@@ -1029,8 +822,8 @@ Response Data
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | channelId | String |  no  |  |
- | channelType | String |  no  |  |
  | serviceabilityType | String |  no  |  |
+ | channelType | String |  no  |  |
 
 ---
 
@@ -1041,8 +834,8 @@ Response Data
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | error | [ServiceabilityErrorResponse](#ServiceabilityErrorResponse)? |  yes  |  |
  | success | Boolean |  no  |  |
- | error | [ServiceabilityrErrorResponse](#ServiceabilityrErrorResponse)? |  yes  |  |
  | data | [ApplicationServiceabilityConfig](#ApplicationServiceabilityConfig)? |  yes  |  |
 
 ---
@@ -1054,8 +847,8 @@ Response Data
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | parentId | ArrayList<String>? |  yes  |  |
  | subType | ArrayList<String> |  no  |  |
+ | parentId | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -1066,22 +859,9 @@ Response Data
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | value | String? |  yes  |  |
  | message | String? |  yes  |  |
  | type | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [EntityRegionView_Items](#EntityRegionView_Items)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String |  no  |  |
- | uid | String |  no  |  |
- | subType | String |  no  |  |
+ | value | String? |  yes  |  |
 
 ---
 
@@ -1093,10 +873,23 @@ Response Data
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | itemTotal | Integer |  no  |  |
- | current | Integer |  no  |  |
- | hasNext | Boolean |  no  |  |
- | type | String |  no  |  |
  | size | Integer |  no  |  |
+ | current | Integer |  no  |  |
+ | type | String |  no  |  |
+ | hasNext | Boolean |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [EntityRegionView_Items](#EntityRegionView_Items)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | subType | String |  no  |  |
+ | uid | String |  no  |  |
+ | name | String |  no  |  |
 
 ---
 
@@ -1107,23 +900,10 @@ Response Data
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean |  no  |  |
  | error | [EntityRegionView_Error](#EntityRegionView_Error) |  no  |  |
- | data | ArrayList<[EntityRegionView_Items](#EntityRegionView_Items)> |  no  |  |
  | page | [EntityRegionView_page](#EntityRegionView_page) |  no  |  |
-
----
-
-
- 
- 
- #### [ListViewSummary](#ListViewSummary)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | totalActiveZones | Integer |  no  |  |
- | totalPincodesServed | Integer |  no  |  |
- | totalZones | Integer |  no  |  |
+ | success | Boolean |  no  |  |
+ | data | ArrayList<[EntityRegionView_Items](#EntityRegionView_Items)> |  no  |  |
 
 ---
 
@@ -1136,21 +916,22 @@ Response Data
  | ---------- | ---- | -------- | ----------- |
  | itemTotal | Integer |  no  |  |
  | type | String |  no  |  |
+ | size | Integer |  no  |  |
  | current | Integer |  no  |  |
  | hasNext | Boolean |  no  |  |
- | size | Integer |  no  |  |
 
 ---
 
 
  
  
- #### [ListViewProduct](#ListViewProduct)
+ #### [ListViewSummary](#ListViewSummary)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String |  no  |  |
- | count | Integer |  no  |  |
+ | totalPincodesServed | Integer |  no  |  |
+ | totalActiveZones | Integer |  no  |  |
+ | totalZones | Integer |  no  |  |
 
 ---
 
@@ -1169,19 +950,31 @@ Response Data
 
  
  
+ #### [ListViewProduct](#ListViewProduct)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | count | Integer |  no  |  |
+ | type | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [ListViewItems](#ListViewItems)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | slug | String |  no  |  |
- | product | [ListViewProduct](#ListViewProduct) |  no  |  |
- | name | String |  no  |  |
  | isActive | Boolean |  no  |  |
+ | storesCount | Integer |  no  |  |
+ | channels | [ListViewChannels](#ListViewChannels) |  no  |  |
+ | slug | String |  no  |  |
+ | name | String |  no  |  |
  | companyId | Integer |  no  |  |
  | zoneId | String |  no  |  |
- | channels | [ListViewChannels](#ListViewChannels) |  no  |  |
  | pincodesCount | Integer |  no  |  |
- | storesCount | Integer |  no  |  |
+ | product | [ListViewProduct](#ListViewProduct) |  no  |  |
 
 ---
 
@@ -1192,8 +985,8 @@ Response Data
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | summary | ArrayList<[ListViewSummary](#ListViewSummary)> |  no  |  |
  | page | ArrayList<[ZoneDataItem](#ZoneDataItem)> |  no  |  |
+ | summary | ArrayList<[ListViewSummary](#ListViewSummary)> |  no  |  |
  | items | ArrayList<[ListViewItems](#ListViewItems)> |  no  |  |
 
 ---
@@ -1206,10 +999,10 @@ Response Data
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | itemTotal | Integer |  no  |  |
- | current | Integer |  no  |  |
- | hasNext | Boolean |  no  |  |
- | type | String |  no  |  |
  | size | Integer |  no  |  |
+ | current | Integer |  no  |  |
+ | type | String |  no  |  |
+ | hasNext | Boolean |  no  |  |
 
 ---
 
@@ -1257,8 +1050,8 @@ Response Data
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | pincode | ArrayList<String>? |  yes  |  |
- | state | ArrayList<String>? |  yes  |  |
  | country | String |  no  |  |
+ | state | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -1290,8 +1083,8 @@ Response Data
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | [UpdateZoneData](#UpdateZoneData) |  no  |  |
  | identifier | String |  no  |  |
+ | data | [UpdateZoneData](#UpdateZoneData) |  no  |  |
 
 ---
 
@@ -1368,8 +1161,8 @@ Response Data
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | [CreateZoneData](#CreateZoneData) |  no  |  |
  | identifier | String |  no  |  |
+ | data | [CreateZoneData](#CreateZoneData) |  no  |  |
 
 ---
 
@@ -1381,8 +1174,8 @@ Response Data
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | success | Boolean |  no  |  |
- | zoneId | String |  no  |  |
  | statusCode | Integer |  no  |  |
+ | zoneId | String |  no  |  |
 
 ---
 
@@ -1413,85 +1206,22 @@ Response Data
 
  
  
- #### [PageResponse](#PageResponse)
+ #### [ServiceabilityPageResponse](#ServiceabilityPageResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | itemTotal | Integer? |  yes  |  |
- | current | Integer? |  yes  |  |
- | hasNext | Boolean? |  yes  |  |
- | type | String? |  yes  |  |
  | size | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductReturnConfigResponse](#ProductReturnConfigResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | onSameStore | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [OpeningClosing](#OpeningClosing)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | hour | Integer? |  yes  |  |
- | minute | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [TimmingResponse](#TimmingResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | open | Boolean? |  yes  |  |
- | opening | [OpeningClosing](#OpeningClosing)? |  yes  |  |
- | weekday | String? |  yes  |  |
- | closing | [OpeningClosing](#OpeningClosing)? |  yes  |  |
-
----
-
-
- 
- 
- #### [ModifiedByResponse](#ModifiedByResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | username | String? |  yes  |  |
- | userId | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [DocumentsResponse](#DocumentsResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | value | String? |  yes  |  |
- | legalName | String? |  yes  |  |
- | verified | Boolean? |  yes  |  |
+ | current | Integer? |  yes  |  |
  | type | String? |  yes  |  |
+ | hasNext | Boolean? |  yes  |  |
 
 ---
 
 
  
  
- #### [MobileNo](#MobileNo)
+ #### [ContactNumberResponse](#ContactNumberResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -1503,45 +1233,12 @@ Response Data
 
  
  
- #### [ManagerResponse](#ManagerResponse)
+ #### [ModifiedByResponse](#ModifiedByResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | mobileNo | [MobileNo](#MobileNo)? |  yes  |  |
- | email | String? |  yes  |  |
- | name | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Dp](#Dp)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | transportMode | String? |  yes  |  |
- | fmPriority | Integer? |  yes  |  |
- | internalAccountId | String? |  yes  |  |
- | areaCode | Integer? |  yes  |  |
- | lmPriority | Integer? |  yes  |  |
- | rvpPriority | Integer? |  yes  |  |
- | externalAccountId | String? |  yes  |  |
- | operations | ArrayList<String>? |  yes  |  |
- | assignDpFromSb | Boolean? |  yes  |  |
- | paymentMode | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [LogisticsResponse](#LogisticsResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | override | Boolean? |  yes  |  |
- | dp | [Dp](#Dp)? |  yes  |  |
+ | userId | String? |  yes  |  |
+ | username | String? |  yes  |  |
 
 ---
 
@@ -1582,43 +1279,95 @@ Response Data
 
  
  
- #### [AddressResponse](#AddressResponse)
+ #### [DocumentsResponse](#DocumentsResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | pincode | Integer? |  yes  |  |
- | city | String? |  yes  |  |
- | address1 | String? |  yes  |  |
- | country | String? |  yes  |  |
- | longitude | Double? |  yes  |  |
- | address2 | String? |  yes  |  |
- | landmark | String? |  yes  |  |
- | state | String? |  yes  |  |
- | latitude | Double? |  yes  |  |
+ | type | String? |  yes  |  |
+ | legalName | String? |  yes  |  |
+ | value | String? |  yes  |  |
+ | verified | Boolean? |  yes  |  |
 
 ---
 
 
  
  
- #### [IntegrationTypeResponse](#IntegrationTypeResponse)
+ #### [Dp](#Dp)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | order | String? |  yes  |  |
- | inventory | String? |  yes  |  |
+ | operations | ArrayList<String>? |  yes  |  |
+ | fmPriority | Integer? |  yes  |  |
+ | externalAccountId | String? |  yes  |  |
+ | areaCode | Integer? |  yes  |  |
+ | assignDpFromSb | Boolean? |  yes  |  |
+ | internalAccountId | String? |  yes  |  |
+ | rvpPriority | Integer? |  yes  |  |
+ | lmPriority | Integer? |  yes  |  |
+ | transportMode | String? |  yes  |  |
+ | paymentMode | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [ContactNumberResponse](#ContactNumberResponse)
+ #### [LogisticsResponse](#LogisticsResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | number | String? |  yes  |  |
- | countryCode | Integer? |  yes  |  |
+ | override | Boolean? |  yes  |  |
+ | dp | [Dp](#Dp)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OpeningClosing](#OpeningClosing)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | minute | Integer? |  yes  |  |
+ | hour | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [TimmingResponse](#TimmingResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | weekday | String? |  yes  |  |
+ | open | Boolean? |  yes  |  |
+ | opening | [OpeningClosing](#OpeningClosing)? |  yes  |  |
+ | closing | [OpeningClosing](#OpeningClosing)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CreatedByResponse](#CreatedByResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | userId | String? |  yes  |  |
+ | username | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductReturnConfigResponse](#ProductReturnConfigResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | onSameStore | Boolean? |  yes  |  |
 
 ---
 
@@ -1636,12 +1385,56 @@ Response Data
 
  
  
- #### [CreatedByResponse](#CreatedByResponse)
+ #### [IntegrationTypeResponse](#IntegrationTypeResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | username | String? |  yes  |  |
- | userId | String? |  yes  |  |
+ | inventory | String? |  yes  |  |
+ | order | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [AddressResponse](#AddressResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | pincode | Integer? |  yes  |  |
+ | city | String? |  yes  |  |
+ | latitude | Double? |  yes  |  |
+ | state | String? |  yes  |  |
+ | landmark | String? |  yes  |  |
+ | country | String? |  yes  |  |
+ | address2 | String? |  yes  |  |
+ | longitude | Double? |  yes  |  |
+ | address1 | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [MobileNo](#MobileNo)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | number | String? |  yes  |  |
+ | countryCode | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ManagerResponse](#ManagerResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | mobileNo | [MobileNo](#MobileNo)? |  yes  |  |
+ | name | String? |  yes  |  |
+ | email | String? |  yes  |  |
 
 ---
 
@@ -1652,34 +1445,34 @@ Response Data
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | notificationEmails | ArrayList<String>? |  yes  |  |
- | productReturnConfig | [ProductReturnConfigResponse](#ProductReturnConfigResponse)? |  yes  |  |
- | verifiedOn | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | timing | ArrayList<[TimmingResponse](#TimmingResponse)>? |  yes  |  |
- | modifiedBy | [ModifiedByResponse](#ModifiedByResponse)? |  yes  |  |
- | documents | ArrayList<[DocumentsResponse](#DocumentsResponse)>? |  yes  |  |
- | subType | String? |  yes  |  |
- | manager | [ManagerResponse](#ManagerResponse)? |  yes  |  |
- | verifiedBy | [ModifiedByResponse](#ModifiedByResponse)? |  yes  |  |
- | logistics | [LogisticsResponse](#LogisticsResponse)? |  yes  |  |
- | cls | String? |  yes  |  |
- | company | Integer? |  yes  |  |
- | gstCredentials | [GstCredentialsResponse](#GstCredentialsResponse)? |  yes  |  |
- | address | [AddressResponse](#AddressResponse)? |  yes  |  |
- | companyId | Integer? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | integrationType | [IntegrationTypeResponse](#IntegrationTypeResponse)? |  yes  |  |
- | contactNumbers | ArrayList<[ContactNumberResponse](#ContactNumberResponse)>? |  yes  |  |
- | warnings | [WarningsResponse](#WarningsResponse)? |  yes  |  |
- | code | String? |  yes  |  |
- | createdBy | [CreatedByResponse](#CreatedByResponse)? |  yes  |  |
- | stage | String? |  yes  |  |
- | name | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
- | displayName | String? |  yes  |  |
+ | contactNumbers | ArrayList<[ContactNumberResponse](#ContactNumberResponse)>? |  yes  |  |
+ | modifiedBy | [ModifiedByResponse](#ModifiedByResponse)? |  yes  |  |
+ | name | String? |  yes  |  |
+ | gstCredentials | [GstCredentialsResponse](#GstCredentialsResponse)? |  yes  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
+ | documents | ArrayList<[DocumentsResponse](#DocumentsResponse)>? |  yes  |  |
+ | stage | String? |  yes  |  |
+ | logistics | [LogisticsResponse](#LogisticsResponse)? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | timing | ArrayList<[TimmingResponse](#TimmingResponse)>? |  yes  |  |
+ | verifiedBy | [ModifiedByResponse](#ModifiedByResponse)? |  yes  |  |
+ | companyId | Integer? |  yes  |  |
+ | cls | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | createdBy | [CreatedByResponse](#CreatedByResponse)? |  yes  |  |
+ | displayName | String? |  yes  |  |
+ | notificationEmails | ArrayList<String>? |  yes  |  |
+ | company | Integer? |  yes  |  |
+ | subType | String? |  yes  |  |
+ | productReturnConfig | [ProductReturnConfigResponse](#ProductReturnConfigResponse)? |  yes  |  |
+ | warnings | [WarningsResponse](#WarningsResponse)? |  yes  |  |
+ | verifiedOn | String? |  yes  |  |
+ | integrationType | [IntegrationTypeResponse](#IntegrationTypeResponse)? |  yes  |  |
+ | code | String? |  yes  |  |
  | storeType | String? |  yes  |  |
+ | address | [AddressResponse](#AddressResponse)? |  yes  |  |
+ | manager | [ManagerResponse](#ManagerResponse)? |  yes  |  |
 
 ---
 
@@ -1690,205 +1483,8 @@ Response Data
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | page | [PageResponse](#PageResponse) |  no  |  |
+ | page | [ServiceabilityPageResponse](#ServiceabilityPageResponse) |  no  |  |
  | items | ArrayList<[ItemResponse](#ItemResponse)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [PincodeMopData](#PincodeMopData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | pincodes | ArrayList<Integer> |  no  |  |
- | country | String |  no  |  |
- | action | String |  no  |  |
-
----
-
-
- 
- 
- #### [PincodeMopUpdateResponse](#PincodeMopUpdateResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | pincode | Integer |  no  |  |
- | channelId | String |  no  |  |
- | country | String |  no  |  |
- | isActive | Boolean |  no  |  |
-
----
-
-
- 
- 
- #### [PincodeMOPresponse](#PincodeMOPresponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | success | Boolean |  no  |  |
- | statusCode | Integer |  no  |  |
- | batchId | String |  no  |  |
- | country | String |  no  |  |
- | action | String |  no  |  |
- | pincodes | ArrayList<Integer>? |  yes  |  |
- | updatedPincodes | ArrayList<[PincodeMopUpdateResponse](#PincodeMopUpdateResponse)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [PincodeMopBulkData](#PincodeMopBulkData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | batchId | String |  no  |  |
- | s3Url | String |  no  |  |
-
----
-
-
- 
- 
- #### [PincodeBulkViewResponse](#PincodeBulkViewResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | batchId | String |  no  |  |
- | s3Url | String |  no  |  |
-
----
-
-
- 
- 
- #### [PincodeCodStatusListingRequest](#PincodeCodStatusListingRequest)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | country | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | pincode | Integer? |  yes  |  |
- | currentPageNumber | Integer? |  yes  |  |
- | pageSize | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [PincodeCodStatusListingResponse](#PincodeCodStatusListingResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | country | String |  no  |  |
- | data | ArrayList<[PincodeCodStatusListingResponse](#PincodeCodStatusListingResponse)> |  no  |  |
- | success | Boolean |  no  |  |
- | errors | ArrayList<[Error](#Error)>? |  yes  |  |
- | page | [PincodeCodStatusListingPage](#PincodeCodStatusListingPage) |  no  |  |
- | summary | [PincodeCodStatusListingSummary](#PincodeCodStatusListingSummary) |  no  |  |
-
----
-
-
- 
- 
- #### [Error](#Error)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
- | value | String? |  yes  |  |
- | message | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [PincodeCodStatusListingPage](#PincodeCodStatusListingPage)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | itemTotal | Integer |  no  |  |
- | currentPageNumber | Integer |  no  |  |
- | hasNext | Boolean |  no  |  |
- | type | String |  no  |  |
- | size | Integer |  no  |  |
-
----
-
-
- 
- 
- #### [PincodeCodStatusListingSummary](#PincodeCodStatusListingSummary)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | totalActivePincodes | Integer |  no  |  |
- | totalInactivePincodes | Integer |  no  |  |
-
----
-
-
- 
- 
- #### [PincodeMopUpdateAuditHistoryRequest](#PincodeMopUpdateAuditHistoryRequest)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | entityType | String |  no  |  |
- | fileName | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [PincodeMopUpdateAuditHistoryPaging](#PincodeMopUpdateAuditHistoryPaging)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
- | size | Integer? |  yes  |  |
- | current | Integer? |  yes  |  |
- | hasNext | Boolean? |  yes  |  |
- | itemTotal | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [PincodeMopUpdateAuditHistoryResponse](#PincodeMopUpdateAuditHistoryResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | batchId | String? |  yes  |  |
- | entityType | String? |  yes  |  |
- | errorFileS3Url | String? |  yes  |  |
- | s3Url | String? |  yes  |  |
- | fileName | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | updatedBy | String? |  yes  |  |
- | success | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [PincodeMopUpdateAuditHistoryResponseData](#PincodeMopUpdateAuditHistoryResponseData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | entityType | String? |  yes  |  |
- | page | [PincodeMopUpdateAuditHistoryPaging](#PincodeMopUpdateAuditHistoryPaging) |  no  |  |
- | data | ArrayList<[PincodeMopUpdateAuditHistoryResponse](#PincodeMopUpdateAuditHistoryResponse)> |  no  |  |
 
 ---
 
