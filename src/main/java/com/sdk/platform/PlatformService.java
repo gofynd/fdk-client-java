@@ -25907,6 +25907,14 @@ public static class CartService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 public class ApplicationClient {
@@ -27198,6 +27206,54 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.SharedCartResponse updateCartWithSharedItems(String token , String action ) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.SharedCartResponse> response = null;
+            try {
+            response = cartApiList.updateCartWithSharedItems(this.companyId , this.applicationId , token , action ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public PlatformModels.CartList getCartList() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CartList> response = null;
@@ -27614,6 +27670,54 @@ public class ApplicationClient {
     
     
     
+    public PlatformModels.CartDetailResponse removeCoupon(String uid , Boolean buyNow ) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.CartDetailResponse> response = null;
+            try {
+            response = cartApiList.removeCoupon(this.companyId , this.applicationId ,uid , buyNow ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -27959,6 +28063,126 @@ public class ApplicationClient {
             Response<PlatformModels.CartShipmentsResponse> response = null;
             try {
             response = cartApiList.getShipments(this.companyId , this.applicationId ,p , id , buyNow , addressId , areaCode ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.CartShipmentsResponse getShipmentDelivery(Boolean i , Boolean p , String id , String addressId , String orderType ) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.CartShipmentsResponse> response = null;
+            try {
+            response = cartApiList.getShipmentDelivery(this.companyId , this.applicationId ,i , p , id , addressId , orderType ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.CartShipmentsResponse updateShipments(Boolean i , Boolean p , String id , String addressId , String orderType ,PlatformModels.UpdateCartShipmentRequest body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.CartShipmentsResponse> response = null;
+            try {
+            response = cartApiList.updateShipments(this.companyId , this.applicationId ,i , p , id , addressId , orderType , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
