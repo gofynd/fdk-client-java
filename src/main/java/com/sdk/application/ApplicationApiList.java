@@ -779,13 +779,16 @@ interface PosCartApiList {
 interface LogisticApiList {
     
     
-    @POST 
-    Call<ApplicationModels.GetTatProductResponse> getTatProduct(@Url String url1 , @Body ApplicationModels.GetTatProductReqBody payload );
+    @GET 
+    Call<ApplicationModels.PincodeApiResponse> getPincodeCity(@Url String url1, @Query("country_code") String countryCode );
     
     @POST 
-    Call<ApplicationModels.GetPincodeZonesResponse> getPincodeZones(@Url String url1 , @Body ApplicationModels.GetPincodeZonesReqBody payload );
+    Call<ApplicationModels.TATViewResponse> getTatProduct(@Url String url1 , @Body ApplicationModels.TATViewRequest payload );
     
     @GET 
-    Call<ApplicationModels.GetPincodeCityResponse> getPincodeCity(@Url String url1);
+    Call<ApplicationModels.CountryListResponse> getAllCountries(@Url String url1);
+    
+    @POST 
+    Call<ApplicationModels.GetZoneFromPincodeViewResponse> getPincodeZones(@Url String url1 , @Body ApplicationModels.GetZoneFromPincodeViewRequest payload );
 }
 

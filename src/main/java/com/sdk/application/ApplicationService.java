@@ -6302,11 +6302,13 @@ public class FileStorageService extends FileStorage {
         this.logisticApiList = generateLogisticApiList(this.applicationConfig.getPersistentCookieStore());
 
            
-                    relativeUrls.put("getTatProduct","/service/application/logistics/v1.0".substring(1));
+                    relativeUrls.put("getPincodeCity","/service/application/logistics/v1.0/pincode/{pincode}".substring(1));
+            
+                    relativeUrls.put("getTatProduct","/service/application/logistics/v1.0/".substring(1));
+            
+                    relativeUrls.put("getAllCountries","/service/application/logistics/v1.0/country-list".substring(1));
             
                     relativeUrls.put("getPincodeZones","/service/application/logistics/v1.0/pincode/zones".substring(1));
-            
-                    relativeUrls.put("getPincodeCity","/service/application/logistics/v1.0/pincode/{pincode}".substring(1));
              
 
     }
@@ -6328,48 +6330,65 @@ public class FileStorageService extends FileStorage {
 
      
     
-    public ApplicationModels.GetTatProductResponse getTatProduct(ApplicationModels.GetTatProductReqBody body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getTatProduct");
-        
-
-        Response<ApplicationModels.GetTatProductResponse> response = logisticApiList.getTatProduct(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.GetPincodeZonesResponse getPincodeZones(ApplicationModels.GetPincodeZonesReqBody body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getPincodeZones");
-        
-
-        Response<ApplicationModels.GetPincodeZonesResponse> response = logisticApiList.getPincodeZones(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    public ApplicationModels.GetPincodeCityResponse getPincodeCity(String pincode ) throws IOException {
+    public ApplicationModels.PincodeApiResponse getPincodeCity(String pincode , String countryCode ) throws IOException {
      
       String fullUrl = relativeUrls.get("getPincodeCity");
         
         fullUrl = fullUrl.replace("{" + "pincode" +"}",pincode.toString());
         
 
-        Response<ApplicationModels.GetPincodeCityResponse> response = logisticApiList.getPincodeCity(fullUrl ).execute();
+        Response<ApplicationModels.PincodeApiResponse> response = logisticApiList.getPincodeCity(fullUrl  ,countryCode).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.TATViewResponse getTatProduct(ApplicationModels.TATViewRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getTatProduct");
+        
+
+        Response<ApplicationModels.TATViewResponse> response = logisticApiList.getTatProduct(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.CountryListResponse getAllCountries() throws IOException {
+     
+      String fullUrl = relativeUrls.get("getAllCountries");
+        
+
+        Response<ApplicationModels.CountryListResponse> response = logisticApiList.getAllCountries(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    public ApplicationModels.GetZoneFromPincodeViewResponse getPincodeZones(ApplicationModels.GetZoneFromPincodeViewRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getPincodeZones");
+        
+
+        Response<ApplicationModels.GetZoneFromPincodeViewResponse> response = logisticApiList.getPincodeZones(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
