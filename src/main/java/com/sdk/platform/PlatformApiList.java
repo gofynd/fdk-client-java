@@ -7646,6 +7646,477 @@ interface CartApiList {
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/abandoned/carts/{cart_id}")
     Call<PlatformModels.UpdateCartDetailResponse> updateCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("cart_id") String  cartId , @Query("b") Boolean  b ,@Body PlatformModels.UpdateCartRequest payload);
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/share-cart")
+    Call<PlatformModels.GetShareCartLinkResponse> getCartShareLink(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.GetShareCartLinkRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/share-cart/{token}")
+    Call<PlatformModels.SharedCartResponse> getCartSharedItems(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("token") String  token );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart-list")
+    Call<PlatformModels.CartList> getCartList(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/update-user")
+    Call<PlatformModels.UserCartMappingResponse> updateCartUser(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/detail")
+    Call<PlatformModels.CartDetailResponse> getCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("i") Boolean  i ,  @Query("b") Boolean  b ,  @Query("assign_card_id") Integer  assignCardId ,  @Query("buy_now") Boolean  buyNow );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/detail")
+    Call<PlatformModels.AddCartDetailResponse> addItems(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("i") Boolean  i ,  @Query("b") Boolean  b ,  @Query("buy_now") Boolean  buyNow ,@Body PlatformModels.AddCartRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/detail")
+    Call<PlatformModels.UpdateCartDetailResponse> updateCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("i") Boolean  i ,  @Query("b") Boolean  b ,  @Query("buy_now") Boolean  buyNow ,@Body PlatformModels.UpdateCartRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/basic")
+    Call<PlatformModels.CartItemCountResponse> getItemCount(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/platform-pos-coupon")
+    Call<PlatformModels.GetCouponResponse> getCoupons(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/platform-pos-coupon")
+    Call<PlatformModels.CartDetailResponse> applyCoupon(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("i") Boolean  i ,  @Query("b") Boolean  b ,  @Query("p") Boolean  p ,  @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow ,@Body PlatformModels.ApplyCouponRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/address")
+    Call<PlatformModels.GetAddressesResponse> getAddresses(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("cart_id") String  cartId ,  @Query("buy_now") Boolean  buyNow ,  @Query("mobile_no") String  mobileNo ,  @Query("checkout_mode") String  checkoutMode ,  @Query("tags") String  tags ,  @Query("is_default") Boolean  isDefault ,  @Query("user_id") String  userId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/address")
+    Call<PlatformModels.SaveAddressResponse> addAddress(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.PlatformAddress payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/address/{id}")
+    Call<PlatformModels.Address> getAddressById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id , @Query("cart_id") String  cartId ,  @Query("buy_now") Boolean  buyNow ,  @Query("mobile_no") String  mobileNo ,  @Query("checkout_mode") String  checkoutMode ,  @Query("tags") String  tags ,  @Query("is_default") Boolean  isDefault ,  @Query("user_id") String  userId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/address/{id}")
+    Call<PlatformModels.UpdateAddressResponse> updateAddress(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body PlatformModels.PlatformAddress payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/address/{id}")
+    Call<PlatformModels.DeleteAddressResponse> removeAddress(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id , @Query("user_id") String  userId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/select-address")
+    Call<PlatformModels.CartDetailResponse> selectAddress(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("cart_id") String  cartId ,  @Query("buy_now") Boolean  buyNow ,  @Query("i") Boolean  i ,  @Query("b") Boolean  b ,@Body PlatformModels.PlatformSelectCartAddressRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/shipment")
+    Call<PlatformModels.CartShipmentsResponse> getShipments(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("p") Boolean  p ,  @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow ,  @Query("address_id") String  addressId ,  @Query("area_code") String  areaCode );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/meta")
+    Call<PlatformModels.CartMetaResponse> updateCartMeta(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow ,@Body PlatformModels.CartMetaRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/checkout")
+    Call<PlatformModels.CartCheckoutResponse> checkoutCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("buy_now") Boolean  buyNow ,@Body PlatformModels.PlatformCartCheckoutDetailRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/available-delivery-mode")
+    Call<PlatformModels.CartDeliveryModesResponse> getAvailableDeliveryModes(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("area_code") String  areaCode ,  @Query("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/store-address")
+    Call<PlatformModels.StoreDetailsResponse> getStoreAddressByUid(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("store_uid") Integer  storeUid );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/payment")
+    Call<PlatformModels.CartDetailResponse> selectPaymentMode(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow ,@Body PlatformModels.UpdateCartPaymentRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/payment/validate/")
+    Call<PlatformModels.PaymentCouponValidate> validateCouponForPayment(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow ,  @Query("address_id") String  addressId ,  @Query("payment_mode") String  paymentMode ,  @Query("payment_identifier") String  paymentIdentifier ,  @Query("aggregator_name") String  aggregatorName ,  @Query("merchant_code") String  merchantCode );
+    
 }
 
 interface RewardsApiList {
@@ -7820,6 +8291,30 @@ interface RewardsApiList {
     
     @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/users/{user_id}/points/history/")
     Call<PlatformModels.HistoryRes> getUserPointsHistory(@Path("user_id") String  userId , @Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_id") String  pageId ,  @Query("page_size") Integer  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/configuration/")
+    Call<PlatformModels.ConfigurationRes> getRewardsConfiguration(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/configuration/")
+    Call<PlatformModels.SetConfigurationRes> setRewardsConfiguration(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.ConfigurationRequest payload);
     
 }
 
