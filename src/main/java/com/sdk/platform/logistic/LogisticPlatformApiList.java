@@ -59,23 +59,8 @@ interface LogisticPlatformApiList {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/all-stores")
-    Call<LogisticPlatformModels.CompanyStoreView_Response> getCompanyStoreView(@Path("company_id")  String companyId , @Query("page_number") Integer  pageNumber ,  @Query("page_size") Integer  pageSize ,  @Query("zone_id") String  zoneId ,  @Query("enabled") String  enabled ,  @Query("q") String  q );
+    Call<LogisticPlatformModels.CompanyStoreView_Response> getCompanyStoreView(@Path("company_id")  String companyId );
     
     
     
@@ -142,5 +127,53 @@ interface LogisticPlatformApiList {
     
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/logistics/stores")
     Call<LogisticPlatformModels.GetStoresViewResponse> getAllStores(@Path("company_id")  String companyId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/pincode-mop-update")
+    Call<LogisticPlatformModels.PincodeMOPresponse> updatePincodeMopView(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body LogisticPlatformModels.PincodeMopData payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/pincode-mop-bulk-update")
+    Call<LogisticPlatformModels.PincodeBulkViewResponse> updatePincodeBulkView(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body LogisticPlatformModels.PincodeMopBulkData payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/pincode-mop-data")
+    Call<LogisticPlatformModels.PincodeCodStatusListingResponse> updatePincodeCoDListing(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body LogisticPlatformModels.PincodeCodStatusListingRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/history")
+    Call<LogisticPlatformModels.PincodeMopUpdateAuditHistoryResponseData> updatePincodeAuditHistory(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body LogisticPlatformModels.PincodeMopUpdateAuditHistoryRequest payload);
     
 }

@@ -148,32 +148,12 @@ public class LogisticPlatformService {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-    public LogisticPlatformModels.CompanyStoreView_Response getCompanyStoreView(Integer pageNumber , Integer pageSize , String zoneId , String enabled , String q ) throws FDKException, FDKServerResponseError {
+    public LogisticPlatformModels.CompanyStoreView_Response getCompanyStoreView() throws FDKException, FDKServerResponseError {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LogisticPlatformModels.CompanyStoreView_Response> response = null;
             try {
-                response = logisticPlatformApiList.getCompanyStoreView(this.companyId ,pageNumber , pageSize , zoneId , enabled , q ).execute();
+                response = logisticPlatformApiList.getCompanyStoreView(this.companyId ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -394,6 +374,14 @@ public class LogisticPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 
@@ -507,6 +495,170 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public LogisticPlatformModels.PincodeMOPresponse updatePincodeMopView(LogisticPlatformModels.PincodeMopData body) throws FDKException, FDKServerResponseError {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<LogisticPlatformModels.PincodeMOPresponse> response = null;
+            try {
+            response = logisticPlatformApiList.updatePincodeMopView(this.companyId , this.applicationId , body).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage(), e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public LogisticPlatformModels.PincodeBulkViewResponse updatePincodeBulkView(LogisticPlatformModels.PincodeMopBulkData body) throws FDKException, FDKServerResponseError {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<LogisticPlatformModels.PincodeBulkViewResponse> response = null;
+            try {
+            response = logisticPlatformApiList.updatePincodeBulkView(this.companyId , this.applicationId , body).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage(), e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public LogisticPlatformModels.PincodeCodStatusListingResponse updatePincodeCoDListing(LogisticPlatformModels.PincodeCodStatusListingRequest body) throws FDKException, FDKServerResponseError {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<LogisticPlatformModels.PincodeCodStatusListingResponse> response = null;
+            try {
+            response = logisticPlatformApiList.updatePincodeCoDListing(this.companyId , this.applicationId , body).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage(), e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public LogisticPlatformModels.PincodeMopUpdateAuditHistoryResponseData updatePincodeAuditHistory(LogisticPlatformModels.PincodeMopUpdateAuditHistoryRequest body) throws FDKException, FDKServerResponseError {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<LogisticPlatformModels.PincodeMopUpdateAuditHistoryResponseData> response = null;
+            try {
+            response = logisticPlatformApiList.updatePincodeAuditHistory(this.companyId , this.applicationId , body).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage(), e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
     
     
     
