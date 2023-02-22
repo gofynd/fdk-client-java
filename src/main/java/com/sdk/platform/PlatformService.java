@@ -26021,8 +26021,6 @@ public static class CartService {
     
     
     
-    
-    
 
 
 public class ApplicationClient {
@@ -28174,71 +28172,11 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.CartShipmentsResponse getShipments(Boolean p , String id , Boolean buyNow , String addressId , String areaCode , Integer orderingStoreId , String orderType ) throws FDKServerResponseError, FDKException {
+    public PlatformModels.CartShipmentsResponse getShipments(Integer pickAtStoreUid , Integer orderingStoreId , Boolean p , String id , String addressId , String areaCode , String orderType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.CartShipmentsResponse> response = null;
             try {
-            response = cartApiList.getShipments(this.companyId , this.applicationId ,p , id , buyNow , addressId , areaCode , orderingStoreId , orderType ).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public PlatformModels.CartShipmentsResponse getShipmentDelivery(Boolean i , Boolean p , String id , String addressId , String orderType ) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.CartShipmentsResponse> response = null;
-            try {
-            response = cartApiList.getShipmentDelivery(this.companyId , this.applicationId ,i , p , id , addressId , orderType ).execute();
+            response = cartApiList.getShipments(this.companyId , this.applicationId ,pickAtStoreUid , orderingStoreId , p , id , addressId , areaCode , orderType ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

@@ -8082,7 +8082,7 @@ interface CartApiList {
     
     
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/shipment")
-    Call<PlatformModels.CartShipmentsResponse> getShipments(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("p") Boolean  p ,  @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow ,  @Query("address_id") String  addressId ,  @Query("area_code") String  areaCode ,  @Query("ordering_store_id") Integer  orderingStoreId ,  @Query("order_type") String  orderType );
+    Call<PlatformModels.CartShipmentsResponse> getShipments(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("pick_at_store_uid") Integer  pickAtStoreUid ,  @Query("ordering_store_id") Integer  orderingStoreId ,  @Query("p") Boolean  p ,  @Query("id") String  id ,  @Query("address_id") String  addressId ,  @Query("area_code") String  areaCode ,  @Query("order_type") String  orderType );
     
     
     
@@ -8108,34 +8108,7 @@ interface CartApiList {
     
     
     
-    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/shipments/delivery")
-    Call<PlatformModels.CartShipmentsResponse> getShipmentDelivery(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("i") Boolean  i ,  @Query("p") Boolean  p ,  @Query("id") String  id ,  @Query("address_id") String  addressId ,  @Query("order_type") String  orderType );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/shipments/delivery")
+    @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/shipment")
     Call<PlatformModels.CartShipmentsResponse> updateShipments(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("i") Boolean  i ,  @Query("p") Boolean  p ,  @Query("id") String  id ,  @Query("address_id") String  addressId ,  @Query("order_type") String  orderType ,@Body PlatformModels.UpdateCartShipmentRequest payload);
     
     
