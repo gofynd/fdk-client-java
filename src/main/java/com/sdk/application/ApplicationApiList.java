@@ -755,13 +755,13 @@ interface PosCartApiList {
 interface LogisticApiList {
     
     
-    @POST 
-    Call<ApplicationModels.GetTatProductResponse> getTatProduct(@Url String url1 , @Body ApplicationModels.GetTatProductReqBody payload );
-    
-    @POST 
-    Call<ApplicationModels.GetPincodeZonesResponse> getPincodeZones(@Url String url1 , @Body ApplicationModels.GetPincodeZonesReqBody payload );
-    
     @GET 
-    Call<ApplicationModels.GetPincodeCityResponse> getPincodeCity(@Url String url1);
+    Call<ApplicationModels.PincodeApiResponse> getPincodeCity(@Url String url1);
+    
+    @POST 
+    Call<ApplicationModels.TATViewResponse> getTatProduct(@Url String url1 , @Body ApplicationModels.TATViewRequest payload );
+    
+    @POST 
+    Call<ApplicationModels.GetZoneFromPincodeViewResponse> upsertZoneControllerView(@Url String url1 , @Body ApplicationModels.GetZoneFromPincodeViewRequest payload );
 }
 

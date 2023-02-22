@@ -896,6 +896,11 @@ Success. Returns a JSON object containing the all the platform configurations. R
       "appId": "token_123"
     }
   },
+  "session_config": {
+    "duration": 30,
+    "type": "Days",
+    "is_rolling": false
+  },
   "delete_account_reasons": [
     {
       "reason_text": "test",
@@ -1025,6 +1030,11 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
     "account_kit": {
       "appId": "token_123"
     }
+  },
+  "session_config": {
+    "duration": 30,
+    "type": "Days",
+    "is_rolling": false
   },
   "delete_account_reasons": [
     {
@@ -1645,6 +1655,7 @@ Success. User Group details. `UserGroupResponseSchema` for more details.
  | countryCode | String? |  yes  |  |
  | captchaCode | String? |  yes  |  |
  | mobile | String? |  yes  |  |
+ | androidHash | String? |  yes  |  |
 
 ---
 
@@ -2338,6 +2349,7 @@ Success. User Group details. `UserGroupResponseSchema` for more details.
  | deleteAccountDay | Integer? |  yes  |  |
  | deleteAccountReasons | ArrayList<[DeleteAccountReasons](#DeleteAccountReasons)>? |  yes  |  |
  | deleteAccountConsent | HashMap<String,Object>? |  yes  |  |
+ | sessionConfig | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2542,6 +2554,19 @@ Success. User Group details. `UserGroupResponseSchema` for more details.
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | appId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SessionExpiry](#SessionExpiry)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | duration | Integer? |  yes  |  |
+ | type | String? |  yes  |  |
+ | isRolling | Boolean? |  yes  |  |
 
 ---
 
