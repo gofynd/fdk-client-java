@@ -4533,12 +4533,12 @@ public class FileStorageService extends FileStorage {
 
      
     
-    public ApplicationModels.AggregatorsConfigDetailResponse getAggregatorsConfig(String xApiToken , Boolean refresh ) throws IOException {
+    public ApplicationModels.AggregatorsConfigDetailResponse getAggregatorsConfig(Boolean refresh ) throws IOException {
      
       String fullUrl = relativeUrls.get("getAggregatorsConfig");
         
 
-        Response<ApplicationModels.AggregatorsConfigDetailResponse> response = paymentApiList.getAggregatorsConfig(fullUrl  ,xApiToken, refresh).execute();
+        Response<ApplicationModels.AggregatorsConfigDetailResponse> response = paymentApiList.getAggregatorsConfig(fullUrl  ,refresh).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

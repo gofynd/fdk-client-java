@@ -509,7 +509,7 @@ interface PaymentApiList {
     
     
     @GET 
-    Call<ApplicationModels.AggregatorsConfigDetailResponse> getAggregatorsConfig(@Url String url1,@Header("x-api-token")String xApiToken , @Query("refresh") Boolean refresh );
+    Call<ApplicationModels.AggregatorsConfigDetailResponse> getAggregatorsConfig(@Url String url1, @Query("refresh") Boolean refresh );
     
     @POST 
     Call<ApplicationModels.AttachCardsResponse> attachCardToCustomer(@Url String url1 , @Body ApplicationModels.AttachCardRequest payload );
