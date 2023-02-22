@@ -109,6 +109,7 @@ import com.sdk.application.ApplicationConfig;
 
      
     
+    
     public PosCartApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , Boolean buyNow ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCart");
@@ -122,6 +123,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -143,6 +145,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PosCartApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , Boolean buyNow ,PosCartApplicationModels.AddCartRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("addItems");
@@ -156,6 +159,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -177,6 +181,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PosCartApplicationModels.CartItemCountResponse getItemCount(String id , Boolean buyNow ) throws IOException {
      
       String fullUrl = relativeUrls.get("getItemCount");
@@ -190,6 +195,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -211,6 +217,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PosCartApplicationModels.CartDetailResponse applyCoupon(Boolean i , Boolean b , Boolean p , String id , Boolean buyNow ,PosCartApplicationModels.ApplyCouponRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("applyCoupon");
@@ -224,6 +231,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -245,6 +253,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PosCartApplicationModels.BulkPriceResponse getBulkDiscountOffers(Integer itemId , String articleId , Integer uid , String slug ) throws IOException {
      
       String fullUrl = relativeUrls.get("getBulkDiscountOffers");
@@ -258,6 +267,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -279,6 +289,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PosCartApplicationModels.GetAddressesResponse getAddresses(String cartId , Boolean buyNow , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws IOException {
      
       String fullUrl = relativeUrls.get("getAddresses");
@@ -296,6 +307,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PosCartApplicationModels.SaveAddressResponse addAddress(PosCartApplicationModels.Address body) throws IOException {
      
       String fullUrl = relativeUrls.get("addAddress");
@@ -309,6 +321,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -332,6 +345,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PosCartApplicationModels.UpdateAddressResponse updateAddress(String id ,PosCartApplicationModels.Address body) throws IOException {
      
       String fullUrl = relativeUrls.get("updateAddress");
@@ -347,6 +361,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -370,6 +385,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PosCartApplicationModels.CartDetailResponse selectAddress(String cartId , Boolean buyNow , Boolean i , Boolean b ,PosCartApplicationModels.SelectCartAddressRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("selectAddress");
@@ -383,6 +399,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -404,6 +421,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PosCartApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode ) throws IOException {
      
       String fullUrl = relativeUrls.get("validateCouponForPayment");
@@ -417,6 +435,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -438,6 +457,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PosCartApplicationModels.CartShipmentsResponse updateShipments(Boolean i , Boolean p , String id , String addressId , String orderType ,PosCartApplicationModels.UpdateCartShipmentRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("updateShipments");
@@ -451,6 +471,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -472,6 +493,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PosCartApplicationModels.CartMetaResponse updateCartMeta(String id , Boolean buyNow ,PosCartApplicationModels.CartMetaRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("updateCartMeta");
@@ -485,6 +507,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -506,6 +529,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PosCartApplicationModels.StoreDetailsResponse getStoreAddressByUid(Integer storeUid ) throws IOException {
      
       String fullUrl = relativeUrls.get("getStoreAddressByUid");
@@ -519,6 +543,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -540,6 +565,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PosCartApplicationModels.SharedCartResponse getCartSharedItems(String token ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCartSharedItems");
@@ -555,6 +581,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     

@@ -69,6 +69,7 @@ import com.sdk.application.ApplicationConfig;
 
      
     
+    
     public RewardsApplicationModels.Offer getOfferByName(String name ) throws IOException {
      
       String fullUrl = relativeUrls.get("getOfferByName");
@@ -88,6 +89,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public RewardsApplicationModels.CatalogueOrderResponse catalogueOrder(RewardsApplicationModels.CatalogueOrderRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("catalogueOrder");
@@ -101,6 +103,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -170,6 +173,7 @@ import com.sdk.application.ApplicationConfig;
     }
     
     
+    
     public RewardsApplicationModels.PointsResponse getUserPoints() throws IOException {
      
       String fullUrl = relativeUrls.get("getUserPoints");
@@ -183,6 +187,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -204,6 +209,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public RewardsApplicationModels.OrderDiscountResponse getOrderDiscount(RewardsApplicationModels.OrderDiscountRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("getOrderDiscount");
@@ -217,6 +223,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     

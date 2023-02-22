@@ -63,6 +63,7 @@ import com.sdk.application.ApplicationConfig;
 
      
     
+    
     public ThemeApplicationModels.AllAvailablePageSchema getAllPages(String themeId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getAllPages");
@@ -78,6 +79,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -103,6 +105,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public ThemeApplicationModels.ThemesSchema getAppliedTheme() throws IOException {
      
       String fullUrl = relativeUrls.get("getAppliedTheme");
@@ -116,6 +119,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     

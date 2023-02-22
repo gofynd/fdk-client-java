@@ -510,7 +510,7 @@ public static class Page {
     
     
     @JsonProperty("type")
-    private Integer type;
+    private String type;
     
     
     

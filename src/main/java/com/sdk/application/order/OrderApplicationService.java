@@ -79,6 +79,7 @@ import com.sdk.application.ApplicationConfig;
 
      
     
+    
     public OrderApplicationModels.OrderList getOrders(Integer status , Integer pageNo , Integer pageSize , String fromDate , String toDate , String customMeta ) throws IOException {
      
       String fullUrl = relativeUrls.get("getOrders");
@@ -92,6 +93,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -115,6 +117,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public OrderApplicationModels.OrderList getPosOrderById(String orderId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getPosOrderById");
@@ -130,6 +133,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -153,6 +157,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public OrderApplicationModels.ResponseGetInvoiceShipment getInvoiceByShipmentId(String shipmentId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getInvoiceByShipmentId");
@@ -172,6 +177,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public OrderApplicationModels.ShipmentTrack trackShipment(String shipmentId ) throws IOException {
      
       String fullUrl = relativeUrls.get("trackShipment");
@@ -187,6 +193,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -212,6 +219,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public OrderApplicationModels.SendOtpToCustomerResponse sendOtpToShipmentCustomer(String orderId , String shipmentId ) throws IOException {
      
       String fullUrl = relativeUrls.get("sendOtpToShipmentCustomer");
@@ -229,6 +237,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -254,6 +263,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public OrderApplicationModels.ShipmentBagReasons getShipmentBagReasons(String shipmentId , String bagId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getShipmentBagReasons");
@@ -275,6 +285,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public OrderApplicationModels.ShipmentReasons getShipmentReasons(String shipmentId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getShipmentReasons");
@@ -290,6 +301,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     

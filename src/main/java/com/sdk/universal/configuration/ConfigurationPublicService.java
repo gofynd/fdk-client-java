@@ -38,6 +38,7 @@ public class ConfigurationPublicService {
 
     
     
+    
     public ConfigurationPublicModels.ApplicationResponse searchApplication(String authorization , String query ) throws IOException {
     
         Response<ConfigurationPublicModels.ApplicationResponse> response = configurationPublicApiList.searchApplication(authorization, query).execute();
@@ -48,6 +49,7 @@ public class ConfigurationPublicService {
         return response.body();
     }
 
+    
     
     
     

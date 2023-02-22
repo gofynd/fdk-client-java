@@ -87,6 +87,7 @@ import com.sdk.application.ApplicationConfig;
 
      
     
+    
     public ConfigurationApplicationModels.Application getApplication() throws IOException {
      
       String fullUrl = relativeUrls.get("getApplication");
@@ -100,6 +101,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -121,6 +123,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public ConfigurationApplicationModels.ApplicationDetail getBasicDetails() throws IOException {
      
       String fullUrl = relativeUrls.get("getBasicDetails");
@@ -138,6 +141,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public ConfigurationApplicationModels.AppTokenResponse getIntegrationTokens() throws IOException {
      
       String fullUrl = relativeUrls.get("getIntegrationTokens");
@@ -151,6 +155,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -226,6 +231,7 @@ import com.sdk.application.ApplicationConfig;
     }
     
     
+    
     public ConfigurationApplicationModels.OrderingStore getStoreDetailById(Integer storeId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getStoreDetailById");
@@ -241,6 +247,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -262,6 +269,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public ConfigurationApplicationModels.ApplicationInformation getContactInfo() throws IOException {
      
       String fullUrl = relativeUrls.get("getContactInfo");
@@ -279,6 +287,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public ConfigurationApplicationModels.CurrenciesResponse getCurrencies() throws IOException {
      
       String fullUrl = relativeUrls.get("getCurrencies");
@@ -292,6 +301,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -315,6 +325,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public ConfigurationApplicationModels.AppCurrencyResponse getAppCurrencies() throws IOException {
      
       String fullUrl = relativeUrls.get("getAppCurrencies");
@@ -328,6 +339,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -349,6 +361,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public ConfigurationApplicationModels.SuccessMessageResponse getOrderingStoreCookie(ConfigurationApplicationModels.OrderingStoreSelectRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("getOrderingStoreCookie");
@@ -366,6 +379,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public ConfigurationApplicationModels.SuccessMessageResponse removeOrderingStoreCookie() throws IOException {
      
       String fullUrl = relativeUrls.get("removeOrderingStoreCookie");
@@ -379,6 +393,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -464,6 +479,7 @@ import com.sdk.application.ApplicationConfig;
     });
     return paginator ;
     }
+    
     
     
     public ConfigurationApplicationModels.AppStaffResponse getAppStaffs(Boolean orderIncent , Integer orderingStore , String user ) throws IOException {

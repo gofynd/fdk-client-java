@@ -65,6 +65,7 @@ import com.sdk.application.ApplicationConfig;
 
      
     
+    
     public LogisticApplicationModels.PincodeApiResponse getPincodeCity(String pincode , String countryCode ) throws IOException {
      
       String fullUrl = relativeUrls.get("getPincodeCity");
@@ -80,6 +81,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -101,6 +103,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public LogisticApplicationModels.EntityListResponse getEntityList(String page , String limit ,LogisticApplicationModels.EntityListRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("getEntityList");
@@ -118,6 +121,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public LogisticApplicationModels.GetZoneFromPincodeViewResponse getPincodeZones(LogisticApplicationModels.GetZoneFromPincodeViewRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("getPincodeZones");
@@ -131,6 +135,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     

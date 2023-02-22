@@ -125,6 +125,7 @@ import com.sdk.application.ApplicationConfig;
 
      
     
+    
     public UserApplicationModels.AuthSuccess loginWithFacebook(String platform ,UserApplicationModels.OAuthRequestSchema body) throws IOException {
      
       String fullUrl = relativeUrls.get("loginWithFacebook");
@@ -138,6 +139,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -159,6 +161,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public UserApplicationModels.AuthSuccess loginWithGoogleAndroid(String platform ,UserApplicationModels.OAuthRequestSchema body) throws IOException {
      
       String fullUrl = relativeUrls.get("loginWithGoogleAndroid");
@@ -172,6 +175,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -193,6 +197,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public UserApplicationModels.AuthSuccess loginWithAppleIOS(String platform ,UserApplicationModels.OAuthRequestAppleSchema body) throws IOException {
      
       String fullUrl = relativeUrls.get("loginWithAppleIOS");
@@ -206,6 +211,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -227,6 +233,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public UserApplicationModels.LoginSuccess loginWithEmailAndPassword(UserApplicationModels.PasswordLoginRequestSchema body) throws IOException {
      
       String fullUrl = relativeUrls.get("loginWithEmailAndPassword");
@@ -240,6 +247,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -261,6 +269,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public UserApplicationModels.ResetPasswordSuccess sendResetPasswordMobile(String platform ,UserApplicationModels.SendResetPasswordMobileRequestSchema body) throws IOException {
      
       String fullUrl = relativeUrls.get("sendResetPasswordMobile");
@@ -274,6 +283,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -295,6 +305,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public UserApplicationModels.ResetPasswordSuccess sendResetToken(UserApplicationModels.CodeRequestBodySchema body) throws IOException {
      
       String fullUrl = relativeUrls.get("sendResetToken");
@@ -308,6 +319,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -329,6 +341,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public UserApplicationModels.RegisterFormSuccess registerWithForm(String platform ,UserApplicationModels.FormRegisterRequestSchema body) throws IOException {
      
       String fullUrl = relativeUrls.get("registerWithForm");
@@ -342,6 +355,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -363,6 +377,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public UserApplicationModels.VerifyEmailSuccess verifyMobile(UserApplicationModels.CodeRequestBodySchema body) throws IOException {
      
       String fullUrl = relativeUrls.get("verifyMobile");
@@ -376,6 +391,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -397,6 +413,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public UserApplicationModels.VerifyEmailSuccess updatePassword(UserApplicationModels.UpdatePasswordRequestSchema body) throws IOException {
      
       String fullUrl = relativeUrls.get("updatePassword");
@@ -410,6 +427,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -431,6 +449,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public UserApplicationModels.LogoutSuccess logout() throws IOException {
      
       String fullUrl = relativeUrls.get("logout");
@@ -444,6 +463,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -465,6 +485,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public UserApplicationModels.VerifyOtpSuccess verifyMobileOTP(String platform ,UserApplicationModels.VerifyOtpRequestSchema body) throws IOException {
      
       String fullUrl = relativeUrls.get("verifyMobileOTP");
@@ -478,6 +499,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -499,6 +521,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public UserApplicationModels.VerifyOtpSuccess verifyEmailOTP(String platform ,UserApplicationModels.VerifyEmailOtpRequestSchema body) throws IOException {
      
       String fullUrl = relativeUrls.get("verifyEmailOTP");
@@ -512,6 +535,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -533,6 +557,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public UserApplicationModels.SessionListSuccess getListOfActiveSessions() throws IOException {
      
       String fullUrl = relativeUrls.get("getListOfActiveSessions");
@@ -546,6 +571,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -567,6 +593,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public UserApplicationModels.ProfileEditSuccess updateProfile(String platform ,UserApplicationModels.EditProfileRequestSchema body) throws IOException {
      
       String fullUrl = relativeUrls.get("updateProfile");
@@ -580,6 +607,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -601,6 +629,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public UserApplicationModels.LoginSuccess deleteMobileNumber(String platform , Boolean active , Boolean primary , Boolean verified , String countryCode , String phone ) throws IOException {
      
       String fullUrl = relativeUrls.get("deleteMobileNumber");
@@ -614,6 +643,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -635,6 +665,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public UserApplicationModels.SendMobileVerifyLinkSuccess sendVerificationLinkToMobile(String platform ,UserApplicationModels.SendVerificationLinkMobileRequestSchema body) throws IOException {
      
       String fullUrl = relativeUrls.get("sendVerificationLinkToMobile");
@@ -648,6 +679,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -669,6 +701,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public UserApplicationModels.LoginSuccess deleteEmail(String platform , Boolean active , Boolean primary , Boolean verified , String email ) throws IOException {
      
       String fullUrl = relativeUrls.get("deleteEmail");
@@ -686,6 +719,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public UserApplicationModels.LoginSuccess setEmailAsPrimary(UserApplicationModels.EditEmailRequestSchema body) throws IOException {
      
       String fullUrl = relativeUrls.get("setEmailAsPrimary");
@@ -699,6 +733,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     

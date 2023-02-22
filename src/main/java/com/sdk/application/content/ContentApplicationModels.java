@@ -1376,7 +1376,7 @@ public static class ActionPage{
     
     
     @JsonProperty("type")
-    private String type;
+    private PageType type;
     
     
     

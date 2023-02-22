@@ -69,6 +69,7 @@ import com.sdk.application.ApplicationConfig;
 
      
     
+    
     public ShareApplicationModels.QRCodeResp getApplicationQRCode() throws IOException {
      
       String fullUrl = relativeUrls.get("getApplicationQRCode");
@@ -82,6 +83,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -105,6 +107,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public ShareApplicationModels.QRCodeResp getCollectionQRCodeBySlug(String slug ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCollectionQRCodeBySlug");
@@ -120,6 +123,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -141,6 +145,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public ShareApplicationModels.ShortLinkRes createShortLink(ShareApplicationModels.ShortLinkReq body) throws IOException {
      
       String fullUrl = relativeUrls.get("createShortLink");
@@ -154,6 +159,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -173,6 +179,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     

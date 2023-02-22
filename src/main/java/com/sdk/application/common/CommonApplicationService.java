@@ -59,6 +59,7 @@ import com.sdk.application.ApplicationConfig;
 
      
     
+    
     public CommonApplicationModels.ApplicationResponse searchApplication(String authorization , String query ) throws IOException {
      
       String fullUrl = relativeUrls.get("searchApplication");
@@ -72,6 +73,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     

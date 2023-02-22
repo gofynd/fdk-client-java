@@ -115,6 +115,7 @@ import com.sdk.application.ApplicationConfig;
 
      
     
+    
     public CatalogApplicationModels.ProductDetail getProductDetailBySlug(String slug ) throws IOException {
      
       String fullUrl = relativeUrls.get("getProductDetailBySlug");
@@ -130,6 +131,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -153,6 +155,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CatalogApplicationModels.ProductsComparisonResponse getProductComparisonBySlugs(List<String> slug ) throws IOException {
      
       String fullUrl = relativeUrls.get("getProductComparisonBySlugs");
@@ -166,6 +169,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -189,6 +193,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CatalogApplicationModels.ProductFrequentlyComparedSimilarResponse getComparedFrequentlyProductBySlug(String slug ) throws IOException {
      
       String fullUrl = relativeUrls.get("getComparedFrequentlyProductBySlug");
@@ -204,6 +209,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -227,6 +233,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CatalogApplicationModels.ProductStockStatusResponse getProductStockByIds(String itemId , String alu , String skuCode , String ean , String upc ) throws IOException {
      
       String fullUrl = relativeUrls.get("getProductStockByIds");
@@ -240,6 +247,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -313,6 +321,7 @@ import com.sdk.application.ApplicationConfig;
     });
     return paginator ;
     }
+    
     
     
     public CatalogApplicationModels.ProductListingResponse getProducts(String q , String f , Boolean filters , String sortOn , String pageId , Integer pageSize , Integer pageNo , String pageType ) throws IOException {
@@ -420,6 +429,7 @@ import com.sdk.application.ApplicationConfig;
     }
     
     
+    
     public CatalogApplicationModels.BrandListingResponse getBrands(String department , Integer pageNo , Integer pageSize ) throws IOException {
      
       String fullUrl = relativeUrls.get("getBrands");
@@ -491,6 +501,7 @@ import com.sdk.application.ApplicationConfig;
     }
     
     
+    
     public CatalogApplicationModels.BrandDetailResponse getBrandDetailBySlug(String slug ) throws IOException {
      
       String fullUrl = relativeUrls.get("getBrandDetailBySlug");
@@ -506,6 +517,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -527,6 +539,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CatalogApplicationModels.CategoryMetaResponse getCategoryDetailBySlug(String slug ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCategoryDetailBySlug");
@@ -542,6 +555,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -617,6 +631,7 @@ import com.sdk.application.ApplicationConfig;
     }
     
     
+    
     public CatalogApplicationModels.DepartmentResponse getDepartments() throws IOException {
      
       String fullUrl = relativeUrls.get("getDepartments");
@@ -634,6 +649,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CatalogApplicationModels.AutoCompleteResponse getSearchResults(String q ) throws IOException {
      
       String fullUrl = relativeUrls.get("getSearchResults");
@@ -647,6 +663,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -720,6 +737,7 @@ import com.sdk.application.ApplicationConfig;
     });
     return paginator ;
     }
+    
     
     
     public CatalogApplicationModels.ProductListingResponse getCollectionItemsBySlug(String slug , String f , Boolean filters , String sortOn , String pageId , Integer pageSize ) throws IOException {
@@ -813,6 +831,7 @@ import com.sdk.application.ApplicationConfig;
     }
     
     
+    
     public CatalogApplicationModels.CollectionDetailResponse getCollectionDetailBySlug(String slug ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCollectionDetailBySlug");
@@ -828,6 +847,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -905,6 +925,7 @@ import com.sdk.application.ApplicationConfig;
     }
     
     
+    
     public CatalogApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
      
       String fullUrl = relativeUrls.get("followById");
@@ -922,6 +943,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -947,6 +969,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CatalogApplicationModels.FollowerCountResponse getFollowerCountById(String collectionType , String collectionId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getFollowerCountById");
@@ -968,6 +991,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CatalogApplicationModels.FollowIdsResponse getFollowIds(String collectionType ) throws IOException {
      
       String fullUrl = relativeUrls.get("getFollowIds");
@@ -981,6 +1005,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -1080,6 +1105,7 @@ import com.sdk.application.ApplicationConfig;
     }
     
     
+    
     public CatalogApplicationModels.ApplicationStoreListing getInStockLocations(Integer pageNo , Integer pageSize , String q , String city , Integer range , Double latitude , Double longitude ) throws IOException {
      
       String fullUrl = relativeUrls.get("getInStockLocations");
@@ -1175,6 +1201,7 @@ import com.sdk.application.ApplicationConfig;
     }
     
     
+    
     public CatalogApplicationModels.StoreDetails getLocationDetailsById(Integer locationId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getLocationDetailsById");
@@ -1190,6 +1217,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -1211,6 +1239,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CatalogApplicationModels.ProductSizePriceResponseV3 getProductPriceBySlug(String slug , String size , Integer storeId , String pincode , Integer moq ) throws IOException {
      
       String fullUrl = relativeUrls.get("getProductPriceBySlug");
@@ -1228,6 +1257,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     

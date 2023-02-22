@@ -107,6 +107,7 @@ import com.sdk.application.ApplicationConfig;
 
      
     
+    
     public CartApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , Boolean buyNow ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCart");
@@ -120,6 +121,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -141,6 +143,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CartApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , Boolean buyNow ,CartApplicationModels.AddCartRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("addItems");
@@ -154,6 +157,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -175,6 +179,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CartApplicationModels.CartItemCountResponse getItemCount(String id , Boolean buyNow ) throws IOException {
      
       String fullUrl = relativeUrls.get("getItemCount");
@@ -188,6 +193,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -209,6 +215,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CartApplicationModels.CartDetailResponse applyCoupon(Boolean i , Boolean b , Boolean p , String id , Boolean buyNow ,CartApplicationModels.ApplyCouponRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("applyCoupon");
@@ -222,6 +229,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -243,6 +251,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CartApplicationModels.BulkPriceResponse getBulkDiscountOffers(Integer itemId , String articleId , Integer uid , String slug ) throws IOException {
      
       String fullUrl = relativeUrls.get("getBulkDiscountOffers");
@@ -256,6 +265,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -277,6 +287,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CartApplicationModels.GetAddressesResponse getAddresses(String cartId , Boolean buyNow , String mobileNo , String checkoutMode , String tags , Boolean isDefault ) throws IOException {
      
       String fullUrl = relativeUrls.get("getAddresses");
@@ -294,6 +305,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CartApplicationModels.SaveAddressResponse addAddress(CartApplicationModels.Address body) throws IOException {
      
       String fullUrl = relativeUrls.get("addAddress");
@@ -307,6 +319,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -330,6 +343,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CartApplicationModels.UpdateAddressResponse updateAddress(String id ,CartApplicationModels.Address body) throws IOException {
      
       String fullUrl = relativeUrls.get("updateAddress");
@@ -345,6 +359,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -368,6 +383,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CartApplicationModels.CartDetailResponse selectAddress(String cartId , Boolean buyNow , Boolean i , Boolean b ,CartApplicationModels.SelectCartAddressRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("selectAddress");
@@ -381,6 +397,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -402,6 +419,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CartApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode ) throws IOException {
      
       String fullUrl = relativeUrls.get("validateCouponForPayment");
@@ -415,6 +433,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -436,6 +455,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CartApplicationModels.CartCheckoutResponse checkoutCart(Boolean buyNow ,CartApplicationModels.CartCheckoutDetailRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("checkoutCart");
@@ -449,6 +469,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -470,6 +491,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CartApplicationModels.GetShareCartLinkResponse getCartShareLink(CartApplicationModels.GetShareCartLinkRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("getCartShareLink");
@@ -483,6 +505,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -502,6 +525,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -527,6 +551,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CartApplicationModels.PromotionOffersResponse getPromotionOffers(String slug , Integer pageSize , String promotionGroup ) throws IOException {
      
       String fullUrl = relativeUrls.get("getPromotionOffers");
@@ -540,6 +565,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     

@@ -93,6 +93,7 @@ import com.sdk.application.ApplicationConfig;
 
      
     
+    
     public ContentApplicationModels.AnnouncementsResponseSchema getAnnouncements() throws IOException {
      
       String fullUrl = relativeUrls.get("getAnnouncements");
@@ -106,6 +107,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -125,6 +127,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -194,6 +197,7 @@ import com.sdk.application.ApplicationConfig;
     }
     
     
+    
     public ContentApplicationModels.DataLoadersSchema getDataLoaders() throws IOException {
      
       String fullUrl = relativeUrls.get("getDataLoaders");
@@ -207,6 +211,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -228,6 +233,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public ContentApplicationModels.GetFaqCategoriesSchema getFaqCategories() throws IOException {
      
       String fullUrl = relativeUrls.get("getFaqCategories");
@@ -241,6 +247,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -264,6 +271,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public ContentApplicationModels.GetFaqCategoryBySlugSchema getFaqCategoryBySlug(String slug ) throws IOException {
      
       String fullUrl = relativeUrls.get("getFaqCategoryBySlug");
@@ -279,6 +287,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -302,6 +311,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public ContentApplicationModels.LandingPageSchema getLandingPage() throws IOException {
      
       String fullUrl = relativeUrls.get("getLandingPage");
@@ -319,6 +329,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public ContentApplicationModels.ApplicationLegal getLegalInformation() throws IOException {
      
       String fullUrl = relativeUrls.get("getLegalInformation");
@@ -332,6 +343,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -401,6 +413,7 @@ import com.sdk.application.ApplicationConfig;
     }
     
     
+    
     public ContentApplicationModels.SeoComponent getSEOConfiguration() throws IOException {
      
       String fullUrl = relativeUrls.get("getSEOConfiguration");
@@ -414,6 +427,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -483,6 +497,7 @@ import com.sdk.application.ApplicationConfig;
     }
     
     
+    
     public ContentApplicationModels.SlideshowSchema getSlideshow(String slug ) throws IOException {
      
       String fullUrl = relativeUrls.get("getSlideshow");
@@ -498,6 +513,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -519,6 +535,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public ContentApplicationModels.TagsSchema getTags() throws IOException {
      
       String fullUrl = relativeUrls.get("getTags");
@@ -532,6 +549,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -551,6 +569,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     

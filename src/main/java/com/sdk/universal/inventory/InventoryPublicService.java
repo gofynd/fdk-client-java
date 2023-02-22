@@ -38,6 +38,7 @@ public class InventoryPublicService {
 
     
     
+    
     public InventoryPublicModels.ResponseEnvelopeListJobConfigDTO getJobConfigByIntegrationType(String integrationType , Boolean disable ) throws IOException {
     
         Response<InventoryPublicModels.ResponseEnvelopeListJobConfigDTO> response = inventoryPublicApiList.getJobConfigByIntegrationType(integrationType, disable).execute();
@@ -52,6 +53,7 @@ public class InventoryPublicService {
     
     
     
+    
     public InventoryPublicModels.ResponseEnvelopeObject getJobCodesMetrics(Boolean dailyJob , String jobCode ) throws IOException {
     
         Response<InventoryPublicModels.ResponseEnvelopeObject> response = inventoryPublicApiList.getJobCodesMetrics(dailyJob, jobCode).execute();
@@ -62,6 +64,7 @@ public class InventoryPublicService {
         return response.body();
     }
 
+    
     
     
     

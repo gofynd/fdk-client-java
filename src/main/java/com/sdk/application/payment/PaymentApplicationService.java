@@ -129,6 +129,7 @@ import com.sdk.application.ApplicationConfig;
 
      
     
+    
     public PaymentApplicationModels.AggregatorsConfigDetailResponse getAggregatorsConfig(String xApiToken , Boolean refresh ) throws IOException {
      
       String fullUrl = relativeUrls.get("getAggregatorsConfig");
@@ -142,6 +143,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -163,6 +165,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PaymentApplicationModels.ActiveCardPaymentGatewayResponse getActiveCardAggregator(Boolean refresh ) throws IOException {
      
       String fullUrl = relativeUrls.get("getActiveCardAggregator");
@@ -176,6 +179,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -197,6 +201,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PaymentApplicationModels.DeleteCardsResponse deleteUserCard(PaymentApplicationModels.DeletehCardRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("deleteUserCard");
@@ -210,6 +215,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -231,6 +237,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PaymentApplicationModels.ChargeCustomerResponse verifyAndChargePayment(PaymentApplicationModels.ChargeCustomerRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("verifyAndChargePayment");
@@ -244,6 +251,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -265,6 +273,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PaymentApplicationModels.PaymentStatusUpdateResponse checkAndUpdatePaymentStatus(PaymentApplicationModels.PaymentStatusUpdateRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("checkAndUpdatePaymentStatus");
@@ -278,6 +287,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -299,6 +309,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PaymentApplicationModels.PaymentModeRouteResponse getPosPaymentModeRoutes(Integer amount , String cartId , String pincode , String checkoutMode , Boolean refresh , String cardReference , String orderType , String userDetails ) throws IOException {
      
       String fullUrl = relativeUrls.get("getPosPaymentModeRoutes");
@@ -312,6 +323,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -333,6 +345,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PaymentApplicationModels.EpaylaterBannerResponse getEpaylaterBannerDetails() throws IOException {
      
       String fullUrl = relativeUrls.get("getEpaylaterBannerDetails");
@@ -346,6 +359,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -367,6 +381,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PaymentApplicationModels.TransferModeResponse getActiveRefundTransferModes() throws IOException {
      
       String fullUrl = relativeUrls.get("getActiveRefundTransferModes");
@@ -380,6 +395,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -401,6 +417,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PaymentApplicationModels.OrderBeneficiaryResponse getUserBeneficiariesDetail(String orderId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getUserBeneficiariesDetail");
@@ -414,6 +431,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -435,6 +453,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PaymentApplicationModels.OrderBeneficiaryResponse getOrderBeneficiariesDetail(String orderId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getOrderBeneficiariesDetail");
@@ -448,6 +467,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -469,6 +489,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PaymentApplicationModels.RefundAccountResponse addBeneficiaryDetails(PaymentApplicationModels.AddBeneficiaryDetailsRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("addBeneficiaryDetails");
@@ -482,6 +503,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -503,6 +525,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PaymentApplicationModels.WalletOtpResponse verifyOtpAndAddBeneficiaryForWallet(PaymentApplicationModels.WalletOtpRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("verifyOtpAndAddBeneficiaryForWallet");
@@ -516,6 +539,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -537,6 +561,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PaymentApplicationModels.GetPaymentLinkResponse getPaymentLink(String paymentLinkId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getPaymentLink");
@@ -550,6 +575,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -571,6 +597,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PaymentApplicationModels.ResendPaymentLinkResponse resendPaymentLink(PaymentApplicationModels.CancelOrResendPaymentLinkRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("resendPaymentLink");
@@ -584,6 +611,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -605,6 +633,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PaymentApplicationModels.PaymentModeRouteResponse getPaymentModeRoutesPaymentLink(String paymentLinkId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getPaymentModeRoutesPaymentLink");
@@ -618,6 +647,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -639,6 +669,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PaymentApplicationModels.CreateOrderUserResponse createOrderHandlerPaymentLink(PaymentApplicationModels.CreateOrderUserRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("createOrderHandlerPaymentLink");
@@ -652,6 +683,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -673,6 +705,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PaymentApplicationModels.PaymentStatusUpdateResponse checkAndUpdatePaymentStatusPaymentLink(PaymentApplicationModels.PaymentStatusUpdateRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("checkAndUpdatePaymentStatusPaymentLink");
@@ -686,6 +719,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
@@ -707,6 +741,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PaymentApplicationModels.RedirectToAggregatorResponse redirectToAggregator(String source , String aggregator ) throws IOException {
      
       String fullUrl = relativeUrls.get("redirectToAggregator");
@@ -724,6 +759,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public PaymentApplicationModels.CheckCreditResponse checkCredit(String aggregator ) throws IOException {
      
       String fullUrl = relativeUrls.get("checkCredit");
@@ -737,6 +773,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     

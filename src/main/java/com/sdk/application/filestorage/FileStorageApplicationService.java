@@ -65,6 +65,7 @@ public class FileStorageApplicationService extends FileStorage {
 
      
     
+    
     public FileStorageApplicationModels.StartResponse startUpload(String namespace ,FileStorageApplicationModels.StartRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("startUpload");
@@ -84,6 +85,7 @@ public class FileStorageApplicationService extends FileStorage {
     
     
     
+    
     public FileStorageApplicationModels.CompleteResponse completeUpload(String namespace ,FileStorageApplicationModels.StartResponse body) throws IOException {
      
       String fullUrl = relativeUrls.get("completeUpload");
@@ -99,6 +101,7 @@ public class FileStorageApplicationService extends FileStorage {
         return response.body();
     }
 
+    
     
     
     

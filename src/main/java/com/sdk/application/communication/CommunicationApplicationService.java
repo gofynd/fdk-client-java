@@ -61,6 +61,7 @@ import com.sdk.application.ApplicationConfig;
 
      
     
+    
     public CommunicationApplicationModels.CommunicationConsent getCommunicationConsent() throws IOException {
      
       String fullUrl = relativeUrls.get("getCommunicationConsent");
@@ -78,6 +79,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
+    
     public CommunicationApplicationModels.CommunicationConsentRes upsertCommunicationConsent(CommunicationApplicationModels.CommunicationConsentReq body) throws IOException {
      
       String fullUrl = relativeUrls.get("upsertCommunicationConsent");
@@ -91,6 +93,7 @@ import com.sdk.application.ApplicationConfig;
         return response.body();
     }
 
+    
     
     
     
