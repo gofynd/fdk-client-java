@@ -2313,12 +2313,20 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CartPlatformModels.CartShipmentsResponse getShipments(Boolean p , String id , Boolean buyNow , String addressId , String areaCode ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.CartShipmentsResponse getShipments(Boolean p , String id , Boolean buyNow , String addressId , String areaCode , Integer orderingStoreId , String orderType ) throws FDKException, FDKServerResponseError {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartShipmentsResponse> response = null;
             try {
-            response = cartPlatformApiList.getShipments(this.companyId , this.applicationId ,p , id , buyNow , addressId , areaCode ).execute();
+            response = cartPlatformApiList.getShipments(this.companyId , this.applicationId ,p , id , buyNow , addressId , areaCode , orderingStoreId , orderType ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

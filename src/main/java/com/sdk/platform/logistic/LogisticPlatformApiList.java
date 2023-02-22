@@ -86,20 +86,20 @@ interface LogisticPlatformApiList {
     
     
     
-    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
-    Call<LogisticPlatformModels.ZoneSuccessResponse> updateZoneControllerView(@Path("zone_id") String  zoneId , @Path("company_id")  String companyId ,@Body LogisticPlatformModels.ZoneUpdateRequest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
     Call<LogisticPlatformModels.GetSingleZoneDataViewResponse> getZoneDataView(@Path("company_id")  String companyId , @Path("zone_id") String  zoneId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
+    Call<LogisticPlatformModels.ZoneSuccessResponse> updateZoneControllerView(@Path("zone_id") String  zoneId , @Path("company_id")  String companyId ,@Body LogisticPlatformModels.ZoneUpdateRequest payload);
     
     
     

@@ -1850,11 +1850,11 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponse deleteProduct(Integer itemId ) throws FDKException, FDKServerResponseError {
+    public CatalogPlatformModels.SuccessResponse patchProduct(Integer itemId ,CatalogPlatformModels.ProductPatch body) throws FDKException, FDKServerResponseError {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
-                response = catalogPlatformApiList.deleteProduct(this.companyId , itemId  ).execute();
+                response = catalogPlatformApiList.patchProduct(this.companyId , itemId  , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1891,11 +1891,11 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponse patchProduct(Integer itemId ,CatalogPlatformModels.ProductPatch body) throws FDKException, FDKServerResponseError {
+    public CatalogPlatformModels.SuccessResponse deleteProduct(Integer itemId ) throws FDKException, FDKServerResponseError {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
-                response = catalogPlatformApiList.patchProduct(this.companyId , itemId  , body).execute();
+                response = catalogPlatformApiList.deleteProduct(this.companyId , itemId  ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

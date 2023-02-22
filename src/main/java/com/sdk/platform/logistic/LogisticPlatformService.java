@@ -210,11 +210,11 @@ public class LogisticPlatformService {
     
     
 
-    public LogisticPlatformModels.ZoneSuccessResponse updateZoneControllerView(String zoneId ,LogisticPlatformModels.ZoneUpdateRequest body) throws FDKException, FDKServerResponseError {
+    public LogisticPlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws FDKException, FDKServerResponseError {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LogisticPlatformModels.ZoneSuccessResponse> response = null;
+            Response<LogisticPlatformModels.GetSingleZoneDataViewResponse> response = null;
             try {
-                response = logisticPlatformApiList.updateZoneControllerView(zoneId  , this.companyId , body).execute();
+                response = logisticPlatformApiList.getZoneDataView(this.companyId , zoneId  ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -251,11 +251,11 @@ public class LogisticPlatformService {
     
     
 
-    public LogisticPlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws FDKException, FDKServerResponseError {
+    public LogisticPlatformModels.ZoneSuccessResponse updateZoneControllerView(String zoneId ,LogisticPlatformModels.ZoneUpdateRequest body) throws FDKException, FDKServerResponseError {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LogisticPlatformModels.GetSingleZoneDataViewResponse> response = null;
+            Response<LogisticPlatformModels.ZoneSuccessResponse> response = null;
             try {
-                response = logisticPlatformApiList.getZoneDataView(this.companyId , zoneId  ).execute();
+                response = logisticPlatformApiList.updateZoneControllerView(zoneId  , this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

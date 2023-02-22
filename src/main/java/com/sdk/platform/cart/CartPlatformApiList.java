@@ -719,8 +719,14 @@ interface CartPlatformApiList {
     
     
     
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/shipment")
-    Call<CartPlatformModels.CartShipmentsResponse> getShipments(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("p") Boolean  p ,  @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow ,  @Query("address_id") String  addressId ,  @Query("area_code") String  areaCode );
+    Call<CartPlatformModels.CartShipmentsResponse> getShipments(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("p") Boolean  p ,  @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow ,  @Query("address_id") String  addressId ,  @Query("area_code") String  areaCode ,  @Query("ordering_store_id") Integer  orderingStoreId ,  @Query("order_type") String  orderType );
     
     
     
