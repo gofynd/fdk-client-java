@@ -7523,19 +7523,7 @@ interface ServiceabilityApiList {
     
     
     
-    @POST ("/service/platform/logistics-internal/v1.0/company/{company_id}/application/{application_id}/serviceability")
-    Call<PlatformModels.ApplicationServiceabilityConfigResponse> postApplicationServiceability(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.ApplicationServiceabilityConfig payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/logistics-internal/v1.0/company/{company_id}/application/{application_id}/serviceability")
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/serviceability")
     Call<PlatformModels.ApplicationServiceabilityConfigResponse> getApplicationServiceability(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
     
@@ -7544,8 +7532,8 @@ interface ServiceabilityApiList {
     
     
     
-    @POST ("/service/platform/logistics-internal/v1.0/company/{company_id}/regions")
-    Call<PlatformModels.EntityRegionViewResponse> getEntityRegionView(@Path("company_id")  String companyId ,@Body PlatformModels.EntityRegionViewRequest payload);
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/regions")
+    Call<PlatformModels.EntityRegionView_Response> getEntityRegionView(@Path("company_id")  String companyId ,@Body PlatformModels.EntityRegionView_Request payload);
     
     
     
@@ -7568,6 +7556,8 @@ interface ServiceabilityApiList {
     
     
     
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/zones")
+    Call<PlatformModels.ListViewResponse> getListView(@Path("company_id")  String companyId , @Query("page_number") Integer  pageNumber ,  @Query("page_size") Integer  pageSize ,  @Query("name") String  name ,  @Query("is_active") Boolean  isActive ,  @Query("channel_ids") String  channelIds );
     
     
     
@@ -7575,18 +7565,7 @@ interface ServiceabilityApiList {
     
     
     
-    
-    
-    @GET ("/service/platform/logistics-internal/v1.0/company/{company_id}/zones")
-    Call<PlatformModels.ListViewResponse> getListView(@Path("company_id")  String companyId , @Query("page_number") Integer  pageNumber ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("name") String  name ,  @Query("is_active") Boolean  isActive ,  @Query("channel_ids") String  channelIds ,  @Query("q") String  q ,  @Query("zone_id") List<String>  zoneId );
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/logistics-internal/v1.0/company/{company_id}/all-stores")
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/all-stores")
     Call<PlatformModels.CompanyStoreView_Response> getCompanyStoreView(@Path("company_id")  String companyId );
     
     
@@ -7598,19 +7577,7 @@ interface ServiceabilityApiList {
     
     
     
-    @GET ("/service/platform/logistics-internal/v1.0/company/{company_id}/zone/{zone_id}")
-    Call<PlatformModels.GetSingleZoneDataViewResponse> getZoneDataView(@Path("company_id")  String companyId , @Path("zone_id") String  zoneId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @PUT ("/service/platform/logistics-internal/v1.0/company/{company_id}/zone/{zone_id}")
+    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
     Call<PlatformModels.ZoneSuccessResponse> updateZoneControllerView(@Path("zone_id") String  zoneId , @Path("company_id")  String companyId ,@Body PlatformModels.ZoneUpdateRequest payload);
     
     
@@ -7619,11 +7586,11 @@ interface ServiceabilityApiList {
     
     
     
-    @POST ("/service/platform/logistics-internal/v1.0/company/{company_id}/zone")
-    Call<PlatformModels.ZoneResponse> upsertZoneControllerView(@Path("company_id")  String companyId ,@Body PlatformModels.ZoneRequest payload);
     
     
     
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
+    Call<PlatformModels.GetSingleZoneDataViewResponse> getZoneDataView(@Path("company_id")  String companyId , @Path("zone_id") String  zoneId );
     
     
     
@@ -7631,11 +7598,11 @@ interface ServiceabilityApiList {
     
     
     
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/zone/")
+    Call<PlatformModels.ZoneResponse> insertZoneControllerView(@Path("company_id")  String companyId ,@Body PlatformModels.ZoneRequest payload);
     
     
     
-    @POST ("/service/platform/logistics-internal/v1.0/company/{company_id}/application/{application_id}/zones")
-    Call<PlatformModels.GetZoneFromPincodeViewResponse> getZoneFromPincodeView(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("country") String  country ,@Body PlatformModels.GetZoneFromPincodeViewRequest payload);
     
     
     
@@ -7643,6 +7610,8 @@ interface ServiceabilityApiList {
     
     
     
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/zones")
+    Call<PlatformModels.GetZoneFromPincodeViewResponse> upsertZoneControllerView(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.GetZoneFromPincodeViewRequest payload);
     
     
     
@@ -7653,15 +7622,17 @@ interface ServiceabilityApiList {
     
     
     
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/stores/{store_uid}")
+    Call<PlatformModels.GetStoresViewResponse> getStore(@Path("company_id")  String companyId , @Path("store_uid") Integer  storeUid );
     
     
     
     
     
-    @GET ("/service/platform/logistics-internal/v1.0/company/{company_id}/application/{application_id}/zones")
-    Call<PlatformModels.GetZoneFromApplicationIdViewResponse> getZonesFromApplicationIdView(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("zone_id") List<String>  zoneId ,  @Query("q") String  q );
     
     
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/logistics/stores")
+    Call<PlatformModels.GetStoresViewResponse> getAllStores(@Path("company_id")  String companyId );
     
     
     
@@ -7672,6 +7643,8 @@ interface ServiceabilityApiList {
     
     
     
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/pincode-mop-update")
+    Call<PlatformModels.PincodeMOPresponse> updatePincodeMopView(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.PincodeMopData payload);
     
     
     
@@ -7682,6 +7655,8 @@ interface ServiceabilityApiList {
     
     
     
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/pincode-mop-bulk-update")
+    Call<PlatformModels.PincodeBulkViewResponse> updatePincodeBulkView(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.PincodeMopBulkData payload);
     
     
     
@@ -7691,7 +7666,20 @@ interface ServiceabilityApiList {
     
     
     
-    @GET ("/service/platform/logistics-internal/v1.0/company/{company_id}/zones-list")
-    Call<PlatformModels.ListViewResponse> getZoneListView(@Path("company_id")  String companyId , @Query("page_number") Integer  pageNumber ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("name") String  name ,  @Query("is_active") Boolean  isActive ,  @Query("channel_ids") String  channelIds ,  @Query("q") String  q ,  @Query("zone_id") List<String>  zoneId );
+    
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/pincode-mop-data")
+    Call<PlatformModels.PincodeCodStatusListingResponse> updatePincodeCoDListing(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.PincodeCodStatusListingRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/history")
+    Call<PlatformModels.PincodeMopUpdateAuditHistoryResponseData> updatePincodeAuditHistory(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.PincodeMopUpdateAuditHistoryRequest payload);
     
 }
