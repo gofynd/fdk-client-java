@@ -4078,6 +4078,15 @@ interface OrderApiList {
     
     
     
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
+    Call<PlatformModels.ShipmentHistoryResponse> postShipmentHistory(@Path("company_id")  String companyId ,@Body PlatformModels.PostShipmentHistory payload);
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -4086,15 +4095,6 @@ interface OrderApiList {
     
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
     Call<PlatformModels.ShipmentHistoryResponse> getShipmentHistory(@Path("company_id")  String companyId , @Query("shipment_id") Integer  shipmentId ,  @Query("bag_id") Integer  bagId );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
-    Call<PlatformModels.ShipmentHistoryResponse> postShipmentHistory(@Path("company_id")  String companyId ,@Body PlatformModels.PostShipmentHistory payload);
     
     
     
@@ -4138,17 +4138,17 @@ interface OrderApiList {
     
     
     
-    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
-    Call<PlatformModels.CreateChannelConfigData> getChannelConfig(@Path("company_id")  String companyId );
-    
-    
-    
-    
-    
-    
-    
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
     Call<PlatformModels.CreateChannelConfigResponse> createChannelConfig(@Path("company_id")  String companyId ,@Body PlatformModels.CreateChannelConfigData payload);
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
+    Call<PlatformModels.CreateChannelConfigData> getChannelConfig(@Path("company_id")  String companyId );
     
     
     
@@ -7782,7 +7782,7 @@ interface CartApiList {
     
     
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/update-user")
-    Call<PlatformModels.UserCartMappingResponse> updateCartUser(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id );
+    Call<PlatformModels.UserCartMappingResponse> updateCartUser(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,@Body PlatformModels.UpdateUserCartMapping payload);
     
     
     
@@ -7829,8 +7829,11 @@ interface CartApiList {
     
     
     
+    
+    
+    
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/detail")
-    Call<PlatformModels.AddCartDetailResponse> addItems(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("i") Boolean  i ,  @Query("b") Boolean  b ,  @Query("buy_now") Boolean  buyNow ,@Body PlatformModels.AddCartRequest payload);
+    Call<PlatformModels.AddCartDetailResponse> addItems(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("i") Boolean  i ,  @Query("b") Boolean  b ,  @Query("buy_now") Boolean  buyNow ,  @Query("id") String  id ,@Body PlatformModels.AddCartRequest payload);
     
     
     
@@ -8151,7 +8154,7 @@ interface CartApiList {
     
     
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/meta")
-    Call<PlatformModels.CartMetaResponse> updateCartMeta(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow ,@Body PlatformModels.CartMetaRequest payload);
+    Call<PlatformModels.CartMetaResponse> updateCartMeta(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow ,@Body PlatformModels.PlatformCartMetaRequest payload);
     
     
     
