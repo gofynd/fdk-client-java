@@ -54,6 +54,10 @@ public class PlatformClient {
     
     public PlatformService.AuditTrailService auditTrail;
     
+    public PlatformService.ServiceabilityService serviceability;
+    
+    public PlatformService.DocumentEngineService documentEngine;
+    
 
     public PlatformClient(PlatformConfig config)   
     {
@@ -102,6 +106,10 @@ public class PlatformClient {
         this.webhook = new PlatformService.WebhookService(config);
         
         this.auditTrail = new PlatformService.AuditTrailService(config);
+        
+        this.serviceability = new PlatformService.ServiceabilityService(config);
+        
+        this.documentEngine = new PlatformService.DocumentEngineService(config);
         
     }
 
@@ -157,6 +165,10 @@ public class PlatformClient {
         
         public PlatformService.AuditTrailService.ApplicationClient auditTrail;
         
+        public PlatformService.ServiceabilityService.ApplicationClient serviceability;
+        
+        public PlatformService.DocumentEngineService.ApplicationClient documentEngine;
+        
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
             
@@ -203,6 +215,10 @@ public class PlatformClient {
             this.webhook = new PlatformService.WebhookService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.auditTrail = new PlatformService.AuditTrailService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.serviceability = new PlatformService.ServiceabilityService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.documentEngine = new PlatformService.DocumentEngineService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
         }
 

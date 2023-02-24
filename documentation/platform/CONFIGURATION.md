@@ -3142,7 +3142,7 @@ client.configuration.getApplications( pageNo,  pageSize,  q) {
 | companyId | String | yes | Current company id |   
 | pageNo | Integer? | no |  |   
 | pageSize | Integer? | no |  |   
-| q | String? | no | Url encoded object used as mongodb query |  
+| q | String? | no | Search string to search saleschannel by name |  
 
 
 
