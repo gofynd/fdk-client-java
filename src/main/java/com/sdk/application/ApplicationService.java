@@ -71,9 +71,9 @@ public class ApplicationService {
             
                     relativeUrls.put("getFollowedListing","/service/application/catalog/v1.0/follow/{collection_type}/".substring(1));
             
-                    relativeUrls.put("followById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
-            
                     relativeUrls.put("unfollowById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
+            
+                    relativeUrls.put("followById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
             
                     relativeUrls.put("getFollowerCountById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/".substring(1));
             
@@ -901,16 +901,16 @@ public class ApplicationService {
     }
     
     
-    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
      
-      String fullUrl = relativeUrls.get("followById");
+      String fullUrl = relativeUrls.get("unfollowById");
         
         fullUrl = fullUrl.replace("{" + "collection_type" +"}",collectionType.toString());
         
         fullUrl = fullUrl.replace("{" + "collection_id" +"}",collectionId.toString());
         
 
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(fullUrl ).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -922,16 +922,16 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public ApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
      
-      String fullUrl = relativeUrls.get("unfollowById");
+      String fullUrl = relativeUrls.get("followById");
         
         fullUrl = fullUrl.replace("{" + "collection_type" +"}",collectionType.toString());
         
         fullUrl = fullUrl.replace("{" + "collection_id" +"}",collectionId.toString());
         
 
-        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.unfollowById(fullUrl ).execute();
+        Response<ApplicationModels.FollowPostResponse> response = catalogApiList.followById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1708,12 +1708,12 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode , String iin , String network , String type ) throws IOException {
+    public ApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode , String iin , String network , String type , String cardId ) throws IOException {
      
       String fullUrl = relativeUrls.get("validateCouponForPayment");
         
 
-        Response<ApplicationModels.PaymentCouponValidate> response = cartApiList.validateCouponForPayment(fullUrl  ,id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode, iin, network, type).execute();
+        Response<ApplicationModels.PaymentCouponValidate> response = cartApiList.validateCouponForPayment(fullUrl  ,id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode, iin, network, type, cardId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -4467,7 +4467,7 @@ public class FileStorageService extends FileStorage {
             
                     relativeUrls.put("validateVPA","/service/application/payment/v1.0/validate-vpa".substring(1));
             
-                    relativeUrls.put("cardDetails","/service/application/payment/v1.0/cards/info/{card_bin}".substring(1));
+                    relativeUrls.put("cardDetails","/service/application/payment/v1.0/cards/info/{card_info}".substring(1));
             
                     relativeUrls.put("getActiveRefundTransferModes","/service/application/payment/v1.0/refund/transfer-mode".substring(1));
             
@@ -4807,11 +4807,11 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.cardDetailsResponse cardDetails(String cardBin , String aggregator ) throws IOException {
+    public ApplicationModels.cardDetailsResponse cardDetails(String cardInfo , String aggregator ) throws IOException {
      
       String fullUrl = relativeUrls.get("cardDetails");
         
-        fullUrl = fullUrl.replace("{" + "card_bin" +"}",cardBin.toString());
+        fullUrl = fullUrl.replace("{" + "card_info" +"}",cardInfo.toString());
         
 
         Response<ApplicationModels.cardDetailsResponse> response = paymentApiList.cardDetails(fullUrl  ,aggregator).execute();
@@ -6169,12 +6169,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode , String iin , String network , String type ) throws IOException {
+    public ApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode , String iin , String network , String type , String cardId ) throws IOException {
      
       String fullUrl = relativeUrls.get("validateCouponForPayment");
         
 
-        Response<ApplicationModels.PaymentCouponValidate> response = poscartApiList.validateCouponForPayment(fullUrl  ,id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode, iin, network, type).execute();
+        Response<ApplicationModels.PaymentCouponValidate> response = poscartApiList.validateCouponForPayment(fullUrl  ,id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode, iin, network, type, cardId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
