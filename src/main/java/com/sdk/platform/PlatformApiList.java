@@ -3202,7 +3202,7 @@ interface PaymentApiList {
     
     
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/edc-aggregator-list")
-    Call<PlatformModels.EdcAggregatorListResponse> edcAggregatorsList(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    Call<PlatformModels.EdcAggregatorAndModelListResponse> edcAggregatorsAndModelList(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
     
     
@@ -4397,8 +4397,11 @@ interface CatalogApiList {
     
     
     
+    
+    
+    
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/sizeguide")
-    Call<PlatformModels.ListSizeGuide> getSizeGuides(@Path("company_id")  String companyId , @Query("active") Boolean  active ,  @Query("q") String  q ,  @Query("tag") String  tag ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
+    Call<PlatformModels.ListSizeGuide> getSizeGuides(@Path("company_id")  String companyId , @Query("active") Boolean  active ,  @Query("q") String  q ,  @Query("tag") String  tag ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("brand_id") Integer  brandId );
     
     
     
@@ -5021,8 +5024,11 @@ interface CatalogApiList {
     
     
     
+    
+    
+    
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/departments/")
-    Call<PlatformModels.DepartmentsResponse> listDepartmentsData(@Path("company_id")  String companyId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("name") String  name ,  @Query("search") String  search ,  @Query("is_active") Boolean  isActive );
+    Call<PlatformModels.DepartmentsResponse> listDepartmentsData(@Path("company_id")  String companyId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("name") String  name ,  @Query("search") String  search ,  @Query("is_active") Boolean  isActive ,  @Query("item_type") String  itemType );
     
     
     
@@ -5132,8 +5138,26 @@ interface CatalogApiList {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/products/downloads/")
-    Call<PlatformModels.ProductDownloadsResponse> listProductTemplateExportDetails(@Path("company_id")  String companyId );
+    Call<PlatformModels.ProductDownloadsResponse> listProductTemplateExportDetails(@Path("company_id")  String companyId , @Query("status") String  status ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("q") String  q );
+    
+    
+    
+    
+    
+    
     
     
     
@@ -5145,7 +5169,7 @@ interface CatalogApiList {
     
     
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/downloads/configuration/")
-    Call<PlatformModels.ProductConfigurationDownloads> listTemplateBrandTypeValues(@Path("company_id")  String companyId , @Query("filter") String  filter );
+    Call<PlatformModels.ProductConfigurationDownloads> listTemplateBrandTypeValues(@Path("company_id")  String companyId , @Query("filter") String  filter ,  @Query("template_tag") String  templateTag ,  @Query("item_type") String  itemType );
     
     
     
@@ -5666,8 +5690,20 @@ interface CatalogApiList {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/inventory/download/")
-    Call<PlatformModels.InventoryExportJob> getInventoryExport(@Path("company_id")  String companyId );
+    Call<PlatformModels.InventoryExportJob> getInventoryExport(@Path("company_id")  String companyId , @Query("status") String  status ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("q") String  q );
     
     
     
@@ -7767,7 +7803,7 @@ interface CartApiList {
     
     
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart-list")
-    Call<PlatformModels.CartList> getCartList(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    Call<PlatformModels.MultiCartResponse> getCartList(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
     
     
@@ -7858,6 +7894,21 @@ interface CartApiList {
     
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/detail")
     Call<PlatformModels.UpdateCartDetailResponse> updateCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("i") Boolean  i ,  @Query("b") Boolean  b ,  @Query("buy_now") Boolean  buyNow ,@Body PlatformModels.UpdateCartRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart_archive")
+    Call<PlatformModels.DeleteCartDetailResponse> deleteCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") Integer  id );
     
     
     
@@ -8169,7 +8220,7 @@ interface CartApiList {
     
     
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/checkout")
-    Call<PlatformModels.CartCheckoutResponse> checkoutCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("buy_now") Boolean  buyNow ,@Body PlatformModels.PlatformCartCheckoutDetailRequest payload);
+    Call<PlatformModels.CartCheckoutResponse> checkoutCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,@Body PlatformModels.PlatformCartCheckoutDetailRequest payload);
     
     
     
