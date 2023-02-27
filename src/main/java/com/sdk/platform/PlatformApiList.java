@@ -7577,18 +7577,6 @@ interface ServiceabilityApiList {
     
     
     
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
-    Call<PlatformModels.GetSingleZoneDataViewResponse> getZoneDataView(@Path("company_id")  String companyId , @Path("zone_id") String  zoneId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PUT ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
     Call<PlatformModels.ZoneSuccessResponse> updateZoneControllerView(@Path("zone_id") String  zoneId , @Path("company_id")  String companyId ,@Body PlatformModels.ZoneUpdateRequest payload);
     
@@ -7598,8 +7586,44 @@ interface ServiceabilityApiList {
     
     
     
+    
+    
+    
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
+    Call<PlatformModels.GetSingleZoneDataViewResponse> getZoneDataView(@Path("company_id")  String companyId , @Path("zone_id") String  zoneId );
+    
+    
+    
+    
+    
+    
+    
     @POST ("/service/platform/logistics/v1.0/company/{company_id}/zone")
-    Call<PlatformModels.ZoneResponse> insertZoneControllerView(@Path("company_id")  String companyId ,@Body PlatformModels.ZoneRequest payload);
+    Call<PlatformModels.ZoneResponse> createZone(@Path("company_id")  String companyId ,@Body PlatformModels.ZoneRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/zones")
+    Call<PlatformModels.GetZoneFromApplicationIdViewResponse> getZonesFromApplicationIdView(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("zone_id") List<String>  zoneId ,  @Query("q") String  q );
     
     
     
@@ -7611,7 +7635,7 @@ interface ServiceabilityApiList {
     
     
     @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/zones")
-    Call<PlatformModels.GetZoneFromPincodeViewResponse> upsertZoneControllerView(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.GetZoneFromPincodeViewRequest payload);
+    Call<PlatformModels.GetZoneFromPincodeViewResponse> getZoneFromPincodeView(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PlatformModels.GetZoneFromPincodeViewRequest payload);
     
     
     
