@@ -6156,7 +6156,7 @@ public class FileStorageService extends FileStorage {
             
                     relativeUrls.put("getTatProduct","/service/application/logistics/v1.0/".substring(1));
             
-                    relativeUrls.put("upsertZoneControllerView","/service/application/logistics/v1.0/pincode/zones".substring(1));
+                    relativeUrls.put("getPincodeZones","/service/application/logistics/v1.0/pincode/zones".substring(1));
              
 
     }
@@ -6214,12 +6214,12 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.GetZoneFromPincodeViewResponse upsertZoneControllerView(ApplicationModels.GetZoneFromPincodeViewRequest body) throws IOException {
+    public ApplicationModels.GetZoneFromPincodeViewResponse getPincodeZones(ApplicationModels.GetZoneFromPincodeViewRequest body) throws IOException {
      
-      String fullUrl = relativeUrls.get("upsertZoneControllerView");
+      String fullUrl = relativeUrls.get("getPincodeZones");
         
 
-        Response<ApplicationModels.GetZoneFromPincodeViewResponse> response = logisticApiList.upsertZoneControllerView(fullUrl , body).execute();
+        Response<ApplicationModels.GetZoneFromPincodeViewResponse> response = logisticApiList.getPincodeZones(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

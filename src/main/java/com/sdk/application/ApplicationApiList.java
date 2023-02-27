@@ -762,6 +762,6 @@ interface LogisticApiList {
     Call<ApplicationModels.TATViewResponse> getTatProduct(@Url String url1 , @Body ApplicationModels.TATViewRequest payload );
     
     @POST 
-    Call<ApplicationModels.GetZoneFromPincodeViewResponse> upsertZoneControllerView(@Url String url1 , @Body ApplicationModels.GetZoneFromPincodeViewRequest payload );
+    Call<ApplicationModels.GetZoneFromPincodeViewResponse> getPincodeZones(@Url String url1 , @Body ApplicationModels.GetZoneFromPincodeViewRequest payload );
 }
 
