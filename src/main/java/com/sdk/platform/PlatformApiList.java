@@ -7899,7 +7899,7 @@ interface CartApiList {
     
     
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart_archive")
-    Call<PlatformModels.DeleteCartDetailResponse> deleteCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") Integer  id );
+    Call<PlatformModels.DeleteCartDetailResponse> deleteCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id );
     
     
     

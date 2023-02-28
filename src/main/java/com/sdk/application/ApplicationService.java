@@ -1483,7 +1483,7 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.DeleteCartDetailResponse deleteCart(Integer id ) throws IOException {
+    public ApplicationModels.DeleteCartDetailResponse deleteCart(String id ) throws IOException {
      
       String fullUrl = relativeUrls.get("deleteCart");
         

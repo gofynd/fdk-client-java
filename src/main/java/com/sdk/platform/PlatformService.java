@@ -27718,7 +27718,7 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.DeleteCartDetailResponse deleteCart(Integer id ) throws FDKServerResponseError, FDKException {
+    public PlatformModels.DeleteCartDetailResponse deleteCart(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.DeleteCartDetailResponse> response = null;
             try {

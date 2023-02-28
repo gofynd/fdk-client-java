@@ -115,7 +115,7 @@ interface CartApiList {
     Call<ApplicationModels.UpdateCartDetailResponse> updateCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow  , @Body ApplicationModels.UpdateCartRequest payload );
     
     @PUT 
-    Call<ApplicationModels.DeleteCartDetailResponse> deleteCart(@Url String url1, @Query("id") Integer id );
+    Call<ApplicationModels.DeleteCartDetailResponse> deleteCart(@Url String url1, @Query("id") String id );
     
     @GET 
     Call<ApplicationModels.CartItemCountResponse> getItemCount(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow );
