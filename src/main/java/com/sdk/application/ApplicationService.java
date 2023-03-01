@@ -4807,14 +4807,14 @@ public class FileStorageService extends FileStorage {
     
     
     
-    public ApplicationModels.cardDetailsResponse cardDetails(String cardInfo , String aggregator ) throws IOException {
+    public ApplicationModels.CardDetailsResponse cardDetails(String cardInfo , String aggregator ) throws IOException {
      
       String fullUrl = relativeUrls.get("cardDetails");
         
         fullUrl = fullUrl.replace("{" + "card_info" +"}",cardInfo.toString());
         
 
-        Response<ApplicationModels.cardDetailsResponse> response = paymentApiList.cardDetails(fullUrl  ,aggregator).execute();
+        Response<ApplicationModels.CardDetailsResponse> response = paymentApiList.cardDetails(fullUrl  ,aggregator).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
