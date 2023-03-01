@@ -640,7 +640,7 @@ public static class LocationDefaultCurrency {
 }
 
 /*
-    Model: LocationCountry
+    Model: LocationDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -648,7 +648,7 @@ public static class LocationDefaultCurrency {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationCountry {
+public static class LocationDetails {
     
     
     
@@ -731,6 +731,30 @@ public static class LocationCountry {
     
     
     
+    @JsonProperty("state_code")
+    private String stateCode;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("latitude")
+    private String latitude;
+    
+    
+    
+    
+    @JsonProperty("longitude")
+    private String longitude;
+    
+    
+    
+    
 }
 
 /*
@@ -748,7 +772,7 @@ public static class Locations {
     
     
     @JsonProperty("items")
-    private List<Object> items;
+    private List<LocationDetails> items;
     
     
     
