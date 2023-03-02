@@ -26,8 +26,6 @@ public class PlatformClient {
     
     public PlatformService.PaymentService payment;
     
-    public PlatformService.OrderService order;
-    
     public PlatformService.CatalogService catalog;
     
     public PlatformService.CompanyProfileService companyProfile;
@@ -77,8 +75,6 @@ public class PlatformClient {
         
         this.payment = new PlatformService.PaymentService(config);
         
-        this.order = new PlatformService.OrderService(config);
-        
         this.catalog = new PlatformService.CatalogService(config);
         
         this.companyProfile = new PlatformService.CompanyProfileService(config);
@@ -113,8 +109,14 @@ public class PlatformClient {
         return new ApplicationClient(config, applicationId);
     }
 
+     public void setExtraHeader(String key, String value){
+        this.config.getExtraHeaders().put(key, value);
+     }
+
     @Getter
     public class ApplicationClient{
+
+        private PlatformConfig config;
 
         
         public PlatformService.CommonService.ApplicationClient common;
@@ -132,8 +134,6 @@ public class PlatformClient {
         public PlatformService.CommunicationService.ApplicationClient communication;
         
         public PlatformService.PaymentService.ApplicationClient payment;
-        
-        public PlatformService.OrderService.ApplicationClient order;
         
         public PlatformService.CatalogService.ApplicationClient catalog;
         
@@ -165,6 +165,7 @@ public class PlatformClient {
         
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
+            this.config = platformConfig;
             
             this.common = new PlatformService.CommonService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
@@ -181,8 +182,6 @@ public class PlatformClient {
             this.communication = new PlatformService.CommunicationService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.payment = new PlatformService.PaymentService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.order = new PlatformService.OrderService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.catalog = new PlatformService.CatalogService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             

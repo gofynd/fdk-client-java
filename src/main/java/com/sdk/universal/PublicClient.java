@@ -7,6 +7,8 @@ import lombok.Setter;
 @Setter
 public class PublicClient {
 
+    private PublicConfig config;
+
     
     public PublicService.ConfigurationService configuration;
     
@@ -15,7 +17,12 @@ public class PublicClient {
     public PublicService.InventoryService inventory;
     
 
+    public void setExtraHeader(String key, String value){
+        this.config.getExtraHeaders().put(key, value);
+    }
+
     public PublicClient(PublicConfig publicConfig) {
+        this.config = publicConfig;
         
         this.configuration = new PublicService.ConfigurationService(publicConfig);
         
