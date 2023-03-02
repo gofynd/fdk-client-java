@@ -4108,6 +4108,15 @@ interface OrderApiList {
     
     
     
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
+    Call<PlatformModels.ShipmentHistoryResponse> postShipmentHistory(@Path("company_id")  String companyId ,@Body PlatformModels.PostShipmentHistory payload);
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -4116,15 +4125,6 @@ interface OrderApiList {
     
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
     Call<PlatformModels.ShipmentHistoryResponse> getShipmentHistory(@Path("company_id")  String companyId , @Query("shipment_id") Integer  shipmentId ,  @Query("bag_id") Integer  bagId );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
-    Call<PlatformModels.ShipmentHistoryResponse> postShipmentHistory(@Path("company_id")  String companyId ,@Body PlatformModels.PostShipmentHistory payload);
     
     
     
@@ -4168,17 +4168,17 @@ interface OrderApiList {
     
     
     
-    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
-    Call<PlatformModels.CreateChannelConfigData> getChannelConfig(@Path("company_id")  String companyId );
-    
-    
-    
-    
-    
-    
-    
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
     Call<PlatformModels.CreateChannelConfigResponse> createChannelConfig(@Path("company_id")  String companyId ,@Body PlatformModels.CreateChannelConfigData payload);
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
+    Call<PlatformModels.CreateChannelConfigData> getChannelConfig(@Path("company_id")  String companyId );
     
     
     
@@ -7793,8 +7793,11 @@ interface CartApiList {
     
     
     
+    
+    
+    
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/share-cart/{token}/{action}")
-    Call<PlatformModels.SharedCartResponse> updateCartWithSharedItems(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("token") String  token , @Path("action") String  action );
+    Call<PlatformModels.SharedCartResponse> updateCartWithSharedItems(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("token") String  token , @Path("action") String  action , @Query("cart_id") String  cartId );
     
     
     
