@@ -374,8 +374,11 @@ interface CartPlatformApiList {
     
     
     
+    
+    
+    
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/share-cart/{token}/{action}")
-    Call<CartPlatformModels.SharedCartResponse> updateCartWithSharedItems(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("token") String  token , @Path("action") String  action );
+    Call<CartPlatformModels.SharedCartResponse> updateCartWithSharedItems(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("token") String  token , @Path("action") String  action , @Query("cart_id") String  cartId );
     
     
     
@@ -492,7 +495,7 @@ interface CartPlatformApiList {
     
     
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart_archive")
-    Call<CartPlatformModels.DeleteCartDetailResponse> deleteCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") Integer  id );
+    Call<CartPlatformModels.DeleteCartDetailResponse> deleteCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id );
     
     
     
@@ -804,7 +807,7 @@ interface CartPlatformApiList {
     
     
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/checkout")
-    Call<CartPlatformModels.CartCheckoutResponse> checkoutCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("buy_now") Boolean  buyNow ,@Body CartPlatformModels.PlatformCartCheckoutDetailRequest payload);
+    Call<CartPlatformModels.CartCheckoutResponse> checkoutCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,@Body CartPlatformModels.PlatformCartCheckoutDetailRequest payload);
     
     
     

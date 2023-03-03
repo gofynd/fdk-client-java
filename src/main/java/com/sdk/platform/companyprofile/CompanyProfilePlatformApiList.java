@@ -164,13 +164,4 @@ interface CompanyProfilePlatformApiList {
     @POST ("/service/platform/company-profile/v1.0/company/{company_id}/location/bulk")
     Call<CompanyProfilePlatformModels.ProfileSuccessResponse> createLocationBulk(@Path("company_id")  String companyId ,@Body CompanyProfilePlatformModels.BulkLocationSerializer payload);
     
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/company-profile/v1.0/company/{company_id}/location/reassign")
-    Call<CompanyProfilePlatformModels.AssignStoreResponseSerializer> getOptimalLocations(@Path("company_id")  String companyId ,@Body CompanyProfilePlatformModels.AssignStoreRequestValidator payload);
-    
 }

@@ -39,11 +39,7 @@ import com.sdk.application.ApplicationConfig;
             
                     relativeUrls.put("getTatProduct","/service/application/logistics/v1.0/".substring(1));
             
-                    relativeUrls.put("getEntityList","/service/application/logistics/v1.0/entity-list".substring(1));
-            
                     relativeUrls.put("getPincodeZones","/service/application/logistics/v1.0/pincode/zones".substring(1));
-            
-                    relativeUrls.put("assignLocations","/service/application/logistics/v1.0/assign_stores".substring(1));
              
 
     }
@@ -66,14 +62,14 @@ import com.sdk.application.ApplicationConfig;
      
     
     
-    public LogisticApplicationModels.PincodeApiResponse getPincodeCity(String pincode , String countryCode ) throws IOException {
+    public LogisticApplicationModels.PincodeApiResponse getPincodeCity(String pincode ) throws IOException {
      
       String fullUrl = relativeUrls.get("getPincodeCity");
         
         fullUrl = fullUrl.replace("{" + "pincode" +"}",pincode.toString());
         
 
-        Response<LogisticApplicationModels.PincodeApiResponse> response = logisticApplicationApiList.getPincodeCity(fullUrl  ,countryCode).execute();
+        Response<LogisticApplicationModels.PincodeApiResponse> response = logisticApplicationApiList.getPincodeCity(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -104,48 +100,12 @@ import com.sdk.application.ApplicationConfig;
     
     
     
-    public LogisticApplicationModels.EntityListResponse getEntityList(String page , String limit ,LogisticApplicationModels.EntityListRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getEntityList");
-        
-
-        Response<LogisticApplicationModels.EntityListResponse> response = logisticApplicationApiList.getEntityList(fullUrl  ,page, limit, body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    
     public LogisticApplicationModels.GetZoneFromPincodeViewResponse getPincodeZones(LogisticApplicationModels.GetZoneFromPincodeViewRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("getPincodeZones");
         
 
         Response<LogisticApplicationModels.GetZoneFromPincodeViewResponse> response = logisticApplicationApiList.getPincodeZones(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    
-    public LogisticApplicationModels.AssignStoreResponse assignLocations(LogisticApplicationModels.AssignStoreRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("assignLocations");
-        
-
-        Response<LogisticApplicationModels.AssignStoreResponse> response = logisticApplicationApiList.assignLocations(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

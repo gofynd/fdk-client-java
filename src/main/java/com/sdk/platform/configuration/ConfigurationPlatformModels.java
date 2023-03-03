@@ -83,6 +83,12 @@ public static class ApplicationInventory {
     
     
     
+    @JsonProperty("communication")
+    private CommunicationConfig communication;
+    
+    
+    
+    
     @JsonProperty("platforms")
     private List<String> platforms;
     
@@ -541,6 +547,12 @@ public static class AppCartConfig {
     
     @JsonProperty("empty_cart")
     private Boolean emptyCart;
+    
+    
+    
+    
+    @JsonProperty("pan_card")
+    private PanCardConfig panCard;
     
     
     
@@ -1033,6 +1045,12 @@ public static class AppInventoryPartialUpdate {
     
     
     
+    @JsonProperty("communication")
+    private CommunicationConfig communication;
+    
+    
+    
+    
 }
 
 /*
@@ -1339,6 +1357,90 @@ public static class NotFound {
     
     @JsonProperty("message")
     private String message;
+    
+    
+    
+    
+}
+
+/*
+    Model: CommunicationConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CommunicationConfig {
+    
+    
+    
+    
+    @JsonProperty("email")
+    private CommsConfig email;
+    
+    
+    
+    
+    @JsonProperty("sms")
+    private CommsConfig sms;
+    
+    
+    
+    
+    @JsonProperty("voice")
+    private CommsConfig voice;
+    
+    
+    
+    
+}
+
+/*
+    Model: CommsConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CommsConfig {
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+    
+}
+
+/*
+    Model: PanCardConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PanCardConfig {
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+    
+    @JsonProperty("threshold_amount")
+    private Double thresholdAmount;
     
     
     
