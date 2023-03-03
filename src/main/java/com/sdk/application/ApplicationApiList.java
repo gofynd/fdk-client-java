@@ -68,11 +68,11 @@ interface CatalogApiList {
     @GET 
     Call<ApplicationModels.GetFollowListingResponse> getFollowedListing(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE 
-    Call<ApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
-    
     @POST 
     Call<ApplicationModels.FollowPostResponse> followById(@Url String url1);
+    
+    @DELETE 
+    Call<ApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
     
     @GET 
     Call<ApplicationModels.FollowerCountResponse> getFollowerCountById(@Url String url1);
@@ -779,13 +779,13 @@ interface PosCartApiList {
 interface LogisticApiList {
     
     
-    @POST 
-    Call<ApplicationModels.GetTatProductResponse> getTatProduct(@Url String url1 , @Body ApplicationModels.GetTatProductReqBody payload );
-    
-    @POST 
-    Call<ApplicationModels.GetPincodeZonesResponse> getPincodeZones(@Url String url1 , @Body ApplicationModels.GetPincodeZonesReqBody payload );
-    
     @GET 
-    Call<ApplicationModels.GetPincodeCityResponse> getPincodeCity(@Url String url1);
+    Call<ApplicationModels.PincodeApiResponse> getPincodeCity(@Url String url1);
+    
+    @POST 
+    Call<ApplicationModels.TATViewResponse> getTatProduct(@Url String url1 , @Body ApplicationModels.TATViewRequest payload );
+    
+    @POST 
+    Call<ApplicationModels.GetZoneFromPincodeViewResponse> getPincodeZones(@Url String url1 , @Body ApplicationModels.GetZoneFromPincodeViewRequest payload );
 }
 
