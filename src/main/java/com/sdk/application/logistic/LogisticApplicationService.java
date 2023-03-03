@@ -40,6 +40,8 @@ import com.sdk.application.ApplicationConfig;
                     relativeUrls.put("getTatProduct","/service/application/logistics/v1.0/".substring(1));
             
                     relativeUrls.put("getPincodeZones","/service/application/logistics/v1.0/pincode/zones".substring(1));
+            
+                    relativeUrls.put("reassignStore","/service/application/logistics/v1.0/reassign_stores".substring(1));
              
 
     }
@@ -106,6 +108,24 @@ import com.sdk.application.ApplicationConfig;
         
 
         Response<LogisticApplicationModels.GetZoneFromPincodeViewResponse> response = logisticApplicationApiList.getPincodeZones(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public LogisticApplicationModels.ReAssignStoreResponse reassignStore(LogisticApplicationModels.ReAssignStoreRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("reassignStore");
+        
+
+        Response<LogisticApplicationModels.ReAssignStoreResponse> response = logisticApplicationApiList.reassignStore(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
