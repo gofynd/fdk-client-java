@@ -7,8 +7,6 @@ import lombok.Setter;
 @Setter
 public class ApplicationClient {
 
-    private ApplicationConfig config;
-
     
     public ApplicationService.CatalogService catalog;
     
@@ -43,12 +41,7 @@ public class ApplicationClient {
     public ApplicationService.LogisticService logistic;
     
 
-    public void setExtraHeader(String key, String value){
-        this.config.getExtraHeaders().put(key, value);
-    }
-
     public ApplicationClient(ApplicationConfig applicationConfig) {
-        this.config = applicationConfig;
         
         this.catalog = new ApplicationService().new CatalogService(applicationConfig);
         
