@@ -19,5 +19,5 @@ interface LogisticApplicationApiList {
     Call<LogisticApplicationModels.GetZoneFromPincodeViewResponse> getPincodeZones(@Url String url1 , @Body LogisticApplicationModels.GetZoneFromPincodeViewRequest payload );
     
     @POST 
-    Call<LogisticApplicationModels.ReAssignStoreResponse> reassignStore(@Url String url1 , @Body LogisticApplicationModels.ReAssignStoreRequest payload );
+    Call<LogisticApplicationModels.ReAssignStoreResponse> getOptimalLocations(@Url String url1 , @Body LogisticApplicationModels.ReAssignStoreRequest payload );
 }

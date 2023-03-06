@@ -41,7 +41,7 @@ import com.sdk.application.ApplicationConfig;
             
                     relativeUrls.put("getPincodeZones","/service/application/logistics/v1.0/pincode/zones".substring(1));
             
-                    relativeUrls.put("reassignStore","/service/application/logistics/v1.0/reassign_stores".substring(1));
+                    relativeUrls.put("getOptimalLocations","/service/application/logistics/v1.0/reassign_stores".substring(1));
              
 
     }
@@ -120,12 +120,12 @@ import com.sdk.application.ApplicationConfig;
     
     
     
-    public LogisticApplicationModels.ReAssignStoreResponse reassignStore(LogisticApplicationModels.ReAssignStoreRequest body) throws IOException {
+    public LogisticApplicationModels.ReAssignStoreResponse getOptimalLocations(LogisticApplicationModels.ReAssignStoreRequest body) throws IOException {
      
-      String fullUrl = relativeUrls.get("reassignStore");
+      String fullUrl = relativeUrls.get("getOptimalLocations");
         
 
-        Response<LogisticApplicationModels.ReAssignStoreResponse> response = logisticApplicationApiList.reassignStore(fullUrl , body).execute();
+        Response<LogisticApplicationModels.ReAssignStoreResponse> response = logisticApplicationApiList.getOptimalLocations(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
