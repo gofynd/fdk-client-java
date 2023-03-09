@@ -3,6 +3,14 @@ package com.sdk.universal;
 import lombok.Getter;
 import lombok.Setter;
 
+
+import com.sdk.universal.configuration.ConfigurationPublicService;
+
+import com.sdk.universal.webhook.WebhookPublicService;
+
+import com.sdk.universal.inventory.InventoryPublicService;
+
+
 @Getter
 @Setter
 public class PublicClient {
@@ -10,11 +18,11 @@ public class PublicClient {
     private PublicConfig config;
 
     
-    public PublicService.ConfigurationService configuration;
+    public ConfigurationPublicService configuration;
     
-    public PublicService.WebhookService webhook;
+    public WebhookPublicService webhook;
     
-    public PublicService.InventoryService inventory;
+    public InventoryPublicService inventory;
     
 
     public void setExtraHeader(String key, String value){
@@ -24,11 +32,11 @@ public class PublicClient {
     public PublicClient(PublicConfig publicConfig) {
         this.config = publicConfig;
         
-        this.configuration = new PublicService.ConfigurationService(publicConfig);
+        this.configuration = new ConfigurationPublicService(publicConfig);
         
-        this.webhook = new PublicService.WebhookService(publicConfig);
+        this.webhook = new WebhookPublicService(publicConfig);
         
-        this.inventory = new PublicService.InventoryService(publicConfig);
+        this.inventory = new InventoryPublicService(publicConfig);
         
     }
 }
