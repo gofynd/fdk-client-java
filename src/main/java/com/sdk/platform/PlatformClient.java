@@ -48,8 +48,6 @@ import com.sdk.platform.audittrail.AuditTrailPlatformService;
 
 import com.sdk.platform.logistic.LogisticPlatformService;
 
-import com.sdk.platform.documentengine.DocumentEnginePlatformService;
-
 
 
 @Getter
@@ -103,8 +101,6 @@ public class PlatformClient {
     
     public LogisticPlatformService logistic;
     
-    public DocumentEnginePlatformService documentEngine;
-    
 
     public PlatformClient(PlatformConfig config)   
     {
@@ -153,8 +149,6 @@ public class PlatformClient {
         this.auditTrail = new AuditTrailPlatformService(config);
         
         this.logistic = new LogisticPlatformService(config);
-        
-        this.documentEngine = new DocumentEnginePlatformService(config);
         
     }
 
@@ -216,8 +210,6 @@ public class PlatformClient {
         
         public LogisticPlatformService.ApplicationClient logistic;
         
-        public DocumentEnginePlatformService.ApplicationClient documentEngine;
-        
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
             this.config = platformConfig;
@@ -265,8 +257,6 @@ public class PlatformClient {
             this.auditTrail = new AuditTrailPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.logistic = new LogisticPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.documentEngine = new DocumentEnginePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
         }
 
