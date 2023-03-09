@@ -36,6 +36,8 @@ import com.sdk.application.poscart.PosCartApplicationService;
 
 import com.sdk.application.logistic.LogisticApplicationService;
 
+import com.sdk.application.documentengine.DocumentEngineApplicationService;
+
 
 @Getter
 @Setter
@@ -76,6 +78,8 @@ public class ApplicationClient {
     
     public LogisticApplicationService logistic;
     
+    public DocumentEngineApplicationService documentEngine;
+    
 
     public void setExtraHeader(String key, String value){
         this.config.getExtraHeaders().put(key, value);
@@ -115,6 +119,8 @@ public class ApplicationClient {
         this.posCart = new PosCartApplicationService(applicationConfig);
         
         this.logistic = new LogisticApplicationService(applicationConfig);
+        
+        this.documentEngine = new DocumentEngineApplicationService(applicationConfig);
         
     }
 }
