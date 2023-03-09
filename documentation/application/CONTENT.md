@@ -2255,26 +2255,6 @@ Success. Returns a list of pages along with their details. Check the example sho
  | active | Boolean? |  yes  |  |
  | display | String? |  yes  |  |
  | sortOrder | Integer? |  yes  |  |
- | subNavigation | ArrayList<[SubNavigationReference](#SubNavigationReference)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [SubNavigationReference](#SubNavigationReference)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | acl | ArrayList<String>? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | localeLanguage | [LocaleLanguage](#LocaleLanguage)? |  yes  |  |
- | image | String? |  yes  |  |
- | type | String? |  yes  |  |
- | action | [Action](#Action)? |  yes  |  |
- | active | Boolean? |  yes  |  |
- | display | String? |  yes  |  |
- | sortOrder | Integer? |  yes  |  |
  | subNavigation | ArrayList<[NavigationReference](#NavigationReference)>? |  yes  |  |
 
 ---
@@ -2410,6 +2390,7 @@ Success. Returns a list of pages along with their details. Check the example sho
  | url | String? |  yes  |  |
  | position | String? |  yes  |  |
  | attributes | HashMap<String,Object>? |  yes  |  |
+ | pages | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | content | String? |  yes  |  |
 
 ---
@@ -3195,6 +3176,7 @@ Success. Returns a list of pages along with their details. Check the example sho
  | position | String? |  yes  |  |
  | attributes | HashMap<String,Object>? |  yes  |  |
  | content | String? |  yes  |  |
+ | pages | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | source | [TagSourceSchema](#TagSourceSchema)? |  yes  |  |
 
 ---
