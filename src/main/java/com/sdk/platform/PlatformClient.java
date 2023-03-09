@@ -50,8 +50,6 @@ import com.sdk.platform.webhook.WebhookPlatformService;
 
 import com.sdk.platform.audittrail.AuditTrailPlatformService;
 
-import com.sdk.platform.documentengine.DocumentEnginePlatformService;
-
 
 
 @Getter
@@ -107,8 +105,6 @@ public class PlatformClient {
     
     public AuditTrailPlatformService auditTrail;
     
-    public DocumentEnginePlatformService documentEngine;
-    
 
     public PlatformClient(PlatformConfig config)   
     {
@@ -159,8 +155,6 @@ public class PlatformClient {
         this.webhook = new WebhookPlatformService(config);
         
         this.auditTrail = new AuditTrailPlatformService(config);
-        
-        this.documentEngine = new DocumentEnginePlatformService(config);
         
     }
 
@@ -224,8 +218,6 @@ public class PlatformClient {
         
         public AuditTrailPlatformService.ApplicationClient auditTrail;
         
-        public DocumentEnginePlatformService.ApplicationClient documentEngine;
-        
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
             this.config = platformConfig;
@@ -275,8 +267,6 @@ public class PlatformClient {
             this.webhook = new WebhookPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.auditTrail = new AuditTrailPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.documentEngine = new DocumentEnginePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
         }
 
