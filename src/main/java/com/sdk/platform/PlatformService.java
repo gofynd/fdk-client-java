@@ -22023,35 +22023,6 @@ public static class ServiceabilityService {
     
     
     
-    public PlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws IOException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetSingleZoneDataViewResponse> response = serviceabilityApiList.getZoneDataView(this.companyId , zoneId  ).execute();
-            if (!response.isSuccessful()) {
-                    throw new IOException(response.errorBody() != null
-                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-                }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public PlatformModels.ZoneSuccessResponse updateZoneControllerView(String zoneId ,PlatformModels.ZoneUpdateRequest body) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PlatformModels.ZoneSuccessResponse> response = serviceabilityApiList.updateZoneControllerView(zoneId  , this.companyId , body).execute();
@@ -22077,9 +22048,13 @@ public static class ServiceabilityService {
     
     
     
-    public PlatformModels.ZoneResponse insertZoneControllerView(PlatformModels.ZoneRequest body) throws IOException {
+    
+    
+    
+    
+    public PlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.ZoneResponse> response = serviceabilityApiList.insertZoneControllerView(this.companyId , body).execute();
+            Response<PlatformModels.GetSingleZoneDataViewResponse> response = serviceabilityApiList.getZoneDataView(this.companyId , zoneId  ).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -22089,6 +22064,33 @@ public static class ServiceabilityService {
             return null;
         }    
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.ZoneResponse createZone(PlatformModels.ZoneRequest body) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.ZoneResponse> response = serviceabilityApiList.createZone(this.companyId , body).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
     
     
     
@@ -22228,9 +22230,55 @@ public class ApplicationClient {
     
     
     
-    public PlatformModels.GetZoneFromPincodeViewResponse upsertZoneControllerView(PlatformModels.GetZoneFromPincodeViewRequest body) throws IOException {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.GetZoneFromApplicationIdViewResponse getZonesFromApplicationIdView(Integer pageNo , Integer pageSize , List<String> zoneId , String q ) throws IOException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PlatformModels.GetZoneFromPincodeViewResponse> response = serviceabilityApiList.upsertZoneControllerView(this.companyId , this.applicationId , body).execute();
+            Response<PlatformModels.GetZoneFromApplicationIdViewResponse> response = serviceabilityApiList.getZonesFromApplicationIdView(this.companyId , this.applicationId ,pageNo , pageSize , zoneId , q ).execute();
+            if (!response.isSuccessful()) {
+                    throw new IOException(response.errorBody() != null
+                            ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+                }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public PlatformModels.GetZoneFromPincodeViewResponse getZoneFromPincodeView(PlatformModels.GetZoneFromPincodeViewRequest body) throws IOException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PlatformModels.GetZoneFromPincodeViewResponse> response = serviceabilityApiList.getZoneFromPincodeView(this.companyId , this.applicationId , body).execute();
             if (!response.isSuccessful()) {
                     throw new IOException(response.errorBody() != null
                             ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
