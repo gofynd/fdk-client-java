@@ -2791,6 +2791,12 @@ public static class SubscriptionStatus {
     
     
     
+    @JsonProperty("mandate_amount")
+    private Double mandateAmount;
+    
+    
+    
+    
     @JsonProperty("is_enabled")
     private Boolean isEnabled;
     
