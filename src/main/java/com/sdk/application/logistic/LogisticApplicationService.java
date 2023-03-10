@@ -39,7 +39,7 @@ import com.sdk.application.ApplicationConfig;
             
                     relativeUrls.put("getTatProduct","/service/application/logistics/v1.0/".substring(1));
             
-                    relativeUrls.put("getAllCountries","/service/application/logistics/v1.0/country-list".substring(1));
+                    relativeUrls.put("getAllCountries","/service/application/logistics/v1.0/country-list/company/{company_id}/application/{application_id}".substring(1));
             
                     relativeUrls.put("getPincodeZones","/service/application/logistics/v1.0/pincode/zones".substring(1));
              
@@ -102,9 +102,13 @@ import com.sdk.application.ApplicationConfig;
     
     
     
-    public LogisticApplicationModels.CountryListResponse getAllCountries() throws IOException {
+    public LogisticApplicationModels.CountryListResponse getAllCountries(String companyId , String applicationId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getAllCountries");
+        
+        fullUrl = fullUrl.replace("{" + "company_id" +"}",companyId.toString());
+        
+        fullUrl = fullUrl.replace("{" + "application_id" +"}",applicationId.toString());
         
 
         Response<LogisticApplicationModels.CountryListResponse> response = logisticApplicationApiList.getAllCountries(fullUrl ).execute();
