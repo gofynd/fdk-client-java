@@ -1274,7 +1274,7 @@ Get a list of staff.
 
 
 ```java
-configuration.getAppStaffList( pageNo,  pageSize,  orderIncent,  orderingStore,  user) {
+configuration.getAppStaffList( pageNo,  pageSize,  orderIncent,  orderingStore,  user,  userName) {
   //use response
 }
 ```
@@ -1287,7 +1287,8 @@ configuration.getAppStaffList( pageNo,  pageSize,  orderIncent,  orderingStore, 
 | pageSize | Integer? | no |  |   
 | orderIncent | Boolean? | no | This is a boolean value. Select `true` to retrieve the staff members eligible for getting incentives on orders. |   
 | orderingStore | Integer? | no | ID of the ordering store. Helps in retrieving staff members working at a particular ordering store. |   
-| user | String? | no | Mongo ID of the staff. Helps in retrieving the details of a particular staff member. |  
+| user | String? | no | Mongo ID of the staff. Helps in retrieving the details of a particular staff member. |   
+| userName | String? | no | user name of the member |  
 
 
 

@@ -35,23 +35,23 @@ interface CatalogPlatformApiList {
     
     
     
-    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
-    Call<CatalogPlatformModels.DeleteResponse> deleteSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
     Call<CatalogPlatformModels.GetSearchWordsDetailResponse> getSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
+    Call<CatalogPlatformModels.DeleteResponse> deleteSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
     
     
@@ -104,23 +104,23 @@ interface CatalogPlatformApiList {
     
     
     
-    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
-    Call<CatalogPlatformModels.DeleteResponse> deleteAutocompleteKeyword(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
     Call<CatalogPlatformModels.GetAutocompleteWordsResponse> getAutocompleteKeywordDetail(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
+    Call<CatalogPlatformModels.DeleteResponse> deleteAutocompleteKeyword(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
     
     
@@ -990,7 +990,7 @@ interface CatalogPlatformApiList {
     
     
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/category/")
-    Call<CatalogPlatformModels.CategoryResponse> listCategories(@Path("company_id")  String companyId , @Query("level") String  level ,  @Query("departments") String  departments ,  @Query("q") String  q ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
+    Call<CatalogPlatformModels.CategoryResponse> listCategories(@Path("company_id")  String companyId , @Query("level") String  level ,  @Query("department") String  department ,  @Query("q") String  q ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
     
     
     
@@ -1127,18 +1127,6 @@ interface CatalogPlatformApiList {
     
     
     
-    @DELETE ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
-    Call<CatalogPlatformModels.SuccessResponse> deleteProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -1147,6 +1135,18 @@ interface CatalogPlatformApiList {
     
     @GET ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
     Call<CatalogPlatformModels.SingleProductResponse> getProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId , @Query("brand_uid") Integer  brandUid ,  @Query("item_code") String  itemCode );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
+    Call<CatalogPlatformModels.SuccessResponse> deleteProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId );
     
     
     
@@ -1344,7 +1344,7 @@ interface CatalogPlatformApiList {
     
     
     @POST ("/service/platform/catalog/v1.0/company/{company_id}/products/{item_id}/sizes/{size}")
-    Call<CatalogPlatformModels.SuccessResponse> addInventory(@Path("company_id")  String companyId , @Path("item_id") Double  itemId , @Path("size") String  size ,@Body CatalogPlatformModels.InventoryRequest payload);
+    Call<CatalogPlatformModels.SuccessResponse> addInventory(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId , @Path("size") String  size ,@Body CatalogPlatformModels.InventoryRequest payload);
     
     
     
@@ -1545,7 +1545,7 @@ interface CatalogPlatformApiList {
     
     
     @DELETE ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/inventory/{seller_identifier}/")
-    Call<CatalogPlatformModels.InventoryUpdateResponse> deleteRealtimeInventory(@Path("company_id")  String companyId , @Path("item_id") Double  itemId , @Path("seller_identifier") String  sellerIdentifier ,@Body CatalogPlatformModels.InventoryRequestSchemaV2 payload);
+    Call<CatalogPlatformModels.InventoryUpdateResponse> deleteRealtimeInventory(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId , @Path("seller_identifier") String  sellerIdentifier ,@Body CatalogPlatformModels.InventoryRequestSchemaV2 payload);
     
     
     
@@ -1560,7 +1560,7 @@ interface CatalogPlatformApiList {
     
     
     @POST ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/inventory/{seller_identifier}/")
-    Call<CatalogPlatformModels.InventoryUpdateResponse> updateRealtimeInventory(@Path("company_id")  String companyId , @Path("item_id") Double  itemId , @Path("seller_identifier") String  sellerIdentifier ,@Body CatalogPlatformModels.InventoryRequestSchemaV2 payload);
+    Call<CatalogPlatformModels.SuccessResponse> updateRealtimeInventory(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId , @Path("seller_identifier") String  sellerIdentifier ,@Body CatalogPlatformModels.InventoryRequestSchemaV2 payload);
     
     
     
