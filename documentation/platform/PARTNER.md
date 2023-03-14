@@ -181,6 +181,18 @@ Success
 
  
  
+ #### [RemoveProxyResponse](#RemoveProxyResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String? |  yes  |  |
+ | data | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [APIError](#APIError)
 
  | Properties | Type | Nullable | Description |
@@ -190,18 +202,6 @@ Success
  | info | String? |  yes  | Error code description link |
  | requestId | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [RemoveProxyResponse](#RemoveProxyResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
- | data | HashMap<String,Object>? |  yes  |  |
 
 ---
 
