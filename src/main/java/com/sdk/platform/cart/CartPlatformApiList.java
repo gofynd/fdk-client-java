@@ -531,7 +531,7 @@ interface CartPlatformApiList {
     
     
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/platform-pos-coupon")
-    Call<CartPlatformModels.GetCouponResponse> getCoupons(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow );
+    Call<CartPlatformModels.GetCouponResponse> getPlatformPOSCoupons(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow );
     
     
     

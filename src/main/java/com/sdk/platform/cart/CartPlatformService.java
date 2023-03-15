@@ -1862,11 +1862,11 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.GetCouponResponse getCoupons(String id , Boolean buyNow ) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.GetCouponResponse getPlatformPOSCoupons(String id , Boolean buyNow ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.GetCouponResponse> response = null;
             try {
-            response = cartPlatformApiList.getCoupons(this.companyId , this.applicationId ,id , buyNow ).execute();
+            response = cartPlatformApiList.getPlatformPOSCoupons(this.companyId , this.applicationId ,id , buyNow ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
