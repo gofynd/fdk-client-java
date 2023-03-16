@@ -339,7 +339,7 @@ interface PaymentPlatformApiList {
     
     
     @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/edc-device")
-    Call<PaymentPlatformModels.EdcDeviceAddResponse> edcDevice(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("terminal_unique_identifier") String  terminalUniqueIdentifier ,@Body PaymentPlatformModels.EdcAddRequest payload);
+    Call<PaymentPlatformModels.EdcDeviceAddResponse> updateEdcDevice(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("terminal_unique_identifier") String  terminalUniqueIdentifier ,@Body PaymentPlatformModels.EdcAddRequest payload);
     
     
     
@@ -354,7 +354,7 @@ interface PaymentPlatformApiList {
     
     
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/edc-device/{terminal_unique_identifier}")
-    Call<PaymentPlatformModels.EdcDeviceDetailsResponse> edcDevice(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("terminal_unique_identifier") String  terminalUniqueIdentifier );
+    Call<PaymentPlatformModels.EdcDeviceDetailsResponse> getEdcDevice(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("terminal_unique_identifier") String  terminalUniqueIdentifier );
     
     
     
@@ -369,7 +369,7 @@ interface PaymentPlatformApiList {
     
     
     @PUT ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/edc-device/{terminal_unique_identifier}")
-    Call<PaymentPlatformModels.EdcDeviceUpdateResponse> edcDevice(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("terminal_unique_identifier") String  terminalUniqueIdentifier ,@Body PaymentPlatformModels.EdcUpdateRequest payload);
+    Call<PaymentPlatformModels.EdcDeviceUpdateResponse> addEdcDevice(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("terminal_unique_identifier") String  terminalUniqueIdentifier ,@Body PaymentPlatformModels.EdcUpdateRequest payload);
     
     
     

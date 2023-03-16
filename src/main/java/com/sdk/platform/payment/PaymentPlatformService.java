@@ -1184,11 +1184,11 @@ public class ApplicationClient {
     
     
 
-    public PaymentPlatformModels.EdcDeviceAddResponse edcDevice(String terminalUniqueIdentifier ,PaymentPlatformModels.EdcAddRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.EdcDeviceAddResponse updateEdcDevice(String terminalUniqueIdentifier ,PaymentPlatformModels.EdcAddRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PaymentPlatformModels.EdcDeviceAddResponse> response = null;
             try {
-            response = paymentPlatformApiList.edcDevice(this.companyId , this.applicationId , terminalUniqueIdentifier , body).execute();
+            response = paymentPlatformApiList.updateEdcDevice(this.companyId , this.applicationId , terminalUniqueIdentifier , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1229,11 +1229,11 @@ public class ApplicationClient {
     
     
 
-    public PaymentPlatformModels.EdcDeviceDetailsResponse edcDevice(String terminalUniqueIdentifier ) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.EdcDeviceDetailsResponse getEdcDevice(String terminalUniqueIdentifier ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PaymentPlatformModels.EdcDeviceDetailsResponse> response = null;
             try {
-            response = paymentPlatformApiList.edcDevice(this.companyId , this.applicationId , terminalUniqueIdentifier ).execute();
+            response = paymentPlatformApiList.getEdcDevice(this.companyId , this.applicationId , terminalUniqueIdentifier ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1274,11 +1274,11 @@ public class ApplicationClient {
     
     
 
-    public PaymentPlatformModels.EdcDeviceUpdateResponse edcDevice(String terminalUniqueIdentifier ,PaymentPlatformModels.EdcUpdateRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.EdcDeviceUpdateResponse addEdcDevice(String terminalUniqueIdentifier ,PaymentPlatformModels.EdcUpdateRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PaymentPlatformModels.EdcDeviceUpdateResponse> response = null;
             try {
-            response = paymentPlatformApiList.edcDevice(this.companyId , this.applicationId , terminalUniqueIdentifier , body).execute();
+            response = paymentPlatformApiList.addEdcDevice(this.companyId , this.applicationId , terminalUniqueIdentifier , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
