@@ -239,8 +239,20 @@ interface OrderPlatformApiList {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/orders/v1.0/company/{company_id}/orders-listing")
-    Call<OrderPlatformModels.OrderListingResponse> getOrders(@Path("company_id")  String companyId , @Query("lane") String  lane ,  @Query("search_type") String  searchType ,  @Query("search_value") String  searchValue ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("dp_ids") String  dpIds ,  @Query("stores") String  stores ,  @Query("sales_channel") String  salesChannel ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("is_priority_sort") Boolean  isPrioritySort ,  @Query("custom_meta") String  customMeta );
+    Call<OrderPlatformModels.OrderListingResponse> getOrders(@Path("company_id")  String companyId , @Query("lane") String  lane ,  @Query("search_type") String  searchType ,  @Query("bag_status") String  bagStatus ,  @Query("time_to_dispatch") String  timeToDispatch ,  @Query("payment_methods") String  paymentMethods ,  @Query("tags") String  tags ,  @Query("search_value") String  searchValue ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("dp_ids") String  dpIds ,  @Query("stores") String  stores ,  @Query("sales_channel") String  salesChannel ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("is_priority_sort") Boolean  isPrioritySort ,  @Query("custom_meta") String  customMeta );
     
     
     
@@ -469,75 +481,6 @@ interface OrderPlatformApiList {
     
     @GET ("/service/platform/orders/v1.0/company/{company_id}/bulk-action/listing")
     Call<OrderPlatformModels.BulkListingResponse> getBulkList(@Path("company_id")  String companyId , @Query("lane") String  lane ,  @Query("search_type") String  searchType ,  @Query("search_id") String  searchId ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("dp_ids") String  dpIds ,  @Query("ordering_company_id") String  orderingCompanyId ,  @Query("stores") String  stores ,  @Query("sales_channel") String  salesChannel ,  @Query("request_by_ext") String  requestByExt ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("customer_id") String  customerId ,  @Query("is_priority_sort") Boolean  isPrioritySort );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/orders/v1.0/company/{company_id}/generated-manifests")
-    Call<OrderPlatformModels.GeneratedManifestResponse> getManifestList(@Path("company_id")  String companyId , @Query("status") String  status ,  @Query("store_id") Integer  storeId ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("search_value") String  searchValue ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/orders/v1.0/company/{company_id}/manifest-details")
-    Call<OrderPlatformModels.ManifestDetailResponse> getManifestDetailsWithShipments(@Path("company_id")  String companyId , @Query("manifest_id") String  manifestId ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("store_id") Integer  storeId ,  @Query("page") Integer  page ,  @Query("page_size") Integer  pageSize ,  @Query("lane") String  lane ,  @Query("dp_ids") Integer  dpIds ,  @Query("search_type") String  searchType ,  @Query("search_value") String  searchValue );
     
     
     
