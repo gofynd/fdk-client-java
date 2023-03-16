@@ -2,6 +2,7 @@ package com.sdk.platform.billing;
 
 import com.sdk.common.*;
 import com.sdk.common.model.FDKException;
+import com.sdk.common.model.FDKServerResponseError;
 import okhttp3.Interceptor;
 import retrofit2.Response;
 
@@ -60,13 +61,13 @@ public class BillingPlatformService {
     
     
 
-    public BillingPlatformModels.CheckValidityResponse checkCouponValidity(String plan , String couponCode ) throws FDKException {
+    public BillingPlatformModels.CheckValidityResponse checkCouponValidity(String plan , String couponCode ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<BillingPlatformModels.CheckValidityResponse> response = null;
             try {
                 response = billingPlatformApiList.checkCouponValidity(this.companyId ,plan , couponCode ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -75,7 +76,7 @@ public class BillingPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -100,13 +101,13 @@ public class BillingPlatformService {
     
     
 
-    public BillingPlatformModels.CreateSubscriptionResponse createSubscriptionCharge(String extensionId ,BillingPlatformModels.CreateSubscriptionCharge body) throws FDKException {
+    public BillingPlatformModels.CreateSubscriptionResponse createSubscriptionCharge(String extensionId ,BillingPlatformModels.CreateSubscriptionCharge body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<BillingPlatformModels.CreateSubscriptionResponse> response = null;
             try {
                 response = billingPlatformApiList.createSubscriptionCharge(this.companyId , extensionId  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -115,7 +116,7 @@ public class BillingPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -144,13 +145,13 @@ public class BillingPlatformService {
     
     
 
-    public BillingPlatformModels.EntitySubscription getSubscriptionCharge(String extensionId , String subscriptionId ) throws FDKException {
+    public BillingPlatformModels.EntitySubscription getSubscriptionCharge(String extensionId , String subscriptionId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<BillingPlatformModels.EntitySubscription> response = null;
             try {
                 response = billingPlatformApiList.getSubscriptionCharge(this.companyId , extensionId  , subscriptionId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -159,7 +160,7 @@ public class BillingPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -188,13 +189,13 @@ public class BillingPlatformService {
     
     
 
-    public BillingPlatformModels.EntitySubscription cancelSubscriptionCharge(String extensionId , String subscriptionId ) throws FDKException {
+    public BillingPlatformModels.EntitySubscription cancelSubscriptionCharge(String extensionId , String subscriptionId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<BillingPlatformModels.EntitySubscription> response = null;
             try {
                 response = billingPlatformApiList.cancelSubscriptionCharge(this.companyId , extensionId  , subscriptionId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -203,7 +204,7 @@ public class BillingPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -224,13 +225,13 @@ public class BillingPlatformService {
     
     
 
-    public BillingPlatformModels.Invoices getInvoices() throws FDKException {
+    public BillingPlatformModels.Invoices getInvoices() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<BillingPlatformModels.Invoices> response = null;
             try {
                 response = billingPlatformApiList.getInvoices(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -239,7 +240,7 @@ public class BillingPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -264,13 +265,13 @@ public class BillingPlatformService {
     
     
 
-    public BillingPlatformModels.Invoice getInvoiceById(String invoiceId ) throws FDKException {
+    public BillingPlatformModels.Invoice getInvoiceById(String invoiceId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<BillingPlatformModels.Invoice> response = null;
             try {
                 response = billingPlatformApiList.getInvoiceById(this.companyId , invoiceId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -279,7 +280,7 @@ public class BillingPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -300,13 +301,13 @@ public class BillingPlatformService {
     
     
 
-    public BillingPlatformModels.SubscriptionCustomer getCustomerDetail() throws FDKException {
+    public BillingPlatformModels.SubscriptionCustomer getCustomerDetail() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<BillingPlatformModels.SubscriptionCustomer> response = null;
             try {
                 response = billingPlatformApiList.getCustomerDetail(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -315,7 +316,7 @@ public class BillingPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -336,13 +337,13 @@ public class BillingPlatformService {
     
     
 
-    public BillingPlatformModels.SubscriptionCustomer upsertCustomerDetail(BillingPlatformModels.SubscriptionCustomerCreate body) throws FDKException {
+    public BillingPlatformModels.SubscriptionCustomer upsertCustomerDetail(BillingPlatformModels.SubscriptionCustomerCreate body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<BillingPlatformModels.SubscriptionCustomer> response = null;
             try {
                 response = billingPlatformApiList.upsertCustomerDetail(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -351,7 +352,7 @@ public class BillingPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -372,13 +373,13 @@ public class BillingPlatformService {
     
     
 
-    public BillingPlatformModels.SubscriptionStatus getSubscription() throws FDKException {
+    public BillingPlatformModels.SubscriptionStatus getSubscription() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<BillingPlatformModels.SubscriptionStatus> response = null;
             try {
                 response = billingPlatformApiList.getSubscription(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -387,7 +388,7 @@ public class BillingPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -408,13 +409,13 @@ public class BillingPlatformService {
     
     
 
-    public BillingPlatformModels.SubscriptionLimit getFeatureLimitConfig() throws FDKException {
+    public BillingPlatformModels.SubscriptionLimit getFeatureLimitConfig() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<BillingPlatformModels.SubscriptionLimit> response = null;
             try {
                 response = billingPlatformApiList.getFeatureLimitConfig(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -423,7 +424,7 @@ public class BillingPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -444,13 +445,13 @@ public class BillingPlatformService {
     
     
 
-    public BillingPlatformModels.SubscriptionActivateRes activateSubscriptionPlan(BillingPlatformModels.SubscriptionActivateReq body) throws FDKException {
+    public BillingPlatformModels.SubscriptionActivateRes activateSubscriptionPlan(BillingPlatformModels.SubscriptionActivateReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<BillingPlatformModels.SubscriptionActivateRes> response = null;
             try {
                 response = billingPlatformApiList.activateSubscriptionPlan(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -459,7 +460,7 @@ public class BillingPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -480,13 +481,13 @@ public class BillingPlatformService {
     
     
 
-    public BillingPlatformModels.CancelSubscriptionRes cancelSubscriptionPlan(BillingPlatformModels.CancelSubscriptionReq body) throws FDKException {
+    public BillingPlatformModels.CancelSubscriptionRes cancelSubscriptionPlan(BillingPlatformModels.CancelSubscriptionReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<BillingPlatformModels.CancelSubscriptionRes> response = null;
             try {
                 response = billingPlatformApiList.cancelSubscriptionPlan(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -495,7 +496,7 @@ public class BillingPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
