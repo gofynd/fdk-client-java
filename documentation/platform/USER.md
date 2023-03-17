@@ -14,7 +14,9 @@ Authentication Service
 * [unDeleteUser](#undeleteuser)
 * [updateUser](#updateuser)
 * [createUserSession](#createusersession)
+* [deleteSession](#deletesession)
 * [getActiveSessions](#getactivesessions)
+* [deleteActiveSessions](#deleteactivesessions)
 * [getPlatformConfig](#getplatformconfig)
 * [updatePlatformConfig](#updateplatformconfig)
 
@@ -655,6 +657,76 @@ Create user session
 ---
 
 
+### deleteSession
+Delete a session for a user
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").user.deleteSession( id,  sessionId,  reason) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
+| id | String | yes | ID of a customer. |   
+| sessionId | String | yes | Session ID of a customer. |   
+| reason | String | yes | Reason for deleting session. |  
+
+
+
+Use this API to Delete a session of customers who have registered in the application.
+
+*Returned Response:*
+
+
+
+
+[SessionDeleteResponseSchema](#SessionDeleteResponseSchema)
+
+Success. Refer `SessionDeleteResponseSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; Success</i></summary>
+
+```json
+{
+  "value": {
+    "items": [
+      "sess:123",
+      "sess:456"
+    ]
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getActiveSessions
 Get a list of all session with info for a user
 
@@ -687,6 +759,75 @@ Use this API to retrieve a list of session with info of customers who have regis
 [SessionListResponseSchema](#SessionListResponseSchema)
 
 Success. Refer `SessionListResponseSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; Success</i></summary>
+
+```json
+{
+  "value": {
+    "items": [
+      "sess:123",
+      "sess:456"
+    ]
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### deleteActiveSessions
+Delete a list of all session for a user
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").user.deleteActiveSessions( id,  reason) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
+| id | String | yes | ID of a customer. |   
+| reason | String | yes | Reason to delete sessions. |  
+
+
+
+Use this API to Delete a list of session of customers who have registered in the application.
+
+*Returned Response:*
+
+
+
+
+[SessionDeleteResponseSchema](#SessionDeleteResponseSchema)
+
+Success. Refer `SessionDeleteResponseSchema` for more details.
 
 
 
@@ -2185,7 +2326,7 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | externalId | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | phoneNumbers | ArrayList<[UserPhoneNumbers](#UserPhoneNumbers)>? |  yes  |  |
- | emails | HashMap<String,Object>? |  yes  |  |
+ | emails | ArrayList<[UserEmails](#UserEmails)>? |  yes  |  |
 
 ---
 

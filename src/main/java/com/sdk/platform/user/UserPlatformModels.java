@@ -3206,7 +3206,7 @@ public static class UpdateUserRequestSchema {
     
     
     @JsonProperty("emails")
-    private Object emails;
+    private List<UserEmails> emails;
     
     
     

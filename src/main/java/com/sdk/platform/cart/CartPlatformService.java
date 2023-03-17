@@ -1662,11 +1662,11 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.AddCartDetailResponse addItems(Boolean i , Boolean b , Boolean buyNow , String id ,CartPlatformModels.AddCartRequest body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.AddCartDetailResponse platformAddItems(Boolean i , Boolean b , Boolean buyNow , String id ,CartPlatformModels.AddCartRequest body) throws FDKException, FDKServerResponseError {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.AddCartDetailResponse> response = null;
             try {
-            response = cartPlatformApiList.addItems(this.companyId , this.applicationId ,i , b , buyNow , id , body).execute();
+            response = cartPlatformApiList.platformAddItems(this.companyId , this.applicationId ,i , b , buyNow , id , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1719,11 +1719,11 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b , Boolean buyNow ,CartPlatformModels.UpdateCartRequest body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.UpdateCartDetailResponse platformUpdateCart(String id , Boolean i , Boolean b , Boolean buyNow ,CartPlatformModels.UpdateCartRequest body) throws FDKException, FDKServerResponseError {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.UpdateCartDetailResponse> response = null;
             try {
-            response = cartPlatformApiList.updateCart(this.companyId , this.applicationId ,id , i , b , buyNow , body).execute();
+            response = cartPlatformApiList.platformUpdateCart(this.companyId , this.applicationId ,id , i , b , buyNow , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1862,11 +1862,11 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.GetCouponResponse getCoupons(String id , Boolean buyNow ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.GetCouponResponse getAppCoupons(String id , Boolean buyNow ) throws FDKException, FDKServerResponseError {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.GetCouponResponse> response = null;
             try {
-            response = cartPlatformApiList.getCoupons(this.companyId , this.applicationId ,id , buyNow ).execute();
+            response = cartPlatformApiList.getAppCoupons(this.companyId , this.applicationId ,id , buyNow ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2530,11 +2530,11 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.CartCheckoutResponse checkoutCart(String id ,CartPlatformModels.PlatformCartCheckoutDetailRequest body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.CartCheckoutResponse platformCheckoutCart(String id ,CartPlatformModels.PlatformCartCheckoutDetailRequest body) throws FDKException, FDKServerResponseError {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartCheckoutResponse> response = null;
             try {
-            response = cartPlatformApiList.checkoutCart(this.companyId , this.applicationId ,id , body).execute();
+            response = cartPlatformApiList.platformCheckoutCart(this.companyId , this.applicationId ,id , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

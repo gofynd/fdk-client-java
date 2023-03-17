@@ -10,6 +10,56 @@ public class ContentPlatformModels{
 
 
 /*
+    Model: GenerateSEOContent
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GenerateSEOContent {
+    
+    
+    
+    
+    @JsonProperty("text")
+    private String text;
+    
+    
+    
+    
+}
+
+/*
+    Model: GeneratedSEOContent
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GeneratedSEOContent {
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+}
+
+/*
     Model: ApplicationLegal
 */
 @AllArgsConstructor
@@ -4115,6 +4165,27 @@ public static class TagSourceSchema {
     
 }
 
+
+
+    
+    /*
+        Enum: GenerationEntityType
+        Used By: Content
+    */
+    @Getter
+    public enum GenerationEntityType {
+
+        
+        title("title"), 
+        
+        description("description");
+        
+
+        private String priority;
+        GenerationEntityType(String priority) {
+            this.priority = priority;
+        }
+    }
 
 
     

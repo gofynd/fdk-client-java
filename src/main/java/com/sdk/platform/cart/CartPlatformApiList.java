@@ -456,7 +456,7 @@ interface CartPlatformApiList {
     
     
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/detail")
-    Call<CartPlatformModels.AddCartDetailResponse> addItems(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("i") Boolean  i ,  @Query("b") Boolean  b ,  @Query("buy_now") Boolean  buyNow ,  @Query("id") String  id ,@Body CartPlatformModels.AddCartRequest payload);
+    Call<CartPlatformModels.AddCartDetailResponse> platformAddItems(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("i") Boolean  i ,  @Query("b") Boolean  b ,  @Query("buy_now") Boolean  buyNow ,  @Query("id") String  id ,@Body CartPlatformModels.AddCartRequest payload);
     
     
     
@@ -480,7 +480,7 @@ interface CartPlatformApiList {
     
     
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/detail")
-    Call<CartPlatformModels.UpdateCartDetailResponse> updateCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("i") Boolean  i ,  @Query("b") Boolean  b ,  @Query("buy_now") Boolean  buyNow ,@Body CartPlatformModels.UpdateCartRequest payload);
+    Call<CartPlatformModels.UpdateCartDetailResponse> platformUpdateCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("i") Boolean  i ,  @Query("b") Boolean  b ,  @Query("buy_now") Boolean  buyNow ,@Body CartPlatformModels.UpdateCartRequest payload);
     
     
     
@@ -531,7 +531,7 @@ interface CartPlatformApiList {
     
     
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/platform-pos-coupon")
-    Call<CartPlatformModels.GetCouponResponse> getCoupons(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow );
+    Call<CartPlatformModels.GetCouponResponse> getAppCoupons(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow );
     
     
     
@@ -807,7 +807,7 @@ interface CartPlatformApiList {
     
     
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/checkout")
-    Call<CartPlatformModels.CartCheckoutResponse> checkoutCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,@Body CartPlatformModels.PlatformCartCheckoutDetailRequest payload);
+    Call<CartPlatformModels.CartCheckoutResponse> platformCheckoutCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,@Body CartPlatformModels.PlatformCartCheckoutDetailRequest payload);
     
     
     
