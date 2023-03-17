@@ -20,23 +20,23 @@ interface CatalogPlatformApiList {
     
     
     
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
-    Call<CatalogPlatformModels.GetSearchWordsDetailResponse> getSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
     Call<CatalogPlatformModels.DeleteResponse> deleteSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
+    Call<CatalogPlatformModels.GetSearchWordsDetailResponse> getSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
     
     
@@ -89,23 +89,23 @@ interface CatalogPlatformApiList {
     
     
     
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
-    Call<CatalogPlatformModels.GetAutocompleteWordsResponse> getAutocompleteKeywordDetail(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
     Call<CatalogPlatformModels.DeleteResponse> deleteAutocompleteKeyword(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
+    Call<CatalogPlatformModels.GetAutocompleteWordsResponse> getAutocompleteKeywordDetail(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
     
     
@@ -906,7 +906,7 @@ interface CatalogPlatformApiList {
     
     
     @GET ("/service/platform/catalog/v2.0/company/{company_id}/products/downloads/")
-    Call<CatalogPlatformModels.ProductDownloadsResponse> listAllProductTemplateExportDetails(@Path("company_id")  String companyId , @Query("status") String  status ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("q") String  q );
+    Call<CatalogPlatformModels.ProductDownloadsResponse> getProductExportJobs(@Path("company_id")  String companyId , @Query("status") String  status ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("q") String  q );
     
     
     
@@ -916,30 +916,6 @@ interface CatalogPlatformApiList {
     
     @POST ("/service/platform/catalog/v2.0/company/{company_id}/products/downloads/")
     Call<CatalogPlatformModels.ProductDownloadsResponse> createProductExportJob(@Path("company_id")  String companyId ,@Body CatalogPlatformModels.ProductTemplateDownloadsExport payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/catalog/v2.0/company/{company_id}/products/downloads/{job_id}")
-    Call<CatalogPlatformModels.ProductDownloadsResponse> getProductTemplateExportDetail(@Path("company_id")  String companyId , @Path("job_id") String  jobId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @PUT ("/service/platform/catalog/v2.0/company/{company_id}/products/downloads/{job_id}")
-    Call<CatalogPlatformModels.ProductDownloadsResponse> updateProductExportJob(@Path("company_id")  String companyId , @Path("job_id") String  jobId ,@Body CatalogPlatformModels.ProductPartialExportRequest payload);
     
     
     
@@ -1106,6 +1082,18 @@ interface CatalogPlatformApiList {
     
     
     
+    @DELETE ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
+    Call<CatalogPlatformModels.SuccessResponse> deleteProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1114,18 +1102,6 @@ interface CatalogPlatformApiList {
     
     @GET ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
     Call<CatalogPlatformModels.SingleProductResponse> getProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId , @Query("brand_uid") Integer  brandUid ,  @Query("item_code") String  itemCode );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @DELETE ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
-    Call<CatalogPlatformModels.SuccessResponse> deleteProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId );
     
     
     
@@ -1540,30 +1516,6 @@ interface CatalogPlatformApiList {
     
     @POST ("/service/platform/catalog/v2.0/company/{company_id}/inventory/download/")
     Call<CatalogPlatformModels.InventoryExportResponse> createInventoryExport(@Path("company_id")  String companyId ,@Body CatalogPlatformModels.InventoryCreateRequest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/catalog/v2.0/company/{company_id}/inventory/download/{job_id}")
-    Call<CatalogPlatformModels.InventoryJobDetailResponse> getInventoryExportJobDetail(@Path("company_id")  String companyId , @Path("job_id") String  jobId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @PUT ("/service/platform/catalog/v2.0/company/{company_id}/inventory/download/{job_id}")
-    Call<CatalogPlatformModels.InventoryExportCreateResponse> updateInventoryExportJob(@Path("company_id")  String companyId , @Path("job_id") String  jobId ,@Body CatalogPlatformModels.InventoryPartialExportRequest payload);
     
     
     

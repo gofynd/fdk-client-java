@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class LogisticPlatformModels{
 
 
@@ -18,7 +17,7 @@ public class LogisticPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ServiceabilityErrorResponse {
+public static class ServiceabilityErrorResponse{
     
     
     
@@ -40,8 +39,8 @@ public static class ServiceabilityErrorResponse {
     
     
     
-    
 }
+
 
 /*
     Model: ApplicationServiceabilityConfig
@@ -52,7 +51,7 @@ public static class ServiceabilityErrorResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationServiceabilityConfig {
+public static class ApplicationServiceabilityConfig{
     
     
     
@@ -74,8 +73,8 @@ public static class ApplicationServiceabilityConfig {
     
     
     
-    
 }
+
 
 /*
     Model: ApplicationServiceabilityConfigResponse
@@ -86,7 +85,7 @@ public static class ApplicationServiceabilityConfig {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationServiceabilityConfigResponse {
+public static class ApplicationServiceabilityConfigResponse{
     
     
     
@@ -108,8 +107,8 @@ public static class ApplicationServiceabilityConfigResponse {
     
     
     
-    
 }
+
 
 /*
     Model: EntityRegionView_Request
@@ -120,7 +119,7 @@ public static class ApplicationServiceabilityConfigResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EntityRegionView_Request {
+public static class EntityRegionView_Request{
     
     
     
@@ -136,8 +135,8 @@ public static class EntityRegionView_Request {
     
     
     
-    
 }
+
 
 /*
     Model: EntityRegionView_Error
@@ -148,7 +147,7 @@ public static class EntityRegionView_Request {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EntityRegionView_Error {
+public static class EntityRegionView_Error{
     
     
     
@@ -170,8 +169,8 @@ public static class EntityRegionView_Error {
     
     
     
-    
 }
+
 
 /*
     Model: EntityRegionView_page
@@ -182,7 +181,7 @@ public static class EntityRegionView_Error {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EntityRegionView_page {
+public static class EntityRegionView_page{
     
     
     
@@ -216,8 +215,8 @@ public static class EntityRegionView_page {
     
     
     
-    
 }
+
 
 /*
     Model: EntityRegionView_Items
@@ -228,7 +227,7 @@ public static class EntityRegionView_page {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EntityRegionView_Items {
+public static class EntityRegionView_Items{
     
     
     
@@ -250,8 +249,8 @@ public static class EntityRegionView_Items {
     
     
     
-    
 }
+
 
 /*
     Model: EntityRegionView_Response
@@ -262,7 +261,7 @@ public static class EntityRegionView_Items {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EntityRegionView_Response {
+public static class EntityRegionView_Response{
     
     
     
@@ -290,8 +289,8 @@ public static class EntityRegionView_Response {
     
     
     
-    
 }
+
 
 /*
     Model: ZoneDataItem
@@ -302,7 +301,7 @@ public static class EntityRegionView_Response {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ZoneDataItem {
+public static class ZoneDataItem{
     
     
     
@@ -336,8 +335,8 @@ public static class ZoneDataItem {
     
     
     
-    
 }
+
 
 /*
     Model: ListViewSummary
@@ -348,7 +347,7 @@ public static class ZoneDataItem {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ListViewSummary {
+public static class ListViewSummary{
     
     
     
@@ -370,8 +369,8 @@ public static class ListViewSummary {
     
     
     
-    
 }
+
 
 /*
     Model: ListViewProduct
@@ -382,7 +381,7 @@ public static class ListViewSummary {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ListViewProduct {
+public static class ListViewProduct{
     
     
     
@@ -398,8 +397,8 @@ public static class ListViewProduct {
     
     
     
-    
 }
+
 
 /*
     Model: ListViewChannels
@@ -410,7 +409,7 @@ public static class ListViewProduct {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ListViewChannels {
+public static class ListViewChannels{
     
     
     
@@ -426,8 +425,8 @@ public static class ListViewChannels {
     
     
     
-    
 }
+
 
 /*
     Model: ListViewItems
@@ -438,7 +437,7 @@ public static class ListViewChannels {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ListViewItems {
+public static class ListViewItems{
     
     
     
@@ -496,8 +495,8 @@ public static class ListViewItems {
     
     
     
-    
 }
+
 
 /*
     Model: ListViewResponse
@@ -508,7 +507,7 @@ public static class ListViewItems {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ListViewResponse {
+public static class ListViewResponse{
     
     
     
@@ -530,8 +529,8 @@ public static class ListViewResponse {
     
     
     
-    
 }
+
 
 /*
     Model: CompanyStoreView_PageItems
@@ -542,7 +541,7 @@ public static class ListViewResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyStoreView_PageItems {
+public static class CompanyStoreView_PageItems{
     
     
     
@@ -576,8 +575,8 @@ public static class CompanyStoreView_PageItems {
     
     
     
-    
 }
+
 
 /*
     Model: CompanyStoreView_Response
@@ -588,7 +587,7 @@ public static class CompanyStoreView_PageItems {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyStoreView_Response {
+public static class CompanyStoreView_Response{
     
     
     
@@ -604,8 +603,8 @@ public static class CompanyStoreView_Response {
     
     
     
-    
 }
+
 
 /*
     Model: GetZoneDataViewChannels
@@ -616,7 +615,7 @@ public static class CompanyStoreView_Response {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetZoneDataViewChannels {
+public static class GetZoneDataViewChannels{
     
     
     
@@ -632,8 +631,8 @@ public static class GetZoneDataViewChannels {
     
     
     
-    
 }
+
 
 /*
     Model: ZoneProductTypes
@@ -644,7 +643,7 @@ public static class GetZoneDataViewChannels {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ZoneProductTypes {
+public static class ZoneProductTypes{
     
     
     
@@ -660,8 +659,8 @@ public static class ZoneProductTypes {
     
     
     
-    
 }
+
 
 /*
     Model: ZoneMappingType
@@ -672,7 +671,7 @@ public static class ZoneProductTypes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ZoneMappingType {
+public static class ZoneMappingType{
     
     
     
@@ -694,8 +693,8 @@ public static class ZoneMappingType {
     
     
     
-    
 }
+
 
 /*
     Model: GetZoneDataViewItems
@@ -706,7 +705,7 @@ public static class ZoneMappingType {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetZoneDataViewItems {
+public static class GetZoneDataViewItems{
     
     
     
@@ -788,8 +787,8 @@ public static class GetZoneDataViewItems {
     
     
     
-    
 }
+
 
 /*
     Model: GetSingleZoneDataViewResponse
@@ -800,7 +799,7 @@ public static class GetZoneDataViewItems {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetSingleZoneDataViewResponse {
+public static class GetSingleZoneDataViewResponse{
     
     
     
@@ -810,8 +809,8 @@ public static class GetSingleZoneDataViewResponse {
     
     
     
-    
 }
+
 
 /*
     Model: UpdateZoneData
@@ -822,7 +821,7 @@ public static class GetSingleZoneDataViewResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateZoneData {
+public static class UpdateZoneData{
     
     
     
@@ -892,8 +891,8 @@ public static class UpdateZoneData {
     
     
     
-    
 }
+
 
 /*
     Model: ZoneUpdateRequest
@@ -904,7 +903,7 @@ public static class UpdateZoneData {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ZoneUpdateRequest {
+public static class ZoneUpdateRequest{
     
     
     
@@ -920,8 +919,8 @@ public static class ZoneUpdateRequest {
     
     
     
-    
 }
+
 
 /*
     Model: ZoneSuccessResponse
@@ -932,7 +931,7 @@ public static class ZoneUpdateRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ZoneSuccessResponse {
+public static class ZoneSuccessResponse{
     
     
     
@@ -948,8 +947,8 @@ public static class ZoneSuccessResponse {
     
     
     
-    
 }
+
 
 /*
     Model: CreateZoneData
@@ -960,7 +959,7 @@ public static class ZoneSuccessResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateZoneData {
+public static class CreateZoneData{
     
     
     
@@ -1024,8 +1023,8 @@ public static class CreateZoneData {
     
     
     
-    
 }
+
 
 /*
     Model: ZoneRequest
@@ -1036,7 +1035,7 @@ public static class CreateZoneData {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ZoneRequest {
+public static class ZoneRequest{
     
     
     
@@ -1052,8 +1051,8 @@ public static class ZoneRequest {
     
     
     
-    
 }
+
 
 /*
     Model: ZoneResponse
@@ -1064,7 +1063,7 @@ public static class ZoneRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ZoneResponse {
+public static class ZoneResponse{
     
     
     
@@ -1086,8 +1085,8 @@ public static class ZoneResponse {
     
     
     
-    
 }
+
 
 /*
     Model: GetZoneFromPincodeViewRequest
@@ -1098,7 +1097,7 @@ public static class ZoneResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetZoneFromPincodeViewRequest {
+public static class GetZoneFromPincodeViewRequest{
     
     
     
@@ -1114,8 +1113,8 @@ public static class GetZoneFromPincodeViewRequest {
     
     
     
-    
 }
+
 
 /*
     Model: GetZoneFromPincodeViewResponse
@@ -1126,7 +1125,7 @@ public static class GetZoneFromPincodeViewRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetZoneFromPincodeViewResponse {
+public static class GetZoneFromPincodeViewResponse{
     
     
     
@@ -1142,8 +1141,8 @@ public static class GetZoneFromPincodeViewResponse {
     
     
     
-    
 }
+
 
 /*
     Model: ServiceabilityPageResponse
@@ -1154,7 +1153,7 @@ public static class GetZoneFromPincodeViewResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ServiceabilityPageResponse {
+public static class ServiceabilityPageResponse{
     
     
     
@@ -1188,8 +1187,8 @@ public static class ServiceabilityPageResponse {
     
     
     
-    
 }
+
 
 /*
     Model: DocumentsResponse
@@ -1200,7 +1199,7 @@ public static class ServiceabilityPageResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DocumentsResponse {
+public static class DocumentsResponse{
     
     
     
@@ -1228,8 +1227,8 @@ public static class DocumentsResponse {
     
     
     
-    
 }
+
 
 /*
     Model: AddressResponse
@@ -1240,7 +1239,7 @@ public static class DocumentsResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddressResponse {
+public static class AddressResponse{
     
     
     
@@ -1298,8 +1297,8 @@ public static class AddressResponse {
     
     
     
-    
 }
+
 
 /*
     Model: ModifiedByResponse
@@ -1310,7 +1309,7 @@ public static class AddressResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ModifiedByResponse {
+public static class ModifiedByResponse{
     
     
     
@@ -1326,8 +1325,8 @@ public static class ModifiedByResponse {
     
     
     
-    
 }
+
 
 /*
     Model: CreatedByResponse
@@ -1338,7 +1337,7 @@ public static class ModifiedByResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreatedByResponse {
+public static class CreatedByResponse{
     
     
     
@@ -1354,8 +1353,8 @@ public static class CreatedByResponse {
     
     
     
-    
 }
+
 
 /*
     Model: WarningsResponse
@@ -1366,7 +1365,7 @@ public static class CreatedByResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class WarningsResponse {
+public static class WarningsResponse{
     
     
     
@@ -1376,8 +1375,8 @@ public static class WarningsResponse {
     
     
     
-    
 }
+
 
 /*
     Model: OpeningClosing
@@ -1388,7 +1387,7 @@ public static class WarningsResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OpeningClosing {
+public static class OpeningClosing{
     
     
     
@@ -1404,8 +1403,8 @@ public static class OpeningClosing {
     
     
     
-    
 }
+
 
 /*
     Model: TimmingResponse
@@ -1416,7 +1415,7 @@ public static class OpeningClosing {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TimmingResponse {
+public static class TimmingResponse{
     
     
     
@@ -1444,8 +1443,8 @@ public static class TimmingResponse {
     
     
     
-    
 }
+
 
 /*
     Model: ProductReturnConfigResponse
@@ -1456,7 +1455,7 @@ public static class TimmingResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductReturnConfigResponse {
+public static class ProductReturnConfigResponse{
     
     
     
@@ -1466,8 +1465,8 @@ public static class ProductReturnConfigResponse {
     
     
     
-    
 }
+
 
 /*
     Model: MobileNo
@@ -1478,7 +1477,7 @@ public static class ProductReturnConfigResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MobileNo {
+public static class MobileNo{
     
     
     
@@ -1494,8 +1493,8 @@ public static class MobileNo {
     
     
     
-    
 }
+
 
 /*
     Model: ManagerResponse
@@ -1506,7 +1505,7 @@ public static class MobileNo {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ManagerResponse {
+public static class ManagerResponse{
     
     
     
@@ -1528,8 +1527,8 @@ public static class ManagerResponse {
     
     
     
-    
 }
+
 
 /*
     Model: IntegrationTypeResponse
@@ -1540,7 +1539,7 @@ public static class ManagerResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class IntegrationTypeResponse {
+public static class IntegrationTypeResponse{
     
     
     
@@ -1556,8 +1555,8 @@ public static class IntegrationTypeResponse {
     
     
     
-    
 }
+
 
 /*
     Model: ContactNumberResponse
@@ -1568,7 +1567,7 @@ public static class IntegrationTypeResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ContactNumberResponse {
+public static class ContactNumberResponse{
     
     
     
@@ -1584,8 +1583,8 @@ public static class ContactNumberResponse {
     
     
     
-    
 }
+
 
 /*
     Model: Dp
@@ -1596,7 +1595,7 @@ public static class ContactNumberResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Dp {
+public static class Dp{
     
     
     
@@ -1660,8 +1659,8 @@ public static class Dp {
     
     
     
-    
 }
+
 
 /*
     Model: LogisticsResponse
@@ -1672,7 +1671,7 @@ public static class Dp {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LogisticsResponse {
+public static class LogisticsResponse{
     
     
     
@@ -1688,8 +1687,8 @@ public static class LogisticsResponse {
     
     
     
-    
 }
+
 
 /*
     Model: EwayBillResponse
@@ -1700,7 +1699,7 @@ public static class LogisticsResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EwayBillResponse {
+public static class EwayBillResponse{
     
     
     
@@ -1710,8 +1709,8 @@ public static class EwayBillResponse {
     
     
     
-    
 }
+
 
 /*
     Model: EinvoiceResponse
@@ -1722,7 +1721,7 @@ public static class EwayBillResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EinvoiceResponse {
+public static class EinvoiceResponse{
     
     
     
@@ -1732,8 +1731,8 @@ public static class EinvoiceResponse {
     
     
     
-    
 }
+
 
 /*
     Model: GstCredentialsResponse
@@ -1744,7 +1743,7 @@ public static class EinvoiceResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GstCredentialsResponse {
+public static class GstCredentialsResponse{
     
     
     
@@ -1760,8 +1759,8 @@ public static class GstCredentialsResponse {
     
     
     
-    
 }
+
 
 /*
     Model: ItemResponse
@@ -1772,7 +1771,7 @@ public static class GstCredentialsResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ItemResponse {
+public static class ItemResponse{
     
     
     
@@ -1944,8 +1943,8 @@ public static class ItemResponse {
     
     
     
-    
 }
+
 
 /*
     Model: GetStoresViewResponse
@@ -1956,7 +1955,7 @@ public static class ItemResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetStoresViewResponse {
+public static class GetStoresViewResponse{
     
     
     
@@ -1972,9 +1971,7 @@ public static class GetStoresViewResponse {
     
     
     
-    
 }
-
 
 
 

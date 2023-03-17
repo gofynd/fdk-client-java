@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class ConfigurationApplicationModels{
 
 
@@ -4087,8 +4086,6 @@ public static class OrderingStoresResponse{
     
     
 }
-
-
 
 
 

@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class ThemePlatformModels{
 
 
@@ -18,7 +17,7 @@ public class ThemePlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AvailablePageSchema {
+public static class AvailablePageSchema{
     
     
     
@@ -82,8 +81,8 @@ public static class AvailablePageSchema {
     
     
     
-    
 }
+
 
 /*
     Model: AvailablePageSectionMetaAttributes
@@ -94,7 +93,7 @@ public static class AvailablePageSchema {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AvailablePageSectionMetaAttributes {
+public static class AvailablePageSectionMetaAttributes{
     
     
     
@@ -104,8 +103,8 @@ public static class AvailablePageSectionMetaAttributes {
     
     
     
-    
 }
+
 
 /*
     Model: AvailablePageSeo
@@ -116,7 +115,7 @@ public static class AvailablePageSectionMetaAttributes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AvailablePageSeo {
+public static class AvailablePageSeo{
     
     
     
@@ -138,8 +137,8 @@ public static class AvailablePageSeo {
     
     
     
-    
 }
+
 
 /*
     Model: AvailablePageSchemaSections
@@ -150,7 +149,7 @@ public static class AvailablePageSeo {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AvailablePageSchemaSections {
+public static class AvailablePageSchemaSections{
     
     
     
@@ -190,8 +189,8 @@ public static class AvailablePageSchemaSections {
     
     
     
-    
 }
+
 
 /*
     Model: AvailablePageScreenPredicate
@@ -202,7 +201,7 @@ public static class AvailablePageSchemaSections {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AvailablePageScreenPredicate {
+public static class AvailablePageScreenPredicate{
     
     
     
@@ -224,8 +223,8 @@ public static class AvailablePageScreenPredicate {
     
     
     
-    
 }
+
 
 /*
     Model: AvailablePageUserPredicate
@@ -236,7 +235,7 @@ public static class AvailablePageScreenPredicate {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AvailablePageUserPredicate {
+public static class AvailablePageUserPredicate{
     
     
     
@@ -252,8 +251,8 @@ public static class AvailablePageUserPredicate {
     
     
     
-    
 }
+
 
 /*
     Model: AvailablePageRoutePredicate
@@ -264,7 +263,7 @@ public static class AvailablePageUserPredicate {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AvailablePageRoutePredicate {
+public static class AvailablePageRoutePredicate{
     
     
     
@@ -286,8 +285,8 @@ public static class AvailablePageRoutePredicate {
     
     
     
-    
 }
+
 
 /*
     Model: AvailablePagePredicate
@@ -298,7 +297,7 @@ public static class AvailablePageRoutePredicate {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AvailablePagePredicate {
+public static class AvailablePagePredicate{
     
     
     
@@ -320,8 +319,8 @@ public static class AvailablePagePredicate {
     
     
     
-    
 }
+
 
 /*
     Model: AllAvailablePageSchema
@@ -332,7 +331,7 @@ public static class AvailablePagePredicate {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AllAvailablePageSchema {
+public static class AllAvailablePageSchema{
     
     
     
@@ -342,8 +341,8 @@ public static class AllAvailablePageSchema {
     
     
     
-    
 }
+
 
 /*
     Model: PaginationSchema
@@ -354,7 +353,7 @@ public static class AllAvailablePageSchema {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaginationSchema {
+public static class PaginationSchema{
     
     
     
@@ -388,8 +387,8 @@ public static class PaginationSchema {
     
     
     
-    
 }
+
 
 /*
     Model: ThemesListingResponseSchema
@@ -400,7 +399,7 @@ public static class PaginationSchema {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ThemesListingResponseSchema {
+public static class ThemesListingResponseSchema{
     
     
     
@@ -416,8 +415,8 @@ public static class ThemesListingResponseSchema {
     
     
     
-    
 }
+
 
 /*
     Model: AddThemeRequestSchema
@@ -428,7 +427,7 @@ public static class ThemesListingResponseSchema {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddThemeRequestSchema {
+public static class AddThemeRequestSchema{
     
     
     
@@ -438,8 +437,8 @@ public static class AddThemeRequestSchema {
     
     
     
-    
 }
+
 
 /*
     Model: UpgradableThemeSchema
@@ -450,7 +449,7 @@ public static class AddThemeRequestSchema {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpgradableThemeSchema {
+public static class UpgradableThemeSchema{
     
     
     
@@ -472,8 +471,8 @@ public static class UpgradableThemeSchema {
     
     
     
-    
 }
+
 
 /*
     Model: FontsSchema
@@ -484,7 +483,7 @@ public static class UpgradableThemeSchema {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FontsSchema {
+public static class FontsSchema{
     
     
     
@@ -500,8 +499,8 @@ public static class FontsSchema {
     
     
     
-    
 }
+
 
 /*
     Model: BlitzkriegApiErrorSchema
@@ -512,7 +511,7 @@ public static class FontsSchema {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BlitzkriegApiErrorSchema {
+public static class BlitzkriegApiErrorSchema{
     
     
     
@@ -522,8 +521,8 @@ public static class BlitzkriegApiErrorSchema {
     
     
     
-    
 }
+
 
 /*
     Model: BlitzkriegNotFoundSchema
@@ -534,7 +533,7 @@ public static class BlitzkriegApiErrorSchema {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BlitzkriegNotFoundSchema {
+public static class BlitzkriegNotFoundSchema{
     
     
     
@@ -544,8 +543,8 @@ public static class BlitzkriegNotFoundSchema {
     
     
     
-    
 }
+
 
 /*
     Model: BlitzkriegInternalServerErrorSchema
@@ -556,7 +555,7 @@ public static class BlitzkriegNotFoundSchema {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BlitzkriegInternalServerErrorSchema {
+public static class BlitzkriegInternalServerErrorSchema{
     
     
     
@@ -566,8 +565,8 @@ public static class BlitzkriegInternalServerErrorSchema {
     
     
     
-    
 }
+
 
 /*
     Model: FontsSchemaItems
@@ -578,7 +577,7 @@ public static class BlitzkriegInternalServerErrorSchema {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FontsSchemaItems {
+public static class FontsSchemaItems{
     
     
     
@@ -630,8 +629,8 @@ public static class FontsSchemaItems {
     
     
     
-    
 }
+
 
 /*
     Model: FontsSchemaItemsFiles
@@ -642,7 +641,7 @@ public static class FontsSchemaItems {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FontsSchemaItemsFiles {
+public static class FontsSchemaItemsFiles{
     
     
     
@@ -664,8 +663,8 @@ public static class FontsSchemaItemsFiles {
     
     
     
-    
 }
+
 
 /*
     Model: ThemesSchema
@@ -676,7 +675,7 @@ public static class FontsSchemaItemsFiles {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ThemesSchema {
+public static class ThemesSchema{
     
     
     
@@ -806,8 +805,8 @@ public static class ThemesSchema {
     
     
     
-    
 }
+
 
 /*
     Model: availableSectionSchema
@@ -818,7 +817,7 @@ public static class ThemesSchema {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class availableSectionSchema {
+public static class availableSectionSchema{
     
     
     
@@ -846,8 +845,8 @@ public static class availableSectionSchema {
     
     
     
-    
 }
+
 
 /*
     Model: Information
@@ -858,7 +857,7 @@ public static class availableSectionSchema {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Information {
+public static class Information{
     
     
     
@@ -886,8 +885,8 @@ public static class Information {
     
     
     
-    
 }
+
 
 /*
     Model: Images
@@ -898,7 +897,7 @@ public static class Information {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Images {
+public static class Images{
     
     
     
@@ -926,8 +925,8 @@ public static class Images {
     
     
     
-    
 }
+
 
 /*
     Model: Src
@@ -938,7 +937,7 @@ public static class Images {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Src {
+public static class Src{
     
     
     
@@ -948,8 +947,8 @@ public static class Src {
     
     
     
-    
 }
+
 
 /*
     Model: AssetsSchema
@@ -960,7 +959,7 @@ public static class Src {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AssetsSchema {
+public static class AssetsSchema{
     
     
     
@@ -982,8 +981,8 @@ public static class AssetsSchema {
     
     
     
-    
 }
+
 
 /*
     Model: UmdJs
@@ -994,7 +993,7 @@ public static class AssetsSchema {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UmdJs {
+public static class UmdJs{
     
     
     
@@ -1010,8 +1009,8 @@ public static class UmdJs {
     
     
     
-    
 }
+
 
 /*
     Model: CommonJs
@@ -1022,7 +1021,7 @@ public static class UmdJs {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CommonJs {
+public static class CommonJs{
     
     
     
@@ -1032,8 +1031,8 @@ public static class CommonJs {
     
     
     
-    
 }
+
 
 /*
     Model: Css
@@ -1044,7 +1043,7 @@ public static class CommonJs {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Css {
+public static class Css{
     
     
     
@@ -1060,8 +1059,8 @@ public static class Css {
     
     
     
-    
 }
+
 
 /*
     Model: Sections
@@ -1072,7 +1071,7 @@ public static class Css {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Sections {
+public static class Sections{
     
     
     
@@ -1082,8 +1081,8 @@ public static class Sections {
     
     
     
-    
 }
+
 
 /*
     Model: Config
@@ -1094,7 +1093,7 @@ public static class Sections {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Config {
+public static class Config{
     
     
     
@@ -1122,8 +1121,8 @@ public static class Config {
     
     
     
-    
 }
+
 
 /*
     Model: Preset
@@ -1134,7 +1133,7 @@ public static class Config {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Preset {
+public static class Preset{
     
     
     
@@ -1144,8 +1143,8 @@ public static class Preset {
     
     
     
-    
 }
+
 
 /*
     Model: GlobalSchema
@@ -1156,7 +1155,7 @@ public static class Preset {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GlobalSchema {
+public static class GlobalSchema{
     
     
     
@@ -1166,8 +1165,8 @@ public static class GlobalSchema {
     
     
     
-    
 }
+
 
 /*
     Model: ListSchemaItem
@@ -1178,7 +1177,7 @@ public static class GlobalSchema {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ListSchemaItem {
+public static class ListSchemaItem{
     
     
     
@@ -1200,8 +1199,8 @@ public static class ListSchemaItem {
     
     
     
-    
 }
+
 
 /*
     Model: Colors
@@ -1212,7 +1211,7 @@ public static class ListSchemaItem {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Colors {
+public static class Colors{
     
     
     
@@ -1252,8 +1251,8 @@ public static class Colors {
     
     
     
-    
 }
+
 
 /*
     Model: Custom
@@ -1264,7 +1263,7 @@ public static class Colors {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Custom {
+public static class Custom{
     
     
     
@@ -1274,8 +1273,8 @@ public static class Custom {
     
     
     
-    
 }
+
 
 /*
     Model: ConfigPage
@@ -1286,7 +1285,7 @@ public static class Custom {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ConfigPage {
+public static class ConfigPage{
     
     
     
@@ -1302,8 +1301,8 @@ public static class ConfigPage {
     
     
     
-    
 }
+
 
 /*
     Model: Font
@@ -1314,7 +1313,7 @@ public static class ConfigPage {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Font {
+public static class Font{
     
     
     
@@ -1330,8 +1329,8 @@ public static class Font {
     
     
     
-    
 }
+
 
 /*
     Model: Variants
@@ -1342,7 +1341,7 @@ public static class Font {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Variants {
+public static class Variants{
     
     
     
@@ -1376,8 +1375,8 @@ public static class Variants {
     
     
     
-    
 }
+
 
 /*
     Model: Medium
@@ -1388,7 +1387,7 @@ public static class Variants {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Medium {
+public static class Medium{
     
     
     
@@ -1404,8 +1403,8 @@ public static class Medium {
     
     
     
-    
 }
+
 
 /*
     Model: SemiBold
@@ -1416,7 +1415,7 @@ public static class Medium {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SemiBold {
+public static class SemiBold{
     
     
     
@@ -1432,8 +1431,8 @@ public static class SemiBold {
     
     
     
-    
 }
+
 
 /*
     Model: Bold
@@ -1444,7 +1443,7 @@ public static class SemiBold {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Bold {
+public static class Bold{
     
     
     
@@ -1460,8 +1459,8 @@ public static class Bold {
     
     
     
-    
 }
+
 
 /*
     Model: Light
@@ -1472,7 +1471,7 @@ public static class Bold {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Light {
+public static class Light{
     
     
     
@@ -1488,8 +1487,8 @@ public static class Light {
     
     
     
-    
 }
+
 
 /*
     Model: Regular
@@ -1500,7 +1499,7 @@ public static class Light {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Regular {
+public static class Regular{
     
     
     
@@ -1516,8 +1515,8 @@ public static class Regular {
     
     
     
-    
 }
+
 
 /*
     Model: Blocks
@@ -1528,7 +1527,7 @@ public static class Regular {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Blocks {
+public static class Blocks{
     
     
     
@@ -1550,8 +1549,8 @@ public static class Blocks {
     
     
     
-    
 }
+
 
 /*
     Model: GlobalSchemaProps
@@ -1562,7 +1561,7 @@ public static class Blocks {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GlobalSchemaProps {
+public static class GlobalSchemaProps{
     
     
     
@@ -1590,8 +1589,8 @@ public static class GlobalSchemaProps {
     
     
     
-    
 }
+
 
 /*
     Model: BlocksProps
@@ -1602,7 +1601,7 @@ public static class GlobalSchemaProps {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BlocksProps {
+public static class BlocksProps{
     
     
     
@@ -1624,9 +1623,7 @@ public static class BlocksProps {
     
     
     
-    
 }
-
 
 
 

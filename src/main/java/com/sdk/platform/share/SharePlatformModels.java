@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class SharePlatformModels{
 
 
@@ -18,7 +17,7 @@ public class SharePlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RedirectDevice {
+public static class RedirectDevice{
     
     
     
@@ -34,8 +33,8 @@ public static class RedirectDevice {
     
     
     
-    
 }
+
 
 /*
     Model: WebRedirect
@@ -46,7 +45,7 @@ public static class RedirectDevice {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class WebRedirect {
+public static class WebRedirect{
     
     
     
@@ -62,8 +61,8 @@ public static class WebRedirect {
     
     
     
-    
 }
+
 
 /*
     Model: Redirects
@@ -74,7 +73,7 @@ public static class WebRedirect {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Redirects {
+public static class Redirects{
     
     
     
@@ -102,8 +101,8 @@ public static class Redirects {
     
     
     
-    
 }
+
 
 /*
     Model: CampaignShortLink
@@ -114,7 +113,7 @@ public static class Redirects {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CampaignShortLink {
+public static class CampaignShortLink{
     
     
     
@@ -130,8 +129,8 @@ public static class CampaignShortLink {
     
     
     
-    
 }
+
 
 /*
     Model: Attribution
@@ -142,7 +141,7 @@ public static class CampaignShortLink {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Attribution {
+public static class Attribution{
     
     
     
@@ -152,8 +151,8 @@ public static class Attribution {
     
     
     
-    
 }
+
 
 /*
     Model: SocialMediaTags
@@ -164,7 +163,7 @@ public static class Attribution {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SocialMediaTags {
+public static class SocialMediaTags{
     
     
     
@@ -186,8 +185,8 @@ public static class SocialMediaTags {
     
     
     
-    
 }
+
 
 /*
     Model: ShortLinkReq
@@ -198,7 +197,7 @@ public static class SocialMediaTags {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShortLinkReq {
+public static class ShortLinkReq{
     
     
     
@@ -274,8 +273,8 @@ public static class ShortLinkReq {
     
     
     
-    
 }
+
 
 /*
     Model: UrlInfo
@@ -286,7 +285,7 @@ public static class ShortLinkReq {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UrlInfo {
+public static class UrlInfo{
     
     
     
@@ -308,8 +307,8 @@ public static class UrlInfo {
     
     
     
-    
 }
+
 
 /*
     Model: ShortLinkRes
@@ -320,7 +319,7 @@ public static class UrlInfo {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShortLinkRes {
+public static class ShortLinkRes{
     
     
     
@@ -444,8 +443,8 @@ public static class ShortLinkRes {
     
     
     
-    
 }
+
 
 /*
     Model: Page
@@ -456,7 +455,7 @@ public static class ShortLinkRes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Page {
+public static class Page{
     
     
     
@@ -502,8 +501,8 @@ public static class Page {
     
     
     
-    
 }
+
 
 /*
     Model: ShortLinkList
@@ -514,7 +513,7 @@ public static class Page {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShortLinkList {
+public static class ShortLinkList{
     
     
     
@@ -530,8 +529,8 @@ public static class ShortLinkList {
     
     
     
-    
 }
+
 
 /*
     Model: ErrorRes
@@ -542,7 +541,7 @@ public static class ShortLinkList {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ErrorRes {
+public static class ErrorRes{
     
     
     
@@ -552,9 +551,7 @@ public static class ErrorRes {
     
     
     
-    
 }
-
 
 
 
