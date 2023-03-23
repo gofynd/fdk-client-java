@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class FeedbackPlatformModels{
 
 
@@ -18,7 +17,7 @@ public class FeedbackPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Activity {
+public static class Activity{
     
     
     
@@ -40,8 +39,8 @@ public static class Activity {
     
     
     
-    
 }
+
 
 /*
     Model: ActivityDump
@@ -52,7 +51,7 @@ public static class Activity {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ActivityDump {
+public static class ActivityDump{
     
     
     
@@ -86,8 +85,8 @@ public static class ActivityDump {
     
     
     
-    
 }
+
 
 /*
     Model: AddMediaListRequest
@@ -98,7 +97,7 @@ public static class ActivityDump {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddMediaListRequest {
+public static class AddMediaListRequest{
     
     
     
@@ -132,8 +131,8 @@ public static class AddMediaListRequest {
     
     
     
-    
 }
+
 
 /*
     Model: AddMediaRequest
@@ -144,7 +143,7 @@ public static class AddMediaListRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddMediaRequest {
+public static class AddMediaRequest{
     
     
     
@@ -214,8 +213,8 @@ public static class AddMediaRequest {
     
     
     
-    
 }
+
 
 /*
     Model: ApproveRequest
@@ -226,7 +225,7 @@ public static class AddMediaRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApproveRequest {
+public static class ApproveRequest{
     
     
     
@@ -254,8 +253,8 @@ public static class ApproveRequest {
     
     
     
-    
 }
+
 
 /*
     Model: Attribute
@@ -266,7 +265,7 @@ public static class ApproveRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Attribute {
+public static class Attribute{
     
     
     
@@ -306,8 +305,8 @@ public static class Attribute {
     
     
     
-    
 }
+
 
 /*
     Model: AttributeObject
@@ -318,7 +317,7 @@ public static class Attribute {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AttributeObject {
+public static class AttributeObject{
     
     
     
@@ -358,8 +357,8 @@ public static class AttributeObject {
     
     
     
-    
 }
+
 
 /*
     Model: CreatedBy
@@ -370,7 +369,7 @@ public static class AttributeObject {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreatedBy {
+public static class CreatedBy{
     
     
     
@@ -392,8 +391,8 @@ public static class CreatedBy {
     
     
     
-    
 }
+
 
 /*
     Model: CursorGetResponse
@@ -404,7 +403,7 @@ public static class CreatedBy {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CursorGetResponse {
+public static class CursorGetResponse{
     
     
     
@@ -420,8 +419,8 @@ public static class CursorGetResponse {
     
     
     
-    
 }
+
 
 /*
     Model: DateMeta
@@ -432,7 +431,7 @@ public static class CursorGetResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DateMeta {
+public static class DateMeta{
     
     
     
@@ -448,8 +447,8 @@ public static class DateMeta {
     
     
     
-    
 }
+
 
 /*
     Model: DeviceMeta
@@ -460,7 +459,7 @@ public static class DateMeta {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeviceMeta {
+public static class DeviceMeta{
     
     
     
@@ -476,8 +475,8 @@ public static class DeviceMeta {
     
     
     
-    
 }
+
 
 /*
     Model: Entity
@@ -488,7 +487,7 @@ public static class DeviceMeta {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Entity {
+public static class Entity{
     
     
     
@@ -504,8 +503,8 @@ public static class Entity {
     
     
     
-    
 }
+
 
 /*
     Model: EntityRequest
@@ -516,7 +515,7 @@ public static class Entity {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EntityRequest {
+public static class EntityRequest{
     
     
     
@@ -532,8 +531,8 @@ public static class EntityRequest {
     
     
     
-    
 }
+
 
 /*
     Model: FeedbackAttributes
@@ -544,7 +543,7 @@ public static class EntityRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FeedbackAttributes {
+public static class FeedbackAttributes{
     
     
     
@@ -560,8 +559,8 @@ public static class FeedbackAttributes {
     
     
     
-    
 }
+
 
 /*
     Model: FeedbackError
@@ -572,7 +571,7 @@ public static class FeedbackAttributes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FeedbackError {
+public static class FeedbackError{
     
     
     
@@ -624,8 +623,8 @@ public static class FeedbackError {
     
     
     
-    
 }
+
 
 /*
     Model: FeedbackState
@@ -636,7 +635,7 @@ public static class FeedbackError {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FeedbackState {
+public static class FeedbackState{
     
     
     
@@ -676,8 +675,8 @@ public static class FeedbackState {
     
     
     
-    
 }
+
 
 /*
     Model: GetResponse
@@ -688,7 +687,7 @@ public static class FeedbackState {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetResponse {
+public static class GetResponse{
     
     
     
@@ -704,8 +703,8 @@ public static class GetResponse {
     
     
     
-    
 }
+
 
 /*
     Model: GetReviewResponse
@@ -716,7 +715,7 @@ public static class GetResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetReviewResponse {
+public static class GetReviewResponse{
     
     
     
@@ -744,8 +743,8 @@ public static class GetReviewResponse {
     
     
     
-    
 }
+
 
 /*
     Model: InsertResponse
@@ -756,7 +755,7 @@ public static class GetReviewResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InsertResponse {
+public static class InsertResponse{
     
     
     
@@ -766,8 +765,8 @@ public static class InsertResponse {
     
     
     
-    
 }
+
 
 /*
     Model: MediaMeta
@@ -778,7 +777,7 @@ public static class InsertResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MediaMeta {
+public static class MediaMeta{
     
     
     
@@ -800,8 +799,8 @@ public static class MediaMeta {
     
     
     
-    
 }
+
 
 /*
     Model: MediaMetaRequest
@@ -812,7 +811,7 @@ public static class MediaMeta {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MediaMetaRequest {
+public static class MediaMetaRequest{
     
     
     
@@ -828,8 +827,8 @@ public static class MediaMetaRequest {
     
     
     
-    
 }
+
 
 /*
     Model: NumberGetResponse
@@ -840,7 +839,7 @@ public static class MediaMetaRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NumberGetResponse {
+public static class NumberGetResponse{
     
     
     
@@ -856,8 +855,8 @@ public static class NumberGetResponse {
     
     
     
-    
 }
+
 
 /*
     Model: Page
@@ -868,7 +867,7 @@ public static class NumberGetResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Page {
+public static class Page{
     
     
     
@@ -914,8 +913,8 @@ public static class Page {
     
     
     
-    
 }
+
 
 /*
     Model: PageCursor
@@ -926,7 +925,7 @@ public static class Page {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageCursor {
+public static class PageCursor{
     
     
     
@@ -972,8 +971,8 @@ public static class PageCursor {
     
     
     
-    
 }
+
 
 /*
     Model: PageNumber
@@ -984,7 +983,7 @@ public static class PageCursor {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageNumber {
+public static class PageNumber{
     
     
     
@@ -1018,8 +1017,8 @@ public static class PageNumber {
     
     
     
-    
 }
+
 
 /*
     Model: Rating
@@ -1030,7 +1029,7 @@ public static class PageNumber {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Rating {
+public static class Rating{
     
     
     
@@ -1052,8 +1051,8 @@ public static class Rating {
     
     
     
-    
 }
+
 
 /*
     Model: RatingRequest
@@ -1064,7 +1063,7 @@ public static class Rating {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RatingRequest {
+public static class RatingRequest{
     
     
     
@@ -1080,8 +1079,8 @@ public static class RatingRequest {
     
     
     
-    
 }
+
 
 /*
     Model: ReportAbuseRequest
@@ -1092,7 +1091,7 @@ public static class RatingRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReportAbuseRequest {
+public static class ReportAbuseRequest{
     
     
     
@@ -1114,8 +1113,8 @@ public static class ReportAbuseRequest {
     
     
     
-    
 }
+
 
 /*
     Model: Review
@@ -1126,7 +1125,7 @@ public static class ReportAbuseRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Review {
+public static class Review{
     
     
     
@@ -1166,8 +1165,8 @@ public static class Review {
     
     
     
-    
 }
+
 
 /*
     Model: ReviewFacet
@@ -1178,7 +1177,7 @@ public static class Review {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReviewFacet {
+public static class ReviewFacet{
     
     
     
@@ -1212,8 +1211,8 @@ public static class ReviewFacet {
     
     
     
-    
 }
+
 
 /*
     Model: ReviewRequest
@@ -1224,7 +1223,7 @@ public static class ReviewFacet {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReviewRequest {
+public static class ReviewRequest{
     
     
     
@@ -1264,8 +1263,8 @@ public static class ReviewRequest {
     
     
     
-    
 }
+
 
 /*
     Model: SaveAttributeRequest
@@ -1276,7 +1275,7 @@ public static class ReviewRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SaveAttributeRequest {
+public static class SaveAttributeRequest{
     
     
     
@@ -1298,8 +1297,8 @@ public static class SaveAttributeRequest {
     
     
     
-    
 }
+
 
 /*
     Model: SortMethod
@@ -1310,7 +1309,7 @@ public static class SaveAttributeRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SortMethod {
+public static class SortMethod{
     
     
     
@@ -1332,8 +1331,8 @@ public static class SortMethod {
     
     
     
-    
 }
+
 
 /*
     Model: TagMeta
@@ -1344,7 +1343,7 @@ public static class SortMethod {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TagMeta {
+public static class TagMeta{
     
     
     
@@ -1366,8 +1365,8 @@ public static class TagMeta {
     
     
     
-    
 }
+
 
 /*
     Model: Template
@@ -1378,7 +1377,7 @@ public static class TagMeta {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Template {
+public static class Template{
     
     
     
@@ -1430,8 +1429,8 @@ public static class Template {
     
     
     
-    
 }
+
 
 /*
     Model: TemplateGetResponse
@@ -1442,7 +1441,7 @@ public static class Template {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TemplateGetResponse {
+public static class TemplateGetResponse{
     
     
     
@@ -1458,8 +1457,8 @@ public static class TemplateGetResponse {
     
     
     
-    
 }
+
 
 /*
     Model: TemplateRequest
@@ -1470,7 +1469,7 @@ public static class TemplateGetResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TemplateRequest {
+public static class TemplateRequest{
     
     
     
@@ -1522,8 +1521,8 @@ public static class TemplateRequest {
     
     
     
-    
 }
+
 
 /*
     Model: TemplateRequestList
@@ -1534,7 +1533,7 @@ public static class TemplateRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TemplateRequestList {
+public static class TemplateRequestList{
     
     
     
@@ -1544,8 +1543,8 @@ public static class TemplateRequestList {
     
     
     
-    
 }
+
 
 /*
     Model: UI
@@ -1556,7 +1555,7 @@ public static class TemplateRequestList {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UI {
+public static class UI{
     
     
     
@@ -1584,8 +1583,8 @@ public static class UI {
     
     
     
-    
 }
+
 
 /*
     Model: UIIcon
@@ -1596,7 +1595,7 @@ public static class UI {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UIIcon {
+public static class UIIcon{
     
     
     
@@ -1618,8 +1617,8 @@ public static class UIIcon {
     
     
     
-    
 }
+
 
 /*
     Model: UpdateAttributeRequest
@@ -1630,7 +1629,7 @@ public static class UIIcon {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateAttributeRequest {
+public static class UpdateAttributeRequest{
     
     
     
@@ -1652,8 +1651,8 @@ public static class UpdateAttributeRequest {
     
     
     
-    
 }
+
 
 /*
     Model: UpdateResponse
@@ -1664,7 +1663,7 @@ public static class UpdateAttributeRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateResponse {
+public static class UpdateResponse{
     
     
     
@@ -1674,8 +1673,8 @@ public static class UpdateResponse {
     
     
     
-    
 }
+
 
 /*
     Model: UpdateReviewRequest
@@ -1686,7 +1685,7 @@ public static class UpdateResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateReviewRequest {
+public static class UpdateReviewRequest{
     
     
     
@@ -1774,8 +1773,8 @@ public static class UpdateReviewRequest {
     
     
     
-    
 }
+
 
 /*
     Model: UpdateTemplateRequest
@@ -1786,7 +1785,7 @@ public static class UpdateReviewRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateTemplateRequest {
+public static class UpdateTemplateRequest{
     
     
     
@@ -1838,8 +1837,8 @@ public static class UpdateTemplateRequest {
     
     
     
-    
 }
+
 
 /*
     Model: UpdateTemplateStatusRequest
@@ -1850,7 +1849,7 @@ public static class UpdateTemplateRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateTemplateStatusRequest {
+public static class UpdateTemplateStatusRequest{
     
     
     
@@ -1866,9 +1865,7 @@ public static class UpdateTemplateStatusRequest {
     
     
     
-    
 }
-
 
 
 

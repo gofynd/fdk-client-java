@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class PartnerPlatformModels{
 
 
@@ -18,7 +17,7 @@ public class PartnerPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddProxyReq {
+public static class AddProxyReq{
     
     
     
@@ -34,8 +33,8 @@ public static class AddProxyReq {
     
     
     
-    
 }
+
 
 /*
     Model: AddProxyResponse
@@ -46,7 +45,7 @@ public static class AddProxyReq {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddProxyResponse {
+public static class AddProxyResponse{
     
     
     
@@ -98,8 +97,8 @@ public static class AddProxyResponse {
     
     
     
-    
 }
+
 
 /*
     Model: RemoveProxyResponse
@@ -110,7 +109,7 @@ public static class AddProxyResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RemoveProxyResponse {
+public static class RemoveProxyResponse{
     
     
     
@@ -126,8 +125,8 @@ public static class RemoveProxyResponse {
     
     
     
-    
 }
+
 
 /*
     Model: APIError
@@ -138,7 +137,7 @@ public static class RemoveProxyResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class APIError {
+public static class APIError{
     
     
     
@@ -172,9 +171,7 @@ public static class APIError {
     
     
     
-    
 }
-
 
 
 

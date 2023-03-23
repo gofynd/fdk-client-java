@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class DiscountPlatformModels{
 
 
@@ -18,7 +17,7 @@ public class DiscountPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ValidityObject {
+public static class ValidityObject{
     
     
     
@@ -34,8 +33,8 @@ public static class ValidityObject {
     
     
     
-    
 }
+
 
 /*
     Model: CreateUpdateDiscount
@@ -46,7 +45,7 @@ public static class ValidityObject {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateUpdateDiscount {
+public static class CreateUpdateDiscount{
     
     
     
@@ -128,8 +127,8 @@ public static class CreateUpdateDiscount {
     
     
     
-    
 }
+
 
 /*
     Model: DiscountJob
@@ -140,7 +139,7 @@ public static class CreateUpdateDiscount {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DiscountJob {
+public static class DiscountJob{
     
     
     
@@ -252,8 +251,8 @@ public static class DiscountJob {
     
     
     
-    
 }
+
 
 /*
     Model: ListOrCalender
@@ -264,7 +263,7 @@ public static class DiscountJob {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ListOrCalender {
+public static class ListOrCalender{
     
     
     
@@ -280,8 +279,8 @@ public static class ListOrCalender {
     
     
     
-    
 }
+
 
 /*
     Model: FileJobResponse
@@ -292,7 +291,7 @@ public static class ListOrCalender {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FileJobResponse {
+public static class FileJobResponse{
     
     
     
@@ -338,8 +337,8 @@ public static class FileJobResponse {
     
     
     
-    
 }
+
 
 /*
     Model: DownloadFileJob
@@ -350,7 +349,7 @@ public static class FileJobResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DownloadFileJob {
+public static class DownloadFileJob{
     
     
     
@@ -366,8 +365,8 @@ public static class DownloadFileJob {
     
     
     
-    
 }
+
 
 /*
     Model: CancelJobResponse
@@ -378,7 +377,7 @@ public static class DownloadFileJob {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CancelJobResponse {
+public static class CancelJobResponse{
     
     
     
@@ -388,8 +387,8 @@ public static class CancelJobResponse {
     
     
     
-    
 }
+
 
 /*
     Model: Page
@@ -400,7 +399,7 @@ public static class CancelJobResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Page {
+public static class Page{
     
     
     
@@ -446,8 +445,8 @@ public static class Page {
     
     
     
-    
 }
+
 
 /*
     Model: UserDetails
@@ -458,7 +457,7 @@ public static class Page {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserDetails {
+public static class UserDetails{
     
     
     
@@ -474,8 +473,8 @@ public static class UserDetails {
     
     
     
-    
 }
+
 
 /*
     Model: BadRequestObject
@@ -486,7 +485,7 @@ public static class UserDetails {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BadRequestObject {
+public static class BadRequestObject{
     
     
     
@@ -496,9 +495,7 @@ public static class BadRequestObject {
     
     
     
-    
 }
-
 
 
 

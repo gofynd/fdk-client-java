@@ -22,7 +22,7 @@ interface OrderApplicationApiList {
     Call<OrderApplicationModels.ShipmentById> getShipmentById(@Url String url1);
     
     @GET 
-    Call<OrderApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Url String url1, @Query("document_type") String documentType );
+    Call<OrderApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Url String url1);
     
     @GET 
     Call<OrderApplicationModels.ShipmentTrack> trackShipment(@Url String url1);
