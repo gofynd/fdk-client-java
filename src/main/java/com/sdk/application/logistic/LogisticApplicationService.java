@@ -64,14 +64,14 @@ import com.sdk.application.ApplicationConfig;
      
     
     
-    public LogisticApplicationModels.PincodeApiResponse getPincodeCity(String pincode , String countryCode ) throws IOException {
+    public LogisticApplicationModels.PincodeApiResponse getPincodeCity(String pincode ) throws IOException {
      
       String fullUrl = relativeUrls.get("getPincodeCity");
         
         fullUrl = fullUrl.replace("{" + "pincode" +"}",pincode.toString());
         
 
-        Response<LogisticApplicationModels.PincodeApiResponse> response = logisticApplicationApiList.getPincodeCity(fullUrl  ,countryCode).execute();
+        Response<LogisticApplicationModels.PincodeApiResponse> response = logisticApplicationApiList.getPincodeCity(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
