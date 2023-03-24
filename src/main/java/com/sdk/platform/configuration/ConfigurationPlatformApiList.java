@@ -497,8 +497,23 @@ interface ConfigurationPlatformApiList {
     
     
     
-    @GET ("/service/platform/configuration/v1.0/company/{company_id}/integration-opt-in/configuration/new/{id}/{level}")
+    @GET ("/service/platform/configuration/v1.0/company/{company_id}/integration-opt-in/configuration/{id}/{level}")
     Call<ConfigurationPlatformModels.IntegrationConfigResponse> getIntegrationLevelConfig(@Path("company_id")  String companyId , @Path("id") String  id , @Path("level") String  level , @Query("opted") Boolean  opted ,  @Query("check_permission") Boolean  checkPermission );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/configuration/v1.0/company/{company_id}/integration-opt-in/configuration/{id}/{level}")
+    Call<ConfigurationPlatformModels.IntegrationLevel> updateLevelIntegration(@Path("company_id")  String companyId , @Path("id") String  id , @Path("level") String  level ,@Body ConfigurationPlatformModels.UpdateIntegrationLevelRequest payload);
     
     
     
@@ -551,26 +566,8 @@ interface ConfigurationPlatformApiList {
     
     
     
-    
-    
-    
     @GET ("/service/platform/configuration/v1.0/company/{company_id}/integration-opt-in/check/configuration/{id}/{level}/{uid}")
-    Call<ConfigurationPlatformModels.OptedStoreIntegration> getLevelActiveIntegrations(@Path("company_id")  String companyId , @Path("id") String  id , @Path("level") String  level , @Path("uid") Integer  uid , @Query("permission") String  permission );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @PUT ("/service/platform/configuration/v1.0/company/{company_id}/integration-opt-in/configuration/{id}/{level}")
-    Call<ConfigurationPlatformModels.IntegrationLevel> updateLevelIntegration(@Path("company_id")  String companyId , @Path("id") String  id , @Path("level") String  level ,@Body ConfigurationPlatformModels.UpdateIntegrationLevelRequest payload);
+    Call<ConfigurationPlatformModels.OptedStoreIntegration> getLevelActiveIntegrations(@Path("company_id")  String companyId , @Path("id") String  id , @Path("level") String  level , @Path("uid") Integer  uid );
     
     
     

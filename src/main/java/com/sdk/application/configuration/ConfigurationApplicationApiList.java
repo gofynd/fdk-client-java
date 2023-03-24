@@ -52,7 +52,7 @@ interface ConfigurationApplicationApiList {
     Call<ConfigurationApplicationModels.SuccessMessageResponse> removeOrderingStoreCookie(@Url String url1);
     
     @GET 
-    Call<ConfigurationApplicationModels.AppStaffListResponse> getAppStaffList(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("order_incent") Boolean orderIncent , @Query("ordering_store") Integer orderingStore , @Query("user") String user , @Query("user_name") String userName );
+    Call<ConfigurationApplicationModels.AppStaffListResponse> getAppStaffList(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("order_incent") Boolean orderIncent , @Query("ordering_store") Integer orderingStore , @Query("user") String user );
     
     @GET 
     Call<ConfigurationApplicationModels.AppStaffResponse> getAppStaffs(@Url String url1, @Query("order_incent") Boolean orderIncent , @Query("ordering_store") Integer orderingStore , @Query("user") String user );

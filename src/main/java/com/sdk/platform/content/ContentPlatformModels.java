@@ -207,7 +207,35 @@ public static class PathMappingSchema{
     
     
     @JsonProperty("__source")
-    private TagSourceSchema source;
+    private PathSourceSchema source;
+    
+    
+    
+}
+
+
+/*
+    Model: PathSourceSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PathSourceSchema{
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
     
     
     

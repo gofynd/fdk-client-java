@@ -611,14 +611,8 @@ interface ContentPlatformApiList {
     
     
     
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/pages/meta")
-    Call<ContentPlatformModels.PageMetaSchema> getPageMeta(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_type") String  pageType ,  @Query("cart_pages") Boolean  cartPages );
+    Call<ContentPlatformModels.PageMetaSchema> getPageMeta(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
     
     
@@ -631,6 +625,18 @@ interface ContentPlatformApiList {
     
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/pages/spec")
     Call<ContentPlatformModels.PageSpec> getPageSpec(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/pages/preview/")
+    Call<ContentPlatformModels.PageSchema> createPagePreview(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ContentPlatformModels.PageRequest payload);
     
     
     
