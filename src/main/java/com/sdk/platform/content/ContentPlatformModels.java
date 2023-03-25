@@ -27,6 +27,24 @@ public static class GenerateSEOContent{
     
     
     
+    
+    @JsonProperty("existing_text")
+    private String existingText;
+    
+    
+    
+    
+    @JsonProperty("keywords")
+    private List<String> keywords;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
 }
 
 
