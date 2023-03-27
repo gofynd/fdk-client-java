@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class FileStorageApplicationModels{
 
 
@@ -799,8 +798,6 @@ public static class BrowseResponse{
     
     
 }
-
-
 
 
 

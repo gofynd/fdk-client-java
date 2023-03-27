@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class BillingPlatformModels{
 
 
@@ -18,7 +17,7 @@ public class BillingPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Page {
+public static class Page{
     
     
     
@@ -64,8 +63,8 @@ public static class Page {
     
     
     
-    
 }
+
 
 /*
     Model: UnauthenticatedUser
@@ -76,7 +75,7 @@ public static class Page {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UnauthenticatedUser {
+public static class UnauthenticatedUser{
     
     
     
@@ -86,8 +85,8 @@ public static class UnauthenticatedUser {
     
     
     
-    
 }
+
 
 /*
     Model: UnauthenticatedApplication
@@ -98,7 +97,7 @@ public static class UnauthenticatedUser {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UnauthenticatedApplication {
+public static class UnauthenticatedApplication{
     
     
     
@@ -108,8 +107,8 @@ public static class UnauthenticatedApplication {
     
     
     
-    
 }
+
 
 /*
     Model: BadRequest
@@ -120,7 +119,7 @@ public static class UnauthenticatedApplication {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BadRequest {
+public static class BadRequest{
     
     
     
@@ -130,8 +129,8 @@ public static class BadRequest {
     
     
     
-    
 }
+
 
 /*
     Model: ResourceNotFound
@@ -142,7 +141,7 @@ public static class BadRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResourceNotFound {
+public static class ResourceNotFound{
     
     
     
@@ -152,8 +151,8 @@ public static class ResourceNotFound {
     
     
     
-    
 }
+
 
 /*
     Model: InternalServerError
@@ -164,7 +163,7 @@ public static class ResourceNotFound {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InternalServerError {
+public static class InternalServerError{
     
     
     
@@ -180,8 +179,8 @@ public static class InternalServerError {
     
     
     
-    
 }
+
 
 /*
     Model: CheckValidityResponse
@@ -192,7 +191,7 @@ public static class InternalServerError {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CheckValidityResponse {
+public static class CheckValidityResponse{
     
     
     
@@ -208,8 +207,8 @@ public static class CheckValidityResponse {
     
     
     
-    
 }
+
 
 /*
     Model: PlanRecurring
@@ -220,7 +219,7 @@ public static class CheckValidityResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PlanRecurring {
+public static class PlanRecurring{
     
     
     
@@ -236,8 +235,8 @@ public static class PlanRecurring {
     
     
     
-    
 }
+
 
 /*
     Model: Plan
@@ -248,7 +247,7 @@ public static class PlanRecurring {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Plan {
+public static class Plan{
     
     
     
@@ -366,8 +365,8 @@ public static class Plan {
     
     
     
-    
 }
+
 
 /*
     Model: DetailedPlanComponents
@@ -378,7 +377,7 @@ public static class Plan {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DetailedPlanComponents {
+public static class DetailedPlanComponents{
     
     
     
@@ -430,8 +429,8 @@ public static class DetailedPlanComponents {
     
     
     
-    
 }
+
 
 /*
     Model: DetailedPlan
@@ -442,7 +441,7 @@ public static class DetailedPlanComponents {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DetailedPlan {
+public static class DetailedPlan{
     
     
     
@@ -566,8 +565,8 @@ public static class DetailedPlan {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionTrialPeriod
@@ -578,7 +577,7 @@ public static class DetailedPlan {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionTrialPeriod {
+public static class SubscriptionTrialPeriod{
     
     
     
@@ -594,8 +593,8 @@ public static class SubscriptionTrialPeriod {
     
     
     
-    
 }
+
 
 /*
     Model: EntityChargePrice
@@ -606,7 +605,7 @@ public static class SubscriptionTrialPeriod {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EntityChargePrice {
+public static class EntityChargePrice{
     
     
     
@@ -622,8 +621,8 @@ public static class EntityChargePrice {
     
     
     
-    
 }
+
 
 /*
     Model: EntityChargeRecurring
@@ -634,7 +633,7 @@ public static class EntityChargePrice {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EntityChargeRecurring {
+public static class EntityChargeRecurring{
     
     
     
@@ -644,8 +643,8 @@ public static class EntityChargeRecurring {
     
     
     
-    
 }
+
 
 /*
     Model: ChargeLineItem
@@ -656,7 +655,7 @@ public static class EntityChargeRecurring {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ChargeLineItem {
+public static class ChargeLineItem{
     
     
     
@@ -714,8 +713,8 @@ public static class ChargeLineItem {
     
     
     
-    
 }
+
 
 /*
     Model: CreateSubscriptionCharge
@@ -726,7 +725,7 @@ public static class ChargeLineItem {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateSubscriptionCharge {
+public static class CreateSubscriptionCharge{
     
     
     
@@ -760,8 +759,8 @@ public static class CreateSubscriptionCharge {
     
     
     
-    
 }
+
 
 /*
     Model: CurrentPeriod
@@ -772,7 +771,7 @@ public static class CreateSubscriptionCharge {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CurrentPeriod {
+public static class CurrentPeriod{
     
     
     
@@ -788,8 +787,8 @@ public static class CurrentPeriod {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionCharge
@@ -800,7 +799,7 @@ public static class CurrentPeriod {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionCharge {
+public static class SubscriptionCharge{
     
     
     
@@ -888,8 +887,8 @@ public static class SubscriptionCharge {
     
     
     
-    
 }
+
 
 /*
     Model: EntitySubscription
@@ -900,7 +899,7 @@ public static class SubscriptionCharge {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EntitySubscription {
+public static class EntitySubscription{
     
     
     
@@ -964,8 +963,8 @@ public static class EntitySubscription {
     
     
     
-    
 }
+
 
 /*
     Model: CreateSubscriptionResponse
@@ -976,7 +975,7 @@ public static class EntitySubscription {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateSubscriptionResponse {
+public static class CreateSubscriptionResponse{
     
     
     
@@ -992,8 +991,8 @@ public static class CreateSubscriptionResponse {
     
     
     
-    
 }
+
 
 /*
     Model: InvoiceDetailsPeriod
@@ -1004,7 +1003,7 @@ public static class CreateSubscriptionResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceDetailsPeriod {
+public static class InvoiceDetailsPeriod{
     
     
     
@@ -1020,8 +1019,8 @@ public static class InvoiceDetailsPeriod {
     
     
     
-    
 }
+
 
 /*
     Model: InvoiceDetailsClient
@@ -1032,7 +1031,7 @@ public static class InvoiceDetailsPeriod {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceDetailsClient {
+public static class InvoiceDetailsClient{
     
     
     
@@ -1060,8 +1059,8 @@ public static class InvoiceDetailsClient {
     
     
     
-    
 }
+
 
 /*
     Model: InvoiceDetailsStatusTrail
@@ -1072,7 +1071,7 @@ public static class InvoiceDetailsClient {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceDetailsStatusTrail {
+public static class InvoiceDetailsStatusTrail{
     
     
     
@@ -1094,8 +1093,8 @@ public static class InvoiceDetailsStatusTrail {
     
     
     
-    
 }
+
 
 /*
     Model: InvoiceDetailsPaymentMethodsDataChecks
@@ -1106,7 +1105,7 @@ public static class InvoiceDetailsStatusTrail {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceDetailsPaymentMethodsDataChecks {
+public static class InvoiceDetailsPaymentMethodsDataChecks{
     
     
     
@@ -1128,8 +1127,8 @@ public static class InvoiceDetailsPaymentMethodsDataChecks {
     
     
     
-    
 }
+
 
 /*
     Model: InvoiceDetailsPaymentMethodsDataNetworks
@@ -1140,7 +1139,7 @@ public static class InvoiceDetailsPaymentMethodsDataChecks {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceDetailsPaymentMethodsDataNetworks {
+public static class InvoiceDetailsPaymentMethodsDataNetworks{
     
     
     
@@ -1156,8 +1155,8 @@ public static class InvoiceDetailsPaymentMethodsDataNetworks {
     
     
     
-    
 }
+
 
 /*
     Model: InvoiceDetailsPaymentMethodsDataThreeDSecureUsage
@@ -1168,7 +1167,7 @@ public static class InvoiceDetailsPaymentMethodsDataNetworks {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceDetailsPaymentMethodsDataThreeDSecureUsage {
+public static class InvoiceDetailsPaymentMethodsDataThreeDSecureUsage{
     
     
     
@@ -1178,8 +1177,8 @@ public static class InvoiceDetailsPaymentMethodsDataThreeDSecureUsage {
     
     
     
-    
 }
+
 
 /*
     Model: InvoiceDetailsPaymentMethodsData
@@ -1190,7 +1189,7 @@ public static class InvoiceDetailsPaymentMethodsDataThreeDSecureUsage {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceDetailsPaymentMethodsData {
+public static class InvoiceDetailsPaymentMethodsData{
     
     
     
@@ -1266,8 +1265,8 @@ public static class InvoiceDetailsPaymentMethodsData {
     
     
     
-    
 }
+
 
 /*
     Model: InvoiceDetailsPaymentMethods
@@ -1278,7 +1277,7 @@ public static class InvoiceDetailsPaymentMethodsData {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceDetailsPaymentMethods {
+public static class InvoiceDetailsPaymentMethods{
     
     
     
@@ -1312,8 +1311,8 @@ public static class InvoiceDetailsPaymentMethods {
     
     
     
-    
 }
+
 
 /*
     Model: InvoicePaymentMethod
@@ -1324,7 +1323,7 @@ public static class InvoiceDetailsPaymentMethods {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoicePaymentMethod {
+public static class InvoicePaymentMethod{
     
     
     
@@ -1334,8 +1333,8 @@ public static class InvoicePaymentMethod {
     
     
     
-    
 }
+
 
 /*
     Model: InvoiceDetails
@@ -1346,7 +1345,7 @@ public static class InvoicePaymentMethod {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceDetails {
+public static class InvoiceDetails{
     
     
     
@@ -1494,8 +1493,8 @@ public static class InvoiceDetails {
     
     
     
-    
 }
+
 
 /*
     Model: InvoiceItemsPlanRecurring
@@ -1506,7 +1505,7 @@ public static class InvoiceDetails {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceItemsPlanRecurring {
+public static class InvoiceItemsPlanRecurring{
     
     
     
@@ -1522,8 +1521,8 @@ public static class InvoiceItemsPlanRecurring {
     
     
     
-    
 }
+
 
 /*
     Model: InvoiceItemsPlan
@@ -1534,7 +1533,7 @@ public static class InvoiceItemsPlanRecurring {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceItemsPlan {
+public static class InvoiceItemsPlan{
     
     
     
@@ -1652,8 +1651,8 @@ public static class InvoiceItemsPlan {
     
     
     
-    
 }
+
 
 /*
     Model: InvoiceItemsPeriod
@@ -1664,7 +1663,7 @@ public static class InvoiceItemsPlan {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceItemsPeriod {
+public static class InvoiceItemsPeriod{
     
     
     
@@ -1680,8 +1679,8 @@ public static class InvoiceItemsPeriod {
     
     
     
-    
 }
+
 
 /*
     Model: InvoiceItems
@@ -1692,7 +1691,7 @@ public static class InvoiceItemsPeriod {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceItems {
+public static class InvoiceItems{
     
     
     
@@ -1774,8 +1773,8 @@ public static class InvoiceItems {
     
     
     
-    
 }
+
 
 /*
     Model: Invoice
@@ -1786,7 +1785,7 @@ public static class InvoiceItems {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Invoice {
+public static class Invoice{
     
     
     
@@ -1802,8 +1801,8 @@ public static class Invoice {
     
     
     
-    
 }
+
 
 /*
     Model: InvoicesDataClient
@@ -1814,7 +1813,7 @@ public static class Invoice {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoicesDataClient {
+public static class InvoicesDataClient{
     
     
     
@@ -1842,8 +1841,8 @@ public static class InvoicesDataClient {
     
     
     
-    
 }
+
 
 /*
     Model: InvoicesDataPeriod
@@ -1854,7 +1853,7 @@ public static class InvoicesDataClient {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoicesDataPeriod {
+public static class InvoicesDataPeriod{
     
     
     
@@ -1870,8 +1869,8 @@ public static class InvoicesDataPeriod {
     
     
     
-    
 }
+
 
 /*
     Model: InvoicesDataPaymentMethod
@@ -1882,7 +1881,7 @@ public static class InvoicesDataPeriod {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoicesDataPaymentMethod {
+public static class InvoicesDataPaymentMethod{
     
     
     
@@ -1892,8 +1891,8 @@ public static class InvoicesDataPaymentMethod {
     
     
     
-    
 }
+
 
 /*
     Model: InvoicesData
@@ -1904,7 +1903,7 @@ public static class InvoicesDataPaymentMethod {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoicesData {
+public static class InvoicesData{
     
     
     
@@ -2058,8 +2057,8 @@ public static class InvoicesData {
     
     
     
-    
 }
+
 
 /*
     Model: Invoices
@@ -2070,7 +2069,7 @@ public static class InvoicesData {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Invoices {
+public static class Invoices{
     
     
     
@@ -2110,8 +2109,8 @@ public static class Invoices {
     
     
     
-    
 }
+
 
 /*
     Model: Phone
@@ -2122,7 +2121,7 @@ public static class Invoices {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Phone {
+public static class Phone{
     
     
     
@@ -2138,8 +2137,8 @@ public static class Phone {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionBillingAddress
@@ -2150,7 +2149,7 @@ public static class Phone {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionBillingAddress {
+public static class SubscriptionBillingAddress{
     
     
     
@@ -2190,8 +2189,8 @@ public static class SubscriptionBillingAddress {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionCustomer
@@ -2202,7 +2201,7 @@ public static class SubscriptionBillingAddress {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionCustomer {
+public static class SubscriptionCustomer{
     
     
     
@@ -2266,8 +2265,8 @@ public static class SubscriptionCustomer {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionCustomerCreate
@@ -2278,7 +2277,7 @@ public static class SubscriptionCustomer {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionCustomerCreate {
+public static class SubscriptionCustomerCreate{
     
     
     
@@ -2318,8 +2317,8 @@ public static class SubscriptionCustomerCreate {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionCurrentPeriod
@@ -2330,7 +2329,7 @@ public static class SubscriptionCustomerCreate {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionCurrentPeriod {
+public static class SubscriptionCurrentPeriod{
     
     
     
@@ -2346,8 +2345,8 @@ public static class SubscriptionCurrentPeriod {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionPauseCollection
@@ -2358,7 +2357,7 @@ public static class SubscriptionCurrentPeriod {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionPauseCollection {
+public static class SubscriptionPauseCollection{
     
     
     
@@ -2374,8 +2373,8 @@ public static class SubscriptionPauseCollection {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionTrial
@@ -2386,7 +2385,7 @@ public static class SubscriptionPauseCollection {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionTrial {
+public static class SubscriptionTrial{
     
     
     
@@ -2402,8 +2401,8 @@ public static class SubscriptionTrial {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionInvoiceSettings
@@ -2414,7 +2413,7 @@ public static class SubscriptionTrial {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionInvoiceSettings {
+public static class SubscriptionInvoiceSettings{
     
     
     
@@ -2430,8 +2429,8 @@ public static class SubscriptionInvoiceSettings {
     
     
     
-    
 }
+
 
 /*
     Model: Subscription
@@ -2442,7 +2441,7 @@ public static class SubscriptionInvoiceSettings {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Subscription {
+public static class Subscription{
     
     
     
@@ -2542,8 +2541,8 @@ public static class Subscription {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionStatus
@@ -2554,7 +2553,7 @@ public static class Subscription {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionStatus {
+public static class SubscriptionStatus{
     
     
     
@@ -2570,8 +2569,8 @@ public static class SubscriptionStatus {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionLimitApplication
@@ -2582,7 +2581,7 @@ public static class SubscriptionStatus {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionLimitApplication {
+public static class SubscriptionLimitApplication{
     
     
     
@@ -2604,8 +2603,8 @@ public static class SubscriptionLimitApplication {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionLimitMarketplace
@@ -2616,7 +2615,7 @@ public static class SubscriptionLimitApplication {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionLimitMarketplace {
+public static class SubscriptionLimitMarketplace{
     
     
     
@@ -2626,8 +2625,8 @@ public static class SubscriptionLimitMarketplace {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionLimitOtherPlatform
@@ -2638,7 +2637,7 @@ public static class SubscriptionLimitMarketplace {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionLimitOtherPlatform {
+public static class SubscriptionLimitOtherPlatform{
     
     
     
@@ -2648,8 +2647,8 @@ public static class SubscriptionLimitOtherPlatform {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionLimitTeam
@@ -2660,7 +2659,7 @@ public static class SubscriptionLimitOtherPlatform {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionLimitTeam {
+public static class SubscriptionLimitTeam{
     
     
     
@@ -2670,8 +2669,8 @@ public static class SubscriptionLimitTeam {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionLimitProducts
@@ -2682,7 +2681,7 @@ public static class SubscriptionLimitTeam {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionLimitProducts {
+public static class SubscriptionLimitProducts{
     
     
     
@@ -2698,8 +2697,8 @@ public static class SubscriptionLimitProducts {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionLimitExtensions
@@ -2710,7 +2709,7 @@ public static class SubscriptionLimitProducts {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionLimitExtensions {
+public static class SubscriptionLimitExtensions{
     
     
     
@@ -2726,8 +2725,8 @@ public static class SubscriptionLimitExtensions {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionLimitIntegrations
@@ -2738,7 +2737,7 @@ public static class SubscriptionLimitExtensions {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionLimitIntegrations {
+public static class SubscriptionLimitIntegrations{
     
     
     
@@ -2754,8 +2753,8 @@ public static class SubscriptionLimitIntegrations {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionLimit
@@ -2766,7 +2765,7 @@ public static class SubscriptionLimitIntegrations {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionLimit {
+public static class SubscriptionLimit{
     
     
     
@@ -2818,8 +2817,8 @@ public static class SubscriptionLimit {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionActivateReq
@@ -2830,7 +2829,7 @@ public static class SubscriptionLimit {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionActivateReq {
+public static class SubscriptionActivateReq{
     
     
     
@@ -2864,8 +2863,8 @@ public static class SubscriptionActivateReq {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionActivateRes
@@ -2876,7 +2875,7 @@ public static class SubscriptionActivateReq {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionActivateRes {
+public static class SubscriptionActivateRes{
     
     
     
@@ -2892,8 +2891,8 @@ public static class SubscriptionActivateRes {
     
     
     
-    
 }
+
 
 /*
     Model: CancelSubscriptionReq
@@ -2904,7 +2903,7 @@ public static class SubscriptionActivateRes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CancelSubscriptionReq {
+public static class CancelSubscriptionReq{
     
     
     
@@ -2932,8 +2931,8 @@ public static class CancelSubscriptionReq {
     
     
     
-    
 }
+
 
 /*
     Model: CancelSubscriptionRes
@@ -2944,7 +2943,7 @@ public static class CancelSubscriptionReq {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CancelSubscriptionRes {
+public static class CancelSubscriptionRes{
     
     
     
@@ -2960,9 +2959,7 @@ public static class CancelSubscriptionRes {
     
     
     
-    
 }
-
 
 
 

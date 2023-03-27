@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class PosCartApplicationModels{
 
 
@@ -3689,8 +3688,6 @@ public static class SharedCartResponse{
     
     
 }
-
-
 
 
 

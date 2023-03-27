@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class CartApplicationModels{
 
 
@@ -3715,8 +3714,6 @@ public static class LadderPriceOffers{
     
     
 }
-
-
 
 
 

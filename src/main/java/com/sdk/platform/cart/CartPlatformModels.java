@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class CartPlatformModels{
 
 
@@ -18,7 +17,7 @@ public class CartPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Ownership {
+public static class Ownership{
     
     
     
@@ -34,8 +33,8 @@ public static class Ownership {
     
     
     
-    
 }
+
 
 /*
     Model: DisplayMetaDict
@@ -46,7 +45,7 @@ public static class Ownership {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DisplayMetaDict {
+public static class DisplayMetaDict{
     
     
     
@@ -62,8 +61,8 @@ public static class DisplayMetaDict {
     
     
     
-    
 }
+
 
 /*
     Model: DisplayMeta
@@ -74,7 +73,7 @@ public static class DisplayMetaDict {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DisplayMeta {
+public static class DisplayMeta{
     
     
     
@@ -114,8 +113,8 @@ public static class DisplayMeta {
     
     
     
-    
 }
+
 
 /*
     Model: Validity
@@ -126,7 +125,7 @@ public static class DisplayMeta {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Validity {
+public static class Validity{
     
     
     
@@ -136,8 +135,8 @@ public static class Validity {
     
     
     
-    
 }
+
 
 /*
     Model: CouponSchedule
@@ -148,7 +147,7 @@ public static class Validity {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CouponSchedule {
+public static class CouponSchedule{
     
     
     
@@ -182,8 +181,8 @@ public static class CouponSchedule {
     
     
     
-    
 }
+
 
 /*
     Model: Rule
@@ -194,7 +193,7 @@ public static class CouponSchedule {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Rule {
+public static class Rule{
     
     
     
@@ -228,8 +227,8 @@ public static class Rule {
     
     
     
-    
 }
+
 
 /*
     Model: RuleDefinition
@@ -240,7 +239,7 @@ public static class Rule {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RuleDefinition {
+public static class RuleDefinition{
     
     
     
@@ -292,8 +291,8 @@ public static class RuleDefinition {
     
     
     
-    
 }
+
 
 /*
     Model: CouponAction
@@ -304,7 +303,7 @@ public static class RuleDefinition {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CouponAction {
+public static class CouponAction{
     
     
     
@@ -320,8 +319,8 @@ public static class CouponAction {
     
     
     
-    
 }
+
 
 /*
     Model: CouponDateMeta
@@ -332,7 +331,7 @@ public static class CouponAction {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CouponDateMeta {
+public static class CouponDateMeta{
     
     
     
@@ -348,8 +347,8 @@ public static class CouponDateMeta {
     
     
     
-    
 }
+
 
 /*
     Model: Identifier
@@ -360,7 +359,7 @@ public static class CouponDateMeta {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Identifier {
+public static class Identifier{
     
     
     
@@ -418,8 +417,8 @@ public static class Identifier {
     
     
     
-    
 }
+
 
 /*
     Model: PaymentAllowValue
@@ -430,7 +429,7 @@ public static class Identifier {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentAllowValue {
+public static class PaymentAllowValue{
     
     
     
@@ -440,8 +439,8 @@ public static class PaymentAllowValue {
     
     
     
-    
 }
+
 
 /*
     Model: PaymentModes
@@ -452,7 +451,7 @@ public static class PaymentAllowValue {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentModes {
+public static class PaymentModes{
     
     
     
@@ -480,8 +479,8 @@ public static class PaymentModes {
     
     
     
-    
 }
+
 
 /*
     Model: UsesRemaining
@@ -492,7 +491,7 @@ public static class PaymentModes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UsesRemaining {
+public static class UsesRemaining{
     
     
     
@@ -514,8 +513,8 @@ public static class UsesRemaining {
     
     
     
-    
 }
+
 
 /*
     Model: UsesRestriction
@@ -526,7 +525,7 @@ public static class UsesRemaining {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UsesRestriction {
+public static class UsesRestriction{
     
     
     
@@ -542,8 +541,8 @@ public static class UsesRestriction {
     
     
     
-    
 }
+
 
 /*
     Model: PriceRange
@@ -554,7 +553,7 @@ public static class UsesRestriction {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PriceRange {
+public static class PriceRange{
     
     
     
@@ -570,8 +569,8 @@ public static class PriceRange {
     
     
     
-    
 }
+
 
 /*
     Model: BulkBundleRestriction
@@ -582,7 +581,7 @@ public static class PriceRange {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkBundleRestriction {
+public static class BulkBundleRestriction{
     
     
     
@@ -592,8 +591,8 @@ public static class BulkBundleRestriction {
     
     
     
-    
 }
+
 
 /*
     Model: PostOrder
@@ -604,7 +603,7 @@ public static class BulkBundleRestriction {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PostOrder {
+public static class PostOrder{
     
     
     
@@ -620,8 +619,8 @@ public static class PostOrder {
     
     
     
-    
 }
+
 
 /*
     Model: Restrictions
@@ -632,7 +631,7 @@ public static class PostOrder {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Restrictions {
+public static class Restrictions{
     
     
     
@@ -690,8 +689,8 @@ public static class Restrictions {
     
     
     
-    
 }
+
 
 /*
     Model: CouponAuthor
@@ -702,7 +701,7 @@ public static class Restrictions {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CouponAuthor {
+public static class CouponAuthor{
     
     
     
@@ -718,8 +717,8 @@ public static class CouponAuthor {
     
     
     
-    
 }
+
 
 /*
     Model: State
@@ -730,7 +729,7 @@ public static class CouponAuthor {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class State {
+public static class State{
     
     
     
@@ -752,8 +751,8 @@ public static class State {
     
     
     
-    
 }
+
 
 /*
     Model: Validation
@@ -764,7 +763,7 @@ public static class State {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Validation {
+public static class Validation{
     
     
     
@@ -786,8 +785,8 @@ public static class Validation {
     
     
     
-    
 }
+
 
 /*
     Model: CouponAdd
@@ -798,7 +797,7 @@ public static class Validation {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CouponAdd {
+public static class CouponAdd{
     
     
     
@@ -898,8 +897,8 @@ public static class CouponAdd {
     
     
     
-    
 }
+
 
 /*
     Model: Page
@@ -910,7 +909,7 @@ public static class CouponAdd {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Page {
+public static class Page{
     
     
     
@@ -956,8 +955,8 @@ public static class Page {
     
     
     
-    
 }
+
 
 /*
     Model: CouponsResponse
@@ -968,7 +967,7 @@ public static class Page {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CouponsResponse {
+public static class CouponsResponse{
     
     
     
@@ -984,8 +983,8 @@ public static class CouponsResponse {
     
     
     
-    
 }
+
 
 /*
     Model: SuccessMessage
@@ -996,7 +995,7 @@ public static class CouponsResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SuccessMessage {
+public static class SuccessMessage{
     
     
     
@@ -1012,8 +1011,8 @@ public static class SuccessMessage {
     
     
     
-    
 }
+
 
 /*
     Model: OperationErrorResponse
@@ -1024,7 +1023,7 @@ public static class SuccessMessage {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OperationErrorResponse {
+public static class OperationErrorResponse{
     
     
     
@@ -1040,8 +1039,8 @@ public static class OperationErrorResponse {
     
     
     
-    
 }
+
 
 /*
     Model: CouponUpdate
@@ -1052,7 +1051,7 @@ public static class OperationErrorResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CouponUpdate {
+public static class CouponUpdate{
     
     
     
@@ -1152,8 +1151,8 @@ public static class CouponUpdate {
     
     
     
-    
 }
+
 
 /*
     Model: CouponPartialUpdate
@@ -1164,7 +1163,7 @@ public static class CouponUpdate {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CouponPartialUpdate {
+public static class CouponPartialUpdate{
     
     
     
@@ -1180,8 +1179,8 @@ public static class CouponPartialUpdate {
     
     
     
-    
 }
+
 
 /*
     Model: PromotionSchedule
@@ -1192,7 +1191,7 @@ public static class CouponPartialUpdate {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromotionSchedule {
+public static class PromotionSchedule{
     
     
     
@@ -1232,8 +1231,8 @@ public static class PromotionSchedule {
     
     
     
-    
 }
+
 
 /*
     Model: PromotionAuthor
@@ -1244,7 +1243,7 @@ public static class PromotionSchedule {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromotionAuthor {
+public static class PromotionAuthor{
     
     
     
@@ -1260,8 +1259,8 @@ public static class PromotionAuthor {
     
     
     
-    
 }
+
 
 /*
     Model: Visibility
@@ -1272,7 +1271,7 @@ public static class PromotionAuthor {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Visibility {
+public static class Visibility{
     
     
     
@@ -1288,8 +1287,8 @@ public static class Visibility {
     
     
     
-    
 }
+
 
 /*
     Model: UserRegistered
@@ -1300,7 +1299,7 @@ public static class Visibility {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserRegistered {
+public static class UserRegistered{
     
     
     
@@ -1316,8 +1315,8 @@ public static class UserRegistered {
     
     
     
-    
 }
+
 
 /*
     Model: PaymentAllowValue1
@@ -1328,7 +1327,7 @@ public static class UserRegistered {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentAllowValue1 {
+public static class PaymentAllowValue1{
     
     
     
@@ -1338,8 +1337,8 @@ public static class PaymentAllowValue1 {
     
     
     
-    
 }
+
 
 /*
     Model: PromotionPaymentModes
@@ -1350,7 +1349,7 @@ public static class PaymentAllowValue1 {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromotionPaymentModes {
+public static class PromotionPaymentModes{
     
     
     
@@ -1372,8 +1371,8 @@ public static class PromotionPaymentModes {
     
     
     
-    
 }
+
 
 /*
     Model: UsesRemaining1
@@ -1384,7 +1383,7 @@ public static class PromotionPaymentModes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UsesRemaining1 {
+public static class UsesRemaining1{
     
     
     
@@ -1400,8 +1399,8 @@ public static class UsesRemaining1 {
     
     
     
-    
 }
+
 
 /*
     Model: UsesRestriction1
@@ -1412,7 +1411,7 @@ public static class UsesRemaining1 {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UsesRestriction1 {
+public static class UsesRestriction1{
     
     
     
@@ -1428,8 +1427,8 @@ public static class UsesRestriction1 {
     
     
     
-    
 }
+
 
 /*
     Model: PostOrder1
@@ -1440,7 +1439,7 @@ public static class UsesRestriction1 {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PostOrder1 {
+public static class PostOrder1{
     
     
     
@@ -1456,8 +1455,8 @@ public static class PostOrder1 {
     
     
     
-    
 }
+
 
 /*
     Model: Restrictions1
@@ -1468,7 +1467,7 @@ public static class PostOrder1 {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Restrictions1 {
+public static class Restrictions1{
     
     
     
@@ -1526,8 +1525,8 @@ public static class Restrictions1 {
     
     
     
-    
 }
+
 
 /*
     Model: PromotionAction
@@ -1538,7 +1537,7 @@ public static class Restrictions1 {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromotionAction {
+public static class PromotionAction{
     
     
     
@@ -1554,8 +1553,8 @@ public static class PromotionAction {
     
     
     
-    
 }
+
 
 /*
     Model: CompareObject
@@ -1566,7 +1565,7 @@ public static class PromotionAction {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompareObject {
+public static class CompareObject{
     
     
     
@@ -1600,8 +1599,8 @@ public static class CompareObject {
     
     
     
-    
 }
+
 
 /*
     Model: ItemCriteria
@@ -1612,7 +1611,7 @@ public static class CompareObject {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ItemCriteria {
+public static class ItemCriteria{
     
     
     
@@ -1712,8 +1711,8 @@ public static class ItemCriteria {
     
     
     
-    
 }
+
 
 /*
     Model: DiscountOffer
@@ -1724,7 +1723,7 @@ public static class ItemCriteria {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DiscountOffer {
+public static class DiscountOffer{
     
     
     
@@ -1770,8 +1769,8 @@ public static class DiscountOffer {
     
     
     
-    
 }
+
 
 /*
     Model: DiscountRule
@@ -1782,7 +1781,7 @@ public static class DiscountOffer {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DiscountRule {
+public static class DiscountRule{
     
     
     
@@ -1810,8 +1809,8 @@ public static class DiscountRule {
     
     
     
-    
 }
+
 
 /*
     Model: PromotionDateMeta
@@ -1822,7 +1821,7 @@ public static class DiscountRule {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromotionDateMeta {
+public static class PromotionDateMeta{
     
     
     
@@ -1838,8 +1837,8 @@ public static class PromotionDateMeta {
     
     
     
-    
 }
+
 
 /*
     Model: Ownership1
@@ -1850,7 +1849,7 @@ public static class PromotionDateMeta {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Ownership1 {
+public static class Ownership1{
     
     
     
@@ -1866,8 +1865,8 @@ public static class Ownership1 {
     
     
     
-    
 }
+
 
 /*
     Model: DisplayMeta1
@@ -1878,7 +1877,7 @@ public static class Ownership1 {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DisplayMeta1 {
+public static class DisplayMeta1{
     
     
     
@@ -1900,8 +1899,8 @@ public static class DisplayMeta1 {
     
     
     
-    
 }
+
 
 /*
     Model: PromotionListItem
@@ -1912,7 +1911,7 @@ public static class DisplayMeta1 {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromotionListItem {
+public static class PromotionListItem{
     
     
     
@@ -2042,8 +2041,8 @@ public static class PromotionListItem {
     
     
     
-    
 }
+
 
 /*
     Model: PromotionsResponse
@@ -2054,7 +2053,7 @@ public static class PromotionListItem {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromotionsResponse {
+public static class PromotionsResponse{
     
     
     
@@ -2070,8 +2069,8 @@ public static class PromotionsResponse {
     
     
     
-    
 }
+
 
 /*
     Model: PromotionAdd
@@ -2082,7 +2081,7 @@ public static class PromotionsResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromotionAdd {
+public static class PromotionAdd{
     
     
     
@@ -2212,8 +2211,8 @@ public static class PromotionAdd {
     
     
     
-    
 }
+
 
 /*
     Model: PromotionUpdate
@@ -2224,7 +2223,7 @@ public static class PromotionAdd {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromotionUpdate {
+public static class PromotionUpdate{
     
     
     
@@ -2354,8 +2353,8 @@ public static class PromotionUpdate {
     
     
     
-    
 }
+
 
 /*
     Model: PromotionPartialUpdate
@@ -2366,7 +2365,7 @@ public static class PromotionUpdate {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromotionPartialUpdate {
+public static class PromotionPartialUpdate{
     
     
     
@@ -2382,8 +2381,8 @@ public static class PromotionPartialUpdate {
     
     
     
-    
 }
+
 
 /*
     Model: CartItem
@@ -2394,7 +2393,7 @@ public static class PromotionPartialUpdate {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartItem {
+public static class CartItem{
     
     
     
@@ -2416,8 +2415,8 @@ public static class CartItem {
     
     
     
-    
 }
+
 
 /*
     Model: OpenapiCartDetailsRequest
@@ -2428,7 +2427,7 @@ public static class CartItem {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OpenapiCartDetailsRequest {
+public static class OpenapiCartDetailsRequest{
     
     
     
@@ -2438,8 +2437,8 @@ public static class OpenapiCartDetailsRequest {
     
     
     
-    
 }
+
 
 /*
     Model: ProductPrice
@@ -2450,7 +2449,7 @@ public static class OpenapiCartDetailsRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductPrice {
+public static class ProductPrice{
     
     
     
@@ -2490,8 +2489,8 @@ public static class ProductPrice {
     
     
     
-    
 }
+
 
 /*
     Model: ProductPriceInfo
@@ -2502,7 +2501,7 @@ public static class ProductPrice {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductPriceInfo {
+public static class ProductPriceInfo{
     
     
     
@@ -2518,8 +2517,8 @@ public static class ProductPriceInfo {
     
     
     
-    
 }
+
 
 /*
     Model: Ownership2
@@ -2530,7 +2529,7 @@ public static class ProductPriceInfo {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Ownership2 {
+public static class Ownership2{
     
     
     
@@ -2546,8 +2545,8 @@ public static class Ownership2 {
     
     
     
-    
 }
+
 
 /*
     Model: AppliedPromotion
@@ -2558,7 +2557,7 @@ public static class Ownership2 {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AppliedPromotion {
+public static class AppliedPromotion{
     
     
     
@@ -2604,8 +2603,8 @@ public static class AppliedPromotion {
     
     
     
-    
 }
+
 
 /*
     Model: PromoMeta
@@ -2616,7 +2615,7 @@ public static class AppliedPromotion {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromoMeta {
+public static class PromoMeta{
     
     
     
@@ -2626,8 +2625,8 @@ public static class PromoMeta {
     
     
     
-    
 }
+
 
 /*
     Model: CartProductIdentifer
@@ -2638,7 +2637,7 @@ public static class PromoMeta {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartProductIdentifer {
+public static class CartProductIdentifer{
     
     
     
@@ -2648,8 +2647,8 @@ public static class CartProductIdentifer {
     
     
     
-    
 }
+
 
 /*
     Model: BaseInfo
@@ -2660,7 +2659,7 @@ public static class CartProductIdentifer {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BaseInfo {
+public static class BaseInfo{
     
     
     
@@ -2676,8 +2675,8 @@ public static class BaseInfo {
     
     
     
-    
 }
+
 
 /*
     Model: BasePrice
@@ -2688,7 +2687,7 @@ public static class BaseInfo {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BasePrice {
+public static class BasePrice{
     
     
     
@@ -2716,8 +2715,8 @@ public static class BasePrice {
     
     
     
-    
 }
+
 
 /*
     Model: ArticlePriceInfo
@@ -2728,7 +2727,7 @@ public static class BasePrice {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ArticlePriceInfo {
+public static class ArticlePriceInfo{
     
     
     
@@ -2744,8 +2743,8 @@ public static class ArticlePriceInfo {
     
     
     
-    
 }
+
 
 /*
     Model: ProductArticle
@@ -2756,7 +2755,7 @@ public static class ArticlePriceInfo {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductArticle {
+public static class ProductArticle{
     
     
     
@@ -2826,8 +2825,8 @@ public static class ProductArticle {
     
     
     
-    
 }
+
 
 /*
     Model: CategoryInfo
@@ -2838,7 +2837,7 @@ public static class ProductArticle {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CategoryInfo {
+public static class CategoryInfo{
     
     
     
@@ -2854,8 +2853,8 @@ public static class CategoryInfo {
     
     
     
-    
 }
+
 
 /*
     Model: ActionQuery
@@ -2866,7 +2865,7 @@ public static class CategoryInfo {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ActionQuery {
+public static class ActionQuery{
     
     
     
@@ -2876,8 +2875,8 @@ public static class ActionQuery {
     
     
     
-    
 }
+
 
 /*
     Model: ProductAction
@@ -2888,7 +2887,7 @@ public static class ActionQuery {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductAction {
+public static class ProductAction{
     
     
     
@@ -2910,8 +2909,8 @@ public static class ProductAction {
     
     
     
-    
 }
+
 
 /*
     Model: ProductImage
@@ -2922,7 +2921,7 @@ public static class ProductAction {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductImage {
+public static class ProductImage{
     
     
     
@@ -2944,8 +2943,8 @@ public static class ProductImage {
     
     
     
-    
 }
+
 
 /*
     Model: CartProduct
@@ -2956,7 +2955,7 @@ public static class ProductImage {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartProduct {
+public static class CartProduct{
     
     
     
@@ -3008,8 +3007,8 @@ public static class CartProduct {
     
     
     
-    
 }
+
 
 /*
     Model: ProductAvailability
@@ -3020,7 +3019,7 @@ public static class CartProduct {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductAvailability {
+public static class ProductAvailability{
     
     
     
@@ -3054,8 +3053,8 @@ public static class ProductAvailability {
     
     
     
-    
 }
+
 
 /*
     Model: CartProductInfo
@@ -3066,7 +3065,7 @@ public static class ProductAvailability {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartProductInfo {
+public static class CartProductInfo{
     
     
     
@@ -3166,8 +3165,8 @@ public static class CartProductInfo {
     
     
     
-    
 }
+
 
 /*
     Model: LoyaltyPoints
@@ -3178,7 +3177,7 @@ public static class CartProductInfo {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LoyaltyPoints {
+public static class LoyaltyPoints{
     
     
     
@@ -3206,8 +3205,8 @@ public static class LoyaltyPoints {
     
     
     
-    
 }
+
 
 /*
     Model: DisplayBreakup
@@ -3218,7 +3217,7 @@ public static class LoyaltyPoints {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DisplayBreakup {
+public static class DisplayBreakup{
     
     
     
@@ -3258,8 +3257,8 @@ public static class DisplayBreakup {
     
     
     
-    
 }
+
 
 /*
     Model: RawBreakup
@@ -3270,7 +3269,7 @@ public static class DisplayBreakup {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RawBreakup {
+public static class RawBreakup{
     
     
     
@@ -3346,8 +3345,8 @@ public static class RawBreakup {
     
     
     
-    
 }
+
 
 /*
     Model: CouponBreakup
@@ -3358,7 +3357,7 @@ public static class RawBreakup {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CouponBreakup {
+public static class CouponBreakup{
     
     
     
@@ -3398,8 +3397,8 @@ public static class CouponBreakup {
     
     
     
-    
 }
+
 
 /*
     Model: CartBreakup
@@ -3410,7 +3409,7 @@ public static class CouponBreakup {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartBreakup {
+public static class CartBreakup{
     
     
     
@@ -3438,8 +3437,8 @@ public static class CartBreakup {
     
     
     
-    
 }
+
 
 /*
     Model: OpenapiCartDetailsResponse
@@ -3450,7 +3449,7 @@ public static class CartBreakup {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OpenapiCartDetailsResponse {
+public static class OpenapiCartDetailsResponse{
     
     
     
@@ -3478,8 +3477,8 @@ public static class OpenapiCartDetailsResponse {
     
     
     
-    
 }
+
 
 /*
     Model: OpenApiErrorResponse
@@ -3490,7 +3489,7 @@ public static class OpenapiCartDetailsResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OpenApiErrorResponse {
+public static class OpenApiErrorResponse{
     
     
     
@@ -3512,8 +3511,8 @@ public static class OpenApiErrorResponse {
     
     
     
-    
 }
+
 
 /*
     Model: ShippingAddress
@@ -3524,7 +3523,7 @@ public static class OpenApiErrorResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShippingAddress {
+public static class ShippingAddress{
     
     
     
@@ -3618,8 +3617,8 @@ public static class ShippingAddress {
     
     
     
-    
 }
+
 
 /*
     Model: OpenApiCartServiceabilityRequest
@@ -3630,7 +3629,7 @@ public static class ShippingAddress {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OpenApiCartServiceabilityRequest {
+public static class OpenApiCartServiceabilityRequest{
     
     
     
@@ -3646,8 +3645,8 @@ public static class OpenApiCartServiceabilityRequest {
     
     
     
-    
 }
+
 
 /*
     Model: PromiseTimestamp
@@ -3658,7 +3657,7 @@ public static class OpenApiCartServiceabilityRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromiseTimestamp {
+public static class PromiseTimestamp{
     
     
     
@@ -3674,8 +3673,8 @@ public static class PromiseTimestamp {
     
     
     
-    
 }
+
 
 /*
     Model: PromiseFormatted
@@ -3686,7 +3685,7 @@ public static class PromiseTimestamp {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromiseFormatted {
+public static class PromiseFormatted{
     
     
     
@@ -3702,8 +3701,8 @@ public static class PromiseFormatted {
     
     
     
-    
 }
+
 
 /*
     Model: ShipmentPromise
@@ -3714,7 +3713,7 @@ public static class PromiseFormatted {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShipmentPromise {
+public static class ShipmentPromise{
     
     
     
@@ -3730,8 +3729,8 @@ public static class ShipmentPromise {
     
     
     
-    
 }
+
 
 /*
     Model: OpenApiCartServiceabilityResponse
@@ -3742,7 +3741,7 @@ public static class ShipmentPromise {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OpenApiCartServiceabilityResponse {
+public static class OpenApiCartServiceabilityResponse{
     
     
     
@@ -3776,8 +3775,8 @@ public static class OpenApiCartServiceabilityResponse {
     
     
     
-    
 }
+
 
 /*
     Model: OpenApiFiles
@@ -3788,7 +3787,7 @@ public static class OpenApiCartServiceabilityResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OpenApiFiles {
+public static class OpenApiFiles{
     
     
     
@@ -3804,8 +3803,8 @@ public static class OpenApiFiles {
     
     
     
-    
 }
+
 
 /*
     Model: MultiTenderPaymentMeta
@@ -3816,7 +3815,7 @@ public static class OpenApiFiles {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MultiTenderPaymentMeta {
+public static class MultiTenderPaymentMeta{
     
     
     
@@ -3850,8 +3849,8 @@ public static class MultiTenderPaymentMeta {
     
     
     
-    
 }
+
 
 /*
     Model: MultiTenderPaymentMethod
@@ -3862,7 +3861,7 @@ public static class MultiTenderPaymentMeta {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MultiTenderPaymentMethod {
+public static class MultiTenderPaymentMethod{
     
     
     
@@ -3890,8 +3889,8 @@ public static class MultiTenderPaymentMethod {
     
     
     
-    
 }
+
 
 /*
     Model: CartItemMeta
@@ -3902,7 +3901,7 @@ public static class MultiTenderPaymentMethod {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartItemMeta {
+public static class CartItemMeta{
     
     
     
@@ -3918,8 +3917,8 @@ public static class CartItemMeta {
     
     
     
-    
 }
+
 
 /*
     Model: OpenApiOrderItem
@@ -3930,7 +3929,7 @@ public static class CartItemMeta {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OpenApiOrderItem {
+public static class OpenApiOrderItem{
     
     
     
@@ -4036,8 +4035,8 @@ public static class OpenApiOrderItem {
     
     
     
-    
 }
+
 
 /*
     Model: OpenApiPlatformCheckoutReq
@@ -4048,7 +4047,7 @@ public static class OpenApiOrderItem {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OpenApiPlatformCheckoutReq {
+public static class OpenApiPlatformCheckoutReq{
     
     
     
@@ -4172,8 +4171,8 @@ public static class OpenApiPlatformCheckoutReq {
     
     
     
-    
 }
+
 
 /*
     Model: OpenApiCheckoutResponse
@@ -4184,7 +4183,7 @@ public static class OpenApiPlatformCheckoutReq {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OpenApiCheckoutResponse {
+public static class OpenApiCheckoutResponse{
     
     
     
@@ -4212,8 +4211,8 @@ public static class OpenApiCheckoutResponse {
     
     
     
-    
 }
+
 
 /*
     Model: AbandonedCart
@@ -4224,7 +4223,7 @@ public static class OpenApiCheckoutResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AbandonedCart {
+public static class AbandonedCart{
     
     
     
@@ -4426,8 +4425,8 @@ public static class AbandonedCart {
     
     
     
-    
 }
+
 
 /*
     Model: AbandonedCartResponse
@@ -4438,7 +4437,7 @@ public static class AbandonedCart {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AbandonedCartResponse {
+public static class AbandonedCartResponse{
     
     
     
@@ -4472,8 +4471,8 @@ public static class AbandonedCartResponse {
     
     
     
-    
 }
+
 
 /*
     Model: CartCurrency
@@ -4484,7 +4483,7 @@ public static class AbandonedCartResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartCurrency {
+public static class CartCurrency{
     
     
     
@@ -4500,8 +4499,8 @@ public static class CartCurrency {
     
     
     
-    
 }
+
 
 /*
     Model: PaymentSelectionLock
@@ -4512,7 +4511,7 @@ public static class CartCurrency {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentSelectionLock {
+public static class PaymentSelectionLock{
     
     
     
@@ -4534,8 +4533,8 @@ public static class PaymentSelectionLock {
     
     
     
-    
 }
+
 
 /*
     Model: CartDetailResponse
@@ -4546,7 +4545,7 @@ public static class PaymentSelectionLock {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartDetailResponse {
+public static class CartDetailResponse{
     
     
     
@@ -4646,8 +4645,8 @@ public static class CartDetailResponse {
     
     
     
-    
 }
+
 
 /*
     Model: AddProductCart
@@ -4658,7 +4657,7 @@ public static class CartDetailResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddProductCart {
+public static class AddProductCart{
     
     
     
@@ -4740,8 +4739,8 @@ public static class AddProductCart {
     
     
     
-    
 }
+
 
 /*
     Model: AddCartRequest
@@ -4752,7 +4751,7 @@ public static class AddProductCart {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddCartRequest {
+public static class AddCartRequest{
     
     
     
@@ -4762,8 +4761,8 @@ public static class AddCartRequest {
     
     
     
-    
 }
+
 
 /*
     Model: AddCartDetailResponse
@@ -4774,7 +4773,7 @@ public static class AddCartRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddCartDetailResponse {
+public static class AddCartDetailResponse{
     
     
     
@@ -4802,8 +4801,8 @@ public static class AddCartDetailResponse {
     
     
     
-    
 }
+
 
 /*
     Model: UpdateProductCart
@@ -4814,7 +4813,7 @@ public static class AddCartDetailResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateProductCart {
+public static class UpdateProductCart{
     
     
     
@@ -4872,8 +4871,8 @@ public static class UpdateProductCart {
     
     
     
-    
 }
+
 
 /*
     Model: UpdateCartRequest
@@ -4884,7 +4883,7 @@ public static class UpdateProductCart {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateCartRequest {
+public static class UpdateCartRequest{
     
     
     
@@ -4900,8 +4899,8 @@ public static class UpdateCartRequest {
     
     
     
-    
 }
+
 
 /*
     Model: UpdateCartDetailResponse
@@ -4912,7 +4911,7 @@ public static class UpdateCartRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateCartDetailResponse {
+public static class UpdateCartDetailResponse{
     
     
     
@@ -4934,9 +4933,7 @@ public static class UpdateCartDetailResponse {
     
     
     
-    
 }
-
 
 
 
