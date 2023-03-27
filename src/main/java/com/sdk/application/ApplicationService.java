@@ -87,9 +87,9 @@ public class ApplicationService {
             
                     relativeUrls.put("getProductBundlesBySlug","/service/application/catalog/v1.0/product-grouping/".substring(1));
             
-                    relativeUrls.put("getProductPriceBySlug","/service/application/catalog/v2.0/products/{slug}/sizes/{size}/price/".substring(1));
+                    relativeUrls.put("getProductPriceBySlug","/service/application/catalog/v3.0/products/{slug}/sizes/{size}/price/".substring(1));
             
-                    relativeUrls.put("getProductSellersBySlug","/service/application/catalog/v2.0/products/{slug}/sizes/{size}/sellers/".substring(1));
+                    relativeUrls.put("getProductSellersBySlug","/service/application/catalog/v3.0/products/{slug}/sizes/{size}/sellers/".substring(1));
              
 
     }
@@ -1207,7 +1207,7 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.ProductSizePriceResponseV2 getProductPriceBySlug(String slug , String size , Integer storeId , String pincode ) throws IOException {
+    public ApplicationModels.ProductSizePriceResponseV3 getProductPriceBySlug(String slug , String size , Integer storeId , String pincode , Integer moq ) throws IOException {
      
       String fullUrl = relativeUrls.get("getProductPriceBySlug");
         
@@ -1216,7 +1216,7 @@ public class ApplicationService {
         fullUrl = fullUrl.replace("{" + "size" +"}",size.toString());
         
 
-        Response<ApplicationModels.ProductSizePriceResponseV2> response = catalogApiList.getProductPriceBySlug(fullUrl  ,storeId, pincode).execute();
+        Response<ApplicationModels.ProductSizePriceResponseV3> response = catalogApiList.getProductPriceBySlug(fullUrl  ,storeId, pincode, moq).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1228,7 +1228,7 @@ public class ApplicationService {
     
     
     
-    public ApplicationModels.ProductSizeSellersResponseV2 getProductSellersBySlug(String slug , String size , String pincode , String strategy , Integer pageNo , Integer pageSize ) throws IOException {
+    public ApplicationModels.ProductSizeSellersResponseV3 getProductSellersBySlug(String slug , String size , String pincode , String strategy , Integer pageNo , Integer pageSize ) throws IOException {
      
       String fullUrl = relativeUrls.get("getProductSellersBySlug");
         
@@ -1237,7 +1237,7 @@ public class ApplicationService {
         fullUrl = fullUrl.replace("{" + "size" +"}",size.toString());
         
 
-        Response<ApplicationModels.ProductSizeSellersResponseV2> response = catalogApiList.getProductSellersBySlug(fullUrl  ,pincode, strategy, pageNo, pageSize).execute();
+        Response<ApplicationModels.ProductSizeSellersResponseV3> response = catalogApiList.getProductSellersBySlug(fullUrl  ,pincode, strategy, pageNo, pageSize).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1282,7 +1282,7 @@ public class ApplicationService {
     * Summary: get paginator for getProductSellersBySlug
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<ApplicationModels.ProductSizeSellersResponseV2> getProductSellersBySlugPagination(
+    public Paginator<ApplicationModels.ProductSizeSellersResponseV3> getProductSellersBySlugPagination(
         
         String slug,
         String size,
@@ -1294,11 +1294,11 @@ public class ApplicationService {
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<ApplicationModels.ProductSizeSellersResponseV2> paginator = new Paginator<>(pageSize, "number");
+    Paginator<ApplicationModels.ProductSizeSellersResponseV3> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            ApplicationModels.ProductSizeSellersResponseV2 callback = this.getProductSellersBySlug(
+            ApplicationModels.ProductSizeSellersResponseV3 callback = this.getProductSellersBySlug(
                 
                  slug,
                  size,
