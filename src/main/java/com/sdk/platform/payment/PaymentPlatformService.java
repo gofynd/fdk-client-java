@@ -899,9 +899,9 @@ public class ApplicationClient {
     
     
 
-    public PaymentPlatformModels.getPaymentCodeResponse getPaymentCodeOption() throws FDKException {
+    public PaymentPlatformModels.GetPaymentCodeResponse getPaymentCodeOption() throws FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.getPaymentCodeResponse> response = null;
+            Response<PaymentPlatformModels.GetPaymentCodeResponse> response = null;
             try {
             response = paymentPlatformApiList.getPaymentCodeOption(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {

@@ -258,6 +258,6 @@ interface PaymentPlatformApiList {
     
     
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/codes")
-    Call<PaymentPlatformModels.getPaymentCodeResponse> getPaymentCodeOption(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    Call<PaymentPlatformModels.GetPaymentCodeResponse> getPaymentCodeOption(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
 }

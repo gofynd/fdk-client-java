@@ -179,4 +179,28 @@ interface RewardsPlatformApiList {
     @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/users/{user_id}/points/history/")
     Call<RewardsPlatformModels.HistoryRes> getUserPointsHistory(@Path("user_id") String  userId , @Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_id") String  pageId ,  @Query("page_size") Integer  pageSize );
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/configuration/")
+    Call<RewardsPlatformModels.ConfigurationRes> getRewardsConfiguration(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/configuration/")
+    Call<RewardsPlatformModels.SetConfigurationRes> setRewardsConfiguration(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body RewardsPlatformModels.ConfigurationRequest payload);
+    
 }

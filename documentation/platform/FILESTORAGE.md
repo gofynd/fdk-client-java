@@ -714,6 +714,8 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | url | String |  no  |  |
+ | absoluteUrl | String? |  yes  |  |
+ | relativeUrl | String? |  yes  |  |
 
 ---
 
