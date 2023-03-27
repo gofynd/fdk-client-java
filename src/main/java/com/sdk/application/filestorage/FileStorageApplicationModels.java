@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
+
 public class FileStorageApplicationModels{
 
 
@@ -46,18 +47,6 @@ public static class CDN{
     
     @JsonProperty("url")
     private String url;
-    
-    
-    
-    
-    @JsonProperty("absolute_url")
-    private String absoluteUrl;
-    
-    
-    
-    
-    @JsonProperty("relative_url")
-    private String relativeUrl;
     
     
     
@@ -798,6 +787,8 @@ public static class BrowseResponse{
     
     
 }
+
+
 
 
 

@@ -5,525 +5,8 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
+
 public class InventoryPlatformModels{
-
-
-/*
-    Model: DataTresholdDTO
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DataTresholdDTO{
-    
-    
-    
-    
-    @JsonProperty("min_price")
-    private Double minPrice;
-    
-    
-    
-    
-    @JsonProperty("safe_stock")
-    private Integer safeStock;
-    
-    
-    
-    
-    @JsonProperty("period_threshold")
-    private Integer periodThreshold;
-    
-    
-    
-    
-    @JsonProperty("period_threshold_type")
-    private String periodThresholdType;
-    
-    
-    
-    
-    @JsonProperty("period_type_list")
-    private List<GenericDTO> periodTypeList;
-    
-    
-    
-}
-
-
-/*
-    Model: GenericDTO
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GenericDTO{
-    
-    
-    
-    
-    @JsonProperty("text")
-    private String text;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private Object value;
-    
-    
-    
-}
-
-
-/*
-    Model: JobConfigDTO
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class JobConfigDTO{
-    
-    
-    
-    
-    @JsonProperty("integration_data")
-    private HashMap<String,Object> integrationData;
-    
-    
-    
-    
-    @JsonProperty("company_name")
-    private String companyName;
-    
-    
-    
-    
-    @JsonProperty("integration")
-    private String integration;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("task_details")
-    private TaskDTO taskDetails;
-    
-    
-    
-    
-    @JsonProperty("threshold_details")
-    private DataTresholdDTO thresholdDetails;
-    
-    
-    
-    
-    @JsonProperty("job_code")
-    private String jobCode;
-    
-    
-    
-    
-    @JsonProperty("alias")
-    private String alias;
-    
-    
-    
-}
-
-
-/*
-    Model: TaskDTO
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TaskDTO{
-    
-    
-    
-    
-    @JsonProperty("type")
-    private Integer type;
-    
-    
-    
-    
-    @JsonProperty("group_list")
-    private List<GenericDTO> groupList;
-    
-    
-    
-}
-
-
-/*
-    Model: Page
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Page{
-    
-    
-    
-    
-    @JsonProperty("item_total")
-    private Integer itemTotal;
-    
-    
-    
-    
-    @JsonProperty("next_id")
-    private String nextId;
-    
-    
-    
-    
-    @JsonProperty("has_previous")
-    private Boolean hasPrevious;
-    
-    
-    
-    
-    @JsonProperty("has_next")
-    private Boolean hasNext;
-    
-    
-    
-    
-    @JsonProperty("current")
-    private Integer current;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private Integer size;
-    
-    
-    
-}
-
-
-/*
-    Model: ResponseEnvelopeString
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResponseEnvelopeString{
-    
-    
-    
-    
-    @JsonProperty("timestamp")
-    private String timestamp;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private Integer status;
-    
-    
-    
-    
-    @JsonProperty("error")
-    private String error;
-    
-    
-    
-    
-    @JsonProperty("exception")
-    private String exception;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("total_time_taken_in_millis")
-    private Integer totalTimeTakenInMillis;
-    
-    
-    
-    
-    @JsonProperty("http_status")
-    private String httpStatus;
-    
-    
-    
-    
-    @JsonProperty("items")
-    private String items;
-    
-    
-    
-    
-    @JsonProperty("payload")
-    private String payload;
-    
-    
-    
-    
-    @JsonProperty("trace_id")
-    private String traceId;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-}
-
-
-/*
-    Model: KafkaMetaModel
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class KafkaMetaModel{
-    
-    
-    
-    
-    @JsonProperty("job_type")
-    private String jobType;
-    
-    
-    
-    
-    @JsonProperty("batch_id")
-    private Integer batchId;
-    
-    
-    
-    
-    @JsonProperty("action")
-    private String action;
-    
-    
-    
-    
-    @JsonProperty("trace")
-    private List<String> trace;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("created_timestamp")
-    private Integer createdTimestamp;
-    
-    
-    
-}
-
-
-/*
-    Model: SuppressStoreModel
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SuppressStoreModel{
-    
-    
-    
-    
-    @JsonProperty("stores")
-    private List<Integer> stores;
-    
-    
-    
-}
-
-
-/*
-    Model: SuppressStorePayload
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SuppressStorePayload{
-    
-    
-    
-    
-    @JsonProperty("payload")
-    private List<SuppressStoreModel> payload;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private KafkaMetaModel meta;
-    
-    
-    
-}
-
-
-/*
-    Model: KafkaResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class KafkaResponse{
-    
-    
-    
-    
-    @JsonProperty("offset")
-    private Integer offset;
-    
-    
-    
-    
-    @JsonProperty("partition")
-    private Integer partition;
-    
-    
-    
-}
-
-
-/*
-    Model: ResponseEnvelopeKafkaResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResponseEnvelopeKafkaResponse{
-    
-    
-    
-    
-    @JsonProperty("timestamp")
-    private String timestamp;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private Integer status;
-    
-    
-    
-    
-    @JsonProperty("error")
-    private String error;
-    
-    
-    
-    
-    @JsonProperty("exception")
-    private String exception;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("total_time_taken_in_millis")
-    private Integer totalTimeTakenInMillis;
-    
-    
-    
-    
-    @JsonProperty("http_status")
-    private String httpStatus;
-    
-    
-    
-    
-    @JsonProperty("items")
-    private KafkaResponse items;
-    
-    
-    
-    
-    @JsonProperty("payload")
-    private KafkaResponse payload;
-    
-    
-    
-    
-    @JsonProperty("trace_id")
-    private String traceId;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-}
 
 
 /*
@@ -535,7 +18,7 @@ public static class ResponseEnvelopeKafkaResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GCompany{
+public static class GCompany {
     
     
     
@@ -593,8 +76,14 @@ public static class GCompany{
     
     
     
+    
+    @JsonProperty("gstores")
+    private List<GStore> gstores;
+    
+    
+    
+    
 }
-
 
 /*
     Model: GStore
@@ -605,7 +94,7 @@ public static class GCompany{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GStore{
+public static class GStore {
     
     
     
@@ -669,8 +158,8 @@ public static class GStore{
     
     
     
+    
 }
-
 
 /*
     Model: Metum
@@ -681,7 +170,7 @@ public static class GStore{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Metum{
+public static class Metum {
     
     
     
@@ -703,8 +192,66 @@ public static class Metum{
     
     
     
+    
 }
 
+/*
+    Model: Page
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Page {
+    
+    
+    
+    
+    @JsonProperty("item_total")
+    private Integer itemTotal;
+    
+    
+    
+    
+    @JsonProperty("next_id")
+    private String nextId;
+    
+    
+    
+    
+    @JsonProperty("has_previous")
+    private Boolean hasPrevious;
+    
+    
+    
+    
+    @JsonProperty("has_next")
+    private Boolean hasNext;
+    
+    
+    
+    
+    @JsonProperty("current")
+    private Integer current;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private Integer size;
+    
+    
+    
+    
+}
 
 /*
     Model: ResponseEnvelopeListSlingshotConfigurationDetail
@@ -715,7 +262,7 @@ public static class Metum{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResponseEnvelopeListSlingshotConfigurationDetail{
+public static class ResponseEnvelopeListSlingshotConfigurationDetail {
     
     
     
@@ -785,8 +332,8 @@ public static class ResponseEnvelopeListSlingshotConfigurationDetail{
     
     
     
+    
 }
-
 
 /*
     Model: SlingshotConfigurationDetail
@@ -797,7 +344,7 @@ public static class ResponseEnvelopeListSlingshotConfigurationDetail{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SlingshotConfigurationDetail{
+public static class SlingshotConfigurationDetail {
     
     
     
@@ -813,8 +360,8 @@ public static class SlingshotConfigurationDetail{
     
     
     
+    
 }
-
 
 /*
     Model: SlingshotIntegration
@@ -825,7 +372,7 @@ public static class SlingshotConfigurationDetail{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SlingshotIntegration{
+public static class SlingshotIntegration {
     
     
     
@@ -859,8 +406,8 @@ public static class SlingshotIntegration{
     
     
     
+    
 }
-
 
 /*
     Model: StoreData
@@ -871,7 +418,7 @@ public static class SlingshotIntegration{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreData{
+public static class StoreData {
     
     
     
@@ -881,8 +428,468 @@ public static class StoreData{
     
     
     
+    
 }
 
+/*
+    Model: KafkaMetaModel
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class KafkaMetaModel {
+    
+    
+    
+    
+    @JsonProperty("job_type")
+    private String jobType;
+    
+    
+    
+    
+    @JsonProperty("batch_id")
+    private Integer batchId;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("trace")
+    private List<String> trace;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("created_timestamp")
+    private Integer createdTimestamp;
+    
+    
+    
+    
+}
+
+/*
+    Model: SuppressStoreModel
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SuppressStoreModel {
+    
+    
+    
+    
+    @JsonProperty("stores")
+    private List<Integer> stores;
+    
+    
+    
+    
+}
+
+/*
+    Model: SuppressStorePayload
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SuppressStorePayload {
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private List<SuppressStoreModel> payload;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private KafkaMetaModel meta;
+    
+    
+    
+    
+}
+
+/*
+    Model: KafkaResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class KafkaResponse {
+    
+    
+    
+    
+    @JsonProperty("offset")
+    private Integer offset;
+    
+    
+    
+    
+    @JsonProperty("partition")
+    private Integer partition;
+    
+    
+    
+    
+}
+
+/*
+    Model: ResponseEnvelopeKafkaResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ResponseEnvelopeKafkaResponse {
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Integer status;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("total_time_taken_in_millis")
+    private Integer totalTimeTakenInMillis;
+    
+    
+    
+    
+    @JsonProperty("http_status")
+    private String httpStatus;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private KafkaResponse items;
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private KafkaResponse payload;
+    
+    
+    
+    
+    @JsonProperty("trace_id")
+    private String traceId;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+    
+}
+
+/*
+    Model: DataTresholdDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DataTresholdDTO {
+    
+    
+    
+    
+    @JsonProperty("min_price")
+    private Double minPrice;
+    
+    
+    
+    
+    @JsonProperty("safe_stock")
+    private Integer safeStock;
+    
+    
+    
+    
+    @JsonProperty("period_threshold")
+    private Integer periodThreshold;
+    
+    
+    
+    
+    @JsonProperty("period_threshold_type")
+    private String periodThresholdType;
+    
+    
+    
+    
+    @JsonProperty("period_type_list")
+    private List<GenericDTO> periodTypeList;
+    
+    
+    
+    
+}
+
+/*
+    Model: GenericDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GenericDTO {
+    
+    
+    
+    
+    @JsonProperty("text")
+    private String text;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Object value;
+    
+    
+    
+    
+}
+
+/*
+    Model: JobConfigDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class JobConfigDTO {
+    
+    
+    
+    
+    @JsonProperty("integration")
+    private String integration;
+    
+    
+    
+    
+    @JsonProperty("integration_data")
+    private HashMap<String,Object> integrationData;
+    
+    
+    
+    
+    @JsonProperty("company_name")
+    private String companyName;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("task_details")
+    private TaskDTO taskDetails;
+    
+    
+    
+    
+    @JsonProperty("threshold_details")
+    private DataTresholdDTO thresholdDetails;
+    
+    
+    
+    
+    @JsonProperty("job_code")
+    private String jobCode;
+    
+    
+    
+    
+    @JsonProperty("alias")
+    private String alias;
+    
+    
+    
+    
+}
+
+/*
+    Model: TaskDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TaskDTO {
+    
+    
+    
+    
+    @JsonProperty("type")
+    private Integer type;
+    
+    
+    
+    
+    @JsonProperty("group_list")
+    private List<GenericDTO> groupList;
+    
+    
+    
+    
+}
+
+/*
+    Model: ResponseEnvelopeString
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ResponseEnvelopeString {
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Integer status;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("total_time_taken_in_millis")
+    private Integer totalTimeTakenInMillis;
+    
+    
+    
+    
+    @JsonProperty("http_status")
+    private String httpStatus;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private String items;
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private String payload;
+    
+    
+    
+    
+    @JsonProperty("trace_id")
+    private String traceId;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+    
+}
 
 /*
     Model: AWSS3config
@@ -893,7 +900,7 @@ public static class StoreData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AWSS3config{
+public static class AWSS3config {
     
     
     
@@ -975,8 +982,8 @@ public static class AWSS3config{
     
     
     
+    
 }
-
 
 /*
     Model: ArchiveConfig
@@ -987,7 +994,7 @@ public static class AWSS3config{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ArchiveConfig{
+public static class ArchiveConfig {
     
     
     
@@ -1009,8 +1016,8 @@ public static class ArchiveConfig{
     
     
     
+    
 }
-
 
 /*
     Model: Audit
@@ -1021,7 +1028,7 @@ public static class ArchiveConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Audit{
+public static class Audit {
     
     
     
@@ -1049,8 +1056,8 @@ public static class Audit{
     
     
     
+    
 }
-
 
 /*
     Model: CatalogMasterConfig
@@ -1061,7 +1068,7 @@ public static class Audit{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CatalogMasterConfig{
+public static class CatalogMasterConfig {
     
     
     
@@ -1071,8 +1078,8 @@ public static class CatalogMasterConfig{
     
     
     
+    
 }
-
 
 /*
     Model: CompanyConfig
@@ -1083,7 +1090,7 @@ public static class CatalogMasterConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyConfig{
+public static class CompanyConfig {
     
     
     
@@ -1123,8 +1130,8 @@ public static class CompanyConfig{
     
     
     
+    
 }
-
 
 /*
     Model: DBConfig
@@ -1135,7 +1142,7 @@ public static class CompanyConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DBConfig{
+public static class DBConfig {
     
     
     
@@ -1205,8 +1212,8 @@ public static class DBConfig{
     
     
     
+    
 }
-
 
 /*
     Model: DBConnectionProfile
@@ -1217,7 +1224,7 @@ public static class DBConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DBConnectionProfile{
+public static class DBConnectionProfile {
     
     
     
@@ -1227,8 +1234,8 @@ public static class DBConnectionProfile{
     
     
     
+    
 }
-
 
 /*
     Model: DBParamConfig
@@ -1239,7 +1246,7 @@ public static class DBConnectionProfile{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DBParamConfig{
+public static class DBParamConfig {
     
     
     
@@ -1249,8 +1256,8 @@ public static class DBParamConfig{
     
     
     
+    
 }
-
 
 /*
     Model: DefaultHeadersDTO
@@ -1261,7 +1268,7 @@ public static class DBParamConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DefaultHeadersDTO{
+public static class DefaultHeadersDTO {
     
     
     
@@ -1289,8 +1296,8 @@ public static class DefaultHeadersDTO{
     
     
     
+    
 }
-
 
 /*
     Model: DocMappingConfig
@@ -1301,7 +1308,7 @@ public static class DefaultHeadersDTO{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DocMappingConfig{
+public static class DocMappingConfig {
     
     
     
@@ -1335,8 +1342,8 @@ public static class DocMappingConfig{
     
     
     
+    
 }
-
 
 /*
     Model: EmailConfig
@@ -1347,7 +1354,7 @@ public static class DocMappingConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailConfig{
+public static class EmailConfig {
     
     
     
@@ -1489,8 +1496,8 @@ public static class EmailConfig{
     
     
     
+    
 }
-
 
 /*
     Model: FTPConfig
@@ -1501,7 +1508,7 @@ public static class EmailConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FTPConfig{
+public static class FTPConfig {
     
     
     
@@ -1589,8 +1596,8 @@ public static class FTPConfig{
     
     
     
+    
 }
-
 
 /*
     Model: FileConfig
@@ -1601,7 +1608,7 @@ public static class FTPConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FileConfig{
+public static class FileConfig {
     
     
     
@@ -1701,8 +1708,8 @@ public static class FileConfig{
     
     
     
+    
 }
-
 
 /*
     Model: GoogleSpreadSheetConfig
@@ -1713,7 +1720,7 @@ public static class FileConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GoogleSpreadSheetConfig{
+public static class GoogleSpreadSheetConfig {
     
     
     
@@ -1753,8 +1760,8 @@ public static class GoogleSpreadSheetConfig{
     
     
     
+    
 }
-
 
 /*
     Model: HttpConfig
@@ -1765,7 +1772,7 @@ public static class GoogleSpreadSheetConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class HttpConfig{
+public static class HttpConfig {
     
     
     
@@ -1817,8 +1824,8 @@ public static class HttpConfig{
     
     
     
+    
 }
-
 
 /*
     Model: JobConfig
@@ -1829,7 +1836,7 @@ public static class HttpConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class JobConfig{
+public static class JobConfig {
     
     
     
@@ -2007,8 +2014,8 @@ public static class JobConfig{
     
     
     
+    
 }
-
 
 /*
     Model: JobConfigRawDTO
@@ -2019,19 +2026,19 @@ public static class JobConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class JobConfigRawDTO{
-    
-    
-    
-    
-    @JsonProperty("company_name")
-    private String companyName;
+public static class JobConfigRawDTO {
     
     
     
     
     @JsonProperty("integration")
     private String integration;
+    
+    
+    
+    
+    @JsonProperty("company_name")
+    private String companyName;
     
     
     
@@ -2047,8 +2054,8 @@ public static class JobConfigRawDTO{
     
     
     
+    
 }
-
 
 /*
     Model: JsonDocConfig
@@ -2059,7 +2066,7 @@ public static class JobConfigRawDTO{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class JsonDocConfig{
+public static class JsonDocConfig {
     
     
     
@@ -2069,8 +2076,8 @@ public static class JsonDocConfig{
     
     
     
+    
 }
-
 
 /*
     Model: LocalFileConfig
@@ -2081,7 +2088,7 @@ public static class JsonDocConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocalFileConfig{
+public static class LocalFileConfig {
     
     
     
@@ -2145,8 +2152,8 @@ public static class LocalFileConfig{
     
     
     
+    
 }
-
 
 /*
     Model: MongoDocConfig
@@ -2157,7 +2164,7 @@ public static class LocalFileConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MongoDocConfig{
+public static class MongoDocConfig {
     
     
     
@@ -2197,8 +2204,8 @@ public static class MongoDocConfig{
     
     
     
+    
 }
-
 
 /*
     Model: OAuthConfig
@@ -2209,7 +2216,7 @@ public static class MongoDocConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OAuthConfig{
+public static class OAuthConfig {
     
     
     
@@ -2273,8 +2280,8 @@ public static class OAuthConfig{
     
     
     
+    
 }
-
 
 /*
     Model: ProcessConfig
@@ -2285,7 +2292,7 @@ public static class OAuthConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProcessConfig{
+public static class ProcessConfig {
     
     
     
@@ -2379,8 +2386,8 @@ public static class ProcessConfig{
     
     
     
+    
 }
-
 
 /*
     Model: PropBeanConfig
@@ -2391,13 +2398,19 @@ public static class ProcessConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PropBeanConfig{
+public static class PropBeanConfig {
     
     
     
     
     @JsonProperty("required")
     private Boolean required;
+    
+    
+    
+    
+    @JsonProperty("mapping")
+    private HashMap<String,PropBeanConfig> mapping;
     
     
     
@@ -2527,8 +2540,8 @@ public static class PropBeanConfig{
     
     
     
+    
 }
-
 
 /*
     Model: PropBeanDTO
@@ -2539,7 +2552,7 @@ public static class PropBeanConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PropBeanDTO{
+public static class PropBeanDTO {
     
     
     
@@ -2657,8 +2670,8 @@ public static class PropBeanDTO{
     
     
     
+    
 }
-
 
 /*
     Model: ResponseEnvelopeListJobConfigRawDTO
@@ -2669,7 +2682,7 @@ public static class PropBeanDTO{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResponseEnvelopeListJobConfigRawDTO{
+public static class ResponseEnvelopeListJobConfigRawDTO {
     
     
     
@@ -2739,8 +2752,8 @@ public static class ResponseEnvelopeListJobConfigRawDTO{
     
     
     
+    
 }
-
 
 /*
     Model: SFTPConfig
@@ -2751,7 +2764,7 @@ public static class ResponseEnvelopeListJobConfigRawDTO{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SFTPConfig{
+public static class SFTPConfig {
     
     
     
@@ -2857,8 +2870,8 @@ public static class SFTPConfig{
     
     
     
+    
 }
-
 
 /*
     Model: Send
@@ -2869,7 +2882,7 @@ public static class SFTPConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Send{
+public static class Send {
     
     
     
@@ -2885,8 +2898,8 @@ public static class Send{
     
     
     
+    
 }
-
 
 /*
     Model: StoreConfig
@@ -2897,7 +2910,7 @@ public static class Send{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreConfig{
+public static class StoreConfig {
     
     
     
@@ -2943,8 +2956,8 @@ public static class StoreConfig{
     
     
     
+    
 }
-
 
 /*
     Model: StoreFilter
@@ -2955,7 +2968,7 @@ public static class StoreConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreFilter{
+public static class StoreFilter {
     
     
     
@@ -2977,8 +2990,8 @@ public static class StoreFilter{
     
     
     
+    
 }
-
 
 /*
     Model: TaskConfig
@@ -2989,7 +3002,7 @@ public static class StoreFilter{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TaskConfig{
+public static class TaskConfig {
     
     
     
@@ -3011,8 +3024,8 @@ public static class TaskConfig{
     
     
     
+    
 }
-
 
 /*
     Model: TaskParam
@@ -3023,7 +3036,7 @@ public static class TaskConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TaskParam{
+public static class TaskParam {
     
     
     
@@ -3039,8 +3052,8 @@ public static class TaskParam{
     
     
     
+    
 }
-
 
 /*
     Model: TaskStepConfig
@@ -3051,7 +3064,7 @@ public static class TaskParam{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TaskStepConfig{
+public static class TaskStepConfig {
     
     
     
@@ -3073,8 +3086,8 @@ public static class TaskStepConfig{
     
     
     
+    
 }
-
 
 /*
     Model: JobStepsDTO
@@ -3085,7 +3098,7 @@ public static class TaskStepConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class JobStepsDTO{
+public static class JobStepsDTO {
     
     
     
@@ -3137,8 +3150,8 @@ public static class JobStepsDTO{
     
     
     
+    
 }
-
 
 /*
     Model: ResponseEnvelopeListJobStepsDTO
@@ -3149,7 +3162,7 @@ public static class JobStepsDTO{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResponseEnvelopeListJobStepsDTO{
+public static class ResponseEnvelopeListJobStepsDTO {
     
     
     
@@ -3219,8 +3232,8 @@ public static class ResponseEnvelopeListJobStepsDTO{
     
     
     
+    
 }
-
 
 /*
     Model: ResponseEnvelopeListJobConfigDTO
@@ -3231,7 +3244,7 @@ public static class ResponseEnvelopeListJobStepsDTO{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResponseEnvelopeListJobConfigDTO{
+public static class ResponseEnvelopeListJobConfigDTO {
     
     
     
@@ -3301,8 +3314,8 @@ public static class ResponseEnvelopeListJobConfigDTO{
     
     
     
+    
 }
-
 
 /*
     Model: ResponseEnvelopeJobConfigDTO
@@ -3313,7 +3326,7 @@ public static class ResponseEnvelopeListJobConfigDTO{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResponseEnvelopeJobConfigDTO{
+public static class ResponseEnvelopeJobConfigDTO {
     
     
     
@@ -3383,8 +3396,8 @@ public static class ResponseEnvelopeJobConfigDTO{
     
     
     
+    
 }
-
 
 /*
     Model: JobHistoryDto
@@ -3395,7 +3408,7 @@ public static class ResponseEnvelopeJobConfigDTO{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class JobHistoryDto{
+public static class JobHistoryDto {
     
     
     
@@ -3465,8 +3478,8 @@ public static class JobHistoryDto{
     
     
     
+    
 }
-
 
 /*
     Model: JobMetricsDto
@@ -3477,7 +3490,7 @@ public static class JobHistoryDto{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class JobMetricsDto{
+public static class JobMetricsDto {
     
     
     
@@ -3529,8 +3542,8 @@ public static class JobMetricsDto{
     
     
     
+    
 }
-
 
 /*
     Model: ResponseEnvelopeJobMetricsDto
@@ -3541,7 +3554,7 @@ public static class JobMetricsDto{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResponseEnvelopeJobMetricsDto{
+public static class ResponseEnvelopeJobMetricsDto {
     
     
     
@@ -3611,8 +3624,8 @@ public static class ResponseEnvelopeJobMetricsDto{
     
     
     
+    
 }
-
 
 /*
     Model: JobConfigListDTO
@@ -3623,7 +3636,7 @@ public static class ResponseEnvelopeJobMetricsDto{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class JobConfigListDTO{
+public static class JobConfigListDTO {
     
     
     
@@ -3675,8 +3688,8 @@ public static class JobConfigListDTO{
     
     
     
+    
 }
-
 
 /*
     Model: ResponseEnvelopeListJobConfigListDTO
@@ -3687,7 +3700,7 @@ public static class JobConfigListDTO{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResponseEnvelopeListJobConfigListDTO{
+public static class ResponseEnvelopeListJobConfigListDTO {
     
     
     
@@ -3757,7 +3770,9 @@ public static class ResponseEnvelopeListJobConfigListDTO{
     
     
     
+    
 }
+
 
 
 

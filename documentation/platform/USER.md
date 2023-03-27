@@ -892,11 +892,6 @@ Success. Returns a JSON object containing the all the platform configurations. R
       "appId": "token_123"
     }
   },
-  "session_config": {
-    "duration": 30,
-    "type": "Days",
-    "is_rolling": false
-  },
   "delete_account_reasons": [
     {
       "reason_text": "test",
@@ -1026,11 +1021,6 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
     "account_kit": {
       "appId": "token_123"
     }
-  },
-  "session_config": {
-    "duration": 30,
-    "type": "Days",
-    "is_rolling": false
   },
   "delete_account_reasons": [
     {
@@ -2005,7 +1995,6 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | deleteAccountDay | Integer? |  yes  |  |
  | deleteAccountReasons | ArrayList<[DeleteAccountReasons](#DeleteAccountReasons)>? |  yes  |  |
  | deleteAccountConsent | HashMap<String,Object>? |  yes  |  |
- | sessionConfig | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -2216,19 +2205,6 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
 
  
  
- #### [SessionExpiry](#SessionExpiry)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | duration | Integer? |  yes  |  |
- | type | String? |  yes  |  |
- | isRolling | Boolean? |  yes  |  |
-
----
-
-
- 
- 
  #### [UpdateUserRequestSchema](#UpdateUserRequestSchema)
 
  | Properties | Type | Nullable | Description |
@@ -2261,6 +2237,8 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | profilePicUrl | String? |  yes  |  |
  | username | String? |  yes  |  |
  | accountType | String? |  yes  |  |
+ | debug | [Debug](#Debug)? |  yes  |  |
+ | hasOldPasswordHash | Boolean? |  yes  |  |
  | id | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
@@ -2293,6 +2271,18 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | verified | Boolean? |  yes  |  |
  | email | String? |  yes  |  |
  | active | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Debug](#Debug)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | source | String? |  yes  |  |
+ | platform | String? |  yes  |  |
 
 ---
 

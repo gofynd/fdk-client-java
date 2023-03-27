@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
+
 public class UserApplicationModels{
 
 
@@ -2589,12 +2590,6 @@ public static class PlatformSchema{
     
     
     
-    
-    @JsonProperty("session_config")
-    private Object sessionConfig;
-    
-    
-    
 }
 
 
@@ -3075,40 +3070,6 @@ public static class Google{
 
 
 /*
-    Model: SessionExpiry
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SessionExpiry{
-    
-    
-    
-    
-    @JsonProperty("duration")
-    private Integer duration;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("is_rolling")
-    private Boolean isRolling;
-    
-    
-    
-}
-
-
-/*
     Model: UpdateUserRequestSchema
 */
 @AllArgsConstructor
@@ -3246,6 +3207,18 @@ public static class UserSchema{
     
     
     
+    @JsonProperty("debug")
+    private Debug debug;
+    
+    
+    
+    
+    @JsonProperty("has_old_password_hash")
+    private Boolean hasOldPasswordHash;
+    
+    
+    
+    
     @JsonProperty("_id")
     private String id;
     
@@ -3350,6 +3323,36 @@ public static class Email{
     
     
 }
+
+
+/*
+    Model: Debug
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Debug{
+    
+    
+    
+    
+    @JsonProperty("source")
+    private String source;
+    
+    
+    
+    
+    @JsonProperty("platform")
+    private String platform;
+    
+    
+    
+}
+
+
 
 
 

@@ -75,7 +75,7 @@ Success
             "first_name": "Paul",
             "last_name": "Lobo",
             "full_name": "Paul Lobo",
-            "email": "paullobo@xyz.com"
+            "email": "paullobo@gofynd.com"
           }
         },
         "_id": "634eef735e84e7e1b09aa07c",
@@ -224,7 +224,7 @@ Success
         "first_name": "Paul",
         "last_name": "Lobo",
         "full_name": "Paul Lobo",
-        "email": "paullobo@xyz.com"
+        "email": "paullobo@gofynd.com"
       }
     },
     "device_info": {

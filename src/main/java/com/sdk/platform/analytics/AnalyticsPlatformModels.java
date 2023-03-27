@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
+
 public class AnalyticsPlatformModels{
 
 
@@ -17,7 +18,7 @@ public class AnalyticsPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StatGroup{
+public static class StatGroup {
     
     
     
@@ -39,8 +40,8 @@ public static class StatGroup{
     
     
     
+    
 }
-
 
 /*
     Model: ErrorRes
@@ -51,7 +52,7 @@ public static class StatGroup{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ErrorRes{
+public static class ErrorRes {
     
     
     
@@ -61,8 +62,8 @@ public static class ErrorRes{
     
     
     
+    
 }
-
 
 /*
     Model: StatsGroups
@@ -73,7 +74,7 @@ public static class ErrorRes{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StatsGroups{
+public static class StatsGroups {
     
     
     
@@ -83,8 +84,8 @@ public static class StatsGroups{
     
     
     
+    
 }
-
 
 /*
     Model: StatsGroupComponent
@@ -95,7 +96,7 @@ public static class StatsGroups{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StatsGroupComponent{
+public static class StatsGroupComponent {
     
     
     
@@ -129,8 +130,8 @@ public static class StatsGroupComponent{
     
     
     
+    
 }
-
 
 /*
     Model: StatsGroupComponents
@@ -141,7 +142,7 @@ public static class StatsGroupComponent{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StatsGroupComponents{
+public static class StatsGroupComponents {
     
     
     
@@ -157,8 +158,8 @@ public static class StatsGroupComponents{
     
     
     
+    
 }
-
 
 /*
     Model: StatsRes
@@ -169,7 +170,7 @@ public static class StatsGroupComponents{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StatsRes{
+public static class StatsRes {
     
     
     
@@ -197,8 +198,8 @@ public static class StatsRes{
     
     
     
+    
 }
-
 
 /*
     Model: ReceivedAt
@@ -209,7 +210,7 @@ public static class StatsRes{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReceivedAt{
+public static class ReceivedAt {
     
     
     
@@ -219,8 +220,8 @@ public static class ReceivedAt{
     
     
     
+    
 }
-
 
 /*
     Model: AbandonCartsDetail
@@ -231,7 +232,7 @@ public static class ReceivedAt{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AbandonCartsDetail{
+public static class AbandonCartsDetail {
     
     
     
@@ -283,8 +284,8 @@ public static class AbandonCartsDetail{
     
     
     
+    
 }
-
 
 /*
     Model: Page
@@ -295,7 +296,7 @@ public static class AbandonCartsDetail{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Page{
+public static class Page {
     
     
     
@@ -341,8 +342,8 @@ public static class Page{
     
     
     
+    
 }
-
 
 /*
     Model: AbandonCartsList
@@ -353,7 +354,7 @@ public static class Page{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AbandonCartsList{
+public static class AbandonCartsList {
     
     
     
@@ -375,8 +376,8 @@ public static class AbandonCartsList{
     
     
     
+    
 }
-
 
 /*
     Model: AbandonCartDetail
@@ -387,7 +388,7 @@ public static class AbandonCartsList{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AbandonCartDetail{
+public static class AbandonCartDetail {
     
     
     
@@ -427,8 +428,8 @@ public static class AbandonCartDetail{
     
     
     
+    
 }
-
 
 /*
     Model: ExportJobReq
@@ -439,7 +440,7 @@ public static class AbandonCartDetail{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ExportJobReq{
+public static class ExportJobReq {
     
     
     
@@ -473,8 +474,8 @@ public static class ExportJobReq{
     
     
     
+    
 }
-
 
 /*
     Model: ExportJobRes
@@ -485,7 +486,7 @@ public static class ExportJobReq{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ExportJobRes{
+public static class ExportJobRes {
     
     
     
@@ -501,8 +502,8 @@ public static class ExportJobRes{
     
     
     
+    
 }
-
 
 /*
     Model: ExportJobStatusRes
@@ -513,7 +514,7 @@ public static class ExportJobRes{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ExportJobStatusRes{
+public static class ExportJobStatusRes {
     
     
     
@@ -535,8 +536,8 @@ public static class ExportJobStatusRes{
     
     
     
+    
 }
-
 
 /*
     Model: GetLogsListReq
@@ -547,7 +548,7 @@ public static class ExportJobStatusRes{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetLogsListReq{
+public static class GetLogsListReq {
     
     
     
@@ -575,8 +576,8 @@ public static class GetLogsListReq{
     
     
     
+    
 }
-
 
 /*
     Model: MkpLogsResp
@@ -587,7 +588,7 @@ public static class GetLogsListReq{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MkpLogsResp{
+public static class MkpLogsResp {
     
     
     
@@ -627,8 +628,8 @@ public static class MkpLogsResp{
     
     
     
+    
 }
-
 
 /*
     Model: GetLogsListRes
@@ -639,7 +640,7 @@ public static class MkpLogsResp{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetLogsListRes{
+public static class GetLogsListRes {
     
     
     
@@ -655,8 +656,8 @@ public static class GetLogsListRes{
     
     
     
+    
 }
-
 
 /*
     Model: SearchLogReq
@@ -667,7 +668,7 @@ public static class GetLogsListRes{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SearchLogReq{
+public static class SearchLogReq {
     
     
     
@@ -707,8 +708,8 @@ public static class SearchLogReq{
     
     
     
+    
 }
-
 
 /*
     Model: LogInfo
@@ -719,7 +720,7 @@ public static class SearchLogReq{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LogInfo{
+public static class LogInfo {
     
     
     
@@ -801,8 +802,8 @@ public static class LogInfo{
     
     
     
+    
 }
-
 
 /*
     Model: SearchLogRes
@@ -813,7 +814,7 @@ public static class LogInfo{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SearchLogRes{
+public static class SearchLogRes {
     
     
     
@@ -829,7 +830,9 @@ public static class SearchLogRes{
     
     
     
+    
 }
+
 
 
 

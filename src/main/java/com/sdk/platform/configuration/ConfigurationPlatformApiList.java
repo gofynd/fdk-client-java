@@ -566,8 +566,11 @@ interface ConfigurationPlatformApiList {
     
     
     
+    
+    
+    
     @GET ("/service/platform/configuration/v1.0/company/{company_id}/integration-opt-in/check/configuration/{id}/{level}/{uid}")
-    Call<ConfigurationPlatformModels.OptedStoreIntegration> getLevelActiveIntegrations(@Path("company_id")  String companyId , @Path("id") String  id , @Path("level") String  level , @Path("uid") Integer  uid );
+    Call<ConfigurationPlatformModels.OptedStoreIntegration> getLevelActiveIntegrations(@Path("company_id")  String companyId , @Path("id") String  id , @Path("level") String  level , @Path("uid") Integer  uid , @Query("permission") String  permission );
     
     
     

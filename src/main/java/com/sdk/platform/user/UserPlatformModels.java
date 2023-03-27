@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
+
 public class UserPlatformModels{
 
 
@@ -17,7 +18,7 @@ public class UserPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BlockUserRequestSchema{
+public static class BlockUserRequestSchema {
     
     
     
@@ -39,8 +40,8 @@ public static class BlockUserRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: ArchiveUserRequestSchema
@@ -51,7 +52,7 @@ public static class BlockUserRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ArchiveUserRequestSchema{
+public static class ArchiveUserRequestSchema {
     
     
     
@@ -61,8 +62,8 @@ public static class ArchiveUserRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: DeleteApplicationUserRequestSchema
@@ -73,7 +74,7 @@ public static class ArchiveUserRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeleteApplicationUserRequestSchema{
+public static class DeleteApplicationUserRequestSchema {
     
     
     
@@ -107,8 +108,8 @@ public static class DeleteApplicationUserRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: UnDeleteUserRequestSchema
@@ -119,7 +120,7 @@ public static class DeleteApplicationUserRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UnDeleteUserRequestSchema{
+public static class UnDeleteUserRequestSchema {
     
     
     
@@ -141,8 +142,8 @@ public static class UnDeleteUserRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: EditEmailRequestSchema
@@ -153,7 +154,7 @@ public static class UnDeleteUserRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EditEmailRequestSchema{
+public static class EditEmailRequestSchema {
     
     
     
@@ -163,8 +164,8 @@ public static class EditEmailRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: SendVerificationLinkMobileRequestSchema
@@ -175,7 +176,7 @@ public static class EditEmailRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendVerificationLinkMobileRequestSchema{
+public static class SendVerificationLinkMobileRequestSchema {
     
     
     
@@ -209,8 +210,8 @@ public static class SendVerificationLinkMobileRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: EditMobileRequestSchema
@@ -221,7 +222,7 @@ public static class SendVerificationLinkMobileRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EditMobileRequestSchema{
+public static class EditMobileRequestSchema {
     
     
     
@@ -237,8 +238,8 @@ public static class EditMobileRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: EditProfileRequestSchema
@@ -249,7 +250,7 @@ public static class EditMobileRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EditProfileRequestSchema{
+public static class EditProfileRequestSchema {
     
     
     
@@ -319,8 +320,8 @@ public static class EditProfileRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: EditProfileMobileSchema
@@ -331,7 +332,7 @@ public static class EditProfileRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EditProfileMobileSchema{
+public static class EditProfileMobileSchema {
     
     
     
@@ -347,8 +348,8 @@ public static class EditProfileMobileSchema{
     
     
     
+    
 }
-
 
 /*
     Model: SendEmailOtpRequestSchema
@@ -359,7 +360,7 @@ public static class EditProfileMobileSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendEmailOtpRequestSchema{
+public static class SendEmailOtpRequestSchema {
     
     
     
@@ -387,8 +388,8 @@ public static class SendEmailOtpRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: VerifyEmailOtpRequestSchema
@@ -399,7 +400,7 @@ public static class SendEmailOtpRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VerifyEmailOtpRequestSchema{
+public static class VerifyEmailOtpRequestSchema {
     
     
     
@@ -427,8 +428,8 @@ public static class VerifyEmailOtpRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: VerifyOtpRequestSchema
@@ -439,7 +440,7 @@ public static class VerifyEmailOtpRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VerifyOtpRequestSchema{
+public static class VerifyOtpRequestSchema {
     
     
     
@@ -461,8 +462,8 @@ public static class VerifyOtpRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: SendMobileOtpRequestSchema
@@ -473,7 +474,7 @@ public static class VerifyOtpRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendMobileOtpRequestSchema{
+public static class SendMobileOtpRequestSchema {
     
     
     
@@ -519,8 +520,8 @@ public static class SendMobileOtpRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: UpdatePasswordRequestSchema
@@ -531,7 +532,7 @@ public static class SendMobileOtpRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdatePasswordRequestSchema{
+public static class UpdatePasswordRequestSchema {
     
     
     
@@ -547,8 +548,8 @@ public static class UpdatePasswordRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: FormRegisterRequestSchema
@@ -559,7 +560,7 @@ public static class UpdatePasswordRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FormRegisterRequestSchema{
+public static class FormRegisterRequestSchema {
     
     
     
@@ -605,8 +606,8 @@ public static class FormRegisterRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: TokenRequestBodySchema
@@ -617,7 +618,7 @@ public static class FormRegisterRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TokenRequestBodySchema{
+public static class TokenRequestBodySchema {
     
     
     
@@ -627,8 +628,8 @@ public static class TokenRequestBodySchema{
     
     
     
+    
 }
-
 
 /*
     Model: ForgotPasswordRequestSchema
@@ -639,7 +640,7 @@ public static class TokenRequestBodySchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ForgotPasswordRequestSchema{
+public static class ForgotPasswordRequestSchema {
     
     
     
@@ -655,8 +656,8 @@ public static class ForgotPasswordRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: CodeRequestBodySchema
@@ -667,7 +668,7 @@ public static class ForgotPasswordRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CodeRequestBodySchema{
+public static class CodeRequestBodySchema {
     
     
     
@@ -677,8 +678,8 @@ public static class CodeRequestBodySchema{
     
     
     
+    
 }
-
 
 /*
     Model: SendResetPasswordEmailRequestSchema
@@ -689,7 +690,7 @@ public static class CodeRequestBodySchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendResetPasswordEmailRequestSchema{
+public static class SendResetPasswordEmailRequestSchema {
     
     
     
@@ -705,8 +706,8 @@ public static class SendResetPasswordEmailRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: SendResetPasswordMobileRequestSchema
@@ -717,7 +718,7 @@ public static class SendResetPasswordEmailRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendResetPasswordMobileRequestSchema{
+public static class SendResetPasswordMobileRequestSchema {
     
     
     
@@ -739,8 +740,8 @@ public static class SendResetPasswordMobileRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: PasswordLoginRequestSchema
@@ -751,7 +752,7 @@ public static class SendResetPasswordMobileRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PasswordLoginRequestSchema{
+public static class PasswordLoginRequestSchema {
     
     
     
@@ -773,8 +774,8 @@ public static class PasswordLoginRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: SendOtpRequestSchema
@@ -785,7 +786,7 @@ public static class PasswordLoginRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtpRequestSchema{
+public static class SendOtpRequestSchema {
     
     
     
@@ -813,8 +814,8 @@ public static class SendOtpRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: OAuthRequestSchema
@@ -825,7 +826,7 @@ public static class SendOtpRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OAuthRequestSchema{
+public static class OAuthRequestSchema {
     
     
     
@@ -847,8 +848,8 @@ public static class OAuthRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: OAuthRequestAppleSchema
@@ -859,7 +860,7 @@ public static class OAuthRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OAuthRequestAppleSchema{
+public static class OAuthRequestAppleSchema {
     
     
     
@@ -881,8 +882,8 @@ public static class OAuthRequestAppleSchema{
     
     
     
+    
 }
-
 
 /*
     Model: UserObjectSchema
@@ -893,7 +894,7 @@ public static class OAuthRequestAppleSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserObjectSchema{
+public static class UserObjectSchema {
     
     
     
@@ -903,8 +904,8 @@ public static class UserObjectSchema{
     
     
     
+    
 }
-
 
 /*
     Model: AuthSuccess
@@ -915,7 +916,7 @@ public static class UserObjectSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AuthSuccess{
+public static class AuthSuccess {
     
     
     
@@ -937,8 +938,8 @@ public static class AuthSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: SendOtpResponse
@@ -949,7 +950,7 @@ public static class AuthSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtpResponse{
+public static class SendOtpResponse {
     
     
     
@@ -1031,8 +1032,8 @@ public static class SendOtpResponse{
     
     
     
+    
 }
-
 
 /*
     Model: ProfileEditSuccess
@@ -1043,7 +1044,7 @@ public static class SendOtpResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProfileEditSuccess{
+public static class ProfileEditSuccess {
     
     
     
@@ -1137,8 +1138,8 @@ public static class ProfileEditSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: LoginSuccess
@@ -1149,7 +1150,7 @@ public static class ProfileEditSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LoginSuccess{
+public static class LoginSuccess {
     
     
     
@@ -1171,8 +1172,8 @@ public static class LoginSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: VerifyOtpSuccess
@@ -1183,7 +1184,7 @@ public static class LoginSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VerifyOtpSuccess{
+public static class VerifyOtpSuccess {
     
     
     
@@ -1205,8 +1206,8 @@ public static class VerifyOtpSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: ResetPasswordSuccess
@@ -1217,7 +1218,7 @@ public static class VerifyOtpSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResetPasswordSuccess{
+public static class ResetPasswordSuccess {
     
     
     
@@ -1227,8 +1228,8 @@ public static class ResetPasswordSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: RegisterFormSuccess
@@ -1239,7 +1240,7 @@ public static class ResetPasswordSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RegisterFormSuccess{
+public static class RegisterFormSuccess {
     
     
     
@@ -1321,8 +1322,8 @@ public static class RegisterFormSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: VerifyEmailSuccess
@@ -1333,7 +1334,7 @@ public static class RegisterFormSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VerifyEmailSuccess{
+public static class VerifyEmailSuccess {
     
     
     
@@ -1343,8 +1344,8 @@ public static class VerifyEmailSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: HasPasswordSuccess
@@ -1355,7 +1356,7 @@ public static class VerifyEmailSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class HasPasswordSuccess{
+public static class HasPasswordSuccess {
     
     
     
@@ -1365,8 +1366,8 @@ public static class HasPasswordSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: LogoutSuccess
@@ -1377,7 +1378,7 @@ public static class HasPasswordSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LogoutSuccess{
+public static class LogoutSuccess {
     
     
     
@@ -1387,8 +1388,8 @@ public static class LogoutSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: BlockUserSuccess
@@ -1399,7 +1400,7 @@ public static class LogoutSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BlockUserSuccess{
+public static class BlockUserSuccess {
     
     
     
@@ -1409,8 +1410,8 @@ public static class BlockUserSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: ArchiveUserSuccess
@@ -1421,7 +1422,7 @@ public static class BlockUserSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ArchiveUserSuccess{
+public static class ArchiveUserSuccess {
     
     
     
@@ -1431,8 +1432,8 @@ public static class ArchiveUserSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: DeleteUserSuccess
@@ -1443,7 +1444,7 @@ public static class ArchiveUserSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeleteUserSuccess{
+public static class DeleteUserSuccess {
     
     
     
@@ -1453,8 +1454,8 @@ public static class DeleteUserSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: UnDeleteUserSuccess
@@ -1465,7 +1466,7 @@ public static class DeleteUserSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UnDeleteUserSuccess{
+public static class UnDeleteUserSuccess {
     
     
     
@@ -1475,8 +1476,8 @@ public static class UnDeleteUserSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: OtpSuccess
@@ -1487,7 +1488,7 @@ public static class UnDeleteUserSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OtpSuccess{
+public static class OtpSuccess {
     
     
     
@@ -1539,8 +1540,8 @@ public static class OtpSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: EmailOtpSuccess
@@ -1551,7 +1552,7 @@ public static class OtpSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailOtpSuccess{
+public static class EmailOtpSuccess {
     
     
     
@@ -1561,8 +1562,8 @@ public static class EmailOtpSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: SessionListSuccess
@@ -1573,7 +1574,7 @@ public static class EmailOtpSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SessionListSuccess{
+public static class SessionListSuccess {
     
     
     
@@ -1583,8 +1584,8 @@ public static class SessionListSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: VerifyMobileOTPSuccess
@@ -1595,7 +1596,7 @@ public static class SessionListSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VerifyMobileOTPSuccess{
+public static class VerifyMobileOTPSuccess {
     
     
     
@@ -1611,8 +1612,8 @@ public static class VerifyMobileOTPSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: VerifyEmailOTPSuccess
@@ -1623,7 +1624,7 @@ public static class VerifyMobileOTPSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VerifyEmailOTPSuccess{
+public static class VerifyEmailOTPSuccess {
     
     
     
@@ -1639,8 +1640,8 @@ public static class VerifyEmailOTPSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: SendMobileVerifyLinkSuccess
@@ -1651,7 +1652,7 @@ public static class VerifyEmailOTPSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendMobileVerifyLinkSuccess{
+public static class SendMobileVerifyLinkSuccess {
     
     
     
@@ -1661,8 +1662,8 @@ public static class SendMobileVerifyLinkSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: SendEmailVerifyLinkSuccess
@@ -1673,7 +1674,7 @@ public static class SendMobileVerifyLinkSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendEmailVerifyLinkSuccess{
+public static class SendEmailVerifyLinkSuccess {
     
     
     
@@ -1683,8 +1684,8 @@ public static class SendEmailVerifyLinkSuccess{
     
     
     
+    
 }
-
 
 /*
     Model: UserSearchResponseSchema
@@ -1695,7 +1696,7 @@ public static class SendEmailVerifyLinkSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserSearchResponseSchema{
+public static class UserSearchResponseSchema {
     
     
     
@@ -1705,8 +1706,8 @@ public static class UserSearchResponseSchema{
     
     
     
+    
 }
-
 
 /*
     Model: CustomerListResponseSchema
@@ -1717,7 +1718,7 @@ public static class UserSearchResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CustomerListResponseSchema{
+public static class CustomerListResponseSchema {
     
     
     
@@ -1733,8 +1734,8 @@ public static class CustomerListResponseSchema{
     
     
     
+    
 }
-
 
 /*
     Model: PaginationSchema
@@ -1745,7 +1746,7 @@ public static class CustomerListResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaginationSchema{
+public static class PaginationSchema {
     
     
     
@@ -1779,8 +1780,8 @@ public static class PaginationSchema{
     
     
     
+    
 }
-
 
 /*
     Model: SessionListResponseSchema
@@ -1791,7 +1792,7 @@ public static class PaginationSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SessionListResponseSchema{
+public static class SessionListResponseSchema {
     
     
     
@@ -1801,8 +1802,8 @@ public static class SessionListResponseSchema{
     
     
     
+    
 }
-
 
 /*
     Model: SessionDeleteResponseSchema
@@ -1813,7 +1814,7 @@ public static class SessionListResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SessionDeleteResponseSchema{
+public static class SessionDeleteResponseSchema {
     
     
     
@@ -1823,8 +1824,8 @@ public static class SessionDeleteResponseSchema{
     
     
     
+    
 }
-
 
 /*
     Model: UnauthorizedSchema
@@ -1835,7 +1836,7 @@ public static class SessionDeleteResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UnauthorizedSchema{
+public static class UnauthorizedSchema {
     
     
     
@@ -1845,8 +1846,8 @@ public static class UnauthorizedSchema{
     
     
     
+    
 }
-
 
 /*
     Model: UnauthenticatedSchema
@@ -1857,7 +1858,7 @@ public static class UnauthorizedSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UnauthenticatedSchema{
+public static class UnauthenticatedSchema {
     
     
     
@@ -1867,8 +1868,8 @@ public static class UnauthenticatedSchema{
     
     
     
+    
 }
-
 
 /*
     Model: NotFoundSchema
@@ -1879,7 +1880,7 @@ public static class UnauthenticatedSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NotFoundSchema{
+public static class NotFoundSchema {
     
     
     
@@ -1889,8 +1890,8 @@ public static class NotFoundSchema{
     
     
     
+    
 }
-
 
 /*
     Model: AuthenticationInternalServerErrorSchema
@@ -1901,7 +1902,7 @@ public static class NotFoundSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AuthenticationInternalServerErrorSchema{
+public static class AuthenticationInternalServerErrorSchema {
     
     
     
@@ -1911,8 +1912,8 @@ public static class AuthenticationInternalServerErrorSchema{
     
     
     
+    
 }
-
 
 /*
     Model: AuthenticationApiErrorSchema
@@ -1923,7 +1924,7 @@ public static class AuthenticationInternalServerErrorSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AuthenticationApiErrorSchema{
+public static class AuthenticationApiErrorSchema {
     
     
     
@@ -1933,8 +1934,8 @@ public static class AuthenticationApiErrorSchema{
     
     
     
+    
 }
-
 
 /*
     Model: ProfileEditSuccessSchema
@@ -1945,7 +1946,7 @@ public static class AuthenticationApiErrorSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProfileEditSuccessSchema{
+public static class ProfileEditSuccessSchema {
     
     
     
@@ -1991,8 +1992,8 @@ public static class ProfileEditSuccessSchema{
     
     
     
+    
 }
-
 
 /*
     Model: FormRegisterRequestSchemaPhone
@@ -2003,7 +2004,7 @@ public static class ProfileEditSuccessSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FormRegisterRequestSchemaPhone{
+public static class FormRegisterRequestSchemaPhone {
     
     
     
@@ -2019,8 +2020,8 @@ public static class FormRegisterRequestSchemaPhone{
     
     
     
+    
 }
-
 
 /*
     Model: OAuthRequestSchemaOauth2
@@ -2031,7 +2032,7 @@ public static class FormRegisterRequestSchemaPhone{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OAuthRequestSchemaOauth2{
+public static class OAuthRequestSchemaOauth2 {
     
     
     
@@ -2053,8 +2054,8 @@ public static class OAuthRequestSchemaOauth2{
     
     
     
+    
 }
-
 
 /*
     Model: OAuthRequestSchemaProfile
@@ -2065,7 +2066,7 @@ public static class OAuthRequestSchemaOauth2{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OAuthRequestSchemaProfile{
+public static class OAuthRequestSchemaProfile {
     
     
     
@@ -2105,8 +2106,8 @@ public static class OAuthRequestSchemaProfile{
     
     
     
+    
 }
-
 
 /*
     Model: OAuthRequestAppleSchemaOauth
@@ -2117,7 +2118,7 @@ public static class OAuthRequestSchemaProfile{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OAuthRequestAppleSchemaOauth{
+public static class OAuthRequestAppleSchemaOauth {
     
     
     
@@ -2127,8 +2128,8 @@ public static class OAuthRequestAppleSchemaOauth{
     
     
     
+    
 }
-
 
 /*
     Model: OAuthRequestAppleSchemaProfile
@@ -2139,7 +2140,7 @@ public static class OAuthRequestAppleSchemaOauth{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OAuthRequestAppleSchemaProfile{
+public static class OAuthRequestAppleSchemaProfile {
     
     
     
@@ -2161,8 +2162,8 @@ public static class OAuthRequestAppleSchemaProfile{
     
     
     
+    
 }
-
 
 /*
     Model: AuthSuccessUser
@@ -2173,7 +2174,7 @@ public static class OAuthRequestAppleSchemaProfile{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AuthSuccessUser{
+public static class AuthSuccessUser {
     
     
     
@@ -2207,8 +2208,8 @@ public static class AuthSuccessUser{
     
     
     
+    
 }
-
 
 /*
     Model: AuthSuccessUserDebug
@@ -2219,7 +2220,7 @@ public static class AuthSuccessUser{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AuthSuccessUserDebug{
+public static class AuthSuccessUserDebug {
     
     
     
@@ -2229,8 +2230,8 @@ public static class AuthSuccessUserDebug{
     
     
     
+    
 }
-
 
 /*
     Model: AuthSuccessUserEmails
@@ -2241,7 +2242,7 @@ public static class AuthSuccessUserDebug{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AuthSuccessUserEmails{
+public static class AuthSuccessUserEmails {
     
     
     
@@ -2269,8 +2270,8 @@ public static class AuthSuccessUserEmails{
     
     
     
+    
 }
-
 
 /*
     Model: CreateUserRequestSchema
@@ -2281,7 +2282,7 @@ public static class AuthSuccessUserEmails{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateUserRequestSchema{
+public static class CreateUserRequestSchema {
     
     
     
@@ -2327,8 +2328,8 @@ public static class CreateUserRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: CreateUserResponseSchema
@@ -2339,7 +2340,7 @@ public static class CreateUserRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateUserResponseSchema{
+public static class CreateUserResponseSchema {
     
     
     
@@ -2349,8 +2350,8 @@ public static class CreateUserResponseSchema{
     
     
     
+    
 }
-
 
 /*
     Model: CreateUserSessionRequestSchema
@@ -2361,7 +2362,7 @@ public static class CreateUserResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateUserSessionRequestSchema{
+public static class CreateUserSessionRequestSchema {
     
     
     
@@ -2383,8 +2384,8 @@ public static class CreateUserSessionRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: CreateUserSessionResponseSchema
@@ -2395,7 +2396,7 @@ public static class CreateUserSessionRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateUserSessionResponseSchema{
+public static class CreateUserSessionResponseSchema {
     
     
     
@@ -2429,8 +2430,8 @@ public static class CreateUserSessionResponseSchema{
     
     
     
+    
 }
-
 
 /*
     Model: PlatformSchema
@@ -2441,7 +2442,7 @@ public static class CreateUserSessionResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PlatformSchema{
+public static class PlatformSchema {
     
     
     
@@ -2590,13 +2591,7 @@ public static class PlatformSchema{
     
     
     
-    @JsonProperty("session_config")
-    private Object sessionConfig;
-    
-    
-    
 }
-
 
 /*
     Model: LookAndFeel
@@ -2607,7 +2602,7 @@ public static class PlatformSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LookAndFeel{
+public static class LookAndFeel {
     
     
     
@@ -2623,8 +2618,8 @@ public static class LookAndFeel{
     
     
     
+    
 }
-
 
 /*
     Model: Login
@@ -2635,7 +2630,7 @@ public static class LookAndFeel{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Login{
+public static class Login {
     
     
     
@@ -2651,8 +2646,8 @@ public static class Login{
     
     
     
+    
 }
-
 
 /*
     Model: MetaSchema
@@ -2663,7 +2658,7 @@ public static class Login{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MetaSchema{
+public static class MetaSchema {
     
     
     
@@ -2673,8 +2668,8 @@ public static class MetaSchema{
     
     
     
+    
 }
-
 
 /*
     Model: Social
@@ -2685,7 +2680,7 @@ public static class MetaSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Social{
+public static class Social {
     
     
     
@@ -2713,8 +2708,8 @@ public static class Social{
     
     
     
+    
 }
-
 
 /*
     Model: RequiredFields
@@ -2725,7 +2720,7 @@ public static class Social{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RequiredFields{
+public static class RequiredFields {
     
     
     
@@ -2741,8 +2736,8 @@ public static class RequiredFields{
     
     
     
+    
 }
-
 
 /*
     Model: PlatformEmail
@@ -2753,7 +2748,7 @@ public static class RequiredFields{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PlatformEmail{
+public static class PlatformEmail {
     
     
     
@@ -2769,8 +2764,8 @@ public static class PlatformEmail{
     
     
     
+    
 }
-
 
 /*
     Model: PlatformMobile
@@ -2781,7 +2776,7 @@ public static class PlatformEmail{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PlatformMobile{
+public static class PlatformMobile {
     
     
     
@@ -2797,8 +2792,8 @@ public static class PlatformMobile{
     
     
     
+    
 }
-
 
 /*
     Model: RegisterRequiredFields
@@ -2809,7 +2804,7 @@ public static class PlatformMobile{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RegisterRequiredFields{
+public static class RegisterRequiredFields {
     
     
     
@@ -2825,8 +2820,8 @@ public static class RegisterRequiredFields{
     
     
     
+    
 }
-
 
 /*
     Model: RegisterRequiredFieldsEmail
@@ -2837,7 +2832,7 @@ public static class RegisterRequiredFields{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RegisterRequiredFieldsEmail{
+public static class RegisterRequiredFieldsEmail {
     
     
     
@@ -2853,8 +2848,8 @@ public static class RegisterRequiredFieldsEmail{
     
     
     
+    
 }
-
 
 /*
     Model: RegisterRequiredFieldsMobile
@@ -2865,7 +2860,7 @@ public static class RegisterRequiredFieldsEmail{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RegisterRequiredFieldsMobile{
+public static class RegisterRequiredFieldsMobile {
     
     
     
@@ -2881,8 +2876,8 @@ public static class RegisterRequiredFieldsMobile{
     
     
     
+    
 }
-
 
 /*
     Model: FlashCard
@@ -2893,7 +2888,7 @@ public static class RegisterRequiredFieldsMobile{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FlashCard{
+public static class FlashCard {
     
     
     
@@ -2915,8 +2910,8 @@ public static class FlashCard{
     
     
     
+    
 }
-
 
 /*
     Model: SocialTokens
@@ -2927,7 +2922,7 @@ public static class FlashCard{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SocialTokens{
+public static class SocialTokens {
     
     
     
@@ -2949,8 +2944,8 @@ public static class SocialTokens{
     
     
     
+    
 }
-
 
 /*
     Model: DeleteAccountReasons
@@ -2961,7 +2956,7 @@ public static class SocialTokens{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeleteAccountReasons{
+public static class DeleteAccountReasons {
     
     
     
@@ -2983,8 +2978,8 @@ public static class DeleteAccountReasons{
     
     
     
+    
 }
-
 
 /*
     Model: DeleteAccountConsent
@@ -2995,7 +2990,7 @@ public static class DeleteAccountReasons{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeleteAccountConsent{
+public static class DeleteAccountConsent {
     
     
     
@@ -3005,8 +3000,8 @@ public static class DeleteAccountConsent{
     
     
     
+    
 }
-
 
 /*
     Model: Facebook
@@ -3017,7 +3012,7 @@ public static class DeleteAccountConsent{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Facebook{
+public static class Facebook {
     
     
     
@@ -3027,8 +3022,8 @@ public static class Facebook{
     
     
     
+    
 }
-
 
 /*
     Model: Accountkit
@@ -3039,7 +3034,7 @@ public static class Facebook{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Accountkit{
+public static class Accountkit {
     
     
     
@@ -3049,8 +3044,8 @@ public static class Accountkit{
     
     
     
+    
 }
-
 
 /*
     Model: Google
@@ -3061,7 +3056,7 @@ public static class Accountkit{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Google{
+public static class Google {
     
     
     
@@ -3071,42 +3066,8 @@ public static class Google{
     
     
     
-}
-
-
-/*
-    Model: SessionExpiry
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SessionExpiry{
-    
-    
-    
-    
-    @JsonProperty("duration")
-    private Integer duration;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("is_rolling")
-    private Boolean isRolling;
-    
-    
     
 }
-
 
 /*
     Model: UpdateUserRequestSchema
@@ -3117,7 +3078,7 @@ public static class SessionExpiry{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateUserRequestSchema{
+public static class UpdateUserRequestSchema {
     
     
     
@@ -3151,8 +3112,8 @@ public static class UpdateUserRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: UserSchema
@@ -3163,7 +3124,7 @@ public static class UpdateUserRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserSchema{
+public static class UserSchema {
     
     
     
@@ -3246,6 +3207,18 @@ public static class UserSchema{
     
     
     
+    @JsonProperty("debug")
+    private Debug debug;
+    
+    
+    
+    
+    @JsonProperty("has_old_password_hash")
+    private Boolean hasOldPasswordHash;
+    
+    
+    
+    
     @JsonProperty("_id")
     private String id;
     
@@ -3263,8 +3236,8 @@ public static class UserSchema{
     
     
     
+    
 }
-
 
 /*
     Model: PhoneNumber
@@ -3275,7 +3248,7 @@ public static class UserSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PhoneNumber{
+public static class PhoneNumber {
     
     
     
@@ -3309,8 +3282,8 @@ public static class PhoneNumber{
     
     
     
+    
 }
-
 
 /*
     Model: Email
@@ -3321,7 +3294,7 @@ public static class PhoneNumber{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Email{
+public static class Email {
     
     
     
@@ -3349,7 +3322,37 @@ public static class Email{
     
     
     
+    
 }
+
+/*
+    Model: Debug
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Debug {
+    
+    
+    
+    
+    @JsonProperty("source")
+    private String source;
+    
+    
+    
+    
+    @JsonProperty("platform")
+    private String platform;
+    
+    
+    
+    
+}
+
 
 
 

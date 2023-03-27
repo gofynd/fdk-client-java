@@ -14,6 +14,24 @@ interface InventoryPlatformApiList {
     
     
     
+    @GET ("/service/platform/inventory/v1.0/company/{company_id}/slingshot")
+    Call<InventoryPlatformModels.ResponseEnvelopeListSlingshotConfigurationDetail> getConfigByCompany(@Path("company_id")  String companyId );
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/inventory/v1.0/company/{company_id}/kafka/suppressStore")
+    Call<InventoryPlatformModels.ResponseEnvelopeKafkaResponse> suppressStores(@Path("company_id")  String companyId ,@Body InventoryPlatformModels.SuppressStorePayload payload);
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -40,24 +58,6 @@ interface InventoryPlatformApiList {
     
     @POST ("/service/platform/inventory/v1.0/company/{company_id}/jobs")
     Call<InventoryPlatformModels.ResponseEnvelopeString> createJob(@Path("company_id")  String companyId ,@Body InventoryPlatformModels.JobConfigDTO payload);
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/inventory/v1.0/company/{company_id}/kafka/suppressStore")
-    Call<InventoryPlatformModels.ResponseEnvelopeKafkaResponse> suppressStores(@Path("company_id")  String companyId ,@Body InventoryPlatformModels.SuppressStorePayload payload);
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/inventory/v1.0/company/{company_id}/slingshot")
-    Call<InventoryPlatformModels.ResponseEnvelopeListSlingshotConfigurationDetail> getConfigByCompany(@Path("company_id")  String companyId );
     
     
     

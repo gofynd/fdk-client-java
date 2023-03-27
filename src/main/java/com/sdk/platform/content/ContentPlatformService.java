@@ -2201,12 +2201,20 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public ContentPlatformModels.PageMetaSchema getPageMeta() throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.PageMetaSchema getPageMeta(String pageType , Boolean cartPages ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.PageMetaSchema> response = null;
             try {
-            response = contentPlatformApiList.getPageMeta(this.companyId , this.applicationId ).execute();
+            response = contentPlatformApiList.getPageMeta(this.companyId , this.applicationId ,pageType , cartPages ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

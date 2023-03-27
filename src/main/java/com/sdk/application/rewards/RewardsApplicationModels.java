@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
+
 public class RewardsApplicationModels{
 
 
@@ -469,12 +470,6 @@ public static class ReferralDetailsResponse{
     
     
     
-    
-    @JsonProperty("terms_conditions_link")
-    private String termsConditionsLink;
-    
-    
-    
 }
 
 
@@ -902,6 +897,8 @@ public static class Page{
     
     
 }
+
+
 
 
 
