@@ -1511,11 +1511,11 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.MultiCartResponse getCartList(String fromDate , String toDate , String sortOn ) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.MultiCartResponse getCartList(String fromDate , String toDate , String filterOn ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.MultiCartResponse> response = null;
             try {
-            response = cartPlatformApiList.getCartList(this.companyId , this.applicationId ,fromDate , toDate , sortOn ).execute();
+            response = cartPlatformApiList.getCartList(this.companyId , this.applicationId ,fromDate , toDate , filterOn ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1776,11 +1776,11 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.DeleteCartDetailResponse deleteCart(String id ) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.DeleteCartDetailResponse deleteCart(String id ,CartPlatformModels.DeleteCartRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.DeleteCartDetailResponse> response = null;
             try {
-            response = cartPlatformApiList.deleteCart(this.companyId , this.applicationId ,id ).execute();
+            response = cartPlatformApiList.deleteCart(this.companyId , this.applicationId ,id , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
