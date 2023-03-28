@@ -1797,7 +1797,7 @@ public static class SessionListResponseSchema{
     
     
     @JsonProperty("items")
-    private List<String> items;
+    private List<SessionListResponseInfo> items;
     
     
     
@@ -2204,6 +2204,52 @@ public static class AuthSuccessUser{
     
     @JsonProperty("emails")
     private AuthSuccessUserEmails emails;
+    
+    
+    
+}
+
+
+/*
+    Model: SessionListResponseInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SessionListResponseInfo{
+    
+    
+    
+    
+    @JsonProperty("session_id")
+    private String sessionId;
+    
+    
+    
+    
+    @JsonProperty("user_agent")
+    private String userAgent;
+    
+    
+    
+    
+    @JsonProperty("ip")
+    private String ip;
+    
+    
+    
+    
+    @JsonProperty("domain")
+    private String domain;
+    
+    
+    
+    
+    @JsonProperty("expire_in")
+    private String expireIn;
     
     
     

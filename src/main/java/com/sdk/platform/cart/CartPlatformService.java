@@ -1498,12 +1498,24 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CartPlatformModels.MultiCartResponse getCartList() throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.MultiCartResponse getCartList(String fromDate , String toDate , String sortOn ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.MultiCartResponse> response = null;
             try {
-            response = cartPlatformApiList.getCartList(this.companyId , this.applicationId ).execute();
+            response = cartPlatformApiList.getCartList(this.companyId , this.applicationId ,fromDate , toDate , sortOn ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

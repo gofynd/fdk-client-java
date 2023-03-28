@@ -389,8 +389,17 @@ interface CartPlatformApiList {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart-list")
-    Call<CartPlatformModels.MultiCartResponse> getCartList(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    Call<CartPlatformModels.MultiCartResponse> getCartList(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("sort_on") String  sortOn );
     
     
     
