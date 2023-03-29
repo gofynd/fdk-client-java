@@ -3,40 +3,25 @@ package com.sdk.universal;
 import lombok.Getter;
 import lombok.Setter;
 
-
-import com.sdk.universal.configuration.ConfigurationPublicService;
-
-import com.sdk.universal.webhook.WebhookPublicService;
-
-import com.sdk.universal.inventory.InventoryPublicService;
-
-
 @Getter
 @Setter
 public class PublicClient {
 
-    private PublicConfig config;
-
     
-    public ConfigurationPublicService configuration;
+    public PublicService.ConfigurationService configuration;
     
-    public WebhookPublicService webhook;
+    public PublicService.WebhookService webhook;
     
-    public InventoryPublicService inventory;
+    public PublicService.InventoryService inventory;
     
-
-    public void setExtraHeader(String key, String value){
-        this.config.getExtraHeaders().put(key, value);
-    }
 
     public PublicClient(PublicConfig publicConfig) {
-        this.config = publicConfig;
         
-        this.configuration = new ConfigurationPublicService(publicConfig);
+        this.configuration = new PublicService.ConfigurationService(publicConfig);
         
-        this.webhook = new WebhookPublicService(publicConfig);
+        this.webhook = new PublicService.WebhookService(publicConfig);
         
-        this.inventory = new InventoryPublicService(publicConfig);
+        this.inventory = new PublicService.InventoryService(publicConfig);
         
     }
 }

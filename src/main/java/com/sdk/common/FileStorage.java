@@ -1,7 +1,7 @@
 package com.sdk.common;
 
-import com.sdk.application.filestorage.FileStorageApplicationService;
-import com.sdk.application.filestorage.FileStorageApplicationModels;
+import com.sdk.application.ApplicationModels;
+import com.sdk.application.ApplicationService;
 import com.sdk.common.model.FDKError;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -21,20 +21,20 @@ public class FileStorage {
 
     private RetrofitServiceFactory retrofitServiceFactory;
 
-    private FileStorageApplicationService fileStorageApplicationService;
+    private ApplicationService.FileStorageService fileStorageService;
 
-    public FileStorageApplicationModels.CompleteResponse uploadMedia(String fileName, String contentType, int size,
-            String namespace, File file, FileStorageApplicationService fileStorageApplicationService,
+    public ApplicationModels.CompleteResponse uploadMedia(String fileName, String contentType, int size,
+            String namespace, File file, ApplicationService.FileStorageService fileStorageService,
             HashMap<String, Object> params) {
         this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.fileStorageApplicationService = fileStorageApplicationService;
+        this.fileStorageService = fileStorageService;
         AwsApiList awsApiList = generateAwsApiList();
         if (StringUtils.isNotEmpty(fileName) && StringUtils.isNotEmpty(contentType)
                 && StringUtils.isNotEmpty(namespace)) {
-            FileStorageApplicationModels.StartRequest startRequest = new FileStorageApplicationModels.StartRequest(fileName, contentType,
+            ApplicationModels.StartRequest startRequest = new ApplicationModels.StartRequest(fileName, contentType,
                     size, List.of(), params);
             try {
-                FileStorageApplicationModels.StartResponse startResponse = fileStorageApplicationService.startUpload(namespace, startRequest);
+                ApplicationModels.StartResponse startResponse = fileStorageService.startUpload(namespace, startRequest);
                 String cdnUrl = startResponse.getCdn().getUrl();
                 String uploadUrl = startResponse.getUpload().getUrl();
                 if (StringUtils.isNotEmpty(cdnUrl) && StringUtils.isNotEmpty(uploadUrl) && Objects.nonNull(file)) {
@@ -43,7 +43,7 @@ public class FileStorage {
                             : "";
                     awsApiList.updateAWSMedia(contentTypeFromResponse, uploadUrl,
                             RequestBody.create(MediaType.parse(contentTypeFromResponse), file)).execute();
-                    return fileStorageApplicationService.completeUpload(namespace, startResponse);
+                    return fileStorageService.completeUpload(namespace, startResponse);
                 }
             } catch (Exception e) {
                 throw new FDKError(e.getMessage());
@@ -53,7 +53,7 @@ public class FileStorage {
     }
 
     private AwsApiList generateAwsApiList() {
-        return retrofitServiceFactory.createService(fileStorageApplicationService.getApplicationConfig().getDomain(),
+        return retrofitServiceFactory.createService(fileStorageService.getApplicationConfig().getDomain(),
                 AwsApiList.class, List.of());
     }
 

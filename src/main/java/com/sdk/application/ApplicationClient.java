@@ -3,118 +3,77 @@ package com.sdk.application;
 import lombok.Getter;
 import lombok.Setter;
 
-
-import com.sdk.application.catalog.CatalogApplicationService;
-
-import com.sdk.application.cart.CartApplicationService;
-
-import com.sdk.application.common.CommonApplicationService;
-
-import com.sdk.application.lead.LeadApplicationService;
-
-import com.sdk.application.theme.ThemeApplicationService;
-
-import com.sdk.application.user.UserApplicationService;
-
-import com.sdk.application.content.ContentApplicationService;
-
-import com.sdk.application.communication.CommunicationApplicationService;
-
-import com.sdk.application.share.ShareApplicationService;
-
-import com.sdk.application.filestorage.FileStorageApplicationService;
-
-import com.sdk.application.configuration.ConfigurationApplicationService;
-
-import com.sdk.application.payment.PaymentApplicationService;
-
-import com.sdk.application.order.OrderApplicationService;
-
-import com.sdk.application.rewards.RewardsApplicationService;
-
-import com.sdk.application.poscart.PosCartApplicationService;
-
-import com.sdk.application.logistic.LogisticApplicationService;
-
-
 @Getter
 @Setter
 public class ApplicationClient {
 
-    private ApplicationConfig config;
-
     
-    public CatalogApplicationService catalog;
+    public ApplicationService.CatalogService catalog;
     
-    public CartApplicationService cart;
+    public ApplicationService.CartService cart;
     
-    public CommonApplicationService common;
+    public ApplicationService.CommonService common;
     
-    public LeadApplicationService lead;
+    public ApplicationService.LeadService lead;
     
-    public ThemeApplicationService theme;
+    public ApplicationService.ThemeService theme;
     
-    public UserApplicationService user;
+    public ApplicationService.UserService user;
     
-    public ContentApplicationService content;
+    public ApplicationService.ContentService content;
     
-    public CommunicationApplicationService communication;
+    public ApplicationService.CommunicationService communication;
     
-    public ShareApplicationService share;
+    public ApplicationService.ShareService share;
     
-    public FileStorageApplicationService fileStorage;
+    public ApplicationService.FileStorageService fileStorage;
     
-    public ConfigurationApplicationService configuration;
+    public ApplicationService.ConfigurationService configuration;
     
-    public PaymentApplicationService payment;
+    public ApplicationService.PaymentService payment;
     
-    public OrderApplicationService order;
+    public ApplicationService.OrderService order;
     
-    public RewardsApplicationService rewards;
+    public ApplicationService.RewardsService rewards;
     
-    public PosCartApplicationService posCart;
+    public ApplicationService.PosCartService posCart;
     
-    public LogisticApplicationService logistic;
+    public ApplicationService.LogisticService logistic;
     
-
-    public void setExtraHeader(String key, String value){
-        this.config.getExtraHeaders().put(key, value);
-    }
 
     public ApplicationClient(ApplicationConfig applicationConfig) {
-        this.config = applicationConfig;
         
-        this.catalog = new CatalogApplicationService(applicationConfig);
+        this.catalog = new ApplicationService().new CatalogService(applicationConfig);
         
-        this.cart = new CartApplicationService(applicationConfig);
+        this.cart = new ApplicationService().new CartService(applicationConfig);
         
-        this.common = new CommonApplicationService(applicationConfig);
+        this.common = new ApplicationService().new CommonService(applicationConfig);
         
-        this.lead = new LeadApplicationService(applicationConfig);
+        this.lead = new ApplicationService().new LeadService(applicationConfig);
         
-        this.theme = new ThemeApplicationService(applicationConfig);
+        this.theme = new ApplicationService().new ThemeService(applicationConfig);
         
-        this.user = new UserApplicationService(applicationConfig);
+        this.user = new ApplicationService().new UserService(applicationConfig);
         
-        this.content = new ContentApplicationService(applicationConfig);
+        this.content = new ApplicationService().new ContentService(applicationConfig);
         
-        this.communication = new CommunicationApplicationService(applicationConfig);
+        this.communication = new ApplicationService().new CommunicationService(applicationConfig);
         
-        this.share = new ShareApplicationService(applicationConfig);
+        this.share = new ApplicationService().new ShareService(applicationConfig);
         
-        this.fileStorage = new FileStorageApplicationService(applicationConfig);
+        this.fileStorage = new ApplicationService().new FileStorageService(applicationConfig);
         
-        this.configuration = new ConfigurationApplicationService(applicationConfig);
+        this.configuration = new ApplicationService().new ConfigurationService(applicationConfig);
         
-        this.payment = new PaymentApplicationService(applicationConfig);
+        this.payment = new ApplicationService().new PaymentService(applicationConfig);
         
-        this.order = new OrderApplicationService(applicationConfig);
+        this.order = new ApplicationService().new OrderService(applicationConfig);
         
-        this.rewards = new RewardsApplicationService(applicationConfig);
+        this.rewards = new ApplicationService().new RewardsService(applicationConfig);
         
-        this.posCart = new PosCartApplicationService(applicationConfig);
+        this.posCart = new ApplicationService().new PosCartService(applicationConfig);
         
-        this.logistic = new LogisticApplicationService(applicationConfig);
+        this.logistic = new ApplicationService().new LogisticService(applicationConfig);
         
     }
 }
