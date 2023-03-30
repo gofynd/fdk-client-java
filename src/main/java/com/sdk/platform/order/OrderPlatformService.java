@@ -128,12 +128,32 @@ public class OrderPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public OrderPlatformModels.ShipmentInternalPlatformViewResponse getShipments(String lane , String searchType , String searchValue , String searchId , String fromDate , String toDate , String dpIds , String orderingCompanyId , String stores , String salesChannel , String requestByExt , Integer pageNo , Integer pageSize , Boolean isPrioritySort , Boolean excludeLockedShipments , String paymentMethods , String channelShipmentId , String channelOrderId , String customMeta ) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.ShipmentInternalPlatformViewResponse getShipments(String lane , String bagStatus , Boolean statusOverrideLane , String searchType , String searchValue , String searchId , String fromDate , String toDate , String dpIds , String orderingCompanyId , String stores , String salesChannel , String requestByExt , Integer pageNo , Integer pageSize , Boolean isPrioritySort , Boolean fetchActiveShipment , Boolean excludeLockedShipments , String paymentMethods , String channelShipmentId , String channelOrderId , String customMeta , String orderingChannel , String companyAffiliateTag ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.ShipmentInternalPlatformViewResponse> response = null;
             try {
-                response = orderPlatformApiList.getShipments(this.companyId ,lane , searchType , searchValue , searchId , fromDate , toDate , dpIds , orderingCompanyId , stores , salesChannel , requestByExt , pageNo , pageSize , isPrioritySort , excludeLockedShipments , paymentMethods , channelShipmentId , channelOrderId , customMeta ).execute();
+                response = orderPlatformApiList.getShipments(this.companyId ,lane , bagStatus , statusOverrideLane , searchType , searchValue , searchId , fromDate , toDate , dpIds , orderingCompanyId , stores , salesChannel , requestByExt , pageNo , pageSize , isPrioritySort , fetchActiveShipment , excludeLockedShipments , paymentMethods , channelShipmentId , channelOrderId , customMeta , orderingChannel , companyAffiliateTag ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
