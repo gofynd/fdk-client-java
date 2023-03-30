@@ -127,14 +127,20 @@ public static class PathMappingSchema {
     
     
     
-    @JsonProperty("redirections")
-    private List<RedirectionSchema> redirections;
-    
-    
-    
-    
     @JsonProperty("_id")
     private String id;
+    
+    
+    
+    
+    @JsonProperty("redirect_from")
+    private String redirectFrom;
+    
+    
+    
+    
+    @JsonProperty("redirect_to")
+    private String redirectTo;
     
     
     
@@ -151,10 +157,16 @@ public static class PathMappingSchema {
     
     
     
+    @JsonProperty("__source")
+    private PathSourceSchema source;
+    
+    
+    
+    
 }
 
 /*
-    Model: RedirectionSchema
+    Model: PathSourceSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -162,19 +174,19 @@ public static class PathMappingSchema {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RedirectionSchema {
+public static class PathSourceSchema {
     
     
     
     
-    @JsonProperty("redirect_from")
-    private String redirectFrom;
+    @JsonProperty("type")
+    private String type;
     
     
     
     
-    @JsonProperty("redirect_to")
-    private String redirectTo;
+    @JsonProperty("id")
+    private String id;
     
     
     
@@ -1468,7 +1480,7 @@ public static class NavigationReference {
     
     
     @JsonProperty("sub_navigation")
-    private List<Object> subNavigation;
+    private List<NavigationReference> subNavigation;
     
     
     
@@ -1833,6 +1845,12 @@ public static class CreateTagSchema {
     
     @JsonProperty("attributes")
     private Object attributes;
+    
+    
+    
+    
+    @JsonProperty("pages")
+    private List<Object> pages;
     
     
     
@@ -4079,6 +4097,12 @@ public static class TagSchema {
     
     @JsonProperty("content")
     private String content;
+    
+    
+    
+    
+    @JsonProperty("pages")
+    private List<Object> pages;
     
     
     

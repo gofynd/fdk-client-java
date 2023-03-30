@@ -135,7 +135,7 @@ interface CartPlatformApiList {
     
     
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promotion")
-    Call<CartPlatformModels.PromotionsResponse> getPromotions(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("q") String  q ,  @Query("is_active") Boolean  isActive ,  @Query("promo_group") String  promoGroup ,  @Query("promotion_type") String  promotionType ,  @Query("fp_panel") String  fpPanel ,  @Query("promotion_id") String  promotionId );
+    Call<CartPlatformModels.PromotionsResponse> getPromotions(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("q") String  q ,  @Query("status") String  status ,  @Query("promo_group") String  promoGroup ,  @Query("promotion_type") String  promotionType ,  @Query("fp_panel") String  fpPanel ,  @Query("promotion_id") String  promotionId );
     
     
     
@@ -193,6 +193,18 @@ interface CartPlatformApiList {
     
     @PATCH ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promotion/{id}")
     Call<CartPlatformModels.SuccessMessage> updatePromotionPartially(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CartPlatformModels.PromotionPartialUpdate payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promo-coupons")
+    Call<CartPlatformModels.ActivePromosResponse> getPromosCouponConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
     
     

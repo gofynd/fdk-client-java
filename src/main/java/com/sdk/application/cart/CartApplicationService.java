@@ -552,12 +552,12 @@ import com.sdk.application.ApplicationConfig;
     
     
     
-    public CartApplicationModels.PromotionOffersResponse getPromotionOffers(String slug , Integer pageSize , String promotionGroup ) throws IOException {
+    public CartApplicationModels.PromotionOffersResponse getPromotionOffers(String slug , Integer pageSize , String promotionGroup , Integer storeId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getPromotionOffers");
         
 
-        Response<CartApplicationModels.PromotionOffersResponse> response = cartApplicationApiList.getPromotionOffers(fullUrl  ,slug, pageSize, promotionGroup).execute();
+        Response<CartApplicationModels.PromotionOffersResponse> response = cartApplicationApiList.getPromotionOffers(fullUrl  ,slug, pageSize, promotionGroup, storeId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

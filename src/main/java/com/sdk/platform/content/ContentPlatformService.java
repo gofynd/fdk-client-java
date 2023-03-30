@@ -171,6 +171,12 @@ public class ContentPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
 
 
 
@@ -2408,11 +2414,11 @@ public class ApplicationClient {
     
     
 
-    public ContentPlatformModels.PathMappingSchema updatePathRedirectionRules(ContentPlatformModels.PathMappingSchema body) throws FDKException {
+    public ContentPlatformModels.PathMappingSchema addPathRedirectionRules(ContentPlatformModels.PathMappingSchema body) throws FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.PathMappingSchema> response = null;
             try {
-            response = contentPlatformApiList.updatePathRedirectionRules(this.companyId , this.applicationId , body).execute();
+            response = contentPlatformApiList.addPathRedirectionRules(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKException(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2448,12 +2454,155 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public ContentPlatformModels.PathMappingSchema getPathRedirectionRules() throws FDKException {
+    public ContentPlatformModels.PathMappingSchema getPathRedirectionRules(Integer pageSize , Integer pageNo ) throws FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.PathMappingSchema> response = null;
             try {
-            response = contentPlatformApiList.getPathRedirectionRules(this.companyId , this.applicationId ).execute();
+            response = contentPlatformApiList.getPathRedirectionRules(this.companyId , this.applicationId ,pageSize , pageNo ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKException(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage(), e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ContentPlatformModels.PathMappingSchema getPathRedirectionRule(String pathId ) throws FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.PathMappingSchema> response = null;
+            try {
+            response = contentPlatformApiList.getPathRedirectionRule(this.companyId , this.applicationId , pathId ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKException(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage(), e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ContentPlatformModels.PathMappingSchema updatePathRedirectionRules(String pathId ,ContentPlatformModels.PathMappingSchema body) throws FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.PathMappingSchema> response = null;
+            try {
+            response = contentPlatformApiList.updatePathRedirectionRules(this.companyId , this.applicationId , pathId , body).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKException(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage(), e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public Object deletePathRedirectionRules(String pathId ) throws FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<Object> response = null;
+            try {
+            response = contentPlatformApiList.deletePathRedirectionRules(this.companyId , this.applicationId , pathId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKException(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

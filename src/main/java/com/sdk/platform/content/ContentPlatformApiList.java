@@ -663,7 +663,13 @@ interface ContentPlatformApiList {
     
     
     @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/path-mappings")
-    Call<ContentPlatformModels.PathMappingSchema> updatePathRedirectionRules(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ContentPlatformModels.PathMappingSchema payload);
+    Call<ContentPlatformModels.PathMappingSchema> addPathRedirectionRules(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ContentPlatformModels.PathMappingSchema payload);
+    
+    
+    
+    
+    
+    
     
     
     
@@ -675,7 +681,52 @@ interface ContentPlatformApiList {
     
     
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/path-mappings")
-    Call<ContentPlatformModels.PathMappingSchema> getPathRedirectionRules(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    Call<ContentPlatformModels.PathMappingSchema> getPathRedirectionRules(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_size") Integer  pageSize ,  @Query("page_no") Integer  pageNo );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/path-mappings/{path_id}")
+    Call<ContentPlatformModels.PathMappingSchema> getPathRedirectionRule(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("path_id") String  pathId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/path-mappings/{path_id}")
+    Call<ContentPlatformModels.PathMappingSchema> updatePathRedirectionRules(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("path_id") String  pathId ,@Body ContentPlatformModels.PathMappingSchema payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/path-mappings/{path_id}")
+    Call<Object> deletePathRedirectionRules(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("path_id") String  pathId );
     
     
     
