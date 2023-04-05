@@ -422,6 +422,21 @@ interface ContentPlatformApiList {
     
     
     
+    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/generate-seo/{type}")
+    Call<ContentPlatformModels.GeneratedSEOContent> generateSEOTitle(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("type") ContentPlatformModels.GenerationEntityType  type ,@Body ContentPlatformModels.GenerateSEOContent payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
