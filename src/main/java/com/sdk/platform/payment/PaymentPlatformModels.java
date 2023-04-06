@@ -28,20 +28,8 @@ public static class PaymentGatewayConfigResponse{
     
     
     
-    @JsonProperty("created")
-    private Boolean created;
-    
-    
-    
-    
-    @JsonProperty("excluded_fields")
-    private List<String> excludedFields;
-    
-    
-    
-    
-    @JsonProperty("display_fields")
-    private List<String> displayFields;
+    @JsonProperty("app_id")
+    private String appId;
     
     
     
@@ -52,8 +40,20 @@ public static class PaymentGatewayConfigResponse{
     
     
     
-    @JsonProperty("app_id")
-    private String appId;
+    @JsonProperty("created")
+    private Boolean created;
+    
+    
+    
+    
+    @JsonProperty("display_fields")
+    private List<String> displayFields;
+    
+    
+    
+    
+    @JsonProperty("excluded_fields")
+    private List<String> excludedFields;
     
     
     
@@ -114,14 +114,14 @@ public static class PaymentGatewayConfig{
     
     
     
-    @JsonProperty("config_type")
-    private String configType;
-    
-    
-    
-    
     @JsonProperty("secret")
     private String secret;
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
     
     
     
@@ -132,8 +132,8 @@ public static class PaymentGatewayConfig{
     
     
     
-    @JsonProperty("key")
-    private String key;
+    @JsonProperty("config_type")
+    private String configType;
     
     
     
@@ -154,14 +154,14 @@ public static class PaymentGatewayConfigRequest{
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
     @JsonProperty("app_id")
     private String appId;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
@@ -188,14 +188,14 @@ public static class PaymentGatewayToBeReviewed{
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
     @JsonProperty("aggregator")
     private List<String> aggregator;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -244,14 +244,14 @@ public static class HttpErrorCodeAndResponse{
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
     @JsonProperty("error")
     private ErrorCodeAndDescription error;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -272,14 +272,14 @@ public static class PaymentModeLogo{
     
     
     
-    @JsonProperty("large")
-    private String large;
-    
-    
-    
-    
     @JsonProperty("small")
     private String small;
+    
+    
+    
+    
+    @JsonProperty("large")
+    private String large;
     
     
     
@@ -300,8 +300,14 @@ public static class IntentApp{
     
     
     
-    @JsonProperty("logos")
-    private PaymentModeLogo logos;
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
     
     
     
@@ -312,14 +318,8 @@ public static class IntentApp{
     
     
     
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
+    @JsonProperty("logos")
+    private PaymentModeLogo logos;
     
     
     
@@ -368,128 +368,8 @@ public static class PaymentModeList{
     
     
     
-    @JsonProperty("retry_count")
-    private Integer retryCount;
-    
-    
-    
-    
-    @JsonProperty("card_id")
-    private String cardId;
-    
-    
-    
-    
     @JsonProperty("display_name")
     private String displayName;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("nickname")
-    private String nickname;
-    
-    
-    
-    
-    @JsonProperty("card_name")
-    private String cardName;
-    
-    
-    
-    
-    @JsonProperty("cod_limit_per_order")
-    private Double codLimitPerOrder;
-    
-    
-    
-    
-    @JsonProperty("merchant_code")
-    private String merchantCode;
-    
-    
-    
-    
-    @JsonProperty("expired")
-    private Boolean expired;
-    
-    
-    
-    
-    @JsonProperty("card_brand")
-    private String cardBrand;
-    
-    
-    
-    
-    @JsonProperty("fynd_vpa")
-    private String fyndVpa;
-    
-    
-    
-    
-    @JsonProperty("card_number")
-    private String cardNumber;
-    
-    
-    
-    
-    @JsonProperty("card_brand_image")
-    private String cardBrandImage;
-    
-    
-    
-    
-    @JsonProperty("remaining_limit")
-    private Double remainingLimit;
-    
-    
-    
-    
-    @JsonProperty("intent_flow")
-    private Boolean intentFlow;
-    
-    
-    
-    
-    @JsonProperty("card_reference")
-    private String cardReference;
-    
-    
-    
-    
-    @JsonProperty("cod_limit")
-    private Double codLimit;
-    
-    
-    
-    
-    @JsonProperty("intent_app")
-    private List<IntentApp> intentApp;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("card_issuer")
-    private String cardIssuer;
-    
-    
-    
-    
-    @JsonProperty("timeout")
-    private Integer timeout;
     
     
     
@@ -500,38 +380,8 @@ public static class PaymentModeList{
     
     
     
-    @JsonProperty("exp_year")
-    private Integer expYear;
-    
-    
-    
-    
-    @JsonProperty("aggregator_name")
-    private String aggregatorName;
-    
-    
-    
-    
-    @JsonProperty("exp_month")
-    private Integer expMonth;
-    
-    
-    
-    
-    @JsonProperty("intent_app_error_list")
-    private List<String> intentAppErrorList;
-    
-    
-    
-    
-    @JsonProperty("card_token")
-    private String cardToken;
-    
-    
-    
-    
-    @JsonProperty("card_type")
-    private String cardType;
+    @JsonProperty("remaining_limit")
+    private Double remainingLimit;
     
     
     
@@ -542,8 +392,20 @@ public static class PaymentModeList{
     
     
     
-    @JsonProperty("intent_app_error_dict_list")
-    private List<IntentAppErrorList> intentAppErrorDictList;
+    @JsonProperty("fynd_vpa")
+    private String fyndVpa;
+    
+    
+    
+    
+    @JsonProperty("nickname")
+    private String nickname;
+    
+    
+    
+    
+    @JsonProperty("intent_flow")
+    private Boolean intentFlow;
     
     
     
@@ -554,14 +416,152 @@ public static class PaymentModeList{
     
     
     
-    @JsonProperty("card_fingerprint")
-    private String cardFingerprint;
+    @JsonProperty("cod_limit")
+    private Double codLimit;
+    
+    
+    
+    
+    @JsonProperty("card_brand_image")
+    private String cardBrandImage;
+    
+    
+    
+    
+    @JsonProperty("intent_app")
+    private List<IntentApp> intentApp;
+    
+    
+    
+    
+    @JsonProperty("expired")
+    private Boolean expired;
+    
+    
+    
+    
+    @JsonProperty("card_number")
+    private String cardNumber;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("card_reference")
+    private String cardReference;
+    
+    
+    
+    
+    @JsonProperty("cod_limit_per_order")
+    private Double codLimitPerOrder;
+    
+    
+    
+    
+    @JsonProperty("card_token")
+    private String cardToken;
     
     
     
     
     @JsonProperty("compliant_with_tokenisation_guidelines")
     private Boolean compliantWithTokenisationGuidelines;
+    
+    
+    
+    
+    @JsonProperty("aggregator_name")
+    private String aggregatorName;
+    
+    
+    
+    
+    @JsonProperty("timeout")
+    private Integer timeout;
+    
+    
+    
+    
+    @JsonProperty("card_id")
+    private String cardId;
+    
+    
+    
+    
+    @JsonProperty("exp_month")
+    private Integer expMonth;
+    
+    
+    
+    
+    @JsonProperty("card_brand")
+    private String cardBrand;
+    
+    
+    
+    
+    @JsonProperty("retry_count")
+    private Integer retryCount;
+    
+    
+    
+    
+    @JsonProperty("merchant_code")
+    private String merchantCode;
+    
+    
+    
+    
+    @JsonProperty("exp_year")
+    private Integer expYear;
+    
+    
+    
+    
+    @JsonProperty("card_name")
+    private String cardName;
+    
+    
+    
+    
+    @JsonProperty("intent_app_error_dict_list")
+    private List<IntentAppErrorList> intentAppErrorDictList;
+    
+    
+    
+    
+    @JsonProperty("card_type")
+    private String cardType;
+    
+    
+    
+    
+    @JsonProperty("intent_app_error_list")
+    private List<String> intentAppErrorList;
+    
+    
+    
+    
+    @JsonProperty("card_fingerprint")
+    private String cardFingerprint;
+    
+    
+    
+    
+    @JsonProperty("card_issuer")
+    private String cardIssuer;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
     
     
     
@@ -582,26 +582,8 @@ public static class RootPaymentMode{
     
     
     
-    @JsonProperty("save_card")
-    private Boolean saveCard;
-    
-    
-    
-    
-    @JsonProperty("aggregator_name")
-    private String aggregatorName;
-    
-    
-    
-    
-    @JsonProperty("list")
-    private List<PaymentModeList> list;
-    
-    
-    
-    
-    @JsonProperty("display_priority")
-    private Integer displayPriority;
+    @JsonProperty("add_card_enabled")
+    private Boolean addCardEnabled;
     
     
     
@@ -612,8 +594,8 @@ public static class RootPaymentMode{
     
     
     
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("aggregator_name")
+    private String aggregatorName;
     
     
     
@@ -624,14 +606,32 @@ public static class RootPaymentMode{
     
     
     
-    @JsonProperty("add_card_enabled")
-    private Boolean addCardEnabled;
+    @JsonProperty("display_priority")
+    private Integer displayPriority;
+    
+    
+    
+    
+    @JsonProperty("list")
+    private List<PaymentModeList> list;
     
     
     
     
     @JsonProperty("is_pay_by_card_pl")
     private Boolean isPayByCardPl;
+    
+    
+    
+    
+    @JsonProperty("save_card")
+    private Boolean saveCard;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -674,14 +674,14 @@ public static class PaymentOptionsResponse{
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
     @JsonProperty("payment_options")
     private PaymentOptions paymentOptions;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -689,7 +689,7 @@ public static class PaymentOptionsResponse{
 
 
 /*
-    Model: PayoutMoreAttributes
+    Model: PayoutAggregator
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -697,61 +697,25 @@ public static class PaymentOptionsResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayoutMoreAttributes{
+public static class PayoutAggregator{
     
     
     
     
-    @JsonProperty("account_holder")
-    private String accountHolder;
+    @JsonProperty("aggregator_id")
+    private Integer aggregatorId;
     
     
     
     
-    @JsonProperty("branch_name")
-    private String branchName;
+    @JsonProperty("payout_details_id")
+    private Integer payoutDetailsId;
     
     
     
     
-    @JsonProperty("bank_name")
-    private String bankName;
-    
-    
-    
-    
-    @JsonProperty("account_type")
-    private String accountType;
-    
-    
-    
-    
-    @JsonProperty("city")
-    private String city;
-    
-    
-    
-    
-    @JsonProperty("country")
-    private String country;
-    
-    
-    
-    
-    @JsonProperty("account_no")
-    private String accountNo;
-    
-    
-    
-    
-    @JsonProperty("ifsc_code")
-    private String ifscCode;
-    
-    
-    
-    
-    @JsonProperty("state")
-    private String state;
+    @JsonProperty("aggregator_fund_id")
+    private Integer aggregatorFundId;
     
     
     
@@ -778,14 +742,14 @@ public static class PayoutCustomer{
     
     
     
-    @JsonProperty("unique_external_id")
-    private String uniqueExternalId;
-    
-    
-    
-    
     @JsonProperty("mobile")
     private String mobile;
+    
+    
+    
+    
+    @JsonProperty("unique_external_id")
+    private String uniqueExternalId;
     
     
     
@@ -799,7 +763,7 @@ public static class PayoutCustomer{
 
 
 /*
-    Model: PayoutAggregator
+    Model: PayoutMoreAttributes
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -807,25 +771,61 @@ public static class PayoutCustomer{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayoutAggregator{
+public static class PayoutMoreAttributes{
     
     
     
     
-    @JsonProperty("payout_details_id")
-    private Integer payoutDetailsId;
+    @JsonProperty("ifsc_code")
+    private String ifscCode;
     
     
     
     
-    @JsonProperty("aggregator_id")
-    private Integer aggregatorId;
+    @JsonProperty("state")
+    private String state;
     
     
     
     
-    @JsonProperty("aggregator_fund_id")
-    private Integer aggregatorFundId;
+    @JsonProperty("account_type")
+    private String accountType;
+    
+    
+    
+    
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("bank_name")
+    private String bankName;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("account_holder")
+    private String accountHolder;
+    
+    
+    
+    
+    @JsonProperty("account_no")
+    private String accountNo;
+    
+    
+    
+    
+    @JsonProperty("branch_name")
+    private String branchName;
     
     
     
@@ -852,8 +852,14 @@ public static class Payout{
     
     
     
-    @JsonProperty("more_attributes")
-    private PayoutMoreAttributes moreAttributes;
+    @JsonProperty("payouts_aggregators")
+    private List<PayoutAggregator> payoutsAggregators;
+    
+    
+    
+    
+    @JsonProperty("transfer_type")
+    private String transferType;
     
     
     
@@ -864,26 +870,20 @@ public static class Payout{
     
     
     
-    @JsonProperty("payouts_aggregators")
-    private List<PayoutAggregator> payoutsAggregators;
-    
-    
-    
-    
-    @JsonProperty("unique_transfer_no")
-    private String uniqueTransferNo;
-    
-    
-    
-    
     @JsonProperty("is_default")
     private Boolean isDefault;
     
     
     
     
-    @JsonProperty("transfer_type")
-    private String transferType;
+    @JsonProperty("more_attributes")
+    private PayoutMoreAttributes moreAttributes;
+    
+    
+    
+    
+    @JsonProperty("unique_transfer_no")
+    private String uniqueTransferNo;
     
     
     
@@ -904,14 +904,14 @@ public static class PayoutsResponse{
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<Payout> items;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -932,20 +932,14 @@ public static class PayoutBankDetails{
     
     
     
-    @JsonProperty("account_holder")
-    private String accountHolder;
+    @JsonProperty("ifsc_code")
+    private String ifscCode;
     
     
     
     
-    @JsonProperty("branch_name")
-    private String branchName;
-    
-    
-    
-    
-    @JsonProperty("bank_name")
-    private String bankName;
+    @JsonProperty("state")
+    private String state;
     
     
     
@@ -962,8 +956,20 @@ public static class PayoutBankDetails{
     
     
     
+    @JsonProperty("bank_name")
+    private String bankName;
+    
+    
+    
+    
     @JsonProperty("country")
     private String country;
+    
+    
+    
+    
+    @JsonProperty("account_holder")
+    private String accountHolder;
     
     
     
@@ -974,20 +980,14 @@ public static class PayoutBankDetails{
     
     
     
+    @JsonProperty("branch_name")
+    private String branchName;
+    
+    
+    
+    
     @JsonProperty("pincode")
     private Integer pincode;
-    
-    
-    
-    
-    @JsonProperty("ifsc_code")
-    private String ifscCode;
-    
-    
-    
-    
-    @JsonProperty("state")
-    private String state;
     
     
     
@@ -1014,20 +1014,8 @@ public static class PayoutRequest{
     
     
     
-    @JsonProperty("aggregator")
-    private String aggregator;
-    
-    
-    
-    
     @JsonProperty("unique_external_id")
     private String uniqueExternalId;
-    
-    
-    
-    
-    @JsonProperty("users")
-    private Object users;
     
     
     
@@ -1038,8 +1026,20 @@ public static class PayoutRequest{
     
     
     
+    @JsonProperty("aggregator")
+    private String aggregator;
+    
+    
+    
+    
     @JsonProperty("transfer_type")
     private String transferType;
+    
+    
+    
+    
+    @JsonProperty("users")
+    private Object users;
     
     
     
@@ -1066,26 +1066,8 @@ public static class PayoutResponse{
     
     
     
-    @JsonProperty("aggregator")
-    private String aggregator;
-    
-    
-    
-    
     @JsonProperty("success")
     private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("created")
-    private Boolean created;
-    
-    
-    
-    
-    @JsonProperty("payment_status")
-    private String paymentStatus;
     
     
     
@@ -1096,14 +1078,32 @@ public static class PayoutResponse{
     
     
     
+    @JsonProperty("payment_status")
+    private String paymentStatus;
+    
+    
+    
+    
+    @JsonProperty("aggregator")
+    private String aggregator;
+    
+    
+    
+    
+    @JsonProperty("transfer_type")
+    private String transferType;
+    
+    
+    
+    
+    @JsonProperty("created")
+    private Boolean created;
+    
+    
+    
+    
     @JsonProperty("unique_transfer_no")
     private String uniqueTransferNo;
-    
-    
-    
-    
-    @JsonProperty("users")
-    private Object users;
     
     
     
@@ -1114,8 +1114,8 @@ public static class PayoutResponse{
     
     
     
-    @JsonProperty("transfer_type")
-    private String transferType;
+    @JsonProperty("users")
+    private Object users;
     
     
     
@@ -1142,14 +1142,14 @@ public static class UpdatePayoutResponse{
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
     @JsonProperty("is_active")
     private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -1276,14 +1276,14 @@ public static class SubscriptionConfigResponse{
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
     @JsonProperty("aggregator")
     private String aggregator;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -1434,14 +1434,8 @@ public static class BankDetailsForOTP{
     
     
     
-    @JsonProperty("account_holder")
-    private String accountHolder;
-    
-    
-    
-    
-    @JsonProperty("branch_name")
-    private String branchName;
+    @JsonProperty("ifsc_code")
+    private String ifscCode;
     
     
     
@@ -1452,14 +1446,20 @@ public static class BankDetailsForOTP{
     
     
     
+    @JsonProperty("account_holder")
+    private String accountHolder;
+    
+    
+    
+    
     @JsonProperty("account_no")
     private String accountNo;
     
     
     
     
-    @JsonProperty("ifsc_code")
-    private String ifscCode;
+    @JsonProperty("branch_name")
+    private String branchName;
     
     
     
@@ -1480,14 +1480,14 @@ public static class AddBeneficiaryDetailsOTPRequest{
     
     
     
-    @JsonProperty("order_id")
-    private String orderId;
-    
-    
-    
-    
     @JsonProperty("details")
     private BankDetailsForOTP details;
+    
+    
+    
+    
+    @JsonProperty("order_id")
+    private String orderId;
     
     
     
@@ -1508,6 +1508,12 @@ public static class IfscCodeResponse{
     
     
     
+    @JsonProperty("bank_name")
+    private String bankName;
+    
+    
+    
+    
     @JsonProperty("success")
     private Boolean success;
     
@@ -1516,12 +1522,6 @@ public static class IfscCodeResponse{
     
     @JsonProperty("branch_name")
     private String branchName;
-    
-    
-    
-    
-    @JsonProperty("bank_name")
-    private String bankName;
     
     
     
@@ -1542,32 +1542,8 @@ public static class OrderBeneficiaryDetails{
     
     
     
-    @JsonProperty("delights_user_name")
-    private String delightsUserName;
-    
-    
-    
-    
     @JsonProperty("display_name")
     private String displayName;
-    
-    
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("mobile")
-    private String mobile;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
     
     
     
@@ -1578,8 +1554,8 @@ public static class OrderBeneficiaryDetails{
     
     
     
-    @JsonProperty("ifsc_code")
-    private String ifscCode;
+    @JsonProperty("account_holder")
+    private String accountHolder;
     
     
     
@@ -1590,38 +1566,8 @@ public static class OrderBeneficiaryDetails{
     
     
     
-    @JsonProperty("account_holder")
-    private String accountHolder;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("bank_name")
-    private String bankName;
-    
-    
-    
-    
-    @JsonProperty("transfer_mode")
-    private String transferMode;
-    
-    
-    
-    
-    @JsonProperty("comment")
-    private String comment;
-    
-    
-    
-    
-    @JsonProperty("beneficiary_id")
-    private String beneficiaryId;
+    @JsonProperty("branch_name")
+    private String branchName;
     
     
     
@@ -1632,8 +1578,56 @@ public static class OrderBeneficiaryDetails{
     
     
     
-    @JsonProperty("branch_name")
-    private String branchName;
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("beneficiary_id")
+    private String beneficiaryId;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Integer id;
+    
+    
+    
+    
+    @JsonProperty("bank_name")
+    private String bankName;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+    
+    @JsonProperty("comment")
+    private String comment;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("transfer_mode")
+    private String transferMode;
     
     
     
@@ -1650,8 +1644,14 @@ public static class OrderBeneficiaryDetails{
     
     
     
-    @JsonProperty("id")
-    private Integer id;
+    @JsonProperty("ifsc_code")
+    private String ifscCode;
+    
+    
+    
+    
+    @JsonProperty("delights_user_name")
+    private String delightsUserName;
     
     
     
@@ -1706,12 +1706,6 @@ public static class MultiTenderPaymentMeta{
     
     
     
-    @JsonProperty("extra_meta")
-    private Object extraMeta;
-    
-    
-    
-    
     @JsonProperty("payment_gateway")
     private String paymentGateway;
     
@@ -1720,6 +1714,12 @@ public static class MultiTenderPaymentMeta{
     
     @JsonProperty("order_id")
     private String orderId;
+    
+    
+    
+    
+    @JsonProperty("extra_meta")
+    private Object extraMeta;
     
     
     
@@ -1752,14 +1752,14 @@ public static class MultiTenderPaymentMethod{
     
     
     
-    @JsonProperty("mode")
-    private String mode;
-    
-    
-    
-    
     @JsonProperty("meta")
     private MultiTenderPaymentMeta meta;
+    
+    
+    
+    
+    @JsonProperty("mode")
+    private String mode;
     
     
     
@@ -1814,14 +1814,14 @@ public static class PaymentConfirmationResponse{
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
     @JsonProperty("order_id")
     private String orderId;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -1854,18 +1854,6 @@ public static class CODdata{
     
     
     
-    @JsonProperty("user_id")
-    private String userId;
-    
-    
-    
-    
-    @JsonProperty("usages")
-    private Integer usages;
-    
-    
-    
-    
     @JsonProperty("remaining_limit")
     private Integer remainingLimit;
     
@@ -1874,6 +1862,18 @@ public static class CODdata{
     
     @JsonProperty("limit")
     private Integer limit;
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("usages")
+    private Integer usages;
     
     
     
@@ -1894,14 +1894,14 @@ public static class GetUserCODLimitResponse{
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
     @JsonProperty("user_cod_data")
     private CODdata userCodData;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -1922,8 +1922,8 @@ public static class SetCODForUserRequest{
     
     
     
-    @JsonProperty("merchant_user_id")
-    private String merchantUserId;
+    @JsonProperty("mobileno")
+    private String mobileno;
     
     
     
@@ -1934,8 +1934,8 @@ public static class SetCODForUserRequest{
     
     
     
-    @JsonProperty("mobileno")
-    private String mobileno;
+    @JsonProperty("merchant_user_id")
+    private String merchantUserId;
     
     
     

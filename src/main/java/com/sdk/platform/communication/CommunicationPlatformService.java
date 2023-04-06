@@ -117,7 +117,7 @@ public class CommunicationPlatformService {
     
     
 
-    public CommunicationPlatformModels.SystemNotifications getSystemNotifications(Integer pageNo , Integer pageSize ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.SystemNotifications getSystemNotifications(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.SystemNotifications> response = null;
             try {
@@ -132,7 +132,7 @@ public class CommunicationPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -268,7 +268,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.Campaigns getCampaigns(Integer pageNo , Integer pageSize , Object sort ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.Campaigns getCampaigns(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.Campaigns> response = null;
             try {
@@ -283,7 +283,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -376,7 +376,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.Campaign createCampaign(CommunicationPlatformModels.CampaignReq body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.Campaign createCampaign(CommunicationPlatformModels.CampaignReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.Campaign> response = null;
             try {
@@ -391,7 +391,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -421,7 +421,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.Campaign getCampaignById(String id ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.Campaign getCampaignById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.Campaign> response = null;
             try {
@@ -436,7 +436,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -466,7 +466,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.Campaign updateCampaignById(String id ,CommunicationPlatformModels.CampaignReq body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.Campaign updateCampaignById(String id ,CommunicationPlatformModels.CampaignReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.Campaign> response = null;
             try {
@@ -481,7 +481,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -511,7 +511,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.GetStats getStatsOfCampaignById(String id ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.GetStats getStatsOfCampaignById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.GetStats> response = null;
             try {
@@ -526,7 +526,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -564,7 +564,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.Audiences getAudiences(Integer pageNo , Integer pageSize , Object sort ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.Audiences getAudiences(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.Audiences> response = null;
             try {
@@ -579,7 +579,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -672,7 +672,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.Audience createAudience(CommunicationPlatformModels.AudienceReq body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.Audience createAudience(CommunicationPlatformModels.AudienceReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.Audience> response = null;
             try {
@@ -687,7 +687,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -713,7 +713,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.BigqueryHeadersRes getBigqueryHeaders(CommunicationPlatformModels.BigqueryHeadersReq body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.BigqueryHeadersRes getBigqueryHeaders(CommunicationPlatformModels.BigqueryHeadersReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.BigqueryHeadersRes> response = null;
             try {
@@ -728,7 +728,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -758,7 +758,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.Audience getAudienceById(String id ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.Audience getAudienceById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.Audience> response = null;
             try {
@@ -773,7 +773,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -803,7 +803,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.Audience updateAudienceById(String id ,CommunicationPlatformModels.AudienceReq body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.Audience updateAudienceById(String id ,CommunicationPlatformModels.AudienceReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.Audience> response = null;
             try {
@@ -818,7 +818,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -844,7 +844,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.GetNRecordsCsvRes getNSampleRecordsFromCsv(CommunicationPlatformModels.GetNRecordsCsvReq body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.GetNRecordsCsvRes getNSampleRecordsFromCsv(CommunicationPlatformModels.GetNRecordsCsvReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.GetNRecordsCsvRes> response = null;
             try {
@@ -859,7 +859,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -897,7 +897,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.EmailProviders getEmailProviders(Integer pageNo , Integer pageSize , Object sort ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.EmailProviders getEmailProviders(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.EmailProviders> response = null;
             try {
@@ -912,7 +912,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1005,7 +1005,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.EmailProvider createEmailProvider(CommunicationPlatformModels.EmailProviderReq body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.EmailProvider createEmailProvider(CommunicationPlatformModels.EmailProviderReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.EmailProvider> response = null;
             try {
@@ -1020,7 +1020,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1050,7 +1050,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.EmailProvider getEmailProviderById(String id ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.EmailProvider getEmailProviderById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.EmailProvider> response = null;
             try {
@@ -1065,7 +1065,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1095,7 +1095,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.EmailProvider updateEmailProviderById(String id ,CommunicationPlatformModels.EmailProviderReq body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.EmailProvider updateEmailProviderById(String id ,CommunicationPlatformModels.EmailProviderReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.EmailProvider> response = null;
             try {
@@ -1110,7 +1110,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1148,7 +1148,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.EmailTemplates getEmailTemplates(Integer pageNo , Integer pageSize , Object sort ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.EmailTemplates getEmailTemplates(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.EmailTemplates> response = null;
             try {
@@ -1163,7 +1163,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1256,7 +1256,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.EmailTemplateRes createEmailTemplate(CommunicationPlatformModels.EmailTemplateReq body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.EmailTemplateRes createEmailTemplate(CommunicationPlatformModels.EmailTemplateReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.EmailTemplateRes> response = null;
             try {
@@ -1271,7 +1271,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1309,7 +1309,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.SystemEmailTemplates getSystemEmailTemplates(Integer pageNo , Integer pageSize , Object sort ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.SystemEmailTemplates getSystemEmailTemplates(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.SystemEmailTemplates> response = null;
             try {
@@ -1324,7 +1324,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1421,7 +1421,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.EmailTemplate getEmailTemplateById(String id ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.EmailTemplate getEmailTemplateById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.EmailTemplate> response = null;
             try {
@@ -1436,7 +1436,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1466,7 +1466,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.EmailTemplateRes updateEmailTemplateById(String id ,CommunicationPlatformModels.EmailTemplateReq body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.EmailTemplateRes updateEmailTemplateById(String id ,CommunicationPlatformModels.EmailTemplateReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.EmailTemplateRes> response = null;
             try {
@@ -1481,7 +1481,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1511,7 +1511,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.EmailTemplateDeleteSuccessRes deleteEmailTemplateById(String id ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.EmailTemplateDeleteSuccessRes deleteEmailTemplateById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.EmailTemplateDeleteSuccessRes> response = null;
             try {
@@ -1526,7 +1526,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1552,7 +1552,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.EngineResponse sendCommunicationSynchronously(CommunicationPlatformModels.EngineRequest body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.EngineResponse sendCommunicationSynchronously(CommunicationPlatformModels.EngineRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.EngineResponse> response = null;
             try {
@@ -1567,7 +1567,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1593,7 +1593,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.EngineResponse sendCommunicationAsynchronously(CommunicationPlatformModels.EngineRequest body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.EngineResponse sendCommunicationAsynchronously(CommunicationPlatformModels.EngineRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.EngineResponse> response = null;
             try {
@@ -1608,7 +1608,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1646,7 +1646,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.EventSubscriptions getEventSubscriptions(Integer pageNo , Integer pageSize , String populate ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.EventSubscriptions getEventSubscriptions(Integer pageNo , Integer pageSize , String populate ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.EventSubscriptions> response = null;
             try {
@@ -1661,7 +1661,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1766,7 +1766,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.Jobs getJobs(Integer pageNo , Integer pageSize , Object sort ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.Jobs getJobs(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.Jobs> response = null;
             try {
@@ -1781,7 +1781,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1874,7 +1874,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.TriggerJobResponse triggerCampaignJob(CommunicationPlatformModels.TriggerJobRequest body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.TriggerJobResponse triggerCampaignJob(CommunicationPlatformModels.TriggerJobRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.TriggerJobResponse> response = null;
             try {
@@ -1889,7 +1889,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1927,7 +1927,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.JobLogs getJobLogs(Integer pageNo , Integer pageSize , Object sort ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.JobLogs getJobLogs(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.JobLogs> response = null;
             try {
@@ -1942,7 +1942,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2051,7 +2051,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.Logs getCommunicationLogs(String pageId , Integer pageSize , Object sort , Object query ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.Logs getCommunicationLogs(String pageId , Integer pageSize , Object sort , Object query ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.Logs> response = null;
             try {
@@ -2066,7 +2066,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2169,7 +2169,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.SendOtpCommsRes sendOtp(CommunicationPlatformModels.SendOtpCommsReq body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.SendOtpCommsRes sendOtp(CommunicationPlatformModels.SendOtpCommsReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.SendOtpCommsRes> response = null;
             try {
@@ -2184,7 +2184,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2210,7 +2210,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.VerifyOtpCommsSuccessRes verfiyOtp(CommunicationPlatformModels.VerifyOtpCommsReq body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.VerifyOtpCommsSuccessRes verfiyOtp(CommunicationPlatformModels.VerifyOtpCommsReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.VerifyOtpCommsSuccessRes> response = null;
             try {
@@ -2225,7 +2225,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2263,7 +2263,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.SmsProviders getSmsProviders(Integer pageNo , Integer pageSize , Object sort ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.SmsProviders getSmsProviders(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.SmsProviders> response = null;
             try {
@@ -2278,7 +2278,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2371,7 +2371,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.SmsProvider createSmsProvider(CommunicationPlatformModels.SmsProviderReq body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.SmsProvider createSmsProvider(CommunicationPlatformModels.SmsProviderReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.SmsProvider> response = null;
             try {
@@ -2386,7 +2386,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2416,7 +2416,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.SmsProvider getSmsProviderById(String id ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.SmsProvider getSmsProviderById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.SmsProvider> response = null;
             try {
@@ -2431,7 +2431,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2461,7 +2461,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.SmsProvider updateSmsProviderById(String id ,CommunicationPlatformModels.SmsProviderReq body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.SmsProvider updateSmsProviderById(String id ,CommunicationPlatformModels.SmsProviderReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.SmsProvider> response = null;
             try {
@@ -2476,7 +2476,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2514,7 +2514,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.SmsTemplates getSmsTemplates(Integer pageNo , Integer pageSize , Object sort ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.SmsTemplates getSmsTemplates(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.SmsTemplates> response = null;
             try {
@@ -2529,7 +2529,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2622,7 +2622,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.SmsTemplateRes createSmsTemplate(CommunicationPlatformModels.SmsTemplateReq body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.SmsTemplateRes createSmsTemplate(CommunicationPlatformModels.SmsTemplateReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.SmsTemplateRes> response = null;
             try {
@@ -2637,7 +2637,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2667,7 +2667,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.SmsTemplate getSmsTemplateById(String id ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.SmsTemplate getSmsTemplateById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.SmsTemplate> response = null;
             try {
@@ -2682,7 +2682,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2712,7 +2712,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.SmsTemplateRes updateSmsTemplateById(String id ,CommunicationPlatformModels.SmsTemplateReq body) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.SmsTemplateRes updateSmsTemplateById(String id ,CommunicationPlatformModels.SmsTemplateReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.SmsTemplateRes> response = null;
             try {
@@ -2727,7 +2727,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2757,7 +2757,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.SmsTemplateDeleteSuccessRes deleteSmsTemplateById(String id ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.SmsTemplateDeleteSuccessRes deleteSmsTemplateById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.SmsTemplateDeleteSuccessRes> response = null;
             try {
@@ -2772,7 +2772,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2810,7 +2810,7 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.SystemSmsTemplates getSystemSystemTemplates(Integer pageNo , Integer pageSize , Object sort ) throws FDKException, FDKServerResponseError {
+    public CommunicationPlatformModels.SystemSmsTemplates getSystemSystemTemplates(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.SystemSmsTemplates> response = null;
             try {
@@ -2825,7 +2825,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {

@@ -55,7 +55,7 @@ public class LogisticPlatformService {
     
     
 
-    public LogisticPlatformModels.EntityRegionView_Response getEntityRegionView(LogisticPlatformModels.EntityRegionView_Request body) throws FDKException, FDKServerResponseError {
+    public LogisticPlatformModels.EntityRegionView_Response getEntityRegionView(LogisticPlatformModels.EntityRegionView_Request body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LogisticPlatformModels.EntityRegionView_Response> response = null;
             try {
@@ -70,7 +70,7 @@ public class LogisticPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -112,7 +112,7 @@ public class LogisticPlatformService {
     
     
 
-    public LogisticPlatformModels.ListViewResponse getListView(Integer pageNumber , Integer pageSize , String name , Boolean isActive , String channelIds ) throws FDKException, FDKServerResponseError {
+    public LogisticPlatformModels.ListViewResponse getListView(Integer pageNumber , Integer pageSize , String name , Boolean isActive , String channelIds ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LogisticPlatformModels.ListViewResponse> response = null;
             try {
@@ -127,7 +127,7 @@ public class LogisticPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -169,7 +169,7 @@ public class LogisticPlatformService {
     
     
 
-    public LogisticPlatformModels.CompanyStoreView_Response getCompanyStoreView(Integer pageNumber , Integer pageSize , String zoneId , String enabled , String q ) throws FDKException, FDKServerResponseError {
+    public LogisticPlatformModels.CompanyStoreView_Response getCompanyStoreView(Integer pageNumber , Integer pageSize , String zoneId , String enabled , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LogisticPlatformModels.CompanyStoreView_Response> response = null;
             try {
@@ -184,7 +184,7 @@ public class LogisticPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -210,7 +210,7 @@ public class LogisticPlatformService {
     
     
 
-    public LogisticPlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws FDKException, FDKServerResponseError {
+    public LogisticPlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LogisticPlatformModels.GetSingleZoneDataViewResponse> response = null;
             try {
@@ -225,7 +225,7 @@ public class LogisticPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -251,7 +251,7 @@ public class LogisticPlatformService {
     
     
 
-    public LogisticPlatformModels.ZoneSuccessResponse updateZoneControllerView(String zoneId ,LogisticPlatformModels.ZoneUpdateRequest body) throws FDKException, FDKServerResponseError {
+    public LogisticPlatformModels.ZoneSuccessResponse updateZoneControllerView(String zoneId ,LogisticPlatformModels.ZoneUpdateRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LogisticPlatformModels.ZoneSuccessResponse> response = null;
             try {
@@ -266,7 +266,7 @@ public class LogisticPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -288,7 +288,7 @@ public class LogisticPlatformService {
     
     
 
-    public LogisticPlatformModels.ZoneResponse insertZoneControllerView(LogisticPlatformModels.ZoneRequest body) throws FDKException, FDKServerResponseError {
+    public LogisticPlatformModels.ZoneResponse insertZoneControllerView(LogisticPlatformModels.ZoneRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LogisticPlatformModels.ZoneResponse> response = null;
             try {
@@ -303,7 +303,7 @@ public class LogisticPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -331,7 +331,7 @@ public class LogisticPlatformService {
     
     
 
-    public LogisticPlatformModels.GetStoresViewResponse getStore(Integer storeUid ) throws FDKException, FDKServerResponseError {
+    public LogisticPlatformModels.GetStoresViewResponse getStore(Integer storeUid ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LogisticPlatformModels.GetStoresViewResponse> response = null;
             try {
@@ -346,7 +346,7 @@ public class LogisticPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -368,7 +368,7 @@ public class LogisticPlatformService {
     
     
 
-    public LogisticPlatformModels.GetStoresViewResponse getAllStores() throws FDKException, FDKServerResponseError {
+    public LogisticPlatformModels.GetStoresViewResponse getAllStores() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LogisticPlatformModels.GetStoresViewResponse> response = null;
             try {
@@ -383,7 +383,7 @@ public class LogisticPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -427,7 +427,7 @@ public class ApplicationClient {
     
     
 
-    public LogisticPlatformModels.ApplicationServiceabilityConfigResponse getApplicationServiceability() throws FDKException, FDKServerResponseError {
+    public LogisticPlatformModels.ApplicationServiceabilityConfigResponse getApplicationServiceability() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LogisticPlatformModels.ApplicationServiceabilityConfigResponse> response = null;
             try {
@@ -442,7 +442,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -480,7 +480,7 @@ public class ApplicationClient {
     
     
 
-    public LogisticPlatformModels.GetZoneFromPincodeViewResponse upsertZoneControllerView(LogisticPlatformModels.GetZoneFromPincodeViewRequest body) throws FDKException, FDKServerResponseError {
+    public LogisticPlatformModels.GetZoneFromPincodeViewResponse upsertZoneControllerView(LogisticPlatformModels.GetZoneFromPincodeViewRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LogisticPlatformModels.GetZoneFromPincodeViewResponse> response = null;
             try {
@@ -495,7 +495,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {

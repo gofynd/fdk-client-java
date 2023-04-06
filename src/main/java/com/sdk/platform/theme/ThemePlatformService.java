@@ -127,7 +127,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.AllAvailablePageSchema getAllPages(String themeId ) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.AllAvailablePageSchema getAllPages(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.AllAvailablePageSchema> response = null;
             try {
@@ -142,7 +142,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -172,7 +172,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.AvailablePageSchema createPage(String themeId ,ThemePlatformModels.AvailablePageSchema body) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.AvailablePageSchema createPage(String themeId ,ThemePlatformModels.AvailablePageSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.AvailablePageSchema> response = null;
             try {
@@ -187,7 +187,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -217,7 +217,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.AllAvailablePageSchema updateMultiplePages(String themeId ,ThemePlatformModels.AllAvailablePageSchema body) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.AllAvailablePageSchema updateMultiplePages(String themeId ,ThemePlatformModels.AllAvailablePageSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.AllAvailablePageSchema> response = null;
             try {
@@ -232,7 +232,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -266,7 +266,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.AvailablePageSchema getPage(String themeId , String pageValue ) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.AvailablePageSchema getPage(String themeId , String pageValue ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.AvailablePageSchema> response = null;
             try {
@@ -281,7 +281,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -315,7 +315,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.AvailablePageSchema updatePage(String themeId , String pageValue ,ThemePlatformModels.AvailablePageSchema body) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.AvailablePageSchema updatePage(String themeId , String pageValue ,ThemePlatformModels.AvailablePageSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.AvailablePageSchema> response = null;
             try {
@@ -330,7 +330,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -364,7 +364,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.AvailablePageSchema deletePage(String themeId , String pageValue ) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.AvailablePageSchema deletePage(String themeId , String pageValue ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.AvailablePageSchema> response = null;
             try {
@@ -379,7 +379,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -413,7 +413,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.ThemesListingResponseSchema getThemeLibrary(Integer pageSize , Integer pageNo ) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.ThemesListingResponseSchema getThemeLibrary(Integer pageSize , Integer pageNo ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesListingResponseSchema> response = null;
             try {
@@ -428,7 +428,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -454,7 +454,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.ThemesSchema addToThemeLibrary(ThemePlatformModels.AddThemeRequestSchema body) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.ThemesSchema addToThemeLibrary(ThemePlatformModels.AddThemeRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
@@ -469,7 +469,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -495,7 +495,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.ThemesSchema applyTheme(ThemePlatformModels.AddThemeRequestSchema body) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.ThemesSchema applyTheme(ThemePlatformModels.AddThemeRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
@@ -510,7 +510,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -540,7 +540,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.UpgradableThemeSchema isUpgradable(String themeId ) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.UpgradableThemeSchema isUpgradable(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.UpgradableThemeSchema> response = null;
             try {
@@ -555,7 +555,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -585,7 +585,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.ThemesSchema upgradeTheme(String themeId ) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.ThemesSchema upgradeTheme(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
@@ -600,7 +600,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -634,7 +634,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.ThemesListingResponseSchema getPublicThemes(Integer pageSize , Integer pageNo ) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.ThemesListingResponseSchema getPublicThemes(Integer pageSize , Integer pageNo ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesListingResponseSchema> response = null;
             try {
@@ -649,7 +649,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -675,7 +675,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.ThemesSchema createTheme(ThemePlatformModels.ThemesSchema body) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.ThemesSchema createTheme(ThemePlatformModels.ThemesSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
@@ -690,7 +690,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -716,7 +716,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.ThemesSchema getAppliedTheme() throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.ThemesSchema getAppliedTheme() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
@@ -731,7 +731,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -757,7 +757,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.FontsSchema getFonts() throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.FontsSchema getFonts() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.FontsSchema> response = null;
             try {
@@ -772,7 +772,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -802,7 +802,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.ThemesSchema getThemeById(String themeId ) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.ThemesSchema getThemeById(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
@@ -817,7 +817,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -847,7 +847,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.ThemesSchema updateTheme(String themeId ,ThemePlatformModels.ThemesSchema body) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.ThemesSchema updateTheme(String themeId ,ThemePlatformModels.ThemesSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
@@ -862,7 +862,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -892,7 +892,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.ThemesSchema deleteTheme(String themeId ) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.ThemesSchema deleteTheme(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
@@ -907,7 +907,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -937,7 +937,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.ThemesSchema getThemeForPreview(String themeId ) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.ThemesSchema getThemeForPreview(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
@@ -952,7 +952,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -982,7 +982,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.ThemesSchema publishTheme(String themeId ) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.ThemesSchema publishTheme(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
@@ -997,7 +997,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1027,7 +1027,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.ThemesSchema unpublishTheme(String themeId ) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.ThemesSchema unpublishTheme(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
@@ -1042,7 +1042,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1072,7 +1072,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.ThemesSchema archiveTheme(String themeId ) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.ThemesSchema archiveTheme(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
@@ -1087,7 +1087,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1117,7 +1117,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.ThemesSchema unarchiveTheme(String themeId ) throws FDKException, FDKServerResponseError {
+    public ThemePlatformModels.ThemesSchema unarchiveTheme(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
@@ -1132,7 +1132,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1162,7 +1162,7 @@ public class ApplicationClient {
     
     
 
-    public Object getThemeLastModified(String themeId ) throws FDKException, FDKServerResponseError {
+    public Object getThemeLastModified(String themeId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<Object> response = null;
             try {
@@ -1177,7 +1177,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {

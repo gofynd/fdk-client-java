@@ -113,7 +113,7 @@ public class ApplicationClient {
     
     
 
-    public UserPlatformModels.CustomerListResponseSchema getCustomers(Object q , Integer pageSize , Integer pageNo ) throws FDKException, FDKServerResponseError {
+    public UserPlatformModels.CustomerListResponseSchema getCustomers(Object q , Integer pageSize , Integer pageNo ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.CustomerListResponseSchema> response = null;
             try {
@@ -128,7 +128,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -158,7 +158,7 @@ public class ApplicationClient {
     
     
 
-    public UserPlatformModels.UserSearchResponseSchema searchUsers(String q ) throws FDKException, FDKServerResponseError {
+    public UserPlatformModels.UserSearchResponseSchema searchUsers(String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.UserSearchResponseSchema> response = null;
             try {
@@ -173,7 +173,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -199,7 +199,7 @@ public class ApplicationClient {
     
     
 
-    public UserPlatformModels.CreateUserResponseSchema createUser(UserPlatformModels.CreateUserRequestSchema body) throws FDKException, FDKServerResponseError {
+    public UserPlatformModels.CreateUserResponseSchema createUser(UserPlatformModels.CreateUserRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.CreateUserResponseSchema> response = null;
             try {
@@ -214,7 +214,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -240,7 +240,7 @@ public class ApplicationClient {
     
     
 
-    public UserPlatformModels.BlockUserSuccess blockOrUnblockUsers(UserPlatformModels.BlockUserRequestSchema body) throws FDKException, FDKServerResponseError {
+    public UserPlatformModels.BlockUserSuccess blockOrUnblockUsers(UserPlatformModels.BlockUserRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.BlockUserSuccess> response = null;
             try {
@@ -255,7 +255,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -281,7 +281,7 @@ public class ApplicationClient {
     
     
 
-    public UserPlatformModels.ArchiveUserSuccess archiveUser(UserPlatformModels.ArchiveUserRequestSchema body) throws FDKException, FDKServerResponseError {
+    public UserPlatformModels.ArchiveUserSuccess archiveUser(UserPlatformModels.ArchiveUserRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.ArchiveUserSuccess> response = null;
             try {
@@ -296,7 +296,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -322,7 +322,7 @@ public class ApplicationClient {
     
     
 
-    public UserPlatformModels.UnDeleteUserSuccess unDeleteUser(UserPlatformModels.UnDeleteUserRequestSchema body) throws FDKException, FDKServerResponseError {
+    public UserPlatformModels.UnDeleteUserSuccess unDeleteUser(UserPlatformModels.UnDeleteUserRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.UnDeleteUserSuccess> response = null;
             try {
@@ -337,7 +337,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -367,7 +367,7 @@ public class ApplicationClient {
     
     
 
-    public UserPlatformModels.CreateUserResponseSchema updateUser(String userId ,UserPlatformModels.UpdateUserRequestSchema body) throws FDKException, FDKServerResponseError {
+    public UserPlatformModels.CreateUserResponseSchema updateUser(String userId ,UserPlatformModels.UpdateUserRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.CreateUserResponseSchema> response = null;
             try {
@@ -382,7 +382,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -408,7 +408,7 @@ public class ApplicationClient {
     
     
 
-    public UserPlatformModels.CreateUserSessionResponseSchema createUserSession(UserPlatformModels.CreateUserSessionRequestSchema body) throws FDKException, FDKServerResponseError {
+    public UserPlatformModels.CreateUserSessionResponseSchema createUserSession(UserPlatformModels.CreateUserSessionRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.CreateUserSessionResponseSchema> response = null;
             try {
@@ -423,7 +423,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -461,7 +461,7 @@ public class ApplicationClient {
     
     
 
-    public UserPlatformModels.SessionDeleteResponseSchema deleteSession(String id , String sessionId , String reason ) throws FDKException, FDKServerResponseError {
+    public UserPlatformModels.SessionDeleteResponseSchema deleteSession(String id , String sessionId , String reason ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.SessionDeleteResponseSchema> response = null;
             try {
@@ -476,7 +476,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -506,7 +506,7 @@ public class ApplicationClient {
     
     
 
-    public UserPlatformModels.SessionListResponseSchema getActiveSessions(String id ) throws FDKException, FDKServerResponseError {
+    public UserPlatformModels.SessionListResponseSchema getActiveSessions(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.SessionListResponseSchema> response = null;
             try {
@@ -521,7 +521,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -555,7 +555,7 @@ public class ApplicationClient {
     
     
 
-    public UserPlatformModels.SessionDeleteResponseSchema deleteActiveSessions(String id , String reason ) throws FDKException, FDKServerResponseError {
+    public UserPlatformModels.SessionDeleteResponseSchema deleteActiveSessions(String id , String reason ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.SessionDeleteResponseSchema> response = null;
             try {
@@ -570,7 +570,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -596,7 +596,7 @@ public class ApplicationClient {
     
     
 
-    public UserPlatformModels.PlatformSchema getPlatformConfig() throws FDKException, FDKServerResponseError {
+    public UserPlatformModels.PlatformSchema getPlatformConfig() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.PlatformSchema> response = null;
             try {
@@ -611,7 +611,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -637,7 +637,7 @@ public class ApplicationClient {
     
     
 
-    public UserPlatformModels.PlatformSchema updatePlatformConfig(UserPlatformModels.PlatformSchema body) throws FDKException, FDKServerResponseError {
+    public UserPlatformModels.PlatformSchema updatePlatformConfig(UserPlatformModels.PlatformSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.PlatformSchema> response = null;
             try {
@@ -652,7 +652,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {

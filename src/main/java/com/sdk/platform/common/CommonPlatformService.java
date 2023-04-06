@@ -57,7 +57,7 @@ public class CommonPlatformService {
     
     
 
-    public CommonPlatformModels.ApplicationResponse searchApplication(String authorization , String query ) throws FDKException, FDKServerResponseError {
+    public CommonPlatformModels.ApplicationResponse searchApplication(String authorization , String query ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommonPlatformModels.ApplicationResponse> response = null;
             try {
@@ -72,7 +72,7 @@ public class CommonPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -98,7 +98,7 @@ public class CommonPlatformService {
     
     
 
-    public CommonPlatformModels.Locations getLocations(String locationType , String id ) throws FDKException, FDKServerResponseError {
+    public CommonPlatformModels.Locations getLocations(String locationType , String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommonPlatformModels.Locations> response = null;
             try {
@@ -113,7 +113,7 @@ public class CommonPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {

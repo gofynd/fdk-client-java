@@ -53,7 +53,7 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.GetCompanyProfileSerializerResponse cbsOnboardGet() throws FDKException, FDKServerResponseError {
+    public CompanyProfilePlatformModels.GetCompanyProfileSerializerResponse cbsOnboardGet() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.GetCompanyProfileSerializerResponse> response = null;
             try {
@@ -68,7 +68,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -90,7 +90,7 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse updateCompany(CompanyProfilePlatformModels.UpdateCompany body) throws FDKException, FDKServerResponseError {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse updateCompany(CompanyProfilePlatformModels.UpdateCompany body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {
@@ -105,7 +105,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -127,7 +127,7 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.MetricsSerializer getCompanyMetrics() throws FDKException, FDKServerResponseError {
+    public CompanyProfilePlatformModels.MetricsSerializer getCompanyMetrics() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.MetricsSerializer> response = null;
             try {
@@ -142,7 +142,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -168,7 +168,7 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.GetBrandResponseSerializer getBrand(String brandId ) throws FDKException, FDKServerResponseError {
+    public CompanyProfilePlatformModels.GetBrandResponseSerializer getBrand(String brandId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.GetBrandResponseSerializer> response = null;
             try {
@@ -183,7 +183,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -209,7 +209,7 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse editBrand(String brandId ,CompanyProfilePlatformModels.CreateUpdateBrandRequestSerializer body) throws FDKException, FDKServerResponseError {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse editBrand(String brandId ,CompanyProfilePlatformModels.CreateUpdateBrandRequestSerializer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {
@@ -224,7 +224,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -246,7 +246,7 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createBrand(CompanyProfilePlatformModels.CreateUpdateBrandRequestSerializer body) throws FDKException, FDKServerResponseError {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse createBrand(CompanyProfilePlatformModels.CreateUpdateBrandRequestSerializer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {
@@ -261,7 +261,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -295,7 +295,7 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.CompanyBrandListSerializer getBrands(Integer pageNo , Integer pageSize , String q ) throws FDKException, FDKServerResponseError {
+    public CompanyProfilePlatformModels.CompanyBrandListSerializer getBrands(Integer pageNo , Integer pageSize , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.CompanyBrandListSerializer> response = null;
             try {
@@ -310,7 +310,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -396,7 +396,7 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createCompanyBrandMapping(CompanyProfilePlatformModels.CompanyBrandPostRequestSerializer body) throws FDKException, FDKServerResponseError {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse createCompanyBrandMapping(CompanyProfilePlatformModels.CompanyBrandPostRequestSerializer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {
@@ -411,7 +411,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -457,7 +457,7 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.LocationListSerializer getLocations(String storeType , String q , String stage , Integer pageNo , Integer pageSize , List<Integer> locationIds ) throws FDKException, FDKServerResponseError {
+    public CompanyProfilePlatformModels.LocationListSerializer getLocations(String storeType , String q , String stage , Integer pageNo , Integer pageSize , List<Integer> locationIds ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.LocationListSerializer> response = null;
             try {
@@ -472,7 +472,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -582,7 +582,7 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createLocation(CompanyProfilePlatformModels.LocationSerializer body) throws FDKException, FDKServerResponseError {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse createLocation(CompanyProfilePlatformModels.LocationSerializer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {
@@ -597,7 +597,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -623,7 +623,7 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.GetLocationSerializer getLocationDetail(String locationId ) throws FDKException, FDKServerResponseError {
+    public CompanyProfilePlatformModels.GetLocationSerializer getLocationDetail(String locationId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.GetLocationSerializer> response = null;
             try {
@@ -638,7 +638,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -664,7 +664,7 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse updateLocation(String locationId ,CompanyProfilePlatformModels.LocationSerializer body) throws FDKException, FDKServerResponseError {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse updateLocation(String locationId ,CompanyProfilePlatformModels.LocationSerializer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {
@@ -679,7 +679,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -701,7 +701,7 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createLocationBulk(CompanyProfilePlatformModels.BulkLocationSerializer body) throws FDKException, FDKServerResponseError {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse createLocationBulk(CompanyProfilePlatformModels.BulkLocationSerializer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {
@@ -716,7 +716,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {

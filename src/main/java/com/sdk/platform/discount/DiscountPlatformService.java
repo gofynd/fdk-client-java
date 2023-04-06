@@ -89,7 +89,7 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.ListOrCalender getDiscounts(String view , String q , Integer pageNo , Integer pageSize , Boolean archived , Integer month , Integer year , String type , List<String> appIds ) throws FDKException, FDKServerResponseError {
+    public DiscountPlatformModels.ListOrCalender getDiscounts(String view , String q , Integer pageNo , Integer pageSize , Boolean archived , Integer month , Integer year , String type , List<String> appIds ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.ListOrCalender> response = null;
             try {
@@ -104,7 +104,7 @@ public class DiscountPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -126,7 +126,7 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.DiscountJob createDiscount(DiscountPlatformModels.CreateUpdateDiscount body) throws FDKException, FDKServerResponseError {
+    public DiscountPlatformModels.DiscountJob createDiscount(DiscountPlatformModels.CreateUpdateDiscount body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.DiscountJob> response = null;
             try {
@@ -141,7 +141,7 @@ public class DiscountPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -167,7 +167,7 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.DiscountJob getDiscount(String id ) throws FDKException, FDKServerResponseError {
+    public DiscountPlatformModels.DiscountJob getDiscount(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.DiscountJob> response = null;
             try {
@@ -182,7 +182,7 @@ public class DiscountPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -208,7 +208,7 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.DiscountJob updateDiscount(String id ,DiscountPlatformModels.CreateUpdateDiscount body) throws FDKException, FDKServerResponseError {
+    public DiscountPlatformModels.DiscountJob updateDiscount(String id ,DiscountPlatformModels.CreateUpdateDiscount body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.DiscountJob> response = null;
             try {
@@ -223,7 +223,7 @@ public class DiscountPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -249,7 +249,7 @@ public class DiscountPlatformService {
     
     
 
-    public Object upsertDiscountItems(String id ,DiscountPlatformModels.BulkDiscount body) throws FDKException, FDKServerResponseError {
+    public Object upsertDiscountItems(String id ,DiscountPlatformModels.BulkDiscount body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<Object> response = null;
             try {
@@ -264,7 +264,7 @@ public class DiscountPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -290,7 +290,7 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.FileJobResponse validateDiscountFile(String discount ,DiscountPlatformModels.DiscountJob body) throws FDKException, FDKServerResponseError {
+    public DiscountPlatformModels.FileJobResponse validateDiscountFile(String discount ,DiscountPlatformModels.DiscountJob body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.FileJobResponse> response = null;
             try {
@@ -305,7 +305,7 @@ public class DiscountPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -331,7 +331,7 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.FileJobResponse downloadDiscountFile(String type ,DiscountPlatformModels.DownloadFileJob body) throws FDKException, FDKServerResponseError {
+    public DiscountPlatformModels.FileJobResponse downloadDiscountFile(String type ,DiscountPlatformModels.DownloadFileJob body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.FileJobResponse> response = null;
             try {
@@ -346,7 +346,7 @@ public class DiscountPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -372,7 +372,7 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.FileJobResponse getValidationJob(String id ) throws FDKException, FDKServerResponseError {
+    public DiscountPlatformModels.FileJobResponse getValidationJob(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.FileJobResponse> response = null;
             try {
@@ -387,7 +387,7 @@ public class DiscountPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -413,7 +413,7 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.CancelJobResponse cancelValidationJob(String id ) throws FDKException, FDKServerResponseError {
+    public DiscountPlatformModels.CancelJobResponse cancelValidationJob(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.CancelJobResponse> response = null;
             try {
@@ -428,7 +428,7 @@ public class DiscountPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -454,7 +454,7 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.FileJobResponse getDownloadJob(String id ) throws FDKException, FDKServerResponseError {
+    public DiscountPlatformModels.FileJobResponse getDownloadJob(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.FileJobResponse> response = null;
             try {
@@ -469,7 +469,7 @@ public class DiscountPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -495,7 +495,7 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.CancelJobResponse cancelDownloadJob(String id ) throws FDKException, FDKServerResponseError {
+    public DiscountPlatformModels.CancelJobResponse cancelDownloadJob(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.CancelJobResponse> response = null;
             try {
@@ -510,7 +510,7 @@ public class DiscountPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {

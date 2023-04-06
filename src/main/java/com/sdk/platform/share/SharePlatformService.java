@@ -83,7 +83,7 @@ public class ApplicationClient {
     
     
 
-    public SharePlatformModels.ShortLinkRes createShortLink(SharePlatformModels.ShortLinkReq body) throws FDKException, FDKServerResponseError {
+    public SharePlatformModels.ShortLinkRes createShortLink(SharePlatformModels.ShortLinkReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<SharePlatformModels.ShortLinkRes> response = null;
             try {
@@ -98,7 +98,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -144,7 +144,7 @@ public class ApplicationClient {
     
     
 
-    public SharePlatformModels.ShortLinkList getShortLinks(Integer pageNo , Integer pageSize , String createdBy , String active , String q ) throws FDKException, FDKServerResponseError {
+    public SharePlatformModels.ShortLinkList getShortLinks(Integer pageNo , Integer pageSize , String createdBy , String active , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<SharePlatformModels.ShortLinkList> response = null;
             try {
@@ -159,7 +159,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -272,7 +272,7 @@ public class ApplicationClient {
     
     
 
-    public SharePlatformModels.ShortLinkRes getShortLinkByHash(String hash ) throws FDKException, FDKServerResponseError {
+    public SharePlatformModels.ShortLinkRes getShortLinkByHash(String hash ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<SharePlatformModels.ShortLinkRes> response = null;
             try {
@@ -287,7 +287,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -317,7 +317,7 @@ public class ApplicationClient {
     
     
 
-    public SharePlatformModels.ShortLinkRes updateShortLinkById(String id ,SharePlatformModels.ShortLinkReq body) throws FDKException, FDKServerResponseError {
+    public SharePlatformModels.ShortLinkRes updateShortLinkById(String id ,SharePlatformModels.ShortLinkReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<SharePlatformModels.ShortLinkRes> response = null;
             try {
@@ -332,7 +332,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {

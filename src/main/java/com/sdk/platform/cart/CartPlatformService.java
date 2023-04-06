@@ -197,7 +197,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.CouponsResponse getCoupons(Integer pageNo , Integer pageSize , Boolean isArchived , String title , Boolean isPublic , Boolean isDisplay , String typeSlug , String code ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.CouponsResponse getCoupons(Integer pageNo , Integer pageSize , Boolean isArchived , String title , Boolean isPublic , Boolean isDisplay , String typeSlug , String code ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CouponsResponse> response = null;
             try {
@@ -212,7 +212,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -345,7 +345,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.SuccessMessage createCoupon(CartPlatformModels.CouponAdd body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.SuccessMessage createCoupon(CartPlatformModels.CouponAdd body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.SuccessMessage> response = null;
             try {
@@ -360,7 +360,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -390,7 +390,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.CouponUpdate getCouponById(String id ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.CouponUpdate getCouponById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CouponUpdate> response = null;
             try {
@@ -405,7 +405,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -435,7 +435,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.SuccessMessage updateCoupon(String id ,CartPlatformModels.CouponUpdate body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.SuccessMessage updateCoupon(String id ,CartPlatformModels.CouponUpdate body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.SuccessMessage> response = null;
             try {
@@ -450,7 +450,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -480,7 +480,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.SuccessMessage updateCouponPartially(String id ,CartPlatformModels.CouponPartialUpdate body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.SuccessMessage updateCouponPartially(String id ,CartPlatformModels.CouponPartialUpdate body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.SuccessMessage> response = null;
             try {
@@ -495,7 +495,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -553,7 +553,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.PromotionsResponse getPromotions(Integer pageNo , Integer pageSize , String q , String status , String promoGroup , String promotionType , String fpPanel , String promotionId ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.PromotionsResponse getPromotions(Integer pageNo , Integer pageSize , String q , String status , String promoGroup , String promotionType , String fpPanel , String promotionId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.PromotionsResponse> response = null;
             try {
@@ -568,7 +568,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -701,7 +701,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.PromotionAdd createPromotion(CartPlatformModels.PromotionAdd body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.PromotionAdd createPromotion(CartPlatformModels.PromotionAdd body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.PromotionAdd> response = null;
             try {
@@ -716,7 +716,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -746,7 +746,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.PromotionUpdate getPromotionById(String id ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.PromotionUpdate getPromotionById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.PromotionUpdate> response = null;
             try {
@@ -761,7 +761,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -791,7 +791,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.PromotionUpdate updatePromotion(String id ,CartPlatformModels.PromotionUpdate body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.PromotionUpdate updatePromotion(String id ,CartPlatformModels.PromotionUpdate body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.PromotionUpdate> response = null;
             try {
@@ -806,7 +806,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -836,7 +836,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.SuccessMessage updatePromotionPartially(String id ,CartPlatformModels.PromotionPartialUpdate body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.SuccessMessage updatePromotionPartially(String id ,CartPlatformModels.PromotionPartialUpdate body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.SuccessMessage> response = null;
             try {
@@ -851,7 +851,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -877,7 +877,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.ActivePromosResponse getPromosCouponConfig() throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.ActivePromosResponse getPromosCouponConfig() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.ActivePromosResponse> response = null;
             try {
@@ -892,7 +892,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -918,7 +918,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.OpenapiCartDetailsResponse fetchAndvalidateCartItems(CartPlatformModels.OpenapiCartDetailsRequest body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.OpenapiCartDetailsResponse fetchAndvalidateCartItems(CartPlatformModels.OpenapiCartDetailsRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.OpenapiCartDetailsResponse> response = null;
             try {
@@ -933,7 +933,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -959,7 +959,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.OpenApiCartServiceabilityResponse checkCartServiceability(CartPlatformModels.OpenApiCartServiceabilityRequest body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.OpenApiCartServiceabilityResponse checkCartServiceability(CartPlatformModels.OpenApiCartServiceabilityRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.OpenApiCartServiceabilityResponse> response = null;
             try {
@@ -974,7 +974,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1000,7 +1000,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.OpenApiCheckoutResponse checkoutCart(CartPlatformModels.OpenApiPlatformCheckoutReq body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.OpenApiCheckoutResponse checkoutCart(CartPlatformModels.OpenApiPlatformCheckoutReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.OpenApiCheckoutResponse> response = null;
             try {
@@ -1015,7 +1015,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1069,7 +1069,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.AbandonedCartResponse getAbandonedCart(Integer pageNo , Integer pageSize , String fromDate , String toDate , Boolean anonymousCart , String lastId , String sortOn ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.AbandonedCartResponse getAbandonedCart(Integer pageNo , Integer pageSize , String fromDate , String toDate , Boolean anonymousCart , String lastId , String sortOn ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.AbandonedCartResponse> response = null;
             try {
@@ -1084,7 +1084,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1221,7 +1221,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.CartDetailResponse getAbandonedCartDetails(String id , Boolean i , Boolean b ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.CartDetailResponse getAbandonedCartDetails(String id , Boolean i , Boolean b ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartDetailResponse> response = null;
             try {
@@ -1236,7 +1236,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1270,7 +1270,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.AddCartDetailResponse addItems(String cartId , Boolean b ,CartPlatformModels.AddCartRequest body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.AddCartDetailResponse addItems(String cartId , Boolean b ,CartPlatformModels.AddCartRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.AddCartDetailResponse> response = null;
             try {
@@ -1285,7 +1285,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1319,7 +1319,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.UpdateCartDetailResponse updateCart(String cartId , Boolean b ,CartPlatformModels.UpdateCartRequest body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.UpdateCartDetailResponse updateCart(String cartId , Boolean b ,CartPlatformModels.UpdateCartRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.UpdateCartDetailResponse> response = null;
             try {
@@ -1334,7 +1334,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1360,7 +1360,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.GetShareCartLinkResponse getCartShareLink(CartPlatformModels.GetShareCartLinkRequest body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.GetShareCartLinkResponse getCartShareLink(CartPlatformModels.GetShareCartLinkRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.GetShareCartLinkResponse> response = null;
             try {
@@ -1375,7 +1375,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1405,7 +1405,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.SharedCartResponse getCartSharedItems(String token ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.SharedCartResponse getCartSharedItems(String token ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.SharedCartResponse> response = null;
             try {
@@ -1420,7 +1420,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1458,7 +1458,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.SharedCartResponse updateCartWithSharedItems(String token , String action , String cartId ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.SharedCartResponse updateCartWithSharedItems(String token , String action , String cartId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.SharedCartResponse> response = null;
             try {
@@ -1473,7 +1473,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1498,12 +1498,24 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CartPlatformModels.MultiCartResponse getCartList() throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.MultiCartResponse getCartList(String fromDate , String toDate , String filterOn ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.MultiCartResponse> response = null;
             try {
-            response = cartPlatformApiList.getCartList(this.companyId , this.applicationId ).execute();
+            response = cartPlatformApiList.getCartList(this.companyId , this.applicationId ,fromDate , toDate , filterOn ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1514,7 +1526,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1544,7 +1556,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.UserCartMappingResponse updateCartUser(String id ,CartPlatformModels.UpdateUserCartMapping body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.UserCartMappingResponse updateCartUser(String id ,CartPlatformModels.UpdateUserCartMapping body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.UserCartMappingResponse> response = null;
             try {
@@ -1559,7 +1571,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1605,7 +1617,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , Boolean buyNow ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , Boolean buyNow ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartDetailResponse> response = null;
             try {
@@ -1620,7 +1632,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1662,7 +1674,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.AddCartDetailResponse platformAddItems(Boolean i , Boolean b , Boolean buyNow , String id ,CartPlatformModels.AddCartRequest body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.AddCartDetailResponse platformAddItems(Boolean i , Boolean b , Boolean buyNow , String id ,CartPlatformModels.AddCartRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.AddCartDetailResponse> response = null;
             try {
@@ -1677,7 +1689,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1719,7 +1731,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.UpdateCartDetailResponse platformUpdateCart(String id , Boolean i , Boolean b , Boolean buyNow ,CartPlatformModels.UpdateCartRequest body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.UpdateCartDetailResponse platformUpdateCart(String id , Boolean i , Boolean b , Boolean buyNow ,CartPlatformModels.UpdateCartRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.UpdateCartDetailResponse> response = null;
             try {
@@ -1734,7 +1746,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1764,11 +1776,11 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.DeleteCartDetailResponse deleteCart(String id ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.DeleteCartDetailResponse deleteCart(String id ,CartPlatformModels.DeleteCartRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.DeleteCartDetailResponse> response = null;
             try {
-            response = cartPlatformApiList.deleteCart(this.companyId , this.applicationId ,id ).execute();
+            response = cartPlatformApiList.deleteCart(this.companyId , this.applicationId ,id , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1779,7 +1791,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1813,7 +1825,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.CartItemCountResponse getItemCount(String id , Boolean buyNow ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.CartItemCountResponse getItemCount(String id , Boolean buyNow ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartItemCountResponse> response = null;
             try {
@@ -1828,7 +1840,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1862,7 +1874,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.GetCouponResponse getAppCoupons(String id , Boolean buyNow ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.GetCouponResponse getAppCoupons(String id , Boolean buyNow ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.GetCouponResponse> response = null;
             try {
@@ -1877,7 +1889,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1923,7 +1935,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.CartDetailResponse applyCoupon(Boolean i , Boolean b , Boolean p , String id , Boolean buyNow ,CartPlatformModels.ApplyCouponRequest body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.CartDetailResponse applyCoupon(Boolean i , Boolean b , Boolean p , String id , Boolean buyNow ,CartPlatformModels.ApplyCouponRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartDetailResponse> response = null;
             try {
@@ -1938,7 +1950,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -1972,7 +1984,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.CartDetailResponse removeCoupon(String uid , Boolean buyNow ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.CartDetailResponse removeCoupon(String uid , Boolean buyNow ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartDetailResponse> response = null;
             try {
@@ -1987,7 +1999,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2041,7 +2053,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.PlatformGetAddressesResponse getAddresses(String cartId , Boolean buyNow , String mobileNo , String checkoutMode , String tags , Boolean isDefault , String userId ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.PlatformGetAddressesResponse getAddresses(String cartId , Boolean buyNow , String mobileNo , String checkoutMode , String tags , Boolean isDefault , String userId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.PlatformGetAddressesResponse> response = null;
             try {
@@ -2056,7 +2068,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2082,7 +2094,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.SaveAddressResponse addAddress(CartPlatformModels.PlatformAddress body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.SaveAddressResponse addAddress(CartPlatformModels.PlatformAddress body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.SaveAddressResponse> response = null;
             try {
@@ -2097,7 +2109,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2155,7 +2167,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.PlatformAddress getAddressById(String id , String cartId , Boolean buyNow , String mobileNo , String checkoutMode , String tags , Boolean isDefault , String userId ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.PlatformAddress getAddressById(String id , String cartId , Boolean buyNow , String mobileNo , String checkoutMode , String tags , Boolean isDefault , String userId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.PlatformAddress> response = null;
             try {
@@ -2170,7 +2182,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2200,7 +2212,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.UpdateAddressResponse updateAddress(String id ,CartPlatformModels.PlatformAddress body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.UpdateAddressResponse updateAddress(String id ,CartPlatformModels.PlatformAddress body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.UpdateAddressResponse> response = null;
             try {
@@ -2215,7 +2227,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2249,7 +2261,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.DeleteAddressResponse removeAddress(String id , String userId ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.DeleteAddressResponse removeAddress(String id , String userId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.DeleteAddressResponse> response = null;
             try {
@@ -2264,7 +2276,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2306,7 +2318,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.CartDetailResponse selectAddress(String cartId , Boolean buyNow , Boolean i , Boolean b ,CartPlatformModels.PlatformSelectCartAddressRequest body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.CartDetailResponse selectAddress(String cartId , Boolean buyNow , Boolean i , Boolean b ,CartPlatformModels.PlatformSelectCartAddressRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartDetailResponse> response = null;
             try {
@@ -2321,7 +2333,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2375,7 +2387,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.CartShipmentsResponse getShipments(Integer pickAtStoreUid , Integer orderingStoreId , Boolean p , String id , String addressId , String areaCode , String orderType ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.CartShipmentsResponse getShipments(Integer pickAtStoreUid , Integer orderingStoreId , Boolean p , String id , String addressId , String areaCode , String orderType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartShipmentsResponse> response = null;
             try {
@@ -2390,7 +2402,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2436,7 +2448,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.CartShipmentsResponse updateShipments(Boolean i , Boolean p , String id , String addressId , String orderType ,CartPlatformModels.UpdateCartShipmentRequest body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.CartShipmentsResponse updateShipments(Boolean i , Boolean p , String id , String addressId , String orderType ,CartPlatformModels.UpdateCartShipmentRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartShipmentsResponse> response = null;
             try {
@@ -2451,7 +2463,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2485,7 +2497,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.CartMetaResponse updateCartMeta(String id , Boolean buyNow ,CartPlatformModels.PlatformCartMetaRequest body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.CartMetaResponse updateCartMeta(String id , Boolean buyNow ,CartPlatformModels.PlatformCartMetaRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartMetaResponse> response = null;
             try {
@@ -2500,7 +2512,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2530,7 +2542,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.CartCheckoutResponse platformCheckoutCart(String id ,CartPlatformModels.PlatformCartCheckoutDetailRequest body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.CartCheckoutResponse platformCheckoutCart(String id ,CartPlatformModels.PlatformCartCheckoutDetailRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartCheckoutResponse> response = null;
             try {
@@ -2545,7 +2557,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2579,7 +2591,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.CartDeliveryModesResponse getAvailableDeliveryModes(String areaCode , String id ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.CartDeliveryModesResponse getAvailableDeliveryModes(String areaCode , String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartDeliveryModesResponse> response = null;
             try {
@@ -2594,7 +2606,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2624,7 +2636,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.StoreDetailsResponse getStoreAddressByUid(Integer storeUid ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.StoreDetailsResponse getStoreAddressByUid(Integer storeUid ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.StoreDetailsResponse> response = null;
             try {
@@ -2639,7 +2651,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2673,7 +2685,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.CartDetailResponse selectPaymentMode(String id , Boolean buyNow ,CartPlatformModels.UpdateCartPaymentRequest body) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.CartDetailResponse selectPaymentMode(String id , Boolean buyNow ,CartPlatformModels.UpdateCartPaymentRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartDetailResponse> response = null;
             try {
@@ -2688,7 +2700,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -2742,7 +2754,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode ) throws FDKException, FDKServerResponseError {
+    public CartPlatformModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.PaymentCouponValidate> response = null;
             try {
@@ -2757,7 +2769,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {

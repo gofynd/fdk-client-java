@@ -57,7 +57,7 @@ public class AuditTrailPlatformService {
     
     
 
-    public AuditTrailPlatformModels.LogSchemaResponse getAuditLogs(String qs ) throws FDKException, FDKServerResponseError {
+    public AuditTrailPlatformModels.LogSchemaResponse getAuditLogs(String qs ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<AuditTrailPlatformModels.LogSchemaResponse> response = null;
             try {
@@ -72,7 +72,7 @@ public class AuditTrailPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -94,7 +94,7 @@ public class AuditTrailPlatformService {
     
     
 
-    public AuditTrailPlatformModels.CreateLogResponse createAuditLog(AuditTrailPlatformModels.RequestBodyAuditLog body) throws FDKException, FDKServerResponseError {
+    public AuditTrailPlatformModels.CreateLogResponse createAuditLog(AuditTrailPlatformModels.RequestBodyAuditLog body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<AuditTrailPlatformModels.CreateLogResponse> response = null;
             try {
@@ -109,7 +109,7 @@ public class AuditTrailPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -135,7 +135,7 @@ public class AuditTrailPlatformService {
     
     
 
-    public AuditTrailPlatformModels.LogSchemaResponse getAuditLog(String id ) throws FDKException, FDKServerResponseError {
+    public AuditTrailPlatformModels.LogSchemaResponse getAuditLog(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<AuditTrailPlatformModels.LogSchemaResponse> response = null;
             try {
@@ -150,7 +150,7 @@ public class AuditTrailPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -172,7 +172,7 @@ public class AuditTrailPlatformService {
     
     
 
-    public AuditTrailPlatformModels.EntityTypesResponse getEntityTypes() throws FDKException, FDKServerResponseError {
+    public AuditTrailPlatformModels.EntityTypesResponse getEntityTypes() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<AuditTrailPlatformModels.EntityTypesResponse> response = null;
             try {
@@ -187,7 +187,7 @@ public class AuditTrailPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {

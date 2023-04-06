@@ -65,7 +65,7 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.SubscriberResponse getSubscribersByCompany(Integer pageNo , Integer pageSize , String extensionId ) throws FDKException, FDKServerResponseError {
+    public WebhookPlatformModels.SubscriberResponse getSubscribersByCompany(Integer pageNo , Integer pageSize , String extensionId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<WebhookPlatformModels.SubscriberResponse> response = null;
             try {
@@ -80,7 +80,7 @@ public class WebhookPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -102,7 +102,7 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.SubscriberConfig registerSubscriberToEvent(WebhookPlatformModels.SubscriberConfig body) throws FDKException, FDKServerResponseError {
+    public WebhookPlatformModels.SubscriberConfig registerSubscriberToEvent(WebhookPlatformModels.SubscriberConfig body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<WebhookPlatformModels.SubscriberConfig> response = null;
             try {
@@ -117,7 +117,7 @@ public class WebhookPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -139,7 +139,7 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.SubscriberConfig updateSubscriberConfig(WebhookPlatformModels.SubscriberConfig body) throws FDKException, FDKServerResponseError {
+    public WebhookPlatformModels.SubscriberConfig updateSubscriberConfig(WebhookPlatformModels.SubscriberConfig body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<WebhookPlatformModels.SubscriberConfig> response = null;
             try {
@@ -154,7 +154,7 @@ public class WebhookPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -188,7 +188,7 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.SubscriberConfigList getSubscribersByExtensionId(Integer pageNo , Integer pageSize , String extensionId ) throws FDKException, FDKServerResponseError {
+    public WebhookPlatformModels.SubscriberConfigList getSubscribersByExtensionId(Integer pageNo , Integer pageSize , String extensionId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<WebhookPlatformModels.SubscriberConfigList> response = null;
             try {
@@ -203,7 +203,7 @@ public class WebhookPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -229,7 +229,7 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.SubscriberResponse getSubscriberById(Integer subscriberId ) throws FDKException, FDKServerResponseError {
+    public WebhookPlatformModels.SubscriberResponse getSubscriberById(Integer subscriberId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<WebhookPlatformModels.SubscriberResponse> response = null;
             try {
@@ -244,7 +244,7 @@ public class WebhookPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -266,7 +266,7 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.EventConfigResponse fetchAllEventConfigurations() throws FDKException, FDKServerResponseError {
+    public WebhookPlatformModels.EventConfigResponse fetchAllEventConfigurations() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<WebhookPlatformModels.EventConfigResponse> response = null;
             try {
@@ -281,7 +281,7 @@ public class WebhookPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
