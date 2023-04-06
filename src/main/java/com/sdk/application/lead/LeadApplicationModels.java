@@ -749,18 +749,6 @@ public static class UserSchema{
     
     
     
-    @JsonProperty("debug")
-    private Debug debug;
-    
-    
-    
-    
-    @JsonProperty("has_old_password_hash")
-    private Boolean hasOldPasswordHash;
-    
-    
-    
-    
     @JsonProperty("_id")
     private String id;
     
