@@ -10700,18 +10700,12 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  
  
- #### [RuleDefinition](#RuleDefinition)
+ #### [CouponAction](#CouponAction)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String |  no  |  |
- | currencyCode | String? |  yes  |  |
- | valueType | String |  no  |  |
- | autoApply | Boolean? |  yes  |  |
- | applicableOn | String |  no  |  |
- | isExact | Boolean? |  yes  |  |
- | calculateOn | String |  no  |  |
- | scope | ArrayList<String>? |  yes  |  |
+ | actionDate | String? |  yes  |  |
+ | txnMode | String? |  yes  |  |
 
 ---
 
@@ -10734,27 +10728,97 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | createdOn | String? |  yes  |  |
  | modifiedOn | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [Identifier](#Identifier)
+ #### [State](#State)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | categoryId | ArrayList<Integer>? |  yes  |  |
- | articleId | ArrayList<String>? |  yes  |  |
- | brandId | ArrayList<Integer>? |  yes  |  |
- | storeId | ArrayList<Integer>? |  yes  |  |
- | collectionId | ArrayList<String>? |  yes  |  |
- | excludeBrandId | ArrayList<Integer>? |  yes  |  |
- | companyId | ArrayList<Integer>? |  yes  |  |
- | userId | ArrayList<String>? |  yes  |  |
- | itemId | ArrayList<Integer>? |  yes  |  |
+ | isDisplay | Boolean? |  yes  |  |
+ | isArchived | Boolean? |  yes  |  |
+ | isPublic | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Validity](#Validity)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | priority | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CouponAuthor](#CouponAuthor)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | createdBy | String? |  yes  |  |
+ | modifiedBy | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DisplayMetaDict](#DisplayMetaDict)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | title | String? |  yes  |  |
+ | subtitle | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DisplayMeta](#DisplayMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | description | String? |  yes  |  |
+ | title | String? |  yes  |  |
+ | apply | [DisplayMetaDict](#DisplayMetaDict)? |  yes  |  |
+ | auto | [DisplayMetaDict](#DisplayMetaDict)? |  yes  |  |
+ | remove | [DisplayMetaDict](#DisplayMetaDict)? |  yes  |  |
+ | subtitle | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UsesRemaining](#UsesRemaining)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | app | Integer? |  yes  |  |
+ | total | Integer? |  yes  |  |
+ | user | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UsesRestriction](#UsesRestriction)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | maximum | [UsesRemaining](#UsesRemaining)? |  yes  |  |
+ | remaining | [UsesRemaining](#UsesRemaining)? |  yes  |  |
 
 ---
 
@@ -10788,10 +10852,10 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | codes | ArrayList<String>? |  yes  |  |
- | networks | ArrayList<String>? |  yes  |  |
  | types | ArrayList<String>? |  yes  |  |
  | uses | [PaymentAllowValue](#PaymentAllowValue)? |  yes  |  |
+ | codes | ArrayList<String>? |  yes  |  |
+ | networks | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -10821,100 +10885,20 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  
  
- #### [UsesRemaining](#UsesRemaining)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | app | Integer? |  yes  |  |
- | user | Integer? |  yes  |  |
- | total | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [UsesRestriction](#UsesRestriction)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | remaining | [UsesRemaining](#UsesRemaining)? |  yes  |  |
- | maximum | [UsesRemaining](#UsesRemaining)? |  yes  |  |
-
----
-
-
- 
- 
  #### [Restrictions](#Restrictions)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | platforms | ArrayList<String>? |  yes  |  |
- | couponAllowed | Boolean? |  yes  |  |
- | priceRange | [PriceRange](#PriceRange)? |  yes  |  |
- | orderingStores | ArrayList<Integer>? |  yes  |  |
- | payments | HashMap<String,[PaymentModes](#PaymentModes)>? |  yes  |  |
- | userType | String? |  yes  |  |
- | postOrder | [PostOrder](#PostOrder)? |  yes  |  |
- | bulkBundle | [BulkBundleRestriction](#BulkBundleRestriction)? |  yes  |  |
  | uses | [UsesRestriction](#UsesRestriction)? |  yes  |  |
+ | userType | String? |  yes  |  |
+ | priceRange | [PriceRange](#PriceRange)? |  yes  |  |
+ | payments | HashMap<String,[PaymentModes](#PaymentModes)>? |  yes  |  |
+ | postOrder | [PostOrder](#PostOrder)? |  yes  |  |
+ | couponAllowed | Boolean? |  yes  |  |
+ | bulkBundle | [BulkBundleRestriction](#BulkBundleRestriction)? |  yes  |  |
  | userGroups | ArrayList<Integer>? |  yes  |  |
-
----
-
-
- 
- 
- #### [State](#State)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | isArchived | Boolean? |  yes  |  |
- | isDisplay | Boolean? |  yes  |  |
- | isPublic | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [CouponAuthor](#CouponAuthor)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | createdBy | String? |  yes  |  |
- | modifiedBy | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Rule](#Rule)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | min | Double? |  yes  |  |
- | max | Double? |  yes  |  |
- | value | Double? |  yes  |  |
- | discountQty | Double? |  yes  |  |
- | key | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [CouponSchedule](#CouponSchedule)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | cron | String? |  yes  |  |
- | end | String? |  yes  |  |
- | nextSchedule | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | start | String? |  yes  |  |
- | duration | Integer? |  yes  |  |
+ | platforms | ArrayList<String>? |  yes  |  |
+ | orderingStores | ArrayList<Integer>? |  yes  |  |
 
 ---
 
@@ -10934,51 +10918,67 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  
  
- #### [CouponAction](#CouponAction)
+ #### [RuleDefinition](#RuleDefinition)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | actionDate | String? |  yes  |  |
- | txnMode | String? |  yes  |  |
+ | calculateOn | String |  no  |  |
+ | scope | ArrayList<String>? |  yes  |  |
+ | valueType | String |  no  |  |
+ | applicableOn | String |  no  |  |
+ | autoApply | Boolean? |  yes  |  |
+ | currencyCode | String? |  yes  |  |
+ | type | String |  no  |  |
+ | isExact | Boolean? |  yes  |  |
 
 ---
 
 
  
  
- #### [Validity](#Validity)
+ #### [Identifier](#Identifier)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | priority | Integer? |  yes  |  |
+ | itemId | ArrayList<Integer>? |  yes  |  |
+ | articleId | ArrayList<String>? |  yes  |  |
+ | userId | ArrayList<String>? |  yes  |  |
+ | excludeBrandId | ArrayList<Integer>? |  yes  |  |
+ | categoryId | ArrayList<Integer>? |  yes  |  |
+ | companyId | ArrayList<Integer>? |  yes  |  |
+ | collectionId | ArrayList<String>? |  yes  |  |
+ | storeId | ArrayList<Integer>? |  yes  |  |
+ | brandId | ArrayList<Integer>? |  yes  |  |
 
 ---
 
 
  
  
- #### [DisplayMetaDict](#DisplayMetaDict)
+ #### [CouponSchedule](#CouponSchedule)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | subtitle | String? |  yes  |  |
- | title | String? |  yes  |  |
+ | duration | Integer? |  yes  |  |
+ | cron | String? |  yes  |  |
+ | end | String? |  yes  |  |
+ | start | String? |  yes  |  |
+ | nextSchedule | ArrayList<HashMap<String,Object>>? |  yes  |  |
 
 ---
 
 
  
  
- #### [DisplayMeta](#DisplayMeta)
+ #### [Rule](#Rule)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | title | String? |  yes  |  |
- | subtitle | String? |  yes  |  |
- | description | String? |  yes  |  |
- | auto | [DisplayMetaDict](#DisplayMetaDict)? |  yes  |  |
- | remove | [DisplayMetaDict](#DisplayMetaDict)? |  yes  |  |
- | apply | [DisplayMetaDict](#DisplayMetaDict)? |  yes  |  |
+ | value | Double? |  yes  |  |
+ | discountQty | Double? |  yes  |  |
+ | max | Double? |  yes  |  |
+ | key | Double? |  yes  |  |
+ | min | Double? |  yes  |  |
 
 ---
 
@@ -10989,22 +10989,22 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | ruleDefinition | [RuleDefinition](#RuleDefinition) |  no  |  |
+ | action | [CouponAction](#CouponAction)? |  yes  |  |
  | ownership | [Ownership](#Ownership) |  no  |  |
  | dateMeta | [CouponDateMeta](#CouponDateMeta)? |  yes  |  |
- | identifiers | [Identifier](#Identifier) |  no  |  |
- | code | String |  no  |  |
- | restrictions | [Restrictions](#Restrictions)? |  yes  |  |
  | state | [State](#State)? |  yes  |  |
- | author | [CouponAuthor](#CouponAuthor)? |  yes  |  |
- | typeSlug | String |  no  |  |
- | rule | ArrayList<[Rule](#Rule)> |  no  |  |
- | schedule | [CouponSchedule](#CouponSchedule)? |  yes  |  |
- | validation | [Validation](#Validation)? |  yes  |  |
- | action | [CouponAction](#CouponAction)? |  yes  |  |
  | validity | [Validity](#Validity) |  no  |  |
+ | author | [CouponAuthor](#CouponAuthor)? |  yes  |  |
+ | code | String |  no  |  |
  | displayMeta | [DisplayMeta](#DisplayMeta) |  no  |  |
  | tags | ArrayList<String>? |  yes  |  |
+ | restrictions | [Restrictions](#Restrictions)? |  yes  |  |
+ | validation | [Validation](#Validation)? |  yes  |  |
+ | ruleDefinition | [RuleDefinition](#RuleDefinition) |  no  |  |
+ | typeSlug | String |  no  |  |
+ | identifiers | [Identifier](#Identifier) |  no  |  |
+ | schedule | [CouponSchedule](#CouponSchedule)? |  yes  |  |
+ | rule | ArrayList<[Rule](#Rule)> |  no  |  |
 
 ---
 
@@ -11015,15 +11015,15 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String |  no  |  |
- | hasPrevious | Boolean? |  yes  | True if more records are present for previous pages. Sent for cursor pagination |
- | hasNext | Boolean? |  yes  | True if more records are present for next pages |
- | nextId | String? |  yes  | Cursor id for next set of records. |
  | itemTotal | Integer? |  yes  | Total coupon count in system |
- | size | Integer? |  yes  | Current request page size |
- | current | Integer? |  yes  | Current page no |
- | lastId | String? |  yes  | Last objects id |
  | page | Integer? |  yes  | Page requested |
+ | size | Integer? |  yes  | Current request page size |
+ | nextId | String? |  yes  | Cursor id for next set of records. |
+ | lastId | String? |  yes  | Last objects id |
+ | hasNext | Boolean? |  yes  | True if more records are present for next pages |
+ | type | String |  no  |  |
+ | current | Integer? |  yes  | Current page no |
+ | hasPrevious | Boolean? |  yes  | True if more records are present for previous pages. Sent for cursor pagination |
 
 ---
 
@@ -11046,8 +11046,8 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
  | message | String? |  yes  |  |
+ | success | Boolean? |  yes  |  |
 
 ---
 
@@ -11058,8 +11058,8 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
  | message | String? |  yes  |  |
+ | success | Boolean? |  yes  |  |
 
 ---
 
@@ -11070,22 +11070,22 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | ruleDefinition | [RuleDefinition](#RuleDefinition) |  no  |  |
+ | action | [CouponAction](#CouponAction)? |  yes  |  |
  | ownership | [Ownership](#Ownership) |  no  |  |
  | dateMeta | [CouponDateMeta](#CouponDateMeta)? |  yes  |  |
- | identifiers | [Identifier](#Identifier) |  no  |  |
- | code | String |  no  |  |
- | restrictions | [Restrictions](#Restrictions)? |  yes  |  |
  | state | [State](#State)? |  yes  |  |
- | author | [CouponAuthor](#CouponAuthor)? |  yes  |  |
- | typeSlug | String |  no  |  |
- | rule | ArrayList<[Rule](#Rule)> |  no  |  |
- | schedule | [CouponSchedule](#CouponSchedule)? |  yes  |  |
- | validation | [Validation](#Validation)? |  yes  |  |
- | action | [CouponAction](#CouponAction)? |  yes  |  |
  | validity | [Validity](#Validity) |  no  |  |
+ | author | [CouponAuthor](#CouponAuthor)? |  yes  |  |
+ | code | String |  no  |  |
  | displayMeta | [DisplayMeta](#DisplayMeta) |  no  |  |
  | tags | ArrayList<String>? |  yes  |  |
+ | restrictions | [Restrictions](#Restrictions)? |  yes  |  |
+ | validation | [Validation](#Validation)? |  yes  |  |
+ | ruleDefinition | [RuleDefinition](#RuleDefinition) |  no  |  |
+ | typeSlug | String |  no  |  |
+ | identifiers | [Identifier](#Identifier) |  no  |  |
+ | schedule | [CouponSchedule](#CouponSchedule)? |  yes  |  |
+ | rule | ArrayList<[Rule](#Rule)> |  no  |  |
 
 ---
 
@@ -11104,82 +11104,12 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  
  
- #### [CompareObject](#CompareObject)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | lessThan | Double? |  yes  |  |
- | lessThanEquals | Double? |  yes  |  |
- | greaterThanEquals | Double? |  yes  |  |
- | greaterThan | Double? |  yes  |  |
- | equals | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [ItemCriteria](#ItemCriteria)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | itemExcludeCategory | ArrayList<Integer>? |  yes  |  |
- | itemExcludeBrand | ArrayList<Integer>? |  yes  |  |
- | buyRules | ArrayList<String>? |  yes  |  |
- | itemExcludeSku | ArrayList<String>? |  yes  |  |
- | itemCompany | ArrayList<Integer>? |  yes  |  |
- | itemExcludeCompany | ArrayList<Integer>? |  yes  |  |
- | itemBrand | ArrayList<Integer>? |  yes  |  |
- | itemStore | ArrayList<Integer>? |  yes  |  |
- | cartTotal | [CompareObject](#CompareObject)? |  yes  |  |
- | itemExcludeId | ArrayList<Integer>? |  yes  |  |
- | allItems | Boolean? |  yes  |  |
- | itemSku | ArrayList<String>? |  yes  |  |
- | cartUniqueItemAmount | [CompareObject](#CompareObject)? |  yes  |  |
- | cartQuantity | [CompareObject](#CompareObject)? |  yes  |  |
- | itemCategory | ArrayList<Integer>? |  yes  |  |
- | itemSize | ArrayList<String>? |  yes  |  |
- | itemId | ArrayList<Integer>? |  yes  |  |
- | cartUniqueItemQuantity | [CompareObject](#CompareObject)? |  yes  |  |
- | productTags | ArrayList<String>? |  yes  |  |
- | availableZones | ArrayList<String>? |  yes  |  |
- | itemExcludeStore | ArrayList<Integer>? |  yes  |  |
-
----
-
-
- 
- 
- #### [PromotionDateMeta](#PromotionDateMeta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | createdOn | String? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [PromotionAuthor](#PromotionAuthor)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | createdBy | String? |  yes  |  |
  | modifiedBy | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [PromotionAction](#PromotionAction)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | actionType | String |  no  |  |
- | actionDate | String |  no  |  |
 
 ---
 
@@ -11198,16 +11128,154 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  
  
- #### [PromotionSchedule](#PromotionSchedule)
+ #### [PromotionAction](#PromotionAction)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | cron | String? |  yes  |  |
+ | actionDate | String |  no  |  |
+ | actionType | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [PromotionDateMeta](#PromotionDateMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | modifiedOn | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DiscountOffer](#DiscountOffer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | discountAmount | Double? |  yes  |  |
+ | discountPercentage | Double? |  yes  |  |
+ | partialCanRet | Boolean? |  yes  |  |
+ | apportionDiscount | Boolean? |  yes  |  |
+ | code | String? |  yes  |  |
+ | discountPrice | Double? |  yes  |  |
+ | maxDiscountAmount | Double? |  yes  |  |
+ | maxOfferQuantity | Integer? |  yes  |  |
+ | maxUsagePerTransaction | Integer? |  yes  |  |
+ | minOfferQuantity | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CompareObject](#CompareObject)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | greaterThan | Double? |  yes  |  |
+ | greaterThanEquals | Double? |  yes  |  |
+ | lessThan | Double? |  yes  |  |
+ | lessThanEquals | Double? |  yes  |  |
+ | equals | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ItemCriteria](#ItemCriteria)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | cartTotal | [CompareObject](#CompareObject)? |  yes  |  |
+ | itemExcludeCategory | ArrayList<Integer>? |  yes  |  |
+ | itemExcludeBrand | ArrayList<Integer>? |  yes  |  |
+ | itemSku | ArrayList<String>? |  yes  |  |
+ | itemCompany | ArrayList<Integer>? |  yes  |  |
+ | productTags | ArrayList<String>? |  yes  |  |
+ | itemExcludeId | ArrayList<Integer>? |  yes  |  |
+ | allItems | Boolean? |  yes  |  |
+ | itemBrand | ArrayList<Integer>? |  yes  |  |
+ | availableZones | ArrayList<String>? |  yes  |  |
+ | itemId | ArrayList<Integer>? |  yes  |  |
+ | itemSize | ArrayList<String>? |  yes  |  |
+ | cartUniqueItemAmount | [CompareObject](#CompareObject)? |  yes  |  |
+ | cartUniqueItemQuantity | [CompareObject](#CompareObject)? |  yes  |  |
+ | itemExcludeSku | ArrayList<String>? |  yes  |  |
+ | itemStore | ArrayList<Integer>? |  yes  |  |
+ | itemCategory | ArrayList<Integer>? |  yes  |  |
+ | buyRules | ArrayList<String>? |  yes  |  |
+ | cartQuantity | [CompareObject](#CompareObject)? |  yes  |  |
+ | itemExcludeStore | ArrayList<Integer>? |  yes  |  |
+ | itemExcludeCompany | ArrayList<Integer>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DiscountRule](#DiscountRule)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | discountType | String |  no  |  |
+ | offer | [DiscountOffer](#DiscountOffer) |  no  |  |
+ | buyCondition | String |  no  |  |
+ | itemCriteria | [ItemCriteria](#ItemCriteria) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [DisplayMeta1](#DisplayMeta1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | offerLabel | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | offerText | String? |  yes  |  |
+ | name | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UsesRemaining1](#UsesRemaining1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | total | Integer? |  yes  |  |
+ | user | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UsesRestriction1](#UsesRestriction1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | maximum | [UsesRemaining1](#UsesRemaining1)? |  yes  |  |
+ | remaining | [UsesRemaining1](#UsesRemaining1)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UserRegistered](#UserRegistered)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
  | end | String? |  yes  |  |
- | nextSchedule | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | start | String |  no  |  |
- | duration | Integer? |  yes  |  |
- | published | Boolean |  no  |  |
+ | start | String? |  yes  |  |
 
 ---
 
@@ -11250,55 +11318,19 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  
  
- #### [UserRegistered](#UserRegistered)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | end | String? |  yes  |  |
- | start | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [UsesRemaining1](#UsesRemaining1)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | user | Integer? |  yes  |  |
- | total | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [UsesRestriction1](#UsesRestriction1)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | remaining | [UsesRemaining1](#UsesRemaining1)? |  yes  |  |
- | maximum | [UsesRemaining1](#UsesRemaining1)? |  yes  |  |
-
----
-
-
- 
- 
  #### [Restrictions1](#Restrictions1)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | platforms | ArrayList<String>? |  yes  |  |
- | anonymousUsers | Boolean? |  yes  |  |
- | userGroups | ArrayList<Integer>? |  yes  |  |
- | orderQuantity | Integer? |  yes  |  |
+ | uses | [UsesRestriction1](#UsesRestriction1) |  no  |  |
+ | userRegistered | [UserRegistered](#UserRegistered)? |  yes  |  |
  | payments | ArrayList<[PromotionPaymentModes](#PromotionPaymentModes)>? |  yes  |  |
  | postOrder | [PostOrder1](#PostOrder1)? |  yes  |  |
- | userRegistered | [UserRegistered](#UserRegistered)? |  yes  |  |
- | uses | [UsesRestriction1](#UsesRestriction1) |  no  |  |
+ | anonymousUsers | Boolean? |  yes  |  |
  | userId | ArrayList<String>? |  yes  |  |
+ | orderQuantity | Integer? |  yes  |  |
+ | userGroups | ArrayList<Integer>? |  yes  |  |
+ | platforms | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -11317,48 +11349,16 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  
  
- #### [DisplayMeta1](#DisplayMeta1)
+ #### [PromotionSchedule](#PromotionSchedule)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | description | String? |  yes  |  |
- | offerText | String? |  yes  |  |
- | name | String? |  yes  |  |
- | offerLabel | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [DiscountOffer](#DiscountOffer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | discountPercentage | Double? |  yes  |  |
- | maxDiscountAmount | Double? |  yes  |  |
- | apportionDiscount | Boolean? |  yes  |  |
- | code | String? |  yes  |  |
- | discountAmount | Double? |  yes  |  |
- | maxOfferQuantity | Integer? |  yes  |  |
- | partialCanRet | Boolean? |  yes  |  |
- | discountPrice | Double? |  yes  |  |
- | maxUsagePerTransaction | Integer? |  yes  |  |
- | minOfferQuantity | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [DiscountRule](#DiscountRule)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | offer | [DiscountOffer](#DiscountOffer) |  no  |  |
- | discountType | String |  no  |  |
- | itemCriteria | [ItemCriteria](#ItemCriteria) |  no  |  |
- | buyCondition | String |  no  |  |
+ | duration | Integer? |  yes  |  |
+ | cron | String? |  yes  |  |
+ | published | Boolean |  no  |  |
+ | end | String? |  yes  |  |
+ | start | String |  no  |  |
+ | nextSchedule | ArrayList<HashMap<String,Object>>? |  yes  |  |
 
 ---
 
@@ -11369,28 +11369,28 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | buyRules | HashMap<String,[ItemCriteria](#ItemCriteria)> |  no  |  |
- | applyPriority | Integer? |  yes  |  |
  | promoGroup | String |  no  |  |
- | applicationId | String |  no  |  |
- | mode | String |  no  |  |
- | stackable | Boolean? |  yes  |  |
- | dateMeta | [PromotionDateMeta](#PromotionDateMeta)? |  yes  |  |
- | applyExclusive | String? |  yes  |  |
  | author | [PromotionAuthor](#PromotionAuthor)? |  yes  |  |
- | postOrderAction | [PromotionAction](#PromotionAction)? |  yes  |  |
- | visiblility | [Visibility](#Visibility)? |  yes  |  |
- | schedule | [PromotionSchedule](#PromotionSchedule)? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | currency | String? |  yes  |  |
- | restrictions | [Restrictions1](#Restrictions1)? |  yes  |  |
- | applyAllDiscount | Boolean? |  yes  |  |
- | calculateOn | String? |  yes  | Only available for Contract pricing and Ladder pricing promotion type |
- | ownership | [Ownership1](#Ownership1) |  no  |  |
- | displayMeta | [DisplayMeta1](#DisplayMeta1) |  no  |  |
  | code | String? |  yes  |  |
+ | applicationId | String |  no  |  |
+ | visiblility | [Visibility](#Visibility)? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | postOrderAction | [PromotionAction](#PromotionAction)? |  yes  |  |
+ | calculateOn | String? |  yes  | Only available for Contract pricing and Ladder pricing promotion type |
+ | applyPriority | Integer? |  yes  |  |
+ | dateMeta | [PromotionDateMeta](#PromotionDateMeta)? |  yes  |  |
  | discountRules | ArrayList<[DiscountRule](#DiscountRule)> |  no  |  |
+ | displayMeta | [DisplayMeta1](#DisplayMeta1) |  no  |  |
+ | currency | String? |  yes  |  |
+ | applyExclusive | String? |  yes  |  |
+ | applyAllDiscount | Boolean? |  yes  |  |
+ | mode | String |  no  |  |
  | promotionType | String |  no  |  |
+ | restrictions | [Restrictions1](#Restrictions1)? |  yes  |  |
+ | ownership | [Ownership1](#Ownership1) |  no  |  |
+ | stackable | Boolean? |  yes  |  |
+ | schedule | [PromotionSchedule](#PromotionSchedule)? |  yes  |  |
+ | buyRules | HashMap<String,[ItemCriteria](#ItemCriteria)> |  no  |  |
 
 ---
 
@@ -11413,28 +11413,28 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | buyRules | HashMap<String,[ItemCriteria](#ItemCriteria)> |  no  |  |
- | applyPriority | Integer? |  yes  |  |
  | promoGroup | String |  no  |  |
- | applicationId | String |  no  |  |
- | mode | String |  no  |  |
- | stackable | Boolean? |  yes  |  |
- | dateMeta | [PromotionDateMeta](#PromotionDateMeta)? |  yes  |  |
- | applyExclusive | String? |  yes  |  |
  | author | [PromotionAuthor](#PromotionAuthor)? |  yes  |  |
- | postOrderAction | [PromotionAction](#PromotionAction)? |  yes  |  |
- | visiblility | [Visibility](#Visibility)? |  yes  |  |
- | schedule | [PromotionSchedule](#PromotionSchedule)? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | currency | String? |  yes  |  |
- | restrictions | [Restrictions1](#Restrictions1)? |  yes  |  |
- | applyAllDiscount | Boolean? |  yes  |  |
- | calculateOn | String? |  yes  | Only available for Contract pricing and Ladder pricing promotion type |
- | ownership | [Ownership1](#Ownership1) |  no  |  |
- | displayMeta | [DisplayMeta1](#DisplayMeta1) |  no  |  |
  | code | String? |  yes  |  |
+ | applicationId | String |  no  |  |
+ | visiblility | [Visibility](#Visibility)? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | postOrderAction | [PromotionAction](#PromotionAction)? |  yes  |  |
+ | calculateOn | String? |  yes  | Only available for Contract pricing and Ladder pricing promotion type |
+ | applyPriority | Integer? |  yes  |  |
+ | dateMeta | [PromotionDateMeta](#PromotionDateMeta)? |  yes  |  |
  | discountRules | ArrayList<[DiscountRule](#DiscountRule)> |  no  |  |
+ | displayMeta | [DisplayMeta1](#DisplayMeta1) |  no  |  |
+ | currency | String? |  yes  |  |
+ | applyExclusive | String? |  yes  |  |
+ | applyAllDiscount | Boolean? |  yes  |  |
+ | mode | String |  no  |  |
  | promotionType | String |  no  |  |
+ | restrictions | [Restrictions1](#Restrictions1)? |  yes  |  |
+ | ownership | [Ownership1](#Ownership1) |  no  |  |
+ | stackable | Boolean? |  yes  |  |
+ | schedule | [PromotionSchedule](#PromotionSchedule)? |  yes  |  |
+ | buyRules | HashMap<String,[ItemCriteria](#ItemCriteria)> |  no  |  |
 
 ---
 
@@ -11445,28 +11445,28 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | buyRules | HashMap<String,[ItemCriteria](#ItemCriteria)> |  no  |  |
- | applyPriority | Integer? |  yes  |  |
  | promoGroup | String |  no  |  |
- | applicationId | String |  no  |  |
- | mode | String |  no  |  |
- | stackable | Boolean? |  yes  |  |
- | dateMeta | [PromotionDateMeta](#PromotionDateMeta)? |  yes  |  |
- | applyExclusive | String? |  yes  |  |
  | author | [PromotionAuthor](#PromotionAuthor)? |  yes  |  |
- | postOrderAction | [PromotionAction](#PromotionAction)? |  yes  |  |
- | visiblility | [Visibility](#Visibility)? |  yes  |  |
- | schedule | [PromotionSchedule](#PromotionSchedule)? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | currency | String? |  yes  |  |
- | restrictions | [Restrictions1](#Restrictions1)? |  yes  |  |
- | applyAllDiscount | Boolean? |  yes  |  |
- | calculateOn | String? |  yes  | Only available for Contract pricing and Ladder pricing promotion type |
- | ownership | [Ownership1](#Ownership1) |  no  |  |
- | displayMeta | [DisplayMeta1](#DisplayMeta1) |  no  |  |
  | code | String? |  yes  |  |
+ | applicationId | String |  no  |  |
+ | visiblility | [Visibility](#Visibility)? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | postOrderAction | [PromotionAction](#PromotionAction)? |  yes  |  |
+ | calculateOn | String? |  yes  | Only available for Contract pricing and Ladder pricing promotion type |
+ | applyPriority | Integer? |  yes  |  |
+ | dateMeta | [PromotionDateMeta](#PromotionDateMeta)? |  yes  |  |
  | discountRules | ArrayList<[DiscountRule](#DiscountRule)> |  no  |  |
+ | displayMeta | [DisplayMeta1](#DisplayMeta1) |  no  |  |
+ | currency | String? |  yes  |  |
+ | applyExclusive | String? |  yes  |  |
+ | applyAllDiscount | Boolean? |  yes  |  |
+ | mode | String |  no  |  |
  | promotionType | String |  no  |  |
+ | restrictions | [Restrictions1](#Restrictions1)? |  yes  |  |
+ | ownership | [Ownership1](#Ownership1) |  no  |  |
+ | stackable | Boolean? |  yes  |  |
+ | schedule | [PromotionSchedule](#PromotionSchedule)? |  yes  |  |
+ | buyRules | HashMap<String,[ItemCriteria](#ItemCriteria)> |  no  |  |
 
 ---
 
@@ -11489,15 +11489,15 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  | Coupon type |
- | title | String? |  yes  | Name of the promotion |
- | isHidden | Boolean? |  yes  | If the promo is active or not |
- | subtitle | String? |  yes  | Small description of the current offer |
- | entityType | String? |  yes  | Type of entity to be selected from : ['coupon', 'promotion'] |
  | modifiedOn | String? |  yes  | Coupon modification date |
+ | description | String? |  yes  | The description of the offer in the form of an HTML |
+ | title | String? |  yes  | Name of the promotion |
+ | entityType | String? |  yes  | Type of entity to be selected from : ['coupon', 'promotion'] |
  | example | String? |  yes  | Discount offers examples |
  | entitySlug | String? |  yes  |  |
- | description | String? |  yes  | The description of the offer in the form of an HTML |
+ | subtitle | String? |  yes  | Small description of the current offer |
+ | isHidden | Boolean? |  yes  | If the promo is active or not |
+ | type | String? |  yes  | Coupon type |
  | createdOn | String? |  yes  | Coupon creation date |
 
 ---
@@ -11509,9 +11509,9 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | productId | String |  no  |  |
- | quantity | Integer? |  yes  |  |
  | size | String |  no  |  |
+ | quantity | Integer? |  yes  |  |
+ | productId | String |  no  |  |
 
 ---
 
@@ -11529,22 +11529,103 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  
  
- #### [CouponBreakup](#CouponBreakup)
+ #### [ActionQuery](#ActionQuery)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | couponType | String? |  yes  |  |
+ | productSlug | ArrayList<String>? |  yes  | Contains list of product slug |
+
+---
+
+
+ 
+ 
+ #### [ProductAction](#ProductAction)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | query | [ActionQuery](#ActionQuery)? |  yes  |  |
+ | url | String? |  yes  |  |
  | type | String? |  yes  |  |
- | title | String? |  yes  |  |
- | minimumCartValue | Double? |  yes  |  |
- | code | String? |  yes  |  |
- | subTitle | String? |  yes  |  |
- | value | Double? |  yes  |  |
- | description | String? |  yes  |  |
- | isApplied | Boolean? |  yes  |  |
- | couponValue | Double? |  yes  |  |
- | uid | String? |  yes  |  |
- | maxDiscountValue | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [NetQuantity](#NetQuantity)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | unit | String? |  yes  |  |
+ | value | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [BaseInfo](#BaseInfo)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CategoryInfo](#CategoryInfo)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | uid | Integer? |  yes  | Product Category Id |
+ | name | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductImage](#ProductImage)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | url | String? |  yes  |  |
+ | aspectRatio | String? |  yes  |  |
+ | secureUrl | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CartProduct](#CartProduct)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | action | [ProductAction](#ProductAction)? |  yes  |  |
+ | netQuantity | [NetQuantity](#NetQuantity)? |  yes  |  |
+ | brand | [BaseInfo](#BaseInfo)? |  yes  |  |
+ | slug | String? |  yes  | Unique product url name generated via product name and other meta data |
+ | categories | ArrayList<[CategoryInfo](#CategoryInfo)>? |  yes  |  |
+ | images | ArrayList<[ProductImage](#ProductImage)>? |  yes  |  |
+ | itemCode | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | type | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PromoMeta](#PromoMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
  | message | String? |  yes  |  |
 
 ---
@@ -11552,107 +11633,90 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  
  
- #### [LoyaltyPoints](#LoyaltyPoints)
+ #### [ProductAvailability](#ProductAvailability)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isApplied | Boolean? |  yes  |  |
- | applicable | Double? |  yes  |  |
- | description | String? |  yes  |  |
- | total | Double? |  yes  |  |
+ | otherStoreQuantity | Integer? |  yes  |  |
+ | sizes | ArrayList<String>? |  yes  |  |
+ | outOfStock | Boolean? |  yes  |  |
+ | deliverable | Boolean? |  yes  |  |
+ | isValid | Boolean? |  yes  |  |
 
 ---
 
 
  
  
- #### [DisplayBreakup](#DisplayBreakup)
+ #### [ProductPrice](#ProductPrice)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | selling | Double? |  yes  |  |
+ | effective | Double? |  yes  |  |
  | currencyCode | String? |  yes  |  |
- | display | String? |  yes  |  |
+ | marked | Double? |  yes  |  |
+ | addOn | Double? |  yes  |  |
  | currencySymbol | String? |  yes  |  |
- | value | Double? |  yes  |  |
- | key | String? |  yes  |  |
- | message | ArrayList<String>? |  yes  |  |
 
 ---
 
 
  
  
- #### [RawBreakup](#RawBreakup)
+ #### [ProductPriceInfo](#ProductPriceInfo)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | coupon | Double? |  yes  |  |
- | fyndCash | Double? |  yes  |  |
- | subtotal | Double? |  yes  |  |
- | gstCharges | Double? |  yes  |  |
- | total | Double? |  yes  |  |
- | convenienceFee | Double? |  yes  |  |
- | codCharge | Double? |  yes  |  |
- | vog | Double? |  yes  |  |
- | mrpTotal | Double? |  yes  |  |
- | discount | Double? |  yes  |  |
- | youSaved | Double? |  yes  |  |
- | deliveryCharge | Double? |  yes  |  |
+ | converted | [ProductPrice](#ProductPrice)? |  yes  |  |
+ | base | [ProductPrice](#ProductPrice)? |  yes  |  |
 
 ---
 
 
  
  
- #### [CartBreakup](#CartBreakup)
+ #### [BasePrice](#BasePrice)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | coupon | [CouponBreakup](#CouponBreakup)? |  yes  |  |
- | loyaltyPoints | [LoyaltyPoints](#LoyaltyPoints)? |  yes  |  |
- | display | ArrayList<[DisplayBreakup](#DisplayBreakup)>? |  yes  |  |
- | raw | [RawBreakup](#RawBreakup)? |  yes  |  |
+ | effective | Double? |  yes  |  |
+ | currencySymbol | String? |  yes  |  |
+ | marked | Double? |  yes  |  |
+ | currencyCode | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [CartProductIdentifer](#CartProductIdentifer)
+ #### [ArticlePriceInfo](#ArticlePriceInfo)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | identifier | String? |  yes  | Article idenfier generated by cart |
+ | converted | [BasePrice](#BasePrice)? |  yes  |  |
+ | base | [BasePrice](#BasePrice)? |  yes  |  |
 
 ---
 
 
  
  
- #### [FreeGiftItem](#FreeGiftItem)
+ #### [ProductArticle](#ProductArticle)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | itemName | String? |  yes  | Item name |
- | itemBrandName | String? |  yes  | item brand name |
- | itemImagesUrl | ArrayList<String>? |  yes  | item images URL |
- | itemPriceDetails | HashMap<String,Object>? |  yes  | item price details |
- | itemSlug | String? |  yes  | item slug |
- | itemId | Integer? |  yes  | Item id |
-
----
-
-
- 
- 
- #### [AppliedFreeArticles](#AppliedFreeArticles)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | parentItemIdentifier | String? |  yes  | Parent item identifier for free article |
- | articleId | String? |  yes  | free article id |
- | freeGiftItemDetails | [FreeGiftItem](#FreeGiftItem)? |  yes  | Free gift items details |
- | quantity | Integer? |  yes  | Free article quantity |
+ | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
+ | seller | [BaseInfo](#BaseInfo)? |  yes  |  |
+ | price | [ArticlePriceInfo](#ArticlePriceInfo)? |  yes  |  |
+ | size | String? |  yes  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | productGroupTags | ArrayList<String>? |  yes  |  |
+ | store | [BaseInfo](#BaseInfo)? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -11663,8 +11727,8 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | itemCriteria | HashMap<String,Object>? |  yes  | Item criteria of promotion |
  | cartConditions | HashMap<String,Object>? |  yes  | Cart conditions details for promotion |
+ | itemCriteria | HashMap<String,Object>? |  yes  | Item criteria of promotion |
 
 ---
 
@@ -11675,10 +11739,40 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | offer | HashMap<String,Object>? |  yes  | offer for promotion |
  | rawOffer | HashMap<String,Object>? |  yes  | raw offer details for promotion |
- | matchedBuyRules | ArrayList<String>? |  yes  | Matched buy rules for promotion |
+ | offer | HashMap<String,Object>? |  yes  | offer for promotion |
  | itemCriteria | HashMap<String,Object>? |  yes  | Item criteria of promotion |
+ | matchedBuyRules | ArrayList<String>? |  yes  | Matched buy rules for promotion |
+
+---
+
+
+ 
+ 
+ #### [FreeGiftItem](#FreeGiftItem)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | itemId | Integer? |  yes  | Item id |
+ | itemName | String? |  yes  | Item name |
+ | itemSlug | String? |  yes  | item slug |
+ | itemPriceDetails | HashMap<String,Object>? |  yes  | item price details |
+ | itemImagesUrl | ArrayList<String>? |  yes  | item images URL |
+ | itemBrandName | String? |  yes  | item brand name |
+
+---
+
+
+ 
+ 
+ #### [AppliedFreeArticles](#AppliedFreeArticles)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | freeGiftItemDetails | [FreeGiftItem](#FreeGiftItem)? |  yes  | Free gift items details |
+ | articleId | String? |  yes  | free article id |
+ | parentItemIdentifier | String? |  yes  | Parent item identifier for free article |
+ | quantity | Integer? |  yes  | Free article quantity |
 
 ---
 
@@ -11701,212 +11795,29 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | promoId | String? |  yes  | Promotion id |
  | promotionName | String? |  yes  | Promotion name of current promotion |
- | appliedFreeArticles | ArrayList<[AppliedFreeArticles](#AppliedFreeArticles)>? |  yes  | Applied free article for free gift item promotions |
- | mrpPromotion | Boolean? |  yes  | If applied promotion is applied on product MRP or ESP |
+ | articleQuantity | Integer? |  yes  | Quantity of article on which promotion is applicable |
  | buyRules | ArrayList<[BuyRules](#BuyRules)>? |  yes  | Buy rules for promotions |
  | promotionGroup | String? |  yes  | Promotion group for the promotion |
+ | mrpPromotion | Boolean? |  yes  | If applied promotion is applied on product MRP or ESP |
  | offerText | String? |  yes  | Offer text of current promotion |
- | amount | Double? |  yes  | Per unit discount amount applied with current promotion |
  | discountRules | ArrayList<[DiscountRulesApp](#DiscountRulesApp)>? |  yes  | Discount rules for promotions |
- | ownership | [Ownership2](#Ownership2)? |  yes  | Ownership of promotion |
  | promotionType | String? |  yes  | Promotion type of current promotion |
- | articleQuantity | Integer? |  yes  | Quantity of article on which promotion is applicable |
+ | promoId | String? |  yes  | Promotion id |
+ | appliedFreeArticles | ArrayList<[AppliedFreeArticles](#AppliedFreeArticles)>? |  yes  | Applied free article for free gift item promotions |
+ | ownership | [Ownership2](#Ownership2)? |  yes  | Ownership of promotion |
+ | amount | Double? |  yes  | Per unit discount amount applied with current promotion |
 
 ---
 
 
  
  
- #### [CategoryInfo](#CategoryInfo)
+ #### [CartProductIdentifer](#CartProductIdentifer)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | uid | Integer? |  yes  | Product Category Id |
-
----
-
-
- 
- 
- #### [BaseInfo](#BaseInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductImage](#ProductImage)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | aspectRatio | String? |  yes  |  |
- | secureUrl | String? |  yes  |  |
- | url | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ActionQuery](#ActionQuery)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | productSlug | ArrayList<String>? |  yes  | Contains list of product slug |
-
----
-
-
- 
- 
- #### [ProductAction](#ProductAction)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
- | query | [ActionQuery](#ActionQuery)? |  yes  |  |
- | url | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [NetQuantity](#NetQuantity)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | value | String? |  yes  |  |
- | unit | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [CartProduct](#CartProduct)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
- | slug | String? |  yes  | Unique product url name generated via product name and other meta data |
- | categories | ArrayList<[CategoryInfo](#CategoryInfo)>? |  yes  |  |
- | itemCode | String? |  yes  |  |
- | brand | [BaseInfo](#BaseInfo)? |  yes  |  |
- | images | ArrayList<[ProductImage](#ProductImage)>? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | action | [ProductAction](#ProductAction)? |  yes  |  |
- | name | String? |  yes  |  |
- | netQuantity | [NetQuantity](#NetQuantity)? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductAvailability](#ProductAvailability)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | outOfStock | Boolean? |  yes  |  |
- | sizes | ArrayList<String>? |  yes  |  |
- | isValid | Boolean? |  yes  |  |
- | otherStoreQuantity | Integer? |  yes  |  |
- | deliverable | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductPrice](#ProductPrice)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | addOn | Double? |  yes  |  |
- | currencyCode | String? |  yes  |  |
- | marked | Double? |  yes  |  |
- | currencySymbol | String? |  yes  |  |
- | effective | Double? |  yes  |  |
- | selling | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductPriceInfo](#ProductPriceInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | base | [ProductPrice](#ProductPrice)? |  yes  |  |
- | converted | [ProductPrice](#ProductPrice)? |  yes  |  |
-
----
-
-
- 
- 
- #### [BasePrice](#BasePrice)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | effective | Double? |  yes  |  |
- | currencyCode | String? |  yes  |  |
- | marked | Double? |  yes  |  |
- | currencySymbol | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ArticlePriceInfo](#ArticlePriceInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | base | [BasePrice](#BasePrice)? |  yes  |  |
- | converted | [BasePrice](#BasePrice)? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductArticle](#ProductArticle)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
- | extraMeta | HashMap<String,Object>? |  yes  |  |
- | productGroupTags | ArrayList<String>? |  yes  |  |
- | quantity | Integer? |  yes  |  |
- | seller | [BaseInfo](#BaseInfo)? |  yes  |  |
- | price | [ArticlePriceInfo](#ArticlePriceInfo)? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | size | String? |  yes  |  |
- | uid | String? |  yes  |  |
- | store | [BaseInfo](#BaseInfo)? |  yes  |  |
- | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [PromoMeta](#PromoMeta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
+ | identifier | String? |  yes  | Article idenfier generated by cart |
 
 ---
 
@@ -11917,22 +11828,111 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | identifiers | [CartProductIdentifer](#CartProductIdentifer) |  no  |  |
- | promotionsApplied | ArrayList<[AppliedPromotion](#AppliedPromotion)>? |  yes  |  |
  | product | [CartProduct](#CartProduct)? |  yes  |  |
- | quantity | Integer? |  yes  |  |
- | availability | [ProductAvailability](#ProductAvailability)? |  yes  |  |
- | couponMessage | String? |  yes  |  |
- | price | [ProductPriceInfo](#ProductPriceInfo)? |  yes  |  |
- | key | String? |  yes  |  |
- | isSet | Boolean? |  yes  |  |
- | pricePerUnit | [ProductPriceInfo](#ProductPriceInfo)? |  yes  |  |
  | bulkOffer | HashMap<String,Object>? |  yes  |  |
- | discount | String? |  yes  |  |
- | article | [ProductArticle](#ProductArticle)? |  yes  |  |
- | promoMeta | [PromoMeta](#PromoMeta)? |  yes  |  |
- | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
  | message | String? |  yes  |  |
+ | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
+ | promoMeta | [PromoMeta](#PromoMeta)? |  yes  |  |
+ | availability | [ProductAvailability](#ProductAvailability)? |  yes  |  |
+ | price | [ProductPriceInfo](#ProductPriceInfo)? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | pricePerUnit | [ProductPriceInfo](#ProductPriceInfo)? |  yes  |  |
+ | isSet | Boolean? |  yes  |  |
+ | article | [ProductArticle](#ProductArticle)? |  yes  |  |
+ | key | String? |  yes  |  |
+ | promotionsApplied | ArrayList<[AppliedPromotion](#AppliedPromotion)>? |  yes  |  |
+ | discount | String? |  yes  |  |
+ | couponMessage | String? |  yes  |  |
+ | identifiers | [CartProductIdentifer](#CartProductIdentifer) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [DisplayBreakup](#DisplayBreakup)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | value | Double? |  yes  |  |
+ | message | ArrayList<String>? |  yes  |  |
+ | key | String? |  yes  |  |
+ | currencyCode | String? |  yes  |  |
+ | display | String? |  yes  |  |
+ | currencySymbol | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CouponBreakup](#CouponBreakup)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | description | String? |  yes  |  |
+ | value | Double? |  yes  |  |
+ | message | String? |  yes  |  |
+ | title | String? |  yes  |  |
+ | maxDiscountValue | Double? |  yes  |  |
+ | couponValue | Double? |  yes  |  |
+ | minimumCartValue | Double? |  yes  |  |
+ | code | String? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | subTitle | String? |  yes  |  |
+ | couponType | String? |  yes  |  |
+ | isApplied | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LoyaltyPoints](#LoyaltyPoints)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | applicable | Double? |  yes  |  |
+ | description | String? |  yes  |  |
+ | total | Double? |  yes  |  |
+ | isApplied | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RawBreakup](#RawBreakup)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | convenienceFee | Double? |  yes  |  |
+ | total | Double? |  yes  |  |
+ | subtotal | Double? |  yes  |  |
+ | gstCharges | Double? |  yes  |  |
+ | vog | Double? |  yes  |  |
+ | codCharge | Double? |  yes  |  |
+ | mrpTotal | Double? |  yes  |  |
+ | discount | Double? |  yes  |  |
+ | youSaved | Double? |  yes  |  |
+ | deliveryCharge | Double? |  yes  |  |
+ | fyndCash | Double? |  yes  |  |
+ | coupon | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CartBreakup](#CartBreakup)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | display | ArrayList<[DisplayBreakup](#DisplayBreakup)>? |  yes  |  |
+ | coupon | [CouponBreakup](#CouponBreakup)? |  yes  |  |
+ | loyaltyPoints | [LoyaltyPoints](#LoyaltyPoints)? |  yes  |  |
+ | raw | [RawBreakup](#RawBreakup)? |  yes  |  |
 
 ---
 
@@ -11943,10 +11943,10 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
  | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
  | isValid | Boolean? |  yes  |  |
  | message | String? |  yes  |  |
+ | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
 
 ---
 
@@ -11957,9 +11957,9 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
- | errors | HashMap<String,Object>? |  yes  | Contains field name which has error as key and error message as value |
  | message | String? |  yes  |  |
+ | errors | HashMap<String,Object>? |  yes  | Contains field name which has error as key and error message as value |
+ | success | Boolean? |  yes  |  |
 
 ---
 
@@ -11970,23 +11970,23 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | pincode | Integer? |  yes  |  |
- | phone | Integer? |  yes  |  |
- | country | String? |  yes  |  |
- | countryPhoneCode | String? |  yes  |  |
- | addressType | String? |  yes  |  |
  | area | String? |  yes  |  |
- | email | String? |  yes  |  |
- | state | String? |  yes  |  |
- | landmark | String? |  yes  |  |
+ | phone | Integer? |  yes  |  |
  | address | String? |  yes  |  |
- | city | String? |  yes  |  |
+ | addressType | String? |  yes  |  |
+ | state | String? |  yes  |  |
  | areaCodeSlug | String? |  yes  |  |
- | countryCode | String? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | name | String? |  yes  |  |
  | areaCode | String |  no  |  |
+ | city | String? |  yes  |  |
+ | landmark | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | countryPhoneCode | String? |  yes  |  |
+ | country | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | countryCode | String? |  yes  |  |
  | countryIsoCode | String? |  yes  |  |
+ | email | String? |  yes  |  |
+ | pincode | Integer? |  yes  |  |
 
 ---
 
@@ -11997,8 +11997,8 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | cartItems | [CartItem](#CartItem)? |  yes  |  |
  | shippingAddress | [ShippingAddress](#ShippingAddress) |  no  |  |
+ | cartItems | [CartItem](#CartItem)? |  yes  |  |
 
 ---
 
@@ -12045,11 +12045,40 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isValid | Boolean? |  yes  |  |
+ | message | String? |  yes  |  |
  | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
  | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
+ | isValid | Boolean? |  yes  |  |
  | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
- | message | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [MultiTenderPaymentMeta](#MultiTenderPaymentMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | paymentId | String? |  yes  |  |
+ | paymentGateway | String? |  yes  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
+ | orderId | String? |  yes  |  |
+ | currentStatus | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [MultiTenderPaymentMethod](#MultiTenderPaymentMethod)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | meta | [MultiTenderPaymentMeta](#MultiTenderPaymentMeta)? |  yes  |  |
+ | amount | Double |  no  | Payment amount |
+ | name | String? |  yes  | Payment mode name |
+ | mode | String |  no  |  |
 
 ---
 
@@ -12062,35 +12091,6 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
  | ---------- | ---- | -------- | ----------- |
  | groupId | String? |  yes  |  |
  | primaryItem | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [MultiTenderPaymentMeta](#MultiTenderPaymentMeta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | extraMeta | HashMap<String,Object>? |  yes  |  |
- | currentStatus | String? |  yes  |  |
- | orderId | String? |  yes  |  |
- | paymentId | String? |  yes  |  |
- | paymentGateway | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [MultiTenderPaymentMethod](#MultiTenderPaymentMethod)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  | Payment mode name |
- | mode | String |  no  |  |
- | meta | [MultiTenderPaymentMeta](#MultiTenderPaymentMeta)? |  yes  |  |
- | amount | Double |  no  | Payment amount |
 
 ---
 
@@ -12113,23 +12113,23 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | priceEffective | Double |  no  |  |
- | meta | [CartItemMeta](#CartItemMeta)? |  yes  |  |
- | extraMeta | HashMap<String,Object>? |  yes  |  |
- | employeeDiscount | Double? |  yes  |  |
- | codCharges | Double |  no  |  |
- | couponEffectiveDiscount | Double |  no  |  |
- | cashbackApplied | Double |  no  |  |
- | priceMarked | Double |  no  |  |
- | paymentMethods | ArrayList<[MultiTenderPaymentMethod](#MultiTenderPaymentMethod)> |  no  |  |
  | loyaltyDiscount | Double? |  yes  |  |
- | amountPaid | Double |  no  |  |
- | size | String |  no  |  |
- | files | ArrayList<[OpenApiFiles](#OpenApiFiles)>? |  yes  |  |
- | discount | Double |  no  |  |
  | productId | Integer |  no  |  |
+ | cashbackApplied | Double |  no  |  |
+ | size | String |  no  |  |
+ | paymentMethods | ArrayList<[MultiTenderPaymentMethod](#MultiTenderPaymentMethod)> |  no  |  |
+ | employeeDiscount | Double? |  yes  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
  | deliveryCharges | Double |  no  |  |
  | quantity | Integer? |  yes  |  |
+ | couponEffectiveDiscount | Double |  no  |  |
+ | meta | [CartItemMeta](#CartItemMeta)? |  yes  |  |
+ | priceEffective | Double |  no  |  |
+ | discount | Double |  no  |  |
+ | files | ArrayList<[OpenApiFiles](#OpenApiFiles)>? |  yes  |  |
+ | codCharges | Double |  no  |  |
+ | amountPaid | Double |  no  |  |
+ | priceMarked | Double |  no  |  |
 
 ---
 
@@ -12140,26 +12140,26 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | coupon | String? |  yes  |  |
- | currencyCode | String? |  yes  |  |
- | couponCode | String |  no  |  |
- | cartItems | ArrayList<[OpenApiOrderItem](#OpenApiOrderItem)> |  no  |  |
- | comment | String? |  yes  |  |
- | employeeDiscount | HashMap<String,Object>? |  yes  |  |
- | orderId | String? |  yes  |  |
- | affiliateOrderId | String? |  yes  |  |
- | couponValue | Double |  no  |  |
- | files | ArrayList<[OpenApiFiles](#OpenApiFiles)>? |  yes  |  |
- | cartValue | Double |  no  |  |
- | deliveryCharges | Double |  no  |  |
- | billingAddress | [ShippingAddress](#ShippingAddress) |  no  |  |
- | paymentMode | String? |  yes  |  |
- | codCharges | Double |  no  |  |
  | cashbackApplied | Double |  no  |  |
  | paymentMethods | ArrayList<[MultiTenderPaymentMethod](#MultiTenderPaymentMethod)> |  no  |  |
- | loyaltyDiscount | Double? |  yes  |  |
- | shippingAddress | [ShippingAddress](#ShippingAddress)? |  yes  |  |
+ | couponValue | Double |  no  |  |
+ | cartItems | ArrayList<[OpenApiOrderItem](#OpenApiOrderItem)> |  no  |  |
+ | deliveryCharges | Double |  no  |  |
+ | currencyCode | String? |  yes  |  |
+ | affiliateOrderId | String? |  yes  |  |
+ | files | ArrayList<[OpenApiFiles](#OpenApiFiles)>? |  yes  |  |
  | gstin | String? |  yes  |  |
+ | paymentMode | String? |  yes  |  |
+ | codCharges | Double |  no  |  |
+ | shippingAddress | [ShippingAddress](#ShippingAddress)? |  yes  |  |
+ | orderId | String? |  yes  |  |
+ | cartValue | Double |  no  |  |
+ | loyaltyDiscount | Double? |  yes  |  |
+ | comment | String? |  yes  |  |
+ | employeeDiscount | HashMap<String,Object>? |  yes  |  |
+ | couponCode | String |  no  |  |
+ | coupon | String? |  yes  |  |
+ | billingAddress | [ShippingAddress](#ShippingAddress) |  no  |  |
 
 ---
 
@@ -12170,10 +12170,10 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
  | orderId | String |  no  | Fynd order id |
  | orderRefId | String? |  yes  | Order id sent in request |
  | message | String? |  yes  |  |
+ | success | Boolean? |  yes  |  |
 
 ---
 
@@ -12184,39 +12184,39 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | coupon | HashMap<String,Object>? |  yes  |  |
- | articles | ArrayList<HashMap<String,Object>> |  no  |  |
- | bulkCouponDiscount | Double? |  yes  |  |
- | comment | String? |  yes  |  |
- | pickUpCustomerDetails | HashMap<String,Object>? |  yes  |  |
- | buyNow | Boolean? |  yes  |  |
  | promotion | HashMap<String,Object>? |  yes  |  |
- | shipments | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | paymentMode | String? |  yes  |  |
- | mergeQty | Boolean? |  yes  |  |
- | payments | HashMap<String,Object>? |  yes  |  |
- | fyndCredits | HashMap<String,Object>? |  yes  |  |
- | discount | Double? |  yes  |  |
- | gstin | String? |  yes  |  |
- | appId | String? |  yes  |  |
- | orderId | String? |  yes  |  |
- | id | String |  no  |  |
- | isArchive | Boolean? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | fcIndexMap | ArrayList<Integer>? |  yes  |  |
+ | buyNow | Boolean? |  yes  |  |
  | deliveryCharges | HashMap<String,Object>? |  yes  |  |
- | cartValue | Double? |  yes  |  |
- | cashback | HashMap<String,Object> |  no  |  |
- | isDefault | Boolean |  no  |  |
- | checkoutMode | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
  | codCharges | HashMap<String,Object>? |  yes  |  |
- | paymentMethods | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | expireAt | String |  no  |  |
- | isActive | Boolean? |  yes  |  |
- | uid | Integer |  no  |  |
  | userId | String |  no  |  |
- | createdOn | String |  no  |  |
+ | appId | String? |  yes  |  |
+ | discount | Double? |  yes  |  |
+ | articles | ArrayList<HashMap<String,Object>> |  no  |  |
+ | paymentMethods | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | pickUpCustomerDetails | HashMap<String,Object>? |  yes  |  |
+ | payments | HashMap<String,Object>? |  yes  |  |
  | lastModified | String |  no  |  |
+ | uid | Integer |  no  |  |
+ | gstin | String? |  yes  |  |
+ | checkoutMode | String? |  yes  |  |
+ | paymentMode | String? |  yes  |  |
+ | bulkCouponDiscount | Double? |  yes  |  |
+ | orderId | String? |  yes  |  |
+ | shipments | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | cartValue | Double? |  yes  |  |
+ | comment | String? |  yes  |  |
+ | fcIndexMap | ArrayList<Integer>? |  yes  |  |
+ | id | String |  no  |  |
+ | cashback | HashMap<String,Object> |  no  |  |
+ | expireAt | String |  no  |  |
+ | mergeQty | Boolean? |  yes  |  |
+ | createdOn | String |  no  |  |
+ | coupon | HashMap<String,Object>? |  yes  |  |
+ | isArchive | Boolean? |  yes  |  |
+ | fyndCredits | HashMap<String,Object>? |  yes  |  |
+ | isDefault | Boolean |  no  |  |
 
 ---
 
@@ -12227,11 +12227,23 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | result | HashMap<String,Object>? |  yes  |  |
- | items | ArrayList<[AbandonedCart](#AbandonedCart)>? |  yes  |  |
  | message | String? |  yes  | message of the response |
  | success | Boolean? |  yes  | the request success is defined |
  | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[AbandonedCart](#AbandonedCart)>? |  yes  |  |
+ | result | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CartCurrency](#CartCurrency)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | code | String? |  yes  | Currency code defined by ISO 4217:2015 |
+ | symbol | String? |  yes  |  |
 
 ---
 
@@ -12243,20 +12255,8 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | defaultOptions | String? |  yes  |  |
- | enabled | Boolean? |  yes  |  |
  | paymentIdentifier | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [CartCurrency](#CartCurrency)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | symbol | String? |  yes  |  |
- | code | String? |  yes  | Currency code defined by ISO 4217:2015 |
+ | enabled | Boolean? |  yes  |  |
 
 ---
 
@@ -12267,24 +12267,24 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | gstin | String? |  yes  |  |
- | restrictCheckout | Boolean? |  yes  |  |
- | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
- | id | String? |  yes  |  |
- | checkoutMode | String? |  yes  |  |
- | comment | String? |  yes  |  |
- | isValid | Boolean? |  yes  |  |
- | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
  | panNo | String? |  yes  |  |
+ | comment | String? |  yes  |  |
  | panConfig | HashMap<String,Object>? |  yes  |  |
- | lastModified | String? |  yes  |  |
- | buyNow | Boolean? |  yes  |  |
- | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
- | deliveryChargeInfo | String? |  yes  |  |
- | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
- | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
- | couponText | String? |  yes  |  |
  | message | String? |  yes  |  |
+ | buyNow | Boolean? |  yes  |  |
+ | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
+ | deliveryChargeInfo | String? |  yes  |  |
+ | restrictCheckout | Boolean? |  yes  |  |
+ | lastModified | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
+ | isValid | Boolean? |  yes  |  |
+ | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
+ | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
+ | gstin | String? |  yes  |  |
+ | checkoutMode | String? |  yes  |  |
+ | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
+ | couponText | String? |  yes  |  |
 
 ---
 
@@ -12295,19 +12295,19 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | extraMeta | HashMap<String,Object>? |  yes  |  |
- | productGroupTags | ArrayList<String>? |  yes  |  |
- | pos | Boolean? |  yes  |  |
- | articleAssignment | HashMap<String,Object>? |  yes  |  |
- | quantity | Integer? |  yes  |  |
- | storeId | Integer? |  yes  |  |
- | display | String? |  yes  |  |
- | articleId | String? |  yes  |  |
- | sellerId | Integer? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | itemSize | String? |  yes  |  |
  | itemId | Integer? |  yes  |  |
+ | articleAssignment | HashMap<String,Object>? |  yes  |  |
+ | itemSize | String? |  yes  |  |
  | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
+ | articleId | String? |  yes  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | pos | Boolean? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | productGroupTags | ArrayList<String>? |  yes  |  |
+ | display | String? |  yes  |  |
+ | sellerId | Integer? |  yes  |  |
+ | storeId | Integer? |  yes  |  |
 
 ---
 
@@ -12330,10 +12330,10 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  | True if all items are added successfully. False if partially added or not added. |
  | cart | [CartDetailResponse](#CartDetailResponse)? |  yes  |  |
- | partial | Boolean? |  yes  | When adding multiple items check if all added. True if only few are added. |
  | message | String? |  yes  |  |
+ | success | Boolean? |  yes  | True if all items are added successfully. False if partially added or not added. |
+ | partial | Boolean? |  yes  | When adding multiple items check if all added. True if only few are added. |
 
 ---
 
@@ -12344,15 +12344,15 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | extraMeta | HashMap<String,Object>? |  yes  |  |
- | identifiers | [CartProductIdentifer](#CartProductIdentifer) |  no  |  |
  | itemIndex | Integer? |  yes  |  |
+ | itemId | Integer? |  yes  |  |
  | articleId | String? |  yes  |  |
+ | itemSize | String? |  yes  |  |
+ | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
  | quantity | Integer? |  yes  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
- | itemSize | String? |  yes  |  |
- | itemId | Integer? |  yes  |  |
- | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
+ | identifiers | [CartProductIdentifer](#CartProductIdentifer) |  no  |  |
 
 ---
 
@@ -12375,9 +12375,9 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  | True if all items are added successfully. False if partially added or not added. |
  | cart | [CartDetailResponse](#CartDetailResponse)? |  yes  |  |
  | message | String? |  yes  |  |
+ | success | Boolean? |  yes  | True if all items are added successfully. False if partially added or not added. |
 
 ---
 
@@ -12412,9 +12412,9 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | meta | HashMap<String,Object>? |  yes  | Meta data sent while generating share cart link |
  | token | String? |  yes  | Short link id |
  | createdOn | String? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  | Meta data sent while generating share cart link |
  | source | HashMap<String,Object>? |  yes  | Share link device and other source information |
  | user | HashMap<String,Object>? |  yes  | User details of who generated share link |
 
@@ -12427,25 +12427,25 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | comment | String? |  yes  |  |
  | buyNow | Boolean? |  yes  |  |
  | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
- | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
  | deliveryChargeInfo | String? |  yes  |  |
- | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
- | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
- | gstin | String? |  yes  |  |
- | sharedCartDetails | [SharedCartDetails](#SharedCartDetails)? |  yes  |  |
  | isValid | Boolean? |  yes  |  |
- | couponText | String? |  yes  |  |
- | message | String? |  yes  |  |
- | restrictCheckout | Boolean? |  yes  |  |
- | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
- | checkoutMode | String? |  yes  |  |
- | uid | String? |  yes  |  |
+ | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
+ | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
  | cartId | Integer? |  yes  |  |
  | lastModified | String? |  yes  |  |
+ | sharedCartDetails | [SharedCartDetails](#SharedCartDetails)? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | gstin | String? |  yes  |  |
+ | checkoutMode | String? |  yes  |  |
+ | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
+ | comment | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | restrictCheckout | Boolean? |  yes  |  |
+ | id | String? |  yes  |  |
+ | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
+ | couponText | String? |  yes  |  |
 
 ---
 
@@ -12469,10 +12469,10 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | pickUpCustomerDetails | HashMap<String,Object>? |  yes  |  |
- | itemCounts | Integer? |  yes  |  |
  | cartId | String? |  yes  |  |
  | userId | String? |  yes  |  |
  | createdOn | String? |  yes  |  |
+ | itemCounts | Integer? |  yes  |  |
  | cartValue | Double? |  yes  |  |
 
 ---
@@ -12507,15 +12507,15 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | mobile | String? |  yes  |  |
- | externalId | String? |  yes  |  |
- | gender | String? |  yes  |  |
  | modifiedOn | String? |  yes  |  |
- | id | String? |  yes  |  |
- | firstName | String? |  yes  |  |
- | uid | String? |  yes  |  |
- | lastName | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
+ | gender | String? |  yes  |  |
+ | firstName | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | lastName | String? |  yes  |  |
+ | externalId | String? |  yes  |  |
+ | mobile | String? |  yes  |  |
+ | uid | String? |  yes  |  |
 
 ---
 
@@ -12526,25 +12526,25 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | comment | String? |  yes  |  |
+ | panConfig | HashMap<String,Object>? |  yes  |  |
  | buyNow | Boolean? |  yes  |  |
  | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
- | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
  | deliveryChargeInfo | String? |  yes  |  |
- | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
- | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
- | gstin | String? |  yes  |  |
  | isValid | Boolean? |  yes  |  |
- | user | [UserInfo](#UserInfo)? |  yes  |  |
- | couponText | String? |  yes  |  |
+ | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
  | panNo | String? |  yes  |  |
+ | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
+ | lastModified | String? |  yes  |  |
+ | gstin | String? |  yes  |  |
+ | checkoutMode | String? |  yes  |  |
+ | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
+ | user | [UserInfo](#UserInfo)? |  yes  |  |
+ | comment | String? |  yes  |  |
  | message | String? |  yes  |  |
  | restrictCheckout | Boolean? |  yes  |  |
- | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
- | checkoutMode | String? |  yes  |  |
- | panConfig | HashMap<String,Object>? |  yes  |  |
- | lastModified | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
+ | couponText | String? |  yes  |  |
 
 ---
 
@@ -12566,8 +12566,8 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  | True if cart is archived successfully. False if not archived. |
  | message | String? |  yes  |  |
+ | success | Boolean? |  yes  | True if cart is archived successfully. False if not archived. |
 
 ---
 
@@ -12585,37 +12585,37 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  
  
- #### [Coupon](#Coupon)
+ #### [PageCoupon](#PageCoupon)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | couponType | String? |  yes  |  |
- | isApplicable | Boolean? |  yes  |  |
- | couponCode | String? |  yes  |  |
- | title | String? |  yes  |  |
- | minimumCartValue | Double? |  yes  |  |
- | subTitle | String? |  yes  |  |
- | description | String? |  yes  |  |
- | couponValue | Double? |  yes  |  |
- | isApplied | Boolean? |  yes  |  |
- | expiresOn | String? |  yes  |  |
- | maxDiscountValue | Double? |  yes  |  |
- | message | String? |  yes  |  |
+ | hasNext | Boolean? |  yes  |  |
+ | totalItemCount | Integer? |  yes  |  |
+ | total | Integer? |  yes  |  |
+ | current | Integer? |  yes  |  |
+ | hasPrevious | Boolean? |  yes  |  |
 
 ---
 
 
  
  
- #### [PageCoupon](#PageCoupon)
+ #### [Coupon](#Coupon)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | hasPrevious | Boolean? |  yes  |  |
- | totalItemCount | Integer? |  yes  |  |
- | hasNext | Boolean? |  yes  |  |
- | total | Integer? |  yes  |  |
- | current | Integer? |  yes  |  |
+ | description | String? |  yes  |  |
+ | expiresOn | String? |  yes  |  |
+ | title | String? |  yes  |  |
+ | couponValue | Double? |  yes  |  |
+ | message | String? |  yes  |  |
+ | maxDiscountValue | Double? |  yes  |  |
+ | minimumCartValue | Double? |  yes  |  |
+ | couponCode | String? |  yes  |  |
+ | isApplicable | Boolean? |  yes  |  |
+ | subTitle | String? |  yes  |  |
+ | couponType | String? |  yes  |  |
+ | isApplied | Boolean? |  yes  |  |
 
 ---
 
@@ -12626,8 +12626,8 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | availableCouponList | ArrayList<[Coupon](#Coupon)>? |  yes  |  |
  | page | [PageCoupon](#PageCoupon)? |  yes  |  |
+ | availableCouponList | ArrayList<[Coupon](#Coupon)>? |  yes  |  |
 
 ---
 
@@ -12661,30 +12661,30 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
+ | addressType | String? |  yes  |  |
+ | areaCodeSlug | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | isDefaultAddress | Boolean? |  yes  |  |
+ | email | String? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | phone | String? |  yes  |  |
+ | state | String? |  yes  |  |
+ | userId | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | areaCode | String? |  yes  |  |
+ | cartId | String? |  yes  |  |
+ | landmark | String? |  yes  |  |
+ | country | String? |  yes  |  |
+ | checkoutMode | String? |  yes  |  |
+ | countryCode | String? |  yes  |  |
+ | googleMapPoint | HashMap<String,Object>? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | area | String? |  yes  |  |
  | address | String? |  yes  |  |
  | city | String? |  yes  |  |
- | googleMapPoint | HashMap<String,Object>? |  yes  |  |
- | countryCode | String? |  yes  |  |
- | landmark | String? |  yes  |  |
- | name | String? |  yes  |  |
- | country | String? |  yes  |  |
- | area | String? |  yes  |  |
- | state | String? |  yes  |  |
- | areaCodeSlug | String? |  yes  |  |
- | geoLocation | [GeoLocation](#GeoLocation)? |  yes  |  |
- | addressType | String? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | areaCode | String? |  yes  |  |
- | isDefaultAddress | Boolean? |  yes  |  |
- | phone | String? |  yes  |  |
  | createdByUserId | String? |  yes  |  |
- | checkoutMode | String? |  yes  |  |
- | email | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | cartId | String? |  yes  |  |
- | userId | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | geoLocation | [GeoLocation](#GeoLocation)? |  yes  |  |
 
 ---
 
@@ -12745,9 +12745,9 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | cartId | String? |  yes  |  |
  | billingAddressId | String? |  yes  |  |
  | checkoutMode | String? |  yes  |  |
+ | cartId | String? |  yes  |  |
  | id | String? |  yes  |  |
 
 ---
@@ -12759,16 +12759,16 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | boxType | String? |  yes  |  |
+ | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
  | shipmentType | String? |  yes  |  |
- | orderType | String? |  yes  |  |
+ | fulfillmentType | String? |  yes  |  |
  | promise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
  | dpOptions | HashMap<String,Object>? |  yes  |  |
- | dpId | String? |  yes  |  |
- | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
- | fulfillmentId | Integer? |  yes  |  |
- | fulfillmentType | String? |  yes  |  |
- | boxType | String? |  yes  |  |
  | shipments | Integer? |  yes  |  |
+ | orderType | String? |  yes  |  |
+ | dpId | String? |  yes  |  |
+ | fulfillmentId | Integer? |  yes  |  |
 
 ---
 
@@ -12779,25 +12779,25 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | comment | String? |  yes  |  |
- | isValid | Boolean? |  yes  |  |
- | lastModified | String? |  yes  |  |
  | buyNow | Boolean? |  yes  |  |
- | couponText | String? |  yes  |  |
+ | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
+ | cartId | Integer? |  yes  |  |
+ | lastModified | String? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | gstin | String? |  yes  |  |
+ | checkoutMode | String? |  yes  |  |
+ | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
  | shipments | ArrayList<[ShipmentResponse](#ShipmentResponse)>? |  yes  |  |
+ | comment | String? |  yes  |  |
  | message | String? |  yes  |  |
  | restrictCheckout | Boolean? |  yes  |  |
- | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
- | cartId | Integer? |  yes  |  |
- | checkoutMode | String? |  yes  |  |
- | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
- | uid | String? |  yes  |  |
  | deliveryChargeInfo | String? |  yes  |  |
- | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
+ | id | String? |  yes  |  |
+ | isValid | Boolean? |  yes  |  |
  | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
+ | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
  | error | Boolean? |  yes  |  |
- | gstin | String? |  yes  |  |
+ | couponText | String? |  yes  |  |
 
 ---
 
@@ -12832,10 +12832,10 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | gstin | String? |  yes  |  |
- | checkoutMode | String? |  yes  |  |
  | comment | String? |  yes  |  |
  | pickUpCustomerDetails | HashMap<String,Object>? |  yes  | Customer contact details for customer pickup at store |
+ | checkoutMode | String? |  yes  |  |
+ | gstin | String? |  yes  |  |
  | panNo | String? |  yes  |  |
 
 ---
@@ -12869,9 +12869,9 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String |  no  |  |
  | firstName | String |  no  |  |
  | employeeCode | String? |  yes  |  |
+ | id | String |  no  |  |
  | lastName | String |  no  |  |
  | user | String |  no  |  |
 
@@ -12896,30 +12896,30 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | deliveryAddress | HashMap<String,Object>? |  yes  |  |
- | id | String |  no  |  |
  | paymentParams | HashMap<String,Object>? |  yes  |  |
- | addressId | String? |  yes  |  |
- | deviceId | String? |  yes  |  |
- | pos | Boolean? |  yes  |  |
- | paymentIdentifier | String? |  yes  |  |
- | orderType | String |  no  |  |
- | paymentMode | String |  no  |  |
- | pickAtStoreUid | Integer? |  yes  |  |
- | merchantCode | String? |  yes  |  |
  | orderingStore | Integer? |  yes  |  |
- | callbackUrl | String? |  yes  |  |
- | staff | [StaffCheckout](#StaffCheckout)? |  yes  |  |
- | billingAddressId | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
- | files | ArrayList<[Files](#Files)>? |  yes  | List of file url |
- | extraMeta | HashMap<String,Object>? |  yes  |  |
- | billingAddress | HashMap<String,Object>? |  yes  |  |
- | checkoutMode | String? |  yes  |  |
- | paymentAutoConfirm | Boolean? |  yes  |  |
- | aggregator | String? |  yes  |  |
- | employeeCode | String? |  yes  |  |
+ | orderType | String |  no  |  |
+ | staff | [StaffCheckout](#StaffCheckout)? |  yes  |  |
+ | deviceId | String? |  yes  |  |
+ | merchantCode | String? |  yes  |  |
+ | callbackUrl | String? |  yes  |  |
+ | billingAddressId | String? |  yes  |  |
  | userId | String |  no  |  |
+ | aggregator | String? |  yes  |  |
+ | pickAtStoreUid | Integer? |  yes  |  |
+ | deliveryAddress | HashMap<String,Object>? |  yes  |  |
+ | paymentIdentifier | String? |  yes  |  |
+ | employeeCode | String? |  yes  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
+ | pos | Boolean? |  yes  |  |
+ | checkoutMode | String? |  yes  |  |
+ | files | ArrayList<[Files](#Files)>? |  yes  | List of file url |
+ | paymentMode | String |  no  |  |
+ | addressId | String? |  yes  |  |
+ | id | String |  no  |  |
+ | paymentAutoConfirm | Boolean? |  yes  |  |
+ | billingAddress | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -12930,35 +12930,35 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | storeCode | String? |  yes  |  |
- | id | String? |  yes  |  |
- | comment | String? |  yes  |  |
- | codMessage | String? |  yes  |  |
+ | userType | String? |  yes  |  |
  | buyNow | Boolean? |  yes  |  |
  | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
- | userType | String? |  yes  |  |
- | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
- | deliveryChargeInfo | String? |  yes  |  |
- | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
- | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
- | gstin | String? |  yes  |  |
- | orderId | String? |  yes  |  |
- | isValid | Boolean? |  yes  |  |
- | couponText | String? |  yes  |  |
  | deliveryCharges | Integer? |  yes  |  |
+ | codCharges | Integer? |  yes  |  |
+ | errorMessage | String? |  yes  |  |
+ | deliveryChargeInfo | String? |  yes  |  |
+ | isValid | Boolean? |  yes  |  |
+ | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
+ | storeEmps | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | codMessage | String? |  yes  |  |
+ | codAvailable | Boolean? |  yes  |  |
+ | success | Boolean? |  yes  |  |
+ | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
+ | cartId | Integer? |  yes  |  |
+ | lastModified | String? |  yes  |  |
+ | storeCode | String? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | gstin | String? |  yes  |  |
+ | checkoutMode | String? |  yes  |  |
+ | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
+ | orderId | String? |  yes  |  |
+ | comment | String? |  yes  |  |
  | message | String? |  yes  |  |
  | restrictCheckout | Boolean? |  yes  |  |
- | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
- | checkoutMode | String? |  yes  |  |
- | codCharges | Integer? |  yes  |  |
- | codAvailable | Boolean? |  yes  |  |
- | errorMessage | String? |  yes  |  |
- | uid | String? |  yes  |  |
- | storeEmps | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | cartId | Integer? |  yes  |  |
- | success | Boolean? |  yes  |  |
- | lastModified | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
  | deliveryChargeOrderValue | Integer? |  yes  |  |
+ | couponText | String? |  yes  |  |
 
 ---
 
@@ -12969,14 +12969,14 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | appInterceptUrl | String? |  yes  |  |
- | cart | [CheckCart](#CheckCart)? |  yes  |  |
- | orderId | String? |  yes  |  |
- | callbackUrl | String? |  yes  |  |
  | data | HashMap<String,Object>? |  yes  |  |
- | success | Boolean? |  yes  |  |
- | paymentConfirmUrl | String? |  yes  |  |
+ | callbackUrl | String? |  yes  |  |
  | message | String? |  yes  |  |
+ | success | Boolean? |  yes  |  |
+ | cart | [CheckCart](#CheckCart)? |  yes  |  |
+ | paymentConfirmUrl | String? |  yes  |  |
+ | appInterceptUrl | String? |  yes  |  |
+ | orderId | String? |  yes  |  |
 
 ---
 
@@ -12999,22 +12999,22 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | pincode | Integer? |  yes  |  |
+ | area | String? |  yes  |  |
  | phone | String? |  yes  |  |
+ | address | String? |  yes  |  |
+ | addressType | String? |  yes  |  |
+ | state | String? |  yes  |  |
+ | areaCodeSlug | String? |  yes  |  |
+ | areaCode | String? |  yes  |  |
+ | city | String? |  yes  |  |
  | storeCode | String? |  yes  |  |
  | id | Integer? |  yes  |  |
- | addressType | String? |  yes  |  |
- | email | String? |  yes  |  |
- | area | String? |  yes  |  |
- | state | String? |  yes  |  |
  | landmark | String? |  yes  |  |
- | address | String? |  yes  |  |
- | city | String? |  yes  |  |
- | areaCodeSlug | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | name | String? |  yes  |  |
- | areaCode | String? |  yes  |  |
  | country | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | email | String? |  yes  |  |
+ | pincode | Integer? |  yes  |  |
 
 ---
 
@@ -13036,12 +13036,12 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | aggregatorName | String? |  yes  |  |
- | paymentIdentifier | String? |  yes  |  |
+ | merchantCode | String? |  yes  |  |
  | id | String? |  yes  |  |
  | paymentMode | String? |  yes  |  |
+ | paymentIdentifier | String? |  yes  |  |
  | addressId | String? |  yes  |  |
- | merchantCode | String? |  yes  |  |
+ | aggregatorName | String? |  yes  |  |
 
 ---
 
@@ -13053,9 +13053,9 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | title | String? |  yes  |  |
- | code | String? |  yes  |  |
- | valid | Boolean? |  yes  |  |
  | displayMessageEn | String? |  yes  |  |
+ | valid | Boolean? |  yes  |  |
+ | code | String? |  yes  |  |
  | discount | Double? |  yes  |  |
 
 ---
@@ -13067,9 +13067,9 @@ Success. Returns a success message and the coupon validity. Refer `PaymentCoupon
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | success | Boolean |  no  |  |
- | couponValidity | [CouponValidity](#CouponValidity)? |  yes  |  |
  | message | String? |  yes  |  |
+ | couponValidity | [CouponValidity](#CouponValidity)? |  yes  |  |
+ | success | Boolean |  no  |  |
 
 ---
 
