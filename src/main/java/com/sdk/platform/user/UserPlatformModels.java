@@ -387,6 +387,12 @@ public static class SendEmailOtpRequestSchema{
     
     
     
+    
+    @JsonProperty("captcha_code")
+    private String captchaCode;
+    
+    
+    
 }
 
 
