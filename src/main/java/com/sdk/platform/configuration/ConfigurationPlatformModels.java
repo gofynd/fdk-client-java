@@ -537,6 +537,12 @@ public static class AppCartConfig{
     
     
     
+    
+    @JsonProperty("empty_cart")
+    private Boolean emptyCart;
+    
+    
+    
 }
 
 

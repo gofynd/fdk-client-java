@@ -63,10 +63,6 @@ import com.sdk.application.ApplicationConfig;
             
                     relativeUrls.put("resendOrCancelPayment","/service/application/payment/v1.0/payment/resend_or_cancel".substring(1));
             
-                    relativeUrls.put("renderHTML","/service/application/payment/v1.0/payment/html/render/".substring(1));
-            
-                    relativeUrls.put("validateVPA","/service/application/payment/v1.0/validate-vpa".substring(1));
-            
                     relativeUrls.put("getActiveRefundTransferModes","/service/application/payment/v1.0/refund/transfer-mode".substring(1));
             
                     relativeUrls.put("enableOrDisableRefundTransferMode","/service/application/payment/v1.0/refund/transfer-mode".substring(1));
@@ -374,42 +370,6 @@ import com.sdk.application.ApplicationConfig;
         
 
         Response<PaymentApplicationModels.ResendOrCancelPaymentResponse> response = paymentApplicationApiList.resendOrCancelPayment(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    
-    public PaymentApplicationModels.renderHTMLResponse renderHTML(PaymentApplicationModels.renderHTMLRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("renderHTML");
-        
-
-        Response<PaymentApplicationModels.renderHTMLResponse> response = paymentApplicationApiList.renderHTML(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    
-    public PaymentApplicationModels.ValidateVPAResponse validateVPA(PaymentApplicationModels.ValidateVPARequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("validateVPA");
-        
-
-        Response<PaymentApplicationModels.ValidateVPAResponse> response = paymentApplicationApiList.validateVPA(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
