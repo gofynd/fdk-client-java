@@ -24,8 +24,8 @@ Catalog - Platform Front API's' API's allows you to access list of products, pri
 * [createSizeGuide](#createsizeguide)
 * [getSizeGuide](#getsizeguide)
 * [updateSizeGuide](#updatesizeguide)
-* [updateAppProduct](#updateappproduct)
 * [getAppProduct](#getappproduct)
+* [updateAppProduct](#updateappproduct)
 * [getConfigurationMetadata](#getconfigurationmetadata)
 * [getGroupConfigurations](#getgroupconfigurations)
 * [createGroupConfiguration](#creategroupconfiguration)
@@ -1606,63 +1606,6 @@ Returns a success response
 ---
 
 
-### updateAppProduct
-Update a single custom meta.
-
-
-
-
-```java
-client.application("<APPLICATION_ID>").catalog.updateAppProduct( itemId, body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Id of the company associated to custom meta. |   
-| applicationId | String | yes | application id for which the custom_meta is associated. |   
-| itemId | String | yes | product id for which the custom_meta is associated. |  
-| body | [ApplicationItemMeta](#ApplicationItemMeta) | yes | Request body |
-
-
-This API helps to update data associated to a item custom meta.
-
-*Returned Response:*
-
-
-
-
-[SuccessResponse1](#SuccessResponse1)
-
-Returns a success response
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-{
-  "success": true
-}
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### getAppProduct
 Get company application product data.
 
@@ -1718,6 +1661,63 @@ The Company Applicaton Product Data(MOQ/SEO).
   },
   "is_gift": false,
   "is_cod": false
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### updateAppProduct
+Update a single custom meta.
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").catalog.updateAppProduct( itemId, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Id of the company associated to custom meta. |   
+| applicationId | String | yes | application id for which the custom_meta is associated. |   
+| itemId | String | yes | product id for which the custom_meta is associated. |  
+| body | [ApplicationItemMeta](#ApplicationItemMeta) | yes | Request body |
+
+
+This API helps to update data associated to a item custom meta.
+
+*Returned Response:*
+
+
+
+
+[SuccessResponse1](#SuccessResponse1)
+
+Returns a success response
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "success": true
 }
 ```
 </details>
@@ -9758,7 +9758,7 @@ This API gets meta associated to products.
 
 
 
-[ProductListingResponse](#ProductListingResponse)
+[ProductListingResponseV2](#ProductListingResponseV2)
 
 Product Meta. See example below for details
 
@@ -11744,8 +11744,8 @@ client.catalog.getInventoryBySize( itemId,  size,  pageNo,  pageSize,  q,  sella
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Id of the company associated to product that is to be viewed. |   
-| itemId | String | yes | Item code of the product of which size is to be get. |   
+| companyId | Integer | yes | Id of the company associated to product that is to be viewed. |   
+| itemId | Integer | yes | Item code of the product of which size is to be get. |   
 | size | String | yes | Size of which inventory is to get. |   
 | pageNo | Integer? | no | The page number to navigate through the given set of results |   
 | pageSize | Integer? | no | Number of items to retrieve in each page. Default is 12. |   
@@ -12085,8 +12085,8 @@ client.catalog.addInventory( itemId,  size, body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Id of the company associated to product that is to be viewed. |   
-| itemId | Double | yes | Item code of the product of which size is to be get. |   
+| companyId | Integer | yes | Id of the company associated to product that is to be viewed. |   
+| itemId | Integer | yes | Item code of the product of which size is to be get. |   
 | size | String | yes | Size in which inventory is to be added. |  
 | body | [InventoryRequest](#InventoryRequest) | yes | Request body |
 
@@ -12142,8 +12142,8 @@ client.catalog.getInventoryBySizeIdentifier( itemId,  sizeIdentifier,  pageNo,  
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Id of the company associated to product that is to be viewed. |   
-| itemId | String | yes | Item code of the product of which size is to be get. |   
+| companyId | Integer | yes | Id of the company associated to product that is to be viewed. |   
+| itemId | Integer | yes | Item code of the product of which size is to be get. |   
 | sizeIdentifier | String | yes | Size Identifier (Seller Identifier or Primary Identifier) of which inventory is to get. |   
 | pageNo | Integer? | no | The page number to navigate through the given set of results |   
 | pageSize | Integer? | no | Number of items to retrieve in each page. Default is 12. |   
@@ -13363,7 +13363,7 @@ client.catalog.deleteInventory( size,  itemId,  locationId) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Company Id of the company associated with Inventory that is to be deleted. |   
+| companyId | Integer | yes | Company Id of the company associated with Inventory that is to be deleted. |   
 | size | String | yes | size that is to be deleted. |   
 | itemId | Integer | yes | Id of the product associated with Inventory to be deleted. |   
 | locationId | Double | yes | Location ID of store of which inventory is to be deleted. |  
@@ -14120,8 +14120,8 @@ client.catalog.updateRealtimeInventory( itemId,  sellerIdentifier, body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Id of the company associated to product that is to be viewed. |   
-| itemId | Double | yes | Item code of the product of which size is to be get. |   
+| companyId | Integer | yes | Id of the company associated to product that is to be viewed. |   
+| itemId | Integer | yes | Item code of the product of which size is to be get. |   
 | sellerIdentifier | String | yes | Size Identifier (Seller Identifier or Primary Identifier) of which inventory is to get. |  
 | body | [InventoryRequestSchemaV2](#InventoryRequestSchemaV2) | yes | Request body |
 
@@ -14207,8 +14207,8 @@ client.catalog.deleteRealtimeInventory( itemId,  sellerIdentifier, body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Id of the company associated to product that is to be viewed. |   
-| itemId | Double | yes | Item code of the product of which size is to be get. |   
+| companyId | Integer | yes | Id of the company associated to product that is to be viewed. |   
+| itemId | Integer | yes | Item code of the product of which size is to be get. |   
 | sellerIdentifier | String | yes | Size Identifier (Seller Identifier or Primary Identifier) of which inventory is to get. |  
 | body | [InventoryRequestSchemaV2](#InventoryRequestSchemaV2) | yes | Request body |
 
@@ -14294,7 +14294,7 @@ client.catalog.updateInventories(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Id of the company associated to product that is to be viewed. |  
+| companyId | Integer | yes | Id of the company associated to product that is to be viewed. |  
 | body | [InventoryRequestSchemaV2](#InventoryRequestSchemaV2) | yes | Request body |
 
 
@@ -17392,33 +17392,33 @@ Returns a success response
 
  
  
- #### [GetSearchWordsData](#GetSearchWordsData)
+ #### [Page](#Page)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | words | ArrayList<String>? |  yes  |  |
- | appId | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | uid | String? |  yes  |  |
- | result | HashMap<String,Object>? |  yes  |  |
+ | size | Integer? |  yes  |  |
+ | itemTotal | Integer? |  yes  |  |
+ | current | Integer? |  yes  |  |
+ | type | String |  no  |  |
+ | hasNext | Boolean? |  yes  |  |
+ | hasPrevious | Boolean? |  yes  |  |
+ | nextId | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [Page](#Page)
+ #### [GetSearchWordsData](#GetSearchWordsData)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | hasPrevious | Boolean? |  yes  |  |
- | hasNext | Boolean? |  yes  |  |
- | nextId | String? |  yes  |  |
- | current | Integer? |  yes  |  |
- | type | String |  no  |  |
- | size | Integer? |  yes  |  |
- | itemTotal | Integer? |  yes  |  |
+ | appId | String? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | result | HashMap<String,Object>? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | words | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -17429,8 +17429,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | [GetSearchWordsData](#GetSearchWordsData)? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | [GetSearchWordsData](#GetSearchWordsData)? |  yes  |  |
 
 ---
 
@@ -17441,11 +17441,11 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | status | Integer? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
  | message | String? |  yes  |  |
  | error | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
  | code | String? |  yes  |  |
+ | status | Integer? |  yes  |  |
 
 ---
 
@@ -17456,8 +17456,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | query | HashMap<String,Object> |  no  |  |
  | sortOn | String |  no  |  |
+ | query | HashMap<String,Object> |  no  |  |
 
 ---
 
@@ -17468,11 +17468,11 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | words | ArrayList<String>? |  yes  |  |
  | appId | String? |  yes  |  |
  | isActive | Boolean? |  yes  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
  | result | [SearchKeywordResult](#SearchKeywordResult) |  no  |  |
+ | words | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -17494,8 +17494,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[GetSearchWordsData](#GetSearchWordsData)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[GetSearchWordsData](#GetSearchWordsData)>? |  yes  |  |
 
 ---
 
@@ -17506,11 +17506,11 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | words | ArrayList<String>? |  yes  |  |
  | appId | String? |  yes  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
- | uid | String? |  yes  |  |
  | results | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | words | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -17521,8 +17521,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[GetAutocompleteWordsData](#GetAutocompleteWordsData)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[GetAutocompleteWordsData](#GetAutocompleteWordsData)>? |  yes  |  |
 
 ---
 
@@ -17534,8 +17534,8 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | type | String? |  yes  |  |
- | aspectRatio | String? |  yes  |  |
  | url | String? |  yes  |  |
+ | aspectRatio | String? |  yes  |  |
 
 ---
 
@@ -17546,10 +17546,10 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | query | HashMap<String,Object>? |  yes  |  |
  | type | String? |  yes  |  |
- | url | String? |  yes  |  |
  | params | HashMap<String,Object>? |  yes  |  |
+ | url | String? |  yes  |  |
+ | query | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -17560,8 +17560,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
  | page | [AutocompletePageAction](#AutocompletePageAction)? |  yes  |  |
+ | type | String? |  yes  |  |
 
 ---
 
@@ -17572,9 +17572,9 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | logo | [Media](#Media)? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
  | display | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | logo | [Media](#Media)? |  yes  |  |
  | action | [AutocompleteAction](#AutocompleteAction)? |  yes  |  |
 
 ---
@@ -17586,11 +17586,11 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | words | ArrayList<String>? |  yes  |  |
  | appId | String? |  yes  |  |
  | isActive | Boolean? |  yes  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
  | results | ArrayList<[AutocompleteResult](#AutocompleteResult)>? |  yes  |  |
+ | words | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -17601,10 +17601,10 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | appId | String? |  yes  |  |
  | results | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
  | words | ArrayList<String>? |  yes  |  |
- | appId | String? |  yes  |  |
 
 ---
 
@@ -17615,11 +17615,11 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | autoSelect | Boolean? |  yes  |  |
- | minQuantity | Integer |  no  |  |
- | maxQuantity | Integer |  no  |  |
- | autoAddToCart | Boolean? |  yes  |  |
  | productUid | Integer |  no  |  |
+ | maxQuantity | Integer |  no  |  |
+ | minQuantity | Integer |  no  |  |
+ | autoSelect | Boolean? |  yes  |  |
+ | autoAddToCart | Boolean? |  yes  |  |
  | allowRemove | Boolean? |  yes  |  |
 
 ---
@@ -17631,21 +17631,21 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | sameStoreAssignment | Boolean? |  yes  |  |
- | pageVisibility | ArrayList<String>? |  yes  |  |
- | name | String |  no  |  |
+ | products | ArrayList<[ProductBundleItem](#ProductBundleItem)> |  no  |  |
  | slug | String |  no  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | logo | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | choice | String |  no  |  |
  | isActive | Boolean |  no  |  |
  | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | createdBy | HashMap<String,Object>? |  yes  |  |
+ | id | String? |  yes  |  |
  | modifiedOn | String? |  yes  |  |
- | products | ArrayList<[ProductBundleItem](#ProductBundleItem)> |  no  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | choice | String |  no  |  |
  | companyId | Integer? |  yes  |  |
+ | sameStoreAssignment | Boolean? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | logo | String? |  yes  |  |
+ | name | String |  no  |  |
+ | pageVisibility | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -17656,8 +17656,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[GetProductBundleCreateResponse](#GetProductBundleCreateResponse)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[GetProductBundleCreateResponse](#GetProductBundleCreateResponse)>? |  yes  |  |
 
 ---
 
@@ -17668,20 +17668,42 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sameStoreAssignment | Boolean? |  yes  |  |
- | pageVisibility | ArrayList<String>? |  yes  |  |
- | name | String |  no  |  |
+ | products | ArrayList<[ProductBundleItem](#ProductBundleItem)> |  no  |  |
  | slug | String |  no  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | logo | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | choice | String |  no  |  |
  | isActive | Boolean |  no  |  |
  | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | createdBy | HashMap<String,Object>? |  yes  |  |
  | modifiedOn | String? |  yes  |  |
- | products | ArrayList<[ProductBundleItem](#ProductBundleItem)> |  no  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | choice | String |  no  |  |
  | companyId | Integer? |  yes  |  |
+ | sameStoreAssignment | Boolean? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | logo | String? |  yes  |  |
+ | name | String |  no  |  |
+ | pageVisibility | ArrayList<String>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LimitedProductData](#LimitedProductData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | identifier | HashMap<String,Object>? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | attributes | HashMap<String,Object>? |  yes  |  |
+ | itemCode | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | price | HashMap<String,Object>? |  yes  |  |
+ | countryOfOrigin | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | sizes | ArrayList<String>? |  yes  |  |
+ | images | ArrayList<String>? |  yes  |  |
+ | shortDescription | String? |  yes  |  |
 
 ---
 
@@ -17693,10 +17715,10 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | maxMarked | Double? |  yes  |  |
- | minMarked | Double? |  yes  |  |
- | maxEffective | Double? |  yes  |  |
- | currency | String? |  yes  |  |
  | minEffective | Double? |  yes  |  |
+ | currency | String? |  yes  |  |
+ | maxEffective | Double? |  yes  |  |
+ | minMarked | Double? |  yes  |  |
 
 ---
 
@@ -17707,32 +17729,10 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isAvailable | Boolean? |  yes  |  |
  | display | String? |  yes  |  |
- | quantity | Integer? |  yes  |  |
+ | isAvailable | Boolean? |  yes  |  |
  | value | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [LimitedProductData](#LimitedProductData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | price | HashMap<String,Object>? |  yes  |  |
  | quantity | Integer? |  yes  |  |
- | slug | String? |  yes  |  |
- | identifier | HashMap<String,Object>? |  yes  |  |
- | name | String? |  yes  |  |
- | attributes | HashMap<String,Object>? |  yes  |  |
- | images | ArrayList<String>? |  yes  |  |
- | sizes | ArrayList<String>? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | shortDescription | String? |  yes  |  |
- | itemCode | String? |  yes  |  |
- | countryOfOrigin | String? |  yes  |  |
 
 ---
 
@@ -17743,15 +17743,15 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | price | [Price](#Price)? |  yes  |  |
- | autoSelect | Boolean? |  yes  |  |
- | sizes | ArrayList<[Size](#Size)>? |  yes  |  |
- | minQuantity | Integer? |  yes  |  |
- | maxQuantity | Integer? |  yes  |  |
- | autoAddToCart | Boolean? |  yes  |  |
  | productUid | Integer? |  yes  |  |
- | allowRemove | Boolean? |  yes  |  |
+ | maxQuantity | Integer? |  yes  |  |
+ | minQuantity | Integer? |  yes  |  |
  | productDetails | [LimitedProductData](#LimitedProductData)? |  yes  |  |
+ | autoSelect | Boolean? |  yes  |  |
+ | price | [Price](#Price)? |  yes  |  |
+ | sizes | ArrayList<[Size](#Size)>? |  yes  |  |
+ | autoAddToCart | Boolean? |  yes  |  |
+ | allowRemove | Boolean? |  yes  |  |
 
 ---
 
@@ -17762,16 +17762,16 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sameStoreAssignment | Boolean? |  yes  |  |
- | pageVisibility | ArrayList<String>? |  yes  |  |
- | name | String? |  yes  |  |
+ | products | ArrayList<[GetProducts](#GetProducts)>? |  yes  |  |
  | slug | String? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | choice | String? |  yes  |  |
+ | companyId | Integer? |  yes  |  |
+ | sameStoreAssignment | Boolean? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | logo | String? |  yes  |  |
- | choice | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | products | ArrayList<[GetProducts](#GetProducts)>? |  yes  |  |
- | companyId | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | pageVisibility | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -17782,18 +17782,18 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sameStoreAssignment | Boolean? |  yes  |  |
- | pageVisibility | ArrayList<String>? |  yes  |  |
- | name | String |  no  |  |
+ | products | ArrayList<[ProductBundleItem](#ProductBundleItem)> |  no  |  |
  | slug | String |  no  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | logo | String? |  yes  |  |
- | choice | String |  no  |  |
  | isActive | Boolean |  no  |  |
  | modifiedBy | HashMap<String,Object>? |  yes  |  |
  | modifiedOn | String? |  yes  |  |
- | products | ArrayList<[ProductBundleItem](#ProductBundleItem)> |  no  |  |
+ | choice | String |  no  |  |
  | companyId | Integer? |  yes  |  |
+ | sameStoreAssignment | Boolean? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | logo | String? |  yes  |  |
+ | name | String |  no  |  |
+ | pageVisibility | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -17804,8 +17804,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | page | HashMap<String,Object>? |  yes  |  |
+ | items | ArrayList<HashMap<String,Object>>? |  yes  |  |
 
 ---
 
@@ -17817,8 +17817,8 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | headers | HashMap<String,Object>? |  yes  |  |
- | values | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | unit | String? |  yes  |  |
+ | values | ArrayList<HashMap<String,Object>>? |  yes  |  |
 
 ---
 
@@ -17840,21 +17840,21 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | companyId | Integer? |  yes  |  |
+ | image | String? |  yes  |  |
+ | brandId | Integer? |  yes  |  |
  | id | String? |  yes  |  |
+ | modifiedBy | HashMap<String,Object>? |  yes  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | tag | String? |  yes  |  |
+ | companyId | Integer? |  yes  |  |
+ | guide | [Guide](#Guide)? |  yes  |  |
+ | active | Boolean? |  yes  |  |
  | subtitle | String? |  yes  |  |
  | name | String |  no  |  |
- | createdOn | String? |  yes  |  |
  | title | String |  no  |  |
- | createdBy | HashMap<String,Object>? |  yes  |  |
- | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | active | Boolean? |  yes  |  |
- | tag | String? |  yes  |  |
- | brandId | Integer? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | image | String? |  yes  |  |
- | description | String? |  yes  |  |
- | guide | [Guide](#Guide)? |  yes  |  |
 
 ---
 
@@ -17876,44 +17876,59 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | brandId | Integer? |  yes  |  |
  | id | String? |  yes  |  |
+ | modifiedBy | HashMap<String,Object>? |  yes  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | guide | HashMap<String,Object>? |  yes  |  |
+ | tag | String? |  yes  |  |
+ | companyId | Integer? |  yes  |  |
+ | active | Boolean? |  yes  |  |
  | subtitle | String? |  yes  |  |
  | name | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
  | title | String? |  yes  |  |
- | createdBy | HashMap<String,Object>? |  yes  |  |
- | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | active | Boolean? |  yes  |  |
- | tag | String? |  yes  |  |
- | brandId | Integer? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | companyId | Integer? |  yes  |  |
- | guide | HashMap<String,Object>? |  yes  |  |
 
 ---
 
 
  
  
- #### [ApplicationItemMOQ](#ApplicationItemMOQ)
+ #### [SEOData](#SEOData)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | maximum | Integer? |  yes  |  |
- | minimum | Integer? |  yes  |  |
+ | description | Object? |  yes  |  |
+ | title | Object? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [MOQData](#MOQData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
  | incrementUnit | Integer? |  yes  |  |
+ | minimum | Integer? |  yes  |  |
+ | maximum | Integer? |  yes  |  |
 
 ---
 
 
  
  
- #### [MetaFields](#MetaFields)
+ #### [OwnerAppItemResponse](#OwnerAppItemResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | key | Object |  no  |  |
- | value | Object |  no  |  |
+ | altText | HashMap<String,Object>? |  yes  |  |
+ | seo | [SEOData](#SEOData)? |  yes  |  |
+ | moq | [MOQData](#MOQData)? |  yes  |  |
+ | isGift | Boolean? |  yes  |  |
+ | isCod | Boolean? |  yes  |  |
 
 ---
 
@@ -17924,8 +17939,33 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | title | Object? |  yes  |  |
  | description | Object? |  yes  |  |
+ | title | Object? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [MetaFields](#MetaFields)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | value | Object |  no  |  |
+ | key | Object |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ApplicationItemMOQ](#ApplicationItemMOQ)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | incrementUnit | Integer? |  yes  |  |
+ | minimum | Integer? |  yes  |  |
+ | maximum | Integer? |  yes  |  |
 
 ---
 
@@ -17936,13 +17976,13 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | altText | HashMap<String,Object>? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | seo | [ApplicationItemSEO](#ApplicationItemSEO)? |  yes  |  |
+ | customMeta | ArrayList<[MetaFields](#MetaFields)>? |  yes  |  |
  | moq | [ApplicationItemMOQ](#ApplicationItemMOQ)? |  yes  |  |
  | isGift | Boolean? |  yes  |  |
  | isCod | Boolean? |  yes  |  |
- | altText | HashMap<String,Object>? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | customMeta | ArrayList<[MetaFields](#MetaFields)>? |  yes  |  |
- | seo | [ApplicationItemSEO](#ApplicationItemSEO)? |  yes  |  |
 
 ---
 
@@ -17961,53 +18001,13 @@ Returns a success response
 
  
  
- #### [MOQData](#MOQData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | maximum | Integer? |  yes  |  |
- | minimum | Integer? |  yes  |  |
- | incrementUnit | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [SEOData](#SEOData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | title | Object? |  yes  |  |
- | description | Object? |  yes  |  |
-
----
-
-
- 
- 
- #### [OwnerAppItemResponse](#OwnerAppItemResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | moq | [MOQData](#MOQData)? |  yes  |  |
- | isGift | Boolean? |  yes  |  |
- | isCod | Boolean? |  yes  |  |
- | altText | HashMap<String,Object>? |  yes  |  |
- | seo | [SEOData](#SEOData)? |  yes  |  |
-
----
-
-
- 
- 
  #### [GetConfigMetadataResponse](#GetConfigMetadataResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | condition | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | values | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | data | ArrayList<HashMap<String,Object>> |  no  |  |
+ | values | ArrayList<HashMap<String,Object>>? |  yes  |  |
 
 ---
 
@@ -18018,10 +18018,10 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | hasNext | Boolean |  no  |  |
- | totalCount | Integer |  no  |  |
- | next | Integer |  no  |  |
  | current | Integer |  no  |  |
+ | hasNext | Boolean |  no  |  |
+ | next | Integer |  no  |  |
+ | totalCount | Integer |  no  |  |
 
 ---
 
@@ -18032,8 +18032,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | ArrayList<HashMap<String,Object>> |  no  |  |
  | page | [PageResponseType](#PageResponseType) |  no  |  |
+ | data | ArrayList<HashMap<String,Object>> |  no  |  |
 
 ---
 
@@ -18056,13 +18056,13 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | slug | String? |  yes  |  |
- | name | String |  no  |  |
- | logo | String? |  yes  |  |
- | key | String? |  yes  |  |
  | isActive | Boolean |  no  |  |
- | unit | String? |  yes  |  |
  | displayType | String |  no  |  |
+ | key | String? |  yes  |  |
  | priority | Integer |  no  |  |
+ | logo | String? |  yes  |  |
+ | unit | String? |  yes  |  |
+ | name | String |  no  |  |
 
 ---
 
@@ -18073,15 +18073,15 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isDefault | Boolean |  no  |  |
- | name | String? |  yes  |  |
- | slug | String |  no  |  |
- | logo | String? |  yes  |  |
  | appId | String |  no  |  |
+ | slug | String |  no  |  |
  | isActive | Boolean |  no  |  |
  | attributes | ArrayList<[AttributeDetailsGroup](#AttributeDetailsGroup)>? |  yes  |  |
  | templateSlugs | ArrayList<String>? |  yes  |  |
  | priority | Integer |  no  |  |
+ | logo | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | isDefault | Boolean |  no  |  |
 
 ---
 
@@ -18103,14 +18103,14 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isDefault | Boolean |  no  |  |
- | name | String? |  yes  |  |
- | logo | String? |  yes  |  |
  | appId | String |  no  |  |
  | isActive | Boolean |  no  |  |
  | key | String |  no  |  |
- | defaultKey | String |  no  |  |
  | priority | Integer |  no  |  |
+ | defaultKey | String |  no  |  |
+ | logo | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | isDefault | Boolean |  no  |  |
 
 ---
 
@@ -18167,8 +18167,8 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | filterTypes | ArrayList<String>? |  yes  |  |
- | units | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | display | String? |  yes  |  |
+ | units | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | key | String? |  yes  |  |
 
 ---
@@ -18203,10 +18203,10 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | compare | HashMap<String,Object>? |  yes  |  |
  | variant | HashMap<String,Object>? |  yes  |  |
- | similar | HashMap<String,Object>? |  yes  |  |
+ | compare | HashMap<String,Object>? |  yes  |  |
  | detail | HashMap<String,Object>? |  yes  |  |
+ | similar | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -18225,95 +18225,15 @@ Returns a success response
 
  
  
- #### [ProductSize](#ProductSize)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | max | Integer |  no  |  |
- | min | Integer |  no  |  |
-
----
-
-
- 
- 
- #### [ConfigurationProductVariantConfig](#ConfigurationProductVariantConfig)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String |  no  |  |
- | logo | String? |  yes  |  |
- | key | String |  no  |  |
- | isActive | Boolean |  no  |  |
- | displayType | String |  no  |  |
- | size | [ProductSize](#ProductSize) |  no  |  |
- | priority | Integer |  no  |  |
-
----
-
-
- 
- 
- #### [ConfigurationProductVariant](#ConfigurationProductVariant)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | config | ArrayList<[ConfigurationProductVariantConfig](#ConfigurationProductVariantConfig)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [ConfigurationProductConfig](#ConfigurationProductConfig)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | subtitle | String? |  yes  |  |
- | logo | String? |  yes  |  |
- | title | String? |  yes  |  |
- | key | String |  no  |  |
- | isActive | Boolean |  no  |  |
- | size | [ProductSize](#ProductSize)? |  yes  |  |
- | priority | Integer |  no  |  |
-
----
-
-
- 
- 
- #### [ConfigurationProductSimilar](#ConfigurationProductSimilar)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | config | ArrayList<[ConfigurationProductConfig](#ConfigurationProductConfig)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [ConfigurationProduct](#ConfigurationProduct)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | variant | [ConfigurationProductVariant](#ConfigurationProductVariant) |  no  |  |
- | similar | [ConfigurationProductSimilar](#ConfigurationProductSimilar) |  no  |  |
-
----
-
-
- 
- 
  #### [ConfigurationListingSortConfig](#ConfigurationListingSortConfig)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | logo | String? |  yes  |  |
- | key | String |  no  |  |
  | isActive | Boolean |  no  |  |
+ | key | String |  no  |  |
  | priority | Integer |  no  |  |
+ | logo | String? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -18324,8 +18244,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | config | ArrayList<[ConfigurationListingSortConfig](#ConfigurationListingSortConfig)>? |  yes  |  |
  | defaultKey | String |  no  |  |
+ | config | ArrayList<[ConfigurationListingSortConfig](#ConfigurationListingSortConfig)>? |  yes  |  |
 
 ---
 
@@ -18336,9 +18256,9 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | start | Double? |  yes  |  |
- | end | Double? |  yes  |  |
  | display | String? |  yes  |  |
+ | end | Double? |  yes  |  |
+ | start | Double? |  yes  |  |
 
 ---
 
@@ -18350,11 +18270,11 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | sort | String? |  yes  |  |
+ | map | HashMap<String,Object>? |  yes  |  |
+ | bucketPoints | ArrayList<[ConfigurationBucketPoints](#ConfigurationBucketPoints)>? |  yes  |  |
  | mapValues | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | condition | String? |  yes  |  |
  | value | String? |  yes  |  |
- | map | HashMap<String,Object>? |  yes  |  |
- | bucketPoints | ArrayList<[ConfigurationBucketPoints](#ConfigurationBucketPoints)>? |  yes  |  |
 
 ---
 
@@ -18365,14 +18285,14 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | logo | String? |  yes  |  |
- | valueConfig | [ConfigurationListingFilterValue](#ConfigurationListingFilterValue)? |  yes  |  |
- | key | String |  no  |  |
  | isActive | Boolean |  no  |  |
  | type | String |  no  |  |
- | displayName | String? |  yes  |  |
+ | key | String |  no  |  |
  | priority | Integer |  no  |  |
+ | displayName | String? |  yes  |  |
+ | logo | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | valueConfig | [ConfigurationListingFilterValue](#ConfigurationListingFilterValue)? |  yes  |  |
 
 ---
 
@@ -18403,21 +18323,101 @@ Returns a success response
 
  
  
+ #### [ProductSize](#ProductSize)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | min | Integer |  no  |  |
+ | max | Integer |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ConfigurationProductVariantConfig](#ConfigurationProductVariantConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | size | [ProductSize](#ProductSize) |  no  |  |
+ | isActive | Boolean |  no  |  |
+ | displayType | String |  no  |  |
+ | key | String |  no  |  |
+ | priority | Integer |  no  |  |
+ | logo | String? |  yes  |  |
+ | name | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ConfigurationProductVariant](#ConfigurationProductVariant)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | config | ArrayList<[ConfigurationProductVariantConfig](#ConfigurationProductVariantConfig)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ConfigurationProductConfig](#ConfigurationProductConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | size | [ProductSize](#ProductSize)? |  yes  |  |
+ | isActive | Boolean |  no  |  |
+ | key | String |  no  |  |
+ | priority | Integer |  no  |  |
+ | logo | String? |  yes  |  |
+ | subtitle | String? |  yes  |  |
+ | title | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ConfigurationProductSimilar](#ConfigurationProductSimilar)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | config | ArrayList<[ConfigurationProductConfig](#ConfigurationProductConfig)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ConfigurationProduct](#ConfigurationProduct)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | variant | [ConfigurationProductVariant](#ConfigurationProductVariant) |  no  |  |
+ | similar | [ConfigurationProductSimilar](#ConfigurationProductSimilar) |  no  |  |
+
+---
+
+
+ 
+ 
  #### [AppCatalogConfiguration](#AppCatalogConfiguration)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | product | [ConfigurationProduct](#ConfigurationProduct)? |  yes  |  |
- | createdOn | String? |  yes  |  |
  | appId | String |  no  |  |
- | createdBy | HashMap<String,Object>? |  yes  |  |
+ | id | String? |  yes  |  |
  | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | configType | String |  no  |  |
- | configId | String? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | listing | [ConfigurationListing](#ConfigurationListing)? |  yes  |  |
  | type | String? |  yes  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | configId | String? |  yes  |  |
+ | listing | [ConfigurationListing](#ConfigurationListing)? |  yes  |  |
+ | configType | String |  no  |  |
+ | product | [ConfigurationProduct](#ConfigurationProduct)? |  yes  |  |
 
 ---
 
@@ -18428,8 +18428,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isDefault | Boolean? |  yes  |  |
  | data | [AppCatalogConfiguration](#AppCatalogConfiguration)? |  yes  |  |
+ | isDefault | Boolean? |  yes  |  |
 
 ---
 
@@ -18440,16 +18440,16 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | product | [ConfigurationProduct](#ConfigurationProduct)? |  yes  |  |
- | createdOn | String? |  yes  |  |
  | appId | String |  no  |  |
- | createdBy | HashMap<String,Object>? |  yes  |  |
  | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | configType | String |  no  |  |
- | configId | String? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | listing | [ConfigurationListing](#ConfigurationListing)? |  yes  |  |
  | type | String? |  yes  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | configId | String? |  yes  |  |
+ | listing | [ConfigurationListing](#ConfigurationListing)? |  yes  |  |
+ | configType | String |  no  |  |
+ | product | [ConfigurationProduct](#ConfigurationProduct)? |  yes  |  |
 
 ---
 
@@ -18472,12 +18472,12 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | product | [GetCatalogConfigurationDetailsProduct](#GetCatalogConfigurationDetailsProduct)? |  yes  |  |
  | appId | String |  no  |  |
- | configType | String |  no  |  |
+ | id | String? |  yes  |  |
  | configId | String? |  yes  |  |
  | listing | [GetCatalogConfigurationDetailsSchemaListing](#GetCatalogConfigurationDetailsSchemaListing)? |  yes  |  |
+ | configType | String |  no  |  |
+ | product | [GetCatalogConfigurationDetailsProduct](#GetCatalogConfigurationDetailsProduct)? |  yes  |  |
 
 ---
 
@@ -18488,30 +18488,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isDefault | Boolean? |  yes  |  |
  | data | [EntityConfiguration](#EntityConfiguration)? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductFiltersValue](#ProductFiltersValue)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | max | Integer? |  yes  |  |
- | selectedMin | Integer? |  yes  |  |
- | selectedMax | Integer? |  yes  |  |
- | min | Integer? |  yes  |  |
- | display | String |  no  |  |
- | value | Object |  no  |  |
- | currencyCode | String? |  yes  |  |
- | count | Integer? |  yes  |  |
- | displayFormat | String? |  yes  |  |
- | currencySymbol | String? |  yes  |  |
- | queryFormat | String? |  yes  |  |
- | isSelected | Boolean |  no  |  |
+ | isDefault | Boolean? |  yes  |  |
 
 ---
 
@@ -18522,11 +18500,33 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String |  no  |  |
- | logo | String? |  yes  |  |
- | display | String |  no  |  |
  | operators | ArrayList<String>? |  yes  |  |
+ | display | String |  no  |  |
  | kind | String? |  yes  |  |
+ | logo | String? |  yes  |  |
+ | name | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductFiltersValue](#ProductFiltersValue)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | currencyCode | String? |  yes  |  |
+ | min | Integer? |  yes  |  |
+ | queryFormat | String? |  yes  |  |
+ | currencySymbol | String? |  yes  |  |
+ | isSelected | Boolean |  no  |  |
+ | displayFormat | String? |  yes  |  |
+ | selectedMin | Integer? |  yes  |  |
+ | display | String |  no  |  |
+ | max | Integer? |  yes  |  |
+ | selectedMax | Integer? |  yes  |  |
+ | count | Integer? |  yes  |  |
+ | value | Object |  no  |  |
 
 ---
 
@@ -18537,8 +18537,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | values | ArrayList<[ProductFiltersValue](#ProductFiltersValue)> |  no  |  |
  | key | [ProductFiltersKey](#ProductFiltersKey) |  no  |  |
+ | values | ArrayList<[ProductFiltersValue](#ProductFiltersValue)> |  no  |  |
 
 ---
 
@@ -18550,8 +18550,8 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | value | String? |  yes  |  |
- | name | String? |  yes  |  |
  | isSelected | Boolean? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -18562,114 +18562,9 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | operators | HashMap<String,String> |  no  |  |
  | filters | ArrayList<[ProductFilters](#ProductFilters)>? |  yes  |  |
  | sortOn | ArrayList<[ProductSortOn](#ProductSortOn)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [ActionPage](#ActionPage)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | query | HashMap<String,Object>? |  yes  |  |
- | type | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Action](#Action)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
- | page | [ActionPage](#ActionPage)? |  yes  |  |
-
----
-
-
- 
- 
- #### [Media1](#Media1)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
- | url | String |  no  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [BannerImage](#BannerImage)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
- | aspectRatio | String? |  yes  |  |
- | url | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ImageUrls](#ImageUrls)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | portrait | [BannerImage](#BannerImage)? |  yes  |  |
- | landscape | [BannerImage](#BannerImage)? |  yes  |  |
-
----
-
-
- 
- 
- #### [CollectionQuery](#CollectionQuery)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | attribute | String |  no  |  |
- | op | String |  no  |  |
- | value | ArrayList<Object> |  no  |  |
-
----
-
-
- 
- 
- #### [GetCollectionDetailNest](#GetCollectionDetailNest)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | action | [Action](#Action)? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | appId | String? |  yes  |  |
- | tag | ArrayList<String>? |  yes  |  |
- | type | String? |  yes  |  |
- | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
- | logo | [Media1](#Media1)? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | badge | HashMap<String,Object>? |  yes  |  |
- | slug | String? |  yes  |  |
- | query | ArrayList<[CollectionQuery](#CollectionQuery)>? |  yes  |  |
- | schedule | HashMap<String,Object>? |  yes  |  |
- | description | String? |  yes  |  |
- | allowSort | Boolean? |  yes  |  |
- | allowFacets | Boolean? |  yes  |  |
- | name | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | cron | HashMap<String,Object>? |  yes  |  |
- | uid | String? |  yes  |  |
- | priority | Integer? |  yes  |  |
+ | operators | HashMap<String,String> |  no  |  |
 
 ---
 
@@ -18681,8 +18576,8 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | display | String? |  yes  |  |
- | name | String? |  yes  |  |
  | isSelected | Boolean? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -18694,8 +18589,8 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | display | String? |  yes  |  |
- | name | String? |  yes  |  |
  | isSelected | Boolean? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -18714,25 +18609,118 @@ Returns a success response
 
  
  
- #### [GetCollectionListingResponse](#GetCollectionListingResponse)
+ #### [ActionPage](#ActionPage)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[GetCollectionDetailNest](#GetCollectionDetailNest)>? |  yes  |  |
- | filters | [CollectionListingFilter](#CollectionListingFilter)? |  yes  |  |
- | page | [Page](#Page)? |  yes  |  |
+ | type | String? |  yes  |  |
+ | query | HashMap<String,Object>? |  yes  |  |
 
 ---
 
 
  
  
- #### [CollectionImage](#CollectionImage)
+ #### [Action](#Action)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | aspectRatio | String |  no  |  |
+ | page | [ActionPage](#ActionPage)? |  yes  |  |
+ | type | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [BannerImage](#BannerImage)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | type | String? |  yes  |  |
+ | url | String? |  yes  |  |
+ | aspectRatio | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ImageUrls](#ImageUrls)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | landscape | [BannerImage](#BannerImage)? |  yes  |  |
+ | portrait | [BannerImage](#BannerImage)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CollectionQuery](#CollectionQuery)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | op | String |  no  |  |
+ | value | ArrayList<Object> |  no  |  |
+ | attribute | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [Media1](#Media1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | type | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
  | url | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [GetCollectionDetailNest](#GetCollectionDetailNest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | slug | String? |  yes  |  |
+ | allowFacets | Boolean? |  yes  |  |
+ | allowSort | Boolean? |  yes  |  |
+ | description | String? |  yes  |  |
+ | priority | Integer? |  yes  |  |
+ | tag | ArrayList<String>? |  yes  |  |
+ | action | [Action](#Action)? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | appId | String? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | badge | HashMap<String,Object>? |  yes  |  |
+ | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
+ | schedule | HashMap<String,Object>? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | query | ArrayList<[CollectionQuery](#CollectionQuery)>? |  yes  |  |
+ | type | String? |  yes  |  |
+ | cron | HashMap<String,Object>? |  yes  |  |
+ | logo | [Media1](#Media1)? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | name | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GetCollectionListingResponse](#GetCollectionListingResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | filters | [CollectionListingFilter](#CollectionListingFilter)? |  yes  |  |
+ | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[GetCollectionDetailNest](#GetCollectionDetailNest)>? |  yes  |  |
 
 ---
 
@@ -18744,9 +18732,21 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | username | String? |  yes  |  |
- | uid | String? |  yes  |  |
  | userId | String? |  yes  |  |
  | email | String? |  yes  |  |
+ | uid | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CollectionImage](#CollectionImage)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | url | String |  no  |  |
+ | aspectRatio | String |  no  |  |
 
 ---
 
@@ -18757,8 +18757,20 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | portrait | [CollectionImage](#CollectionImage) |  no  |  |
  | landscape | [CollectionImage](#CollectionImage) |  no  |  |
+ | portrait | [CollectionImage](#CollectionImage) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [SeoDetail](#SeoDetail)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | description | String? |  yes  |  |
+ | title | String? |  yes  |  |
 
 ---
 
@@ -18781,8 +18793,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | start | String? |  yes  |  |
  | end | String? |  yes  |  |
+ | start | String? |  yes  |  |
 
 ---
 
@@ -18793,23 +18805,11 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | duration | Integer? |  yes  |  |
  | start | String? |  yes  |  |
  | end | String? |  yes  |  |
  | cron | String? |  yes  |  |
- | duration | Integer? |  yes  |  |
  | nextSchedule | ArrayList<[NextSchedule](#NextSchedule)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [SeoDetail](#SeoDetail)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | title | String? |  yes  |  |
- | description | String? |  yes  |  |
 
 ---
 
@@ -18820,31 +18820,31 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | meta | HashMap<String,Object>? |  yes  |  |
- | appId | String |  no  |  |
- | published | Boolean? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | type | String |  no  |  |
- | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
- | logo | [CollectionImage](#CollectionImage) |  no  |  |
- | modifiedBy | [UserInfo](#UserInfo)? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | banners | [CollectionBanner](#CollectionBanner) |  no  |  |
- | localeLanguage | HashMap<String,Object>? |  yes  |  |
- | badge | [CollectionBadge](#CollectionBadge)? |  yes  |  |
- | slug | String |  no  |  |
- | isVisible | Boolean? |  yes  |  |
- | query | ArrayList<[CollectionQuery](#CollectionQuery)>? |  yes  |  |
- | schedule | [CollectionSchedule](#CollectionSchedule)? |  yes  |  |
- | description | String? |  yes  |  |
- | seo | [SeoDetail](#SeoDetail)? |  yes  |  |
- | allowSort | Boolean? |  yes  |  |
- | allowFacets | Boolean? |  yes  |  |
- | name | String |  no  |  |
  | sortOn | String? |  yes  |  |
+ | slug | String |  no  |  |
+ | allowFacets | Boolean? |  yes  |  |
+ | published | Boolean? |  yes  |  |
  | createdBy | [UserInfo](#UserInfo)? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
+ | allowSort | Boolean? |  yes  |  |
+ | description | String? |  yes  |  |
  | priority | Integer? |  yes  |  |
+ | banners | [CollectionBanner](#CollectionBanner) |  no  |  |
+ | appId | String |  no  |  |
+ | seo | [SeoDetail](#SeoDetail)? |  yes  |  |
+ | badge | [CollectionBadge](#CollectionBadge)? |  yes  |  |
+ | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
+ | schedule | [CollectionSchedule](#CollectionSchedule)? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | query | ArrayList<[CollectionQuery](#CollectionQuery)>? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | modifiedBy | [UserInfo](#UserInfo)? |  yes  |  |
+ | type | String |  no  |  |
+ | localeLanguage | HashMap<String,Object>? |  yes  |  |
+ | logo | [CollectionImage](#CollectionImage) |  no  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | name | String |  no  |  |
+ | isVisible | Boolean? |  yes  |  |
 
 ---
 
@@ -18855,25 +18855,25 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | meta | HashMap<String,Object>? |  yes  |  |
- | appId | String? |  yes  |  |
- | tag | ArrayList<String>? |  yes  |  |
- | type | String? |  yes  |  |
- | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
- | logo | [BannerImage](#BannerImage)? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | badge | HashMap<String,Object>? |  yes  |  |
- | slug | String? |  yes  |  |
- | query | ArrayList<[CollectionQuery](#CollectionQuery)>? |  yes  |  |
- | schedule | HashMap<String,Object>? |  yes  |  |
- | description | String? |  yes  |  |
- | allowSort | Boolean? |  yes  |  |
- | allowFacets | Boolean? |  yes  |  |
- | name | String? |  yes  |  |
  | sortOn | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | cron | HashMap<String,Object>? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | allowFacets | Boolean? |  yes  |  |
+ | allowSort | Boolean? |  yes  |  |
+ | description | String? |  yes  |  |
+ | tag | ArrayList<String>? |  yes  |  |
  | priority | Integer? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | appId | String? |  yes  |  |
+ | badge | HashMap<String,Object>? |  yes  |  |
+ | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
+ | schedule | HashMap<String,Object>? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | query | ArrayList<[CollectionQuery](#CollectionQuery)>? |  yes  |  |
+ | type | String? |  yes  |  |
+ | cron | HashMap<String,Object>? |  yes  |  |
+ | logo | [BannerImage](#BannerImage)? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -18884,25 +18884,25 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | meta | HashMap<String,Object>? |  yes  |  |
- | appId | String? |  yes  |  |
- | tag | ArrayList<String>? |  yes  |  |
- | type | String? |  yes  |  |
- | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
- | logo | [Media1](#Media1)? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | badge | HashMap<String,Object>? |  yes  |  |
  | slug | String? |  yes  |  |
- | query | ArrayList<[CollectionQuery](#CollectionQuery)>? |  yes  |  |
- | schedule | HashMap<String,Object>? |  yes  |  |
- | description | String? |  yes  |  |
- | allowSort | Boolean? |  yes  |  |
  | allowFacets | Boolean? |  yes  |  |
- | name | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | cron | HashMap<String,Object>? |  yes  |  |
- | uid | String? |  yes  |  |
+ | allowSort | Boolean? |  yes  |  |
+ | description | String? |  yes  |  |
  | priority | Integer? |  yes  |  |
+ | tag | ArrayList<String>? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
+ | appId | String? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | badge | HashMap<String,Object>? |  yes  |  |
+ | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
+ | schedule | HashMap<String,Object>? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | query | ArrayList<[CollectionQuery](#CollectionQuery)>? |  yes  |  |
+ | type | String? |  yes  |  |
+ | cron | HashMap<String,Object>? |  yes  |  |
+ | logo | [Media1](#Media1)? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -18913,29 +18913,55 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | meta | HashMap<String,Object>? |  yes  |  |
- | published | Boolean? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | type | String? |  yes  |  |
- | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
- | logo | [CollectionImage](#CollectionImage)? |  yes  |  |
- | modifiedBy | [UserInfo](#UserInfo)? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | banners | [CollectionBanner](#CollectionBanner)? |  yes  |  |
- | localeLanguage | HashMap<String,Object>? |  yes  |  |
- | badge | [CollectionBadge](#CollectionBadge)? |  yes  |  |
- | slug | String? |  yes  |  |
- | isVisible | Boolean? |  yes  |  |
- | schedule | [CollectionSchedule](#CollectionSchedule)? |  yes  |  |
- | query | ArrayList<[CollectionQuery](#CollectionQuery)>? |  yes  |  |
- | description | String? |  yes  |  |
- | seo | [SeoDetail](#SeoDetail)? |  yes  |  |
- | allowSort | Boolean? |  yes  |  |
- | allowFacets | Boolean? |  yes  |  |
- | name | String? |  yes  |  |
  | sortOn | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | allowFacets | Boolean? |  yes  |  |
+ | published | Boolean? |  yes  |  |
+ | allowSort | Boolean? |  yes  |  |
+ | description | String? |  yes  |  |
  | priority | Integer? |  yes  |  |
+ | banners | [CollectionBanner](#CollectionBanner)? |  yes  |  |
+ | seo | [SeoDetail](#SeoDetail)? |  yes  |  |
+ | badge | [CollectionBadge](#CollectionBadge)? |  yes  |  |
+ | visibleFacetsKeys | ArrayList<String>? |  yes  |  |
+ | schedule | [CollectionSchedule](#CollectionSchedule)? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | query | ArrayList<[CollectionQuery](#CollectionQuery)>? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | modifiedBy | [UserInfo](#UserInfo)? |  yes  |  |
+ | type | String? |  yes  |  |
+ | localeLanguage | HashMap<String,Object>? |  yes  |  |
+ | logo | [CollectionImage](#CollectionImage)? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | name | String? |  yes  |  |
+ | isVisible | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Price1](#Price1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | currencyCode | String? |  yes  |  |
+ | min | Double? |  yes  |  |
+ | max | Double? |  yes  |  |
+ | currencySymbol | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductListingPrice](#ProductListingPrice)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | effective | [Price1](#Price1)? |  yes  |  |
+ | marked | [Price1](#Price1)? |  yes  |  |
 
 ---
 
@@ -18947,8 +18973,8 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | type | String? |  yes  |  |
- | key | String? |  yes  |  |
  | value | String? |  yes  |  |
+ | key | String? |  yes  |  |
 
 ---
 
@@ -18971,36 +18997,10 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | action | [Action](#Action)? |  yes  |  |
  | logo | [Media1](#Media1)? |  yes  |  |
  | uid | Integer? |  yes  |  |
- | action | [Action](#Action)? |  yes  |  |
  | name | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Price1](#Price1)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | max | Double? |  yes  |  |
- | currencySymbol | String? |  yes  |  |
- | min | Double? |  yes  |  |
- | currencyCode | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductListingPrice](#ProductListingPrice)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | marked | [Price1](#Price1)? |  yes  |  |
- | effective | [Price1](#Price1)? |  yes  |  |
 
 ---
 
@@ -19011,32 +19011,32 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | promoMeta | HashMap<String,Object>? |  yes  |  |
- | color | String? |  yes  |  |
- | groupedAttributes | ArrayList<[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)>? |  yes  |  |
- | imageNature | String? |  yes  |  |
- | discount | String? |  yes  |  |
- | teaserTag | HashMap<String,Object>? |  yes  |  |
- | itemCode | String? |  yes  |  |
- | type | String? |  yes  |  |
- | brand | [ProductBrand](#ProductBrand)? |  yes  |  |
- | price | [ProductListingPrice](#ProductListingPrice)? |  yes  |  |
- | sellable | Boolean? |  yes  |  |
- | attributes | HashMap<String,Object>? |  yes  |  |
- | hasVariant | Boolean? |  yes  |  |
- | itemType | String? |  yes  |  |
- | productOnlineDate | String? |  yes  |  |
- | slug | String |  no  |  |
  | highlights | ArrayList<String>? |  yes  |  |
- | medias | ArrayList<[Media1](#Media1)>? |  yes  |  |
+ | discount | String? |  yes  |  |
+ | slug | String |  no  |  |
+ | itemCode | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | sellable | Boolean? |  yes  |  |
+ | hasVariant | Boolean? |  yes  |  |
  | shortDescription | String? |  yes  |  |
  | ratingCount | Integer? |  yes  |  |
- | rating | Double? |  yes  |  |
- | description | String? |  yes  |  |
- | name | String? |  yes  |  |
- | tryouts | ArrayList<String>? |  yes  |  |
  | uid | Integer? |  yes  |  |
  | similars | ArrayList<String>? |  yes  |  |
+ | itemType | String? |  yes  |  |
+ | tryouts | ArrayList<String>? |  yes  |  |
+ | color | String? |  yes  |  |
+ | teaserTag | HashMap<String,Object>? |  yes  |  |
+ | price | [ProductListingPrice](#ProductListingPrice)? |  yes  |  |
+ | imageNature | String? |  yes  |  |
+ | medias | ArrayList<[Media1](#Media1)>? |  yes  |  |
+ | groupedAttributes | ArrayList<[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)>? |  yes  |  |
+ | rating | Double? |  yes  |  |
+ | productOnlineDate | String? |  yes  |  |
+ | promoMeta | HashMap<String,Object>? |  yes  |  |
+ | type | String? |  yes  |  |
+ | attributes | HashMap<String,Object>? |  yes  |  |
+ | name | String? |  yes  |  |
+ | brand | [ProductBrand](#ProductBrand)? |  yes  |  |
 
 ---
 
@@ -19047,10 +19047,10 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sortOn | ArrayList<[ProductSortOn](#ProductSortOn)>? |  yes  |  |
- | items | ArrayList<[ProductListingDetail](#ProductListingDetail)>? |  yes  |  |
  | filters | ArrayList<[ProductFilters](#ProductFilters)>? |  yes  |  |
+ | sortOn | ArrayList<[ProductSortOn](#ProductSortOn)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[ProductListingDetail](#ProductListingDetail)>? |  yes  |  |
 
 ---
 
@@ -19061,8 +19061,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | itemId | Integer? |  yes  |  |
  | action | String? |  yes  |  |
+ | itemId | Integer? |  yes  |  |
 
 ---
 
@@ -19073,9 +19073,9 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | query | ArrayList<[CollectionQuery](#CollectionQuery)>? |  yes  |  |
  | type | String? |  yes  |  |
  | item | ArrayList<[ItemQueryForUserCollection](#ItemQueryForUserCollection)>? |  yes  |  |
+ | query | ArrayList<[CollectionQuery](#CollectionQuery)>? |  yes  |  |
 
 ---
 
@@ -19086,8 +19086,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | itemsNotUpdated | ArrayList<Integer>? |  yes  |  |
  | message | String? |  yes  |  |
+ | itemsNotUpdated | ArrayList<Integer>? |  yes  |  |
 
 ---
 
@@ -19098,12 +19098,12 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | availableSizes | Integer? |  yes  |  |
- | name | String? |  yes  |  |
- | articleFreshness | Integer? |  yes  |  |
  | totalSizes | Integer? |  yes  |  |
+ | availableSizes | Integer? |  yes  |  |
  | totalArticles | Integer? |  yes  |  |
  | availableArticles | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+ | articleFreshness | Integer? |  yes  |  |
 
 ---
 
@@ -19114,9 +19114,9 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | outOfStockCount | Integer? |  yes  |  |
  | count | Integer? |  yes  |  |
  | sellableCount | Integer? |  yes  |  |
- | outOfStockCount | Integer? |  yes  |  |
 
 ---
 
@@ -19163,12 +19163,12 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | platform | String? |  yes  |  |
- | brandIds | ArrayList<Integer>? |  yes  |  |
- | enabled | Boolean? |  yes  |  |
- | storeIds | ArrayList<Integer>? |  yes  |  |
  | optLevel | String |  no  |  |
+ | brandIds | ArrayList<Integer>? |  yes  |  |
+ | platform | String? |  yes  |  |
+ | storeIds | ArrayList<Integer>? |  yes  |  |
  | companyId | Integer? |  yes  |  |
+ | enabled | Boolean? |  yes  |  |
 
 ---
 
@@ -19179,16 +19179,16 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | modifiedBy | HashMap<String,Object>? |  yes  |  |
+ | optLevel | String |  no  |  |
  | brandIds | ArrayList<Integer> |  no  |  |
+ | modifiedOn | Integer |  no  |  |
  | platform | String |  no  |  |
+ | storeIds | ArrayList<Integer> |  no  |  |
  | createdOn | Integer |  no  |  |
  | createdBy | HashMap<String,Object>? |  yes  |  |
- | enabled | Boolean |  no  |  |
- | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | modifiedOn | Integer |  no  |  |
- | storeIds | ArrayList<Integer> |  no  |  |
- | optLevel | String |  no  |  |
  | companyId | Integer |  no  |  |
+ | enabled | Boolean |  no  |  |
 
 ---
 
@@ -19199,8 +19199,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[CompanyOptIn](#CompanyOptIn)> |  no  |  |
  | page | [Page](#Page) |  no  |  |
+ | items | ArrayList<[CompanyOptIn](#CompanyOptIn)> |  no  |  |
 
 ---
 
@@ -19211,10 +19211,10 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | businessType | String? |  yes  |  |
  | companyType | String? |  yes  |  |
- | name | String? |  yes  |  |
+ | businessType | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -19225,10 +19225,10 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | brandId | Integer? |  yes  |  |
- | totalArticle | Integer? |  yes  |  |
  | brandName | String? |  yes  |  |
+ | brandId | Integer? |  yes  |  |
  | companyId | Integer? |  yes  |  |
+ | totalArticle | Integer? |  yes  |  |
 
 ---
 
@@ -19239,8 +19239,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[CompanyBrandDetail](#CompanyBrandDetail)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[CompanyBrandDetail](#CompanyBrandDetail)>? |  yes  |  |
 
 ---
 
@@ -19251,9 +19251,9 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | store | Integer? |  yes  |  |
- | company | String? |  yes  |  |
  | brand | Integer? |  yes  |  |
+ | company | String? |  yes  |  |
+ | store | Integer? |  yes  |  |
 
 ---
 
@@ -19264,19 +19264,19 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | address | HashMap<String,Object>? |  yes  |  |
- | name | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | storeCode | String? |  yes  |  |
- | additionalContacts | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | timing | HashMap<String,Object>? |  yes  |  |
  | storeType | String? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
+ | timing | HashMap<String,Object>? |  yes  |  |
+ | additionalContacts | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | documents | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
  | displayName | String? |  yes  |  |
  | companyId | Integer? |  yes  |  |
+ | address | HashMap<String,Object>? |  yes  |  |
  | manager | HashMap<String,Object>? |  yes  |  |
+ | name | String? |  yes  |  |
+ | storeCode | String? |  yes  |  |
 
 ---
 
@@ -19287,19 +19287,49 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[StoreDetail](#StoreDetail)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[StoreDetail](#StoreDetail)>? |  yes  |  |
 
 ---
 
 
  
  
- #### [AttributeMasterDetails](#AttributeMasterDetails)
+ #### [AttributeSchemaRange](#AttributeSchemaRange)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | displayType | String |  no  |  |
+ | min | Integer? |  yes  |  |
+ | max | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [AttributeMaster](#AttributeMaster)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | format | String? |  yes  |  |
+ | multi | Boolean? |  yes  |  |
+ | type | String |  no  |  |
+ | mandatory | Boolean? |  yes  |  |
+ | allowedValues | ArrayList<String>? |  yes  |  |
+ | range | [AttributeSchemaRange](#AttributeSchemaRange)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [AttributeMasterFilter](#AttributeMasterFilter)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | indexing | Boolean |  no  |  |
+ | dependsOn | ArrayList<String>? |  yes  |  |
+ | priority | Integer? |  yes  |  |
 
 ---
 
@@ -19329,41 +19359,11 @@ Returns a success response
 
  
  
- #### [AttributeMasterFilter](#AttributeMasterFilter)
+ #### [AttributeMasterDetails](#AttributeMasterDetails)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | dependsOn | ArrayList<String>? |  yes  |  |
- | indexing | Boolean |  no  |  |
- | priority | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [AttributeSchemaRange](#AttributeSchemaRange)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | max | Integer? |  yes  |  |
- | min | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [AttributeMaster](#AttributeMaster)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | allowedValues | ArrayList<String>? |  yes  |  |
- | range | [AttributeSchemaRange](#AttributeSchemaRange)? |  yes  |  |
- | multi | Boolean? |  yes  |  |
- | format | String? |  yes  |  |
- | type | String |  no  |  |
- | mandatory | Boolean? |  yes  |  |
+ | displayType | String |  no  |  |
 
 ---
 
@@ -19374,18 +19374,18 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | departments | ArrayList<String>? |  yes  |  |
+ | schema | [AttributeMaster](#AttributeMaster)? |  yes  |  |
  | id | String? |  yes  |  |
- | enabledForEndConsumer | Boolean? |  yes  |  |
- | details | [AttributeMasterDetails](#AttributeMasterDetails)? |  yes  |  |
- | name | String? |  yes  |  |
- | meta | [AttributeMasterMeta](#AttributeMasterMeta)? |  yes  |  |
  | slug | String? |  yes  |  |
  | filters | [AttributeMasterFilter](#AttributeMasterFilter)? |  yes  |  |
- | logo | String? |  yes  |  |
- | schema | [AttributeMaster](#AttributeMaster)? |  yes  |  |
- | departments | ArrayList<String>? |  yes  |  |
- | isNested | Boolean? |  yes  |  |
  | description | String? |  yes  |  |
+ | isNested | Boolean? |  yes  |  |
+ | meta | [AttributeMasterMeta](#AttributeMasterMeta)? |  yes  |  |
+ | details | [AttributeMasterDetails](#AttributeMasterDetails)? |  yes  |  |
+ | name | String? |  yes  |  |
+ | logo | String? |  yes  |  |
+ | enabledForEndConsumer | Boolean? |  yes  |  |
 
 ---
 
@@ -19396,11 +19396,11 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | slug | String? |  yes  |  |
  | slugKey | String? |  yes  |  |
+ | slug | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
  | templateSlug | String? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -19411,8 +19411,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[CategoriesResponse](#CategoriesResponse)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[CategoriesResponse](#CategoriesResponse)>? |  yes  |  |
 
 ---
 
@@ -19423,10 +19423,10 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | meta | HashMap<String,Object>? |  yes  |  |
- | code | String? |  yes  |  |
  | message | String? |  yes  |  |
  | errors | HashMap<String,Object>? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | code | String? |  yes  |  |
  | status | Integer? |  yes  |  |
 
 ---
@@ -19438,11 +19438,11 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | username | String? |  yes  |  |
- | userId | String? |  yes  |  |
- | id | String? |  yes  |  |
- | uid | String? |  yes  |  |
  | contact | String? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | username | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | userId | String? |  yes  |  |
 
 ---
 
@@ -19453,21 +19453,21 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | pageNo | Integer? |  yes  |  |
+ | itemType | String? |  yes  |  |
  | slug | String? |  yes  |  |
- | name | String? |  yes  |  |
- | search | String? |  yes  |  |
- | logo | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | pageSize | Integer? |  yes  |  |
- | createdBy | [UserSerializer](#UserSerializer)? |  yes  |  |
  | isActive | Boolean? |  yes  |  |
  | modifiedBy | [UserSerializer](#UserSerializer)? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | priorityOrder | Integer? |  yes  |  |
+ | search | String? |  yes  |  |
+ | pageSize | Integer? |  yes  |  |
  | uid | Integer? |  yes  |  |
+ | priorityOrder | Integer? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | createdBy | [UserSerializer](#UserSerializer)? |  yes  |  |
  | synonyms | ArrayList<String>? |  yes  |  |
- | itemType | String? |  yes  |  |
- | pageNo | Integer? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | logo | String? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -19478,8 +19478,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[GetDepartment](#GetDepartment)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[GetDepartment](#GetDepartment)>? |  yes  |  |
 
 ---
 
@@ -19490,10 +19490,10 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | meta | HashMap<String,Object>? |  yes  |  |
- | code | String? |  yes  |  |
  | message | String? |  yes  |  |
  | errors | HashMap<String,Object>? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | code | String? |  yes  |  |
  | status | Integer? |  yes  |  |
 
 ---
@@ -19505,17 +19505,17 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String |  no  |  |
- | slug | String? |  yes  |  |
- | logo | String |  no  |  |
- | isActive | Boolean? |  yes  |  |
- | cls | String? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | priorityOrder | Integer |  no  |  |
- | uid | Integer? |  yes  |  |
- | synonyms | ArrayList<String>? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
  | platforms | HashMap<String,Object>? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | priorityOrder | Integer |  no  |  |
+ | synonyms | ArrayList<String>? |  yes  |  |
+ | cls | String? |  yes  |  |
+ | logo | String |  no  |  |
+ | name | String |  no  |  |
 
 ---
 
@@ -19526,8 +19526,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | uid | Integer |  no  |  |
  | message | String |  no  |  |
+ | uid | Integer |  no  |  |
 
 ---
 
@@ -19549,10 +19549,10 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | superUser | Boolean? |  yes  |  |
- | username | String |  no  |  |
- | userId | String |  no  |  |
  | contact | String? |  yes  |  |
+ | userId | String |  no  |  |
+ | username | String |  no  |  |
+ | superUser | Boolean? |  yes  |  |
 
 ---
 
@@ -19563,22 +19563,22 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | slug | Object? |  yes  |  |
- | createdOn | String |  no  |  |
- | name | Object |  no  |  |
- | verifiedBy | [UserDetail](#UserDetail)? |  yes  |  |
- | logo | String |  no  |  |
- | id | Object? |  yes  |  |
- | createdBy | [UserDetail](#UserDetail)? |  yes  |  |
- | modifiedBy | [UserDetail](#UserDetail)? |  yes  |  |
+ | slug | Object |  no  |  |
  | isActive | Boolean? |  yes  |  |
- | cls | Object? |  yes  |  |
+ | modifiedBy | [UserDetail](#UserDetail)? |  yes  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
- | modifiedOn | String |  no  |  |
- | priorityOrder | Integer |  no  |  |
- | uid | Integer? |  yes  |  |
- | synonyms | ArrayList<Object>? |  yes  |  |
  | verifiedOn | String? |  yes  |  |
+ | modifiedOn | String |  no  |  |
+ | createdOn | String |  no  |  |
+ | createdBy | [UserDetail](#UserDetail)? |  yes  |  |
+ | verifiedBy | [UserDetail](#UserDetail)? |  yes  |  |
+ | uid | Integer |  no  |  |
+ | priorityOrder | Integer |  no  |  |
+ | synonyms | ArrayList<Object>? |  yes  |  |
+ | logo | String |  no  |  |
+ | cls | Object? |  yes  |  |
+ | name | Object |  no  |  |
+ | id | Object? |  yes  |  |
 
 ---
 
@@ -19590,21 +19590,21 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | categories | ArrayList<String>? |  yes  |  |
- | name | String? |  yes  |  |
- | slug | String |  no  |  |
- | createdOn | String? |  yes  |  |
- | logo | String? |  yes  |  |
- | isExpirable | Boolean |  no  |  |
- | createdBy | HashMap<String,Object>? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | attributes | ArrayList<String>? |  yes  |  |
- | isArchived | Boolean? |  yes  |  |
- | tag | String? |  yes  |  |
  | departments | ArrayList<String>? |  yes  |  |
+ | isArchived | Boolean? |  yes  |  |
+ | slug | String |  no  |  |
+ | isActive | Boolean? |  yes  |  |
  | isPhysical | Boolean |  no  |  |
+ | isExpirable | Boolean |  no  |  |
+ | attributes | ArrayList<String>? |  yes  |  |
  | modifiedBy | HashMap<String,Object>? |  yes  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
+ | createdOn | String? |  yes  |  |
  | modifiedOn | String? |  yes  |  |
  | description | String? |  yes  |  |
+ | tag | String? |  yes  |  |
+ | logo | String? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -19615,8 +19615,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | [ProductTemplate](#ProductTemplate)? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | [ProductTemplate](#ProductTemplate)? |  yes  |  |
 
 ---
 
@@ -19627,35 +19627,35 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isDependent | HashMap<String,Object>? |  yes  |  |
+ | productGroupTag | HashMap<String,Object>? |  yes  |  |
+ | highlights | HashMap<String,Object>? |  yes  |  |
+ | slug | HashMap<String,Object>? |  yes  |  |
+ | itemCode | HashMap<String,Object>? |  yes  |  |
+ | description | HashMap<String,Object>? |  yes  |  |
+ | media | HashMap<String,Object>? |  yes  |  |
+ | productPublish | HashMap<String,Object>? |  yes  |  |
+ | multiSize | HashMap<String,Object>? |  yes  |  |
+ | sizes | HashMap<String,Object>? |  yes  |  |
+ | command | HashMap<String,Object>? |  yes  |  |
+ | shortDescription | HashMap<String,Object>? |  yes  |  |
+ | variants | HashMap<String,Object>? |  yes  |  |
+ | brandUid | HashMap<String,Object>? |  yes  |  |
  | customOrder | HashMap<String,Object>? |  yes  |  |
  | sizeGuide | HashMap<String,Object>? |  yes  |  |
- | tags | HashMap<String,Object>? |  yes  |  |
- | teaserTag | HashMap<String,Object>? |  yes  |  |
- | itemCode | HashMap<String,Object>? |  yes  |  |
- | returnConfig | HashMap<String,Object>? |  yes  |  |
- | currency | HashMap<String,Object>? |  yes  |  |
- | brandUid | HashMap<String,Object>? |  yes  |  |
- | trader | HashMap<String,Object>? |  yes  |  |
- | hsnCode | HashMap<String,Object>? |  yes  |  |
- | sizes | HashMap<String,Object>? |  yes  |  |
- | categorySlug | HashMap<String,Object>? |  yes  |  |
- | variants | HashMap<String,Object>? |  yes  |  |
- | itemType | HashMap<String,Object>? |  yes  |  |
  | noOfBoxes | HashMap<String,Object>? |  yes  |  |
- | countryOfOrigin | HashMap<String,Object>? |  yes  |  |
- | slug | HashMap<String,Object>? |  yes  |  |
- | multiSize | HashMap<String,Object>? |  yes  |  |
- | traderType | HashMap<String,Object>? |  yes  |  |
- | highlights | HashMap<String,Object>? |  yes  |  |
- | media | HashMap<String,Object>? |  yes  |  |
- | shortDescription | HashMap<String,Object>? |  yes  |  |
- | description | HashMap<String,Object>? |  yes  |  |
- | productGroupTag | HashMap<String,Object>? |  yes  |  |
- | name | HashMap<String,Object>? |  yes  |  |
+ | itemType | HashMap<String,Object>? |  yes  |  |
  | isActive | HashMap<String,Object>? |  yes  |  |
- | command | HashMap<String,Object>? |  yes  |  |
- | productPublish | HashMap<String,Object>? |  yes  |  |
+ | hsnCode | HashMap<String,Object>? |  yes  |  |
+ | teaserTag | HashMap<String,Object>? |  yes  |  |
+ | returnConfig | HashMap<String,Object>? |  yes  |  |
+ | categorySlug | HashMap<String,Object>? |  yes  |  |
+ | tags | HashMap<String,Object>? |  yes  |  |
+ | currency | HashMap<String,Object>? |  yes  |  |
+ | isDependent | HashMap<String,Object>? |  yes  |  |
+ | countryOfOrigin | HashMap<String,Object>? |  yes  |  |
+ | name | HashMap<String,Object>? |  yes  |  |
+ | traderType | HashMap<String,Object>? |  yes  |  |
+ | trader | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -19666,12 +19666,12 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | definitions | HashMap<String,Object>? |  yes  |  |
  | title | String? |  yes  |  |
- | properties | [Properties](#Properties)? |  yes  |  |
- | required | ArrayList<String>? |  yes  |  |
  | type | String? |  yes  |  |
  | description | String? |  yes  |  |
+ | definitions | HashMap<String,Object>? |  yes  |  |
+ | required | ArrayList<String>? |  yes  |  |
+ | properties | [Properties](#Properties)? |  yes  |  |
 
 ---
 
@@ -19694,19 +19694,19 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
  | categories | ArrayList<String>? |  yes  |  |
- | name | String? |  yes  |  |
- | slug | String |  no  |  |
- | logo | String? |  yes  |  |
- | isExpirable | Boolean |  no  |  |
- | isActive | Boolean? |  yes  |  |
- | attributes | ArrayList<String>? |  yes  |  |
- | isArchived | Boolean? |  yes  |  |
- | tag | String? |  yes  |  |
  | departments | ArrayList<String>? |  yes  |  |
+ | isArchived | Boolean? |  yes  |  |
+ | id | String? |  yes  |  |
+ | slug | String |  no  |  |
+ | isActive | Boolean? |  yes  |  |
  | isPhysical | Boolean |  no  |  |
+ | isExpirable | Boolean |  no  |  |
+ | attributes | ArrayList<String>? |  yes  |  |
  | description | String? |  yes  |  |
+ | tag | String? |  yes  |  |
+ | logo | String? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -19729,8 +19729,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | HashMap<String,Object>? |  yes  |  |
  | message | String? |  yes  |  |
+ | data | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -19753,8 +19753,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | [HSNData](#HSNData)? |  yes  |  |
  | message | String? |  yes  |  |
+ | data | [HSNData](#HSNData)? |  yes  |  |
 
 ---
 
@@ -19765,8 +19765,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | username | String? |  yes  |  |
  | userId | String? |  yes  |  |
+ | username | String? |  yes  |  |
 
 ---
 
@@ -19777,8 +19777,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
  | brand | ArrayList<String>? |  yes  |  |
+ | type | String? |  yes  |  |
  | templates | ArrayList<String>? |  yes  |  |
 
 ---
@@ -19790,14 +19790,14 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | triggerOn | String? |  yes  |  |
  | id | String? |  yes  |  |
  | sellerId | Double? |  yes  |  |
- | url | String? |  yes  |  |
- | triggerOn | String? |  yes  |  |
- | taskId | String? |  yes  |  |
  | createdBy | [VerifiedBy](#VerifiedBy)? |  yes  |  |
- | templateTags | HashMap<String,Object>? |  yes  |  |
  | completedOn | String? |  yes  |  |
+ | templateTags | HashMap<String,Object>? |  yes  |  |
+ | url | String? |  yes  |  |
+ | taskId | String? |  yes  |  |
  | data | [ProductDownloadItemsData](#ProductDownloadItemsData)? |  yes  |  |
  | status | String? |  yes  |  |
 
@@ -19810,8 +19810,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | [ProductDownloadsItems](#ProductDownloadsItems)? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | [ProductDownloadsItems](#ProductDownloadsItems)? |  yes  |  |
 
 ---
 
@@ -19830,38 +19830,13 @@ Returns a success response
 
  
  
- #### [CategoryMappingValues](#CategoryMappingValues)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String |  no  |  |
- | catalogId | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [CategoryMapping](#CategoryMapping)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | facebook | [CategoryMappingValues](#CategoryMappingValues)? |  yes  |  |
- | ajio | [CategoryMappingValues](#CategoryMappingValues)? |  yes  |  |
- | google | [CategoryMappingValues](#CategoryMappingValues)? |  yes  |  |
-
----
-
-
- 
- 
  #### [Media2](#Media2)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | logo | String |  no  |  |
- | portrait | String |  no  |  |
  | landscape | String |  no  |  |
+ | portrait | String |  no  |  |
+ | logo | String |  no  |  |
 
 ---
 
@@ -19873,8 +19848,33 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | l1 | Integer |  no  |  |
- | department | Integer |  no  |  |
  | l2 | Integer |  no  |  |
+ | department | Integer |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [CategoryMappingValues](#CategoryMappingValues)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | catalogId | Integer? |  yes  |  |
+ | name | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [CategoryMapping](#CategoryMapping)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | ajio | [CategoryMappingValues](#CategoryMappingValues)? |  yes  |  |
+ | facebook | [CategoryMappingValues](#CategoryMappingValues)? |  yes  |  |
+ | google | [CategoryMappingValues](#CategoryMappingValues)? |  yes  |  |
 
 ---
 
@@ -19885,23 +19885,23 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | marketplaces | [CategoryMapping](#CategoryMapping)? |  yes  |  |
- | name | String |  no  |  |
+ | departments | ArrayList<Integer> |  no  |  |
+ | level | Integer |  no  |  |
  | slug | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
  | tryouts | ArrayList<String>? |  yes  |  |
- | createdBy | HashMap<String,Object>? |  yes  |  |
  | isActive | Boolean |  no  |  |
  | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | media | [Media2](#Media2)? |  yes  |  |
- | level | Integer |  no  |  |
- | modifiedOn | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
  | uid | Integer? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | media | [Media2](#Media2)? |  yes  |  |
  | synonyms | ArrayList<String>? |  yes  |  |
  | hierarchy | ArrayList<[Hierarchy](#Hierarchy)>? |  yes  |  |
- | departments | ArrayList<Integer> |  no  |  |
+ | marketplaces | [CategoryMapping](#CategoryMapping)? |  yes  |  |
  | priority | Integer? |  yes  |  |
+ | name | String |  no  |  |
 
 ---
 
@@ -19912,8 +19912,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[Category](#Category)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[Category](#Category)>? |  yes  |  |
 
 ---
 
@@ -19924,17 +19924,17 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | marketplaces | [CategoryMapping](#CategoryMapping)? |  yes  |  |
- | name | String |  no  |  |
+ | departments | ArrayList<Integer> |  no  |  |
+ | level | Integer |  no  |  |
  | slug | String? |  yes  |  |
  | tryouts | ArrayList<String>? |  yes  |  |
  | isActive | Boolean |  no  |  |
  | media | [Media2](#Media2)? |  yes  |  |
- | level | Integer |  no  |  |
  | synonyms | ArrayList<String>? |  yes  |  |
  | hierarchy | ArrayList<[Hierarchy](#Hierarchy)>? |  yes  |  |
- | departments | ArrayList<Integer> |  no  |  |
+ | marketplaces | [CategoryMapping](#CategoryMapping)? |  yes  |  |
  | priority | Integer? |  yes  |  |
+ | name | String |  no  |  |
 
 ---
 
@@ -19945,8 +19945,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | uid | Integer? |  yes  |  |
  | message | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
 
 ---
 
@@ -19976,13 +19976,51 @@ Returns a success response
 
  
  
+ #### [NetQuantityResponse](#NetQuantityResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | value | Double? |  yes  |  |
+ | unit | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductPublish](#ProductPublish)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | productOnlineDate | String? |  yes  |  |
+ | isSet | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [ReturnConfigResponse](#ReturnConfigResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | unit | String? |  yes  |  |
- | time | Integer? |  yes  |  |
  | returnable | Boolean? |  yes  |  |
+ | time | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Image](#Image)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | secureUrl | String? |  yes  |  |
+ | aspectRatioF | Double? |  yes  |  |
+ | url | String? |  yes  |  |
+ | aspectRatio | String? |  yes  |  |
 
 ---
 
@@ -19995,8 +20033,8 @@ Returns a success response
  | ---------- | ---- | -------- | ----------- |
  | secureUrl | String? |  yes  |  |
  | aspectRatioF | Integer? |  yes  |  |
- | aspectRatio | String? |  yes  |  |
  | url | String? |  yes  |  |
+ | aspectRatio | String? |  yes  |  |
 
 ---
 
@@ -20016,18 +20054,6 @@ Returns a success response
 
  
  
- #### [NetQuantityResponse](#NetQuantityResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | unit | String? |  yes  |  |
- | value | Double? |  yes  |  |
-
----
-
-
- 
- 
  #### [Trader](#Trader)
 
  | Properties | Type | Nullable | Description |
@@ -20041,110 +20067,108 @@ Returns a success response
 
  
  
- #### [Image](#Image)
+ #### [ProductSchemaV2](#ProductSchemaV2)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | secureUrl | String? |  yes  |  |
- | aspectRatioF | Double? |  yes  |  |
- | aspectRatio | String? |  yes  |  |
- | url | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductPublished](#ProductPublished)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | isSet | Boolean? |  yes  |  |
- | productOnlineDate | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [Product](#Product)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | isDependent | Boolean? |  yes  |  |
- | customOrder | HashMap<String,Object>? |  yes  |  |
- | sizeGuide | String? |  yes  |  |
- | color | String? |  yes  |  |
- | allIdentifiers | ArrayList<String>? |  yes  |  |
- | imageNature | String? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | returnConfig | [ReturnConfigResponse](#ReturnConfigResponse)? |  yes  |  |
- | itemCode | String? |  yes  |  |
- | l3Mapping | ArrayList<String>? |  yes  |  |
- | teaserTag | HashMap<String,Object>? |  yes  |  |
- | currency | String? |  yes  |  |
- | brand | [Brand](#Brand)? |  yes  |  |
- | primaryColor | String? |  yes  |  |
- | brandUid | Integer? |  yes  |  |
- | isExpirable | Boolean? |  yes  |  |
- | isPhysical | Boolean? |  yes  |  |
- | attributes | HashMap<String,Object>? |  yes  |  |
- | netQuantity | [NetQuantityResponse](#NetQuantityResponse)? |  yes  |  |
- | hsnCode | String? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | sizes | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | trader | ArrayList<[Trader](#Trader)>? |  yes  |  |
- | variantMedia | HashMap<String,Object>? |  yes  |  |
- | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | categorySlug | String? |  yes  |  |
- | variants | HashMap<String,Object>? |  yes  |  |
- | itemType | String? |  yes  |  |
- | noOfBoxes | Integer? |  yes  |  |
- | allSizes | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | countryOfOrigin | String? |  yes  |  |
- | pending | String? |  yes  |  |
- | slug | String? |  yes  |  |
- | templateTag | String? |  yes  |  |
- | multiSize | Boolean? |  yes  |  |
+ | productGroupTag | ArrayList<String>? |  yes  |  |
  | highlights | ArrayList<String>? |  yes  |  |
- | media | ArrayList<[Media1](#Media1)>? |  yes  |  |
- | isImageLessProduct | Boolean? |  yes  |  |
- | shortDescription | String? |  yes  |  |
- | isSet | Boolean? |  yes  |  |
- | description | String? |  yes  |  |
- | companyId | Integer? |  yes  |  |
- | verifiedOn | String? |  yes  |  |
+ | departments | ArrayList<Integer>? |  yes  |  |
  | categoryUid | Integer? |  yes  |  |
  | id | String? |  yes  |  |
- | allCompanyIds | ArrayList<Integer>? |  yes  |  |
- | productGroupTag | ArrayList<String>? |  yes  |  |
- | category | HashMap<String,Object>? |  yes  |  |
- | moq | HashMap<String,Object>? |  yes  |  |
- | name | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | stage | String? |  yes  |  |
- | verifiedBy | [VerifiedBy](#VerifiedBy)? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | netQuantity | [NetQuantityResponse](#NetQuantityResponse)? |  yes  |  |
+ | isExpirable | Boolean? |  yes  |  |
+ | itemCode | String? |  yes  |  |
  | createdBy | HashMap<String,Object>? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | images | ArrayList<[Image](#Image)>? |  yes  |  |
- | productPublish | [ProductPublished](#ProductPublished)? |  yes  |  |
+ | stage | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | media | ArrayList<[Media1](#Media1)>? |  yes  |  |
+ | variantMedia | HashMap<String,Object>? |  yes  |  |
+ | productPublish | [ProductPublish](#ProductPublish)? |  yes  |  |
+ | multiSize | Boolean? |  yes  |  |
+ | isImageLessProduct | Boolean? |  yes  |  |
+ | sizes | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | shortDescription | String? |  yes  |  |
+ | primaryColor | String? |  yes  |  |
+ | pending | String? |  yes  |  |
+ | isSet | Boolean? |  yes  |  |
+ | allSizes | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | templateTag | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
+ | moq | HashMap<String,Object>? |  yes  |  |
+ | brandUid | Integer? |  yes  |  |
+ | variants | HashMap<String,Object>? |  yes  |  |
+ | allIdentifiers | ArrayList<String>? |  yes  |  |
+ | customOrder | HashMap<String,Object>? |  yes  |  |
+ | sizeGuide | String? |  yes  |  |
+ | itemType | String? |  yes  |  |
+ | isPhysical | Boolean? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | hsnCode | String? |  yes  |  |
+ | color | String? |  yes  |  |
+ | category | HashMap<String,Object>? |  yes  |  |
+ | noOfBoxes | Integer? |  yes  |  |
+ | teaserTag | HashMap<String,Object>? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | returnConfig | [ReturnConfigResponse](#ReturnConfigResponse)? |  yes  |  |
+ | imageNature | String? |  yes  |  |
  | taxIdentifier | HashMap<String,Object>? |  yes  |  |
+ | companyId | Integer? |  yes  |  |
+ | images | ArrayList<[Image](#Image)>? |  yes  |  |
+ | categorySlug | String? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | modifiedBy | HashMap<String,Object>? |  yes  |  |
+ | currency | String? |  yes  |  |
  | variantGroup | HashMap<String,Object>? |  yes  |  |
- | departments | ArrayList<Integer>? |  yes  |  |
+ | isDependent | Boolean? |  yes  |  |
+ | l3Mapping | ArrayList<String>? |  yes  |  |
+ | attributes | HashMap<String,Object>? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | verifiedOn | String? |  yes  |  |
+ | countryOfOrigin | String? |  yes  |  |
+ | allCompanyIds | ArrayList<Integer>? |  yes  |  |
+ | name | String? |  yes  |  |
+ | brand | [Brand](#Brand)? |  yes  |  |
+ | verifiedBy | [VerifiedBy](#VerifiedBy)? |  yes  |  |
+ | trader | ArrayList<[Trader](#Trader)>? |  yes  |  |
 
 ---
 
 
  
  
- #### [ProductListingResponse](#ProductListingResponse)
+ #### [ProductListingResponseV2](#ProductListingResponseV2)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[Product](#Product)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[ProductSchemaV2](#ProductSchemaV2)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [NetQuantity](#NetQuantity)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | value | Double? |  yes  |  |
+ | unit | Object? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductPublish1](#ProductPublish1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | productOnlineDate | String? |  yes  |  |
+ | isSet | Boolean? |  yes  |  |
 
 ---
 
@@ -20155,8 +20179,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | manufacturingTime | Integer? |  yes  |  |
  | isCustomOrder | Boolean? |  yes  |  |
+ | manufacturingTime | Integer? |  yes  |  |
  | manufacturingTimeUnit | String? |  yes  |  |
 
 ---
@@ -20181,20 +20205,8 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | unit | String |  no  |  |
- | time | Integer |  no  |  |
  | returnable | Boolean |  no  |  |
-
----
-
-
- 
- 
- #### [NetQuantity](#NetQuantity)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | unit | Object? |  yes  |  |
- | value | Double? |  yes  |  |
+ | time | Integer |  no  |  |
 
 ---
 
@@ -20206,20 +20218,8 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | reportingHsn | String? |  yes  |  |
- | hsnCodeId | String? |  yes  |  |
  | hsnCode | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductPublish](#ProductPublish)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | isSet | Boolean? |  yes  |  |
- | productOnlineDate | String? |  yes  |  |
+ | hsnCodeId | String? |  yes  |  |
 
 ---
 
@@ -20230,48 +20230,48 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isDependent | Boolean? |  yes  |  |
- | action | String? |  yes  |  |
- | customOrder | [CustomOrder](#CustomOrder)? |  yes  |  |
- | sizeGuide | String? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | teaserTag | [TeaserTag](#TeaserTag)? |  yes  |  |
- | itemCode | String |  no  |  |
- | returnConfig | [ReturnConfig](#ReturnConfig) |  no  |  |
- | currency | String |  no  |  |
- | bulkJobId | String? |  yes  |  |
- | brandUid | Integer |  no  |  |
- | attributes | HashMap<String,Object>? |  yes  |  |
- | trader | ArrayList<[Trader](#Trader)> |  no  |  |
- | netQuantity | [NetQuantity](#NetQuantity)? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | sizes | ArrayList<HashMap<String,Object>> |  no  |  |
- | variantMedia | HashMap<String,Object>? |  yes  |  |
- | categorySlug | String |  no  |  |
- | variants | HashMap<String,Object>? |  yes  |  |
- | itemType | String |  no  |  |
- | noOfBoxes | Integer? |  yes  |  |
- | countryOfOrigin | String |  no  |  |
- | slug | String |  no  |  |
- | templateTag | String |  no  |  |
- | multiSize | Boolean? |  yes  |  |
+ | productGroupTag | ArrayList<String>? |  yes  |  |
  | highlights | ArrayList<String>? |  yes  |  |
+ | departments | ArrayList<Integer> |  no  |  |
+ | slug | String |  no  |  |
+ | netQuantity | [NetQuantity](#NetQuantity)? |  yes  |  |
+ | itemCode | String |  no  |  |
+ | bulkJobId | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | variantMedia | HashMap<String,Object>? |  yes  |  |
  | media | ArrayList<[Media1](#Media1)>? |  yes  |  |
+ | action | String? |  yes  |  |
+ | productPublish | [ProductPublish1](#ProductPublish1)? |  yes  |  |
+ | multiSize | Boolean? |  yes  |  |
  | isImageLessProduct | Boolean? |  yes  |  |
+ | sizes | ArrayList<HashMap<String,Object>> |  no  |  |
  | shortDescription | String? |  yes  |  |
  | isSet | Boolean? |  yes  |  |
- | description | String? |  yes  |  |
- | companyId | Integer |  no  |  |
- | changeRequestId | Object? |  yes  |  |
- | productGroupTag | ArrayList<String>? |  yes  |  |
- | name | String |  no  |  |
- | requester | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | variantGroup | HashMap<String,Object>? |  yes  |  |
- | taxIdentifier | [TaxIdentifier](#TaxIdentifier) |  no  |  |
+ | templateTag | String |  no  |  |
  | uid | Integer? |  yes  |  |
- | productPublish | [ProductPublish](#ProductPublish)? |  yes  |  |
- | departments | ArrayList<Integer> |  no  |  |
+ | brandUid | Integer |  no  |  |
+ | variants | HashMap<String,Object>? |  yes  |  |
+ | customOrder | [CustomOrder](#CustomOrder)? |  yes  |  |
+ | sizeGuide | String? |  yes  |  |
+ | noOfBoxes | Integer? |  yes  |  |
+ | itemType | String |  no  |  |
+ | isActive | Boolean? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | teaserTag | [TeaserTag](#TeaserTag)? |  yes  |  |
+ | returnConfig | [ReturnConfig](#ReturnConfig) |  no  |  |
+ | companyId | Integer |  no  |  |
+ | taxIdentifier | [TaxIdentifier](#TaxIdentifier) |  no  |  |
+ | categorySlug | String |  no  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | currency | String |  no  |  |
+ | variantGroup | HashMap<String,Object>? |  yes  |  |
+ | requester | String? |  yes  |  |
+ | isDependent | Boolean? |  yes  |  |
+ | attributes | HashMap<String,Object>? |  yes  |  |
+ | countryOfOrigin | String |  no  |  |
+ | changeRequestId | Object? |  yes  |  |
+ | name | String |  no  |  |
+ | trader | ArrayList<[Trader](#Trader)> |  no  |  |
 
 ---
 
@@ -20283,11 +20283,11 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | categoryUid | Integer? |  yes  |  |
+ | itemCode | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | media | ArrayList<[Media1](#Media1)>? |  yes  |  |
  | brandUid | Integer? |  yes  |  |
  | name | String? |  yes  |  |
- | media | ArrayList<[Media1](#Media1)>? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | itemCode | String? |  yes  |  |
 
 ---
 
@@ -20298,8 +20298,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | variants | ArrayList<[ProductVariants](#ProductVariants)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | variants | ArrayList<[ProductVariants](#ProductVariants)>? |  yes  |  |
 
 ---
 
@@ -20310,26 +20310,26 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | enabledForEndConsumer | Boolean? |  yes  |  |
- | variant | Boolean? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | synonyms | HashMap<String,Object>? |  yes  |  |
- | details | [AttributeMasterDetails](#AttributeMasterDetails) |  no  |  |
- | rawKey | String? |  yes  |  |
- | filters | [AttributeMasterFilter](#AttributeMasterFilter) |  no  |  |
- | logo | String? |  yes  |  |
- | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | isNested | Boolean? |  yes  |  |
- | slug | String |  no  |  |
- | unit | String? |  yes  |  |
- | description | String? |  yes  |  |
- | name | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | schema | [AttributeMaster](#AttributeMaster) |  no  |  |
- | createdBy | HashMap<String,Object>? |  yes  |  |
- | suggestion | String? |  yes  |  |
  | departments | ArrayList<String> |  no  |  |
+ | slug | String |  no  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
+ | description | String? |  yes  |  |
+ | synonyms | HashMap<String,Object>? |  yes  |  |
+ | filters | [AttributeMasterFilter](#AttributeMasterFilter) |  no  |  |
+ | unit | String? |  yes  |  |
+ | enabledForEndConsumer | Boolean? |  yes  |  |
+ | schema | [AttributeMaster](#AttributeMaster) |  no  |  |
+ | modifiedOn | String? |  yes  |  |
+ | isNested | Boolean? |  yes  |  |
+ | variant | Boolean? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | modifiedBy | HashMap<String,Object>? |  yes  |  |
+ | rawKey | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | logo | String? |  yes  |  |
+ | details | [AttributeMasterDetails](#AttributeMasterDetails) |  no  |  |
+ | name | String? |  yes  |  |
+ | suggestion | String? |  yes  |  |
 
 ---
 
@@ -20351,7 +20351,7 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | [Product](#Product)? |  yes  |  |
+ | data | [ProductSchemaV2](#ProductSchemaV2)? |  yes  |  |
 
 ---
 
@@ -20362,9 +20362,9 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | gtinType | String |  no  |  |
  | gtinValue | String |  no  |  |
  | primary | Boolean? |  yes  |  |
+ | gtinType | String |  no  |  |
 
 ---
 
@@ -20375,13 +20375,13 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | itemHeight | Double |  no  |  |
- | itemDimensionsUnitOfMeasure | String |  no  |  |
+ | size | Object |  no  |  |
  | identifiers | ArrayList<[ValidateIdentifier](#ValidateIdentifier)>? |  yes  |  |
  | itemWeightUnitOfMeasure | Object |  no  |  |
- | itemLength | Double |  no  |  |
+ | itemHeight | Double |  no  |  |
+ | itemDimensionsUnitOfMeasure | String |  no  |  |
  | itemWidth | Double |  no  |  |
- | size | Object |  no  |  |
+ | itemLength | Double |  no  |  |
  | itemWeight | Double |  no  |  |
 
 ---
@@ -20411,13 +20411,109 @@ Returns a success response
 
  
  
+ #### [ProductPublished](#ProductPublished)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | productOnlineDate | Integer? |  yes  |  |
+ | isSet | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Product](#Product)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | productGroupTag | ArrayList<String>? |  yes  |  |
+ | highlights | ArrayList<String>? |  yes  |  |
+ | departments | ArrayList<Integer>? |  yes  |  |
+ | categoryUid | Integer? |  yes  |  |
+ | id | String? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | netQuantity | [NetQuantityResponse](#NetQuantityResponse)? |  yes  |  |
+ | isExpirable | Boolean? |  yes  |  |
+ | itemCode | String? |  yes  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
+ | stage | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | media | ArrayList<[Media1](#Media1)>? |  yes  |  |
+ | variantMedia | HashMap<String,Object>? |  yes  |  |
+ | productPublish | [ProductPublished](#ProductPublished)? |  yes  |  |
+ | multiSize | Boolean? |  yes  |  |
+ | isImageLessProduct | Boolean? |  yes  |  |
+ | sizes | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | shortDescription | String? |  yes  |  |
+ | primaryColor | String? |  yes  |  |
+ | pending | String? |  yes  |  |
+ | isSet | Boolean? |  yes  |  |
+ | allSizes | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | templateTag | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | moq | HashMap<String,Object>? |  yes  |  |
+ | brandUid | Integer? |  yes  |  |
+ | variants | HashMap<String,Object>? |  yes  |  |
+ | allIdentifiers | ArrayList<String>? |  yes  |  |
+ | customOrder | HashMap<String,Object>? |  yes  |  |
+ | sizeGuide | String? |  yes  |  |
+ | itemType | String? |  yes  |  |
+ | isPhysical | Boolean? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | hsnCode | String? |  yes  |  |
+ | color | String? |  yes  |  |
+ | category | HashMap<String,Object>? |  yes  |  |
+ | noOfBoxes | Integer? |  yes  |  |
+ | teaserTag | HashMap<String,Object>? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | returnConfig | [ReturnConfigResponse](#ReturnConfigResponse)? |  yes  |  |
+ | imageNature | String? |  yes  |  |
+ | taxIdentifier | HashMap<String,Object>? |  yes  |  |
+ | companyId | Integer? |  yes  |  |
+ | images | ArrayList<[Image](#Image)>? |  yes  |  |
+ | categorySlug | String? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | modifiedBy | HashMap<String,Object>? |  yes  |  |
+ | currency | String? |  yes  |  |
+ | variantGroup | HashMap<String,Object>? |  yes  |  |
+ | isDependent | Boolean? |  yes  |  |
+ | l3Mapping | ArrayList<String>? |  yes  |  |
+ | attributes | HashMap<String,Object>? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | verifiedOn | String? |  yes  |  |
+ | countryOfOrigin | String? |  yes  |  |
+ | allCompanyIds | ArrayList<Integer>? |  yes  |  |
+ | name | String? |  yes  |  |
+ | brand | [Brand](#Brand)? |  yes  |  |
+ | verifiedBy | [VerifiedBy](#VerifiedBy)? |  yes  |  |
+ | trader | ArrayList<[Trader](#Trader)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductListingResponse](#ProductListingResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[Product](#Product)>? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [UserDetail1](#UserDetail1)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | username | String? |  yes  |  |
- | userId | String? |  yes  |  |
  | fullName | String? |  yes  |  |
+ | userId | String? |  yes  |  |
+ | username | String? |  yes  |  |
 
 ---
 
@@ -20428,22 +20524,22 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | template | [ProductTemplate](#ProductTemplate)? |  yes  |  |
  | failed | Integer? |  yes  |  |
- | succeed | Integer? |  yes  |  |
- | stage | String? |  yes  |  |
- | total | Integer? |  yes  |  |
- | templateTag | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | failedRecords | ArrayList<String>? |  yes  |  |
- | createdBy | [UserDetail1](#UserDetail1)? |  yes  |  |
  | isActive | Boolean? |  yes  |  |
  | filePath | String? |  yes  |  |
  | modifiedBy | [UserDetail1](#UserDetail1)? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | cancelledRecords | ArrayList<String>? |  yes  |  |
- | template | [ProductTemplate](#ProductTemplate)? |  yes  |  |
  | cancelled | Integer? |  yes  |  |
+ | templateTag | String? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | stage | String? |  yes  |  |
+ | failedRecords | ArrayList<String>? |  yes  |  |
+ | createdBy | [UserDetail1](#UserDetail1)? |  yes  |  |
+ | total | Integer? |  yes  |  |
  | companyId | Integer? |  yes  |  |
+ | succeed | Integer? |  yes  |  |
+ | cancelledRecords | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -20454,8 +20550,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | [ProductBulkRequest](#ProductBulkRequest)? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | [ProductBulkRequest](#ProductBulkRequest)? |  yes  |  |
 
 ---
 
@@ -20467,9 +20563,9 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | username | String? |  yes  |  |
- | uid | String? |  yes  |  |
  | userId | String? |  yes  |  |
  | email | String? |  yes  |  |
+ | uid | String? |  yes  |  |
 
 ---
 
@@ -20481,22 +20577,22 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | failed | Integer? |  yes  |  |
- | succeed | Integer? |  yes  |  |
- | total | Integer? |  yes  |  |
- | stage | String? |  yes  |  |
- | createdOn | String |  no  |  |
- | templateTag | String? |  yes  |  |
- | failedRecords | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | createdBy | [UserInfo1](#UserInfo1)? |  yes  |  |
- | modifiedBy | [UserInfo1](#UserInfo1)? |  yes  |  |
  | isActive | Boolean? |  yes  |  |
+ | modifiedBy | [UserInfo1](#UserInfo1)? |  yes  |  |
  | filePath | String? |  yes  |  |
- | customTemplateTag | String? |  yes  |  |
- | trackingUrl | String? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | cancelledRecords | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | cancelled | Integer? |  yes  |  |
+ | templateTag | String? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | createdBy | [UserInfo1](#UserInfo1)? |  yes  |  |
+ | createdOn | String |  no  |  |
+ | failedRecords | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | total | Integer? |  yes  |  |
+ | succeed | Integer? |  yes  |  |
  | companyId | Integer |  no  |  |
+ | stage | String? |  yes  |  |
+ | trackingUrl | String? |  yes  |  |
+ | customTemplateTag | String? |  yes  |  |
+ | cancelledRecords | ArrayList<HashMap<String,Object>>? |  yes  |  |
 
 ---
 
@@ -20507,12 +20603,12 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | batchId | String |  no  |  |
- | createdOn | String |  no  |  |
- | createdBy | [UserInfo1](#UserInfo1)? |  yes  |  |
- | modifiedBy | [UserInfo1](#UserInfo1)? |  yes  |  |
  | isActive | Boolean? |  yes  |  |
+ | modifiedBy | [UserInfo1](#UserInfo1)? |  yes  |  |
  | modifiedOn | String? |  yes  |  |
+ | createdBy | [UserInfo1](#UserInfo1)? |  yes  |  |
+ | createdOn | String |  no  |  |
+ | batchId | String |  no  |  |
 
 ---
 
@@ -20524,9 +20620,9 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | data | ArrayList<HashMap<String,Object>> |  no  |  |
- | batchId | String |  no  |  |
  | companyId | Integer |  no  |  |
  | templateTag | String |  no  |  |
+ | batchId | String |  no  |  |
 
 ---
 
@@ -20548,9 +20644,9 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | username | String? |  yes  |  |
  | userId | String? |  yes  |  |
  | companyId | Integer? |  yes  |  |
+ | username | String? |  yes  |  |
 
 ---
 
@@ -20561,23 +20657,23 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | failed | Integer? |  yes  |  |
  | id | String? |  yes  |  |
- | succeed | Integer? |  yes  |  |
- | stage | String? |  yes  |  |
- | total | Integer? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | failedRecords | ArrayList<String>? |  yes  |  |
- | retry | Integer? |  yes  |  |
+ | failed | Integer? |  yes  |  |
  | filePath | String? |  yes  |  |
- | createdBy | [UserCommon](#UserCommon)? |  yes  |  |
  | modifiedBy | [UserCommon](#UserCommon)? |  yes  |  |
  | isActive | Boolean? |  yes  |  |
- | trackingUrl | String? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | cancelledRecords | ArrayList<String>? |  yes  |  |
  | cancelled | Integer? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | createdBy | [UserCommon](#UserCommon)? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | failedRecords | ArrayList<String>? |  yes  |  |
+ | succeed | Integer? |  yes  |  |
+ | stage | String? |  yes  |  |
+ | retry | Integer? |  yes  |  |
+ | total | Integer? |  yes  |  |
  | companyId | Integer? |  yes  |  |
+ | trackingUrl | String? |  yes  |  |
+ | cancelledRecords | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -20588,8 +20684,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[Items](#Items)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[Items](#Items)>? |  yes  |  |
 
 ---
 
@@ -20600,9 +20696,9 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | user | HashMap<String,Object> |  no  |  |
  | companyId | Integer? |  yes  |  |
  | url | String |  no  |  |
- | user | HashMap<String,Object> |  no  |  |
 
 ---
 
@@ -20613,9 +20709,9 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | size | String? |  yes  |  |
  | companyId | Integer? |  yes  |  |
  | itemId | Integer? |  yes  |  |
- | size | String? |  yes  |  |
 
 ---
 
@@ -20638,19 +20734,19 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | price | Double? |  yes  |  |
- | quantity | Integer? |  yes  |  |
- | sellerIdentifier | String? |  yes  |  |
+ | size | String? |  yes  |  |
  | itemId | Integer? |  yes  |  |
+ | inventoryUpdatedOn | String? |  yes  |  |
  | identifiers | HashMap<String,Object>? |  yes  |  |
- | store | HashMap<String,Object>? |  yes  |  |
+ | sellerIdentifier | String? |  yes  |  |
+ | currency | String? |  yes  |  |
  | priceEffective | Double? |  yes  |  |
  | uid | String? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
  | sellableQuantity | Integer? |  yes  |  |
- | currency | String? |  yes  |  |
- | size | String? |  yes  |  |
- | inventoryUpdatedOn | String? |  yes  |  |
+ | price | Double? |  yes  |  |
  | priceTransfer | Double? |  yes  |  |
+ | store | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -20661,8 +20757,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[InventoryResponse](#InventoryResponse)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[InventoryResponse](#InventoryResponse)>? |  yes  |  |
 
 ---
 
@@ -20673,9 +20769,9 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | gtinType | String |  no  |  |
  | gtinValue | Object |  no  |  |
  | primary | Boolean? |  yes  |  |
+ | gtinType | String |  no  |  |
 
 ---
 
@@ -20686,8 +20782,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | pieces | Integer |  no  |  |
  | size | String |  no  |  |
+ | pieces | Integer |  no  |  |
 
 ---
 
@@ -20709,9 +20805,9 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | quantity | Integer? |  yes  |  |
- | name | String? |  yes  |  |
  | sizeDistribution | [SizeDistribution](#SizeDistribution) |  no  |  |
+ | name | String? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
 
 ---
 
@@ -20722,23 +20818,23 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | price | Double? |  yes  |  |
- | quantity | Integer |  no  |  |
- | itemHeight | Double? |  yes  |  |
- | itemDimensionsUnitOfMeasure | String? |  yes  |  |
- | storeCode | String |  no  |  |
- | itemWeight | Double? |  yes  |  |
- | identifiers | ArrayList<[GTIN](#GTIN)> |  no  |  |
- | itemWeightUnitOfMeasure | String? |  yes  |  |
- | currency | String |  no  |  |
- | expirationDate | String? |  yes  |  |
- | priceEffective | Double |  no  |  |
- | itemLength | Double? |  yes  |  |
- | set | [InventorySet](#InventorySet)? |  yes  |  |
- | isSet | Boolean? |  yes  |  |
- | itemWidth | Double? |  yes  |  |
  | size | Object |  no  |  |
+ | isSet | Boolean? |  yes  |  |
+ | itemWeightUnitOfMeasure | String? |  yes  |  |
+ | identifiers | ArrayList<[GTIN](#GTIN)> |  no  |  |
+ | itemHeight | Double? |  yes  |  |
+ | storeCode | String |  no  |  |
+ | priceEffective | Double |  no  |  |
+ | currency | String |  no  |  |
+ | quantity | Integer |  no  |  |
+ | set | [InventorySet](#InventorySet)? |  yes  |  |
+ | price | Double? |  yes  |  |
+ | itemWidth | Double? |  yes  |  |
+ | itemDimensionsUnitOfMeasure | String? |  yes  |  |
  | priceTransfer | Double? |  yes  |  |
+ | itemLength | Double? |  yes  |  |
+ | itemWeight | Double? |  yes  |  |
+ | expirationDate | String? |  yes  |  |
 
 ---
 
@@ -20749,8 +20845,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | itemCode | String? |  yes  |  |
  | brandUid | Integer? |  yes  |  |
+ | itemCode | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
 
 ---
@@ -20771,13 +20867,26 @@ Returns a success response
 
  
  
- #### [WeightResponse](#WeightResponse)
+ #### [DimensionResponse](#DimensionResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isDefault | Boolean |  no  |  |
+ | height | Double |  no  |  |
+ | width | Double |  no  |  |
+ | length | Double |  no  |  |
  | unit | String |  no  |  |
- | shipping | Double |  no  |  |
+ | isDefault | Boolean |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [CompanyMeta](#CompanyMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | Integer |  no  |  |
 
 ---
 
@@ -20788,9 +20897,36 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isDefault | Boolean |  no  |  |
  | address | String |  no  |  |
+ | isDefault | Boolean |  no  |  |
  | name | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [StoreMeta](#StoreMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | Integer |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [PriceMeta](#PriceMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | tpNotes | HashMap<String,Object>? |  yes  |  |
+ | currency | String |  no  |  |
+ | effective | Double |  no  |  |
+ | transfer | Double |  no  |  |
+ | marked | Double |  no  |  |
+ | updatedAt | String? |  yes  |  |
 
 ---
 
@@ -20802,8 +20938,47 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | unit | String? |  yes  |  |
- | time | Integer? |  yes  |  |
  | returnable | Boolean? |  yes  |  |
+ | time | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [QuantityBase](#QuantityBase)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | updatedAt | String? |  yes  |  |
+ | count | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Quantities](#Quantities)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | sellable | [QuantityBase](#QuantityBase)? |  yes  |  |
+ | notAvailable | [QuantityBase](#QuantityBase)? |  yes  |  |
+ | damaged | [QuantityBase](#QuantityBase)? |  yes  |  |
+ | orderCommitted | [QuantityBase](#QuantityBase)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [WeightResponse](#WeightResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | shipping | Double |  no  |  |
+ | unit | String |  no  |  |
+ | isDefault | Boolean |  no  |  |
 
 ---
 
@@ -20816,22 +20991,6 @@ Returns a success response
  | ---------- | ---- | -------- | ----------- |
  | id | Integer |  no  |  |
  | name | String |  no  |  |
-
----
-
-
- 
- 
- #### [PriceMeta](#PriceMeta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | effective | Double |  no  |  |
- | marked | Double |  no  |  |
- | updatedAt | String? |  yes  |  |
- | tpNotes | HashMap<String,Object>? |  yes  |  |
- | currency | String |  no  |  |
- | transfer | Double |  no  |  |
 
 ---
 
@@ -20851,109 +21010,46 @@ Returns a success response
 
  
  
- #### [CompanyMeta](#CompanyMeta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | Integer |  no  |  |
-
----
-
-
- 
- 
- #### [DimensionResponse](#DimensionResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | isDefault | Boolean |  no  |  |
- | height | Double |  no  |  |
- | unit | String |  no  |  |
- | length | Double |  no  |  |
- | width | Double |  no  |  |
-
----
-
-
- 
- 
- #### [QuantityBase](#QuantityBase)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | count | Integer? |  yes  |  |
- | updatedAt | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Quantities](#Quantities)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | sellable | [QuantityBase](#QuantityBase)? |  yes  |  |
- | notAvailable | [QuantityBase](#QuantityBase)? |  yes  |  |
- | orderCommitted | [QuantityBase](#QuantityBase)? |  yes  |  |
- | damaged | [QuantityBase](#QuantityBase)? |  yes  |  |
-
----
-
-
- 
- 
- #### [StoreMeta](#StoreMeta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | Integer |  no  |  |
-
----
-
-
- 
- 
  #### [InventorySellerResponse](#InventorySellerResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | weight | [WeightResponse](#WeightResponse) |  no  |  |
- | manufacturer | [ManufacturerResponse](#ManufacturerResponse) |  no  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | addedOnStore | String? |  yes  |  |
- | returnConfig | [ReturnConfig1](#ReturnConfig1)? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | brand | [BrandMeta](#BrandMeta) |  no  |  |
- | fyndMeta | HashMap<String,Object>? |  yes  |  |
- | rawMeta | HashMap<String,Object>? |  yes  |  |
- | price | [PriceMeta](#PriceMeta) |  no  |  |
- | fyndArticleCode | String |  no  |  |
- | fragile | Boolean |  no  |  |
- | traceId | String? |  yes  |  |
- | totalQuantity | Integer |  no  |  |
- | itemId | Integer |  no  |  |
- | modifiedBy | [UserSerializer](#UserSerializer)? |  yes  |  |
- | trader | ArrayList<[Trader1](#Trader1)>? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | company | [CompanyMeta](#CompanyMeta) |  no  |  |
- | expirationDate | String? |  yes  |  |
- | size | String |  no  |  |
- | countryOfOrigin | String |  no  |  |
  | identifier | HashMap<String,Object> |  no  |  |
- | dimension | [DimensionResponse](#DimensionResponse) |  no  |  |
- | isSet | Boolean? |  yes  |  |
- | stage | String? |  yes  |  |
- | sellerIdentifier | String |  no  |  |
+ | itemId | Integer |  no  |  |
  | createdBy | [UserSerializer](#UserSerializer)? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | quantities | [Quantities](#Quantities)? |  yes  |  |
- | store | [StoreMeta](#StoreMeta) |  no  |  |
- | fyndItemCode | String |  no  |  |
- | trackInventory | Boolean? |  yes  |  |
+ | stage | String? |  yes  |  |
+ | fragile | Boolean |  no  |  |
+ | rawMeta | HashMap<String,Object>? |  yes  |  |
+ | fyndArticleCode | String |  no  |  |
+ | size | String |  no  |  |
+ | isSet | Boolean? |  yes  |  |
+ | dimension | [DimensionResponse](#DimensionResponse) |  no  |  |
  | uid | String |  no  |  |
- | set | [InventorySet](#InventorySet)? |  yes  |  |
+ | expirationDate | String? |  yes  |  |
+ | addedOnStore | String? |  yes  |  |
+ | company | [CompanyMeta](#CompanyMeta) |  no  |  |
+ | manufacturer | [ManufacturerResponse](#ManufacturerResponse) |  no  |  |
+ | isActive | Boolean? |  yes  |  |
+ | store | [StoreMeta](#StoreMeta) |  no  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | fyndMeta | HashMap<String,Object>? |  yes  |  |
+ | price | [PriceMeta](#PriceMeta) |  no  |  |
+ | returnConfig | [ReturnConfig1](#ReturnConfig1)? |  yes  |  |
  | taxIdentifier | HashMap<String,Object>? |  yes  |  |
+ | totalQuantity | Integer |  no  |  |
+ | traceId | String? |  yes  |  |
+ | quantities | [Quantities](#Quantities)? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | sellerIdentifier | String |  no  |  |
+ | modifiedBy | [UserSerializer](#UserSerializer)? |  yes  |  |
+ | weight | [WeightResponse](#WeightResponse) |  no  |  |
+ | trackInventory | Boolean? |  yes  |  |
+ | set | [InventorySet](#InventorySet)? |  yes  |  |
+ | countryOfOrigin | String |  no  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | brand | [BrandMeta](#BrandMeta) |  no  |  |
+ | fyndItemCode | String |  no  |  |
+ | trader | ArrayList<[Trader1](#Trader1)>? |  yes  |  |
 
 ---
 
@@ -20964,86 +21060,22 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[InventorySellerResponse](#InventorySellerResponse)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[InventorySellerResponse](#InventorySellerResponse)>? |  yes  |  |
 
 ---
 
 
  
  
- #### [WeightResponse1](#WeightResponse1)
+ #### [DimensionResponse1](#DimensionResponse1)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | length | Double? |  yes  |  |
+ | width | Double? |  yes  |  |
+ | height | Double? |  yes  |  |
  | unit | String? |  yes  |  |
- | shipping | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [ManufacturerResponse1](#ManufacturerResponse1)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | isDefault | Boolean? |  yes  |  |
- | address | String? |  yes  |  |
- | name | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ReturnConfig2](#ReturnConfig2)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | unit | String? |  yes  |  |
- | time | Integer? |  yes  |  |
- | returnable | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [BrandMeta1](#BrandMeta1)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | Integer? |  yes  |  |
- | name | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [PriceArticle](#PriceArticle)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | effective | Double? |  yes  |  |
- | marked | Double? |  yes  |  |
- | tpNotes | HashMap<String,Object>? |  yes  |  |
- | currency | String? |  yes  |  |
- | transfer | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [Trader2](#Trader2)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
- | address | ArrayList<String>? |  yes  |  |
- | name | String? |  yes  |  |
 
 ---
 
@@ -21061,28 +21093,55 @@ Returns a success response
 
  
  
- #### [DimensionResponse1](#DimensionResponse1)
+ #### [ManufacturerResponse1](#ManufacturerResponse1)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | length | Double? |  yes  |  |
- | height | Double? |  yes  |  |
- | width | Double? |  yes  |  |
- | unit | String? |  yes  |  |
+ | address | String? |  yes  |  |
+ | isDefault | Boolean? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [DateMeta](#DateMeta)
+ #### [ArticleStoreResponse](#ArticleStoreResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | modifiedOn | String? |  yes  |  |
- | addedOnStore | String? |  yes  |  |
- | inventoryUpdatedOn | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
+ | storeCode | String? |  yes  |  |
+ | storeType | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PriceArticle](#PriceArticle)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | tpNotes | HashMap<String,Object>? |  yes  |  |
+ | currency | String? |  yes  |  |
+ | effective | Double? |  yes  |  |
+ | transfer | Double? |  yes  |  |
+ | marked | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ReturnConfig2](#ReturnConfig2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | unit | String? |  yes  |  |
+ | returnable | Boolean? |  yes  |  |
+ | time | Integer? |  yes  |  |
 
 ---
 
@@ -21106,21 +21165,58 @@ Returns a success response
  | ---------- | ---- | -------- | ----------- |
  | sellable | [Quantity](#Quantity)? |  yes  |  |
  | notAvailable | [Quantity](#Quantity)? |  yes  |  |
- | orderCommitted | [Quantity](#Quantity)? |  yes  |  |
  | damaged | [Quantity](#Quantity)? |  yes  |  |
+ | orderCommitted | [Quantity](#Quantity)? |  yes  |  |
 
 ---
 
 
  
  
- #### [ArticleStoreResponse](#ArticleStoreResponse)
+ #### [WeightResponse1](#WeightResponse1)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | storeCode | String? |  yes  |  |
- | storeType | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
+ | shipping | Double? |  yes  |  |
+ | unit | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DateMeta](#DateMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | addedOnStore | String? |  yes  |  |
+ | inventoryUpdatedOn | String? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [BrandMeta1](#BrandMeta1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Trader2](#Trader2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | type | String? |  yes  |  |
+ | address | ArrayList<String>? |  yes  |  |
  | name | String? |  yes  |  |
 
 ---
@@ -21132,36 +21228,36 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | weight | [WeightResponse1](#WeightResponse1)? |  yes  |  |
- | manufacturer | [ManufacturerResponse1](#ManufacturerResponse1)? |  yes  |  |
- | returnConfig | [ReturnConfig2](#ReturnConfig2)? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | brand | [BrandMeta1](#BrandMeta1)? |  yes  |  |
- | price | [PriceArticle](#PriceArticle)? |  yes  |  |
- | traceId | String? |  yes  |  |
- | totalQuantity | Integer? |  yes  |  |
- | itemId | Integer? |  yes  |  |
- | modifiedBy | [UserSerializer](#UserSerializer)? |  yes  |  |
- | trader | ArrayList<[Trader2](#Trader2)>? |  yes  |  |
- | company | [CompanyMeta1](#CompanyMeta1)? |  yes  |  |
- | expirationDate | String? |  yes  |  |
- | size | String? |  yes  |  |
- | countryOfOrigin | String? |  yes  |  |
  | identifier | HashMap<String,Object>? |  yes  |  |
- | dimension | [DimensionResponse1](#DimensionResponse1)? |  yes  |  |
- | dateMeta | [DateMeta](#DateMeta)? |  yes  |  |
- | isSet | Boolean? |  yes  |  |
- | inventoryUpdatedOn | String? |  yes  |  |
- | platforms | HashMap<String,Object>? |  yes  |  |
+ | itemId | Integer? |  yes  |  |
  | id | String? |  yes  |  |
- | stage | String? |  yes  |  |
- | sellerIdentifier | String? |  yes  |  |
  | createdBy | [UserSerializer](#UserSerializer)? |  yes  |  |
- | quantities | [QuantitiesArticle](#QuantitiesArticle)? |  yes  |  |
- | store | [ArticleStoreResponse](#ArticleStoreResponse)? |  yes  |  |
- | trackInventory | Boolean? |  yes  |  |
- | taxIdentifier | HashMap<String,Object>? |  yes  |  |
+ | stage | String? |  yes  |  |
+ | size | String? |  yes  |  |
+ | isSet | Boolean? |  yes  |  |
+ | dimension | [DimensionResponse1](#DimensionResponse1)? |  yes  |  |
  | uid | String? |  yes  |  |
+ | expirationDate | String? |  yes  |  |
+ | company | [CompanyMeta1](#CompanyMeta1)? |  yes  |  |
+ | platforms | HashMap<String,Object>? |  yes  |  |
+ | manufacturer | [ManufacturerResponse1](#ManufacturerResponse1)? |  yes  |  |
+ | inventoryUpdatedOn | String? |  yes  |  |
+ | store | [ArticleStoreResponse](#ArticleStoreResponse)? |  yes  |  |
+ | price | [PriceArticle](#PriceArticle)? |  yes  |  |
+ | returnConfig | [ReturnConfig2](#ReturnConfig2)? |  yes  |  |
+ | taxIdentifier | HashMap<String,Object>? |  yes  |  |
+ | totalQuantity | Integer? |  yes  |  |
+ | traceId | String? |  yes  |  |
+ | quantities | [QuantitiesArticle](#QuantitiesArticle)? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | sellerIdentifier | String? |  yes  |  |
+ | modifiedBy | [UserSerializer](#UserSerializer)? |  yes  |  |
+ | weight | [WeightResponse1](#WeightResponse1)? |  yes  |  |
+ | countryOfOrigin | String? |  yes  |  |
+ | dateMeta | [DateMeta](#DateMeta)? |  yes  |  |
+ | brand | [BrandMeta1](#BrandMeta1)? |  yes  |  |
+ | trackInventory | Boolean? |  yes  |  |
+ | trader | ArrayList<[Trader2](#Trader2)>? |  yes  |  |
 
 ---
 
@@ -21172,8 +21268,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[GetInventories](#GetInventories)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[GetInventories](#GetInventories)>? |  yes  |  |
 
 ---
 
@@ -21184,21 +21280,21 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | failed | Integer? |  yes  |  |
  | id | String? |  yes  |  |
- | succeed | Integer? |  yes  |  |
- | stage | String? |  yes  |  |
- | total | Integer? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | failedRecords | ArrayList<String>? |  yes  |  |
- | createdBy | HashMap<String,Object>? |  yes  |  |
+ | failed | Integer? |  yes  |  |
  | filePath | String? |  yes  |  |
  | isActive | Boolean? |  yes  |  |
  | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | cancelledRecords | ArrayList<String>? |  yes  |  |
  | cancelled | Integer? |  yes  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | failedRecords | ArrayList<String>? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | stage | String? |  yes  |  |
+ | succeed | Integer? |  yes  |  |
  | companyId | Integer? |  yes  |  |
+ | total | Integer? |  yes  |  |
+ | cancelledRecords | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -21209,8 +21305,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[BulkInventoryGetItems](#BulkInventoryGetItems)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[BulkInventoryGetItems](#BulkInventoryGetItems)>? |  yes  |  |
 
 ---
 
@@ -21221,18 +21317,18 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | price | Double? |  yes  |  |
- | quantity | Integer? |  yes  |  |
- | sellerIdentifier | String |  no  |  |
- | itemDimensionsUnitOfMeasure | String? |  yes  |  |
- | storeCode | String |  no  |  |
- | totalQuantity | Integer? |  yes  |  |
- | traceId | String? |  yes  |  |
  | itemWeightUnitOfMeasure | String? |  yes  |  |
- | expirationDate | String? |  yes  |  |
- | priceEffective | Double? |  yes  |  |
  | tags | ArrayList<String>? |  yes  |  |
+ | sellerIdentifier | String |  no  |  |
+ | priceEffective | Double? |  yes  |  |
  | currency | String? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | price | Double? |  yes  |  |
+ | itemDimensionsUnitOfMeasure | String? |  yes  |  |
+ | traceId | String? |  yes  |  |
+ | totalQuantity | Integer? |  yes  |  |
+ | storeCode | String |  no  |  |
+ | expirationDate | String? |  yes  |  |
  | priceMarked | Double? |  yes  |  |
 
 ---
@@ -21244,10 +21340,10 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | batchId | String |  no  |  |
  | sizes | ArrayList<[InventoryJobPayload](#InventoryJobPayload)> |  no  |  |
  | companyId | Integer |  no  |  |
  | user | HashMap<String,Object>? |  yes  |  |
+ | batchId | String |  no  |  |
 
 ---
 
@@ -21258,12 +21354,12 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sellerId | Integer |  no  |  |
- | url | String? |  yes  |  |
  | triggerOn | String? |  yes  |  |
- | completedOn | String? |  yes  |  |
- | taskId | String |  no  |  |
  | requestParams | HashMap<String,Object>? |  yes  |  |
+ | sellerId | Integer |  no  |  |
+ | completedOn | String? |  yes  |  |
+ | url | String? |  yes  |  |
+ | taskId | String |  no  |  |
  | status | String? |  yes  |  |
 
 ---
@@ -21275,8 +21371,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
  | brand | ArrayList<Integer>? |  yes  |  |
+ | type | String? |  yes  |  |
  | store | ArrayList<Integer>? |  yes  |  |
 
 ---
@@ -21288,10 +21384,10 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sellerId | Integer |  no  |  |
  | triggerOn | String? |  yes  |  |
- | taskId | String |  no  |  |
  | requestParams | HashMap<String,Object>? |  yes  |  |
+ | sellerId | Integer |  no  |  |
+ | taskId | String |  no  |  |
  | status | String? |  yes  |  |
 
 ---
@@ -21327,13 +21423,13 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | tags | ArrayList<String>? |  yes  |  |
  | sellerIdentifier | String |  no  |  |
+ | priceEffective | Double? |  yes  |  |
  | traceId | String? |  yes  |  |
  | totalQuantity | Integer? |  yes  |  |
- | storeId | Integer |  no  |  |
  | expirationDate | String? |  yes  |  |
- | priceEffective | Double? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
+ | storeId | Integer |  no  |  |
  | priceMarked | Double? |  yes  |  |
 
 ---
@@ -21382,8 +21478,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[InventoryResponseItem](#InventoryResponseItem)>? |  yes  |  |
  | message | String |  no  |  |
+ | items | ArrayList<[InventoryResponseItem](#InventoryResponseItem)>? |  yes  |  |
 
 ---
 
@@ -21394,17 +21490,17 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | taxOnEsp | Boolean? |  yes  |  |
- | hs2Code | String? |  yes  |  |
- | threshold2 | Double? |  yes  |  |
- | threshold1 | Double? |  yes  |  |
  | taxOnMrp | Boolean? |  yes  |  |
- | hsnCode | String? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | tax2 | Double? |  yes  |  |
+ | id | String? |  yes  |  |
  | tax1 | Double? |  yes  |  |
+ | hsnCode | String? |  yes  |  |
+ | threshold1 | Double? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
  | companyId | Integer? |  yes  |  |
+ | tax2 | Double? |  yes  |  |
+ | threshold2 | Double? |  yes  |  |
+ | hs2Code | String? |  yes  |  |
+ | taxOnEsp | Boolean? |  yes  |  |
 
 ---
 
@@ -21426,17 +21522,17 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | taxOnEsp | Boolean? |  yes  |  |
- | hs2Code | String |  no  |  |
- | threshold2 | Double? |  yes  |  |
- | threshold1 | Double |  no  |  |
- | isActive | Boolean? |  yes  |  |
  | taxOnMrp | Boolean |  no  |  |
- | hsnCode | String |  no  |  |
- | uid | Integer? |  yes  |  |
- | tax2 | Double? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
  | tax1 | Double |  no  |  |
+ | hsnCode | String |  no  |  |
+ | threshold1 | Double |  no  |  |
+ | uid | Integer? |  yes  |  |
  | companyId | Integer |  no  |  |
+ | tax2 | Double? |  yes  |  |
+ | threshold2 | Double? |  yes  |  |
+ | hs2Code | String |  no  |  |
+ | taxOnEsp | Boolean? |  yes  |  |
 
 ---
 
@@ -21465,14 +21561,29 @@ Returns a success response
 
  
  
+ #### [PageResponse](#PageResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | size | Integer? |  yes  |  |
+ | itemTotal | Integer? |  yes  |  |
+ | current | String? |  yes  |  |
+ | hasNext | Boolean? |  yes  |  |
+ | hasPrevious | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [TaxSlab](#TaxSlab)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | cess | Double? |  yes  |  |
+ | effectiveDate | String |  no  |  |
  | threshold | Double |  no  |  |
  | rate | Double |  no  |  |
- | effectiveDate | String |  no  |  |
 
 ---
 
@@ -21483,32 +21594,17 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | reportingHsn | String |  no  |  |
- | createdOn | String? |  yes  |  |
- | countryCode | String |  no  |  |
+ | taxes | ArrayList<[TaxSlab](#TaxSlab)> |  no  |  |
  | hsnCodeId | String? |  yes  |  |
- | createdBy | HashMap<String,Object>? |  yes  |  |
+ | reportingHsn | String |  no  |  |
  | modifiedBy | HashMap<String,Object>? |  yes  |  |
  | hsnCode | String |  no  |  |
- | modifiedOn | String? |  yes  |  |
- | taxes | ArrayList<[TaxSlab](#TaxSlab)> |  no  |  |
  | type | String |  no  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
  | description | String |  no  |  |
-
----
-
-
- 
- 
- #### [PageResponse](#PageResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | hasPrevious | Boolean? |  yes  |  |
- | hasNext | Boolean? |  yes  |  |
- | current | String? |  yes  |  |
- | size | Integer? |  yes  |  |
- | itemTotal | Integer? |  yes  |  |
+ | countryCode | String |  no  |  |
 
 ---
 
@@ -21519,8 +21615,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[HSNDataInsertV2](#HSNDataInsertV2)>? |  yes  |  |
  | page | [PageResponse](#PageResponse)? |  yes  |  |
+ | items | ArrayList<[HSNDataInsertV2](#HSNDataInsertV2)>? |  yes  |  |
 
 ---
 
@@ -21531,14 +21627,14 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | action | [Action](#Action)? |  yes  |  |
- | name | String? |  yes  |  |
- | slug | String? |  yes  |  |
- | logo | [Media](#Media)? |  yes  |  |
- | discount | String? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | uid | Integer? |  yes  |  |
  | departments | ArrayList<String>? |  yes  |  |
+ | discount | String? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | action | [Action](#Action)? |  yes  |  |
+ | logo | [Media](#Media)? |  yes  |  |
+ | name | String? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
 
 ---
 
@@ -21549,8 +21645,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[BrandItem](#BrandItem)>? |  yes  |  |
  | page | [Page](#Page) |  no  |  |
+ | items | ArrayList<[BrandItem](#BrandItem)>? |  yes  |  |
 
 ---
 
@@ -21562,10 +21658,10 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | slug | String? |  yes  |  |
- | name | String? |  yes  |  |
- | logo | [Media](#Media)? |  yes  |  |
- | priorityOrder | Integer? |  yes  |  |
  | uid | Integer? |  yes  |  |
+ | priorityOrder | Integer? |  yes  |  |
+ | logo | [Media](#Media)? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -21583,17 +21679,29 @@ Returns a success response
 
  
  
+ #### [DepartmentIdentifier](#DepartmentIdentifier)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | uid | Integer? |  yes  |  |
+ | slug | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [ThirdLevelChild](#ThirdLevelChild)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | slug | String? |  yes  |  |
- | name | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | uid | Integer? |  yes  |  |
  | action | [Action](#Action)? |  yes  |  |
  | childs | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
+ | name | String? |  yes  |  |
  | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | uid | Integer? |  yes  |  |
 
 ---
 
@@ -21605,12 +21713,12 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | slug | String? |  yes  |  |
- | name | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | uid | Integer? |  yes  |  |
  | action | [Action](#Action)? |  yes  |  |
  | childs | ArrayList<[ThirdLevelChild](#ThirdLevelChild)>? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
+ | name | String? |  yes  |  |
  | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | uid | Integer? |  yes  |  |
 
 ---
 
@@ -21622,12 +21730,12 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | slug | String? |  yes  |  |
- | name | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | uid | Integer? |  yes  |  |
  | action | [Action](#Action)? |  yes  |  |
  | childs | ArrayList<[SecondLevelChild](#SecondLevelChild)>? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
+ | name | String? |  yes  |  |
  | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
- | uid | Integer? |  yes  |  |
 
 ---
 
@@ -21638,12 +21746,12 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | action | [Action](#Action)? |  yes  |  |
  | slug | String? |  yes  |  |
- | name | String? |  yes  |  |
- | childs | ArrayList<[Child](#Child)>? |  yes  |  |
- | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
  | uid | Integer? |  yes  |  |
+ | action | [Action](#Action)? |  yes  |  |
+ | childs | ArrayList<[Child](#Child)>? |  yes  |  |
+ | name | String? |  yes  |  |
+ | banners | [ImageUrls](#ImageUrls)? |  yes  |  |
 
 ---
 
@@ -21662,24 +21770,12 @@ Returns a success response
 
  
  
- #### [DepartmentIdentifier](#DepartmentIdentifier)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | slug | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
-
----
-
-
- 
- 
  #### [CategoryListingResponse](#CategoryListingResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | ArrayList<[DepartmentCategoryTree](#DepartmentCategoryTree)>? |  yes  |  |
  | departments | ArrayList<[DepartmentIdentifier](#DepartmentIdentifier)>? |  yes  |  |
+ | data | ArrayList<[DepartmentCategoryTree](#DepartmentCategoryTree)>? |  yes  |  |
 
 ---
 
@@ -21690,10 +21786,10 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | filters | ArrayList<[ProductFilters](#ProductFilters)>? |  yes  |  |
  | sortOn | ArrayList<[ProductSortOn](#ProductSortOn)>? |  yes  |  |
- | page | [Page](#Page) |  no  |  |
  | operators | HashMap<String,Object>? |  yes  |  |
+ | page | [Page](#Page) |  no  |  |
+ | filters | ArrayList<[ProductFilters](#ProductFilters)>? |  yes  |  |
  | items | ArrayList<[ProductListingDetail](#ProductListingDetail)>? |  yes  |  |
 
 ---
@@ -21705,29 +21801,29 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | promoMeta | HashMap<String,Object>? |  yes  |  |
- | color | String? |  yes  |  |
- | groupedAttributes | ArrayList<[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)>? |  yes  |  |
- | imageNature | String? |  yes  |  |
- | teaserTag | HashMap<String,Object>? |  yes  |  |
- | itemCode | String? |  yes  |  |
- | type | String? |  yes  |  |
- | brand | [ProductBrand](#ProductBrand)? |  yes  |  |
- | attributes | HashMap<String,Object>? |  yes  |  |
- | hasVariant | Boolean? |  yes  |  |
- | itemType | String? |  yes  |  |
- | productOnlineDate | String? |  yes  |  |
- | slug | String |  no  |  |
  | highlights | ArrayList<String>? |  yes  |  |
- | medias | ArrayList<[Media1](#Media1)>? |  yes  |  |
+ | slug | String |  no  |  |
+ | itemCode | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | hasVariant | Boolean? |  yes  |  |
  | shortDescription | String? |  yes  |  |
  | ratingCount | Integer? |  yes  |  |
- | rating | Double? |  yes  |  |
- | description | String? |  yes  |  |
- | name | String? |  yes  |  |
- | tryouts | ArrayList<String>? |  yes  |  |
  | uid | Integer? |  yes  |  |
  | similars | ArrayList<String>? |  yes  |  |
+ | itemType | String? |  yes  |  |
+ | tryouts | ArrayList<String>? |  yes  |  |
+ | color | String? |  yes  |  |
+ | teaserTag | HashMap<String,Object>? |  yes  |  |
+ | imageNature | String? |  yes  |  |
+ | medias | ArrayList<[Media1](#Media1)>? |  yes  |  |
+ | groupedAttributes | ArrayList<[ProductDetailGroupedAttribute](#ProductDetailGroupedAttribute)>? |  yes  |  |
+ | rating | Double? |  yes  |  |
+ | productOnlineDate | String? |  yes  |  |
+ | promoMeta | HashMap<String,Object>? |  yes  |  |
+ | type | String? |  yes  |  |
+ | attributes | HashMap<String,Object>? |  yes  |  |
+ | name | String? |  yes  |  |
+ | brand | [ProductBrand](#ProductBrand)? |  yes  |  |
 
 ---
 
@@ -21738,11 +21834,11 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | hasPrevious | Boolean? |  yes  |  |
- | hasNext | Boolean? |  yes  |  |
- | nextId | String? |  yes  |  |
- | type | String |  no  |  |
  | itemTotal | Integer |  no  |  |
+ | type | String |  no  |  |
+ | hasNext | Boolean? |  yes  |  |
+ | hasPrevious | Boolean? |  yes  |  |
+ | nextId | String? |  yes  |  |
 
 ---
 
@@ -21753,8 +21849,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | page | [InventoryPage](#InventoryPage) |  no  |  |
+ | items | ArrayList<HashMap<String,Object>>? |  yes  |  |
 
 ---
 
@@ -21765,9 +21861,9 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | size | String |  no  |  |
  | itemId | Integer |  no  |  |
  | ignoredStores | ArrayList<Integer>? |  yes  |  |
- | size | String |  no  |  |
 
 ---
 
@@ -21791,9 +21887,9 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | quantity | Integer? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
  | query | [ArticleQuery](#ArticleQuery)? |  yes  |  |
  | groupId | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
  | articleAssignment | [ArticleAssignment](#ArticleAssignment)? |  yes  |  |
 
 ---
@@ -21805,13 +21901,13 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | pincode | String |  no  |  |
  | appId | String |  no  |  |
- | articles | ArrayList<[AssignStoreArticle](#AssignStoreArticle)> |  no  |  |
- | channelType | String? |  yes  |  |
  | channelIdentifier | String? |  yes  |  |
+ | pincode | String |  no  |  |
  | storeIds | ArrayList<Integer>? |  yes  |  |
  | companyId | Integer? |  yes  |  |
+ | channelType | String? |  yes  |  |
+ | articles | ArrayList<[AssignStoreArticle](#AssignStoreArticle)> |  no  |  |
 
 ---
 
@@ -21834,38 +21930,23 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | companyId | Integer? |  yes  |  |
- | quantity | Integer |  no  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | articleAssignment | [ArticleAssignment1](#ArticleAssignment1) |  no  |  |
- | itemId | Integer |  no  |  |
- | id | String? |  yes  |  |
  | storeId | Integer? |  yes  |  |
- | sCity | String? |  yes  |  |
- | strategyWiseListing | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | index | Integer? |  yes  |  |
+ | size | String |  no  |  |
+ | itemId | Integer |  no  |  |
  | priceEffective | Integer? |  yes  |  |
  | uid | String? |  yes  |  |
- | storePincode | Integer? |  yes  |  |
+ | quantity | Integer |  no  |  |
+ | strategyWiseListing | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | sCity | String? |  yes  |  |
+ | companyId | Integer? |  yes  |  |
  | groupId | String? |  yes  |  |
- | priceMarked | Integer? |  yes  |  |
- | size | String |  no  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | index | Integer? |  yes  |  |
+ | storePincode | Integer? |  yes  |  |
+ | id | String? |  yes  |  |
+ | articleAssignment | [ArticleAssignment1](#ArticleAssignment1) |  no  |  |
  | status | Boolean |  no  |  |
-
----
-
-
- 
- 
- #### [Document](#Document)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | legalName | String? |  yes  |  |
- | url | String? |  yes  |  |
- | verified | Boolean? |  yes  |  |
- | value | String |  no  |  |
- | type | String |  no  |  |
+ | priceMarked | Integer? |  yes  |  |
 
 ---
 
@@ -21876,29 +21957,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | storeUid | Integer? |  yes  |  |
  | onSameStore | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [GetAddressSerializer](#GetAddressSerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | landmark | String? |  yes  |  |
- | pincode | Integer? |  yes  |  |
- | country | String? |  yes  |  |
- | state | String? |  yes  |  |
- | longitude | Double? |  yes  |  |
- | address2 | String? |  yes  |  |
- | countryCode | String? |  yes  |  |
- | city | String? |  yes  |  |
- | address1 | String? |  yes  |  |
- | latitude | Double? |  yes  |  |
- | addressType | String? |  yes  |  |
+ | storeUid | Integer? |  yes  |  |
 
 ---
 
@@ -21909,57 +21969,9 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | username | String? |  yes  |  |
- | userId | String? |  yes  |  |
  | contact | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [LocationIntegrationType](#LocationIntegrationType)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | inventory | String? |  yes  |  |
- | order | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserSerializer2](#UserSerializer2)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | username | String? |  yes  |  |
  | userId | String? |  yes  |  |
- | contact | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [GetCompanySerializer](#GetCompanySerializer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | stage | String? |  yes  |  |
- | addresses | ArrayList<[GetAddressSerializer](#GetAddressSerializer)>? |  yes  |  |
- | name | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | companyType | String? |  yes  |  |
- | verifiedBy | [UserSerializer2](#UserSerializer2)? |  yes  |  |
- | businessType | String? |  yes  |  |
- | createdBy | [UserSerializer2](#UserSerializer2)? |  yes  |  |
- | modifiedBy | [UserSerializer2](#UserSerializer2)? |  yes  |  |
- | rejectReason | String? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | verifiedOn | String? |  yes  |  |
+ | username | String? |  yes  |  |
 
 ---
 
@@ -21970,8 +21982,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | username | String? |  yes  |  |
  | password | String? |  yes  |  |
+ | username | String? |  yes  |  |
  | enabled | Boolean? |  yes  |  |
 
 ---
@@ -21983,8 +21995,20 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | eInvoice | [InvoiceCredSerializer](#InvoiceCredSerializer)? |  yes  |  |
  | eWaybill | [InvoiceCredSerializer](#InvoiceCredSerializer)? |  yes  |  |
+ | eInvoice | [InvoiceCredSerializer](#InvoiceCredSerializer)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LocationIntegrationType](#LocationIntegrationType)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | order | String? |  yes  |  |
+ | inventory | String? |  yes  |  |
 
 ---
 
@@ -22003,13 +22027,72 @@ Returns a success response
 
  
  
- #### [LocationManagerSerializer](#LocationManagerSerializer)
+ #### [GetAddressSerializer](#GetAddressSerializer)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | email | String? |  yes  |  |
- | mobileNo | [SellerPhoneNumber](#SellerPhoneNumber) |  no  |  |
+ | country | String? |  yes  |  |
+ | city | String? |  yes  |  |
+ | longitude | Double? |  yes  |  |
+ | address2 | String? |  yes  |  |
+ | pincode | Integer? |  yes  |  |
+ | latitude | Double? |  yes  |  |
+ | address1 | String? |  yes  |  |
+ | addressType | String? |  yes  |  |
+ | landmark | String? |  yes  |  |
+ | countryCode | String? |  yes  |  |
+ | state | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UserSerializer2](#UserSerializer2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | contact | String? |  yes  |  |
+ | userId | String? |  yes  |  |
+ | username | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GetCompanySerializer](#GetCompanySerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | businessType | String? |  yes  |  |
+ | addresses | ArrayList<[GetAddressSerializer](#GetAddressSerializer)>? |  yes  |  |
+ | modifiedBy | [UserSerializer2](#UserSerializer2)? |  yes  |  |
+ | verifiedOn | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | createdBy | [UserSerializer2](#UserSerializer2)? |  yes  |  |
+ | stage | String? |  yes  |  |
  | name | String? |  yes  |  |
+ | verifiedBy | [UserSerializer2](#UserSerializer2)? |  yes  |  |
+ | rejectReason | String? |  yes  |  |
+ | companyType | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Document](#Document)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | type | String |  no  |  |
+ | verified | Boolean? |  yes  |  |
+ | url | String? |  yes  |  |
+ | value | String |  no  |  |
+ | legalName | String? |  yes  |  |
 
 ---
 
@@ -22020,8 +22103,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | hour | Integer? |  yes  |  |
  | minute | Integer? |  yes  |  |
+ | hour | Integer? |  yes  |  |
 
 ---
 
@@ -22032,10 +22115,23 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | weekday | String |  no  |  |
+ | open | Boolean |  no  |  |
  | opening | [LocationTimingSerializer](#LocationTimingSerializer)? |  yes  |  |
  | closing | [LocationTimingSerializer](#LocationTimingSerializer)? |  yes  |  |
- | open | Boolean |  no  |  |
- | weekday | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [LocationManagerSerializer](#LocationManagerSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | mobileNo | [SellerPhoneNumber](#SellerPhoneNumber) |  no  |  |
+ | email | String? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -22046,31 +22142,31 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | storeType | String? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | documents | ArrayList<[Document](#Document)>? |  yes  |  |
  | productReturnConfig | [ProductReturnConfigSerializer](#ProductReturnConfigSerializer)? |  yes  |  |
- | address | [GetAddressSerializer](#GetAddressSerializer) |  no  |  |
- | modifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
- | integrationType | [LocationIntegrationType](#LocationIntegrationType)? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | company | [GetCompanySerializer](#GetCompanySerializer)? |  yes  |  |
- | gstCredentials | [InvoiceDetailsSerializer](#InvoiceDetailsSerializer)? |  yes  |  |
- | notificationEmails | ArrayList<String>? |  yes  |  |
- | manager | [LocationManagerSerializer](#LocationManagerSerializer)? |  yes  |  |
- | timing | ArrayList<[LocationDayWiseSerializer](#LocationDayWiseSerializer)>? |  yes  |  |
  | phoneNumber | String |  no  |  |
- | displayName | String |  no  |  |
- | verifiedOn | String? |  yes  |  |
- | code | String |  no  |  |
- | contactNumbers | ArrayList<[SellerPhoneNumber](#SellerPhoneNumber)>? |  yes  |  |
- | stage | String? |  yes  |  |
- | warnings | HashMap<String,Object>? |  yes  |  |
- | name | String |  no  |  |
- | createdOn | String? |  yes  |  |
- | verifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
  | createdBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
+ | gstCredentials | [InvoiceDetailsSerializer](#InvoiceDetailsSerializer)? |  yes  |  |
+ | stage | String? |  yes  |  |
+ | integrationType | [LocationIntegrationType](#LocationIntegrationType)? |  yes  |  |
+ | contactNumbers | ArrayList<[SellerPhoneNumber](#SellerPhoneNumber)>? |  yes  |  |
  | uid | Integer? |  yes  |  |
+ | notificationEmails | ArrayList<String>? |  yes  |  |
+ | code | String |  no  |  |
+ | company | [GetCompanySerializer](#GetCompanySerializer)? |  yes  |  |
+ | storeType | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | documents | ArrayList<[Document](#Document)>? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | address | [GetAddressSerializer](#GetAddressSerializer) |  no  |  |
+ | warnings | HashMap<String,Object>? |  yes  |  |
+ | timing | ArrayList<[LocationDayWiseSerializer](#LocationDayWiseSerializer)>? |  yes  |  |
+ | modifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
+ | verifiedOn | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | displayName | String |  no  |  |
+ | manager | [LocationManagerSerializer](#LocationManagerSerializer)? |  yes  |  |
+ | name | String |  no  |  |
+ | verifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
 
 ---
 
@@ -22081,8 +22177,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[GetLocationSerializer](#GetLocationSerializer)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[GetLocationSerializer](#GetLocationSerializer)>? |  yes  |  |
 
 ---
 
@@ -22115,12 +22211,12 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | logo | String? |  yes  |  |
  | appId | String |  no  |  |
  | isActive | Boolean? |  yes  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
  | uid | Integer |  no  |  |
+ | logo | String? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -22131,8 +22227,8 @@ Returns a success response
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[ApplicationDepartment](#ApplicationDepartment)>? |  yes  |  |
  | page | [Page](#Page) |  no  |  |
+ | items | ArrayList<[ApplicationDepartment](#ApplicationDepartment)>? |  yes  |  |
 
 ---
 

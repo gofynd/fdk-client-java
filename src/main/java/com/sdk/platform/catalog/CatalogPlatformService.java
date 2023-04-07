@@ -1531,9 +1531,9 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.ProductListingResponse getProducts(List<Integer> brandIds , List<Integer> categoryIds , List<Integer> itemIds , List<Integer> departmentIds , List<String> itemCode , String q , List<String> tags , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductListingResponseV2 getProducts(List<Integer> brandIds , List<Integer> categoryIds , List<Integer> itemIds , List<Integer> departmentIds , List<String> itemCode , String q , List<String> tags , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ProductListingResponse> response = null;
+            Response<CatalogPlatformModels.ProductListingResponseV2> response = null;
             try {
                 response = catalogPlatformApiList.getProducts(this.companyId ,brandIds , categoryIds , itemIds , departmentIds , itemCode , q , tags , pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
@@ -2347,7 +2347,7 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.InventoryResponsePaginated getInventoryBySize(String itemId , String size , Integer pageNo , Integer pageSize , String q , Boolean sellable ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryResponsePaginated getInventoryBySize(Integer itemId , String size , Integer pageNo , Integer pageSize , String q , Boolean sellable ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.InventoryResponsePaginated> response = null;
             try {
@@ -2391,7 +2391,7 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponse addInventory(Double itemId , String size ,CatalogPlatformModels.InventoryRequest body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse addInventory(Integer itemId , String size ,CatalogPlatformModels.InventoryRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
@@ -2451,7 +2451,7 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.InventorySellerIdentifierResponsePaginated getInventoryBySizeIdentifier(String itemId , String sizeIdentifier , Integer pageNo , Integer pageSize , String q , List<Integer> locationIds ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventorySellerIdentifierResponsePaginated getInventoryBySizeIdentifier(Integer itemId , String sizeIdentifier , Integer pageNo , Integer pageSize , String q , List<Integer> locationIds ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.InventorySellerIdentifierResponsePaginated> response = null;
             try {
@@ -2885,7 +2885,7 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.InventoryUpdateResponse updateRealtimeInventory(Double itemId , String sellerIdentifier ,CatalogPlatformModels.InventoryRequestSchemaV2 body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryUpdateResponse updateRealtimeInventory(Integer itemId , String sellerIdentifier ,CatalogPlatformModels.InventoryRequestSchemaV2 body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.InventoryUpdateResponse> response = null;
             try {
@@ -2929,7 +2929,7 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.InventoryUpdateResponse deleteRealtimeInventory(Double itemId , String sellerIdentifier ,CatalogPlatformModels.InventoryRequestSchemaV2 body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryUpdateResponse deleteRealtimeInventory(Integer itemId , String sellerIdentifier ,CatalogPlatformModels.InventoryRequestSchemaV2 body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.InventoryUpdateResponse> response = null;
             try {
@@ -3751,11 +3751,11 @@ public class ApplicationClient {
     
     
 
-    public CatalogPlatformModels.SuccessResponse1 updateAppProduct(String itemId ,CatalogPlatformModels.ApplicationItemMeta body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.OwnerAppItemResponse getAppProduct(String itemId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponse1> response = null;
+            Response<CatalogPlatformModels.OwnerAppItemResponse> response = null;
             try {
-            response = catalogPlatformApiList.updateAppProduct(this.companyId , this.applicationId , itemId , body).execute();
+            response = catalogPlatformApiList.getAppProduct(this.companyId , this.applicationId , itemId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3796,11 +3796,11 @@ public class ApplicationClient {
     
     
 
-    public CatalogPlatformModels.OwnerAppItemResponse getAppProduct(String itemId ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse1 updateAppProduct(String itemId ,CatalogPlatformModels.ApplicationItemMeta body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.OwnerAppItemResponse> response = null;
+            Response<CatalogPlatformModels.SuccessResponse1> response = null;
             try {
-            response = catalogPlatformApiList.getAppProduct(this.companyId , this.applicationId , itemId ).execute();
+            response = catalogPlatformApiList.updateAppProduct(this.companyId , this.applicationId , itemId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
