@@ -4166,7 +4166,7 @@ Check store has active integration
 
 
 ```java
-client.configuration.getLevelActiveIntegrations( id,  level,  uid) {
+client.configuration.getLevelActiveIntegrations( id,  level,  uid,  permission) {
   //use response
 }
 ```
@@ -4178,7 +4178,8 @@ client.configuration.getLevelActiveIntegrations( id,  level,  uid) {
 | companyId | String | yes | Current company id |   
 | id | String | yes | Integration id |   
 | level | String | yes | Integration level |   
-| uid | Integer | yes | Integration level uid |  
+| uid | Integer | yes | Integration level uid |   
+| permission | String? | no | Check opt-in for specific integration permissions |  
 
 
 

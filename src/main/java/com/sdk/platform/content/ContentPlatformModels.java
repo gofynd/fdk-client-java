@@ -9,74 +9,6 @@ public class ContentPlatformModels{
 
 
 /*
-    Model: GenerateSEOContent
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GenerateSEOContent{
-    
-    
-    
-    
-    @JsonProperty("text")
-    private String text;
-    
-    
-    
-    
-    @JsonProperty("existing_text")
-    private String existingText;
-    
-    
-    
-    
-    @JsonProperty("keywords")
-    private List<String> keywords;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-}
-
-
-/*
-    Model: GeneratedSEOContent
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeneratedSEOContent{
-    
-    
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-}
-
-
-/*
     Model: ApplicationLegal
 */
 @AllArgsConstructor
@@ -225,35 +157,7 @@ public static class PathMappingSchema{
     
     
     @JsonProperty("__source")
-    private PathSourceSchema source;
-    
-    
-    
-}
-
-
-/*
-    Model: PathSourceSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PathSourceSchema{
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
+    private TagSourceSchema source;
     
     
     
@@ -316,12 +220,6 @@ public static class SeoSchema{
     
     @JsonProperty("sitemap_enabled")
     private Boolean sitemapEnabled;
-    
-    
-    
-    
-    @JsonProperty("cannonical_enabled")
-    private Boolean cannonicalEnabled;
     
     
     
@@ -4216,27 +4114,6 @@ public static class TagSourceSchema{
 }
 
 
-
-
-    
-    /*
-        Enum: GenerationEntityType
-        Used By: Content
-    */
-    @Getter
-    public enum GenerationEntityType {
-
-        
-        title("title"), 
-        
-        description("description");
-        
-
-        private String priority;
-        GenerationEntityType(String priority) {
-            this.priority = priority;
-        }
-    }
 
 
     

@@ -9,15 +9,9 @@ import java.util.*;
 interface LogisticApplicationApiList {
     
     
-    @GET 
-    Call<LogisticApplicationModels.PincodeApiResponse> getPincodeCity(@Url String url1, @Query("country_code") String countryCode );
-    
     @POST 
-    Call<LogisticApplicationModels.TATViewResponse> getTatProduct(@Url String url1 , @Body LogisticApplicationModels.TATViewRequest payload );
+    Call<LogisticApplicationModels.GetTatProductResponse> getTatProduct(@Url String url1 , @Body LogisticApplicationModels.GetTatProductReqBody payload );
     
     @GET 
-    Call<LogisticApplicationModels.CountryListResponse> getAllCountries(@Url String url1);
-    
-    @POST 
-    Call<LogisticApplicationModels.GetZoneFromPincodeViewResponse> getPincodeZones(@Url String url1 , @Body LogisticApplicationModels.GetZoneFromPincodeViewRequest payload );
+    Call<LogisticApplicationModels.GetPincodeCityResponse> getPincodeCity(@Url String url1);
 }
