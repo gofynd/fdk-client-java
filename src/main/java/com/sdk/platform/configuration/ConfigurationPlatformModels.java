@@ -537,6 +537,12 @@ public static class AppCartConfig{
     
     
     
+    
+    @JsonProperty("pan_card")
+    private PanCardConfig panCard;
+    
+    
+    
 }
 
 
@@ -1282,6 +1288,40 @@ public static class BrandsByCompanyResponse{
     
     @JsonProperty("brands")
     private CompanyBrandInfo brands;
+    
+    
+    
+}
+
+
+/*
+    Model: PanCardConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PanCardConfig{
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+    
+    @JsonProperty("cod_threshold_amount")
+    private Double codThresholdAmount;
+    
+    
+    
+    
+    @JsonProperty("online_threshold_amount")
+    private Double onlineThresholdAmount;
     
     
     
