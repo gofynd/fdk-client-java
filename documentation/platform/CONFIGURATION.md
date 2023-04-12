@@ -1730,6 +1730,17 @@ Success
   },
   "business": "retail",
   "comms_enabled": true,
+  "communication": {
+    "email": {
+      "enabled": false
+    },
+    "sms": {
+      "enabled": false
+    },
+    "voice": {
+      "enabled": false
+    }
+  },
   "platforms": [
     "uniket_wholesale"
   ],
@@ -1969,6 +1980,17 @@ Success
   },
   "business": "retail",
   "comms_enabled": true,
+  "communication": {
+    "email": {
+      "enabled": false
+    },
+    "sms": {
+      "enabled": false
+    },
+    "voice": {
+      "enabled": false
+    }
+  },
   "platforms": [
     "uniket_wholesale"
   ],
@@ -2208,6 +2230,17 @@ Success
   },
   "business": "retail",
   "comms_enabled": true,
+  "communication": {
+    "email": {
+      "enabled": false
+    },
+    "sms": {
+      "enabled": false
+    },
+    "voice": {
+      "enabled": false
+    }
+  },
   "platforms": [
     "uniket_wholesale"
   ],
@@ -3142,7 +3175,7 @@ client.configuration.getApplications( pageNo,  pageSize,  q) {
 | companyId | String | yes | Current company id |   
 | pageNo | Integer? | no |  |   
 | pageSize | Integer? | no |  |   
-| q | String? | no | Url encoded object used as mongodb query |  
+| q | String? | no | Search string to search saleschannel by name |  
 
 
 
@@ -4770,6 +4803,7 @@ Success
  | logistics | [AppLogisticsConfig](#AppLogisticsConfig)? |  yes  |  |
  | business | String? |  yes  |  |
  | commsEnabled | Boolean? |  yes  |  |
+ | communication | [CommunicationConfig](#CommunicationConfig)? |  yes  |  |
  | platforms | ArrayList<String>? |  yes  |  |
  | id | String? |  yes  |  |
  | loyaltyPoints | [LoyaltyPointsConfig](#LoyaltyPointsConfig)? |  yes  |  |
@@ -5096,6 +5130,7 @@ Success
  | payment | [AppPaymentConfig](#AppPaymentConfig)? |  yes  |  |
  | loyaltyPoints | [LoyaltyPointsConfig](#LoyaltyPointsConfig)? |  yes  |  |
  | commsEnabled | Boolean? |  yes  |  |
+ | communication | [CommunicationConfig](#CommunicationConfig)? |  yes  |  |
 
 ---
 
@@ -5199,6 +5234,30 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | brands | [CompanyBrandInfo](#CompanyBrandInfo)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CommunicationConfig](#CommunicationConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | email | [CommsConfig](#CommsConfig)? |  yes  |  |
+ | sms | [CommsConfig](#CommsConfig)? |  yes  |  |
+ | voice | [CommsConfig](#CommsConfig)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CommsConfig](#CommsConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | enabled | Boolean? |  yes  | Check current communication channel is enabled |
 
 ---
 

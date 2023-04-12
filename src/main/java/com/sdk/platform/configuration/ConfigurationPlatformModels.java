@@ -82,6 +82,12 @@ public static class ApplicationInventory{
     
     
     
+    @JsonProperty("communication")
+    private CommunicationConfig communication;
+    
+    
+    
+    
     @JsonProperty("platforms")
     private List<String> platforms;
     
@@ -1025,6 +1031,12 @@ public static class AppInventoryPartialUpdate{
     
     
     
+    
+    @JsonProperty("communication")
+    private CommunicationConfig communication;
+    
+    
+    
 }
 
 
@@ -1288,6 +1300,62 @@ public static class BrandsByCompanyResponse{
     
     @JsonProperty("brands")
     private CompanyBrandInfo brands;
+    
+    
+    
+}
+
+
+/*
+    Model: CommunicationConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CommunicationConfig{
+    
+    
+    
+    
+    @JsonProperty("email")
+    private CommsConfig email;
+    
+    
+    
+    
+    @JsonProperty("sms")
+    private CommsConfig sms;
+    
+    
+    
+    
+    @JsonProperty("voice")
+    private CommsConfig voice;
+    
+    
+    
+}
+
+
+/*
+    Model: CommsConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CommsConfig{
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
     
     
     
