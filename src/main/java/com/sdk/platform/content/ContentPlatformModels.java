@@ -320,6 +320,12 @@ public static class SeoSchema{
     
     
     
+    @JsonProperty("cannonical_enabled")
+    private Boolean cannonicalEnabled;
+    
+    
+    
+    
     @JsonProperty("custom_meta_tags")
     private List<Object> customMetaTags;
     
