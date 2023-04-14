@@ -20,8 +20,6 @@ import com.sdk.application.content.ContentApplicationService;
 
 import com.sdk.application.communication.CommunicationApplicationService;
 
-import com.sdk.application.share.ShareApplicationService;
-
 import com.sdk.application.filestorage.FileStorageApplicationService;
 
 import com.sdk.application.configuration.ConfigurationApplicationService;
@@ -60,8 +58,6 @@ public class ApplicationClient {
     
     public CommunicationApplicationService communication;
     
-    public ShareApplicationService share;
-    
     public FileStorageApplicationService fileStorage;
     
     public ConfigurationApplicationService configuration;
@@ -99,8 +95,6 @@ public class ApplicationClient {
         this.content = new ContentApplicationService(applicationConfig);
         
         this.communication = new CommunicationApplicationService(applicationConfig);
-        
-        this.share = new ShareApplicationService(applicationConfig);
         
         this.fileStorage = new FileStorageApplicationService(applicationConfig);
         
