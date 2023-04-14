@@ -2331,12 +2331,16 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
 
-    public CartPlatformModels.CartShipmentsResponse getShipments(Integer pickAtStoreUid , Integer orderingStoreId , Boolean p , String id , String addressId , String areaCode , String orderType ) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.CartShipmentsResponse getShipments(Integer pickAtStoreUid , Integer orderingStoreId , Boolean i , Boolean p , String id , String addressId , String areaCode , String orderType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartShipmentsResponse> response = null;
             try {
-            response = cartPlatformApiList.getShipments(this.companyId , this.applicationId ,pickAtStoreUid , orderingStoreId , p , id , addressId , areaCode , orderType ).execute();
+            response = cartPlatformApiList.getShipments(this.companyId , this.applicationId ,pickAtStoreUid , orderingStoreId , i , p , id , addressId , areaCode , orderType ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2392,12 +2396,16 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
 
-    public CartPlatformModels.CartShipmentsResponse updateShipments(Boolean i , Boolean p , String id , String addressId , String orderType ,CartPlatformModels.UpdateCartShipmentRequest body) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.CartShipmentsResponse updateShipments(Boolean i , Boolean p , String id , String addressId , String areaCode , String orderType ,CartPlatformModels.UpdateCartShipmentRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartShipmentsResponse> response = null;
             try {
-            response = cartPlatformApiList.updateShipments(this.companyId , this.applicationId ,i , p , id , addressId , orderType , body).execute();
+            response = cartPlatformApiList.updateShipments(this.companyId , this.applicationId ,i , p , id , addressId , areaCode , orderType , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

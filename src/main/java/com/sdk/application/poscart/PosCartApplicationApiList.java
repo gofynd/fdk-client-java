@@ -67,7 +67,7 @@ interface PosCartApplicationApiList {
     Call<PosCartApplicationModels.CartShipmentsResponse> getShipments(@Url String url1, @Query("pick_at_store_uid") Integer pickAtStoreUid , @Query("ordering_store_id") Integer orderingStoreId , @Query("p") Boolean p , @Query("id") String id , @Query("address_id") String addressId , @Query("area_code") String areaCode , @Query("order_type") String orderType );
     
     @PUT 
-    Call<PosCartApplicationModels.CartShipmentsResponse> updateShipments(@Url String url1, @Query("i") Boolean i , @Query("p") Boolean p , @Query("id") String id , @Query("address_id") String addressId , @Query("order_type") String orderType  , @Body PosCartApplicationModels.UpdateCartShipmentRequest payload );
+    Call<PosCartApplicationModels.CartShipmentsResponse> updateShipments(@Url String url1, @Query("i") Boolean i , @Query("p") Boolean p , @Query("id") String id , @Query("address_id") String addressId , @Query("area_code") String areaCode , @Query("order_type") String orderType  , @Body PosCartApplicationModels.UpdateCartShipmentRequest payload );
     
     @POST 
     Call<PosCartApplicationModels.CartCheckoutResponse> checkoutCart(@Url String url1, @Query("id") String id  , @Body PosCartApplicationModels.CartPosCheckoutDetailRequest payload );

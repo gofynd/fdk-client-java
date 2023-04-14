@@ -458,12 +458,12 @@ import com.sdk.application.ApplicationConfig;
     
     
     
-    public PosCartApplicationModels.CartShipmentsResponse updateShipments(Boolean i , Boolean p , String id , String addressId , String orderType ,PosCartApplicationModels.UpdateCartShipmentRequest body) throws IOException {
+    public PosCartApplicationModels.CartShipmentsResponse updateShipments(Boolean i , Boolean p , String id , String addressId , String areaCode , String orderType ,PosCartApplicationModels.UpdateCartShipmentRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("updateShipments");
         
 
-        Response<PosCartApplicationModels.CartShipmentsResponse> response = poscartApplicationApiList.updateShipments(fullUrl  ,i, p, id, addressId, orderType, body).execute();
+        Response<PosCartApplicationModels.CartShipmentsResponse> response = poscartApplicationApiList.updateShipments(fullUrl  ,i, p, id, addressId, areaCode, orderType, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
