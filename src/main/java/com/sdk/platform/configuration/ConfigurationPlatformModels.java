@@ -1332,8 +1332,14 @@ public static class PanCardConfig{
     
     
     
-    @JsonProperty("threshold_amount")
-    private Double thresholdAmount;
+    @JsonProperty("cod_threshold_amount")
+    private Double codThresholdAmount;
+    
+    
+    
+    
+    @JsonProperty("online_threshold_amount")
+    private Double onlineThresholdAmount;
     
     
     

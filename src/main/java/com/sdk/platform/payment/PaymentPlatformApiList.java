@@ -41,18 +41,6 @@ interface PaymentPlatformApiList {
     
     
     
-    @PUT ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/aggregator/request")
-    Call<PaymentPlatformModels.PaymentGatewayToBeReviewed> updateBrandPaymentGatewayConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.PaymentGatewayConfigRequest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
