@@ -51,6 +51,12 @@ interface PaymentApplicationApiList {
     @POST 
     Call<PaymentApplicationModels.ResendOrCancelPaymentResponse> resendOrCancelPayment(@Url String url1 , @Body PaymentApplicationModels.ResendOrCancelPaymentRequest payload );
     
+    @POST 
+    Call<PaymentApplicationModels.renderHTMLResponse> renderHTML(@Url String url1 , @Body PaymentApplicationModels.renderHTMLRequest payload );
+    
+    @POST 
+    Call<PaymentApplicationModels.ValidateVPAResponse> validateVPA(@Url String url1 , @Body PaymentApplicationModels.ValidateVPARequest payload );
+    
     @GET 
     Call<PaymentApplicationModels.TransferModeResponse> getActiveRefundTransferModes(@Url String url1);
     

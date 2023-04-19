@@ -42,6 +42,8 @@ import com.sdk.application.ApplicationConfig;
                     relativeUrls.put("getAllCountries","/service/application/logistics/v1.0/country-list".substring(1));
             
                     relativeUrls.put("getPincodeZones","/service/application/logistics/v1.0/pincode/zones".substring(1));
+            
+                    relativeUrls.put("getOptimalLocations","/service/application/logistics/v1.0/reassign_stores".substring(1));
              
 
     }
@@ -64,14 +66,14 @@ import com.sdk.application.ApplicationConfig;
      
     
     
-    public LogisticApplicationModels.PincodeApiResponse getPincodeCity(String pincode , String countryCode ) throws IOException {
+    public LogisticApplicationModels.PincodeApiResponse getPincodeCity(String pincode ) throws IOException {
      
       String fullUrl = relativeUrls.get("getPincodeCity");
         
         fullUrl = fullUrl.replace("{" + "pincode" +"}",pincode.toString());
         
 
-        Response<LogisticApplicationModels.PincodeApiResponse> response = logisticApplicationApiList.getPincodeCity(fullUrl  ,countryCode).execute();
+        Response<LogisticApplicationModels.PincodeApiResponse> response = logisticApplicationApiList.getPincodeCity(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -126,6 +128,24 @@ import com.sdk.application.ApplicationConfig;
         
 
         Response<LogisticApplicationModels.GetZoneFromPincodeViewResponse> response = logisticApplicationApiList.getPincodeZones(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public LogisticApplicationModels.ReAssignStoreResponse getOptimalLocations(LogisticApplicationModels.ReAssignStoreRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getOptimalLocations");
+        
+
+        Response<LogisticApplicationModels.ReAssignStoreResponse> response = logisticApplicationApiList.getOptimalLocations(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
