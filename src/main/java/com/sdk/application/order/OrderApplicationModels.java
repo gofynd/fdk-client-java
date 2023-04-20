@@ -2164,6 +2164,12 @@ public static class Shipments{
     
     
     
+    
+    @JsonProperty("return_meta")
+    private ReturnMetaData returnMeta;
+    
+    
+    
 }
 
 
@@ -2235,6 +2241,50 @@ public static class ShipmentPayment{
     
     @JsonProperty("status")
     private String status;
+    
+    
+    
+}
+
+
+/*
+    Model: ReturnMetaData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ReturnMetaData{
+    
+    
+    
+    
+    @JsonProperty("images")
+    private List<ReturnMetaDataImages> images;
+    
+    
+    
+}
+
+
+/*
+    Model: ReturnMetaDataImages
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ReturnMetaDataImages{
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
     
     
     
