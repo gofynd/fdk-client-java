@@ -63,7 +63,7 @@ Get with single coupon details or coupon list
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.getCoupons( pageNo,  pageSize,  isArchived,  title,  isPublic,  isDisplay,  typeSlug,  code) {
+platformClient.application("<APPLICATION_ID>").cart.getCoupons( pageNo,  pageSize,  isArchived,  title,  isPublic,  isDisplay,  typeSlug,  code) {
   //use response
 }
 ```
@@ -177,7 +177,7 @@ Create new coupon
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.createCoupon(body body) {
+platformClient.application("<APPLICATION_ID>").cart.createCoupon(body body) {
   //use response
 }
 ```
@@ -234,7 +234,7 @@ Get with single coupon details or coupon list
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.getCouponById( id) {
+platformClient.application("<APPLICATION_ID>").cart.getCouponById( id) {
   //use response
 }
 ```
@@ -429,7 +429,7 @@ Update existing coupon configuration
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.updateCoupon( id, body body) {
+platformClient.application("<APPLICATION_ID>").cart.updateCoupon( id, body body) {
   //use response
 }
 ```
@@ -487,7 +487,7 @@ Update coupon archive state and schedule
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.updateCouponPartially( id, body body) {
+platformClient.application("<APPLICATION_ID>").cart.updateCouponPartially( id, body body) {
   //use response
 }
 ```
@@ -566,7 +566,7 @@ Get promotion list
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.getPromotions( pageNo,  pageSize,  q,  status,  promoGroup,  promotionType,  fpPanel,  promotionId) {
+platformClient.application("<APPLICATION_ID>").cart.getPromotions( pageNo,  pageSize,  q,  status,  promoGroup,  promotionType,  fpPanel,  promotionId) {
   //use response
 }
 ```
@@ -673,7 +673,7 @@ Create new promotion
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.createPromotion(body body) {
+platformClient.application("<APPLICATION_ID>").cart.createPromotion(body body) {
   //use response
 }
 ```
@@ -841,7 +841,7 @@ Get with single promotion details or promotion list
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.getPromotionById( id) {
+platformClient.application("<APPLICATION_ID>").cart.getPromotionById( id) {
   //use response
 }
 ```
@@ -1010,7 +1010,7 @@ Update existing promotion configuration
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.updatePromotion( id, body body) {
+platformClient.application("<APPLICATION_ID>").cart.updatePromotion( id, body body) {
   //use response
 }
 ```
@@ -1179,7 +1179,7 @@ Update promotion publish state and schedule
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.updatePromotionPartially( id, body body) {
+platformClient.application("<APPLICATION_ID>").cart.updatePromotionPartially( id, body body) {
   //use response
 }
 ```
@@ -1258,7 +1258,7 @@ Fetch all promos that are set as active
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.getPromosCouponConfig() {
+platformClient.application("<APPLICATION_ID>").cart.getPromosCouponConfig() {
   //use response
 }
 ```
@@ -1329,7 +1329,7 @@ Fetch Cart Details
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.fetchAndvalidateCartItems(body body) {
+platformClient.application("<APPLICATION_ID>").cart.fetchAndvalidateCartItems(body body) {
   //use response
 }
 ```
@@ -1657,7 +1657,7 @@ Check Pincode Serviceability
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.checkCartServiceability(body body) {
+platformClient.application("<APPLICATION_ID>").cart.checkCartServiceability(body body) {
   //use response
 }
 ```
@@ -2241,7 +2241,7 @@ Create Fynd order with cart details
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.checkoutCart(body body) {
+platformClient.application("<APPLICATION_ID>").cart.checkoutCart(body body) {
   //use response
 }
 ```
@@ -2300,7 +2300,7 @@ Get with abandoned cart list
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.getAbandonedCart( pageNo,  pageSize,  fromDate,  toDate,  anonymousCart,  lastId,  sortOn) {
+platformClient.application("<APPLICATION_ID>").cart.getAbandonedCart( pageNo,  pageSize,  fromDate,  toDate,  anonymousCart,  lastId,  sortOn) {
   //use response
 }
 ```
@@ -2522,7 +2522,7 @@ Add items to abandoned cart
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.addItems( cartId,  b, body body) {
+platformClient.application("<APPLICATION_ID>").cart.addItems( cartId,  b, body body) {
   //use response
 }
 ```
@@ -3223,7 +3223,7 @@ Update items in the abandoned cart
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.updateCart( cartId,  b, body body) {
+platformClient.application("<APPLICATION_ID>").cart.updateCart( cartId,  b, body body) {
   //use response
 }
 ```
@@ -3788,7 +3788,7 @@ Generate token for sharing the cart
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.getCartShareLink(body body) {
+platformClient.application("<APPLICATION_ID>").cart.getCartShareLink(body body) {
   //use response
 }
 ```
@@ -3853,7 +3853,7 @@ Get details of a shared cart
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.getCartSharedItems( token) {
+platformClient.application("<APPLICATION_ID>").cart.getCartSharedItems( token) {
   //use response
 }
 ```
@@ -4184,7 +4184,7 @@ Merge or replace existing cart
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.updateCartWithSharedItems( token,  action,  cartId) {
+platformClient.application("<APPLICATION_ID>").cart.updateCartWithSharedItems( token,  action,  cartId) {
   //use response
 }
 ```
@@ -4524,7 +4524,7 @@ Get cart list for store os user
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.getCartList( fromDate,  toDate,  filterOn) {
+platformClient.application("<APPLICATION_ID>").cart.getCartList( fromDate,  toDate,  filterOn) {
   //use response
 }
 ```
@@ -4612,7 +4612,7 @@ Update user id for store os customer
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.updateCartUser( id, body body) {
+platformClient.application("<APPLICATION_ID>").cart.updateCartUser( id, body body) {
   //use response
 }
 ```
@@ -4993,7 +4993,7 @@ Fetch all items added to the customer cart using cart id
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.getCart( id,  i,  b,  assignCardId,  buyNow) {
+platformClient.application("<APPLICATION_ID>").cart.getCart( id,  i,  b,  assignCardId,  buyNow) {
   //use response
 }
 ```
@@ -5219,7 +5219,7 @@ Add items to cart
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.platformAddItems( i,  b,  buyNow,  id, body body) {
+platformClient.application("<APPLICATION_ID>").cart.platformAddItems( i,  b,  buyNow,  id, body body) {
   //use response
 }
 ```
@@ -5922,7 +5922,7 @@ Update items in the customer 's cart using cart id
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.platformUpdateCart( id,  i,  b,  buyNow, body body) {
+platformClient.application("<APPLICATION_ID>").cart.platformUpdateCart( id,  i,  b,  buyNow, body body) {
   //use response
 }
 ```
@@ -6354,7 +6354,7 @@ Delete cart once user made successful checkout
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.deleteCart( id, body body) {
+platformClient.application("<APPLICATION_ID>").cart.deleteCart( id, body body) {
   //use response
 }
 ```
@@ -6412,7 +6412,7 @@ Count items in the customer's cart
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.getItemCount( id,  buyNow) {
+platformClient.application("<APPLICATION_ID>").cart.getItemCount( id,  buyNow) {
   //use response
 }
 ```
@@ -6470,7 +6470,7 @@ Fetch Coupon
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.getAppCoupons( id,  buyNow) {
+platformClient.application("<APPLICATION_ID>").cart.getAppCoupons( id,  buyNow) {
   //use response
 }
 ```
@@ -6562,7 +6562,7 @@ Apply Coupon for platform pos user
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.applyCoupon( i,  b,  p,  id,  buyNow, body body) {
+platformClient.application("<APPLICATION_ID>").cart.applyCoupon( i,  b,  p,  id,  buyNow, body body) {
   //use response
 }
 ```
@@ -7158,7 +7158,7 @@ Remove Applied Coupon for platform pos user
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.removeCoupon( uid,  buyNow) {
+platformClient.application("<APPLICATION_ID>").cart.removeCoupon( uid,  buyNow) {
   //use response
 }
 ```
@@ -7372,7 +7372,7 @@ Fetch address
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.getAddresses( cartId,  buyNow,  mobileNo,  checkoutMode,  tags,  isDefault,  userId) {
+platformClient.application("<APPLICATION_ID>").cart.getAddresses( cartId,  buyNow,  mobileNo,  checkoutMode,  tags,  isDefault,  userId) {
   //use response
 }
 ```
@@ -7464,7 +7464,7 @@ Add address to an account
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.addAddress(body body) {
+platformClient.application("<APPLICATION_ID>").cart.addAddress(body body) {
   //use response
 }
 ```
@@ -7522,7 +7522,7 @@ Fetch a single address by its ID
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.getAddressById( id,  cartId,  buyNow,  mobileNo,  checkoutMode,  tags,  isDefault,  userId) {
+platformClient.application("<APPLICATION_ID>").cart.getAddressById( id,  cartId,  buyNow,  mobileNo,  checkoutMode,  tags,  isDefault,  userId) {
   //use response
 }
 ```
@@ -7612,7 +7612,7 @@ Update address added to an account
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.updateAddress( id, body body) {
+platformClient.application("<APPLICATION_ID>").cart.updateAddress( id, body body) {
   //use response
 }
 ```
@@ -7672,7 +7672,7 @@ Remove address associated with an account
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.removeAddress( id,  userId) {
+platformClient.application("<APPLICATION_ID>").cart.removeAddress( id,  userId) {
   //use response
 }
 ```
@@ -7731,7 +7731,7 @@ Select an address from available addresses
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.selectAddress( cartId,  buyNow,  i,  b, body body) {
+platformClient.application("<APPLICATION_ID>").cart.selectAddress( cartId,  buyNow,  i,  b, body body) {
   //use response
 }
 ```
@@ -8045,7 +8045,7 @@ Get delivery date and options before checkout
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.getShipments( pickAtStoreUid,  orderingStoreId,  i,  p,  id,  addressId,  areaCode,  orderType) {
+platformClient.application("<APPLICATION_ID>").cart.getShipments( pickAtStoreUid,  orderingStoreId,  i,  p,  id,  addressId,  areaCode,  orderType) {
   //use response
 }
 ```
@@ -8747,7 +8747,7 @@ Update shipment delivery type and quantity before checkout
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.updateShipments( i,  p,  id,  addressId,  areaCode,  orderType, body body) {
+platformClient.application("<APPLICATION_ID>").cart.updateShipments( i,  p,  id,  addressId,  areaCode,  orderType, body body) {
   //use response
 }
 ```
@@ -9448,7 +9448,7 @@ Update the cart meta for platform pos user
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.updateCartMeta( id,  buyNow, body body) {
+platformClient.application("<APPLICATION_ID>").cart.updateCartMeta( id,  buyNow, body body) {
   //use response
 }
 ```
@@ -9506,7 +9506,7 @@ Checkout all items in the cart
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.platformCheckoutCart( id, body body) {
+platformClient.application("<APPLICATION_ID>").cart.platformCheckoutCart( id, body body) {
   //use response
 }
 ```
@@ -9941,7 +9941,7 @@ Get available delivery modes for cart
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.getAvailableDeliveryModes( areaCode,  id) {
+platformClient.application("<APPLICATION_ID>").cart.getAvailableDeliveryModes( areaCode,  id) {
   //use response
 }
 ```
@@ -10005,7 +10005,7 @@ Get list of stores for give uids
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.getStoreAddressByUid( storeUid) {
+platformClient.application("<APPLICATION_ID>").cart.getStoreAddressByUid( storeUid) {
   //use response
 }
 ```
@@ -10084,7 +10084,7 @@ Update cart payment
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.selectPaymentMode( id,  buyNow, body body) {
+platformClient.application("<APPLICATION_ID>").cart.selectPaymentMode( id,  buyNow, body body) {
   //use response
 }
 ```
@@ -10408,7 +10408,7 @@ Verify the coupon eligibility against the payment mode
 
 
 ```java
-client.application("<APPLICATION_ID>").cart.validateCouponForPayment( id,  buyNow,  addressId,  paymentMode,  paymentIdentifier,  aggregatorName,  merchantCode) {
+platformClient.application("<APPLICATION_ID>").cart.validateCouponForPayment( id,  buyNow,  addressId,  paymentMode,  paymentIdentifier,  aggregatorName,  merchantCode) {
   //use response
 }
 ```

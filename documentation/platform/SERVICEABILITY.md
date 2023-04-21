@@ -29,7 +29,7 @@ Zone configuration of application.
 
 
 ```java
-client.application("<APPLICATION_ID>").serviceability.getApplicationServiceability() {
+platformClient.application("<APPLICATION_ID>").serviceability.getApplicationServiceability() {
   //use response
 }
 ```
@@ -95,7 +95,7 @@ Get country and state list
 
 
 ```java
-client.serviceability.getEntityRegionView(body body) {
+platformClient.serviceability.getEntityRegionView(body body) {
   //use response
 }
 ```
@@ -148,7 +148,7 @@ Zone List of application.
 
 
 ```java
-client.serviceability.getListView( pageNumber,  pageSize,  name,  isActive,  channelIds) {
+platformClient.serviceability.getListView( pageNumber,  pageSize,  name,  isActive,  channelIds) {
   //use response
 }
 ```
@@ -206,7 +206,7 @@ Company Store View of application.
 
 
 ```java
-client.serviceability.getCompanyStoreView( pageNumber,  pageSize) {
+platformClient.serviceability.getCompanyStoreView( pageNumber,  pageSize) {
   //use response
 }
 ```
@@ -261,7 +261,7 @@ Updation of zone collections in database.
 
 
 ```java
-client.serviceability.updateZoneControllerView( zoneId, body body) {
+platformClient.serviceability.updateZoneControllerView( zoneId, body body) {
   //use response
 }
 ```
@@ -315,7 +315,7 @@ Zone Data View of application.
 
 
 ```java
-client.serviceability.getZoneDataView( zoneId) {
+platformClient.serviceability.getZoneDataView( zoneId) {
   //use response
 }
 ```
@@ -369,7 +369,7 @@ Insertion of zone in database.
 
 
 ```java
-client.serviceability.insertZoneControllerView(body body) {
+platformClient.serviceability.insertZoneControllerView(body body) {
   //use response
 }
 ```
@@ -422,7 +422,7 @@ GET zone from the Pincode.
 
 
 ```java
-client.application("<APPLICATION_ID>").serviceability.upsertZoneControllerView(body body) {
+platformClient.application("<APPLICATION_ID>").serviceability.upsertZoneControllerView(body body) {
   //use response
 }
 ```
@@ -476,7 +476,7 @@ GET stores data
 
 
 ```java
-client.serviceability.getStore( storeUid) {
+platformClient.serviceability.getStore( storeUid) {
   //use response
 }
 ```
@@ -750,7 +750,7 @@ GET stores data
 
 
 ```java
-client.serviceability.getAllStores() {
+platformClient.serviceability.getAllStores() {
   //use response
 }
 ```
