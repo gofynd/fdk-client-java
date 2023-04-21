@@ -20,8 +20,6 @@ import com.sdk.platform.communication.CommunicationPlatformService;
 
 import com.sdk.platform.payment.PaymentPlatformService;
 
-import com.sdk.platform.order.OrderPlatformService;
-
 import com.sdk.platform.filestorage.FileStoragePlatformService;
 
 import com.sdk.platform.share.SharePlatformService;
@@ -67,8 +65,6 @@ public class PlatformClient {
     
     public PaymentPlatformService payment;
     
-    public OrderPlatformService order;
-    
     public FileStoragePlatformService fileStorage;
     
     public SharePlatformService share;
@@ -109,8 +105,6 @@ public class PlatformClient {
         this.communication = new CommunicationPlatformService(config);
         
         this.payment = new PaymentPlatformService(config);
-        
-        this.order = new OrderPlatformService(config);
         
         this.fileStorage = new FileStoragePlatformService(config);
         
@@ -164,8 +158,6 @@ public class PlatformClient {
         
         public PaymentPlatformService.ApplicationClient payment;
         
-        public OrderPlatformService.ApplicationClient order;
-        
         public FileStoragePlatformService.ApplicationClient fileStorage;
         
         public SharePlatformService.ApplicationClient share;
@@ -205,8 +197,6 @@ public class PlatformClient {
             this.communication = new CommunicationPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.payment = new PaymentPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.order = new OrderPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.fileStorage = new FileStoragePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
