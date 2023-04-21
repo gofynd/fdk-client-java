@@ -58,7 +58,7 @@ Get payment gateway keys
 
 
 ```java
-payment.getAggregatorsConfig( xApiToken,  refresh) {
+applicationClient.payment.getAggregatorsConfig( xApiToken,  refresh) {
   //use response
 }
 ```
@@ -148,7 +148,7 @@ Attach a saved card to customer.
 
 
 ```java
-payment.attachCardToCustomer(body body) {
+applicationClient.payment.attachCardToCustomer(body body) {
   //use response
 }
 ```
@@ -229,7 +229,7 @@ Fetch active payment gateway for card payments
 
 
 ```java
-payment.getActiveCardAggregator( refresh) {
+applicationClient.payment.getActiveCardAggregator( refresh) {
   //use response
 }
 ```
@@ -290,7 +290,7 @@ Fetch the list of cards saved by the user
 
 
 ```java
-payment.getActiveUserCards( forceRefresh) {
+applicationClient.payment.getActiveUserCards( forceRefresh) {
   //use response
 }
 ```
@@ -367,7 +367,7 @@ Delete a card
 
 
 ```java
-payment.deleteUserCard(body body) {
+applicationClient.payment.deleteUserCard(body body) {
   //use response
 }
 ```
@@ -421,7 +421,7 @@ Validate customer for payment
 
 
 ```java
-payment.verifyCustomerForPayment(body body) {
+applicationClient.payment.verifyCustomerForPayment(body body) {
   //use response
 }
 ```
@@ -516,7 +516,7 @@ Verify and charge payment
 
 
 ```java
-payment.verifyAndChargePayment(body body) {
+applicationClient.payment.verifyAndChargePayment(body body) {
   //use response
 }
 ```
@@ -576,7 +576,7 @@ Initialize a payment (server-to-server) for UPI and BharatQR
 
 
 ```java
-payment.initialisePayment(body body) {
+applicationClient.payment.initialisePayment(body body) {
   //use response
 }
 ```
@@ -645,7 +645,7 @@ Performs continuous polling to check status of payment on the server
 
 
 ```java
-payment.checkAndUpdatePaymentStatus(body body) {
+applicationClient.payment.checkAndUpdatePaymentStatus(body body) {
   //use response
 }
 ```
@@ -701,7 +701,7 @@ Get applicable payment options
 
 
 ```java
-payment.getPaymentModeRoutes( amount,  cartId,  pincode,  checkoutMode,  refresh,  cardReference,  userDetails) {
+applicationClient.payment.getPaymentModeRoutes( amount,  cartId,  pincode,  checkoutMode,  refresh,  cardReference,  userDetails) {
   //use response
 }
 ```
@@ -1272,7 +1272,7 @@ Get applicable payment options for Point-of-Sale (POS)
 
 
 ```java
-payment.getPosPaymentModeRoutes( amount,  cartId,  pincode,  checkoutMode,  refresh,  cardReference,  orderType,  userDetails) {
+applicationClient.payment.getPosPaymentModeRoutes( amount,  cartId,  pincode,  checkoutMode,  refresh,  cardReference,  orderType,  userDetails) {
   //use response
 }
 ```
@@ -1512,7 +1512,7 @@ Get CreditLine Offer
 
 
 ```java
-payment.getRupifiBannerDetails() {
+applicationClient.payment.getRupifiBannerDetails() {
   //use response
 }
 ```
@@ -1566,7 +1566,7 @@ Get Epaylater Enabled
 
 
 ```java
-payment.getEpaylaterBannerDetails() {
+applicationClient.payment.getEpaylaterBannerDetails() {
   //use response
 }
 ```
@@ -1646,7 +1646,7 @@ API to resend and cancel a payment link which was already generated.
 
 
 ```java
-payment.resendOrCancelPayment(body body) {
+applicationClient.payment.resendOrCancelPayment(body body) {
   //use response
 }
 ```
@@ -1728,7 +1728,7 @@ Convert base64 string to HTML form
 
 
 ```java
-payment.renderHTML(body body) {
+applicationClient.payment.renderHTML(body body) {
   //use response
 }
 ```
@@ -1782,7 +1782,7 @@ API to Validate UPI ID
 
 
 ```java
-payment.validateVPA(body body) {
+applicationClient.payment.validateVPA(body body) {
   //use response
 }
 ```
@@ -1842,7 +1842,7 @@ Lists the mode of refund
 
 
 ```java
-payment.getActiveRefundTransferModes() {
+applicationClient.payment.getActiveRefundTransferModes() {
   //use response
 }
 ```
@@ -1905,7 +1905,7 @@ Enable/Disable a mode for transferring a refund
 
 
 ```java
-payment.enableOrDisableRefundTransferMode(body body) {
+applicationClient.payment.enableOrDisableRefundTransferMode(body body) {
   //use response
 }
 ```
@@ -1959,7 +1959,7 @@ Lists the beneficiary of a refund
 
 
 ```java
-payment.getUserBeneficiariesDetail( orderId) {
+applicationClient.payment.getUserBeneficiariesDetail( orderId) {
   //use response
 }
 ```
@@ -2037,7 +2037,7 @@ Verify IFSC Code
 
 
 ```java
-payment.verifyIfscCode( ifscCode) {
+applicationClient.payment.verifyIfscCode( ifscCode) {
   //use response
 }
 ```
@@ -2110,7 +2110,7 @@ Lists the beneficiary of a refund
 
 
 ```java
-payment.getOrderBeneficiariesDetail( orderId) {
+applicationClient.payment.getOrderBeneficiariesDetail( orderId) {
   //use response
 }
 ```
@@ -2187,7 +2187,7 @@ Verify the beneficiary details using OTP
 
 
 ```java
-payment.verifyOtpAndAddBeneficiaryForBank(body body) {
+applicationClient.payment.verifyOtpAndAddBeneficiaryForBank(body body) {
   //use response
 }
 ```
@@ -2242,7 +2242,7 @@ Save bank details for cancelled/returned order
 
 
 ```java
-payment.addBeneficiaryDetails(body body) {
+applicationClient.payment.addBeneficiaryDetails(body body) {
   //use response
 }
 ```
@@ -2299,7 +2299,7 @@ Save bank details for cancelled/returned order
 
 
 ```java
-payment.addRefundBankAccountUsingOTP(body body) {
+applicationClient.payment.addRefundBankAccountUsingOTP(body body) {
   //use response
 }
 ```
@@ -2356,7 +2356,7 @@ Send OTP on adding a wallet beneficiary
 
 
 ```java
-payment.verifyOtpAndAddBeneficiaryForWallet(body body) {
+applicationClient.payment.verifyOtpAndAddBeneficiaryForWallet(body body) {
   //use response
 }
 ```
@@ -2412,7 +2412,7 @@ Set a default beneficiary for a refund
 
 
 ```java
-payment.updateDefaultBeneficiary(body body) {
+applicationClient.payment.updateDefaultBeneficiary(body body) {
   //use response
 }
 ```
@@ -2467,7 +2467,7 @@ Get payment link
 
 
 ```java
-payment.getPaymentLink( paymentLinkId) {
+applicationClient.payment.getPaymentLink( paymentLinkId) {
   //use response
 }
 ```
@@ -2530,7 +2530,7 @@ Create payment link
 
 
 ```java
-payment.createPaymentLink(body body) {
+applicationClient.payment.createPaymentLink(body body) {
   //use response
 }
 ```
@@ -2589,7 +2589,7 @@ Resend payment link
 
 
 ```java
-payment.resendPaymentLink(body body) {
+applicationClient.payment.resendPaymentLink(body body) {
   //use response
 }
 ```
@@ -2646,7 +2646,7 @@ Cancel payment link
 
 
 ```java
-payment.cancelPaymentLink(body body) {
+applicationClient.payment.cancelPaymentLink(body body) {
   //use response
 }
 ```
@@ -2702,7 +2702,7 @@ Get applicable payment options for payment link
 
 
 ```java
-payment.getPaymentModeRoutesPaymentLink( paymentLinkId) {
+applicationClient.payment.getPaymentModeRoutesPaymentLink( paymentLinkId) {
   //use response
 }
 ```
@@ -3162,7 +3162,7 @@ Used for polling if payment successful or not
 
 
 ```java
-payment.pollingPaymentLink( paymentLinkId) {
+applicationClient.payment.pollingPaymentLink( paymentLinkId) {
   //use response
 }
 ```
@@ -3223,7 +3223,7 @@ Create Order user
 
 
 ```java
-payment.createOrderHandlerPaymentLink(body body) {
+applicationClient.payment.createOrderHandlerPaymentLink(body body) {
   //use response
 }
 ```
@@ -3293,7 +3293,7 @@ Initialize a payment (server-to-server) for UPI and BharatQR
 
 
 ```java
-payment.initialisePaymentPaymentLink(body body) {
+applicationClient.payment.initialisePaymentPaymentLink(body body) {
   //use response
 }
 ```
@@ -3358,7 +3358,7 @@ Performs continuous polling to check status of payment on the server
 
 
 ```java
-payment.checkAndUpdatePaymentStatusPaymentLink(body body) {
+applicationClient.payment.checkAndUpdatePaymentStatusPaymentLink(body body) {
   //use response
 }
 ```
@@ -3414,7 +3414,7 @@ API to fetch the customer credit summary
 
 
 ```java
-payment.customerCreditSummary( aggregator) {
+applicationClient.payment.customerCreditSummary( aggregator) {
   //use response
 }
 ```
@@ -3496,7 +3496,7 @@ API to get the redirect url to redirect the user to aggregator's page
 
 
 ```java
-payment.redirectToAggregator( source,  aggregator) {
+applicationClient.payment.redirectToAggregator( source,  aggregator) {
   //use response
 }
 ```
@@ -3556,7 +3556,7 @@ API to fetch the customer credit summary
 
 
 ```java
-payment.checkCredit( aggregator) {
+applicationClient.payment.checkCredit( aggregator) {
   //use response
 }
 ```
@@ -3616,7 +3616,7 @@ API to fetch the customer credit summary
 
 
 ```java
-payment.customerOnboard(body body) {
+applicationClient.payment.customerOnboard(body body) {
   //use response
 }
 ```
