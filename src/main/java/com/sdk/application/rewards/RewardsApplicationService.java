@@ -39,13 +39,13 @@ import com.sdk.application.ApplicationConfig;
             
                     relativeUrls.put("catalogueOrder","/service/application/rewards/v1.0/catalogue/offer/order/".substring(1));
             
-                    relativeUrls.put("getPointsHistory","/service/application/rewards/v1.0/user/points/history/".substring(1));
+                    relativeUrls.put("getUserPointsHistory","/service/application/rewards/v1.0/user/points/history/".substring(1));
             
-                    relativeUrls.put("getPoints","/service/application/rewards/v1.0/user/points/".substring(1));
+                    relativeUrls.put("getUserPoints","/service/application/rewards/v1.0/user/points/".substring(1));
             
-                    relativeUrls.put("referral","/service/application/rewards/v1.0/user/referral/".substring(1));
+                    relativeUrls.put("getUserReferralDetails","/service/application/rewards/v1.0/user/referral/".substring(1));
             
-                    relativeUrls.put("orderDiscount","/service/application/rewards/v1.0/user/offer/order-discount/".substring(1));
+                    relativeUrls.put("getOrderDiscount","/service/application/rewards/v1.0/user/offer/order-discount/".substring(1));
             
                     relativeUrls.put("redeemReferralCode","/service/application/rewards/v1.0/user/referral/redeem/".substring(1));
              
@@ -108,12 +108,12 @@ import com.sdk.application.ApplicationConfig;
     
     
     
-    public RewardsApplicationModels.PointsHistoryResponse getPointsHistory(String pageId , Integer pageSize ) throws IOException {
+    public RewardsApplicationModels.PointsHistoryResponse getUserPointsHistory(String pageId , Integer pageSize ) throws IOException {
      
-      String fullUrl = relativeUrls.get("getPointsHistory");
+      String fullUrl = relativeUrls.get("getUserPointsHistory");
         
 
-        Response<RewardsApplicationModels.PointsHistoryResponse> response = rewardsApplicationApiList.getPointsHistory(fullUrl  ,pageId, pageSize).execute();
+        Response<RewardsApplicationModels.PointsHistoryResponse> response = rewardsApplicationApiList.getUserPointsHistory(fullUrl  ,pageId, pageSize).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -139,10 +139,10 @@ import com.sdk.application.ApplicationConfig;
         
 
     /**
-    * Summary: get paginator for getPointsHistory
+    * Summary: get paginator for getUserPointsHistory
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<RewardsApplicationModels.PointsHistoryResponse> getPointsHistoryPagination(
+    public Paginator<RewardsApplicationModels.PointsHistoryResponse> getUserPointsHistoryPagination(
         
         Integer pageSize
         
@@ -154,7 +154,7 @@ import com.sdk.application.ApplicationConfig;
 
     paginator.setCallback(()-> {
         try {
-            RewardsApplicationModels.PointsHistoryResponse callback = this.getPointsHistory(
+            RewardsApplicationModels.PointsHistoryResponse callback = this.getUserPointsHistory(
                 
                  paginator.getNextId()
                 ,
@@ -174,12 +174,12 @@ import com.sdk.application.ApplicationConfig;
     
     
     
-    public RewardsApplicationModels.PointsResponse getPoints() throws IOException {
+    public RewardsApplicationModels.PointsResponse getUserPoints() throws IOException {
      
-      String fullUrl = relativeUrls.get("getPoints");
+      String fullUrl = relativeUrls.get("getUserPoints");
         
 
-        Response<RewardsApplicationModels.PointsResponse> response = rewardsApplicationApiList.getPoints(fullUrl ).execute();
+        Response<RewardsApplicationModels.PointsResponse> response = rewardsApplicationApiList.getUserPoints(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -192,12 +192,12 @@ import com.sdk.application.ApplicationConfig;
     
     
     
-    public RewardsApplicationModels.ReferralDetailsResponse referral() throws IOException {
+    public RewardsApplicationModels.ReferralDetailsResponse getUserReferralDetails() throws IOException {
      
-      String fullUrl = relativeUrls.get("referral");
+      String fullUrl = relativeUrls.get("getUserReferralDetails");
         
 
-        Response<RewardsApplicationModels.ReferralDetailsResponse> response = rewardsApplicationApiList.referral(fullUrl ).execute();
+        Response<RewardsApplicationModels.ReferralDetailsResponse> response = rewardsApplicationApiList.getUserReferralDetails(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -210,12 +210,12 @@ import com.sdk.application.ApplicationConfig;
     
     
     
-    public RewardsApplicationModels.OrderDiscountResponse orderDiscount(RewardsApplicationModels.OrderDiscountRequest body) throws IOException {
+    public RewardsApplicationModels.OrderDiscountResponse getOrderDiscount(RewardsApplicationModels.OrderDiscountRequest body) throws IOException {
      
-      String fullUrl = relativeUrls.get("orderDiscount");
+      String fullUrl = relativeUrls.get("getOrderDiscount");
         
 
-        Response<RewardsApplicationModels.OrderDiscountResponse> response = rewardsApplicationApiList.orderDiscount(fullUrl , body).execute();
+        Response<RewardsApplicationModels.OrderDiscountResponse> response = rewardsApplicationApiList.getOrderDiscount(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

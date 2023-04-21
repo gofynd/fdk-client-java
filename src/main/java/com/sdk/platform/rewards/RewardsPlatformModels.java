@@ -872,6 +872,96 @@ public static class PointsHistory{
 }
 
 
+/*
+    Model: ConfigurationRes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ConfigurationRes{
+    
+    
+    
+    
+    @JsonProperty("valid_android_packages")
+    private List<String> validAndroidPackages;
+    
+    
+    
+    
+    @JsonProperty("terms_conditions_link")
+    private String termsConditionsLink;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+}
+
+
+/*
+    Model: SetConfigurationRes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SetConfigurationRes{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+}
+
+
+/*
+    Model: ConfigurationRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ConfigurationRequest{
+    
+    
+    
+    
+    @JsonProperty("valid_android_packages")
+    private List<String> validAndroidPackages;
+    
+    
+    
+    
+    @JsonProperty("terms_conditions_link")
+    private String termsConditionsLink;
+    
+    
+    
+}
+
+
 
 
 }

@@ -469,6 +469,12 @@ public static class ReferralDetailsResponse{
     
     
     
+    
+    @JsonProperty("terms_conditions_link")
+    private String termsConditionsLink;
+    
+    
+    
 }
 
 
