@@ -8,8 +8,6 @@ import com.sdk.platform.common.CommonPlatformService;
 
 import com.sdk.platform.lead.LeadPlatformService;
 
-import com.sdk.platform.feedback.FeedbackPlatformService;
-
 import com.sdk.platform.theme.ThemePlatformService;
 
 import com.sdk.platform.user.UserPlatformService;
@@ -24,10 +22,6 @@ import com.sdk.platform.payment.PaymentPlatformService;
 
 import com.sdk.platform.order.OrderPlatformService;
 
-import com.sdk.platform.catalog.CatalogPlatformService;
-
-import com.sdk.platform.companyprofile.CompanyProfilePlatformService;
-
 import com.sdk.platform.filestorage.FileStoragePlatformService;
 
 import com.sdk.platform.share.SharePlatformService;
@@ -41,8 +35,6 @@ import com.sdk.platform.cart.CartPlatformService;
 import com.sdk.platform.rewards.RewardsPlatformService;
 
 import com.sdk.platform.analytics.AnalyticsPlatformService;
-
-import com.sdk.platform.discount.DiscountPlatformService;
 
 import com.sdk.platform.partner.PartnerPlatformService;
 
@@ -63,8 +55,6 @@ public class PlatformClient {
     
     public LeadPlatformService lead;
     
-    public FeedbackPlatformService feedback;
-    
     public ThemePlatformService theme;
     
     public UserPlatformService user;
@@ -79,10 +69,6 @@ public class PlatformClient {
     
     public OrderPlatformService order;
     
-    public CatalogPlatformService catalog;
-    
-    public CompanyProfilePlatformService companyProfile;
-    
     public FileStoragePlatformService fileStorage;
     
     public SharePlatformService share;
@@ -96,8 +82,6 @@ public class PlatformClient {
     public RewardsPlatformService rewards;
     
     public AnalyticsPlatformService analytics;
-    
-    public DiscountPlatformService discount;
     
     public PartnerPlatformService partner;
     
@@ -114,8 +98,6 @@ public class PlatformClient {
         
         this.lead = new LeadPlatformService(config);
         
-        this.feedback = new FeedbackPlatformService(config);
-        
         this.theme = new ThemePlatformService(config);
         
         this.user = new UserPlatformService(config);
@@ -130,10 +112,6 @@ public class PlatformClient {
         
         this.order = new OrderPlatformService(config);
         
-        this.catalog = new CatalogPlatformService(config);
-        
-        this.companyProfile = new CompanyProfilePlatformService(config);
-        
         this.fileStorage = new FileStoragePlatformService(config);
         
         this.share = new SharePlatformService(config);
@@ -147,8 +125,6 @@ public class PlatformClient {
         this.rewards = new RewardsPlatformService(config);
         
         this.analytics = new AnalyticsPlatformService(config);
-        
-        this.discount = new DiscountPlatformService(config);
         
         this.partner = new PartnerPlatformService(config);
         
@@ -176,8 +152,6 @@ public class PlatformClient {
         
         public LeadPlatformService.ApplicationClient lead;
         
-        public FeedbackPlatformService.ApplicationClient feedback;
-        
         public ThemePlatformService.ApplicationClient theme;
         
         public UserPlatformService.ApplicationClient user;
@@ -191,10 +165,6 @@ public class PlatformClient {
         public PaymentPlatformService.ApplicationClient payment;
         
         public OrderPlatformService.ApplicationClient order;
-        
-        public CatalogPlatformService.ApplicationClient catalog;
-        
-        public CompanyProfilePlatformService.ApplicationClient companyProfile;
         
         public FileStoragePlatformService.ApplicationClient fileStorage;
         
@@ -210,8 +180,6 @@ public class PlatformClient {
         
         public AnalyticsPlatformService.ApplicationClient analytics;
         
-        public DiscountPlatformService.ApplicationClient discount;
-        
         public PartnerPlatformService.ApplicationClient partner;
         
         public WebhookPlatformService.ApplicationClient webhook;
@@ -225,8 +193,6 @@ public class PlatformClient {
             this.common = new CommonPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.lead = new LeadPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.feedback = new FeedbackPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.theme = new ThemePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
@@ -242,10 +208,6 @@ public class PlatformClient {
             
             this.order = new OrderPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.catalog = new CatalogPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.companyProfile = new CompanyProfilePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
             this.fileStorage = new FileStoragePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.share = new SharePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
@@ -259,8 +221,6 @@ public class PlatformClient {
             this.rewards = new RewardsPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.analytics = new AnalyticsPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.discount = new DiscountPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.partner = new PartnerPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
