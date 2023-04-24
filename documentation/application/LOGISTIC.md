@@ -24,7 +24,7 @@ Get Pincode API
 
 
 ```java
-logistic.getPincodeCity( pincode,  countryCode) {
+applicationClient.logistic.getPincodeCity( pincode,  countryCode) {
   //use response
 }
 ```
@@ -173,7 +173,7 @@ Get TAT API
 
 
 ```java
-logistic.getTatProduct(body body) {
+applicationClient.logistic.getTatProduct(body body) {
   //use response
 }
 ```
@@ -332,7 +332,7 @@ Get Country List
 
 
 ```java
-logistic.getAllCountries() {
+applicationClient.logistic.getAllCountries() {
   //use response
 }
 ```
@@ -380,7 +380,7 @@ GET zone from the Pincode.
 
 
 ```java
-logistic.getPincodeZones(body body) {
+applicationClient.logistic.getPincodeZones(body body) {
   //use response
 }
 ```
@@ -432,7 +432,7 @@ GET zone from the Pincode.
 
 
 ```java
-logistic.getOptimalLocations(body body) {
+applicationClient.logistic.getOptimalLocations(body body) {
   //use response
 }
 ```
