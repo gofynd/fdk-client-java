@@ -20,6 +20,12 @@ import com.sdk.platform.communication.CommunicationPlatformService;
 
 import com.sdk.platform.payment.PaymentPlatformService;
 
+import com.sdk.platform.order.OrderPlatformService;
+
+import com.sdk.platform.catalog.CatalogPlatformService;
+
+import com.sdk.platform.companyprofile.CompanyProfilePlatformService;
+
 import com.sdk.platform.filestorage.FileStoragePlatformService;
 
 import com.sdk.platform.share.SharePlatformService;
@@ -33,6 +39,8 @@ import com.sdk.platform.cart.CartPlatformService;
 import com.sdk.platform.rewards.RewardsPlatformService;
 
 import com.sdk.platform.analytics.AnalyticsPlatformService;
+
+import com.sdk.platform.discount.DiscountPlatformService;
 
 import com.sdk.platform.partner.PartnerPlatformService;
 
@@ -65,6 +73,12 @@ public class PlatformClient {
     
     public PaymentPlatformService payment;
     
+    public OrderPlatformService order;
+    
+    public CatalogPlatformService catalog;
+    
+    public CompanyProfilePlatformService companyProfile;
+    
     public FileStoragePlatformService fileStorage;
     
     public SharePlatformService share;
@@ -78,6 +92,8 @@ public class PlatformClient {
     public RewardsPlatformService rewards;
     
     public AnalyticsPlatformService analytics;
+    
+    public DiscountPlatformService discount;
     
     public PartnerPlatformService partner;
     
@@ -106,6 +122,12 @@ public class PlatformClient {
         
         this.payment = new PaymentPlatformService(config);
         
+        this.order = new OrderPlatformService(config);
+        
+        this.catalog = new CatalogPlatformService(config);
+        
+        this.companyProfile = new CompanyProfilePlatformService(config);
+        
         this.fileStorage = new FileStoragePlatformService(config);
         
         this.share = new SharePlatformService(config);
@@ -119,6 +141,8 @@ public class PlatformClient {
         this.rewards = new RewardsPlatformService(config);
         
         this.analytics = new AnalyticsPlatformService(config);
+        
+        this.discount = new DiscountPlatformService(config);
         
         this.partner = new PartnerPlatformService(config);
         
@@ -158,6 +182,12 @@ public class PlatformClient {
         
         public PaymentPlatformService.ApplicationClient payment;
         
+        public OrderPlatformService.ApplicationClient order;
+        
+        public CatalogPlatformService.ApplicationClient catalog;
+        
+        public CompanyProfilePlatformService.ApplicationClient companyProfile;
+        
         public FileStoragePlatformService.ApplicationClient fileStorage;
         
         public SharePlatformService.ApplicationClient share;
@@ -171,6 +201,8 @@ public class PlatformClient {
         public RewardsPlatformService.ApplicationClient rewards;
         
         public AnalyticsPlatformService.ApplicationClient analytics;
+        
+        public DiscountPlatformService.ApplicationClient discount;
         
         public PartnerPlatformService.ApplicationClient partner;
         
@@ -198,6 +230,12 @@ public class PlatformClient {
             
             this.payment = new PaymentPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
+            this.order = new OrderPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.catalog = new CatalogPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.companyProfile = new CompanyProfilePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
             this.fileStorage = new FileStoragePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.share = new SharePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
@@ -211,6 +249,8 @@ public class PlatformClient {
             this.rewards = new RewardsPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.analytics = new AnalyticsPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.discount = new DiscountPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.partner = new PartnerPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
