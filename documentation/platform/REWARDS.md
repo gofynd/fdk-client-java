@@ -17,6 +17,8 @@ Earn and redeem reward points
 * [updateUserStatus](#updateuserstatus)
 * [user](#user)
 * [getUserPointsHistory](#getuserpointshistory)
+* [getRewardsConfiguration](#getrewardsconfiguration)
+* [setRewardsConfiguration](#setrewardsconfiguration)
 
 
 
@@ -630,6 +632,114 @@ Success. Check example below or refer `HistoryRes` for more details.
 ---
 
 
+### getRewardsConfiguration
+Get all valid android paths
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").rewards.getRewardsConfiguration() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | company id |   
+| applicationId | String | yes | application id |  
+
+
+
+Use this API to get a list of valid android paths required by the Rewards INIT API to validate a fradualent device.
+
+*Returned Response:*
+
+
+
+
+[ConfigurationRes](#ConfigurationRes)
+
+Success. Refer `ConfigurationRes` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### setRewardsConfiguration
+Updates the collection with given android paths.
+
+
+
+
+```java
+client.application("<APPLICATION_ID>").rewards.setRewardsConfiguration(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | company id |   
+| applicationId | String | yes | application id |  
+| body | [ConfigurationRequest](#ConfigurationRequest) | yes | Request body |
+
+
+Updates the configuration or inserts new records.
+
+*Returned Response:*
+
+
+
+
+[SetConfigurationRes](#SetConfigurationRes)
+
+ok
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 
 ### Schemas
 
@@ -905,6 +1015,43 @@ Success. Check example below or refer `HistoryRes` for more details.
  | txnName | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | userId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ConfigurationRes](#ConfigurationRes)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | validAndroidPackages | ArrayList<String>? |  yes  | Contains array of string items, Valid android package names. |
+ | termsConditionsLink | String? |  yes  | A URL that redirects to the referral information suport page link |
+ | applicationId | String? |  yes  |  |
+ | success | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SetConfigurationRes](#SetConfigurationRes)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ConfigurationRequest](#ConfigurationRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | validAndroidPackages | ArrayList<String>? |  yes  |  |
+ | termsConditionsLink | String? |  yes  |  |
 
 ---
 
