@@ -119,6 +119,24 @@ interface OrderPlatformApiList {
     
     
     
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/orders/v1.0/company/{company_id}/shipments-invoice")
+    Call<OrderPlatformModels.ResponseGetAssetShipment> getAssetByShipmentIds(@Path("company_id")  String companyId , @Query("shipment_ids") String  shipmentIds ,  @Query("invoice") Boolean  invoice ,  @Query("expires_in") String  expiresIn );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/orders/v1.0/company/{company_id}/order-details")
     Call<OrderPlatformModels.ShipmentDetailsResponse> getOrderById(@Path("company_id")  String companyId , @Query("order_id") String  orderId );
     

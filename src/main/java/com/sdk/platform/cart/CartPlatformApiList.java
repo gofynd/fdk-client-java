@@ -908,4 +908,46 @@ interface CartPlatformApiList {
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/payment/validate/")
     Call<CartPlatformModels.PaymentCouponValidate> validateCouponForPayment(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow ,  @Query("address_id") String  addressId ,  @Query("payment_mode") String  paymentMode ,  @Query("payment_identifier") String  paymentIdentifier ,  @Query("aggregator_name") String  aggregatorName ,  @Query("merchant_code") String  merchantCode );
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/coupon_options")
+    Call<Object> getCouponOptionValues(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/coupon_code_exists")
+    Call<Object> getCouponCodeExists(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("code") String  code );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promotion_code_exists")
+    Call<Object> getPromotionCodeExists(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("code") String  code );
+    
 }

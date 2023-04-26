@@ -525,6 +525,12 @@ public static class SendMobileOtpRequestSchema{
     
     
     
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
 }
 
 
@@ -816,6 +822,12 @@ public static class SendOtpRequestSchema{
     
     @JsonProperty("android_hash")
     private String androidHash;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
     
     
     
@@ -2838,6 +2850,12 @@ public static class Login{
     
     @JsonProperty("otp")
     private Boolean otp;
+    
+    
+    
+    
+    @JsonProperty("voice_otp")
+    private Boolean voiceOtp;
     
     
     
