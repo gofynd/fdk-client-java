@@ -7598,6 +7598,7 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | ---------- | ---- | -------- | ----------- |
  | title | String? |  yes  |  |
  | description | String? |  yes  |  |
+ | imageUrl | String? |  yes  |  |
 
 ---
 
