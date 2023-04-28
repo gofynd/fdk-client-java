@@ -160,14 +160,14 @@ import com.sdk.application.ApplicationConfig;
     
     
     
-    public OrderApplicationModels.ResponseGetInvoiceShipment getInvoiceByShipmentId(String shipmentId ) throws IOException {
+    public OrderApplicationModels.ResponseGetInvoiceShipment getInvoiceByShipmentId(String shipmentId , String documentType ) throws IOException {
      
       String fullUrl = relativeUrls.get("getInvoiceByShipmentId");
         
         fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
         
 
-        Response<OrderApplicationModels.ResponseGetInvoiceShipment> response = orderApplicationApiList.getInvoiceByShipmentId(fullUrl ).execute();
+        Response<OrderApplicationModels.ResponseGetInvoiceShipment> response = orderApplicationApiList.getInvoiceByShipmentId(fullUrl  ,documentType).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

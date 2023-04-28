@@ -629,6 +629,21 @@ interface OrderPlatformApiList {
     
     
     
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/orders/v1.0/company/{company_id}/orders/{order_id}/generate/pos-receipt")
+    Call<OrderPlatformModels.GeneratePosOrderReceiptResponse> generatePOSReceiptByOrderId(@Path("company_id")  String companyId , @Path("order_id") String  orderId , @Query("document_type") String  documentType );
+    
+    
+    
+    
+    
+    
+    
     @PUT ("/service/platform/order-manage/v1.0/company/{company_id}/update-cache")
     Call<OrderPlatformModels.InvalidateShipmentCacheResponse> invalidateShipmentCache(@Path("company_id")  String companyId ,@Body OrderPlatformModels.InvalidateShipmentCachePayload payload);
     
