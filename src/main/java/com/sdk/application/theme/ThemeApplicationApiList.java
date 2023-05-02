@@ -20,4 +20,10 @@ interface ThemeApplicationApiList {
     
     @GET 
     Call<ThemeApplicationModels.ThemesSchema> getThemeForPreview(@Url String url1);
+    
+    @GET 
+    Call<ThemeApplicationModels.ThemesSchema> getAppliedThemeV2(@Url String url1);
+    
+    @GET 
+    Call<ThemeApplicationModels.ThemesSchema> getThemeForPreviewV2(@Url String url1);
 }

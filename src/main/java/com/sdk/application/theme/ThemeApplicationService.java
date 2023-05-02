@@ -10,7 +10,10 @@ import java.util.*;
 import java.io.File;
 
 import com.sdk.common.*;
-import com.sdk.application.ApplicationConfig;
+import com.sdk.application.*;
+
+
+
 
 
 
@@ -42,6 +45,10 @@ import com.sdk.application.ApplicationConfig;
                     relativeUrls.put("getAppliedTheme","/service/application/theme/v1.0/applied-theme".substring(1));
             
                     relativeUrls.put("getThemeForPreview","/service/application/theme/v1.0/{theme_id}/preview".substring(1));
+            
+                    relativeUrls.put("getAppliedThemeV2","/service/application/theme/v2.0/applied-theme".substring(1));
+            
+                    relativeUrls.put("getThemeForPreviewV2","/service/application/theme/v2.0/{theme_id}/preview".substring(1));
              
 
     }
@@ -132,6 +139,44 @@ import com.sdk.application.ApplicationConfig;
         
 
         Response<ThemeApplicationModels.ThemesSchema> response = themeApplicationApiList.getThemeForPreview(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public ThemeApplicationModels.ThemesSchema getAppliedThemeV2() throws IOException {
+     
+      String fullUrl = relativeUrls.get("getAppliedThemeV2");
+        
+
+        Response<ThemeApplicationModels.ThemesSchema> response = themeApplicationApiList.getAppliedThemeV2(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public ThemeApplicationModels.ThemesSchema getThemeForPreviewV2(String themeId ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getThemeForPreviewV2");
+        
+        fullUrl = fullUrl.replace("{" + "theme_id" +"}",themeId.toString());
+        
+
+        Response<ThemeApplicationModels.ThemesSchema> response = themeApplicationApiList.getThemeForPreviewV2(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

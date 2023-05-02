@@ -1,6 +1,5 @@
-package com.sdk.common;
+package com.sdk.;
 
-import com.sdk.internal.InternalConfig;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -9,20 +8,20 @@ import java.io.IOException;
 import java.util.Base64;
 import java.util.*;
 
-public class InternalHeaderInterceptor implements Interceptor {
+public class HeaderInterceptor implements Interceptor {
 
-    private InternalConfig internalConfig;
+    private Config Config;
 
-    public InternalHeaderInterceptor(InternalConfig internalConfig) {
-        this.internalConfig = internalConfig;
+    public HeaderInterceptor(Config Config) {
+        this.Config = Config;
     }
 
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
         Request.Builder builder = buildHeaders(request);
-        if (!internalConfig.getExtraHeaders().isEmpty()) {
-            HashMap<String, String> extraHeaders = internalConfig.getExtraHeaders();
+        if (!Config.getExtraHeaders().isEmpty()) {
+            HashMap<String, String> extraHeaders = Config.getExtraHeaders();
             for(Map.Entry<String,String> entry:extraHeaders.entrySet()){
                 builder.addHeader(entry.getKey(),entry.getValue());
             }
