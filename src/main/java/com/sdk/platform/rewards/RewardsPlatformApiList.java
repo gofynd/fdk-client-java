@@ -80,8 +80,11 @@ interface RewardsPlatformApiList {
     
     
     
-    @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/giveaways/audience/{audience_id}/status")
-    Call<RewardsPlatformModels.GiveawayAudience> getGiveawayAudienceStatus(@Path("audience_id") String  audienceId , @Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/giveaways/:id/audience/{audience_id}/status")
+    Call<RewardsPlatformModels.GiveawayAudience> getGiveawayAudienceStatus(@Path("id") String  id , @Path("audience_id") String  audienceId , @Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
     
     
@@ -94,9 +97,6 @@ interface RewardsPlatformApiList {
     
     @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/offers/")
     Call<List<RewardsPlatformModels.Offer>> showOffers(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
-    
-    
-    
     
     
     
@@ -156,7 +156,7 @@ interface RewardsPlatformApiList {
     
     
     @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/users/{user_id}/")
-    Call<RewardsPlatformModels.UserRes> user(@Path("user_id") String  userId , @Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    Call<RewardsPlatformModels.UserRes> getUserDetails(@Path("user_id") String  userId , @Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
     
     
