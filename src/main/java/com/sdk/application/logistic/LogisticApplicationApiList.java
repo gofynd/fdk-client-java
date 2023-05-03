@@ -10,7 +10,7 @@ interface LogisticApplicationApiList {
     
     
     @GET 
-    Call<LogisticApplicationModels.PincodeApiResponse> getPincodeCity(@Url String url1, @Query("country_code") String countryCode );
+    Call<LogisticApplicationModels.PincodeApiResponse> getPincodeCity(@Url String url1);
     
     @POST 
     Call<LogisticApplicationModels.TATViewResponse> getTatProduct(@Url String url1 , @Body LogisticApplicationModels.TATViewRequest payload );
