@@ -194,6 +194,18 @@ interface UserPlatformApiList {
     
     
     
+    @POST ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/platform/config")
+    Call<UserPlatformModels.PlatformSchema> updatePlatformConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body UserPlatformModels.PlatformSchema payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @POST ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_group")
     Call<UserPlatformModels.UserGroupResponseSchema> createUserGroup(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body UserPlatformModels.CreateUserGroupSchema payload);
     
