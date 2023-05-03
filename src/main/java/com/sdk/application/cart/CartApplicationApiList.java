@@ -16,7 +16,7 @@ interface CartApplicationApiList {
     Call<Object> getCartLastModified(@Url String url1, @Query("id") String id );
     
     @POST 
-    Call<CartApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow  , @Body CartApplicationModels.AddCartRequest payload );
+    Call<CartApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow , @Query("id") String id  , @Body CartApplicationModels.AddCartRequest payload );
     
     @PUT 
     Call<CartApplicationModels.UpdateCartDetailResponse> updateCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow  , @Body CartApplicationModels.UpdateCartRequest payload );
@@ -40,7 +40,7 @@ interface CartApplicationApiList {
     Call<CartApplicationModels.BulkPriceResponse> getBulkDiscountOffers(@Url String url1, @Query("item_id") Integer itemId , @Query("article_id") String articleId , @Query("uid") Integer uid , @Query("slug") String slug );
     
     @POST 
-    Call<CartApplicationModels.CartDetailResponse> applyRewardPoints(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow  , @Body CartApplicationModels.RewardPointRequest payload );
+    Call<CartApplicationModels.CartDetailResponse> applyRewardPoints(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow  , @Body CartApplicationModels.RewardPointRequestSchema payload );
     
     @GET 
     Call<CartApplicationModels.GetAddressesResponse> getAddresses(@Url String url1, @Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault );
@@ -64,13 +64,13 @@ interface CartApplicationApiList {
     Call<CartApplicationModels.CartDetailResponse> selectPaymentMode(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow  , @Body CartApplicationModels.UpdateCartPaymentRequest payload );
     
     @GET 
-    Call<CartApplicationModels.PaymentCouponValidate> validateCouponForPayment(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode );
+    Call<CartApplicationModels.PaymentCouponValidateSchema> validateCouponForPayment(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode );
     
     @GET 
     Call<CartApplicationModels.CartShipmentsResponse> getShipments(@Url String url1, @Query("p") Boolean p , @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("area_code") String areaCode );
     
     @POST 
-    Call<CartApplicationModels.CartCheckoutResponse> checkoutCart(@Url String url1, @Query("buy_now") Boolean buyNow  , @Body CartApplicationModels.CartCheckoutDetailRequest payload );
+    Call<CartApplicationModels.CartCheckoutResponseSchema> checkoutCart(@Url String url1, @Query("buy_now") Boolean buyNow  , @Body CartApplicationModels.CartCheckoutDetailRequest payload );
     
     @PUT 
     Call<CartApplicationModels.CartMetaResponse> updateCartMeta(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow  , @Body CartApplicationModels.CartMetaRequest payload );
@@ -85,8 +85,11 @@ interface CartApplicationApiList {
     Call<CartApplicationModels.SharedCartResponse> updateCartWithSharedItems(@Url String url1);
     
     @GET 
-    Call<CartApplicationModels.PromotionOffersResponse> getPromotionOffers(@Url String url1, @Query("slug") String slug , @Query("page_size") Integer pageSize , @Query("promotion_group") String promotionGroup );
+    Call<CartApplicationModels.PromotionOffersResponse> getPromotionOffers(@Url String url1, @Query("slug") String slug , @Query("page_size") Integer pageSize , @Query("promotion_group") String promotionGroup , @Query("store_id") Integer storeId );
     
     @GET 
     Call<CartApplicationModels.LadderPriceOffers> getLadderOffers(@Url String url1, @Query("slug") String slug , @Query("store_id") String storeId , @Query("promotion_id") String promotionId , @Query("page_size") Integer pageSize );
+    
+    @POST 
+    Call<CartApplicationModels.CartCheckoutResponseSchema> checkoutCartV2(@Url String url1, @Query("buy_now") Boolean buyNow  , @Body CartApplicationModels.CartCheckoutDetailV2Request payload );
 }

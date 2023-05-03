@@ -6327,13 +6327,13 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | hasPrevious | Boolean? |  yes  |  |
- | nextId | String? |  yes  |  |
- | size | Integer? |  yes  |  |
- | type | String |  no  |  |
- | hasNext | Boolean? |  yes  |  |
- | current | Integer? |  yes  |  |
  | itemTotal | Integer? |  yes  |  |
+ | hasNext | Boolean? |  yes  |  |
+ | hasPrevious | Boolean? |  yes  |  |
+ | size | Integer? |  yes  |  |
+ | nextId | String? |  yes  |  |
+ | current | Integer? |  yes  |  |
+ | type | String |  no  |  |
 
 ---
 
@@ -6356,22 +6356,9 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | ajio | [CategoryMappingValues](#CategoryMappingValues)? |  yes  |  |
  | google | [CategoryMappingValues](#CategoryMappingValues)? |  yes  |  |
  | facebook | [CategoryMappingValues](#CategoryMappingValues)? |  yes  |  |
- | ajio | [CategoryMappingValues](#CategoryMappingValues)? |  yes  |  |
-
----
-
-
- 
- 
- #### [Media](#Media)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | portrait | String |  no  |  |
- | landscape | String |  no  |  |
- | logo | String |  no  |  |
 
 ---
 
@@ -6391,27 +6378,40 @@ See example below for details
 
  
  
+ #### [Media](#Media)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | logo | String |  no  |  |
+ | portrait | String |  no  |  |
+ | landscape | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [Category](#Category)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | name | String |  no  |  |
  | level | Integer |  no  |  |
- | tryouts | ArrayList<String>? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | departments | ArrayList<Integer> |  no  |  |
- | uid | Integer? |  yes  |  |
- | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | priority | Integer? |  yes  |  |
  | marketplaces | [CategoryMapping](#CategoryMapping)? |  yes  |  |
- | media | [Media](#Media)? |  yes  |  |
- | isActive | Boolean |  no  |  |
- | hierarchy | ArrayList<[Hierarchy](#Hierarchy)>? |  yes  |  |
- | createdBy | HashMap<String,Object>? |  yes  |  |
+ | tryouts | ArrayList<String>? |  yes  |  |
+ | id | String? |  yes  |  |
  | synonyms | ArrayList<String>? |  yes  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
+ | departments | ArrayList<Integer> |  no  |  |
+ | isActive | Boolean |  no  |  |
+ | createdOn | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | hierarchy | ArrayList<[Hierarchy](#Hierarchy)>? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | name | String |  no  |  |
  | slug | String? |  yes  |  |
+ | media | [Media](#Media)? |  yes  |  |
+ | modifiedBy | HashMap<String,Object>? |  yes  |  |
+ | priority | Integer? |  yes  |  |
 
 ---
 
@@ -6434,11 +6434,11 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | status | Integer? |  yes  |  |
  | error | String? |  yes  |  |
- | code | String? |  yes  |  |
- | message | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
+ | code | String? |  yes  |  |
+ | status | Integer? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -6449,17 +6449,17 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String |  no  |  |
  | level | Integer |  no  |  |
- | tryouts | ArrayList<String>? |  yes  |  |
- | departments | ArrayList<Integer> |  no  |  |
- | priority | Integer? |  yes  |  |
  | marketplaces | [CategoryMapping](#CategoryMapping)? |  yes  |  |
- | media | [Media](#Media)? |  yes  |  |
+ | tryouts | ArrayList<String>? |  yes  |  |
+ | synonyms | ArrayList<String>? |  yes  |  |
+ | departments | ArrayList<Integer> |  no  |  |
  | isActive | Boolean |  no  |  |
  | hierarchy | ArrayList<[Hierarchy](#Hierarchy)>? |  yes  |  |
- | synonyms | ArrayList<String>? |  yes  |  |
+ | name | String |  no  |  |
  | slug | String? |  yes  |  |
+ | media | [Media](#Media)? |  yes  |  |
+ | priority | Integer? |  yes  |  |
 
 ---
 
@@ -6470,8 +6470,8 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
  | uid | Integer? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -6493,8 +6493,8 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
  | success | Boolean? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -6505,11 +6505,11 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | uid | String? |  yes  |  |
- | id | String? |  yes  |  |
  | contact | String? |  yes  |  |
+ | uid | String? |  yes  |  |
  | userId | String? |  yes  |  |
  | username | String? |  yes  |  |
+ | id | String? |  yes  |  |
 
 ---
 
@@ -6520,21 +6520,21 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | search | String? |  yes  |  |
- | itemType | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | modifiedBy | [UserSerializer](#UserSerializer)? |  yes  |  |
- | pageSize | Integer? |  yes  |  |
  | logo | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | pageNo | Integer? |  yes  |  |
- | createdBy | [UserSerializer](#UserSerializer)? |  yes  |  |
  | synonyms | ArrayList<String>? |  yes  |  |
- | slug | String? |  yes  |  |
+ | createdBy | [UserSerializer](#UserSerializer)? |  yes  |  |
  | priorityOrder | Integer? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | pageSize | Integer? |  yes  |  |
+ | pageNo | Integer? |  yes  |  |
+ | itemType | String? |  yes  |  |
+ | search | String? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | modifiedBy | [UserSerializer](#UserSerializer)? |  yes  |  |
 
 ---
 
@@ -6557,11 +6557,11 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | status | Integer? |  yes  |  |
- | code | String? |  yes  |  |
- | message | String? |  yes  |  |
  | errors | HashMap<String,Object>? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
+ | code | String? |  yes  |  |
+ | status | Integer? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -6572,17 +6572,17 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String |  no  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | uid | Integer? |  yes  |  |
  | logo | String |  no  |  |
- | tags | ArrayList<String>? |  yes  |  |
+ | priorityOrder | Integer |  no  |  |
+ | isActive | Boolean? |  yes  |  |
+ | uid | Integer? |  yes  |  |
  | cls | String? |  yes  |  |
  | platforms | HashMap<String,Object>? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | synonyms | ArrayList<String>? |  yes  |  |
+ | name | String |  no  |  |
  | slug | String? |  yes  |  |
- | priorityOrder | Integer |  no  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | synonyms | ArrayList<String>? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -6593,9 +6593,9 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | superUser | Boolean? |  yes  | A flag indicating whether the user is a super user. |
- | username | String |  no  | The username of the user. |
  | contact | String? |  yes  | The contact details of the user. |
+ | username | String |  no  | The username of the user. |
+ | superUser | Boolean? |  yes  | A flag indicating whether the user is a super user. |
  | userId | String |  no  | The user ID of the user. |
 
 ---
@@ -6607,22 +6607,22 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | verifiedOn | String? |  yes  | Timestamp of when the document was verified, if applicable |
- | synonyms | ArrayList<String>? |  yes  | A list of synonyms for the department name |
- | name | String |  no  | The name of the department |
  | customJson | HashMap<String,Object>? |  yes  |  |
- | modifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the last modifier of the document |
- | uid | Integer |  no  | The unique ID for the department |
- | createdOn | String |  no  | Timestamp of the creation of the document |
+ | verifiedOn | String? |  yes  | Timestamp of when the document was verified, if applicable |
  | logo | String |  no  | The URL of the department's logo |
- | cls | String? |  yes  |  |
- | id | Object? |  yes  |  |
- | slug | String |  no  | The unique slug identifier for the department |
- | isActive | Boolean? |  yes  | Whether the department is currently active |
  | createdBy | [UserDetail](#UserDetail)? |  yes  | User details of the creator of the document |
+ | synonyms | ArrayList<String>? |  yes  | A list of synonyms for the department name |
  | priorityOrder | Integer |  no  | The priority order of the department |
- | modifiedOn | String |  no  | Timestamp of the last modification of the document |
+ | isActive | Boolean? |  yes  | Whether the department is currently active |
+ | createdOn | String |  no  | Timestamp of the creation of the document |
+ | uid | Integer |  no  | The unique ID for the department |
+ | cls | String? |  yes  |  |
  | verifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the verifier of the document, if applicable |
+ | modifiedOn | String |  no  | Timestamp of the last modification of the document |
+ | name | String |  no  | The name of the department |
+ | slug | String |  no  | The unique slug identifier for the department |
+ | modifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the last modifier of the document |
+ | id | Object? |  yes  |  |
 
 ---
 
@@ -6644,8 +6644,8 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String |  no  |  |
  | uid | Integer |  no  |  |
+ | message | String |  no  |  |
 
 ---
 
@@ -6656,8 +6656,8 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
  | slug | String? |  yes  |  |
+ | name | String? |  yes  |  |
 
 ---
 
@@ -6680,9 +6680,9 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
  | success | Boolean? |  yes  |  |
  | data | [ShuffleAttributeDataResponse](#ShuffleAttributeDataResponse)? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -6704,8 +6704,8 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
  | success | Boolean? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -6716,23 +6716,9 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
  | success | Boolean? |  yes  |  |
  | data | [ShuffleAttributeFilter](#ShuffleAttributeFilter)? |  yes  |  |
-
----
-
-
- 
- 
- #### [AttributeMasterGroupDetails](#AttributeMasterGroupDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | display | Boolean? |  yes  | Whether or not to display the attribute group |
- | priority | Integer? |  yes  | Priority of the attribute group for sorting |
- | attributes | ArrayList<String>? |  yes  | List of attributes in the group |
- | templateSlugs | ArrayList<String>? |  yes  | List of template slugs related to the attribute group |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -6743,10 +6729,24 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | display | Boolean? |  yes  | Whether or not to display the comparison attribute group |
- | priority | Integer? |  yes  | Priority of the comparison attribute group for sorting |
  | attributes | ArrayList<String>? |  yes  | List of attributes in the comparison group |
+ | priority | Integer? |  yes  | Priority of the comparison attribute group for sorting |
  | templateSlugs | ArrayList<String>? |  yes  | List of template slugs related to the comparison attribute group |
+ | display | Boolean? |  yes  | Whether or not to display the comparison attribute group |
+
+---
+
+
+ 
+ 
+ #### [AttributeMasterGroupDetails](#AttributeMasterGroupDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | attributes | ArrayList<String>? |  yes  | List of attributes in the group |
+ | priority | Integer? |  yes  | Priority of the attribute group for sorting |
+ | templateSlugs | ArrayList<String>? |  yes  | List of template slugs related to the attribute group |
+ | display | Boolean? |  yes  | Whether or not to display the attribute group |
 
 ---
 
@@ -6758,18 +6758,18 @@ See example below for details
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | verifiedOn | String? |  yes  | Timestamp of when the document was verified, if applicable |
- | details | [AttributeMasterGroupDetails](#AttributeMasterGroupDetails)? |  yes  | Details of the attribute group |
- | name | String? |  yes  | Name of the attribute group |
  | comparisons | [AttributeMasterGroupComparisons](#AttributeMasterGroupComparisons)? |  yes  | Comparison details of the attribute group |
- | type | String? |  yes  | Type of the attribute group |
- | modifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the last modifier of the document |
- | uid | Integer |  no  | Unique ID of the attribute group |
- | createdOn | String |  no  | Timestamp of the creation of the document |
- | id | Object? |  yes  |  |
- | slug | String |  no  | Slug of the attribute group |
  | createdBy | [UserDetail](#UserDetail)? |  yes  | User details of the creator of the document |
- | modifiedOn | String |  no  | Timestamp of the last modification of the document |
+ | createdOn | String |  no  | Timestamp of the creation of the document |
+ | uid | Integer |  no  | Unique ID of the attribute group |
  | verifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the verifier of the document, if applicable |
+ | details | [AttributeMasterGroupDetails](#AttributeMasterGroupDetails)? |  yes  | Details of the attribute group |
+ | modifiedOn | String |  no  | Timestamp of the last modification of the document |
+ | name | String? |  yes  | Name of the attribute group |
+ | slug | String |  no  | Slug of the attribute group |
+ | modifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the last modifier of the document |
+ | id | Object? |  yes  |  |
+ | type | String? |  yes  | Type of the attribute group |
 
 ---
 
@@ -6810,25 +6810,12 @@ See example below for details
 
  
  
- #### [AttributeMasterFilter](#AttributeMasterFilter)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | indexing | Boolean |  no  | Whether to index the attribute or not |
- | dependsOn | ArrayList<String>? |  yes  | The list of attributes on which this attribute depends |
- | priority | Integer? |  yes  | The priority of the attribute for filtering |
-
----
-
-
- 
- 
  #### [AttributeSchemaRange](#AttributeSchemaRange)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | max | Integer? |  yes  | The maximum value of the attribute range |
  | min | Integer? |  yes  | The minimum value of the attribute range |
+ | max | Integer? |  yes  | The maximum value of the attribute range |
 
 ---
 
@@ -6839,12 +6826,25 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String |  no  | The data type of the attribute |
  | range | [AttributeSchemaRange](#AttributeSchemaRange)? |  yes  | The range of the attribute values |
+ | format | String? |  yes  | The format of the attribute value |
  | mandatory | Boolean? |  yes  | Whether the attribute is mandatory or not |
  | allowedValues | ArrayList<String>? |  yes  | The list of allowed values for the attribute |
- | format | String? |  yes  | The format of the attribute value |
  | multi | Boolean? |  yes  | Whether the attribute can have multiple values or not |
+ | type | String |  no  | The data type of the attribute |
+
+---
+
+
+ 
+ 
+ #### [AttributeMasterFilter](#AttributeMasterFilter)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | dependsOn | ArrayList<String>? |  yes  | The list of attributes on which this attribute depends |
+ | indexing | Boolean |  no  | Whether to index the attribute or not |
+ | priority | Integer? |  yes  | The priority of the attribute for filtering |
 
 ---
 
@@ -6856,28 +6856,28 @@ See example below for details
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | verifiedOn | String? |  yes  | Timestamp of when the document was verified, if applicable |
- | details | [AttributeMasterDetails](#AttributeMasterDetails) |  no  | Details of the attribute |
- | variant | Boolean? |  yes  | Whether the attribute is a variant or not |
- | createdOn | String |  no  | Timestamp of the creation of the document |
- | id | Object? |  yes  |  |
- | name | String? |  yes  | The name of the attribute |
- | description | String? |  yes  | The description of the attribute |
- | unit | String? |  yes  | The unit of the attribute value |
- | suggestion | String? |  yes  | The suggestion for the attribute value |
- | filters | [AttributeMasterFilter](#AttributeMasterFilter) |  no  | Filters of the attribute |
- | createdBy | [UserDetail](#UserDetail)? |  yes  | User details of the creator of the document |
- | synonyms | HashMap<String,Object>? |  yes  | Dictionary of synonyms for the attribute |
- | modifiedOn | String |  no  | Timestamp of the last modification of the document |
- | schema | [AttributeMaster](#AttributeMaster) |  no  | Schema of the attribute |
- | logo | String? |  yes  | The URL of the attribute logo |
- | isNested | Boolean? |  yes  | Whether the attribute is nested or not |
- | slug | String |  no  | The unique slug of the attribute master |
  | departments | ArrayList<String> |  no  | The list of departments to which the attribute belongs to |
- | modifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the last modifier of the document |
+ | details | [AttributeMasterDetails](#AttributeMasterDetails) |  no  | Details of the attribute |
+ | name | String? |  yes  | The name of the attribute |
+ | schema | [AttributeMaster](#AttributeMaster) |  no  | Schema of the attribute |
+ | slug | String |  no  | The unique slug of the attribute master |
+ | synonyms | HashMap<String,Object>? |  yes  | Dictionary of synonyms for the attribute |
  | enabledForEndConsumer | Boolean? |  yes  | Whether the attribute is enabled for end consumers or not |
- | tags | ArrayList<String>? |  yes  | The list of tags associated with the attribute |
- | verifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the verifier of the document, if applicable |
+ | id | Object? |  yes  |  |
+ | variant | Boolean? |  yes  | Whether the attribute is a variant or not |
+ | isNested | Boolean? |  yes  | Whether the attribute is nested or not |
+ | createdBy | [UserDetail](#UserDetail)? |  yes  | User details of the creator of the document |
+ | unit | String? |  yes  | The unit of the attribute value |
+ | modifiedOn | String |  no  | Timestamp of the last modification of the document |
  | rawKey | String? |  yes  | The raw key of the attribute |
+ | description | String? |  yes  | The description of the attribute |
+ | verifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the verifier of the document, if applicable |
+ | modifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the last modifier of the document |
+ | logo | String? |  yes  | The URL of the attribute logo |
+ | createdOn | String |  no  | Timestamp of the creation of the document |
+ | filters | [AttributeMasterFilter](#AttributeMasterFilter) |  no  | Filters of the attribute |
+ | tags | ArrayList<String>? |  yes  | The list of tags associated with the attribute |
+ | suggestion | String? |  yes  | The suggestion for the attribute value |
 
 ---
 
@@ -6900,28 +6900,10 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | hasNext | Boolean |  no  |  |
- | totalItemCount | Integer |  no  |  |
  | nextPageId | String? |  yes  |  |
  | hasPrevious | Boolean |  no  |  |
-
----
-
-
- 
- 
- #### [SwatchImageConfig](#SwatchImageConfig)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | maintainAspectRatio | Boolean? |  yes  |  |
- | maxHeight | Integer? |  yes  |  |
- | minHeight | Integer? |  yes  |  |
- | fileType | ArrayList<String>? |  yes  |  |
- | aspectRatio | String? |  yes  |  |
- | maxSize | Integer? |  yes  |  |
- | maxWidth | Integer? |  yes  |  |
- | minWidth | Integer? |  yes  |  |
+ | hasNext | Boolean |  no  |  |
+ | totalItemCount | Integer |  no  |  |
 
 ---
 
@@ -6932,9 +6914,27 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | username | String? |  yes  |  |
  | contact | String? |  yes  |  |
+ | username | String? |  yes  |  |
  | userId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SwatchImageConfig](#SwatchImageConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | maxWidth | Integer? |  yes  |  |
+ | maintainAspectRatio | Boolean? |  yes  |  |
+ | maxHeight | Integer? |  yes  |  |
+ | fileType | ArrayList<String>? |  yes  |  |
+ | minHeight | Integer? |  yes  |  |
+ | aspectRatio | String? |  yes  |  |
+ | maxSize | Integer? |  yes  |  |
+ | minWidth | Integer? |  yes  |  |
 
 ---
 
@@ -6945,19 +6945,19 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | departments | ArrayList<String>? |  yes  |  |
- | imageConfig | [SwatchImageConfig](#SwatchImageConfig)? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | modifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | display | String? |  yes  |  |
- | priority | Integer? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | displayType | ArrayList<String>? |  yes  |  |
- | createdBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
  | templates | ArrayList<String>? |  yes  |  |
+ | createdBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
+ | display | String? |  yes  |  |
  | key | String? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | departments | ArrayList<String>? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | imageConfig | [SwatchImageConfig](#SwatchImageConfig)? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | displayType | ArrayList<String>? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | modifiedBy | [UserSerializer1](#UserSerializer1)? |  yes  |  |
+ | priority | Integer? |  yes  |  |
 
 ---
 
@@ -6980,13 +6980,13 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | maxWidth | Integer? |  yes  | Maximum width of the image |
  | maintainAspectRatio | Boolean? |  yes  | Flag to maintain aspect ratio of the image |
  | maxHeight | Integer? |  yes  | Maximum height of the image |
- | minHeight | Integer? |  yes  | Minimum height of the image |
  | fileType | ArrayList<String>? |  yes  | List of allowed file types |
+ | minHeight | Integer? |  yes  | Minimum height of the image |
  | aspectRatio | String? |  yes  | Aspect ratio of the image |
  | maxSize | Integer? |  yes  | Maximum size of the image in bytes |
- | maxWidth | Integer? |  yes  | Maximum width of the image |
  | minWidth | Integer? |  yes  | Minimum width of the image |
 
 ---
@@ -6999,22 +6999,22 @@ See example below for details
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | verifiedOn | String? |  yes  | Timestamp of when the document was verified, if applicable |
- | departments | ArrayList<String>? |  yes  | List of departments for the variant attribute |
- | imageConfig | [SwatchImageConfig1](#SwatchImageConfig1)? |  yes  | Configuration for the swatch image |
- | modifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the last modifier of the document |
- | uid | Integer? |  yes  | Unique ID of the variant attribute |
- | createdOn | String |  no  | Timestamp of the creation of the document |
- | display | String? |  yes  | Display name of the variant attribute |
- | priority | Integer? |  yes  | Priority of the variant attribute |
- | cls | String? |  yes  | Class name of the variant attribute |
- | id | Object? |  yes  |  |
- | isActive | Boolean? |  yes  | Flag to indicate if the variant attribute is active or not |
- | displayType | ArrayList<String>? |  yes  | List of display types for the variant attribute |
- | createdBy | [UserDetail](#UserDetail)? |  yes  | User details of the creator of the document |
- | modifiedOn | String |  no  | Timestamp of the last modification of the document |
  | templates | ArrayList<String>? |  yes  | List of templates for the variant attribute |
- | verifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the verifier of the document, if applicable |
+ | createdBy | [UserDetail](#UserDetail)? |  yes  | User details of the creator of the document |
+ | display | String? |  yes  | Display name of the variant attribute |
  | key | String? |  yes  | Key name of the variant attribute |
+ | isActive | Boolean? |  yes  | Flag to indicate if the variant attribute is active or not |
+ | createdOn | String |  no  | Timestamp of the creation of the document |
+ | uid | Integer? |  yes  | Unique ID of the variant attribute |
+ | departments | ArrayList<String>? |  yes  | List of departments for the variant attribute |
+ | cls | String? |  yes  | Class name of the variant attribute |
+ | imageConfig | [SwatchImageConfig1](#SwatchImageConfig1)? |  yes  | Configuration for the swatch image |
+ | displayType | ArrayList<String>? |  yes  | List of display types for the variant attribute |
+ | verifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the verifier of the document, if applicable |
+ | modifiedOn | String |  no  | Timestamp of the last modification of the document |
+ | modifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the last modifier of the document |
+ | id | Object? |  yes  |  |
+ | priority | Integer? |  yes  | Priority of the variant attribute |
 
 ---
 
@@ -7047,21 +7047,21 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | description | String? |  yes  |  |
- | attributes | ArrayList<String>? |  yes  |  |
- | isPhysical | Boolean |  no  |  |
- | isArchived | Boolean? |  yes  |  |
- | departments | ArrayList<String>? |  yes  |  |
- | isExpirable | Boolean |  no  |  |
- | modifiedBy | HashMap<String,Object>? |  yes  |  |
  | logo | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | tag | String? |  yes  |  |
+ | departments | ArrayList<String>? |  yes  |  |
  | isActive | Boolean? |  yes  |  |
  | createdBy | HashMap<String,Object>? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | attributes | ArrayList<String>? |  yes  |  |
+ | isExpirable | Boolean |  no  |  |
+ | isPhysical | Boolean |  no  |  |
+ | isArchived | Boolean? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | name | String? |  yes  |  |
  | slug | String |  no  |  |
- | tag | String? |  yes  |  |
+ | modifiedBy | HashMap<String,Object>? |  yes  |  |
  | categories | ArrayList<String>? |  yes  |  |
 
 ---
@@ -7085,11 +7085,11 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | status | Integer? |  yes  |  |
- | code | String? |  yes  |  |
- | message | String? |  yes  |  |
  | errors | HashMap<String,Object>? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
+ | code | String? |  yes  |  |
+ | status | Integer? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -7101,24 +7101,24 @@ See example below for details
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | verifiedOn | String? |  yes  | Timestamp of when the document was verified, if applicable |
- | createdOn | String |  no  | Timestamp of the creation of the document |
- | id | Object? |  yes  |  |
- | verifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the verifier of the document, if applicable |
- | categories | ArrayList<String>? |  yes  | List of categories the product template belongs to |
- | name | String? |  yes  | Name of the product template |
- | description | String? |  yes  | Description of the product template |
- | isExpirable | Boolean? |  yes  | Flag to indicate if the product template is expirable or not |
- | isActive | Boolean? |  yes  | Flag to indicate if the product template is active or not |
- | createdBy | [UserDetail](#UserDetail)? |  yes  | User details of the creator of the document |
- | modifiedOn | String |  no  | Timestamp of the last modification of the document |
- | attributes | ArrayList<String>? |  yes  | List of attributes associated with the product template |
- | isArchived | Boolean? |  yes  | Flag to indicate if the product template is archived or not |
- | logo | String? |  yes  | URL of the logo associated with the product template |
- | slug | String |  no  | Slug of the product template |
- | isPhysical | Boolean |  no  | Flag to indicate if the product template is physical or not |
- | departments | ArrayList<String>? |  yes  | List of departments the product template belongs to |
- | modifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the last modifier of the document |
  | tag | String? |  yes  | Tag of the product template |
+ | departments | ArrayList<String>? |  yes  | List of departments the product template belongs to |
+ | name | String? |  yes  | Name of the product template |
+ | slug | String |  no  | Slug of the product template |
+ | id | Object? |  yes  |  |
+ | createdBy | [UserDetail](#UserDetail)? |  yes  | User details of the creator of the document |
+ | isActive | Boolean? |  yes  | Flag to indicate if the product template is active or not |
+ | attributes | ArrayList<String>? |  yes  | List of attributes associated with the product template |
+ | isExpirable | Boolean? |  yes  | Flag to indicate if the product template is expirable or not |
+ | modifiedOn | String |  no  | Timestamp of the last modification of the document |
+ | description | String? |  yes  | Description of the product template |
+ | verifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the verifier of the document, if applicable |
+ | modifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the last modifier of the document |
+ | logo | String? |  yes  | URL of the logo associated with the product template |
+ | createdOn | String |  no  | Timestamp of the creation of the document |
+ | isPhysical | Boolean |  no  | Flag to indicate if the product template is physical or not |
+ | isArchived | Boolean? |  yes  | Flag to indicate if the product template is archived or not |
+ | categories | ArrayList<String>? |  yes  | List of categories the product template belongs to |
 
 ---
 
@@ -7129,8 +7129,8 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
  | code | Integer? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -7141,18 +7141,18 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | logo | String? |  yes  |  |
  | id | String? |  yes  |  |
- | name | String? |  yes  |  |
  | description | String? |  yes  |  |
+ | tag | String? |  yes  |  |
+ | departments | ArrayList<String>? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
  | attributes | ArrayList<String>? |  yes  |  |
+ | isExpirable | Boolean |  no  |  |
  | isPhysical | Boolean |  no  |  |
  | isArchived | Boolean? |  yes  |  |
- | departments | ArrayList<String>? |  yes  |  |
- | isExpirable | Boolean |  no  |  |
- | logo | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
+ | name | String? |  yes  |  |
  | slug | String |  no  |  |
- | tag | String? |  yes  |  |
  | categories | ArrayList<String>? |  yes  |  |
 
 ---
@@ -7164,35 +7164,35 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | sizes | HashMap<String,Object>? |  yes  |  |
+ | itemCode | HashMap<String,Object>? |  yes  |  |
  | shortDescription | HashMap<String,Object>? |  yes  |  |
- | media | HashMap<String,Object>? |  yes  |  |
- | returnConfig | HashMap<String,Object>? |  yes  |  |
+ | noOfBoxes | HashMap<String,Object>? |  yes  |  |
+ | hsnCode | HashMap<String,Object>? |  yes  |  |
+ | highlights | HashMap<String,Object>? |  yes  |  |
  | name | HashMap<String,Object>? |  yes  |  |
- | description | HashMap<String,Object>? |  yes  |  |
- | productPublish | HashMap<String,Object>? |  yes  |  |
- | brandUid | HashMap<String,Object>? |  yes  |  |
- | sizeGuide | HashMap<String,Object>? |  yes  |  |
+ | slug | HashMap<String,Object>? |  yes  |  |
+ | media | HashMap<String,Object>? |  yes  |  |
+ | countryOfOrigin | HashMap<String,Object>? |  yes  |  |
  | traderType | HashMap<String,Object>? |  yes  |  |
  | isActive | HashMap<String,Object>? |  yes  |  |
- | multiSize | HashMap<String,Object>? |  yes  |  |
- | sizes | HashMap<String,Object>? |  yes  |  |
- | countryOfOrigin | HashMap<String,Object>? |  yes  |  |
+ | returnConfig | HashMap<String,Object>? |  yes  |  |
  | productGroupTag | HashMap<String,Object>? |  yes  |  |
- | noOfBoxes | HashMap<String,Object>? |  yes  |  |
- | itemType | HashMap<String,Object>? |  yes  |  |
- | categorySlug | HashMap<String,Object>? |  yes  |  |
- | hsnCode | HashMap<String,Object>? |  yes  |  |
- | slug | HashMap<String,Object>? |  yes  |  |
- | variants | HashMap<String,Object>? |  yes  |  |
  | isDependent | HashMap<String,Object>? |  yes  |  |
- | command | HashMap<String,Object>? |  yes  |  |
- | currency | HashMap<String,Object>? |  yes  |  |
- | itemCode | HashMap<String,Object>? |  yes  |  |
- | trader | HashMap<String,Object>? |  yes  |  |
- | tags | HashMap<String,Object>? |  yes  |  |
- | highlights | HashMap<String,Object>? |  yes  |  |
- | teaserTag | HashMap<String,Object>? |  yes  |  |
  | customOrder | HashMap<String,Object>? |  yes  |  |
+ | sizeGuide | HashMap<String,Object>? |  yes  |  |
+ | description | HashMap<String,Object>? |  yes  |  |
+ | teaserTag | HashMap<String,Object>? |  yes  |  |
+ | brandUid | HashMap<String,Object>? |  yes  |  |
+ | trader | HashMap<String,Object>? |  yes  |  |
+ | itemType | HashMap<String,Object>? |  yes  |  |
+ | variants | HashMap<String,Object>? |  yes  |  |
+ | multiSize | HashMap<String,Object>? |  yes  |  |
+ | productPublish | HashMap<String,Object>? |  yes  |  |
+ | currency | HashMap<String,Object>? |  yes  |  |
+ | command | HashMap<String,Object>? |  yes  |  |
+ | categorySlug | HashMap<String,Object>? |  yes  |  |
+ | tags | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -7203,12 +7203,12 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | required | ArrayList<String>? |  yes  |  |
  | description | String? |  yes  |  |
- | type | String? |  yes  |  |
  | title | String? |  yes  |  |
- | properties | [Properties](#Properties)? |  yes  |  |
  | definitions | HashMap<String,Object>? |  yes  |  |
+ | required | ArrayList<String>? |  yes  |  |
+ | properties | [Properties](#Properties)? |  yes  |  |
+ | type | String? |  yes  |  |
 
 ---
 
@@ -7243,12 +7243,12 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | hasPrevious | Boolean? |  yes  |  |
- | nextId | String? |  yes  |  |
- | size | Integer? |  yes  |  |
- | type | String |  no  |  |
- | hasNext | Boolean? |  yes  |  |
  | itemTotal | Integer? |  yes  |  |
+ | hasNext | Boolean? |  yes  |  |
+ | hasPrevious | Boolean? |  yes  |  |
+ | size | Integer? |  yes  |  |
+ | nextId | String? |  yes  |  |
+ | type | String |  no  |  |
 
 ---
 
@@ -7259,10 +7259,10 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | total | Integer? |  yes  |  |
  | verified | Integer? |  yes  |  |
- | pending | Integer? |  yes  |  |
  | rejected | Integer? |  yes  |  |
+ | pending | Integer? |  yes  |  |
+ | total | Integer? |  yes  |  |
 
 ---
 
@@ -7273,9 +7273,9 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | status | [CompanyVerificationStats](#CompanyVerificationStats)? |  yes  |  |
- | name | String |  no  |  |
  | uid | Integer |  no  |  |
+ | name | String |  no  |  |
+ | status | [CompanyVerificationStats](#CompanyVerificationStats)? |  yes  |  |
 
 ---
 
@@ -7298,22 +7298,22 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | product | HashMap<String,Object>? |  yes  | The product information being verified |
  | verifiedOn | String? |  yes  | Timestamp of when the document was verified, if applicable |
+ | createdBy | [UserDetail](#UserDetail)? |  yes  | User details of the creator of the document |
+ | itemCode | String |  no  | The item code of the product being verified |
+ | brandUid | Integer |  no  | The unique identifier of the brand |
+ | createdOn | String |  no  | Timestamp of the creation of the document |
  | remark | String? |  yes  | Any additional remarks or notes about the verification process |
  | companyIds | ArrayList<Integer> |  no  | The list of company IDs associated with the product |
- | status | String |  no  | The status of the product verification |
- | brandUid | Integer |  no  | The unique identifier of the brand |
- | modifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the last modifier of the document |
- | itemCode | String |  no  | The item code of the product being verified |
  | rejectedFields | HashMap<String,Object>? |  yes  | A dictionary of any rejected fields and their corresponding values |
- | createdOn | String |  no  | Timestamp of the creation of the document |
- | id | Object? |  yes  |  |
- | slug | String |  no  | The slug of the product being verified |
- | itemId | Integer |  no  | The unique identifier of the item being verified |
- | createdBy | [UserDetail](#UserDetail)? |  yes  | User details of the creator of the document |
- | modifiedOn | String |  no  | Timestamp of the last modification of the document |
  | verifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the verifier of the document, if applicable |
- | product | HashMap<String,Object>? |  yes  | The product information being verified |
+ | modifiedOn | String |  no  | Timestamp of the last modification of the document |
+ | status | String |  no  | The status of the product verification |
+ | itemId | Integer |  no  | The unique identifier of the item being verified |
+ | slug | String |  no  | The slug of the product being verified |
+ | modifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the last modifier of the document |
+ | id | Object? |  yes  |  |
 
 ---
 
@@ -7350,18 +7350,18 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | remark | String? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | companyIds | ArrayList<Integer> |  no  |  |
- | status | String |  no  |  |
- | brandUid | Integer |  no  |  |
  | itemCode | String |  no  |  |
- | modifiedBy | [UserInfo](#UserInfo) |  no  |  |
- | rejectedFields | HashMap<String,Object>? |  yes  |  |
- | createdOn | String |  no  |  |
- | itemId | Integer |  no  |  |
  | createdBy | [UserInfo](#UserInfo) |  no  |  |
+ | brandUid | Integer |  no  |  |
+ | createdOn | String |  no  |  |
+ | remark | String? |  yes  |  |
+ | companyIds | ArrayList<Integer> |  no  |  |
+ | modifiedOn | String? |  yes  |  |
+ | status | String |  no  |  |
+ | itemId | Integer |  no  |  |
  | slug | String |  no  |  |
+ | rejectedFields | HashMap<String,Object>? |  yes  |  |
+ | modifiedBy | [UserInfo](#UserInfo) |  no  |  |
 
 ---
 
@@ -7384,8 +7384,8 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | headers | HashMap<String,Object>? |  yes  |  |
  | values | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | headers | HashMap<String,Object>? |  yes  |  |
  | unit | String? |  yes  |  |
 
 ---
@@ -7409,20 +7409,20 @@ See example below for details
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | id | String? |  yes  |  |
- | name | String |  no  |  |
- | image | String? |  yes  |  |
  | description | String? |  yes  |  |
- | active | Boolean? |  yes  |  |
- | companyId | Integer? |  yes  |  |
- | subtitle | String? |  yes  |  |
- | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | guide | [Guide](#Guide)? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | title | String |  no  |  |
- | brandId | Integer? |  yes  |  |
- | createdBy | HashMap<String,Object>? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
  | tag | String? |  yes  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
+ | companyId | Integer? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | subtitle | String? |  yes  |  |
+ | active | Boolean? |  yes  |  |
+ | title | String |  no  |  |
+ | modifiedOn | String? |  yes  |  |
+ | name | String |  no  |  |
+ | brandId | Integer? |  yes  |  |
+ | modifiedBy | HashMap<String,Object>? |  yes  |  |
+ | image | String? |  yes  |  |
+ | guide | [Guide](#Guide)? |  yes  |  |
 
 ---
 
@@ -7445,97 +7445,18 @@ See example below for details
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | id | String? |  yes  |  |
- | name | String? |  yes  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
+ | tag | String? |  yes  |  |
  | companyId | Integer? |  yes  |  |
- | active | Boolean? |  yes  |  |
+ | createdOn | String? |  yes  |  |
  | subtitle | String? |  yes  |  |
+ | active | Boolean? |  yes  |  |
+ | title | String? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | brandId | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
  | modifiedBy | HashMap<String,Object>? |  yes  |  |
  | guide | HashMap<String,Object>? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | title | String? |  yes  |  |
- | brandId | Integer? |  yes  |  |
- | createdBy | HashMap<String,Object>? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | tag | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Media1](#Media1)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | url | String |  no  |  |
- | type | String? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [ReturnConfigResponse](#ReturnConfigResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | time | Integer? |  yes  |  |
- | returnable | Boolean? |  yes  |  |
- | unit | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductPublished](#ProductPublished)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | productOnlineDate | Integer? |  yes  |  |
- | isSet | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [Image](#Image)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | url | String? |  yes  |  |
- | aspectRatio | String? |  yes  |  |
- | aspectRatioF | Double? |  yes  |  |
- | secureUrl | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Logo](#Logo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | url | String? |  yes  |  |
- | aspectRatio | String? |  yes  |  |
- | aspectRatioF | Integer? |  yes  |  |
- | secureUrl | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Brand](#Brand)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | logo | [Logo](#Logo)? |  yes  |  |
 
 ---
 
@@ -7554,13 +7475,66 @@ See example below for details
 
  
  
+ #### [Logo](#Logo)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | aspectRatioF | Integer? |  yes  |  |
+ | secureUrl | String? |  yes  |  |
+ | aspectRatio | String? |  yes  |  |
+ | url | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Brand](#Brand)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | logo | [Logo](#Logo)? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Media1](#Media1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | type | String? |  yes  |  |
+ | url | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [ReturnConfigResponse](#ReturnConfigResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | returnable | Boolean? |  yes  |  |
+ | unit | String? |  yes  |  |
+ | time | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [Trader](#Trader)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | address | ArrayList<String>? |  yes  |  |
  | name | String |  no  |  |
  | type | String? |  yes  |  |
- | address | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -7579,72 +7553,98 @@ See example below for details
 
  
  
+ #### [ProductPublished](#ProductPublished)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | isSet | Boolean? |  yes  |  |
+ | productOnlineDate | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Image](#Image)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | aspectRatioF | Double? |  yes  |  |
+ | secureUrl | String? |  yes  |  |
+ | aspectRatio | String? |  yes  |  |
+ | url | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [Product](#Product)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
  | verifiedOn | String? |  yes  |  |
- | moq | HashMap<String,Object>? |  yes  |  |
- | shortDescription | String? |  yes  |  |
+ | sizes | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | variantMedia | HashMap<String,Object>? |  yes  |  |
- | pending | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | imageNature | String? |  yes  |  |
- | allIdentifiers | ArrayList<String>? |  yes  |  |
- | media | ArrayList<[Media1](#Media1)>? |  yes  |  |
- | returnConfig | [ReturnConfigResponse](#ReturnConfigResponse)? |  yes  |  |
- | name | String? |  yes  |  |
+ | itemCode | String? |  yes  |  |
+ | shortDescription | String? |  yes  |  |
+ | departments | ArrayList<Integer>? |  yes  |  |
+ | noOfBoxes | Integer? |  yes  |  |
  | companyId | Integer? |  yes  |  |
- | description | String? |  yes  |  |
- | stage | String? |  yes  |  |
- | productPublish | [ProductPublished](#ProductPublished)? |  yes  |  |
- | taxIdentifier | HashMap<String,Object>? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | netQuantity | [NetQuantityResponse](#NetQuantityResponse)? |  yes  |  |
+ | allSizes | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | categoryUid | Integer? |  yes  |  |
+ | hsnCode | String? |  yes  |  |
+ | highlights | ArrayList<String>? |  yes  |  |
+ | moq | HashMap<String,Object>? |  yes  |  |
+ | name | String? |  yes  |  |
+ | brand | [Brand](#Brand)? |  yes  |  |
+ | media | ArrayList<[Media1](#Media1)>? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | pending | String? |  yes  |  |
+ | countryOfOrigin | String? |  yes  |  |
+ | createdBy | HashMap<String,Object>? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | returnConfig | [ReturnConfigResponse](#ReturnConfigResponse)? |  yes  |  |
+ | productGroupTag | ArrayList<String>? |  yes  |  |
+ | isDependent | Boolean? |  yes  |  |
+ | attributes | HashMap<String,Object>? |  yes  |  |
  | primaryColor | String? |  yes  |  |
  | isExpirable | Boolean? |  yes  |  |
- | brandUid | Integer? |  yes  |  |
- | isSet | Boolean? |  yes  |  |
+ | customOrder | HashMap<String,Object>? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | variantGroup | HashMap<String,Object>? |  yes  |  |
  | sizeGuide | String? |  yes  |  |
- | images | ArrayList<[Image](#Image)>? |  yes  |  |
- | categoryUid | Integer? |  yes  |  |
+ | taxIdentifier | HashMap<String,Object>? |  yes  |  |
+ | description | String? |  yes  |  |
+ | teaserTag | HashMap<String,Object>? |  yes  |  |
+ | brandUid | Integer? |  yes  |  |
+ | color | String? |  yes  |  |
+ | trader | ArrayList<[Trader](#Trader)>? |  yes  |  |
+ | stage | String? |  yes  |  |
+ | isSet | Boolean? |  yes  |  |
+ | itemType | String? |  yes  |  |
+ | verifiedBy | [VerifiedBy](#VerifiedBy)? |  yes  |  |
+ | variants | HashMap<String,Object>? |  yes  |  |
  | l3Mapping | ArrayList<String>? |  yes  |  |
  | multiSize | Boolean? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | allSizes | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | sizes | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | countryOfOrigin | String? |  yes  |  |
- | brand | [Brand](#Brand)? |  yes  |  |
- | productGroupTag | ArrayList<String>? |  yes  |  |
- | createdBy | HashMap<String,Object>? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | noOfBoxes | Integer? |  yes  |  |
- | attributes | HashMap<String,Object>? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | itemType | String? |  yes  |  |
- | categorySlug | String? |  yes  |  |
- | netQuantity | [NetQuantityResponse](#NetQuantityResponse)? |  yes  |  |
- | color | String? |  yes  |  |
- | slug | String? |  yes  |  |
- | hsnCode | String? |  yes  |  |
- | variantGroup | HashMap<String,Object>? |  yes  |  |
- | isImageLessProduct | Boolean? |  yes  |  |
- | variants | HashMap<String,Object>? |  yes  |  |
- | isDependent | Boolean? |  yes  |  |
- | isPhysical | Boolean? |  yes  |  |
- | currency | String? |  yes  |  |
- | departments | ArrayList<Integer>? |  yes  |  |
- | itemCode | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | trader | ArrayList<[Trader](#Trader)>? |  yes  |  |
  | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | highlights | ArrayList<String>? |  yes  |  |
- | customOrder | HashMap<String,Object>? |  yes  |  |
+ | productPublish | [ProductPublished](#ProductPublished)? |  yes  |  |
  | templateTag | String? |  yes  |  |
- | teaserTag | HashMap<String,Object>? |  yes  |  |
- | allCompanyIds | ArrayList<Integer>? |  yes  |  |
+ | id | String? |  yes  |  |
  | category | HashMap<String,Object>? |  yes  |  |
- | verifiedBy | [VerifiedBy](#VerifiedBy)? |  yes  |  |
+ | currency | String? |  yes  |  |
+ | allCompanyIds | ArrayList<Integer>? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | images | ArrayList<[Image](#Image)>? |  yes  |  |
+ | imageNature | String? |  yes  |  |
+ | categorySlug | String? |  yes  |  |
+ | isPhysical | Boolean? |  yes  |  |
+ | allIdentifiers | ArrayList<String>? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | isImageLessProduct | Boolean? |  yes  |  |
 
 ---
 
@@ -7667,8 +7667,8 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | pageSize | Integer? |  yes  |  |
  | pageNo | Integer? |  yes  |  |
+ | pageSize | Integer? |  yes  |  |
 
 ---
 
@@ -7679,10 +7679,10 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | succeed | Integer? |  yes  | It contains the count of successfull records. |
  | cancelled | Integer? |  yes  | It contains the count of cancelled records. |
- | total | Integer |  no  | It contains the count of total records to be uploaded. |
  | failed | Integer? |  yes  | It contains the count of failed records. |
+ | succeed | Integer? |  yes  | It contains the count of successfull records. |
+ | total | Integer |  no  | It contains the count of total records to be uploaded. |
 
 ---
 
@@ -7694,22 +7694,22 @@ See example below for details
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | verifiedOn | String? |  yes  | Timestamp of when the document was verified, if applicable |
- | stage | String? |  yes  | Field to track the current stage of job. |
- | stats | [BulkJobsStats](#BulkJobsStats) |  no  | It contains the stats of job. |
- | notificationEmails | ArrayList<String>? |  yes  | User email to get notification post completion of the job. |
- | cancelledRecords | ArrayList<HashMap<String,Object>>? |  yes  | It contains all the canceled records with specific message. |
- | modifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the last modifier of the document |
- | createdOn | String |  no  | Timestamp of the creation of the document |
  | fileType | String |  no  | It contains the type of file. |
- | completedOn | String? |  yes  | Date of completion of the job. |
- | id | Object? |  yes  |  |
- | failedRecords | ArrayList<HashMap<String,Object>>? |  yes  | It contains all the failed records with specific errors. |
- | isActive | Boolean? |  yes  | Field to track whether the job is active or not. |
- | trackingUrl | String |  no  | It contains url of the uploaded file. |
- | jobType | String |  no  | It contains the name of entity for the job. |
+ | stats | [BulkJobsStats](#BulkJobsStats) |  no  | It contains the stats of job. |
  | createdBy | [UserDetail](#UserDetail)? |  yes  | User details of the creator of the document |
- | modifiedOn | String |  no  | Timestamp of the last modification of the document |
+ | jobType | String |  no  | It contains the name of entity for the job. |
+ | notificationEmails | ArrayList<String>? |  yes  | User email to get notification post completion of the job. |
+ | isActive | Boolean? |  yes  | Field to track whether the job is active or not. |
+ | createdOn | String |  no  | Timestamp of the creation of the document |
+ | trackingUrl | String |  no  | It contains url of the uploaded file. |
+ | stage | String? |  yes  | Field to track the current stage of job. |
+ | completedOn | String? |  yes  | Date of completion of the job. |
  | verifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the verifier of the document, if applicable |
+ | modifiedOn | String |  no  | Timestamp of the last modification of the document |
+ | modifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the last modifier of the document |
+ | id | Object? |  yes  |  |
+ | cancelledRecords | ArrayList<HashMap<String,Object>>? |  yes  | It contains all the canceled records with specific message. |
+ | failedRecords | ArrayList<HashMap<String,Object>>? |  yes  | It contains all the failed records with specific errors. |
 
 ---
 
@@ -7733,10 +7733,10 @@ See example below for details
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | totalCount | Integer |  no  | Total no of records for import. |
- | notificationEmails | ArrayList<String>? |  yes  | User email to get notification post completion of the job. |
  | fileType | String |  no  | It contains the type of file. |
- | trackingUrl | String |  no  | It contains url of the uploaded file. |
+ | notificationEmails | ArrayList<String>? |  yes  | User email to get notification post completion of the job. |
  | jobType | String |  no  | It contains the name of entity for the job. |
+ | trackingUrl | String |  no  | It contains url of the uploaded file. |
 
 ---
 
@@ -7748,19 +7748,19 @@ See example below for details
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | verifiedOn | String? |  yes  | Timestamp of when the document was verified, if applicable |
- | stage | String? |  yes  | Field to track the current stage of job. |
- | notificationEmails | ArrayList<String>? |  yes  | User email to get notification post completion of the job. |
- | modifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the last modifier of the document |
- | createdOn | String |  no  | Timestamp of the creation of the document |
  | fileType | String |  no  | It contains the type of file. |
- | completedOn | String? |  yes  | Date of completion of the job. |
- | id | Object? |  yes  |  |
- | filters | HashMap<String,Object>? |  yes  | It contains the filters to apply while exporting the data. |
- | isActive | Boolean? |  yes  | Field to track whether the job is active or not. |
- | jobType | String |  no  | It contains the name of entity for the job. |
+ | notificationEmails | ArrayList<String>? |  yes  | User email to get notification post completion of the job. |
  | createdBy | [UserDetail](#UserDetail)? |  yes  | User details of the creator of the document |
- | modifiedOn | String |  no  | Timestamp of the last modification of the document |
+ | jobType | String |  no  | It contains the name of entity for the job. |
+ | isActive | Boolean? |  yes  | Field to track whether the job is active or not. |
+ | createdOn | String |  no  | Timestamp of the creation of the document |
+ | stage | String? |  yes  | Field to track the current stage of job. |
+ | filters | HashMap<String,Object>? |  yes  | It contains the filters to apply while exporting the data. |
+ | completedOn | String? |  yes  | Date of completion of the job. |
  | verifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the verifier of the document, if applicable |
+ | modifiedOn | String |  no  | Timestamp of the last modification of the document |
+ | modifiedBy | [UserDetail](#UserDetail)? |  yes  | User details of the last modifier of the document |
+ | id | Object? |  yes  |  |
 
 ---
 
@@ -7784,9 +7784,9 @@ See example below for details
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | completedOn | String? |  yes  |  |
- | filters | HashMap<String,Object>? |  yes  |  |
- | notificationEmails | ArrayList<String>? |  yes  |  |
  | fileType | String |  no  |  |
+ | notificationEmails | ArrayList<String>? |  yes  |  |
+ | filters | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -7808,11 +7808,11 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | itemTotal | Integer? |  yes  |  |
+ | hasNext | Boolean? |  yes  |  |
  | hasPrevious | Boolean? |  yes  |  |
  | size | Integer? |  yes  |  |
  | current | String? |  yes  |  |
- | hasNext | Boolean? |  yes  |  |
- | itemTotal | Integer? |  yes  |  |
 
 ---
 
@@ -7824,9 +7824,9 @@ See example below for details
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | threshold | Double |  no  |  |
- | rate | Double |  no  |  |
  | cess | Double? |  yes  |  |
  | effectiveDate | String |  no  |  |
+ | rate | Double |  no  |  |
 
 ---
 
@@ -7837,17 +7837,17 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | modifiedOn | String? |  yes  |  |
- | description | String |  no  |  |
- | reportingHsn | String |  no  |  |
- | type | String |  no  |  |
- | modifiedBy | HashMap<String,Object>? |  yes  |  |
- | hsnCodeId | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
  | taxes | ArrayList<[TaxSlab](#TaxSlab)> |  no  |  |
+ | description | String |  no  |  |
  | createdBy | HashMap<String,Object>? |  yes  |  |
+ | createdOn | String? |  yes  |  |
+ | hsnCodeId | String? |  yes  |  |
  | hsnCode | String |  no  |  |
+ | modifiedOn | String? |  yes  |  |
+ | reportingHsn | String |  no  |  |
+ | modifiedBy | HashMap<String,Object>? |  yes  |  |
  | countryCode | String |  no  |  |
+ | type | String |  no  |  |
 
 ---
 
@@ -7870,11 +7870,11 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | description | String |  no  |  |
- | type | String |  no  |  |
  | taxes | ArrayList<[TaxSlab](#TaxSlab)> |  no  |  |
+ | description | String |  no  |  |
  | hsnCode | String |  no  |  |
  | countryCode | String |  no  |  |
+ | type | String |  no  |  |
 
 ---
 
@@ -7885,14 +7885,14 @@ See example below for details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | description | String |  no  |  |
- | reportingHsn | String |  no  |  |
- | type | String |  no  |  |
- | modifiedBy | HashMap<String,Object>? |  yes  |  |
  | taxes | ArrayList<[TaxSlab](#TaxSlab)> |  no  |  |
+ | description | String |  no  |  |
  | createdBy | HashMap<String,Object>? |  yes  |  |
  | hsnCode | String |  no  |  |
+ | reportingHsn | String |  no  |  |
+ | modifiedBy | HashMap<String,Object>? |  yes  |  |
  | countryCode | String |  no  |  |
+ | type | String |  no  |  |
 
 ---
 
