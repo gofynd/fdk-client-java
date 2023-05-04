@@ -16,7 +16,7 @@ interface PosCartApplicationApiList {
     Call<Object> getCartLastModified(@Url String url1, @Query("id") String id );
     
     @POST 
-    Call<PosCartApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow , @Query("id") String id  , @Body PosCartApplicationModels.AddCartRequest payload );
+    Call<PosCartApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow  , @Body PosCartApplicationModels.AddCartRequest payload );
     
     @PUT 
     Call<PosCartApplicationModels.UpdateCartDetailResponse> updateCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow  , @Body PosCartApplicationModels.UpdateCartRequest payload );
