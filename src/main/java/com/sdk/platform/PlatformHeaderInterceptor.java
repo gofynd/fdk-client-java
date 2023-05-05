@@ -1,6 +1,6 @@
-package com.sdk.common;
+package com.sdk.platform;
 
-import com.sdk.universal.PublicConfig;
+import com.sdk.platform.PlatformConfig;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -9,21 +9,21 @@ import java.io.IOException;
 import java.util.Base64;
 import java.util.*;
 
-public class PublicHeaderInterceptor implements Interceptor {
+public class PlatformHeaderInterceptor implements Interceptor {
 
-    private PublicConfig publicConfig;
+    private PlatformConfig platformConfig;
 
-    public PublicHeaderInterceptor(PublicConfig publicConfig) {
-        this.publicConfig = publicConfig;
+    public PlatformHeaderInterceptor(PlatformConfig platformConfig) {
+        this.platformConfig = platformConfig;
     }
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-        String bearerToken = Base64.getEncoder().encodeToString((publicConfig.getApplicationToken()).getBytes());
+        String bearerToken = Base64.getEncoder().encodeToString((platformConfig.getApiKey()+":"+ platformConfig.getApiSecret()).getBytes());
         Request request = chain.request();
         Request.Builder builder = buildHeaders(request, bearerToken);
-        if (!publicConfig.getExtraHeaders().isEmpty()) {
-            HashMap<String, String> extraHeaders = publicConfig.getExtraHeaders();
+        if (!platformConfig.getExtraHeaders().isEmpty()) {
+            HashMap<String, String> extraHeaders = platformConfig.getExtraHeaders();
             for(Map.Entry<String,String> entry:extraHeaders.entrySet()){
                 builder.addHeader(entry.getKey(),entry.getValue());
             }
@@ -33,11 +33,11 @@ public class PublicHeaderInterceptor implements Interceptor {
 
     private Request.Builder buildHeaders(Request request, String bearerToken) {
         return request
-                .newBuilder()
-                .addHeader("x-application-token", publicConfig.getApplicationToken())
-                .addHeader("User-Agent", publicConfig.getUserAgent())
+        .newBuilder()
                 .addHeader("Accept-Language", "en-IN")
-                .addHeader("Authorization", "Bearer "+bearerToken)
+                .addHeader("Authorization", "Basic "+ bearerToken)
+                .addHeader("Content-Type","application/x-www-form-urlencoded")
                 .addHeader("x-fp-sdk-version", "1.0.3");
-    }
+    }            
+
 }
