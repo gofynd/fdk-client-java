@@ -804,7 +804,7 @@ interface OrderPlatformApiList {
     
     
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
-    Call<OrderPlatformModels.ShipmentHistoryResponse> getShipmentHistory(@Path("company_id")  String companyId , @Query("shipment_id") Integer  shipmentId ,  @Query("bag_id") Integer  bagId );
+    Call<OrderPlatformModels.ShipmentHistoryResponse> getShipmentHistory(@Path("company_id")  String companyId , @Query("shipment_id") String  shipmentId ,  @Query("bag_id") Integer  bagId );
     
     
     
