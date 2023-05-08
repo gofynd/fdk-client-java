@@ -11724,31 +11724,101 @@ Valid response with existing promotion code count
 
  
  
- #### [IdentifierSchema](#IdentifierSchema)
+ #### [RuleDefinitionSchema](#RuleDefinitionSchema)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | excludeBrandId | ArrayList<Integer>? |  yes  |  |
- | categoryId | ArrayList<Integer>? |  yes  |  |
- | itemId | ArrayList<Integer>? |  yes  |  |
- | storeId | ArrayList<Integer>? |  yes  |  |
- | articleId | ArrayList<String>? |  yes  |  |
- | userId | ArrayList<String>? |  yes  |  |
- | collectionId | ArrayList<String>? |  yes  |  |
- | brandId | ArrayList<Integer>? |  yes  |  |
- | companyId | ArrayList<Integer>? |  yes  |  |
+ | calculateOn | String |  no  |  |
+ | isExact | Boolean? |  yes  |  |
+ | type | String |  no  |  |
+ | currencyCode | String? |  yes  |  |
+ | scope | ArrayList<String>? |  yes  |  |
+ | applicableOn | String |  no  |  |
+ | autoApply | Boolean? |  yes  |  |
+ | valueType | String |  no  |  |
 
 ---
 
 
  
  
- #### [CouponDateMetaSchema](#CouponDateMetaSchema)
+ #### [DisplayMetaDictSchema](#DisplayMetaDictSchema)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | createdOn | String? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
+ | title | String? |  yes  |  |
+ | subtitle | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DisplayMetaSchema](#DisplayMetaSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | description | String? |  yes  |  |
+ | subtitle | String? |  yes  |  |
+ | title | String? |  yes  |  |
+ | remove | [DisplayMetaDictSchema](#DisplayMetaDictSchema)? |  yes  |  |
+ | apply | [DisplayMetaDictSchema](#DisplayMetaDictSchema)? |  yes  |  |
+ | auto | [DisplayMetaDictSchema](#DisplayMetaDictSchema)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OwnershipSchema](#OwnershipSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | payableCategory | String |  no  |  |
+ | payableBy | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [CouponActionSchema](#CouponActionSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | txnMode | String? |  yes  |  |
+ | actionDate | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [IdentifierSchema](#IdentifierSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | brandId | ArrayList<Integer>? |  yes  |  |
+ | itemId | ArrayList<Integer>? |  yes  |  |
+ | articleId | ArrayList<String>? |  yes  |  |
+ | collectionId | ArrayList<String>? |  yes  |  |
+ | userId | ArrayList<String>? |  yes  |  |
+ | excludeBrandId | ArrayList<Integer>? |  yes  |  |
+ | companyId | ArrayList<Integer>? |  yes  |  |
+ | storeId | ArrayList<Integer>? |  yes  |  |
+ | categoryId | ArrayList<Integer>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PostOrderSchema](#PostOrderSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | cancellationAllowed | Boolean? |  yes  |  |
+ | returnAllowed | Boolean? |  yes  |  |
 
 ---
 
@@ -11780,24 +11850,25 @@ Valid response with existing promotion code count
 
  
  
- #### [PriceRangeSchema](#PriceRangeSchema)
+ #### [PaymentAllowValueSchema](#PaymentAllowValueSchema)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | max | Integer? |  yes  |  |
- | min | Integer? |  yes  |  |
 
 ---
 
 
  
  
- #### [PostOrderSchema](#PostOrderSchema)
+ #### [PaymentModesSchema](#PaymentModesSchema)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | returnAllowed | Boolean? |  yes  |  |
- | cancellationAllowed | Boolean? |  yes  |  |
+ | types | ArrayList<String>? |  yes  |  |
+ | uses | [PaymentAllowValueSchema](#PaymentAllowValueSchema)? |  yes  |  |
+ | codes | ArrayList<String>? |  yes  |  |
+ | networks | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -11815,25 +11886,12 @@ Valid response with existing promotion code count
 
  
  
- #### [PaymentAllowValueSchema](#PaymentAllowValueSchema)
+ #### [PriceRangeSchema](#PriceRangeSchema)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | min | Integer? |  yes  |  |
  | max | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [PaymentModesSchema](#PaymentModesSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | types | ArrayList<String>? |  yes  |  |
- | codes | ArrayList<String>? |  yes  |  |
- | uses | [PaymentAllowValueSchema](#PaymentAllowValueSchema)? |  yes  |  |
- | networks | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -11844,16 +11902,16 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | couponAllowed | Boolean? |  yes  |  |
- | uses | [UsesRestrictionSchema](#UsesRestrictionSchema)? |  yes  |  |
- | userGroups | ArrayList<Integer>? |  yes  |  |
- | priceRange | [PriceRangeSchema](#PriceRangeSchema)? |  yes  |  |
  | postOrder | [PostOrderSchema](#PostOrderSchema)? |  yes  |  |
- | orderingStores | ArrayList<Integer>? |  yes  |  |
- | bulkBundle | [BulkBundleRestriction](#BulkBundleRestriction)? |  yes  |  |
+ | uses | [UsesRestrictionSchema](#UsesRestrictionSchema)? |  yes  |  |
+ | payments | HashMap<String,[PaymentModesSchema](#PaymentModesSchema)>? |  yes  |  |
+ | userGroups | ArrayList<Integer>? |  yes  |  |
  | userType | String? |  yes  |  |
  | platforms | ArrayList<String>? |  yes  |  |
- | payments | HashMap<String,[PaymentModesSchema](#PaymentModesSchema)>? |  yes  |  |
+ | couponAllowed | Boolean? |  yes  |  |
+ | bulkBundle | [BulkBundleRestriction](#BulkBundleRestriction)? |  yes  |  |
+ | orderingStores | ArrayList<Integer>? |  yes  |  |
+ | priceRange | [PriceRangeSchema](#PriceRangeSchema)? |  yes  |  |
 
 ---
 
@@ -11864,27 +11922,9 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | isArchived | Boolean? |  yes  |  |
  | isDisplay | Boolean? |  yes  |  |
  | isPublic | Boolean? |  yes  |  |
- | isArchived | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [RuleDefinitionSchema](#RuleDefinitionSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | isExact | Boolean? |  yes  |  |
- | valueType | String |  no  |  |
- | applicableOn | String |  no  |  |
- | scope | ArrayList<String>? |  yes  |  |
- | currencyCode | String? |  yes  |  |
- | calculateOn | String |  no  |  |
- | type | String |  no  |  |
- | autoApply | Boolean? |  yes  |  |
 
 ---
 
@@ -11895,11 +11935,11 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | value | Double? |  yes  |  |
+ | key | Double? |  yes  |  |
  | min | Double? |  yes  |  |
  | max | Double? |  yes  |  |
  | discountQty | Double? |  yes  |  |
- | value | Double? |  yes  |  |
- | key | Double? |  yes  |  |
 
 ---
 
@@ -11910,63 +11950,11 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | end | String? |  yes  |  |
  | start | String? |  yes  |  |
- | cron | String? |  yes  |  |
  | nextSchedule | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | cron | String? |  yes  |  |
  | duration | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [CouponActionSchema](#CouponActionSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | txnMode | String? |  yes  |  |
- | actionDate | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [DisplayMetaDictSchema](#DisplayMetaDictSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | title | String? |  yes  |  |
- | subtitle | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [DisplayMetaSchema](#DisplayMetaSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | description | String? |  yes  |  |
- | remove | [DisplayMetaDictSchema](#DisplayMetaDictSchema)? |  yes  |  |
- | subtitle | String? |  yes  |  |
- | title | String? |  yes  |  |
- | apply | [DisplayMetaDictSchema](#DisplayMetaDictSchema)? |  yes  |  |
- | auto | [DisplayMetaDictSchema](#DisplayMetaDictSchema)? |  yes  |  |
-
----
-
-
- 
- 
- #### [OwnershipSchema](#OwnershipSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | payableBy | String |  no  |  |
- | payableCategory | String |  no  |  |
+ | end | String? |  yes  |  |
 
 ---
 
@@ -11977,9 +11965,32 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | anonymous | Boolean? |  yes  |  |
  | appId | ArrayList<String>? |  yes  |  |
  | userRegisteredAfter | String? |  yes  |  |
+ | anonymous | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CouponDateMetaSchema](#CouponDateMetaSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | createdOn | String? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ValiditySchema](#ValiditySchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | priority | Integer? |  yes  |  |
 
 ---
 
@@ -11998,37 +12009,26 @@ Valid response with existing promotion code count
 
  
  
- #### [ValiditySchema](#ValiditySchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | priority | Integer? |  yes  |  |
-
----
-
-
- 
- 
  #### [CouponAddSchema](#CouponAddSchema)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | identifiers | [IdentifierSchema](#IdentifierSchema) |  no  |  |
- | dateMeta | [CouponDateMetaSchema](#CouponDateMetaSchema)? |  yes  |  |
- | restrictions | [RestrictionsSchema](#RestrictionsSchema)? |  yes  |  |
- | state | [StateSchema](#StateSchema)? |  yes  |  |
  | ruleDefinition | [RuleDefinitionSchema](#RuleDefinitionSchema) |  no  |  |
- | rule | ArrayList<[RuleSchema](#RuleSchema)> |  no  |  |
- | code | String |  no  |  |
- | schedule | [CouponScheduleSchema](#CouponScheduleSchema)? |  yes  |  |
- | action | [CouponActionSchema](#CouponActionSchema)? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | typeSlug | String |  no  |  |
  | displayMeta | [DisplayMetaSchema](#DisplayMetaSchema) |  no  |  |
  | ownership | [OwnershipSchema](#OwnershipSchema) |  no  |  |
+ | typeSlug | String |  no  |  |
+ | code | String |  no  |  |
+ | action | [CouponActionSchema](#CouponActionSchema)? |  yes  |  |
+ | identifiers | [IdentifierSchema](#IdentifierSchema) |  no  |  |
+ | restrictions | [RestrictionsSchema](#RestrictionsSchema)? |  yes  |  |
+ | state | [StateSchema](#StateSchema)? |  yes  |  |
+ | rule | ArrayList<[RuleSchema](#RuleSchema)> |  no  |  |
+ | schedule | [CouponScheduleSchema](#CouponScheduleSchema)? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
  | validation | [ValidationSchema](#ValidationSchema)? |  yes  |  |
- | author | [CouponAuthorSchema](#CouponAuthorSchema)? |  yes  |  |
+ | dateMeta | [CouponDateMetaSchema](#CouponDateMetaSchema)? |  yes  |  |
  | validity | [ValiditySchema](#ValiditySchema) |  no  |  |
+ | author | [CouponAuthorSchema](#CouponAuthorSchema)? |  yes  |  |
 
 ---
 
@@ -12039,15 +12039,15 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | hasPrevious | Boolean? |  yes  | True if more records are present for previous pages. Sent for cursor pagination |
- | size | Integer? |  yes  | Current request page size |
- | itemTotal | Integer? |  yes  | Total coupon count in system |
- | current | Integer? |  yes  | Current page no |
- | lastId | String? |  yes  | Last objects id |
- | page | Integer? |  yes  | Page requested |
- | hasNext | Boolean? |  yes  | True if more records are present for next pages |
  | type | String |  no  |  |
+ | page | Integer? |  yes  | Page requested |
  | nextId | String? |  yes  | Cursor id for next set of records. |
+ | hasNext | Boolean? |  yes  | True if more records are present for next pages |
+ | itemTotal | Integer? |  yes  | Total coupon count in system |
+ | hasPrevious | Boolean? |  yes  | True if more records are present for previous pages. Sent for cursor pagination |
+ | current | Integer? |  yes  | Current page no |
+ | size | Integer? |  yes  | Current request page size |
+ | lastId | String? |  yes  | Last objects id |
 
 ---
 
@@ -12070,8 +12070,8 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
  | success | Boolean? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -12082,8 +12082,8 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
  | success | Boolean? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -12094,22 +12094,22 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | identifiers | [IdentifierSchema](#IdentifierSchema) |  no  |  |
- | dateMeta | [CouponDateMetaSchema](#CouponDateMetaSchema)? |  yes  |  |
- | restrictions | [RestrictionsSchema](#RestrictionsSchema)? |  yes  |  |
- | state | [StateSchema](#StateSchema)? |  yes  |  |
  | ruleDefinition | [RuleDefinitionSchema](#RuleDefinitionSchema) |  no  |  |
- | rule | ArrayList<[RuleSchema](#RuleSchema)> |  no  |  |
- | code | String |  no  |  |
- | schedule | [CouponScheduleSchema](#CouponScheduleSchema)? |  yes  |  |
- | action | [CouponActionSchema](#CouponActionSchema)? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | typeSlug | String |  no  |  |
  | displayMeta | [DisplayMetaSchema](#DisplayMetaSchema) |  no  |  |
  | ownership | [OwnershipSchema](#OwnershipSchema) |  no  |  |
+ | typeSlug | String |  no  |  |
+ | code | String |  no  |  |
+ | action | [CouponActionSchema](#CouponActionSchema)? |  yes  |  |
+ | identifiers | [IdentifierSchema](#IdentifierSchema) |  no  |  |
+ | restrictions | [RestrictionsSchema](#RestrictionsSchema)? |  yes  |  |
+ | state | [StateSchema](#StateSchema)? |  yes  |  |
+ | rule | ArrayList<[RuleSchema](#RuleSchema)> |  no  |  |
+ | schedule | [CouponScheduleSchema](#CouponScheduleSchema)? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
  | validation | [ValidationSchema](#ValidationSchema)? |  yes  |  |
- | author | [CouponAuthorSchema](#CouponAuthorSchema)? |  yes  |  |
+ | dateMeta | [CouponDateMetaSchema](#CouponDateMetaSchema)? |  yes  |  |
  | validity | [ValiditySchema](#ValiditySchema) |  no  |  |
+ | author | [CouponAuthorSchema](#CouponAuthorSchema)? |  yes  |  |
 
 ---
 
@@ -12128,6 +12128,32 @@ Valid response with existing promotion code count
 
  
  
+ #### [PromotionActionSchema](#PromotionActionSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | actionType | String |  no  |  |
+ | actionDate | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [DisplayMetaSchema1](#DisplayMetaSchema1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | offerLabel | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | offerText | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [PromotionDateMetaSchema](#PromotionDateMetaSchema)
 
  | Properties | Type | Nullable | Description |
@@ -12140,31 +12166,15 @@ Valid response with existing promotion code count
 
  
  
- #### [PromotionScheduleSchema](#PromotionScheduleSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | end | String? |  yes  |  |
- | start | String |  no  |  |
- | cron | String? |  yes  |  |
- | nextSchedule | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | duration | Integer? |  yes  |  |
- | published | Boolean |  no  |  |
-
----
-
-
- 
- 
  #### [CompareObjectSchema](#CompareObjectSchema)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | lessThan | Double? |  yes  |  |
- | lessThanEquals | Double? |  yes  |  |
- | greaterThanEquals | Double? |  yes  |  |
  | equals | Double? |  yes  |  |
+ | lessThan | Double? |  yes  |  |
+ | greaterThanEquals | Double? |  yes  |  |
  | greaterThan | Double? |  yes  |  |
+ | lessThanEquals | Double? |  yes  |  |
 
 ---
 
@@ -12175,27 +12185,27 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | availableZones | ArrayList<String>? |  yes  |  |
- | itemExcludeCompany | ArrayList<Integer>? |  yes  |  |
- | itemExcludeCategory | ArrayList<Integer>? |  yes  |  |
- | allItems | Boolean? |  yes  |  |
- | itemBrand | ArrayList<Integer>? |  yes  |  |
- | cartUniqueItemAmount | [CompareObjectSchema](#CompareObjectSchema)? |  yes  |  |
- | itemCategory | ArrayList<Integer>? |  yes  |  |
- | productTags | ArrayList<String>? |  yes  |  |
- | itemExcludeSku | ArrayList<String>? |  yes  |  |
- | itemExcludeStore | ArrayList<Integer>? |  yes  |  |
- | itemExcludeBrand | ArrayList<Integer>? |  yes  |  |
- | itemStore | ArrayList<Integer>? |  yes  |  |
- | buyRules | ArrayList<String>? |  yes  |  |
- | cartTotal | [CompareObjectSchema](#CompareObjectSchema)? |  yes  |  |
- | itemSku | ArrayList<String>? |  yes  |  |
+ | itemId | ArrayList<Integer>? |  yes  |  |
  | itemCompany | ArrayList<Integer>? |  yes  |  |
- | itemExcludeId | ArrayList<Integer>? |  yes  |  |
  | cartQuantity | [CompareObjectSchema](#CompareObjectSchema)? |  yes  |  |
  | cartUniqueItemQuantity | [CompareObjectSchema](#CompareObjectSchema)? |  yes  |  |
+ | itemExcludeStore | ArrayList<Integer>? |  yes  |  |
+ | productTags | ArrayList<String>? |  yes  |  |
+ | itemBrand | ArrayList<Integer>? |  yes  |  |
+ | itemStore | ArrayList<Integer>? |  yes  |  |
+ | itemExcludeCompany | ArrayList<Integer>? |  yes  |  |
+ | itemExcludeCategory | ArrayList<Integer>? |  yes  |  |
+ | itemExcludeBrand | ArrayList<Integer>? |  yes  |  |
+ | itemSku | ArrayList<String>? |  yes  |  |
+ | allItems | Boolean? |  yes  |  |
+ | cartTotal | [CompareObjectSchema](#CompareObjectSchema)? |  yes  |  |
+ | itemExcludeId | ArrayList<Integer>? |  yes  |  |
+ | availableZones | ArrayList<String>? |  yes  |  |
+ | buyRules | ArrayList<String>? |  yes  |  |
  | itemSize | ArrayList<String>? |  yes  |  |
- | itemId | ArrayList<Integer>? |  yes  |  |
+ | itemExcludeSku | ArrayList<String>? |  yes  |  |
+ | cartUniqueItemAmount | [CompareObjectSchema](#CompareObjectSchema)? |  yes  |  |
+ | itemCategory | ArrayList<Integer>? |  yes  |  |
 
 ---
 
@@ -12206,16 +12216,16 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | discountPrice | Double? |  yes  |  |
+ | discountAmount | Double? |  yes  |  |
+ | partialCanRet | Boolean? |  yes  |  |
+ | minOfferQuantity | Integer? |  yes  |  |
+ | discountPercentage | Double? |  yes  |  |
  | apportionDiscount | Boolean? |  yes  |  |
  | code | String? |  yes  |  |
- | minOfferQuantity | Integer? |  yes  |  |
  | maxDiscountAmount | Double? |  yes  |  |
- | partialCanRet | Boolean? |  yes  |  |
- | discountAmount | Double? |  yes  |  |
- | maxUsagePerTransaction | Integer? |  yes  |  |
- | discountPercentage | Double? |  yes  |  |
  | maxOfferQuantity | Integer? |  yes  |  |
- | discountPrice | Double? |  yes  |  |
+ | maxUsagePerTransaction | Integer? |  yes  |  |
 
 ---
 
@@ -12226,10 +12236,62 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | discountType | String |  no  |  |
  | itemCriteria | [ItemCriteriaSchema](#ItemCriteriaSchema) |  no  |  |
- | buyCondition | String |  no  |  |
  | offer | [DiscountOfferSchema](#DiscountOfferSchema) |  no  |  |
+ | buyCondition | String |  no  |  |
+ | discountType | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [PromotionScheduleSchema](#PromotionScheduleSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | start | String |  no  |  |
+ | nextSchedule | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | cron | String? |  yes  |  |
+ | duration | Integer? |  yes  |  |
+ | end | String? |  yes  |  |
+ | published | Boolean |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [PromotionAuthorSchema](#PromotionAuthorSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | modifiedBy | String? |  yes  |  |
+ | createdBy | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OwnershipSchema1](#OwnershipSchema1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | payableCategory | String |  no  |  |
+ | payableBy | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [PostOrderSchema1](#PostOrderSchema1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | cancellationAllowed | Boolean? |  yes  |  |
+ | returnAllowed | Boolean? |  yes  |  |
 
 ---
 
@@ -12276,20 +12338,8 @@ Valid response with existing promotion code count
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | type | String |  no  |  |
- | codes | ArrayList<String>? |  yes  |  |
  | uses | [PaymentAllowValueSchema1](#PaymentAllowValueSchema1)? |  yes  |  |
-
----
-
-
- 
- 
- #### [PostOrderSchema1](#PostOrderSchema1)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | returnAllowed | Boolean? |  yes  |  |
- | cancellationAllowed | Boolean? |  yes  |  |
+ | codes | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -12300,8 +12350,8 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | end | String? |  yes  |  |
  | start | String? |  yes  |  |
+ | end | String? |  yes  |  |
 
 ---
 
@@ -12312,41 +12362,15 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | uses | [UsesRestrictionSchema1](#UsesRestrictionSchema1) |  no  |  |
- | userGroups | ArrayList<Integer>? |  yes  |  |
- | payments | ArrayList<[PromotionPaymentModesSchema](#PromotionPaymentModesSchema)>? |  yes  |  |
  | postOrder | [PostOrderSchema1](#PostOrderSchema1)? |  yes  |  |
+ | uses | [UsesRestrictionSchema1](#UsesRestrictionSchema1) |  no  |  |
+ | payments | ArrayList<[PromotionPaymentModesSchema](#PromotionPaymentModesSchema)>? |  yes  |  |
  | orderQuantity | Integer? |  yes  |  |
- | userId | ArrayList<String>? |  yes  |  |
+ | userGroups | ArrayList<Integer>? |  yes  |  |
  | platforms | ArrayList<String>? |  yes  |  |
- | anonymousUsers | Boolean? |  yes  |  |
  | userRegistered | [UserRegisteredSchema](#UserRegisteredSchema)? |  yes  |  |
-
----
-
-
- 
- 
- #### [PromotionAuthorSchema](#PromotionAuthorSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | modifiedBy | String? |  yes  |  |
- | createdBy | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [DisplayMetaSchema1](#DisplayMetaSchema1)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | offerText | String? |  yes  |  |
- | description | String? |  yes  |  |
- | name | String? |  yes  |  |
- | offerLabel | String? |  yes  |  |
+ | userId | ArrayList<String>? |  yes  |  |
+ | anonymousUsers | Boolean? |  yes  |  |
 
 ---
 
@@ -12365,56 +12389,32 @@ Valid response with existing promotion code count
 
  
  
- #### [OwnershipSchema1](#OwnershipSchema1)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | payableBy | String |  no  |  |
- | payableCategory | String |  no  |  |
-
----
-
-
- 
- 
- #### [PromotionActionSchema](#PromotionActionSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | actionDate | String |  no  |  |
- | actionType | String |  no  |  |
-
----
-
-
- 
- 
  #### [PromotionListItem](#PromotionListItem)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | dateMeta | [PromotionDateMetaSchema](#PromotionDateMetaSchema)? |  yes  |  |
- | stackable | Boolean? |  yes  |  |
- | applicationId | String |  no  |  |
- | schedule | [PromotionScheduleSchema](#PromotionScheduleSchema)? |  yes  |  |
- | discountRules | ArrayList<[DiscountRuleSchema](#DiscountRuleSchema)> |  no  |  |
- | restrictions | [RestrictionsSchema1](#RestrictionsSchema1)? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | author | [PromotionAuthorSchema](#PromotionAuthorSchema)? |  yes  |  |
- | applyAllDiscount | Boolean? |  yes  |  |
- | buyRules | HashMap<String,[ItemCriteriaSchema](#ItemCriteriaSchema)> |  no  |  |
- | displayMeta | [DisplayMetaSchema1](#DisplayMetaSchema1) |  no  |  |
- | mode | String |  no  |  |
- | promotionType | String |  no  |  |
- | currency | String? |  yes  |  |
- | applyPriority | Integer? |  yes  |  |
- | visiblility | [VisibilitySchema](#VisibilitySchema)? |  yes  |  |
  | applyExclusive | String? |  yes  |  |
- | code | String? |  yes  |  |
- | ownership | [OwnershipSchema1](#OwnershipSchema1) |  no  |  |
- | promoGroup | String |  no  |  |
  | calculateOn | String? |  yes  | Only available for Contract pricing and Ladder pricing promotion type |
  | postOrderAction | [PromotionActionSchema](#PromotionActionSchema)? |  yes  |  |
+ | mode | String |  no  |  |
+ | displayMeta | [DisplayMetaSchema1](#DisplayMetaSchema1) |  no  |  |
+ | applyPriority | Integer? |  yes  |  |
+ | applicationId | String |  no  |  |
+ | dateMeta | [PromotionDateMetaSchema](#PromotionDateMetaSchema)? |  yes  |  |
+ | currency | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | discountRules | ArrayList<[DiscountRuleSchema](#DiscountRuleSchema)> |  no  |  |
+ | code | String? |  yes  |  |
+ | promoGroup | String |  no  |  |
+ | schedule | [PromotionScheduleSchema](#PromotionScheduleSchema)? |  yes  |  |
+ | promotionType | String |  no  |  |
+ | author | [PromotionAuthorSchema](#PromotionAuthorSchema)? |  yes  |  |
+ | ownership | [OwnershipSchema1](#OwnershipSchema1) |  no  |  |
+ | stackable | Boolean? |  yes  |  |
+ | buyRules | HashMap<String,[ItemCriteriaSchema](#ItemCriteriaSchema)> |  no  |  |
+ | restrictions | [RestrictionsSchema1](#RestrictionsSchema1)? |  yes  |  |
+ | applyAllDiscount | Boolean? |  yes  |  |
+ | visiblility | [VisibilitySchema](#VisibilitySchema)? |  yes  |  |
 
 ---
 
@@ -12437,28 +12437,28 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | dateMeta | [PromotionDateMetaSchema](#PromotionDateMetaSchema)? |  yes  |  |
- | stackable | Boolean? |  yes  |  |
- | applicationId | String |  no  |  |
- | schedule | [PromotionScheduleSchema](#PromotionScheduleSchema)? |  yes  |  |
- | discountRules | ArrayList<[DiscountRuleSchema](#DiscountRuleSchema)> |  no  |  |
- | restrictions | [RestrictionsSchema1](#RestrictionsSchema1)? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | author | [PromotionAuthorSchema](#PromotionAuthorSchema)? |  yes  |  |
- | applyAllDiscount | Boolean? |  yes  |  |
- | buyRules | HashMap<String,[ItemCriteriaSchema](#ItemCriteriaSchema)> |  no  |  |
- | displayMeta | [DisplayMetaSchema1](#DisplayMetaSchema1) |  no  |  |
- | mode | String |  no  |  |
- | promotionType | String |  no  |  |
- | currency | String? |  yes  |  |
- | applyPriority | Integer? |  yes  |  |
- | visiblility | [VisibilitySchema](#VisibilitySchema)? |  yes  |  |
  | applyExclusive | String? |  yes  |  |
- | code | String? |  yes  |  |
- | ownership | [OwnershipSchema1](#OwnershipSchema1) |  no  |  |
- | promoGroup | String |  no  |  |
  | calculateOn | String? |  yes  | Only available for Contract pricing and Ladder pricing promotion type |
  | postOrderAction | [PromotionActionSchema](#PromotionActionSchema)? |  yes  |  |
+ | mode | String |  no  |  |
+ | displayMeta | [DisplayMetaSchema1](#DisplayMetaSchema1) |  no  |  |
+ | applyPriority | Integer? |  yes  |  |
+ | applicationId | String |  no  |  |
+ | dateMeta | [PromotionDateMetaSchema](#PromotionDateMetaSchema)? |  yes  |  |
+ | currency | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | discountRules | ArrayList<[DiscountRuleSchema](#DiscountRuleSchema)> |  no  |  |
+ | code | String? |  yes  |  |
+ | promoGroup | String |  no  |  |
+ | schedule | [PromotionScheduleSchema](#PromotionScheduleSchema)? |  yes  |  |
+ | promotionType | String |  no  |  |
+ | author | [PromotionAuthorSchema](#PromotionAuthorSchema)? |  yes  |  |
+ | ownership | [OwnershipSchema1](#OwnershipSchema1) |  no  |  |
+ | stackable | Boolean? |  yes  |  |
+ | buyRules | HashMap<String,[ItemCriteriaSchema](#ItemCriteriaSchema)> |  no  |  |
+ | restrictions | [RestrictionsSchema1](#RestrictionsSchema1)? |  yes  |  |
+ | applyAllDiscount | Boolean? |  yes  |  |
+ | visiblility | [VisibilitySchema](#VisibilitySchema)? |  yes  |  |
 
 ---
 
@@ -12469,28 +12469,28 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | dateMeta | [PromotionDateMetaSchema](#PromotionDateMetaSchema)? |  yes  |  |
- | stackable | Boolean? |  yes  |  |
- | applicationId | String |  no  |  |
- | schedule | [PromotionScheduleSchema](#PromotionScheduleSchema)? |  yes  |  |
- | discountRules | ArrayList<[DiscountRuleSchema](#DiscountRuleSchema)> |  no  |  |
- | restrictions | [RestrictionsSchema1](#RestrictionsSchema1)? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | author | [PromotionAuthorSchema](#PromotionAuthorSchema)? |  yes  |  |
- | applyAllDiscount | Boolean? |  yes  |  |
- | buyRules | HashMap<String,[ItemCriteriaSchema](#ItemCriteriaSchema)> |  no  |  |
- | displayMeta | [DisplayMetaSchema1](#DisplayMetaSchema1) |  no  |  |
- | mode | String |  no  |  |
- | promotionType | String |  no  |  |
- | currency | String? |  yes  |  |
- | applyPriority | Integer? |  yes  |  |
- | visiblility | [VisibilitySchema](#VisibilitySchema)? |  yes  |  |
  | applyExclusive | String? |  yes  |  |
- | code | String? |  yes  |  |
- | ownership | [OwnershipSchema1](#OwnershipSchema1) |  no  |  |
- | promoGroup | String |  no  |  |
  | calculateOn | String? |  yes  | Only available for Contract pricing and Ladder pricing promotion type |
  | postOrderAction | [PromotionActionSchema](#PromotionActionSchema)? |  yes  |  |
+ | mode | String |  no  |  |
+ | displayMeta | [DisplayMetaSchema1](#DisplayMetaSchema1) |  no  |  |
+ | applyPriority | Integer? |  yes  |  |
+ | applicationId | String |  no  |  |
+ | dateMeta | [PromotionDateMetaSchema](#PromotionDateMetaSchema)? |  yes  |  |
+ | currency | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | discountRules | ArrayList<[DiscountRuleSchema](#DiscountRuleSchema)> |  no  |  |
+ | code | String? |  yes  |  |
+ | promoGroup | String |  no  |  |
+ | schedule | [PromotionScheduleSchema](#PromotionScheduleSchema)? |  yes  |  |
+ | promotionType | String |  no  |  |
+ | author | [PromotionAuthorSchema](#PromotionAuthorSchema)? |  yes  |  |
+ | ownership | [OwnershipSchema1](#OwnershipSchema1) |  no  |  |
+ | stackable | Boolean? |  yes  |  |
+ | buyRules | HashMap<String,[ItemCriteriaSchema](#ItemCriteriaSchema)> |  no  |  |
+ | restrictions | [RestrictionsSchema1](#RestrictionsSchema1)? |  yes  |  |
+ | applyAllDiscount | Boolean? |  yes  |  |
+ | visiblility | [VisibilitySchema](#VisibilitySchema)? |  yes  |  |
 
 ---
 
@@ -12513,16 +12513,16 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | description | String? |  yes  | The description of the offer in the form of an HTML |
- | subtitle | String? |  yes  | Small description of the current offer |
- | title | String? |  yes  | Name of the promotion |
  | isHidden | Boolean? |  yes  | If the promo is active or not |
- | entityType | String? |  yes  | Type of entity to be selected from : ['coupon', 'promotion'] |
- | example | String? |  yes  | Discount offers examples |
- | createdOn | String? |  yes  | Coupon creation date |
- | entitySlug | String? |  yes  |  |
+ | description | String? |  yes  | The description of the offer in the form of an HTML |
  | type | String? |  yes  | Coupon type |
+ | entitySlug | String? |  yes  |  |
+ | subtitle | String? |  yes  | Small description of the current offer |
+ | example | String? |  yes  | Discount offers examples |
+ | title | String? |  yes  | Name of the promotion |
+ | createdOn | String? |  yes  | Coupon creation date |
  | modifiedOn | String? |  yes  | Coupon modification date |
+ | entityType | String? |  yes  | Type of entity to be selected from : ['coupon', 'promotion'] |
 
 ---
 
@@ -12533,9 +12533,9 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | quantity | Integer? |  yes  |  |
- | size | String |  no  |  |
  | productId | String |  no  |  |
+ | size | String |  no  |  |
+ | quantity | Integer? |  yes  |  |
 
 ---
 
@@ -12553,113 +12553,13 @@ Valid response with existing promotion code count
 
  
  
- #### [DisplayBreakupSchema](#DisplayBreakupSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | display | String? |  yes  |  |
- | message | ArrayList<String>? |  yes  |  |
- | value | Double? |  yes  |  |
- | currencyCode | String? |  yes  |  |
- | key | String? |  yes  |  |
- | currencySymbol | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [LoyaltyPoints](#LoyaltyPoints)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | applicable | Double? |  yes  |  |
- | description | String? |  yes  |  |
- | total | Double? |  yes  |  |
- | isApplied | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [RawBreakupSchema](#RawBreakupSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | youSaved | Double? |  yes  |  |
- | vog | Double? |  yes  |  |
- | fyndCash | Double? |  yes  |  |
- | total | Double? |  yes  |  |
- | coupon | Double? |  yes  |  |
- | discount | Double? |  yes  |  |
- | codCharge | Double? |  yes  |  |
- | deliveryCharge | Double? |  yes  |  |
- | gstCharges | Double? |  yes  |  |
- | mrpTotal | Double? |  yes  |  |
- | subtotal | Double? |  yes  |  |
- | convenienceFee | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [CouponBreakupSchema](#CouponBreakupSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | description | String? |  yes  |  |
- | maxDiscountValue | Double? |  yes  |  |
- | isApplied | Boolean? |  yes  |  |
- | code | String? |  yes  |  |
- | title | String? |  yes  |  |
- | message | String? |  yes  |  |
- | minimumCartValue | Double? |  yes  |  |
- | uid | String? |  yes  |  |
- | value | Double? |  yes  |  |
- | type | String? |  yes  |  |
- | couponType | String? |  yes  |  |
- | subTitle | String? |  yes  |  |
- | couponValue | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [CartBreakupSchema](#CartBreakupSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | display | ArrayList<[DisplayBreakupSchema](#DisplayBreakupSchema)>? |  yes  |  |
- | loyaltyPoints | [LoyaltyPoints](#LoyaltyPoints)? |  yes  |  |
- | raw | [RawBreakupSchema](#RawBreakupSchema)? |  yes  |  |
- | coupon | [CouponBreakupSchema](#CouponBreakupSchema)? |  yes  |  |
-
----
-
-
- 
- 
- #### [CartProductIdentifer](#CartProductIdentifer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | identifier | String? |  yes  | Article idenfier generated by cart |
-
----
-
-
- 
- 
  #### [ProductAvailabilitySize](#ProductAvailabilitySize)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | display | String? |  yes  |  |
  | isAvailable | Boolean? |  yes  |  |
  | value | String? |  yes  |  |
+ | display | String? |  yes  |  |
 
 ---
 
@@ -12670,54 +12570,135 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | availableSizes | ArrayList<[ProductAvailabilitySize](#ProductAvailabilitySize)>? |  yes  |  |
  | deliverable | Boolean? |  yes  |  |
- | otherStoreQuantity | Integer? |  yes  |  |
- | isValid | Boolean? |  yes  |  |
- | outOfStock | Boolean? |  yes  |  |
+ | availableSizes | ArrayList<[ProductAvailabilitySize](#ProductAvailabilitySize)>? |  yes  |  |
  | sizes | ArrayList<String>? |  yes  |  |
+ | outOfStock | Boolean? |  yes  |  |
+ | isValid | Boolean? |  yes  |  |
+ | otherStoreQuantity | Integer? |  yes  |  |
 
 ---
 
 
  
  
- #### [FreeGiftItemSchema](#FreeGiftItemSchema)
+ #### [PromiseFormatted](#PromiseFormatted)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | itemBrandName | String? |  yes  | item brand name |
- | itemName | String? |  yes  | Item name |
- | itemImagesUrl | ArrayList<String>? |  yes  | item images URL |
- | itemPriceDetails | HashMap<String,Object>? |  yes  | item price details |
- | itemSlug | String? |  yes  | item slug |
- | itemId | Integer? |  yes  | Item id |
+ | min | String? |  yes  |  |
+ | max | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [AppliedFreeArticlesSchema](#AppliedFreeArticlesSchema)
+ #### [PromiseTimestamp](#PromiseTimestamp)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | freeGiftItemDetails | [FreeGiftItemSchema](#FreeGiftItemSchema)? |  yes  | Free gift items details |
- | quantity | Integer? |  yes  | Free article quantity |
- | articleId | String? |  yes  | free article id |
- | parentItemIdentifier | String? |  yes  | Parent item identifier for free article |
+ | min | Double? |  yes  |  |
+ | max | Double? |  yes  |  |
 
 ---
 
 
  
  
- #### [BuyRulesSchema](#BuyRulesSchema)
+ #### [ShipmentPromise](#ShipmentPromise)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | itemCriteria | HashMap<String,Object>? |  yes  | Item criteria of promotion |
- | cartConditions | HashMap<String,Object>? |  yes  | Cart conditions details for promotion |
+ | formatted | [PromiseFormatted](#PromiseFormatted)? |  yes  |  |
+ | timestamp | [PromiseTimestamp](#PromiseTimestamp)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductPrice](#ProductPrice)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | addOn | Double? |  yes  |  |
+ | currencyCode | String? |  yes  |  |
+ | marked | Double? |  yes  |  |
+ | currencySymbol | String? |  yes  |  |
+ | selling | Double? |  yes  |  |
+ | effective | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductPriceInfo](#ProductPriceInfo)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | base | [ProductPrice](#ProductPrice)? |  yes  |  |
+ | converted | [ProductPrice](#ProductPrice)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [BaseInfo](#BaseInfo)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | uid | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [BasePriceSchema](#BasePriceSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | marked | Double? |  yes  |  |
+ | currencySymbol | String? |  yes  |  |
+ | currencyCode | String? |  yes  |  |
+ | effective | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ArticlePriceInfo](#ArticlePriceInfo)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | base | [BasePriceSchema](#BasePriceSchema)? |  yes  |  |
+ | converted | [BasePriceSchema](#BasePriceSchema)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductArticle](#ProductArticle)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | uid | String? |  yes  |  |
+ | productGroupTags | ArrayList<String>? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | type | String? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
+ | store | [BaseInfo](#BaseInfo)? |  yes  |  |
+ | seller | [BaseInfo](#BaseInfo)? |  yes  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
+ | size | String? |  yes  |  |
+ | price | [ArticlePriceInfo](#ArticlePriceInfo)? |  yes  |  |
 
 ---
 
@@ -12728,8 +12709,8 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | payableBy | String? |  yes  | promo amount bearable party |
  | payableCategory | String? |  yes  | promo amount payable category |
+ | payableBy | String? |  yes  | promo amount bearable party |
 
 ---
 
@@ -12750,108 +12731,87 @@ Valid response with existing promotion code count
 
  
  
+ #### [BuyRulesSchema](#BuyRulesSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | itemCriteria | HashMap<String,Object>? |  yes  | Item criteria of promotion |
+ | cartConditions | HashMap<String,Object>? |  yes  | Cart conditions details for promotion |
+
+---
+
+
+ 
+ 
+ #### [FreeGiftItemSchema](#FreeGiftItemSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | itemId | Integer? |  yes  | Item id |
+ | itemPriceDetails | HashMap<String,Object>? |  yes  | item price details |
+ | itemName | String? |  yes  | Item name |
+ | itemSlug | String? |  yes  | item slug |
+ | itemBrandName | String? |  yes  | item brand name |
+ | itemImagesUrl | ArrayList<String>? |  yes  | item images URL |
+
+---
+
+
+ 
+ 
+ #### [AppliedFreeArticlesSchema](#AppliedFreeArticlesSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | parentItemIdentifier | String? |  yes  | Parent item identifier for free article |
+ | articleId | String? |  yes  | free article id |
+ | freeGiftItemDetails | [FreeGiftItemSchema](#FreeGiftItemSchema)? |  yes  | Free gift items details |
+ | quantity | Integer? |  yes  | Free article quantity |
+
+---
+
+
+ 
+ 
  #### [AppliedPromotion](#AppliedPromotion)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | mrpPromotion | Boolean? |  yes  | If applied promotion is applied on product MRP or ESP |
- | offerText | String? |  yes  | Offer text of current promotion |
- | appliedFreeArticles | ArrayList<[AppliedFreeArticlesSchema](#AppliedFreeArticlesSchema)>? |  yes  | Applied free article for free gift item promotions |
+ | promoId | String? |  yes  | Promotion id |
  | articleQuantity | Integer? |  yes  | Quantity of article on which promotion is applicable |
+ | ownership | [Ownership](#Ownership)? |  yes  | Ownership of promotion |
+ | amount | Double? |  yes  | Per unit discount amount applied with current promotion |
+ | discountRules | ArrayList<[DiscountRulesAppSchema](#DiscountRulesAppSchema)>? |  yes  | Discount rules for promotions |
+ | buyRules | ArrayList<[BuyRulesSchema](#BuyRulesSchema)>? |  yes  | Buy rules for promotions |
+ | mrpPromotion | Boolean? |  yes  | If applied promotion is applied on product MRP or ESP |
+ | appliedFreeArticles | ArrayList<[AppliedFreeArticlesSchema](#AppliedFreeArticlesSchema)>? |  yes  | Applied free article for free gift item promotions |
  | promotionGroup | String? |  yes  | Promotion group for the promotion |
  | promotionName | String? |  yes  | Promotion name of current promotion |
- | promoId | String? |  yes  | Promotion id |
- | buyRules | ArrayList<[BuyRulesSchema](#BuyRulesSchema)>? |  yes  | Buy rules for promotions |
- | ownership | [Ownership](#Ownership)? |  yes  | Ownership of promotion |
- | discountRules | ArrayList<[DiscountRulesAppSchema](#DiscountRulesAppSchema)>? |  yes  | Discount rules for promotions |
  | promotionType | String? |  yes  | Promotion type of current promotion |
- | amount | Double? |  yes  | Per unit discount amount applied with current promotion |
+ | offerText | String? |  yes  | Offer text of current promotion |
 
 ---
 
 
  
  
- #### [PromoMeta](#PromoMeta)
+ #### [NetQuantity](#NetQuantity)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
+ | unit | String? |  yes  |  |
+ | value | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [ProductPrice](#ProductPrice)
+ #### [CategoryInfo](#CategoryInfo)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | effective | Double? |  yes  |  |
- | currencyCode | String? |  yes  |  |
- | currencySymbol | String? |  yes  |  |
- | selling | Double? |  yes  |  |
- | addOn | Double? |  yes  |  |
- | marked | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductPriceInfo](#ProductPriceInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | converted | [ProductPrice](#ProductPrice)? |  yes  |  |
- | base | [ProductPrice](#ProductPrice)? |  yes  |  |
-
----
-
-
- 
- 
- #### [PromiseTimestamp](#PromiseTimestamp)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | max | Double? |  yes  |  |
- | min | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [PromiseFormatted](#PromiseFormatted)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | max | String? |  yes  |  |
- | min | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ShipmentPromise](#ShipmentPromise)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | timestamp | [PromiseTimestamp](#PromiseTimestamp)? |  yes  |  |
- | formatted | [PromiseFormatted](#PromiseFormatted)? |  yes  |  |
-
----
-
-
- 
- 
- #### [BaseInfo](#BaseInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | uid | Integer? |  yes  |  |
+ | uid | Integer? |  yes  | Product Category Id |
  | name | String? |  yes  |  |
 
 ---
@@ -12874,8 +12834,8 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
  | query | [ActionQuery](#ActionQuery)? |  yes  |  |
+ | type | String? |  yes  |  |
  | url | String? |  yes  |  |
 
 ---
@@ -12888,32 +12848,8 @@ Valid response with existing promotion code count
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | aspectRatio | String? |  yes  |  |
- | secureUrl | String? |  yes  |  |
  | url | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [CategoryInfo](#CategoryInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | uid | Integer? |  yes  | Product Category Id |
- | name | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [NetQuantity](#NetQuantity)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | unit | String? |  yes  |  |
- | value | String? |  yes  |  |
+ | secureUrl | String? |  yes  |  |
 
 ---
 
@@ -12924,15 +12860,15 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | itemCode | String? |  yes  |  |
- | brand | [BaseInfo](#BaseInfo)? |  yes  |  |
- | action | [ProductAction](#ProductAction)? |  yes  |  |
- | images | ArrayList<[ProductImage](#ProductImage)>? |  yes  |  |
- | slug | String? |  yes  | Unique product url name generated via product name and other meta data |
  | uid | Integer? |  yes  |  |
- | categories | ArrayList<[CategoryInfo](#CategoryInfo)>? |  yes  |  |
  | netQuantity | [NetQuantity](#NetQuantity)? |  yes  |  |
  | type | String? |  yes  |  |
+ | slug | String? |  yes  | Unique product url name generated via product name and other meta data |
+ | categories | ArrayList<[CategoryInfo](#CategoryInfo)>? |  yes  |  |
+ | action | [ProductAction](#ProductAction)? |  yes  |  |
+ | images | ArrayList<[ProductImage](#ProductImage)>? |  yes  |  |
+ | brand | [BaseInfo](#BaseInfo)? |  yes  |  |
+ | itemCode | String? |  yes  |  |
  | name | String? |  yes  |  |
 
 ---
@@ -12940,47 +12876,22 @@ Valid response with existing promotion code count
 
  
  
- #### [BasePriceSchema](#BasePriceSchema)
+ #### [PromoMeta](#PromoMeta)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | effective | Double? |  yes  |  |
- | marked | Double? |  yes  |  |
- | currencyCode | String? |  yes  |  |
- | currencySymbol | String? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [ArticlePriceInfo](#ArticlePriceInfo)
+ #### [CartProductIdentifer](#CartProductIdentifer)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | converted | [BasePriceSchema](#BasePriceSchema)? |  yes  |  |
- | base | [BasePriceSchema](#BasePriceSchema)? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProductArticle](#ProductArticle)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | price | [ArticlePriceInfo](#ArticlePriceInfo)? |  yes  |  |
- | size | String? |  yes  |  |
- | productGroupTags | ArrayList<String>? |  yes  |  |
- | quantity | Integer? |  yes  |  |
- | extraMeta | HashMap<String,Object>? |  yes  |  |
- | uid | String? |  yes  |  |
- | store | [BaseInfo](#BaseInfo)? |  yes  |  |
- | seller | [BaseInfo](#BaseInfo)? |  yes  |  |
- | type | String? |  yes  |  |
- | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
+ | identifier | String? |  yes  | Article idenfier generated by cart |
 
 ---
 
@@ -12991,25 +12902,114 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | identifiers | [CartProductIdentifer](#CartProductIdentifer) |  no  |  |
- | availability | [ProductAvailability](#ProductAvailability)? |  yes  |  |
- | promotionsApplied | ArrayList<[AppliedPromotion](#AppliedPromotion)>? |  yes  |  |
- | customOrder | HashMap<String,Object>? |  yes  |  |
- | couponMessage | String? |  yes  |  |
- | promoMeta | [PromoMeta](#PromoMeta)? |  yes  |  |
- | key | String? |  yes  |  |
- | pricePerUnit | [ProductPriceInfo](#ProductPriceInfo)? |  yes  |  |
  | message | String? |  yes  |  |
- | discount | String? |  yes  |  |
- | bulkOffer | HashMap<String,Object>? |  yes  |  |
- | moq | HashMap<String,Object>? |  yes  |  |
- | isSet | Boolean? |  yes  |  |
- | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
- | product | [CartProduct](#CartProduct)? |  yes  |  |
- | price | [ProductPriceInfo](#ProductPriceInfo)? |  yes  |  |
+ | availability | [ProductAvailability](#ProductAvailability)? |  yes  |  |
  | quantity | Integer? |  yes  |  |
  | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
+ | customOrder | HashMap<String,Object>? |  yes  |  |
+ | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
+ | price | [ProductPriceInfo](#ProductPriceInfo)? |  yes  |  |
+ | discount | String? |  yes  |  |
  | article | [ProductArticle](#ProductArticle)? |  yes  |  |
+ | isSet | Boolean? |  yes  |  |
+ | promotionsApplied | ArrayList<[AppliedPromotion](#AppliedPromotion)>? |  yes  |  |
+ | moq | HashMap<String,Object>? |  yes  |  |
+ | product | [CartProduct](#CartProduct)? |  yes  |  |
+ | bulkOffer | HashMap<String,Object>? |  yes  |  |
+ | promoMeta | [PromoMeta](#PromoMeta)? |  yes  |  |
+ | key | String? |  yes  |  |
+ | identifiers | [CartProductIdentifer](#CartProductIdentifer) |  no  |  |
+ | pricePerUnit | [ProductPriceInfo](#ProductPriceInfo)? |  yes  |  |
+ | couponMessage | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RawBreakupSchema](#RawBreakupSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | discount | Double? |  yes  |  |
+ | youSaved | Double? |  yes  |  |
+ | codCharge | Double? |  yes  |  |
+ | mrpTotal | Double? |  yes  |  |
+ | deliveryCharge | Double? |  yes  |  |
+ | gstCharges | Double? |  yes  |  |
+ | subtotal | Double? |  yes  |  |
+ | fyndCash | Double? |  yes  |  |
+ | vog | Double? |  yes  |  |
+ | total | Double? |  yes  |  |
+ | convenienceFee | Double? |  yes  |  |
+ | coupon | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DisplayBreakupSchema](#DisplayBreakupSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | ArrayList<String>? |  yes  |  |
+ | value | Double? |  yes  |  |
+ | key | String? |  yes  |  |
+ | display | String? |  yes  |  |
+ | currencyCode | String? |  yes  |  |
+ | currencySymbol | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [LoyaltyPoints](#LoyaltyPoints)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | total | Double? |  yes  |  |
+ | description | String? |  yes  |  |
+ | applicable | Double? |  yes  |  |
+ | isApplied | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CouponBreakupSchema](#CouponBreakupSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | uid | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | value | Double? |  yes  |  |
+ | maxDiscountValue | Double? |  yes  |  |
+ | description | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | subTitle | String? |  yes  |  |
+ | code | String? |  yes  |  |
+ | title | String? |  yes  |  |
+ | couponValue | Double? |  yes  |  |
+ | isApplied | Boolean? |  yes  |  |
+ | couponType | String? |  yes  |  |
+ | minimumCartValue | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CartBreakupSchema](#CartBreakupSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | raw | [RawBreakupSchema](#RawBreakupSchema)? |  yes  |  |
+ | display | ArrayList<[DisplayBreakupSchema](#DisplayBreakupSchema)>? |  yes  |  |
+ | loyaltyPoints | [LoyaltyPoints](#LoyaltyPoints)? |  yes  |  |
+ | coupon | [CouponBreakupSchema](#CouponBreakupSchema)? |  yes  |  |
 
 ---
 
@@ -13020,10 +13020,10 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | breakupValues | [CartBreakupSchema](#CartBreakupSchema)? |  yes  |  |
- | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
- | isValid | Boolean? |  yes  |  |
  | message | String? |  yes  |  |
+ | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
+ | breakupValues | [CartBreakupSchema](#CartBreakupSchema)? |  yes  |  |
+ | isValid | Boolean? |  yes  |  |
 
 ---
 
@@ -13034,9 +13034,9 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | errors | HashMap<String,Object>? |  yes  | Contains field name which has error as key and error message as value |
- | message | String? |  yes  |  |
  | success | Boolean? |  yes  |  |
+ | message | String? |  yes  |  |
+ | errors | HashMap<String,Object>? |  yes  | Contains field name which has error as key and error message as value |
 
 ---
 
@@ -13047,23 +13047,23 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | phone | Integer? |  yes  |  |
- | addressType | String? |  yes  |  |
- | state | String? |  yes  |  |
- | countryPhoneCode | String? |  yes  |  |
- | countryCode | String? |  yes  |  |
- | pincode | Integer? |  yes  |  |
- | area | String? |  yes  |  |
- | countryIsoCode | String? |  yes  |  |
- | city | String? |  yes  |  |
- | landmark | String? |  yes  |  |
- | areaCodeSlug | String? |  yes  |  |
  | areaCode | String |  no  |  |
+ | phone | Integer? |  yes  |  |
+ | countryCode | String? |  yes  |  |
+ | area | String? |  yes  |  |
+ | landmark | String? |  yes  |  |
+ | country | String? |  yes  |  |
+ | email | String? |  yes  |  |
+ | countryIsoCode | String? |  yes  |  |
+ | pincode | Integer? |  yes  |  |
  | address | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
+ | countryPhoneCode | String? |  yes  |  |
+ | areaCodeSlug | String? |  yes  |  |
+ | addressType | String? |  yes  |  |
+ | city | String? |  yes  |  |
+ | state | String? |  yes  |  |
  | name | String? |  yes  |  |
- | email | String? |  yes  |  |
- | country | String? |  yes  |  |
 
 ---
 
@@ -13086,40 +13086,11 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | message | String? |  yes  |  |
  | breakupValues | [CartBreakupSchema](#CartBreakupSchema)? |  yes  |  |
  | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
- | message | String? |  yes  |  |
- | isValid | Boolean? |  yes  |  |
  | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
-
----
-
-
- 
- 
- #### [MultiTenderPaymentMeta](#MultiTenderPaymentMeta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | currentStatus | String? |  yes  |  |
- | paymentGateway | String? |  yes  |  |
- | orderId | String? |  yes  |  |
- | paymentId | String? |  yes  |  |
- | extraMeta | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [MultiTenderPaymentMethod](#MultiTenderPaymentMethod)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | meta | [MultiTenderPaymentMeta](#MultiTenderPaymentMeta)? |  yes  |  |
- | mode | String |  no  |  |
- | name | String? |  yes  | Payment mode name |
- | amount | Double |  no  | Payment amount |
+ | isValid | Boolean? |  yes  |  |
 
 ---
 
@@ -13142,8 +13113,37 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | primaryItem | Boolean? |  yes  |  |
  | groupId | String? |  yes  |  |
+ | primaryItem | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [MultiTenderPaymentMeta](#MultiTenderPaymentMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | paymentId | String? |  yes  |  |
+ | orderId | String? |  yes  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
+ | currentStatus | String? |  yes  |  |
+ | paymentGateway | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [MultiTenderPaymentMethod](#MultiTenderPaymentMethod)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | amount | Double |  no  | Payment amount |
+ | mode | String |  no  |  |
+ | name | String? |  yes  | Payment mode name |
+ | meta | [MultiTenderPaymentMeta](#MultiTenderPaymentMeta)? |  yes  |  |
 
 ---
 
@@ -13154,23 +13154,23 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | paymentMethods | ArrayList<[MultiTenderPaymentMethod](#MultiTenderPaymentMethod)> |  no  |  |
- | priceEffective | Double |  no  |  |
- | priceMarked | Double |  no  |  |
- | couponEffectiveDiscount | Double |  no  |  |
- | employeeDiscount | Double? |  yes  |  |
- | amountPaid | Double |  no  |  |
- | discount | Double |  no  |  |
- | codCharges | Double |  no  |  |
- | quantity | Integer? |  yes  |  |
- | loyaltyDiscount | Double? |  yes  |  |
  | deliveryCharges | Double |  no  |  |
- | files | ArrayList<[OpenApiFilesSchema](#OpenApiFilesSchema)>? |  yes  |  |
+ | discount | Double |  no  |  |
+ | priceMarked | Double |  no  |  |
  | extraMeta | HashMap<String,Object>? |  yes  |  |
- | meta | [CartItemMeta](#CartItemMeta)? |  yes  |  |
- | size | String |  no  |  |
- | cashbackApplied | Double |  no  |  |
+ | couponEffectiveDiscount | Double |  no  |  |
+ | amountPaid | Double |  no  |  |
  | productId | Integer |  no  |  |
+ | files | ArrayList<[OpenApiFilesSchema](#OpenApiFilesSchema)>? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | size | String |  no  |  |
+ | priceEffective | Double |  no  |  |
+ | cashbackApplied | Double |  no  |  |
+ | meta | [CartItemMeta](#CartItemMeta)? |  yes  |  |
+ | paymentMethods | ArrayList<[MultiTenderPaymentMethod](#MultiTenderPaymentMethod)> |  no  |  |
+ | employeeDiscount | Double? |  yes  |  |
+ | loyaltyDiscount | Double? |  yes  |  |
+ | codCharges | Double |  no  |  |
 
 ---
 
@@ -13181,26 +13181,26 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | paymentMethods | ArrayList<[MultiTenderPaymentMethod](#MultiTenderPaymentMethod)> |  no  |  |
- | billingAddress | [ShippingAddressSchema](#ShippingAddressSchema) |  no  |  |
- | employeeDiscount | HashMap<String,Object>? |  yes  |  |
- | affiliateOrderId | String? |  yes  |  |
- | gstin | String? |  yes  |  |
- | files | ArrayList<[OpenApiFilesSchema](#OpenApiFilesSchema)>? |  yes  |  |
- | cartValue | Double |  no  |  |
- | loyaltyDiscount | Double? |  yes  |  |
- | currencyCode | String? |  yes  |  |
- | paymentMode | String? |  yes  |  |
- | cashbackApplied | Double |  no  |  |
- | shippingAddress | [ShippingAddressSchema](#ShippingAddressSchema)? |  yes  |  |
- | comment | String? |  yes  |  |
- | couponCode | String |  no  |  |
  | codCharges | Double |  no  |  |
- | coupon | String? |  yes  |  |
- | orderId | String? |  yes  |  |
- | cartItems | ArrayList<[OpenApiOrderItemSchema](#OpenApiOrderItemSchema)> |  no  |  |
- | deliveryCharges | Double |  no  |  |
+ | billingAddress | [ShippingAddressSchema](#ShippingAddressSchema) |  no  |  |
+ | currencyCode | String? |  yes  |  |
  | couponValue | Double |  no  |  |
+ | cashbackApplied | Double |  no  |  |
+ | gstin | String? |  yes  |  |
+ | cartValue | Double |  no  |  |
+ | cartItems | ArrayList<[OpenApiOrderItemSchema](#OpenApiOrderItemSchema)> |  no  |  |
+ | loyaltyDiscount | Double? |  yes  |  |
+ | paymentMethods | ArrayList<[MultiTenderPaymentMethod](#MultiTenderPaymentMethod)> |  no  |  |
+ | shippingAddress | [ShippingAddressSchema](#ShippingAddressSchema)? |  yes  |  |
+ | couponCode | String |  no  |  |
+ | files | ArrayList<[OpenApiFilesSchema](#OpenApiFilesSchema)>? |  yes  |  |
+ | affiliateOrderId | String? |  yes  |  |
+ | orderId | String? |  yes  |  |
+ | employeeDiscount | HashMap<String,Object>? |  yes  |  |
+ | paymentMode | String? |  yes  |  |
+ | comment | String? |  yes  |  |
+ | deliveryCharges | Double |  no  |  |
+ | coupon | String? |  yes  |  |
 
 ---
 
@@ -13211,10 +13211,10 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | success | Boolean? |  yes  |  |
+ | message | String? |  yes  |  |
  | orderRefId | String? |  yes  | Order id sent in request |
  | orderId | String |  no  | Fynd order id |
- | message | String? |  yes  |  |
- | success | Boolean? |  yes  |  |
 
 ---
 
@@ -13225,39 +13225,39 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | paymentMethods | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | createdOn | String |  no  |  |
- | paymentMode | String? |  yes  |  |
- | appId | String? |  yes  |  |
- | expireAt | String |  no  |  |
- | codCharges | HashMap<String,Object>? |  yes  |  |
- | orderId | String? |  yes  |  |
- | articles | ArrayList<HashMap<String,Object>> |  no  |  |
- | uid | Integer |  no  |  |
- | shipments | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | deliveryCharges | HashMap<String,Object>? |  yes  |  |
- | bulkCouponDiscount | Double? |  yes  |  |
- | isDefault | Boolean |  no  |  |
+ | payments | HashMap<String,Object>? |  yes  |  |
  | checkoutMode | String? |  yes  |  |
- | discount | Double? |  yes  |  |
+ | fyndCredits | HashMap<String,Object>? |  yes  |  |
+ | id | String |  no  |  |
+ | isArchive | Boolean? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | isDefault | Boolean |  no  |  |
+ | userId | String |  no  |  |
+ | buyNow | Boolean? |  yes  |  |
+ | shipments | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | articles | ArrayList<HashMap<String,Object>> |  no  |  |
  | gstin | String? |  yes  |  |
  | cartValue | Double? |  yes  |  |
- | promotion | HashMap<String,Object>? |  yes  |  |
- | isArchive | Boolean? |  yes  |  |
- | userId | String |  no  |  |
- | pickUpCustomerDetails | HashMap<String,Object>? |  yes  |  |
  | fcIndexMap | ArrayList<Integer>? |  yes  |  |
- | comment | String? |  yes  |  |
- | id | String |  no  |  |
- | coupon | HashMap<String,Object>? |  yes  |  |
- | fyndCredits | HashMap<String,Object>? |  yes  |  |
+ | discount | Double? |  yes  |  |
+ | expireAt | String |  no  |  |
  | mergeQty | Boolean? |  yes  |  |
- | buyNow | Boolean? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | lastModified | String |  no  |  |
+ | orderId | String? |  yes  |  |
+ | promotion | HashMap<String,Object>? |  yes  |  |
+ | comment | String? |  yes  |  |
+ | deliveryCharges | HashMap<String,Object>? |  yes  |  |
+ | coupon | HashMap<String,Object>? |  yes  |  |
+ | appId | String? |  yes  |  |
  | cashback | HashMap<String,Object> |  no  |  |
- | payments | HashMap<String,Object>? |  yes  |  |
+ | bulkCouponDiscount | Double? |  yes  |  |
+ | pickUpCustomerDetails | HashMap<String,Object>? |  yes  |  |
+ | lastModified | String |  no  |  |
+ | paymentMethods | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | uid | Integer |  no  |  |
+ | createdOn | String |  no  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | paymentMode | String? |  yes  |  |
+ | codCharges | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -13268,24 +13268,11 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[AbandonedCart](#AbandonedCart)>? |  yes  |  |
  | message | String? |  yes  | message of the response |
  | success | Boolean? |  yes  | the request success is defined |
- | result | HashMap<String,Object>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
-
----
-
-
- 
- 
- #### [PaymentSelectionLock](#PaymentSelectionLock)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | defaultOptions | String? |  yes  |  |
- | paymentIdentifier | String? |  yes  |  |
- | enabled | Boolean? |  yes  |  |
+ | result | HashMap<String,Object>? |  yes  |  |
+ | items | ArrayList<[AbandonedCart](#AbandonedCart)>? |  yes  |  |
 
 ---
 
@@ -13296,8 +13283,21 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | code | String? |  yes  | Currency code defined by ISO 4217:2015 |
  | symbol | String? |  yes  |  |
+ | code | String? |  yes  | Currency code defined by ISO 4217:2015 |
+
+---
+
+
+ 
+ 
+ #### [PaymentSelectionLock](#PaymentSelectionLock)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | paymentIdentifier | String? |  yes  |  |
+ | defaultOptions | String? |  yes  |  |
+ | enabled | Boolean? |  yes  |  |
 
 ---
 
@@ -13308,25 +13308,25 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | appliedPromoDetails | ArrayList<[AppliedPromotion](#AppliedPromotion)>? |  yes  |  |
- | deliveryChargeInfo | String? |  yes  |  |
- | restrictCheckout | Boolean? |  yes  |  |
- | isValid | Boolean? |  yes  |  |
- | panConfig | HashMap<String,Object>? |  yes  |  |
- | id | String? |  yes  |  |
- | checkoutMode | String? |  yes  |  |
  | message | String? |  yes  |  |
- | gstin | String? |  yes  |  |
- | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
- | panNo | String? |  yes  |  |
- | couponText | String? |  yes  |  |
- | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
- | currency | [CartCurrencySchema](#CartCurrencySchema)? |  yes  |  |
- | breakupValues | [CartBreakupSchema](#CartBreakupSchema)? |  yes  |  |
- | comment | String? |  yes  |  |
- | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
+ | checkoutMode | String? |  yes  |  |
  | buyNow | Boolean? |  yes  |  |
+ | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
+ | gstin | String? |  yes  |  |
+ | breakupValues | [CartBreakupSchema](#CartBreakupSchema)? |  yes  |  |
+ | appliedPromoDetails | ArrayList<[AppliedPromotion](#AppliedPromotion)>? |  yes  |  |
+ | comment | String? |  yes  |  |
+ | currency | [CartCurrencySchema](#CartCurrencySchema)? |  yes  |  |
+ | id | String? |  yes  |  |
+ | restrictCheckout | Boolean? |  yes  |  |
  | lastModified | String? |  yes  |  |
+ | couponText | String? |  yes  |  |
+ | isValid | Boolean? |  yes  |  |
+ | deliveryChargeInfo | String? |  yes  |  |
+ | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
+ | panConfig | HashMap<String,Object>? |  yes  |  |
+ | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
+ | panNo | String? |  yes  |  |
 
 ---
 
@@ -13337,19 +13337,19 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | display | String? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | articleAssignment | HashMap<String,Object>? |  yes  |  |
  | productGroupTags | ArrayList<String>? |  yes  |  |
- | pos | Boolean? |  yes  |  |
- | quantity | Integer? |  yes  |  |
- | storeId | Integer? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | itemId | Integer? |  yes  |  |
+ | display | String? |  yes  |  |
+ | articleAssignment | HashMap<String,Object>? |  yes  |  |
  | articleId | String? |  yes  |  |
- | extraMeta | HashMap<String,Object>? |  yes  |  |
- | sellerId | Integer? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
  | parentItemIdentifiers | ArrayList<HashMap<String,String>>? |  yes  |  |
  | itemSize | String? |  yes  |  |
- | itemId | Integer? |  yes  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
+ | storeId | Integer? |  yes  |  |
+ | sellerId | Integer? |  yes  |  |
+ | pos | Boolean? |  yes  |  |
 
 ---
 
@@ -13360,8 +13360,8 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[AddProductCart](#AddProductCart)>? |  yes  |  |
  | newCart | Boolean? |  yes  |  |
+ | items | ArrayList<[AddProductCart](#AddProductCart)>? |  yes  |  |
 
 ---
 
@@ -13372,10 +13372,10 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | partial | Boolean? |  yes  | When adding multiple items check if all added. True if only few are added. |
- | message | String? |  yes  |  |
- | success | Boolean? |  yes  | True if all items are added successfully. False if partially added or not added. |
  | cart | [CartDetailResponse](#CartDetailResponse)? |  yes  |  |
+ | message | String? |  yes  |  |
+ | partial | Boolean? |  yes  | When adding multiple items check if all added. True if only few are added. |
+ | success | Boolean? |  yes  | True if all items are added successfully. False if partially added or not added. |
 
 ---
 
@@ -13386,15 +13386,15 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | identifiers | [CartProductIdentifer](#CartProductIdentifer) |  no  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
- | itemIndex | Integer? |  yes  |  |
- | quantity | Integer? |  yes  |  |
- | extraMeta | HashMap<String,Object>? |  yes  |  |
- | articleId | String? |  yes  |  |
- | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
- | itemSize | String? |  yes  |  |
  | itemId | Integer? |  yes  |  |
+ | articleId | String? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | itemIndex | Integer? |  yes  |  |
+ | itemSize | String? |  yes  |  |
+ | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
+ | identifiers | [CartProductIdentifer](#CartProductIdentifer) |  no  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -13405,8 +13405,8 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | operation | String |  no  |  |
  | items | ArrayList<[UpdateProductCart](#UpdateProductCart)>? |  yes  |  |
+ | operation | String |  no  |  |
 
 ---
 
@@ -13417,9 +13417,9 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | cart | [CartDetailResponse](#CartDetailResponse)? |  yes  |  |
  | message | String? |  yes  |  |
  | success | Boolean? |  yes  | True if all items are added successfully. False if partially added or not added. |
- | cart | [CartDetailResponse](#CartDetailResponse)? |  yes  |  |
 
 ---
 
@@ -13454,11 +13454,11 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | token | String? |  yes  | Short link id |
  | source | HashMap<String,Object>? |  yes  | Share link device and other source information |
  | createdOn | String? |  yes  |  |
- | user | HashMap<String,Object>? |  yes  | User details of who generated share link |
+ | token | String? |  yes  | Short link id |
  | meta | HashMap<String,Object>? |  yes  | Meta data sent while generating share cart link |
+ | user | HashMap<String,Object>? |  yes  | User details of who generated share link |
 
 ---
 
@@ -13469,25 +13469,25 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | deliveryChargeInfo | String? |  yes  |  |
- | restrictCheckout | Boolean? |  yes  |  |
- | isValid | Boolean? |  yes  |  |
- | cartId | Integer? |  yes  |  |
- | uid | String? |  yes  |  |
- | id | String? |  yes  |  |
- | checkoutMode | String? |  yes  |  |
  | message | String? |  yes  |  |
- | gstin | String? |  yes  |  |
- | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
+ | checkoutMode | String? |  yes  |  |
+ | buyNow | Boolean? |  yes  |  |
  | sharedCartDetails | [SharedCartDetails](#SharedCartDetails)? |  yes  |  |
- | couponText | String? |  yes  |  |
  | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
- | currency | [CartCurrencySchema](#CartCurrencySchema)? |  yes  |  |
+ | gstin | String? |  yes  |  |
+ | cartId | Integer? |  yes  |  |
  | breakupValues | [CartBreakupSchema](#CartBreakupSchema)? |  yes  |  |
  | comment | String? |  yes  |  |
- | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
- | buyNow | Boolean? |  yes  |  |
+ | currency | [CartCurrencySchema](#CartCurrencySchema)? |  yes  |  |
+ | id | String? |  yes  |  |
+ | restrictCheckout | Boolean? |  yes  |  |
  | lastModified | String? |  yes  |  |
+ | couponText | String? |  yes  |  |
+ | isValid | Boolean? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | deliveryChargeInfo | String? |  yes  |  |
+ | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
+ | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
 
 ---
 
@@ -13498,8 +13498,8 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | error | String? |  yes  |  |
  | cart | [SharedCart](#SharedCart)? |  yes  |  |
+ | error | String? |  yes  |  |
 
 ---
 
@@ -13510,11 +13510,11 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | cartId | String? |  yes  |  |
+ | userId | String? |  yes  |  |
+ | createdOn | String? |  yes  |  |
  | itemCounts | Integer? |  yes  |  |
  | cartValue | Double? |  yes  |  |
- | cartId | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | userId | String? |  yes  |  |
  | pickUpCustomerDetails | HashMap<String,Object>? |  yes  |  |
 
 ---
@@ -13549,15 +13549,15 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | mobile | String? |  yes  |  |
- | externalId | String? |  yes  |  |
- | lastName | String? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | id | String? |  yes  |  |
  | uid | String? |  yes  |  |
- | gender | String? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
+ | mobile | String? |  yes  |  |
  | firstName | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | externalId | String? |  yes  |  |
+ | gender | String? |  yes  |  |
+ | createdAt | String? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
+ | lastName | String? |  yes  |  |
 
 ---
 
@@ -13568,26 +13568,26 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | appliedPromoDetails | ArrayList<[AppliedPromotion](#AppliedPromotion)>? |  yes  |  |
- | deliveryChargeInfo | String? |  yes  |  |
- | restrictCheckout | Boolean? |  yes  |  |
- | isValid | Boolean? |  yes  |  |
- | user | [UserInfoSchema](#UserInfoSchema)? |  yes  |  |
- | panConfig | HashMap<String,Object>? |  yes  |  |
- | id | String? |  yes  |  |
- | checkoutMode | String? |  yes  |  |
  | message | String? |  yes  |  |
- | gstin | String? |  yes  |  |
- | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
- | panNo | String? |  yes  |  |
- | couponText | String? |  yes  |  |
- | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
- | currency | [CartCurrencySchema](#CartCurrencySchema)? |  yes  |  |
- | breakupValues | [CartBreakupSchema](#CartBreakupSchema)? |  yes  |  |
- | comment | String? |  yes  |  |
- | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
+ | checkoutMode | String? |  yes  |  |
  | buyNow | Boolean? |  yes  |  |
+ | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
+ | gstin | String? |  yes  |  |
+ | breakupValues | [CartBreakupSchema](#CartBreakupSchema)? |  yes  |  |
+ | appliedPromoDetails | ArrayList<[AppliedPromotion](#AppliedPromotion)>? |  yes  |  |
+ | comment | String? |  yes  |  |
+ | currency | [CartCurrencySchema](#CartCurrencySchema)? |  yes  |  |
+ | id | String? |  yes  |  |
+ | restrictCheckout | Boolean? |  yes  |  |
  | lastModified | String? |  yes  |  |
+ | couponText | String? |  yes  |  |
+ | isValid | Boolean? |  yes  |  |
+ | deliveryChargeInfo | String? |  yes  |  |
+ | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
+ | panConfig | HashMap<String,Object>? |  yes  |  |
+ | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
+ | panNo | String? |  yes  |  |
+ | user | [UserInfoSchema](#UserInfoSchema)? |  yes  |  |
 
 ---
 
@@ -13609,8 +13609,8 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
  | success | Boolean? |  yes  | True if cart is archived successfully. False if not archived. |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -13632,18 +13632,18 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | description | String? |  yes  |  |
- | maxDiscountValue | Double? |  yes  |  |
- | isApplied | Boolean? |  yes  |  |
- | expiresOn | String? |  yes  |  |
- | title | String? |  yes  |  |
  | couponCode | String? |  yes  |  |
  | message | String? |  yes  |  |
- | minimumCartValue | Double? |  yes  |  |
- | isApplicable | Boolean? |  yes  |  |
+ | expiresOn | String? |  yes  |  |
+ | maxDiscountValue | Double? |  yes  |  |
+ | description | String? |  yes  |  |
  | subTitle | String? |  yes  |  |
- | couponType | String? |  yes  |  |
+ | title | String? |  yes  |  |
  | couponValue | Double? |  yes  |  |
+ | isApplied | Boolean? |  yes  |  |
+ | isApplicable | Boolean? |  yes  |  |
+ | couponType | String? |  yes  |  |
+ | minimumCartValue | Double? |  yes  |  |
 
 ---
 
@@ -13654,11 +13654,11 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | hasNext | Boolean? |  yes  |  |
  | hasPrevious | Boolean? |  yes  |  |
+ | current | Integer? |  yes  |  |
  | totalItemCount | Integer? |  yes  |  |
  | total | Integer? |  yes  |  |
- | current | Integer? |  yes  |  |
- | hasNext | Boolean? |  yes  |  |
 
 ---
 
@@ -13704,30 +13704,30 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | tags | ArrayList<String>? |  yes  |  |
- | createdByUserId | String? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | addressType | String? |  yes  |  |
- | countryCode | String? |  yes  |  |
- | area | String? |  yes  |  |
- | cartId | String? |  yes  |  |
- | city | String? |  yes  |  |
- | areaCodeSlug | String? |  yes  |  |
- | landmark | String? |  yes  |  |
- | areaCode | String? |  yes  |  |
- | geoLocation | [GeoLocation](#GeoLocation)? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | email | String? |  yes  |  |
- | phone | String? |  yes  |  |
- | id | String? |  yes  |  |
  | checkoutMode | String? |  yes  |  |
- | isDefaultAddress | Boolean? |  yes  |  |
+ | country | String? |  yes  |  |
  | googleMapPoint | HashMap<String,Object>? |  yes  |  |
  | userId | String? |  yes  |  |
- | country | String? |  yes  |  |
+ | email | String? |  yes  |  |
+ | areaCodeSlug | String? |  yes  |  |
+ | geoLocation | [GeoLocation](#GeoLocation)? |  yes  |  |
+ | addressType | String? |  yes  |  |
+ | cartId | String? |  yes  |  |
+ | phone | String? |  yes  |  |
+ | countryCode | String? |  yes  |  |
+ | createdByUserId | String? |  yes  |  |
+ | landmark | String? |  yes  |  |
  | state | String? |  yes  |  |
+ | isDefaultAddress | Boolean? |  yes  |  |
+ | city | String? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | id | String? |  yes  |  |
+ | areaCode | String? |  yes  |  |
+ | area | String? |  yes  |  |
  | address | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
  | name | String? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
 
 ---
 
@@ -13749,9 +13749,9 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | isDefaultAddress | Boolean? |  yes  |  |
  | success | Boolean? |  yes  |  |
+ | isDefaultAddress | Boolean? |  yes  |  |
+ | id | String? |  yes  |  |
 
 ---
 
@@ -13762,10 +13762,10 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isDefaultAddress | Boolean? |  yes  |  |
- | id | String? |  yes  |  |
  | success | Boolean? |  yes  |  |
  | isUpdated | Boolean? |  yes  |  |
+ | isDefaultAddress | Boolean? |  yes  |  |
+ | id | String? |  yes  |  |
 
 ---
 
@@ -13776,8 +13776,8 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
  | isDeleted | Boolean? |  yes  |  |
+ | id | String? |  yes  |  |
 
 ---
 
@@ -13788,10 +13788,10 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
  | checkoutMode | String? |  yes  |  |
- | billingAddressId | String? |  yes  |  |
  | cartId | String? |  yes  |  |
+ | billingAddressId | String? |  yes  |  |
+ | id | String? |  yes  |  |
  | userId | String? |  yes  |  |
 
 ---
@@ -13803,16 +13803,16 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | shipmentType | String? |  yes  |  |
  | dpId | String? |  yes  |  |
- | promise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
- | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
- | fulfillmentType | String? |  yes  |  |
- | dpOptions | HashMap<String,Object>? |  yes  |  |
  | boxType | String? |  yes  |  |
+ | fulfillmentType | String? |  yes  |  |
+ | shipmentType | String? |  yes  |  |
  | orderType | String? |  yes  |  |
+ | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
  | shipments | Integer? |  yes  |  |
  | fulfillmentId | Integer? |  yes  |  |
+ | dpOptions | HashMap<String,Object>? |  yes  |  |
+ | promise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
 
 ---
 
@@ -13823,25 +13823,25 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | deliveryChargeInfo | String? |  yes  |  |
- | restrictCheckout | Boolean? |  yes  |  |
- | checkoutMode | String? |  yes  |  |
  | message | String? |  yes  |  |
- | gstin | String? |  yes  |  |
- | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
- | isValid | Boolean? |  yes  |  |
- | couponText | String? |  yes  |  |
- | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
- | currency | [CartCurrencySchema](#CartCurrencySchema)? |  yes  |  |
- | breakupValues | [CartBreakupSchema](#CartBreakupSchema)? |  yes  |  |
- | comment | String? |  yes  |  |
- | error | Boolean? |  yes  |  |
- | cartId | Integer? |  yes  |  |
- | uid | String? |  yes  |  |
- | shipments | ArrayList<[ShipmentResponse](#ShipmentResponse)>? |  yes  |  |
+ | checkoutMode | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | restrictCheckout | Boolean? |  yes  |  |
  | buyNow | Boolean? |  yes  |  |
+ | shipments | ArrayList<[ShipmentResponse](#ShipmentResponse)>? |  yes  |  |
+ | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
+ | gstin | String? |  yes  |  |
  | lastModified | String? |  yes  |  |
+ | couponText | String? |  yes  |  |
+ | isValid | Boolean? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | deliveryChargeInfo | String? |  yes  |  |
+ | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
+ | cartId | Integer? |  yes  |  |
+ | breakupValues | [CartBreakupSchema](#CartBreakupSchema)? |  yes  |  |
+ | error | Boolean? |  yes  |  |
+ | comment | String? |  yes  |  |
+ | currency | [CartCurrencySchema](#CartCurrencySchema)? |  yes  |  |
 
 ---
 
@@ -13853,8 +13853,8 @@ Valid response with existing promotion code count
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | articleUid | String |  no  | Article mongo id |
- | quantity | Integer? |  yes  | Quantity of product in shipment |
  | shipmentType | String |  no  | Shipment delivery type |
+ | quantity | Integer? |  yes  | Quantity of product in shipment |
 
 ---
 
@@ -13876,11 +13876,11 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | comment | String? |  yes  |  |
  | checkoutMode | String? |  yes  |  |
- | gstin | String? |  yes  |  |
  | panNo | String? |  yes  |  |
+ | gstin | String? |  yes  |  |
  | pickUpCustomerDetails | HashMap<String,Object>? |  yes  | Customer contact details for customer pickup at store |
+ | comment | String? |  yes  |  |
 
 ---
 
@@ -13909,6 +13909,21 @@ Valid response with existing promotion code count
 
  
  
+ #### [StaffCheckoutSchema](#StaffCheckoutSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | firstName | String |  no  |  |
+ | id | String |  no  |  |
+ | user | String |  no  |  |
+ | employeeCode | String? |  yes  |  |
+ | lastName | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [FilesSchema](#FilesSchema)
 
  | Properties | Type | Nullable | Description |
@@ -13921,49 +13936,34 @@ Valid response with existing promotion code count
 
  
  
- #### [StaffCheckoutSchema](#StaffCheckoutSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | user | String |  no  |  |
- | lastName | String |  no  |  |
- | id | String |  no  |  |
- | employeeCode | String? |  yes  |  |
- | firstName | String |  no  |  |
-
----
-
-
- 
- 
  #### [PlatformCartCheckoutDetailRequest](#PlatformCartCheckoutDetailRequest)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | merchantCode | String? |  yes  |  |
- | files | ArrayList<[FilesSchema](#FilesSchema)>? |  yes  | List of file url |
- | callbackUrl | String? |  yes  |  |
- | paymentMode | String |  no  |  |
- | addressId | String? |  yes  |  |
- | staff | [StaffCheckoutSchema](#StaffCheckoutSchema)? |  yes  |  |
- | paymentParams | HashMap<String,Object>? |  yes  |  |
- | extraMeta | HashMap<String,Object>? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | paymentAutoConfirm | Boolean? |  yes  |  |
  | billingAddress | HashMap<String,Object>? |  yes  |  |
- | id | String |  no  |  |
- | deliveryAddress | HashMap<String,Object>? |  yes  |  |
- | pickAtStoreUid | Integer? |  yes  |  |
- | aggregator | String? |  yes  |  |
  | checkoutMode | String? |  yes  |  |
- | billingAddressId | String? |  yes  |  |
- | pos | Boolean? |  yes  |  |
- | userId | String |  no  |  |
- | paymentIdentifier | String? |  yes  |  |
- | employeeCode | String? |  yes  |  |
+ | paymentParams | HashMap<String,Object>? |  yes  |  |
  | orderType | String |  no  |  |
- | orderingStore | Integer? |  yes  |  |
+ | userId | String |  no  |  |
+ | aggregator | String? |  yes  |  |
+ | merchantCode | String? |  yes  |  |
+ | billingAddressId | String? |  yes  |  |
+ | paymentAutoConfirm | Boolean? |  yes  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
  | deviceId | String? |  yes  |  |
+ | deliveryAddress | HashMap<String,Object>? |  yes  |  |
+ | id | String |  no  |  |
+ | staff | [StaffCheckoutSchema](#StaffCheckoutSchema)? |  yes  |  |
+ | callbackUrl | String? |  yes  |  |
+ | pos | Boolean? |  yes  |  |
+ | paymentIdentifier | String? |  yes  |  |
+ | orderingStore | Integer? |  yes  |  |
+ | pickAtStoreUid | Integer? |  yes  |  |
+ | files | ArrayList<[FilesSchema](#FilesSchema)>? |  yes  | List of file url |
+ | addressId | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | employeeCode | String? |  yes  |  |
+ | paymentMode | String |  no  |  |
 
 ---
 
@@ -13974,35 +13974,35 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | deliveryChargeInfo | String? |  yes  |  |
- | restrictCheckout | Boolean? |  yes  |  |
- | isValid | Boolean? |  yes  |  |
- | errorMessage | String? |  yes  |  |
- | codCharges | Integer? |  yes  |  |
- | cartId | Integer? |  yes  |  |
- | orderId | String? |  yes  |  |
- | uid | String? |  yes  |  |
- | success | Boolean? |  yes  |  |
+ | message | String? |  yes  |  |
+ | checkoutMode | String? |  yes  |  |
+ | storeCode | String? |  yes  |  |
+ | storeEmps | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | buyNow | Boolean? |  yes  |  |
+ | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
+ | gstin | String? |  yes  |  |
  | deliveryChargeOrderValue | Integer? |  yes  |  |
+ | codMessage | String? |  yes  |  |
+ | cartId | Integer? |  yes  |  |
+ | breakupValues | [CartBreakupSchema](#CartBreakupSchema)? |  yes  |  |
+ | userType | String? |  yes  |  |
+ | errorMessage | String? |  yes  |  |
+ | orderId | String? |  yes  |  |
+ | comment | String? |  yes  |  |
+ | currency | [CartCurrencySchema](#CartCurrencySchema)? |  yes  |  |
  | deliveryCharges | Integer? |  yes  |  |
  | id | String? |  yes  |  |
- | storeEmps | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | checkoutMode | String? |  yes  |  |
- | message | String? |  yes  |  |
- | gstin | String? |  yes  |  |
- | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
- | storeCode | String? |  yes  |  |
- | couponText | String? |  yes  |  |
- | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
- | currency | [CartCurrencySchema](#CartCurrencySchema)? |  yes  |  |
- | codMessage | String? |  yes  |  |
- | breakupValues | [CartBreakupSchema](#CartBreakupSchema)? |  yes  |  |
- | comment | String? |  yes  |  |
- | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
- | userType | String? |  yes  |  |
- | buyNow | Boolean? |  yes  |  |
- | lastModified | String? |  yes  |  |
+ | restrictCheckout | Boolean? |  yes  |  |
  | codAvailable | Boolean? |  yes  |  |
+ | lastModified | String? |  yes  |  |
+ | couponText | String? |  yes  |  |
+ | isValid | Boolean? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | deliveryChargeInfo | String? |  yes  |  |
+ | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
+ | success | Boolean? |  yes  |  |
+ | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
+ | codCharges | Integer? |  yes  |  |
 
 ---
 
@@ -14013,14 +14013,14 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | data | HashMap<String,Object>? |  yes  |  |
- | paymentConfirmUrl | String? |  yes  |  |
+ | cart | [CheckCartSchema](#CheckCartSchema)? |  yes  |  |
  | message | String? |  yes  |  |
  | success | Boolean? |  yes  |  |
  | orderId | String? |  yes  |  |
- | callbackUrl | String? |  yes  |  |
  | appInterceptUrl | String? |  yes  |  |
- | cart | [CheckCartSchema](#CheckCartSchema)? |  yes  |  |
+ | callbackUrl | String? |  yes  |  |
+ | paymentConfirmUrl | String? |  yes  |  |
+ | data | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -14043,22 +14043,22 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | storeCode | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | areaCode | String? |  yes  |  |
  | phone | String? |  yes  |  |
- | addressType | String? |  yes  |  |
  | id | Integer? |  yes  |  |
+ | storeCode | String? |  yes  |  |
+ | area | String? |  yes  |  |
+ | landmark | String? |  yes  |  |
+ | country | String? |  yes  |  |
+ | email | String? |  yes  |  |
  | state | String? |  yes  |  |
  | pincode | Integer? |  yes  |  |
- | area | String? |  yes  |  |
- | city | String? |  yes  |  |
- | areaCodeSlug | String? |  yes  |  |
- | landmark | String? |  yes  |  |
- | areaCode | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
  | address | String? |  yes  |  |
+ | areaCodeSlug | String? |  yes  |  |
+ | city | String? |  yes  |  |
+ | addressType | String? |  yes  |  |
  | name | String? |  yes  |  |
- | email | String? |  yes  |  |
- | country | String? |  yes  |  |
 
 ---
 
@@ -14080,12 +14080,12 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | addressId | String? |  yes  |  |
+ | paymentIdentifier | String? |  yes  |  |
  | merchantCode | String? |  yes  |  |
  | id | String? |  yes  |  |
- | paymentIdentifier | String? |  yes  |  |
- | paymentMode | String? |  yes  |  |
+ | addressId | String? |  yes  |  |
  | aggregatorName | String? |  yes  |  |
+ | paymentMode | String? |  yes  |  |
 
 ---
 
@@ -14096,10 +14096,10 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | code | String? |  yes  |  |
- | title | String? |  yes  |  |
  | discount | Double? |  yes  |  |
  | displayMessageEn | String? |  yes  |  |
+ | code | String? |  yes  |  |
+ | title | String? |  yes  |  |
  | valid | Boolean? |  yes  |  |
 
 ---
@@ -14111,9 +14111,9 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | couponValidity | [CouponValidity](#CouponValidity)? |  yes  |  |
- | message | String? |  yes  |  |
  | success | Boolean |  no  |  |
+ | message | String? |  yes  |  |
+ | couponValidity | [CouponValidity](#CouponValidity)? |  yes  |  |
 
 ---
 
@@ -14124,9 +14124,9 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | merchantCode | String? |  yes  |  |
- | type | String? |  yes  |  |
  | paymentIdentifier | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | merchantCode | String? |  yes  |  |
  | paymentGateway | String? |  yes  |  |
 
 ---
@@ -14138,11 +14138,11 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | amount | Double? |  yes  |  |
  | payment | String? |  yes  |  |
+ | amount | Double? |  yes  |  |
+ | paymentMeta | [PaymentMetaSchema](#PaymentMetaSchema) |  no  |  |
  | mode | String |  no  |  |
  | name | String? |  yes  |  |
- | paymentMeta | [PaymentMetaSchema](#PaymentMetaSchema) |  no  |  |
 
 ---
 
@@ -14153,32 +14153,32 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | paymentMethods | ArrayList<[PaymentMethodSchema](#PaymentMethodSchema)> |  no  |  |
- | merchantCode | String? |  yes  |  |
- | files | ArrayList<[FilesSchema](#FilesSchema)>? |  yes  | List of file url |
- | callbackUrl | String? |  yes  |  |
- | paymentMode | String? |  yes  |  |
- | addressId | String? |  yes  |  |
- | staff | [StaffCheckoutSchema](#StaffCheckoutSchema)? |  yes  |  |
- | paymentParams | HashMap<String,Object>? |  yes  |  |
- | extraMeta | HashMap<String,Object>? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | paymentAutoConfirm | Boolean? |  yes  |  |
  | billingAddress | HashMap<String,Object>? |  yes  |  |
- | id | String |  no  |  |
- | deliveryAddress | HashMap<String,Object>? |  yes  |  |
- | pickAtStoreUid | Integer? |  yes  |  |
- | aggregator | String? |  yes  |  |
  | checkoutMode | String? |  yes  |  |
- | billingAddressId | String? |  yes  |  |
- | pos | Boolean? |  yes  |  |
- | userId | String |  no  |  |
- | paymentIdentifier | String? |  yes  |  |
- | employeeCode | String? |  yes  |  |
- | customMeta | HashMap<String,Object>? |  yes  |  |
+ | paymentParams | HashMap<String,Object>? |  yes  |  |
  | orderType | String |  no  |  |
- | orderingStore | Integer? |  yes  |  |
+ | userId | String |  no  |  |
+ | aggregator | String? |  yes  |  |
+ | merchantCode | String? |  yes  |  |
+ | billingAddressId | String? |  yes  |  |
+ | paymentAutoConfirm | Boolean? |  yes  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
+ | customMeta | HashMap<String,Object>? |  yes  |  |
  | deviceId | String? |  yes  |  |
+ | deliveryAddress | HashMap<String,Object>? |  yes  |  |
+ | id | String |  no  |  |
+ | staff | [StaffCheckoutSchema](#StaffCheckoutSchema)? |  yes  |  |
+ | callbackUrl | String? |  yes  |  |
+ | paymentMethods | ArrayList<[PaymentMethodSchema](#PaymentMethodSchema)> |  no  |  |
+ | pos | Boolean? |  yes  |  |
+ | paymentIdentifier | String? |  yes  |  |
+ | orderingStore | Integer? |  yes  |  |
+ | pickAtStoreUid | Integer? |  yes  |  |
+ | files | ArrayList<[FilesSchema](#FilesSchema)>? |  yes  | List of file url |
+ | addressId | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | employeeCode | String? |  yes  |  |
+ | paymentMode | String? |  yes  |  |
 
 ---
 
@@ -14189,13 +14189,13 @@ Valid response with existing promotion code count
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | paymentMethods | ArrayList<[PaymentMethodSchema](#PaymentMethodSchema)>? |  yes  |  |
- | addressId | String? |  yes  |  |
+ | paymentIdentifier | String? |  yes  |  |
  | merchantCode | String? |  yes  |  |
  | id | String? |  yes  |  |
- | paymentIdentifier | String? |  yes  |  |
- | paymentMode | String? |  yes  |  |
+ | addressId | String? |  yes  |  |
  | aggregatorName | String? |  yes  |  |
+ | paymentMode | String? |  yes  |  |
+ | paymentMethods | ArrayList<[PaymentMethodSchema](#PaymentMethodSchema)>? |  yes  |  |
 
 ---
 

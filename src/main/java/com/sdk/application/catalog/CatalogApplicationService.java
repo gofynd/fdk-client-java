@@ -415,10 +415,6 @@ import com.sdk.application.*;
                 ,
                  paginator.getPageType()
                 
-                
-                
-
-                
             );
                 
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
@@ -743,14 +739,14 @@ import com.sdk.application.*;
     
     
     
-    public CatalogApplicationModels.ProductListingResponse getCollectionItemsBySlug(String slug , String f , Boolean filters , String sortOn , String pageId , Integer pageSize ) throws IOException {
+    public CatalogApplicationModels.ProductListingResponse getCollectionItemsBySlug(String slug , String f , Boolean filters , String sortOn , String pageId , Integer pageSize , Integer pageNo , String pageType ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCollectionItemsBySlug");
         
         fullUrl = fullUrl.replace("{" + "slug" +"}",slug.toString());
         
 
-        Response<CatalogApplicationModels.ProductListingResponse> response = catalogApplicationApiList.getCollectionItemsBySlug(fullUrl  ,f, filters, sortOn, pageId, pageSize).execute();
+        Response<CatalogApplicationModels.ProductListingResponse> response = catalogApplicationApiList.getCollectionItemsBySlug(fullUrl  ,f, filters, sortOn, pageId, pageSize, pageNo, pageType).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -761,6 +757,14 @@ import com.sdk.application.*;
     
     
     
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -820,6 +824,10 @@ import com.sdk.application.*;
                  paginator.getNextId()
                 ,
                  paginator.getPageSize()
+                ,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageType()
                 
             );
                 
