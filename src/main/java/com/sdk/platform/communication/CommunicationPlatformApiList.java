@@ -659,4 +659,151 @@ interface CommunicationPlatformApiList {
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/system-templates")
     Call<CommunicationPlatformModels.SystemSmsTemplates> getSystemSystemTemplates(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("sort") Object  sort );
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/voice/providers")
+    Call<CommunicationPlatformModels.VoiceProviders> getVoiceProviders(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("sort") Object  sort );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/voice/providers")
+    Call<CommunicationPlatformModels.VoiceProvider> createVoiceProvider(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CommunicationPlatformModels.VoiceProviderReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/voice/providers/{id}")
+    Call<CommunicationPlatformModels.VoiceProvider> getVoiceProviderById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/voice/templates")
+    Call<CommunicationPlatformModels.VoiceTemplates> getVoiceTemplates(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("sort") Object  sort );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/voice/templates")
+    Call<CommunicationPlatformModels.VoiceTemplateRes> createVoiceTemplate(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CommunicationPlatformModels.VoiceTemplateReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/voice/templates/{id}")
+    Call<CommunicationPlatformModels.VoiceTemplate> getVoiceTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/voice/templates/{id}")
+    Call<CommunicationPlatformModels.VoiceTemplateRes> updateVoiceTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CommunicationPlatformModels.VoiceTemplateReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/voice/templates/{id}")
+    Call<CommunicationPlatformModels.VoiceTemplateDeleteSuccessRes> deleteVoiceTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/voice/system-templates")
+    Call<CommunicationPlatformModels.SystemVoiceTemplates> getSystemVoiceTemplates(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("sort") Object  sort );
+    
 }
