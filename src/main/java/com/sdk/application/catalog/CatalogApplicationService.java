@@ -415,10 +415,6 @@ import com.sdk.application.*;
                 ,
                  paginator.getPageType()
                 
-                
-                
-
-                
             );
                 
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
