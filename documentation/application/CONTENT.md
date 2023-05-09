@@ -1161,9 +1161,7 @@ Success. Returns a JSON object SEO details such as robots.txt, meta-tags, and si
   "value": {
     "seo": {
       "details": {
-        "title": "Zyosa Zyosa",
-        "description": "",
-        "image_url": ""
+        "title": "Zyosa Zyosa"
       },
       "robots_txt": "User-agent: * \nAllow: / \nsancisciasn xwsaixjowqnxwsiwjs",
       "sitemap_enabled": false,
@@ -1883,7 +1881,6 @@ Success. Returns a list of pages along with their details. Check the example sho
  | ---------- | ---- | -------- | ----------- |
  | title | String? |  yes  |  |
  | description | String? |  yes  |  |
- | imageUrl | String? |  yes  |  |
 
 ---
 

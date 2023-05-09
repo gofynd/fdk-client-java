@@ -764,6 +764,18 @@ interface ContentPlatformApiList {
     
     
     
+    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/seo")
+    Call<ContentPlatformModels.SeoSchema> updateSEOConfiguration(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ContentPlatformModels.SeoComponent payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

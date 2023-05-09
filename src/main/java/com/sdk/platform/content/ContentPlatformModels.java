@@ -411,12 +411,6 @@ public static class Detail{
     
     
     
-    
-    @JsonProperty("image_url")
-    private String imageUrl;
-    
-    
-    
 }
 
 
