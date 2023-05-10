@@ -318,7 +318,7 @@ platformClient.discount.validateDiscountFile( discount, body body) {
 | --------- | -----  | -------- | ----------- | 
 | companyId | Integer | yes | company_id |   
 | discount | String? | no | discount |  
-| body | [DiscountJob](#DiscountJob) | yes | Request body |
+| body | [FileJobRequest](#FileJobRequest) | yes | Request body |
 
 
 Validate File.
@@ -742,6 +742,27 @@ Success
  | body | HashMap<String,Object>? |  yes  |  |
  | type | String |  no  |  |
  | fileType | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [FileJobRequest](#FileJobRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String |  no  |  |
+ | isActive | Boolean |  no  |  |
+ | appIds | ArrayList<String>? |  yes  |  |
+ | jobType | String? |  yes  |  |
+ | discountType | String? |  yes  |  |
+ | discountLevel | String? |  yes  |  |
+ | filePath | String? |  yes  |  |
+ | brandIds | ArrayList<Integer>? |  yes  |  |
+ | storeIds | ArrayList<Integer>? |  yes  |  |
+ | validity | [ValidityObject](#ValidityObject) |  no  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
 
 ---
 

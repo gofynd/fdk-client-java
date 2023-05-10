@@ -149,12 +149,12 @@ import com.sdk.application.*;
     
     
     
-    public PosCartApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , Boolean buyNow ,PosCartApplicationModels.AddCartRequest body) throws IOException {
+    public PosCartApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , Boolean buyNow , String id ,PosCartApplicationModels.AddCartRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("addItems");
         
 
-        Response<PosCartApplicationModels.AddCartDetailResponse> response = poscartApplicationApiList.addItems(fullUrl  ,i, b, areaCode, buyNow, body).execute();
+        Response<PosCartApplicationModels.AddCartDetailResponse> response = poscartApplicationApiList.addItems(fullUrl  ,i, b, areaCode, buyNow, id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
