@@ -23,7 +23,7 @@ Get all pages of a theme
 
 
 ```java
-theme.getAllPages( themeId) {
+applicationClient.theme.getAllPages( themeId) {
   //use response
 }
 ```
@@ -137,21 +137,6 @@ Success. Returns an array all the pages of the theme. Refer `AllAvailablePageSch
         "__v": 9
       },
       {
-        "path": "product/:slug/reviews",
-        "type": "system",
-        "seo": {
-          "title": "",
-          "description": "",
-          "_id": "60ab5ca6d572fed64294eb24"
-        },
-        "_id": "60ab5ca6d572fed64294eb25",
-        "sections_meta": [],
-        "value": "product-reviews",
-        "text": "Product Reviews",
-        "theme": "5fb3ee4194a5181feeeba8e5",
-        "__v": 9
-      },
-      {
         "path": "blog",
         "type": "system",
         "seo": {
@@ -224,21 +209,6 @@ Success. Returns an array all the pages of the theme. Refer `AllAvailablePageSch
         "text": "Wishlist",
         "theme": "5fb3ee4194a5181feeeba8e5",
         "sections_meta": [],
-        "__v": 9
-      },
-      {
-        "path": "product/:slug/add-review",
-        "type": "system",
-        "seo": {
-          "title": "",
-          "description": "",
-          "_id": "60ab5ca6d572fed64294eb26"
-        },
-        "_id": "60ab5ca6d572fed64294eb27",
-        "sections_meta": [],
-        "value": "add-product-review",
-        "text": "Add Product Review",
-        "theme": "5fb3ee4194a5181feeeba8e5",
         "__v": 9
       },
       {
@@ -372,7 +342,7 @@ Get page of a theme
 
 
 ```java
-theme.getPage( themeId,  pageValue) {
+applicationClient.theme.getPage( themeId,  pageValue) {
   //use response
 }
 ```
@@ -794,7 +764,7 @@ Get the theme currently applied to an application
 
 
 ```java
-theme.getAppliedTheme() {
+applicationClient.theme.getAppliedTheme() {
   //use response
 }
 ```
@@ -1253,11 +1223,6 @@ Success. Returns a JSON object of the theme. Check the example shown below or   
       "page_schema": [
         {
           "props": [],
-          "_id": "5fe182f763d26d042fd205c4",
-          "page": "add-product-review"
-        },
-        {
-          "props": [],
           "_id": "5fe182f763d26dadc8d205c6",
           "page": "blog"
         },
@@ -1467,11 +1432,6 @@ Success. Returns a JSON object of the theme. Check the example shown below or   
           "props": [],
           "_id": "5fe182f763d26da5f0d205d3",
           "page": "product-listing"
-        },
-        {
-          "props": [],
-          "_id": "5fe182f763d26d3d18d205d4",
-          "page": "product-reviews"
         },
         {
           "props": [],
@@ -2982,7 +2942,7 @@ Get a theme for a preview
 
 
 ```java
-theme.getThemeForPreview( themeId) {
+applicationClient.theme.getThemeForPreview( themeId) {
   //use response
 }
 ```
@@ -3446,11 +3406,6 @@ Success. Returns a JSON object of the theme. Check the example shown below or re
       "page_schema": [
         {
           "props": [],
-          "_id": "5fe182f763d26d042fd205c4",
-          "page": "add-product-review"
-        },
-        {
-          "props": [],
           "_id": "5fe182f763d26dadc8d205c6",
           "page": "blog"
         },
@@ -3660,11 +3615,6 @@ Success. Returns a JSON object of the theme. Check the example shown below or re
           "props": [],
           "_id": "5fe182f763d26da5f0d205d3",
           "page": "product-listing"
-        },
-        {
-          "props": [],
-          "_id": "5fe182f763d26d3d18d205d4",
-          "page": "product-reviews"
         },
         {
           "props": [],
