@@ -14,7 +14,6 @@ Authentication Service
 * [unDeleteUser](#undeleteuser)
 * [updateUser](#updateuser)
 * [createUserSession](#createusersession)
-* [deleteSession](#deletesession)
 * [getActiveSessions](#getactivesessions)
 * [deleteActiveSessions](#deleteactivesessions)
 * [getPlatformConfig](#getplatformconfig)
@@ -524,7 +523,7 @@ platformClient.application("<APPLICATION_ID>").user.updateUser( userId, body bod
 | body | [UpdateUserRequestSchema](#UpdateUserRequestSchema) | yes | Request body |
 
 
-Use this API to update user details, Note: Existing emails and phone numbers of user will be replaced directly if phone_numbers or emails field sent in request data.
+Update user
 
 *Returned Response:*
 
@@ -661,78 +660,8 @@ Create user session
 ---
 
 
-### deleteSession
-Delete a session for a user
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").user.deleteSession( id,  sessionId,  reason) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
-| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
-| id | String | yes | ID of a customer. |   
-| sessionId | String | yes | Session ID of a customer. |   
-| reason | String | yes | Reason for deleting session. |  
-
-
-
-Use this API to Delete a session of customers who have registered in the application.
-
-*Returned Response:*
-
-
-
-
-[SessionDeleteResponseSchema](#SessionDeleteResponseSchema)
-
-Success. Refer `SessionDeleteResponseSchema` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; Success</i></summary>
-
-```json
-{
-  "value": {
-    "items": [
-      "sess:123",
-      "sess:456"
-    ]
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### getActiveSessions
-Get a list of all session with info for a user
+Get a list of all session for a user
 
 
 
@@ -753,7 +682,7 @@ platformClient.application("<APPLICATION_ID>").user.getActiveSessions( id) {
 
 
 
-Use this API to retrieve a list of session with info of customers who have registered in the application.
+Use this API to retrieve a list of session of customers who have registered in the application.
 
 *Returned Response:*
 
@@ -806,7 +735,7 @@ Delete a list of all session for a user
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").user.deleteActiveSessions( id,  reason) {
+platformClient.application("<APPLICATION_ID>").user.deleteActiveSessions( id) {
   //use response
 }
 ```
@@ -817,8 +746,7 @@ platformClient.application("<APPLICATION_ID>").user.deleteActiveSessions( id,  r
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
 | applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
-| id | String | yes | ID of a customer. |   
-| reason | String | yes | Reason to delete sessions. |  
+| id | String | yes | ID of a customer. |  
 
 
 
@@ -2097,7 +2025,7 @@ Success. User Group details. `UserGroupResponseSchema` for more details.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[SessionListResponseInfo](#SessionListResponseInfo)>? |  yes  |  |
+ | items | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -2261,21 +2189,6 @@ Success. User Group details. `UserGroupResponseSchema` for more details.
  | debug | [AuthSuccessUserDebug](#AuthSuccessUserDebug)? |  yes  |  |
  | active | Boolean? |  yes  |  |
  | emails | [AuthSuccessUserEmails](#AuthSuccessUserEmails)? |  yes  |  |
-
----
-
-
- 
- 
- #### [SessionListResponseInfo](#SessionListResponseInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | sessionId | String? |  yes  |  |
- | userAgent | String? |  yes  |  |
- | ip | String? |  yes  |  |
- | domain | String? |  yes  |  |
- | expireIn | String? |  yes  |  |
 
 ---
 
@@ -2682,37 +2595,6 @@ Success. User Group details. `UserGroupResponseSchema` for more details.
  | gender | String? |  yes  |  |
  | externalId | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
- | phoneNumbers | ArrayList<[UserPhoneNumbers](#UserPhoneNumbers)>? |  yes  |  |
- | emails | ArrayList<[UserEmails](#UserEmails)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserEmails](#UserEmails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | active | Boolean? |  yes  |  |
- | primary | Boolean? |  yes  |  |
- | verified | Boolean? |  yes  |  |
- | email | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserPhoneNumbers](#UserPhoneNumbers)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | active | Boolean? |  yes  |  |
- | primary | Boolean? |  yes  |  |
- | verified | Boolean? |  yes  |  |
- | phone | String? |  yes  |  |
- | countryCode | String? |  yes  |  |
 
 ---
 

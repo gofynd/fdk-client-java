@@ -284,16 +284,12 @@ public class ApplicationClient {
     
     
     
-    
-    
-    
-    
 
-    public RewardsPlatformModels.GiveawayAudience getGiveawayAudienceStatus(String id , String audienceId ) throws FDKServerResponseError, FDKException {
+    public RewardsPlatformModels.GiveawayAudience getGiveawayAudienceStatus(String audienceId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<RewardsPlatformModels.GiveawayAudience> response = null;
             try {
-            response = rewardsPlatformApiList.getGiveawayAudienceStatus(id , audienceId , this.companyId , this.applicationId ).execute();
+            response = rewardsPlatformApiList.getGiveawayAudienceStatus(audienceId , this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -374,8 +370,12 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
 
-    public RewardsPlatformModels.Offer getOfferByName(String name ) throws FDKServerResponseError, FDKException {
+    public RewardsPlatformModels.Offer getOfferByName(String name , String cookie ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<RewardsPlatformModels.Offer> response = null;
             try {
@@ -510,11 +510,11 @@ public class ApplicationClient {
     
     
 
-    public RewardsPlatformModels.UserRes getUserDetails(String userId ) throws FDKServerResponseError, FDKException {
+    public RewardsPlatformModels.UserRes user(String userId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<RewardsPlatformModels.UserRes> response = null;
             try {
-            response = rewardsPlatformApiList.getUserDetails(userId , this.companyId , this.applicationId ).execute();
+            response = rewardsPlatformApiList.user(userId , this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

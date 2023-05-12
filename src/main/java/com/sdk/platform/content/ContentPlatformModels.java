@@ -4290,10 +4290,6 @@ public static class TagSourceSchema{
         
         product("product"), 
         
-        productReviews("product-reviews"), 
-        
-        addProductReview("add-product-review"), 
-        
         productRequest("product-request"), 
         
         products("products"), 

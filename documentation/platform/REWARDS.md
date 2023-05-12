@@ -15,7 +15,7 @@ Earn and redeem reward points
 * [getOfferByName](#getofferbyname)
 * [updateOfferByName](#updateofferbyname)
 * [updateUserStatus](#updateuserstatus)
-* [getUserDetails](#getuserdetails)
+* [user](#user)
 * [getUserPointsHistory](#getuserpointshistory)
 * [getRewardsConfiguration](#getrewardsconfiguration)
 * [setRewardsConfiguration](#setrewardsconfiguration)
@@ -252,7 +252,7 @@ Get the Giveaway audience status
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").rewards.getGiveawayAudienceStatus( id,  audienceId) {
+platformClient.application("<APPLICATION_ID>").rewards.getGiveawayAudienceStatus( audienceId) {
   //use response
 }
 ```
@@ -261,7 +261,6 @@ platformClient.application("<APPLICATION_ID>").rewards.getGiveawayAudienceStatus
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| id | String | yes | Giveaway ID |   
 | audienceId | String | yes | audience id |   
 | companyId | String | yes | company id |   
 | applicationId | String | yes | application id |  
@@ -362,7 +361,7 @@ Get offer by name
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").rewards.getOfferByName( name) {
+platformClient.application("<APPLICATION_ID>").rewards.getOfferByName( name,  cookie) {
   //use response
 }
 ```
@@ -373,7 +372,8 @@ platformClient.application("<APPLICATION_ID>").rewards.getOfferByName( name) {
 | --------- | -----  | -------- | ----------- | 
 | name | String | yes | The name given to the offer. |   
 | companyId | String | yes | company id |   
-| applicationId | String | yes | application id |  
+| applicationId | String | yes | application id |   
+| cookie | String | yes | User's session cookie. This cookie is set in browser cookie when logged-in to fynd's authentication system i.e. `Grimlock` or by using grimlock-backend SDK for backend implementation. |  
 
 
 
@@ -520,14 +520,14 @@ Success
 ---
 
 
-### getUserDetails
+### user
 Get user reward details
 
 
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").rewards.getUserDetails( userId) {
+platformClient.application("<APPLICATION_ID>").rewards.user( userId) {
   //use response
 }
 ```
