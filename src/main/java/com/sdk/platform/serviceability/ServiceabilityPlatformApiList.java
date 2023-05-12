@@ -128,4 +128,13 @@ interface ServiceabilityPlatformApiList {
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/logistics/stores")
     Call<ServiceabilityPlatformModels.GetStoresViewResponse> getAllStores(@Path("company_id")  String companyId );
     
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/reassign")
+    Call<ServiceabilityPlatformModels.ReAssignStoreResponse> getOptimalLocations(@Path("company_id")  String companyId ,@Body ServiceabilityPlatformModels.ReAssignStoreRequest payload);
+    
 }
