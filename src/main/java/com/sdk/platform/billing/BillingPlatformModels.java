@@ -429,6 +429,12 @@ public static class DetailedPlanComponents{
     
     
     
+    
+    @JsonProperty("config")
+    private Object config;
+    
+    
+    
 }
 
 

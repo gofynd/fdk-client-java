@@ -1683,6 +1683,7 @@ Success
  | links | HashMap<String,Object>? |  yes  |  |
  | enabled | Boolean? |  yes  |  |
  | displayText | String? |  yes  |  |
+ | config | HashMap<String,Object>? |  yes  |  |
 
 ---
 

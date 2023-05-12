@@ -470,4 +470,19 @@ interface PaymentPlatformApiList {
     @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/payment-status-bulk/")
     Call<PaymentPlatformModels.PaymentStatusBulkHandlerResponse> paymentStatusBulk(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.PaymentStatusBulkHandlerRequest payload);
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/revoke/{aggregator}/")
+    Call<PaymentPlatformModels.RevokeOAuthToken> revokeOauthToken(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("aggregator") String  aggregator );
+    
 }
