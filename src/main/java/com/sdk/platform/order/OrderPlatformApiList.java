@@ -674,6 +674,15 @@ interface OrderPlatformApiList {
     
     
     
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
+    Call<OrderPlatformModels.ShipmentHistoryResponse> postShipmentHistory(@Path("company_id")  String companyId ,@Body OrderPlatformModels.PostShipmentHistory payload);
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -682,15 +691,6 @@ interface OrderPlatformApiList {
     
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
     Call<OrderPlatformModels.ShipmentHistoryResponse> getShipmentHistory(@Path("company_id")  String companyId , @Query("shipment_id") String  shipmentId ,  @Query("bag_id") Integer  bagId );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
-    Call<OrderPlatformModels.ShipmentHistoryResponse> postShipmentHistory(@Path("company_id")  String companyId ,@Body OrderPlatformModels.PostShipmentHistory payload);
     
     
     
@@ -734,17 +734,17 @@ interface OrderPlatformApiList {
     
     
     
-    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
-    Call<OrderPlatformModels.CreateChannelConfigData> getChannelConfig(@Path("company_id")  String companyId );
-    
-    
-    
-    
-    
-    
-    
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
     Call<OrderPlatformModels.CreateChannelConfigResponse> createChannelConfig(@Path("company_id")  String companyId ,@Body OrderPlatformModels.CreateChannelConfigData payload);
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
+    Call<OrderPlatformModels.CreateChannelConfigData> getChannelConfig(@Path("company_id")  String companyId );
     
     
     
