@@ -58,7 +58,7 @@ interface CatalogApplicationApiList {
     Call<CatalogApplicationModels.AutoCompleteResponse> getSearchResults(@Url String url1, @Query("q") String q );
     
     @GET 
-    Call<CatalogApplicationModels.GetCollectionListingResponse> getCollections(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("tag") List<String> tag , @Query("q") String q );
+    Call<CatalogApplicationModels.GetCollectionListingResponse> getCollections(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("tag") List<String> tag );
     
     @GET 
     Call<CatalogApplicationModels.ProductListingResponse> getCollectionItemsBySlug(@Url String url1, @Query("f") String f , @Query("filters") Boolean filters , @Query("sort_on") String sortOn , @Query("page_id") String pageId , @Query("page_size") Integer pageSize , @Query("page_no") Integer pageNo , @Query("page_type") String pageType );
