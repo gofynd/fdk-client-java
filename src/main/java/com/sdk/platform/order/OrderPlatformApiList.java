@@ -428,14 +428,29 @@ interface OrderPlatformApiList {
     
     
     
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/orders/v1.0/company/{company_id}/generate/file")
-    Call<OrderPlatformModels.FileResponse> getBulkShipmentExcelFile(@Path("company_id")  String companyId , @Query("lane") String  lane ,  @Query("search_type") String  searchType ,  @Query("search_id") String  searchId ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("dp_ids") String  dpIds ,  @Query("ordering_company_id") String  orderingCompanyId ,  @Query("stores") String  stores ,  @Query("sales_channel") String  salesChannel ,  @Query("request_by_ext") String  requestByExt ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("customer_id") String  customerId ,  @Query("is_priority_sort") Boolean  isPrioritySort );
+    Call<OrderPlatformModels.FileResponse> getBulkShipmentExcelFile(@Path("company_id")  String companyId , @Query("sales_channels") String  salesChannels ,  @Query("dp_ids") String  dpIds ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("stores") String  stores ,  @Query("tags") String  tags ,  @Query("bag_status") String  bagStatus ,  @Query("payment_methods") String  paymentMethods ,  @Query("file_type") String  fileType ,  @Query("time_to_dispatch") Integer  timeToDispatch ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/orders/v1.0/company/{company_id}/bulk-action/get-seller-templates")
+    Call<OrderPlatformModels.BulkActionTemplateResponse> getBulkActionTemplate(@Path("company_id")  String companyId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/orders/v1.0/company/{company_id}/bulk-action/download-seller-templates")
+    Call<OrderPlatformModels.FileResponse> downloadBulkActionTemplate(@Path("company_id")  String companyId , @Query("template_slug") String  templateSlug );
     
     
     
