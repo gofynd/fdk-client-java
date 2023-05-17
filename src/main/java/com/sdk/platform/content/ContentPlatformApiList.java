@@ -956,6 +956,21 @@ interface ContentPlatformApiList {
     
     
     
+    
+    
+    
+    @GET ("/service/platform/content/v2.0/company/{company_id}/application/{application_id}/blogs/{slug}")
+    Call<ContentPlatformModels.BlogSchema> getBlogBySlug(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("slug") String  slug );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @POST ("/service/platform/content/v2.0/company/{company_id}/application/{application_id}/pages/")
     Call<ContentPlatformModels.PageSchema> createPage(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ContentPlatformModels.PageRequest payload);
     
