@@ -504,8 +504,6 @@ public class OrderPlatformService {
     
     
     
-    
-    
 
     public OrderPlatformModels.FiltersResponse getfilters(String view , String groupEntity ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
@@ -1654,12 +1652,20 @@ public class OrderPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public OrderPlatformModels.ShipmentHistoryResponse postShipmentHistory(OrderPlatformModels.PostShipmentHistory body) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.ShipmentHistoryResponse getShipmentHistory(Integer shipmentId , Integer bagId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.ShipmentHistoryResponse> response = null;
             try {
-                response = orderPlatformApiList.postShipmentHistory(this.companyId , body).execute();
+                response = orderPlatformApiList.getShipmentHistory(this.companyId ,shipmentId , bagId ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1690,20 +1696,12 @@ public class OrderPlatformService {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
 
-    public OrderPlatformModels.ShipmentHistoryResponse getShipmentHistory(Integer shipmentId , Integer bagId ) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.ShipmentHistoryResponse postShipmentHistory(OrderPlatformModels.PostShipmentHistory body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.ShipmentHistoryResponse> response = null;
             try {
-                response = orderPlatformApiList.getShipmentHistory(this.companyId ,shipmentId , bagId ).execute();
+                response = orderPlatformApiList.postShipmentHistory(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1879,11 +1877,11 @@ public class OrderPlatformService {
     
     
 
-    public OrderPlatformModels.CreateChannelConfigResponse createChannelConfig(OrderPlatformModels.CreateChannelConfigData body) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.CreateChannelConfigData getChannelConfig() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<OrderPlatformModels.CreateChannelConfigResponse> response = null;
+            Response<OrderPlatformModels.CreateChannelConfigData> response = null;
             try {
-                response = orderPlatformApiList.createChannelConfig(this.companyId , body).execute();
+                response = orderPlatformApiList.getChannelConfig(this.companyId ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1915,11 +1913,11 @@ public class OrderPlatformService {
     
     
 
-    public OrderPlatformModels.CreateChannelConfigData getChannelConfig() throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.CreateChannelConfigResponse createChannelConfig(OrderPlatformModels.CreateChannelConfigData body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<OrderPlatformModels.CreateChannelConfigData> response = null;
+            Response<OrderPlatformModels.CreateChannelConfigResponse> response = null;
             try {
-                response = orderPlatformApiList.getChannelConfig(this.companyId ).execute();
+                response = orderPlatformApiList.createChannelConfig(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2230,56 +2228,11 @@ public class ApplicationClient {
     
     
 
-    public OrderPlatformModels.ShipmentDetailsResponse getAppOrderShipmentDetails(String orderId ) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<OrderPlatformModels.ShipmentDetailsResponse> response = null;
-            try {
-            response = orderPlatformApiList.getAppOrderShipmentDetails(this.companyId , this.applicationId ,orderId ).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    public OrderPlatformModels.PlatformShipmentTrack trackPlatformShipment(String shipmentId ) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.PlatformShipmentTrack trackShipmentPlatform(String shipmentId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.PlatformShipmentTrack> response = null;
             try {
-            response = orderPlatformApiList.trackPlatformShipment(this.companyId , this.applicationId , shipmentId ).execute();
+            response = orderPlatformApiList.trackShipmentPlatform(this.companyId , this.applicationId , shipmentId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

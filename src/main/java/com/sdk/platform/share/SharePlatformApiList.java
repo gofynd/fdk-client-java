@@ -77,4 +77,19 @@ interface SharePlatformApiList {
     @PATCH ("/service/platform/share/v1.0/company/{company_id}/application/{application_id}/links/short-link/{id}/")
     Call<SharePlatformModels.ShortLinkRes> updateShortLinkById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body SharePlatformModels.ShortLinkReq payload);
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/share/v1.0/company/{company_id}/application/{application_id}/links/short-link/click-stats")
+    Call<SharePlatformModels.ClickStatsResponse> getShortLinkClickStats(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("surl_id") String  surlId );
+    
 }

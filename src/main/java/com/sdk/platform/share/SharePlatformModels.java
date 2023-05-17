@@ -9,6 +9,56 @@ public class SharePlatformModels{
 
 
 /*
+    Model: ClickStatsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ClickStatsResponse{
+    
+    
+    
+    
+    @JsonProperty("click_stats")
+    private List<ClickStatsItem> clickStats;
+    
+    
+    
+}
+
+
+/*
+    Model: ClickStatsItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ClickStatsItem{
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
+}
+
+
+/*
     Model: RedirectDevice
 */
 @AllArgsConstructor
