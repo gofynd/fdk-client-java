@@ -42,7 +42,7 @@ interface UserPlatformApiList {
     
     
     @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/search")
-    Call<UserPlatformModels.UserSearchResponseSchema> searchUsers(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("q") String  q );
+    Call<UserPlatformModels.UserSearchResponseSchema> searchUsers(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("q") Object  q );
     
     
     
