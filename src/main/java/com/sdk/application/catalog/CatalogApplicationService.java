@@ -667,12 +667,12 @@ import com.sdk.application.*;
     
     
     
-    public CatalogApplicationModels.GetCollectionListingResponse getCollections(Integer pageNo , Integer pageSize , List<String> tag ) throws IOException {
+    public CatalogApplicationModels.GetCollectionListingResponse getCollections(Integer pageNo , Integer pageSize , List<String> tag , String q ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCollections");
         
 
-        Response<CatalogApplicationModels.GetCollectionListingResponse> response = catalogApplicationApiList.getCollections(fullUrl  ,pageNo, pageSize, tag).execute();
+        Response<CatalogApplicationModels.GetCollectionListingResponse> response = catalogApplicationApiList.getCollections(fullUrl  ,pageNo, pageSize, tag, q).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -700,6 +700,10 @@ import com.sdk.application.*;
         
         
         
+        
+        
+        
+        
 
     /**
     * Summary: get paginator for getCollections
@@ -708,7 +712,8 @@ import com.sdk.application.*;
     public Paginator<CatalogApplicationModels.GetCollectionListingResponse> getCollectionsPagination(
         
         Integer pageSize,
-        List<String> tag
+        List<String> tag,
+        String q
         
         ){ 
     
@@ -724,7 +729,8 @@ import com.sdk.application.*;
                 ,
                  paginator.getPageSize()
                 ,
-                 tag
+                 tag,
+                 q
             );
                 
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
