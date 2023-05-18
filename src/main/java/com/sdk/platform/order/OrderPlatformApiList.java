@@ -296,8 +296,23 @@ interface OrderPlatformApiList {
     
     
     
+    @GET ("/service/platform/orders/v1.0/company/{company_id}/application/{application_id}/order-details")
+    Call<OrderPlatformModels.ShipmentDetailsResponse> getAppOrderShipmentDetails(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("order_id") String  orderId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/orders/v1.0/company/{company_id}/application/{application_id}/orders/shipments/{shipment_id}/track")
-    Call<OrderPlatformModels.PlatformShipmentTrack> trackShipmentPlatform(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("shipment_id") String  shipmentId );
+    Call<OrderPlatformModels.PlatformShipmentTrack> trackPlatformShipment(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("shipment_id") String  shipmentId );
     
     
     
