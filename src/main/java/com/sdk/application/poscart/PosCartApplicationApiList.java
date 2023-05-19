@@ -37,7 +37,7 @@ interface PosCartApplicationApiList {
     Call<PosCartApplicationModels.BulkPriceResponse> getBulkDiscountOffers(@Url String url1, @Query("item_id") Integer itemId , @Query("article_id") String articleId , @Query("uid") Integer uid , @Query("slug") String slug );
     
     @POST 
-    Call<PosCartApplicationModels.CartDetailResponse> applyRewardPoints(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow  , @Body PosCartApplicationModels.RewardPointRequestSchema payload );
+    Call<PosCartApplicationModels.CartDetailResponse> applyRewardPoints(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("buy_now") Boolean buyNow  , @Body PosCartApplicationModels.RewardPointRequest payload );
     
     @GET 
     Call<PosCartApplicationModels.GetAddressesResponse> getAddresses(@Url String url1, @Query("cart_id") String cartId , @Query("buy_now") Boolean buyNow , @Query("mobile_no") String mobileNo , @Query("checkout_mode") String checkoutMode , @Query("tags") String tags , @Query("is_default") Boolean isDefault );
@@ -61,7 +61,7 @@ interface PosCartApplicationApiList {
     Call<PosCartApplicationModels.CartDetailResponse> selectPaymentMode(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow  , @Body PosCartApplicationModels.UpdateCartPaymentRequest payload );
     
     @GET 
-    Call<PosCartApplicationModels.PaymentCouponValidateSchema> validateCouponForPayment(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode );
+    Call<PosCartApplicationModels.PaymentCouponValidate> validateCouponForPayment(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode );
     
     @GET 
     Call<PosCartApplicationModels.CartShipmentsResponse> getShipments(@Url String url1, @Query("pick_at_store_uid") Integer pickAtStoreUid , @Query("ordering_store_id") Integer orderingStoreId , @Query("p") Boolean p , @Query("id") String id , @Query("address_id") String addressId , @Query("area_code") String areaCode , @Query("order_type") String orderType );
@@ -70,7 +70,7 @@ interface PosCartApplicationApiList {
     Call<PosCartApplicationModels.CartShipmentsResponse> updateShipments(@Url String url1, @Query("i") Boolean i , @Query("p") Boolean p , @Query("id") String id , @Query("address_id") String addressId , @Query("area_code") String areaCode , @Query("order_type") String orderType  , @Body PosCartApplicationModels.UpdateCartShipmentRequest payload );
     
     @POST 
-    Call<PosCartApplicationModels.CartCheckoutResponseSchema> checkoutCart(@Url String url1, @Query("id") String id  , @Body PosCartApplicationModels.CartPosCheckoutDetailRequest payload );
+    Call<PosCartApplicationModels.CartCheckoutResponse> checkoutCart(@Url String url1, @Query("id") String id  , @Body PosCartApplicationModels.CartPosCheckoutDetailRequest payload );
     
     @PUT 
     Call<PosCartApplicationModels.CartMetaResponse> updateCartMeta(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow  , @Body PosCartApplicationModels.CartMetaRequest payload );
