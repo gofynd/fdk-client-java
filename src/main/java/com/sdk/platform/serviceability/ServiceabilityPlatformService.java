@@ -110,12 +110,16 @@ public class ServiceabilityPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public ServiceabilityPlatformModels.ListViewResponse getListView(Integer pageNumber , Integer pageSize , String name , Boolean isActive , String channelIds ) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.ListViewResponse getListView(Integer pageNumber , Integer pageSize , String name , Boolean isActive , String channelIds , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ServiceabilityPlatformModels.ListViewResponse> response = null;
             try {
-                response = serviceabilityPlatformApiList.getListView(this.companyId ,pageNumber , pageSize , name , isActive , channelIds ).execute();
+                response = serviceabilityPlatformApiList.getListView(this.companyId ,pageNumber , pageSize , name , isActive , channelIds , q ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -195,46 +199,6 @@ public class ServiceabilityPlatformService {
     
     
 
-    public ServiceabilityPlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ServiceabilityPlatformModels.GetSingleZoneDataViewResponse> response = null;
-            try {
-                response = serviceabilityPlatformApiList.getZoneDataView(this.companyId , zoneId  ).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
     public ServiceabilityPlatformModels.ZoneSuccessResponse updateZoneControllerView(String zoneId ,ServiceabilityPlatformModels.ZoneUpdateRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ServiceabilityPlatformModels.ZoneSuccessResponse> response = null;
@@ -270,12 +234,16 @@ public class ServiceabilityPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public ServiceabilityPlatformModels.ZoneResponse insertZoneControllerView(ServiceabilityPlatformModels.ZoneRequest body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ServiceabilityPlatformModels.ZoneResponse> response = null;
+            Response<ServiceabilityPlatformModels.GetSingleZoneDataViewResponse> response = null;
             try {
-                response = serviceabilityPlatformApiList.insertZoneControllerView(this.companyId , body).execute();
+                response = serviceabilityPlatformApiList.getZoneDataView(this.companyId , zoneId  ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -293,6 +261,44 @@ public class ServiceabilityPlatformService {
             return null;
         }    
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ServiceabilityPlatformModels.ZoneResponse createZone(ServiceabilityPlatformModels.ZoneRequest body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.ZoneResponse> response = null;
+            try {
+                response = serviceabilityPlatformApiList.createZone(this.companyId , body).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
     
     
     
@@ -371,6 +377,14 @@ public class ServiceabilityPlatformService {
             return null;
         }    
     }
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -459,12 +473,28 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public ServiceabilityPlatformModels.GetZoneFromPincodeViewResponse upsertZoneControllerView(ServiceabilityPlatformModels.GetZoneFromPincodeViewRequest body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.GetZoneFromApplicationIdViewResponse getZonesFromApplicationIdView(Integer pageNo , Integer pageSize , List<String> zoneId , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ServiceabilityPlatformModels.GetZoneFromPincodeViewResponse> response = null;
+            Response<ServiceabilityPlatformModels.GetZoneFromApplicationIdViewResponse> response = null;
             try {
-            response = serviceabilityPlatformApiList.upsertZoneControllerView(this.companyId , this.applicationId , body).execute();
+            response = serviceabilityPlatformApiList.getZonesFromApplicationIdView(this.companyId , this.applicationId ,pageNo , pageSize , zoneId , q ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -487,6 +517,211 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ServiceabilityPlatformModels.GetZoneFromPincodeViewResponse getZoneFromPincodeView(ServiceabilityPlatformModels.GetZoneFromPincodeViewRequest body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.GetZoneFromPincodeViewResponse> response = null;
+            try {
+            response = serviceabilityPlatformApiList.getZoneFromPincodeView(this.companyId , this.applicationId , body).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ServiceabilityPlatformModels.PincodeMOPresponse updatePincodeMopView(ServiceabilityPlatformModels.PincodeMopData body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.PincodeMOPresponse> response = null;
+            try {
+            response = serviceabilityPlatformApiList.updatePincodeMopView(this.companyId , this.applicationId , body).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ServiceabilityPlatformModels.PincodeBulkViewResponse updatePincodeBulkView(ServiceabilityPlatformModels.PincodeMopBulkData body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.PincodeBulkViewResponse> response = null;
+            try {
+            response = serviceabilityPlatformApiList.updatePincodeBulkView(this.companyId , this.applicationId , body).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ServiceabilityPlatformModels.PincodeCodStatusListingResponse updatePincodeCoDListing(ServiceabilityPlatformModels.PincodeCodStatusListingRequest body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.PincodeCodStatusListingResponse> response = null;
+            try {
+            response = serviceabilityPlatformApiList.updatePincodeCoDListing(this.companyId , this.applicationId , body).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ServiceabilityPlatformModels.PincodeMopUpdateAuditHistoryResponseData updatePincodeAuditHistory(ServiceabilityPlatformModels.PincodeMopUpdateAuditHistoryRequest body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.PincodeMopUpdateAuditHistoryResponseData> response = null;
+            try {
+            response = serviceabilityPlatformApiList.updatePincodeAuditHistory(this.companyId , this.applicationId , body).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
     
     
     

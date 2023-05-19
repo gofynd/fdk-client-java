@@ -770,6 +770,15 @@ interface OrderPlatformApiList {
     
     
     
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
+    Call<OrderPlatformModels.ShipmentHistoryResponse> postShipmentHistory(@Path("company_id")  String companyId ,@Body OrderPlatformModels.PostShipmentHistory payload);
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -778,15 +787,6 @@ interface OrderPlatformApiList {
     
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
     Call<OrderPlatformModels.ShipmentHistoryResponse> getShipmentHistory(@Path("company_id")  String companyId , @Query("shipment_id") Integer  shipmentId ,  @Query("bag_id") Integer  bagId );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
-    Call<OrderPlatformModels.ShipmentHistoryResponse> postShipmentHistory(@Path("company_id")  String companyId ,@Body OrderPlatformModels.PostShipmentHistory payload);
     
     
     
@@ -830,17 +830,17 @@ interface OrderPlatformApiList {
     
     
     
-    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
-    Call<OrderPlatformModels.CreateChannelConfigData> getChannelConfig(@Path("company_id")  String companyId );
-    
-    
-    
-    
-    
-    
-    
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
     Call<OrderPlatformModels.CreateChannelConfigResponse> createChannelConfig(@Path("company_id")  String companyId ,@Body OrderPlatformModels.CreateChannelConfigData payload);
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
+    Call<OrderPlatformModels.CreateChannelConfigData> getChannelConfig(@Path("company_id")  String companyId );
     
     
     
@@ -877,5 +877,50 @@ interface OrderPlatformApiList {
     
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/bag/state/transition")
     Call<OrderPlatformModels.OrderStatusResult> sendSmsNinjaPlatform(@Path("company_id")  String companyId );
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/customer-credit-balance")
+    Call<OrderPlatformModels.FetchCreditBalanceResponsePayload> fetchCreditBalanceDetail(@Path("company_id")  String companyId ,@Body OrderPlatformModels.FetchCreditBalanceRequestPayload payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/refund-mode-config")
+    Call<OrderPlatformModels.RefundModeConfigResponsePayload> fetchRefundModeConfig(@Path("company_id")  String companyId ,@Body OrderPlatformModels.RefundModeConfigRequestPayload payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/user/attach")
+    Call<OrderPlatformModels.AttachOrderUserResponse> attachOrderUser(@Path("company_id")  String companyId ,@Body OrderPlatformModels.AttachOrderUser payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/user/send/otp/mobile")
+    Call<OrderPlatformModels.SendUserMobileOtpResponse> sendUserMobileOTP(@Path("company_id")  String companyId ,@Body OrderPlatformModels.SendUserMobileOTP payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/user/verify/otp")
+    Call<OrderPlatformModels.PointBlankOtpData> verifyMobileOTP(@Path("company_id")  String companyId ,@Body OrderPlatformModels.VerifyMobileOTP payload);
     
 }

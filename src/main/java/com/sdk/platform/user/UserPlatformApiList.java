@@ -131,7 +131,28 @@ interface UserPlatformApiList {
     
     
     
-    @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/sesions")
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/session")
+    Call<UserPlatformModels.SessionDeleteResponseSchema> deleteSession(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("session_id") String  sessionId ,  @Query("reason") String  reason );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/sessions")
     Call<UserPlatformModels.SessionListResponseSchema> getActiveSessions(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id );
     
     
@@ -146,8 +167,11 @@ interface UserPlatformApiList {
     
     
     
-    @DELETE ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/sesions")
-    Call<UserPlatformModels.SessionDeleteResponseSchema> deleteActiveSessions(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id );
+    
+    
+    
+    @DELETE ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/sessions")
+    Call<UserPlatformModels.SessionDeleteResponseSchema> deleteActiveSessions(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("reason") String  reason );
     
     
     
@@ -172,5 +196,74 @@ interface UserPlatformApiList {
     
     @POST ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/platform/config")
     Call<UserPlatformModels.PlatformSchema> updatePlatformConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body UserPlatformModels.PlatformSchema payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_group")
+    Call<UserPlatformModels.UserGroupResponseSchema> createUserGroup(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body UserPlatformModels.CreateUserGroupSchema payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_group")
+    Call<UserPlatformModels.UserGroupListResponseSchema> getUserGroups(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") String  pageNo ,  @Query("page_size") String  pageSize ,  @Query("name") String  name ,  @Query("status") String  status ,  @Query("group_uid") Integer  groupUid );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_group/{group_id}")
+    Call<UserPlatformModels.UserGroupResponseSchema> updateUserGroup(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("group_id") String  groupId ,@Body UserPlatformModels.UpdateUserGroupSchema payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_group/{group_id}")
+    Call<UserPlatformModels.UserGroupResponseSchema> getUserGroupById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("group_id") String  groupId );
     
 }
