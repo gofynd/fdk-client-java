@@ -1343,11 +1343,11 @@ public class OrderPlatformService {
     
     
 
-    public OrderPlatformModels.Click2CallResponse click2Call(String caller , String receiver , String bagId , String callingTo , String callerId ) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.Click2CallResponse click2Call(String caller , String receiver , String bagId , String callerId , String method ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.Click2CallResponse> response = null;
             try {
-                response = orderPlatformApiList.click2Call(this.companyId ,caller , receiver , bagId , callingTo , callerId ).execute();
+                response = orderPlatformApiList.click2Call(this.companyId ,caller , receiver , bagId , callerId , method ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1567,7 +1567,7 @@ public class OrderPlatformService {
     
     
 
-    public OrderPlatformModels.ShipmentHistoryResponse getShipmentHistory(String shipmentId , Integer bagId ) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.ShipmentHistoryResponse getShipmentHistory(Integer shipmentId , Integer bagId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.ShipmentHistoryResponse> response = null;
             try {
@@ -1675,7 +1675,7 @@ public class OrderPlatformService {
     
     
 
-    public OrderPlatformModels.CreateOrderResponse updatePackagingDimensions(OrderPlatformModels.CreateOrderPayload body) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.CreateOrderResponse updatePackagingDimensions(OrderPlatformModels.UpdatePackagingDimensionsPayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.CreateOrderResponse> response = null;
             try {

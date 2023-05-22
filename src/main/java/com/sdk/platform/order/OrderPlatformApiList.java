@@ -648,7 +648,7 @@ interface OrderPlatformApiList {
     
     
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/ninja/click2call")
-    Call<OrderPlatformModels.Click2CallResponse> click2Call(@Path("company_id")  String companyId , @Query("caller") String  caller ,  @Query("receiver") String  receiver ,  @Query("bag_id") String  bagId ,  @Query("calling_to") String  callingTo ,  @Query("caller_id") String  callerId );
+    Call<OrderPlatformModels.Click2CallResponse> click2Call(@Path("company_id")  String companyId , @Query("caller") String  caller ,  @Query("receiver") String  receiver ,  @Query("bag_id") String  bagId ,  @Query("caller_id") String  callerId ,  @Query("method") String  method );
     
     
     
@@ -708,7 +708,7 @@ interface OrderPlatformApiList {
     
     
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
-    Call<OrderPlatformModels.ShipmentHistoryResponse> getShipmentHistory(@Path("company_id")  String companyId , @Query("shipment_id") String  shipmentId ,  @Query("bag_id") Integer  bagId );
+    Call<OrderPlatformModels.ShipmentHistoryResponse> getShipmentHistory(@Path("company_id")  String companyId , @Query("shipment_id") Integer  shipmentId ,  @Query("bag_id") Integer  bagId );
     
     
     
@@ -735,7 +735,7 @@ interface OrderPlatformApiList {
     
     
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/update-packaging-dimension")
-    Call<OrderPlatformModels.CreateOrderResponse> updatePackagingDimensions(@Path("company_id")  String companyId ,@Body OrderPlatformModels.CreateOrderPayload payload);
+    Call<OrderPlatformModels.CreateOrderResponse> updatePackagingDimensions(@Path("company_id")  String companyId ,@Body OrderPlatformModels.UpdatePackagingDimensionsPayload payload);
     
     
     
