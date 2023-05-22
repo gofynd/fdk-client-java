@@ -38,8 +38,6 @@ import com.sdk.platform.cart.CartPlatformService;
 
 import com.sdk.platform.rewards.RewardsPlatformService;
 
-import com.sdk.platform.analytics.AnalyticsPlatformService;
-
 import com.sdk.platform.discount.DiscountPlatformService;
 
 import com.sdk.platform.partner.PartnerPlatformService;
@@ -48,7 +46,7 @@ import com.sdk.platform.webhook.WebhookPlatformService;
 
 import com.sdk.platform.audittrail.AuditTrailPlatformService;
 
-import com.sdk.platform.serviceability.ServiceabilityPlatformService;
+import com.sdk.platform.logistics.LogisticsPlatformService;
 
 
 
@@ -93,8 +91,6 @@ public class PlatformClient {
     
     public RewardsPlatformService rewards;
     
-    public AnalyticsPlatformService analytics;
-    
     public DiscountPlatformService discount;
     
     public PartnerPlatformService partner;
@@ -103,7 +99,7 @@ public class PlatformClient {
     
     public AuditTrailPlatformService auditTrail;
     
-    public ServiceabilityPlatformService serviceability;
+    public LogisticsPlatformService logistics;
     
 
     public PlatformClient(PlatformConfig config)   
@@ -144,8 +140,6 @@ public class PlatformClient {
         
         this.rewards = new RewardsPlatformService(config);
         
-        this.analytics = new AnalyticsPlatformService(config);
-        
         this.discount = new DiscountPlatformService(config);
         
         this.partner = new PartnerPlatformService(config);
@@ -154,7 +148,7 @@ public class PlatformClient {
         
         this.auditTrail = new AuditTrailPlatformService(config);
         
-        this.serviceability = new ServiceabilityPlatformService(config);
+        this.logistics = new LogisticsPlatformService(config);
         
     }
 
@@ -206,8 +200,6 @@ public class PlatformClient {
         
         public RewardsPlatformService.ApplicationClient rewards;
         
-        public AnalyticsPlatformService.ApplicationClient analytics;
-        
         public DiscountPlatformService.ApplicationClient discount;
         
         public PartnerPlatformService.ApplicationClient partner;
@@ -216,7 +208,7 @@ public class PlatformClient {
         
         public AuditTrailPlatformService.ApplicationClient auditTrail;
         
-        public ServiceabilityPlatformService.ApplicationClient serviceability;
+        public LogisticsPlatformService.ApplicationClient logistics;
         
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
@@ -256,8 +248,6 @@ public class PlatformClient {
             
             this.rewards = new RewardsPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.analytics = new AnalyticsPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
             this.discount = new DiscountPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.partner = new PartnerPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
@@ -266,7 +256,7 @@ public class PlatformClient {
             
             this.auditTrail = new AuditTrailPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.serviceability = new ServiceabilityPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.logistics = new LogisticsPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
         }
 

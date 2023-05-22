@@ -1,11 +1,11 @@
 
-package com.sdk.platform.serviceability;
+package com.sdk.platform.logistics;
 
 import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-public class ServiceabilityPlatformModels{
+public class LogisticsPlatformModels{
 
 
 /*

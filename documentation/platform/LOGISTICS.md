@@ -4,7 +4,7 @@
 
 ##### [Back to Platform docs](./README.md)
 
-## Serviceability Methods
+## Logistics Methods
 Logistics Configuration API's allows you to configure zone, application logistics and many more useful features. 
 * [getApplicationServiceability](#getapplicationserviceability)
 * [getEntityRegionView](#getentityregionview)
@@ -34,7 +34,7 @@ Zone configuration of application.
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").serviceability.getApplicationServiceability() {
+platformClient.application("<APPLICATION_ID>").logistics.getApplicationServiceability() {
   //use response
 }
 ```
@@ -100,7 +100,7 @@ Get country and state list
 
 
 ```java
-platformClient.serviceability.getEntityRegionView(body body) {
+platformClient.logistics.getEntityRegionView(body body) {
   //use response
 }
 ```
@@ -153,7 +153,7 @@ Zone List of application.
 
 
 ```java
-platformClient.serviceability.getListView( pageNumber,  pageSize,  name,  isActive,  channelIds,  q) {
+platformClient.logistics.getListView( pageNumber,  pageSize,  name,  isActive,  channelIds,  q) {
   //use response
 }
 ```
@@ -212,7 +212,7 @@ Company Store View of application.
 
 
 ```java
-platformClient.serviceability.getCompanyStoreView() {
+platformClient.logistics.getCompanyStoreView() {
   //use response
 }
 ```
@@ -265,7 +265,7 @@ Updation of zone collections in database.
 
 
 ```java
-platformClient.serviceability.updateZoneControllerView( zoneId, body body) {
+platformClient.logistics.updateZoneControllerView( zoneId, body body) {
   //use response
 }
 ```
@@ -319,7 +319,7 @@ Zone Data View of application.
 
 
 ```java
-platformClient.serviceability.getZoneDataView( zoneId) {
+platformClient.logistics.getZoneDataView( zoneId) {
   //use response
 }
 ```
@@ -373,7 +373,7 @@ Insertion of zone in database.
 
 
 ```java
-platformClient.serviceability.createZone(body body) {
+platformClient.logistics.createZone(body body) {
   //use response
 }
 ```
@@ -426,7 +426,7 @@ GET zone from the Pincode.
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").serviceability.getZoneFromPincodeView(body body) {
+platformClient.application("<APPLICATION_ID>").logistics.getZoneFromPincodeView(body body) {
   //use response
 }
 ```
@@ -480,7 +480,7 @@ GET zones from the application_id.
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").serviceability.getZonesFromApplicationIdView( pageNo,  pageSize,  zoneId,  q) {
+platformClient.application("<APPLICATION_ID>").logistics.getZonesFromApplicationIdView( pageNo,  pageSize,  zoneId,  q) {
   //use response
 }
 ```
@@ -538,7 +538,7 @@ GET stores data
 
 
 ```java
-platformClient.serviceability.getStore( storeUid) {
+platformClient.logistics.getStore( storeUid) {
   //use response
 }
 ```
@@ -801,7 +801,7 @@ GET stores data
 
 
 ```java
-platformClient.serviceability.getAllStores() {
+platformClient.logistics.getAllStores() {
   //use response
 }
 ```
@@ -854,7 +854,7 @@ PincodeView update of MOP.
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").serviceability.updatePincodeMopView(body body) {
+platformClient.application("<APPLICATION_ID>").logistics.updatePincodeMopView(body body) {
   //use response
 }
 ```
@@ -908,7 +908,7 @@ Bulk Update of pincode in the application.
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").serviceability.updatePincodeBulkView(body body) {
+platformClient.application("<APPLICATION_ID>").logistics.updatePincodeBulkView(body body) {
   //use response
 }
 ```
@@ -965,7 +965,7 @@ Pincode count view of application.
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").serviceability.updatePincodeCoDListing(body body) {
+platformClient.application("<APPLICATION_ID>").logistics.updatePincodeCoDListing(body body) {
   //use response
 }
 ```
@@ -1019,7 +1019,7 @@ Auditlog configuration of application.
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").serviceability.updatePincodeAuditHistory(body body) {
+platformClient.application("<APPLICATION_ID>").logistics.updatePincodeAuditHistory(body body) {
   //use response
 }
 ```
