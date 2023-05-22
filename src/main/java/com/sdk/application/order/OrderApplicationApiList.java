@@ -47,4 +47,7 @@ interface OrderApplicationApiList {
     
     @GET 
     Call<OrderApplicationModels.ProductListResponse> getProducts(@Url String url1, @Query("status") Integer status , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate , @Query("search_value") String searchValue );
+    
+    @PUT 
+    Call<OrderApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus1(@Url String url1 , @Body OrderApplicationModels.UpdateShipmentStatusRequest1 payload );
 }

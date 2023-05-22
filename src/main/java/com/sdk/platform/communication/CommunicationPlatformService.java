@@ -141,6 +141,62 @@ public class CommunicationPlatformService {
     }
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getSystemNotifications
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CommunicationPlatformModels.SystemNotifications> getSystemNotificationsPagination(
+        Integer pageSize 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CommunicationPlatformModels.SystemNotifications> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CommunicationPlatformModels.SystemNotifications callback = this.getSystemNotifications(
+                
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     
@@ -252,6 +308,73 @@ public class ApplicationClient {
         }    
     }
 
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getCampaigns
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CommunicationPlatformModels.Campaigns> getCampaignsPagination(
+        Integer pageSize,
+        Object sort
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CommunicationPlatformModels.Campaigns> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CommunicationPlatformModels.Campaigns callback = this.getCampaigns(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 sort
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
     
     
     
@@ -481,6 +604,73 @@ public class ApplicationClient {
         }    
     }
 
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getAudiences
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CommunicationPlatformModels.Audiences> getAudiencesPagination(
+        Integer pageSize,
+        Object sort
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CommunicationPlatformModels.Audiences> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CommunicationPlatformModels.Audiences callback = this.getAudiences(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 sort
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
     
     
     
@@ -749,6 +939,73 @@ public class ApplicationClient {
 
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getEmailProviders
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CommunicationPlatformModels.EmailProviders> getEmailProvidersPagination(
+        Integer pageSize,
+        Object sort
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CommunicationPlatformModels.EmailProviders> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CommunicationPlatformModels.EmailProviders callback = this.getEmailProviders(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 sort
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     
@@ -933,6 +1190,73 @@ public class ApplicationClient {
 
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getEmailTemplates
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CommunicationPlatformModels.EmailTemplates> getEmailTemplatesPagination(
+        Integer pageSize,
+        Object sort
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CommunicationPlatformModels.EmailTemplates> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CommunicationPlatformModels.EmailTemplates callback = this.getEmailTemplates(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 sort
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     
@@ -1025,6 +1349,73 @@ public class ApplicationClient {
         }    
     }
 
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getSystemEmailTemplates
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CommunicationPlatformModels.SystemEmailTemplates> getSystemEmailTemplatesPagination(
+        Integer pageSize,
+        Object sort
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CommunicationPlatformModels.SystemEmailTemplates> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CommunicationPlatformModels.SystemEmailTemplates callback = this.getSystemEmailTemplates(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 sort
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
     
     
     
@@ -1297,6 +1688,73 @@ public class ApplicationClient {
 
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getEventSubscriptions
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CommunicationPlatformModels.EventSubscriptions> getEventSubscriptionsPagination(
+        Integer pageSize,
+        String populate
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CommunicationPlatformModels.EventSubscriptions> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CommunicationPlatformModels.EventSubscriptions callback = this.getEventSubscriptions(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 populate
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     
@@ -1348,6 +1806,73 @@ public class ApplicationClient {
         }    
     }
 
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getJobs
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CommunicationPlatformModels.Jobs> getJobsPagination(
+        Integer pageSize,
+        Object sort
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CommunicationPlatformModels.Jobs> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CommunicationPlatformModels.Jobs callback = this.getJobs(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 sort
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
     
     
     
@@ -1444,6 +1969,73 @@ public class ApplicationClient {
 
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getJobLogs
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CommunicationPlatformModels.JobLogs> getJobLogsPagination(
+        Integer pageSize,
+        Object sort
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CommunicationPlatformModels.JobLogs> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CommunicationPlatformModels.JobLogs callback = this.getJobLogs(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 sort
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     
@@ -1499,6 +2091,81 @@ public class ApplicationClient {
         }    
     }
 
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getCommunicationLogs
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CommunicationPlatformModels.Logs> getCommunicationLogsPagination(
+        Integer pageSize,
+        Object sort,
+        Object query
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CommunicationPlatformModels.Logs> paginator = new Paginator<>(pageSize, "cursor");
+
+    paginator.setCallback(()-> {
+        try {
+            CommunicationPlatformModels.Logs callback = this.getCommunicationLogs(
+                
+                 
+                 
+                 paginator.getNextId()
+                ,
+                 paginator.getPageSize()
+                ,
+                 sort,
+                 query
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
     
     
     
@@ -1636,6 +2303,73 @@ public class ApplicationClient {
         }    
     }
 
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getSmsProviders
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CommunicationPlatformModels.SmsProviders> getSmsProvidersPagination(
+        Integer pageSize,
+        Object sort
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CommunicationPlatformModels.SmsProviders> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CommunicationPlatformModels.SmsProviders callback = this.getSmsProviders(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 sort
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
     
     
     
@@ -1820,6 +2554,73 @@ public class ApplicationClient {
         }    
     }
 
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getSmsTemplates
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CommunicationPlatformModels.SmsTemplates> getSmsTemplatesPagination(
+        Integer pageSize,
+        Object sort
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CommunicationPlatformModels.SmsTemplates> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CommunicationPlatformModels.SmsTemplates callback = this.getSmsTemplates(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 sort
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
     
     
     
@@ -2051,6 +2852,73 @@ public class ApplicationClient {
 
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getSystemSystemTemplates
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CommunicationPlatformModels.SystemSmsTemplates> getSystemSystemTemplatesPagination(
+        Integer pageSize,
+        Object sort
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CommunicationPlatformModels.SystemSmsTemplates> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CommunicationPlatformModels.SystemSmsTemplates callback = this.getSystemSystemTemplates(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 sort
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     
@@ -2102,6 +2970,73 @@ public class ApplicationClient {
         }    
     }
 
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getVoiceProviders
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CommunicationPlatformModels.VoiceProviders> getVoiceProvidersPagination(
+        Integer pageSize,
+        Object sort
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CommunicationPlatformModels.VoiceProviders> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CommunicationPlatformModels.VoiceProviders callback = this.getVoiceProviders(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 sort
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
     
     
     
@@ -2241,6 +3176,73 @@ public class ApplicationClient {
         }    
     }
 
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getVoiceTemplates
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CommunicationPlatformModels.VoiceTemplates> getVoiceTemplatesPagination(
+        Integer pageSize,
+        Object sort
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CommunicationPlatformModels.VoiceTemplates> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CommunicationPlatformModels.VoiceTemplates callback = this.getVoiceTemplates(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 sort
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
     
     
     
@@ -2470,6 +3472,73 @@ public class ApplicationClient {
         }    
     }
 
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getSystemVoiceTemplates
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CommunicationPlatformModels.SystemVoiceTemplates> getSystemVoiceTemplatesPagination(
+        Integer pageSize,
+        Object sort
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CommunicationPlatformModels.SystemVoiceTemplates> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CommunicationPlatformModels.SystemVoiceTemplates callback = this.getSystemVoiceTemplates(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 sort
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
     
     
     
