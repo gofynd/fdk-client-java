@@ -29,7 +29,7 @@ Get all orders
 
 
 ```java
-order.getOrders( pageNo,  pageSize,  fromDate,  toDate,  status) {
+applicationClient.order.getOrders( pageNo,  pageSize,  fromDate,  toDate,  status) {
   //use response
 }
 ```
@@ -86,7 +86,7 @@ Get details of an order
 
 
 ```java
-order.getOrderById( orderId) {
+applicationClient.order.getOrderById( orderId) {
   //use response
 }
 ```
@@ -139,7 +139,7 @@ Get details of a shipment
 
 
 ```java
-order.getShipmentById( shipmentId) {
+applicationClient.order.getShipmentById( shipmentId) {
   //use response
 }
 ```
@@ -192,7 +192,7 @@ Get reasons behind full or partial cancellation of a shipment
 
 
 ```java
-order.getShipmentReasons( shipmentId) {
+applicationClient.order.getShipmentReasons( shipmentId) {
   //use response
 }
 ```
@@ -245,7 +245,7 @@ Update the shipment status
 
 
 ```java
-order.updateShipmentStatus( shipmentId, body body) {
+applicationClient.order.updateShipmentStatus( shipmentId, body body) {
   //use response
 }
 ```
@@ -298,7 +298,7 @@ Track shipment
 
 
 ```java
-order.trackShipment( shipmentId) {
+applicationClient.order.trackShipment( shipmentId) {
   //use response
 }
 ```
@@ -351,7 +351,7 @@ Get POS Order
 
 
 ```java
-order.getPosOrderById( orderId) {
+applicationClient.order.getPosOrderById( orderId) {
   //use response
 }
 ```
@@ -404,7 +404,7 @@ Get Customer Details by Shipment Id
 
 
 ```java
-order.getCustomerDetailsByShipmentId( orderId,  shipmentId) {
+applicationClient.order.getCustomerDetailsByShipmentId( orderId,  shipmentId) {
   //use response
 }
 ```
@@ -458,7 +458,7 @@ Send and Resend Otp code to Order-Shipment customer
 
 
 ```java
-order.sendOtpToShipmentCustomer( orderId,  shipmentId) {
+applicationClient.order.sendOtpToShipmentCustomer( orderId,  shipmentId) {
   //use response
 }
 ```
@@ -512,7 +512,7 @@ Verify Otp code
 
 
 ```java
-order.verifyOtpShipmentCustomer( orderId,  shipmentId, body body) {
+applicationClient.order.verifyOtpShipmentCustomer( orderId,  shipmentId, body body) {
   //use response
 }
 ```

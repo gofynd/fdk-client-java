@@ -3246,18 +3246,6 @@ public static class UserSchema{
     
     
     
-    @JsonProperty("debug")
-    private Debug debug;
-    
-    
-    
-    
-    @JsonProperty("has_old_password_hash")
-    private Boolean hasOldPasswordHash;
-    
-    
-    
-    
     @JsonProperty("_id")
     private String id;
     
@@ -3358,34 +3346,6 @@ public static class Email{
     
     @JsonProperty("active")
     private Boolean active;
-    
-    
-    
-}
-
-
-/*
-    Model: Debug
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Debug{
-    
-    
-    
-    
-    @JsonProperty("source")
-    private String source;
-    
-    
-    
-    
-    @JsonProperty("platform")
-    private String platform;
     
     
     

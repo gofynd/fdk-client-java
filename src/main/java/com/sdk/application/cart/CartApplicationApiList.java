@@ -89,4 +89,7 @@ interface CartApplicationApiList {
     
     @GET 
     Call<CartApplicationModels.LadderPriceOffers> getLadderOffers(@Url String url1, @Query("slug") String slug , @Query("store_id") String storeId , @Query("promotion_id") String promotionId , @Query("page_size") Integer pageSize );
+    
+    @POST 
+    Call<CartApplicationModels.CartCheckoutResponse> checkoutCartV2(@Url String url1, @Query("buy_now") Boolean buyNow  , @Body CartApplicationModels.CartCheckoutDetailV2Request payload );
 }

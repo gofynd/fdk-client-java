@@ -30,6 +30,8 @@ import com.sdk.application.payment.PaymentApplicationService;
 
 import com.sdk.application.order.OrderApplicationService;
 
+import com.sdk.application.rewards.RewardsApplicationService;
+
 import com.sdk.application.poscart.PosCartApplicationService;
 
 import com.sdk.application.logistic.LogisticApplicationService;
@@ -68,6 +70,8 @@ public class ApplicationClient {
     
     public OrderApplicationService order;
     
+    public RewardsApplicationService rewards;
+    
     public PosCartApplicationService posCart;
     
     public LogisticApplicationService logistic;
@@ -105,6 +109,8 @@ public class ApplicationClient {
         this.payment = new PaymentApplicationService(applicationConfig);
         
         this.order = new OrderApplicationService(applicationConfig);
+        
+        this.rewards = new RewardsApplicationService(applicationConfig);
         
         this.posCart = new PosCartApplicationService(applicationConfig);
         
