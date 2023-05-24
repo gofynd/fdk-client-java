@@ -692,15 +692,6 @@ interface OrderPlatformApiList {
     
     
     
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
-    Call<OrderPlatformModels.ShipmentHistoryResponse> postShipmentHistory(@Path("company_id")  String companyId ,@Body OrderPlatformModels.PostShipmentHistory payload);
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -709,6 +700,15 @@ interface OrderPlatformApiList {
     
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
     Call<OrderPlatformModels.ShipmentHistoryResponse> getShipmentHistory(@Path("company_id")  String companyId , @Query("shipment_id") Integer  shipmentId ,  @Query("bag_id") Integer  bagId );
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
+    Call<OrderPlatformModels.ShipmentHistoryResponse> postShipmentHistory(@Path("company_id")  String companyId ,@Body OrderPlatformModels.PostShipmentHistory payload);
     
     
     
@@ -735,7 +735,7 @@ interface OrderPlatformApiList {
     
     
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/update-packaging-dimension")
-    Call<OrderPlatformModels.CreateOrderResponse> updatePackagingDimensions(@Path("company_id")  String companyId ,@Body OrderPlatformModels.UpdatePackagingDimensionsPayload payload);
+    Call<OrderPlatformModels.UpdatePackagingDimensionsResponse> updatePackagingDimensions(@Path("company_id")  String companyId ,@Body OrderPlatformModels.UpdatePackagingDimensionsPayload payload);
     
     
     
@@ -752,17 +752,17 @@ interface OrderPlatformApiList {
     
     
     
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
-    Call<OrderPlatformModels.CreateChannelConfigResponse> createChannelConfig(@Path("company_id")  String companyId ,@Body OrderPlatformModels.CreateChannelConfigData payload);
-    
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
     Call<OrderPlatformModels.CreateChannelConfigData> getChannelConfig(@Path("company_id")  String companyId );
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
+    Call<OrderPlatformModels.CreateChannelConfigResponse> createChannelConfig(@Path("company_id")  String companyId ,@Body OrderPlatformModels.CreateChannelConfigData payload);
     
     
     
@@ -798,7 +798,7 @@ interface OrderPlatformApiList {
     
     
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/bag/state/transition")
-    Call<OrderPlatformModels.OrderStatusResult> sendSmsNinjaPlatform(@Path("company_id")  String companyId );
+    Call<OrderPlatformModels.BagStateTransitionMap> getStateTransitionMap(@Path("company_id")  String companyId );
     
     
     
