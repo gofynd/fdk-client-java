@@ -518,4 +518,70 @@ interface PaymentPlatformApiList {
     @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/customer/validation")
     Call<PaymentPlatformModels.ValidateCustomerResponse> verifyCustomerForPayment(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.ValidateCustomerRequest payload);
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/create-payment-link/")
+    Call<PaymentPlatformModels.GetPaymentLinkResponse> getPaymentLink(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("payment_link_id") String  paymentLinkId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/create-payment-link/")
+    Call<PaymentPlatformModels.CreatePaymentLinkResponse> createPaymentLink(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.CreatePaymentLinkRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/polling-payment-link/")
+    Call<PaymentPlatformModels.PollingPaymentLinkResponse> pollingPaymentLink(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("payment_link_id") String  paymentLinkId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/resend-payment-link/")
+    Call<PaymentPlatformModels.ResendPaymentLinkResponse> resendPaymentLink(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.CancelOrResendPaymentLinkRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/cancel-payment-link/")
+    Call<PaymentPlatformModels.CancelPaymentLinkResponse> cancelPaymentLink(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.CancelOrResendPaymentLinkRequest payload);
+    
 }

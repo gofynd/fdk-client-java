@@ -725,15 +725,6 @@ interface OrderPlatformApiList {
     
     
     
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/oms/manual-place-shipment")
-    Call<OrderPlatformModels.ManualAssignDPToShipmentResponse> platformManualAssignDPToShipment(@Path("company_id")  String companyId ,@Body OrderPlatformModels.ManualAssignDPToShipment payload);
-    
-    
-    
-    
-    
-    
-    
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/update-packaging-dimension")
     Call<OrderPlatformModels.UpdatePackagingDimensionsResponse> updatePackagingDimensions(@Path("company_id")  String companyId ,@Body OrderPlatformModels.UpdatePackagingDimensionsPayload payload);
     
