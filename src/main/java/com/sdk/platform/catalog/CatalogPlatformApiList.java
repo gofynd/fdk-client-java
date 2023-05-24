@@ -20,6 +20,21 @@ interface CatalogPlatformApiList {
     
     
     
+    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
+    Call<CatalogPlatformModels.DeleteResponse> deleteSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
     Call<CatalogPlatformModels.GetSearchWordsDetailResponse> getSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
@@ -37,21 +52,6 @@ interface CatalogPlatformApiList {
     
     @PUT ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
     Call<CatalogPlatformModels.GetSearchWordsData> updateSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CatalogPlatformModels.CreateSearchKeyword payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/keyword/{id}/")
-    Call<CatalogPlatformModels.DeleteResponse> deleteSearchKeywords(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
     
     
@@ -89,6 +89,21 @@ interface CatalogPlatformApiList {
     
     
     
+    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
+    Call<CatalogPlatformModels.DeleteResponse> deleteAutocompleteKeyword(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
     Call<CatalogPlatformModels.GetAutocompleteWordsResponse> getAutocompleteKeywordDetail(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
@@ -106,21 +121,6 @@ interface CatalogPlatformApiList {
     
     @PUT ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
     Call<CatalogPlatformModels.GetAutocompleteWordsResponse> updateAutocompleteKeyword(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CatalogPlatformModels.CreateAutocompleteKeyword payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/{id}/")
-    Call<CatalogPlatformModels.DeleteResponse> deleteAutocompleteKeyword(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
     
     
@@ -263,23 +263,23 @@ interface CatalogPlatformApiList {
     
     
     
-    @PATCH ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/product/{item_id}/")
-    Call<CatalogPlatformModels.SuccessResponse1> updateAppProduct(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("item_id") String  itemId ,@Body CatalogPlatformModels.ApplicationItemMeta payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/product/{item_id}/")
     Call<CatalogPlatformModels.OwnerAppItemResponse> getAppProduct(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("item_id") String  itemId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PATCH ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/product/{item_id}/")
+    Call<CatalogPlatformModels.SuccessResponse1> updateAppProduct(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("item_id") String  itemId ,@Body CatalogPlatformModels.ApplicationItemMeta payload);
     
     
     
@@ -855,16 +855,7 @@ interface CatalogPlatformApiList {
     
     
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/departments/")
-    Call<CatalogPlatformModels.DepartmentsResponse> listDepartmentsData(@Path("company_id")  String companyId , @Query("page_no") Integer  pageNo ,  @Query("item_type") String  itemType ,  @Query("page_size") Integer  pageSize ,  @Query("name") String  name ,  @Query("search") String  search ,  @Query("is_active") Boolean  isActive );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/catalog/v1.0/company/{company_id}/departments/")
-    Call<CatalogPlatformModels.DepartmentCreateResponse> createDepartments(@Path("company_id")  String companyId ,@Body CatalogPlatformModels.DepartmentCreateUpdate payload);
+    Call<CatalogPlatformModels.DepartmentListResponse> listDepartments(@Path("company_id")  String companyId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("name") String  name ,  @Query("search") String  search ,  @Query("is_active") Boolean  isActive ,  @Query("item_type") String  itemType );
     
     
     
@@ -876,19 +867,7 @@ interface CatalogPlatformApiList {
     
     
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/departments/{uid}/")
-    Call<CatalogPlatformModels.DepartmentsResponse> getDepartmentData(@Path("company_id")  String companyId , @Path("uid") String  uid );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @PUT ("/service/platform/catalog/v1.0/company/{company_id}/departments/{uid}/")
-    Call<CatalogPlatformModels.DepartmentModel> updateDepartment(@Path("company_id")  String companyId , @Path("uid") String  uid ,@Body CatalogPlatformModels.DepartmentCreateUpdate payload);
+    Call<CatalogPlatformModels.DepartmentUpdate> getDepartment(@Path("company_id")  String companyId , @Path("uid") Integer  uid );
     
     
     
@@ -1163,6 +1142,18 @@ interface CatalogPlatformApiList {
     
     
     
+    @DELETE ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
+    Call<CatalogPlatformModels.SuccessResponse> deleteProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1183,18 +1174,6 @@ interface CatalogPlatformApiList {
     
     @PUT ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
     Call<CatalogPlatformModels.SuccessResponse> editProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId ,@Body CatalogPlatformModels.ProductCreateUpdateSchemaV2 payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @DELETE ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
-    Call<CatalogPlatformModels.SuccessResponse> deleteProduct(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId );
     
     
     
