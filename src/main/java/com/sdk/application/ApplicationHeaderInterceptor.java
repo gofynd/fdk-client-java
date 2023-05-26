@@ -1,4 +1,4 @@
-package com.sdk.common;
+package com.sdk.application;
 
 import com.sdk.application.ApplicationConfig;
 import okhttp3.Interceptor;

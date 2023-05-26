@@ -11,6 +11,7 @@ Application configuration apis
 * [getPreviousVersions](#getpreviousversions)
 * [getAppFeatures](#getappfeatures)
 * [updateAppFeatures](#updateappfeatures)
+* [modifyAppFeatures](#modifyappfeatures)
 * [getAppBasicDetails](#getappbasicdetails)
 * [updateAppBasicDetails](#updateappbasicdetails)
 * [getAppContactInfo](#getappcontactinfo)
@@ -65,7 +66,7 @@ Get latest build config
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getBuildConfig( platformType) {
+platformClient.application("<APPLICATION_ID>").configuration.getBuildConfig( platformType) {
   //use response
 }
 ```
@@ -138,7 +139,7 @@ Update build config for next build
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.updateBuildConfig( platformType, body body) {
+platformClient.application("<APPLICATION_ID>").configuration.updateBuildConfig( platformType, body body) {
   //use response
 }
 ```
@@ -211,7 +212,7 @@ Get previous build versions
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getPreviousVersions( platformType) {
+platformClient.application("<APPLICATION_ID>").configuration.getPreviousVersions( platformType) {
   //use response
 }
 ```
@@ -281,7 +282,7 @@ Get features of application
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getAppFeatures() {
+platformClient.application("<APPLICATION_ID>").configuration.getAppFeatures() {
   //use response
 }
 ```
@@ -431,7 +432,7 @@ Update features of application
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.updateAppFeatures(body body) {
+platformClient.application("<APPLICATION_ID>").configuration.updateAppFeatures(body body) {
   //use response
 }
 ```
@@ -562,6 +563,147 @@ Success
 ---
 
 
+### modifyAppFeatures
+Update features of application
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").configuration.modifyAppFeatures(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Current company id |   
+| applicationId | String | yes | Current application id |  
+| body | [AppFeatureRequest](#AppFeatureRequest) | yes | Request body |
+
+
+Update features of application
+
+*Returned Response:*
+
+
+
+
+[AppFeature](#AppFeature)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "product_detail": {
+    "similar": [
+      "basic",
+      "visual",
+      "brand",
+      "category",
+      "seller",
+      "price",
+      "specs"
+    ],
+    "seller_selection": true,
+    "update_product_meta": true,
+    "request_product": true
+  },
+  "landing_page": {
+    "launch_page": {
+      "page_type": "home",
+      "params": null,
+      "query": null
+    },
+    "continue_as_guest": true,
+    "login_btn_text": "Click here to sign-in",
+    "show_domain_textbox": true,
+    "show_register_btn": true
+  },
+  "registration_page": {
+    "ask_store_address": false
+  },
+  "home_page": {
+    "order_processing": true
+  },
+  "common": {
+    "international_shipping": {
+      "enabled": true
+    },
+    "communication_optin_dialog": {
+      "visibility": true
+    },
+    "deployment_store_selection": {
+      "enabled": true,
+      "type": "hard"
+    },
+    "listing_price": {
+      "value": "min",
+      "sort": "min"
+    },
+    "currency": {
+      "value": [
+        "INR"
+      ],
+      "type": "explicit",
+      "default_currency": "INR"
+    },
+    "revenue_engine": {
+      "enabled": false
+    },
+    "feedback": {
+      "enabled": true
+    },
+    "compare_products": {
+      "enabled": true
+    }
+  },
+  "cart": {
+    "gst_input": true,
+    "staff_selection": true,
+    "placing_for_customer": true,
+    "google_map": true,
+    "revenue_engine_coupon": false
+  },
+  "qr": {
+    "application": true,
+    "products": true,
+    "collections": true
+  },
+  "pcr": {
+    "staff_selection": true
+  },
+  "order": {
+    "buy_again": true
+  },
+  "_id": "5e57643c986e4119c973df7d",
+  "app": "000000000000000000000004",
+  "created_at": "2020-02-27T06:39:56.088Z",
+  "modified_at": "2021-03-09T15:40:29.188Z",
+  "__v": 1
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getAppBasicDetails
 Get basic application details
 
@@ -569,7 +711,7 @@ Get basic application details
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getAppBasicDetails() {
+platformClient.application("<APPLICATION_ID>").configuration.getAppBasicDetails() {
   //use response
 }
 ```
@@ -663,7 +805,7 @@ Add or update application's basic details
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.updateAppBasicDetails(body body) {
+platformClient.application("<APPLICATION_ID>").configuration.updateAppBasicDetails(body body) {
   //use response
 }
 ```
@@ -755,7 +897,7 @@ Get application information
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getAppContactInfo() {
+platformClient.application("<APPLICATION_ID>").configuration.getAppContactInfo() {
   //use response
 }
 ```
@@ -924,7 +1066,7 @@ Get application information
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.updateAppContactInfo(body body) {
+platformClient.application("<APPLICATION_ID>").configuration.updateAppContactInfo(body body) {
   //use response
 }
 ```
@@ -1086,7 +1228,7 @@ Get social tokens
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getAppApiTokens() {
+platformClient.application("<APPLICATION_ID>").configuration.getAppApiTokens() {
   //use response
 }
 ```
@@ -1218,7 +1360,7 @@ Add social tokens
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.updateAppApiTokens(body body) {
+platformClient.application("<APPLICATION_ID>").configuration.updateAppApiTokens(body body) {
   //use response
 }
 ```
@@ -1350,7 +1492,7 @@ Application inventory enabled companies
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getAppCompanies( uid,  pageNo,  pageSize) {
+platformClient.application("<APPLICATION_ID>").configuration.getAppCompanies( uid,  pageNo,  pageSize) {
   //use response
 }
 ```
@@ -1432,7 +1574,7 @@ Application inventory enabled stores
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getAppStores( pageNo,  pageSize) {
+platformClient.application("<APPLICATION_ID>").configuration.getAppStores( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -1526,7 +1668,7 @@ Get application configuration
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getInventoryConfig() {
+platformClient.application("<APPLICATION_ID>").configuration.getInventoryConfig() {
   //use response
 }
 ```
@@ -1730,6 +1872,17 @@ Success
   },
   "business": "retail",
   "comms_enabled": true,
+  "communication": {
+    "email": {
+      "enabled": false
+    },
+    "sms": {
+      "enabled": false
+    },
+    "voice": {
+      "enabled": false
+    }
+  },
   "platforms": [
     "uniket_wholesale"
   ],
@@ -1765,7 +1918,7 @@ Update application configuration
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.updateInventoryConfig(body body) {
+platformClient.application("<APPLICATION_ID>").configuration.updateInventoryConfig(body body) {
   //use response
 }
 ```
@@ -1969,6 +2122,17 @@ Success
   },
   "business": "retail",
   "comms_enabled": true,
+  "communication": {
+    "email": {
+      "enabled": false
+    },
+    "sms": {
+      "enabled": false
+    },
+    "voice": {
+      "enabled": false
+    }
+  },
   "platforms": [
     "uniket_wholesale"
   ],
@@ -2004,7 +2168,7 @@ Partially update application configuration
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.partiallyUpdateInventoryConfig(body body) {
+platformClient.application("<APPLICATION_ID>").configuration.partiallyUpdateInventoryConfig(body body) {
   //use response
 }
 ```
@@ -2208,6 +2372,17 @@ Success
   },
   "business": "retail",
   "comms_enabled": true,
+  "communication": {
+    "email": {
+      "enabled": false
+    },
+    "sms": {
+      "enabled": false
+    },
+    "voice": {
+      "enabled": false
+    }
+  },
   "platforms": [
     "uniket_wholesale"
   ],
@@ -2243,7 +2418,7 @@ Get application enabled currency list
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getAppCurrencyConfig() {
+platformClient.application("<APPLICATION_ID>").configuration.getAppCurrencyConfig() {
   //use response
 }
 ```
@@ -2313,7 +2488,7 @@ Add initial application supported currency
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.updateAppCurrencyConfig(body body) {
+platformClient.application("<APPLICATION_ID>").configuration.updateAppCurrencyConfig(body body) {
   //use response
 }
 ```
@@ -2383,7 +2558,7 @@ Get currencies enabled in the application
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getAppSupportedCurrency() {
+platformClient.application("<APPLICATION_ID>").configuration.getAppSupportedCurrency() {
   //use response
 }
 ```
@@ -2455,7 +2630,7 @@ Get ordering store by filter
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getOrderingStoresByFilter( pageNo,  pageSize, body body) {
+platformClient.application("<APPLICATION_ID>").configuration.getOrderingStoresByFilter( pageNo,  pageSize, body body) {
   //use response
 }
 ```
@@ -2595,7 +2770,7 @@ Add/Update ordering store config
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.updateOrderingStoreConfig(body body) {
+platformClient.application("<APPLICATION_ID>").configuration.updateOrderingStoreConfig(body body) {
   //use response
 }
 ```
@@ -2672,7 +2847,7 @@ Get deployment stores
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getStaffOrderingStores( pageNo,  pageSize,  q) {
+platformClient.application("<APPLICATION_ID>").configuration.getStaffOrderingStores( pageNo,  pageSize,  q) {
   //use response
 }
 ```
@@ -2729,7 +2904,7 @@ Get attached domain list
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getDomains() {
+platformClient.application("<APPLICATION_ID>").configuration.getDomains() {
   //use response
 }
 ```
@@ -2810,7 +2985,7 @@ Add new domain to application
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.addDomain(body body) {
+platformClient.application("<APPLICATION_ID>").configuration.addDomain(body body) {
   //use response
 }
 ```
@@ -2872,7 +3047,7 @@ Remove attached domain
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.removeDomainById( id) {
+platformClient.application("<APPLICATION_ID>").configuration.removeDomainById( id) {
   //use response
 }
 ```
@@ -2929,7 +3104,7 @@ Change domain type
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.changeDomainType(body body) {
+platformClient.application("<APPLICATION_ID>").configuration.changeDomainType(body body) {
   //use response
 }
 ```
@@ -3007,7 +3182,7 @@ Get domain connected status.
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getDomainStatus(body body) {
+platformClient.application("<APPLICATION_ID>").configuration.getDomainStatus(body body) {
   //use response
 }
 ```
@@ -3077,7 +3252,7 @@ Create application
 
 
 ```java
-client.configuration.createApplication(body body) {
+platformClient.configuration.createApplication(body body) {
   //use response
 }
 ```
@@ -3130,7 +3305,7 @@ Get list of application under company
 
 
 ```java
-client.configuration.getApplications( pageNo,  pageSize,  q) {
+platformClient.configuration.getApplications( pageNo,  pageSize,  q) {
   //use response
 }
 ```
@@ -3186,7 +3361,7 @@ Get application data from id
 
 
 ```java
-client.application("<APPLICATION_ID>").configuration.getApplicationById() {
+platformClient.application("<APPLICATION_ID>").configuration.getApplicationById() {
   //use response
 }
 ```
@@ -3240,7 +3415,7 @@ Get all currencies
 
 
 ```java
-client.configuration.getCurrencies() {
+platformClient.configuration.getCurrencies() {
   //use response
 }
 ```
@@ -3306,7 +3481,7 @@ Check domain availibility before linking to application
 
 
 ```java
-client.configuration.getDomainAvailibility(body body) {
+platformClient.configuration.getDomainAvailibility(body body) {
   //use response
 }
 ```
@@ -3403,7 +3578,7 @@ Get integration data
 
 
 ```java
-client.configuration.getIntegrationById( id) {
+platformClient.configuration.getIntegrationById( id) {
   //use response
 }
 ```
@@ -3544,7 +3719,7 @@ Get all available integration opt-ins
 
 
 ```java
-client.configuration.getAvailableOptIns( pageNo,  pageSize) {
+platformClient.configuration.getAvailableOptIns( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -3706,7 +3881,7 @@ Get company/store level integration opt-ins
 
 
 ```java
-client.configuration.getSelectedOptIns( level,  uid,  pageNo,  pageSize) {
+platformClient.configuration.getSelectedOptIns( level,  uid,  pageNo,  pageSize) {
   //use response
 }
 ```
@@ -3870,7 +4045,7 @@ Get integration level config
 
 
 ```java
-client.configuration.getIntegrationLevelConfig( id,  level,  opted,  checkPermission) {
+platformClient.configuration.getIntegrationLevelConfig( id,  level,  opted,  checkPermission) {
   //use response
 }
 ```
@@ -3948,7 +4123,7 @@ Update a store level opt-in for integration
 
 
 ```java
-client.configuration.updateLevelIntegration( id,  level, body body) {
+platformClient.configuration.updateLevelIntegration( id,  level, body body) {
   //use response
 }
 ```
@@ -4020,7 +4195,7 @@ Get level data for integration
 
 
 ```java
-client.configuration.getIntegrationByLevelId( id,  level,  uid) {
+platformClient.configuration.getIntegrationByLevelId( id,  level,  uid) {
   //use response
 }
 ```
@@ -4093,7 +4268,7 @@ Update a store level opt-in for integration
 
 
 ```java
-client.configuration.updateLevelUidIntegration( id,  level,  uid, body body) {
+platformClient.configuration.updateLevelUidIntegration( id,  level,  uid, body body) {
   //use response
 }
 ```
@@ -4166,7 +4341,7 @@ Check store has active integration
 
 
 ```java
-client.configuration.getLevelActiveIntegrations( id,  level,  uid) {
+platformClient.configuration.getLevelActiveIntegrations( id,  level,  uid) {
   //use response
 }
 ```
@@ -4239,7 +4414,7 @@ Get brands by company
 
 
 ```java
-client.configuration.getBrandsByCompany( q) {
+platformClient.configuration.getBrandsByCompany( q) {
   //use response
 }
 ```
@@ -4310,7 +4485,7 @@ Get company by brand uids
 
 
 ```java
-client.configuration.getCompanyByBrands( pageNo,  pageSize, body body) {
+platformClient.configuration.getCompanyByBrands( pageNo,  pageSize, body body) {
   //use response
 }
 ```
@@ -4387,7 +4562,7 @@ Get stores by brand uids
 
 
 ```java
-client.configuration.getStoreByBrands( pageNo,  pageSize, body body) {
+platformClient.configuration.getStoreByBrands( pageNo,  pageSize, body body) {
   //use response
 }
 ```
@@ -4503,7 +4678,7 @@ Get other seller applications
 
 
 ```java
-client.configuration.getOtherSellerApplications( pageNo,  pageSize) {
+platformClient.configuration.getOtherSellerApplications( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -4601,7 +4776,7 @@ Get other seller applications
 
 
 ```java
-client.configuration.getOtherSellerApplicationById( id) {
+platformClient.configuration.getOtherSellerApplicationById( id) {
   //use response
 }
 ```
@@ -4702,7 +4877,7 @@ Opt out company or store from other seller application
 
 
 ```java
-client.configuration.optOutFromApplication( id, body body) {
+platformClient.configuration.optOutFromApplication( id, body body) {
   //use response
 }
 ```
@@ -4770,6 +4945,7 @@ Success
  | logistics | [AppLogisticsConfig](#AppLogisticsConfig)? |  yes  |  |
  | business | String? |  yes  |  |
  | commsEnabled | Boolean? |  yes  |  |
+ | communication | [CommunicationConfig](#CommunicationConfig)? |  yes  |  |
  | platforms | ArrayList<String>? |  yes  |  |
  | id | String? |  yes  |  |
  | loyaltyPoints | [LoyaltyPointsConfig](#LoyaltyPointsConfig)? |  yes  |  |
@@ -4934,7 +5110,6 @@ Success
  | minCartValue | Double? |  yes  |  |
  | bulkCoupons | Boolean? |  yes  |  |
  | revenueEngineCoupon | Boolean? |  yes  |  |
- | emptyCart | Boolean? |  yes  | Enable/disable to allow adding cart items added before login to user's cart once user is logged in |
 
 ---
 
@@ -5096,6 +5271,7 @@ Success
  | payment | [AppPaymentConfig](#AppPaymentConfig)? |  yes  |  |
  | loyaltyPoints | [LoyaltyPointsConfig](#LoyaltyPointsConfig)? |  yes  |  |
  | commsEnabled | Boolean? |  yes  |  |
+ | communication | [CommunicationConfig](#CommunicationConfig)? |  yes  |  |
 
 ---
 
@@ -5199,6 +5375,30 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | brands | [CompanyBrandInfo](#CompanyBrandInfo)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CommunicationConfig](#CommunicationConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | email | [CommsConfig](#CommsConfig)? |  yes  |  |
+ | sms | [CommsConfig](#CommsConfig)? |  yes  |  |
+ | voice | [CommsConfig](#CommsConfig)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CommsConfig](#CommsConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | enabled | Boolean? |  yes  | Check current communication channel is enabled |
 
 ---
 

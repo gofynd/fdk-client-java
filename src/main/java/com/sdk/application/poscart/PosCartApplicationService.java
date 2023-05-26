@@ -10,7 +10,10 @@ import java.util.*;
 import java.io.File;
 
 import com.sdk.common.*;
-import com.sdk.application.ApplicationConfig;
+import com.sdk.application.*;
+
+
+
 
 
 
@@ -110,12 +113,12 @@ import com.sdk.application.ApplicationConfig;
      
     
     
-    public PosCartApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode , Boolean buyNow , Boolean emptyCart ) throws IOException {
+    public PosCartApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode , Boolean buyNow ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCart");
         
 
-        Response<PosCartApplicationModels.CartDetailResponse> response = poscartApplicationApiList.getCart(fullUrl  ,id, i, b, assignCardId, areaCode, buyNow, emptyCart).execute();
+        Response<PosCartApplicationModels.CartDetailResponse> response = poscartApplicationApiList.getCart(fullUrl  ,id, i, b, assignCardId, areaCode, buyNow).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

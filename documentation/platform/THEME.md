@@ -43,7 +43,7 @@ Get all pages of a theme
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.getAllPages( themeId) {
+platformClient.application("<APPLICATION_ID>").theme.getAllPages( themeId) {
   //use response
 }
 ```
@@ -159,6 +159,21 @@ Success. Returns an array all the pages of the theme. Refer `AllAvailablePageSch
         "__v": 9
       },
       {
+        "path": "product/:slug/reviews",
+        "type": "system",
+        "seo": {
+          "title": "",
+          "description": "",
+          "_id": "60ab5ca6d572fed64294eb24"
+        },
+        "_id": "60ab5ca6d572fed64294eb25",
+        "sections_meta": [],
+        "value": "product-reviews",
+        "text": "Product Reviews",
+        "theme": "5fb3ee4194a5181feeeba8e5",
+        "__v": 9
+      },
+      {
         "path": "blog",
         "type": "system",
         "seo": {
@@ -231,6 +246,21 @@ Success. Returns an array all the pages of the theme. Refer `AllAvailablePageSch
         "text": "Wishlist",
         "theme": "5fb3ee4194a5181feeeba8e5",
         "sections_meta": [],
+        "__v": 9
+      },
+      {
+        "path": "product/:slug/add-review",
+        "type": "system",
+        "seo": {
+          "title": "",
+          "description": "",
+          "_id": "60ab5ca6d572fed64294eb26"
+        },
+        "_id": "60ab5ca6d572fed64294eb27",
+        "sections_meta": [],
+        "value": "add-product-review",
+        "text": "Add Product Review",
+        "theme": "5fb3ee4194a5181feeeba8e5",
         "__v": 9
       },
       {
@@ -364,7 +394,7 @@ Create a page
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.createPage( themeId, body body) {
+platformClient.application("<APPLICATION_ID>").theme.createPage( themeId, body body) {
   //use response
 }
 ```
@@ -787,7 +817,7 @@ Update multiple pages of a theme
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.updateMultiplePages( themeId, body body) {
+platformClient.application("<APPLICATION_ID>").theme.updateMultiplePages( themeId, body body) {
   //use response
 }
 ```
@@ -903,6 +933,21 @@ Success. Returns an array all the pages of the theme. Refer `AllAvailablePageSch
         "__v": 9
       },
       {
+        "path": "product/:slug/reviews",
+        "type": "system",
+        "seo": {
+          "title": "",
+          "description": "",
+          "_id": "60ab5ca6d572fed64294eb24"
+        },
+        "_id": "60ab5ca6d572fed64294eb25",
+        "sections_meta": [],
+        "value": "product-reviews",
+        "text": "Product Reviews",
+        "theme": "5fb3ee4194a5181feeeba8e5",
+        "__v": 9
+      },
+      {
         "path": "blog",
         "type": "system",
         "seo": {
@@ -975,6 +1020,21 @@ Success. Returns an array all the pages of the theme. Refer `AllAvailablePageSch
         "text": "Wishlist",
         "theme": "5fb3ee4194a5181feeeba8e5",
         "sections_meta": [],
+        "__v": 9
+      },
+      {
+        "path": "product/:slug/add-review",
+        "type": "system",
+        "seo": {
+          "title": "",
+          "description": "",
+          "_id": "60ab5ca6d572fed64294eb26"
+        },
+        "_id": "60ab5ca6d572fed64294eb27",
+        "sections_meta": [],
+        "value": "add-product-review",
+        "text": "Add Product Review",
+        "theme": "5fb3ee4194a5181feeeba8e5",
         "__v": 9
       },
       {
@@ -1108,7 +1168,7 @@ Get page of a theme
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.getPage( themeId,  pageValue) {
+platformClient.application("<APPLICATION_ID>").theme.getPage( themeId,  pageValue) {
   //use response
 }
 ```
@@ -1532,7 +1592,7 @@ Updates a page
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.updatePage( themeId,  pageValue, body body) {
+platformClient.application("<APPLICATION_ID>").theme.updatePage( themeId,  pageValue, body body) {
   //use response
 }
 ```
@@ -1956,7 +2016,7 @@ Deletes a page
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.deletePage( themeId,  pageValue) {
+platformClient.application("<APPLICATION_ID>").theme.deletePage( themeId,  pageValue) {
   //use response
 }
 ```
@@ -2380,7 +2440,7 @@ Get a list of themes from the theme library
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.getThemeLibrary( pageSize,  pageNo) {
+platformClient.application("<APPLICATION_ID>").theme.getThemeLibrary( pageSize,  pageNo) {
   //use response
 }
 ```
@@ -4343,7 +4403,7 @@ Add a theme to the theme library
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.addToThemeLibrary(body body) {
+platformClient.application("<APPLICATION_ID>").theme.addToThemeLibrary(body body) {
   //use response
 }
 ```
@@ -4808,6 +4868,11 @@ Success. Refer `ThemesSchema` for more details.
       "page_schema": [
         {
           "props": [],
+          "_id": "5fe182f763d26d042fd205c4",
+          "page": "add-product-review"
+        },
+        {
+          "props": [],
           "_id": "5fe182f763d26dadc8d205c6",
           "page": "blog"
         },
@@ -5017,6 +5082,11 @@ Success. Refer `ThemesSchema` for more details.
           "props": [],
           "_id": "5fe182f763d26da5f0d205d3",
           "page": "product-listing"
+        },
+        {
+          "props": [],
+          "_id": "5fe182f763d26d3d18d205d4",
+          "page": "product-reviews"
         },
         {
           "props": [],
@@ -6527,7 +6597,7 @@ Apply a theme
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.applyTheme(body body) {
+platformClient.application("<APPLICATION_ID>").theme.applyTheme(body body) {
   //use response
 }
 ```
@@ -6992,6 +7062,11 @@ Success. Refer `ThemesSchema` for more details.
       "page_schema": [
         {
           "props": [],
+          "_id": "5fe182f763d26d042fd205c4",
+          "page": "add-product-review"
+        },
+        {
+          "props": [],
           "_id": "5fe182f763d26dadc8d205c6",
           "page": "blog"
         },
@@ -7201,6 +7276,11 @@ Success. Refer `ThemesSchema` for more details.
           "props": [],
           "_id": "5fe182f763d26da5f0d205d3",
           "page": "product-listing"
+        },
+        {
+          "props": [],
+          "_id": "5fe182f763d26d3d18d205d4",
+          "page": "product-reviews"
         },
         {
           "props": [],
@@ -8711,7 +8791,7 @@ Checks if theme is upgradable
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.isUpgradable( themeId) {
+platformClient.application("<APPLICATION_ID>").theme.isUpgradable( themeId) {
   //use response
 }
 ```
@@ -8778,7 +8858,7 @@ Upgrade a theme
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.upgradeTheme( themeId) {
+platformClient.application("<APPLICATION_ID>").theme.upgradeTheme( themeId) {
   //use response
 }
 ```
@@ -9244,6 +9324,11 @@ Success. Upgrades the theme and shares the details of the new version in the res
       "page_schema": [
         {
           "props": [],
+          "_id": "5fe182f763d26d042fd205c4",
+          "page": "add-product-review"
+        },
+        {
+          "props": [],
           "_id": "5fe182f763d26dadc8d205c6",
           "page": "blog"
         },
@@ -9453,6 +9538,11 @@ Success. Upgrades the theme and shares the details of the new version in the res
           "props": [],
           "_id": "5fe182f763d26da5f0d205d3",
           "page": "product-listing"
+        },
+        {
+          "props": [],
+          "_id": "5fe182f763d26d3d18d205d4",
+          "page": "product-reviews"
         },
         {
           "props": [],
@@ -10963,7 +11053,7 @@ Get all public themes
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.getPublicThemes( pageSize,  pageNo) {
+platformClient.application("<APPLICATION_ID>").theme.getPublicThemes( pageSize,  pageNo) {
   //use response
 }
 ```
@@ -12926,7 +13016,7 @@ Create a new theme
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.createTheme(body body) {
+platformClient.application("<APPLICATION_ID>").theme.createTheme(body body) {
   //use response
 }
 ```
@@ -13391,6 +13481,11 @@ Theme
       "page_schema": [
         {
           "props": [],
+          "_id": "5fe182f763d26d042fd205c4",
+          "page": "add-product-review"
+        },
+        {
+          "props": [],
           "_id": "5fe182f763d26dadc8d205c6",
           "page": "blog"
         },
@@ -13600,6 +13695,11 @@ Theme
           "props": [],
           "_id": "5fe182f763d26da5f0d205d3",
           "page": "product-listing"
+        },
+        {
+          "props": [],
+          "_id": "5fe182f763d26d3d18d205d4",
+          "page": "product-reviews"
         },
         {
           "props": [],
@@ -15110,7 +15210,7 @@ Get the applied theme
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.getAppliedTheme() {
+platformClient.application("<APPLICATION_ID>").theme.getAppliedTheme() {
   //use response
 }
 ```
@@ -15575,6 +15675,11 @@ Success. Refer `ThemesSchema` for more details.
       "page_schema": [
         {
           "props": [],
+          "_id": "5fe182f763d26d042fd205c4",
+          "page": "add-product-review"
+        },
+        {
+          "props": [],
           "_id": "5fe182f763d26dadc8d205c6",
           "page": "blog"
         },
@@ -15784,6 +15889,11 @@ Success. Refer `ThemesSchema` for more details.
           "props": [],
           "_id": "5fe182f763d26da5f0d205d3",
           "page": "product-listing"
+        },
+        {
+          "props": [],
+          "_id": "5fe182f763d26d3d18d205d4",
+          "page": "product-reviews"
         },
         {
           "props": [],
@@ -17294,7 +17404,7 @@ Get all the supported fonts in a theme
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.getFonts() {
+platformClient.application("<APPLICATION_ID>").theme.getFonts() {
   //use response
 }
 ```
@@ -17378,7 +17488,7 @@ Gets theme by id
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.getThemeById( themeId) {
+platformClient.application("<APPLICATION_ID>").theme.getThemeById( themeId) {
   //use response
 }
 ```
@@ -17844,6 +17954,11 @@ Success. Refer `ThemesSchema` for more details.
       "page_schema": [
         {
           "props": [],
+          "_id": "5fe182f763d26d042fd205c4",
+          "page": "add-product-review"
+        },
+        {
+          "props": [],
           "_id": "5fe182f763d26dadc8d205c6",
           "page": "blog"
         },
@@ -18053,6 +18168,11 @@ Success. Refer `ThemesSchema` for more details.
           "props": [],
           "_id": "5fe182f763d26da5f0d205d3",
           "page": "product-listing"
+        },
+        {
+          "props": [],
+          "_id": "5fe182f763d26d3d18d205d4",
+          "page": "product-reviews"
         },
         {
           "props": [],
@@ -19563,7 +19683,7 @@ Update a theme
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.updateTheme( themeId, body body) {
+platformClient.application("<APPLICATION_ID>").theme.updateTheme( themeId, body body) {
   //use response
 }
 ```
@@ -20029,6 +20149,11 @@ Success. Refer `ThemesSchema` for more details.
       "page_schema": [
         {
           "props": [],
+          "_id": "5fe182f763d26d042fd205c4",
+          "page": "add-product-review"
+        },
+        {
+          "props": [],
           "_id": "5fe182f763d26dadc8d205c6",
           "page": "blog"
         },
@@ -20238,6 +20363,11 @@ Success. Refer `ThemesSchema` for more details.
           "props": [],
           "_id": "5fe182f763d26da5f0d205d3",
           "page": "product-listing"
+        },
+        {
+          "props": [],
+          "_id": "5fe182f763d26d3d18d205d4",
+          "page": "product-reviews"
         },
         {
           "props": [],
@@ -21748,7 +21878,7 @@ Delete a theme
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.deleteTheme( themeId) {
+platformClient.application("<APPLICATION_ID>").theme.deleteTheme( themeId) {
   //use response
 }
 ```
@@ -22214,6 +22344,11 @@ Success. Refer `ThemesSchema` for more details.
       "page_schema": [
         {
           "props": [],
+          "_id": "5fe182f763d26d042fd205c4",
+          "page": "add-product-review"
+        },
+        {
+          "props": [],
           "_id": "5fe182f763d26dadc8d205c6",
           "page": "blog"
         },
@@ -22423,6 +22558,11 @@ Success. Refer `ThemesSchema` for more details.
           "props": [],
           "_id": "5fe182f763d26da5f0d205d3",
           "page": "product-listing"
+        },
+        {
+          "props": [],
+          "_id": "5fe182f763d26d3d18d205d4",
+          "page": "product-reviews"
         },
         {
           "props": [],
@@ -23933,7 +24073,7 @@ Get a theme preview
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.getThemeForPreview( themeId) {
+platformClient.application("<APPLICATION_ID>").theme.getThemeForPreview( themeId) {
   //use response
 }
 ```
@@ -24399,6 +24539,11 @@ Success. Refer `ThemesSchema` for more details.
       "page_schema": [
         {
           "props": [],
+          "_id": "5fe182f763d26d042fd205c4",
+          "page": "add-product-review"
+        },
+        {
+          "props": [],
           "_id": "5fe182f763d26dadc8d205c6",
           "page": "blog"
         },
@@ -24608,6 +24753,11 @@ Success. Refer `ThemesSchema` for more details.
           "props": [],
           "_id": "5fe182f763d26da5f0d205d3",
           "page": "product-listing"
+        },
+        {
+          "props": [],
+          "_id": "5fe182f763d26d3d18d205d4",
+          "page": "product-reviews"
         },
         {
           "props": [],
@@ -26118,7 +26268,7 @@ Publish a theme
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.publishTheme( themeId) {
+platformClient.application("<APPLICATION_ID>").theme.publishTheme( themeId) {
   //use response
 }
 ```
@@ -26584,6 +26734,11 @@ Success. Refer `ThemesSchema` for more details.
       "page_schema": [
         {
           "props": [],
+          "_id": "5fe182f763d26d042fd205c4",
+          "page": "add-product-review"
+        },
+        {
+          "props": [],
           "_id": "5fe182f763d26dadc8d205c6",
           "page": "blog"
         },
@@ -26793,6 +26948,11 @@ Success. Refer `ThemesSchema` for more details.
           "props": [],
           "_id": "5fe182f763d26da5f0d205d3",
           "page": "product-listing"
+        },
+        {
+          "props": [],
+          "_id": "5fe182f763d26d3d18d205d4",
+          "page": "product-reviews"
         },
         {
           "props": [],
@@ -28303,7 +28463,7 @@ Unpublish a theme
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.unpublishTheme( themeId) {
+platformClient.application("<APPLICATION_ID>").theme.unpublishTheme( themeId) {
   //use response
 }
 ```
@@ -28769,6 +28929,11 @@ Success. Refer `ThemesSchema` for more details.
       "page_schema": [
         {
           "props": [],
+          "_id": "5fe182f763d26d042fd205c4",
+          "page": "add-product-review"
+        },
+        {
+          "props": [],
           "_id": "5fe182f763d26dadc8d205c6",
           "page": "blog"
         },
@@ -28978,6 +29143,11 @@ Success. Refer `ThemesSchema` for more details.
           "props": [],
           "_id": "5fe182f763d26da5f0d205d3",
           "page": "product-listing"
+        },
+        {
+          "props": [],
+          "_id": "5fe182f763d26d3d18d205d4",
+          "page": "product-reviews"
         },
         {
           "props": [],
@@ -30488,7 +30658,7 @@ Archive a theme
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.archiveTheme( themeId) {
+platformClient.application("<APPLICATION_ID>").theme.archiveTheme( themeId) {
   //use response
 }
 ```
@@ -30954,6 +31124,11 @@ Success. Refer `ThemesSchema` for more details.
       "page_schema": [
         {
           "props": [],
+          "_id": "5fe182f763d26d042fd205c4",
+          "page": "add-product-review"
+        },
+        {
+          "props": [],
           "_id": "5fe182f763d26dadc8d205c6",
           "page": "blog"
         },
@@ -31163,6 +31338,11 @@ Success. Refer `ThemesSchema` for more details.
           "props": [],
           "_id": "5fe182f763d26da5f0d205d3",
           "page": "product-listing"
+        },
+        {
+          "props": [],
+          "_id": "5fe182f763d26d3d18d205d4",
+          "page": "product-reviews"
         },
         {
           "props": [],
@@ -32673,7 +32853,7 @@ Unarchive a theme
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.unarchiveTheme( themeId) {
+platformClient.application("<APPLICATION_ID>").theme.unarchiveTheme( themeId) {
   //use response
 }
 ```
@@ -33139,6 +33319,11 @@ Success. Refer `ThemesSchema` for more details.
       "page_schema": [
         {
           "props": [],
+          "_id": "5fe182f763d26d042fd205c4",
+          "page": "add-product-review"
+        },
+        {
+          "props": [],
           "_id": "5fe182f763d26dadc8d205c6",
           "page": "blog"
         },
@@ -33348,6 +33533,11 @@ Success. Refer `ThemesSchema` for more details.
           "props": [],
           "_id": "5fe182f763d26da5f0d205d3",
           "page": "product-listing"
+        },
+        {
+          "props": [],
+          "_id": "5fe182f763d26d3d18d205d4",
+          "page": "product-reviews"
         },
         {
           "props": [],
@@ -34858,7 +35048,7 @@ Fetch last modified timestamp
 
 
 ```java
-client.application("<APPLICATION_ID>").theme.getThemeLastModified( themeId) {
+platformClient.application("<APPLICATION_ID>").theme.getThemeLastModified( themeId) {
   //use response
 }
 ```

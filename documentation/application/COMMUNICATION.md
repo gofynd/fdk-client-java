@@ -22,7 +22,7 @@ Get communication consent
 
 
 ```java
-communication.getCommunicationConsent() {
+applicationClient.communication.getCommunicationConsent() {
   //use response
 }
 ```
@@ -97,7 +97,7 @@ Upsert communication consent
 
 
 ```java
-communication.upsertCommunicationConsent(body body) {
+applicationClient.communication.upsertCommunicationConsent(body body) {
   //use response
 }
 ```
@@ -174,7 +174,7 @@ Upsert push token of a user
 
 
 ```java
-communication.upsertAppPushtoken(body body) {
+applicationClient.communication.upsertAppPushtoken(body body) {
   //use response
 }
 ```
@@ -370,6 +370,29 @@ Success. Check the example shown below or refer `PushtokenRes` for more details.
  | appId | String? |  yes  |  |
  | userId | String? |  yes  |  |
  | channels | [CommunicationConsentChannels](#CommunicationConsentChannels)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [BadRequestSchema](#BadRequestSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | status | String? |  yes  | Response status. |
+ | message | String? |  yes  | Failure message. |
+
+---
+
+
+ 
+ 
+ #### [NotFound](#NotFound)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String? |  yes  | Failure message. |
 
 ---
 

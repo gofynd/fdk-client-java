@@ -252,6 +252,12 @@ public static class SeoSchema{
     
     
     
+    @JsonProperty("cannonical_enabled")
+    private Boolean cannonicalEnabled;
+    
+    
+    
+    
     @JsonProperty("custom_meta_tags")
     private List<Object> customMetaTags;
     
@@ -4194,10 +4200,6 @@ public static class TagSourceSchema{
         policy("policy"), 
         
         product("product"), 
-        
-        productReviews("product-reviews"), 
-        
-        addProductReview("add-product-review"), 
         
         productRequest("product-request"), 
         
