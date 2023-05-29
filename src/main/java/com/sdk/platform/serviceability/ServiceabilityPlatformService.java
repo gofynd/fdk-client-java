@@ -1,4 +1,4 @@
-package com.sdk.platform.logistics;
+package com.sdk.platform.serviceability;
 
 import com.sdk.common.*;
 import com.sdk.common.model.FDKException;
@@ -18,27 +18,27 @@ import com.sdk.platform.*;
 
 
 
-public class LogisticsPlatformService {
+public class ServiceabilityPlatformService {
     private PlatformConfig platformConfig;
 
     private RetrofitServiceFactory retrofitServiceFactory;
 
     private String companyId;
 
-    private LogisticsPlatformApiList logisticsPlatformApiList;
+    private ServiceabilityPlatformApiList serviceabilityPlatformApiList;
 
-    public LogisticsPlatformService(PlatformConfig platformConfig) {
+    public ServiceabilityPlatformService(PlatformConfig platformConfig) {
         this.platformConfig = platformConfig;
         this.retrofitServiceFactory = new RetrofitServiceFactory();
         this.companyId = this.platformConfig.getCompanyId();
-        this.logisticsPlatformApiList = generateLogisticsPlatformApiList(this.platformConfig.getPersistentCookieStore());
+        this.serviceabilityPlatformApiList = generateServiceabilityPlatformApiList(this.platformConfig.getPersistentCookieStore());
     }
 
-    private LogisticsPlatformApiList generateLogisticsPlatformApiList(CookieStore cookieStore) {
+    private ServiceabilityPlatformApiList generateServiceabilityPlatformApiList(CookieStore cookieStore) {
         List<Interceptor> interceptorList = new ArrayList<>();
         interceptorList.add(new AccessTokenInterceptor(platformConfig));
         interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(platformConfig.getDomain(),LogisticsPlatformApiList.class, interceptorList, cookieStore);
+        return retrofitServiceFactory.createService(platformConfig.getDomain(),ServiceabilityPlatformApiList.class, interceptorList, cookieStore);
     }
 
     
@@ -55,11 +55,11 @@ public class LogisticsPlatformService {
     
     
 
-    public LogisticsPlatformModels.EntityRegionView_Response getEntityRegionView(LogisticsPlatformModels.EntityRegionView_Request body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.EntityRegionView_Response getEntityRegionView(ServiceabilityPlatformModels.EntityRegionView_Request body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPlatformModels.EntityRegionView_Response> response = null;
+            Response<ServiceabilityPlatformModels.EntityRegionView_Response> response = null;
             try {
-                response = logisticsPlatformApiList.getEntityRegionView(this.companyId , body).execute();
+                response = serviceabilityPlatformApiList.getEntityRegionView(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -115,11 +115,11 @@ public class LogisticsPlatformService {
     
     
 
-    public LogisticsPlatformModels.ListViewResponse getListView(Integer pageNumber , Integer pageSize , String name , Boolean isActive , String channelIds , String q ) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.ListViewResponse getListView(Integer pageNumber , Integer pageSize , String name , Boolean isActive , String channelIds , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPlatformModels.ListViewResponse> response = null;
+            Response<ServiceabilityPlatformModels.ListViewResponse> response = null;
             try {
-                response = logisticsPlatformApiList.getListView(this.companyId ,pageNumber , pageSize , name , isActive , channelIds , q ).execute();
+                response = serviceabilityPlatformApiList.getListView(this.companyId ,pageNumber , pageSize , name , isActive , channelIds , q ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -151,51 +151,11 @@ public class LogisticsPlatformService {
     
     
 
-    public LogisticsPlatformModels.CompanyStoreView_Response getCompanyStoreView() throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.CompanyStoreView_Response getCompanyStoreView() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPlatformModels.CompanyStoreView_Response> response = null;
+            Response<ServiceabilityPlatformModels.CompanyStoreView_Response> response = null;
             try {
-                response = logisticsPlatformApiList.getCompanyStoreView(this.companyId ).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    public LogisticsPlatformModels.ZoneSuccessResponse updateZoneControllerView(String zoneId ,LogisticsPlatformModels.ZoneUpdateRequest body) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPlatformModels.ZoneSuccessResponse> response = null;
-            try {
-                response = logisticsPlatformApiList.updateZoneControllerView(zoneId  , this.companyId , body).execute();
+                response = serviceabilityPlatformApiList.getCompanyStoreView(this.companyId ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -231,11 +191,51 @@ public class LogisticsPlatformService {
     
     
 
-    public LogisticsPlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.ZoneSuccessResponse updateZoneControllerView(String zoneId ,ServiceabilityPlatformModels.ZoneUpdateRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPlatformModels.GetSingleZoneDataViewResponse> response = null;
+            Response<ServiceabilityPlatformModels.ZoneSuccessResponse> response = null;
             try {
-                response = logisticsPlatformApiList.getZoneDataView(this.companyId , zoneId  ).execute();
+                response = serviceabilityPlatformApiList.updateZoneControllerView(zoneId  , this.companyId , body).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ServiceabilityPlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.GetSingleZoneDataViewResponse> response = null;
+            try {
+                response = serviceabilityPlatformApiList.getZoneDataView(this.companyId , zoneId  ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -267,11 +267,11 @@ public class LogisticsPlatformService {
     
     
 
-    public LogisticsPlatformModels.ZoneResponse createZone(LogisticsPlatformModels.ZoneRequest body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.ZoneResponse createZone(ServiceabilityPlatformModels.ZoneRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPlatformModels.ZoneResponse> response = null;
+            Response<ServiceabilityPlatformModels.ZoneResponse> response = null;
             try {
-                response = logisticsPlatformApiList.createZone(this.companyId , body).execute();
+                response = serviceabilityPlatformApiList.createZone(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -311,11 +311,11 @@ public class LogisticsPlatformService {
     
     
 
-    public LogisticsPlatformModels.GetStoresViewResponse getStore(Integer storeUid ) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.GetStoresViewResponse getStore(Integer storeUid ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPlatformModels.GetStoresViewResponse> response = null;
+            Response<ServiceabilityPlatformModels.GetStoresViewResponse> response = null;
             try {
-                response = logisticsPlatformApiList.getStore(this.companyId , storeUid  ).execute();
+                response = serviceabilityPlatformApiList.getStore(this.companyId , storeUid  ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -347,11 +347,11 @@ public class LogisticsPlatformService {
     
     
 
-    public LogisticsPlatformModels.GetStoresViewResponse getAllStores() throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.GetStoresViewResponse getAllStores() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPlatformModels.GetStoresViewResponse> response = null;
+            Response<ServiceabilityPlatformModels.GetStoresViewResponse> response = null;
             try {
-                response = logisticsPlatformApiList.getAllStores(this.companyId ).execute();
+                response = serviceabilityPlatformApiList.getAllStores(this.companyId ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -369,6 +369,46 @@ public class LogisticsPlatformService {
             return null;
         }    
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ServiceabilityPlatformModels.ReAssignStoreResponse getOptimalLocations(ServiceabilityPlatformModels.ReAssignStoreRequest body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.ReAssignStoreResponse> response = null;
+            try {
+                response = serviceabilityPlatformApiList.getOptimalLocations(this.companyId , body).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
     
     
     
@@ -413,11 +453,11 @@ public class ApplicationClient {
     
     
 
-    public LogisticsPlatformModels.ApplicationServiceabilityConfigResponse getApplicationServiceability() throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.ApplicationServiceabilityConfigResponse getApplicationServiceability() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPlatformModels.ApplicationServiceabilityConfigResponse> response = null;
+            Response<ServiceabilityPlatformModels.ApplicationServiceabilityConfigResponse> response = null;
             try {
-            response = logisticsPlatformApiList.getApplicationServiceability(this.companyId , this.applicationId ).execute();
+            response = serviceabilityPlatformApiList.getApplicationServiceability(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -466,11 +506,11 @@ public class ApplicationClient {
     
     
 
-    public LogisticsPlatformModels.GetZoneFromPincodeViewResponse getZoneFromPincodeView(LogisticsPlatformModels.GetZoneFromPincodeViewRequest body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.GetZoneFromPincodeViewResponse getZoneFromPincodeView(ServiceabilityPlatformModels.GetZoneFromPincodeViewRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPlatformModels.GetZoneFromPincodeViewResponse> response = null;
+            Response<ServiceabilityPlatformModels.GetZoneFromPincodeViewResponse> response = null;
             try {
-            response = logisticsPlatformApiList.getZoneFromPincodeView(this.companyId , this.applicationId , body).execute();
+            response = serviceabilityPlatformApiList.getZoneFromPincodeView(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -523,11 +563,58 @@ public class ApplicationClient {
     
     
 
-    public LogisticsPlatformModels.GetZoneFromApplicationIdViewResponse getZonesFromApplicationIdView(Integer pageNo , Integer pageSize , List<String> zoneId , String q ) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.GetZoneFromApplicationIdViewResponse getZonesFromApplicationIdView(Integer pageNo , Integer pageSize , List<String> zoneId , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPlatformModels.GetZoneFromApplicationIdViewResponse> response = null;
+            Response<ServiceabilityPlatformModels.GetZoneFromApplicationIdViewResponse> response = null;
             try {
-            response = logisticsPlatformApiList.getZonesFromApplicationIdView(this.companyId , this.applicationId ,pageNo , pageSize , zoneId , q ).execute();
+            response = serviceabilityPlatformApiList.getZonesFromApplicationIdView(this.companyId , this.applicationId ,pageNo , pageSize , zoneId , q ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ServiceabilityPlatformModels.ApplicationCompanyDpViewResponse addAppDp(ServiceabilityPlatformModels.ApplicationCompanyDpViewRequest body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.ApplicationCompanyDpViewResponse> response = null;
+            try {
+            response = serviceabilityPlatformApiList.addAppDp(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -568,11 +655,11 @@ public class ApplicationClient {
     
     
 
-    public LogisticsPlatformModels.PincodeMOPresponse updatePincodeMopView(LogisticsPlatformModels.PincodeMopData body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.ApplicationCompanyDpViewResponse deleteAppDp(Integer courierPartnerId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPlatformModels.PincodeMOPresponse> response = null;
+            Response<ServiceabilityPlatformModels.ApplicationCompanyDpViewResponse> response = null;
             try {
-            response = logisticsPlatformApiList.updatePincodeMopView(this.companyId , this.applicationId , body).execute();
+            response = serviceabilityPlatformApiList.deleteAppDp(this.companyId , this.applicationId , courierPartnerId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -609,11 +696,11 @@ public class ApplicationClient {
     
     
 
-    public LogisticsPlatformModels.PincodeBulkViewResponse updatePincodeBulkView(LogisticsPlatformModels.PincodeMopBulkData body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.PincodeMOPresponse updatePincodeMopView(ServiceabilityPlatformModels.PincodeMopData body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPlatformModels.PincodeBulkViewResponse> response = null;
+            Response<ServiceabilityPlatformModels.PincodeMOPresponse> response = null;
             try {
-            response = logisticsPlatformApiList.updatePincodeBulkView(this.companyId , this.applicationId , body).execute();
+            response = serviceabilityPlatformApiList.updatePincodeMopView(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -650,11 +737,11 @@ public class ApplicationClient {
     
     
 
-    public LogisticsPlatformModels.PincodeCodStatusListingResponse updatePincodeCoDListing(LogisticsPlatformModels.PincodeCodStatusListingRequest body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.PincodeBulkViewResponse updatePincodeBulkView(ServiceabilityPlatformModels.PincodeMopBulkData body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPlatformModels.PincodeCodStatusListingResponse> response = null;
+            Response<ServiceabilityPlatformModels.PincodeBulkViewResponse> response = null;
             try {
-            response = logisticsPlatformApiList.updatePincodeCoDListing(this.companyId , this.applicationId , body).execute();
+            response = serviceabilityPlatformApiList.updatePincodeBulkView(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -691,11 +778,52 @@ public class ApplicationClient {
     
     
 
-    public LogisticsPlatformModels.PincodeMopUpdateAuditHistoryResponseData updatePincodeAuditHistory(LogisticsPlatformModels.PincodeMopUpdateAuditHistoryRequest body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.PincodeCodStatusListingResponse updatePincodeCoDListing(ServiceabilityPlatformModels.PincodeCodStatusListingRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPlatformModels.PincodeMopUpdateAuditHistoryResponseData> response = null;
+            Response<ServiceabilityPlatformModels.PincodeCodStatusListingResponse> response = null;
             try {
-            response = logisticsPlatformApiList.updatePincodeAuditHistory(this.companyId , this.applicationId , body).execute();
+            response = serviceabilityPlatformApiList.updatePincodeCoDListing(this.companyId , this.applicationId , body).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ServiceabilityPlatformModels.PincodeMopUpdateAuditHistoryResponseData updatePincodeAuditHistory(ServiceabilityPlatformModels.PincodeMopUpdateAuditHistoryRequest body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.PincodeMopUpdateAuditHistoryResponseData> response = null;
+            try {
+            response = serviceabilityPlatformApiList.updatePincodeAuditHistory(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

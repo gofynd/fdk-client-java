@@ -78,9 +78,9 @@ import com.sdk.application.*;
             
                     relativeUrls.put("getFollowedListing","/service/application/catalog/v1.0/follow/{collection_type}/".substring(1));
             
-                    relativeUrls.put("unfollowById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
-            
                     relativeUrls.put("followById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
+            
+                    relativeUrls.put("unfollowById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
             
                     relativeUrls.put("getFollowerCountById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/".substring(1));
             
@@ -745,14 +745,14 @@ import com.sdk.application.*;
     
     
     
-    public CatalogApplicationModels.ProductListingResponse getCollectionItemsBySlug(String slug , String f , Boolean filters , String sortOn , String pageId , Integer pageSize , Integer pageNo , String pageType ) throws IOException {
+    public CatalogApplicationModels.ProductListingResponse getCollectionItemsBySlug(String slug , String f , String q , Boolean filters , String sortOn , String pageId , Integer pageSize , Integer pageNo , String pageType ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCollectionItemsBySlug");
         
         fullUrl = fullUrl.replace("{" + "slug" +"}",slug.toString());
         
 
-        Response<CatalogApplicationModels.ProductListingResponse> response = catalogApplicationApiList.getCollectionItemsBySlug(fullUrl  ,f, filters, sortOn, pageId, pageSize, pageNo, pageType).execute();
+        Response<CatalogApplicationModels.ProductListingResponse> response = catalogApplicationApiList.getCollectionItemsBySlug(fullUrl  ,f, q, filters, sortOn, pageId, pageSize, pageNo, pageType).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -800,6 +800,10 @@ import com.sdk.application.*;
         
         
         
+        
+        
+        
+        
 
     /**
     * Summary: get paginator for getCollectionItemsBySlug
@@ -809,6 +813,7 @@ import com.sdk.application.*;
         
         String slug,
         String f,
+        String q,
         Boolean filters,
         String sortOn,
         Integer pageSize
@@ -825,6 +830,7 @@ import com.sdk.application.*;
                 
                  slug,
                  f,
+                 q,
                  filters,
                  sortOn,
                  paginator.getNextId()
@@ -943,16 +949,16 @@ import com.sdk.application.*;
     
     
     
-    public CatalogApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
+    public CatalogApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
      
-      String fullUrl = relativeUrls.get("unfollowById");
+      String fullUrl = relativeUrls.get("followById");
         
         fullUrl = fullUrl.replace("{" + "collection_type" +"}",collectionType.toString());
         
         fullUrl = fullUrl.replace("{" + "collection_id" +"}",collectionId.toString());
         
 
-        Response<CatalogApplicationModels.FollowPostResponse> response = catalogApplicationApiList.unfollowById(fullUrl ).execute();
+        Response<CatalogApplicationModels.FollowPostResponse> response = catalogApplicationApiList.followById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -965,16 +971,16 @@ import com.sdk.application.*;
     
     
     
-    public CatalogApplicationModels.FollowPostResponse followById(String collectionType , String collectionId ) throws IOException {
+    public CatalogApplicationModels.FollowPostResponse unfollowById(String collectionType , String collectionId ) throws IOException {
      
-      String fullUrl = relativeUrls.get("followById");
+      String fullUrl = relativeUrls.get("unfollowById");
         
         fullUrl = fullUrl.replace("{" + "collection_type" +"}",collectionType.toString());
         
         fullUrl = fullUrl.replace("{" + "collection_id" +"}",collectionId.toString());
         
 
-        Response<CatalogApplicationModels.FollowPostResponse> response = catalogApplicationApiList.followById(fullUrl ).execute();
+        Response<CatalogApplicationModels.FollowPostResponse> response = catalogApplicationApiList.unfollowById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
