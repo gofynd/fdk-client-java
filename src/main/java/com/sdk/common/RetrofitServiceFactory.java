@@ -31,8 +31,6 @@ public class RetrofitServiceFactory {
 
     private Retrofit retrofit;
 
-    private OkHttpClient.Builder httpClient;
-
     private HttpLoggingInterceptor logging;
 
     public RetrofitServiceFactory() {
@@ -43,8 +41,7 @@ public class RetrofitServiceFactory {
                     .baseUrl(httpUrl)
                     .addConverterFactory(JacksonConverterFactory.create());
             retrofit = builder.build();
-            httpClient = new OkHttpClient.Builder();
-            logging = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);
+            logging = new HttpLoggingInterceptor(new FDKLogger()).setLevel(HttpLoggingInterceptor.Level.BODY);
         }
     }
 
@@ -62,8 +59,9 @@ public class RetrofitServiceFactory {
     public <S> S createService(String baseUrl, Class<S> serviceClass, List<Interceptor> interceptorList,
             CookieStore cookieStore) {
         setApiBaseUrl(baseUrl);
-        if (!httpClient.interceptors().contains(logging)) {
-            httpClient.addInterceptor(logging);
+
+        if(!interceptorList.contains(logging)) {
+            interceptorList.add(logging);
         }
         builder.client(getUnsafeOkHttpClient(interceptorList, cookieStore));
         retrofit = builder.build();

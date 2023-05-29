@@ -14,6 +14,7 @@ Authentication Service
 * [loginWithOTP](#loginwithotp)
 * [loginWithEmailAndPassword](#loginwithemailandpassword)
 * [sendResetPasswordEmail](#sendresetpasswordemail)
+* [sendResetPasswordMobile](#sendresetpasswordmobile)
 * [forgotPassword](#forgotpassword)
 * [sendResetToken](#sendresettoken)
 * [loginWithToken](#loginwithtoken)
@@ -22,6 +23,7 @@ Authentication Service
 * [verifyMobile](#verifymobile)
 * [hasPassword](#haspassword)
 * [updatePassword](#updatepassword)
+* [deleteUser](#deleteuser)
 * [logout](#logout)
 * [sendOTPOnMobile](#sendotponmobile)
 * [verifyMobileOTP](#verifymobileotp)
@@ -52,7 +54,7 @@ Login or Register using Facebook
 
 
 ```java
-user.loginWithFacebook( platform, body body) {
+applicationClient.user.loginWithFacebook( platform, body body) {
   //use response
 }
 ```
@@ -133,7 +135,7 @@ Login or Register using Google
 
 
 ```java
-user.loginWithGoogle( platform, body body) {
+applicationClient.user.loginWithGoogle( platform, body body) {
   //use response
 }
 ```
@@ -214,7 +216,7 @@ Login or Register using Google on Android
 
 
 ```java
-user.loginWithGoogleAndroid( platform, body body) {
+applicationClient.user.loginWithGoogleAndroid( platform, body body) {
   //use response
 }
 ```
@@ -295,7 +297,7 @@ Login or Register using Google on iOS
 
 
 ```java
-user.loginWithGoogleIOS( platform, body body) {
+applicationClient.user.loginWithGoogleIOS( platform, body body) {
   //use response
 }
 ```
@@ -376,7 +378,7 @@ Login or Register using Apple on iOS
 
 
 ```java
-user.loginWithAppleIOS( platform, body body) {
+applicationClient.user.loginWithAppleIOS( platform, body body) {
   //use response
 }
 ```
@@ -457,7 +459,7 @@ Login or Register with OTP
 
 
 ```java
-user.loginWithOTP( platform, body body) {
+applicationClient.user.loginWithOTP( platform, body body) {
   //use response
 }
 ```
@@ -526,7 +528,7 @@ Login or Register with password
 
 
 ```java
-user.loginWithEmailAndPassword(body body) {
+applicationClient.user.loginWithEmailAndPassword(body body) {
   //use response
 }
 ```
@@ -633,7 +635,7 @@ Reset Password
 
 
 ```java
-user.sendResetPasswordEmail( platform, body body) {
+applicationClient.user.sendResetPasswordEmail( platform, body body) {
   //use response
 }
 ```
@@ -681,6 +683,61 @@ Success. Check the example shown below or refer `ResetPasswordSuccess` for more 
 ---
 
 
+### sendResetPasswordMobile
+Reset Password
+
+
+
+
+```java
+applicationClient.user.sendResetPasswordMobile( platform, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| platform | String? | no | ID of the application |  
+| body | [SendResetPasswordMobileRequestSchema](#SendResetPasswordMobileRequestSchema) | yes | Request body |
+
+
+Use this API to reset a password using the link sent on mobile.
+
+*Returned Response:*
+
+
+
+
+[ResetPasswordSuccess](#ResetPasswordSuccess)
+
+Success. Check the example shown below or refer `ResetPasswordSuccess` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "status": "sent"
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### forgotPassword
 Forgot Password
 
@@ -688,7 +745,7 @@ Forgot Password
 
 
 ```java
-user.forgotPassword(body body) {
+applicationClient.user.forgotPassword(body body) {
   //use response
 }
 ```
@@ -795,7 +852,7 @@ Reset Password using token
 
 
 ```java
-user.sendResetToken(body body) {
+applicationClient.user.sendResetToken(body body) {
   //use response
 }
 ```
@@ -849,7 +906,7 @@ Login or Register with token
 
 
 ```java
-user.loginWithToken(body body) {
+applicationClient.user.loginWithToken(body body) {
   //use response
 }
 ```
@@ -956,7 +1013,7 @@ Registration using a form
 
 
 ```java
-user.registerWithForm( platform, body body) {
+applicationClient.user.registerWithForm( platform, body body) {
   //use response
 }
 ```
@@ -1020,7 +1077,7 @@ Verify email
 
 
 ```java
-user.verifyEmail(body body) {
+applicationClient.user.verifyEmail(body body) {
   //use response
 }
 ```
@@ -1074,7 +1131,7 @@ Verify mobile
 
 
 ```java
-user.verifyMobile(body body) {
+applicationClient.user.verifyMobile(body body) {
   //use response
 }
 ```
@@ -1128,7 +1185,7 @@ Check password
 
 
 ```java
-user.hasPassword() {
+applicationClient.user.hasPassword() {
   //use response
 }
 ```
@@ -1176,7 +1233,7 @@ Update user password
 
 
 ```java
-user.updatePassword(body body) {
+applicationClient.user.updatePassword(body body) {
   //use response
 }
 ```
@@ -1223,6 +1280,60 @@ Success. Returns a success message. Refer `VerifyEmailSuccess` for more details.
 ---
 
 
+### deleteUser
+verify otp and delete user
+
+
+
+
+```java
+applicationClient.user.deleteUser(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |
+| body | [DeleteApplicationUserRequestSchema](#DeleteApplicationUserRequestSchema) | yes | Request body |
+
+
+verify otp and delete user
+
+*Returned Response:*
+
+
+
+
+[DeleteUserSuccess](#DeleteUserSuccess)
+
+Success. Returns a success message. Refer `DeleteUserSuccess` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "success": true
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### logout
 Logs out currently logged in user
 
@@ -1230,7 +1341,7 @@ Logs out currently logged in user
 
 
 ```java
-user.logout() {
+applicationClient.user.logout() {
   //use response
 }
 ```
@@ -1278,7 +1389,7 @@ Send OTP on mobile
 
 
 ```java
-user.sendOTPOnMobile( platform, body body) {
+applicationClient.user.sendOTPOnMobile( platform, body body) {
   //use response
 }
 ```
@@ -1339,7 +1450,7 @@ Verify OTP on mobile
 
 
 ```java
-user.verifyMobileOTP( platform, body body) {
+applicationClient.user.verifyMobileOTP( platform, body body) {
   //use response
 }
 ```
@@ -1448,7 +1559,7 @@ Send OTP on email
 
 
 ```java
-user.sendOTPOnEmail( platform, body body) {
+applicationClient.user.sendOTPOnEmail( platform, body body) {
   //use response
 }
 ```
@@ -1503,7 +1614,7 @@ Verify OTP on email
 
 
 ```java
-user.verifyEmailOTP( platform, body body) {
+applicationClient.user.verifyEmailOTP( platform, body body) {
   //use response
 }
 ```
@@ -1612,7 +1723,7 @@ Get logged in user
 
 
 ```java
-user.getLoggedInUser() {
+applicationClient.user.getLoggedInUser() {
   //use response
 }
 ```
@@ -1715,7 +1826,7 @@ Get list of sessions
 
 
 ```java
-user.getListOfActiveSessions() {
+applicationClient.user.getListOfActiveSessions() {
   //use response
 }
 ```
@@ -1768,7 +1879,7 @@ Get platform configurations
 
 
 ```java
-user.getPlatformConfig( name) {
+applicationClient.user.getPlatformConfig( name) {
   //use response
 }
 ```
@@ -1860,6 +1971,22 @@ Success. Returns a JSON object containing the all the platform configurations. R
       "appId": "548529975557631"
     }
   },
+  "delete_account_reasons": [
+    {
+      "reason_text": "test",
+      "reason_id": "123",
+      "show_text_area": true
+    }
+  ],
+  "delete_account_day": 7,
+  "delete_account_consent": {
+    "consent_text": ""
+  },
+  "session_config": {
+    "duration": "30",
+    "type": "Days",
+    "is_rolling": false
+  },
   "_id": "5e04a5e5220bc15839ad9bc0",
   "created_at": "2019-12-26T12:21:57.878Z",
   "updated_at": "2020-08-13T14:31:09.878Z",
@@ -1886,7 +2013,7 @@ Edit Profile Details
 
 
 ```java
-user.updateProfile( platform, body body) {
+applicationClient.user.updateProfile( platform, body body) {
   //use response
 }
 ```
@@ -1994,7 +2121,7 @@ Add mobile number to profile
 
 
 ```java
-user.addMobileNumber( platform, body body) {
+applicationClient.user.addMobileNumber( platform, body body) {
   //use response
 }
 ```
@@ -2103,7 +2230,7 @@ Delete mobile number from profile
 
 
 ```java
-user.deleteMobileNumber( platform,  active,  primary,  verified,  countryCode,  phone) {
+applicationClient.user.deleteMobileNumber( platform,  active,  primary,  verified,  countryCode,  phone) {
   //use response
 }
 ```
@@ -2216,7 +2343,7 @@ Set mobile as primary
 
 
 ```java
-user.setMobileNumberAsPrimary(body body) {
+applicationClient.user.setMobileNumberAsPrimary(body body) {
   //use response
 }
 ```
@@ -2323,7 +2450,7 @@ Send verification link to mobile
 
 
 ```java
-user.sendVerificationLinkToMobile( platform, body body) {
+applicationClient.user.sendVerificationLinkToMobile( platform, body body) {
   //use response
 }
 ```
@@ -2432,7 +2559,7 @@ Add email to profile
 
 
 ```java
-user.addEmail( platform, body body) {
+applicationClient.user.addEmail( platform, body body) {
   //use response
 }
 ```
@@ -2541,7 +2668,7 @@ Delete email from profile
 
 
 ```java
-user.deleteEmail( platform,  active,  primary,  verified,  email) {
+applicationClient.user.deleteEmail( platform,  active,  primary,  verified,  email) {
   //use response
 }
 ```
@@ -2653,7 +2780,7 @@ Set email as primary
 
 
 ```java
-user.setEmailAsPrimary(body body) {
+applicationClient.user.setEmailAsPrimary(body body) {
   //use response
 }
 ```
@@ -2760,7 +2887,7 @@ Send verification link to email
 
 
 ```java
-user.sendVerificationLinkToEmail( platform, body body) {
+applicationClient.user.sendVerificationLinkToEmail( platform, body body) {
   //use response
 }
 ```
@@ -2829,6 +2956,34 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | userId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DeleteApplicationUserRequestSchema](#DeleteApplicationUserRequestSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | userId | String? |  yes  |  |
+ | reason | String? |  yes  |  |
+ | reasonId | String? |  yes  |  |
+ | requestId | String? |  yes  |  |
+ | otp | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UnDeleteUserRequestSchema](#UnDeleteUserRequestSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | userId | String? |  yes  |  |
+ | reason | String? |  yes  |  |
+ | reasonId | String? |  yes  |  |
 
 ---
 
@@ -3039,6 +3194,19 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
 
  
  
+ #### [SendResetPasswordMobileRequestSchema](#SendResetPasswordMobileRequestSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | countryCode | String? |  yes  |  |
+ | mobile | String? |  yes  |  |
+ | captchaCode | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [PasswordLoginRequestSchema](#PasswordLoginRequestSchema)
 
  | Properties | Type | Nullable | Description |
@@ -3059,6 +3227,7 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | countryCode | String? |  yes  |  |
  | captchaCode | String? |  yes  |  |
  | mobile | String? |  yes  |  |
+ | androidHash | String? |  yes  |  |
 
 ---
 
@@ -3268,6 +3437,28 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  
  
  #### [ArchiveUserSuccess](#ArchiveUserSuccess)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DeleteUserSuccess](#DeleteUserSuccess)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UnDeleteUserSuccess](#UnDeleteUserSuccess)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -3682,6 +3873,10 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | register | Boolean? |  yes  |  |
  | mobileImage | String? |  yes  |  |
  | desktopImage | String? |  yes  |  |
+ | deleteAccountDay | Integer? |  yes  |  |
+ | deleteAccountReasons | ArrayList<[DeleteAccountReasons](#DeleteAccountReasons)>? |  yes  |  |
+ | deleteAccountConsent | HashMap<String,Object>? |  yes  |  |
+ | sessionConfig | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -3835,6 +4030,30 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
 
  
  
+ #### [DeleteAccountReasons](#DeleteAccountReasons)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | reasonText | String? |  yes  |  |
+ | reasonId | String? |  yes  |  |
+ | showTextArea | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DeleteAccountConsent](#DeleteAccountConsent)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | consentText | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [Facebook](#Facebook)
 
  | Properties | Type | Nullable | Description |
@@ -3862,6 +4081,19 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | appId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SessionExpiry](#SessionExpiry)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | duration | Integer? |  yes  |  |
+ | type | String? |  yes  |  |
+ | isRolling | Boolean? |  yes  |  |
 
 ---
 
@@ -3900,8 +4132,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | profilePicUrl | String? |  yes  |  |
  | username | String? |  yes  |  |
  | accountType | String? |  yes  |  |
- | debug | [Debug](#Debug)? |  yes  |  |
- | hasOldPasswordHash | Boolean? |  yes  |  |
  | id | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
@@ -3934,18 +4164,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | verified | Boolean? |  yes  |  |
  | email | String? |  yes  |  |
  | active | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [Debug](#Debug)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | source | String? |  yes  |  |
- | platform | String? |  yes  |  |
 
 ---
 

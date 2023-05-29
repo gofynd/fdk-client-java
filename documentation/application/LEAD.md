@@ -26,7 +26,7 @@ Get Ticket with the specific id
 
 
 ```java
-lead.getTicket( id) {
+applicationClient.lead.getTicket( id) {
   //use response
 }
 ```
@@ -278,7 +278,7 @@ Create history for specific Ticket
 
 
 ```java
-lead.createHistory( id, body body) {
+applicationClient.lead.createHistory( id, body body) {
   //use response
 }
 ```
@@ -373,7 +373,7 @@ Create Ticket
 
 
 ```java
-lead.createTicket(body body) {
+applicationClient.lead.createTicket(body body) {
   //use response
 }
 ```
@@ -624,7 +624,7 @@ Get specific Custom Form using it's slug
 
 
 ```java
-lead.getCustomForm( slug) {
+applicationClient.lead.getCustomForm( slug) {
   //use response
 }
 ```
@@ -729,7 +729,7 @@ Submit Response for a specific Custom Form using it's slug
 
 
 ```java
-lead.submitCustomForm( slug, body body) {
+applicationClient.lead.submitCustomForm( slug, body body) {
   //use response
 }
 ```
@@ -983,7 +983,7 @@ Get participants of a specific Video Room using it's unique name
 
 
 ```java
-lead.getParticipantsInsideVideoRoom( uniqueName) {
+applicationClient.lead.getParticipantsInsideVideoRoom( uniqueName) {
   //use response
 }
 ```
@@ -1046,7 +1046,7 @@ Get Token to join a specific Video Room using it's unqiue name
 
 
 ```java
-lead.getTokenForVideoRoom( uniqueName) {
+applicationClient.lead.getTokenForVideoRoom( uniqueName) {
   //use response
 }
 ```

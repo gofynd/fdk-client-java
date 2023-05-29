@@ -10,6 +10,7 @@ Discount
 * [createDiscount](#creatediscount)
 * [getDiscount](#getdiscount)
 * [updateDiscount](#updatediscount)
+* [upsertDiscountItems](#upsertdiscountitems)
 * [validateDiscountFile](#validatediscountfile)
 * [downloadDiscountFile](#downloaddiscountfile)
 * [getValidationJob](#getvalidationjob)
@@ -29,7 +30,7 @@ Fetch discount list.
 
 
 ```java
-client.discount.getDiscounts( view,  q,  pageNo,  pageSize,  archived,  month,  year,  type,  appIds) {
+platformClient.discount.getDiscounts( view,  q,  pageNo,  pageSize,  archived,  month,  year,  type,  appIds) {
   //use response
 }
 ```
@@ -91,7 +92,7 @@ Create Discount.
 
 
 ```java
-client.discount.createDiscount(body body) {
+platformClient.discount.createDiscount(body body) {
   //use response
 }
 ```
@@ -144,7 +145,7 @@ Fetch discount.
 
 
 ```java
-client.discount.getDiscount( id) {
+platformClient.discount.getDiscount( id) {
   //use response
 }
 ```
@@ -198,7 +199,7 @@ Create Discount.
 
 
 ```java
-client.discount.updateDiscount( id, body body) {
+platformClient.discount.updateDiscount( id, body body) {
   //use response
 }
 ```
@@ -245,6 +246,60 @@ Success
 ---
 
 
+### upsertDiscountItems
+Create custom discount from bulk.
+
+
+
+
+```java
+platformClient.discount.upsertDiscountItems( id, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes | A `company_id` is the unique identifier of the company. |   
+| id | String | yes | Job ID of the discount. |  
+| body | [BulkDiscount](#BulkDiscount) | yes | Request body |
+
+
+Create custom discounts through API.
+
+*Returned Response:*
+
+
+
+
+[Object](#Object)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### validateDiscountFile
 Validate File.
 
@@ -252,7 +307,7 @@ Validate File.
 
 
 ```java
-client.discount.validateDiscountFile( discount, body body) {
+platformClient.discount.validateDiscountFile( discount, body body) {
   //use response
 }
 ```
@@ -306,7 +361,7 @@ Validate File.
 
 
 ```java
-client.discount.downloadDiscountFile( type, body body) {
+platformClient.discount.downloadDiscountFile( type, body body) {
   //use response
 }
 ```
@@ -360,7 +415,7 @@ Validate File Job.
 
 
 ```java
-client.discount.getValidationJob( id) {
+platformClient.discount.getValidationJob( id) {
   //use response
 }
 ```
@@ -414,7 +469,7 @@ Cancel Validation Job.
 
 
 ```java
-client.discount.cancelValidationJob( id) {
+platformClient.discount.cancelValidationJob( id) {
   //use response
 }
 ```
@@ -468,7 +523,7 @@ Download File Job.
 
 
 ```java
-client.discount.getDownloadJob( id) {
+platformClient.discount.getDownloadJob( id) {
   //use response
 }
 ```
@@ -522,7 +577,7 @@ Cancel Download Job.
 
 
 ```java
-client.discount.cancelDownloadJob( id) {
+platformClient.discount.cancelDownloadJob( id) {
   //use response
 }
 ```
@@ -643,6 +698,33 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | items | ArrayList<[DiscountJob](#DiscountJob)> |  no  |  |
  | page | [Page](#Page) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [DiscountItems](#DiscountItems)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | itemCode | String? |  yes  |  |
+ | brandUid | Integer? |  yes  |  |
+ | sellerIdentifier | String? |  yes  |  |
+ | discountType | String |  no  |  |
+ | value | Double |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [BulkDiscount](#BulkDiscount)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | companyId | Integer |  no  |  |
+ | items | ArrayList<[DiscountItems](#DiscountItems)> |  no  |  |
 
 ---
 

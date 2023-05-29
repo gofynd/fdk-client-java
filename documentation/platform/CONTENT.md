@@ -33,6 +33,7 @@ Content System
 * [updateFaq](#updatefaq)
 * [deleteFaq](#deletefaq)
 * [getFaqByIdOrSlug](#getfaqbyidorslug)
+* [generateSEOTitle](#generateseotitle)
 * [getLandingPages](#getlandingpages)
 * [createLandingPage](#createlandingpage)
 * [updateLandingPage](#updatelandingpage)
@@ -50,8 +51,11 @@ Content System
 * [createPagePreview](#createpagepreview)
 * [updatePagePreview](#updatepagepreview)
 * [deletePage](#deletepage)
-* [updatePathRedirectionRules](#updatepathredirectionrules)
+* [addPathRedirectionRules](#addpathredirectionrules)
 * [getPathRedirectionRules](#getpathredirectionrules)
+* [getPathRedirectionRule](#getpathredirectionrule)
+* [updatePathRedirectionRules](#updatepathredirectionrules)
+* [deletePathRedirectionRules](#deletepathredirectionrules)
 * [getSEOConfiguration](#getseoconfiguration)
 * [updateSEOConfiguration](#updateseoconfiguration)
 * [getSlideshows](#getslideshows)
@@ -67,6 +71,7 @@ Content System
 * [addInjectableTag](#addinjectabletag)
 * [removeInjectableTag](#removeinjectabletag)
 * [editInjectableTag](#editinjectabletag)
+* [getBlogBySlug](#getblogbyslug)
 * [createPage](#createpage)
 * [getPages](#getpages)
 * [updatePage](#updatepage)
@@ -84,7 +89,7 @@ Get a list of announcements
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getAnnouncementsList( pageNo,  pageSize) {
+platformClient.application("<APPLICATION_ID>").content.getAnnouncementsList( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -201,7 +206,7 @@ Create an announcement
 
 
 ```java
-client.application("<APPLICATION_ID>").content.createAnnouncement(body body) {
+platformClient.application("<APPLICATION_ID>").content.createAnnouncement(body body) {
   //use response
 }
 ```
@@ -309,7 +314,7 @@ Get announcement by ID
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getAnnouncementById( announcementId) {
+platformClient.application("<APPLICATION_ID>").content.getAnnouncementById( announcementId) {
   //use response
 }
 ```
@@ -413,7 +418,7 @@ Update an announcement
 
 
 ```java
-client.application("<APPLICATION_ID>").content.updateAnnouncement( announcementId, body body) {
+platformClient.application("<APPLICATION_ID>").content.updateAnnouncement( announcementId, body body) {
   //use response
 }
 ```
@@ -522,7 +527,7 @@ Update the schedule and the publish status of an announcement
 
 
 ```java
-client.application("<APPLICATION_ID>").content.updateAnnouncementSchedule( announcementId, body body) {
+platformClient.application("<APPLICATION_ID>").content.updateAnnouncementSchedule( announcementId, body body) {
   //use response
 }
 ```
@@ -631,7 +636,7 @@ Delete announcement by id
 
 
 ```java
-client.application("<APPLICATION_ID>").content.deleteAnnouncement( announcementId) {
+platformClient.application("<APPLICATION_ID>").content.deleteAnnouncement( announcementId) {
   //use response
 }
 ```
@@ -740,7 +745,7 @@ Create a blog
 
 
 ```java
-client.application("<APPLICATION_ID>").content.createBlog(body body) {
+platformClient.application("<APPLICATION_ID>").content.createBlog(body body) {
   //use response
 }
 ```
@@ -839,7 +844,7 @@ Get blogs
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getBlogs( pageNo,  pageSize) {
+platformClient.application("<APPLICATION_ID>").content.getBlogs( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -944,7 +949,7 @@ Update a blog
 
 
 ```java
-client.application("<APPLICATION_ID>").content.updateBlog( id, body body) {
+platformClient.application("<APPLICATION_ID>").content.updateBlog( id, body body) {
   //use response
 }
 ```
@@ -1044,7 +1049,7 @@ Delete blogs
 
 
 ```java
-client.application("<APPLICATION_ID>").content.deleteBlog( id) {
+platformClient.application("<APPLICATION_ID>").content.deleteBlog( id) {
   //use response
 }
 ```
@@ -1144,7 +1149,7 @@ Get components of a blog
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getComponentById( slug) {
+platformClient.application("<APPLICATION_ID>").content.getComponentById( slug) {
   //use response
 }
 ```
@@ -1244,7 +1249,7 @@ Adds a data loader
 
 
 ```java
-client.application("<APPLICATION_ID>").content.addDataLoader(body body) {
+platformClient.application("<APPLICATION_ID>").content.addDataLoader(body body) {
   //use response
 }
 ```
@@ -1306,7 +1311,7 @@ Get all the data loaders in an application
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getDataLoaders() {
+platformClient.application("<APPLICATION_ID>").content.getDataLoaders() {
   //use response
 }
 ```
@@ -1329,7 +1334,7 @@ Use this to get all data loaders of an application
 
 [DataLoadersSchema](#DataLoadersSchema)
 
-Success. Refer `DataLoaderResponseSchema` for more details.
+Success. Refer `DataLoadersSchema` for more details.
 
 
 
@@ -1393,7 +1398,7 @@ Delete data loader in application
 
 
 ```java
-client.application("<APPLICATION_ID>").content.deleteDataLoader( dataLoaderId) {
+platformClient.application("<APPLICATION_ID>").content.deleteDataLoader( dataLoaderId) {
   //use response
 }
 ```
@@ -1456,7 +1461,7 @@ Edit a data loader by id
 
 
 ```java
-client.application("<APPLICATION_ID>").content.editDataLoader( dataLoaderId, body body) {
+platformClient.application("<APPLICATION_ID>").content.editDataLoader( dataLoaderId, body body) {
   //use response
 }
 ```
@@ -1519,7 +1524,7 @@ Select a data loader by id
 
 
 ```java
-client.application("<APPLICATION_ID>").content.selectDataLoader( dataLoaderId) {
+platformClient.application("<APPLICATION_ID>").content.selectDataLoader( dataLoaderId) {
   //use response
 }
 ```
@@ -1582,7 +1587,7 @@ Reset a data loader by serive name and operation Id
 
 
 ```java
-client.application("<APPLICATION_ID>").content.resetDataLoader( service,  operationId) {
+platformClient.application("<APPLICATION_ID>").content.resetDataLoader( service,  operationId) {
   //use response
 }
 ```
@@ -1640,7 +1645,7 @@ Get a list of FAQ categories
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getFaqCategories() {
+platformClient.application("<APPLICATION_ID>").content.getFaqCategories() {
   //use response
 }
 ```
@@ -1707,7 +1712,7 @@ Get an FAQ category by slug or id
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getFaqCategoryBySlugOrId( idOrSlug) {
+platformClient.application("<APPLICATION_ID>").content.getFaqCategoryBySlugOrId( idOrSlug) {
   //use response
 }
 ```
@@ -1779,7 +1784,7 @@ Create an FAQ category
 
 
 ```java
-client.application("<APPLICATION_ID>").content.createFaqCategory(body body) {
+platformClient.application("<APPLICATION_ID>").content.createFaqCategory(body body) {
   //use response
 }
 ```
@@ -1842,7 +1847,7 @@ Update an FAQ category
 
 
 ```java
-client.application("<APPLICATION_ID>").content.updateFaqCategory( id, body body) {
+platformClient.application("<APPLICATION_ID>").content.updateFaqCategory( id, body body) {
   //use response
 }
 ```
@@ -1906,7 +1911,7 @@ Delete an FAQ category
 
 
 ```java
-client.application("<APPLICATION_ID>").content.deleteFaqCategory( id) {
+platformClient.application("<APPLICATION_ID>").content.deleteFaqCategory( id) {
   //use response
 }
 ```
@@ -1971,7 +1976,7 @@ Get question and answers within an FAQ category
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getFaqsByCategoryIdOrSlug( idOrSlug) {
+platformClient.application("<APPLICATION_ID>").content.getFaqsByCategoryIdOrSlug( idOrSlug) {
   //use response
 }
 ```
@@ -2036,7 +2041,7 @@ Create an FAQ
 
 
 ```java
-client.application("<APPLICATION_ID>").content.addFaq( categoryId, body body) {
+platformClient.application("<APPLICATION_ID>").content.addFaq( categoryId, body body) {
   //use response
 }
 ```
@@ -2099,7 +2104,7 @@ Update an FAQ
 
 
 ```java
-client.application("<APPLICATION_ID>").content.updateFaq( categoryId,  faqId, body body) {
+platformClient.application("<APPLICATION_ID>").content.updateFaq( categoryId,  faqId, body body) {
   //use response
 }
 ```
@@ -2163,7 +2168,7 @@ Delete an FAQ
 
 
 ```java
-client.application("<APPLICATION_ID>").content.deleteFaq( categoryId,  faqId) {
+platformClient.application("<APPLICATION_ID>").content.deleteFaq( categoryId,  faqId) {
   //use response
 }
 ```
@@ -2227,7 +2232,7 @@ Get an FAQ
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getFaqByIdOrSlug( idOrSlug) {
+platformClient.application("<APPLICATION_ID>").content.getFaqByIdOrSlug( idOrSlug) {
   //use response
 }
 ```
@@ -2283,6 +2288,72 @@ Success. Refer `CreateFaqResponseSchema` for more details.
 ---
 
 
+### generateSEOTitle
+Get SEO meta tag title for content
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").content.generateSEOTitle( type, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
+| type | GenerationEntityType | yes | String representing the type of SEO content to be generated. Possible values are: title, description |  
+| body | [GenerateSEOContent](#GenerateSEOContent) | yes | Request body |
+
+
+Use this API to get GPT3 generated SEO meta tag title for content
+
+*Returned Response:*
+
+
+
+
+[GeneratedSEOContent](#GeneratedSEOContent)
+
+Returns the generated SEO title
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "title": "SEO Title example",
+    "description": "SEO Description example"
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getLandingPages
 Get landing pages
 
@@ -2290,7 +2361,7 @@ Get landing pages
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getLandingPages( pageNo,  pageSize) {
+platformClient.application("<APPLICATION_ID>").content.getLandingPages( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -2386,7 +2457,7 @@ Create a landing page
 
 
 ```java
-client.application("<APPLICATION_ID>").content.createLandingPage(body body) {
+platformClient.application("<APPLICATION_ID>").content.createLandingPage(body body) {
   //use response
 }
 ```
@@ -2471,7 +2542,7 @@ Update a landing page
 
 
 ```java
-client.application("<APPLICATION_ID>").content.updateLandingPage( id, body body) {
+platformClient.application("<APPLICATION_ID>").content.updateLandingPage( id, body body) {
   //use response
 }
 ```
@@ -2557,7 +2628,7 @@ Delete a landing page
 
 
 ```java
-client.application("<APPLICATION_ID>").content.deleteLandingPage( id) {
+platformClient.application("<APPLICATION_ID>").content.deleteLandingPage( id) {
   //use response
 }
 ```
@@ -2643,7 +2714,7 @@ Get legal information
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getLegalInformation() {
+platformClient.application("<APPLICATION_ID>").content.getLegalInformation() {
   //use response
 }
 ```
@@ -2737,7 +2808,7 @@ Save legal information
 
 
 ```java
-client.application("<APPLICATION_ID>").content.updateLegalInformation(body body) {
+platformClient.application("<APPLICATION_ID>").content.updateLegalInformation(body body) {
   //use response
 }
 ```
@@ -2800,7 +2871,7 @@ Get navigations
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getNavigations( devicePlatform,  pageNo,  pageSize) {
+platformClient.application("<APPLICATION_ID>").content.getNavigations( devicePlatform,  pageNo,  pageSize) {
   //use response
 }
 ```
@@ -3052,7 +3123,7 @@ Create a navigation
 
 
 ```java
-client.application("<APPLICATION_ID>").content.createNavigation(body body) {
+platformClient.application("<APPLICATION_ID>").content.createNavigation(body body) {
   //use response
 }
 ```
@@ -3297,7 +3368,7 @@ Get default navigations
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getDefaultNavigations() {
+platformClient.application("<APPLICATION_ID>").content.getDefaultNavigations() {
   //use response
 }
 ```
@@ -4021,7 +4092,7 @@ Get a navigation by slug
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getNavigationBySlug( slug,  devicePlatform) {
+platformClient.application("<APPLICATION_ID>").content.getNavigationBySlug( slug,  devicePlatform) {
   //use response
 }
 ```
@@ -4268,7 +4339,7 @@ Update a navigation
 
 
 ```java
-client.application("<APPLICATION_ID>").content.updateNavigation( id, body body) {
+platformClient.application("<APPLICATION_ID>").content.updateNavigation( id, body body) {
   //use response
 }
 ```
@@ -4514,7 +4585,7 @@ Delete a navigation
 
 
 ```java
-client.application("<APPLICATION_ID>").content.deleteNavigation( id) {
+platformClient.application("<APPLICATION_ID>").content.deleteNavigation( id) {
   //use response
 }
 ```
@@ -4757,7 +4828,7 @@ Get page meta
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getPageMeta() {
+platformClient.application("<APPLICATION_ID>").content.getPageMeta() {
   //use response
 }
 ```
@@ -4873,7 +4944,7 @@ Get page spec
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getPageSpec() {
+platformClient.application("<APPLICATION_ID>").content.getPageSpec() {
   //use response
 }
 ```
@@ -4961,7 +5032,7 @@ Create a page preview
 
 
 ```java
-client.application("<APPLICATION_ID>").content.createPagePreview(body body) {
+platformClient.application("<APPLICATION_ID>").content.createPagePreview(body body) {
   //use response
 }
 ```
@@ -5077,7 +5148,7 @@ Change the publish status of a page
 
 
 ```java
-client.application("<APPLICATION_ID>").content.updatePagePreview( slug, body body) {
+platformClient.application("<APPLICATION_ID>").content.updatePagePreview( slug, body body) {
   //use response
 }
 ```
@@ -5194,7 +5265,7 @@ Delete a page
 
 
 ```java
-client.application("<APPLICATION_ID>").content.deletePage( id) {
+platformClient.application("<APPLICATION_ID>").content.deletePage( id) {
   //use response
 }
 ```
@@ -5304,14 +5375,14 @@ Success.
 ---
 
 
-### updatePathRedirectionRules
+### addPathRedirectionRules
 Save path based redirection rules
 
 
 
 
 ```java
-client.application("<APPLICATION_ID>").content.updatePathRedirectionRules(body body) {
+platformClient.application("<APPLICATION_ID>").content.addPathRedirectionRules(body body) {
   //use response
 }
 ```
@@ -5325,7 +5396,7 @@ client.application("<APPLICATION_ID>").content.updatePathRedirectionRules(body b
 | body | [PathMappingSchema](#PathMappingSchema) | yes | Request body |
 
 
-Use this API to add, update or delete path-based redirection rules
+Use this API to add redirection rules
 
 *Returned Response:*
 
@@ -5340,18 +5411,26 @@ Success. Refer `PathMappingSchema` for more details.
 
 
 <details>
-<summary><i>&nbsp; Example:</i></summary>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; Success</i></summary>
 
 ```json
 {
-  "redirections": [
-    {
-      "redirect_from": "test.hostfynd.dev/redirect_from",
-      "redirect_to": "/redirect_to"
-    }
-  ]
+  "value": {
+    "_id": "615188e9db1e444cb0f40837",
+    "application": "000000000000000000000002",
+    "redirect_from": "/from",
+    "redirect_to": "/to",
+    "createdAt": "2021-09-27T09:03:37.053Z",
+    "updatedAt": "2021-09-27T09:09:25.587Z"
+  }
 }
 ```
+</details>
+
 </details>
 
 
@@ -5372,7 +5451,7 @@ Get path based redirection rules
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getPathRedirectionRules() {
+platformClient.application("<APPLICATION_ID>").content.getPathRedirectionRules( pageSize,  pageNo) {
   //use response
 }
 ```
@@ -5382,7 +5461,9 @@ client.application("<APPLICATION_ID>").content.getPathRedirectionRules() {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
-| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |  
+| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
+| pageSize | Integer? | no | The number of items to retrieve in each page. Default value is 5.  |   
+| pageNo | Integer? | no | The page number to navigate through the given set of results. Default value is 1. |  
 
 
 
@@ -5412,12 +5493,8 @@ Success. Refer `PathMappingSchema` for more details.
   "value": {
     "_id": "615188e9db1e444cb0f40837",
     "application": "000000000000000000000002",
-    "redirections": [
-      {
-        "redirect_from": "/from",
-        "redirect_to": "/to"
-      }
-    ],
+    "redirect_from": "/from",
+    "redirect_to": "/to",
     "createdAt": "2021-09-27T09:03:37.053Z",
     "updatedAt": "2021-09-27T09:09:25.587Z"
   }
@@ -5438,6 +5515,203 @@ Success. Refer `PathMappingSchema` for more details.
 ---
 
 
+### getPathRedirectionRule
+Get path based redirection rule
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").content.getPathRedirectionRule( pathId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
+| pathId | String | yes | ID allotted to the path redirection rule. |  
+
+
+
+Use this API to get path based redirection rule.
+
+*Returned Response:*
+
+
+
+
+[PathMappingSchema](#PathMappingSchema)
+
+Success. Refer `PathMappingSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; Success</i></summary>
+
+```json
+{
+  "value": {
+    "_id": "615188e9db1e444cb0f40837",
+    "application": "000000000000000000000002",
+    "redirect_from": "/from",
+    "redirect_to": "/to",
+    "createdAt": "2021-09-27T09:03:37.053Z",
+    "updatedAt": "2021-09-27T09:09:25.587Z"
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### updatePathRedirectionRules
+Update path based redirection rules
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").content.updatePathRedirectionRules( pathId, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
+| pathId | String | yes | ID allotted to the path redirection rule. |  
+| body | [PathMappingSchema](#PathMappingSchema) | yes | Request body |
+
+
+Use this API to update redirection rules
+
+*Returned Response:*
+
+
+
+
+[PathMappingSchema](#PathMappingSchema)
+
+Success. Refer `PathMappingSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; Success</i></summary>
+
+```json
+{
+  "value": {
+    "_id": "615188e9db1e444cb0f40837",
+    "application": "000000000000000000000002",
+    "redirect_from": "/from",
+    "redirect_to": "/to",
+    "createdAt": "2021-09-27T09:03:37.053Z",
+    "updatedAt": "2021-09-27T09:09:25.587Z"
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### deletePathRedirectionRules
+Delete path based redirection rules
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").content.deletePathRedirectionRules( pathId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
+| pathId | String | yes | ID allotted to the path redirection rule. |  
+
+
+
+Use this API to delete redirection rules
+
+*Returned Response:*
+
+
+
+
+[Object](#Object)
+
+Success.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "message": "Redirection deleted successfully"
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getSEOConfiguration
 Get SEO configuration of an application
 
@@ -5445,7 +5719,7 @@ Get SEO configuration of an application
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getSEOConfiguration() {
+platformClient.application("<APPLICATION_ID>").content.getSEOConfiguration() {
   //use response
 }
 ```
@@ -5489,6 +5763,7 @@ Success. Refer `SeoComponent` for more details.
       },
       "robots_txt": "User-agent: * \nAllow: / \nsancisciasn xwsaixjowqnxwsiwjs",
       "sitemap_enabled": false,
+      "cannonical_enabled": false,
       "_id": "6009819ee463ad40de397eb2",
       "app": "000000000000000000000001",
       "created_at": "2021-01-21T13:29:02.543Z",
@@ -5532,7 +5807,7 @@ Update SEO of application
 
 
 ```java
-client.application("<APPLICATION_ID>").content.updateSEOConfiguration(body body) {
+platformClient.application("<APPLICATION_ID>").content.updateSEOConfiguration(body body) {
   //use response
 }
 ```
@@ -5617,7 +5892,7 @@ Get slideshows
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getSlideshows( devicePlatform,  pageNo,  pageSize) {
+platformClient.application("<APPLICATION_ID>").content.getSlideshows( devicePlatform,  pageNo,  pageSize) {
   //use response
 }
 ```
@@ -5733,7 +6008,7 @@ Create a slideshow
 
 
 ```java
-client.application("<APPLICATION_ID>").content.createSlideshow(body body) {
+platformClient.application("<APPLICATION_ID>").content.createSlideshow(body body) {
   //use response
 }
 ```
@@ -5834,7 +6109,7 @@ Get slideshow by slug
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getSlideshowBySlug( slug,  devicePlatform) {
+platformClient.application("<APPLICATION_ID>").content.getSlideshowBySlug( slug,  devicePlatform) {
   //use response
 }
 ```
@@ -5937,7 +6212,7 @@ Update a slideshow
 
 
 ```java
-client.application("<APPLICATION_ID>").content.updateSlideshow( id, body body) {
+platformClient.application("<APPLICATION_ID>").content.updateSlideshow( id, body body) {
   //use response
 }
 ```
@@ -6039,7 +6314,7 @@ Delete a slideshow
 
 
 ```java
-client.application("<APPLICATION_ID>").content.deleteSlideshow( id) {
+platformClient.application("<APPLICATION_ID>").content.deleteSlideshow( id) {
   //use response
 }
 ```
@@ -6141,7 +6416,7 @@ Get support information
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getSupportInformation() {
+platformClient.application("<APPLICATION_ID>").content.getSupportInformation() {
   //use response
 }
 ```
@@ -6226,7 +6501,7 @@ Update the support data of an application
 
 
 ```java
-client.application("<APPLICATION_ID>").content.updateSupportInformation(body body) {
+platformClient.application("<APPLICATION_ID>").content.updateSupportInformation(body body) {
   //use response
 }
 ```
@@ -6311,7 +6586,7 @@ Update a tag
 
 
 ```java
-client.application("<APPLICATION_ID>").content.updateInjectableTag(body body) {
+platformClient.application("<APPLICATION_ID>").content.updateInjectableTag(body body) {
   //use response
 }
 ```
@@ -6387,7 +6662,7 @@ Delete tags in application
 
 
 ```java
-client.application("<APPLICATION_ID>").content.deleteAllInjectableTags() {
+platformClient.application("<APPLICATION_ID>").content.deleteAllInjectableTags() {
   //use response
 }
 ```
@@ -6463,7 +6738,7 @@ Get all the tags in an application
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getInjectableTags() {
+platformClient.application("<APPLICATION_ID>").content.getInjectableTags() {
   //use response
 }
 ```
@@ -6539,7 +6814,7 @@ Add a tag
 
 
 ```java
-client.application("<APPLICATION_ID>").content.addInjectableTag(body body) {
+platformClient.application("<APPLICATION_ID>").content.addInjectableTag(body body) {
   //use response
 }
 ```
@@ -6607,7 +6882,7 @@ Remove a tag
 
 
 ```java
-client.application("<APPLICATION_ID>").content.removeInjectableTag(body body) {
+platformClient.application("<APPLICATION_ID>").content.removeInjectableTag(body body) {
   //use response
 }
 ```
@@ -6663,7 +6938,7 @@ Edit a tag by id
 
 
 ```java
-client.application("<APPLICATION_ID>").content.editInjectableTag( tagId, body body) {
+platformClient.application("<APPLICATION_ID>").content.editInjectableTag( tagId, body body) {
   //use response
 }
 ```
@@ -6725,6 +7000,106 @@ Success.
 ---
 
 
+### getBlogBySlug
+Get blog by slug
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").content.getBlogBySlug( slug) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
+| applicationId | String | yes | Numeric ID allotted to an application created within a business account. |   
+| slug | String | yes | A short, human-readable, URL-friendly identifier of a blog page. You can get slug value of a blog from `getBlogs` API. |  
+
+
+
+Use this API to retrieve the components of a blog, such as title, slug, feature image, content, schedule, publish status, author, etc.
+
+*Returned Response:*
+
+
+
+
+[BlogSchema](#BlogSchema)
+
+Success. Returns a a JSON object with components. Refer `BlogSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "_id": "5eaa451a21a4dd75f0fd96c5",
+    "application": "5d3ebd89f540e7506b8b3548",
+    "tags": [
+      "abhinav"
+    ],
+    "title": "my first blog",
+    "slug": "1st_blog",
+    "feature_image": {
+      "secure_url": "https://google.com"
+    },
+    "content": [
+      {
+        "type": "html",
+        "value": "<p>hey there!</p>"
+      }
+    ],
+    "_schedule": {
+      "cron": "* 10 * * *",
+      "start": "2021-03-31T23:30:00.000Z",
+      "end": "2021-03-31T23:55:00.000Z",
+      "duration": 1000,
+      "next_schedule": [
+        {
+          "start": "2021-03-17T04:30:00.000Z",
+          "end": "2021-03-17T04:46:40.000Z"
+        }
+      ]
+    },
+    "published": true,
+    "author": {
+      "name": "Fynd App"
+    },
+    "date_meta": {
+      "created_on": "2021-03-14T06:49:03.945Z",
+      "modified_on": "2021-03-14T06:49:03.945Z"
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### createPage
 Create a page
 
@@ -6732,7 +7107,7 @@ Create a page
 
 
 ```java
-client.application("<APPLICATION_ID>").content.createPage(body body) {
+platformClient.application("<APPLICATION_ID>").content.createPage(body body) {
   //use response
 }
 ```
@@ -6848,7 +7223,7 @@ Get a list of pages
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getPages( pageNo,  pageSize) {
+platformClient.application("<APPLICATION_ID>").content.getPages( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -6957,7 +7332,7 @@ Update a page
 
 
 ```java
-client.application("<APPLICATION_ID>").content.updatePage( id, body body) {
+platformClient.application("<APPLICATION_ID>").content.updatePage( id, body body) {
   //use response
 }
 ```
@@ -7068,13 +7443,13 @@ Success. Refer `PageSchema` for more details.
 
 
 ### getPageBySlug
-Get pages by component Id
+Get page by slug
 
 
 
 
 ```java
-client.application("<APPLICATION_ID>").content.getPageBySlug( slug) {
+platformClient.application("<APPLICATION_ID>").content.getPageBySlug( slug) {
   //use response
 }
 ```
@@ -7189,6 +7564,32 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
 
  
  
+ #### [GenerateSEOContent](#GenerateSEOContent)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | text | String? |  yes  |  |
+ | existingText | String? |  yes  |  |
+ | keywords | ArrayList<String>? |  yes  |  |
+ | type | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GeneratedSEOContent](#GeneratedSEOContent)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | title | String? |  yes  |  |
+ | description | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [ApplicationLegal](#ApplicationLegal)
 
  | Properties | Type | Nullable | Description |
@@ -7225,22 +7626,24 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | application | String? |  yes  |  |
- | redirections | ArrayList<[RedirectionSchema](#RedirectionSchema)>? |  yes  |  |
  | id | String? |  yes  |  |
+ | redirectFrom | String? |  yes  |  |
+ | redirectTo | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
+ | source | [PathSourceSchema](#PathSourceSchema)? |  yes  |  |
 
 ---
 
 
  
  
- #### [RedirectionSchema](#RedirectionSchema)
+ #### [PathSourceSchema](#PathSourceSchema)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | redirectFrom | String? |  yes  |  |
- | redirectTo | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | id | String? |  yes  |  |
 
 ---
 
@@ -7266,6 +7669,7 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | id | String? |  yes  |  |
  | robotsTxt | String? |  yes  |  |
  | sitemapEnabled | Boolean? |  yes  |  |
+ | cannonicalEnabled | Boolean? |  yes  |  |
  | customMetaTags | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | details | [Detail](#Detail)? |  yes  |  |
  | createdAt | String? |  yes  |  |
@@ -7818,6 +8222,7 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | url | String? |  yes  |  |
  | position | String? |  yes  |  |
  | attributes | HashMap<String,Object>? |  yes  |  |
+ | pages | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | content | String? |  yes  |  |
 
 ---
@@ -7991,6 +8396,7 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | id | String? |  yes  |  |
  | question | String? |  yes  |  |
  | answer | String? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -8602,6 +9008,7 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | position | String? |  yes  |  |
  | attributes | HashMap<String,Object>? |  yes  |  |
  | content | String? |  yes  |  |
+ | pages | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | source | [TagSourceSchema](#TagSourceSchema)? |  yes  |  |
 
 ---
@@ -8627,6 +9034,18 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
 
 
 
+ #### [GenerationEntityType](#GenerationEntityType)
+ Type : string
+
+ | Name | Value | Description |
+ | ---- | ----- | ----------- |
+ | title | title | Denotes title will be generated |
+ | description | description | Denotes description will be generated |
+
+---
+
+
+
  #### [PageType](#PageType)
  Type : string
 
@@ -8645,7 +9064,7 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | collections | collections | Symbolic link for Collections: /collections/ |
  | contactUs | contact-us | Symbolic link for Contact Us: /contact-us/ |
  | external | external | Symbolic link for External Link: /external/ |
- | faq | faq | Symbolic link for FAQ: /faq/:category |
+ | faq | faq | Symbolic link for FAQ: /faq |
  | freshchat | freshchat | Symbolic link for Chat by Freshchat: /freshchat |
  | home | home | Symbolic link for Home: / |
  | notificationSettings | notification-settings | Symbolic link for Notification Settings: /notification-settings |
@@ -8653,11 +9072,10 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | page | page | Symbolic link for Page: /page/:slug |
  | policy | policy | Symbolic link for Privacy Policy: /privacy-policy |
  | product | product | Symbolic link for Product: /product/:slug |
- | productReviews | product-reviews | Symbolic link for Product Reviews: /product/:slug/reviews |
- | addProductReview | add-product-review | Symbolic link for Add Product review: /product/:slug/add-review |
  | productRequest | product-request | Symbolic link for Product Request: /product-request/ |
  | products | products | Symbolic link for Products: /products/ |
  | profile | profile | Symbolic link for Profile: /profile |
+ | profileOrderShipment | profile-order-shipment | Symbolic link for profile orders shipment: /profile/orders/shipment/:shipmentid |
  | profileBasic | profile-basic | Symbolic link for Basic Profile: /profile/details |
  | profileCompany | profile-company | Symbolic link for Profile Company: /profile/company |
  | profileEmails | profile-emails | Symbolic link for Profile Emails: /profile/email |
@@ -8676,6 +9094,8 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | cartReview | cart-review | Symbolic link for Cart Order Review: /cart/order-review |
  | login | login | Symbolic link for Login: /auth/login |
  | register | register | Symbolic link for Register: /auth/register |
+ | shippingPolicy | shipping-policy | Symbolic link for Shipping policy: /shipping-policy |
+ | returnPolicy | return-policy | Symbolic link for Return policy: /return-policy |
 
 ---
 
