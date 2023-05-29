@@ -77,24 +77,6 @@ interface RewardsPlatformApiList {
     
     
     
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/giveaways/:id/audience/{audience_id}/status")
-    Call<RewardsPlatformModels.GiveawayAudience> getGiveawayAudienceStatus(@Path("id") String  id , @Path("audience_id") String  audienceId , @Path("company_id")  String companyId , @Path("application_id")  String applicationId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/offers/")
     Call<List<RewardsPlatformModels.Offer>> showOffers(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
