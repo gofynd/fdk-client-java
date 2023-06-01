@@ -59,8 +59,6 @@ import com.sdk.application.*;
                     relativeUrls.put("getShipmentBagReasons","/service/application/order/v1.0/orders/shipments/{shipment_id}/bags/{bag_id}/reasons".substring(1));
             
                     relativeUrls.put("getShipmentReasons","/service/application/order/v1.0/orders/shipments/{shipment_id}/reasons".substring(1));
-            
-                    relativeUrls.put("updateShipmentStatus","/service/application/order/v1.0/orders/shipments/{shipment_id}/status".substring(1));
              
 
     }
@@ -297,26 +295,6 @@ import com.sdk.application.*;
         
 
         Response<OrderApplicationModels.ShipmentReasons> response = orderApplicationApiList.getShipmentReasons(fullUrl ).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    
-    public OrderApplicationModels.ShipmentApplicationStatusResponse updateShipmentStatus(String shipmentId ,OrderApplicationModels.UpdateShipmentStatusRequest body) throws IOException {
-     
-      String fullUrl = relativeUrls.get("updateShipmentStatus");
-        
-        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
-        
-
-        Response<OrderApplicationModels.ShipmentApplicationStatusResponse> response = orderApplicationApiList.updateShipmentStatus(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
