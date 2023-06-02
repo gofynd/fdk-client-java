@@ -3799,7 +3799,7 @@ public static class SlideshowRequest{
     
     
     @JsonProperty("media")
-    private SlideshowMedia media;
+    private List<SlideshowMedia> media;
     
     
     
