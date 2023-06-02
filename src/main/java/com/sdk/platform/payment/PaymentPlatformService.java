@@ -1154,16 +1154,12 @@ public class ApplicationClient {
     
     
     
-    
-    
-    
-    
 
-    public PaymentPlatformModels.EdcDeviceAddResponse updateEdcDevice(String terminalUniqueIdentifier ,PaymentPlatformModels.EdcAddRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.EdcDeviceAddResponse updateEdcDevice(PaymentPlatformModels.EdcAddRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PaymentPlatformModels.EdcDeviceAddResponse> response = null;
             try {
-            response = paymentPlatformApiList.updateEdcDevice(this.companyId , this.applicationId , terminalUniqueIdentifier , body).execute();
+            response = paymentPlatformApiList.updateEdcDevice(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

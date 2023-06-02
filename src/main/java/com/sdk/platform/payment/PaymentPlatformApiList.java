@@ -323,11 +323,8 @@ interface PaymentPlatformApiList {
     
     
     
-    
-    
-    
     @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/edc-device")
-    Call<PaymentPlatformModels.EdcDeviceAddResponse> updateEdcDevice(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("terminal_unique_identifier") String  terminalUniqueIdentifier ,@Body PaymentPlatformModels.EdcAddRequest payload);
+    Call<PaymentPlatformModels.EdcDeviceAddResponse> updateEdcDevice(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.EdcAddRequest payload);
     
     
     

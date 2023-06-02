@@ -92,7 +92,7 @@ Get the list of all the extensions
 
 
 ```java
-platformClient.partner.getExtensionsForCompany( pageSize,  tag,  currentPage,  pageNo,  filterBy) {
+platformClient.partner.getExtensionsForCompany( pageSize,  tag,  currentPage,  pageNo,  filterBy,  query) {
   //use response
 }
 ```
@@ -106,7 +106,8 @@ platformClient.partner.getExtensionsForCompany( pageSize,  tag,  currentPage,  p
 | tag | String? | no | tag |   
 | currentPage | String? | no | tag |   
 | pageNo | Double? | no | Current page number |   
-| filterBy | String? | no | Filter by |  
+| filterBy | String? | no | Filter by |   
+| query | String? | no | query |  
 
 
 

@@ -47,8 +47,11 @@ interface PartnerPlatformApiList {
     
     
     
+    
+    
+    
     @GET ("/service/platform/partners/v1.0/company/{company_id}/extensions")
-    Call<PartnerPlatformModels.ExtensionList> getExtensionsForCompany(@Path("company_id")  String companyId , @Query("page_size") Double  pageSize ,  @Query("tag") String  tag ,  @Query("current_page") String  currentPage ,  @Query("page_no") Double  pageNo ,  @Query("filter_by") String  filterBy );
+    Call<PartnerPlatformModels.ExtensionList> getExtensionsForCompany(@Path("company_id")  String companyId , @Query("page_size") Double  pageSize ,  @Query("tag") String  tag ,  @Query("current_page") String  currentPage ,  @Query("page_no") Double  pageNo ,  @Query("filter_by") String  filterBy ,  @Query("query") String  query );
     
     
     

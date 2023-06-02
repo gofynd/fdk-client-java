@@ -1507,6 +1507,12 @@ public static class SupportGeneralConfig{
     
     
     
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
 }
 
 

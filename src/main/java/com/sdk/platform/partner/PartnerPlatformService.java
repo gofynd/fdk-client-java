@@ -120,12 +120,16 @@ public class PartnerPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public PartnerPlatformModels.ExtensionList getExtensionsForCompany(Double pageSize , String tag , String currentPage , Double pageNo , String filterBy ) throws FDKServerResponseError, FDKException {
+    public PartnerPlatformModels.ExtensionList getExtensionsForCompany(Double pageSize , String tag , String currentPage , Double pageNo , String filterBy , String query ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PartnerPlatformModels.ExtensionList> response = null;
             try {
-                response = partnerPlatformApiList.getExtensionsForCompany(this.companyId ,pageSize , tag , currentPage , pageNo , filterBy ).execute();
+                response = partnerPlatformApiList.getExtensionsForCompany(this.companyId ,pageSize , tag , currentPage , pageNo , filterBy , query ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

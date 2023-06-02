@@ -176,8 +176,23 @@ interface OrderPlatformApiList {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/orders/v1.0/company/{company_id}/lane-config/")
-    Call<OrderPlatformModels.LaneConfigResponse> getLaneConfig(@Path("company_id")  String companyId , @Query("super_lane") String  superLane ,  @Query("group_entity") String  groupEntity ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("dp_ids") String  dpIds ,  @Query("stores") String  stores ,  @Query("sales_channel") String  salesChannel ,  @Query("payment_mode") String  paymentMode ,  @Query("bag_status") String  bagStatus );
+    Call<OrderPlatformModels.LaneConfigResponse> getLaneConfig(@Path("company_id")  String companyId , @Query("super_lane") String  superLane ,  @Query("group_entity") String  groupEntity ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("dp_ids") String  dpIds ,  @Query("stores") String  stores ,  @Query("sales_channels") String  salesChannels ,  @Query("payment_mode") String  paymentMode ,  @Query("bag_status") String  bagStatus ,  @Query("search_type") String  searchType ,  @Query("search_value") String  searchValue ,  @Query("tags") String  tags ,  @Query("time_to_dispatch") String  timeToDispatch ,  @Query("payment_methods") String  paymentMethods );
     
     
     
@@ -648,7 +663,7 @@ interface OrderPlatformApiList {
     
     
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/ninja/click2call")
-    Call<OrderPlatformModels.Click2CallResponse> click2Call(@Path("company_id")  String companyId , @Query("caller") String  caller ,  @Query("receiver") String  receiver ,  @Query("bag_id") String  bagId ,  @Query("caller_id") String  callerId ,  @Query("method") String  method );
+    Call<OrderPlatformModels.Click2CallResponse> click2Call(@Path("company_id")  String companyId , @Query("caller") String  caller ,  @Query("receiver") String  receiver ,  @Query("bag_id") String  bagId ,  @Query("calling_to") String  callingTo ,  @Query("caller_id") String  callerId );
     
     
     
@@ -708,7 +723,7 @@ interface OrderPlatformApiList {
     
     
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
-    Call<OrderPlatformModels.ShipmentHistoryResponse> getShipmentHistory(@Path("company_id")  String companyId , @Query("shipment_id") String  shipmentId ,  @Query("bag_id") Integer  bagId );
+    Call<OrderPlatformModels.ShipmentHistoryResponse> getShipmentHistory(@Path("company_id")  String companyId , @Query("shipment_id") Integer  shipmentId ,  @Query("bag_id") Integer  bagId );
     
     
     
@@ -725,8 +740,17 @@ interface OrderPlatformApiList {
     
     
     
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/oms/manual-place-shipment")
+    Call<OrderPlatformModels.ManualAssignDPToShipmentResponse> platformManualAssignDPToShipment(@Path("company_id")  String companyId ,@Body OrderPlatformModels.ManualAssignDPToShipment payload);
+    
+    
+    
+    
+    
+    
+    
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/update-packaging-dimension")
-    Call<OrderPlatformModels.UpdatePackagingDimensionsResponse> updatePackagingDimensions(@Path("company_id")  String companyId ,@Body OrderPlatformModels.UpdatePackagingDimensionsPayload payload);
+    Call<OrderPlatformModels.CreateOrderResponse> updatePackagingDimensions(@Path("company_id")  String companyId ,@Body OrderPlatformModels.CreateOrderPayload payload);
     
     
     
@@ -789,60 +813,6 @@ interface OrderPlatformApiList {
     
     
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/bag/state/transition")
-    Call<OrderPlatformModels.BagStateTransitionMap> getStateTransitionMap(@Path("company_id")  String companyId );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/customer-credit-balance")
-    Call<OrderPlatformModels.FetchCreditBalanceResponsePayload> fetchCreditBalanceDetail(@Path("company_id")  String companyId ,@Body OrderPlatformModels.FetchCreditBalanceRequestPayload payload);
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/refund-mode-config")
-    Call<OrderPlatformModels.RefundModeConfigResponsePayload> fetchRefundModeConfig(@Path("company_id")  String companyId ,@Body OrderPlatformModels.RefundModeConfigRequestPayload payload);
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/user/attach")
-    Call<OrderPlatformModels.AttachOrderUserResponse> attachOrderUser(@Path("company_id")  String companyId ,@Body OrderPlatformModels.AttachOrderUser payload);
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/user/send/otp/mobile")
-    Call<OrderPlatformModels.SendUserMobileOtpResponse> sendUserMobileOTP(@Path("company_id")  String companyId ,@Body OrderPlatformModels.SendUserMobileOTP payload);
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/user/verify/otp")
-    Call<OrderPlatformModels.PointBlankOtpData> verifyMobileOTP(@Path("company_id")  String companyId ,@Body OrderPlatformModels.VerifyMobileOTP payload);
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/einvoice/retry/irn")
-    Call<OrderPlatformModels.EInvoiceRetryResponse> eInvoiceRetry(@Path("company_id")  String companyId ,@Body OrderPlatformModels.EInvoiceRetry payload);
+    Call<OrderPlatformModels.OrderStatusResult> sendSmsNinjaPlatform(@Path("company_id")  String companyId );
     
 }
