@@ -2745,7 +2745,7 @@ public static class Subscription{
     
     
     @JsonProperty("plan_data")
-    private Plan planData;
+    private Object planData;
     
     
     

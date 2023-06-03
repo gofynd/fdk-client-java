@@ -3317,7 +3317,7 @@ platformClient.configuration.getApplications( pageNo,  pageSize,  q) {
 | companyId | String | yes | Current company id |   
 | pageNo | Integer? | no |  |   
 | pageSize | Integer? | no |  |   
-| q | String? | no | Search string to search saleschannel by name |  
+| q | String? | no | Search param by name or domain |  
 
 
 

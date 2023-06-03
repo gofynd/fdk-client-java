@@ -80,4 +80,31 @@ interface FinancePlatformApiList {
     @POST ("/service/platform/finance/v1.0/company/{company_id}/payment-process")
     Call<FinancePlatformModels.PaymentProcessResponse> paymentProcess(@Path("company_id")  String companyId ,@Body FinancePlatformModels.PaymentProcessRequest payload);
     
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/finance/v1.0/company/{company_id}/get-invoice-type")
+    Call<FinancePlatformModels.GetInvoiceListResponse> getInvoiceList(@Path("company_id")  String companyId ,@Body FinancePlatformModels.GetInvoiceListRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/finance/v1.0/company/{company_id}/invoice/listing")
+    Call<FinancePlatformModels.InvoiceListingResponse> invoiceListing(@Path("company_id")  String companyId ,@Body FinancePlatformModels.InvoiceListingRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/finance/v1.0/company/{company_id}/invoice/pdf-view")
+    Call<FinancePlatformModels.InvoicePdfResponse> invoicePDF(@Path("company_id")  String companyId ,@Body FinancePlatformModels.InvoicePdfRequest payload);
+    
 }
