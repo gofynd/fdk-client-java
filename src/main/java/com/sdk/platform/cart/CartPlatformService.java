@@ -1957,12 +1957,16 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
 
-    public CartPlatformModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , Boolean buyNow ) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.CartDetailResponse getCart(String id , String userId , Boolean i , Boolean b , Integer assignCardId , Boolean buyNow ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartDetailResponse> response = null;
             try {
-            response = cartPlatformApiList.getCart(this.companyId , this.applicationId ,id , i , b , assignCardId , buyNow ).execute();
+            response = cartPlatformApiList.getCart(this.companyId , this.applicationId ,id , userId , i , b , assignCardId , buyNow ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2015,7 +2019,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.AddCartDetailResponse platformAddItems(Boolean i , Boolean b , Boolean buyNow , String id ,CartPlatformModels.AddCartRequest body) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.AddCartDetailResponse platformAddItems(Boolean i , Boolean b , Boolean buyNow , String id ,CartPlatformModels.PlatformAddCartRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.AddCartDetailResponse> response = null;
             try {
@@ -2072,7 +2076,7 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.UpdateCartDetailResponse platformUpdateCart(String id , Boolean i , Boolean b , Boolean buyNow ,CartPlatformModels.UpdateCartRequest body) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.UpdateCartDetailResponse platformUpdateCart(String id , Boolean i , Boolean b , Boolean buyNow ,CartPlatformModels.PlatformUpdateCartRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.UpdateCartDetailResponse> response = null;
             try {

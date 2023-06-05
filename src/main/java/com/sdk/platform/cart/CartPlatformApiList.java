@@ -545,8 +545,11 @@ interface CartPlatformApiList {
     
     
     
+    
+    
+    
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/detail")
-    Call<CartPlatformModels.CartDetailResponse> getCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("i") Boolean  i ,  @Query("b") Boolean  b ,  @Query("assign_card_id") Integer  assignCardId ,  @Query("buy_now") Boolean  buyNow );
+    Call<CartPlatformModels.CartDetailResponse> getCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("user_id") String  userId ,  @Query("i") Boolean  i ,  @Query("b") Boolean  b ,  @Query("assign_card_id") Integer  assignCardId ,  @Query("buy_now") Boolean  buyNow );
     
     
     
@@ -570,7 +573,7 @@ interface CartPlatformApiList {
     
     
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/detail")
-    Call<CartPlatformModels.AddCartDetailResponse> platformAddItems(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("i") Boolean  i ,  @Query("b") Boolean  b ,  @Query("buy_now") Boolean  buyNow ,  @Query("id") String  id ,@Body CartPlatformModels.AddCartRequest payload);
+    Call<CartPlatformModels.AddCartDetailResponse> platformAddItems(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("i") Boolean  i ,  @Query("b") Boolean  b ,  @Query("buy_now") Boolean  buyNow ,  @Query("id") String  id ,@Body CartPlatformModels.PlatformAddCartRequest payload);
     
     
     
@@ -594,7 +597,7 @@ interface CartPlatformApiList {
     
     
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/detail")
-    Call<CartPlatformModels.UpdateCartDetailResponse> platformUpdateCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("i") Boolean  i ,  @Query("b") Boolean  b ,  @Query("buy_now") Boolean  buyNow ,@Body CartPlatformModels.UpdateCartRequest payload);
+    Call<CartPlatformModels.UpdateCartDetailResponse> platformUpdateCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("i") Boolean  i ,  @Query("b") Boolean  b ,  @Query("buy_now") Boolean  buyNow ,@Body CartPlatformModels.PlatformUpdateCartRequest payload);
     
     
     
