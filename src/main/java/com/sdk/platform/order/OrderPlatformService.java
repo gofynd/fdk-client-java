@@ -478,12 +478,16 @@ public class OrderPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public OrderPlatformModels.OrderListingResponse getOrders(String lane , String searchType , String bagStatus , String timeToDispatch , String paymentMethods , String tags , String searchValue , String fromDate , String toDate , String dpIds , Integer pageNo , Integer pageSize , Boolean isPrioritySort , String customMeta ) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.OrderListingResponse getOrders(String lane , String searchType , String bagStatus , String timeToDispatch , String paymentMethods , String tags , String searchValue , String fromDate , String toDate , String dpIds , String salesChannel , Integer pageNo , Integer pageSize , Boolean isPrioritySort , String customMeta ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.OrderListingResponse> response = null;
             try {
-                response = orderPlatformApiList.getOrders(this.companyId ,lane , searchType , bagStatus , timeToDispatch , paymentMethods , tags , searchValue , fromDate , toDate , dpIds , pageNo , pageSize , isPrioritySort , customMeta ).execute();
+                response = orderPlatformApiList.getOrders(this.companyId ,lane , searchType , bagStatus , timeToDispatch , paymentMethods , tags , searchValue , fromDate , toDate , dpIds , salesChannel , pageNo , pageSize , isPrioritySort , customMeta ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
