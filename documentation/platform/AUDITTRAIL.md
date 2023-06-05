@@ -23,7 +23,7 @@ Get paginated audit logs
 
 
 ```java
-client.audittrail.getAuditLogs( qs) {
+platformClient.audittrail.getAuditLogs( qs) {
   //use response
 }
 ```
@@ -75,7 +75,7 @@ Success
             "first_name": "Paul",
             "last_name": "Lobo",
             "full_name": "Paul Lobo",
-            "email": "paullobo@gofynd.com"
+            "email": "paullobo@xyz.com"
           }
         },
         "_id": "634eef735e84e7e1b09aa07c",
@@ -110,7 +110,7 @@ Create logs for auditing later on
 
 
 ```java
-client.audittrail.createAuditLog(body body) {
+platformClient.audittrail.createAuditLog(body body) {
   //use response
 }
 ```
@@ -174,7 +174,7 @@ Get audit log
 
 
 ```java
-client.audittrail.getAuditLog( id) {
+platformClient.audittrail.getAuditLog( id) {
   //use response
 }
 ```
@@ -224,7 +224,7 @@ Success
         "first_name": "Paul",
         "last_name": "Lobo",
         "full_name": "Paul Lobo",
-        "email": "paullobo@gofynd.com"
+        "email": "paullobo@xyz.com"
       }
     },
     "device_info": {
@@ -306,7 +306,7 @@ Get entity types
 
 
 ```java
-client.audittrail.getEntityTypes() {
+platformClient.audittrail.getEntityTypes() {
   //use response
 }
 ```

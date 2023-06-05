@@ -31,7 +31,7 @@ Get statistics groups
 
 
 ```java
-client.application("<APPLICATION_ID>").analytics.getStatiscticsGroups() {
+platformClient.application("<APPLICATION_ID>").analytics.getStatiscticsGroups() {
   //use response
 }
 ```
@@ -93,7 +93,7 @@ Get statistics group components
 
 
 ```java
-client.application("<APPLICATION_ID>").analytics.getStatiscticsGroupComponents( groupName) {
+platformClient.application("<APPLICATION_ID>").analytics.getStatiscticsGroupComponents( groupName) {
   //use response
 }
 ```
@@ -159,7 +159,7 @@ Get component statistics csv
 
 
 ```java
-client.application("<APPLICATION_ID>").analytics.getComponentStatsCSV( componentName) {
+platformClient.application("<APPLICATION_ID>").analytics.getComponentStatsCSV( componentName) {
   //use response
 }
 ```
@@ -214,7 +214,7 @@ Get component statistics pdf
 
 
 ```java
-client.application("<APPLICATION_ID>").analytics.getComponentStatsPDF( componentName) {
+platformClient.application("<APPLICATION_ID>").analytics.getComponentStatsPDF( componentName) {
   //use response
 }
 ```
@@ -269,7 +269,7 @@ Get component statistics
 
 
 ```java
-client.application("<APPLICATION_ID>").analytics.getComponentStats( componentName) {
+platformClient.application("<APPLICATION_ID>").analytics.getComponentStats( componentName) {
   //use response
 }
 ```
@@ -371,7 +371,7 @@ Get abandon carts list
 
 
 ```java
-client.application("<APPLICATION_ID>").analytics.getAbandonCartList( fromDate,  toDate,  pageNo,  pageSize) {
+platformClient.application("<APPLICATION_ID>").analytics.getAbandonCartList( fromDate,  toDate,  pageNo,  pageSize) {
   //use response
 }
 ```
@@ -449,7 +449,7 @@ Get abandon carts csv
 
 
 ```java
-client.application("<APPLICATION_ID>").analytics.getAbandonCartsCSV( fromDate,  toDate) {
+platformClient.application("<APPLICATION_ID>").analytics.getAbandonCartsCSV( fromDate,  toDate) {
   //use response
 }
 ```
@@ -505,7 +505,7 @@ Get abandon carts details
 
 
 ```java
-client.application("<APPLICATION_ID>").analytics.getAbandonCartDetail( cartId) {
+platformClient.application("<APPLICATION_ID>").analytics.getAbandonCartDetail( cartId) {
   //use response
 }
 ```
@@ -560,7 +560,7 @@ Create data export job in required format
 
 
 ```java
-client.analytics.createExportJob( exportType, body body) {
+platformClient.analytics.createExportJob( exportType, body body) {
   //use response
 }
 ```
@@ -617,7 +617,7 @@ Get data export job status
 
 
 ```java
-client.analytics.getExportJobStatus( exportType,  jobId) {
+platformClient.analytics.getExportJobStatus( exportType,  jobId) {
   //use response
 }
 ```
@@ -676,7 +676,7 @@ Get logs list
 
 
 ```java
-client.analytics.getLogsList( logType,  pageNo,  pageSize, body body) {
+platformClient.analytics.getLogsList( logType,  pageNo,  pageSize, body body) {
   //use response
 }
 ```
@@ -750,7 +750,7 @@ Search logs
 
 
 ```java
-client.analytics.searchLogs( pageNo,  pageSize,  logType, body body) {
+platformClient.analytics.searchLogs( pageNo,  pageSize,  logType, body body) {
   //use response
 }
 ```

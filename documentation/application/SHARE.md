@@ -26,7 +26,7 @@ Create QR Code of an app
 
 
 ```java
-share.getApplicationQRCode() {
+applicationClient.share.getApplicationQRCode() {
   //use response
 }
 ```
@@ -77,7 +77,7 @@ Create QR Code of a product
 
 
 ```java
-share.getProductQRCodeBySlug( slug) {
+applicationClient.share.getProductQRCodeBySlug( slug) {
   //use response
 }
 ```
@@ -133,7 +133,7 @@ Create QR Code of a collection
 
 
 ```java
-share.getCollectionQRCodeBySlug( slug) {
+applicationClient.share.getCollectionQRCodeBySlug( slug) {
   //use response
 }
 ```
@@ -189,7 +189,7 @@ Create QR Code of a URL
 
 
 ```java
-share.getUrlQRCode( url) {
+applicationClient.share.getUrlQRCode( url) {
   //use response
 }
 ```
@@ -245,7 +245,7 @@ Create a short link
 
 
 ```java
-share.createShortLink(body body) {
+applicationClient.share.createShortLink(body body) {
   //use response
 }
 ```
@@ -335,7 +335,7 @@ Get short link by hash
 
 
 ```java
-share.getShortLinkByHash( hash) {
+applicationClient.share.getShortLinkByHash( hash) {
   //use response
 }
 ```
@@ -426,7 +426,7 @@ Get original link by hash
 
 
 ```java
-share.getOriginalShortLinkByHash( hash) {
+applicationClient.share.getOriginalShortLinkByHash( hash) {
   //use response
 }
 ```
