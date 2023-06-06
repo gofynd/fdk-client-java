@@ -191,11 +191,11 @@ public class ServiceabilityPlatformService {
     
     
 
-    public ServiceabilityPlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.ZoneSuccessResponse updateZoneControllerView(String zoneId ,ServiceabilityPlatformModels.ZoneUpdateRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ServiceabilityPlatformModels.GetSingleZoneDataViewResponse> response = null;
+            Response<ServiceabilityPlatformModels.ZoneSuccessResponse> response = null;
             try {
-                response = serviceabilityPlatformApiList.getZoneDataView(this.companyId , zoneId  ).execute();
+                response = serviceabilityPlatformApiList.updateZoneControllerView(zoneId  , this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -231,11 +231,11 @@ public class ServiceabilityPlatformService {
     
     
 
-    public ServiceabilityPlatformModels.ZoneSuccessResponse updateZoneControllerView(String zoneId ,ServiceabilityPlatformModels.ZoneUpdateRequest body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ServiceabilityPlatformModels.ZoneSuccessResponse> response = null;
+            Response<ServiceabilityPlatformModels.GetSingleZoneDataViewResponse> response = null;
             try {
-                response = serviceabilityPlatformApiList.updateZoneControllerView(zoneId  , this.companyId , body).execute();
+                response = serviceabilityPlatformApiList.getZoneDataView(this.companyId , zoneId  ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -380,6 +380,46 @@ public class ServiceabilityPlatformService {
     
     
     
+    
+    
+
+    public ServiceabilityPlatformModels.ReAssignStoreResponse getOptimalLocations(ServiceabilityPlatformModels.ReAssignStoreRequest body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.ReAssignStoreResponse> response = null;
+            try {
+                response = serviceabilityPlatformApiList.getOptimalLocations(this.companyId , body).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 
@@ -465,6 +505,63 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ServiceabilityPlatformModels.GetZoneFromApplicationIdViewResponse getZonesFromApplicationIdView(Integer pageNo , Integer pageSize , List<String> zoneId , String q ) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.GetZoneFromApplicationIdViewResponse> response = null;
+            try {
+            response = serviceabilityPlatformApiList.getZonesFromApplicationIdView(this.companyId , this.applicationId ,pageNo , pageSize , zoneId , q ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     public ServiceabilityPlatformModels.GetZoneFromPincodeViewResponse getZoneFromPincodeView(ServiceabilityPlatformModels.GetZoneFromPincodeViewRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
@@ -512,22 +609,12 @@ public class ApplicationClient {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-    public ServiceabilityPlatformModels.GetZoneFromApplicationIdViewResponse getZonesFromApplicationIdView(Integer pageNo , Integer pageSize , List<String> zoneId , String q ) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.ApplicationCompanyDpViewResponse addAppDp(ServiceabilityPlatformModels.ApplicationCompanyDpViewRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ServiceabilityPlatformModels.GetZoneFromApplicationIdViewResponse> response = null;
+            Response<ServiceabilityPlatformModels.ApplicationCompanyDpViewResponse> response = null;
             try {
-            response = serviceabilityPlatformApiList.getZonesFromApplicationIdView(this.companyId , this.applicationId ,pageNo , pageSize , zoneId , q ).execute();
+            response = serviceabilityPlatformApiList.addAppDp(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -550,6 +637,47 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ServiceabilityPlatformModels.ApplicationCompanyDpViewResponse deleteAppDp(Integer courierPartnerId ) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.ApplicationCompanyDpViewResponse> response = null;
+            try {
+            response = serviceabilityPlatformApiList.deleteAppDp(this.companyId , this.applicationId , courierPartnerId ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
     
     
     

@@ -74,18 +74,6 @@ interface ServiceabilityPlatformApiList {
     
     
     
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
-    Call<ServiceabilityPlatformModels.GetSingleZoneDataViewResponse> getZoneDataView(@Path("company_id")  String companyId , @Path("zone_id") String  zoneId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PUT ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
     Call<ServiceabilityPlatformModels.ZoneSuccessResponse> updateZoneControllerView(@Path("zone_id") String  zoneId , @Path("company_id")  String companyId ,@Body ServiceabilityPlatformModels.ZoneUpdateRequest payload);
     
@@ -95,20 +83,20 @@ interface ServiceabilityPlatformApiList {
     
     
     
+    
+    
+    
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
+    Call<ServiceabilityPlatformModels.GetSingleZoneDataViewResponse> getZoneDataView(@Path("company_id")  String companyId , @Path("zone_id") String  zoneId );
+    
+    
+    
+    
+    
+    
+    
     @POST ("/service/platform/logistics/v1.0/company/{company_id}/zone")
     Call<ServiceabilityPlatformModels.ZoneResponse> createZone(@Path("company_id")  String companyId ,@Body ServiceabilityPlatformModels.ZoneRequest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/zones")
-    Call<ServiceabilityPlatformModels.GetZoneFromPincodeViewResponse> getZoneFromPincodeView(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ServiceabilityPlatformModels.GetZoneFromPincodeViewRequest payload);
     
     
     
@@ -143,6 +131,18 @@ interface ServiceabilityPlatformApiList {
     
     
     
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/zones")
+    Call<ServiceabilityPlatformModels.GetZoneFromPincodeViewResponse> getZoneFromPincodeView(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ServiceabilityPlatformModels.GetZoneFromPincodeViewRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/stores/{store_uid}")
     Call<ServiceabilityPlatformModels.GetStoresViewResponse> getStore(@Path("company_id")  String companyId , @Path("store_uid") Integer  storeUid );
     
@@ -154,6 +154,42 @@ interface ServiceabilityPlatformApiList {
     
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/logistics/stores")
     Call<ServiceabilityPlatformModels.GetStoresViewResponse> getAllStores(@Path("company_id")  String companyId );
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/reassign")
+    Call<ServiceabilityPlatformModels.ReAssignStoreResponse> getOptimalLocations(@Path("company_id")  String companyId ,@Body ServiceabilityPlatformModels.ReAssignStoreRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}")
+    Call<ServiceabilityPlatformModels.ApplicationCompanyDpViewResponse> addAppDp(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ServiceabilityPlatformModels.ApplicationCompanyDpViewRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/courier-partner/{courier_partner_id}")
+    Call<ServiceabilityPlatformModels.ApplicationCompanyDpViewResponse> deleteAppDp(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("courier_partner_id") Integer  courierPartnerId );
     
     
     
