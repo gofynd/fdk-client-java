@@ -95,14 +95,8 @@ interface OrderPlatformApiList {
     
     
     
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/orders/v1.0/company/{company_id}/shipment-details")
-    Call<OrderPlatformModels.ShipmentInfoResponse> getShipmentById(@Path("company_id")  String companyId , @Query("channel_shipment_id") String  channelShipmentId ,  @Query("shipment_id") String  shipmentId ,  @Query("ordering_company_id") String  orderingCompanyId ,  @Query("request_by_ext") String  requestByExt );
+    Call<OrderPlatformModels.ShipmentInfoResponse> getShipmentById(@Path("company_id")  String companyId , @Query("channel_shipment_id") String  channelShipmentId ,  @Query("shipment_id") String  shipmentId );
     
     
     

@@ -184,20 +184,12 @@ public class OrderPlatformService {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
 
-    public OrderPlatformModels.ShipmentInfoResponse getShipmentById(String channelShipmentId , String shipmentId , String orderingCompanyId , String requestByExt ) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.ShipmentInfoResponse getShipmentById(String channelShipmentId , String shipmentId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.ShipmentInfoResponse> response = null;
             try {
-                response = orderPlatformApiList.getShipmentById(this.companyId ,channelShipmentId , shipmentId , orderingCompanyId , requestByExt ).execute();
+                response = orderPlatformApiList.getShipmentById(this.companyId ,channelShipmentId , shipmentId ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
