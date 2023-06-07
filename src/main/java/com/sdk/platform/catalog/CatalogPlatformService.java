@@ -4102,11 +4102,11 @@ public class ApplicationClient {
     
     
 
-    public CatalogPlatformModels.SuccessResponse1 updateAppProduct(String itemId ,CatalogPlatformModels.ApplicationItemMeta body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.OwnerAppItemResponse getAppProduct(String itemId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponse1> response = null;
+            Response<CatalogPlatformModels.OwnerAppItemResponse> response = null;
             try {
-            response = catalogPlatformApiList.updateAppProduct(this.companyId , this.applicationId , itemId , body).execute();
+            response = catalogPlatformApiList.getAppProduct(this.companyId , this.applicationId , itemId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -4147,11 +4147,11 @@ public class ApplicationClient {
     
     
 
-    public CatalogPlatformModels.OwnerAppItemResponse getAppProduct(String itemId ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse1 updateAppProduct(String itemId ,CatalogPlatformModels.ApplicationItemMeta body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.OwnerAppItemResponse> response = null;
+            Response<CatalogPlatformModels.SuccessResponse1> response = null;
             try {
-            response = catalogPlatformApiList.getAppProduct(this.companyId , this.applicationId , itemId ).execute();
+            response = catalogPlatformApiList.updateAppProduct(this.companyId , this.applicationId , itemId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
