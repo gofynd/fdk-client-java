@@ -87,7 +87,7 @@ interface FinancePlatformApiList {
     
     
     @POST ("/service/platform/finance/v1.0/company/{company_id}/get-invoice-type")
-    Call<FinancePlatformModels.GetInvoiceListResponse> getInvoiceList(@Path("company_id")  String companyId ,@Body FinancePlatformModels.GetInvoiceListRequest payload);
+    Call<FinancePlatformModels.GetInvoiceListResponse> getInvoiceType(@Path("company_id")  String companyId ,@Body FinancePlatformModels.GetInvoiceListRequest payload);
     
     
     
