@@ -92,7 +92,7 @@ Get the list of all the extensions
 
 
 ```java
-platformClient.partner.getExtensionsForCompany( pageSize,  tag,  currentPage,  pageNo,  filterBy,  query) {
+platformClient.partner.getExtensionsForCompany( pageSize,  tag,  currentPage,  pageNo,  filterBy,  query,  q,  isApplicationLevel,  isSaleschannel,  extentionType) {
   //use response
 }
 ```
@@ -107,7 +107,11 @@ platformClient.partner.getExtensionsForCompany( pageSize,  tag,  currentPage,  p
 | currentPage | String? | no | tag |   
 | pageNo | Double? | no | Current page number |   
 | filterBy | String? | no | Filter by |   
-| query | String? | no | query |  
+| query | String? | no | query |   
+| q | String? | no | Search value |   
+| isApplicationLevel | String? | no | Flag to mark application level |   
+| isSaleschannel | String? | no | Flag to mark sales channel level |   
+| extentionType | String? | no | Extension type |  
 
 
 
@@ -474,7 +478,7 @@ Get the list of private extensions
 
 
 ```java
-platformClient.partner.getPrivateExtensions( pageSize,  pageNo,  query) {
+platformClient.partner.getPrivateExtensions( pageSize,  pageNo,  query,  q,  installed) {
   //use response
 }
 ```
@@ -486,7 +490,9 @@ platformClient.partner.getPrivateExtensions( pageSize,  pageNo,  query) {
 | companyId | String | yes | Current company id |   
 | pageSize | Double? | no | Number of records you want to get in single page |   
 | pageNo | Double? | no | Number of page |   
-| query | String? | no | Filter query which we want to pass |  
+| query | String? | no | Filter query which we want to pass |   
+| q | String? | no | Search value |   
+| installed | String? | no | Filter flag for installed extension |  
 
 
 

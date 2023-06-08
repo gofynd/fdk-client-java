@@ -74,20 +74,20 @@ interface ServiceabilityPlatformApiList {
     
     
     
-    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
-    Call<ServiceabilityPlatformModels.ZoneSuccessResponse> updateZoneControllerView(@Path("zone_id") String  zoneId , @Path("company_id")  String companyId ,@Body ServiceabilityPlatformModels.ZoneUpdateRequest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
     Call<ServiceabilityPlatformModels.GetSingleZoneDataViewResponse> getZoneDataView(@Path("company_id")  String companyId , @Path("zone_id") String  zoneId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
+    Call<ServiceabilityPlatformModels.ZoneSuccessResponse> updateZoneControllerView(@Path("zone_id") String  zoneId , @Path("company_id")  String companyId ,@Body ServiceabilityPlatformModels.ZoneUpdateRequest payload);
     
     
     
@@ -245,8 +245,8 @@ interface ServiceabilityPlatformApiList {
     
     
     
-    @POST ("/service/platform/logistics/v1.0/company/{company_id}/dp-account")
-    Call<ServiceabilityPlatformModels.CompanyDpAccountResponse> upsertDpAccountView(@Path("company_id")  String companyId ,@Body ServiceabilityPlatformModels.CompanyDpAccountRequest payload);
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/courier/account")
+    Call<ServiceabilityPlatformModels.CompanyDpAccountResponse> upsertDpAccount(@Path("company_id")  String companyId ,@Body ServiceabilityPlatformModels.CompanyDpAccountRequest payload);
     
     
     
@@ -257,8 +257,8 @@ interface ServiceabilityPlatformApiList {
     
     
     
-    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/dp-rules/{rule_uid}")
-    Call<ServiceabilityPlatformModels.DpRuleUpdateSuccessResponse> updateDpRuleView(@Path("company_id")  String companyId , @Path("rule_uid") String  ruleUid ,@Body ServiceabilityPlatformModels.DpRulesUpdateRequest payload);
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier/rules/{rule_uid}")
+    Call<ServiceabilityPlatformModels.DpRuleSuccessResponse> getDpRules(@Path("company_id")  String companyId , @Path("rule_uid") String  ruleUid );
     
     
     
@@ -269,8 +269,8 @@ interface ServiceabilityPlatformApiList {
     
     
     
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/dp-rules/{rule_uid}")
-    Call<ServiceabilityPlatformModels.DpRuleSuccessResponse> getDpRulesView(@Path("company_id")  String companyId , @Path("rule_uid") String  ruleUid );
+    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/courier/rules/{rule_uid}")
+    Call<ServiceabilityPlatformModels.DpRuleUpdateSuccessResponse> updateDpRule(@Path("company_id")  String companyId , @Path("rule_uid") String  ruleUid ,@Body ServiceabilityPlatformModels.DpRulesUpdateRequest payload);
     
     
     
@@ -278,8 +278,8 @@ interface ServiceabilityPlatformApiList {
     
     
     
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/dp-rules")
-    Call<ServiceabilityPlatformModels.DpMultipleRuleSuccessResponse> getDpRuleInsertView(@Path("company_id")  String companyId );
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier/rules")
+    Call<ServiceabilityPlatformModels.DpMultipleRuleSuccessResponse> getDpRuleInsert(@Path("company_id")  String companyId );
     
     
     
@@ -287,8 +287,8 @@ interface ServiceabilityPlatformApiList {
     
     
     
-    @POST ("/service/platform/logistics/v1.0/company/{company_id}/dp-rules")
-    Call<ServiceabilityPlatformModels.DpRuleSuccessResponse> upsertDpRulesView(@Path("company_id")  String companyId ,@Body ServiceabilityPlatformModels.DpRuleRequest payload);
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/courier/rules")
+    Call<ServiceabilityPlatformModels.DpRuleSuccessResponse> upsertDpRules(@Path("company_id")  String companyId ,@Body ServiceabilityPlatformModels.DpRuleRequest payload);
     
     
     
@@ -296,8 +296,8 @@ interface ServiceabilityPlatformApiList {
     
     
     
-    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/logistics")
-    Call<ServiceabilityPlatformModels.DPCompanyRuleResponse> upsertDpCompanyRulesView(@Path("company_id")  String companyId ,@Body ServiceabilityPlatformModels.DPCompanyRuleRequest payload);
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier/priority")
+    Call<ServiceabilityPlatformModels.DPCompanyRuleResponse> getDpCompanyRules(@Path("company_id")  String companyId );
     
     
     
@@ -305,8 +305,8 @@ interface ServiceabilityPlatformApiList {
     
     
     
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/logistics")
-    Call<ServiceabilityPlatformModels.DPCompanyRuleResponse> getDpCompanyRulesView(@Path("company_id")  String companyId );
+    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/courier/priority")
+    Call<ServiceabilityPlatformModels.DPCompanyRuleResponse> upsertDpCompanyRules(@Path("company_id")  String companyId ,@Body ServiceabilityPlatformModels.DPCompanyRuleRequest payload);
     
     
     
@@ -317,8 +317,8 @@ interface ServiceabilityPlatformApiList {
     
     
     
-    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/logistics")
-    Call<ServiceabilityPlatformModels.DPApplicationRuleResponse> upsertDpApplicationRulesView(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ServiceabilityPlatformModels.DPApplicationRuleRequest payload);
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/courier/priority")
+    Call<ServiceabilityPlatformModels.DPApplicationRuleResponse> getDpApplicationRules(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
     
     
@@ -329,7 +329,7 @@ interface ServiceabilityPlatformApiList {
     
     
     
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/logistics")
-    Call<ServiceabilityPlatformModels.DPApplicationRuleResponse> getDpApplicationRulesView(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/courier/priority")
+    Call<ServiceabilityPlatformModels.DPApplicationRuleResponse> upsertDpApplicationRules(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ServiceabilityPlatformModels.DPApplicationRuleRequest payload);
     
 }

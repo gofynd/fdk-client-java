@@ -124,12 +124,28 @@ public class PartnerPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public PartnerPlatformModels.ExtensionList getExtensionsForCompany(Double pageSize , String tag , String currentPage , Double pageNo , String filterBy , String query ) throws FDKServerResponseError, FDKException {
+    public PartnerPlatformModels.ExtensionList getExtensionsForCompany(Double pageSize , String tag , String currentPage , Double pageNo , String filterBy , String query , String q , String isApplicationLevel , String isSaleschannel , String extentionType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PartnerPlatformModels.ExtensionList> response = null;
             try {
-                response = partnerPlatformApiList.getExtensionsForCompany(this.companyId ,pageSize , tag , currentPage , pageNo , filterBy , query ).execute();
+                response = partnerPlatformApiList.getExtensionsForCompany(this.companyId ,pageSize , tag , currentPage , pageNo , filterBy , query , q , isApplicationLevel , isSaleschannel , extentionType ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -300,12 +316,20 @@ public class PartnerPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public PartnerPlatformModels.ExtensionResponse getPrivateExtensions(Double pageSize , Double pageNo , String query ) throws FDKServerResponseError, FDKException {
+    public PartnerPlatformModels.ExtensionResponse getPrivateExtensions(Double pageSize , Double pageNo , String query , String q , String installed ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PartnerPlatformModels.ExtensionResponse> response = null;
             try {
-                response = partnerPlatformApiList.getPrivateExtensions(this.companyId ,pageSize , pageNo , query ).execute();
+                response = partnerPlatformApiList.getPrivateExtensions(this.companyId ,pageSize , pageNo , query , q , installed ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

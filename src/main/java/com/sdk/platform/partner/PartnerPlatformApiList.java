@@ -50,8 +50,20 @@ interface PartnerPlatformApiList {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/partners/v1.0/company/{company_id}/extensions")
-    Call<PartnerPlatformModels.ExtensionList> getExtensionsForCompany(@Path("company_id")  String companyId , @Query("page_size") Double  pageSize ,  @Query("tag") String  tag ,  @Query("current_page") String  currentPage ,  @Query("page_no") Double  pageNo ,  @Query("filter_by") String  filterBy ,  @Query("query") String  query );
+    Call<PartnerPlatformModels.ExtensionList> getExtensionsForCompany(@Path("company_id")  String companyId , @Query("page_size") Double  pageSize ,  @Query("tag") String  tag ,  @Query("current_page") String  currentPage ,  @Query("page_no") Double  pageNo ,  @Query("filter_by") String  filterBy ,  @Query("query") String  query ,  @Query("q") String  q ,  @Query("is_application_level") String  isApplicationLevel ,  @Query("is_saleschannel") String  isSaleschannel ,  @Query("extention_type") String  extentionType );
     
     
     
@@ -110,8 +122,14 @@ interface PartnerPlatformApiList {
     
     
     
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/partners/v1.0/company/{company_id}/private-extensions")
-    Call<PartnerPlatformModels.ExtensionResponse> getPrivateExtensions(@Path("company_id")  String companyId , @Query("page_size") Double  pageSize ,  @Query("page_no") Double  pageNo ,  @Query("query") String  query );
+    Call<PartnerPlatformModels.ExtensionResponse> getPrivateExtensions(@Path("company_id")  String companyId , @Query("page_size") Double  pageSize ,  @Query("page_no") Double  pageNo ,  @Query("query") String  query ,  @Query("q") String  q ,  @Query("installed") String  installed );
     
     
     
