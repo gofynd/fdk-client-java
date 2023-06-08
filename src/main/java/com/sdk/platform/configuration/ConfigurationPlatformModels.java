@@ -5539,6 +5539,12 @@ public static class Application{
     
     
     
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
 }
 
 
@@ -6137,7 +6143,7 @@ public static class InformationAddress{
     
     
     @JsonProperty("phone")
-    private InformationPhone phone;
+    private List<InformationPhone> phone;
     
     
     
@@ -6732,6 +6738,12 @@ public static class ApplicationDetail{
     
     @JsonProperty("_id")
     private String id;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
     
     
     
