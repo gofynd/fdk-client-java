@@ -10,16 +10,16 @@ interface CartApplicationApiList {
     
     
     @GET 
-    Call<CartApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("assign_card_id") Integer assignCardId , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow );
+    Call<CartApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("p") Boolean p , @Query("assign_card_id") Integer assignCardId , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow );
     
     @HEAD 
     Call<Object> getCartLastModified(@Url String url1, @Query("id") String id );
     
     @POST 
-    Call<CartApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow , @Query("id") String id  , @Body CartApplicationModels.AddCartRequest payload );
+    Call<CartApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("p") Boolean p , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow , @Query("id") String id  , @Body CartApplicationModels.AddCartRequest payload );
     
     @PUT 
-    Call<CartApplicationModels.UpdateCartDetailResponse> updateCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow  , @Body CartApplicationModels.UpdateCartRequest payload );
+    Call<CartApplicationModels.UpdateCartDetailResponse> updateCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("p") Boolean p , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow  , @Body CartApplicationModels.UpdateCartRequest payload );
     
     @PUT 
     Call<CartApplicationModels.DeleteCartDetailResponse> deleteCart(@Url String url1, @Query("id") String id );

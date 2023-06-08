@@ -115,12 +115,12 @@ import com.sdk.application.*;
      
     
     
-    public CartApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode , Boolean buyNow ) throws IOException {
+    public CartApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Boolean p , Integer assignCardId , String areaCode , Boolean buyNow ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCart");
         
 
-        Response<CartApplicationModels.CartDetailResponse> response = cartApplicationApiList.getCart(fullUrl  ,id, i, b, assignCardId, areaCode, buyNow).execute();
+        Response<CartApplicationModels.CartDetailResponse> response = cartApplicationApiList.getCart(fullUrl  ,id, i, b, p, assignCardId, areaCode, buyNow).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -151,12 +151,12 @@ import com.sdk.application.*;
     
     
     
-    public CartApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , Boolean buyNow , String id ,CartApplicationModels.AddCartRequest body) throws IOException {
+    public CartApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , Boolean p , String areaCode , Boolean buyNow , String id ,CartApplicationModels.AddCartRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("addItems");
         
 
-        Response<CartApplicationModels.AddCartDetailResponse> response = cartApplicationApiList.addItems(fullUrl  ,i, b, areaCode, buyNow, id, body).execute();
+        Response<CartApplicationModels.AddCartDetailResponse> response = cartApplicationApiList.addItems(fullUrl  ,i, b, p, areaCode, buyNow, id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -169,12 +169,12 @@ import com.sdk.application.*;
     
     
     
-    public CartApplicationModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b , String areaCode , Boolean buyNow ,CartApplicationModels.UpdateCartRequest body) throws IOException {
+    public CartApplicationModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b , Boolean p , String areaCode , Boolean buyNow ,CartApplicationModels.UpdateCartRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("updateCart");
         
 
-        Response<CartApplicationModels.UpdateCartDetailResponse> response = cartApplicationApiList.updateCart(fullUrl  ,id, i, b, areaCode, buyNow, body).execute();
+        Response<CartApplicationModels.UpdateCartDetailResponse> response = cartApplicationApiList.updateCart(fullUrl  ,id, i, b, p, areaCode, buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
