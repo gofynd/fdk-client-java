@@ -278,4 +278,16 @@ interface PaymentPlatformApiList {
     @PUT ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/user-cod")
     Call<PaymentPlatformModels.SetCODOptionResponse> setUserCODlimitRoutes(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.SetCODForUserRequest payload);
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/payment-status-bulk/")
+    Call<PaymentPlatformModels.PaymentStatusBulkHandlerResponse> paymentStatusBulk(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.PaymentStatusBulkHandlerRequest payload);
+    
 }

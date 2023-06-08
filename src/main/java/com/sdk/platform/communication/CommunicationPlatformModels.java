@@ -2319,50 +2319,6 @@ public static class EventSubscriptions{
 
 
 /*
-    Model: TriggerJobResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TriggerJobResponse{
-    
-    
-    
-    
-    @JsonProperty("status")
-    private Integer status;
-    
-    
-    
-}
-
-
-/*
-    Model: TriggerJobRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TriggerJobRequest{
-    
-    
-    
-    
-    @JsonProperty("job_id")
-    private String jobId;
-    
-    
-    
-}
-
-
-/*
     Model: Job
 */
 @AllArgsConstructor
@@ -2540,6 +2496,50 @@ public static class JobLogs{
     
     @JsonProperty("page")
     private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: TriggerJobResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TriggerJobResponse{
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Integer status;
+    
+    
+    
+}
+
+
+/*
+    Model: TriggerJobRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TriggerJobRequest{
+    
+    
+    
+    
+    @JsonProperty("job_id")
+    private String jobId;
     
     
     
@@ -2837,6 +2837,34 @@ public static class SendOtpEmailCommsTemplate{
 
 
 /*
+    Model: SendOtpEmailCommsProvider
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SendOtpEmailCommsProvider{
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+}
+
+
+/*
     Model: SendOtpCommsReqData
 */
 @AllArgsConstructor
@@ -2944,6 +2972,12 @@ public static class SendOtpCommsReqEmail{
     
     @JsonProperty("template")
     private SendOtpEmailCommsTemplate template;
+    
+    
+    
+    
+    @JsonProperty("provider")
+    private SendOtpEmailCommsProvider provider;
     
     
     

@@ -71,33 +71,6 @@ interface BillingPlatformApiList {
     
     
     
-    
-    
-    
-    @POST ("/service/platform/billing/v1.0/company/{company_id}/extension/{extension_id}/one_time_charge")
-    Call<BillingPlatformModels.CreateOneTimeChargeResponse> createOneTimeCharge(@Path("company_id")  String companyId , @Path("extension_id") String  extensionId ,@Body BillingPlatformModels.CreateOneTimeCharge payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/billing/v1.0/company/{company_id}/extension/{extension_id}/charge/{charge_id}")
-    Call<BillingPlatformModels.OneTimeChargeEntity> getChargeDetails(@Path("company_id")  String companyId , @Path("extension_id") String  extensionId , @Path("charge_id") String  chargeId );
-    
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/billing/v1.0/company/{company_id}/invoice/list")
     Call<BillingPlatformModels.Invoices> getInvoices(@Path("company_id")  String companyId );
     

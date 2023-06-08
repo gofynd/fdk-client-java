@@ -106,8 +106,6 @@ public class ConfigurationPlatformService {
     
     
     
-    
-    
 
     public ConfigurationPlatformModels.CreateAppResponse createApplication(ConfigurationPlatformModels.CreateApplicationRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
@@ -403,62 +401,6 @@ public class ConfigurationPlatformService {
     }
     
     
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getAvailableOptIns
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ConfigurationPlatformModels.GetIntegrationsOptInsResponse> getAvailableOptInsPagination(
-        Integer pageSize 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ConfigurationPlatformModels.GetIntegrationsOptInsResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ConfigurationPlatformModels.GetIntegrationsOptInsResponse callback = this.getAvailableOptIns(
-                
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
     
     
     
@@ -508,78 +450,6 @@ public class ConfigurationPlatformService {
         } else {
             return null;
         }    
-    }
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getSelectedOptIns
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ConfigurationPlatformModels.GetIntegrationsOptInsResponse> getSelectedOptInsPagination(
-        String level ,
-        Integer uid ,
-        Integer pageSize 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ConfigurationPlatformModels.GetIntegrationsOptInsResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ConfigurationPlatformModels.GetIntegrationsOptInsResponse callback = this.getSelectedOptIns(
-                
-                 
-                 level,
-                 uid,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
     }
     
     
@@ -1458,47 +1328,6 @@ public class ApplicationClient {
             Response<ConfigurationPlatformModels.AppFeature> response = null;
             try {
             response = configurationPlatformApiList.updateAppFeatures(this.companyId , this.applicationId , body).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    public ConfigurationPlatformModels.AppFeature modifyAppFeatures(ConfigurationPlatformModels.AppFeatureRequest body) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.AppFeature> response = null;
-            try {
-            response = configurationPlatformApiList.modifyAppFeatures(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

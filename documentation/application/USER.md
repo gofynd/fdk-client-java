@@ -1982,11 +1982,6 @@ Success. Returns a JSON object containing the all the platform configurations. R
   "delete_account_consent": {
     "consent_text": ""
   },
-  "session_config": {
-    "duration": "30",
-    "type": "Days",
-    "is_rolling": false
-  },
   "_id": "5e04a5e5220bc15839ad9bc0",
   "created_at": "2019-12-26T12:21:57.878Z",
   "updated_at": "2020-08-13T14:31:09.878Z",
@@ -3597,7 +3592,7 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[SessionListResponseInfo](#SessionListResponseInfo)>? |  yes  |  |
+ | items | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -3767,21 +3762,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
 
  
  
- #### [SessionListResponseInfo](#SessionListResponseInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | sessionId | String? |  yes  |  |
- | userAgent | String? |  yes  |  |
- | ip | String? |  yes  |  |
- | domain | String? |  yes  |  |
- | expireIn | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [AuthSuccessUserDebug](#AuthSuccessUserDebug)
 
  | Properties | Type | Nullable | Description |
@@ -3801,51 +3781,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | verified | Boolean? |  yes  |  |
  | primary | Boolean? |  yes  |  |
  | active | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserGroupResponseSchema](#UserGroupResponseSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | description | String? |  yes  |  |
- | fileUrl | String? |  yes  |  |
- | id | String? |  yes  |  |
- | status | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | applicationId | String? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | modifiedAt | String? |  yes  |  |
- | v | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserGroupListResponseSchema](#UserGroupListResponseSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[UserGroupResponseSchema](#UserGroupResponseSchema)>? |  yes  |  |
- | page | [PaginationSchema](#PaginationSchema)? |  yes  |  |
-
----
-
-
- 
- 
- #### [CreateUserGroupSchema](#CreateUserGroupSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String |  no  |  |
- | description | String |  no  |  |
- | fileUrl | String |  no  |  |
 
 ---
 
@@ -3936,7 +3871,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | deleteAccountDay | Integer? |  yes  |  |
  | deleteAccountReasons | ArrayList<[DeleteAccountReasons](#DeleteAccountReasons)>? |  yes  |  |
  | deleteAccountConsent | HashMap<String,Object>? |  yes  |  |
- | sessionConfig | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -4147,32 +4081,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
 
  
  
- #### [SessionExpiry](#SessionExpiry)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | duration | Integer? |  yes  |  |
- | type | String? |  yes  |  |
- | isRolling | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [UpdateUserGroupSchema](#UpdateUserGroupSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | description | String? |  yes  |  |
- | fileUrl | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [UpdateUserRequestSchema](#UpdateUserRequestSchema)
 
  | Properties | Type | Nullable | Description |
@@ -4182,37 +4090,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | gender | String? |  yes  |  |
  | externalId | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
- | phoneNumbers | ArrayList<[UserPhoneNumbers](#UserPhoneNumbers)>? |  yes  |  |
- | emails | ArrayList<[UserEmails](#UserEmails)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserEmails](#UserEmails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | active | Boolean? |  yes  |  |
- | primary | Boolean? |  yes  |  |
- | verified | Boolean? |  yes  |  |
- | email | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserPhoneNumbers](#UserPhoneNumbers)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | active | Boolean? |  yes  |  |
- | primary | Boolean? |  yes  |  |
- | verified | Boolean? |  yes  |  |
- | phone | String? |  yes  |  |
- | countryCode | String? |  yes  |  |
 
 ---
 
@@ -4236,6 +4113,8 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | profilePicUrl | String? |  yes  |  |
  | username | String? |  yes  |  |
  | accountType | String? |  yes  |  |
+ | debug | [Debug](#Debug)? |  yes  |  |
+ | hasOldPasswordHash | Boolean? |  yes  |  |
  | id | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
@@ -4268,6 +4147,18 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | verified | Boolean? |  yes  |  |
  | email | String? |  yes  |  |
  | active | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Debug](#Debug)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | source | String? |  yes  |  |
+ | platform | String? |  yes  |  |
 
 ---
 

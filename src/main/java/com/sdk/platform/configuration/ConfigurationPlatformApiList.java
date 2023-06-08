@@ -86,18 +86,6 @@ interface ConfigurationPlatformApiList {
     
     
     
-    @PATCH ("/service/platform/configuration/v1.0/company/{company_id}/application/{application_id}/feature")
-    Call<ConfigurationPlatformModels.AppFeature> modifyAppFeatures(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ConfigurationPlatformModels.AppFeatureRequest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/configuration/v1.0/company/{company_id}/application/{application_id}/detail")
     Call<ConfigurationPlatformModels.ApplicationDetail> getAppBasicDetails(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     

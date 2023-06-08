@@ -113,12 +113,12 @@ import com.sdk.application.*;
      
     
     
-    public PosCartApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , String areaCode , Boolean buyNow ) throws IOException {
+    public PosCartApplicationModels.CartDetailResponse getCart(String id , Boolean i , Boolean b , Integer assignCardId , Boolean buyNow ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCart");
         
 
-        Response<PosCartApplicationModels.CartDetailResponse> response = poscartApplicationApiList.getCart(fullUrl  ,id, i, b, assignCardId, areaCode, buyNow).execute();
+        Response<PosCartApplicationModels.CartDetailResponse> response = poscartApplicationApiList.getCart(fullUrl  ,id, i, b, assignCardId, buyNow).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -149,12 +149,12 @@ import com.sdk.application.*;
     
     
     
-    public PosCartApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , Boolean buyNow ,PosCartApplicationModels.AddCartRequest body) throws IOException {
+    public PosCartApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , Boolean buyNow ,PosCartApplicationModels.AddCartRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("addItems");
         
 
-        Response<PosCartApplicationModels.AddCartDetailResponse> response = poscartApplicationApiList.addItems(fullUrl  ,i, b, areaCode, buyNow, body).execute();
+        Response<PosCartApplicationModels.AddCartDetailResponse> response = poscartApplicationApiList.addItems(fullUrl  ,i, b, buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -167,12 +167,12 @@ import com.sdk.application.*;
     
     
     
-    public PosCartApplicationModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b , String areaCode , Boolean buyNow ,PosCartApplicationModels.UpdateCartRequest body) throws IOException {
+    public PosCartApplicationModels.UpdateCartDetailResponse updateCart(String id , Boolean i , Boolean b , Boolean buyNow ,PosCartApplicationModels.UpdateCartRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("updateCart");
         
 
-        Response<PosCartApplicationModels.UpdateCartDetailResponse> response = poscartApplicationApiList.updateCart(fullUrl  ,id, i, b, areaCode, buyNow, body).execute();
+        Response<PosCartApplicationModels.UpdateCartDetailResponse> response = poscartApplicationApiList.updateCart(fullUrl  ,id, i, b, buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

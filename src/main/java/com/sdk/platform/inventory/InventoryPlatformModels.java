@@ -9,7 +9,7 @@ public class InventoryPlatformModels{
 
 
 /*
-    Model: DataTresholdDTO
+    Model: GCompany
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,93 +17,13 @@ public class InventoryPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DataTresholdDTO{
+public static class GCompany{
     
     
     
     
-    @JsonProperty("min_price")
-    private Double minPrice;
-    
-    
-    
-    
-    @JsonProperty("safe_stock")
-    private Integer safeStock;
-    
-    
-    
-    
-    @JsonProperty("period_threshold")
-    private Integer periodThreshold;
-    
-    
-    
-    
-    @JsonProperty("period_threshold_type")
-    private String periodThresholdType;
-    
-    
-    
-    
-    @JsonProperty("period_type_list")
-    private List<GenericDTO> periodTypeList;
-    
-    
-    
-}
-
-
-/*
-    Model: GenericDTO
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GenericDTO{
-    
-    
-    
-    
-    @JsonProperty("text")
-    private String text;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private Object value;
-    
-    
-    
-}
-
-
-/*
-    Model: JobConfigDTO
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class JobConfigDTO{
-    
-    
-    
-    
-    @JsonProperty("integration_data")
-    private HashMap<String,Object> integrationData;
-    
-    
-    
-    
-    @JsonProperty("company_name")
-    private String companyName;
+    @JsonProperty("_id")
+    private String id;
     
     
     
@@ -114,32 +34,50 @@ public static class JobConfigDTO{
     
     
     
-    @JsonProperty("company_id")
-    private Integer companyId;
+    @JsonProperty("level")
+    private String level;
     
     
     
     
-    @JsonProperty("task_details")
-    private TaskDTO taskDetails;
+    @JsonProperty("uid")
+    private Integer uid;
     
     
     
     
-    @JsonProperty("threshold_details")
-    private DataTresholdDTO thresholdDetails;
+    @JsonProperty("opted")
+    private Boolean opted;
     
     
     
     
-    @JsonProperty("job_code")
-    private String jobCode;
+    @JsonProperty("permissions")
+    private List<String> permissions;
     
     
     
     
-    @JsonProperty("alias")
-    private String alias;
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("stores")
+    private List<GStore> stores;
+    
+    
+    
+    
+    @JsonProperty("gstores")
+    private List<GStore> gstores;
     
     
     
@@ -147,7 +85,7 @@ public static class JobConfigDTO{
 
 
 /*
-    Model: TaskDTO
+    Model: GStore
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -155,19 +93,101 @@ public static class JobConfigDTO{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TaskDTO{
+public static class GStore{
     
     
     
     
-    @JsonProperty("type")
-    private Integer type;
+    @JsonProperty("_id")
+    private String id;
     
     
     
     
-    @JsonProperty("group_list")
-    private List<GenericDTO> groupList;
+    @JsonProperty("integration")
+    private String integration;
+    
+    
+    
+    
+    @JsonProperty("level")
+    private String level;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("opted")
+    private Boolean opted;
+    
+    
+    
+    
+    @JsonProperty("permissions")
+    private List<String> permissions;
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private StoreData data;
+    
+    
+    
+}
+
+
+/*
+    Model: Metum
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Metum{
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
     
     
     
@@ -233,7 +253,7 @@ public static class Page{
 
 
 /*
-    Model: ResponseEnvelopeString
+    Model: ResponseEnvelopeListSlingshotConfigurationDetail
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -241,7 +261,7 @@ public static class Page{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResponseEnvelopeString{
+public static class ResponseEnvelopeListSlingshotConfigurationDetail{
     
     
     
@@ -289,13 +309,13 @@ public static class ResponseEnvelopeString{
     
     
     @JsonProperty("items")
-    private String items;
+    private List<SlingshotConfigurationDetail> items;
     
     
     
     
     @JsonProperty("payload")
-    private String payload;
+    private List<SlingshotConfigurationDetail> payload;
     
     
     
@@ -308,6 +328,102 @@ public static class ResponseEnvelopeString{
     
     @JsonProperty("page")
     private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: SlingshotConfigurationDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SlingshotConfigurationDetail{
+    
+    
+    
+    
+    @JsonProperty("integration")
+    private SlingshotIntegration integration;
+    
+    
+    
+    
+    @JsonProperty("companies")
+    private List<GCompany> companies;
+    
+    
+    
+}
+
+
+/*
+    Model: SlingshotIntegration
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SlingshotIntegration{
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private List<Metum> meta;
+    
+    
+    
+}
+
+
+/*
+    Model: StoreData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StoreData{
+    
+    
+    
+    
+    @JsonProperty("location_id")
+    private String locationId;
     
     
     
@@ -527,7 +643,7 @@ public static class ResponseEnvelopeKafkaResponse{
 
 
 /*
-    Model: GCompany
+    Model: DataTresholdDTO
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -535,61 +651,37 @@ public static class ResponseEnvelopeKafkaResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GCompany{
+public static class DataTresholdDTO{
     
     
     
     
-    @JsonProperty("_id")
-    private String id;
+    @JsonProperty("min_price")
+    private Double minPrice;
     
     
     
     
-    @JsonProperty("integration")
-    private String integration;
+    @JsonProperty("safe_stock")
+    private Integer safeStock;
     
     
     
     
-    @JsonProperty("level")
-    private String level;
+    @JsonProperty("period_threshold")
+    private Integer periodThreshold;
     
     
     
     
-    @JsonProperty("uid")
-    private Integer uid;
+    @JsonProperty("period_threshold_type")
+    private String periodThresholdType;
     
     
     
     
-    @JsonProperty("opted")
-    private Boolean opted;
-    
-    
-    
-    
-    @JsonProperty("permissions")
-    private List<String> permissions;
-    
-    
-    
-    
-    @JsonProperty("token")
-    private String token;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("stores")
-    private List<GStore> stores;
+    @JsonProperty("period_type_list")
+    private List<GenericDTO> periodTypeList;
     
     
     
@@ -597,7 +689,7 @@ public static class GCompany{
 
 
 /*
-    Model: GStore
+    Model: GenericDTO
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -605,101 +697,19 @@ public static class GCompany{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GStore{
+public static class GenericDTO{
     
     
     
     
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("integration")
-    private String integration;
-    
-    
-    
-    
-    @JsonProperty("level")
-    private String level;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("opted")
-    private Boolean opted;
-    
-    
-    
-    
-    @JsonProperty("permissions")
-    private List<String> permissions;
-    
-    
-    
-    
-    @JsonProperty("token")
-    private String token;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("data")
-    private StoreData data;
-    
-    
-    
-}
-
-
-/*
-    Model: Metum
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Metum{
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("text")
+    private String text;
     
     
     
     
     @JsonProperty("value")
-    private String value;
+    private Object value;
     
     
     
@@ -707,7 +717,7 @@ public static class Metum{
 
 
 /*
-    Model: ResponseEnvelopeListSlingshotConfigurationDetail
+    Model: JobConfigDTO
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -715,7 +725,99 @@ public static class Metum{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResponseEnvelopeListSlingshotConfigurationDetail{
+public static class JobConfigDTO{
+    
+    
+    
+    
+    @JsonProperty("integration")
+    private String integration;
+    
+    
+    
+    
+    @JsonProperty("integration_data")
+    private HashMap<String,Object> integrationData;
+    
+    
+    
+    
+    @JsonProperty("company_name")
+    private String companyName;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("task_details")
+    private TaskDTO taskDetails;
+    
+    
+    
+    
+    @JsonProperty("threshold_details")
+    private DataTresholdDTO thresholdDetails;
+    
+    
+    
+    
+    @JsonProperty("job_code")
+    private String jobCode;
+    
+    
+    
+    
+    @JsonProperty("alias")
+    private String alias;
+    
+    
+    
+}
+
+
+/*
+    Model: TaskDTO
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TaskDTO{
+    
+    
+    
+    
+    @JsonProperty("type")
+    private Integer type;
+    
+    
+    
+    
+    @JsonProperty("group_list")
+    private List<GenericDTO> groupList;
+    
+    
+    
+}
+
+
+/*
+    Model: ResponseEnvelopeString
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ResponseEnvelopeString{
     
     
     
@@ -763,13 +865,13 @@ public static class ResponseEnvelopeListSlingshotConfigurationDetail{
     
     
     @JsonProperty("items")
-    private List<SlingshotConfigurationDetail> items;
+    private String items;
     
     
     
     
     @JsonProperty("payload")
-    private List<SlingshotConfigurationDetail> payload;
+    private String payload;
     
     
     
@@ -782,102 +884,6 @@ public static class ResponseEnvelopeListSlingshotConfigurationDetail{
     
     @JsonProperty("page")
     private Page page;
-    
-    
-    
-}
-
-
-/*
-    Model: SlingshotConfigurationDetail
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SlingshotConfigurationDetail{
-    
-    
-    
-    
-    @JsonProperty("integration")
-    private SlingshotIntegration integration;
-    
-    
-    
-    
-    @JsonProperty("companies")
-    private List<GCompany> companies;
-    
-    
-    
-}
-
-
-/*
-    Model: SlingshotIntegration
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SlingshotIntegration{
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private List<Metum> meta;
-    
-    
-    
-}
-
-
-/*
-    Model: StoreData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreData{
-    
-    
-    
-    
-    @JsonProperty("location_id")
-    private String locationId;
     
     
     
@@ -2024,14 +2030,14 @@ public static class JobConfigRawDTO{
     
     
     
-    @JsonProperty("company_name")
-    private String companyName;
-    
-    
-    
-    
     @JsonProperty("integration")
     private String integration;
+    
+    
+    
+    
+    @JsonProperty("company_name")
+    private String companyName;
     
     
     
@@ -2398,6 +2404,12 @@ public static class PropBeanConfig{
     
     @JsonProperty("required")
     private Boolean required;
+    
+    
+    
+    
+    @JsonProperty("mapping")
+    private HashMap<String,PropBeanConfig> mapping;
     
     
     

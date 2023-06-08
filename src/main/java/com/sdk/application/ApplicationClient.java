@@ -34,8 +34,6 @@ import com.sdk.application.rewards.RewardsApplicationService;
 
 import com.sdk.application.poscart.PosCartApplicationService;
 
-import com.sdk.application.logistic.LogisticApplicationService;
-
 
 @Getter
 @Setter
@@ -74,8 +72,6 @@ public class ApplicationClient {
     
     public PosCartApplicationService posCart;
     
-    public LogisticApplicationService logistic;
-    
 
     public void setExtraHeader(String key, String value){
         this.config.getExtraHeaders().put(key, value);
@@ -113,8 +109,6 @@ public class ApplicationClient {
         this.rewards = new RewardsApplicationService(applicationConfig);
         
         this.posCart = new PosCartApplicationService(applicationConfig);
-        
-        this.logistic = new LogisticApplicationService(applicationConfig);
         
     }
 }

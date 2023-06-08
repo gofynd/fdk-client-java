@@ -49,18 +49,6 @@ public static class CDN{
     
     
     
-    
-    @JsonProperty("absolute_url")
-    private String absoluteUrl;
-    
-    
-    
-    
-    @JsonProperty("relative_url")
-    private String relativeUrl;
-    
-    
-    
 }
 
 

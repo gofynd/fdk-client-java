@@ -320,46 +320,4 @@ interface CartPlatformApiList {
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/abandoned/carts/{cart_id}")
     Call<CartPlatformModels.UpdateCartDetailResponse> updateCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("cart_id") String  cartId , @Query("b") Boolean  b ,@Body CartPlatformModels.UpdateCartRequest payload);
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/coupon_options")
-    Call<Object> getCouponOptionValues(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/coupon_code_exists")
-    Call<Object> getCouponCodeExists(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("code") String  code );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promotion_code_exists")
-    Call<Object> getPromotionCodeExists(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("code") String  code );
-    
 }
