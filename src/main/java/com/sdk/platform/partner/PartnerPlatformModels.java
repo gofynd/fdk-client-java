@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class PartnerPlatformModels{
 
 
@@ -18,7 +17,7 @@ public class PartnerPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddProxyReq {
+public static class AddProxyReq{
     
     
     
@@ -34,8 +33,8 @@ public static class AddProxyReq {
     
     
     
-    
 }
+
 
 /*
     Model: AddProxyResponse
@@ -46,7 +45,7 @@ public static class AddProxyReq {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddProxyResponse {
+public static class AddProxyResponse{
     
     
     
@@ -98,8 +97,36 @@ public static class AddProxyResponse {
     
     
     
+}
+
+
+/*
+    Model: RemoveProxyResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RemoveProxyResponse{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private Object data;
+    
+    
     
 }
+
 
 /*
     Model: APIError
@@ -110,7 +137,7 @@ public static class AddProxyResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class APIError {
+public static class APIError{
     
     
     
@@ -144,37 +171,7 @@ public static class APIError {
     
     
     
-    
 }
-
-/*
-    Model: RemoveProxyResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RemoveProxyResponse {
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("data")
-    private Object data;
-    
-    
-    
-    
-}
-
 
 
 

@@ -10,7 +10,10 @@ import java.util.*;
 import java.io.File;
 
 import com.sdk.common.*;
-import com.sdk.application.ApplicationConfig;
+import com.sdk.application.*;
+
+
+
 
 
 
@@ -58,10 +61,6 @@ import com.sdk.application.ApplicationConfig;
                     relativeUrls.put("getShipmentReasons","/service/application/orders/v1.0/orders/shipments/{shipment_id}/reasons".substring(1));
             
                     relativeUrls.put("updateShipmentStatus","/service/application/order-manage/v1.0/orders/shipments/{shipment_id}/status".substring(1));
-            
-                    relativeUrls.put("getInvoiceByShipmentId1","/service/application/document/v1.0/orders/shipments/{shipment_id}/invoice".substring(1));
-            
-                    relativeUrls.put("getCreditNoteByShipmentId","/service/application/document/v1.0/orders/shipments/{shipment_id}/credit-note".substring(1));
              
 
     }
@@ -318,46 +317,6 @@ import com.sdk.application.ApplicationConfig;
         
 
         Response<OrderApplicationModels.ShipmentApplicationStatusResponse> response = orderApplicationApiList.updateShipmentStatus(fullUrl , body).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    
-    public OrderApplicationModels.ResponseGetInvoiceShipment1 getInvoiceByShipmentId1(String shipmentId , OrderApplicationModels.invoiceParameter parameters ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getInvoiceByShipmentId1");
-        
-        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
-        
-
-        Response<OrderApplicationModels.ResponseGetInvoiceShipment1> response = orderApplicationApiList.getInvoiceByShipmentId1(fullUrl  ,parameters).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    
-    
-    
-    
-    
-    public OrderApplicationModels.ResponseGetInvoiceShipment1 getCreditNoteByShipmentId(String shipmentId , OrderApplicationModels.creditNoteParameter parameters ) throws IOException {
-     
-      String fullUrl = relativeUrls.get("getCreditNoteByShipmentId");
-        
-        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
-        
-
-        Response<OrderApplicationModels.ResponseGetInvoiceShipment1> response = orderApplicationApiList.getCreditNoteByShipmentId(fullUrl  ,parameters).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

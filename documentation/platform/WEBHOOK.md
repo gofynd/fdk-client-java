@@ -25,7 +25,7 @@ Get Subscribers By Company ID
 
 
 ```java
-client.webhook.getSubscribersByCompany( pageNo,  pageSize,  extensionId) {
+platformClient.webhook.getSubscribersByCompany( pageNo,  pageSize,  extensionId) {
   //use response
 }
 ```
@@ -81,7 +81,7 @@ Register Subscriber
 
 
 ```java
-client.webhook.registerSubscriberToEvent(body body) {
+platformClient.webhook.registerSubscriberToEvent(body body) {
   //use response
 }
 ```
@@ -134,7 +134,7 @@ Update Subscriber
 
 
 ```java
-client.webhook.updateSubscriberConfig(body body) {
+platformClient.webhook.updateSubscriberConfig(body body) {
   //use response
 }
 ```
@@ -187,7 +187,7 @@ Get Subscribers By Extension ID
 
 
 ```java
-client.webhook.getSubscribersByExtensionId( pageNo,  pageSize,  extensionId) {
+platformClient.webhook.getSubscribersByExtensionId( pageNo,  pageSize,  extensionId) {
   //use response
 }
 ```
@@ -243,7 +243,7 @@ Get Subscriber By Subscriber ID
 
 
 ```java
-client.webhook.getSubscriberById( subscriberId) {
+platformClient.webhook.getSubscriberById( subscriberId) {
   //use response
 }
 ```
@@ -297,7 +297,7 @@ Success
 
 
 ```java
-client.webhook.fetchAllEventConfigurations() {
+platformClient.webhook.fetchAllEventConfigurations() {
   //use response
 }
 ```

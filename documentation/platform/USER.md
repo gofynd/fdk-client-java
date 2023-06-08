@@ -14,10 +14,15 @@ Authentication Service
 * [unDeleteUser](#undeleteuser)
 * [updateUser](#updateuser)
 * [createUserSession](#createusersession)
+* [deleteSession](#deletesession)
 * [getActiveSessions](#getactivesessions)
 * [deleteActiveSessions](#deleteactivesessions)
 * [getPlatformConfig](#getplatformconfig)
 * [updatePlatformConfig](#updateplatformconfig)
+* [createUserGroup](#createusergroup)
+* [getUserGroups](#getusergroups)
+* [updateUserGroup](#updateusergroup)
+* [getUserGroupById](#getusergroupbyid)
 
 
 
@@ -31,7 +36,7 @@ Get a list of customers
 
 
 ```java
-client.application("<APPLICATION_ID>").user.getCustomers( q,  pageSize,  pageNo) {
+platformClient.application("<APPLICATION_ID>").user.getCustomers( q,  pageSize,  pageNo) {
   //use response
 }
 ```
@@ -42,7 +47,7 @@ client.application("<APPLICATION_ID>").user.getCustomers( q,  pageSize,  pageNo)
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
 | applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
-| q | String? | no | The search query. Mobile number or email ID of a customer. |   
+| q | Object? | no | The search query. Mobile number or email ID of a customer. |   
 | pageSize | Integer? | no | The number of items to retrieve in each page. Default value is 10. |   
 | pageNo | Integer? | no | The page number to navigate through the given set of results. Default value is 1.  |  
 
@@ -143,7 +148,7 @@ Search an existing user.
 
 
 ```java
-client.application("<APPLICATION_ID>").user.searchUsers( q) {
+platformClient.application("<APPLICATION_ID>").user.searchUsers( q) {
   //use response
 }
 ```
@@ -154,7 +159,7 @@ client.application("<APPLICATION_ID>").user.searchUsers( q) {
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
 | applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
-| q | Object? | no | The search query. Mobile number or email ID of a customer. |  
+| q | String? | no | The search query. Mobile number or email ID of a customer. |  
 
 
 
@@ -240,7 +245,7 @@ Create user
 
 
 ```java
-client.application("<APPLICATION_ID>").user.createUser(body body) {
+platformClient.application("<APPLICATION_ID>").user.createUser(body body) {
   //use response
 }
 ```
@@ -336,7 +341,7 @@ Block/Unblock user
 
 
 ```java
-client.application("<APPLICATION_ID>").user.blockOrUnblockUsers(body body) {
+platformClient.application("<APPLICATION_ID>").user.blockOrUnblockUsers(body body) {
   //use response
 }
 ```
@@ -392,7 +397,7 @@ archive user
 
 
 ```java
-client.application("<APPLICATION_ID>").user.archiveUser(body body) {
+platformClient.application("<APPLICATION_ID>").user.archiveUser(body body) {
   //use response
 }
 ```
@@ -448,7 +453,7 @@ undelete user who deleted from application and have not elapsed the platform con
 
 
 ```java
-client.application("<APPLICATION_ID>").user.unDeleteUser(body body) {
+platformClient.application("<APPLICATION_ID>").user.unDeleteUser(body body) {
   //use response
 }
 ```
@@ -504,7 +509,7 @@ Update user
 
 
 ```java
-client.application("<APPLICATION_ID>").user.updateUser( userId, body body) {
+platformClient.application("<APPLICATION_ID>").user.updateUser( userId, body body) {
   //use response
 }
 ```
@@ -519,7 +524,7 @@ client.application("<APPLICATION_ID>").user.updateUser( userId, body body) {
 | body | [UpdateUserRequestSchema](#UpdateUserRequestSchema) | yes | Request body |
 
 
-Update user
+Use this API to update user details, Note: Existing emails and phone numbers of user will be replaced directly if phone_numbers or emails field sent in request data.
 
 *Returned Response:*
 
@@ -601,7 +606,7 @@ Create user session
 
 
 ```java
-client.application("<APPLICATION_ID>").user.createUserSession(body body) {
+platformClient.application("<APPLICATION_ID>").user.createUserSession(body body) {
   //use response
 }
 ```
@@ -656,14 +661,84 @@ Create user session
 ---
 
 
-### getActiveSessions
-Get a list of all session for a user
+### deleteSession
+Delete a session for a user
 
 
 
 
 ```java
-client.application("<APPLICATION_ID>").user.getActiveSessions( id) {
+platformClient.application("<APPLICATION_ID>").user.deleteSession( id,  sessionId,  reason) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
+| id | String | yes | ID of a customer. |   
+| sessionId | String | yes | Session ID of a customer. |   
+| reason | String | yes | Reason for deleting session. |  
+
+
+
+Use this API to Delete a session of customers who have registered in the application.
+
+*Returned Response:*
+
+
+
+
+[SessionDeleteResponseSchema](#SessionDeleteResponseSchema)
+
+Success. Refer `SessionDeleteResponseSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; Success</i></summary>
+
+```json
+{
+  "value": {
+    "items": [
+      "sess:123",
+      "sess:456"
+    ]
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getActiveSessions
+Get a list of all session with info for a user
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").user.getActiveSessions( id) {
   //use response
 }
 ```
@@ -678,7 +753,7 @@ client.application("<APPLICATION_ID>").user.getActiveSessions( id) {
 
 
 
-Use this API to retrieve a list of session of customers who have registered in the application.
+Use this API to retrieve a list of session with info of customers who have registered in the application.
 
 *Returned Response:*
 
@@ -731,7 +806,7 @@ Delete a list of all session for a user
 
 
 ```java
-client.application("<APPLICATION_ID>").user.deleteActiveSessions( id) {
+platformClient.application("<APPLICATION_ID>").user.deleteActiveSessions( id,  reason) {
   //use response
 }
 ```
@@ -742,7 +817,8 @@ client.application("<APPLICATION_ID>").user.deleteActiveSessions( id) {
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
 | applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
-| id | String | yes | ID of a customer. |  
+| id | String | yes | ID of a customer. |   
+| reason | String | yes | Reason to delete sessions. |  
 
 
 
@@ -799,7 +875,7 @@ Get platform configurations
 
 
 ```java
-client.application("<APPLICATION_ID>").user.getPlatformConfig() {
+platformClient.application("<APPLICATION_ID>").user.getPlatformConfig() {
   //use response
 }
 ```
@@ -934,7 +1010,7 @@ Update platform configurations
 
 
 ```java
-client.application("<APPLICATION_ID>").user.updatePlatformConfig(body body) {
+platformClient.application("<APPLICATION_ID>").user.updatePlatformConfig(body body) {
   //use response
 }
 ```
@@ -1046,6 +1122,301 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
   "_id": "5e04a5e5220bc15839ad9bc0",
   "created_at": "2019-12-26T12:21:57.878Z",
   "updated_at": "2020-08-13T14:31:09.878Z",
+  "__v": 0
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### createUserGroup
+Create an User Group
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").user.createUserGroup(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |  
+| body | [CreateUserGroupSchema](#CreateUserGroupSchema) | yes | Request body |
+
+
+Use this API to create new user Group
+
+*Returned Response:*
+
+
+
+
+[UserGroupResponseSchema](#UserGroupResponseSchema)
+
+Success. returns created User Group. `UserGroupResponseSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "is_active": true,
+  "_id": "6345677535474fbb6944b7ce",
+  "name": "Group 1",
+  "description": "description",
+  "file_url": "url",
+  "status": "pending",
+  "uid": 1,
+  "application_id": "000000000000000000000001",
+  "created_at": "2022-10-11T12:54:13.539Z",
+  "modified_at": "2022-10-11T12:54:13.539Z",
+  "__v": 0
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getUserGroups
+Get User Groups mathcing criteria
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").user.getUserGroups( pageNo,  pageSize,  name,  status,  groupUid) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
+| pageNo | String? | no | page number for pagination result |   
+| pageSize | String? | no | page size for pagination result |   
+| name | String? | no | to seartch for User Groups which contains given string in their name |   
+| status | String? | no | to get User Groups with given status |   
+| groupUid | Integer? | no | to get User Groups with given uid |  
+
+
+
+Use this API to get User Groups mathing criteria passed in query
+
+*Returned Response:*
+
+
+
+
+[UserGroupListResponseSchema](#UserGroupListResponseSchema)
+
+Success. User Group details. `UserGroupListResponseSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "items": [
+    {
+      "is_active": true,
+      "_id": "6345677535474fbb6944b7ce",
+      "name": "Group 1",
+      "description": "description",
+      "file_url": "url",
+      "status": "pending",
+      "uid": 1,
+      "application_id": "000000000000000000000001",
+      "created_at": "2022-10-11T12:54:13.539Z",
+      "modified_at": "2022-10-11T12:54:13.539Z",
+      "__v": 0
+    },
+    {
+      "is_active": true,
+      "_id": "6345677535474fbb6944b7ced",
+      "name": "Group 2",
+      "description": "description",
+      "file_url": "url2",
+      "status": "pending",
+      "uid": 1,
+      "application_id": "000000000000000000000001",
+      "created_at": "2022-10-11T12:54:13.539Z",
+      "modified_at": "2022-10-11T12:54:13.539Z",
+      "__v": 0
+    }
+  ],
+  "page": {
+    "type": "number",
+    "current": 1,
+    "size": 10,
+    "item_total": 0,
+    "has_next": false
+  }
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### updateUserGroup
+Update an User Group
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").user.updateUserGroup( groupId, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
+| groupId | String | yes | Numeric ID allotted to a User Group |  
+| body | [UpdateUserGroupSchema](#UpdateUserGroupSchema) | yes | Request body |
+
+
+Use this API to update an existing user Group
+
+*Returned Response:*
+
+
+
+
+[UserGroupResponseSchema](#UserGroupResponseSchema)
+
+Success. returns updated User Group. `UserGroupResponseSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "is_active": true,
+  "_id": "6345677535474fbb6944b7ce",
+  "name": "Group 1",
+  "description": "description",
+  "file_url": "url",
+  "status": "pending",
+  "uid": 1,
+  "application_id": "000000000000000000000001",
+  "created_at": "2022-10-11T12:54:13.539Z",
+  "modified_at": "2022-10-11T12:54:13.539Z",
+  "__v": 0
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getUserGroupById
+Get an User Group by Id
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").user.getUserGroupById( groupId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
+| groupId | String | yes | Numeric ID allotted to a User Group |  
+
+
+
+Use this API to get details of an existing user Group
+
+*Returned Response:*
+
+
+
+
+[UserGroupResponseSchema](#UserGroupResponseSchema)
+
+Success. User Group details. `UserGroupResponseSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "is_active": true,
+  "_id": "6345677535474fbb6944b7ce",
+  "name": "Group 1",
+  "description": "description",
+  "file_url": "url",
+  "status": "pending",
+  "uid": 1,
+  "application_id": "000000000000000000000001",
+  "created_at": "2022-10-11T12:54:13.539Z",
+  "modified_at": "2022-10-11T12:54:13.539Z",
   "__v": 0
 }
 ```
@@ -1726,7 +2097,7 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<String>? |  yes  |  |
+ | items | ArrayList<[SessionListResponseInfo](#SessionListResponseInfo)>? |  yes  |  |
 
 ---
 
@@ -1896,6 +2267,21 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
 
  
  
+ #### [SessionListResponseInfo](#SessionListResponseInfo)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | sessionId | String? |  yes  |  |
+ | userAgent | String? |  yes  |  |
+ | ip | String? |  yes  |  |
+ | domain | String? |  yes  |  |
+ | expireIn | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [AuthSuccessUserDebug](#AuthSuccessUserDebug)
 
  | Properties | Type | Nullable | Description |
@@ -1915,6 +2301,51 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | verified | Boolean? |  yes  |  |
  | primary | Boolean? |  yes  |  |
  | active | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UserGroupResponseSchema](#UserGroupResponseSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | fileUrl | String? |  yes  |  |
+ | id | String? |  yes  |  |
+ | status | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
+ | applicationId | String? |  yes  |  |
+ | createdAt | String? |  yes  |  |
+ | modifiedAt | String? |  yes  |  |
+ | v | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UserGroupListResponseSchema](#UserGroupListResponseSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | items | ArrayList<[UserGroupResponseSchema](#UserGroupResponseSchema)>? |  yes  |  |
+ | page | [PaginationSchema](#PaginationSchema)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CreateUserGroupSchema](#CreateUserGroupSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String |  no  |  |
+ | description | String |  no  |  |
+ | fileUrl | String |  no  |  |
 
 ---
 
@@ -2229,6 +2660,19 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
 
  
  
+ #### [UpdateUserGroupSchema](#UpdateUserGroupSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String? |  yes  |  |
+ | description | String? |  yes  |  |
+ | fileUrl | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [UpdateUserRequestSchema](#UpdateUserRequestSchema)
 
  | Properties | Type | Nullable | Description |
@@ -2238,6 +2682,37 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
  | gender | String? |  yes  |  |
  | externalId | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
+ | phoneNumbers | ArrayList<[UserPhoneNumbers](#UserPhoneNumbers)>? |  yes  |  |
+ | emails | ArrayList<[UserEmails](#UserEmails)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UserEmails](#UserEmails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | active | Boolean? |  yes  |  |
+ | primary | Boolean? |  yes  |  |
+ | verified | Boolean? |  yes  |  |
+ | email | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UserPhoneNumbers](#UserPhoneNumbers)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | active | Boolean? |  yes  |  |
+ | primary | Boolean? |  yes  |  |
+ | verified | Boolean? |  yes  |  |
+ | phone | String? |  yes  |  |
+ | countryCode | String? |  yes  |  |
 
 ---
 

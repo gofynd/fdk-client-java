@@ -15,7 +15,7 @@ Earn and redeem reward points
 * [getOfferByName](#getofferbyname)
 * [updateOfferByName](#updateofferbyname)
 * [updateUserStatus](#updateuserstatus)
-* [user](#user)
+* [getUserDetails](#getuserdetails)
 * [getUserPointsHistory](#getuserpointshistory)
 * [getRewardsConfiguration](#getrewardsconfiguration)
 * [setRewardsConfiguration](#setrewardsconfiguration)
@@ -32,7 +32,7 @@ List of giveaways of the current application.
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.showGiveaways( pageId,  pageSize) {
+platformClient.application("<APPLICATION_ID>").rewards.showGiveaways( pageId,  pageSize) {
   //use response
 }
 ```
@@ -88,7 +88,7 @@ List of giveaways of the current application.
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.saveGiveAway(body body) {
+platformClient.application("<APPLICATION_ID>").rewards.saveGiveAway(body body) {
   //use response
 }
 ```
@@ -142,7 +142,7 @@ Get giveaway by ID.
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.getGiveawayById( id) {
+platformClient.application("<APPLICATION_ID>").rewards.getGiveawayById( id) {
   //use response
 }
 ```
@@ -197,7 +197,7 @@ Updates the giveaway by it's ID.
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.updateGiveAway( id, body body) {
+platformClient.application("<APPLICATION_ID>").rewards.updateGiveAway( id, body body) {
   //use response
 }
 ```
@@ -252,7 +252,7 @@ Get the Giveaway audience status
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.getGiveawayAudienceStatus( audienceId) {
+platformClient.application("<APPLICATION_ID>").rewards.getGiveawayAudienceStatus( id,  audienceId) {
   //use response
 }
 ```
@@ -261,6 +261,7 @@ client.application("<APPLICATION_ID>").rewards.getGiveawayAudienceStatus( audien
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
+| id | String | yes | Giveaway ID |   
 | audienceId | String | yes | audience id |   
 | companyId | String | yes | company id |   
 | applicationId | String | yes | application id |  
@@ -307,7 +308,7 @@ List of offers of the current application.
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.showOffers() {
+platformClient.application("<APPLICATION_ID>").rewards.showOffers() {
   //use response
 }
 ```
@@ -361,7 +362,7 @@ Get offer by name
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.getOfferByName( name,  cookie) {
+platformClient.application("<APPLICATION_ID>").rewards.getOfferByName( name) {
   //use response
 }
 ```
@@ -372,8 +373,7 @@ client.application("<APPLICATION_ID>").rewards.getOfferByName( name,  cookie) {
 | --------- | -----  | -------- | ----------- | 
 | name | String | yes | The name given to the offer. |   
 | companyId | String | yes | company id |   
-| applicationId | String | yes | application id |   
-| cookie | String | yes | User's session cookie. This cookie is set in browser cookie when logged-in to fynd's authentication system i.e. `Grimlock` or by using grimlock-backend SDK for backend implementation. |  
+| applicationId | String | yes | application id |  
 
 
 
@@ -417,7 +417,7 @@ Update offer by name
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.updateOfferByName( name, body body) {
+platformClient.application("<APPLICATION_ID>").rewards.updateOfferByName( name, body body) {
   //use response
 }
 ```
@@ -472,7 +472,7 @@ Update user status
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.updateUserStatus( userId, body body) {
+platformClient.application("<APPLICATION_ID>").rewards.updateUserStatus( userId, body body) {
   //use response
 }
 ```
@@ -520,14 +520,14 @@ Success
 ---
 
 
-### user
+### getUserDetails
 Get user reward details
 
 
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.user( userId) {
+platformClient.application("<APPLICATION_ID>").rewards.getUserDetails( userId) {
   //use response
 }
 ```
@@ -582,7 +582,7 @@ Get all transactions of reward points
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.getUserPointsHistory( userId,  pageId,  pageSize) {
+platformClient.application("<APPLICATION_ID>").rewards.getUserPointsHistory( userId,  pageId,  pageSize) {
   //use response
 }
 ```
@@ -639,7 +639,7 @@ Get all valid android paths
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.getRewardsConfiguration() {
+platformClient.application("<APPLICATION_ID>").rewards.getRewardsConfiguration() {
   //use response
 }
 ```
@@ -693,7 +693,7 @@ Updates the collection with given android paths.
 
 
 ```java
-client.application("<APPLICATION_ID>").rewards.setRewardsConfiguration(body body) {
+platformClient.application("<APPLICATION_ID>").rewards.setRewardsConfiguration(body body) {
   //use response
 }
 ```

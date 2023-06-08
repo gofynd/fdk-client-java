@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class ContentApplicationModels{
 
 
@@ -253,6 +252,12 @@ public static class SeoSchema{
     
     
     
+    @JsonProperty("cannonical_enabled")
+    private Boolean cannonicalEnabled;
+    
+    
+    
+    
     @JsonProperty("custom_meta_tags")
     private List<Object> customMetaTags;
     
@@ -335,6 +340,12 @@ public static class Detail{
     
     @JsonProperty("description")
     private String description;
+    
+    
+    
+    
+    @JsonProperty("image_url")
+    private String imageUrl;
     
     
     
@@ -4196,10 +4207,6 @@ public static class TagSourceSchema{
         
         product("product"), 
         
-        productReviews("product-reviews"), 
-        
-        addProductReview("add-product-review"), 
-        
         productRequest("product-request"), 
         
         products("products"), 
@@ -4254,8 +4261,6 @@ public static class TagSourceSchema{
             this.priority = priority;
         }
     }
-
-
 
 
 }

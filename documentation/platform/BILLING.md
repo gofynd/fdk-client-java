@@ -10,6 +10,8 @@ Handle platform subscription
 * [createSubscriptionCharge](#createsubscriptioncharge)
 * [getSubscriptionCharge](#getsubscriptioncharge)
 * [cancelSubscriptionCharge](#cancelsubscriptioncharge)
+* [createOneTimeCharge](#createonetimecharge)
+* [getChargeDetails](#getchargedetails)
 * [getInvoices](#getinvoices)
 * [getInvoiceById](#getinvoicebyid)
 * [getCustomerDetail](#getcustomerdetail)
@@ -31,7 +33,7 @@ Check coupon validity
 
 
 ```java
-client.billing.checkCouponValidity( plan,  couponCode) {
+platformClient.billing.checkCouponValidity( plan,  couponCode) {
   //use response
 }
 ```
@@ -86,7 +88,7 @@ Create subscription charge
 
 
 ```java
-client.billing.createSubscriptionCharge( extensionId, body body) {
+platformClient.billing.createSubscriptionCharge( extensionId, body body) {
   //use response
 }
 ```
@@ -140,7 +142,7 @@ Get subscription charge details
 
 
 ```java
-client.billing.getSubscriptionCharge( extensionId,  subscriptionId) {
+platformClient.billing.getSubscriptionCharge( extensionId,  subscriptionId) {
   //use response
 }
 ```
@@ -195,7 +197,7 @@ Cancel subscription charge
 
 
 ```java
-client.billing.cancelSubscriptionCharge( extensionId,  subscriptionId) {
+platformClient.billing.cancelSubscriptionCharge( extensionId,  subscriptionId) {
   //use response
 }
 ```
@@ -243,6 +245,115 @@ Success
 ---
 
 
+### createOneTimeCharge
+Create one time subscription charge
+
+
+
+
+```java
+platformClient.billing.createOneTimeCharge( extensionId, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Customer unique id. In case of company it will be company id. |   
+| extensionId | String | yes | Extension _id |  
+| body | [CreateOneTimeCharge](#CreateOneTimeCharge) | yes | Request body |
+
+
+Register one time subscription charge for a seller of your extension.
+
+*Returned Response:*
+
+
+
+
+[CreateOneTimeChargeResponse](#CreateOneTimeChargeResponse)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getChargeDetails
+Get subscription charge details
+
+
+
+
+```java
+platformClient.billing.getChargeDetails( extensionId,  chargeId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Customer unique id. In case of company it will be company id. |   
+| extensionId | String | yes | Extension _id |   
+| chargeId | String | yes | Standalone charge _id |  
+
+
+
+Get created subscription charge details
+
+*Returned Response:*
+
+
+
+
+[OneTimeChargeEntity](#OneTimeChargeEntity)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getInvoices
 Get invoices
 
@@ -250,7 +361,7 @@ Get invoices
 
 
 ```java
-client.billing.getInvoices() {
+platformClient.billing.getInvoices() {
   //use response
 }
 ```
@@ -543,7 +654,7 @@ Get invoice by id
 
 
 ```java
-client.billing.getInvoiceById( invoiceId) {
+platformClient.billing.getInvoiceById( invoiceId) {
   //use response
 }
 ```
@@ -830,7 +941,7 @@ Get subscription customer detail
 
 
 ```java
-client.billing.getCustomerDetail() {
+platformClient.billing.getCustomerDetail() {
   //use response
 }
 ```
@@ -915,7 +1026,7 @@ Upsert subscription customer detail
 
 
 ```java
-client.billing.upsertCustomerDetail(body body) {
+platformClient.billing.upsertCustomerDetail(body body) {
   //use response
 }
 ```
@@ -1000,7 +1111,7 @@ Get current subscription detail
 
 
 ```java
-client.billing.getSubscription() {
+platformClient.billing.getSubscription() {
   //use response
 }
 ```
@@ -1039,6 +1150,7 @@ Success
 {
   "value": {
     "is_enabled": true,
+    "mandate_amount": 150000,
     "subscription": {
       "current_period": {
         "start": "2020-12-17T13:45:36.722Z",
@@ -1124,7 +1236,7 @@ Get subscription subscription limits
 
 
 ```java
-client.billing.getFeatureLimitConfig() {
+platformClient.billing.getFeatureLimitConfig() {
   //use response
 }
 ```
@@ -1213,7 +1325,7 @@ Activate subscription
 
 
 ```java
-client.billing.activateSubscriptionPlan(body body) {
+platformClient.billing.activateSubscriptionPlan(body body) {
   //use response
 }
 ```
@@ -1322,7 +1434,7 @@ Cancel subscription
 
 
 ```java
-client.billing.cancelSubscriptionPlan(body body) {
+platformClient.billing.cancelSubscriptionPlan(body body) {
   //use response
 }
 ```
@@ -1674,6 +1786,37 @@ Success
 
  
  
+ #### [OneTimeChargeItem](#OneTimeChargeItem)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String |  no  |  |
+ | term | String? |  yes  |  |
+ | pricingType | String |  no  |  |
+ | price | [EntityChargePrice](#EntityChargePrice) |  no  |  |
+ | cappedAmount | Double? |  yes  |  |
+ | isTest | Boolean? |  yes  |  |
+ | metadata | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CreateOneTimeCharge](#CreateOneTimeCharge)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String |  no  |  |
+ | charge | [OneTimeChargeItem](#OneTimeChargeItem) |  no  |  |
+ | isTest | Boolean? |  yes  |  |
+ | returnUrl | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [CurrentPeriod](#CurrentPeriod)
 
  | Properties | Type | Nullable | Description |
@@ -1692,7 +1835,7 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | id | String? |  yes  |  |
  | name | String? |  yes  |  |
- | term | String? |  yes  |  |
+ | term | String? |  yes  | Brief description for a charge |
  | pricingType | String? |  yes  |  |
  | price | [EntityChargePrice](#EntityChargePrice)? |  yes  |  |
  | recurring | [EntityChargeRecurring](#EntityChargeRecurring)? |  yes  |  |
@@ -1724,6 +1867,42 @@ Success
  | trialPeriod | [SubscriptionTrialPeriod](#SubscriptionTrialPeriod)? |  yes  |  |
  | metadata | HashMap<String,Object>? |  yes  |  |
  | lineItems | ArrayList<[SubscriptionCharge](#SubscriptionCharge)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OneTimeChargeEntity](#OneTimeChargeEntity)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | status | String? |  yes  |  |
+ | activatedOn | String? |  yes  |  |
+ | cancelledOn | String? |  yes  |  |
+ | metadata | HashMap<String,Object>? |  yes  |  |
+ | returnUrl | String? |  yes  |  |
+ | isTest | Boolean? |  yes  |  |
+ | pricingType | String? |  yes  |  |
+ | subscriberId | String? |  yes  |  |
+ | entityType | String? |  yes  |  |
+ | entityId | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | price | [EntityChargePrice](#EntityChargePrice)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CreateOneTimeChargeResponse](#CreateOneTimeChargeResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | charge | [OneTimeChargeEntity](#OneTimeChargeEntity)? |  yes  |  |
+ | confirmUrl | String? |  yes  |  |
 
 ---
 
@@ -2217,6 +2396,7 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | mandateAmount | Double? |  yes  |  |
  | isEnabled | Boolean? |  yes  |  |
  | subscription | [Subscription](#Subscription)? |  yes  |  |
 

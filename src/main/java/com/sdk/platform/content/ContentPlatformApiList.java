@@ -356,7 +356,7 @@ interface ContentPlatformApiList {
     
     
     
-    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/faq/category/{category_id}/faqs")
+    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/faq/category/{category_id}/faq")
     Call<ContentPlatformModels.CreateFaqResponseSchema> addFaq(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("category_id") String  categoryId ,@Body ContentPlatformModels.CreateFaqSchema payload);
     
     
@@ -409,6 +409,21 @@ interface ContentPlatformApiList {
     
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/faq/{id_or_slug}")
     Call<ContentPlatformModels.CreateFaqResponseSchema> getFaqByIdOrSlug(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id_or_slug") String  idOrSlug );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/generate-seo/{type}")
+    Call<ContentPlatformModels.GeneratedSEOContent> generateSEOTitle(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("type") ContentPlatformModels.GenerationEntityType  type ,@Body ContentPlatformModels.GenerateSEOContent payload);
     
     
     
@@ -931,6 +946,21 @@ interface ContentPlatformApiList {
     
     @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/tags/edit/handpicked/{tag_id}")
     Call<ContentPlatformModels.TagsSchema> editInjectableTag(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("tag_id") String  tagId ,@Body ContentPlatformModels.UpdateHandpickedSchema payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/content/v2.0/company/{company_id}/application/{application_id}/blogs/{slug}")
+    Call<ContentPlatformModels.BlogSchema> getBlogBySlug(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("slug") String  slug );
     
     
     

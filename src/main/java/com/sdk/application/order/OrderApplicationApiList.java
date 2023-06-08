@@ -44,10 +44,4 @@ interface OrderApplicationApiList {
     
     @PUT 
     Call<OrderApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Url String url1 , @Body OrderApplicationModels.UpdateShipmentStatusRequest payload );
-    
-    @GET 
-    Call<OrderApplicationModels.ResponseGetInvoiceShipment1> getInvoiceByShipmentId1(@Url String url1, @Query("parameters") ApplicationModels.invoiceParameter parameters );
-    
-    @GET 
-    Call<OrderApplicationModels.ResponseGetInvoiceShipment1> getCreditNoteByShipmentId(@Url String url1, @Query("parameters") ApplicationModels.creditNoteParameter parameters );
 }

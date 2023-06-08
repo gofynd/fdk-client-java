@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class PaymentPlatformModels{
 
 
@@ -18,37 +17,13 @@ public class PaymentPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentGatewayConfigResponse {
-    
-    
-    
-    
-    @JsonProperty("excluded_fields")
-    private List<String> excludedFields;
+public static class PaymentGatewayConfigResponse{
     
     
     
     
     @JsonProperty("success")
     private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("app_id")
-    private String appId;
-    
-    
-    
-    
-    @JsonProperty("display_fields")
-    private List<String> displayFields;
-    
-    
-    
-    
-    @JsonProperty("aggregators")
-    private List<Object> aggregators;
     
     
     
@@ -59,7 +34,31 @@ public static class PaymentGatewayConfigResponse {
     
     
     
+    @JsonProperty("excluded_fields")
+    private List<String> excludedFields;
+    
+    
+    
+    
+    @JsonProperty("display_fields")
+    private List<String> displayFields;
+    
+    
+    
+    
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    
+    
+    @JsonProperty("aggregators")
+    private List<Object> aggregators;
+    
+    
+    
 }
+
 
 /*
     Model: ErrorCodeDescription
@@ -70,19 +69,7 @@ public static class PaymentGatewayConfigResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ErrorCodeDescription {
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
+public static class ErrorCodeDescription{
     
     
     
@@ -93,7 +80,19 @@ public static class ErrorCodeDescription {
     
     
     
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
 }
+
 
 /*
     Model: PaymentGatewayConfig
@@ -104,13 +103,13 @@ public static class ErrorCodeDescription {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentGatewayConfig {
+public static class PaymentGatewayConfig{
     
     
     
     
-    @JsonProperty("merchant_salt")
-    private String merchantSalt;
+    @JsonProperty("secret")
+    private String secret;
     
     
     
@@ -133,13 +132,13 @@ public static class PaymentGatewayConfig {
     
     
     
-    @JsonProperty("secret")
-    private String secret;
-    
+    @JsonProperty("merchant_salt")
+    private String merchantSalt;
     
     
     
 }
+
 
 /*
     Model: PaymentGatewayConfigRequest
@@ -150,13 +149,7 @@ public static class PaymentGatewayConfig {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentGatewayConfigRequest {
-    
-    
-    
-    
-    @JsonProperty("aggregator_name")
-    private PaymentGatewayConfig aggregatorName;
+public static class PaymentGatewayConfigRequest{
     
     
     
@@ -167,13 +160,19 @@ public static class PaymentGatewayConfigRequest {
     
     
     
+    @JsonProperty("aggregator_name")
+    private PaymentGatewayConfig aggregatorName;
+    
+    
+    
+    
     @JsonProperty("app_id")
     private String appId;
     
     
     
-    
 }
+
 
 /*
     Model: PaymentGatewayToBeReviewed
@@ -184,7 +183,7 @@ public static class PaymentGatewayConfigRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentGatewayToBeReviewed {
+public static class PaymentGatewayToBeReviewed{
     
     
     
@@ -200,8 +199,8 @@ public static class PaymentGatewayToBeReviewed {
     
     
     
-    
 }
+
 
 /*
     Model: ErrorCodeAndDescription
@@ -212,13 +211,7 @@ public static class PaymentGatewayToBeReviewed {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ErrorCodeAndDescription {
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
+public static class ErrorCodeAndDescription{
     
     
     
@@ -229,7 +222,13 @@ public static class ErrorCodeAndDescription {
     
     
     
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
 }
+
 
 /*
     Model: HttpErrorCodeAndResponse
@@ -240,13 +239,7 @@ public static class ErrorCodeAndDescription {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class HttpErrorCodeAndResponse {
-    
-    
-    
-    
-    @JsonProperty("error")
-    private ErrorCodeAndDescription error;
+public static class HttpErrorCodeAndResponse{
     
     
     
@@ -257,7 +250,13 @@ public static class HttpErrorCodeAndResponse {
     
     
     
+    @JsonProperty("error")
+    private ErrorCodeAndDescription error;
+    
+    
+    
 }
+
 
 /*
     Model: PaymentModeLogo
@@ -268,7 +267,7 @@ public static class HttpErrorCodeAndResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentModeLogo {
+public static class PaymentModeLogo{
     
     
     
@@ -284,54 +283,8 @@ public static class PaymentModeLogo {
     
     
     
-    
 }
 
-/*
-    Model: IntentApp
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class IntentApp {
-    
-    
-    
-    
-    @JsonProperty("package_name")
-    private String packageName;
-    
-    
-    
-    
-    @JsonProperty("outage")
-    private Object outage;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("logos")
-    private PaymentModeLogo logos;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-}
 
 /*
     Model: IntentAppErrorList
@@ -342,7 +295,13 @@ public static class IntentApp {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class IntentAppErrorList {
+public static class IntentAppErrorList{
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
     
     
     
@@ -352,17 +311,11 @@ public static class IntentAppErrorList {
     
     
     
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
 }
 
+
 /*
-    Model: PaymentModeList
+    Model: IntentApp
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -370,121 +323,19 @@ public static class IntentAppErrorList {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentModeList {
+public static class IntentApp{
     
     
     
     
-    @JsonProperty("retry_count")
-    private Integer retryCount;
-    
-    
-    
-    
-    @JsonProperty("intent_app")
-    private List<IntentApp> intentApp;
-    
-    
-    
-    
-    @JsonProperty("exp_month")
-    private Integer expMonth;
-    
-    
-    
-    
-    @JsonProperty("expired")
-    private Boolean expired;
-    
-    
-    
-    
-    @JsonProperty("card_fingerprint")
-    private String cardFingerprint;
-    
-    
-    
-    
-    @JsonProperty("card_reference")
-    private String cardReference;
-    
-    
-    
-    
-    @JsonProperty("card_token")
-    private String cardToken;
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
     
     @JsonProperty("code")
     private String code;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("intent_app_error_dict_list")
-    private List<IntentAppErrorList> intentAppErrorDictList;
-    
-    
-    
-    
-    @JsonProperty("card_issuer")
-    private String cardIssuer;
-    
-    
-    
-    
-    @JsonProperty("intent_flow")
-    private Boolean intentFlow;
-    
-    
-    
-    
-    @JsonProperty("card_name")
-    private String cardName;
-    
-    
-    
-    
-    @JsonProperty("merchant_code")
-    private String merchantCode;
-    
-    
-    
-    
-    @JsonProperty("logo_url")
-    private PaymentModeLogo logoUrl;
-    
-    
-    
-    
-    @JsonProperty("nickname")
-    private String nickname;
-    
-    
-    
-    
-    @JsonProperty("aggregator_name")
-    private String aggregatorName;
-    
-    
-    
-    
-    @JsonProperty("card_brand_image")
-    private String cardBrandImage;
-    
-    
-    
-    
-    @JsonProperty("display_priority")
-    private Integer displayPriority;
     
     
     
@@ -495,32 +346,48 @@ public static class PaymentModeList {
     
     
     
-    @JsonProperty("compliant_with_tokenisation_guidelines")
-    private Boolean compliantWithTokenisationGuidelines;
+    @JsonProperty("package_name")
+    private String packageName;
     
     
     
     
-    @JsonProperty("timeout")
-    private Integer timeout;
+    @JsonProperty("logos")
+    private PaymentModeLogo logos;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentModeList
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentModeList{
     
     
     
     
-    @JsonProperty("card_isin")
-    private String cardIsin;
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
     
-    @JsonProperty("exp_year")
-    private Integer expYear;
+    @JsonProperty("intent_app_error_dict_list")
+    private List<IntentAppErrorList> intentAppErrorDictList;
     
     
     
     
-    @JsonProperty("card_number")
-    private String cardNumber;
+    @JsonProperty("card_token")
+    private String cardToken;
     
     
     
@@ -531,8 +398,104 @@ public static class PaymentModeList {
     
     
     
-    @JsonProperty("display_name")
-    private String displayName;
+    @JsonProperty("display_priority")
+    private Integer displayPriority;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("logo_url")
+    private PaymentModeLogo logoUrl;
+    
+    
+    
+    
+    @JsonProperty("retry_count")
+    private Integer retryCount;
+    
+    
+    
+    
+    @JsonProperty("timeout")
+    private Integer timeout;
+    
+    
+    
+    
+    @JsonProperty("intent_flow")
+    private Boolean intentFlow;
+    
+    
+    
+    
+    @JsonProperty("expired")
+    private Boolean expired;
+    
+    
+    
+    
+    @JsonProperty("card_reference")
+    private String cardReference;
+    
+    
+    
+    
+    @JsonProperty("compliant_with_tokenisation_guidelines")
+    private Boolean compliantWithTokenisationGuidelines;
+    
+    
+    
+    
+    @JsonProperty("exp_year")
+    private Integer expYear;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("card_name")
+    private String cardName;
+    
+    
+    
+    
+    @JsonProperty("card_fingerprint")
+    private String cardFingerprint;
+    
+    
+    
+    
+    @JsonProperty("exp_month")
+    private Integer expMonth;
+    
+    
+    
+    
+    @JsonProperty("intent_app_error_list")
+    private List<String> intentAppErrorList;
+    
+    
+    
+    
+    @JsonProperty("card_issuer")
+    private String cardIssuer;
+    
+    
+    
+    
+    @JsonProperty("card_number")
+    private String cardNumber;
     
     
     
@@ -549,19 +512,55 @@ public static class PaymentModeList {
     
     
     
-    @JsonProperty("intent_app_error_list")
-    private List<String> intentAppErrorList;
-    
-    
-    
-    
     @JsonProperty("card_id")
     private String cardId;
     
     
     
     
+    @JsonProperty("card_brand_image")
+    private String cardBrandImage;
+    
+    
+    
+    
+    @JsonProperty("aggregator_name")
+    private String aggregatorName;
+    
+    
+    
+    
+    @JsonProperty("card_isin")
+    private String cardIsin;
+    
+    
+    
+    
+    @JsonProperty("nickname")
+    private String nickname;
+    
+    
+    
+    
+    @JsonProperty("outage")
+    private Object outage;
+    
+    
+    
+    
+    @JsonProperty("intent_app")
+    private List<IntentApp> intentApp;
+    
+    
+    
+    
+    @JsonProperty("merchant_code")
+    private String merchantCode;
+    
+    
+    
 }
+
 
 /*
     Model: RootPaymentMode
@@ -572,19 +571,13 @@ public static class PaymentModeList {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RootPaymentMode {
+public static class RootPaymentMode{
     
     
     
     
-    @JsonProperty("save_card")
-    private Boolean saveCard;
-    
-    
-    
-    
-    @JsonProperty("anonymous_enable")
-    private Boolean anonymousEnable;
+    @JsonProperty("add_card_enabled")
+    private Boolean addCardEnabled;
     
     
     
@@ -601,14 +594,8 @@ public static class RootPaymentMode {
     
     
     
-    @JsonProperty("add_card_enabled")
-    private Boolean addCardEnabled;
-    
-    
-    
-    
-    @JsonProperty("logo_url")
-    private PaymentModeLogo logoUrl;
+    @JsonProperty("save_card")
+    private Boolean saveCard;
     
     
     
@@ -625,14 +612,14 @@ public static class RootPaymentMode {
     
     
     
-    @JsonProperty("list")
-    private List<PaymentModeList> list;
-    
-    
-    
-    
     @JsonProperty("display_priority")
     private Integer displayPriority;
+    
+    
+    
+    
+    @JsonProperty("logo_url")
+    private PaymentModeLogo logoUrl;
     
     
     
@@ -643,7 +630,19 @@ public static class RootPaymentMode {
     
     
     
+    @JsonProperty("anonymous_enable")
+    private Boolean anonymousEnable;
+    
+    
+    
+    
+    @JsonProperty("list")
+    private List<PaymentModeList> list;
+    
+    
+    
 }
+
 
 /*
     Model: PaymentOptions
@@ -654,7 +653,7 @@ public static class RootPaymentMode {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentOptions {
+public static class PaymentOptions{
     
     
     
@@ -664,8 +663,8 @@ public static class PaymentOptions {
     
     
     
-    
 }
+
 
 /*
     Model: PaymentOptionsResponse
@@ -676,7 +675,7 @@ public static class PaymentOptions {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentOptionsResponse {
+public static class PaymentOptionsResponse{
     
     
     
@@ -692,8 +691,8 @@ public static class PaymentOptionsResponse {
     
     
     
-    
 }
+
 
 /*
     Model: PayoutsResponse
@@ -704,13 +703,13 @@ public static class PaymentOptionsResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayoutsResponse {
+public static class PayoutsResponse{
     
     
     
     
-    @JsonProperty("customers")
-    private Object customers;
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
@@ -721,8 +720,14 @@ public static class PayoutsResponse {
     
     
     
-    @JsonProperty("is_default")
-    private Boolean isDefault;
+    @JsonProperty("unique_transfer_no")
+    private Object uniqueTransferNo;
+    
+    
+    
+    
+    @JsonProperty("customers")
+    private Object customers;
     
     
     
@@ -739,19 +744,13 @@ public static class PayoutsResponse {
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("unique_transfer_no")
-    private Object uniqueTransferNo;
-    
+    @JsonProperty("is_default")
+    private Boolean isDefault;
     
     
     
 }
+
 
 /*
     Model: PayoutBankDetails
@@ -762,19 +761,31 @@ public static class PayoutsResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayoutBankDetails {
-    
-    
-    
-    
-    @JsonProperty("account_holder")
-    private String accountHolder;
+public static class PayoutBankDetails{
     
     
     
     
     @JsonProperty("country")
     private String country;
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private Integer pincode;
+    
+    
+    
+    
+    @JsonProperty("bank_name")
+    private String bankName;
+    
+    
+    
+    
+    @JsonProperty("account_holder")
+    private String accountHolder;
     
     
     
@@ -814,20 +825,8 @@ public static class PayoutBankDetails {
     
     
     
-    
-    @JsonProperty("pincode")
-    private Integer pincode;
-    
-    
-    
-    
-    @JsonProperty("bank_name")
-    private String bankName;
-    
-    
-    
-    
 }
+
 
 /*
     Model: PayoutRequest
@@ -838,13 +837,31 @@ public static class PayoutBankDetails {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayoutRequest {
+public static class PayoutRequest{
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
     
     @JsonProperty("users")
     private Object users;
+    
+    
+    
+    
+    @JsonProperty("aggregator")
+    private String aggregator;
+    
+    
+    
+    
+    @JsonProperty("unique_external_id")
+    private String uniqueExternalId;
     
     
     
@@ -860,26 +877,8 @@ public static class PayoutRequest {
     
     
     
-    
-    @JsonProperty("unique_external_id")
-    private String uniqueExternalId;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("aggregator")
-    private String aggregator;
-    
-    
-    
-    
 }
+
 
 /*
     Model: PayoutResponse
@@ -890,43 +889,7 @@ public static class PayoutRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayoutResponse {
-    
-    
-    
-    
-    @JsonProperty("users")
-    private Object users;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("payouts")
-    private Object payouts;
-    
-    
-    
-    
-    @JsonProperty("transfer_type")
-    private String transferType;
-    
-    
-    
-    
-    @JsonProperty("bank_details")
-    private Object bankDetails;
-    
-    
-    
-    
-    @JsonProperty("payment_status")
-    private String paymentStatus;
+public static class PayoutResponse{
     
     
     
@@ -943,6 +906,24 @@ public static class PayoutResponse {
     
     
     
+    @JsonProperty("payment_status")
+    private String paymentStatus;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("users")
+    private Object users;
+    
+    
+    
+    
     @JsonProperty("aggregator")
     private String aggregator;
     
@@ -955,7 +936,25 @@ public static class PayoutResponse {
     
     
     
+    @JsonProperty("transfer_type")
+    private String transferType;
+    
+    
+    
+    
+    @JsonProperty("bank_details")
+    private Object bankDetails;
+    
+    
+    
+    
+    @JsonProperty("payouts")
+    private Object payouts;
+    
+    
+    
 }
+
 
 /*
     Model: UpdatePayoutResponse
@@ -966,13 +965,7 @@ public static class PayoutResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdatePayoutResponse {
-    
-    
-    
-    
-    @JsonProperty("is_default")
-    private Boolean isDefault;
+public static class UpdatePayoutResponse{
     
     
     
@@ -989,7 +982,13 @@ public static class UpdatePayoutResponse {
     
     
     
+    @JsonProperty("is_default")
+    private Boolean isDefault;
+    
+    
+    
 }
+
 
 /*
     Model: UpdatePayoutRequest
@@ -1000,13 +999,7 @@ public static class UpdatePayoutResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdatePayoutRequest {
-    
-    
-    
-    
-    @JsonProperty("unique_external_id")
-    private String uniqueExternalId;
+public static class UpdatePayoutRequest{
     
     
     
@@ -1023,7 +1016,13 @@ public static class UpdatePayoutRequest {
     
     
     
+    @JsonProperty("unique_external_id")
+    private String uniqueExternalId;
+    
+    
+    
 }
+
 
 /*
     Model: DeletePayoutResponse
@@ -1034,7 +1033,7 @@ public static class UpdatePayoutRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeletePayoutResponse {
+public static class DeletePayoutResponse{
     
     
     
@@ -1044,8 +1043,8 @@ public static class DeletePayoutResponse {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionPaymentMethodResponse
@@ -1056,13 +1055,7 @@ public static class DeletePayoutResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionPaymentMethodResponse {
-    
-    
-    
-    
-    @JsonProperty("data")
-    private List<Object> data;
+public static class SubscriptionPaymentMethodResponse{
     
     
     
@@ -1073,7 +1066,13 @@ public static class SubscriptionPaymentMethodResponse {
     
     
     
+    @JsonProperty("data")
+    private List<Object> data;
+    
+    
+    
 }
+
 
 /*
     Model: DeleteSubscriptionPaymentMethodResponse
@@ -1084,7 +1083,7 @@ public static class SubscriptionPaymentMethodResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeleteSubscriptionPaymentMethodResponse {
+public static class DeleteSubscriptionPaymentMethodResponse{
     
     
     
@@ -1094,8 +1093,8 @@ public static class DeleteSubscriptionPaymentMethodResponse {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriptionConfigResponse
@@ -1106,19 +1105,13 @@ public static class DeleteSubscriptionPaymentMethodResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionConfigResponse {
+public static class SubscriptionConfigResponse{
     
     
     
     
     @JsonProperty("success")
     private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("config")
-    private Object config;
     
     
     
@@ -1129,7 +1122,13 @@ public static class SubscriptionConfigResponse {
     
     
     
+    @JsonProperty("config")
+    private Object config;
+    
+    
+    
 }
+
 
 /*
     Model: SaveSubscriptionSetupIntentRequest
@@ -1140,7 +1139,7 @@ public static class SubscriptionConfigResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SaveSubscriptionSetupIntentRequest {
+public static class SaveSubscriptionSetupIntentRequest{
     
     
     
@@ -1150,8 +1149,8 @@ public static class SaveSubscriptionSetupIntentRequest {
     
     
     
-    
 }
+
 
 /*
     Model: SaveSubscriptionSetupIntentResponse
@@ -1162,13 +1161,7 @@ public static class SaveSubscriptionSetupIntentRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SaveSubscriptionSetupIntentResponse {
-    
-    
-    
-    
-    @JsonProperty("data")
-    private Object data;
+public static class SaveSubscriptionSetupIntentResponse{
     
     
     
@@ -1179,7 +1172,13 @@ public static class SaveSubscriptionSetupIntentResponse {
     
     
     
+    @JsonProperty("data")
+    private Object data;
+    
+    
+    
 }
+
 
 /*
     Model: RefundAccountResponse
@@ -1190,13 +1189,7 @@ public static class SaveSubscriptionSetupIntentResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RefundAccountResponse {
-    
-    
-    
-    
-    @JsonProperty("data")
-    private Object data;
+public static class RefundAccountResponse{
     
     
     
@@ -1213,13 +1206,19 @@ public static class RefundAccountResponse {
     
     
     
+    @JsonProperty("data")
+    private Object data;
+    
+    
+    
+    
     @JsonProperty("message")
     private String message;
     
     
     
-    
 }
+
 
 /*
     Model: NotFoundResourceError
@@ -1230,19 +1229,7 @@ public static class RefundAccountResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NotFoundResourceError {
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
+public static class NotFoundResourceError{
     
     
     
@@ -1253,7 +1240,19 @@ public static class NotFoundResourceError {
     
     
     
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
 }
+
 
 /*
     Model: BankDetailsForOTP
@@ -1264,13 +1263,19 @@ public static class NotFoundResourceError {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BankDetailsForOTP {
+public static class BankDetailsForOTP{
     
     
     
     
     @JsonProperty("account_holder")
     private String accountHolder;
+    
+    
+    
+    
+    @JsonProperty("bank_name")
+    private String bankName;
     
     
     
@@ -1292,14 +1297,8 @@ public static class BankDetailsForOTP {
     
     
     
-    
-    @JsonProperty("bank_name")
-    private String bankName;
-    
-    
-    
-    
 }
+
 
 /*
     Model: AddBeneficiaryDetailsOTPRequest
@@ -1310,7 +1309,7 @@ public static class BankDetailsForOTP {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddBeneficiaryDetailsOTPRequest {
+public static class AddBeneficiaryDetailsOTPRequest{
     
     
     
@@ -1326,8 +1325,8 @@ public static class AddBeneficiaryDetailsOTPRequest {
     
     
     
-    
 }
+
 
 /*
     Model: IfscCodeResponse
@@ -1338,7 +1337,7 @@ public static class AddBeneficiaryDetailsOTPRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class IfscCodeResponse {
+public static class IfscCodeResponse{
     
     
     
@@ -1349,19 +1348,19 @@ public static class IfscCodeResponse {
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
     @JsonProperty("branch_name")
     private String branchName;
     
     
     
     
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
 }
+
 
 /*
     Model: OrderBeneficiaryDetails
@@ -1372,61 +1371,7 @@ public static class IfscCodeResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderBeneficiaryDetails {
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("account_holder")
-    private String accountHolder;
-    
-    
-    
-    
-    @JsonProperty("delights_user_name")
-    private String delightsUserName;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("bank_name")
-    private String bankName;
-    
-    
-    
-    
-    @JsonProperty("transfer_mode")
-    private String transferMode;
-    
-    
-    
-    
-    @JsonProperty("beneficiary_id")
-    private String beneficiaryId;
-    
-    
-    
-    
-    @JsonProperty("subtitle")
-    private String subtitle;
-    
-    
-    
-    
-    @JsonProperty("address")
-    private String address;
+public static class OrderBeneficiaryDetails{
     
     
     
@@ -1437,20 +1382,14 @@ public static class OrderBeneficiaryDetails {
     
     
     
-    @JsonProperty("email")
-    private String email;
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
     
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
@@ -1461,20 +1400,26 @@ public static class OrderBeneficiaryDetails {
     
     
     
-    @JsonProperty("display_name")
-    private String displayName;
+    @JsonProperty("delights_user_name")
+    private String delightsUserName;
     
     
     
     
-    @JsonProperty("ifsc_code")
-    private String ifscCode;
+    @JsonProperty("bank_name")
+    private String bankName;
     
     
     
     
-    @JsonProperty("branch_name")
-    private String branchName;
+    @JsonProperty("account_holder")
+    private String accountHolder;
+    
+    
+    
+    
+    @JsonProperty("subtitle")
+    private String subtitle;
     
     
     
@@ -1485,13 +1430,67 @@ public static class OrderBeneficiaryDetails {
     
     
     
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("address")
+    private String address;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("beneficiary_id")
+    private String beneficiaryId;
+    
+    
+    
+    
+    @JsonProperty("branch_name")
+    private String branchName;
+    
+    
+    
+    
+    @JsonProperty("transfer_mode")
+    private String transferMode;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("ifsc_code")
+    private String ifscCode;
+    
+    
+    
+    
     @JsonProperty("id")
     private Integer id;
     
     
     
     
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
 }
+
 
 /*
     Model: OrderBeneficiaryResponse
@@ -1502,7 +1501,7 @@ public static class OrderBeneficiaryDetails {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderBeneficiaryResponse {
+public static class OrderBeneficiaryResponse{
     
     
     
@@ -1518,8 +1517,8 @@ public static class OrderBeneficiaryResponse {
     
     
     
-    
 }
+
 
 /*
     Model: MultiTenderPaymentMeta
@@ -1530,7 +1529,25 @@ public static class OrderBeneficiaryResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MultiTenderPaymentMeta {
+public static class MultiTenderPaymentMeta{
+    
+    
+    
+    
+    @JsonProperty("order_id")
+    private String orderId;
+    
+    
+    
+    
+    @JsonProperty("payment_gateway")
+    private String paymentGateway;
+    
+    
+    
+    
+    @JsonProperty("extra_meta")
+    private Object extraMeta;
     
     
     
@@ -1546,26 +1563,8 @@ public static class MultiTenderPaymentMeta {
     
     
     
-    
-    @JsonProperty("payment_gateway")
-    private String paymentGateway;
-    
-    
-    
-    
-    @JsonProperty("order_id")
-    private String orderId;
-    
-    
-    
-    
-    @JsonProperty("extra_meta")
-    private Object extraMeta;
-    
-    
-    
-    
 }
+
 
 /*
     Model: MultiTenderPaymentMethod
@@ -1576,19 +1575,7 @@ public static class MultiTenderPaymentMeta {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MultiTenderPaymentMethod {
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private MultiTenderPaymentMeta meta;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
+public static class MultiTenderPaymentMethod{
     
     
     
@@ -1599,13 +1586,25 @@ public static class MultiTenderPaymentMethod {
     
     
     
+    @JsonProperty("meta")
+    private MultiTenderPaymentMeta meta;
+    
+    
+    
+    
     @JsonProperty("mode")
     private String mode;
     
     
     
     
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
 }
+
 
 /*
     Model: PaymentConfirmationRequest
@@ -1616,7 +1615,7 @@ public static class MultiTenderPaymentMethod {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentConfirmationRequest {
+public static class PaymentConfirmationRequest{
     
     
     
@@ -1632,8 +1631,8 @@ public static class PaymentConfirmationRequest {
     
     
     
-    
 }
+
 
 /*
     Model: PaymentConfirmationResponse
@@ -1644,7 +1643,7 @@ public static class PaymentConfirmationRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentConfirmationResponse {
+public static class PaymentConfirmationResponse{
     
     
     
@@ -1666,8 +1665,8 @@ public static class PaymentConfirmationResponse {
     
     
     
-    
 }
+
 
 /*
     Model: Code
@@ -1678,13 +1677,7 @@ public static class PaymentConfirmationResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Code {
-    
-    
-    
-    
-    @JsonProperty("merchant_code")
-    private String merchantCode;
+public static class Code{
     
     
     
@@ -1695,13 +1688,19 @@ public static class Code {
     
     
     
+    @JsonProperty("merchant_code")
+    private String merchantCode;
+    
+    
+    
+    
     @JsonProperty("name")
     private String name;
     
     
     
-    
 }
+
 
 /*
     Model: PaymentCode
@@ -1712,13 +1711,7 @@ public static class Code {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentCode {
-    
-    
-    
-    
-    @JsonProperty("networks")
-    private String networks;
+public static class PaymentCode{
     
     
     
@@ -1729,8 +1722,8 @@ public static class PaymentCode {
     
     
     
-    @JsonProperty("types")
-    private String types;
+    @JsonProperty("networks")
+    private String networks;
     
     
     
@@ -1741,7 +1734,13 @@ public static class PaymentCode {
     
     
     
+    @JsonProperty("types")
+    private String types;
+    
+    
+    
 }
+
 
 /*
     Model: GetPaymentCode
@@ -1752,7 +1751,7 @@ public static class PaymentCode {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetPaymentCode {
+public static class GetPaymentCode{
     
     
     
@@ -1762,8 +1761,8 @@ public static class GetPaymentCode {
     
     
     
-    
 }
+
 
 /*
     Model: GetPaymentCodeResponse
@@ -1774,13 +1773,7 @@ public static class GetPaymentCode {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetPaymentCodeResponse {
-    
-    
-    
-    
-    @JsonProperty("data")
-    private GetPaymentCode data;
+public static class GetPaymentCodeResponse{
     
     
     
@@ -1791,8 +1784,12 @@ public static class GetPaymentCodeResponse {
     
     
     
+    @JsonProperty("data")
+    private GetPaymentCode data;
+    
+    
+    
 }
-
 
 
 
