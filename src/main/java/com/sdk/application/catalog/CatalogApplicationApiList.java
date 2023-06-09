@@ -69,11 +69,11 @@ interface CatalogApplicationApiList {
     @GET 
     Call<CatalogApplicationModels.GetFollowListingResponse> getFollowedListing(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE 
-    Call<CatalogApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
-    
     @POST 
     Call<CatalogApplicationModels.FollowPostResponse> followById(@Url String url1);
+    
+    @DELETE 
+    Call<CatalogApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
     
     @GET 
     Call<CatalogApplicationModels.FollowerCountResponse> getFollowerCountById(@Url String url1);
