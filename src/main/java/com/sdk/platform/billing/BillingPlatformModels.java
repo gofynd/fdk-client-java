@@ -429,6 +429,12 @@ public static class DetailedPlanComponents{
     
     
     
+    
+    @JsonProperty("config")
+    private Object config;
+    
+    
+    
 }
 
 
@@ -2733,7 +2739,7 @@ public static class Subscription{
     
     
     @JsonProperty("plan_data")
-    private Plan planData;
+    private Object planData;
     
     
     
