@@ -22,8 +22,36 @@ public static class PincodeErrorSchemaResponse{
     
     
     
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
     @JsonProperty("value")
     private String value;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: PincodeLatLongData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PincodeLatLongData{
     
     
     
@@ -34,8 +62,8 @@ public static class PincodeErrorSchemaResponse{
     
     
     
-    @JsonProperty("message")
-    private String message;
+    @JsonProperty("coordinates")
+    private List<String> coordinates;
     
     
     
@@ -62,14 +90,14 @@ public static class PincodeParentsResponse{
     
     
     
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
     @JsonProperty("display_name")
     private String displayName;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -111,34 +139,6 @@ public static class PincodeMetaResponse{
 
 
 /*
-    Model: PincodeLatLongData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PincodeLatLongData{
-    
-    
-    
-    
-    @JsonProperty("coordinates")
-    private List<String> coordinates;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-}
-
-
-/*
     Model: CountryMetaResponse
 */
 @AllArgsConstructor
@@ -152,14 +152,14 @@ public static class CountryMetaResponse{
     
     
     
-    @JsonProperty("isd_code")
-    private String isdCode;
-    
-    
-    
-    
     @JsonProperty("country_code")
     private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("isd_code")
+    private String isdCode;
     
     
     
@@ -180,8 +180,8 @@ public static class PincodeDataResponse{
     
     
     
-    @JsonProperty("parents")
-    private List<PincodeParentsResponse> parents;
+    @JsonProperty("lat_long")
+    private PincodeLatLongData latLong;
     
     
     
@@ -192,26 +192,8 @@ public static class PincodeDataResponse{
     
     
     
-    @JsonProperty("sub_type")
-    private String subType;
-    
-    
-    
-    
     @JsonProperty("uid")
     private String uid;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private PincodeMetaResponse meta;
     
     
     
@@ -222,8 +204,26 @@ public static class PincodeDataResponse{
     
     
     
-    @JsonProperty("lat_long")
-    private PincodeLatLongData latLong;
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("sub_type")
+    private String subType;
+    
+    
+    
+    
+    @JsonProperty("parents")
+    private List<PincodeParentsResponse> parents;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private PincodeMetaResponse meta;
     
     
     
@@ -256,14 +256,14 @@ public static class PincodeApiResponse{
     
     
     
-    @JsonProperty("data")
-    private List<PincodeDataResponse> data;
-    
-    
-    
-    
     @JsonProperty("success")
     private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<PincodeDataResponse> data;
     
     
     
@@ -312,14 +312,14 @@ public static class TATArticlesRequest{
     
     
     
-    @JsonProperty("manufacturing_time_unit")
-    private String manufacturingTimeUnit;
-    
-    
-    
-    
     @JsonProperty("manufacturing_time")
     private Integer manufacturingTime;
+    
+    
+    
+    
+    @JsonProperty("manufacturing_time_unit")
+    private String manufacturingTimeUnit;
     
     
     
@@ -346,8 +346,8 @@ public static class TATLocationDetailsRequest{
     
     
     
-    @JsonProperty("fulfillment_id")
-    private Integer fulfillmentId;
+    @JsonProperty("from_pincode")
+    private String fromPincode;
     
     
     
@@ -358,8 +358,8 @@ public static class TATLocationDetailsRequest{
     
     
     
-    @JsonProperty("from_pincode")
-    private String fromPincode;
+    @JsonProperty("fulfillment_id")
+    private Integer fulfillmentId;
     
     
     
@@ -380,8 +380,8 @@ public static class TATViewRequest{
     
     
     
-    @JsonProperty("location_details")
-    private List<TATLocationDetailsRequest> locationDetails;
+    @JsonProperty("journey")
+    private String journey;
     
     
     
@@ -392,14 +392,14 @@ public static class TATViewRequest{
     
     
     
+    @JsonProperty("location_details")
+    private List<TATLocationDetailsRequest> locationDetails;
+    
+    
+    
+    
     @JsonProperty("to_pincode")
     private String toPincode;
-    
-    
-    
-    
-    @JsonProperty("journey")
-    private String journey;
     
     
     
@@ -432,48 +432,20 @@ public static class TATErrorSchemaResponse{
     
     
     
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-    
     @JsonProperty("type")
     private String type;
     
     
     
     
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
     @JsonProperty("message")
     private String message;
-    
-    
-    
-}
-
-
-/*
-    Model: TATTimestampResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TATTimestampResponse{
-    
-    
-    
-    
-    @JsonProperty("max")
-    private Integer max;
-    
-    
-    
-    
-    @JsonProperty("min")
-    private Integer min;
     
     
     
@@ -494,14 +466,42 @@ public static class TATFormattedResponse{
     
     
     
+    @JsonProperty("min")
+    private String min;
+    
+    
+    
+    
     @JsonProperty("max")
     private String max;
     
     
     
+}
+
+
+/*
+    Model: TATTimestampResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TATTimestampResponse{
+    
+    
+    
     
     @JsonProperty("min")
-    private String min;
+    private Integer min;
+    
+    
+    
+    
+    @JsonProperty("max")
+    private Integer max;
     
     
     
@@ -522,14 +522,14 @@ public static class TATPromiseResponse{
     
     
     
-    @JsonProperty("timestamp")
-    private TATTimestampResponse timestamp;
-    
-    
-    
-    
     @JsonProperty("formatted")
     private TATFormattedResponse formatted;
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private TATTimestampResponse timestamp;
     
     
     
@@ -556,12 +556,6 @@ public static class TATArticlesResponse{
     
     
     
-    @JsonProperty("is_cod_available")
-    private Boolean isCodAvailable;
-    
-    
-    
-    
     @JsonProperty("manufacturing_time_unit")
     private String manufacturingTimeUnit;
     
@@ -580,14 +574,20 @@ public static class TATArticlesResponse{
     
     
     
-    @JsonProperty("promise")
-    private TATPromiseResponse promise;
-    
-    
-    
-    
     @JsonProperty("category")
     private TATCategoryRequest category;
+    
+    
+    
+    
+    @JsonProperty("is_cod_available")
+    private Boolean isCodAvailable;
+    
+    
+    
+    
+    @JsonProperty("promise")
+    private TATPromiseResponse promise;
     
     
     
@@ -608,8 +608,8 @@ public static class TATLocationDetailsResponse{
     
     
     
-    @JsonProperty("fulfillment_id")
-    private Integer fulfillmentId;
+    @JsonProperty("from_pincode")
+    private String fromPincode;
     
     
     
@@ -620,8 +620,8 @@ public static class TATLocationDetailsResponse{
     
     
     
-    @JsonProperty("from_pincode")
-    private String fromPincode;
+    @JsonProperty("fulfillment_id")
+    private Integer fulfillmentId;
     
     
     
@@ -642,6 +642,36 @@ public static class TATViewResponse{
     
     
     
+    @JsonProperty("stormbreaker_uuid")
+    private String stormbreakerUuid;
+    
+    
+    
+    
+    @JsonProperty("request_uuid")
+    private String requestUuid;
+    
+    
+    
+    
+    @JsonProperty("to_city")
+    private String toCity;
+    
+    
+    
+    
+    @JsonProperty("journey")
+    private String journey;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
     @JsonProperty("location_details")
     private List<TATLocationDetailsResponse> locationDetails;
     
@@ -654,50 +684,8 @@ public static class TATViewResponse{
     
     
     
-    @JsonProperty("to_city")
-    private String toCity;
-    
-    
-    
-    
-    @JsonProperty("is_cod_available")
-    private Boolean isCodAvailable;
-    
-    
-    
-    
-    @JsonProperty("action")
-    private String action;
-    
-    
-    
-    
-    @JsonProperty("stormbreaker_uuid")
-    private String stormbreakerUuid;
-    
-    
-    
-    
     @JsonProperty("to_pincode")
     private String toPincode;
-    
-    
-    
-    
-    @JsonProperty("journey")
-    private String journey;
-    
-    
-    
-    
-    @JsonProperty("source")
-    private String source;
-    
-    
-    
-    
-    @JsonProperty("request_uuid")
-    private String requestUuid;
     
     
     
@@ -708,14 +696,26 @@ public static class TATViewResponse{
     
     
     
-    @JsonProperty("payment_mode")
-    private String paymentMode;
+    @JsonProperty("source")
+    private String source;
     
     
     
     
     @JsonProperty("identifier")
     private String identifier;
+    
+    
+    
+    
+    @JsonProperty("is_cod_available")
+    private Boolean isCodAvailable;
+    
+    
+    
+    
+    @JsonProperty("payment_mode")
+    private String paymentMode;
     
     
     
@@ -834,38 +834,8 @@ public static class CountryEntityResponse{
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
     @JsonProperty("display_name")
     private String displayName;
-    
-    
-    
-    
-    @JsonProperty("sub_type")
-    private String subType;
-    
-    
-    
-    
-    @JsonProperty("logistics")
-    private LogisticsResponse logistics;
-    
-    
-    
-    
-    @JsonProperty("parent_id")
-    private String parentId;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
     
     
     
@@ -876,14 +846,44 @@ public static class CountryEntityResponse{
     
     
     
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("logistics")
+    private LogisticsResponse logistics;
+    
+    
+    
+    
     @JsonProperty("name")
     private String name;
     
     
     
     
+    @JsonProperty("sub_type")
+    private String subType;
+    
+    
+    
+    
+    @JsonProperty("parent_id")
+    private String parentId;
+    
+    
+    
+    
     @JsonProperty("meta")
     private CountryMetaResponse meta;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
@@ -982,6 +982,12 @@ public static class ReAssignStoreRequest{
     
     
     
+    @JsonProperty("articles")
+    private List<Object> articles;
+    
+    
+    
+    
     @JsonProperty("ignored_locations")
     private List<String> ignoredLocations;
     
@@ -996,12 +1002,6 @@ public static class ReAssignStoreRequest{
     
     @JsonProperty("configuration")
     private Object configuration;
-    
-    
-    
-    
-    @JsonProperty("articles")
-    private List<Object> articles;
     
     
     
@@ -1028,14 +1028,8 @@ public static class ReAssignStoreResponse{
     
     
     
-    @JsonProperty("error")
-    private Object error;
-    
-    
-    
-    
-    @JsonProperty("articles")
-    private List<Object> articles;
+    @JsonProperty("to_pincode")
+    private String toPincode;
     
     
     
@@ -1046,8 +1040,14 @@ public static class ReAssignStoreResponse{
     
     
     
-    @JsonProperty("to_pincode")
-    private String toPincode;
+    @JsonProperty("error")
+    private Object error;
+    
+    
+    
+    
+    @JsonProperty("articles")
+    private List<Object> articles;
     
     
     
