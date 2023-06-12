@@ -35,7 +35,7 @@ Get a list of customers
 
 
 ```java
-client.application("<APPLICATION_ID>").user.getCustomers( q,  pageSize,  pageNo) {
+platformClient.application("<APPLICATION_ID>").user.getCustomers( q,  pageSize,  pageNo) {
   //use response
 }
 ```
@@ -147,7 +147,7 @@ Search an existing user.
 
 
 ```java
-client.application("<APPLICATION_ID>").user.searchUsers( q) {
+platformClient.application("<APPLICATION_ID>").user.searchUsers( q) {
   //use response
 }
 ```
@@ -244,7 +244,7 @@ Create user
 
 
 ```java
-client.application("<APPLICATION_ID>").user.createUser(body body) {
+platformClient.application("<APPLICATION_ID>").user.createUser(body body) {
   //use response
 }
 ```
@@ -340,7 +340,7 @@ Block/Unblock user
 
 
 ```java
-client.application("<APPLICATION_ID>").user.blockOrUnblockUsers(body body) {
+platformClient.application("<APPLICATION_ID>").user.blockOrUnblockUsers(body body) {
   //use response
 }
 ```
@@ -396,7 +396,7 @@ archive user
 
 
 ```java
-client.application("<APPLICATION_ID>").user.archiveUser(body body) {
+platformClient.application("<APPLICATION_ID>").user.archiveUser(body body) {
   //use response
 }
 ```
@@ -452,7 +452,7 @@ undelete user who deleted from application and have not elapsed the platform con
 
 
 ```java
-client.application("<APPLICATION_ID>").user.unDeleteUser(body body) {
+platformClient.application("<APPLICATION_ID>").user.unDeleteUser(body body) {
   //use response
 }
 ```
@@ -508,7 +508,7 @@ Update user
 
 
 ```java
-client.application("<APPLICATION_ID>").user.updateUser( userId, body body) {
+platformClient.application("<APPLICATION_ID>").user.updateUser( userId, body body) {
   //use response
 }
 ```
@@ -605,7 +605,7 @@ Create user session
 
 
 ```java
-client.application("<APPLICATION_ID>").user.createUserSession(body body) {
+platformClient.application("<APPLICATION_ID>").user.createUserSession(body body) {
   //use response
 }
 ```
@@ -667,7 +667,7 @@ Get a list of all session for a user
 
 
 ```java
-client.application("<APPLICATION_ID>").user.getActiveSessions( id) {
+platformClient.application("<APPLICATION_ID>").user.getActiveSessions( id) {
   //use response
 }
 ```
@@ -735,7 +735,7 @@ Delete a list of all session for a user
 
 
 ```java
-client.application("<APPLICATION_ID>").user.deleteActiveSessions( id) {
+platformClient.application("<APPLICATION_ID>").user.deleteActiveSessions( id) {
   //use response
 }
 ```
@@ -803,7 +803,7 @@ Get platform configurations
 
 
 ```java
-client.application("<APPLICATION_ID>").user.getPlatformConfig() {
+platformClient.application("<APPLICATION_ID>").user.getPlatformConfig() {
   //use response
 }
 ```
@@ -938,7 +938,7 @@ Update platform configurations
 
 
 ```java
-client.application("<APPLICATION_ID>").user.updatePlatformConfig(body body) {
+platformClient.application("<APPLICATION_ID>").user.updatePlatformConfig(body body) {
   //use response
 }
 ```
@@ -1073,7 +1073,7 @@ Create an User Group
 
 
 ```java
-client.application("<APPLICATION_ID>").user.createUserGroup(body body) {
+platformClient.application("<APPLICATION_ID>").user.createUserGroup(body body) {
   //use response
 }
 ```
@@ -1139,7 +1139,7 @@ Get User Groups mathcing criteria
 
 
 ```java
-client.application("<APPLICATION_ID>").user.getUserGroups( pageNo,  pageSize,  name,  status,  groupUid) {
+platformClient.application("<APPLICATION_ID>").user.getUserGroups( pageNo,  pageSize,  name,  status,  groupUid) {
   //use response
 }
 ```
@@ -1234,7 +1234,7 @@ Update an User Group
 
 
 ```java
-client.application("<APPLICATION_ID>").user.updateUserGroup( groupId, body body) {
+platformClient.application("<APPLICATION_ID>").user.updateUserGroup( groupId, body body) {
   //use response
 }
 ```
@@ -1301,7 +1301,7 @@ Get an User Group by Id
 
 
 ```java
-client.application("<APPLICATION_ID>").user.getUserGroupById( groupId) {
+platformClient.application("<APPLICATION_ID>").user.getUserGroupById( groupId) {
   //use response
 }
 ```
