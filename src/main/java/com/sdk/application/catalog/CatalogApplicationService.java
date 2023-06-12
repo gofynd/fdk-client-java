@@ -745,14 +745,14 @@ import com.sdk.application.*;
     
     
     
-    public CatalogApplicationModels.ProductListingResponse getCollectionItemsBySlug(String slug , String f , Boolean filters , String sortOn , String pageId , Integer pageSize , Integer pageNo , String pageType ) throws IOException {
+    public CatalogApplicationModels.ProductListingResponse getCollectionItemsBySlug(String slug , String f , String q , Boolean filters , String sortOn , String pageId , Integer pageSize , Integer pageNo , String pageType ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCollectionItemsBySlug");
         
         fullUrl = fullUrl.replace("{" + "slug" +"}",slug.toString());
         
 
-        Response<CatalogApplicationModels.ProductListingResponse> response = catalogApplicationApiList.getCollectionItemsBySlug(fullUrl  ,f, filters, sortOn, pageId, pageSize, pageNo, pageType).execute();
+        Response<CatalogApplicationModels.ProductListingResponse> response = catalogApplicationApiList.getCollectionItemsBySlug(fullUrl  ,f, q, filters, sortOn, pageId, pageSize, pageNo, pageType).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -800,6 +800,10 @@ import com.sdk.application.*;
         
         
         
+        
+        
+        
+        
 
     /**
     * Summary: get paginator for getCollectionItemsBySlug
@@ -809,6 +813,7 @@ import com.sdk.application.*;
         
         String slug,
         String f,
+        String q,
         Boolean filters,
         String sortOn,
         Integer pageSize
@@ -825,6 +830,7 @@ import com.sdk.application.*;
                 
                  slug,
                  f,
+                 q,
                  filters,
                  sortOn,
                  paginator.getNextId()

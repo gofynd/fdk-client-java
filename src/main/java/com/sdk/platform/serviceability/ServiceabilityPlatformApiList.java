@@ -107,6 +107,18 @@ interface ServiceabilityPlatformApiList {
     
     
     
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/zones")
+    Call<ServiceabilityPlatformModels.GetZoneFromPincodeViewResponse> getZoneFromPincodeView(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ServiceabilityPlatformModels.GetZoneFromPincodeViewRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -121,18 +133,6 @@ interface ServiceabilityPlatformApiList {
     
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/zones")
     Call<ServiceabilityPlatformModels.GetZoneFromApplicationIdViewResponse> getZonesFromApplicationIdView(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("zone_id") List<String>  zoneId ,  @Query("q") String  q );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/zones")
-    Call<ServiceabilityPlatformModels.GetZoneFromPincodeViewResponse> getZoneFromPincodeView(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ServiceabilityPlatformModels.GetZoneFromPincodeViewRequest payload);
     
     
     
@@ -278,17 +278,17 @@ interface ServiceabilityPlatformApiList {
     
     
     
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier/rules")
-    Call<ServiceabilityPlatformModels.DpMultipleRuleSuccessResponse> getDpRuleInsert(@Path("company_id")  String companyId );
-    
-    
-    
-    
-    
-    
-    
     @POST ("/service/platform/logistics/v1.0/company/{company_id}/courier/rules")
     Call<ServiceabilityPlatformModels.DpRuleSuccessResponse> upsertDpRules(@Path("company_id")  String companyId ,@Body ServiceabilityPlatformModels.DpRuleRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier/rules")
+    Call<ServiceabilityPlatformModels.DpMultipleRuleSuccessResponse> getDpRuleInsert(@Path("company_id")  String companyId );
     
     
     
