@@ -311,4 +311,118 @@ interface CartPlatformApiList {
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/abandoned/carts/{cart_id}")
     Call<CartPlatformModels.UpdateCartDetailResponse> updateCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("cart_id") String  cartId , @Query("b") Boolean  b ,@Body CartPlatformModels.UpdateCartRequest payload);
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/address")
+    Call<CartPlatformModels.PlatformGetAddressesResponse> getAddresses(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("cart_id") String  cartId ,  @Query("buy_now") Boolean  buyNow ,  @Query("mobile_no") String  mobileNo ,  @Query("checkout_mode") String  checkoutMode ,  @Query("tags") String  tags ,  @Query("is_default") Boolean  isDefault ,  @Query("user_id") String  userId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/address")
+    Call<CartPlatformModels.SaveAddressResponse> addAddress(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CartPlatformModels.PlatformAddress payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/address/{id}")
+    Call<CartPlatformModels.PlatformAddress> getAddressById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id , @Query("cart_id") String  cartId ,  @Query("buy_now") Boolean  buyNow ,  @Query("mobile_no") String  mobileNo ,  @Query("checkout_mode") String  checkoutMode ,  @Query("tags") String  tags ,  @Query("is_default") Boolean  isDefault ,  @Query("user_id") String  userId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/address/{id}")
+    Call<CartPlatformModels.UpdateAddressResponse> updateAddress(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CartPlatformModels.PlatformAddress payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/address/{id}")
+    Call<CartPlatformModels.DeleteAddressResponse> removeAddress(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id , @Query("user_id") String  userId );
+    
 }
