@@ -206,6 +206,24 @@ interface CartPlatformApiList {
     
     
     
+    
+    
+    
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promo-coupons")
+    Call<CartPlatformModels.ActivePromosResponse> getPromosCouponConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("entity_type") String  entityType ,  @Query("is_hidden") Boolean  isHidden );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart_configuration/{cart_meta_id}")
     Call<CartPlatformModels.CartMetaConfigUpdate> updateCartMetaConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("cart_meta_id") String  cartMetaId ,@Body CartPlatformModels.CartMetaConfigUpdate payload);
     
@@ -400,5 +418,17 @@ interface CartPlatformApiList {
     
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promotion_code_exists")
     Call<Object> getPromotionCodeExists(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("code") String  code );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/checkout/over-ride")
+    Call<CartPlatformModels.OverrideCheckoutResponse> overrideCart(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CartPlatformModels.OverrideCheckoutReq payload);
     
 }
