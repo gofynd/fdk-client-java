@@ -642,8 +642,8 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | categoryL1 | ArrayList<[CategoryL1](#CategoryL1)>? |  yes  |  |
- | categoryL2 | ArrayList<[CategoryL2](#CategoryL2)>? |  yes  |  |
+ | categoriesL1 | ArrayList<[CategoryL1](#CategoryL1)>? |  yes  |  |
+ | categoriesL2 | ArrayList<[CategoryL2](#CategoryL2)>? |  yes  |  |
 
 ---
 
@@ -699,7 +699,7 @@ Success
  | videoUrl | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | youtube | ArrayList<String>? |  yes  |  |
  | screenshots | [Screenshots](#Screenshots)? |  yes  |  |
- | integrations | String? |  yes  |  |
+ | integrations | ArrayList<String>? |  yes  |  |
  | featuredBanner | String? |  yes  |  |
 
 ---
@@ -743,6 +743,7 @@ Success
  | price | [Price](#Price)? |  yes  |  |
  | trialDays | Double? |  yes  |  |
  | type | String? |  yes  |  |
+ | customMeta | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -826,6 +827,7 @@ Success
  | scope | ArrayList<String>? |  yes  |  |
  | slug | String? |  yes  |  |
  | id | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
 
 ---
 
