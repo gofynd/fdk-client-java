@@ -82,42 +82,6 @@ public class CatalogPlatformService {
     
     
     
-
-    public CatalogPlatformModels.GetProductBundleCreateResponse createProductBundle(CatalogPlatformModels.ProductBundleRequest body) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetProductBundleCreateResponse> response = null;
-            try {
-                response = catalogPlatformApiList.createProductBundle(this.companyId , body).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -162,16 +126,12 @@ public class CatalogPlatformService {
     
     
     
-    
-    
-    
-    
 
-    public CatalogPlatformModels.GetProductBundleCreateResponse updateProductBundle(String id ,CatalogPlatformModels.ProductBundleUpdateRequest body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetProductBundleCreateResponse createProductBundle(CatalogPlatformModels.ProductBundleRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.GetProductBundleCreateResponse> response = null;
             try {
-                response = catalogPlatformApiList.updateProductBundle(this.companyId , id  , body).execute();
+                response = catalogPlatformApiList.createProductBundle(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -242,12 +202,16 @@ public class CatalogPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public CatalogPlatformModels.SuccessResponse createSizeGuide(CatalogPlatformModels.ValidateSizeGuide body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetProductBundleCreateResponse updateProductBundle(String id ,CatalogPlatformModels.ProductBundleUpdateRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponse> response = null;
+            Response<CatalogPlatformModels.GetProductBundleCreateResponse> response = null;
             try {
-                response = catalogPlatformApiList.createSizeGuide(this.companyId , body).execute();
+                response = catalogPlatformApiList.updateProductBundle(this.companyId , id  , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -334,16 +298,12 @@ public class CatalogPlatformService {
     
     
     
-    
-    
-    
-    
 
-    public CatalogPlatformModels.SuccessResponse updateSizeGuide(String id ,CatalogPlatformModels.ValidateSizeGuide body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse createSizeGuide(CatalogPlatformModels.ValidateSizeGuide body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
-                response = catalogPlatformApiList.updateSizeGuide(this.companyId , id  , body).execute();
+                response = catalogPlatformApiList.createSizeGuide(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -384,6 +344,46 @@ public class CatalogPlatformService {
             Response<CatalogPlatformModels.SizeGuideResponse> response = null;
             try {
                 response = catalogPlatformApiList.getSizeGuide(this.companyId , id  ).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public CatalogPlatformModels.SuccessResponse updateSizeGuide(String id ,CatalogPlatformModels.ValidateSizeGuide body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
+            try {
+                response = catalogPlatformApiList.updateSizeGuide(this.companyId , id  , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1216,42 +1216,6 @@ public class CatalogPlatformService {
     
     
     
-
-    public CatalogPlatformModels.ProductDownloadsResponse createProductExportJob(CatalogPlatformModels.ProductTemplateDownloadsExport body) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ProductDownloadsResponse> response = null;
-            try {
-                response = catalogPlatformApiList.createProductExportJob(this.companyId , body).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -1304,24 +1268,12 @@ public class CatalogPlatformService {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-    public CatalogPlatformModels.ProductConfigurationDownloads listTemplateBrandTypeValues(String filter , String templateTag , String itemType ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductDownloadsResponse createProductExportJob(CatalogPlatformModels.ProductTemplateDownloadsExport body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ProductConfigurationDownloads> response = null;
+            Response<CatalogPlatformModels.ProductDownloadsResponse> response = null;
             try {
-                response = catalogPlatformApiList.listTemplateBrandTypeValues(this.companyId ,filter , templateTag , itemType ).execute();
+                response = catalogPlatformApiList.createProductExportJob(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1352,12 +1304,24 @@ public class CatalogPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CatalogPlatformModels.CategoryCreateResponse createCategories(CatalogPlatformModels.CategoryRequestBody body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductConfigurationDownloads listTemplateBrandTypeValues(String filter , String templateTag , String itemType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.CategoryCreateResponse> response = null;
+            Response<CatalogPlatformModels.ProductConfigurationDownloads> response = null;
             try {
-                response = catalogPlatformApiList.createCategories(this.companyId , body).execute();
+                response = catalogPlatformApiList.listTemplateBrandTypeValues(this.companyId ,filter , templateTag , itemType ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1444,16 +1408,12 @@ public class CatalogPlatformService {
     
     
     
-    
-    
-    
-    
 
-    public CatalogPlatformModels.CategoryUpdateResponse updateCategory(String uid ,CatalogPlatformModels.CategoryRequestBody body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CategoryCreateResponse createCategories(CatalogPlatformModels.CategoryRequestBody body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.CategoryUpdateResponse> response = null;
+            Response<CatalogPlatformModels.CategoryCreateResponse> response = null;
             try {
-                response = catalogPlatformApiList.updateCategory(this.companyId , uid  , body).execute();
+                response = catalogPlatformApiList.createCategories(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1524,12 +1484,16 @@ public class CatalogPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public CatalogPlatformModels.SuccessResponse createProduct(CatalogPlatformModels.ProductCreateUpdateSchemaV2 body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CategoryUpdateResponse updateCategory(String uid ,CatalogPlatformModels.CategoryRequestBody body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponse> response = null;
+            Response<CatalogPlatformModels.CategoryUpdateResponse> response = null;
             try {
-                response = catalogPlatformApiList.createProduct(this.companyId , body).execute();
+                response = catalogPlatformApiList.updateCategory(this.companyId , uid  , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1602,6 +1566,42 @@ public class CatalogPlatformService {
             Response<CatalogPlatformModels.ProductListingResponseV2> response = null;
             try {
                 response = catalogPlatformApiList.getProducts(this.companyId ,brandIds , categoryIds , itemIds , departmentIds , itemCode , q , tags , pageNo , pageSize ).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public CatalogPlatformModels.SuccessResponse createProduct(CatalogPlatformModels.ProductCreateUpdateSchemaV2 body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
+            try {
+                response = catalogPlatformApiList.createProduct(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1732,6 +1732,54 @@ public class CatalogPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public CatalogPlatformModels.SingleProductResponse getProduct(Integer itemId , Integer brandUid , String itemCode ) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<CatalogPlatformModels.SingleProductResponse> response = null;
+            try {
+                response = catalogPlatformApiList.getProduct(this.companyId , itemId  ,brandUid , itemCode ).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     public CatalogPlatformModels.SuccessResponse editProduct(Integer itemId ,CatalogPlatformModels.ProductCreateUpdateSchemaV2 body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
@@ -1778,54 +1826,6 @@ public class CatalogPlatformService {
             Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogPlatformApiList.deleteProduct(this.companyId , itemId  ).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    public CatalogPlatformModels.SingleProductResponse getProduct(Integer itemId , Integer brandUid , String itemCode ) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SingleProductResponse> response = null;
-            try {
-                response = catalogPlatformApiList.getProduct(this.companyId , itemId  ,brandUid , itemCode ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1984,12 +1984,24 @@ public class CatalogPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CatalogPlatformModels.BulkResponse createBulkProductUploadJob(CatalogPlatformModels.BulkJob body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductBulkRequestList getProductBulkUploadHistory(String search , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.BulkResponse> response = null;
+            Response<CatalogPlatformModels.ProductBulkRequestList> response = null;
             try {
-                response = catalogPlatformApiList.createBulkProductUploadJob(this.companyId , body).execute();
+                response = catalogPlatformApiList.getProductBulkUploadHistory(this.companyId ,search , pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2020,24 +2032,12 @@ public class CatalogPlatformService {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-    public CatalogPlatformModels.ProductBulkRequestList getProductBulkUploadHistory(String search , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BulkResponse createBulkProductUploadJob(CatalogPlatformModels.BulkJob body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ProductBulkRequestList> response = null;
+            Response<CatalogPlatformModels.BulkResponse> response = null;
             try {
-                response = catalogPlatformApiList.getProductBulkUploadHistory(this.companyId ,search , pageNo , pageSize ).execute();
+                response = catalogPlatformApiList.createBulkProductUploadJob(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2117,11 +2117,11 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponse deleteProductBulkJob(Integer batchId ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse createProductsInBulk(String batchId ,CatalogPlatformModels.BulkProductRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
-                response = catalogPlatformApiList.deleteProductBulkJob(this.companyId , batchId  ).execute();
+                response = catalogPlatformApiList.createProductsInBulk(this.companyId , batchId  , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2157,11 +2157,11 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponse createProductsInBulk(String batchId ,CatalogPlatformModels.BulkProductRequest body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse deleteProductBulkJob(Integer batchId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
-                response = catalogPlatformApiList.createProductsInBulk(this.companyId , batchId  , body).execute();
+                response = catalogPlatformApiList.deleteProductBulkJob(this.companyId , batchId  ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2228,12 +2228,20 @@ public class CatalogPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CatalogPlatformModels.SuccessResponse createProductAssetsInBulk(CatalogPlatformModels.ProductBulkAssets body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BulkAssetResponse getProductAssetsInBulk(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponse> response = null;
+            Response<CatalogPlatformModels.BulkAssetResponse> response = null;
             try {
-                response = catalogPlatformApiList.createProductAssetsInBulk(this.companyId , body).execute();
+                response = catalogPlatformApiList.getProductAssetsInBulk(this.companyId ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2264,20 +2272,12 @@ public class CatalogPlatformService {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
 
-    public CatalogPlatformModels.BulkAssetResponse getProductAssetsInBulk(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse createProductAssetsInBulk(CatalogPlatformModels.ProductBulkAssets body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.BulkAssetResponse> response = null;
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
-                response = catalogPlatformApiList.getProductAssetsInBulk(this.companyId ,pageNo , pageSize ).execute();
+                response = catalogPlatformApiList.createProductAssetsInBulk(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2360,12 +2360,28 @@ public class CatalogPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CatalogPlatformModels.SuccessResponse addInventory(Integer itemId , String size ,CatalogPlatformModels.InventoryRequest body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryResponsePaginated getInventoryBySize(Integer itemId , String size , Integer pageNo , Integer pageSize , String q , Boolean sellable ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponse> response = null;
+            Response<CatalogPlatformModels.InventoryResponsePaginated> response = null;
             try {
-                response = catalogPlatformApiList.addInventory(this.companyId , itemId  , size  , body).execute();
+                response = catalogPlatformApiList.getInventoryBySize(this.companyId , itemId  , size  ,pageNo , pageSize , q , sellable ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2404,28 +2420,12 @@ public class CatalogPlatformService {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-    public CatalogPlatformModels.InventoryResponsePaginated getInventoryBySize(Integer itemId , String size , Integer pageNo , Integer pageSize , String q , Boolean sellable ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse addInventory(Integer itemId , String size ,CatalogPlatformModels.InventoryRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.InventoryResponsePaginated> response = null;
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
-                response = catalogPlatformApiList.getInventoryBySize(this.companyId , itemId  , size  ,pageNo , pageSize , q , sellable ).execute();
+                response = catalogPlatformApiList.addInventory(this.companyId , itemId  , size  , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2634,42 +2634,6 @@ public class CatalogPlatformService {
     
     
     
-
-    public CatalogPlatformModels.BulkResponse createBulkInventoryJob(CatalogPlatformModels.BulkJob body) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.BulkResponse> response = null;
-            try {
-                response = catalogPlatformApiList.createBulkInventoryJob(this.companyId , body).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -2714,16 +2678,12 @@ public class CatalogPlatformService {
     
     
     
-    
-    
-    
-    
 
-    public CatalogPlatformModels.SuccessResponse deleteBulkInventoryJob(String batchId ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BulkResponse createBulkInventoryJob(CatalogPlatformModels.BulkJob body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponse> response = null;
+            Response<CatalogPlatformModels.BulkResponse> response = null;
             try {
-                response = catalogPlatformApiList.deleteBulkInventoryJob(this.companyId , batchId  ).execute();
+                response = catalogPlatformApiList.createBulkInventoryJob(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2794,12 +2754,16 @@ public class CatalogPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public CatalogPlatformModels.InventoryExportResponse createInventoryExportJob(CatalogPlatformModels.InventoryExportRequest body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse deleteBulkInventoryJob(String batchId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.InventoryExportResponse> response = null;
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
-                response = catalogPlatformApiList.createInventoryExportJob(this.companyId , body).execute();
+                response = catalogPlatformApiList.deleteBulkInventoryJob(this.companyId , batchId  ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2867,11 +2831,11 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.InventoryExportResponse createInventoryExport(CatalogPlatformModels.InventoryCreateRequest body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryExportResponse createInventoryExportJob(CatalogPlatformModels.InventoryExportRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.InventoryExportResponse> response = null;
             try {
-                response = catalogPlatformApiList.createInventoryExport(this.companyId , body).execute();
+                response = catalogPlatformApiList.createInventoryExportJob(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2954,16 +2918,12 @@ public class CatalogPlatformService {
     
     
     
-    
-    
-    
-    
 
-    public CatalogPlatformModels.InventoryConfig exportInventoryConfig(String filterType ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryExportResponse createInventoryExport(CatalogPlatformModels.InventoryCreateRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.InventoryConfig> response = null;
+            Response<CatalogPlatformModels.InventoryExportResponse> response = null;
             try {
-                response = catalogPlatformApiList.exportInventoryConfig(this.companyId ,filterType ).execute();
+                response = catalogPlatformApiList.createInventoryExport(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2998,16 +2958,12 @@ public class CatalogPlatformService {
     
     
     
-    
-    
-    
-    
 
-    public CatalogPlatformModels.InventoryUpdateResponse deleteRealtimeInventory(Integer itemId , String sellerIdentifier ,CatalogPlatformModels.InventoryRequestSchemaV2 body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryConfig exportInventoryConfig(String filterType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.InventoryUpdateResponse> response = null;
+            Response<CatalogPlatformModels.InventoryConfig> response = null;
             try {
-                response = catalogPlatformApiList.deleteRealtimeInventory(this.companyId , itemId  , sellerIdentifier  , body).execute();
+                response = catalogPlatformApiList.exportInventoryConfig(this.companyId ,filterType ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3082,6 +3038,50 @@ public class CatalogPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public CatalogPlatformModels.InventoryUpdateResponse deleteRealtimeInventory(Integer itemId , String sellerIdentifier ,CatalogPlatformModels.InventoryRequestSchemaV2 body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<CatalogPlatformModels.InventoryUpdateResponse> response = null;
+            try {
+                response = catalogPlatformApiList.deleteRealtimeInventory(this.companyId , itemId  , sellerIdentifier  , body).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     public CatalogPlatformModels.InventoryUpdateResponse updateInventories(CatalogPlatformModels.InventoryRequestSchemaV2 body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
@@ -3123,11 +3123,11 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.HsnCode updateHsnCode(String id ,CatalogPlatformModels.HsnUpsert body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.HsnCode getHsnCode(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.HsnCode> response = null;
             try {
-                response = catalogPlatformApiList.updateHsnCode(this.companyId , id  , body).execute();
+                response = catalogPlatformApiList.getHsnCode(this.companyId , id  ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3163,11 +3163,11 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.HsnCode getHsnCode(String id ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.HsnCode updateHsnCode(String id ,CatalogPlatformModels.HsnUpsert body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.HsnCode> response = null;
             try {
-                response = catalogPlatformApiList.getHsnCode(this.companyId , id  ).execute();
+                response = catalogPlatformApiList.updateHsnCode(this.companyId , id  , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3419,6 +3419,51 @@ public class ApplicationClient {
     
     
 
+    public CatalogPlatformModels.GetSearchWordsData getSearchKeywords(String id ) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<CatalogPlatformModels.GetSearchWordsData> response = null;
+            try {
+            response = catalogPlatformApiList.getSearchKeywords(this.companyId , this.applicationId , id ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
     public CatalogPlatformModels.GetSearchWordsData updateSearchKeywords(String id ,CatalogPlatformModels.CreateSearchKeyword body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.GetSearchWordsData> response = null;
@@ -3508,12 +3553,16 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
 
-    public CatalogPlatformModels.GetSearchWordsData getSearchKeywords(String id ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetSearchWordsResponse getAllSearchKeyword(Boolean isActive , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetSearchWordsData> response = null;
+            Response<CatalogPlatformModels.GetSearchWordsResponse> response = null;
             try {
-            response = catalogPlatformApiList.getSearchKeywords(this.companyId , this.applicationId , id ).execute();
+            response = catalogPlatformApiList.getAllSearchKeyword(this.companyId , this.applicationId ,isActive , q ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3594,16 +3643,12 @@ public class ApplicationClient {
     
     
     
-    
-    
-    
-    
 
-    public CatalogPlatformModels.GetSearchWordsResponse getAllSearchKeyword(Boolean isActive , String q ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetAutocompleteWordsData getAutocompleteKeywordDetail(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetSearchWordsResponse> response = null;
+            Response<CatalogPlatformModels.GetAutocompleteWordsData> response = null;
             try {
-            response = catalogPlatformApiList.getAllSearchKeyword(this.companyId , this.applicationId ,isActive , q ).execute();
+            response = catalogPlatformApiList.getAutocompleteKeywordDetail(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3729,16 +3774,12 @@ public class ApplicationClient {
     
     
     
-    
-    
-    
-    
 
-    public CatalogPlatformModels.GetAutocompleteWordsData getAutocompleteKeywordDetail(String id ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetAutocompleteWordsResponse getAutocompleteConfig() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetAutocompleteWordsData> response = null;
+            Response<CatalogPlatformModels.GetAutocompleteWordsResponse> response = null;
             try {
-            response = catalogPlatformApiList.getAutocompleteKeywordDetail(this.companyId , this.applicationId , id ).execute();
+            response = catalogPlatformApiList.getAutocompleteConfig(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3815,12 +3856,20 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CatalogPlatformModels.GetAutocompleteWordsResponse getAutocompleteConfig() throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SearchRerankListing listSearchRerankConfig(Boolean isActive , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetAutocompleteWordsResponse> response = null;
+            Response<CatalogPlatformModels.SearchRerankListing> response = null;
             try {
-            response = catalogPlatformApiList.getAutocompleteConfig(this.companyId , this.applicationId ).execute();
+            response = catalogPlatformApiList.listSearchRerankConfig(this.companyId , this.applicationId ,isActive , q ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3901,16 +3950,12 @@ public class ApplicationClient {
     
     
     
-    
-    
-    
-    
 
-    public CatalogPlatformModels.SearchRerankListing listSearchRerankConfig(Boolean isActive , String q ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SearchRerankingModel getSearchRerankingConfig(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SearchRerankListing> response = null;
+            Response<CatalogPlatformModels.SearchRerankingModel> response = null;
             try {
-            response = catalogPlatformApiList.listSearchRerankConfig(this.companyId , this.applicationId ,isActive , q ).execute();
+            response = catalogPlatformApiList.getSearchRerankingConfig(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -4040,12 +4085,28 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CatalogPlatformModels.SearchRerankingModel getSearchRerankingConfig(String id ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.OwnerAppItemResponse getAppProduct(String itemId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SearchRerankingModel> response = null;
+            Response<CatalogPlatformModels.OwnerAppItemResponse> response = null;
             try {
-            response = catalogPlatformApiList.getSearchRerankingConfig(this.companyId , this.applicationId , id ).execute();
+            response = catalogPlatformApiList.getAppProduct(this.companyId , this.applicationId , itemId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -4064,22 +4125,6 @@ public class ApplicationClient {
         }    
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -4107,51 +4152,6 @@ public class ApplicationClient {
             Response<CatalogPlatformModels.SuccessResponse1> response = null;
             try {
             response = catalogPlatformApiList.updateAppProduct(this.companyId , this.applicationId , itemId , body).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    public CatalogPlatformModels.OwnerAppItemResponse getAppProduct(String itemId ) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.OwnerAppItemResponse> response = null;
-            try {
-            response = catalogPlatformApiList.getAppProduct(this.companyId , this.applicationId , itemId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -4240,12 +4240,28 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CatalogPlatformModels.AppConfigurationDetail createGroupConfiguration(String configType ,CatalogPlatformModels.AppConfigurationDetail body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetConfigResponse getGroupConfigurations(String configType , Integer pageNo , Integer pageSize , String search , String templateSlug ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.AppConfigurationDetail> response = null;
+            Response<CatalogPlatformModels.GetConfigResponse> response = null;
             try {
-            response = catalogPlatformApiList.createGroupConfiguration(this.companyId , this.applicationId , configType , body).execute();
+            response = catalogPlatformApiList.getGroupConfigurations(this.companyId , this.applicationId , configType ,pageNo , pageSize , search , templateSlug ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -4285,28 +4301,12 @@ public class ApplicationClient {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-    public CatalogPlatformModels.GetConfigResponse getGroupConfigurations(String configType , Integer pageNo , Integer pageSize , String search , String templateSlug ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.AppConfigurationDetail createGroupConfiguration(String configType ,CatalogPlatformModels.AppConfigurationDetail body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetConfigResponse> response = null;
+            Response<CatalogPlatformModels.AppConfigurationDetail> response = null;
             try {
-            response = catalogPlatformApiList.getGroupConfigurations(this.companyId , this.applicationId , configType ,pageNo , pageSize , search , templateSlug ).execute();
+            response = catalogPlatformApiList.createGroupConfiguration(this.companyId , this.applicationId , configType , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -4444,12 +4444,24 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CatalogPlatformModels.AppConfigurationsSort createListingConfiguration(String configType ,CatalogPlatformModels.AppConfigurationsSort body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetConfigResponse getListingConfigurations(String configType , Integer pageNo , Integer pageSize , String search ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.AppConfigurationsSort> response = null;
+            Response<CatalogPlatformModels.GetConfigResponse> response = null;
             try {
-            response = catalogPlatformApiList.createListingConfiguration(this.companyId , this.applicationId , configType , body).execute();
+            response = catalogPlatformApiList.getListingConfigurations(this.companyId , this.applicationId , configType ,pageNo , pageSize , search ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -4489,24 +4501,12 @@ public class ApplicationClient {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-    public CatalogPlatformModels.GetConfigResponse getListingConfigurations(String configType , Integer pageNo , Integer pageSize , String search ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.AppConfigurationsSort createListingConfiguration(String configType ,CatalogPlatformModels.AppConfigurationsSort body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetConfigResponse> response = null;
+            Response<CatalogPlatformModels.AppConfigurationsSort> response = null;
             try {
-            response = catalogPlatformApiList.getListingConfigurations(this.companyId , this.applicationId , configType ,pageNo , pageSize , search ).execute();
+            response = catalogPlatformApiList.createListingConfiguration(this.companyId , this.applicationId , configType , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -4764,47 +4764,6 @@ public class ApplicationClient {
     
     
 
-    public CatalogPlatformModels.GetAppCatalogConfiguration createConfigurationProductListing(CatalogPlatformModels.AppConfiguration body) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetAppCatalogConfiguration> response = null;
-            try {
-            response = catalogPlatformApiList.createConfigurationProductListing(this.companyId , this.applicationId , body).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
     public CatalogPlatformModels.GetAppCatalogConfiguration getConfigurations() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.GetAppCatalogConfiguration> response = null;
@@ -4845,16 +4804,12 @@ public class ApplicationClient {
     
     
     
-    
-    
-    
-    
 
-    public CatalogPlatformModels.GetAppCatalogConfiguration createConfigurationByType(String type ,CatalogPlatformModels.AppConfiguration body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetAppCatalogConfiguration createConfigurationProductListing(CatalogPlatformModels.AppConfiguration body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.GetAppCatalogConfiguration> response = null;
             try {
-            response = catalogPlatformApiList.createConfigurationByType(this.companyId , this.applicationId , type , body).execute();
+            response = catalogPlatformApiList.createConfigurationProductListing(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -4939,16 +4894,12 @@ public class ApplicationClient {
     
     
     
-    
-    
-    
-    
 
-    public CatalogPlatformModels.GetCollectionQueryOptionResponse getQueryFilters(String f , String sortOn ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetAppCatalogConfiguration createConfigurationByType(String type ,CatalogPlatformModels.AppConfiguration body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetCollectionQueryOptionResponse> response = null;
+            Response<CatalogPlatformModels.GetAppCatalogConfiguration> response = null;
             try {
-            response = catalogPlatformApiList.getQueryFilters(this.companyId , this.applicationId ,f , sortOn ).execute();
+            response = catalogPlatformApiList.createConfigurationByType(this.companyId , this.applicationId , type , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -4984,12 +4935,20 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CatalogPlatformModels.CollectionCreateResponse createCollection(CatalogPlatformModels.CreateCollection body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetCollectionQueryOptionResponse getQueryFilters(String f , String sortOn ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.CollectionCreateResponse> response = null;
+            Response<CatalogPlatformModels.GetCollectionQueryOptionResponse> response = null;
             try {
-            response = catalogPlatformApiList.createCollection(this.companyId , this.applicationId , body).execute();
+            response = catalogPlatformApiList.getQueryFilters(this.companyId , this.applicationId ,f , sortOn ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -5059,6 +5018,47 @@ public class ApplicationClient {
             Response<CatalogPlatformModels.GetCollectionListingResponse> response = null;
             try {
             response = catalogPlatformApiList.getAllCollections(this.companyId , this.applicationId ,q , scheduleStatus , type , tag , isActive , pageNo , pageSize ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public CatalogPlatformModels.CollectionCreateResponse createCollection(CatalogPlatformModels.CreateCollection body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<CatalogPlatformModels.CollectionCreateResponse> response = null;
+            try {
+            response = catalogPlatformApiList.createCollection(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -5233,12 +5233,32 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CatalogPlatformModels.UpdatedResponse addCollectionItems(String id ,CatalogPlatformModels.CollectionItemUpdate body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetCollectionItemsResponse getCollectionItems(String id , String f , String sortOn , Integer pageId , Integer pageSize , String xCurrencyCode ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.UpdatedResponse> response = null;
+            Response<CatalogPlatformModels.GetCollectionItemsResponse> response = null;
             try {
-            response = catalogPlatformApiList.addCollectionItems(this.companyId , this.applicationId , id , body).execute();
+            response = catalogPlatformApiList.getCollectionItems(this.companyId , this.applicationId , id ,f , sortOn , pageId , pageSize ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -5278,32 +5298,12 @@ public class ApplicationClient {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-    public CatalogPlatformModels.GetCollectionItemsResponse getCollectionItems(String id , String f , String sortOn , Integer pageId , Integer pageSize , String xCurrencyCode ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.UpdatedResponse addCollectionItems(String id ,CatalogPlatformModels.CollectionItemUpdate body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetCollectionItemsResponse> response = null;
+            Response<CatalogPlatformModels.UpdatedResponse> response = null;
             try {
-            response = catalogPlatformApiList.getCollectionItems(this.companyId , this.applicationId , id ,f , sortOn , pageId , pageSize ).execute();
+            response = catalogPlatformApiList.addCollectionItems(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
