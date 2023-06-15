@@ -89,6 +89,8 @@ import com.sdk.application.*;
                     relativeUrls.put("getPromotionOffers","/service/application/cart/v1.0/available-promotions".substring(1));
             
                     relativeUrls.put("getLadderOffers","/service/application/cart/v1.0/available-ladder-prices".substring(1));
+            
+                    relativeUrls.put("checkoutCartV2","/service/application/cart/v2.0/checkout".substring(1));
              
 
     }
@@ -579,6 +581,24 @@ import com.sdk.application.*;
         
 
         Response<CartApplicationModels.LadderPriceOffers> response = cartApplicationApiList.getLadderOffers(fullUrl  ,slug, storeId, promotionId, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public CartApplicationModels.CartCheckoutResponse checkoutCartV2(Boolean buyNow ,CartApplicationModels.CartCheckoutDetailV2Request body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("checkoutCartV2");
+        
+
+        Response<CartApplicationModels.CartCheckoutResponse> response = cartApplicationApiList.checkoutCartV2(fullUrl  ,buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

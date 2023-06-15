@@ -1316,11 +1316,11 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.SuccessMessage updateCartDynamicInjection(String extensionId ,CartPlatformModels.CartDynamicInjectionUpdate body) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.CartDynamicInjectionResponse updateCartDynamicInjection(String id ,CartPlatformModels.CartDynamicInjectionUpdate body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CartPlatformModels.SuccessMessage> response = null;
+            Response<CartPlatformModels.CartDynamicInjectionResponse> response = null;
             try {
-            response = cartPlatformApiList.updateCartDynamicInjection(this.companyId , this.applicationId , extensionId , body).execute();
+            response = cartPlatformApiList.updateCartDynamicInjection(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1361,11 +1361,11 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.SuccessMessage removeCartMetaConfig(String extensionId ) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.SuccessMessage removeCartDynamicInjection(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.SuccessMessage> response = null;
             try {
-            response = cartPlatformApiList.removeCartMetaConfig(this.companyId , this.applicationId , extensionId ).execute();
+            response = cartPlatformApiList.removeCartDynamicInjection(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1402,9 +1402,9 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.SuccessMessage createCartDynamicInjection(CartPlatformModels.CartDynamicInjectionAdd body) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.CartDynamicInjectionResponse createCartDynamicInjection(CartPlatformModels.CartDynamicInjectionAdd body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CartPlatformModels.SuccessMessage> response = null;
+            Response<CartPlatformModels.CartDynamicInjectionResponse> response = null;
             try {
             response = cartPlatformApiList.createCartDynamicInjection(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {

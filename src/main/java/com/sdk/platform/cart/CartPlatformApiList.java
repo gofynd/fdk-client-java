@@ -344,8 +344,8 @@ interface CartPlatformApiList {
     
     
     
-    @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/additional-charge-discount/{extension_id}")
-    Call<CartPlatformModels.SuccessMessage> updateCartDynamicInjection(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("extension_id") String  extensionId ,@Body CartPlatformModels.CartDynamicInjectionUpdate payload);
+    @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/additional-charge-discount/{id}")
+    Call<CartPlatformModels.CartDynamicInjectionResponse> updateCartDynamicInjection(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CartPlatformModels.CartDynamicInjectionUpdate payload);
     
     
     
@@ -359,8 +359,8 @@ interface CartPlatformApiList {
     
     
     
-    @DELETE ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/additional-charge-discount/{extension_id}")
-    Call<CartPlatformModels.SuccessMessage> removeCartMetaConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("extension_id") String  extensionId );
+    @DELETE ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/additional-charge-discount/{id}")
+    Call<CartPlatformModels.SuccessMessage> removeCartDynamicInjection(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
     
     
@@ -372,6 +372,6 @@ interface CartPlatformApiList {
     
     
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/additional-charge-discount")
-    Call<CartPlatformModels.SuccessMessage> createCartDynamicInjection(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CartPlatformModels.CartDynamicInjectionAdd payload);
+    Call<CartPlatformModels.CartDynamicInjectionResponse> createCartDynamicInjection(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CartPlatformModels.CartDynamicInjectionAdd payload);
     
 }
