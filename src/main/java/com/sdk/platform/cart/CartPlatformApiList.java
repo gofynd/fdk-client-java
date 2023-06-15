@@ -203,8 +203,14 @@ interface CartPlatformApiList {
     
     
     
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promo-coupons")
-    Call<CartPlatformModels.ActivePromosResponse> getPromosCouponConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    Call<CartPlatformModels.ActivePromosResponse> getPromosCouponConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("entity_type") String  entityType ,  @Query("is_hidden") Boolean  isHidden );
     
     
     

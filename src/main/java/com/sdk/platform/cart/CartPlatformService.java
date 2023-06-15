@@ -836,12 +836,20 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CartPlatformModels.ActivePromosResponse getPromosCouponConfig() throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.ActivePromosResponse getPromosCouponConfig(String entityType , Boolean isHidden ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.ActivePromosResponse> response = null;
             try {
-            response = cartPlatformApiList.getPromosCouponConfig(this.companyId , this.applicationId ).execute();
+            response = cartPlatformApiList.getPromosCouponConfig(this.companyId , this.applicationId ,entityType , isHidden ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
