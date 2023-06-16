@@ -16,13 +16,13 @@ interface OrderApplicationApiList {
     Call<OrderApplicationModels.OrderById> getOrderById(@Url String url1);
     
     @GET 
-    Call<OrderApplicationModels.OrderList> getPosOrderById(@Url String url1);
+    Call<OrderApplicationModels.OrderById> getPosOrderById(@Url String url1);
     
     @GET 
     Call<OrderApplicationModels.ShipmentById> getShipmentById(@Url String url1);
     
     @GET 
-    Call<OrderApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Url String url1);
+    Call<OrderApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Url String url1, @Query("document_type") String documentType );
     
     @GET 
     Call<OrderApplicationModels.ShipmentTrack> trackShipment(@Url String url1);
@@ -41,4 +41,10 @@ interface OrderApplicationApiList {
     
     @GET 
     Call<OrderApplicationModels.ShipmentReasons> getShipmentReasons(@Url String url1);
+    
+    @PUT 
+    Call<OrderApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Url String url1 , @Body OrderApplicationModels.UpdateShipmentStatusRequest payload );
+    
+    @GET 
+    Call<OrderApplicationModels.ProductListResponse> getProducts(@Url String url1, @Query("status") Integer status , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("from_date") String fromDate , @Query("to_date") String toDate , @Query("search_value") String searchValue );
 }

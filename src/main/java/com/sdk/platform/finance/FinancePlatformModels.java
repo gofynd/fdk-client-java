@@ -90,6 +90,12 @@ public static class GenerateReportPlatform{
     
     
     
+    @JsonProperty("start_date")
+    private String startDate;
+    
+    
+    
+    
     @JsonProperty("report_id")
     private String reportId;
     
@@ -102,20 +108,14 @@ public static class GenerateReportPlatform{
     
     
     
-    @JsonProperty("start_date")
-    private String startDate;
+    @JsonProperty("meta")
+    private GenerateReportMeta meta;
     
     
     
     
     @JsonProperty("end_date")
     private String endDate;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private GenerateReportMeta meta;
     
     
     
@@ -216,8 +216,8 @@ public static class GenerateReportJson{
     
     
     
-    @JsonProperty("headers")
-    private List<String> headers;
+    @JsonProperty("start_date")
+    private String startDate;
     
     
     
@@ -228,14 +228,14 @@ public static class GenerateReportJson{
     
     
     
+    @JsonProperty("headers")
+    private List<String> headers;
+    
+    
+    
+    
     @JsonProperty("page")
     private Page page;
-    
-    
-    
-    
-    @JsonProperty("start_date")
-    private String startDate;
     
     
     
@@ -296,26 +296,26 @@ public static class DownloadReport{
     
     
     
-    @JsonProperty("page")
-    private Integer page;
-    
-    
-    
-    
     @JsonProperty("start_date")
     private String startDate;
     
     
     
     
-    @JsonProperty("end_date")
-    private String endDate;
-    
-    
-    
-    
     @JsonProperty("pagesize")
     private Integer pagesize;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Integer page;
+    
+    
+    
+    
+    @JsonProperty("end_date")
+    private String endDate;
     
     
     
@@ -336,26 +336,14 @@ public static class DownloadReportItems{
     
     
     
-    @JsonProperty("meta")
-    private GenerateReportMeta meta;
-    
-    
-    
-    
-    @JsonProperty("filters")
-    private GenerateReportFilters filters;
-    
-    
-    
-    
     @JsonProperty("start_date")
     private String startDate;
     
     
     
     
-    @JsonProperty("end_date")
-    private String endDate;
+    @JsonProperty("report_id")
+    private String reportId;
     
     
     
@@ -366,8 +354,20 @@ public static class DownloadReportItems{
     
     
     
-    @JsonProperty("report_id")
-    private String reportId;
+    @JsonProperty("filters")
+    private GenerateReportFilters filters;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private GenerateReportMeta meta;
+    
+    
+    
+    
+    @JsonProperty("end_date")
+    private String endDate;
     
     
     
@@ -388,12 +388,6 @@ public static class DownloadReportList{
     
     
     
-    @JsonProperty("items")
-    private List<DownloadReportItems> items;
-    
-    
-    
-    
     @JsonProperty("page")
     private Page page;
     
@@ -402,6 +396,12 @@ public static class DownloadReportList{
     
     @JsonProperty("item_count")
     private Integer itemCount;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<DownloadReportItems> items;
     
     
     
@@ -500,8 +500,8 @@ public static class GetEngineResponse{
     
     
     
-    @JsonProperty("items")
-    private List<Object> items;
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -518,8 +518,8 @@ public static class GetEngineResponse{
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
+    @JsonProperty("items")
+    private List<Object> items;
     
     
     
@@ -584,14 +584,14 @@ public static class GetDocs{
     
     
     
-    @JsonProperty("items")
-    private List<Object> items;
-    
-    
-    
-    
     @JsonProperty("docs")
     private List<Object> docs;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<Object> items;
     
     
     
@@ -712,14 +712,14 @@ public static class GetAffiliateResponse{
     
     
     
-    @JsonProperty("docs")
-    private List<Object> docs;
-    
-    
-    
-    
     @JsonProperty("success")
     private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("docs")
+    private List<Object> docs;
     
     
     
@@ -840,6 +840,30 @@ public static class PaymentProcessPayload{
     
     
     
+    @JsonProperty("mode_of_payment")
+    private String modeOfPayment;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+    
+    @JsonProperty("invoice_number")
+    private String invoiceNumber;
+    
+    
+    
+    
+    @JsonProperty("total_amount")
+    private String totalAmount;
+    
+    
+    
+    
     @JsonProperty("amount")
     private String amount;
     
@@ -852,8 +876,8 @@ public static class PaymentProcessPayload{
     
     
     
-    @JsonProperty("total_amount")
-    private String totalAmount;
+    @JsonProperty("source_reference")
+    private String sourceReference;
     
     
     
@@ -864,38 +888,14 @@ public static class PaymentProcessPayload{
     
     
     
-    @JsonProperty("transaction_type")
-    private String transactionType;
-    
-    
-    
-    
-    @JsonProperty("invoice_number")
-    private String invoiceNumber;
-    
-    
-    
-    
-    @JsonProperty("mode_of_payment")
-    private String modeOfPayment;
-    
-    
-    
-    
-    @JsonProperty("source_reference")
-    private String sourceReference;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private String currency;
-    
-    
-    
-    
     @JsonProperty("meta")
     private Object meta;
+    
+    
+    
+    
+    @JsonProperty("transaction_type")
+    private String transactionType;
     
     
     
@@ -938,20 +938,8 @@ public static class PaymentProcessResponse{
     
     
     
-    @JsonProperty("redirect_url")
-    private String redirectUrl;
-    
-    
-    
-    
     @JsonProperty("transaction_id")
     private String transactionId;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private Integer code;
     
     
     
@@ -964,6 +952,18 @@ public static class PaymentProcessResponse{
     
     @JsonProperty("meta")
     private Object meta;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private Integer code;
+    
+    
+    
+    
+    @JsonProperty("redirect_url")
+    private String redirectUrl;
     
     
     
@@ -1028,12 +1028,6 @@ public static class GetInvoiceListResponse{
     
     
     
-    @JsonProperty("invoice_type_list")
-    private List<Object> invoiceTypeList;
-    
-    
-    
-    
     @JsonProperty("payment_status_list")
     private List<Object> paymentStatusList;
     
@@ -1042,6 +1036,12 @@ public static class GetInvoiceListResponse{
     
     @JsonProperty("success")
     private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("invoice_type_list")
+    private List<Object> invoiceTypeList;
     
     
     
@@ -1062,6 +1062,12 @@ public static class InoviceListingPayloadDataFilters{
     
     
     
+    @JsonProperty("invoice_type")
+    private List<String> invoiceType;
+    
+    
+    
+    
     @JsonProperty("company_id")
     private List<String> companyId;
     
@@ -1070,12 +1076,6 @@ public static class InoviceListingPayloadDataFilters{
     
     @JsonProperty("payment_status")
     private List<String> paymentStatus;
-    
-    
-    
-    
-    @JsonProperty("invoice_type")
-    private List<String> invoiceType;
     
     
     
@@ -1096,14 +1096,8 @@ public static class InvoiceListingPayloadData{
     
     
     
-    @JsonProperty("search")
-    private String search;
-    
-    
-    
-    
-    @JsonProperty("page_size")
-    private Integer pageSize;
+    @JsonProperty("start_date")
+    private String startDate;
     
     
     
@@ -1114,20 +1108,26 @@ public static class InvoiceListingPayloadData{
     
     
     
-    @JsonProperty("start_date")
-    private String startDate;
+    @JsonProperty("page_size")
+    private Integer pageSize;
     
     
     
     
-    @JsonProperty("end_date")
-    private String endDate;
+    @JsonProperty("search")
+    private String search;
     
     
     
     
     @JsonProperty("page")
     private Integer page;
+    
+    
+    
+    
+    @JsonProperty("end_date")
+    private String endDate;
     
     
     
@@ -1170,20 +1170,8 @@ public static class InvoiceListingResponseItems{
     
     
     
-    @JsonProperty("amount")
-    private String amount;
-    
-    
-    
-    
-    @JsonProperty("period")
-    private String period;
-    
-    
-    
-    
-    @JsonProperty("company")
-    private String company;
+    @JsonProperty("invoice_type")
+    private String invoiceType;
     
     
     
@@ -1194,8 +1182,8 @@ public static class InvoiceListingResponseItems{
     
     
     
-    @JsonProperty("invoice_date")
-    private String invoiceDate;
+    @JsonProperty("amount")
+    private String amount;
     
     
     
@@ -1206,26 +1194,38 @@ public static class InvoiceListingResponseItems{
     
     
     
-    @JsonProperty("is_downloadable")
-    private Boolean isDownloadable;
-    
-    
-    
-    
     @JsonProperty("due_date")
     private String dueDate;
     
     
     
     
-    @JsonProperty("invoice_type")
-    private String invoiceType;
+    @JsonProperty("company")
+    private String company;
     
     
     
     
     @JsonProperty("invoice_id")
     private String invoiceId;
+    
+    
+    
+    
+    @JsonProperty("invoice_date")
+    private String invoiceDate;
+    
+    
+    
+    
+    @JsonProperty("period")
+    private String period;
+    
+    
+    
+    
+    @JsonProperty("is_downloadable")
+    private Boolean isDownloadable;
     
     
     
@@ -1246,6 +1246,12 @@ public static class UnpaidInvoiceDataItems{
     
     
     
+    @JsonProperty("total_unpaid_amount")
+    private Double totalUnpaidAmount;
+    
+    
+    
+    
     @JsonProperty("currency")
     private String currency;
     
@@ -1254,12 +1260,6 @@ public static class UnpaidInvoiceDataItems{
     
     @JsonProperty("total_unpaid_invoice_count")
     private Integer totalUnpaidInvoiceCount;
-    
-    
-    
-    
-    @JsonProperty("total_unpaid_amount")
-    private Double totalUnpaidAmount;
     
     
     
@@ -1280,26 +1280,26 @@ public static class InvoiceListingResponse{
     
     
     
-    @JsonProperty("items")
-    private List<InvoiceListingResponseItems> items;
-    
-    
-    
-    
     @JsonProperty("page")
     private Page page;
     
     
     
     
-    @JsonProperty("unpaid_invoice_data")
-    private UnpaidInvoiceDataItems unpaidInvoiceData;
-    
-    
-    
-    
     @JsonProperty("item_count")
     private Integer itemCount;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<InvoiceListingResponseItems> items;
+    
+    
+    
+    
+    @JsonProperty("unpaid_invoice_data")
+    private UnpaidInvoiceDataItems unpaidInvoiceData;
     
     
     
