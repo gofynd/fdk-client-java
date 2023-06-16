@@ -476,6 +476,476 @@ public static class Page{
 }
 
 
+/*
+    Model: GenericSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GenericSuccess{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+}
+
+
+/*
+    Model: InvalidRangeErrorReqPositive
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvalidRangeErrorReqPositive{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private Integer code;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
+/*
+    Model: InvalidInputRequiredByteOrHexError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvalidInputRequiredByteOrHexError{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
+/*
+    Model: NameValidatorError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class NameValidatorError{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private NameValidatorErrorMessage message;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
+/*
+    Model: NameValidatorErrorMessage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class NameValidatorErrorMessage{
+    
+    
+    
+    
+    @JsonProperty("name")
+    private ValidatorErrorBody name;
+    
+    
+    
+}
+
+
+/*
+    Model: ApikeyValidatorError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApikeyValidatorError{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private ApikeyValidatorErrorMessage message;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
+/*
+    Model: ApikeyValidatorErrorMessage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApikeyValidatorErrorMessage{
+    
+    
+    
+    
+    @JsonProperty("api_key")
+    private ValidatorErrorBody apiKey;
+    
+    
+    
+}
+
+
+/*
+    Model: FeedidValidatorError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FeedidValidatorError{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private FeedidValidatorErrorMessage message;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
+/*
+    Model: FeedidValidatorErrorMessage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FeedidValidatorErrorMessage{
+    
+    
+    
+    
+    @JsonProperty("feedid")
+    private ValidatorErrorBody feedid;
+    
+    
+    
+}
+
+
+/*
+    Model: UsernameValidatorError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UsernameValidatorError{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private UsernameValidatorErrorMessage message;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
+/*
+    Model: UsernameValidatorErrorMessage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UsernameValidatorErrorMessage{
+    
+    
+    
+    
+    @JsonProperty("username")
+    private ValidatorErrorBody username;
+    
+    
+    
+}
+
+
+/*
+    Model: PasswordValidatorError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PasswordValidatorError{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private PasswordValidatorErrorMessage message;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
+/*
+    Model: PasswordValidatorErrorMessage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PasswordValidatorErrorMessage{
+    
+    
+    
+    
+    @JsonProperty("password")
+    private ValidatorErrorBody password;
+    
+    
+    
+}
+
+
+/*
+    Model: ValidatorErrorBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidatorErrorBody{
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("properties")
+    private ValidatorErrorMessageProperties properties;
+    
+    
+    
+    
+    @JsonProperty("kind")
+    private String kind;
+    
+    
+    
+    
+    @JsonProperty("path")
+    private String path;
+    
+    
+    
+}
+
+
+/*
+    Model: ValidatorErrorMessageProperties
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidatorErrorMessageProperties{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("path")
+    private String path;
+    
+    
+    
+}
+
+
+/*
+    Model: CastToStringFail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CastToStringFail{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
+/*
+    Model: InvalidID
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvalidID{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
 
 
 }

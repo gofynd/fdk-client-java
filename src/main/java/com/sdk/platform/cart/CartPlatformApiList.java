@@ -273,7 +273,7 @@ interface CartPlatformApiList {
     
     
     @DELETE ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/additional-charge-discount/{id}")
-    Call<CartPlatformModels.SuccessMessage> removeCartMetaConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    Call<CartPlatformModels.SuccessMessage> removeCartDynamicInjection(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
     
     

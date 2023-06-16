@@ -17,6 +17,42 @@ interface CommunicationPlatformApiList {
     
     
     
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/app-provider/get-provider")
+    Call<CommunicationPlatformModels.AppProvider> getAppProviders(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/app-provider/update-provider")
+    Call<CommunicationPlatformModels.AppProvider> updateAppProviders(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CommunicationPlatformModels.AppProviderReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/app-provider/global-providers")
+    Call<CommunicationPlatformModels.GlobalProviders> getGlobalProviders(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -215,6 +251,18 @@ interface CommunicationPlatformApiList {
     
     
     
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/default-providers")
+    Call<List<CommunicationPlatformModels.DefaultEmailProviders>> getDefaultEmailProviders(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -235,6 +283,21 @@ interface CommunicationPlatformApiList {
     
     @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/providers/{id}")
     Call<CommunicationPlatformModels.EmailProvider> updateEmailProviderById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CommunicationPlatformModels.EmailProviderReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/providers/{id}")
+    Call<CommunicationPlatformModels.GenericSuccess> deleteEmailProviderById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
     
     
@@ -539,6 +602,18 @@ interface CommunicationPlatformApiList {
     
     
     
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/default-providers")
+    Call<List<CommunicationPlatformModels.DefaultSmsProviders>> getDefaultSmsProviders(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -559,6 +634,21 @@ interface CommunicationPlatformApiList {
     
     @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/providers/{id}")
     Call<CommunicationPlatformModels.SmsProvider> updateSmsProviderById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CommunicationPlatformModels.SmsProviderReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/providers/{id}")
+    Call<CommunicationPlatformModels.GenericSuccess> deleteSmsProviderById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
     
     

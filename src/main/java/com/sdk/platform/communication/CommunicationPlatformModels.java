@@ -921,6 +921,116 @@ public static class Audiences{
 
 
 /*
+    Model: EmailProviderAdmin
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EmailProviderAdmin{
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("provider")
+    private String provider;
+    
+    
+    
+    
+    @JsonProperty("from_address")
+    private List<EmailProviderReqFrom> fromAddress;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("api_key")
+    private String apiKey;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Integer v;
+    
+    
+    
+}
+
+
+/*
+    Model: EmailProvidersAdmin
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EmailProvidersAdmin{
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<EmailProvider> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
     Model: EmailProviderReqFrom
 */
 @AllArgsConstructor
@@ -1116,6 +1226,80 @@ public static class EmailProviders{
     
     @JsonProperty("page")
     private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: DefaultEmailProviders
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DefaultEmailProviders{
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("from_address")
+    private List<DefaultEmailProvidersObjFrom> fromAddress;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("is_default")
+    private Boolean isDefault;
+    
+    
+    
+}
+
+
+/*
+    Model: DefaultEmailProvidersObjFrom
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DefaultEmailProvidersObjFrom{
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("is_default")
+    private Boolean isDefault;
     
     
     
@@ -3207,6 +3391,398 @@ public static class VerifyOtpCommsErrorRes{
 
 
 /*
+    Model: AppProvider
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AppProvider{
+    
+    
+    
+    
+    @JsonProperty("email")
+    private AppProviderRes email;
+    
+    
+    
+    
+    @JsonProperty("sms")
+    private AppProviderRes sms;
+    
+    
+    
+    
+    @JsonProperty("voice")
+    private AppProviderResVoice voice;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("application")
+    private String application;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Integer v;
+    
+    
+    
+}
+
+
+/*
+    Model: AppProviderRes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AppProviderRes{
+    
+    
+    
+    
+    @JsonProperty("transaction")
+    private AppProviderResObj transaction;
+    
+    
+    
+    
+    @JsonProperty("promotional")
+    private AppProviderResObj promotional;
+    
+    
+    
+    
+    @JsonProperty("otp")
+    private AppProviderResObj otp;
+    
+    
+    
+}
+
+
+/*
+    Model: AppProviderResVoice
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AppProviderResVoice{
+    
+    
+    
+    
+    @JsonProperty("transaction")
+    private AppProviderResObj transaction;
+    
+    
+    
+    
+    @JsonProperty("otp")
+    private AppProviderResObj otp;
+    
+    
+    
+}
+
+
+/*
+    Model: AppProviderResObj
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AppProviderResObj{
+    
+    
+    
+    
+    @JsonProperty("provider")
+    private String provider;
+    
+    
+    
+}
+
+
+/*
+    Model: GlobalProviders
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GlobalProviders{
+    
+    
+    
+    
+    @JsonProperty("email")
+    private List<GlobalProvidersResObj> email;
+    
+    
+    
+    
+    @JsonProperty("sms")
+    private List<GlobalProvidersResObj> sms;
+    
+    
+    
+    
+    @JsonProperty("voice")
+    private List<GlobalProvidersResObj> voice;
+    
+    
+    
+}
+
+
+/*
+    Model: GlobalProvidersResObj
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GlobalProvidersResObj{
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+}
+
+
+/*
+    Model: AppProviderAdmin
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AppProviderAdmin{
+    
+    
+    
+    
+    @JsonProperty("email")
+    private AppProviderAdminObj email;
+    
+    
+    
+    
+    @JsonProperty("sms")
+    private AppProviderAdminObj sms;
+    
+    
+    
+    
+    @JsonProperty("voice")
+    private AppProviderAdminObj voice;
+    
+    
+    
+}
+
+
+/*
+    Model: AppProviderAdminObj
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AppProviderAdminObj{
+    
+    
+    
+    
+    @JsonProperty("transaction")
+    private AppProviderResObj transaction;
+    
+    
+    
+    
+    @JsonProperty("otp")
+    private AppProviderResObj otp;
+    
+    
+    
+}
+
+
+/*
+    Model: UpdateGlobalProviders
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateGlobalProviders{
+    
+    
+    
+    
+    @JsonProperty("email")
+    private UpdateGlobalProvidersObj email;
+    
+    
+    
+    
+    @JsonProperty("sms")
+    private UpdateGlobalProvidersObj sms;
+    
+    
+    
+    
+    @JsonProperty("voice")
+    private UpdateGlobalProvidersObj voice;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Integer v;
+    
+    
+    
+}
+
+
+/*
+    Model: UpdateGlobalProvidersObj
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateGlobalProvidersObj{
+    
+    
+    
+    
+    @JsonProperty("default_provider")
+    private String defaultProvider;
+    
+    
+    
+    
+    @JsonProperty("otp_provider")
+    private String otpProvider;
+    
+    
+    
+}
+
+
+/*
+    Model: AppProviderReq
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AppProviderReq{
+    
+    
+    
+    
+    @JsonProperty("email")
+    private AppProviderRes email;
+    
+    
+    
+    
+    @JsonProperty("sms")
+    private AppProviderRes sms;
+    
+    
+    
+    
+    @JsonProperty("voice")
+    private AppProviderResVoice voice;
+    
+    
+    
+}
+
+
+/*
     Model: PushtokenReq
 */
 @AllArgsConstructor
@@ -3329,6 +3905,134 @@ public static class PushtokenRes{
 
 
 /*
+    Model: SmsProviderAdmin
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SmsProviderAdmin{
+    
+    
+    
+    
+    @JsonProperty("rpt")
+    private Integer rpt;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("provider")
+    private String provider;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("entity_id")
+    private String entityId;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("sender")
+    private String sender;
+    
+    
+    
+    
+    @JsonProperty("username")
+    private String username;
+    
+    
+    
+    
+    @JsonProperty("authkey")
+    private String authkey;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Integer v;
+    
+    
+    
+}
+
+
+/*
+    Model: SmsProvidersAdmin
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SmsProvidersAdmin{
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<SmsProviderAdmin> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
     Model: SmsProviderReq
 */
 @AllArgsConstructor
@@ -3430,6 +4134,12 @@ public static class SmsProvider{
     
     
     
+    @JsonProperty("entity_id")
+    private String entityId;
+    
+    
+    
+    
     @JsonProperty("description")
     private String description;
     
@@ -3508,6 +4218,40 @@ public static class SmsProviders{
     
     @JsonProperty("page")
     private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: DefaultSmsProviders
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DefaultSmsProviders{
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("is_default")
+    private Boolean isDefault;
     
     
     
@@ -4994,6 +5738,476 @@ public static class Page{
     
     @JsonProperty("size")
     private Integer size;
+    
+    
+    
+}
+
+
+/*
+    Model: GenericSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GenericSuccess{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+}
+
+
+/*
+    Model: InvalidRangeErrorReqPositive
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvalidRangeErrorReqPositive{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private Integer code;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
+/*
+    Model: InvalidInputRequiredByteOrHexError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvalidInputRequiredByteOrHexError{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
+/*
+    Model: NameValidatorError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class NameValidatorError{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private NameValidatorErrorMessage message;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
+/*
+    Model: NameValidatorErrorMessage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class NameValidatorErrorMessage{
+    
+    
+    
+    
+    @JsonProperty("name")
+    private ValidatorErrorBody name;
+    
+    
+    
+}
+
+
+/*
+    Model: ApikeyValidatorError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApikeyValidatorError{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private ApikeyValidatorErrorMessage message;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
+/*
+    Model: ApikeyValidatorErrorMessage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApikeyValidatorErrorMessage{
+    
+    
+    
+    
+    @JsonProperty("api_key")
+    private ValidatorErrorBody apiKey;
+    
+    
+    
+}
+
+
+/*
+    Model: FeedidValidatorError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FeedidValidatorError{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private FeedidValidatorErrorMessage message;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
+/*
+    Model: FeedidValidatorErrorMessage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FeedidValidatorErrorMessage{
+    
+    
+    
+    
+    @JsonProperty("feedid")
+    private ValidatorErrorBody feedid;
+    
+    
+    
+}
+
+
+/*
+    Model: UsernameValidatorError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UsernameValidatorError{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private UsernameValidatorErrorMessage message;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
+/*
+    Model: UsernameValidatorErrorMessage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UsernameValidatorErrorMessage{
+    
+    
+    
+    
+    @JsonProperty("username")
+    private ValidatorErrorBody username;
+    
+    
+    
+}
+
+
+/*
+    Model: PasswordValidatorError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PasswordValidatorError{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private PasswordValidatorErrorMessage message;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
+/*
+    Model: PasswordValidatorErrorMessage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PasswordValidatorErrorMessage{
+    
+    
+    
+    
+    @JsonProperty("password")
+    private ValidatorErrorBody password;
+    
+    
+    
+}
+
+
+/*
+    Model: ValidatorErrorBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidatorErrorBody{
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("properties")
+    private ValidatorErrorMessageProperties properties;
+    
+    
+    
+    
+    @JsonProperty("kind")
+    private String kind;
+    
+    
+    
+    
+    @JsonProperty("path")
+    private String path;
+    
+    
+    
+}
+
+
+/*
+    Model: ValidatorErrorMessageProperties
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidatorErrorMessageProperties{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("path")
+    private String path;
+    
+    
+    
+}
+
+
+/*
+    Model: CastToStringFail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CastToStringFail{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
+/*
+    Model: InvalidID
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvalidID{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
     
     
     

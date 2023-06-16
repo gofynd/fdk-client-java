@@ -283,6 +283,34 @@ public static class ListOrCalender{
 
 
 /*
+    Model: DiscountMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DiscountMeta{
+    
+    
+    
+    
+    @JsonProperty("timer")
+    private Boolean timer;
+    
+    
+    
+    
+    @JsonProperty("number_of_minutes")
+    private Double numberOfMinutes;
+    
+    
+    
+}
+
+
+/*
     Model: DiscountItems
 */
 @AllArgsConstructor
@@ -322,6 +350,12 @@ public static class DiscountItems{
     
     @JsonProperty("value")
     private Double value;
+    
+    
+    
+    
+    @JsonProperty("discount_meta")
+    private DiscountMeta discountMeta;
     
     
     

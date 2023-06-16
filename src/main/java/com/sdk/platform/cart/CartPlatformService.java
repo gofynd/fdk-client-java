@@ -1118,11 +1118,11 @@ public class ApplicationClient {
     
     
 
-    public CartPlatformModels.SuccessMessage removeCartMetaConfig(String id ) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.SuccessMessage removeCartDynamicInjection(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.SuccessMessage> response = null;
             try {
-            response = cartPlatformApiList.removeCartMetaConfig(this.companyId , this.applicationId , id ).execute();
+            response = cartPlatformApiList.removeCartDynamicInjection(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
