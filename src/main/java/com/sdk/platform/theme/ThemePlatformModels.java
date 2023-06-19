@@ -1173,6 +1173,274 @@ public static class Release{
 
 
 /*
+    Model: ThemeSlugResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ThemeSlugResponse{
+    
+    
+    
+    
+    @JsonProperty("theme")
+    private MarketplaceTheme theme;
+    
+    
+    
+    
+    @JsonProperty("organization")
+    private Organization organization;
+    
+    
+    
+    
+    @JsonProperty("user")
+    private List<ThemeCreator> user;
+    
+    
+    
+}
+
+
+/*
+    Model: Organization
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Organization{
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private OrganizationMeta meta;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+}
+
+
+/*
+    Model: OrganizationMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrganizationMeta{
+    
+    
+    
+    
+    @JsonProperty("ecomm_platform_used")
+    private List<String> ecommPlatformUsed;
+    
+    
+    
+    
+    @JsonProperty("goals")
+    private List<String> goals;
+    
+    
+    
+}
+
+
+/*
+    Model: ThemeCreator
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ThemeCreator{
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("gender")
+    private String gender;
+    
+    
+    
+    
+    @JsonProperty("account_type")
+    private String accountType;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("first_name")
+    private String firstName;
+    
+    
+    
+    
+    @JsonProperty("last_name")
+    private String lastName;
+    
+    
+    
+    
+    @JsonProperty("phone_numbers")
+    private List<PhoneNumber> phoneNumbers;
+    
+    
+    
+    
+    @JsonProperty("emails")
+    private List<Email> emails;
+    
+    
+    
+}
+
+
+/*
+    Model: PhoneNumber
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PhoneNumber{
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("primary")
+    private Boolean primary;
+    
+    
+    
+    
+    @JsonProperty("verified")
+    private Boolean verified;
+    
+    
+    
+    
+    @JsonProperty("phone")
+    private String phone;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private Integer countryCode;
+    
+    
+    
+}
+
+
+/*
+    Model: Email
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Email{
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("primary")
+    private Boolean primary;
+    
+    
+    
+    
+    @JsonProperty("verified")
+    private Boolean verified;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+}
+
+
+/*
+    Model: ThemeAndUserDetailsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ThemeAndUserDetailsResponse{
+    
+    
+    
+    
+    @JsonProperty("themes")
+    private List<MarketplaceTheme> themes;
+    
+    
+    
+    
+    @JsonProperty("user")
+    private List<ThemeCreator> user;
+    
+    
+    
+}
+
+
+/*
     Model: AllAvailablePageSchema
 */
 @AllArgsConstructor

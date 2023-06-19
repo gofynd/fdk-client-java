@@ -46,21 +46,6 @@ interface PaymentApplicationApiList {
     Call<PaymentApplicationModels.RupifiBannerResponse> getRupifiBannerDetails(@Url String url1);
     
     @GET 
-    Call<PaymentApplicationModels.EpaylaterBannerResponse> getEpaylaterBannerDetails(@Url String url1);
-    
-    @POST 
-    Call<PaymentApplicationModels.ResendOrCancelPaymentResponse> resendOrCancelPayment(@Url String url1 , @Body PaymentApplicationModels.ResendOrCancelPaymentRequest payload );
-    
-    @POST 
-    Call<PaymentApplicationModels.renderHTMLResponse> renderHTML(@Url String url1 , @Body PaymentApplicationModels.renderHTMLRequest payload );
-    
-    @POST 
-    Call<PaymentApplicationModels.ValidateVPAResponse> validateVPA(@Url String url1 , @Body PaymentApplicationModels.ValidateVPARequest payload );
-    
-    @GET 
-    Call<PaymentApplicationModels.CardDetailsResponse> cardDetails(@Url String url1, @Query("aggregator") String aggregator );
-    
-    @GET 
     Call<PaymentApplicationModels.TransferModeResponse> getActiveRefundTransferModes(@Url String url1);
     
     @PUT 
@@ -89,49 +74,4 @@ interface PaymentApplicationApiList {
     
     @POST 
     Call<PaymentApplicationModels.SetDefaultBeneficiaryResponse> updateDefaultBeneficiary(@Url String url1 , @Body PaymentApplicationModels.SetDefaultBeneficiaryRequest payload );
-    
-    @GET 
-    Call<PaymentApplicationModels.GetPaymentLinkResponse> getPaymentLink(@Url String url1, @Query("payment_link_id") String paymentLinkId );
-    
-    @POST 
-    Call<PaymentApplicationModels.CreatePaymentLinkResponse> createPaymentLink(@Url String url1 , @Body PaymentApplicationModels.CreatePaymentLinkRequest payload );
-    
-    @POST 
-    Call<PaymentApplicationModels.ResendPaymentLinkResponse> resendPaymentLink(@Url String url1 , @Body PaymentApplicationModels.CancelOrResendPaymentLinkRequest payload );
-    
-    @POST 
-    Call<PaymentApplicationModels.CancelPaymentLinkResponse> cancelPaymentLink(@Url String url1 , @Body PaymentApplicationModels.CancelOrResendPaymentLinkRequest payload );
-    
-    @GET 
-    Call<PaymentApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutesPaymentLink(@Url String url1, @Query("payment_link_id") String paymentLinkId );
-    
-    @GET 
-    Call<PaymentApplicationModels.PollingPaymentLinkResponse> pollingPaymentLink(@Url String url1, @Query("payment_link_id") String paymentLinkId );
-    
-    @POST 
-    Call<PaymentApplicationModels.CreateOrderUserResponse> createOrderHandlerPaymentLink(@Url String url1 , @Body PaymentApplicationModels.CreateOrderUserRequest payload );
-    
-    @POST 
-    Call<PaymentApplicationModels.PaymentInitializationResponse> initialisePaymentPaymentLink(@Url String url1 , @Body PaymentApplicationModels.PaymentInitializationRequest payload );
-    
-    @POST 
-    Call<PaymentApplicationModels.PaymentStatusUpdateResponse> checkAndUpdatePaymentStatusPaymentLink(@Url String url1 , @Body PaymentApplicationModels.PaymentStatusUpdateRequest payload );
-    
-    @GET 
-    Call<PaymentApplicationModels.CustomerCreditSummaryResponse> customerCreditSummary(@Url String url1, @Query("aggregator") String aggregator );
-    
-    @GET 
-    Call<PaymentApplicationModels.RedirectToAggregatorResponse> redirectToAggregator(@Url String url1, @Query("source") String source , @Query("aggregator") String aggregator );
-    
-    @GET 
-    Call<PaymentApplicationModels.CheckCreditResponse> checkCredit(@Url String url1, @Query("aggregator") String aggregator );
-    
-    @POST 
-    Call<PaymentApplicationModels.CustomerOnboardingResponse> customerOnboard(@Url String url1 , @Body PaymentApplicationModels.CustomerOnboardingRequest payload );
-    
-    @GET 
-    Call<PaymentApplicationModels.OutstandingOrderDetailsResponse> outstandingOrderDetails(@Url String url1, @Query("aggregator") String aggregator );
-    
-    @GET 
-    Call<PaymentApplicationModels.PaidOrderDetailsResponse> paidOrderDetails(@Url String url1, @Query("aggregator") String aggregator );
 }
