@@ -2739,7 +2739,7 @@ public static class Subscription{
     
     
     @JsonProperty("plan_data")
-    private Object planData;
+    private Plan planData;
     
     
     
@@ -2773,6 +2773,12 @@ public static class Subscription{
     
     
     
+    
+    @JsonProperty("channel_type")
+    private String channelType;
+    
+    
+    
 }
 
 
@@ -2790,12 +2796,6 @@ public static class SubscriptionStatus{
     
     
     
-    @JsonProperty("mandate_amount")
-    private Double mandateAmount;
-    
-    
-    
-    
     @JsonProperty("is_enabled")
     private Boolean isEnabled;
     
@@ -2804,6 +2804,30 @@ public static class SubscriptionStatus{
     
     @JsonProperty("subscription")
     private Subscription subscription;
+    
+    
+    
+    
+    @JsonProperty("latest_invoice")
+    private InvoicesData latestInvoice;
+    
+    
+    
+    
+    @JsonProperty("next_plan")
+    private Plan nextPlan;
+    
+    
+    
+    
+    @JsonProperty("current_subscriptions")
+    private List<Subscription> currentSubscriptions;
+    
+    
+    
+    
+    @JsonProperty("mandate_amount")
+    private String mandateAmount;
     
     
     
