@@ -368,4 +368,100 @@ interface ThemePlatformApiList {
     @HEAD ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/{theme_id}/polling")
     Call<Object> getThemeLastModified(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("theme_id") String  themeId );
     
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/theme/v2.0/company/{company_id}/themes")
+    Call<List<ThemePlatformModels.ThemeSchema>> getCompanyLevelThemes(@Path("company_id")  String companyId );
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/theme/v2.0/company/{company_id}")
+    Call<ThemePlatformModels.ThemeSchema> addMarketplaceThemeToCompany(@Path("company_id")  String companyId ,@Body ThemePlatformModels.ThemeReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/theme/v2.0/company/{company_id}/{theme_id}")
+    Call<ThemePlatformModels.ThemeSchema> deleteCompanyTheme(@Path("company_id")  String companyId , @Path("theme_id") String  themeId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/themes")
+    Call<List<ThemePlatformModels.AllThemesApplicationResponseV2>> getApplicationThemesV2(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/application_themes_count")
+    Call<Object> getApplicationThemesCountV2(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}")
+    Call<ThemePlatformModels.AllThemesApplicationResponseV2> getApplicationThemeByIdV2(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("theme_id") String  themeId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}")
+    Call<ThemePlatformModels.AllThemesApplicationResponseV2> updateThemeV2(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("theme_id") String  themeId ,@Body ThemePlatformModels.UpdateThemeRequestBodyV2 payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}")
+    Call<ThemePlatformModels.ApplyThemeResponseV2> applyThemeV2(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ThemePlatformModels.ApplyThemeRequestV2 payload);
+    
 }

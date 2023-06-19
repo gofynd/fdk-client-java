@@ -283,34 +283,6 @@ public static class ListOrCalender{
 
 
 /*
-    Model: DiscountMeta
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DiscountMeta{
-    
-    
-    
-    
-    @JsonProperty("timer")
-    private Boolean timer;
-    
-    
-    
-    
-    @JsonProperty("number_of_minutes")
-    private Double numberOfMinutes;
-    
-    
-    
-}
-
-
-/*
     Model: DiscountItems
 */
 @AllArgsConstructor
@@ -350,12 +322,6 @@ public static class DiscountItems{
     
     @JsonProperty("value")
     private Double value;
-    
-    
-    
-    
-    @JsonProperty("discount_meta")
-    private DiscountMeta discountMeta;
     
     
     
@@ -442,88 +408,6 @@ public static class FileJobResponse{
     
     @JsonProperty("file_type")
     private String fileType;
-    
-    
-    
-}
-
-
-/*
-    Model: FileJobRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FileJobRequest{
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("app_ids")
-    private List<String> appIds;
-    
-    
-    
-    
-    @JsonProperty("job_type")
-    private String jobType;
-    
-    
-    
-    
-    @JsonProperty("discount_type")
-    private String discountType;
-    
-    
-    
-    
-    @JsonProperty("discount_level")
-    private String discountLevel;
-    
-    
-    
-    
-    @JsonProperty("file_path")
-    private String filePath;
-    
-    
-    
-    
-    @JsonProperty("brand_ids")
-    private List<Integer> brandIds;
-    
-    
-    
-    
-    @JsonProperty("store_ids")
-    private List<Integer> storeIds;
-    
-    
-    
-    
-    @JsonProperty("validity")
-    private ValidityObject validity;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
     
     
     

@@ -285,7 +285,7 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.FileJobResponse validateDiscountFile(String discount ,DiscountPlatformModels.FileJobRequest body) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.FileJobResponse validateDiscountFile(String discount ,DiscountPlatformModels.DiscountJob body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.FileJobResponse> response = null;
             try {
