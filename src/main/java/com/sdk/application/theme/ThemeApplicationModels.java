@@ -2683,6 +2683,28 @@ public static class AllThemesApplicationResponseV2{
 
 
 /*
+    Model: UpdateThemeNameRequestBodyV2
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateThemeNameRequestBodyV2{
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+}
+
+
+/*
     Model: UpdateThemeRequestBodyV2
 */
 @AllArgsConstructor

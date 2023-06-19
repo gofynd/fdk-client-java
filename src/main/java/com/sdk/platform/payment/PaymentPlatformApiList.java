@@ -245,30 +245,6 @@ interface PaymentPlatformApiList {
     
     
     
-    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/configuration")
-    Call<PaymentPlatformModels.PlatfromPaymentConfig> getPlatformPaymentConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @PATCH ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/configuration")
-    Call<PaymentPlatformModels.PlatfromPaymentConfig> updatePlatformPaymentConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.UpdatePlatformPaymentConfig payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -289,183 +265,6 @@ interface PaymentPlatformApiList {
     
     @PUT ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/user-cod")
     Call<PaymentPlatformModels.SetCODOptionResponse> setUserCODlimitRoutes(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.SetCODForUserRequest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/edc-aggregator-list")
-    Call<PaymentPlatformModels.EdcAggregatorAndModelListResponse> edcAggregatorsAndModelList(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/edc-device-stats")
-    Call<PaymentPlatformModels.EdcDeviceStatsResponse> edcDeviceStats(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/edc-device")
-    Call<PaymentPlatformModels.EdcDeviceAddResponse> updateEdcDevice(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.EdcAddRequest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/edc-device/{terminal_unique_identifier}")
-    Call<PaymentPlatformModels.EdcDeviceDetailsResponse> getEdcDevice(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("terminal_unique_identifier") String  terminalUniqueIdentifier );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @PUT ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/edc-device/{terminal_unique_identifier}")
-    Call<PaymentPlatformModels.EdcDeviceUpdateResponse> addEdcDevice(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("terminal_unique_identifier") String  terminalUniqueIdentifier ,@Body PaymentPlatformModels.EdcUpdateRequest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/edc-device-list")
-    Call<PaymentPlatformModels.EdcDeviceListResponse> edcDeviceList(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("is_active") Boolean  isActive ,  @Query("store_id") Integer  storeId ,  @Query("device_tag") String  deviceTag );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/pos")
-    Call<PaymentPlatformModels.PaymentOptionsResponse> getPosPaymentModeRoutes(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("amount") Integer  amount ,  @Query("cart_id") String  cartId ,  @Query("pincode") String  pincode ,  @Query("checkout_mode") String  checkoutMode ,  @Query("refresh") Boolean  refresh ,  @Query("card_reference") String  cardReference ,  @Query("order_type") String  orderType ,  @Query("user_details") String  userDetails );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/request")
-    Call<PaymentPlatformModels.PaymentInitializationResponse> initialisePayment(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.PaymentInitializationRequest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/confirm/polling")
-    Call<PaymentPlatformModels.PaymentStatusUpdateResponse> checkAndUpdatePaymentStatus(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.PaymentStatusUpdateRequest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/cancel")
-    Call<PaymentPlatformModels.ResendOrCancelPaymentResponse> resendOrCancelPayment(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.ResendOrCancelPaymentRequest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/payment-status-bulk/")
-    Call<PaymentPlatformModels.PaymentStatusBulkHandlerResponse> paymentStatusBulk(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.PaymentStatusBulkHandlerRequest payload);
     
     
     
@@ -512,8 +311,8 @@ interface PaymentPlatformApiList {
     
     
     
-    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/customer/validation")
-    Call<PaymentPlatformModels.ValidateCustomerResponse> verifyCustomerForPayment(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.ValidateCustomerRequest payload);
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/repayment-details")
+    Call<PaymentPlatformModels.RepaymentResponse> repaymentDetails(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.RepaymentDetailsSerialiserPayAll payload);
     
     
     
@@ -524,23 +323,8 @@ interface PaymentPlatformApiList {
     
     
     
-    
-    
-    
-    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/create-payment-link/")
-    Call<PaymentPlatformModels.GetPaymentLinkResponse> getPaymentLink(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("payment_link_id") String  paymentLinkId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/create-payment-link/")
-    Call<PaymentPlatformModels.CreatePaymentLinkResponse> createPaymentLink(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.CreatePaymentLinkRequest payload);
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/merchant-onboarding")
+    Call<PaymentPlatformModels.MerchantOnBoardingResponse> merchantOnBoarding(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.MerchantOnBoardingRequest payload);
     
     
     
@@ -551,34 +335,7 @@ interface PaymentPlatformApiList {
     
     
     
-    
-    
-    
-    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/polling-payment-link/")
-    Call<PaymentPlatformModels.PollingPaymentLinkResponse> pollingPaymentLink(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("payment_link_id") String  paymentLinkId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/resend-payment-link/")
-    Call<PaymentPlatformModels.ResendPaymentLinkResponse> resendPaymentLink(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.CancelOrResendPaymentLinkRequest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/cancel-payment-link/")
-    Call<PaymentPlatformModels.CancelPaymentLinkResponse> cancelPaymentLink(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.CancelOrResendPaymentLinkRequest payload);
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/codes")
+    Call<PaymentPlatformModels.GetPaymentCodeResponse> getPaymentCodeOption(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
 }

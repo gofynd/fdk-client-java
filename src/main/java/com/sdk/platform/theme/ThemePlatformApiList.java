@@ -464,4 +464,19 @@ interface ThemePlatformApiList {
     @POST ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}")
     Call<ThemePlatformModels.ApplyThemeResponseV2> applyThemeV2(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ThemePlatformModels.ApplyThemeRequestV2 payload);
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PATCH ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}/name")
+    Call<ThemePlatformModels.AllThemesApplicationResponseV2> updateThemeNameV2(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("theme_id") String  themeId ,@Body ThemePlatformModels.UpdateThemeNameRequestBodyV2 payload);
+    
 }
