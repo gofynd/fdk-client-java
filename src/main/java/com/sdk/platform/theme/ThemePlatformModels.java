@@ -2951,6 +2951,40 @@ public static class AllThemesApplicationResponseV2{
 
 
 /*
+    Model: ThemeUpgradableResponseV2
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ThemeUpgradableResponseV2{
+    
+    
+    
+    
+    @JsonProperty("upgrade")
+    private Boolean upgrade;
+    
+    
+    
+    
+    @JsonProperty("versions")
+    private ThemeVersionsV2 versions;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
     Model: UpdateThemeNameRequestBodyV2
 */
 @AllArgsConstructor
@@ -4836,6 +4870,34 @@ public static class UrlPropV2{
     
     @JsonProperty("value")
     private String value;
+    
+    
+    
+}
+
+
+/*
+    Model: ThemeVersionsV2
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ThemeVersionsV2{
+    
+    
+    
+    
+    @JsonProperty("parent_theme")
+    private String parentTheme;
+    
+    
+    
+    
+    @JsonProperty("applied_theme")
+    private String appliedTheme;
     
     
     

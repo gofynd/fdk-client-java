@@ -34,14 +34,19 @@ Responsible for themes
 * [addMarketplaceThemeToCompany](#addmarketplacethemetocompany)
 * [deleteCompanyTheme](#deletecompanytheme)
 * [getApplicationThemesV2](#getapplicationthemesv2)
+* [getFontsV2](#getfontsv2)
 * [getApplicationThemesCountV2](#getapplicationthemescountv2)
 * [getApplicationThemeByIdV2](#getapplicationthemebyidv2)
 * [updateThemeV2](#updatethemev2)
 * [deleteThemeV2](#deletethemev2)
 * [addThemeToApplicationV2](#addthemetoapplicationv2)
+* [getAppliedThemeV2](#getappliedthemev2)
 * [updateThemeNameV2](#updatethemenamev2)
 * [applyThemeV2](#applythemev2)
 * [duplicateThemeV2](#duplicatethemev2)
+* [getThemePreviewByIdV2](#getthemepreviewbyidv2)
+* [getThemeLastModifiedV2](#getthemelastmodifiedv2)
+* [checkThemeUpgradableV2](#checkthemeupgradablev2)
 
 
 
@@ -35113,6 +35118,90 @@ The list of themes for the application was fetched successfully.
 ---
 
 
+### getFontsV2
+Get all the supported fonts in a theme
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").theme.getFontsV2() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |  
+
+
+
+Font is a collection of characters with a similar design. Use this API to retrieve a list of website fonts.
+
+*Returned Response:*
+
+
+
+
+[FontsSchema](#FontsSchema)
+
+Success. Refer `FontsSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; Success</i></summary>
+
+```json
+{
+  "value": {
+    "kind": "webfonts#webfontList",
+    "items": [
+      {
+        "family": "ABeeZee",
+        "variants": [
+          "regular",
+          "italic"
+        ],
+        "subsets": [
+          "latin"
+        ],
+        "version": "v14",
+        "last_modified": "2020-09-02",
+        "files": {
+          "regular": "http://fonts.gstatic.com/s/abeezee/v14/esDR31xSG-6AGleN6tKukbcHCpE.ttf",
+          "italic": "http://fonts.gstatic.com/s/abeezee/v14/esDT31xSG-6AGleN2tCklZUCGpG-GQ.ttf"
+        },
+        "category": "sans-serif",
+        "kind": "webfonts#webfont"
+      }
+    ]
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getApplicationThemesCountV2
 Get the count of themes for a specific application
 
@@ -35386,6 +35475,60 @@ Successfully applied the theme
 ---
 
 
+### getAppliedThemeV2
+Get the Applied theme of an Application
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").theme.getAppliedThemeV2() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes | The ID of the company |   
+| applicationId | String | yes | The ID of the application |  
+
+
+
+Get Applied Theme of an Application by Application Id
+
+*Returned Response:*
+
+
+
+
+[ApplyThemeResponseV2](#ApplyThemeResponseV2)
+
+Successfully applied the theme
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### updateThemeNameV2
 Update Theme Name
 
@@ -35528,6 +35671,152 @@ This endpoint duplicates a Theme in the specified application.
 [AllThemesApplicationResponseV2](#AllThemesApplicationResponseV2)
 
 Resource duplicated successfully
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getThemePreviewByIdV2
+Get Theme Preview By Theme Id
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").theme.getThemePreviewByIdV2( themeId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes | The ID of the company |   
+| applicationId | String | yes | The ID of the application |   
+| themeId | String | yes | The ID of the theme |  
+
+
+
+
+
+*Returned Response:*
+
+
+
+
+[AllThemesApplicationResponseV2](#AllThemesApplicationResponseV2)
+
+The list of themes for the application was fetched successfully.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getThemeLastModifiedV2
+Fetch last modified timestamp
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").theme.getThemeLastModifiedV2( themeId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
+| themeId | String | yes | ID allotted to the theme. |  
+
+
+
+Use this API to fetch Last-Modified timestamp in header metadata.
+
+*Returned Response:*
+
+
+
+
+
+
+
+
+---
+
+
+### checkThemeUpgradableV2
+Check if the theme is upgradable
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").theme.checkThemeUpgradableV2( themeId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | The ID of the company |   
+| applicationId | String | yes | The ID of the application |   
+| themeId | String | yes | The ID of the theme |  
+
+
+
+This API endpoint checks if the theme is upgradable for a specific company and application.
+
+*Returned Response:*
+
+
+
+
+[ThemeUpgradableResponseV2](#ThemeUpgradableResponseV2)
+
+Successful response
 
 
 
@@ -36611,6 +36900,19 @@ Resource duplicated successfully
 
  
  
+ #### [ThemeUpgradableResponseV2](#ThemeUpgradableResponseV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | upgrade | Boolean? |  yes  | Indicates if the theme is upgradable or not |
+ | versions | [ThemeVersionsV2](#ThemeVersionsV2)? |  yes  |  |
+ | message | String? |  yes  | A message describing the theme upgrade status |
+
+---
+
+
+ 
+ 
  #### [UpdateThemeNameRequestBodyV2](#UpdateThemeNameRequestBodyV2)
 
  | Properties | Type | Nullable | Description |
@@ -37309,6 +37611,18 @@ Resource duplicated successfully
  | ---------- | ---- | -------- | ----------- |
  | type | String? |  yes  | The type of the property. |
  | value | String? |  yes  | The value of the URL property. |
+
+---
+
+
+ 
+ 
+ #### [ThemeVersionsV2](#ThemeVersionsV2)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | parentTheme | String? |  yes  | The version of the parent theme |
+ | appliedTheme | String? |  yes  | The version of the applied theme |
 
 ---
 

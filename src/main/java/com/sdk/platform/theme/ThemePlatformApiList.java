@@ -419,6 +419,18 @@ interface ThemePlatformApiList {
     
     
     
+    @GET ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/fonts")
+    Call<ThemePlatformModels.FontsSchema> getFontsV2(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/application_themes_count")
     Call<Object> getApplicationThemesCountV2(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
@@ -488,6 +500,18 @@ interface ThemePlatformApiList {
     
     
     
+    @GET ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}")
+    Call<ThemePlatformModels.ApplyThemeResponseV2> getAppliedThemeV2(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -523,5 +547,50 @@ interface ThemePlatformApiList {
     
     @POST ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}/duplicate")
     Call<ThemePlatformModels.AllThemesApplicationResponseV2> duplicateThemeV2(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("theme_id") String  themeId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}/preview")
+    Call<ThemePlatformModels.AllThemesApplicationResponseV2> getThemePreviewByIdV2(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("theme_id") String  themeId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @HEAD ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}/polling")
+    Call<Object> getThemeLastModifiedV2(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("theme_id") String  themeId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}/upgradable")
+    Call<ThemePlatformModels.ThemeUpgradableResponseV2> checkThemeUpgradableV2(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("theme_id") String  themeId );
     
 }
