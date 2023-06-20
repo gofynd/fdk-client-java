@@ -48,6 +48,8 @@ import com.sdk.platform.audittrail.AuditTrailPlatformService;
 
 import com.sdk.platform.serviceability.ServiceabilityPlatformService;
 
+import com.sdk.platform.finance.FinancePlatformService;
+
 
 
 @Getter
@@ -101,6 +103,8 @@ public class PlatformClient {
     
     public ServiceabilityPlatformService serviceability;
     
+    public FinancePlatformService finance;
+    
 
     public PlatformClient(PlatformConfig config)   
     {
@@ -149,6 +153,8 @@ public class PlatformClient {
         this.auditTrail = new AuditTrailPlatformService(config);
         
         this.serviceability = new ServiceabilityPlatformService(config);
+        
+        this.finance = new FinancePlatformService(config);
         
     }
 
@@ -210,6 +216,8 @@ public class PlatformClient {
         
         public ServiceabilityPlatformService.ApplicationClient serviceability;
         
+        public FinancePlatformService.ApplicationClient finance;
+        
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
             this.config = platformConfig;
@@ -257,6 +265,8 @@ public class PlatformClient {
             this.auditTrail = new AuditTrailPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.serviceability = new ServiceabilityPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.finance = new FinancePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
         }
 
