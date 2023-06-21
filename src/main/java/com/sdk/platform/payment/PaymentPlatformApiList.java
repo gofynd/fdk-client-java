@@ -245,30 +245,6 @@ interface PaymentPlatformApiList {
     
     
     
-    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/configuration")
-    Call<PaymentPlatformModels.PlatfromPaymentConfig> getPlatformPaymentConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @PATCH ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/configuration")
-    Call<PaymentPlatformModels.PlatfromPaymentConfig> updatePlatformPaymentConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.UpdatePlatformPaymentConfig payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -512,6 +488,30 @@ interface PaymentPlatformApiList {
     
     
     
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/repayment-details")
+    Call<PaymentPlatformModels.RepaymentResponse> repaymentDetails(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.RepaymentDetailsSerialiserPayAll payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/merchant-onboarding")
+    Call<PaymentPlatformModels.MerchantOnBoardingResponse> merchantOnBoarding(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.MerchantOnBoardingRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/customer/validation")
     Call<PaymentPlatformModels.ValidateCustomerResponse> verifyCustomerForPayment(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.ValidateCustomerRequest payload);
     
@@ -580,5 +580,17 @@ interface PaymentPlatformApiList {
     
     @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/cancel-payment-link/")
     Call<PaymentPlatformModels.CancelPaymentLinkResponse> cancelPaymentLink(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.CancelOrResendPaymentLinkRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/codes")
+    Call<PaymentPlatformModels.GetPaymentCodeResponse> getPaymentCodeOption(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
 }
