@@ -672,7 +672,19 @@ interface OrderPlatformApiList {
     
     
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/process-manifest")
-    Call<OrderPlatformModels.CreateOrderResponse> processManifest(@Path("company_id")  String companyId ,@Body OrderPlatformModels.CreateOrderPayload payload);
+    Call<OrderPlatformModels.ProcessManifestItemResponse> processManifest(@Path("company_id")  String companyId ,@Body OrderPlatformModels.ProcessManifest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/filter/listing")
+    Call<OrderPlatformModels.ManifestFiltersResponse> getManifestfilters(@Path("company_id")  String companyId , @Query("view") String  view );
     
     
     
@@ -698,6 +710,15 @@ interface OrderPlatformApiList {
     
     
     
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
+    Call<OrderPlatformModels.ShipmentHistoryResponse> postShipmentHistory(@Path("company_id")  String companyId ,@Body OrderPlatformModels.PostShipmentHistory payload);
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -706,15 +727,6 @@ interface OrderPlatformApiList {
     
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
     Call<OrderPlatformModels.ShipmentHistoryResponse> getShipmentHistory(@Path("company_id")  String companyId , @Query("shipment_id") String  shipmentId ,  @Query("bag_id") Integer  bagId );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
-    Call<OrderPlatformModels.ShipmentHistoryResponse> postShipmentHistory(@Path("company_id")  String companyId ,@Body OrderPlatformModels.PostShipmentHistory payload);
     
     
     
@@ -749,17 +761,17 @@ interface OrderPlatformApiList {
     
     
     
-    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
-    Call<OrderPlatformModels.CreateChannelConfigData> getChannelConfig(@Path("company_id")  String companyId );
-    
-    
-    
-    
-    
-    
-    
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
     Call<OrderPlatformModels.CreateChannelConfigResponse> createChannelConfig(@Path("company_id")  String companyId ,@Body OrderPlatformModels.CreateChannelConfigData payload);
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
+    Call<OrderPlatformModels.CreateChannelConfigData> getChannelConfig(@Path("company_id")  String companyId );
     
     
     
@@ -796,6 +808,111 @@ interface OrderPlatformApiList {
     
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/bag/state/transition")
     Call<OrderPlatformModels.BagStateTransitionMap> getStateTransitionMap(@Path("company_id")  String companyId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/shipments-listing")
+    Call<OrderPlatformModels.ManifestShipmentListing> getManifestShipments(@Path("company_id")  String companyId , @Query("dp_ids") Integer  dpIds ,  @Query("stores") String  stores ,  @Query("to_date") String  toDate ,  @Query("from_date") String  fromDate ,  @Query("dp_name") String  dpName ,  @Query("sales_channels") String  salesChannels ,  @Query("search_type") String  searchType ,  @Query("search_value") String  searchValue ,  @Query("page_no") String  pageNo ,  @Query("page_size") String  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/listing")
+    Call<OrderPlatformModels.ManifestList> getManifests(@Path("company_id")  String companyId , @Query("status") String  status ,  @Query("to_date") String  toDate ,  @Query("from_date") String  fromDate ,  @Query("search_value") String  searchValue ,  @Query("dp_ids") String  dpIds ,  @Query("page_no") String  pageNo ,  @Query("page_size") String  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/details")
+    Call<OrderPlatformModels.ManifestDetails> getManifestDetails(@Path("company_id")  String companyId , @Query("manifest_id") String  manifestId ,  @Query("status") String  status ,  @Query("to_date") String  toDate ,  @Query("from_date") String  fromDate ,  @Query("search_type") String  searchType ,  @Query("search_value") String  searchValue ,  @Query("dp_ids") String  dpIds ,  @Query("page_no") String  pageNo ,  @Query("page_size") String  pageSize );
     
     
     
