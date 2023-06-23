@@ -128,4 +128,10 @@ interface PaymentApplicationApiList {
     
     @POST 
     Call<PaymentApplicationModels.CustomerOnboardingResponse> customerOnboard(@Url String url1 , @Body PaymentApplicationModels.CustomerOnboardingRequest payload );
+    
+    @GET 
+    Call<PaymentApplicationModels.OutstandingOrderDetailsResponse> outstandingOrderDetails(@Url String url1, @Query("aggregator") String aggregator );
+    
+    @GET 
+    Call<PaymentApplicationModels.PaidOrderDetailsResponse> paidOrderDetails(@Url String url1, @Query("aggregator") String aggregator );
 }
