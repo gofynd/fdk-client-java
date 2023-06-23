@@ -574,14 +574,64 @@ public static class MarketplaceThemeResponseBody{
     
     
     
-    @JsonProperty("items")
-    private List<MarketplaceTheme> items;
+    @JsonProperty("themes")
+    private List<MarketplaceTheme> themes;
     
     
     
     
     @JsonProperty("page")
     private PaginationSchema page;
+    
+    
+    
+}
+
+
+/*
+    Model: ArrayOfMarketplaceTheme
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ArrayOfMarketplaceTheme{
+    
+    
+    
+    
+    @JsonProperty("body")
+    private List<MarketplaceTheme> body;
+    
+    
+    
+}
+
+
+/*
+    Model: ThemeCreateRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ThemeCreateRequest{
+    
+    
+    
+    
+    @JsonProperty("src")
+    private String src;
+    
+    
+    
+    
+    @JsonProperty("release")
+    private Release release;
     
     
     
@@ -663,7 +713,7 @@ public static class MarketplaceTheme{
     
     
     @JsonProperty("images")
-    private Images images;
+    private MarketplaceThemeImages images;
     
     
     
@@ -857,7 +907,7 @@ public static class CatalogSize{
 
 
 /*
-    Model: Images
+    Model: MarketplaceThemeImages
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -865,37 +915,19 @@ public static class CatalogSize{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Images{
+public static class MarketplaceThemeImages{
     
     
     
     
     @JsonProperty("desktop")
-    private List<String> desktop;
+    private String desktop;
     
     
     
     
     @JsonProperty("mobile")
     private String mobile;
-    
-    
-    
-    
-    @JsonProperty("android")
-    private List<String> android;
-    
-    
-    
-    
-    @JsonProperty("ios")
-    private List<String> ios;
-    
-    
-    
-    
-    @JsonProperty("thumbnail")
-    private List<String> thumbnail;
     
     
     
@@ -1081,7 +1113,7 @@ public static class Variation{
     
     
     @JsonProperty("images")
-    private Images images;
+    private MarketplaceThemeImages images;
     
     
     
@@ -1434,6 +1466,148 @@ public static class ThemeAndUserDetailsResponse{
     
     @JsonProperty("user")
     private List<ThemeCreator> user;
+    
+    
+    
+}
+
+
+/*
+    Model: ThemeRejectionReasons
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ThemeRejectionReasons{
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("theme_id")
+    private String themeId;
+    
+    
+    
+    
+    @JsonProperty("organization_id")
+    private String organizationId;
+    
+    
+    
+    
+    @JsonProperty("admin_id")
+    private String adminId;
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("rejection_reasons")
+    private HashMap<String,Object> rejectionReasons;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+}
+
+
+/*
+    Model: RejectionReason
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RejectionReason{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: ThemeReviewRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ThemeReviewRequest{
+    
+    
+    
+    
+    @JsonProperty("dynamic_properties")
+    private HashMap<String,Object> dynamicProperties;
+    
+    
+    
+}
+
+
+/*
+    Model: UpdateReviewStatusRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateReviewStatusRequest{
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
     
     
     
@@ -2000,6 +2174,46 @@ public static class Information{
     
     @JsonProperty("description")
     private String description;
+    
+    
+    
+}
+
+
+/*
+    Model: Images
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Images{
+    
+    
+    
+    
+    @JsonProperty("desktop")
+    private List<String> desktop;
+    
+    
+    
+    
+    @JsonProperty("android")
+    private List<String> android;
+    
+    
+    
+    
+    @JsonProperty("ios")
+    private List<String> ios;
+    
+    
+    
+    
+    @JsonProperty("thumbnail")
+    private List<String> thumbnail;
     
     
     

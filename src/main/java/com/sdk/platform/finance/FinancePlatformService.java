@@ -413,11 +413,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.GetInvoiceListResponse getInvoiceType(FinancePlatformModels.GetInvoiceListRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.InvoiceTypeResponse invoiceType(FinancePlatformModels.InvoiceTypeRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<FinancePlatformModels.GetInvoiceListResponse> response = null;
+            Response<FinancePlatformModels.InvoiceTypeResponse> response = null;
             try {
-                response = financePlatformApiList.getInvoiceType(this.companyId , body).execute();
+                response = financePlatformApiList.invoiceType(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
