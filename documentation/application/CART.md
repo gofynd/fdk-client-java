@@ -6397,52 +6397,14 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  
  
- #### [RawBreakup](#RawBreakup)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | codCharge | Double? |  yes  |  |
- | coupon | Double? |  yes  |  |
- | deliveryCharge | Double? |  yes  |  |
- | discount | Double? |  yes  |  |
- | subtotal | Double? |  yes  |  |
- | gstCharges | Double? |  yes  |  |
- | fyndCash | Double? |  yes  |  |
- | convenienceFee | Double? |  yes  |  |
- | mrpTotal | Double? |  yes  |  |
- | vog | Double? |  yes  |  |
- | total | Double? |  yes  |  |
- | youSaved | Double? |  yes  |  |
-
----
-
-
- 
- 
  #### [LoyaltyPoints](#LoyaltyPoints)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isApplied | Boolean? |  yes  |  |
  | description | String? |  yes  |  |
  | total | Double? |  yes  |  |
  | applicable | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [DisplayBreakup](#DisplayBreakup)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | value | Double? |  yes  |  |
- | message | ArrayList<String>? |  yes  |  |
- | currencyCode | String? |  yes  |  |
- | key | String? |  yes  |  |
- | display | String? |  yes  |  |
- | currencySymbol | String? |  yes  |  |
+ | isApplied | Boolean? |  yes  |  |
 
 ---
 
@@ -6454,11 +6416,49 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | value | Double? |  yes  |  |
- | message | String? |  yes  |  |
  | isApplied | Boolean? |  yes  |  |
- | code | String? |  yes  |  |
- | type | String? |  yes  |  |
  | uid | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | code | String? |  yes  |  |
+ | message | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DisplayBreakup](#DisplayBreakup)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | currencySymbol | String? |  yes  |  |
+ | key | String? |  yes  |  |
+ | currencyCode | String? |  yes  |  |
+ | display | String? |  yes  |  |
+ | value | Double? |  yes  |  |
+ | message | ArrayList<String>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [RawBreakup](#RawBreakup)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | codCharge | Double? |  yes  |  |
+ | deliveryCharge | Double? |  yes  |  |
+ | subtotal | Double? |  yes  |  |
+ | total | Double? |  yes  |  |
+ | coupon | Double? |  yes  |  |
+ | gstCharges | Double? |  yes  |  |
+ | fyndCash | Double? |  yes  |  |
+ | mrpTotal | Double? |  yes  |  |
+ | discount | Double? |  yes  |  |
+ | vog | Double? |  yes  |  |
+ | convenienceFee | Double? |  yes  |  |
+ | youSaved | Double? |  yes  |  |
 
 ---
 
@@ -6469,58 +6469,10 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | raw | [RawBreakup](#RawBreakup)? |  yes  |  |
  | loyaltyPoints | [LoyaltyPoints](#LoyaltyPoints)? |  yes  |  |
- | display | ArrayList<[DisplayBreakup](#DisplayBreakup)>? |  yes  |  |
  | coupon | [CouponBreakup](#CouponBreakup)? |  yes  |  |
-
----
-
-
- 
- 
- #### [CartCurrency](#CartCurrency)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | symbol | String? |  yes  |  |
- | code | String? |  yes  | Currency code defined by ISO 4217:2015 |
-
----
-
-
- 
- 
- #### [PromiseTimestamp](#PromiseTimestamp)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | max | Double? |  yes  |  |
- | min | Double? |  yes  |  |
-
----
-
-
- 
- 
- #### [PromiseFormatted](#PromiseFormatted)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | max | String? |  yes  |  |
- | min | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ShipmentPromise](#ShipmentPromise)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | timestamp | [PromiseTimestamp](#PromiseTimestamp)? |  yes  |  |
- | formatted | [PromiseFormatted](#PromiseFormatted)? |  yes  |  |
+ | display | ArrayList<[DisplayBreakup](#DisplayBreakup)>? |  yes  |  |
+ | raw | [RawBreakup](#RawBreakup)? |  yes  |  |
 
 ---
 
@@ -6531,9 +6483,149 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | enabled | Boolean? |  yes  |  |
  | paymentIdentifier | String? |  yes  |  |
  | defaultOptions | String? |  yes  |  |
+ | enabled | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DiscountRulesApp](#DiscountRulesApp)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | offer | HashMap<String,Object>? |  yes  | offer for promotion |
+ | matchedBuyRules | ArrayList<String>? |  yes  | Matched buy rules for promotion |
+ | rawOffer | HashMap<String,Object>? |  yes  | raw offer details for promotion |
+ | itemCriteria | HashMap<String,Object>? |  yes  | Item criteria of promotion |
+
+---
+
+
+ 
+ 
+ #### [Ownership](#Ownership)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | payableCategory | String? |  yes  | promo amount payable category |
+ | payableBy | String? |  yes  | promo amount bearable party |
+
+---
+
+
+ 
+ 
+ #### [FreeGiftItem](#FreeGiftItem)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | itemId | Integer? |  yes  | Item id |
+ | itemBrandName | String? |  yes  | item brand name |
+ | itemPriceDetails | HashMap<String,Object>? |  yes  | item price details |
+ | itemImagesUrl | ArrayList<String>? |  yes  | item images URL |
+ | itemName | String? |  yes  | Item name |
+ | itemSlug | String? |  yes  | item slug |
+
+---
+
+
+ 
+ 
+ #### [AppliedFreeArticles](#AppliedFreeArticles)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | parentItemIdentifier | String? |  yes  | Parent item identifier for free article |
+ | freeGiftItemDetails | [FreeGiftItem](#FreeGiftItem)? |  yes  | Free gift items details |
+ | articleId | String? |  yes  | free article id |
+ | quantity | Integer? |  yes  | Free article quantity |
+
+---
+
+
+ 
+ 
+ #### [BuyRules](#BuyRules)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | cartConditions | HashMap<String,Object>? |  yes  | Cart conditions details for promotion |
+ | itemCriteria | HashMap<String,Object>? |  yes  | Item criteria of promotion |
+
+---
+
+
+ 
+ 
+ #### [AppliedPromotion](#AppliedPromotion)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | mrpPromotion | Boolean? |  yes  | If applied promotion is applied on product MRP or ESP |
+ | promoId | String? |  yes  | Promotion id |
+ | articleQuantity | Integer? |  yes  | Quantity of article on which promotion is applicable |
+ | promotionName | String? |  yes  | Promotion name of current promotion |
+ | discountRules | ArrayList<[DiscountRulesApp](#DiscountRulesApp)>? |  yes  | Discount rules for promotions |
+ | ownership | [Ownership](#Ownership)? |  yes  | Ownership of promotion |
+ | appliedFreeArticles | ArrayList<[AppliedFreeArticles](#AppliedFreeArticles)>? |  yes  | Applied free article for free gift item promotions |
+ | buyRules | ArrayList<[BuyRules](#BuyRules)>? |  yes  | Buy rules for promotions |
+ | promotionGroup | String? |  yes  | Promotion group for the promotion |
+ | offerText | String? |  yes  | Offer text of current promotion |
+ | promotionType | String? |  yes  | Promotion type of current promotion |
+ | amount | Double? |  yes  | Per unit discount amount applied with current promotion |
+
+---
+
+
+ 
+ 
+ #### [CartProductIdentifer](#CartProductIdentifer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | identifier | String? |  yes  | Article idenfier generated by cart |
+
+---
+
+
+ 
+ 
+ #### [ProductAvailability](#ProductAvailability)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | isValid | Boolean? |  yes  |  |
+ | sizes | ArrayList<String>? |  yes  |  |
+ | outOfStock | Boolean? |  yes  |  |
+ | deliverable | Boolean? |  yes  |  |
+ | otherStoreQuantity | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CategoryInfo](#CategoryInfo)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String? |  yes  |  |
+ | uid | Integer? |  yes  | Product Category Id |
+
+---
+
+
+ 
+ 
+ #### [BaseInfo](#BaseInfo)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String? |  yes  |  |
+ | uid | Integer? |  yes  |  |
 
 ---
 
@@ -6544,9 +6636,9 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | url | String? |  yes  |  |
- | aspectRatio | String? |  yes  |  |
  | secureUrl | String? |  yes  |  |
+ | aspectRatio | String? |  yes  |  |
+ | url | String? |  yes  |  |
 
 ---
 
@@ -6568,33 +6660,9 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | url | String? |  yes  |  |
  | query | [ActionQuery](#ActionQuery)? |  yes  |  |
+ | url | String? |  yes  |  |
  | type | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [BaseInfo](#BaseInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | uid | Integer? |  yes  |  |
- | name | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [CategoryInfo](#CategoryInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | uid | Integer? |  yes  | Product Category Id |
- | name | String? |  yes  |  |
 
 ---
 
@@ -6605,14 +6673,14 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | images | ArrayList<[ProductImage](#ProductImage)>? |  yes  |  |
- | action | [ProductAction](#ProductAction)? |  yes  |  |
+ | categories | ArrayList<[CategoryInfo](#CategoryInfo)>? |  yes  |  |
  | brand | [BaseInfo](#BaseInfo)? |  yes  |  |
+ | images | ArrayList<[ProductImage](#ProductImage)>? |  yes  |  |
  | name | String? |  yes  |  |
- | type | String? |  yes  |  |
  | slug | String? |  yes  | Unique product url name generated via product name and other meta data |
  | uid | Integer? |  yes  |  |
- | categories | ArrayList<[CategoryInfo](#CategoryInfo)>? |  yes  |  |
+ | type | String? |  yes  |  |
+ | action | [ProductAction](#ProductAction)? |  yes  |  |
 
 ---
 
@@ -6623,10 +6691,10 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | currencySymbol | String? |  yes  |  |
- | marked | Double? |  yes  |  |
- | currencyCode | String? |  yes  |  |
  | effective | Double? |  yes  |  |
+ | marked | Double? |  yes  |  |
+ | currencySymbol | String? |  yes  |  |
+ | currencyCode | String? |  yes  |  |
 
 ---
 
@@ -6637,8 +6705,8 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | base | [BasePrice](#BasePrice)? |  yes  |  |
  | converted | [BasePrice](#BasePrice)? |  yes  |  |
+ | base | [BasePrice](#BasePrice)? |  yes  |  |
 
 ---
 
@@ -6649,17 +6717,17 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | type | String? |  yes  |  |
+ | store | [BaseInfo](#BaseInfo)? |  yes  |  |
+ | price | [ArticlePriceInfo](#ArticlePriceInfo)? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | productGroupTags | ArrayList<String>? |  yes  |  |
  | seller | [BaseInfo](#BaseInfo)? |  yes  |  |
  | quantity | Integer? |  yes  |  |
- | productGroupTags | ArrayList<String>? |  yes  |  |
- | type | String? |  yes  |  |
- | price | [ArticlePriceInfo](#ArticlePriceInfo)? |  yes  |  |
- | store | [BaseInfo](#BaseInfo)? |  yes  |  |
- | extraMeta | HashMap<String,Object>? |  yes  |  |
  | size | String? |  yes  |  |
  | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
- | uid | String? |  yes  |  |
 
 ---
 
@@ -6670,12 +6738,12 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | addOn | Double? |  yes  |  |
- | marked | Double? |  yes  |  |
- | selling | Double? |  yes  |  |
- | currencyCode | String? |  yes  |  |
- | effective | Double? |  yes  |  |
  | currencySymbol | String? |  yes  |  |
+ | addOn | Double? |  yes  |  |
+ | currencyCode | String? |  yes  |  |
+ | marked | Double? |  yes  |  |
+ | effective | Double? |  yes  |  |
+ | selling | Double? |  yes  |  |
 
 ---
 
@@ -6686,124 +6754,8 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | base | [ProductPrice](#ProductPrice)? |  yes  |  |
  | converted | [ProductPrice](#ProductPrice)? |  yes  |  |
-
----
-
-
- 
- 
- #### [CartProductIdentifer](#CartProductIdentifer)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | identifier | String? |  yes  | Article idenfier generated by cart |
-
----
-
-
- 
- 
- #### [BuyRules](#BuyRules)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | itemCriteria | HashMap<String,Object>? |  yes  | Item criteria of promotion |
- | cartConditions | HashMap<String,Object>? |  yes  | Cart conditions details for promotion |
-
----
-
-
- 
- 
- #### [Ownership](#Ownership)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | payableCategory | String? |  yes  | promo amount payable category |
- | payableBy | String? |  yes  | promo amount bearable party |
-
----
-
-
- 
- 
- #### [DiscountRulesApp](#DiscountRulesApp)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | itemCriteria | HashMap<String,Object>? |  yes  | Item criteria of promotion |
- | matchedBuyRules | ArrayList<String>? |  yes  | Matched buy rules for promotion |
- | offer | HashMap<String,Object>? |  yes  | offer for promotion |
- | rawOffer | HashMap<String,Object>? |  yes  | raw offer details for promotion |
-
----
-
-
- 
- 
- #### [FreeGiftItem](#FreeGiftItem)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | itemId | Integer? |  yes  | Item id |
- | itemName | String? |  yes  | Item name |
- | itemImagesUrl | ArrayList<String>? |  yes  | item images URL |
- | itemSlug | String? |  yes  | item slug |
- | itemPriceDetails | HashMap<String,Object>? |  yes  | item price details |
- | itemBrandName | String? |  yes  | item brand name |
-
----
-
-
- 
- 
- #### [AppliedFreeArticles](#AppliedFreeArticles)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | quantity | Integer? |  yes  | Free article quantity |
- | parentItemIdentifier | String? |  yes  | Parent item identifier for free article |
- | articleId | String? |  yes  | free article id |
- | freeGiftItemDetails | [FreeGiftItem](#FreeGiftItem)? |  yes  | Free gift items details |
-
----
-
-
- 
- 
- #### [AppliedPromotion](#AppliedPromotion)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | promotionType | String? |  yes  | Promotion type of current promotion |
- | buyRules | ArrayList<[BuyRules](#BuyRules)>? |  yes  | Buy rules for promotions |
- | promoId | String? |  yes  | Promotion id |
- | amount | Double? |  yes  | Per unit discount amount applied with current promotion |
- | promotionGroup | String? |  yes  | Promotion group for the promotion |
- | ownership | [Ownership](#Ownership)? |  yes  | Ownership of promotion |
- | offerText | String? |  yes  | Offer text of current promotion |
- | articleQuantity | Integer? |  yes  | Quantity of article on which promotion is applicable |
- | mrpPromotion | Boolean? |  yes  | If applied promotion is applied on product MRP or ESP |
- | promotionName | String? |  yes  | Promotion name of current promotion |
- | discountRules | ArrayList<[DiscountRulesApp](#DiscountRulesApp)>? |  yes  | Discount rules for promotions |
- | appliedFreeArticles | ArrayList<[AppliedFreeArticles](#AppliedFreeArticles)>? |  yes  | Applied free article for free gift item promotions |
-
----
-
-
- 
- 
- #### [ProductAvailability](#ProductAvailability)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | isValid | Boolean? |  yes  |  |
- | outOfStock | Boolean? |  yes  |  |
- | otherStoreQuantity | Integer? |  yes  |  |
- | sizes | ArrayList<String>? |  yes  |  |
- | deliverable | Boolean? |  yes  |  |
+ | base | [ProductPrice](#ProductPrice)? |  yes  |  |
 
 ---
 
@@ -6825,22 +6777,70 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | bulkOffer | HashMap<String,Object>? |  yes  |  |
- | couponMessage | String? |  yes  |  |
- | quantity | Integer? |  yes  |  |
- | message | String? |  yes  |  |
+ | promotionsApplied | ArrayList<[AppliedPromotion](#AppliedPromotion)>? |  yes  |  |
+ | isSet | Boolean? |  yes  |  |
+ | identifiers | [CartProductIdentifer](#CartProductIdentifer) |  no  |  |
+ | availability | [ProductAvailability](#ProductAvailability)? |  yes  |  |
  | key | String? |  yes  |  |
  | product | [CartProduct](#CartProduct)? |  yes  |  |
  | article | [ProductArticle](#ProductArticle)? |  yes  |  |
- | price | [ProductPriceInfo](#ProductPriceInfo)? |  yes  |  |
- | identifiers | [CartProductIdentifer](#CartProductIdentifer) |  no  |  |
- | discount | String? |  yes  |  |
- | isSet | Boolean? |  yes  |  |
- | promotionsApplied | ArrayList<[AppliedPromotion](#AppliedPromotion)>? |  yes  |  |
+ | bulkOffer | HashMap<String,Object>? |  yes  |  |
  | pricePerUnit | [ProductPriceInfo](#ProductPriceInfo)? |  yes  |  |
- | availability | [ProductAvailability](#ProductAvailability)? |  yes  |  |
- | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
+ | discount | String? |  yes  |  |
+ | price | [ProductPriceInfo](#ProductPriceInfo)? |  yes  |  |
+ | couponMessage | String? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
  | promoMeta | [PromoMeta](#PromoMeta)? |  yes  |  |
+ | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
+ | message | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CartCurrency](#CartCurrency)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | code | String? |  yes  | Currency code defined by ISO 4217:2015 |
+ | symbol | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PromiseFormatted](#PromiseFormatted)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | max | String? |  yes  |  |
+ | min | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PromiseTimestamp](#PromiseTimestamp)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | max | Double? |  yes  |  |
+ | min | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ShipmentPromise](#ShipmentPromise)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | formatted | [PromiseFormatted](#PromiseFormatted)? |  yes  |  |
+ | timestamp | [PromiseTimestamp](#PromiseTimestamp)? |  yes  |  |
 
 ---
 
@@ -6851,22 +6851,22 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
- | isValid | Boolean? |  yes  |  |
  | couponText | String? |  yes  |  |
  | id | String? |  yes  |  |
- | lastModified | String? |  yes  |  |
- | message | String? |  yes  |  |
- | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
- | buyNow | Boolean? |  yes  |  |
- | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
  | deliveryChargeInfo | String? |  yes  |  |
- | gstin | String? |  yes  |  |
- | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
- | checkoutMode | String? |  yes  |  |
  | comment | String? |  yes  |  |
- | restrictCheckout | Boolean? |  yes  |  |
+ | isValid | Boolean? |  yes  |  |
+ | checkoutMode | String? |  yes  |  |
+ | gstin | String? |  yes  |  |
+ | buyNow | Boolean? |  yes  |  |
+ | lastModified | String? |  yes  |  |
+ | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
+ | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
  | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
+ | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
+ | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
+ | restrictCheckout | Boolean? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -6877,19 +6877,19 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | pos | Boolean? |  yes  |  |
  | itemId | Integer? |  yes  |  |
+ | sellerId | Integer? |  yes  |  |
+ | pos | Boolean? |  yes  |  |
  | storeId | Integer? |  yes  |  |
  | articleAssignment | HashMap<String,Object>? |  yes  |  |
- | quantity | Integer? |  yes  |  |
  | productGroupTags | ArrayList<String>? |  yes  |  |
- | sellerId | Integer? |  yes  |  |
- | articleId | String? |  yes  |  |
- | extraMeta | HashMap<String,Object>? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
  | display | String? |  yes  |  |
- | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
+ | articleId | String? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
  | itemSize | String? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -6900,8 +6900,8 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[AddProductCart](#AddProductCart)>? |  yes  |  |
  | newCart | Boolean? |  yes  |  |
+ | items | ArrayList<[AddProductCart](#AddProductCart)>? |  yes  |  |
 
 ---
 
@@ -6912,10 +6912,10 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
- | partial | Boolean? |  yes  | When adding multiple items check if all added. True if only few are added. |
  | success | Boolean? |  yes  | True if all items are added successfully. False if partially added or not added. |
+ | partial | Boolean? |  yes  | When adding multiple items check if all added. True if only few are added. |
  | cart | [CartDetailResponse](#CartDetailResponse)? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -6926,15 +6926,15 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | itemIndex | Integer? |  yes  |  |
  | itemId | Integer? |  yes  |  |
- | quantity | Integer? |  yes  |  |
  | identifiers | [CartProductIdentifer](#CartProductIdentifer) |  no  |  |
  | articleId | String? |  yes  |  |
- | extraMeta | HashMap<String,Object>? |  yes  |  |
  | customJson | HashMap<String,Object>? |  yes  |  |
- | itemIndex | Integer? |  yes  |  |
- | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
  | itemSize | String? |  yes  |  |
+ | quantity | Integer? |  yes  |  |
+ | parentItemIdentifiers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -6957,9 +6957,9 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
  | success | Boolean? |  yes  | True if all items are added successfully. False if partially added or not added. |
  | cart | [CartDetailResponse](#CartDetailResponse)? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -6977,35 +6977,35 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  
  
- #### [Coupon](#Coupon)
+ #### [PageCoupon](#PageCoupon)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | couponCode | String? |  yes  |  |
- | subTitle | String? |  yes  |  |
- | couponValue | Double? |  yes  |  |
- | minimumCartValue | Double? |  yes  |  |
- | message | String? |  yes  |  |
- | title | String? |  yes  |  |
- | maxDiscountValue | Double? |  yes  |  |
- | isApplied | Boolean? |  yes  |  |
- | expiresOn | String? |  yes  |  |
- | isApplicable | Boolean? |  yes  |  |
+ | total | Integer? |  yes  |  |
+ | hasPrevious | Boolean? |  yes  |  |
+ | totalItemCount | Integer? |  yes  |  |
+ | current | Integer? |  yes  |  |
+ | hasNext | Boolean? |  yes  |  |
 
 ---
 
 
  
  
- #### [PageCoupon](#PageCoupon)
+ #### [Coupon](#Coupon)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | current | Integer? |  yes  |  |
- | hasPrevious | Boolean? |  yes  |  |
- | hasNext | Boolean? |  yes  |  |
- | totalItemCount | Integer? |  yes  |  |
- | total | Integer? |  yes  |  |
+ | title | String? |  yes  |  |
+ | message | String? |  yes  |  |
+ | isApplied | Boolean? |  yes  |  |
+ | minimumCartValue | Double? |  yes  |  |
+ | couponCode | String? |  yes  |  |
+ | couponValue | Double? |  yes  |  |
+ | isApplicable | Boolean? |  yes  |  |
+ | expiresOn | String? |  yes  |  |
+ | maxDiscountValue | Double? |  yes  |  |
+ | subTitle | String? |  yes  |  |
 
 ---
 
@@ -7016,8 +7016,8 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | availableCouponList | ArrayList<[Coupon](#Coupon)>? |  yes  |  |
  | page | [PageCoupon](#PageCoupon)? |  yes  |  |
+ | availableCouponList | ArrayList<[Coupon](#Coupon)>? |  yes  |  |
 
 ---
 
@@ -7039,8 +7039,8 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | uid | Integer? |  yes  | Seller id |
  | name | String? |  yes  |  |
+ | uid | Integer? |  yes  | Seller id |
 
 ---
 
@@ -7052,10 +7052,10 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | bulkEffective | Double? |  yes  | Discounted per unit price for current offer object |
- | marked | Integer? |  yes  | Original price of product |
- | currencyCode | String? |  yes  | Currency code for all amounts |
- | effective | Integer? |  yes  | Current per unit price of product after existing deductions |
  | currencySymbol | String? |  yes  | Currency symbol for currency |
+ | currencyCode | String? |  yes  | Currency code for all amounts |
+ | marked | Integer? |  yes  | Original price of product |
+ | effective | Integer? |  yes  | Current per unit price of product after existing deductions |
 
 ---
 
@@ -7066,13 +7066,13 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | autoApplied | Boolean? |  yes  | Whether offer discount is auto applied in cart |
- | quantity | Integer? |  yes  | Quantity on which offer is applicable |
- | price | [OfferPrice](#OfferPrice)? |  yes  |  |
  | margin | Integer? |  yes  | Percentage value of discount |
  | type | String? |  yes  | Offer type |
+ | autoApplied | Boolean? |  yes  | Whether offer discount is auto applied in cart |
  | total | Double? |  yes  | Total price of offer quantity with discount |
  | best | Boolean? |  yes  | Is true for best offer from all offers present for all sellers |
+ | price | [OfferPrice](#OfferPrice)? |  yes  |  |
+ | quantity | Integer? |  yes  | Quantity on which offer is applicable |
 
 ---
 
@@ -7117,8 +7117,8 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | latitude | Double? |  yes  |  |
  | longitude | Double? |  yes  |  |
+ | latitude | Double? |  yes  |  |
 
 ---
 
@@ -7129,31 +7129,31 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
+ | areaCodeSlug | String? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | email | String? |  yes  |  |
+ | city | String? |  yes  |  |
  | addressType | String? |  yes  |  |
- | geoLocation | [GeoLocation](#GeoLocation)? |  yes  |  |
- | state | String? |  yes  |  |
- | areaCode | String? |  yes  |  |
+ | countryPhoneCode | String? |  yes  |  |
  | address | String? |  yes  |  |
  | googleMapPoint | HashMap<String,Object>? |  yes  |  |
- | city | String? |  yes  |  |
- | id | String? |  yes  |  |
- | phone | String? |  yes  |  |
- | countryIsoCode | String? |  yes  |  |
- | isDefaultAddress | Boolean? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | areaCodeSlug | String? |  yes  |  |
- | countryCode | String? |  yes  |  |
- | countryPhoneCode | String? |  yes  |  |
- | checkoutMode | String? |  yes  |  |
  | country | String? |  yes  |  |
- | userId | String? |  yes  |  |
- | email | String? |  yes  |  |
- | area | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
- | landmark | String? |  yes  |  |
- | customJson | HashMap<String,Object>? |  yes  |  |
  | isActive | Boolean? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
+ | id | String? |  yes  |  |
+ | geoLocation | [GeoLocation](#GeoLocation)? |  yes  |  |
+ | name | String? |  yes  |  |
+ | countryIsoCode | String? |  yes  |  |
+ | areaCode | String? |  yes  |  |
+ | state | String? |  yes  |  |
+ | area | String? |  yes  |  |
+ | phone | String? |  yes  |  |
+ | landmark | String? |  yes  |  |
+ | checkoutMode | String? |  yes  |  |
+ | countryCode | String? |  yes  |  |
+ | isDefaultAddress | Boolean? |  yes  |  |
+ | userId | String? |  yes  |  |
 
 ---
 
@@ -7190,8 +7190,8 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
  | ---------- | ---- | -------- | ----------- |
  | success | Boolean? |  yes  |  |
  | id | String? |  yes  |  |
- | isDefaultAddress | Boolean? |  yes  |  |
  | isUpdated | Boolean? |  yes  |  |
+ | isDefaultAddress | Boolean? |  yes  |  |
 
 ---
 
@@ -7202,8 +7202,8 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | isDeleted | Boolean? |  yes  |  |
  | id | String? |  yes  |  |
+ | isDeleted | Boolean? |  yes  |  |
 
 ---
 
@@ -7228,11 +7228,11 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | id | String? |  yes  |  |
+ | paymentMode | String? |  yes  |  |
+ | merchantCode | String? |  yes  |  |
+ | aggregatorName | String? |  yes  |  |
  | addressId | String? |  yes  |  |
  | paymentIdentifier | String? |  yes  |  |
- | merchantCode | String? |  yes  |  |
- | paymentMode | String? |  yes  |  |
- | aggregatorName | String? |  yes  |  |
 
 ---
 
@@ -7243,11 +7243,11 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | displayMessageEn | String? |  yes  |  |
+ | valid | Boolean? |  yes  |  |
  | title | String? |  yes  |  |
  | discount | Double? |  yes  |  |
- | displayMessageEn | String? |  yes  |  |
  | code | String? |  yes  |  |
- | valid | Boolean? |  yes  |  |
 
 ---
 
@@ -7258,9 +7258,9 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
  | success | Boolean |  no  |  |
  | couponValidity | [CouponValidity](#CouponValidity)? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -7271,16 +7271,16 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | promise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
- | dpOptions | HashMap<String,Object>? |  yes  |  |
- | orderType | String? |  yes  |  |
- | fulfillmentId | Integer? |  yes  |  |
- | shipmentType | String? |  yes  |  |
- | shipments | Integer? |  yes  |  |
  | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
+ | shipments | Integer? |  yes  |  |
+ | dpOptions | HashMap<String,Object>? |  yes  |  |
  | dpId | String? |  yes  |  |
- | fulfillmentType | String? |  yes  |  |
+ | fulfillmentId | Integer? |  yes  |  |
+ | promise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
  | boxType | String? |  yes  |  |
+ | shipmentType | String? |  yes  |  |
+ | orderType | String? |  yes  |  |
+ | fulfillmentType | String? |  yes  |  |
 
 ---
 
@@ -7291,25 +7291,25 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | cartId | Integer? |  yes  |  |
- | isValid | Boolean? |  yes  |  |
- | couponText | String? |  yes  |  |
- | message | String? |  yes  |  |
- | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
- | deliveryChargeInfo | String? |  yes  |  |
- | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
- | checkoutMode | String? |  yes  |  |
- | shipments | ArrayList<[ShipmentResponse](#ShipmentResponse)>? |  yes  |  |
- | uid | String? |  yes  |  |
- | error | Boolean? |  yes  |  |
- | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
  | id | String? |  yes  |  |
- | lastModified | String? |  yes  |  |
- | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
- | buyNow | Boolean? |  yes  |  |
+ | deliveryChargeInfo | String? |  yes  |  |
+ | shipments | ArrayList<[ShipmentResponse](#ShipmentResponse)>? |  yes  |  |
  | gstin | String? |  yes  |  |
- | comment | String? |  yes  |  |
+ | buyNow | Boolean? |  yes  |  |
+ | lastModified | String? |  yes  |  |
+ | error | Boolean? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
+ | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
  | restrictCheckout | Boolean? |  yes  |  |
+ | couponText | String? |  yes  |  |
+ | comment | String? |  yes  |  |
+ | isValid | Boolean? |  yes  |  |
+ | checkoutMode | String? |  yes  |  |
+ | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
+ | cartId | Integer? |  yes  |  |
+ | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -7321,10 +7321,10 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | user | String |  no  |  |
- | id | String |  no  |  |
- | firstName | String |  no  |  |
- | employeeCode | String? |  yes  |  |
  | lastName | String |  no  |  |
+ | firstName | String |  no  |  |
+ | id | String |  no  |  |
+ | employeeCode | String? |  yes  |  |
 
 ---
 
@@ -7347,23 +7347,23 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | addressId | String? |  yes  |  |
  | deliveryAddress | HashMap<String,Object>? |  yes  |  |
- | staff | [StaffCheckout](#StaffCheckout)? |  yes  |  |
- | orderingStore | Integer? |  yes  |  |
- | billingAddress | HashMap<String,Object>? |  yes  |  |
- | paymentIdentifier | String? |  yes  |  |
- | merchantCode | String? |  yes  |  |
+ | id | String? |  yes  |  |
  | paymentMode | String |  no  |  |
+ | aggregator | String? |  yes  |  |
+ | orderingStore | Integer? |  yes  |  |
+ | paymentAutoConfirm | Boolean? |  yes  |  |
+ | staff | [StaffCheckout](#StaffCheckout)? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | merchantCode | String? |  yes  |  |
  | paymentParams | HashMap<String,Object>? |  yes  |  |
  | customMeta | ArrayList<[CartCheckoutCustomMeta](#CartCheckoutCustomMeta)>? |  yes  |  |
  | billingAddressId | String? |  yes  |  |
- | callbackUrl | String? |  yes  |  |
+ | addressId | String? |  yes  |  |
  | extraMeta | HashMap<String,Object>? |  yes  |  |
- | paymentAutoConfirm | Boolean? |  yes  |  |
- | aggregator | String? |  yes  |  |
+ | paymentIdentifier | String? |  yes  |  |
+ | billingAddress | HashMap<String,Object>? |  yes  |  |
+ | callbackUrl | String? |  yes  |  |
 
 ---
 
@@ -7374,35 +7374,35 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | cartId | Integer? |  yes  |  |
- | couponText | String? |  yes  |  |
- | message | String? |  yes  |  |
  | storeCode | String? |  yes  |  |
- | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
- | deliveryChargeInfo | String? |  yes  |  |
- | storeEmps | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | userType | String? |  yes  |  |
- | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
- | id | String? |  yes  |  |
- | deliveryChargeOrderValue | Integer? |  yes  |  |
- | lastModified | String? |  yes  |  |
- | orderId | String? |  yes  |  |
- | success | Boolean? |  yes  |  |
- | comment | String? |  yes  |  |
- | restrictCheckout | Boolean? |  yes  |  |
- | isValid | Boolean? |  yes  |  |
- | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
- | checkoutMode | String? |  yes  |  |
- | uid | String? |  yes  |  |
- | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
- | codCharges | Integer? |  yes  |  |
- | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
- | buyNow | Boolean? |  yes  |  |
  | gstin | String? |  yes  |  |
- | codAvailable | Boolean? |  yes  |  |
- | deliveryCharges | Integer? |  yes  |  |
+ | buyNow | Boolean? |  yes  |  |
+ | lastModified | String? |  yes  |  |
+ | storeEmps | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | codMessage | String? |  yes  |  |
  | errorMessage | String? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
+ | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
+ | restrictCheckout | Boolean? |  yes  |  |
+ | couponText | String? |  yes  |  |
+ | comment | String? |  yes  |  |
+ | isValid | Boolean? |  yes  |  |
+ | success | Boolean? |  yes  |  |
+ | cartId | Integer? |  yes  |  |
+ | userType | String? |  yes  |  |
+ | codAvailable | Boolean? |  yes  |  |
+ | id | String? |  yes  |  |
+ | deliveryChargeInfo | String? |  yes  |  |
+ | deliveryChargeOrderValue | Integer? |  yes  |  |
+ | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
+ | orderId | String? |  yes  |  |
+ | checkoutMode | String? |  yes  |  |
+ | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
+ | deliveryCharges | Integer? |  yes  |  |
+ | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
+ | codCharges | Integer? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -7413,14 +7413,14 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | paymentConfirmUrl | String? |  yes  |  |
  | data | HashMap<String,Object>? |  yes  |  |
- | message | String? |  yes  |  |
- | orderId | String? |  yes  |  |
  | cart | [CheckCart](#CheckCart)? |  yes  |  |
  | appInterceptUrl | String? |  yes  |  |
+ | paymentConfirmUrl | String? |  yes  |  |
  | success | Boolean? |  yes  |  |
+ | orderId | String? |  yes  |  |
  | callbackUrl | String? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -7432,10 +7432,10 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | deliverySlots | HashMap<String,Object>? |  yes  |  |
- | pickUpCustomerDetails | HashMap<String,Object>? |  yes  | Customer contact details for customer pickup at store |
- | gstin | String? |  yes  |  |
  | comment | String? |  yes  |  |
+ | pickUpCustomerDetails | HashMap<String,Object>? |  yes  | Customer contact details for customer pickup at store |
  | checkoutMode | String? |  yes  |  |
+ | gstin | String? |  yes  |  |
 
 ---
 
@@ -7468,8 +7468,8 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | meta | HashMap<String,Object>? |  yes  | Staff, Ordering store or any other data. This data will be used to generate link as well as sent as shared details. |
  | id | String? |  yes  | Cart uid for generating sharing |
+ | meta | HashMap<String,Object>? |  yes  | Staff, Ordering store or any other data. This data will be used to generate link as well as sent as shared details. |
 
 ---
 
@@ -7492,11 +7492,11 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | meta | HashMap<String,Object>? |  yes  | Meta data sent while generating share cart link |
  | user | HashMap<String,Object>? |  yes  | User details of who generated share link |
- | token | String? |  yes  | Short link id |
  | createdOn | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  | Meta data sent while generating share cart link |
  | source | HashMap<String,Object>? |  yes  | Share link device and other source information |
+ | token | String? |  yes  | Short link id |
 
 ---
 
@@ -7507,25 +7507,25 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | cartId | Integer? |  yes  |  |
- | couponText | String? |  yes  |  |
- | message | String? |  yes  |  |
- | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
- | deliveryChargeInfo | String? |  yes  |  |
- | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
- | id | String? |  yes  |  |
- | lastModified | String? |  yes  |  |
- | comment | String? |  yes  |  |
- | restrictCheckout | Boolean? |  yes  |  |
- | isValid | Boolean? |  yes  |  |
- | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
- | checkoutMode | String? |  yes  |  |
- | sharedCartDetails | [SharedCartDetails](#SharedCartDetails)? |  yes  |  |
- | uid | String? |  yes  |  |
- | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
- | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
- | buyNow | Boolean? |  yes  |  |
  | gstin | String? |  yes  |  |
+ | buyNow | Boolean? |  yes  |  |
+ | lastModified | String? |  yes  |  |
+ | uid | String? |  yes  |  |
+ | paymentSelectionLock | [PaymentSelectionLock](#PaymentSelectionLock)? |  yes  |  |
+ | deliveryPromise | [ShipmentPromise](#ShipmentPromise)? |  yes  |  |
+ | restrictCheckout | Boolean? |  yes  |  |
+ | couponText | String? |  yes  |  |
+ | comment | String? |  yes  |  |
+ | isValid | Boolean? |  yes  |  |
+ | sharedCartDetails | [SharedCartDetails](#SharedCartDetails)? |  yes  |  |
+ | cartId | Integer? |  yes  |  |
+ | id | String? |  yes  |  |
+ | deliveryChargeInfo | String? |  yes  |  |
+ | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
+ | checkoutMode | String? |  yes  |  |
+ | breakupValues | [CartBreakup](#CartBreakup)? |  yes  |  |
+ | currency | [CartCurrency](#CartCurrency)? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -7536,8 +7536,8 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | error | String? |  yes  |  |
  | cart | [SharedCart](#SharedCart)? |  yes  |  |
+ | error | String? |  yes  |  |
 
 ---
 
@@ -7549,11 +7549,11 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | itemId | Integer? |  yes  | Item id |
- | itemName | String? |  yes  | Item name |
- | itemImagesUrl | ArrayList<String>? |  yes  | item images URL |
- | itemSlug | String? |  yes  | item slug |
- | itemPriceDetails | HashMap<String,Object>? |  yes  | item price details |
  | itemBrandName | String? |  yes  | item brand name |
+ | itemPriceDetails | HashMap<String,Object>? |  yes  | item price details |
+ | itemImagesUrl | ArrayList<String>? |  yes  | item images URL |
+ | itemName | String? |  yes  | Item name |
+ | itemSlug | String? |  yes  | item slug |
 
 ---
 
@@ -7564,14 +7564,14 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | validTill | String? |  yes  | Datetime ISOString for promotion end date |
- | buyRules | HashMap<String,Object>? |  yes  | Buy rules of promotions |
  | id | String? |  yes  | Promotion id |
- | freeGiftItems | ArrayList<[FreeGiftItems](#FreeGiftItems)>? |  yes  | Details of free gift items |
- | promotionGroup | String? |  yes  | Group of promotion belongs to |
  | discountRules | ArrayList<HashMap<String,Object>>? |  yes  | Discount rules of promotions |
- | offerText | String? |  yes  | Offer title |
+ | freeGiftItems | ArrayList<[FreeGiftItems](#FreeGiftItems)>? |  yes  | Details of free gift items |
+ | validTill | String? |  yes  | Datetime ISOString for promotion end date |
  | description | String? |  yes  | Offer details including T&C |
+ | buyRules | HashMap<String,Object>? |  yes  | Buy rules of promotions |
+ | promotionGroup | String? |  yes  | Group of promotion belongs to |
+ | offerText | String? |  yes  | Offer title |
 
 ---
 
@@ -7593,8 +7593,20 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
  | success | Boolean? |  yes  |  |
+ | message | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CurrencyInfo](#CurrencyInfo)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | code | String? |  yes  |  |
+ | symbol | String? |  yes  |  |
 
 ---
 
@@ -7605,11 +7617,11 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | marked | Integer? |  yes  | Original price of product |
- | currencyCode | String? |  yes  | Currency code for all amounts |
- | effective | Integer? |  yes  | Current per unit price of product after existing deductions |
- | offerPrice | Double? |  yes  | Discounted per unit price for current offer object |
  | currencySymbol | String? |  yes  | Currency symbol for currency |
+ | currencyCode | String? |  yes  | Currency code for all amounts |
+ | marked | Integer? |  yes  | Original price of product |
+ | offerPrice | Double? |  yes  | Discounted per unit price for current offer object |
+ | effective | Integer? |  yes  | Current per unit price of product after existing deductions |
 
 ---
 
@@ -7620,10 +7632,10 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | price | [LadderPrice](#LadderPrice)? |  yes  |  |
  | margin | Integer? |  yes  | Percentage value of discount |
- | type | String? |  yes  | Offer type |
  | minQuantity | Integer? |  yes  | Minimum quantity from which offer is applicable |
+ | type | String? |  yes  | Offer type |
+ | price | [LadderPrice](#LadderPrice)? |  yes  |  |
  | maxQuantity | Integer? |  yes  | Minimum quantity upto which offer is applicable. If not present that offer is applicable on all quantities |
 
 ---
@@ -7635,28 +7647,16 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | offerPrices | ArrayList<[LadderOfferItem](#LadderOfferItem)>? |  yes  |  |
- | validTill | String? |  yes  | Datetime ISOString for promotion end date |
- | buyRules | HashMap<String,Object>? |  yes  | Buy rules of promotions |
  | id | String? |  yes  | Promotion id |
- | freeGiftItems | ArrayList<[FreeGiftItems](#FreeGiftItems)>? |  yes  | Details of free gift items |
- | promotionGroup | String? |  yes  | Group of promotion belongs to |
+ | offerPrices | ArrayList<[LadderOfferItem](#LadderOfferItem)>? |  yes  |  |
  | discountRules | ArrayList<HashMap<String,Object>>? |  yes  | Discount rules of promotions |
- | offerText | String? |  yes  | Offer title |
+ | freeGiftItems | ArrayList<[FreeGiftItems](#FreeGiftItems)>? |  yes  | Details of free gift items |
+ | validTill | String? |  yes  | Datetime ISOString for promotion end date |
  | calculateOn | String? |  yes  | If this ladder offer is to be calculated on MRP or ESP price |
  | description | String? |  yes  | Offer details including T&C |
-
----
-
-
- 
- 
- #### [CurrencyInfo](#CurrencyInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | symbol | String? |  yes  |  |
- | code | String? |  yes  |  |
+ | buyRules | HashMap<String,Object>? |  yes  | Buy rules of promotions |
+ | promotionGroup | String? |  yes  | Group of promotion belongs to |
+ | offerText | String? |  yes  | Offer title |
 
 ---
 
@@ -7667,8 +7667,8 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | availableOffers | ArrayList<[LadderPriceOffer](#LadderPriceOffer)>? |  yes  |  |
  | currency | [CurrencyInfo](#CurrencyInfo)? |  yes  |  |
+ | availableOffers | ArrayList<[LadderPriceOffer](#LadderPriceOffer)>? |  yes  |  |
 
 ---
 
@@ -7679,9 +7679,9 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | paymentGateway | String? |  yes  |  |
  | paymentIdentifier | String? |  yes  |  |
  | merchantCode | String? |  yes  |  |
- | paymentGateway | String? |  yes  |  |
  | type | String? |  yes  |  |
 
 ---
@@ -7693,11 +7693,11 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | paymentMeta | [PaymentMeta](#PaymentMeta) |  no  |  |
- | name | String? |  yes  |  |
- | amount | Double? |  yes  |  |
  | payment | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | paymentMeta | [PaymentMeta](#PaymentMeta) |  no  |  |
  | mode | String |  no  |  |
+ | amount | Double? |  yes  |  |
 
 ---
 
@@ -7708,24 +7708,24 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | cartId | String? |  yes  |  |
- | merchantCode | String? |  yes  |  |
- | paymentParams | HashMap<String,Object>? |  yes  |  |
- | billingAddressId | String? |  yes  |  |
- | paymentAutoConfirm | Boolean? |  yes  |  |
- | id | String? |  yes  |  |
  | deliveryAddress | HashMap<String,Object>? |  yes  |  |
- | staff | [StaffCheckout](#StaffCheckout)? |  yes  |  |
- | orderingStore | Integer? |  yes  |  |
- | paymentMethods | ArrayList<[PaymentMethod](#PaymentMethod)> |  no  |  |
- | aggregator | String? |  yes  |  |
- | addressId | String? |  yes  |  |
- | paymentIdentifier | String? |  yes  |  |
- | customMeta | HashMap<String,Object>? |  yes  |  |
+ | merchantCode | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
- | billingAddress | HashMap<String,Object>? |  yes  |  |
+ | customMeta | HashMap<String,Object>? |  yes  |  |
+ | billingAddressId | String? |  yes  |  |
+ | paymentMethods | ArrayList<[PaymentMethod](#PaymentMethod)> |  no  |  |
+ | cartId | String? |  yes  |  |
+ | paymentIdentifier | String? |  yes  |  |
+ | id | String? |  yes  |  |
  | paymentMode | String |  no  |  |
+ | aggregator | String? |  yes  |  |
+ | paymentAutoConfirm | Boolean? |  yes  |  |
+ | addressId | String? |  yes  |  |
  | extraMeta | HashMap<String,Object>? |  yes  |  |
+ | billingAddress | HashMap<String,Object>? |  yes  |  |
+ | orderingStore | Integer? |  yes  |  |
+ | staff | [StaffCheckout](#StaffCheckout)? |  yes  |  |
+ | paymentParams | HashMap<String,Object>? |  yes  |  |
  | callbackUrl | String? |  yes  |  |
 
 ---

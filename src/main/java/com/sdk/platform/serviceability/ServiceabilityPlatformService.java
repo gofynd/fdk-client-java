@@ -199,11 +199,11 @@ public class ServiceabilityPlatformService {
     
     
 
-    public ServiceabilityPlatformModels.ZoneSuccessResponse updateZoneControllerView(String zoneId ,ServiceabilityPlatformModels.ZoneUpdateRequest body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ServiceabilityPlatformModels.ZoneSuccessResponse> response = null;
+            Response<ServiceabilityPlatformModels.GetSingleZoneDataViewResponse> response = null;
             try {
-                response = serviceabilityPlatformApiList.updateZoneControllerView(zoneId  , this.companyId , body).execute();
+                response = serviceabilityPlatformApiList.getZoneDataView(this.companyId , zoneId  ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -239,11 +239,11 @@ public class ServiceabilityPlatformService {
     
     
 
-    public ServiceabilityPlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.ZoneSuccessResponse updateZoneControllerView(String zoneId ,ServiceabilityPlatformModels.ZoneUpdateRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ServiceabilityPlatformModels.GetSingleZoneDataViewResponse> response = null;
+            Response<ServiceabilityPlatformModels.ZoneSuccessResponse> response = null;
             try {
-                response = serviceabilityPlatformApiList.getZoneDataView(this.companyId , zoneId  ).execute();
+                response = serviceabilityPlatformApiList.updateZoneControllerView(zoneId  , this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -541,12 +541,28 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public ServiceabilityPlatformModels.GetZoneFromPincodeViewResponse getZoneFromPincodeView(ServiceabilityPlatformModels.GetZoneFromPincodeViewRequest body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.GetZoneFromApplicationIdViewResponse getZonesFromApplicationIdView(Integer pageNo , Integer pageSize , List<String> zoneId , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ServiceabilityPlatformModels.GetZoneFromPincodeViewResponse> response = null;
+            Response<ServiceabilityPlatformModels.GetZoneFromApplicationIdViewResponse> response = null;
             try {
-            response = serviceabilityPlatformApiList.getZoneFromPincodeView(this.companyId , this.applicationId , body).execute();
+            response = serviceabilityPlatformApiList.getZonesFromApplicationIdView(this.companyId , this.applicationId ,pageNo , pageSize , zoneId , q ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -582,28 +598,12 @@ public class ApplicationClient {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-    public ServiceabilityPlatformModels.GetZoneFromApplicationIdViewResponse getZonesFromApplicationIdView(Integer pageNo , Integer pageSize , List<String> zoneId , String q ) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.GetZoneFromPincodeViewResponse getZoneFromPincodeView(ServiceabilityPlatformModels.GetZoneFromPincodeViewRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ServiceabilityPlatformModels.GetZoneFromApplicationIdViewResponse> response = null;
+            Response<ServiceabilityPlatformModels.GetZoneFromPincodeViewResponse> response = null;
             try {
-            response = serviceabilityPlatformApiList.getZonesFromApplicationIdView(this.companyId , this.applicationId ,pageNo , pageSize , zoneId , q ).execute();
+            response = serviceabilityPlatformApiList.getZoneFromPincodeView(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
