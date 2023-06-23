@@ -86,6 +86,24 @@ interface FinancePlatformApiList {
     
     
     
+    @POST ("/service/platform/finance/v1.0/company/{company_id}/credit-line-data")
+    Call<FinancePlatformModels.CreditlineDataPlatformResponse> creditlineDataplatform(@Path("company_id")  String companyId ,@Body FinancePlatformModels.CreditlineDataPlatformRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/finance/v1.0/company/{company_id}/creditline-opted")
+    Call<FinancePlatformModels.IsCreditlinePlatformResponse> isCreditlinePlatform(@Path("company_id")  String companyId ,@Body FinancePlatformModels.IsCreditlinePlatformRequest payload);
+    
+    
+    
+    
+    
+    
+    
     @POST ("/service/platform/finance/v1.0/company/{company_id}/invoice-type")
     Call<FinancePlatformModels.GetInvoiceListResponse> getInvoiceType(@Path("company_id")  String companyId ,@Body FinancePlatformModels.GetInvoiceListRequest payload);
     
