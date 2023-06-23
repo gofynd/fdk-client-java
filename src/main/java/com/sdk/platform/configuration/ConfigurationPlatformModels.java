@@ -675,6 +675,12 @@ public static class AppPaymentConfig{
     
     
     
+    
+    @JsonProperty("anonymous_cod")
+    private Boolean anonymousCod;
+    
+    
+    
 }
 
 
@@ -1313,6 +1319,50 @@ public static class BrandsByCompanyResponse{
 
 
 /*
+    Model: ValidationFailedResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidationFailedResponse{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: NotFound
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class NotFound{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
     Model: CommunicationConfig
 */
 @AllArgsConstructor
@@ -1931,6 +1981,42 @@ public static class DomainAdd{
     
     
     
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("verified")
+    private Boolean verified;
+    
+    
+    
+    
+    @JsonProperty("is_primary")
+    private Boolean isPrimary;
+    
+    
+    
+    
+    @JsonProperty("is_shortlink")
+    private Boolean isShortlink;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("txt_records")
+    private List<String> txtRecords;
+    
+    
+    
 }
 
 
@@ -1950,6 +2036,58 @@ public static class DomainAddRequest{
     
     @JsonProperty("domain")
     private DomainAdd domain;
+    
+    
+    
+}
+
+
+/*
+    Model: Domain
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Domain{
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("verified")
+    private Boolean verified;
+    
+    
+    
+    
+    @JsonProperty("is_primary")
+    private Boolean isPrimary;
+    
+    
+    
+    
+    @JsonProperty("is_shortlink")
+    private Boolean isShortlink;
+    
+    
+    
+    
+    @JsonProperty("is_predefined")
+    private Boolean isPredefined;
     
     
     
@@ -1992,8 +2130,32 @@ public static class UpdateDomain{
     
     
     
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
     @JsonProperty("_id")
     private String id;
+    
+    
+    
+    
+    @JsonProperty("verified")
+    private Boolean verified;
+    
+    
+    
+    
+    @JsonProperty("is_primary")
+    private Boolean isPrimary;
+    
+    
+    
+    
+    @JsonProperty("is_shortlink")
+    private Boolean isShortlink;
     
     
     
@@ -2196,6 +2358,34 @@ public static class DomainSuggestionsResponse{
     
     @JsonProperty("domains")
     private List<DomainSuggestion> domains;
+    
+    
+    
+}
+
+
+/*
+    Model: SuccessMessageResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SuccessMessageResponse{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -3921,25 +4111,49 @@ public static class Credentials{
     
     
     @JsonProperty("project_id")
-    private String projectId;
+    @Getter(AccessLevel.NONE)
+    private String projectId_b64;
+
+    public String getProject_id_b64() {
+        return new String(Base64.getDecoder()
+                         .decode(this.projectId_b64));
+    }
     
     
     
     
     @JsonProperty("gcm_sender_id")
-    private String gcmSenderId;
+    @Getter(AccessLevel.NONE)
+    private String gcmSenderId_b64;
+
+    public String getGcm_sender_id_b64() {
+        return new String(Base64.getDecoder()
+                         .decode(this.gcmSenderId_b64));
+    }
     
     
     
     
     @JsonProperty("application_id")
-    private String applicationId;
+    @Getter(AccessLevel.NONE)
+    private String applicationId_b64;
+
+    public String getApplication_id_b64() {
+        return new String(Base64.getDecoder()
+                         .decode(this.applicationId_b64));
+    }
     
     
     
     
     @JsonProperty("api_key")
-    private String apiKey;
+    @Getter(AccessLevel.NONE)
+    private String apiKey_b64;
+
+    public String getApi_key_b64() {
+        return new String(Base64.getDecoder()
+                         .decode(this.apiKey_b64));
+    }
     
     
     
@@ -3961,13 +4175,25 @@ public static class Ios{
     
     
     @JsonProperty("application_id")
-    private String applicationId;
+    @Getter(AccessLevel.NONE)
+    private String applicationId_b64;
+
+    public String getApplication_id_b64() {
+        return new String(Base64.getDecoder()
+                         .decode(this.applicationId_b64));
+    }
     
     
     
     
     @JsonProperty("api_key")
-    private String apiKey;
+    @Getter(AccessLevel.NONE)
+    private String apiKey_b64;
+
+    public String getApi_key_b64() {
+        return new String(Base64.getDecoder()
+                         .decode(this.apiKey_b64));
+    }
     
     
     
@@ -3989,13 +4215,25 @@ public static class Android{
     
     
     @JsonProperty("application_id")
-    private String applicationId;
+    @Getter(AccessLevel.NONE)
+    private String applicationId_b64;
+
+    public String getApplication_id_b64() {
+        return new String(Base64.getDecoder()
+                         .decode(this.applicationId_b64));
+    }
     
     
     
     
     @JsonProperty("api_key")
-    private String apiKey;
+    @Getter(AccessLevel.NONE)
+    private String apiKey_b64;
+
+    public String getApi_key_b64() {
+        return new String(Base64.getDecoder()
+                         .decode(this.apiKey_b64));
+    }
     
     
     
@@ -4095,7 +4333,13 @@ public static class SegmentCredentials{
     
     
     @JsonProperty("write_key")
-    private String writeKey;
+    @Getter(AccessLevel.NONE)
+    private String writeKey_b64;
+
+    public String getWrite_key_b64() {
+        return new String(Base64.getDecoder()
+                         .decode(this.writeKey_b64));
+    }
     
     
     
@@ -4145,7 +4389,13 @@ public static class GtmCredentials{
     
     
     @JsonProperty("api_key")
-    private String apiKey;
+    @Getter(AccessLevel.NONE)
+    private String apiKey_b64;
+
+    public String getApi_key_b64() {
+        return new String(Base64.getDecoder()
+                         .decode(this.apiKey_b64));
+    }
     
     
     
@@ -4195,19 +4445,37 @@ public static class FreshchatCredentials{
     
     
     @JsonProperty("app_id")
-    private String appId;
+    @Getter(AccessLevel.NONE)
+    private String appId_b64;
+
+    public String getApp_id_b64() {
+        return new String(Base64.getDecoder()
+                         .decode(this.appId_b64));
+    }
     
     
     
     
     @JsonProperty("app_key")
-    private String appKey;
+    @Getter(AccessLevel.NONE)
+    private String appKey_b64;
+
+    public String getApp_key_b64() {
+        return new String(Base64.getDecoder()
+                         .decode(this.appKey_b64));
+    }
     
     
     
     
     @JsonProperty("web_token")
-    private String webToken;
+    @Getter(AccessLevel.NONE)
+    private String webToken_b64;
+
+    public String getWeb_token_b64() {
+        return new String(Base64.getDecoder()
+                         .decode(this.webToken_b64));
+    }
     
     
     
@@ -4257,7 +4525,13 @@ public static class SafetynetCredentials{
     
     
     @JsonProperty("api_key")
-    private String apiKey;
+    @Getter(AccessLevel.NONE)
+    private String apiKey_b64;
+
+    public String getApi_key_b64() {
+        return new String(Base64.getDecoder()
+                         .decode(this.apiKey_b64));
+    }
     
     
     
@@ -4301,7 +4575,13 @@ public static class FyndRewardsCredentials{
     
     
     @JsonProperty("public_key")
-    private String publicKey;
+    @Getter(AccessLevel.NONE)
+    private String publicKey_b64;
+
+    public String getPublic_key_b64() {
+        return new String(Base64.getDecoder()
+                         .decode(this.publicKey_b64));
+    }
     
     
     
@@ -4345,7 +4625,13 @@ public static class GoogleMapCredentials{
     
     
     @JsonProperty("api_key")
-    private String apiKey;
+    @Getter(AccessLevel.NONE)
+    private String apiKey_b64;
+
+    public String getApi_key_b64() {
+        return new String(Base64.getDecoder()
+                         .decode(this.apiKey_b64));
+    }
     
     
     
@@ -4833,6 +5119,12 @@ public static class ListingPriceFeature{
     
     
     
+    
+    @JsonProperty("sort")
+    private String sort;
+    
+    
+    
 }
 
 
@@ -5169,58 +5461,6 @@ public static class Currency{
 
 
 /*
-    Model: Domain
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Domain{
-    
-    
-    
-    
-    @JsonProperty("verified")
-    private Boolean verified;
-    
-    
-    
-    
-    @JsonProperty("is_primary")
-    private Boolean isPrimary;
-    
-    
-    
-    
-    @JsonProperty("is_shortlink")
-    private Boolean isShortlink;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("is_predefined")
-    private Boolean isPredefined;
-    
-    
-    
-}
-
-
-/*
     Model: ApplicationWebsite
 */
 @AllArgsConstructor
@@ -5549,28 +5789,6 @@ public static class Application{
 
 
 /*
-    Model: NotFound
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NotFound{
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
     Model: UnhandledError
 */
 @AllArgsConstructor
@@ -5602,28 +5820,6 @@ public static class UnhandledError{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvalidPayloadRequest{
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
-    Model: SuccessMessageResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SuccessMessageResponse{
     
     
     
