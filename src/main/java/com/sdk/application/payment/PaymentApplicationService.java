@@ -70,6 +70,8 @@ import com.sdk.application.*;
             
                     relativeUrls.put("validateVPA","/service/application/payment/v1.0/validate-vpa".substring(1));
             
+                    relativeUrls.put("cardDetails","/service/application/payment/v1.0/cards/info/{card_info}".substring(1));
+            
                     relativeUrls.put("getActiveRefundTransferModes","/service/application/payment/v1.0/refund/transfer-mode".substring(1));
             
                     relativeUrls.put("enableOrDisableRefundTransferMode","/service/application/payment/v1.0/refund/transfer-mode".substring(1));
@@ -417,6 +419,26 @@ import com.sdk.application.*;
         
 
         Response<PaymentApplicationModels.ValidateVPAResponse> response = paymentApplicationApiList.validateVPA(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public PaymentApplicationModels.CardDetailsResponse cardDetails(String cardInfo , String aggregator ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("cardDetails");
+        
+        fullUrl = fullUrl.replace("{" + "card_info" +"}",cardInfo.toString());
+        
+
+        Response<PaymentApplicationModels.CardDetailsResponse> response = paymentApplicationApiList.cardDetails(fullUrl  ,aggregator).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
