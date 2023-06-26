@@ -590,18 +590,6 @@ interface PaymentPlatformApiList {
     
     
     
-    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/update/")
-    Call<PaymentPlatformModels.ExtensionPaymentUpdateResponseSerializer> extensionPaymentUpdate(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.ExtensionPaymentUpdateRequestSerializer payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/codes")
     Call<PaymentPlatformModels.GetPaymentCodeResponse> getPaymentCodeOption(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
