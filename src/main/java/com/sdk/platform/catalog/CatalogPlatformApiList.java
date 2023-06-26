@@ -1611,7 +1611,7 @@ interface CatalogPlatformApiList {
     
     
     @DELETE ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/inventory/{seller_identifier}/")
-    Call<CatalogPlatformModels.InventoryUpdateResponse> deleteRealtimeInventory(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId , @Path("seller_identifier") String  sellerIdentifier ,@Body CatalogPlatformModels.InventoryRequestSchemaV2 payload);
+    Call<CatalogPlatformModels.InventoryUpdateResponse> deleteRealtimeInventory(@Path("company_id")  String companyId , @Path("item_id") Integer  itemId , @Path("seller_identifier") String  sellerIdentifier );
     
     
     
