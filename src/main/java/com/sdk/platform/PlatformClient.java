@@ -44,8 +44,6 @@ import com.sdk.platform.webhook.WebhookPlatformService;
 
 import com.sdk.platform.audittrail.AuditTrailPlatformService;
 
-import com.sdk.platform.serviceability.ServiceabilityPlatformService;
-
 
 
 @Getter
@@ -95,8 +93,6 @@ public class PlatformClient {
     
     public AuditTrailPlatformService auditTrail;
     
-    public ServiceabilityPlatformService serviceability;
-    
 
     public PlatformClient(PlatformConfig config)   
     {
@@ -141,8 +137,6 @@ public class PlatformClient {
         this.webhook = new WebhookPlatformService(config);
         
         this.auditTrail = new AuditTrailPlatformService(config);
-        
-        this.serviceability = new ServiceabilityPlatformService(config);
         
     }
 
@@ -200,8 +194,6 @@ public class PlatformClient {
         
         public AuditTrailPlatformService.ApplicationClient auditTrail;
         
-        public ServiceabilityPlatformService.ApplicationClient serviceability;
-        
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
             this.config = platformConfig;
@@ -245,8 +237,6 @@ public class PlatformClient {
             this.webhook = new WebhookPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.auditTrail = new AuditTrailPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.serviceability = new ServiceabilityPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
         }
 
