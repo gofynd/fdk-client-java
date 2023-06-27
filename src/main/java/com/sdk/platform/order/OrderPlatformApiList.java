@@ -77,8 +77,11 @@ interface OrderPlatformApiList {
     
     
     
+    
+    
+    
     @GET ("/service/platform/orders/v1.0/company/{company_id}/shipments-listing")
-    Call<OrderPlatformModels.ShipmentInternalPlatformViewResponse> getShipments(@Path("company_id")  String companyId , @Query("lane") String  lane ,  @Query("bag_status") String  bagStatus ,  @Query("status_override_lane") Boolean  statusOverrideLane ,  @Query("time_to_dispatch") String  timeToDispatch ,  @Query("search_type") String  searchType ,  @Query("search_value") String  searchValue ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("dp_ids") String  dpIds ,  @Query("stores") String  stores ,  @Query("sales_channels") String  salesChannels ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("fetch_active_shipment") Boolean  fetchActiveShipment ,  @Query("exclude_locked_shipments") Boolean  excludeLockedShipments ,  @Query("payment_methods") String  paymentMethods ,  @Query("channel_shipment_id") String  channelShipmentId ,  @Query("channel_order_id") String  channelOrderId ,  @Query("custom_meta") String  customMeta ,  @Query("ordering_channel") String  orderingChannel ,  @Query("company_affiliate_tag") String  companyAffiliateTag );
+    Call<OrderPlatformModels.ShipmentInternalPlatformViewResponse> getShipments(@Path("company_id")  String companyId , @Query("lane") String  lane ,  @Query("bag_status") String  bagStatus ,  @Query("status_override_lane") Boolean  statusOverrideLane ,  @Query("time_to_dispatch") String  timeToDispatch ,  @Query("search_type") String  searchType ,  @Query("search_value") String  searchValue ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("dp_ids") String  dpIds ,  @Query("stores") String  stores ,  @Query("sales_channels") String  salesChannels ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("fetch_active_shipment") Boolean  fetchActiveShipment ,  @Query("exclude_locked_shipments") Boolean  excludeLockedShipments ,  @Query("payment_methods") String  paymentMethods ,  @Query("channel_shipment_id") String  channelShipmentId ,  @Query("channel_order_id") String  channelOrderId ,  @Query("custom_meta") String  customMeta ,  @Query("ordering_channel") String  orderingChannel ,  @Query("company_affiliate_tag") String  companyAffiliateTag ,  @Query("platform_user_id") String  platformUserId );
     
     
     
@@ -94,24 +97,6 @@ interface OrderPlatformApiList {
     
     @GET ("/service/platform/orders/v1.0/company/{company_id}/shipment-details")
     Call<OrderPlatformModels.ShipmentInfoResponse> getShipmentById(@Path("company_id")  String companyId , @Query("channel_shipment_id") String  channelShipmentId ,  @Query("shipment_id") String  shipmentId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/orders/v1.0/company/{company_id}/shipments-invoice")
-    Call<OrderPlatformModels.ResponseGetAssetShipment> getAssetByShipmentIds(@Path("company_id")  String companyId , @Query("shipment_ids") String  shipmentIds ,  @Query("invoice") Boolean  invoice ,  @Query("expires_in") String  expiresIn );
     
     
     
@@ -227,98 +212,11 @@ interface OrderPlatformApiList {
     
     
     
-    @GET ("/service/platform/orders/v1.0/company/{company_id}/application/{application_id}/shipments/")
-    Call<OrderPlatformModels.ShipmentInternalPlatformViewResponse> getApplicationShipments(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("lane") String  lane ,  @Query("search_type") String  searchType ,  @Query("search_id") String  searchId ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("dp_ids") String  dpIds ,  @Query("ordering_company_id") String  orderingCompanyId ,  @Query("stores") String  stores ,  @Query("sales_channels") String  salesChannels ,  @Query("request_by_ext") String  requestByExt ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("customer_id") String  customerId ,  @Query("is_priority_sort") Boolean  isPrioritySort );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
     @GET ("/service/platform/orders/v1.0/company/{company_id}/orders-listing")
-    Call<OrderPlatformModels.OrderListingResponse> getOrders(@Path("company_id")  String companyId , @Query("lane") String  lane ,  @Query("search_type") String  searchType ,  @Query("bag_status") String  bagStatus ,  @Query("time_to_dispatch") String  timeToDispatch ,  @Query("payment_methods") String  paymentMethods ,  @Query("tags") String  tags ,  @Query("search_value") String  searchValue ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("dp_ids") String  dpIds ,  @Query("stores") String  stores ,  @Query("sales_channels") String  salesChannels ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("is_priority_sort") Boolean  isPrioritySort ,  @Query("custom_meta") String  customMeta ,  @Query("my_orders") Boolean  myOrders );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/orders/v1.0/company/{company_id}/shipment/metrics-count/")
-    Call<OrderPlatformModels.MetricCountResponse> getMetricCount(@Path("company_id")  String companyId , @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/orders/v1.0/company/{company_id}/application/{application_id}/order-details")
-    Call<OrderPlatformModels.OrderDetailsResponse> getAppOrderShipmentDetails(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("order_id") String  orderId );
+    Call<OrderPlatformModels.OrderListingResponse> getOrders(@Path("company_id")  String companyId , @Query("lane") String  lane ,  @Query("search_type") String  searchType ,  @Query("bag_status") String  bagStatus ,  @Query("time_to_dispatch") String  timeToDispatch ,  @Query("payment_methods") String  paymentMethods ,  @Query("tags") String  tags ,  @Query("search_value") String  searchValue ,  @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate ,  @Query("dp_ids") String  dpIds ,  @Query("stores") String  stores ,  @Query("sales_channels") String  salesChannels ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("is_priority_sort") Boolean  isPrioritySort ,  @Query("custom_meta") String  customMeta );
     
     
     
@@ -349,45 +247,6 @@ interface OrderPlatformApiList {
     
     @GET ("/service/platform/orders/v1.0/company/{company_id}/filter-listing")
     Call<OrderPlatformModels.FiltersResponse> getfilters(@Path("company_id")  String companyId , @Query("view") String  view ,  @Query("group_entity") String  groupEntity );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/orders/v1.0/company/{company_id}/reports/shipment")
-    Call<OrderPlatformModels.Success> createShipmentReport(@Path("company_id")  String companyId , @Query("from_date") String  fromDate ,  @Query("to_date") String  toDate );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/orders/v1.0/company/{company_id}/reports/shipment-listing")
-    Call<OrderPlatformModels.OmsReports> getReportsShipmentListing(@Path("company_id")  String companyId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/orders/v1.0/company/{company_id}/upsert/jiocode/article")
-    Call<OrderPlatformModels.JioCodeUpsertResponse> upsertJioCode(@Path("company_id")  String companyId ,@Body OrderPlatformModels.JioCodeUpsertPayload payload);
     
     
     
@@ -666,19 +525,7 @@ interface OrderPlatformApiList {
     
     
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/process-manifest")
-    Call<OrderPlatformModels.ProcessManifestItemResponse> processManifest(@Path("company_id")  String companyId ,@Body OrderPlatformModels.ProcessManifest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/filter/listing")
-    Call<OrderPlatformModels.ManifestFiltersResponse> getManifestfilters(@Path("company_id")  String companyId , @Query("view") String  view );
+    Call<OrderPlatformModels.CreateOrderResponse> processManifest(@Path("company_id")  String companyId ,@Body OrderPlatformModels.CreateOrderPayload payload);
     
     
     
@@ -802,155 +649,5 @@ interface OrderPlatformApiList {
     
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/bag/state/transition")
     Call<OrderPlatformModels.BagStateTransitionMap> getStateTransitionMap(@Path("company_id")  String companyId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/shipments-listing")
-    Call<OrderPlatformModels.ManifestShipmentListing> getManifestShipments(@Path("company_id")  String companyId , @Query("dp_ids") Integer  dpIds ,  @Query("stores") String  stores ,  @Query("to_date") String  toDate ,  @Query("from_date") String  fromDate ,  @Query("dp_name") String  dpName ,  @Query("sales_channels") String  salesChannels ,  @Query("search_type") String  searchType ,  @Query("search_value") String  searchValue ,  @Query("page_no") String  pageNo ,  @Query("page_size") String  pageSize );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/listing")
-    Call<OrderPlatformModels.ManifestList> getManifests(@Path("company_id")  String companyId , @Query("status") String  status ,  @Query("to_date") String  toDate ,  @Query("from_date") String  fromDate ,  @Query("search_value") String  searchValue ,  @Query("dp_ids") String  dpIds ,  @Query("page_no") String  pageNo ,  @Query("page_size") String  pageSize );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/details")
-    Call<OrderPlatformModels.ManifestDetails> getManifestDetails(@Path("company_id")  String companyId , @Query("manifest_id") String  manifestId ,  @Query("status") String  status ,  @Query("to_date") String  toDate ,  @Query("from_date") String  fromDate ,  @Query("search_type") String  searchType ,  @Query("search_value") String  searchValue ,  @Query("dp_ids") String  dpIds ,  @Query("page_no") String  pageNo ,  @Query("page_size") String  pageSize );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/customer-credit-balance")
-    Call<OrderPlatformModels.FetchCreditBalanceResponsePayload> fetchCreditBalanceDetail(@Path("company_id")  String companyId ,@Body OrderPlatformModels.FetchCreditBalanceRequestPayload payload);
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/refund-mode-config")
-    Call<OrderPlatformModels.RefundModeConfigResponsePayload> fetchRefundModeConfig(@Path("company_id")  String companyId ,@Body OrderPlatformModels.RefundModeConfigRequestPayload payload);
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/user/attach")
-    Call<OrderPlatformModels.AttachOrderUserResponse> attachOrderUser(@Path("company_id")  String companyId ,@Body OrderPlatformModels.AttachOrderUser payload);
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/user/send/otp/mobile")
-    Call<OrderPlatformModels.SendUserMobileOtpResponse> sendUserMobileOTP(@Path("company_id")  String companyId ,@Body OrderPlatformModels.SendUserMobileOTP payload);
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/user/verify/otp")
-    Call<OrderPlatformModels.VerifyOtpResponse> verifyMobileOTP(@Path("company_id")  String companyId ,@Body OrderPlatformModels.VerifyMobileOTP payload);
     
 }

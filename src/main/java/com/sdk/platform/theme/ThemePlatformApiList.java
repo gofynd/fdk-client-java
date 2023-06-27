@@ -593,4 +593,19 @@ interface ThemePlatformApiList {
     @GET ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}/upgradable")
     Call<ThemePlatformModels.ThemeUpgradableResponseV2> checkThemeUpgradableV2(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("theme_id") String  themeId );
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}/upgrade")
+    Call<ThemePlatformModels.AllThemesApplicationResponseV2> upgradeApplicationV2(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("theme_id") String  themeId );
+    
 }
