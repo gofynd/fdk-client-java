@@ -690,7 +690,19 @@ interface OrderPlatformApiList {
     
     
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/process-manifest")
-    Call<OrderPlatformModels.CreateOrderResponse> processManifest(@Path("company_id")  String companyId ,@Body OrderPlatformModels.CreateOrderPayload payload);
+    Call<OrderPlatformModels.ProcessManifestItemResponse> processManifest(@Path("company_id")  String companyId ,@Body OrderPlatformModels.ProcessManifest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/filter/listing")
+    Call<OrderPlatformModels.ManifestFiltersResponse> getManifestfilters(@Path("company_id")  String companyId , @Query("view") String  view );
     
     
     
@@ -814,5 +826,155 @@ interface OrderPlatformApiList {
     
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/bag/state/transition")
     Call<OrderPlatformModels.BagStateTransitionMap> getStateTransitionMap(@Path("company_id")  String companyId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/shipments-listing")
+    Call<OrderPlatformModels.ManifestShipmentListing> getManifestShipments(@Path("company_id")  String companyId , @Query("dp_ids") Integer  dpIds ,  @Query("stores") String  stores ,  @Query("to_date") String  toDate ,  @Query("from_date") String  fromDate ,  @Query("dp_name") String  dpName ,  @Query("sales_channels") String  salesChannels ,  @Query("search_type") String  searchType ,  @Query("search_value") String  searchValue ,  @Query("page_no") String  pageNo ,  @Query("page_size") String  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/listing")
+    Call<OrderPlatformModels.ManifestList> getManifests(@Path("company_id")  String companyId , @Query("status") String  status ,  @Query("to_date") String  toDate ,  @Query("from_date") String  fromDate ,  @Query("search_value") String  searchValue ,  @Query("dp_ids") String  dpIds ,  @Query("page_no") String  pageNo ,  @Query("page_size") String  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/details")
+    Call<OrderPlatformModels.ManifestDetails> getManifestDetails(@Path("company_id")  String companyId , @Query("manifest_id") String  manifestId ,  @Query("status") String  status ,  @Query("to_date") String  toDate ,  @Query("from_date") String  fromDate ,  @Query("search_type") String  searchType ,  @Query("search_value") String  searchValue ,  @Query("dp_ids") String  dpIds ,  @Query("page_no") String  pageNo ,  @Query("page_size") String  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/customer-credit-balance")
+    Call<OrderPlatformModels.FetchCreditBalanceResponsePayload> fetchCreditBalanceDetail(@Path("company_id")  String companyId ,@Body OrderPlatformModels.FetchCreditBalanceRequestPayload payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/refund-mode-config")
+    Call<OrderPlatformModels.RefundModeConfigResponsePayload> fetchRefundModeConfig(@Path("company_id")  String companyId ,@Body OrderPlatformModels.RefundModeConfigRequestPayload payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/user/attach")
+    Call<OrderPlatformModels.AttachOrderUserResponse> attachOrderUser(@Path("company_id")  String companyId ,@Body OrderPlatformModels.AttachOrderUser payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/user/send/otp/mobile")
+    Call<OrderPlatformModels.SendUserMobileOtpResponse> sendUserMobileOTP(@Path("company_id")  String companyId ,@Body OrderPlatformModels.SendUserMobileOTP payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/user/verify/otp")
+    Call<OrderPlatformModels.VerifyOtpResponse> verifyMobileOTP(@Path("company_id")  String companyId ,@Body OrderPlatformModels.VerifyMobileOTP payload);
     
 }
