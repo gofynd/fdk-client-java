@@ -119,6 +119,21 @@ interface ThemePlatformApiList {
     
     
     
+    @GET ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/page/{page_value}/default")
+    Call<ThemePlatformModels.AvailablePageSchema> getDefaultPageDetails(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("page_value") String  pageValue );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
