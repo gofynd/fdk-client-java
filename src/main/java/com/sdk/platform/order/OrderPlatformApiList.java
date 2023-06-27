@@ -779,24 +779,6 @@ interface OrderPlatformApiList {
     
     
     
-    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
-    Call<OrderPlatformModels.CreateChannelConfigData> getChannelConfig(@Path("company_id")  String companyId );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
-    Call<OrderPlatformModels.CreateChannelConfigResponse> createChannelConfig(@Path("company_id")  String companyId ,@Body OrderPlatformModels.CreateChannelConfigData payload);
-    
-    
-    
-    
-    
-    
-    
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/uploadConsent")
     Call<OrderPlatformModels.SuccessResponse> uploadConsent(@Path("company_id")  String companyId ,@Body OrderPlatformModels.UploadConsent payload);
     
