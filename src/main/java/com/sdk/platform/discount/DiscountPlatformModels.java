@@ -428,6 +428,12 @@ public static class FileJobResponse{
     
     
     
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
     @JsonProperty("body")
     private Object body;
     

@@ -752,6 +752,7 @@ Success
  | total | Integer |  no  |  |
  | failed | Integer |  no  |  |
  | companyId | Integer |  no  |  |
+ | id | String |  no  |  |
  | body | HashMap<String,Object>? |  yes  |  |
  | type | String |  no  |  |
  | fileType | String |  no  |  |
