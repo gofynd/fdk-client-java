@@ -728,6 +728,15 @@ interface OrderPlatformApiList {
     
     
     
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
+    Call<OrderPlatformModels.ShipmentHistoryResponse> postShipmentHistory(@Path("company_id")  String companyId ,@Body OrderPlatformModels.PostShipmentHistory payload);
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -736,15 +745,6 @@ interface OrderPlatformApiList {
     
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
     Call<OrderPlatformModels.ShipmentHistoryResponse> getShipmentHistory(@Path("company_id")  String companyId , @Query("shipment_id") String  shipmentId ,  @Query("bag_id") Integer  bagId );
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/history")
-    Call<OrderPlatformModels.ShipmentHistoryResponse> postShipmentHistory(@Path("company_id")  String companyId ,@Body OrderPlatformModels.PostShipmentHistory payload);
     
     
     
