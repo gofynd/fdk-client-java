@@ -1028,8 +1028,11 @@ interface CartPlatformApiList {
     
     
     
+    
+    
+    
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/payment")
-    Call<CartPlatformModels.CartDetailResponse> selectPaymentMode(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow ,@Body CartPlatformModels.UpdateCartPaymentRequest payload);
+    Call<CartPlatformModels.CartDetailResponse> selectPaymentMode(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow ,  @Query("order_type") String  orderType ,@Body CartPlatformModels.UpdateCartPaymentRequest payload);
     
     
     
@@ -1094,7 +1097,10 @@ interface CartPlatformApiList {
     
     
     
+    
+    
+    
     @PUT ("/service/platform/cart/v2.0/company/{company_id}/application/{application_id}/payment")
-    Call<CartPlatformModels.CartDetailResponse> selectPaymentModeV2(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow ,@Body CartPlatformModels.UpdateCartPaymentRequestV2 payload);
+    Call<CartPlatformModels.CartDetailResponse> selectPaymentModeV2(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("id") String  id ,  @Query("buy_now") Boolean  buyNow ,  @Query("order_type") String  orderType ,@Body CartPlatformModels.UpdateCartPaymentRequestV2 payload);
     
 }

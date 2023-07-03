@@ -125,4 +125,112 @@ interface FinancePlatformApiList {
     @POST ("/service/platform/finance/v1.0/company/{company_id}/invoice/pdf-view")
     Call<FinancePlatformModels.InvoicePdfResponse> invoicePDF(@Path("company_id")  String companyId ,@Body FinancePlatformModels.InvoicePdfRequest payload);
     
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/finance/v1.0/company/{company_id}/cn-as-refund-method")
+    Call<FinancePlatformModels.AsCnRefundResponse> asCnRefund(@Path("company_id")  String companyId ,@Body FinancePlatformModels.AsCnRefundRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/finance/v1.0/company/{company_id}/create-update-credit-note-config")
+    Call<FinancePlatformModels.CreateSellerCreditNoteConfigResponse> createSellerCreditNoteConfig(@Path("company_id")  String companyId ,@Body FinancePlatformModels.CreateSellerCreditNoteConfigRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/finance/v1.0/company/{company_id}/delete-seller-config")
+    Call<FinancePlatformModels.DeleteConfigResponse> deleteConfig(@Path("company_id")  String companyId ,@Body FinancePlatformModels.DeleteConfigRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/finance/v1.0/company/{company_id}/channel-display-names")
+    Call<FinancePlatformModels.ChannelDisplayNameResponse> channelDisplayName(@Path("company_id")  String companyId , @Query("filter_key") String  filterKey );
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/finance/v1.0/company/{company_id}/get-cn-pdf-link")
+    Call<FinancePlatformModels.GetPdfUrlViewResponse> getPdfUrlView(@Path("company_id")  String companyId ,@Body FinancePlatformModels.GetPdfUrlViewRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/finance/v1.0/company/{company_id}/credit-note-details")
+    Call<FinancePlatformModels.CreditNoteDetailsResponse> creditNoteDetails(@Path("company_id")  String companyId ,@Body FinancePlatformModels.CreditNoteDetailsRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/finance/v1.0/company/{company_id}/customer-credit-balance")
+    Call<FinancePlatformModels.GetCustomerCreditBalanceResponse> getCustomerCreditBalance(@Path("company_id")  String companyId ,@Body FinancePlatformModels.GetCustomerCreditBalanceRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/finance/v1.0/company/{company_id}/get-seller-cn-config")
+    Call<FinancePlatformModels.GetCnConfigResponse> getCnConfig(@Path("company_id")  String companyId ,@Body FinancePlatformModels.GetCnConfigRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/finance/v1.0/company/{company_id}/generate-report-customer-cn")
+    Call<FinancePlatformModels.GenerateReportCustomerCnResponse> generateReportCustomerCn(@Path("company_id")  String companyId ,@Body FinancePlatformModels.GenerateReportCustomerCnRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/finance/v1.0/company/{company_id}/download-report-customer-cn")
+    Call<FinancePlatformModels.DownloadReportCustomerCnResponse> downloadReportCustomerCn(@Path("company_id")  String companyId ,@Body FinancePlatformModels.DownloadReportCustomerCnRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/finance/v1.0/company/{company_id}/reporting-filters")
+    Call<FinancePlatformModels.GetReportingFiltersResponse> getReportingFilters(@Path("company_id")  String companyId , @Query("filter_key") String  filterKey ,  @Query("affiliate_id") String  affiliateId );
+    
 }

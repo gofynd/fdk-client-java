@@ -199,11 +199,11 @@ public class ServiceabilityPlatformService {
     
     
 
-    public ServiceabilityPlatformModels.ZoneSuccessResponse updateZoneControllerView(String zoneId ,ServiceabilityPlatformModels.ZoneUpdateRequest body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ServiceabilityPlatformModels.ZoneSuccessResponse> response = null;
+            Response<ServiceabilityPlatformModels.GetSingleZoneDataViewResponse> response = null;
             try {
-                response = serviceabilityPlatformApiList.updateZoneControllerView(zoneId  , this.companyId , body).execute();
+                response = serviceabilityPlatformApiList.getZoneDataView(this.companyId , zoneId  ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -239,11 +239,11 @@ public class ServiceabilityPlatformService {
     
     
 
-    public ServiceabilityPlatformModels.GetSingleZoneDataViewResponse getZoneDataView(String zoneId ) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.ZoneSuccessResponse updateZoneControllerView(String zoneId ,ServiceabilityPlatformModels.ZoneUpdateRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ServiceabilityPlatformModels.GetSingleZoneDataViewResponse> response = null;
+            Response<ServiceabilityPlatformModels.ZoneSuccessResponse> response = null;
             try {
-                response = serviceabilityPlatformApiList.getZoneDataView(this.companyId , zoneId  ).execute();
+                response = serviceabilityPlatformApiList.updateZoneControllerView(zoneId  , this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -721,11 +721,11 @@ public class ServiceabilityPlatformService {
     
     
 
-    public ServiceabilityPlatformModels.DpRuleUpdateSuccessResponse updateDpRule(String ruleUid ,ServiceabilityPlatformModels.DpRulesUpdateRequest body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.DpRuleSuccessResponse getDpRule(String ruleUid ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ServiceabilityPlatformModels.DpRuleUpdateSuccessResponse> response = null;
+            Response<ServiceabilityPlatformModels.DpRuleSuccessResponse> response = null;
             try {
-                response = serviceabilityPlatformApiList.updateDpRule(this.companyId , ruleUid  , body).execute();
+                response = serviceabilityPlatformApiList.getDpRule(this.companyId , ruleUid  ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -761,11 +761,11 @@ public class ServiceabilityPlatformService {
     
     
 
-    public ServiceabilityPlatformModels.DpRuleSuccessResponse getDpRule(String ruleUid ) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.DpRuleUpdateSuccessResponse updateDpRule(String ruleUid ,ServiceabilityPlatformModels.DpRulesUpdateRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ServiceabilityPlatformModels.DpRuleSuccessResponse> response = null;
+            Response<ServiceabilityPlatformModels.DpRuleUpdateSuccessResponse> response = null;
             try {
-                response = serviceabilityPlatformApiList.getDpRule(this.companyId , ruleUid  ).execute();
+                response = serviceabilityPlatformApiList.updateDpRule(this.companyId , ruleUid  , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -877,11 +877,11 @@ public class ServiceabilityPlatformService {
     
     
 
-    public ServiceabilityPlatformModels.DPCompanyRuleResponse upsertDpCompanyRulePriority(ServiceabilityPlatformModels.DPCompanyRuleRequest body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.DPCompanyRuleResponse getDpCompanyRulePriority() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ServiceabilityPlatformModels.DPCompanyRuleResponse> response = null;
             try {
-                response = serviceabilityPlatformApiList.upsertDpCompanyRulePriority(this.companyId , body).execute();
+                response = serviceabilityPlatformApiList.getDpCompanyRulePriority(this.companyId ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -913,11 +913,11 @@ public class ServiceabilityPlatformService {
     
     
 
-    public ServiceabilityPlatformModels.DPCompanyRuleResponse getDpCompanyRulePriority() throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.DPCompanyRuleResponse upsertDpCompanyRulePriority(ServiceabilityPlatformModels.DPCompanyRuleRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ServiceabilityPlatformModels.DPCompanyRuleResponse> response = null;
             try {
-                response = serviceabilityPlatformApiList.getDpCompanyRulePriority(this.companyId ).execute();
+                response = serviceabilityPlatformApiList.upsertDpCompanyRulePriority(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1365,11 +1365,11 @@ public class ApplicationClient {
     
     
 
-    public ServiceabilityPlatformModels.DPApplicationRuleResponse upsertDpApplicationRulePriority(ServiceabilityPlatformModels.DPApplicationRuleRequest body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.DPApplicationRuleResponse getDpApplicationRulePriority() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ServiceabilityPlatformModels.DPApplicationRuleResponse> response = null;
             try {
-            response = serviceabilityPlatformApiList.upsertDpApplicationRulePriority(this.companyId , this.applicationId , body).execute();
+            response = serviceabilityPlatformApiList.getDpApplicationRulePriority(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1406,11 +1406,11 @@ public class ApplicationClient {
     
     
 
-    public ServiceabilityPlatformModels.DPApplicationRuleResponse getDpApplicationRulePriority() throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.DPApplicationRuleResponse upsertDpApplicationRulePriority(ServiceabilityPlatformModels.DPApplicationRuleRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ServiceabilityPlatformModels.DPApplicationRuleResponse> response = null;
             try {
-            response = serviceabilityPlatformApiList.getDpApplicationRulePriority(this.companyId , this.applicationId ).execute();
+            response = serviceabilityPlatformApiList.upsertDpApplicationRulePriority(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

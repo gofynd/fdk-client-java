@@ -3182,12 +3182,16 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
 
-    public CartPlatformModels.CartDetailResponse selectPaymentMode(String id , Boolean buyNow ,CartPlatformModels.UpdateCartPaymentRequest body) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.CartDetailResponse selectPaymentMode(String id , Boolean buyNow , String orderType ,CartPlatformModels.UpdateCartPaymentRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartDetailResponse> response = null;
             try {
-            response = cartPlatformApiList.selectPaymentMode(this.companyId , this.applicationId ,id , buyNow , body).execute();
+            response = cartPlatformApiList.selectPaymentMode(this.companyId , this.applicationId ,id , buyNow , orderType , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3345,12 +3349,16 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
 
-    public CartPlatformModels.CartDetailResponse selectPaymentModeV2(String id , Boolean buyNow ,CartPlatformModels.UpdateCartPaymentRequestV2 body) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.CartDetailResponse selectPaymentModeV2(String id , Boolean buyNow , String orderType ,CartPlatformModels.UpdateCartPaymentRequestV2 body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartDetailResponse> response = null;
             try {
-            response = cartPlatformApiList.selectPaymentModeV2(this.companyId , this.applicationId ,id , buyNow , body).execute();
+            response = cartPlatformApiList.selectPaymentModeV2(this.companyId , this.applicationId ,id , buyNow , orderType , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

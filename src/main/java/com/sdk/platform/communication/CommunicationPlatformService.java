@@ -126,6 +126,8 @@ public class CommunicationPlatformService {
     
     
     
+    
+    
 
     public CommunicationPlatformModels.SystemNotifications getSystemNotifications(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
@@ -149,6 +151,8 @@ public class CommunicationPlatformService {
             return null;
         }    
     }
+    
+    
     
     
     
@@ -1172,9 +1176,9 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.EmailTemplateRes createEmailTemplate(CommunicationPlatformModels.EmailTemplateReq body) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EmailTemplate createEmailTemplate(CommunicationPlatformModels.EmailTemplateReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.EmailTemplateRes> response = null;
+            Response<CommunicationPlatformModels.EmailTemplate> response = null;
             try {
             response = communicationPlatformApiList.createEmailTemplate(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
@@ -1212,24 +1216,12 @@ public class ApplicationClient {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-    public CommunicationPlatformModels.SystemEmailTemplates getSystemEmailTemplates(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.SystemEmailTemplates getSystemEmailTemplates() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.SystemEmailTemplates> response = null;
             try {
-            response = communicationPlatformApiList.getSystemEmailTemplates(this.companyId , this.applicationId ,pageNo , pageSize , sort ).execute();
+            response = communicationPlatformApiList.getSystemEmailTemplates(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1315,9 +1307,9 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.EmailTemplateRes updateEmailTemplateById(String id ,CommunicationPlatformModels.EmailTemplateReq body) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EmailTemplate updateEmailTemplateById(String id ,CommunicationPlatformModels.EmailTemplateReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.EmailTemplateRes> response = null;
+            Response<CommunicationPlatformModels.EmailTemplate> response = null;
             try {
             response = communicationPlatformApiList.updateEmailTemplateById(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
@@ -1360,11 +1352,60 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.EmailTemplateDeleteSuccessRes deleteEmailTemplateById(String id ) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.GenericDelete deleteEmailTemplateById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.EmailTemplateDeleteSuccessRes> response = null;
+            Response<CommunicationPlatformModels.GenericDelete> response = null;
             try {
             response = communicationPlatformApiList.deleteEmailTemplateById(this.companyId , this.applicationId , id ).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public CommunicationPlatformModels.EmailTemplates getSubscribedEmailTemplates(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<CommunicationPlatformModels.EmailTemplates> response = null;
+            try {
+            response = communicationPlatformApiList.getSubscribedEmailTemplates(this.companyId , this.applicationId ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2147,11 +2188,52 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.SmsTemplateRes createSmsTemplate(CommunicationPlatformModels.SmsTemplateReq body) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.SmsTemplate createSmsTemplate(CommunicationPlatformModels.SmsTemplateReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.SmsTemplateRes> response = null;
+            Response<CommunicationPlatformModels.SmsTemplate> response = null;
             try {
             response = communicationPlatformApiList.createSmsTemplate(this.companyId , this.applicationId , body).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public List<CommunicationPlatformModels.SystemSmsTemplates> getSystemSmsTemplates() throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<List<CommunicationPlatformModels.SystemSmsTemplates>> response = null;
+            try {
+            response = communicationPlatformApiList.getSystemSmsTemplates(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2237,9 +2319,9 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.SmsTemplateRes updateSmsTemplateById(String id ,CommunicationPlatformModels.SmsTemplateReq body) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.SmsTemplate updateSmsTemplateById(String id ,CommunicationPlatformModels.SmsTemplateReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.SmsTemplateRes> response = null;
+            Response<CommunicationPlatformModels.SmsTemplate> response = null;
             try {
             response = communicationPlatformApiList.updateSmsTemplateById(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
@@ -2282,9 +2364,9 @@ public class ApplicationClient {
     
     
 
-    public CommunicationPlatformModels.SmsTemplateDeleteSuccessRes deleteSmsTemplateById(String id ) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.GenericDelete deleteSmsTemplateById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.SmsTemplateDeleteSuccessRes> response = null;
+            Response<CommunicationPlatformModels.GenericDelete> response = null;
             try {
             response = communicationPlatformApiList.deleteSmsTemplateById(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
@@ -2330,16 +2412,12 @@ public class ApplicationClient {
     
     
     
-    
-    
-    
-    
 
-    public CommunicationPlatformModels.SystemSmsTemplates getSystemSystemTemplates(Integer pageNo , Integer pageSize , Object sort ) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.SmsTemplates getSubscribedSmsTemplates(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.SystemSmsTemplates> response = null;
+            Response<CommunicationPlatformModels.SmsTemplates> response = null;
             try {
-            response = communicationPlatformApiList.getSystemSystemTemplates(this.companyId , this.applicationId ,pageNo , pageSize , sort ).execute();
+            response = communicationPlatformApiList.getSubscribedSmsTemplates(this.companyId , this.applicationId ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

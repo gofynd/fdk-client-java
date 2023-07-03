@@ -1307,7 +1307,7 @@ public static class DefaultEmailProvidersObjFrom{
 
 
 /*
-    Model: EmailTemplateDeleteSuccessRes
+    Model: EmailTemplateAdmin
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1315,19 +1315,169 @@ public static class DefaultEmailProvidersObjFrom{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailTemplateDeleteSuccessRes{
+public static class EmailTemplateAdmin{
     
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
+    @JsonProperty("is_system")
+    private Boolean isSystem;
     
     
     
     
-    @JsonProperty("message")
-    private String message;
+    @JsonProperty("is_internal")
+    private Boolean isInternal;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("editor_type")
+    private String editorType;
+    
+    
+    
+    
+    @JsonProperty("editor_meta")
+    private String editorMeta;
+    
+    
+    
+    
+    @JsonProperty("static_to")
+    private List<String> staticTo;
+    
+    
+    
+    
+    @JsonProperty("static_cc")
+    private List<String> staticCc;
+    
+    
+    
+    
+    @JsonProperty("static_bcc")
+    private List<String> staticBcc;
+    
+    
+    
+    
+    @JsonProperty("reply_to")
+    private String replyTo;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("subject")
+    private TemplateAndType subject;
+    
+    
+    
+    
+    @JsonProperty("html")
+    private TemplateAndType html;
+    
+    
+    
+    
+    @JsonProperty("url_shorten")
+    private EnabledObj urlShorten;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private String priority;
+    
+    
+    
+    
+    @JsonProperty("template_variables")
+    private Object templateVariables;
+    
+    
+    
+    
+    @JsonProperty("published")
+    private Boolean published;
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("headers")
+    private List<EmailTemplateHeaders> headers;
+    
+    
+    
+    
+    @JsonProperty("attachments")
+    private List<String> attachments;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Integer v;
+    
+    
+    
+    
+    @JsonProperty("from_name")
+    private String fromName;
+    
+    
+    
+    
+    @JsonProperty("text")
+    private TemplateAndType text;
     
     
     
@@ -1335,7 +1485,7 @@ public static class EmailTemplateDeleteSuccessRes{
 
 
 /*
-    Model: EmailTemplateDeleteFailureRes
+    Model: EmailTemplatesAdmin
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1343,19 +1493,19 @@ public static class EmailTemplateDeleteSuccessRes{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailTemplateDeleteFailureRes{
+public static class EmailTemplatesAdmin{
     
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
+    @JsonProperty("items")
+    private List<EmailTemplateAdmin> items;
     
     
     
     
-    @JsonProperty("message")
-    private String message;
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -1450,8 +1600,8 @@ public static class EmailTemplateReq{
     
     
     
-    @JsonProperty("keys")
-    private EmailTemplateKeys keys;
+    @JsonProperty("from_name")
+    private String fromName;
     
     
     
@@ -1480,8 +1630,26 @@ public static class EmailTemplateReq{
     
     
     
-    @JsonProperty("headers")
-    private List<EmailTemplateHeaders> headers;
+    @JsonProperty("priority")
+    private String priority;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("template_variables")
+    private Object templateVariables;
+    
+    
+    
+    
+    @JsonProperty("published")
+    private Boolean published;
     
     
     
@@ -1498,20 +1666,38 @@ public static class EmailTemplateReq{
     
     
     
-    @JsonProperty("text")
-    private TemplateAndType text;
+    @JsonProperty("editor_type")
+    private String editorType;
+    
+    
+    
+    
+    @JsonProperty("editor_meta")
+    private String editorMeta;
     
     
     
     
     @JsonProperty("attachments")
-    private List<Object> attachments;
+    private List<String> attachments;
     
     
     
     
-    @JsonProperty("priority")
-    private String priority;
+    @JsonProperty("headers")
+    private List<EmailTemplateHeaders> headers;
+    
+    
+    
+    
+    @JsonProperty("keys")
+    private EmailTemplateKeys keys;
+    
+    
+    
+    
+    @JsonProperty("text")
+    private TemplateAndType text;
     
     
     
@@ -1547,7 +1733,7 @@ public static class TemplateAndType{
 
 
 /*
-    Model: EmailTemplateRes
+    Model: EmailTemplate
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1555,7 +1741,13 @@ public static class TemplateAndType{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailTemplateRes{
+public static class EmailTemplate{
+    
+    
+    
+    
+    @JsonProperty("application")
+    private String application;
     
     
     
@@ -1572,8 +1764,26 @@ public static class EmailTemplateRes{
     
     
     
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
     @JsonProperty("description")
     private String description;
+    
+    
+    
+    
+    @JsonProperty("editor_type")
+    private String editorType;
+    
+    
+    
+    
+    @JsonProperty("editor_meta")
+    private String editorMeta;
     
     
     
@@ -1596,8 +1806,32 @@ public static class EmailTemplateRes{
     
     
     
+    @JsonProperty("reply_to")
+    private String replyTo;
+    
+    
+    
+    
     @JsonProperty("tags")
-    private List<Object> tags;
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("subject")
+    private TemplateAndType subject;
+    
+    
+    
+    
+    @JsonProperty("html")
+    private TemplateAndType html;
+    
+    
+    
+    
+    @JsonProperty("url_shorten")
+    private EnabledObj urlShorten;
     
     
     
@@ -1608,32 +1842,26 @@ public static class EmailTemplateRes{
     
     
     
+    @JsonProperty("template_variables")
+    private Object templateVariables;
+    
+    
+    
+    
     @JsonProperty("published")
     private Boolean published;
     
     
     
     
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
     @JsonProperty("_id")
     private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("keys")
-    private EmailTemplateKeys keys;
-    
-    
-    
-    
-    @JsonProperty("reply_to")
-    private String replyTo;
     
     
     
@@ -1644,26 +1872,8 @@ public static class EmailTemplateRes{
     
     
     
-    @JsonProperty("subject")
-    private TemplateAndType subject;
-    
-    
-    
-    
-    @JsonProperty("html")
-    private TemplateAndType html;
-    
-    
-    
-    
-    @JsonProperty("text")
-    private TemplateAndType text;
-    
-    
-    
-    
     @JsonProperty("attachments")
-    private List<Object> attachments;
+    private List<String> attachments;
     
     
     
@@ -1688,94 +1898,6 @@ public static class EmailTemplateRes{
     
     @JsonProperty("__v")
     private Integer v;
-    
-    
-    
-}
-
-
-/*
-    Model: EmailTemplate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailTemplate{
-    
-    
-    
-    
-    @JsonProperty("is_system")
-    private Boolean isSystem;
-    
-    
-    
-    
-    @JsonProperty("is_internal")
-    private Boolean isInternal;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("static_to")
-    private List<Object> staticTo;
-    
-    
-    
-    
-    @JsonProperty("static_cc")
-    private List<Object> staticCc;
-    
-    
-    
-    
-    @JsonProperty("static_bcc")
-    private List<Object> staticBcc;
-    
-    
-    
-    
-    @JsonProperty("tags")
-    private List<Object> tags;
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private String priority;
-    
-    
-    
-    
-    @JsonProperty("published")
-    private Boolean published;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
     
     
     
@@ -1786,50 +1908,8 @@ public static class EmailTemplate{
     
     
     
-    @JsonProperty("subject")
-    private TemplateAndType subject;
-    
-    
-    
-    
-    @JsonProperty("html")
-    private TemplateAndType html;
-    
-    
-    
-    
     @JsonProperty("text")
     private TemplateAndType text;
-    
-    
-    
-    
-    @JsonProperty("headers")
-    private List<Object> headers;
-    
-    
-    
-    
-    @JsonProperty("attachments")
-    private List<Object> attachments;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Integer v;
     
     
     
@@ -1862,6 +1942,12 @@ public static class SystemEmailTemplate{
     
     
     
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
     @JsonProperty("description")
     private String description;
     
@@ -1869,61 +1955,25 @@ public static class SystemEmailTemplate{
     
     
     @JsonProperty("static_to")
-    private List<Object> staticTo;
+    private List<String> staticTo;
     
     
     
     
     @JsonProperty("static_cc")
-    private List<Object> staticCc;
+    private List<String> staticCc;
     
     
     
     
     @JsonProperty("static_bcc")
-    private List<Object> staticBcc;
+    private List<String> staticBcc;
     
     
     
     
     @JsonProperty("tags")
-    private List<Object> tags;
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private String priority;
-    
-    
-    
-    
-    @JsonProperty("published")
-    private Boolean published;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("from_name")
-    private String fromName;
+    private List<String> tags;
     
     
     
@@ -1940,20 +1990,50 @@ public static class SystemEmailTemplate{
     
     
     
-    @JsonProperty("text")
-    private TemplateAndType text;
+    @JsonProperty("url_shorten")
+    private EnabledObj urlShorten;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private String priority;
+    
+    
+    
+    
+    @JsonProperty("template_variables")
+    private Object templateVariables;
+    
+    
+    
+    
+    @JsonProperty("published")
+    private Boolean published;
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
     
     
     
     
     @JsonProperty("headers")
-    private List<Object> headers;
+    private List<EmailTemplateHeaders> headers;
     
     
     
     
     @JsonProperty("attachments")
-    private List<Object> attachments;
+    private List<String> attachments;
     
     
     
@@ -1970,8 +2050,20 @@ public static class SystemEmailTemplate{
     
     
     
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
     @JsonProperty("__v")
     private Integer v;
+    
+    
+    
+    
+    @JsonProperty("text")
+    private TemplateAndType text;
     
     
     
@@ -2022,12 +2114,6 @@ public static class SystemEmailTemplates{
     
     @JsonProperty("items")
     private List<SystemEmailTemplate> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
     
     
     
@@ -4305,7 +4391,7 @@ public static class DefaultSmsProviders{
 
 
 /*
-    Model: SmsTemplateDeleteSuccessRes
+    Model: SmsTemplatesAdmin
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4313,19 +4399,19 @@ public static class DefaultSmsProviders{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SmsTemplateDeleteSuccessRes{
+public static class SmsTemplatesAdmin{
     
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
+    @JsonProperty("items")
+    private List<SmsTemplateAdmin> items;
     
     
     
     
-    @JsonProperty("message")
-    private String message;
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -4333,7 +4419,7 @@ public static class SmsTemplateDeleteSuccessRes{
 
 
 /*
-    Model: SmsTemplateDeleteFailureRes
+    Model: SmsTemplateAdmin
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4341,19 +4427,115 @@ public static class SmsTemplateDeleteSuccessRes{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SmsTemplateDeleteFailureRes{
+public static class SmsTemplateAdmin{
     
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
+    @JsonProperty("url_shorten")
+    private EnabledObj urlShorten;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("is_system")
+    private Boolean isSystem;
+    
+    
+    
+    
+    @JsonProperty("is_internal")
+    private Boolean isInternal;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private metaObj meta;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
     
     
     
     
     @JsonProperty("message")
-    private String message;
+    private SmsTemplateMessage message;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private String priority;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("template_variables")
+    private Object templateVariables;
+    
+    
+    
+    
+    @JsonProperty("template_id")
+    private String templateId;
+    
+    
+    
+    
+    @JsonProperty("published")
+    private Boolean published;
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Integer v;
     
     
     
@@ -4376,6 +4558,316 @@ public static class SmsTemplateMessage{
     
     @JsonProperty("template_type")
     private String templateType;
+    
+    
+    
+    
+    @JsonProperty("template")
+    private String template;
+    
+    
+    
+}
+
+
+/*
+    Model: SmsTemplates
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SmsTemplates{
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<SmsTemplate> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: SmsTemplate
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SmsTemplate{
+    
+    
+    
+    
+    @JsonProperty("url_shorten")
+    private EnabledObj urlShorten;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("application")
+    private String application;
+    
+    
+    
+    
+    @JsonProperty("is_system")
+    private Boolean isSystem;
+    
+    
+    
+    
+    @JsonProperty("is_internal")
+    private Boolean isInternal;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private metaObj meta;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private SmsTemplateMessage message;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private String priority;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("template_variables")
+    private Object templateVariables;
+    
+    
+    
+    
+    @JsonProperty("template_id")
+    private String templateId;
+    
+    
+    
+    
+    @JsonProperty("published")
+    private Boolean published;
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Integer v;
+    
+    
+    
+}
+
+
+/*
+    Model: SystemSmsTemplates
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SystemSmsTemplates{
+    
+    
+    
+    
+    @JsonProperty("url_shorten")
+    private EnabledObj urlShorten;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("is_system")
+    private Boolean isSystem;
+    
+    
+    
+    
+    @JsonProperty("is_internal")
+    private Boolean isInternal;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private SmsTemplateMessage message;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private String priority;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("template_variables")
+    private Object templateVariables;
+    
+    
+    
+    
+    @JsonProperty("template_id")
+    private String templateId;
+    
+    
+    
+    
+    @JsonProperty("published")
+    private Boolean published;
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Integer v;
+    
+    
+    
+}
+
+
+/*
+    Model: metaObj
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class metaObj{
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("is_system")
+    private Boolean isSystem;
     
     
     
@@ -4414,72 +4906,26 @@ public static class SmsTemplateReq{
     
     
     
-    @JsonProperty("message")
-    private SmsTemplateMessage message;
+    @JsonProperty("priority")
+    private String priority;
+    
+    
+    
+    
+    @JsonProperty("template_id")
+    private String templateId;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private metaObj meta;
     
     
     
     
     @JsonProperty("template_variables")
     private Object templateVariables;
-    
-    
-    
-    
-    @JsonProperty("attachments")
-    private List<Object> attachments;
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private String priority;
-    
-    
-    
-}
-
-
-/*
-    Model: SmsTemplateRes
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SmsTemplateRes{
-    
-    
-    
-    
-    @JsonProperty("is_system")
-    private Boolean isSystem;
-    
-    
-    
-    
-    @JsonProperty("is_internal")
-    private Boolean isInternal;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("tags")
-    private List<Object> tags;
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private String priority;
     
     
     
@@ -4490,306 +4936,8 @@ public static class SmsTemplateRes{
     
     
     
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
     @JsonProperty("message")
     private SmsTemplateMessage message;
-    
-    
-    
-    
-    @JsonProperty("template_variables")
-    private Object templateVariables;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Integer v;
-    
-    
-    
-}
-
-
-/*
-    Model: SmsTemplate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SmsTemplate{
-    
-    
-    
-    
-    @JsonProperty("is_system")
-    private Boolean isSystem;
-    
-    
-    
-    
-    @JsonProperty("is_internal")
-    private Boolean isInternal;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private String priority;
-    
-    
-    
-    
-    @JsonProperty("tags")
-    private List<Object> tags;
-    
-    
-    
-    
-    @JsonProperty("published")
-    private Boolean published;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private SmsTemplateMessage message;
-    
-    
-    
-    
-    @JsonProperty("template_variables")
-    private Object templateVariables;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Integer v;
-    
-    
-    
-}
-
-
-/*
-    Model: SystemSmsTemplate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SystemSmsTemplate{
-    
-    
-    
-    
-    @JsonProperty("is_system")
-    private Boolean isSystem;
-    
-    
-    
-    
-    @JsonProperty("is_internal")
-    private Boolean isInternal;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("tags")
-    private List<Object> tags;
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private String priority;
-    
-    
-    
-    
-    @JsonProperty("published")
-    private Boolean published;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private SmsTemplateMessage message;
-    
-    
-    
-    
-    @JsonProperty("template_variables")
-    private Object templateVariables;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Integer v;
-    
-    
-    
-}
-
-
-/*
-    Model: SmsTemplates
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SmsTemplates{
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<SmsTemplate> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-}
-
-
-/*
-    Model: SystemSmsTemplates
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SystemSmsTemplates{
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<SystemSmsTemplate> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
     
     
     
@@ -5791,6 +5939,52 @@ public static class Page{
 
 
 /*
+    Model: GenericPage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GenericPage{
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private Integer size;
+    
+    
+    
+    
+    @JsonProperty("current")
+    private Integer current;
+    
+    
+    
+    
+    @JsonProperty("has_next")
+    private Boolean hasNext;
+    
+    
+    
+    
+    @JsonProperty("item_total")
+    private Integer itemTotal;
+    
+    
+    
+}
+
+
+/*
     Model: GenericSuccess
 */
 @AllArgsConstructor
@@ -5806,6 +6000,136 @@ public static class GenericSuccess{
     
     @JsonProperty("success")
     private Boolean success;
+    
+    
+    
+}
+
+
+/*
+    Model: GenericError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GenericError{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private Message message;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
+/*
+    Model: GenericDelete
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GenericDelete{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("acknowledged")
+    private Boolean acknowledged;
+    
+    
+    
+    
+    @JsonProperty("affected")
+    private Integer affected;
+    
+    
+    
+    
+    @JsonProperty("operation")
+    private String operation;
+    
+    
+    
+}
+
+
+/*
+    Model: Message
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Message{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("info")
+    private String info;
+    
+    
+    
+    
+    @JsonProperty("operation")
+    private String operation;
+    
+    
+    
+}
+
+
+/*
+    Model: EnabledObj
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EnabledObj{
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
     
     
     

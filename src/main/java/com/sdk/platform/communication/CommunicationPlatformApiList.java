@@ -330,16 +330,7 @@ interface CommunicationPlatformApiList {
     
     
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/templates")
-    Call<CommunicationPlatformModels.EmailTemplateRes> createEmailTemplate(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CommunicationPlatformModels.EmailTemplateReq payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    Call<CommunicationPlatformModels.EmailTemplate> createEmailTemplate(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CommunicationPlatformModels.EmailTemplateReq payload);
     
     
     
@@ -351,7 +342,7 @@ interface CommunicationPlatformApiList {
     
     
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/system-templates")
-    Call<CommunicationPlatformModels.SystemEmailTemplates> getSystemEmailTemplates(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("sort") Object  sort );
+    Call<CommunicationPlatformModels.SystemEmailTemplates> getSystemEmailTemplates(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
     
     
@@ -381,7 +372,7 @@ interface CommunicationPlatformApiList {
     
     
     @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/templates/{id}")
-    Call<CommunicationPlatformModels.EmailTemplateRes> updateEmailTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CommunicationPlatformModels.EmailTemplateReq payload);
+    Call<CommunicationPlatformModels.EmailTemplate> updateEmailTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CommunicationPlatformModels.EmailTemplateReq payload);
     
     
     
@@ -396,7 +387,25 @@ interface CommunicationPlatformApiList {
     
     
     @DELETE ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/templates/{id}")
-    Call<CommunicationPlatformModels.EmailTemplateDeleteSuccessRes> deleteEmailTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    Call<CommunicationPlatformModels.GenericDelete> deleteEmailTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/subscribedTemplates")
+    Call<CommunicationPlatformModels.EmailTemplates> getSubscribedEmailTemplates(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
     
     
     
@@ -681,7 +690,19 @@ interface CommunicationPlatformApiList {
     
     
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/templates")
-    Call<CommunicationPlatformModels.SmsTemplateRes> createSmsTemplate(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CommunicationPlatformModels.SmsTemplateReq payload);
+    Call<CommunicationPlatformModels.SmsTemplate> createSmsTemplate(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CommunicationPlatformModels.SmsTemplateReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/system-templates")
+    Call<List<CommunicationPlatformModels.SystemSmsTemplates>> getSystemSmsTemplates(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
     
     
@@ -711,7 +732,7 @@ interface CommunicationPlatformApiList {
     
     
     @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/templates/{id}")
-    Call<CommunicationPlatformModels.SmsTemplateRes> updateSmsTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CommunicationPlatformModels.SmsTemplateReq payload);
+    Call<CommunicationPlatformModels.SmsTemplate> updateSmsTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CommunicationPlatformModels.SmsTemplateReq payload);
     
     
     
@@ -726,7 +747,7 @@ interface CommunicationPlatformApiList {
     
     
     @DELETE ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/templates/{id}")
-    Call<CommunicationPlatformModels.SmsTemplateDeleteSuccessRes> deleteSmsTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    Call<CommunicationPlatformModels.GenericDelete> deleteSmsTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
     
     
@@ -743,11 +764,8 @@ interface CommunicationPlatformApiList {
     
     
     
-    
-    
-    
-    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/system-templates")
-    Call<CommunicationPlatformModels.SystemSmsTemplates> getSystemSystemTemplates(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("sort") Object  sort );
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/subscribedTemplates")
+    Call<CommunicationPlatformModels.SmsTemplates> getSubscribedSmsTemplates(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
     
     
     
