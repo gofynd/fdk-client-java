@@ -29,7 +29,7 @@ Fetch discount list.
 
 
 ```java
-client.discount.getDiscounts( view,  q,  pageNo,  pageSize,  archived,  month,  year,  type,  appIds) {
+platformClient.discount.getDiscounts( view,  q,  pageNo,  pageSize,  archived,  month,  year,  type,  appIds) {
   //use response
 }
 ```
@@ -91,7 +91,7 @@ Create Discount.
 
 
 ```java
-client.discount.createDiscount(body body) {
+platformClient.discount.createDiscount(body body) {
   //use response
 }
 ```
@@ -144,7 +144,7 @@ Fetch discount.
 
 
 ```java
-client.discount.getDiscount( id) {
+platformClient.discount.getDiscount( id) {
   //use response
 }
 ```
@@ -198,7 +198,7 @@ Create Discount.
 
 
 ```java
-client.discount.updateDiscount( id, body body) {
+platformClient.discount.updateDiscount( id, body body) {
   //use response
 }
 ```
@@ -252,7 +252,7 @@ Validate File.
 
 
 ```java
-client.discount.validateDiscountFile( discount, body body) {
+platformClient.discount.validateDiscountFile( discount, body body) {
   //use response
 }
 ```
@@ -306,7 +306,7 @@ Validate File.
 
 
 ```java
-client.discount.downloadDiscountFile( type, body body) {
+platformClient.discount.downloadDiscountFile( type, body body) {
   //use response
 }
 ```
@@ -360,7 +360,7 @@ Validate File Job.
 
 
 ```java
-client.discount.getValidationJob( id) {
+platformClient.discount.getValidationJob( id) {
   //use response
 }
 ```
@@ -414,7 +414,7 @@ Cancel Validation Job.
 
 
 ```java
-client.discount.cancelValidationJob( id) {
+platformClient.discount.cancelValidationJob( id) {
   //use response
 }
 ```
@@ -468,7 +468,7 @@ Download File Job.
 
 
 ```java
-client.discount.getDownloadJob( id) {
+platformClient.discount.getDownloadJob( id) {
   //use response
 }
 ```
@@ -522,7 +522,7 @@ Cancel Download Job.
 
 
 ```java
-client.discount.cancelDownloadJob( id) {
+platformClient.discount.cancelDownloadJob( id) {
   //use response
 }
 ```

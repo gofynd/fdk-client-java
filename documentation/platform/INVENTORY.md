@@ -31,7 +31,7 @@ Get Slingshot Configuration Of  A Company
 
 
 ```java
-client.inventory.getConfigByCompany() {
+platformClient.inventory.getConfigByCompany() {
   //use response
 }
 ```
@@ -84,7 +84,7 @@ Get Slingshot Configuration Of  A Company
 
 
 ```java
-client.inventory.suppressStores(body body) {
+platformClient.inventory.suppressStores(body body) {
   //use response
 }
 ```
@@ -137,7 +137,7 @@ Get Job Configs For A Company
 
 
 ```java
-client.inventory.getJobsByCompany( pageNo,  pageSize) {
+platformClient.inventory.getJobsByCompany( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -192,7 +192,7 @@ Updates An Existing Job Config
 
 
 ```java
-client.inventory.updateJob(body body) {
+platformClient.inventory.updateJob(body body) {
   //use response
 }
 ```
@@ -245,7 +245,7 @@ Creates A New Job Config
 
 
 ```java
-client.inventory.createJob(body body) {
+platformClient.inventory.createJob(body body) {
   //use response
 }
 ```
@@ -298,7 +298,7 @@ Get Job Code Steps
 
 
 ```java
-client.inventory.getJobSteps( jobId) {
+platformClient.inventory.getJobSteps( jobId) {
   //use response
 }
 ```
@@ -352,7 +352,7 @@ Get Job Configs By Company And Integration
 
 
 ```java
-client.inventory.getJobByCompanyAndIntegration( integrationId,  pageNo,  pageSize) {
+platformClient.inventory.getJobByCompanyAndIntegration( integrationId,  pageNo,  pageSize) {
   //use response
 }
 ```
@@ -408,7 +408,7 @@ Disable Job Config
 
 
 ```java
-client.inventory.disable( integrationId) {
+platformClient.inventory.disable( integrationId) {
   //use response
 }
 ```
@@ -462,7 +462,7 @@ Get Job Configs Defaults
 
 
 ```java
-client.inventory.getJobConfigDefaults() {
+platformClient.inventory.getJobConfigDefaults() {
   //use response
 }
 ```
@@ -515,7 +515,7 @@ Get Job Config By Code
 
 
 ```java
-client.inventory.getJobByCode( code) {
+platformClient.inventory.getJobByCode( code) {
   //use response
 }
 ```
@@ -569,7 +569,7 @@ Get Job Metrics
 
 
 ```java
-client.inventory.getJobCodeMetrics( code,  pageNo,  pageSize,  status,  date) {
+platformClient.inventory.getJobCodeMetrics( code,  pageNo,  pageSize,  status,  date) {
   //use response
 }
 ```
@@ -627,7 +627,7 @@ Get Job Codes By Company And Integration
 
 
 ```java
-client.inventory.getJobCodesByCompanyAndIntegration( integrationId,  pageNo,  pageSize) {
+platformClient.inventory.getJobCodesByCompanyAndIntegration( integrationId,  pageNo,  pageSize) {
   //use response
 }
 ```

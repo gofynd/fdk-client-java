@@ -3,6 +3,49 @@ package com.sdk.platform;
 import lombok.Getter;
 import lombok.Setter;
 
+
+import com.sdk.platform.common.CommonPlatformService;
+
+import com.sdk.platform.lead.LeadPlatformService;
+
+import com.sdk.platform.theme.ThemePlatformService;
+
+import com.sdk.platform.user.UserPlatformService;
+
+import com.sdk.platform.content.ContentPlatformService;
+
+import com.sdk.platform.billing.BillingPlatformService;
+
+import com.sdk.platform.communication.CommunicationPlatformService;
+
+import com.sdk.platform.payment.PaymentPlatformService;
+
+import com.sdk.platform.catalog.CatalogPlatformService;
+
+import com.sdk.platform.companyprofile.CompanyProfilePlatformService;
+
+import com.sdk.platform.filestorage.FileStoragePlatformService;
+
+import com.sdk.platform.share.SharePlatformService;
+
+import com.sdk.platform.inventory.InventoryPlatformService;
+
+import com.sdk.platform.configuration.ConfigurationPlatformService;
+
+import com.sdk.platform.cart.CartPlatformService;
+
+import com.sdk.platform.rewards.RewardsPlatformService;
+
+import com.sdk.platform.discount.DiscountPlatformService;
+
+import com.sdk.platform.partner.PartnerPlatformService;
+
+import com.sdk.platform.webhook.WebhookPlatformService;
+
+import com.sdk.platform.audittrail.AuditTrailPlatformService;
+
+
+
 @Getter
 @Setter
 public class PlatformClient {
@@ -10,98 +53,90 @@ public class PlatformClient {
     private PlatformConfig config;
 
     
-    public PlatformService.CommonService common;
+    public CommonPlatformService common;
     
-    public PlatformService.LeadService lead;
+    public LeadPlatformService lead;
     
-    public PlatformService.ThemeService theme;
+    public ThemePlatformService theme;
     
-    public PlatformService.UserService user;
+    public UserPlatformService user;
     
-    public PlatformService.ContentService content;
+    public ContentPlatformService content;
     
-    public PlatformService.BillingService billing;
+    public BillingPlatformService billing;
     
-    public PlatformService.CommunicationService communication;
+    public CommunicationPlatformService communication;
     
-    public PlatformService.PaymentService payment;
+    public PaymentPlatformService payment;
     
-    public PlatformService.OrderService order;
+    public CatalogPlatformService catalog;
     
-    public PlatformService.CatalogService catalog;
+    public CompanyProfilePlatformService companyProfile;
     
-    public PlatformService.CompanyProfileService companyProfile;
+    public FileStoragePlatformService fileStorage;
     
-    public PlatformService.FileStorageService fileStorage;
+    public SharePlatformService share;
     
-    public PlatformService.ShareService share;
+    public InventoryPlatformService inventory;
     
-    public PlatformService.InventoryService inventory;
+    public ConfigurationPlatformService configuration;
     
-    public PlatformService.ConfigurationService configuration;
+    public CartPlatformService cart;
     
-    public PlatformService.CartService cart;
+    public RewardsPlatformService rewards;
     
-    public PlatformService.RewardsService rewards;
+    public DiscountPlatformService discount;
     
-    public PlatformService.AnalyticsService analytics;
+    public PartnerPlatformService partner;
     
-    public PlatformService.DiscountService discount;
+    public WebhookPlatformService webhook;
     
-    public PlatformService.PartnerService partner;
-    
-    public PlatformService.WebhookService webhook;
-    
-    public PlatformService.AuditTrailService auditTrail;
+    public AuditTrailPlatformService auditTrail;
     
 
     public PlatformClient(PlatformConfig config)   
     {
         this.config = config;
         
-        this.common = new PlatformService.CommonService(config);
+        this.common = new CommonPlatformService(config);
         
-        this.lead = new PlatformService.LeadService(config);
+        this.lead = new LeadPlatformService(config);
         
-        this.theme = new PlatformService.ThemeService(config);
+        this.theme = new ThemePlatformService(config);
         
-        this.user = new PlatformService.UserService(config);
+        this.user = new UserPlatformService(config);
         
-        this.content = new PlatformService.ContentService(config);
+        this.content = new ContentPlatformService(config);
         
-        this.billing = new PlatformService.BillingService(config);
+        this.billing = new BillingPlatformService(config);
         
-        this.communication = new PlatformService.CommunicationService(config);
+        this.communication = new CommunicationPlatformService(config);
         
-        this.payment = new PlatformService.PaymentService(config);
+        this.payment = new PaymentPlatformService(config);
         
-        this.order = new PlatformService.OrderService(config);
+        this.catalog = new CatalogPlatformService(config);
         
-        this.catalog = new PlatformService.CatalogService(config);
+        this.companyProfile = new CompanyProfilePlatformService(config);
         
-        this.companyProfile = new PlatformService.CompanyProfileService(config);
+        this.fileStorage = new FileStoragePlatformService(config);
         
-        this.fileStorage = new PlatformService.FileStorageService(config);
+        this.share = new SharePlatformService(config);
         
-        this.share = new PlatformService.ShareService(config);
+        this.inventory = new InventoryPlatformService(config);
         
-        this.inventory = new PlatformService.InventoryService(config);
+        this.configuration = new ConfigurationPlatformService(config);
         
-        this.configuration = new PlatformService.ConfigurationService(config);
+        this.cart = new CartPlatformService(config);
         
-        this.cart = new PlatformService.CartService(config);
+        this.rewards = new RewardsPlatformService(config);
         
-        this.rewards = new PlatformService.RewardsService(config);
+        this.discount = new DiscountPlatformService(config);
         
-        this.analytics = new PlatformService.AnalyticsService(config);
+        this.partner = new PartnerPlatformService(config);
         
-        this.discount = new PlatformService.DiscountService(config);
+        this.webhook = new WebhookPlatformService(config);
         
-        this.partner = new PlatformService.PartnerService(config);
-        
-        this.webhook = new PlatformService.WebhookService(config);
-        
-        this.auditTrail = new PlatformService.AuditTrailService(config);
+        this.auditTrail = new AuditTrailPlatformService(config);
         
     }
 
@@ -109,100 +144,99 @@ public class PlatformClient {
         return new ApplicationClient(config, applicationId);
     }
 
+     public void setExtraHeader(String key, String value){
+        this.config.getExtraHeaders().put(key, value);
+     }
+
     @Getter
     public class ApplicationClient{
 
+        private PlatformConfig config;
+
         
-        public PlatformService.CommonService.ApplicationClient common;
+        public CommonPlatformService.ApplicationClient common;
         
-        public PlatformService.LeadService.ApplicationClient lead;
+        public LeadPlatformService.ApplicationClient lead;
         
-        public PlatformService.ThemeService.ApplicationClient theme;
+        public ThemePlatformService.ApplicationClient theme;
         
-        public PlatformService.UserService.ApplicationClient user;
+        public UserPlatformService.ApplicationClient user;
         
-        public PlatformService.ContentService.ApplicationClient content;
+        public ContentPlatformService.ApplicationClient content;
         
-        public PlatformService.BillingService.ApplicationClient billing;
+        public BillingPlatformService.ApplicationClient billing;
         
-        public PlatformService.CommunicationService.ApplicationClient communication;
+        public CommunicationPlatformService.ApplicationClient communication;
         
-        public PlatformService.PaymentService.ApplicationClient payment;
+        public PaymentPlatformService.ApplicationClient payment;
         
-        public PlatformService.OrderService.ApplicationClient order;
+        public CatalogPlatformService.ApplicationClient catalog;
         
-        public PlatformService.CatalogService.ApplicationClient catalog;
+        public CompanyProfilePlatformService.ApplicationClient companyProfile;
         
-        public PlatformService.CompanyProfileService.ApplicationClient companyProfile;
+        public FileStoragePlatformService.ApplicationClient fileStorage;
         
-        public PlatformService.FileStorageService.ApplicationClient fileStorage;
+        public SharePlatformService.ApplicationClient share;
         
-        public PlatformService.ShareService.ApplicationClient share;
+        public InventoryPlatformService.ApplicationClient inventory;
         
-        public PlatformService.InventoryService.ApplicationClient inventory;
+        public ConfigurationPlatformService.ApplicationClient configuration;
         
-        public PlatformService.ConfigurationService.ApplicationClient configuration;
+        public CartPlatformService.ApplicationClient cart;
         
-        public PlatformService.CartService.ApplicationClient cart;
+        public RewardsPlatformService.ApplicationClient rewards;
         
-        public PlatformService.RewardsService.ApplicationClient rewards;
+        public DiscountPlatformService.ApplicationClient discount;
         
-        public PlatformService.AnalyticsService.ApplicationClient analytics;
+        public PartnerPlatformService.ApplicationClient partner;
         
-        public PlatformService.DiscountService.ApplicationClient discount;
+        public WebhookPlatformService.ApplicationClient webhook;
         
-        public PlatformService.PartnerService.ApplicationClient partner;
-        
-        public PlatformService.WebhookService.ApplicationClient webhook;
-        
-        public PlatformService.AuditTrailService.ApplicationClient auditTrail;
+        public AuditTrailPlatformService.ApplicationClient auditTrail;
         
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
+            this.config = platformConfig;
             
-            this.common = new PlatformService.CommonService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.common = new CommonPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.lead = new PlatformService.LeadService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.lead = new LeadPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.theme = new PlatformService.ThemeService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.theme = new ThemePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.user = new PlatformService.UserService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.user = new UserPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.content = new PlatformService.ContentService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.content = new ContentPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.billing = new PlatformService.BillingService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.billing = new BillingPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.communication = new PlatformService.CommunicationService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.communication = new CommunicationPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.payment = new PlatformService.PaymentService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.payment = new PaymentPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.order = new PlatformService.OrderService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.catalog = new CatalogPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.catalog = new PlatformService.CatalogService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.companyProfile = new CompanyProfilePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.companyProfile = new PlatformService.CompanyProfileService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.fileStorage = new FileStoragePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.fileStorage = new PlatformService.FileStorageService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.share = new SharePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.share = new PlatformService.ShareService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.inventory = new InventoryPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.inventory = new PlatformService.InventoryService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.configuration = new ConfigurationPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.configuration = new PlatformService.ConfigurationService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.cart = new CartPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.cart = new PlatformService.CartService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.rewards = new RewardsPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.rewards = new PlatformService.RewardsService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.discount = new DiscountPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.analytics = new PlatformService.AnalyticsService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.partner = new PartnerPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.discount = new PlatformService.DiscountService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.webhook = new WebhookPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.partner = new PlatformService.PartnerService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.webhook = new PlatformService.WebhookService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.auditTrail = new PlatformService.AuditTrailService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            this.auditTrail = new AuditTrailPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
         }
 

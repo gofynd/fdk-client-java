@@ -81,5 +81,7 @@ Get started with the Java Development SDK for Fynd Platform
 
 ### Documentation
 
-* [Application Front](documentation/application/README.md)
-* [Platform Front](documentation/platform/README.md)
+- [Public Front](documentation/public/README.md)
+- [Application Front](documentation/application/README.md)
+- [Platform Front](documentation/platform/README.md)
+

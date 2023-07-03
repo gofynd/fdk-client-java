@@ -38,7 +38,7 @@ Get live announcements
 
 
 ```java
-content.getAnnouncements() {
+applicationClient.content.getAnnouncements() {
   //use response
 }
 ```
@@ -121,7 +121,7 @@ Get a blog
 
 
 ```java
-content.getBlog( slug,  rootId) {
+applicationClient.content.getBlog( slug,  rootId) {
   //use response
 }
 ```
@@ -220,7 +220,7 @@ Get a list of blogs
 
 
 ```java
-content.getBlogs( pageNo,  pageSize) {
+applicationClient.content.getBlogs( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -323,7 +323,7 @@ Get the data loaders associated with an application
 
 
 ```java
-content.getDataLoaders() {
+applicationClient.content.getDataLoaders() {
   //use response
 }
 ```
@@ -392,7 +392,7 @@ Get a list of FAQs
 
 
 ```java
-content.getFaqs() {
+applicationClient.content.getFaqs() {
   //use response
 }
 ```
@@ -458,7 +458,7 @@ Get a list of FAQ categories
 
 
 ```java
-content.getFaqCategories() {
+applicationClient.content.getFaqCategories() {
   //use response
 }
 ```
@@ -519,7 +519,7 @@ Get an FAQ
 
 
 ```java
-content.getFaqBySlug( slug) {
+applicationClient.content.getFaqBySlug( slug) {
   //use response
 }
 ```
@@ -578,7 +578,7 @@ Get the FAQ category
 
 
 ```java
-content.getFaqCategoryBySlug( slug) {
+applicationClient.content.getFaqCategoryBySlug( slug) {
   //use response
 }
 ```
@@ -648,7 +648,7 @@ Get FAQs using the slug of FAQ category
 
 
 ```java
-content.getFaqsByCategorySlug( slug) {
+applicationClient.content.getFaqsByCategorySlug( slug) {
   //use response
 }
 ```
@@ -711,7 +711,7 @@ Get the landing page
 
 
 ```java
-content.getLandingPage() {
+applicationClient.content.getLandingPage() {
   //use response
 }
 ```
@@ -790,7 +790,7 @@ Get legal information
 
 
 ```java
-content.getLegalInformation() {
+applicationClient.content.getLegalInformation() {
   //use response
 }
 ```
@@ -878,7 +878,7 @@ Get the navigation
 
 
 ```java
-content.getNavigations( pageNo,  pageSize) {
+applicationClient.content.getNavigations( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -1127,7 +1127,7 @@ Get the SEO of an application
 
 
 ```java
-content.getSEOConfiguration() {
+applicationClient.content.getSEOConfiguration() {
   //use response
 }
 ```
@@ -1165,6 +1165,7 @@ Success. Returns a JSON object SEO details such as robots.txt, meta-tags, and si
       },
       "robots_txt": "User-agent: * \nAllow: / \nsancisciasn xwsaixjowqnxwsiwjs",
       "sitemap_enabled": false,
+      "cannonical_enabled": false,
       "_id": "6009819ee463ad40de397eb2",
       "app": "000000000000000000000001",
       "created_at": "2021-01-21T13:29:02.543Z",
@@ -1208,7 +1209,7 @@ Get the slideshows
 
 
 ```java
-content.getSlideshows( pageNo,  pageSize) {
+applicationClient.content.getSlideshows( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -1321,7 +1322,7 @@ Get a slideshow
 
 
 ```java
-content.getSlideshow( slug) {
+applicationClient.content.getSlideshow( slug) {
   //use response
 }
 ```
@@ -1421,7 +1422,7 @@ Get the support information
 
 
 ```java
-content.getSupportInformation() {
+applicationClient.content.getSupportInformation() {
   //use response
 }
 ```
@@ -1500,7 +1501,7 @@ Get the tags associated with an application
 
 
 ```java
-content.getTags() {
+applicationClient.content.getTags() {
   //use response
 }
 ```
@@ -1564,7 +1565,7 @@ Get a page
 
 
 ```java
-content.getPage( slug,  rootId) {
+applicationClient.content.getPage( slug,  rootId) {
   //use response
 }
 ```
@@ -1666,7 +1667,7 @@ Get all pages
 
 
 ```java
-content.getPages( pageNo,  pageSize) {
+applicationClient.content.getPages( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -1812,7 +1813,19 @@ Success. Returns a list of pages along with their details. Check the example sho
  | redirectTo | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
- | source | [TagSourceSchema](#TagSourceSchema)? |  yes  |  |
+ | source | [PathSourceSchema](#PathSourceSchema)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PathSourceSchema](#PathSourceSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | type | String? |  yes  |  |
+ | id | String? |  yes  |  |
 
 ---
 
@@ -1838,6 +1851,7 @@ Success. Returns a list of pages along with their details. Check the example sho
  | id | String? |  yes  |  |
  | robotsTxt | String? |  yes  |  |
  | sitemapEnabled | Boolean? |  yes  |  |
+ | cannonicalEnabled | Boolean? |  yes  |  |
  | customMetaTags | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | details | [Detail](#Detail)? |  yes  |  |
  | createdAt | String? |  yes  |  |
@@ -2255,26 +2269,6 @@ Success. Returns a list of pages along with their details. Check the example sho
  | active | Boolean? |  yes  |  |
  | display | String? |  yes  |  |
  | sortOrder | Integer? |  yes  |  |
- | subNavigation | ArrayList<[SubNavigationReference](#SubNavigationReference)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [SubNavigationReference](#SubNavigationReference)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | acl | ArrayList<String>? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | localeLanguage | [LocaleLanguage](#LocaleLanguage)? |  yes  |  |
- | image | String? |  yes  |  |
- | type | String? |  yes  |  |
- | action | [Action](#Action)? |  yes  |  |
- | active | Boolean? |  yes  |  |
- | display | String? |  yes  |  |
- | sortOrder | Integer? |  yes  |  |
  | subNavigation | ArrayList<[NavigationReference](#NavigationReference)>? |  yes  |  |
 
 ---
@@ -2410,6 +2404,7 @@ Success. Returns a list of pages along with their details. Check the example sho
  | url | String? |  yes  |  |
  | position | String? |  yes  |  |
  | attributes | HashMap<String,Object>? |  yes  |  |
+ | pages | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | content | String? |  yes  |  |
 
 ---
@@ -3195,6 +3190,7 @@ Success. Returns a list of pages along with their details. Check the example sho
  | position | String? |  yes  |  |
  | attributes | HashMap<String,Object>? |  yes  |  |
  | content | String? |  yes  |  |
+ | pages | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | source | [TagSourceSchema](#TagSourceSchema)? |  yes  |  |
 
 ---
@@ -3246,11 +3242,10 @@ Success. Returns a list of pages along with their details. Check the example sho
  | page | page | Symbolic link for Page: /page/:slug |
  | policy | policy | Symbolic link for Privacy Policy: /privacy-policy |
  | product | product | Symbolic link for Product: /product/:slug |
- | productReviews | product-reviews | Symbolic link for Product Reviews: /product/:slug/reviews |
- | addProductReview | add-product-review | Symbolic link for Add Product review: /product/:slug/add-review |
  | productRequest | product-request | Symbolic link for Product Request: /product-request/ |
  | products | products | Symbolic link for Products: /products/ |
  | profile | profile | Symbolic link for Profile: /profile |
+ | profileOrderShipment | profile-order-shipment | Symbolic link for profile orders shipment: /profile/orders/shipment/:shipmentid |
  | profileBasic | profile-basic | Symbolic link for Basic Profile: /profile/details |
  | profileCompany | profile-company | Symbolic link for Profile Company: /profile/company |
  | profileEmails | profile-emails | Symbolic link for Profile Emails: /profile/email |
