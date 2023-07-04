@@ -187,7 +187,7 @@ import com.sdk.application.*;
     
     
     
-    public CartApplicationModels.DeleteCartDetailResponse deleteCart(Integer id ) throws IOException {
+    public CartApplicationModels.DeleteCartDetailResponse deleteCart(String id ) throws IOException {
      
       String fullUrl = relativeUrls.get("deleteCart");
         
