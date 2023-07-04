@@ -2713,7 +2713,7 @@ Get event subscriptions
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getEventSubscriptions( pageNo,  pageSize,  populate) {
+platformClient.application("<APPLICATION_ID>").communication.getEventSubscriptions( pageNo,  pageSize,  populate,  query) {
   //use response
 }
 ```
@@ -2726,7 +2726,8 @@ platformClient.application("<APPLICATION_ID>").communication.getEventSubscriptio
 | applicationId | String | yes | Application id |   
 | pageNo | Integer? | no | Current page no |   
 | pageSize | Integer? | no | Current request items count |   
-| populate | String? | no | populate fields |  
+| populate | List<String>? | no | populate fields |   
+| query | String? | no | Current request items count |  
 
 
 

@@ -449,8 +449,11 @@ interface CommunicationPlatformApiList {
     
     
     
+    
+    
+    
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions")
-    Call<CommunicationPlatformModels.EventSubscriptions> getEventSubscriptions(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("populate") String  populate );
+    Call<CommunicationPlatformModels.EventSubscriptions> getEventSubscriptions(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("populate") List<String>  populate ,  @Query("query") String  query );
     
     
     

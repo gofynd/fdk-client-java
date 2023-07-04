@@ -164,4 +164,13 @@ interface CompanyProfilePlatformApiList {
     @POST ("/service/platform/company-profile/v1.0/company/{company_id}/location/bulk")
     Call<CompanyProfilePlatformModels.ProfileSuccessResponse> createLocationBulk(@Path("company_id")  String companyId ,@Body CompanyProfilePlatformModels.BulkLocationSerializer payload);
     
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/company-profile/v1.0/company/{company_id}/location/tags")
+    Call<CompanyProfilePlatformModels.StoreTagsResponse> getLocationTags(@Path("company_id")  String companyId );
+    
 }

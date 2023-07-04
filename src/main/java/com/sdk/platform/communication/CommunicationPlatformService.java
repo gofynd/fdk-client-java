@@ -1535,12 +1535,16 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
 
-    public CommunicationPlatformModels.EventSubscriptions getEventSubscriptions(Integer pageNo , Integer pageSize , String populate ) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EventSubscriptions getEventSubscriptions(Integer pageNo , Integer pageSize , List<String> populate , String query ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.EventSubscriptions> response = null;
             try {
-            response = communicationPlatformApiList.getEventSubscriptions(this.companyId , this.applicationId ,pageNo , pageSize , populate ).execute();
+            response = communicationPlatformApiList.getEventSubscriptions(this.companyId , this.applicationId ,pageNo , pageSize , populate , query ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
