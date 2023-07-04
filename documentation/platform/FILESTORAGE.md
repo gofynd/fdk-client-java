@@ -14,7 +14,7 @@ File Storage
 * [copyFiles](#copyfiles)
 * [appCopyFiles](#appcopyfiles)
 * [browse](#browse)
-* [browse](#browse)
+* [appbrowse](#appbrowse)
 * [proxy](#proxy)
 
 
@@ -29,7 +29,7 @@ This operation initiates upload and returns storage link which is valid for 30 M
 
 
 ```java
-platformClient.filestorage.startUpload( namespace, body body) {
+client.filestorage.startUpload( namespace, body body) {
   //use response
 }
 ```
@@ -38,7 +38,7 @@ platformClient.filestorage.startUpload( namespace, body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| namespace | String | yes | bucket name |   
+| namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
 | companyId | Integer | yes | company_id |  
 | body | [StartRequest](#StartRequest) | yes | Request body |
 
@@ -101,7 +101,7 @@ This will complete the upload process. After successfully uploading file, you ca
 
 
 ```java
-platformClient.filestorage.completeUpload( namespace, body body) {
+client.filestorage.completeUpload( namespace, body body) {
   //use response
 }
 ```
@@ -110,7 +110,7 @@ platformClient.filestorage.completeUpload( namespace, body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| namespace | String | yes | bucket name |   
+| namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
 | companyId | Integer | yes | company_id |  
 | body | [StartResponse](#StartResponse) | yes | Request body |
 
@@ -173,7 +173,7 @@ This operation initiates upload and returns storage link which is valid for 30 M
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").filestorage.appStartUpload( namespace, body body) {
+client.application("<APPLICATION_ID>").filestorage.appStartUpload( namespace, body body) {
   //use response
 }
 ```
@@ -182,7 +182,7 @@ platformClient.application("<APPLICATION_ID>").filestorage.appStartUpload( names
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| namespace | String | yes | bucket name |   
+| namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
 | companyId | Integer | yes | company_id |   
 | applicationId | String | yes | application id |  
 | body | [StartRequest](#StartRequest) | yes | Request body |
@@ -246,7 +246,7 @@ This will complete the upload process. After successfully uploading file, you ca
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").filestorage.appCompleteUpload( namespace, body body) {
+client.application("<APPLICATION_ID>").filestorage.appCompleteUpload( namespace, body body) {
   //use response
 }
 ```
@@ -255,7 +255,7 @@ platformClient.application("<APPLICATION_ID>").filestorage.appCompleteUpload( na
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| namespace | String | yes | bucket name |   
+| namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
 | companyId | Integer | yes | company_id |   
 | applicationId | String | yes | application id |  
 | body | [StartResponse](#StartResponse) | yes | Request body |
@@ -319,7 +319,7 @@ Gives signed urls to access private files
 
 
 ```java
-platformClient.filestorage.getSignUrls(body body) {
+client.filestorage.getSignUrls(body body) {
   //use response
 }
 ```
@@ -372,7 +372,7 @@ Copy Files
 
 
 ```java
-platformClient.filestorage.copyFiles( sync, body body) {
+client.filestorage.copyFiles( sync, body body) {
   //use response
 }
 ```
@@ -453,7 +453,7 @@ Copy Files
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").filestorage.appCopyFiles( sync, body body) {
+client.application("<APPLICATION_ID>").filestorage.appCopyFiles( sync, body body) {
   //use response
 }
 ```
@@ -535,7 +535,7 @@ Browse Files
 
 
 ```java
-platformClient.filestorage.browse( namespace,  pageNo) {
+client.filestorage.browse( namespace,  pageNo) {
   //use response
 }
 ```
@@ -583,14 +583,14 @@ Success
 ---
 
 
-### browse
+### appbrowse
 Browse Files
 
 
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").filestorage.browse( namespace,  pageNo) {
+client.application("<APPLICATION_ID>").filestorage.appbrowse( namespace,  pageNo) {
   //use response
 }
 ```
@@ -646,7 +646,7 @@ Proxy
 
 
 ```java
-platformClient.filestorage.proxy( url) {
+client.filestorage.proxy( url) {
   //use response
 }
 ```
@@ -714,8 +714,8 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | url | String |  no  |  |
- | absoluteUrl | String? |  yes  |  |
- | relativeUrl | String? |  yes  |  |
+ | absoluteUrl | String |  no  |  |
+ | relativeUrl | String |  no  |  |
 
 ---
 

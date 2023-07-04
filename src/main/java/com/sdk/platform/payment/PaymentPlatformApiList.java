@@ -41,18 +41,6 @@ interface PaymentPlatformApiList {
     
     
     
-    @PUT ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/aggregator/request")
-    Call<PaymentPlatformModels.PaymentGatewayToBeReviewed> updateBrandPaymentGatewayConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.PaymentGatewayConfigRequest payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -277,5 +265,41 @@ interface PaymentPlatformApiList {
     
     @PUT ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/user-cod")
     Call<PaymentPlatformModels.SetCODOptionResponse> setUserCODlimitRoutes(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.SetCODForUserRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/onboard/{aggregator}/")
+    Call<PaymentPlatformModels.GetOauthUrlResponse> oauthGetUrl(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("aggregator") String  aggregator , @Query("success_redirect_url") String  successRedirectUrl ,  @Query("failure_redirect_url") String  failureRedirectUrl );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/revoke/{aggregator}/")
+    Call<PaymentPlatformModels.RevokeOAuthToken> revokeOauthToken(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("aggregator") String  aggregator );
     
 }

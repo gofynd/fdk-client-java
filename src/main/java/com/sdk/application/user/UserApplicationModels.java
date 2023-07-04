@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
+
 public class UserApplicationModels{
 
 
@@ -3666,6 +3667,8 @@ public static class Email{
     
     
 }
+
+
 
 
 

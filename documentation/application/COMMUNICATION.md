@@ -22,7 +22,7 @@ Get communication consent
 
 
 ```java
-applicationClient.communication.getCommunicationConsent() {
+communication.getCommunicationConsent() {
   //use response
 }
 ```
@@ -97,7 +97,7 @@ Upsert communication consent
 
 
 ```java
-applicationClient.communication.upsertCommunicationConsent(body body) {
+communication.upsertCommunicationConsent(body body) {
   //use response
 }
 ```
@@ -174,7 +174,7 @@ Upsert push token of a user
 
 
 ```java
-applicationClient.communication.upsertAppPushtoken(body body) {
+communication.upsertAppPushtoken(body body) {
   //use response
 }
 ```

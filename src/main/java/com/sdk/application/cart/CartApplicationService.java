@@ -10,10 +10,7 @@ import java.util.*;
 import java.io.File;
 
 import com.sdk.common.*;
-import com.sdk.application.*;
-
-
-
+import com.sdk.application.ApplicationConfig;
 
 
 
@@ -45,6 +42,8 @@ import com.sdk.application.*;
                     relativeUrls.put("addItems","/service/application/cart/v1.0/detail".substring(1));
             
                     relativeUrls.put("updateCart","/service/application/cart/v1.0/detail".substring(1));
+            
+                    relativeUrls.put("deleteCart","/service/application/cart/v1.0/cart_archive".substring(1));
             
                     relativeUrls.put("getItemCount","/service/application/cart/v1.0/basic".substring(1));
             
@@ -171,6 +170,24 @@ import com.sdk.application.*;
         
 
         Response<CartApplicationModels.UpdateCartDetailResponse> response = cartApplicationApiList.updateCart(fullUrl  ,id, i, b, areaCode, buyNow, body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public CartApplicationModels.DeleteCartDetailResponse deleteCart(Integer id ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("deleteCart");
+        
+
+        Response<CartApplicationModels.DeleteCartDetailResponse> response = cartApplicationApiList.deleteCart(fullUrl  ,id).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

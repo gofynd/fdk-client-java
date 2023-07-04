@@ -2,7 +2,6 @@ package com.sdk.platform.webhook;
 
 import com.sdk.common.*;
 import com.sdk.common.model.FDKException;
-import com.sdk.common.model.FDKServerResponseError;
 import okhttp3.Interceptor;
 import retrofit2.Response;
 
@@ -10,7 +9,7 @@ import java.io.IOException;
 import java.net.CookieStore;
 import java.util.*;
 
-import com.sdk.platform.*;
+import com.sdk.platform.PlatformConfig;
 
 
 
@@ -65,13 +64,13 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.SubscriberResponse getSubscribersByCompany(Integer pageNo , Integer pageSize , String extensionId ) throws FDKServerResponseError, FDKException {
+    public WebhookPlatformModels.SubscriberResponse getSubscribersByCompany(Integer pageNo , Integer pageSize , String extensionId ) throws FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<WebhookPlatformModels.SubscriberResponse> response = null;
             try {
                 response = webhookPlatformApiList.getSubscribersByCompany(this.companyId ,pageNo , pageSize , extensionId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
+                    throw new FDKException(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -80,7 +79,7 @@ public class WebhookPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+                throw new FDKException(e.getMessage(), e);
             }
             return response.body();
         } else {
@@ -101,13 +100,13 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.SubscriberConfig registerSubscriberToEvent(WebhookPlatformModels.SubscriberConfig body) throws FDKServerResponseError, FDKException {
+    public WebhookPlatformModels.SubscriberConfig registerSubscriberToEvent(WebhookPlatformModels.SubscriberConfig body) throws FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<WebhookPlatformModels.SubscriberConfig> response = null;
             try {
                 response = webhookPlatformApiList.registerSubscriberToEvent(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
+                    throw new FDKException(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -116,7 +115,7 @@ public class WebhookPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+                throw new FDKException(e.getMessage(), e);
             }
             return response.body();
         } else {
@@ -137,13 +136,13 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.SubscriberConfig updateSubscriberConfig(WebhookPlatformModels.SubscriberConfig body) throws FDKServerResponseError, FDKException {
+    public WebhookPlatformModels.SubscriberConfig updateSubscriberConfig(WebhookPlatformModels.SubscriberConfig body) throws FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<WebhookPlatformModels.SubscriberConfig> response = null;
             try {
                 response = webhookPlatformApiList.updateSubscriberConfig(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
+                    throw new FDKException(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -152,7 +151,7 @@ public class WebhookPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+                throw new FDKException(e.getMessage(), e);
             }
             return response.body();
         } else {
@@ -185,13 +184,13 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.SubscriberConfigList getSubscribersByExtensionId(Integer pageNo , Integer pageSize , String extensionId ) throws FDKServerResponseError, FDKException {
+    public WebhookPlatformModels.SubscriberConfigList getSubscribersByExtensionId(Integer pageNo , Integer pageSize , String extensionId ) throws FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<WebhookPlatformModels.SubscriberConfigList> response = null;
             try {
                 response = webhookPlatformApiList.getSubscribersByExtensionId(this.companyId , extensionId  ,pageNo , pageSize ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
+                    throw new FDKException(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -200,7 +199,7 @@ public class WebhookPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+                throw new FDKException(e.getMessage(), e);
             }
             return response.body();
         } else {
@@ -225,13 +224,13 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.SubscriberResponse getSubscriberById(Integer subscriberId ) throws FDKServerResponseError, FDKException {
+    public WebhookPlatformModels.SubscriberResponse getSubscriberById(Integer subscriberId ) throws FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<WebhookPlatformModels.SubscriberResponse> response = null;
             try {
                 response = webhookPlatformApiList.getSubscriberById(this.companyId , subscriberId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
+                    throw new FDKException(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -240,7 +239,7 @@ public class WebhookPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+                throw new FDKException(e.getMessage(), e);
             }
             return response.body();
         } else {
@@ -261,13 +260,13 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.EventConfigResponse fetchAllEventConfigurations() throws FDKServerResponseError, FDKException {
+    public WebhookPlatformModels.EventConfigResponse fetchAllEventConfigurations() throws FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<WebhookPlatformModels.EventConfigResponse> response = null;
             try {
                 response = webhookPlatformApiList.fetchAllEventConfigurations(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
+                    throw new FDKException(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -276,7 +275,7 @@ public class WebhookPlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+                throw new FDKException(e.getMessage(), e);
             }
             return response.body();
         } else {

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
+
 public class FileStoragePlatformModels{
 
 
@@ -17,7 +18,7 @@ public class FileStoragePlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FailedResponse{
+public static class FailedResponse {
     
     
     
@@ -27,8 +28,8 @@ public static class FailedResponse{
     
     
     
+    
 }
-
 
 /*
     Model: CDN
@@ -39,7 +40,7 @@ public static class FailedResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CDN{
+public static class CDN {
     
     
     
@@ -61,8 +62,8 @@ public static class CDN{
     
     
     
+    
 }
-
 
 /*
     Model: Upload
@@ -73,7 +74,7 @@ public static class CDN{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Upload{
+public static class Upload {
     
     
     
@@ -89,8 +90,8 @@ public static class Upload{
     
     
     
+    
 }
-
 
 /*
     Model: StartResponse
@@ -101,7 +102,7 @@ public static class Upload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StartResponse{
+public static class StartResponse {
     
     
     
@@ -165,8 +166,8 @@ public static class StartResponse{
     
     
     
+    
 }
-
 
 /*
     Model: StartRequest
@@ -177,7 +178,7 @@ public static class StartResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StartRequest{
+public static class StartRequest {
     
     
     
@@ -211,8 +212,8 @@ public static class StartRequest{
     
     
     
+    
 }
-
 
 /*
     Model: CompleteResponse
@@ -223,7 +224,7 @@ public static class StartRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompleteResponse{
+public static class CompleteResponse {
     
     
     
@@ -305,8 +306,8 @@ public static class CompleteResponse{
     
     
     
+    
 }
-
 
 /*
     Model: Opts
@@ -317,7 +318,7 @@ public static class CompleteResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Opts{
+public static class Opts {
     
     
     
@@ -339,8 +340,8 @@ public static class Opts{
     
     
     
+    
 }
-
 
 /*
     Model: CopyFileTask
@@ -351,7 +352,7 @@ public static class Opts{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CopyFileTask{
+public static class CopyFileTask {
     
     
     
@@ -421,8 +422,8 @@ public static class CopyFileTask{
     
     
     
+    
 }
-
 
 /*
     Model: BulkUploadResponse
@@ -433,7 +434,7 @@ public static class CopyFileTask{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkUploadResponse{
+public static class BulkUploadResponse {
     
     
     
@@ -449,8 +450,8 @@ public static class BulkUploadResponse{
     
     
     
+    
 }
-
 
 /*
     Model: ReqConfiguration
@@ -461,7 +462,7 @@ public static class BulkUploadResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReqConfiguration{
+public static class ReqConfiguration {
     
     
     
@@ -471,8 +472,8 @@ public static class ReqConfiguration{
     
     
     
+    
 }
-
 
 /*
     Model: Destination
@@ -483,7 +484,7 @@ public static class ReqConfiguration{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Destination{
+public static class Destination {
     
     
     
@@ -505,8 +506,8 @@ public static class Destination{
     
     
     
+    
 }
-
 
 /*
     Model: BulkRequest
@@ -517,7 +518,7 @@ public static class Destination{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkRequest{
+public static class BulkRequest {
     
     
     
@@ -539,8 +540,8 @@ public static class BulkRequest{
     
     
     
+    
 }
-
 
 /*
     Model: Urls
@@ -551,7 +552,7 @@ public static class BulkRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Urls{
+public static class Urls {
     
     
     
@@ -573,8 +574,8 @@ public static class Urls{
     
     
     
+    
 }
-
 
 /*
     Model: SignUrlResponse
@@ -585,7 +586,7 @@ public static class Urls{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SignUrlResponse{
+public static class SignUrlResponse {
     
     
     
@@ -595,8 +596,8 @@ public static class SignUrlResponse{
     
     
     
+    
 }
-
 
 /*
     Model: SignUrlRequest
@@ -607,7 +608,7 @@ public static class SignUrlResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SignUrlRequest{
+public static class SignUrlRequest {
     
     
     
@@ -623,8 +624,8 @@ public static class SignUrlRequest{
     
     
     
+    
 }
-
 
 /*
     Model: Page
@@ -635,7 +636,7 @@ public static class SignUrlRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Page{
+public static class Page {
     
     
     
@@ -681,8 +682,8 @@ public static class Page{
     
     
     
+    
 }
-
 
 /*
     Model: DbRecord
@@ -693,7 +694,7 @@ public static class Page{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DbRecord{
+public static class DbRecord {
     
     
     
@@ -769,8 +770,8 @@ public static class DbRecord{
     
     
     
+    
 }
-
 
 /*
     Model: BrowseResponse
@@ -781,7 +782,7 @@ public static class DbRecord{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BrowseResponse{
+public static class BrowseResponse {
     
     
     
@@ -797,7 +798,9 @@ public static class BrowseResponse{
     
     
     
+    
 }
+
 
 
 

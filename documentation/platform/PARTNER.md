@@ -21,7 +21,7 @@ Create proxy URL for the external URL
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").partner.addProxyPath( extensionId, body body) {
+client.application("<APPLICATION_ID>").partner.addProxyPath( extensionId, body body) {
   //use response
 }
 ```
@@ -85,7 +85,7 @@ Remove proxy URL for the external URL
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").partner.removeProxyPath( extensionId,  attachedPath) {
+client.application("<APPLICATION_ID>").partner.removeProxyPath( extensionId,  attachedPath) {
   //use response
 }
 ```

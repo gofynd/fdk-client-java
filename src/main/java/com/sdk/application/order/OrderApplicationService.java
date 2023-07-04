@@ -10,10 +10,7 @@ import java.util.*;
 import java.io.File;
 
 import com.sdk.common.*;
-import com.sdk.application.*;
-
-
-
+import com.sdk.application.ApplicationConfig;
 
 
 
@@ -121,14 +118,14 @@ import com.sdk.application.*;
     
     
     
-    public OrderApplicationModels.OrderList getPosOrderById(String orderId ) throws IOException {
+    public OrderApplicationModels.OrderById getPosOrderById(String orderId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getPosOrderById");
         
         fullUrl = fullUrl.replace("{" + "order_id" +"}",orderId.toString());
         
 
-        Response<OrderApplicationModels.OrderList> response = orderApplicationApiList.getPosOrderById(fullUrl ).execute();
+        Response<OrderApplicationModels.OrderById> response = orderApplicationApiList.getPosOrderById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

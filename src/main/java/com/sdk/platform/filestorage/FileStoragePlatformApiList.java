@@ -129,7 +129,7 @@ interface FileStoragePlatformApiList {
     
     
     @GET ("/service/platform/assets/v1.0/company/{company_id}/application/{application_id}/namespaces/{namespace}/browse/")
-    Call<FileStoragePlatformModels.BrowseResponse> browse(@Path("namespace") String  namespace , @Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo );
+    Call<FileStoragePlatformModels.BrowseResponse> appbrowse(@Path("namespace") String  namespace , @Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo );
     
     
     
@@ -140,7 +140,7 @@ interface FileStoragePlatformApiList {
     
     
     
-    @POST ("/service/platform/assets/v1.0/company/{company_id}/proxy/")
+    @GET ("/service/platform/assets/v1.0/company/{company_id}/proxy/")
     Call<String> proxy(@Path("company_id")  String companyId , @Query("url") String  url );
     
 }

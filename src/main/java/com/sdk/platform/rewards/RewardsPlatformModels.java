@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
+
 public class RewardsPlatformModels{
 
 
@@ -17,7 +18,7 @@ public class RewardsPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class E{
+public static class E {
     
     
     
@@ -45,8 +46,8 @@ public static class E{
     
     
     
+    
 }
-
 
 /*
     Model: GiveawayResponse
@@ -57,7 +58,7 @@ public static class E{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GiveawayResponse{
+public static class GiveawayResponse {
     
     
     
@@ -73,8 +74,8 @@ public static class GiveawayResponse{
     
     
     
+    
 }
-
 
 /*
     Model: Giveaway
@@ -85,7 +86,7 @@ public static class GiveawayResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Giveaway{
+public static class Giveaway {
     
     
     
@@ -161,8 +162,8 @@ public static class Giveaway{
     
     
     
+    
 }
-
 
 /*
     Model: Schedule
@@ -173,7 +174,7 @@ public static class Giveaway{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Schedule{
+public static class Schedule {
     
     
     
@@ -201,8 +202,8 @@ public static class Schedule{
     
     
     
+    
 }
-
 
 /*
     Model: RewardsAudience
@@ -213,7 +214,7 @@ public static class Schedule{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RewardsAudience{
+public static class RewardsAudience {
     
     
     
@@ -229,8 +230,8 @@ public static class RewardsAudience{
     
     
     
+    
 }
-
 
 /*
     Model: Asset
@@ -241,7 +242,7 @@ public static class RewardsAudience{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Asset{
+public static class Asset {
     
     
     
@@ -263,8 +264,8 @@ public static class Asset{
     
     
     
+    
 }
-
 
 /*
     Model: RewardsRule
@@ -275,7 +276,7 @@ public static class Asset{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RewardsRule{
+public static class RewardsRule {
     
     
     
@@ -285,8 +286,8 @@ public static class RewardsRule{
     
     
     
+    
 }
-
 
 /*
     Model: Page
@@ -297,7 +298,7 @@ public static class RewardsRule{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Page{
+public static class Page {
     
     
     
@@ -343,8 +344,8 @@ public static class Page{
     
     
     
+    
 }
-
 
 /*
     Model: Offer
@@ -355,7 +356,7 @@ public static class Page{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Offer{
+public static class Offer {
     
     
     
@@ -443,8 +444,8 @@ public static class Offer{
     
     
     
+    
 }
-
 
 /*
     Model: ShareMessages
@@ -455,7 +456,7 @@ public static class Offer{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShareMessages{
+public static class ShareMessages {
     
     
     
@@ -513,8 +514,8 @@ public static class ShareMessages{
     
     
     
+    
 }
-
 
 /*
     Model: UserRes
@@ -525,7 +526,7 @@ public static class ShareMessages{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserRes{
+public static class UserRes {
     
     
     
@@ -541,8 +542,8 @@ public static class UserRes{
     
     
     
+    
 }
-
 
 /*
     Model: Points
@@ -553,7 +554,7 @@ public static class UserRes{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Points{
+public static class Points {
     
     
     
@@ -563,8 +564,8 @@ public static class Points{
     
     
     
+    
 }
-
 
 /*
     Model: RewardUser
@@ -575,7 +576,7 @@ public static class Points{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RewardUser{
+public static class RewardUser {
     
     
     
@@ -627,8 +628,8 @@ public static class RewardUser{
     
     
     
+    
 }
-
 
 /*
     Model: Referral
@@ -639,7 +640,7 @@ public static class RewardUser{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Referral{
+public static class Referral {
     
     
     
@@ -649,8 +650,8 @@ public static class Referral{
     
     
     
+    
 }
-
 
 /*
     Model: AppUser
@@ -661,7 +662,7 @@ public static class Referral{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AppUser{
+public static class AppUser {
     
     
     
@@ -707,8 +708,8 @@ public static class AppUser{
     
     
     
+    
 }
-
 
 /*
     Model: GiveawayAudience
@@ -719,7 +720,7 @@ public static class AppUser{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GiveawayAudience{
+public static class GiveawayAudience {
     
     
     
@@ -735,8 +736,8 @@ public static class GiveawayAudience{
     
     
     
+    
 }
-
 
 /*
     Model: HistoryRes
@@ -747,7 +748,7 @@ public static class GiveawayAudience{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class HistoryRes{
+public static class HistoryRes {
     
     
     
@@ -769,8 +770,8 @@ public static class HistoryRes{
     
     
     
+    
 }
-
 
 /*
     Model: PointsHistory
@@ -781,7 +782,7 @@ public static class HistoryRes{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PointsHistory{
+public static class PointsHistory {
     
     
     
@@ -869,8 +870,8 @@ public static class PointsHistory{
     
     
     
+    
 }
-
 
 /*
     Model: ConfigurationRes
@@ -881,7 +882,7 @@ public static class PointsHistory{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ConfigurationRes{
+public static class ConfigurationRes {
     
     
     
@@ -909,8 +910,8 @@ public static class ConfigurationRes{
     
     
     
+    
 }
-
 
 /*
     Model: SetConfigurationRes
@@ -921,7 +922,7 @@ public static class ConfigurationRes{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SetConfigurationRes{
+public static class SetConfigurationRes {
     
     
     
@@ -931,8 +932,8 @@ public static class SetConfigurationRes{
     
     
     
+    
 }
-
 
 /*
     Model: ConfigurationRequest
@@ -943,7 +944,7 @@ public static class SetConfigurationRes{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ConfigurationRequest{
+public static class ConfigurationRequest {
     
     
     
@@ -959,7 +960,9 @@ public static class ConfigurationRequest{
     
     
     
+    
 }
+
 
 
 

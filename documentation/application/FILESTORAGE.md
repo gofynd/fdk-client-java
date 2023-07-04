@@ -22,7 +22,7 @@ Initiates an upload and returns a storage link that is valid for 30 minutes. You
 
 
 ```java
-applicationClient.filestorage.startUpload( namespace, body body) {
+filestorage.startUpload( namespace, body body) {
   //use response
 }
 ```
@@ -31,7 +31,7 @@ applicationClient.filestorage.startUpload( namespace, body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| namespace | String | yes | Name of the bucket created for storing objects. |  
+| namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |  
 | body | [StartRequest](#StartRequest) | yes | Request body |
 
 
@@ -93,7 +93,7 @@ Completes the upload process. After successfully uploading a file, call this API
 
 
 ```java
-applicationClient.filestorage.completeUpload( namespace, body body) {
+filestorage.completeUpload( namespace, body body) {
   //use response
 }
 ```
@@ -102,7 +102,7 @@ applicationClient.filestorage.completeUpload( namespace, body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| namespace | String | yes | Name of the bucket created for storing objects. |  
+| namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |  
 | body | [StartResponse](#StartResponse) | yes | Request body |
 
 
@@ -164,7 +164,7 @@ Explain here
 
 
 ```java
-applicationClient.filestorage.signUrls(body body) {
+filestorage.signUrls(body body) {
   //use response
 }
 ```
@@ -230,8 +230,8 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | url | String |  no  |  |
- | absoluteUrl | String? |  yes  |  |
- | relativeUrl | String? |  yes  |  |
+ | absoluteUrl | String |  no  |  |
+ | relativeUrl | String |  no  |  |
 
 ---
 

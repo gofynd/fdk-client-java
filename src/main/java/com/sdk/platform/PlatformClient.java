@@ -20,8 +20,6 @@ import com.sdk.platform.communication.CommunicationPlatformService;
 
 import com.sdk.platform.payment.PaymentPlatformService;
 
-import com.sdk.platform.order.OrderPlatformService;
-
 import com.sdk.platform.catalog.CatalogPlatformService;
 
 import com.sdk.platform.companyprofile.CompanyProfilePlatformService;
@@ -38,8 +36,6 @@ import com.sdk.platform.cart.CartPlatformService;
 
 import com.sdk.platform.rewards.RewardsPlatformService;
 
-import com.sdk.platform.analytics.AnalyticsPlatformService;
-
 import com.sdk.platform.discount.DiscountPlatformService;
 
 import com.sdk.platform.partner.PartnerPlatformService;
@@ -47,6 +43,8 @@ import com.sdk.platform.partner.PartnerPlatformService;
 import com.sdk.platform.webhook.WebhookPlatformService;
 
 import com.sdk.platform.audittrail.AuditTrailPlatformService;
+
+import com.sdk.platform.serviceability.ServiceabilityPlatformService;
 
 
 
@@ -73,8 +71,6 @@ public class PlatformClient {
     
     public PaymentPlatformService payment;
     
-    public OrderPlatformService order;
-    
     public CatalogPlatformService catalog;
     
     public CompanyProfilePlatformService companyProfile;
@@ -91,8 +87,6 @@ public class PlatformClient {
     
     public RewardsPlatformService rewards;
     
-    public AnalyticsPlatformService analytics;
-    
     public DiscountPlatformService discount;
     
     public PartnerPlatformService partner;
@@ -100,6 +94,8 @@ public class PlatformClient {
     public WebhookPlatformService webhook;
     
     public AuditTrailPlatformService auditTrail;
+    
+    public ServiceabilityPlatformService serviceability;
     
 
     public PlatformClient(PlatformConfig config)   
@@ -122,8 +118,6 @@ public class PlatformClient {
         
         this.payment = new PaymentPlatformService(config);
         
-        this.order = new OrderPlatformService(config);
-        
         this.catalog = new CatalogPlatformService(config);
         
         this.companyProfile = new CompanyProfilePlatformService(config);
@@ -140,8 +134,6 @@ public class PlatformClient {
         
         this.rewards = new RewardsPlatformService(config);
         
-        this.analytics = new AnalyticsPlatformService(config);
-        
         this.discount = new DiscountPlatformService(config);
         
         this.partner = new PartnerPlatformService(config);
@@ -149,6 +141,8 @@ public class PlatformClient {
         this.webhook = new WebhookPlatformService(config);
         
         this.auditTrail = new AuditTrailPlatformService(config);
+        
+        this.serviceability = new ServiceabilityPlatformService(config);
         
     }
 
@@ -182,8 +176,6 @@ public class PlatformClient {
         
         public PaymentPlatformService.ApplicationClient payment;
         
-        public OrderPlatformService.ApplicationClient order;
-        
         public CatalogPlatformService.ApplicationClient catalog;
         
         public CompanyProfilePlatformService.ApplicationClient companyProfile;
@@ -200,8 +192,6 @@ public class PlatformClient {
         
         public RewardsPlatformService.ApplicationClient rewards;
         
-        public AnalyticsPlatformService.ApplicationClient analytics;
-        
         public DiscountPlatformService.ApplicationClient discount;
         
         public PartnerPlatformService.ApplicationClient partner;
@@ -209,6 +199,8 @@ public class PlatformClient {
         public WebhookPlatformService.ApplicationClient webhook;
         
         public AuditTrailPlatformService.ApplicationClient auditTrail;
+        
+        public ServiceabilityPlatformService.ApplicationClient serviceability;
         
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
@@ -230,8 +222,6 @@ public class PlatformClient {
             
             this.payment = new PaymentPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.order = new OrderPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
             this.catalog = new CatalogPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.companyProfile = new CompanyProfilePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
@@ -248,8 +238,6 @@ public class PlatformClient {
             
             this.rewards = new RewardsPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.analytics = new AnalyticsPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
             this.discount = new DiscountPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.partner = new PartnerPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
@@ -257,6 +245,8 @@ public class PlatformClient {
             this.webhook = new WebhookPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.auditTrail = new AuditTrailPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.serviceability = new ServiceabilityPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
         }
 

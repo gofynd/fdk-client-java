@@ -25,7 +25,7 @@ Find all the JobCodes from Metrics Collection based on the field Values
 
 
 ```java
-publicClient.inventory.getJobCodesMetrics( dailyJob,  jobCode) {
+inventory.getJobCodesMetrics( dailyJob,  jobCode) {
   //use response
 }
 ```
@@ -79,7 +79,7 @@ Save JobCode Metrics
 
 
 ```java
-publicClient.inventory.saveJobCodesMetrics(body body) {
+inventory.saveJobCodesMetrics(body body) {
   //use response
 }
 ```
@@ -131,7 +131,7 @@ Get Slingshot Configuration Of  A Company using API key
 
 
 ```java
-publicClient.inventory.getConfigByApiKey( apikey) {
+inventory.getConfigByApiKey( apikey) {
   //use response
 }
 ```
@@ -184,7 +184,7 @@ Get apikey  for  Company  to call other Slingshot Configuration APIs
 
 
 ```java
-publicClient.inventory.getApiKey( userName,  password) {
+inventory.getApiKey( userName,  password) {
   //use response
 }
 ```
@@ -238,7 +238,7 @@ Get Job Config By Code
 
 
 ```java
-publicClient.inventory.getJobByCode( code) {
+inventory.getJobByCode( code) {
   //use response
 }
 ```
@@ -291,7 +291,7 @@ Get Job Configs By Integration Type
 
 
 ```java
-publicClient.inventory.getJobConfigByIntegrationType( integrationType,  disable) {
+inventory.getJobConfigByIntegrationType( integrationType,  disable) {
   //use response
 }
 ```

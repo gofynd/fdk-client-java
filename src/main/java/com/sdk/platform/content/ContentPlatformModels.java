@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
+
 public class ContentPlatformModels{
 
 
@@ -17,7 +18,7 @@ public class ContentPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GenerateSEOContent{
+public static class GenerateSEOContent {
     
     
     
@@ -45,8 +46,8 @@ public static class GenerateSEOContent{
     
     
     
+    
 }
-
 
 /*
     Model: GeneratedSEOContent
@@ -57,7 +58,7 @@ public static class GenerateSEOContent{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeneratedSEOContent{
+public static class GeneratedSEOContent {
     
     
     
@@ -73,8 +74,8 @@ public static class GeneratedSEOContent{
     
     
     
+    
 }
-
 
 /*
     Model: ApplicationLegal
@@ -85,7 +86,7 @@ public static class GeneratedSEOContent{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationLegal{
+public static class ApplicationLegal {
     
     
     
@@ -143,8 +144,8 @@ public static class ApplicationLegal{
     
     
     
+    
 }
-
 
 /*
     Model: ApplicationLegalFAQ
@@ -155,7 +156,7 @@ public static class ApplicationLegal{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationLegalFAQ{
+public static class ApplicationLegalFAQ {
     
     
     
@@ -171,8 +172,8 @@ public static class ApplicationLegalFAQ{
     
     
     
+    
 }
-
 
 /*
     Model: PathMappingSchema
@@ -183,7 +184,7 @@ public static class ApplicationLegalFAQ{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PathMappingSchema{
+public static class PathMappingSchema {
     
     
     
@@ -229,8 +230,8 @@ public static class PathMappingSchema{
     
     
     
+    
 }
-
 
 /*
     Model: PathSourceSchema
@@ -241,7 +242,7 @@ public static class PathMappingSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PathSourceSchema{
+public static class PathSourceSchema {
     
     
     
@@ -257,8 +258,8 @@ public static class PathSourceSchema{
     
     
     
+    
 }
-
 
 /*
     Model: SeoComponent
@@ -269,7 +270,7 @@ public static class PathSourceSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SeoComponent{
+public static class SeoComponent {
     
     
     
@@ -279,8 +280,8 @@ public static class SeoComponent{
     
     
     
+    
 }
-
 
 /*
     Model: SeoSchema
@@ -291,7 +292,7 @@ public static class SeoComponent{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SeoSchema{
+public static class SeoSchema {
     
     
     
@@ -349,8 +350,8 @@ public static class SeoSchema{
     
     
     
+    
 }
-
 
 /*
     Model: CustomMetaTag
@@ -361,7 +362,7 @@ public static class SeoSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CustomMetaTag{
+public static class CustomMetaTag {
     
     
     
@@ -383,8 +384,8 @@ public static class CustomMetaTag{
     
     
     
+    
 }
-
 
 /*
     Model: Detail
@@ -395,7 +396,7 @@ public static class CustomMetaTag{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Detail{
+public static class Detail {
     
     
     
@@ -411,8 +412,14 @@ public static class Detail{
     
     
     
+    
+    @JsonProperty("image_url")
+    private String imageUrl;
+    
+    
+    
+    
 }
-
 
 /*
     Model: AnnouncementPageSchema
@@ -423,7 +430,7 @@ public static class Detail{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AnnouncementPageSchema{
+public static class AnnouncementPageSchema {
     
     
     
@@ -439,8 +446,8 @@ public static class AnnouncementPageSchema{
     
     
     
+    
 }
-
 
 /*
     Model: EditorMeta
@@ -451,7 +458,7 @@ public static class AnnouncementPageSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EditorMeta{
+public static class EditorMeta {
     
     
     
@@ -479,8 +486,8 @@ public static class EditorMeta{
     
     
     
+    
 }
-
 
 /*
     Model: AnnouncementAuthorSchema
@@ -491,7 +498,7 @@ public static class EditorMeta{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AnnouncementAuthorSchema{
+public static class AnnouncementAuthorSchema {
     
     
     
@@ -507,8 +514,8 @@ public static class AnnouncementAuthorSchema{
     
     
     
+    
 }
-
 
 /*
     Model: AdminAnnouncementSchema
@@ -519,7 +526,7 @@ public static class AnnouncementAuthorSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AdminAnnouncementSchema{
+public static class AdminAnnouncementSchema {
     
     
     
@@ -589,8 +596,8 @@ public static class AdminAnnouncementSchema{
     
     
     
+    
 }
-
 
 /*
     Model: ScheduleSchema
@@ -601,7 +608,7 @@ public static class AdminAnnouncementSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ScheduleSchema{
+public static class ScheduleSchema {
     
     
     
@@ -635,8 +642,8 @@ public static class ScheduleSchema{
     
     
     
+    
 }
-
 
 /*
     Model: NextSchedule
@@ -647,7 +654,7 @@ public static class ScheduleSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NextSchedule{
+public static class NextSchedule {
     
     
     
@@ -663,8 +670,8 @@ public static class NextSchedule{
     
     
     
+    
 }
-
 
 /*
     Model: AnnouncementSchema
@@ -675,7 +682,7 @@ public static class NextSchedule{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AnnouncementSchema{
+public static class AnnouncementSchema {
     
     
     
@@ -691,8 +698,8 @@ public static class AnnouncementSchema{
     
     
     
+    
 }
-
 
 /*
     Model: ScheduleStartSchema
@@ -703,7 +710,7 @@ public static class AnnouncementSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ScheduleStartSchema{
+public static class ScheduleStartSchema {
     
     
     
@@ -719,8 +726,8 @@ public static class ScheduleStartSchema{
     
     
     
+    
 }
-
 
 /*
     Model: BlogGetResponse
@@ -731,7 +738,7 @@ public static class ScheduleStartSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BlogGetResponse{
+public static class BlogGetResponse {
     
     
     
@@ -747,8 +754,8 @@ public static class BlogGetResponse{
     
     
     
+    
 }
-
 
 /*
     Model: ResourceContent
@@ -759,7 +766,7 @@ public static class BlogGetResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResourceContent{
+public static class ResourceContent {
     
     
     
@@ -775,8 +782,8 @@ public static class ResourceContent{
     
     
     
+    
 }
-
 
 /*
     Model: Asset
@@ -787,7 +794,7 @@ public static class ResourceContent{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Asset{
+public static class Asset {
     
     
     
@@ -809,8 +816,8 @@ public static class Asset{
     
     
     
+    
 }
-
 
 /*
     Model: Author
@@ -821,7 +828,7 @@ public static class Asset{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Author{
+public static class Author {
     
     
     
@@ -843,8 +850,8 @@ public static class Author{
     
     
     
+    
 }
-
 
 /*
     Model: BlogSchema
@@ -855,7 +862,7 @@ public static class Author{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BlogSchema{
+public static class BlogSchema {
     
     
     
@@ -949,8 +956,8 @@ public static class BlogSchema{
     
     
     
+    
 }
-
 
 /*
     Model: SEO
@@ -961,7 +968,7 @@ public static class BlogSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SEO{
+public static class SEO {
     
     
     
@@ -983,8 +990,8 @@ public static class SEO{
     
     
     
+    
 }
-
 
 /*
     Model: SEOImage
@@ -995,7 +1002,7 @@ public static class SEO{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SEOImage{
+public static class SEOImage {
     
     
     
@@ -1005,8 +1012,8 @@ public static class SEOImage{
     
     
     
+    
 }
-
 
 /*
     Model: DateMeta
@@ -1017,7 +1024,7 @@ public static class SEOImage{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DateMeta{
+public static class DateMeta {
     
     
     
@@ -1033,8 +1040,8 @@ public static class DateMeta{
     
     
     
+    
 }
-
 
 /*
     Model: BlogRequest
@@ -1045,7 +1052,7 @@ public static class DateMeta{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BlogRequest{
+public static class BlogRequest {
     
     
     
@@ -1121,8 +1128,8 @@ public static class BlogRequest{
     
     
     
+    
 }
-
 
 /*
     Model: GetAnnouncementListSchema
@@ -1133,7 +1140,7 @@ public static class BlogRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetAnnouncementListSchema{
+public static class GetAnnouncementListSchema {
     
     
     
@@ -1149,8 +1156,8 @@ public static class GetAnnouncementListSchema{
     
     
     
+    
 }
-
 
 /*
     Model: CreateAnnouncementSchema
@@ -1161,7 +1168,7 @@ public static class GetAnnouncementListSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateAnnouncementSchema{
+public static class CreateAnnouncementSchema {
     
     
     
@@ -1177,8 +1184,8 @@ public static class CreateAnnouncementSchema{
     
     
     
+    
 }
-
 
 /*
     Model: DataLoaderResponseSchema
@@ -1189,7 +1196,7 @@ public static class CreateAnnouncementSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DataLoaderResponseSchema{
+public static class DataLoaderResponseSchema {
     
     
     
@@ -1253,8 +1260,8 @@ public static class DataLoaderResponseSchema{
     
     
     
+    
 }
-
 
 /*
     Model: DataLoaderResetResponseSchema
@@ -1265,7 +1272,7 @@ public static class DataLoaderResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DataLoaderResetResponseSchema{
+public static class DataLoaderResetResponseSchema {
     
     
     
@@ -1275,8 +1282,8 @@ public static class DataLoaderResetResponseSchema{
     
     
     
+    
 }
-
 
 /*
     Model: Navigation
@@ -1287,7 +1294,7 @@ public static class DataLoaderResetResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Navigation{
+public static class Navigation {
     
     
     
@@ -1351,8 +1358,8 @@ public static class Navigation{
     
     
     
+    
 }
-
 
 /*
     Model: LocaleLanguage
@@ -1363,7 +1370,7 @@ public static class Navigation{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocaleLanguage{
+public static class LocaleLanguage {
     
     
     
@@ -1385,8 +1392,8 @@ public static class LocaleLanguage{
     
     
     
+    
 }
-
 
 /*
     Model: Language
@@ -1397,7 +1404,7 @@ public static class LocaleLanguage{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Language{
+public static class Language {
     
     
     
@@ -1407,8 +1414,8 @@ public static class Language{
     
     
     
+    
 }
-
 
 /*
     Model: Action
@@ -1419,7 +1426,7 @@ public static class Language{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Action{
+public static class Action {
     
     
     
@@ -1441,8 +1448,8 @@ public static class Action{
     
     
     
+    
 }
-
 
 /*
     Model: ActionPage
@@ -1453,7 +1460,7 @@ public static class Action{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ActionPage{
+public static class ActionPage {
     
     
     
@@ -1481,8 +1488,8 @@ public static class ActionPage{
     
     
     
+    
 }
-
 
 /*
     Model: NavigationReference
@@ -1493,7 +1500,7 @@ public static class ActionPage{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NavigationReference{
+public static class NavigationReference {
     
     
     
@@ -1557,8 +1564,8 @@ public static class NavigationReference{
     
     
     
+    
 }
-
 
 /*
     Model: LandingPage
@@ -1569,7 +1576,7 @@ public static class NavigationReference{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LandingPage{
+public static class LandingPage {
     
     
     
@@ -1585,8 +1592,8 @@ public static class LandingPage{
     
     
     
+    
 }
-
 
 /*
     Model: ConfigurationSchema
@@ -1597,7 +1604,7 @@ public static class LandingPage{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ConfigurationSchema{
+public static class ConfigurationSchema {
     
     
     
@@ -1625,8 +1632,8 @@ public static class ConfigurationSchema{
     
     
     
+    
 }
-
 
 /*
     Model: SlideshowMedia
@@ -1637,7 +1644,7 @@ public static class ConfigurationSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SlideshowMedia{
+public static class SlideshowMedia {
     
     
     
@@ -1677,8 +1684,8 @@ public static class SlideshowMedia{
     
     
     
+    
 }
-
 
 /*
     Model: Slideshow
@@ -1689,7 +1696,7 @@ public static class SlideshowMedia{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Slideshow{
+public static class Slideshow {
     
     
     
@@ -1705,8 +1712,8 @@ public static class Slideshow{
     
     
     
+    
 }
-
 
 /*
     Model: AnnouncementsResponseSchema
@@ -1717,7 +1724,7 @@ public static class Slideshow{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AnnouncementsResponseSchema{
+public static class AnnouncementsResponseSchema {
     
     
     
@@ -1739,8 +1746,8 @@ public static class AnnouncementsResponseSchema{
     
     
     
+    
 }
-
 
 /*
     Model: FaqResponseSchema
@@ -1751,7 +1758,7 @@ public static class AnnouncementsResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FaqResponseSchema{
+public static class FaqResponseSchema {
     
     
     
@@ -1761,8 +1768,8 @@ public static class FaqResponseSchema{
     
     
     
+    
 }
-
 
 /*
     Model: UpdateHandpickedSchema
@@ -1773,7 +1780,7 @@ public static class FaqResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateHandpickedSchema{
+public static class UpdateHandpickedSchema {
     
     
     
@@ -1783,8 +1790,8 @@ public static class UpdateHandpickedSchema{
     
     
     
+    
 }
-
 
 /*
     Model: HandpickedTagSchema
@@ -1795,7 +1802,7 @@ public static class UpdateHandpickedSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class HandpickedTagSchema{
+public static class HandpickedTagSchema {
     
     
     
@@ -1841,8 +1848,8 @@ public static class HandpickedTagSchema{
     
     
     
+    
 }
-
 
 /*
     Model: RemoveHandpickedSchema
@@ -1853,7 +1860,7 @@ public static class HandpickedTagSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RemoveHandpickedSchema{
+public static class RemoveHandpickedSchema {
     
     
     
@@ -1863,8 +1870,8 @@ public static class RemoveHandpickedSchema{
     
     
     
+    
 }
-
 
 /*
     Model: CreateTagSchema
@@ -1875,7 +1882,7 @@ public static class RemoveHandpickedSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateTagSchema{
+public static class CreateTagSchema {
     
     
     
@@ -1933,8 +1940,8 @@ public static class CreateTagSchema{
     
     
     
+    
 }
-
 
 /*
     Model: CreateTagRequestSchema
@@ -1945,7 +1952,7 @@ public static class CreateTagSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateTagRequestSchema{
+public static class CreateTagRequestSchema {
     
     
     
@@ -1955,8 +1962,8 @@ public static class CreateTagRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: DataLoaderSchema
@@ -1967,7 +1974,7 @@ public static class CreateTagRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DataLoaderSchema{
+public static class DataLoaderSchema {
     
     
     
@@ -2019,8 +2026,8 @@ public static class DataLoaderSchema{
     
     
     
+    
 }
-
 
 /*
     Model: DataLoaderSourceSchema
@@ -2031,7 +2038,7 @@ public static class DataLoaderSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DataLoaderSourceSchema{
+public static class DataLoaderSourceSchema {
     
     
     
@@ -2047,8 +2054,8 @@ public static class DataLoaderSourceSchema{
     
     
     
+    
 }
-
 
 /*
     Model: DataLoadersSchema
@@ -2059,7 +2066,7 @@ public static class DataLoaderSourceSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DataLoadersSchema{
+public static class DataLoadersSchema {
     
     
     
@@ -2069,8 +2076,8 @@ public static class DataLoadersSchema{
     
     
     
+    
 }
-
 
 /*
     Model: TagDeleteSuccessResponse
@@ -2081,7 +2088,7 @@ public static class DataLoadersSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TagDeleteSuccessResponse{
+public static class TagDeleteSuccessResponse {
     
     
     
@@ -2091,8 +2098,8 @@ public static class TagDeleteSuccessResponse{
     
     
     
+    
 }
-
 
 /*
     Model: ContentAPIError
@@ -2103,7 +2110,7 @@ public static class TagDeleteSuccessResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ContentAPIError{
+public static class ContentAPIError {
     
     
     
@@ -2155,8 +2162,8 @@ public static class ContentAPIError{
     
     
     
+    
 }
-
 
 /*
     Model: CommonError
@@ -2167,7 +2174,7 @@ public static class ContentAPIError{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CommonError{
+public static class CommonError {
     
     
     
@@ -2177,8 +2184,8 @@ public static class CommonError{
     
     
     
+    
 }
-
 
 /*
     Model: CategorySchema
@@ -2189,7 +2196,7 @@ public static class CommonError{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CategorySchema{
+public static class CategorySchema {
     
     
     
@@ -2247,8 +2254,8 @@ public static class CategorySchema{
     
     
     
+    
 }
-
 
 /*
     Model: ChildrenSchema
@@ -2259,7 +2266,7 @@ public static class CategorySchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ChildrenSchema{
+public static class ChildrenSchema {
     
     
     
@@ -2293,8 +2300,8 @@ public static class ChildrenSchema{
     
     
     
+    
 }
-
 
 /*
     Model: CategoryRequestSchema
@@ -2305,7 +2312,7 @@ public static class ChildrenSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CategoryRequestSchema{
+public static class CategoryRequestSchema {
     
     
     
@@ -2321,8 +2328,8 @@ public static class CategoryRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: FAQCategorySchema
@@ -2333,7 +2340,7 @@ public static class CategoryRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FAQCategorySchema{
+public static class FAQCategorySchema {
     
     
     
@@ -2391,8 +2398,8 @@ public static class FAQCategorySchema{
     
     
     
+    
 }
-
 
 /*
     Model: FaqSchema
@@ -2403,7 +2410,7 @@ public static class FAQCategorySchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FaqSchema{
+public static class FaqSchema {
     
     
     
@@ -2443,8 +2450,8 @@ public static class FaqSchema{
     
     
     
+    
 }
-
 
 /*
     Model: FAQ
@@ -2455,7 +2462,7 @@ public static class FaqSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FAQ{
+public static class FAQ {
     
     
     
@@ -2477,8 +2484,8 @@ public static class FAQ{
     
     
     
+    
 }
-
 
 /*
     Model: CreateFaqResponseSchema
@@ -2489,7 +2496,7 @@ public static class FAQ{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateFaqResponseSchema{
+public static class CreateFaqResponseSchema {
     
     
     
@@ -2499,8 +2506,8 @@ public static class CreateFaqResponseSchema{
     
     
     
+    
 }
-
 
 /*
     Model: CreateFaqSchema
@@ -2511,7 +2518,7 @@ public static class CreateFaqResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateFaqSchema{
+public static class CreateFaqSchema {
     
     
     
@@ -2521,8 +2528,8 @@ public static class CreateFaqSchema{
     
     
     
+    
 }
-
 
 /*
     Model: GetFaqSchema
@@ -2533,7 +2540,7 @@ public static class CreateFaqSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetFaqSchema{
+public static class GetFaqSchema {
     
     
     
@@ -2543,8 +2550,8 @@ public static class GetFaqSchema{
     
     
     
+    
 }
-
 
 /*
     Model: UpdateFaqCategoryRequestSchema
@@ -2555,7 +2562,7 @@ public static class GetFaqSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateFaqCategoryRequestSchema{
+public static class UpdateFaqCategoryRequestSchema {
     
     
     
@@ -2565,8 +2572,8 @@ public static class UpdateFaqCategoryRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: CreateFaqCategoryRequestSchema
@@ -2577,7 +2584,7 @@ public static class UpdateFaqCategoryRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateFaqCategoryRequestSchema{
+public static class CreateFaqCategoryRequestSchema {
     
     
     
@@ -2587,8 +2594,8 @@ public static class CreateFaqCategoryRequestSchema{
     
     
     
+    
 }
-
 
 /*
     Model: CreateFaqCategorySchema
@@ -2599,7 +2606,7 @@ public static class CreateFaqCategoryRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateFaqCategorySchema{
+public static class CreateFaqCategorySchema {
     
     
     
@@ -2609,8 +2616,8 @@ public static class CreateFaqCategorySchema{
     
     
     
+    
 }
-
 
 /*
     Model: GetFaqCategoriesSchema
@@ -2621,7 +2628,7 @@ public static class CreateFaqCategorySchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetFaqCategoriesSchema{
+public static class GetFaqCategoriesSchema {
     
     
     
@@ -2631,8 +2638,8 @@ public static class GetFaqCategoriesSchema{
     
     
     
+    
 }
-
 
 /*
     Model: GetFaqCategoryBySlugSchema
@@ -2643,7 +2650,7 @@ public static class GetFaqCategoriesSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetFaqCategoryBySlugSchema{
+public static class GetFaqCategoryBySlugSchema {
     
     
     
@@ -2653,8 +2660,8 @@ public static class GetFaqCategoryBySlugSchema{
     
     
     
+    
 }
-
 
 /*
     Model: Page
@@ -2665,7 +2672,7 @@ public static class GetFaqCategoryBySlugSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Page{
+public static class Page {
     
     
     
@@ -2711,8 +2718,8 @@ public static class Page{
     
     
     
+    
 }
-
 
 /*
     Model: LandingPageGetResponse
@@ -2723,7 +2730,7 @@ public static class Page{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LandingPageGetResponse{
+public static class LandingPageGetResponse {
     
     
     
@@ -2739,8 +2746,8 @@ public static class LandingPageGetResponse{
     
     
     
+    
 }
-
 
 /*
     Model: LandingPageSchema
@@ -2751,7 +2758,7 @@ public static class LandingPageGetResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LandingPageSchema{
+public static class LandingPageSchema {
     
     
     
@@ -2809,8 +2816,8 @@ public static class LandingPageSchema{
     
     
     
+    
 }
-
 
 /*
     Model: DefaultNavigationResponse
@@ -2821,7 +2828,7 @@ public static class LandingPageSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DefaultNavigationResponse{
+public static class DefaultNavigationResponse {
     
     
     
@@ -2831,8 +2838,8 @@ public static class DefaultNavigationResponse{
     
     
     
+    
 }
-
 
 /*
     Model: NavigationGetResponse
@@ -2843,7 +2850,7 @@ public static class DefaultNavigationResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NavigationGetResponse{
+public static class NavigationGetResponse {
     
     
     
@@ -2859,8 +2866,8 @@ public static class NavigationGetResponse{
     
     
     
+    
 }
-
 
 /*
     Model: Orientation
@@ -2871,7 +2878,7 @@ public static class NavigationGetResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Orientation{
+public static class Orientation {
     
     
     
@@ -2887,8 +2894,8 @@ public static class Orientation{
     
     
     
+    
 }
-
 
 /*
     Model: NavigationSchema
@@ -2899,7 +2906,7 @@ public static class Orientation{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NavigationSchema{
+public static class NavigationSchema {
     
     
     
@@ -2969,8 +2976,8 @@ public static class NavigationSchema{
     
     
     
+    
 }
-
 
 /*
     Model: NavigationRequest
@@ -2981,7 +2988,7 @@ public static class NavigationSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NavigationRequest{
+public static class NavigationRequest {
     
     
     
@@ -3015,8 +3022,8 @@ public static class NavigationRequest{
     
     
     
+    
 }
-
 
 /*
     Model: CustomPageSchema
@@ -3027,7 +3034,7 @@ public static class NavigationRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CustomPageSchema{
+public static class CustomPageSchema {
     
     
     
@@ -3115,8 +3122,8 @@ public static class CustomPageSchema{
     
     
     
+    
 }
-
 
 /*
     Model: ContentSchema
@@ -3127,7 +3134,7 @@ public static class CustomPageSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ContentSchema{
+public static class ContentSchema {
     
     
     
@@ -3143,8 +3150,8 @@ public static class ContentSchema{
     
     
     
+    
 }
-
 
 /*
     Model: CustomPage
@@ -3155,7 +3162,7 @@ public static class ContentSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CustomPage{
+public static class CustomPage {
     
     
     
@@ -3165,8 +3172,8 @@ public static class CustomPage{
     
     
     
+    
 }
-
 
 /*
     Model: FeatureImage
@@ -3177,7 +3184,7 @@ public static class CustomPage{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FeatureImage{
+public static class FeatureImage {
     
     
     
@@ -3187,8 +3194,8 @@ public static class FeatureImage{
     
     
     
+    
 }
-
 
 /*
     Model: PageGetResponse
@@ -3199,7 +3206,7 @@ public static class FeatureImage{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageGetResponse{
+public static class PageGetResponse {
     
     
     
@@ -3215,8 +3222,8 @@ public static class PageGetResponse{
     
     
     
+    
 }
-
 
 /*
     Model: PageSpec
@@ -3227,7 +3234,7 @@ public static class PageGetResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageSpec{
+public static class PageSpec {
     
     
     
@@ -3237,8 +3244,8 @@ public static class PageSpec{
     
     
     
+    
 }
-
 
 /*
     Model: PageSpecParam
@@ -3249,7 +3256,7 @@ public static class PageSpec{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageSpecParam{
+public static class PageSpecParam {
     
     
     
@@ -3265,8 +3272,8 @@ public static class PageSpecParam{
     
     
     
+    
 }
-
 
 /*
     Model: PageSpecItem
@@ -3277,7 +3284,7 @@ public static class PageSpecParam{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageSpecItem{
+public static class PageSpecItem {
     
     
     
@@ -3305,8 +3312,8 @@ public static class PageSpecItem{
     
     
     
+    
 }
-
 
 /*
     Model: PageSchema
@@ -3317,7 +3324,7 @@ public static class PageSpecItem{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageSchema{
+public static class PageSchema {
     
     
     
@@ -3453,8 +3460,8 @@ public static class PageSchema{
     
     
     
+    
 }
-
 
 /*
     Model: CreatedBySchema
@@ -3465,7 +3472,7 @@ public static class PageSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreatedBySchema{
+public static class CreatedBySchema {
     
     
     
@@ -3475,8 +3482,8 @@ public static class CreatedBySchema{
     
     
     
+    
 }
-
 
 /*
     Model: PageContent
@@ -3487,7 +3494,7 @@ public static class CreatedBySchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageContent{
+public static class PageContent {
     
     
     
@@ -3503,8 +3510,8 @@ public static class PageContent{
     
     
     
+    
 }
-
 
 /*
     Model: PageMeta
@@ -3515,7 +3522,7 @@ public static class PageContent{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageMeta{
+public static class PageMeta {
     
     
     
@@ -3531,8 +3538,8 @@ public static class PageMeta{
     
     
     
+    
 }
-
 
 /*
     Model: PageRequest
@@ -3543,7 +3550,7 @@ public static class PageMeta{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageRequest{
+public static class PageRequest {
     
     
     
@@ -3625,8 +3632,8 @@ public static class PageRequest{
     
     
     
+    
 }
-
 
 /*
     Model: CronSchedule
@@ -3637,7 +3644,7 @@ public static class PageRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CronSchedule{
+public static class CronSchedule {
     
     
     
@@ -3665,8 +3672,8 @@ public static class CronSchedule{
     
     
     
+    
 }
-
 
 /*
     Model: PagePublishRequest
@@ -3677,7 +3684,7 @@ public static class CronSchedule{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PagePublishRequest{
+public static class PagePublishRequest {
     
     
     
@@ -3687,8 +3694,8 @@ public static class PagePublishRequest{
     
     
     
+    
 }
-
 
 /*
     Model: PageMetaSchema
@@ -3699,7 +3706,7 @@ public static class PagePublishRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageMetaSchema{
+public static class PageMetaSchema {
     
     
     
@@ -3721,8 +3728,8 @@ public static class PageMetaSchema{
     
     
     
+    
 }
-
 
 /*
     Model: SlideshowGetResponse
@@ -3733,7 +3740,7 @@ public static class PageMetaSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SlideshowGetResponse{
+public static class SlideshowGetResponse {
     
     
     
@@ -3749,8 +3756,8 @@ public static class SlideshowGetResponse{
     
     
     
+    
 }
-
 
 /*
     Model: SlideshowSchema
@@ -3761,7 +3768,7 @@ public static class SlideshowGetResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SlideshowSchema{
+public static class SlideshowSchema {
     
     
     
@@ -3825,8 +3832,8 @@ public static class SlideshowSchema{
     
     
     
+    
 }
-
 
 /*
     Model: SlideshowRequest
@@ -3837,7 +3844,7 @@ public static class SlideshowSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SlideshowRequest{
+public static class SlideshowRequest {
     
     
     
@@ -3871,8 +3878,8 @@ public static class SlideshowRequest{
     
     
     
+    
 }
-
 
 /*
     Model: Support
@@ -3883,7 +3890,7 @@ public static class SlideshowRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Support{
+public static class Support {
     
     
     
@@ -3929,8 +3936,8 @@ public static class Support{
     
     
     
+    
 }
-
 
 /*
     Model: PhoneProperties
@@ -3941,7 +3948,7 @@ public static class Support{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PhoneProperties{
+public static class PhoneProperties {
     
     
     
@@ -3963,8 +3970,8 @@ public static class PhoneProperties{
     
     
     
+    
 }
-
 
 /*
     Model: PhoneSchema
@@ -3975,7 +3982,7 @@ public static class PhoneProperties{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PhoneSchema{
+public static class PhoneSchema {
     
     
     
@@ -3991,8 +3998,8 @@ public static class PhoneSchema{
     
     
     
+    
 }
-
 
 /*
     Model: EmailProperties
@@ -4003,7 +4010,7 @@ public static class PhoneSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailProperties{
+public static class EmailProperties {
     
     
     
@@ -4019,8 +4026,8 @@ public static class EmailProperties{
     
     
     
+    
 }
-
 
 /*
     Model: EmailSchema
@@ -4031,7 +4038,7 @@ public static class EmailProperties{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailSchema{
+public static class EmailSchema {
     
     
     
@@ -4047,8 +4054,8 @@ public static class EmailSchema{
     
     
     
+    
 }
-
 
 /*
     Model: ContactSchema
@@ -4059,7 +4066,7 @@ public static class EmailSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ContactSchema{
+public static class ContactSchema {
     
     
     
@@ -4075,8 +4082,8 @@ public static class ContactSchema{
     
     
     
+    
 }
-
 
 /*
     Model: TagsSchema
@@ -4087,7 +4094,7 @@ public static class ContactSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TagsSchema{
+public static class TagsSchema {
     
     
     
@@ -4109,8 +4116,8 @@ public static class TagsSchema{
     
     
     
+    
 }
-
 
 /*
     Model: TagSchema
@@ -4121,7 +4128,7 @@ public static class TagsSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TagSchema{
+public static class TagSchema {
     
     
     
@@ -4185,8 +4192,8 @@ public static class TagSchema{
     
     
     
+    
 }
-
 
 /*
     Model: TagSourceSchema
@@ -4197,7 +4204,7 @@ public static class TagSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TagSourceSchema{
+public static class TagSourceSchema {
     
     
     
@@ -4213,8 +4220,8 @@ public static class TagSourceSchema{
     
     
     
+    
 }
-
 
 
 
@@ -4348,6 +4355,8 @@ public static class TagSourceSchema{
             this.priority = priority;
         }
     }
+
+
 
 
 }

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
+
 public class LeadApplicationModels{
 
 
@@ -1507,6 +1508,12 @@ public static class SupportGeneralConfig{
     
     
     
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
 }
 
 
@@ -2141,6 +2148,8 @@ public static class Ticket{
             this.priority = priority;
         }
     }
+
+
 
 
 }

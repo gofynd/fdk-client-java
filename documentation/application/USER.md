@@ -54,7 +54,7 @@ Login or Register using Facebook
 
 
 ```java
-applicationClient.user.loginWithFacebook( platform, body body) {
+user.loginWithFacebook( platform, body body) {
   //use response
 }
 ```
@@ -135,7 +135,7 @@ Login or Register using Google
 
 
 ```java
-applicationClient.user.loginWithGoogle( platform, body body) {
+user.loginWithGoogle( platform, body body) {
   //use response
 }
 ```
@@ -216,7 +216,7 @@ Login or Register using Google on Android
 
 
 ```java
-applicationClient.user.loginWithGoogleAndroid( platform, body body) {
+user.loginWithGoogleAndroid( platform, body body) {
   //use response
 }
 ```
@@ -297,7 +297,7 @@ Login or Register using Google on iOS
 
 
 ```java
-applicationClient.user.loginWithGoogleIOS( platform, body body) {
+user.loginWithGoogleIOS( platform, body body) {
   //use response
 }
 ```
@@ -378,7 +378,7 @@ Login or Register using Apple on iOS
 
 
 ```java
-applicationClient.user.loginWithAppleIOS( platform, body body) {
+user.loginWithAppleIOS( platform, body body) {
   //use response
 }
 ```
@@ -459,7 +459,7 @@ Login or Register with OTP
 
 
 ```java
-applicationClient.user.loginWithOTP( platform, body body) {
+user.loginWithOTP( platform, body body) {
   //use response
 }
 ```
@@ -528,7 +528,7 @@ Login or Register with password
 
 
 ```java
-applicationClient.user.loginWithEmailAndPassword(body body) {
+user.loginWithEmailAndPassword(body body) {
   //use response
 }
 ```
@@ -635,7 +635,7 @@ Reset Password
 
 
 ```java
-applicationClient.user.sendResetPasswordEmail( platform, body body) {
+user.sendResetPasswordEmail( platform, body body) {
   //use response
 }
 ```
@@ -690,7 +690,7 @@ Reset Password
 
 
 ```java
-applicationClient.user.sendResetPasswordMobile( platform, body body) {
+user.sendResetPasswordMobile( platform, body body) {
   //use response
 }
 ```
@@ -745,7 +745,7 @@ Forgot Password
 
 
 ```java
-applicationClient.user.forgotPassword(body body) {
+user.forgotPassword(body body) {
   //use response
 }
 ```
@@ -852,7 +852,7 @@ Reset Password using token
 
 
 ```java
-applicationClient.user.sendResetToken(body body) {
+user.sendResetToken(body body) {
   //use response
 }
 ```
@@ -906,7 +906,7 @@ Login or Register with token
 
 
 ```java
-applicationClient.user.loginWithToken(body body) {
+user.loginWithToken(body body) {
   //use response
 }
 ```
@@ -1013,7 +1013,7 @@ Registration using a form
 
 
 ```java
-applicationClient.user.registerWithForm( platform, body body) {
+user.registerWithForm( platform, body body) {
   //use response
 }
 ```
@@ -1077,7 +1077,7 @@ Verify email
 
 
 ```java
-applicationClient.user.verifyEmail(body body) {
+user.verifyEmail(body body) {
   //use response
 }
 ```
@@ -1131,7 +1131,7 @@ Verify mobile
 
 
 ```java
-applicationClient.user.verifyMobile(body body) {
+user.verifyMobile(body body) {
   //use response
 }
 ```
@@ -1185,7 +1185,7 @@ Check password
 
 
 ```java
-applicationClient.user.hasPassword() {
+user.hasPassword() {
   //use response
 }
 ```
@@ -1233,7 +1233,7 @@ Update user password
 
 
 ```java
-applicationClient.user.updatePassword(body body) {
+user.updatePassword(body body) {
   //use response
 }
 ```
@@ -1287,7 +1287,7 @@ verify otp and delete user
 
 
 ```java
-applicationClient.user.deleteUser(body body) {
+user.deleteUser(body body) {
   //use response
 }
 ```
@@ -1341,7 +1341,7 @@ Logs out currently logged in user
 
 
 ```java
-applicationClient.user.logout() {
+user.logout() {
   //use response
 }
 ```
@@ -1389,7 +1389,7 @@ Send OTP on mobile
 
 
 ```java
-applicationClient.user.sendOTPOnMobile( platform, body body) {
+user.sendOTPOnMobile( platform, body body) {
   //use response
 }
 ```
@@ -1450,7 +1450,7 @@ Verify OTP on mobile
 
 
 ```java
-applicationClient.user.verifyMobileOTP( platform, body body) {
+user.verifyMobileOTP( platform, body body) {
   //use response
 }
 ```
@@ -1559,7 +1559,7 @@ Send OTP on email
 
 
 ```java
-applicationClient.user.sendOTPOnEmail( platform, body body) {
+user.sendOTPOnEmail( platform, body body) {
   //use response
 }
 ```
@@ -1614,7 +1614,7 @@ Verify OTP on email
 
 
 ```java
-applicationClient.user.verifyEmailOTP( platform, body body) {
+user.verifyEmailOTP( platform, body body) {
   //use response
 }
 ```
@@ -1723,7 +1723,7 @@ Get logged in user
 
 
 ```java
-applicationClient.user.getLoggedInUser() {
+user.getLoggedInUser() {
   //use response
 }
 ```
@@ -1826,7 +1826,7 @@ Get list of sessions
 
 
 ```java
-applicationClient.user.getListOfActiveSessions() {
+user.getListOfActiveSessions() {
   //use response
 }
 ```
@@ -1879,7 +1879,7 @@ Get platform configurations
 
 
 ```java
-applicationClient.user.getPlatformConfig( name) {
+user.getPlatformConfig( name) {
   //use response
 }
 ```
@@ -2013,7 +2013,7 @@ Edit Profile Details
 
 
 ```java
-applicationClient.user.updateProfile( platform, body body) {
+user.updateProfile( platform, body body) {
   //use response
 }
 ```
@@ -2121,7 +2121,7 @@ Add mobile number to profile
 
 
 ```java
-applicationClient.user.addMobileNumber( platform, body body) {
+user.addMobileNumber( platform, body body) {
   //use response
 }
 ```
@@ -2230,7 +2230,7 @@ Delete mobile number from profile
 
 
 ```java
-applicationClient.user.deleteMobileNumber( platform,  active,  primary,  verified,  countryCode,  phone) {
+user.deleteMobileNumber( platform,  active,  primary,  verified,  countryCode,  phone) {
   //use response
 }
 ```
@@ -2343,7 +2343,7 @@ Set mobile as primary
 
 
 ```java
-applicationClient.user.setMobileNumberAsPrimary(body body) {
+user.setMobileNumberAsPrimary(body body) {
   //use response
 }
 ```
@@ -2450,7 +2450,7 @@ Send verification link to mobile
 
 
 ```java
-applicationClient.user.sendVerificationLinkToMobile( platform, body body) {
+user.sendVerificationLinkToMobile( platform, body body) {
   //use response
 }
 ```
@@ -2559,7 +2559,7 @@ Add email to profile
 
 
 ```java
-applicationClient.user.addEmail( platform, body body) {
+user.addEmail( platform, body body) {
   //use response
 }
 ```
@@ -2668,7 +2668,7 @@ Delete email from profile
 
 
 ```java
-applicationClient.user.deleteEmail( platform,  active,  primary,  verified,  email) {
+user.deleteEmail( platform,  active,  primary,  verified,  email) {
   //use response
 }
 ```
@@ -2780,7 +2780,7 @@ Set email as primary
 
 
 ```java
-applicationClient.user.setEmailAsPrimary(body body) {
+user.setEmailAsPrimary(body body) {
   //use response
 }
 ```
@@ -2887,7 +2887,7 @@ Send verification link to email
 
 
 ```java
-applicationClient.user.sendVerificationLinkToEmail( platform, body body) {
+user.sendVerificationLinkToEmail( platform, body body) {
   //use response
 }
 ```

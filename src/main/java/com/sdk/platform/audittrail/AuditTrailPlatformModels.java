@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
+
 public class AuditTrailPlatformModels{
 
 
@@ -17,7 +18,7 @@ public class AuditTrailPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RequestBodyAuditLog{
+public static class RequestBodyAuditLog {
     
     
     
@@ -33,8 +34,8 @@ public static class RequestBodyAuditLog{
     
     
     
+    
 }
-
 
 /*
     Model: CreateLogResponse
@@ -45,7 +46,7 @@ public static class RequestBodyAuditLog{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateLogResponse{
+public static class CreateLogResponse {
     
     
     
@@ -61,8 +62,8 @@ public static class CreateLogResponse{
     
     
     
+    
 }
-
 
 /*
     Model: LogMetaObj
@@ -73,7 +74,7 @@ public static class CreateLogResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LogMetaObj{
+public static class LogMetaObj {
     
     
     
@@ -107,8 +108,8 @@ public static class LogMetaObj{
     
     
     
+    
 }
-
 
 /*
     Model: EntityObject
@@ -119,7 +120,7 @@ public static class LogMetaObj{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EntityObject{
+public static class EntityObject {
     
     
     
@@ -141,8 +142,8 @@ public static class EntityObject{
     
     
     
+    
 }
-
 
 /*
     Model: LogSchemaResponse
@@ -153,7 +154,7 @@ public static class EntityObject{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LogSchemaResponse{
+public static class LogSchemaResponse {
     
     
     
@@ -163,8 +164,8 @@ public static class LogSchemaResponse{
     
     
     
+    
 }
-
 
 /*
     Model: LogDocs
@@ -175,7 +176,7 @@ public static class LogSchemaResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LogDocs{
+public static class LogDocs {
     
     
     
@@ -239,8 +240,8 @@ public static class LogDocs{
     
     
     
+    
 }
-
 
 /*
     Model: EntityObj
@@ -251,7 +252,7 @@ public static class LogDocs{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EntityObj{
+public static class EntityObj {
     
     
     
@@ -279,8 +280,8 @@ public static class EntityObj{
     
     
     
+    
 }
-
 
 /*
     Model: Modifier
@@ -291,7 +292,7 @@ public static class EntityObj{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Modifier{
+public static class Modifier {
     
     
     
@@ -313,8 +314,8 @@ public static class Modifier{
     
     
     
+    
 }
-
 
 /*
     Model: DeviceInfo
@@ -325,7 +326,7 @@ public static class Modifier{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeviceInfo{
+public static class DeviceInfo {
     
     
     
@@ -341,8 +342,8 @@ public static class DeviceInfo{
     
     
     
+    
 }
-
 
 /*
     Model: Location
@@ -353,7 +354,7 @@ public static class DeviceInfo{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Location{
+public static class Location {
     
     
     
@@ -363,8 +364,8 @@ public static class Location{
     
     
     
+    
 }
-
 
 /*
     Model: BadRequest
@@ -375,7 +376,7 @@ public static class Location{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BadRequest{
+public static class BadRequest {
     
     
     
@@ -385,8 +386,8 @@ public static class BadRequest{
     
     
     
+    
 }
-
 
 /*
     Model: ResourceNotFound
@@ -397,7 +398,7 @@ public static class BadRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResourceNotFound{
+public static class ResourceNotFound {
     
     
     
@@ -407,8 +408,8 @@ public static class ResourceNotFound{
     
     
     
+    
 }
-
 
 /*
     Model: InternalServerError
@@ -419,7 +420,7 @@ public static class ResourceNotFound{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InternalServerError{
+public static class InternalServerError {
     
     
     
@@ -435,8 +436,8 @@ public static class InternalServerError{
     
     
     
+    
 }
-
 
 /*
     Model: EntityTypesResponse
@@ -447,7 +448,7 @@ public static class InternalServerError{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EntityTypesResponse{
+public static class EntityTypesResponse {
     
     
     
@@ -457,8 +458,8 @@ public static class EntityTypesResponse{
     
     
     
+    
 }
-
 
 /*
     Model: EntityTypeObj
@@ -469,7 +470,7 @@ public static class EntityTypesResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EntityTypeObj{
+public static class EntityTypeObj {
     
     
     
@@ -485,7 +486,9 @@ public static class EntityTypeObj{
     
     
     
+    
 }
+
 
 
 

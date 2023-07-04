@@ -30,7 +30,7 @@ Fetch discount list.
 
 
 ```java
-platformClient.discount.getDiscounts( view,  q,  pageNo,  pageSize,  archived,  month,  year,  type,  appIds) {
+client.discount.getDiscounts( view,  q,  pageNo,  pageSize,  archived,  month,  year,  type,  appIds) {
   //use response
 }
 ```
@@ -92,7 +92,7 @@ Create Discount.
 
 
 ```java
-platformClient.discount.createDiscount(body body) {
+client.discount.createDiscount(body body) {
   //use response
 }
 ```
@@ -145,7 +145,7 @@ Fetch discount.
 
 
 ```java
-platformClient.discount.getDiscount( id) {
+client.discount.getDiscount( id) {
   //use response
 }
 ```
@@ -199,7 +199,7 @@ Create Discount.
 
 
 ```java
-platformClient.discount.updateDiscount( id, body body) {
+client.discount.updateDiscount( id, body body) {
   //use response
 }
 ```
@@ -253,7 +253,7 @@ Create custom discount from bulk.
 
 
 ```java
-platformClient.discount.upsertDiscountItems( id, body body) {
+client.discount.upsertDiscountItems( id, body body) {
   //use response
 }
 ```
@@ -307,7 +307,7 @@ Validate File.
 
 
 ```java
-platformClient.discount.validateDiscountFile( discount, body body) {
+client.discount.validateDiscountFile( discount, body body) {
   //use response
 }
 ```
@@ -318,7 +318,7 @@ platformClient.discount.validateDiscountFile( discount, body body) {
 | --------- | -----  | -------- | ----------- | 
 | companyId | Integer | yes | company_id |   
 | discount | String? | no | discount |  
-| body | [DiscountJob](#DiscountJob) | yes | Request body |
+| body | [FileJobRequest](#FileJobRequest) | yes | Request body |
 
 
 Validate File.
@@ -361,7 +361,7 @@ Validate File.
 
 
 ```java
-platformClient.discount.downloadDiscountFile( type, body body) {
+client.discount.downloadDiscountFile( type, body body) {
   //use response
 }
 ```
@@ -415,7 +415,7 @@ Validate File Job.
 
 
 ```java
-platformClient.discount.getValidationJob( id) {
+client.discount.getValidationJob( id) {
   //use response
 }
 ```
@@ -469,7 +469,7 @@ Cancel Validation Job.
 
 
 ```java
-platformClient.discount.cancelValidationJob( id) {
+client.discount.cancelValidationJob( id) {
   //use response
 }
 ```
@@ -523,7 +523,7 @@ Download File Job.
 
 
 ```java
-platformClient.discount.getDownloadJob( id) {
+client.discount.getDownloadJob( id) {
   //use response
 }
 ```
@@ -577,7 +577,7 @@ Cancel Download Job.
 
 
 ```java
-platformClient.discount.cancelDownloadJob( id) {
+client.discount.cancelDownloadJob( id) {
   //use response
 }
 ```
@@ -742,6 +742,27 @@ Success
  | body | HashMap<String,Object>? |  yes  |  |
  | type | String |  no  |  |
  | fileType | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [FileJobRequest](#FileJobRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String |  no  |  |
+ | isActive | Boolean |  no  |  |
+ | appIds | ArrayList<String>? |  yes  |  |
+ | jobType | String? |  yes  |  |
+ | discountType | String? |  yes  |  |
+ | discountLevel | String? |  yes  |  |
+ | filePath | String? |  yes  |  |
+ | brandIds | ArrayList<Integer>? |  yes  |  |
+ | storeIds | ArrayList<Integer>? |  yes  |  |
+ | validity | [ValidityObject](#ValidityObject) |  no  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
 
 ---
 

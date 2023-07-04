@@ -99,7 +99,7 @@ interface DiscountPlatformApiList {
     
     
     @POST ("/service/platform/discount/v1.0/company/{company_id}/file/validation/")
-    Call<DiscountPlatformModels.FileJobResponse> validateDiscountFile(@Path("company_id")  String companyId , @Query("discount") String  discount ,@Body DiscountPlatformModels.DiscountJob payload);
+    Call<DiscountPlatformModels.FileJobResponse> validateDiscountFile(@Path("company_id")  String companyId , @Query("discount") String  discount ,@Body DiscountPlatformModels.FileJobRequest payload);
     
     
     

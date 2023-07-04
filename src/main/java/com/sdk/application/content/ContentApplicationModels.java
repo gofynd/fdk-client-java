@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
+
 public class ContentApplicationModels{
 
 
@@ -340,6 +341,12 @@ public static class Detail{
     
     @JsonProperty("description")
     private String description;
+    
+    
+    
+    
+    @JsonProperty("image_url")
+    private String imageUrl;
     
     
     
@@ -4259,6 +4266,8 @@ public static class TagSourceSchema{
             this.priority = priority;
         }
     }
+
+
 
 
 }

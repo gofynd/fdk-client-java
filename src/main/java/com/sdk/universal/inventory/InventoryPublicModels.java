@@ -3,6 +3,7 @@ package com.sdk.universal.inventory;
 
 import com.fasterxml.jackson.annotation.*;
 import lombok.*;
+
 import java.util.*;
 
 public class InventoryPublicModels{

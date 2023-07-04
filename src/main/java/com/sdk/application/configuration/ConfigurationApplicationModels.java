@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
+
 public class ConfigurationApplicationModels{
 
 
@@ -1824,6 +1825,12 @@ public static class ListingPriceFeature{
     
     @JsonProperty("value")
     private String value;
+    
+    
+    
+    
+    @JsonProperty("sort")
+    private String sort;
     
     
     
@@ -4068,6 +4075,8 @@ public static class OrderingStoresResponse{
     
     
 }
+
+
 
 
 

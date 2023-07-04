@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.net.CookieStore;
 import java.util.*;
 
-import com.sdk.universal.*;
+import com.sdk.universal.PublicConfig;
 import com.sdk.common.*;
 
 
