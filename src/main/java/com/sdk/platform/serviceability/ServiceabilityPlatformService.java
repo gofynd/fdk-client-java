@@ -149,12 +149,20 @@ public class ServiceabilityPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public ServiceabilityPlatformModels.CompanyStoreView_Response getCompanyStoreView() throws FDKException {
+    public ServiceabilityPlatformModels.CompanyStoreView_Response getCompanyStoreView(Integer pageNumber , Integer pageSize ) throws FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ServiceabilityPlatformModels.CompanyStoreView_Response> response = null;
             try {
-                response = serviceabilityPlatformApiList.getCompanyStoreView(this.companyId ).execute();
+                response = serviceabilityPlatformApiList.getCompanyStoreView(this.companyId ,pageNumber , pageSize ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKException(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -292,6 +300,74 @@ public class ServiceabilityPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ServiceabilityPlatformModels.ListViewResponse getZoneListView(Integer pageNumber , Integer pageNo , Integer pageSize , String name , Boolean isActive , String channelIds , String q , List<String> zoneId ) throws FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.ListViewResponse> response = null;
+            try {
+                response = serviceabilityPlatformApiList.getZoneListView(this.companyId ,pageNumber , pageNo , pageSize , name , isActive , channelIds , q , zoneId ).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKException(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage(), e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
     
     
     
@@ -545,6 +621,8 @@ public class ApplicationClient {
         }    
     }
 
+    
+    
     
     
     

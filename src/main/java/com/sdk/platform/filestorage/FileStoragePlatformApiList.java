@@ -140,7 +140,7 @@ interface FileStoragePlatformApiList {
     
     
     
-    @POST ("/service/platform/assets/v1.0/company/{company_id}/proxy/")
+    @GET ("/service/platform/assets/v1.0/company/{company_id}/proxy/")
     Call<String> proxy(@Path("company_id")  String companyId , @Query("url") String  url );
     
 }

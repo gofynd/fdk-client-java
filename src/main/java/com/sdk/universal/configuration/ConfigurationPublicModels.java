@@ -138,6 +138,12 @@ public static class Domain{
     
     
     
+    
+    @JsonProperty("is_predefined")
+    private Boolean isPredefined;
+    
+    
+    
 }
 
 
