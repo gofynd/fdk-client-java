@@ -1569,7 +1569,6 @@ Success. User Group details. `UserGroupResponseSchema` for more details.
  | action | String? |  yes  |  |
  | token | String? |  yes  |  |
  | registerToken | String? |  yes  |  |
- | captchaCode | String? |  yes  |  |
 
 ---
 

@@ -544,12 +544,6 @@ public static class AppCartConfig{
     
     
     
-    @JsonProperty("empty_cart")
-    private Boolean emptyCart;
-    
-    
-    
-    
     @JsonProperty("pan_card")
     private PanCardConfig panCard;
     
@@ -5779,12 +5773,6 @@ public static class Application{
     
     
     
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
 }
 
 
@@ -6339,7 +6327,7 @@ public static class InformationAddress{
     
     
     @JsonProperty("phone")
-    private List<InformationPhone> phone;
+    private InformationPhone phone;
     
     
     
@@ -6934,12 +6922,6 @@ public static class ApplicationDetail{
     
     @JsonProperty("_id")
     private String id;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
     
     
     
