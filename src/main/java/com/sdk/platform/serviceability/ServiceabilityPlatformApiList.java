@@ -80,20 +80,20 @@ interface ServiceabilityPlatformApiList {
     
     
     
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
-    Call<ServiceabilityPlatformModels.GetSingleZoneDataViewResponse> getZoneDataView(@Path("company_id")  String companyId , @Path("zone_id") String  zoneId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PUT ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
     Call<ServiceabilityPlatformModels.ZoneSuccessResponse> updateZoneControllerView(@Path("zone_id") String  zoneId , @Path("company_id")  String companyId ,@Body ServiceabilityPlatformModels.ZoneUpdateRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
+    Call<ServiceabilityPlatformModels.GetSingleZoneDataViewResponse> getZoneDataView(@Path("company_id")  String companyId , @Path("zone_id") String  zoneId );
     
     
     
@@ -320,20 +320,20 @@ interface ServiceabilityPlatformApiList {
     
     
     
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier/rules/{rule_uid}")
-    Call<ServiceabilityPlatformModels.DpRuleSuccessResponse> getDpRules(@Path("company_id")  String companyId , @Path("rule_uid") String  ruleUid );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @PUT ("/service/platform/logistics/v1.0/company/{company_id}/courier/rules/{rule_uid}")
     Call<ServiceabilityPlatformModels.DpRuleUpdateSuccessResponse> updateDpRule(@Path("company_id")  String companyId , @Path("rule_uid") String  ruleUid ,@Body ServiceabilityPlatformModels.DpRulesUpdateRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier/rules/{rule_uid}")
+    Call<ServiceabilityPlatformModels.DpRuleSuccessResponse> getDpRules(@Path("company_id")  String companyId , @Path("rule_uid") String  ruleUid );
     
     
     
@@ -365,15 +365,6 @@ interface ServiceabilityPlatformApiList {
     
     
     
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier/priority")
-    Call<ServiceabilityPlatformModels.DPCompanyRuleResponse> getDpCompanyRules(@Path("company_id")  String companyId );
-    
-    
-    
-    
-    
-    
-    
     @PUT ("/service/platform/logistics/v1.0/company/{company_id}/courier/priority")
     Call<ServiceabilityPlatformModels.DPCompanyRuleResponse> upsertDpCompanyRules(@Path("company_id")  String companyId ,@Body ServiceabilityPlatformModels.DPCompanyRuleRequest payload);
     
@@ -383,11 +374,8 @@ interface ServiceabilityPlatformApiList {
     
     
     
-    
-    
-    
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/courier/priority")
-    Call<ServiceabilityPlatformModels.DPApplicationRuleResponse> getDpApplicationRules(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier/priority")
+    Call<ServiceabilityPlatformModels.DPCompanyRuleResponse> getDpCompanyRules(@Path("company_id")  String companyId );
     
     
     
@@ -410,8 +398,8 @@ interface ServiceabilityPlatformApiList {
     
     
     
-    @PATCH ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/selfship")
-    Call<ServiceabilityPlatformModels.ApplicationSelfShipConfigResponse> patchApplicationServiceabilitySelfShipment(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ServiceabilityPlatformModels.SelfShipResponse payload);
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/courier/priority")
+    Call<ServiceabilityPlatformModels.DPApplicationRuleResponse> getDpApplicationRules(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
     
     
@@ -424,5 +412,17 @@ interface ServiceabilityPlatformApiList {
     
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/selfship")
     Call<ServiceabilityPlatformModels.ApplicationSelfShipConfigResponse> getApplicationServiceabilitySelfShipment(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PATCH ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/selfship")
+    Call<ServiceabilityPlatformModels.ApplicationSelfShipConfigResponse> patchApplicationServiceabilitySelfShipment(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ServiceabilityPlatformModels.SelfShipResponse payload);
     
 }

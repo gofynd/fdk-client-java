@@ -30,8 +30,6 @@ import com.sdk.platform.filestorage.FileStoragePlatformService;
 
 import com.sdk.platform.share.SharePlatformService;
 
-import com.sdk.platform.inventory.InventoryPlatformService;
-
 import com.sdk.platform.configuration.ConfigurationPlatformService;
 
 import com.sdk.platform.cart.CartPlatformService;
@@ -85,8 +83,6 @@ public class PlatformClient {
     
     public SharePlatformService share;
     
-    public InventoryPlatformService inventory;
-    
     public ConfigurationPlatformService configuration;
     
     public CartPlatformService cart;
@@ -135,8 +131,6 @@ public class PlatformClient {
         this.fileStorage = new FileStoragePlatformService(config);
         
         this.share = new SharePlatformService(config);
-        
-        this.inventory = new InventoryPlatformService(config);
         
         this.configuration = new ConfigurationPlatformService(config);
         
@@ -198,8 +192,6 @@ public class PlatformClient {
         
         public SharePlatformService.ApplicationClient share;
         
-        public InventoryPlatformService.ApplicationClient inventory;
-        
         public ConfigurationPlatformService.ApplicationClient configuration;
         
         public CartPlatformService.ApplicationClient cart;
@@ -247,8 +239,6 @@ public class PlatformClient {
             this.fileStorage = new FileStoragePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.share = new SharePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.inventory = new InventoryPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.configuration = new ConfigurationPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             

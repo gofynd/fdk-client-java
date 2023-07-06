@@ -53,7 +53,7 @@ public static class BusinessDetails{
 
 
 /*
-    Model: UserSerializer
+    Model: GetAddressSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -61,25 +61,73 @@ public static class BusinessDetails{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserSerializer{
+public static class GetAddressSerializer{
     
     
     
     
-    @JsonProperty("username")
-    private String username;
+    @JsonProperty("pincode")
+    private Integer pincode;
     
     
     
     
-    @JsonProperty("user_id")
-    private String userId;
+    @JsonProperty("landmark")
+    private String landmark;
     
     
     
     
-    @JsonProperty("contact")
-    private String contact;
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
+    
+    
+    
+    
+    @JsonProperty("address_type")
+    private String addressType;
+    
+    
+    
+    
+    @JsonProperty("address2")
+    private String address2;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("longitude")
+    private Double longitude;
+    
+    
+    
+    
+    @JsonProperty("address1")
+    private String address1;
+    
+    
+    
+    
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("latitude")
+    private Double latitude;
     
     
     
@@ -87,7 +135,7 @@ public static class UserSerializer{
 
 
 /*
-    Model: CompanyTaxesSerializer
+    Model: Document
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -95,25 +143,37 @@ public static class UserSerializer{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyTaxesSerializer{
+public static class Document{
     
     
     
     
-    @JsonProperty("rate")
-    private Double rate;
+    @JsonProperty("verified")
+    private Boolean verified;
     
     
     
     
-    @JsonProperty("enable")
-    private Boolean enable;
+    @JsonProperty("value")
+    private String value;
     
     
     
     
-    @JsonProperty("effective_date")
-    private String effectiveDate;
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("legal_name")
+    private String legalName;
     
     
     
@@ -149,52 +209,6 @@ public static class BusinessCountryInfo{
 
 
 /*
-    Model: Document
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Document{
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-    
-    @JsonProperty("verified")
-    private Boolean verified;
-    
-    
-    
-    
-    @JsonProperty("legal_name")
-    private String legalName;
-    
-    
-    
-    
-    @JsonProperty("url")
-    private String url;
-    
-    
-    
-}
-
-
-/*
     Model: SellerPhoneNumber
 */
 @AllArgsConstructor
@@ -208,14 +222,14 @@ public static class SellerPhoneNumber{
     
     
     
-    @JsonProperty("country_code")
-    private Integer countryCode;
-    
-    
-    
-    
     @JsonProperty("number")
     private String number;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private Integer countryCode;
     
     
     
@@ -236,14 +250,14 @@ public static class ContactDetails{
     
     
     
-    @JsonProperty("emails")
-    private List<String> emails;
-    
-    
-    
-    
     @JsonProperty("phone")
     private List<SellerPhoneNumber> phone;
+    
+    
+    
+    
+    @JsonProperty("emails")
+    private List<String> emails;
     
     
     
@@ -251,7 +265,7 @@ public static class ContactDetails{
 
 
 /*
-    Model: GetAddressSerializer
+    Model: UserSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -259,73 +273,59 @@ public static class ContactDetails{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetAddressSerializer{
+public static class UserSerializer{
     
     
     
     
-    @JsonProperty("pincode")
-    private Integer pincode;
+    @JsonProperty("user_id")
+    private String userId;
     
     
     
     
-    @JsonProperty("latitude")
-    private Double latitude;
+    @JsonProperty("contact")
+    private String contact;
     
     
     
     
-    @JsonProperty("address2")
-    private String address2;
+    @JsonProperty("username")
+    private String username;
+    
+    
+    
+}
+
+
+/*
+    Model: CompanyTaxesSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CompanyTaxesSerializer{
     
     
     
     
-    @JsonProperty("landmark")
-    private String landmark;
+    @JsonProperty("rate")
+    private Double rate;
     
     
     
     
-    @JsonProperty("country_code")
-    private String countryCode;
+    @JsonProperty("effective_date")
+    private String effectiveDate;
     
     
     
     
-    @JsonProperty("address_type")
-    private String addressType;
-    
-    
-    
-    
-    @JsonProperty("state")
-    private String state;
-    
-    
-    
-    
-    @JsonProperty("longitude")
-    private Double longitude;
-    
-    
-    
-    
-    @JsonProperty("city")
-    private String city;
-    
-    
-    
-    
-    @JsonProperty("address1")
-    private String address1;
-    
-    
-    
-    
-    @JsonProperty("country")
-    private String country;
+    @JsonProperty("enable")
+    private Boolean enable;
     
     
     
@@ -346,8 +346,14 @@ public static class GetCompanyProfileSerializerResponse{
     
     
     
-    @JsonProperty("modified_on")
-    private String modifiedOn;
+    @JsonProperty("business_type")
+    private String businessType;
+    
+    
+    
+    
+    @JsonProperty("mode")
+    private String mode;
     
     
     
@@ -358,8 +364,104 @@ public static class GetCompanyProfileSerializerResponse{
     
     
     
+    @JsonProperty("warnings")
+    private Object warnings;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
     @JsonProperty("created_on")
     private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("franchise_enabled")
+    private Boolean franchiseEnabled;
+    
+    
+    
+    
+    @JsonProperty("business_info")
+    private String businessInfo;
+    
+    
+    
+    
+    @JsonProperty("notification_emails")
+    private List<String> notificationEmails;
+    
+    
+    
+    
+    @JsonProperty("addresses")
+    private List<GetAddressSerializer> addresses;
+    
+    
+    
+    
+    @JsonProperty("documents")
+    private List<Document> documents;
+    
+    
+    
+    
+    @JsonProperty("verified_on")
+    private String verifiedOn;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("company_type")
+    private String companyType;
+    
+    
+    
+    
+    @JsonProperty("business_country_info")
+    private BusinessCountryInfo businessCountryInfo;
+    
+    
+    
+    
+    @JsonProperty("contact_details")
+    private ContactDetails contactDetails;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private UserSerializer createdBy;
     
     
     
@@ -376,110 +478,8 @@ public static class GetCompanyProfileSerializerResponse{
     
     
     
-    @JsonProperty("created_by")
-    private UserSerializer createdBy;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("business_country_info")
-    private BusinessCountryInfo businessCountryInfo;
-    
-    
-    
-    
-    @JsonProperty("franchise_enabled")
-    private Boolean franchiseEnabled;
-    
-    
-    
-    
-    @JsonProperty("documents")
-    private List<Document> documents;
-    
-    
-    
-    
-    @JsonProperty("contact_details")
-    private ContactDetails contactDetails;
-    
-    
-    
-    
-    @JsonProperty("_custom_json")
-    private Object customJson;
-    
-    
-    
-    
-    @JsonProperty("notification_emails")
-    private List<String> notificationEmails;
-    
-    
-    
-    
-    @JsonProperty("warnings")
-    private Object warnings;
-    
-    
-    
-    
-    @JsonProperty("business_info")
-    private String businessInfo;
-    
-    
-    
-    
-    @JsonProperty("mode")
-    private String mode;
-    
-    
-    
-    
-    @JsonProperty("business_type")
-    private String businessType;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("verified_on")
-    private String verifiedOn;
-    
-    
-    
-    
-    @JsonProperty("company_type")
-    private String companyType;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
     @JsonProperty("modified_by")
     private UserSerializer modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("addresses")
-    private List<GetAddressSerializer> addresses;
     
     
     
@@ -500,8 +500,8 @@ public static class ErrorResponse{
     
     
     
-    @JsonProperty("code")
-    private String code;
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -512,14 +512,14 @@ public static class ErrorResponse{
     
     
     
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
     @JsonProperty("meta")
     private Object meta;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
     
     
     
@@ -546,14 +546,14 @@ public static class CompanyTaxesSerializer1{
     
     
     
-    @JsonProperty("enable")
-    private Boolean enable;
-    
-    
-    
-    
     @JsonProperty("effective_date")
     private String effectiveDate;
+    
+    
+    
+    
+    @JsonProperty("enable")
+    private Boolean enable;
     
     
     
@@ -580,32 +580,8 @@ public static class CreateUpdateAddressSerializer{
     
     
     
-    @JsonProperty("latitude")
-    private Double latitude;
-    
-    
-    
-    
-    @JsonProperty("address2")
-    private String address2;
-    
-    
-    
-    
     @JsonProperty("landmark")
     private String landmark;
-    
-    
-    
-    
-    @JsonProperty("country_code")
-    private String countryCode;
-    
-    
-    
-    
-    @JsonProperty("address_type")
-    private String addressType;
     
     
     
@@ -616,14 +592,32 @@ public static class CreateUpdateAddressSerializer{
     
     
     
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("address_type")
+    private String addressType;
+    
+    
+    
+    
+    @JsonProperty("address2")
+    private String address2;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
     @JsonProperty("longitude")
     private Double longitude;
-    
-    
-    
-    
-    @JsonProperty("city")
-    private String city;
     
     
     
@@ -634,8 +628,14 @@ public static class CreateUpdateAddressSerializer{
     
     
     
-    @JsonProperty("country")
-    private String country;
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("latitude")
+    private Double latitude;
     
     
     
@@ -656,80 +656,14 @@ public static class UpdateCompany{
     
     
     
-    @JsonProperty("contact_details")
-    private ContactDetails contactDetails;
-    
-    
-    
-    
-    @JsonProperty("_custom_json")
-    private Object customJson;
-    
-    
-    
-    
-    @JsonProperty("business_details")
-    private BusinessDetails businessDetails;
-    
-    
-    
-    
-    @JsonProperty("notification_emails")
-    private List<String> notificationEmails;
-    
-    
-    
-    
-    @JsonProperty("warnings")
-    private Object warnings;
-    
-    
-    
-    
-    @JsonProperty("company_type")
-    private String companyType;
-    
-    
-    
-    
-    @JsonProperty("business_info")
-    private String businessInfo;
-    
-    
-    
-    
-    @JsonProperty("reject_reason")
-    private String rejectReason;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("taxes")
-    private List<CompanyTaxesSerializer1> taxes;
-    
-    
-    
-    
     @JsonProperty("business_type")
     private String businessType;
     
     
     
     
-    @JsonProperty("franchise_enabled")
-    private Boolean franchiseEnabled;
-    
-    
-    
-    
-    @JsonProperty("addresses")
-    private List<CreateUpdateAddressSerializer> addresses;
+    @JsonProperty("documents")
+    private List<Document> documents;
     
     
     
@@ -740,8 +674,74 @@ public static class UpdateCompany{
     
     
     
-    @JsonProperty("documents")
-    private List<Document> documents;
+    @JsonProperty("business_details")
+    private BusinessDetails businessDetails;
+    
+    
+    
+    
+    @JsonProperty("taxes")
+    private List<CompanyTaxesSerializer1> taxes;
+    
+    
+    
+    
+    @JsonProperty("warnings")
+    private Object warnings;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("company_type")
+    private String companyType;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("franchise_enabled")
+    private Boolean franchiseEnabled;
+    
+    
+    
+    
+    @JsonProperty("business_info")
+    private String businessInfo;
+    
+    
+    
+    
+    @JsonProperty("notification_emails")
+    private List<String> notificationEmails;
+    
+    
+    
+    
+    @JsonProperty("reject_reason")
+    private String rejectReason;
+    
+    
+    
+    
+    @JsonProperty("addresses")
+    private List<CreateUpdateAddressSerializer> addresses;
+    
+    
+    
+    
+    @JsonProperty("contact_details")
+    private ContactDetails contactDetails;
     
     
     
@@ -762,8 +762,8 @@ public static class ProfileSuccessResponse{
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
+    @JsonProperty("uid")
+    private Integer uid;
     
     
     
@@ -774,8 +774,8 @@ public static class ProfileSuccessResponse{
     
     
     
-    @JsonProperty("uid")
-    private Integer uid;
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -824,32 +824,8 @@ public static class MetricsSerializer{
     
     
     
-    @JsonProperty("company_documents")
-    private DocumentsObj companyDocuments;
-    
-    
-    
-    
-    @JsonProperty("store_documents")
-    private DocumentsObj storeDocuments;
-    
-    
-    
-    
     @JsonProperty("uid")
     private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("product")
-    private DocumentsObj product;
-    
-    
-    
-    
-    @JsonProperty("brand")
-    private DocumentsObj brand;
     
     
     
@@ -860,8 +836,32 @@ public static class MetricsSerializer{
     
     
     
+    @JsonProperty("product")
+    private DocumentsObj product;
+    
+    
+    
+    
+    @JsonProperty("store_documents")
+    private DocumentsObj storeDocuments;
+    
+    
+    
+    
     @JsonProperty("stage")
     private String stage;
+    
+    
+    
+    
+    @JsonProperty("brand")
+    private DocumentsObj brand;
+    
+    
+    
+    
+    @JsonProperty("company_documents")
+    private DocumentsObj companyDocuments;
     
     
     
@@ -882,14 +882,14 @@ public static class BrandBannerSerializer{
     
     
     
-    @JsonProperty("landscape")
-    private String landscape;
-    
-    
-    
-    
     @JsonProperty("portrait")
     private String portrait;
+    
+    
+    
+    
+    @JsonProperty("landscape")
+    private String landscape;
     
     
     
@@ -910,62 +910,8 @@ public static class GetBrandResponseSerializer{
     
     
     
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("verified_by")
-    private UserSerializer verifiedBy;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private UserSerializer createdBy;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("synonyms")
-    private List<String> synonyms;
-    
-    
-    
-    
-    @JsonProperty("slug_key")
-    private String slugKey;
-    
-    
-    
-    
-    @JsonProperty("_custom_json")
-    private Object customJson;
-    
-    
-    
-    
     @JsonProperty("logo")
     private String logo;
-    
-    
-    
-    
-    @JsonProperty("warnings")
-    private Object warnings;
     
     
     
@@ -976,8 +922,44 @@ public static class GetBrandResponseSerializer{
     
     
     
+    @JsonProperty("warnings")
+    private Object warnings;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
     @JsonProperty("stage")
     private String stage;
+    
+    
+    
+    
+    @JsonProperty("synonyms")
+    private List<String> synonyms;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("slug_key")
+    private String slugKey;
     
     
     
@@ -994,8 +976,14 @@ public static class GetBrandResponseSerializer{
     
     
     
-    @JsonProperty("_locale_language")
-    private Object localeLanguage;
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
     
     
     
@@ -1006,20 +994,32 @@ public static class GetBrandResponseSerializer{
     
     
     
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
     @JsonProperty("banner")
     private BrandBannerSerializer banner;
     
     
     
     
+    @JsonProperty("created_by")
+    private UserSerializer createdBy;
+    
+    
+    
+    
+    @JsonProperty("verified_by")
+    private UserSerializer verifiedBy;
+    
+    
+    
+    
     @JsonProperty("modified_by")
     private UserSerializer modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("_locale_language")
+    private Object localeLanguage;
     
     
     
@@ -1040,8 +1040,8 @@ public static class CreateUpdateBrandRequestSerializer{
     
     
     
-    @JsonProperty("_custom_json")
-    private Object customJson;
+    @JsonProperty("uid")
+    private Integer uid;
     
     
     
@@ -1052,14 +1052,14 @@ public static class CreateUpdateBrandRequestSerializer{
     
     
     
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
     @JsonProperty("description")
     private String description;
-    
-    
-    
-    
-    @JsonProperty("banner")
-    private BrandBannerSerializer banner;
     
     
     
@@ -1070,14 +1070,8 @@ public static class CreateUpdateBrandRequestSerializer{
     
     
     
-    @JsonProperty("synonyms")
-    private List<String> synonyms;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
+    @JsonProperty("_custom_json")
+    private Object customJson;
     
     
     
@@ -1088,72 +1082,20 @@ public static class CreateUpdateBrandRequestSerializer{
     
     
     
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("banner")
+    private BrandBannerSerializer banner;
+    
+    
+    
+    
+    @JsonProperty("synonyms")
+    private List<String> synonyms;
     
     
     
     
     @JsonProperty("_locale_language")
     private Object localeLanguage;
-    
-    
-    
-}
-
-
-/*
-    Model: Page
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Page{
-    
-    
-    
-    
-    @JsonProperty("item_total")
-    private Integer itemTotal;
-    
-    
-    
-    
-    @JsonProperty("next_id")
-    private String nextId;
-    
-    
-    
-    
-    @JsonProperty("has_previous")
-    private Boolean hasPrevious;
-    
-    
-    
-    
-    @JsonProperty("has_next")
-    private Boolean hasNext;
-    
-    
-    
-    
-    @JsonProperty("current")
-    private Integer current;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private Integer size;
     
     
     
@@ -1230,32 +1172,38 @@ public static class CompanySerializer{
     
     
     
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private UserSerializer createdBy;
+    
+    
+    
+    
+    @JsonProperty("business_type")
+    private String businessType;
+    
+    
+    
+    
+    @JsonProperty("verified_by")
+    private UserSerializer verifiedBy;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
     @JsonProperty("_custom_json")
     private Object customJson;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("verified_on")
-    private String verifiedOn;
-    
-    
-    
-    
-    @JsonProperty("notification_emails")
-    private List<String> notificationEmails;
-    
-    
-    
-    
-    @JsonProperty("business_country_info")
-    private BusinessCountryInfo businessCountryInfo;
     
     
     
@@ -1272,6 +1220,36 @@ public static class CompanySerializer{
     
     
     
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("notification_emails")
+    private List<String> notificationEmails;
+    
+    
+    
+    
+    @JsonProperty("business_country_info")
+    private BusinessCountryInfo businessCountryInfo;
+    
+    
+    
+    
+    @JsonProperty("verified_on")
+    private String verifiedOn;
+    
+    
+    
+    
+    @JsonProperty("addresses")
+    private List<GetAddressSerializer> addresses;
+    
+    
+    
+    
     @JsonProperty("reject_reason")
     private String rejectReason;
     
@@ -1284,8 +1262,8 @@ public static class CompanySerializer{
     
     
     
-    @JsonProperty("verified_by")
-    private UserSerializer verifiedBy;
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
@@ -1296,44 +1274,8 @@ public static class CompanySerializer{
     
     
     
-    @JsonProperty("created_by")
-    private UserSerializer createdBy;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("business_type")
-    private String businessType;
-    
-    
-    
-    
     @JsonProperty("modified_by")
     private UserSerializer modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("addresses")
-    private List<GetAddressSerializer> addresses;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
     
     
     
@@ -1354,44 +1296,8 @@ public static class CompanyBrandSerializer{
     
     
     
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("verified_on")
-    private String verifiedOn;
-    
-    
-    
-    
-    @JsonProperty("warnings")
-    private Object warnings;
-    
-    
-    
-    
-    @JsonProperty("company")
-    private CompanySerializer company;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("reject_reason")
-    private String rejectReason;
-    
-    
-    
-    
-    @JsonProperty("verified_by")
-    private UserSerializer verifiedBy;
+    @JsonProperty("uid")
+    private Integer uid;
     
     
     
@@ -1402,8 +1308,38 @@ public static class CompanyBrandSerializer{
     
     
     
-    @JsonProperty("uid")
-    private Integer uid;
+    @JsonProperty("verified_by")
+    private UserSerializer verifiedBy;
+    
+    
+    
+    
+    @JsonProperty("company")
+    private CompanySerializer company;
+    
+    
+    
+    
+    @JsonProperty("warnings")
+    private Object warnings;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("verified_on")
+    private String verifiedOn;
     
     
     
@@ -1414,14 +1350,78 @@ public static class CompanyBrandSerializer{
     
     
     
+    @JsonProperty("reject_reason")
+    private String rejectReason;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
     @JsonProperty("modified_by")
     private UserSerializer modifiedBy;
     
     
     
+}
+
+
+/*
+    Model: Page
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Page{
     
-    @JsonProperty("stage")
-    private String stage;
+    
+    
+    
+    @JsonProperty("item_total")
+    private Integer itemTotal;
+    
+    
+    
+    
+    @JsonProperty("next_id")
+    private String nextId;
+    
+    
+    
+    
+    @JsonProperty("has_previous")
+    private Boolean hasPrevious;
+    
+    
+    
+    
+    @JsonProperty("has_next")
+    private Boolean hasNext;
+    
+    
+    
+    
+    @JsonProperty("current")
+    private Integer current;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private Integer size;
     
     
     
@@ -1442,14 +1442,14 @@ public static class CompanyBrandListSerializer{
     
     
     
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<CompanyBrandSerializer> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -1470,6 +1470,12 @@ public static class CompanyBrandPostRequestSerializer{
     
     
     
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
     @JsonProperty("brands")
     private List<Integer> brands;
     
@@ -1478,12 +1484,6 @@ public static class CompanyBrandPostRequestSerializer{
     
     @JsonProperty("company")
     private Integer company;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
     
     
     
@@ -1504,108 +1504,14 @@ public static class ProductReturnConfigSerializer{
     
     
     
-    @JsonProperty("store_uid")
-    private Integer storeUid;
-    
-    
-    
-    
     @JsonProperty("on_same_store")
     private Boolean onSameStore;
     
     
     
-}
-
-
-/*
-    Model: GetCompanySerializer
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCompanySerializer{
     
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("verified_on")
-    private String verifiedOn;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("company_type")
-    private String companyType;
-    
-    
-    
-    
-    @JsonProperty("reject_reason")
-    private String rejectReason;
-    
-    
-    
-    
-    @JsonProperty("verified_by")
-    private UserSerializer verifiedBy;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private UserSerializer createdBy;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("business_type")
-    private String businessType;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private UserSerializer modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("addresses")
-    private List<GetAddressSerializer> addresses;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
+    @JsonProperty("store_uid")
+    private Integer storeUid;
     
     
     
@@ -1613,7 +1519,7 @@ public static class GetCompanySerializer{
 
 
 /*
-    Model: LocationManagerSerializer
+    Model: AverageOrderProcessingTime
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1621,25 +1527,81 @@ public static class GetCompanySerializer{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationManagerSerializer{
+public static class AverageOrderProcessingTime{
     
     
     
     
-    @JsonProperty("mobile_no")
-    private SellerPhoneNumber mobileNo;
+    @JsonProperty("duration_type")
+    private String durationType;
     
     
     
     
-    @JsonProperty("email")
-    private String email;
+    @JsonProperty("duration")
+    private Integer duration;
+    
+    
+    
+}
+
+
+/*
+    Model: InvoiceCredSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoiceCredSerializer{
     
     
     
     
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("password")
+    private String password;
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+    
+    @JsonProperty("username")
+    private String username;
+    
+    
+    
+}
+
+
+/*
+    Model: InvoiceDetailsSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoiceDetailsSerializer{
+    
+    
+    
+    
+    @JsonProperty("e_waybill")
+    private InvoiceCredSerializer eWaybill;
+    
+    
+    
+    
+    @JsonProperty("e_invoice")
+    private InvoiceCredSerializer eInvoice;
     
     
     
@@ -1694,14 +1656,14 @@ public static class LocationDayWiseSerializer{
     
     
     
-    @JsonProperty("closing")
-    private LocationTimingSerializer closing;
-    
-    
-    
-    
     @JsonProperty("opening")
     private LocationTimingSerializer opening;
+    
+    
+    
+    
+    @JsonProperty("closing")
+    private LocationTimingSerializer closing;
     
     
     
@@ -1715,7 +1677,7 @@ public static class LocationDayWiseSerializer{
 
 
 /*
-    Model: AverageOrderProcessingTime
+    Model: GetCompanySerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1723,19 +1685,85 @@ public static class LocationDayWiseSerializer{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AverageOrderProcessingTime{
+public static class GetCompanySerializer{
     
     
     
     
-    @JsonProperty("duration_type")
-    private String durationType;
+    @JsonProperty("uid")
+    private Integer uid;
     
     
     
     
-    @JsonProperty("duration")
-    private Integer duration;
+    @JsonProperty("created_by")
+    private UserSerializer createdBy;
+    
+    
+    
+    
+    @JsonProperty("business_type")
+    private String businessType;
+    
+    
+    
+    
+    @JsonProperty("verified_by")
+    private UserSerializer verifiedBy;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("company_type")
+    private String companyType;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("verified_on")
+    private String verifiedOn;
+    
+    
+    
+    
+    @JsonProperty("reject_reason")
+    private String rejectReason;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("addresses")
+    private List<GetAddressSerializer> addresses;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private UserSerializer modifiedBy;
     
     
     
@@ -1743,7 +1771,7 @@ public static class AverageOrderProcessingTime{
 
 
 /*
-    Model: InvoiceCredSerializer
+    Model: LocationManagerSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1751,53 +1779,25 @@ public static class AverageOrderProcessingTime{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceCredSerializer{
+public static class LocationManagerSerializer{
     
     
     
     
-    @JsonProperty("enabled")
-    private Boolean enabled;
+    @JsonProperty("mobile_no")
+    private SellerPhoneNumber mobileNo;
     
     
     
     
-    @JsonProperty("username")
-    private String username;
+    @JsonProperty("email")
+    private String email;
     
     
     
     
-    @JsonProperty("password")
-    private String password;
-    
-    
-    
-}
-
-
-/*
-    Model: InvoiceDetailsSerializer
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceDetailsSerializer{
-    
-    
-    
-    
-    @JsonProperty("e_invoice")
-    private InvoiceCredSerializer eInvoice;
-    
-    
-    
-    
-    @JsonProperty("e_waybill")
-    private InvoiceCredSerializer eWaybill;
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -1818,14 +1818,14 @@ public static class HolidayDateSerializer{
     
     
     
-    @JsonProperty("start_date")
-    private String startDate;
-    
-    
-    
-    
     @JsonProperty("end_date")
     private String endDate;
+    
+    
+    
+    
+    @JsonProperty("start_date")
+    private String startDate;
     
     
     
@@ -1846,14 +1846,14 @@ public static class HolidaySchemaSerializer{
     
     
     
-    @JsonProperty("holiday_type")
-    private String holidayType;
-    
-    
-    
-    
     @JsonProperty("date")
     private HolidayDateSerializer date;
+    
+    
+    
+    
+    @JsonProperty("holiday_type")
+    private String holidayType;
     
     
     
@@ -1880,86 +1880,8 @@ public static class GetLocationSerializer{
     
     
     
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
     @JsonProperty("product_return_config")
     private ProductReturnConfigSerializer productReturnConfig;
-    
-    
-    
-    
-    @JsonProperty("company")
-    private GetCompanySerializer company;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("manager")
-    private LocationManagerSerializer manager;
-    
-    
-    
-    
-    @JsonProperty("verified_by")
-    private UserSerializer verifiedBy;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private UserSerializer createdBy;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("documents")
-    private List<Document> documents;
-    
-    
-    
-    
-    @JsonProperty("order_acceptance_timing")
-    private List<LocationDayWiseSerializer> orderAcceptanceTiming;
-    
-    
-    
-    
-    @JsonProperty("_custom_json")
-    private Object customJson;
-    
-    
-    
-    
-    @JsonProperty("auto_invoice")
-    private Boolean autoInvoice;
-    
-    
-    
-    
-    @JsonProperty("credit_note")
-    private Boolean creditNote;
-    
-    
-    
-    
-    @JsonProperty("notification_emails")
-    private List<String> notificationEmails;
     
     
     
@@ -1970,44 +1892,14 @@ public static class GetLocationSerializer{
     
     
     
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
     @JsonProperty("avg_order_processing_time")
     private AverageOrderProcessingTime avgOrderProcessingTime;
-    
-    
-    
-    
-    @JsonProperty("address")
-    private GetAddressSerializer address;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("store_type")
-    private String storeType;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("timing")
-    private List<LocationDayWiseSerializer> timing;
     
     
     
@@ -2018,20 +1910,80 @@ public static class GetLocationSerializer{
     
     
     
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("store_type")
+    private String storeType;
+    
+    
+    
+    
+    @JsonProperty("notification_emails")
+    private List<String> notificationEmails;
+    
+    
+    
+    
+    @JsonProperty("timing")
+    private List<LocationDayWiseSerializer> timing;
+    
+    
+    
+    
+    @JsonProperty("documents")
+    private List<Document> documents;
+    
+    
+    
+    
+    @JsonProperty("company")
+    private GetCompanySerializer company;
+    
+    
+    
+    
+    @JsonProperty("auto_invoice")
+    private Boolean autoInvoice;
+    
+    
+    
+    
+    @JsonProperty("manager")
+    private LocationManagerSerializer manager;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("credit_note")
+    private Boolean creditNote;
+    
+    
+    
+    
     @JsonProperty("verified_on")
     private String verifiedOn;
     
     
     
     
-    @JsonProperty("tags")
-    private List<String> tags;
-    
-    
-    
-    
-    @JsonProperty("default_order_acceptance_timing")
-    private Boolean defaultOrderAcceptanceTiming;
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
@@ -2042,8 +1994,50 @@ public static class GetLocationSerializer{
     
     
     
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("holiday")
+    private List<HolidaySchemaSerializer> holiday;
+    
+    
+    
+    
     @JsonProperty("name")
     private String name;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("default_order_acceptance_timing")
+    private Boolean defaultOrderAcceptanceTiming;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private UserSerializer createdBy;
+    
+    
+    
+    
+    @JsonProperty("verified_by")
+    private UserSerializer verifiedBy;
     
     
     
@@ -2054,8 +2048,14 @@ public static class GetLocationSerializer{
     
     
     
-    @JsonProperty("holiday")
-    private List<HolidaySchemaSerializer> holiday;
+    @JsonProperty("order_acceptance_timing")
+    private List<LocationDayWiseSerializer> orderAcceptanceTiming;
+    
+    
+    
+    
+    @JsonProperty("address")
+    private GetAddressSerializer address;
     
     
     
@@ -2082,14 +2082,14 @@ public static class LocationListSerializer{
     
     
     
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
     @JsonProperty("items")
     private List<GetLocationSerializer> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -2116,32 +2116,14 @@ public static class AddressSerializer{
     
     
     
-    @JsonProperty("latitude")
-    private Double latitude;
-    
-    
-    
-    
-    @JsonProperty("address2")
-    private String address2;
-    
-    
-    
-    
     @JsonProperty("landmark")
     private String landmark;
     
     
     
     
-    @JsonProperty("country_code")
-    private String countryCode;
-    
-    
-    
-    
-    @JsonProperty("address_type")
-    private String addressType;
+    @JsonProperty("country")
+    private String country;
     
     
     
@@ -2152,14 +2134,26 @@ public static class AddressSerializer{
     
     
     
+    @JsonProperty("address_type")
+    private String addressType;
+    
+    
+    
+    
+    @JsonProperty("address2")
+    private String address2;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
     @JsonProperty("longitude")
     private Double longitude;
-    
-    
-    
-    
-    @JsonProperty("city")
-    private String city;
     
     
     
@@ -2170,8 +2164,14 @@ public static class AddressSerializer{
     
     
     
-    @JsonProperty("country")
-    private String country;
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("latitude")
+    private Double latitude;
     
     
     
@@ -2198,32 +2198,8 @@ public static class LocationSerializer{
     
     
     
-    @JsonProperty("company")
-    private Integer company;
-    
-    
-    
-    
-    @JsonProperty("manager")
-    private LocationManagerSerializer manager;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("documents")
-    private List<Document> documents;
-    
-    
-    
-    
-    @JsonProperty("order_acceptance_timing")
-    private List<LocationDayWiseSerializer> orderAcceptanceTiming;
+    @JsonProperty("warnings")
+    private Object warnings;
     
     
     
@@ -2234,68 +2210,8 @@ public static class LocationSerializer{
     
     
     
-    @JsonProperty("auto_invoice")
-    private Boolean autoInvoice;
-    
-    
-    
-    
-    @JsonProperty("credit_note")
-    private Boolean creditNote;
-    
-    
-    
-    
-    @JsonProperty("notification_emails")
-    private List<String> notificationEmails;
-    
-    
-    
-    
-    @JsonProperty("warnings")
-    private Object warnings;
-    
-    
-    
-    
     @JsonProperty("avg_order_processing_time")
     private AverageOrderProcessingTime avgOrderProcessingTime;
-    
-    
-    
-    
-    @JsonProperty("address")
-    private AddressSerializer address;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("store_type")
-    private String storeType;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("timing")
-    private List<LocationDayWiseSerializer> timing;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
     
     
     
@@ -2306,14 +2222,74 @@ public static class LocationSerializer{
     
     
     
-    @JsonProperty("tags")
-    private List<String> tags;
+    @JsonProperty("stage")
+    private String stage;
     
     
     
     
-    @JsonProperty("default_order_acceptance_timing")
-    private Boolean defaultOrderAcceptanceTiming;
+    @JsonProperty("store_type")
+    private String storeType;
+    
+    
+    
+    
+    @JsonProperty("notification_emails")
+    private List<String> notificationEmails;
+    
+    
+    
+    
+    @JsonProperty("timing")
+    private List<LocationDayWiseSerializer> timing;
+    
+    
+    
+    
+    @JsonProperty("documents")
+    private List<Document> documents;
+    
+    
+    
+    
+    @JsonProperty("company")
+    private Integer company;
+    
+    
+    
+    
+    @JsonProperty("auto_invoice")
+    private Boolean autoInvoice;
+    
+    
+    
+    
+    @JsonProperty("manager")
+    private LocationManagerSerializer manager;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("credit_note")
+    private Boolean creditNote;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("holiday")
+    private List<HolidaySchemaSerializer> holiday;
     
     
     
@@ -2324,8 +2300,32 @@ public static class LocationSerializer{
     
     
     
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("default_order_acceptance_timing")
+    private Boolean defaultOrderAcceptanceTiming;
+    
+    
+    
+    
     @JsonProperty("contact_numbers")
     private List<SellerPhoneNumber> contactNumbers;
+    
+    
+    
+    
+    @JsonProperty("order_acceptance_timing")
+    private List<LocationDayWiseSerializer> orderAcceptanceTiming;
     
     
     
@@ -2336,8 +2336,8 @@ public static class LocationSerializer{
     
     
     
-    @JsonProperty("holiday")
-    private List<HolidaySchemaSerializer> holiday;
+    @JsonProperty("address")
+    private AddressSerializer address;
     
     
     
@@ -2380,14 +2380,14 @@ public static class StoreTagsResponse{
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
     @JsonProperty("tags")
     private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
