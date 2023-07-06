@@ -1447,8 +1447,8 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | channel | ArrayList<String>? |  yes  |  |
  | company | ArrayList<String>? |  yes  |  |
+ | channel | ArrayList<String>? |  yes  |  |
  | brand | ArrayList<String>? |  yes  |  |
 
 ---
@@ -1460,8 +1460,8 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | channel | String? |  yes  |  |
  | company | String? |  yes  |  |
+ | channel | String? |  yes  |  |
  | brand | String? |  yes  |  |
 
 ---
@@ -1473,11 +1473,11 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | filters | [GenerateReportFilters](#GenerateReportFilters)? |  yes  |  |
- | meta | [GenerateReportMeta](#GenerateReportMeta)? |  yes  |  |
  | startDate | String? |  yes  |  |
- | reportId | String? |  yes  |  |
+ | filters | [GenerateReportFilters](#GenerateReportFilters)? |  yes  |  |
  | endDate | String? |  yes  |  |
+ | reportId | String? |  yes  |  |
+ | meta | [GenerateReportMeta](#GenerateReportMeta)? |  yes  |  |
 
 ---
 
@@ -1500,10 +1500,10 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | itemTotal | Integer? |  yes  |  |
+ | size | Integer? |  yes  |  |
  | current | Integer? |  yes  |  |
  | hasNext | Boolean? |  yes  |  |
  | type | String? |  yes  |  |
- | size | Integer? |  yes  |  |
 
 ---
 
@@ -1514,11 +1514,11 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | page | [Page](#Page)? |  yes  |  |
- | itemCount | Integer? |  yes  |  |
  | startDate | String? |  yes  |  |
  | endDate | String? |  yes  |  |
+ | itemCount | Integer? |  yes  |  |
  | headers | ArrayList<String>? |  yes  |  |
+ | page | [Page](#Page)? |  yes  |  |
  | items | ArrayList<ArrayList<String>>? |  yes  |  |
 
 ---
@@ -1530,8 +1530,8 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | reason | String? |  yes  |  |
  | success | Boolean? |  yes  |  |
+ | reason | String? |  yes  |  |
 
 ---
 
@@ -1543,9 +1543,9 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | page | Integer? |  yes  |  |
- | pagesize | Integer? |  yes  |  |
- | endDate | String? |  yes  |  |
  | startDate | String? |  yes  |  |
+ | endDate | String? |  yes  |  |
+ | pagesize | Integer? |  yes  |  |
 
 ---
 
@@ -1557,11 +1557,11 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | filters | [GenerateReportFilters](#GenerateReportFilters)? |  yes  |  |
- | meta | [GenerateReportMeta](#GenerateReportMeta)? |  yes  |  |
- | typeOfRequest | String? |  yes  |  |
  | startDate | String? |  yes  |  |
- | reportId | String? |  yes  |  |
  | endDate | String? |  yes  |  |
+ | typeOfRequest | String? |  yes  |  |
+ | reportId | String? |  yes  |  |
+ | meta | [GenerateReportMeta](#GenerateReportMeta)? |  yes  |  |
 
 ---
 
@@ -1572,9 +1572,9 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | itemCount | Integer? |  yes  |  |
- | items | ArrayList<[DownloadReportItems](#DownloadReportItems)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[DownloadReportItems](#DownloadReportItems)>? |  yes  |  |
+ | itemCount | Integer? |  yes  |  |
 
 ---
 
@@ -1596,8 +1596,8 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | filters | [GetEngineFilters](#GetEngineFilters)? |  yes  |  |
  | tableName | String? |  yes  |  |
+ | filters | [GetEngineFilters](#GetEngineFilters)? |  yes  |  |
  | project | ArrayList<String>? |  yes  |  |
 
 ---
@@ -1620,9 +1620,9 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | itemCount | Integer? |  yes  |  |
- | items | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | success | Boolean? |  yes  |  |
+ | items | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | itemCount | Integer? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
 
 ---
@@ -1772,15 +1772,15 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | totalAmount | String? |  yes  |  |
- | transactionType | String? |  yes  |  |
- | modeOfPayment | String? |  yes  |  |
- | sellerId | String? |  yes  |  |
- | amount | String? |  yes  |  |
  | currency | String? |  yes  |  |
- | invoiceNumber | String? |  yes  |  |
- | sourceReference | String? |  yes  |  |
  | platform | String? |  yes  |  |
+ | sellerId | String? |  yes  |  |
+ | totalAmount | String? |  yes  |  |
+ | invoiceNumber | String? |  yes  |  |
+ | transactionType | String? |  yes  |  |
+ | sourceReference | String? |  yes  |  |
+ | amount | String? |  yes  |  |
+ | modeOfPayment | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
 
 ---
@@ -1803,10 +1803,10 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
- | transactionId | String? |  yes  |  |
- | code | Integer? |  yes  |  |
  | redirectUrl | String? |  yes  |  |
+ | code | Integer? |  yes  |  |
+ | transactionId | String? |  yes  |  |
+ | message | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
 
 ---
@@ -1818,10 +1818,10 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | pagesize | Integer? |  yes  |  |
- | page | Integer? |  yes  |  |
  | sellerId | String? |  yes  |  |
  | endEnd | String? |  yes  |  |
+ | pagesize | Integer? |  yes  |  |
+ | page | Integer? |  yes  |  |
  | startEnd | String? |  yes  |  |
 
 ---
@@ -1844,12 +1844,12 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
- | page | HashMap<String,Object>? |  yes  |  |
  | showMr | Boolean? |  yes  |  |
- | headers | ArrayList<String>? |  yes  |  |
- | itemCount | Integer? |  yes  |  |
  | code | Integer? |  yes  |  |
+ | itemCount | Integer? |  yes  |  |
+ | headers | ArrayList<String>? |  yes  |  |
+ | page | HashMap<String,Object>? |  yes  |  |
+ | message | String? |  yes  |  |
  | items | ArrayList<HashMap<String,Object>>? |  yes  |  |
 
 ---
@@ -1883,8 +1883,8 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | code | Integer? |  yes  |  |
  | isCreditlineOpted | Boolean? |  yes  |  |
+ | code | Integer? |  yes  |  |
 
 ---
 
@@ -1917,8 +1917,8 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | text | String? |  yes  |  |
  | value | String? |  yes  |  |
+ | text | String? |  yes  |  |
 
 ---
 
@@ -1929,8 +1929,8 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | invoiceTypeList | ArrayList<[InvoiceTypeResponseItems](#InvoiceTypeResponseItems)>? |  yes  |  |
  | success | Boolean? |  yes  |  |
+ | invoiceTypeList | ArrayList<[InvoiceTypeResponseItems](#InvoiceTypeResponseItems)>? |  yes  |  |
  | paymentStatusList | ArrayList<[InvoiceTypeResponseItems](#InvoiceTypeResponseItems)>? |  yes  |  |
 
 ---
@@ -1942,9 +1942,9 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | companyId | ArrayList<String>? |  yes  |  |
  | invoiceType | ArrayList<String>? |  yes  |  |
  | paymentStatus | ArrayList<String>? |  yes  |  |
- | companyId | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -1955,11 +1955,11 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | filters | [InoviceListingPayloadDataFilters](#InoviceListingPayloadDataFilters)? |  yes  |  |
- | pageSize | Integer? |  yes  |  |
- | page | Integer? |  yes  |  |
  | startDate | String? |  yes  |  |
+ | filters | [InoviceListingPayloadDataFilters](#InoviceListingPayloadDataFilters)? |  yes  |  |
  | endDate | String? |  yes  |  |
+ | page | Integer? |  yes  |  |
+ | pageSize | Integer? |  yes  |  |
  | search | String? |  yes  |  |
 
 ---
@@ -1978,33 +1978,33 @@ Success
 
  
  
- #### [UnpaidInvoiceDataItems](#UnpaidInvoiceDataItems)
+ #### [InvoiceListingResponseItems](#InvoiceListingResponseItems)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | totalUnpaidAmount | Double? |  yes  |  |
- | currency | String? |  yes  |  |
- | totalUnpaidInvoiceCount | Integer? |  yes  |  |
+ | invoiceType | String? |  yes  |  |
+ | invoiceNumber | String? |  yes  |  |
+ | isDownloadable | Boolean? |  yes  |  |
+ | invoiceDate | String? |  yes  |  |
+ | invoiceId | String? |  yes  |  |
+ | status | String? |  yes  |  |
+ | dueDate | String? |  yes  |  |
+ | amount | String? |  yes  |  |
+ | company | String? |  yes  |  |
+ | period | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [InvoiceListingResponseItems](#InvoiceListingResponseItems)
+ #### [UnpaidInvoiceDataItems](#UnpaidInvoiceDataItems)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | status | String? |  yes  |  |
- | invoiceId | String? |  yes  |  |
- | invoiceType | String? |  yes  |  |
- | amount | String? |  yes  |  |
- | period | String? |  yes  |  |
- | dueDate | String? |  yes  |  |
- | invoiceNumber | String? |  yes  |  |
- | company | String? |  yes  |  |
- | isDownloadable | Boolean? |  yes  |  |
- | invoiceDate | String? |  yes  |  |
+ | currency | String? |  yes  |  |
+ | totalUnpaidAmount | Double? |  yes  |  |
+ | totalUnpaidInvoiceCount | Integer? |  yes  |  |
 
 ---
 
@@ -2015,10 +2015,10 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | page | [Page](#Page)? |  yes  |  |
+ | items | ArrayList<[InvoiceListingResponseItems](#InvoiceListingResponseItems)>? |  yes  |  |
  | unpaidInvoiceData | [UnpaidInvoiceDataItems](#UnpaidInvoiceDataItems)? |  yes  |  |
  | itemCount | Integer? |  yes  |  |
- | items | ArrayList<[InvoiceListingResponseItems](#InvoiceListingResponseItems)>? |  yes  |  |
- | page | [Page](#Page)? |  yes  |  |
 
 ---
 
@@ -2051,9 +2051,9 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | error | ArrayList<String>? |  yes  |  |
  | success | Boolean? |  yes  |  |
  | data | ArrayList<String>? |  yes  |  |
+ | error | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -2064,9 +2064,9 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sellerId | Integer? |  yes  |  |
- | toggleEditRequired | Boolean? |  yes  |  |
  | affiliateId | String? |  yes  |  |
+ | toggleEditRequired | Boolean? |  yes  |  |
+ | sellerId | Integer? |  yes  |  |
 
 ---
 
@@ -2122,16 +2122,16 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | validity | Integer? |  yes  |  |
- | slugValues | ArrayList<String>? |  yes  |  |
- | sourceChannel | ArrayList<String>? |  yes  |  |
  | isCnAsRefundMethod | Boolean? |  yes  |  |
  | sellerId | Integer? |  yes  |  |
- | currencyType | String? |  yes  |  |
  | notificationEvents | [CreditNoteConfigNotificationEvents](#CreditNoteConfigNotificationEvents)? |  yes  |  |
- | affiliateId | String? |  yes  |  |
- | orderingChannel | ArrayList<String>? |  yes  |  |
+ | currencyType | String? |  yes  |  |
+ | sourceChannel | ArrayList<String>? |  yes  |  |
  | salesChannelName | String? |  yes  |  |
+ | orderingChannel | ArrayList<String>? |  yes  |  |
+ | affiliateId | String? |  yes  |  |
+ | validity | Integer? |  yes  |  |
+ | slugValues | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -2153,8 +2153,8 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
  | success | Boolean? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -2165,9 +2165,9 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | sellerId | Integer? |  yes  |  |
- | slugValues | ArrayList<String>? |  yes  |  |
  | affiliateId | String? |  yes  |  |
+ | slugValues | ArrayList<String>? |  yes  |  |
+ | sellerId | Integer? |  yes  |  |
 
 ---
 
@@ -2189,8 +2189,8 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
  | success | Boolean? |  yes  |  |
+ | message | String? |  yes  |  |
 
 ---
 
@@ -2281,14 +2281,14 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | shipmentId | String? |  yes  |  |
  | channelOfIssuance | String? |  yes  |  |
- | storeId | String? |  yes  |  |
- | dateIssued | String? |  yes  |  |
- | expiryDate | String? |  yes  |  |
  | invoiceNumber | String? |  yes  |  |
- | orderingChannel | String? |  yes  |  |
  | orderId | String? |  yes  |  |
+ | dateIssued | String? |  yes  |  |
+ | orderingChannel | String? |  yes  |  |
+ | shipmentId | String? |  yes  |  |
+ | expiryDate | String? |  yes  |  |
+ | storeId | String? |  yes  |  |
  | staffId | String? |  yes  |  |
 
 ---
@@ -2300,14 +2300,14 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | shipmentId | String? |  yes  |  |
- | storeId | String? |  yes  |  |
- | invoiceNumber | String? |  yes  |  |
- | orderingChannel | String? |  yes  |  |
  | amountDebited | Integer? |  yes  |  |
+ | invoiceNumber | String? |  yes  |  |
  | orderId | String? |  yes  |  |
- | createdAt | String? |  yes  |  |
+ | storeId | String? |  yes  |  |
+ | shipmentId | String? |  yes  |  |
+ | orderingChannel | String? |  yes  |  |
  | staffId | String? |  yes  |  |
+ | createdAt | String? |  yes  |  |
 
 ---
 
@@ -2318,14 +2318,14 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | remainingCnAmount | Integer? |  yes  |  |
+ | cnDetails | ArrayList<[CnDetails](#CnDetails)>? |  yes  |  |
  | cnAmount | Integer? |  yes  |  |
  | cnReferenceNumber | String? |  yes  |  |
- | customerMobileNumber | String? |  yes  |  |
- | cnDetails | ArrayList<[CnDetails](#CnDetails)>? |  yes  |  |
- | availableCnBalance | Integer? |  yes  |  |
- | redemptionDetails | ArrayList<[RedemptionDetails](#RedemptionDetails)>? |  yes  |  |
  | cnStatus | String? |  yes  |  |
+ | remainingCnAmount | Integer? |  yes  |  |
+ | availableCnBalance | Integer? |  yes  |  |
+ | customerMobileNumber | String? |  yes  |  |
+ | redemptionDetails | ArrayList<[RedemptionDetails](#RedemptionDetails)>? |  yes  |  |
 
 ---
 
@@ -2348,9 +2348,9 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | affiliateId | String? |  yes  |  |
  | sellerId | Integer? |  yes  |  |
  | customerMobileNumber | String? |  yes  |  |
- | affiliateId | String? |  yes  |  |
 
 ---
 
@@ -2372,8 +2372,8 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | customerMobileNumber | String? |  yes  |  |
  | totalCreditedBalance | Integer? |  yes  |  |
+ | customerMobileNumber | String? |  yes  |  |
 
 ---
 
@@ -2407,8 +2407,8 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | reason | String? |  yes  |  |
  | sourceChannel | ArrayList<String>? |  yes  |  |
+ | reason | String? |  yes  |  |
 
 ---
 
@@ -2419,13 +2419,13 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | validity | Integer? |  yes  |  |
  | isCnAsRefundMethod | Boolean? |  yes  |  |
  | sellerId | Integer? |  yes  |  |
- | currencyType | String? |  yes  |  |
  | notificationEvents | [CreditNoteConfigNotificationEvents](#CreditNoteConfigNotificationEvents)? |  yes  |  |
- | affiliateId | String? |  yes  |  |
+ | currencyType | String? |  yes  |  |
  | redemptionOrderingChannel | ArrayList<String>? |  yes  |  |
+ | affiliateId | String? |  yes  |  |
+ | validity | Integer? |  yes  |  |
  | meta | [GetCnConfigResponseMeta](#GetCnConfigResponseMeta)? |  yes  |  |
 
 ---
@@ -2449,12 +2449,12 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | utilisation | ArrayList<String>? |  yes  |  |
  | channelOfIssuance | ArrayList<String>? |  yes  |  |
- | storeId | ArrayList<Integer>? |  yes  |  |
+ | utilisation | ArrayList<String>? |  yes  |  |
  | orderingChannel | ArrayList<String>? |  yes  |  |
- | typesOfTransaction | ArrayList<String>? |  yes  |  |
+ | storeId | ArrayList<Integer>? |  yes  |  |
  | staffId | ArrayList<String>? |  yes  |  |
+ | typesOfTransaction | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -2465,16 +2465,16 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | filters | [CnGenerateReportFilters](#CnGenerateReportFilters)? |  yes  |  |
- | pagesize | Integer? |  yes  |  |
- | meta | [GenerateReportFilters](#GenerateReportFilters)? |  yes  |  |
- | searchType | String? |  yes  |  |
- | page | Integer? |  yes  |  |
  | startDate | String? |  yes  |  |
- | affiliateId | String? |  yes  |  |
- | reportId | String? |  yes  |  |
+ | filters | [CnGenerateReportFilters](#CnGenerateReportFilters)? |  yes  |  |
+ | searchType | String? |  yes  |  |
  | endDate | String? |  yes  |  |
+ | affiliateId | String? |  yes  |  |
+ | pagesize | Integer? |  yes  |  |
+ | reportId | String? |  yes  |  |
+ | page | Integer? |  yes  |  |
  | search | String? |  yes  |  |
+ | meta | [GenerateReportFilters](#GenerateReportFilters)? |  yes  |  |
 
 ---
 
@@ -2496,14 +2496,14 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | shipmentId | String? |  yes  |  |
- | status | String? |  yes  |  |
- | totalAmount | Integer? |  yes  |  |
- | creditNoteNumber | String? |  yes  |  |
- | expiryDate | String? |  yes  |  |
  | invoiceNumber | String? |  yes  |  |
- | dateIssued | String? |  yes  |  |
  | orderId | String? |  yes  |  |
+ | totalAmount | Integer? |  yes  |  |
+ | dateIssued | String? |  yes  |  |
+ | shipmentId | String? |  yes  |  |
+ | expiryDate | String? |  yes  |  |
+ | status | String? |  yes  |  |
+ | creditNoteNumber | String? |  yes  |  |
 
 ---
 
@@ -2514,14 +2514,14 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | allowedFilters | ArrayList<String>? |  yes  |  |
- | page | [Page](#Page)? |  yes  |  |
- | itemCount | Integer? |  yes  |  |
  | startDate | String? |  yes  |  |
  | endDate | String? |  yes  |  |
- | rowHeaderDisplayOrder | HashMap<String,Object>? |  yes  |  |
+ | allowedFilters | ArrayList<String>? |  yes  |  |
+ | itemCount | Integer? |  yes  |  |
  | headers | ArrayList<String>? |  yes  |  |
  | primaryHeaders | ArrayList<String>? |  yes  |  |
+ | rowHeaderDisplayOrder | HashMap<String,Object>? |  yes  |  |
+ | page | [Page](#Page)? |  yes  |  |
  | items | ArrayList<[CnGenerateReportItems](#CnGenerateReportItems)>? |  yes  |  |
 
 ---
@@ -2533,13 +2533,13 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | status | ArrayList<String>? |  yes  |  |
- | pagesize | Integer? |  yes  |  |
- | searchType | String? |  yes  |  |
- | page | Integer? |  yes  |  |
  | startDate | String? |  yes  |  |
- | affiliateId | String? |  yes  |  |
+ | searchType | String? |  yes  |  |
  | endDate | String? |  yes  |  |
+ | affiliateId | String? |  yes  |  |
+ | pagesize | Integer? |  yes  |  |
+ | status | ArrayList<String>? |  yes  |  |
+ | page | Integer? |  yes  |  |
  | search | String? |  yes  |  |
 
 ---
@@ -2562,19 +2562,19 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | filters | HashMap<String,Object>? |  yes  |  |
- | status | String? |  yes  |  |
- | msg | String? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | reportConfigId | String? |  yes  |  |
- | downloadLink | String? |  yes  |  |
- | fullName | String? |  yes  |  |
- | requestDict | HashMap<String,Object>? |  yes  |  |
- | requestedBy | String? |  yes  |  |
- | displayName | String? |  yes  |  |
- | startDate | String? |  yes  |  |
  | reportName | String? |  yes  |  |
+ | filters | HashMap<String,Object>? |  yes  |  |
+ | startDate | String? |  yes  |  |
+ | displayName | String? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
  | endDate | String? |  yes  |  |
+ | fullName | String? |  yes  |  |
+ | requestedBy | String? |  yes  |  |
+ | msg | String? |  yes  |  |
+ | status | String? |  yes  |  |
+ | reportConfigId | String? |  yes  |  |
+ | requestDict | HashMap<String,Object>? |  yes  |  |
+ | downloadLink | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
 
 ---
@@ -2593,30 +2593,30 @@ Success
 
  
  
- #### [GetReportingNestedFilters](#GetReportingNestedFilters)
+ #### [GetReportingFilters](#GetReportingFilters)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | type | String? |  yes  |  |
+ | value | String? |  yes  |  |
  | options | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | text | String? |  yes  |  |
- | placeholderText | String? |  yes  |  |
- | required | Boolean? |  yes  |  |
- | value | String? |  yes  |  |
- | type | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [GetReportingFilters](#GetReportingFilters)
+ #### [GetReportingNestedFilters](#GetReportingNestedFilters)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | options | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | text | String? |  yes  |  |
- | type | String? |  yes  |  |
  | value | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | required | Boolean? |  yes  |  |
+ | placeholderText | String? |  yes  |  |
 
 ---
 
@@ -2627,9 +2627,9 @@ Success
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | search | [GetReportingFilters](#GetReportingFilters)? |  yes  |  |
  | filters | ArrayList<[GetReportingNestedFilters](#GetReportingNestedFilters)>? |  yes  |  |
  | status | [GetReportingFilters](#GetReportingFilters)? |  yes  |  |
- | search | [GetReportingFilters](#GetReportingFilters)? |  yes  |  |
 
 ---
 

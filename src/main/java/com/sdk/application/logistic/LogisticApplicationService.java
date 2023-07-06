@@ -47,6 +47,14 @@ import com.sdk.application.*;
                     relativeUrls.put("getPincodeZones","/service/application/logistics/v1.0/pincode/zones".substring(1));
             
                     relativeUrls.put("getOptimalLocations","/service/application/logistics/v1.0/reassign_stores".substring(1));
+            
+                    relativeUrls.put("getCountries","/service/application/logistics/v1.0/country".substring(1));
+            
+                    relativeUrls.put("getCountry","/service/application/logistics/v1.0/country/{uid}".substring(1));
+            
+                    relativeUrls.put("getLocalities","/service/application/logistics/v1.0/locality/{region}".substring(1));
+            
+                    relativeUrls.put("getLocality","/service/application/logistics/v1.0/locality/{region}/{value}".substring(1));
              
 
     }
@@ -149,6 +157,86 @@ import com.sdk.application.*;
         
 
         Response<LogisticApplicationModels.ReAssignStoreResponse> response = logisticApplicationApiList.getOptimalLocations(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public LogisticApplicationModels.GetCountries getCountries() throws IOException {
+     
+      String fullUrl = relativeUrls.get("getCountries");
+        
+
+        Response<LogisticApplicationModels.GetCountries> response = logisticApplicationApiList.getCountries(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public LogisticApplicationModels.GetCountry getCountry(String uid ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getCountry");
+        
+        fullUrl = fullUrl.replace("{" + "uid" +"}",uid.toString());
+        
+
+        Response<LogisticApplicationModels.GetCountry> response = logisticApplicationApiList.getCountry(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public LogisticApplicationModels.GetLocalities getLocalities(String region ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getLocalities");
+        
+        fullUrl = fullUrl.replace("{" + "region" +"}",region.toString());
+        
+
+        Response<LogisticApplicationModels.GetLocalities> response = logisticApplicationApiList.getLocalities(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public LogisticApplicationModels.GetLocality getLocality(String region , String value ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getLocality");
+        
+        fullUrl = fullUrl.replace("{" + "region" +"}",region.toString());
+        
+        fullUrl = fullUrl.replace("{" + "value" +"}",value.toString());
+        
+
+        Response<LogisticApplicationModels.GetLocality> response = logisticApplicationApiList.getLocality(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
