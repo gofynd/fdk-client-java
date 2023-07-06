@@ -670,16 +670,12 @@ public class ConfigurationPlatformService {
     
     
     
-    
-    
-    
-    
 
-    public ConfigurationPlatformModels.OptedStoreIntegration getLevelActiveIntegrations(String id , String level , Integer uid , String permission ) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.OptedStoreIntegration getLevelActiveIntegrations(String id , String level , Integer uid ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ConfigurationPlatformModels.OptedStoreIntegration> response = null;
             try {
-                response = configurationPlatformApiList.getLevelActiveIntegrations(this.companyId , id  , level  , uid  ,permission ).execute();
+                response = configurationPlatformApiList.getLevelActiveIntegrations(this.companyId , id  , level  , uid  ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

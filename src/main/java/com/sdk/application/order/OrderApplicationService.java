@@ -60,7 +60,9 @@ import com.sdk.application.*;
             
                     relativeUrls.put("getShipmentReasons","/service/application/orders/v1.0/orders/shipments/{shipment_id}/reasons".substring(1));
             
-                    relativeUrls.put("updateShipmentStatus","/service/application/order-manage/v1.0/orders/shipments/{shipment_id}/status".substring(1));
+                    relativeUrls.put("updateShipmentStatus","/service/application/orders/v1.0/orders/shipments/{shipment_id}/status".substring(1));
+            
+                    relativeUrls.put("updateShipmentStatus1","/service/application/order-manage/v1.0/orders/shipments/{shipment_id}/status".substring(1));
              
 
     }
@@ -121,14 +123,14 @@ import com.sdk.application.*;
     
     
     
-    public OrderApplicationModels.OrderList getPosOrderById(String orderId ) throws IOException {
+    public OrderApplicationModels.OrderById getPosOrderById(String orderId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getPosOrderById");
         
         fullUrl = fullUrl.replace("{" + "order_id" +"}",orderId.toString());
         
 
-        Response<OrderApplicationModels.OrderList> response = orderApplicationApiList.getPosOrderById(fullUrl ).execute();
+        Response<OrderApplicationModels.OrderById> response = orderApplicationApiList.getPosOrderById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -317,6 +319,26 @@ import com.sdk.application.*;
         
 
         Response<OrderApplicationModels.ShipmentApplicationStatusResponse> response = orderApplicationApiList.updateShipmentStatus(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public OrderApplicationModels.ShipmentApplicationStatusResponse updateShipmentStatus1(String shipmentId ,OrderApplicationModels.UpdateShipmentStatusRequest1 body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("updateShipmentStatus1");
+        
+        fullUrl = fullUrl.replace("{" + "shipment_id" +"}",shipmentId.toString());
+        
+
+        Response<OrderApplicationModels.ShipmentApplicationStatusResponse> response = orderApplicationApiList.updateShipmentStatus1(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

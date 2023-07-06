@@ -149,12 +149,12 @@ import com.sdk.application.*;
     
     
     
-    public PosCartApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , Boolean buyNow ,PosCartApplicationModels.AddCartRequest body) throws IOException {
+    public PosCartApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , Boolean buyNow , String id ,PosCartApplicationModels.AddCartRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("addItems");
         
 
-        Response<PosCartApplicationModels.AddCartDetailResponse> response = poscartApplicationApiList.addItems(fullUrl  ,i, b, areaCode, buyNow, body).execute();
+        Response<PosCartApplicationModels.AddCartDetailResponse> response = poscartApplicationApiList.addItems(fullUrl  ,i, b, areaCode, buyNow, id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -461,12 +461,12 @@ import com.sdk.application.*;
     
     
     
-    public PosCartApplicationModels.CartShipmentsResponse updateShipments(Boolean i , Boolean p , String id , String addressId , String orderType ,PosCartApplicationModels.UpdateCartShipmentRequest body) throws IOException {
+    public PosCartApplicationModels.CartShipmentsResponse updateShipments(Boolean i , Boolean p , String id , String addressId , String areaCode , String orderType ,PosCartApplicationModels.UpdateCartShipmentRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("updateShipments");
         
 
-        Response<PosCartApplicationModels.CartShipmentsResponse> response = poscartApplicationApiList.updateShipments(fullUrl  ,i, p, id, addressId, orderType, body).execute();
+        Response<PosCartApplicationModels.CartShipmentsResponse> response = poscartApplicationApiList.updateShipments(fullUrl  ,i, p, id, addressId, areaCode, orderType, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

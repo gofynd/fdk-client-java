@@ -1827,6 +1827,12 @@ public static class ListingPriceFeature{
     
     
     
+    
+    @JsonProperty("sort")
+    private String sort;
+    
+    
+    
 }
 
 

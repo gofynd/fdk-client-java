@@ -531,11 +531,11 @@ public class ApplicationClient {
     
     
 
-    public FileStoragePlatformModels.BrowseResponse browse(String namespace , Integer pageNo ) throws FDKServerResponseError, FDKException {
+    public FileStoragePlatformModels.BrowseResponse appbrowse(String namespace , Integer pageNo ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FileStoragePlatformModels.BrowseResponse> response = null;
             try {
-            response = filestoragePlatformApiList.browse(namespace , this.companyId , this.applicationId ,pageNo ).execute();
+            response = filestoragePlatformApiList.appbrowse(namespace , this.companyId , this.applicationId ,pageNo ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -581,10 +581,10 @@ public class ApplicationClient {
         
 
     /**
-    * Summary: get paginator for browse
+    * Summary: get paginator for appbrowse
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<FileStoragePlatformModels.BrowseResponse> browsePagination(
+    public Paginator<FileStoragePlatformModels.BrowseResponse> appbrowsePagination(
         String namespace
         
         ){ 
@@ -595,7 +595,7 @@ public class ApplicationClient {
 
     paginator.setCallback(()-> {
         try {
-            FileStoragePlatformModels.BrowseResponse callback = this.browse(
+            FileStoragePlatformModels.BrowseResponse callback = this.appbrowse(
                 
                  namespace,
                  
