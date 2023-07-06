@@ -16,7 +16,7 @@ interface OrderApplicationApiList {
     Call<OrderApplicationModels.OrderById> getOrderById(@Url String url1);
     
     @GET 
-    Call<OrderApplicationModels.OrderList> getPosOrderById(@Url String url1);
+    Call<OrderApplicationModels.OrderById> getPosOrderById(@Url String url1);
     
     @GET 
     Call<OrderApplicationModels.ShipmentById> getShipmentById(@Url String url1);
@@ -41,4 +41,7 @@ interface OrderApplicationApiList {
     
     @GET 
     Call<OrderApplicationModels.ShipmentReasons> getShipmentReasons(@Url String url1);
+    
+    @PUT 
+    Call<OrderApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Url String url1 , @Body OrderApplicationModels.UpdateShipmentStatusRequest payload );
 }

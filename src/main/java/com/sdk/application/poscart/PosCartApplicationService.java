@@ -149,12 +149,12 @@ import com.sdk.application.*;
     
     
     
-    public PosCartApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , Boolean buyNow ,PosCartApplicationModels.AddCartRequest body) throws IOException {
+    public PosCartApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , Boolean buyNow , String id ,PosCartApplicationModels.AddCartRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("addItems");
         
 
-        Response<PosCartApplicationModels.AddCartDetailResponse> response = poscartApplicationApiList.addItems(fullUrl  ,i, b, areaCode, buyNow, body).execute();
+        Response<PosCartApplicationModels.AddCartDetailResponse> response = poscartApplicationApiList.addItems(fullUrl  ,i, b, areaCode, buyNow, id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -425,12 +425,12 @@ import com.sdk.application.*;
     
     
     
-    public PosCartApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode ) throws IOException {
+    public PosCartApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode , String iin , String network , String type , String cardId ) throws IOException {
      
       String fullUrl = relativeUrls.get("validateCouponForPayment");
         
 
-        Response<PosCartApplicationModels.PaymentCouponValidate> response = poscartApplicationApiList.validateCouponForPayment(fullUrl  ,id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode).execute();
+        Response<PosCartApplicationModels.PaymentCouponValidate> response = poscartApplicationApiList.validateCouponForPayment(fullUrl  ,id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode, iin, network, type, cardId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -461,12 +461,12 @@ import com.sdk.application.*;
     
     
     
-    public PosCartApplicationModels.CartShipmentsResponse updateShipments(Boolean i , Boolean p , String id , String addressId , String orderType ,PosCartApplicationModels.UpdateCartShipmentRequest body) throws IOException {
+    public PosCartApplicationModels.CartShipmentsResponse updateShipments(Boolean i , Boolean p , String id , String addressId , String areaCode , String orderType ,PosCartApplicationModels.UpdateCartShipmentRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("updateShipments");
         
 
-        Response<PosCartApplicationModels.CartShipmentsResponse> response = poscartApplicationApiList.updateShipments(fullUrl  ,i, p, id, addressId, orderType, body).execute();
+        Response<PosCartApplicationModels.CartShipmentsResponse> response = poscartApplicationApiList.updateShipments(fullUrl  ,i, p, id, addressId, areaCode, orderType, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

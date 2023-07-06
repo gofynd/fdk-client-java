@@ -14,7 +14,7 @@ File Storage
 * [copyFiles](#copyfiles)
 * [appCopyFiles](#appcopyfiles)
 * [browse](#browse)
-* [browse](#browse)
+* [appbrowse](#appbrowse)
 * [proxy](#proxy)
 
 
@@ -38,7 +38,7 @@ platformClient.filestorage.startUpload( namespace, body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| namespace | String | yes | bucket name |   
+| namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
 | companyId | Integer | yes | company_id |  
 | body | [StartRequest](#StartRequest) | yes | Request body |
 
@@ -110,7 +110,7 @@ platformClient.filestorage.completeUpload( namespace, body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| namespace | String | yes | bucket name |   
+| namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
 | companyId | Integer | yes | company_id |  
 | body | [StartResponse](#StartResponse) | yes | Request body |
 
@@ -182,7 +182,7 @@ platformClient.application("<APPLICATION_ID>").filestorage.appStartUpload( names
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| namespace | String | yes | bucket name |   
+| namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
 | companyId | Integer | yes | company_id |   
 | applicationId | String | yes | application id |  
 | body | [StartRequest](#StartRequest) | yes | Request body |
@@ -255,7 +255,7 @@ platformClient.application("<APPLICATION_ID>").filestorage.appCompleteUpload( na
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| namespace | String | yes | bucket name |   
+| namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
 | companyId | Integer | yes | company_id |   
 | applicationId | String | yes | application id |  
 | body | [StartResponse](#StartResponse) | yes | Request body |
@@ -583,14 +583,14 @@ Success
 ---
 
 
-### browse
+### appbrowse
 Browse Files
 
 
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").filestorage.browse( namespace,  pageNo) {
+platformClient.application("<APPLICATION_ID>").filestorage.appbrowse( namespace,  pageNo) {
   //use response
 }
 ```
@@ -714,8 +714,8 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | url | String |  no  |  |
- | absoluteUrl | String? |  yes  |  |
- | relativeUrl | String? |  yes  |  |
+ | absoluteUrl | String |  no  |  |
+ | relativeUrl | String |  no  |  |
 
 ---
 

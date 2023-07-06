@@ -36,8 +36,6 @@ import com.sdk.platform.cart.CartPlatformService;
 
 import com.sdk.platform.rewards.RewardsPlatformService;
 
-import com.sdk.platform.analytics.AnalyticsPlatformService;
-
 import com.sdk.platform.discount.DiscountPlatformService;
 
 import com.sdk.platform.partner.PartnerPlatformService;
@@ -87,8 +85,6 @@ public class PlatformClient {
     
     public RewardsPlatformService rewards;
     
-    public AnalyticsPlatformService analytics;
-    
     public DiscountPlatformService discount;
     
     public PartnerPlatformService partner;
@@ -133,8 +129,6 @@ public class PlatformClient {
         this.cart = new CartPlatformService(config);
         
         this.rewards = new RewardsPlatformService(config);
-        
-        this.analytics = new AnalyticsPlatformService(config);
         
         this.discount = new DiscountPlatformService(config);
         
@@ -192,8 +186,6 @@ public class PlatformClient {
         
         public RewardsPlatformService.ApplicationClient rewards;
         
-        public AnalyticsPlatformService.ApplicationClient analytics;
-        
         public DiscountPlatformService.ApplicationClient discount;
         
         public PartnerPlatformService.ApplicationClient partner;
@@ -237,8 +229,6 @@ public class PlatformClient {
             this.cart = new CartPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.rewards = new RewardsPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.analytics = new AnalyticsPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.discount = new DiscountPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
