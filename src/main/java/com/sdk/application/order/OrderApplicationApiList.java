@@ -44,4 +44,7 @@ interface OrderApplicationApiList {
     
     @PUT 
     Call<OrderApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Url String url1 , @Body OrderApplicationModels.UpdateShipmentStatusRequest payload );
+    
+    @PUT 
+    Call<OrderApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus1(@Url String url1 , @Body OrderApplicationModels.UpdateShipmentStatusRequest1 payload );
 }

@@ -4342,9 +4342,7 @@ public static class TagSourceSchema{
         
         shippingPolicy("shipping-policy"), 
         
-        returnPolicy("return-policy"), 
-        
-        orderStatus("order-status");
+        returnPolicy("return-policy");
         
 
         private String priority;

@@ -3317,7 +3317,7 @@ platformClient.configuration.getApplications( pageNo,  pageSize,  q) {
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
 | pageNo | Integer? | no |  |   
 | pageSize | Integer? | no |  |   
-| q | String? | no | Url encoded object used as mongodb query |  
+| q | String? | no | Search param by name or domain |  
 
 
 
@@ -5110,6 +5110,7 @@ Success
  | minCartValue | Double? |  yes  | Minimum cart value below which customer cannot place an order |
  | bulkCoupons | Boolean? |  yes  | Allow creation of bulk coupons |
  | revenueEngineCoupon | Boolean? |  yes  | Allow coupon apply and credits together. Default value is false. |
+ | panCard | [PanCardConfig](#PanCardConfig)? |  yes  |  |
 
 ---
 
@@ -5422,6 +5423,19 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | enabled | Boolean? |  yes  | Check current communication channel is enabled |
+
+---
+
+
+ 
+ 
+ #### [PanCardConfig](#PanCardConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | enabled | Boolean? |  yes  | If pan card accepting is enabled on cart |
+ | codThresholdAmount | Double? |  yes  | On which COD order amount pan card number is expected from customer for order |
+ | onlineThresholdAmount | Double? |  yes  | On which online payment order amount pan card number is expected from customer for order |
 
 ---
 
