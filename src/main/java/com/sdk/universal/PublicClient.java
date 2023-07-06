@@ -8,8 +8,6 @@ import com.sdk.universal.configuration.ConfigurationPublicService;
 
 import com.sdk.universal.webhook.WebhookPublicService;
 
-import com.sdk.universal.inventory.InventoryPublicService;
-
 
 @Getter
 @Setter
@@ -22,8 +20,6 @@ public class PublicClient {
     
     public WebhookPublicService webhook;
     
-    public InventoryPublicService inventory;
-    
 
     public void setExtraHeader(String key, String value){
         this.config.getExtraHeaders().put(key, value);
@@ -35,8 +31,6 @@ public class PublicClient {
         this.configuration = new ConfigurationPublicService(publicConfig);
         
         this.webhook = new WebhookPublicService(publicConfig);
-        
-        this.inventory = new InventoryPublicService(publicConfig);
         
     }
 }
