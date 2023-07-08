@@ -23,7 +23,7 @@ Get paginated audit logs
 
 
 ```java
-platformClient.audittrail.getAuditLogs( qs) {
+client.audittrail.getAuditLogs( qs) {
   //use response
 }
 ```
@@ -123,7 +123,7 @@ Create logs for auditing later on
 
 
 ```java
-platformClient.audittrail.createAuditLog(body body) {
+client.audittrail.createAuditLog(body body) {
   //use response
 }
 ```
@@ -187,7 +187,7 @@ Get audit log
 
 
 ```java
-platformClient.audittrail.getAuditLog( id) {
+client.audittrail.getAuditLog( id) {
   //use response
 }
 ```
@@ -287,7 +287,7 @@ Get entity types
 
 
 ```java
-platformClient.audittrail.getEntityTypes() {
+client.audittrail.getEntityTypes() {
   //use response
 }
 ```

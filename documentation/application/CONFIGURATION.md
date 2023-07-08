@@ -35,7 +35,7 @@ Get current application details
 
 
 ```java
-applicationClient.configuration.getApplication() {
+configuration.getApplication() {
   //use response
 }
 ```
@@ -146,7 +146,7 @@ Get application, owner and seller information
 
 
 ```java
-applicationClient.configuration.getOwnerInfo() {
+configuration.getOwnerInfo() {
   //use response
 }
 ```
@@ -295,7 +295,7 @@ Get basic application details
 
 
 ```java
-applicationClient.configuration.getBasicDetails() {
+configuration.getBasicDetails() {
   //use response
 }
 ```
@@ -383,7 +383,7 @@ Get integration tokens
 
 
 ```java
-applicationClient.configuration.getIntegrationTokens() {
+configuration.getIntegrationTokens() {
   //use response
 }
 ```
@@ -500,7 +500,7 @@ Get deployment stores
 
 
 ```java
-applicationClient.configuration.getOrderingStores( pageNo,  pageSize,  q) {
+configuration.getOrderingStores( pageNo,  pageSize,  q) {
   //use response
 }
 ```
@@ -555,7 +555,7 @@ Get ordering store details
 
 
 ```java
-applicationClient.configuration.getStoreDetailById( storeId) {
+configuration.getStoreDetailById( storeId) {
   //use response
 }
 ```
@@ -616,7 +616,7 @@ Get features of application
 
 
 ```java
-applicationClient.configuration.getFeatures() {
+configuration.getFeatures() {
   //use response
 }
 ```
@@ -759,7 +759,7 @@ Get application information
 
 
 ```java
-applicationClient.configuration.getContactInfo() {
+configuration.getContactInfo() {
   //use response
 }
 ```
@@ -922,7 +922,7 @@ Get all currencies list
 
 
 ```java
-applicationClient.configuration.getCurrencies() {
+configuration.getCurrencies() {
   //use response
 }
 ```
@@ -983,7 +983,7 @@ Get currency by its ID
 
 
 ```java
-applicationClient.configuration.getCurrencyById( id) {
+configuration.getCurrencyById( id) {
   //use response
 }
 ```
@@ -1045,7 +1045,7 @@ Get currencies enabled in the application
 
 
 ```java
-applicationClient.configuration.getAppCurrencies() {
+configuration.getAppCurrencies() {
   //use response
 }
 ```
@@ -1111,7 +1111,7 @@ Get list of languages
 
 
 ```java
-applicationClient.configuration.getLanguages() {
+configuration.getLanguages() {
   //use response
 }
 ```
@@ -1174,7 +1174,7 @@ Get an Ordering Store signed cookie on selection of ordering store.
 
 
 ```java
-applicationClient.configuration.getOrderingStoreCookie(body body) {
+configuration.getOrderingStoreCookie(body body) {
   //use response
 }
 ```
@@ -1226,7 +1226,7 @@ Unset the Ordering Store signed cookie.
 
 
 ```java
-applicationClient.configuration.removeOrderingStoreCookie() {
+configuration.removeOrderingStoreCookie() {
   //use response
 }
 ```
@@ -1274,7 +1274,7 @@ Get a list of staff.
 
 
 ```java
-applicationClient.configuration.getAppStaffList( pageNo,  pageSize,  orderIncent,  orderingStore,  user) {
+configuration.getAppStaffList( pageNo,  pageSize,  orderIncent,  orderingStore,  user) {
   //use response
 }
 ```
@@ -1331,7 +1331,7 @@ Get a list of staff.
 
 
 ```java
-applicationClient.configuration.getAppStaffs( orderIncent,  orderingStore,  user) {
+configuration.getAppStaffs( orderIncent,  orderingStore,  user) {
   //use response
 }
 ```

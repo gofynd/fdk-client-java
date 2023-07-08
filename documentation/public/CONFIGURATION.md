@@ -21,7 +21,7 @@ Search Application
 
 
 ```java
-publicClient.configuration.searchApplication( authorization,  query) {
+configuration.searchApplication( authorization,  query) {
   //use response
 }
 ```
@@ -136,7 +136,7 @@ Get countries, states, cities
 
 
 ```java
-publicClient.configuration.getLocations( locationType,  id) {
+configuration.getLocations( locationType,  id) {
   //use response
 }
 ```

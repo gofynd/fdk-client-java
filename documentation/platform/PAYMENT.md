@@ -41,7 +41,7 @@ Get All Brand Payment Gateway Config Secret
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").payment.getBrandPaymentGatewayConfig() {
+client.application("<APPLICATION_ID>").payment.getBrandPaymentGatewayConfig() {
   //use response
 }
 ```
@@ -212,7 +212,7 @@ Save Config Secret For Brand Payment Gateway
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").payment.saveBrandPaymentGatewayConfig(body body) {
+client.application("<APPLICATION_ID>").payment.saveBrandPaymentGatewayConfig(body body) {
   //use response
 }
 ```
@@ -271,7 +271,7 @@ Save Config Secret For Brand Payment Gateway
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").payment.updateBrandPaymentGatewayConfig(body body) {
+client.application("<APPLICATION_ID>").payment.updateBrandPaymentGatewayConfig(body body) {
   //use response
 }
 ```
@@ -330,7 +330,7 @@ Get All Valid Payment Options
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").payment.getPaymentModeRoutes( refresh,  requestType) {
+client.application("<APPLICATION_ID>").payment.getPaymentModeRoutes( refresh,  requestType) {
   //use response
 }
 ```
@@ -1539,7 +1539,7 @@ Get All Payouts
 
 
 ```java
-platformClient.payment.getAllPayouts( uniqueExternalId) {
+client.payment.getAllPayouts( uniqueExternalId) {
   //use response
 }
 ```
@@ -1656,7 +1656,7 @@ Save Payout
 
 
 ```java
-platformClient.payment.savePayout(body body) {
+client.payment.savePayout(body body) {
   //use response
 }
 ```
@@ -1737,7 +1737,7 @@ Update Payout
 
 
 ```java
-platformClient.payment.updatePayout( uniqueTransferNo, body body) {
+client.payment.updatePayout( uniqueTransferNo, body body) {
   //use response
 }
 ```
@@ -1795,7 +1795,7 @@ Partial Update Payout
 
 
 ```java
-platformClient.payment.activateAndDectivatePayout( uniqueTransferNo, body body) {
+client.payment.activateAndDectivatePayout( uniqueTransferNo, body body) {
   //use response
 }
 ```
@@ -1853,7 +1853,7 @@ Delete Payout
 
 
 ```java
-platformClient.payment.deletePayout( uniqueTransferNo) {
+client.payment.deletePayout( uniqueTransferNo) {
   //use response
 }
 ```
@@ -1909,7 +1909,7 @@ List Subscription Payment Method
 
 
 ```java
-platformClient.payment.getSubscriptionPaymentMethod( uniqueExternalId) {
+client.payment.getSubscriptionPaymentMethod( uniqueExternalId) {
   //use response
 }
 ```
@@ -2091,7 +2091,7 @@ Delete Subscription Payment Method
 
 
 ```java
-platformClient.payment.deleteSubscriptionPaymentMethod( uniqueExternalId,  paymentMethodId) {
+client.payment.deleteSubscriptionPaymentMethod( uniqueExternalId,  paymentMethodId) {
   //use response
 }
 ```
@@ -2148,7 +2148,7 @@ List Subscription Config
 
 
 ```java
-platformClient.payment.getSubscriptionConfig() {
+client.payment.getSubscriptionConfig() {
   //use response
 }
 ```
@@ -2207,7 +2207,7 @@ Save Subscription Setup Intent
 
 
 ```java
-platformClient.payment.saveSubscriptionSetupIntent(body body) {
+client.payment.saveSubscriptionSetupIntent(body body) {
   //use response
 }
 ```
@@ -2269,7 +2269,7 @@ Get bank details
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").payment.getBankAccountDetailsOpenAPI( orderId,  requestHash) {
+client.application("<APPLICATION_ID>").payment.getBankAccountDetailsOpenAPI( orderId,  requestHash) {
   //use response
 }
 ```
@@ -2338,7 +2338,7 @@ Save bank details for cancelled/returned order
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").payment.addRefundBankAccountUsingOTP(body body) {
+client.application("<APPLICATION_ID>").payment.addRefundBankAccountUsingOTP(body body) {
   //use response
 }
 ```
@@ -2397,7 +2397,7 @@ Ifsc Code Verification
 
 
 ```java
-platformClient.payment.verifyIfscCode( ifscCode) {
+client.payment.verifyIfscCode( ifscCode) {
   //use response
 }
 ```
@@ -2471,7 +2471,7 @@ List Order Beneficiary
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").payment.getUserOrderBeneficiaries( orderId) {
+client.application("<APPLICATION_ID>").payment.getUserOrderBeneficiaries( orderId) {
   //use response
 }
 ```
@@ -2550,7 +2550,7 @@ List User Beneficiary
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").payment.getUserBeneficiaries( orderId) {
+client.application("<APPLICATION_ID>").payment.getUserBeneficiaries( orderId) {
   //use response
 }
 ```
@@ -2630,7 +2630,7 @@ Confirm payment after successful payment from payment gateway
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").payment.confirmPayment(body body) {
+client.application("<APPLICATION_ID>").payment.confirmPayment(body body) {
   //use response
 }
 ```
@@ -2688,7 +2688,7 @@ Get COD limit for user
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").payment.getUserCODlimitRoutes( merchantUserId,  mobileNo) {
+client.application("<APPLICATION_ID>").payment.getUserCODlimitRoutes( merchantUserId,  mobileNo) {
   //use response
 }
 ```
@@ -2754,7 +2754,7 @@ Set COD option for user for payment
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").payment.setUserCODlimitRoutes(body body) {
+client.application("<APPLICATION_ID>").payment.setUserCODlimitRoutes(body body) {
   //use response
 }
 ```
@@ -2811,7 +2811,7 @@ Get Payment status and information for a list of order_ids
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").payment.paymentStatusBulk(body body) {
+client.application("<APPLICATION_ID>").payment.paymentStatusBulk(body body) {
   //use response
 }
 ```

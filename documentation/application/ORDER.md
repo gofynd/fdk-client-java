@@ -30,7 +30,7 @@ Get all orders
 
 
 ```java
-applicationClient.order.getOrders( pageNo,  pageSize,  fromDate,  toDate,  status) {
+order.getOrders( pageNo,  pageSize,  fromDate,  toDate,  status) {
   //use response
 }
 ```
@@ -87,7 +87,7 @@ Get details of an order
 
 
 ```java
-applicationClient.order.getOrderById( orderId) {
+order.getOrderById( orderId) {
   //use response
 }
 ```
@@ -140,7 +140,7 @@ Get details of a shipment
 
 
 ```java
-applicationClient.order.getShipmentById( shipmentId) {
+order.getShipmentById( shipmentId) {
   //use response
 }
 ```
@@ -193,7 +193,7 @@ Get reasons behind full or partial cancellation of a shipment
 
 
 ```java
-applicationClient.order.getShipmentReasons( shipmentId) {
+order.getShipmentReasons( shipmentId) {
   //use response
 }
 ```
@@ -246,7 +246,7 @@ Update the shipment status
 
 
 ```java
-applicationClient.order.updateShipmentStatus( shipmentId, body body) {
+order.updateShipmentStatus( shipmentId, body body) {
   //use response
 }
 ```
@@ -299,7 +299,7 @@ Track shipment
 
 
 ```java
-applicationClient.order.trackShipment( shipmentId) {
+order.trackShipment( shipmentId) {
   //use response
 }
 ```
@@ -352,7 +352,7 @@ Get POS Order
 
 
 ```java
-applicationClient.order.getPosOrderById( orderId) {
+order.getPosOrderById( orderId) {
   //use response
 }
 ```
@@ -405,7 +405,7 @@ Get Customer Details by Shipment Id
 
 
 ```java
-applicationClient.order.getCustomerDetailsByShipmentId( orderId,  shipmentId) {
+order.getCustomerDetailsByShipmentId( orderId,  shipmentId) {
   //use response
 }
 ```
@@ -459,7 +459,7 @@ Send and Resend Otp code to Order-Shipment customer
 
 
 ```java
-applicationClient.order.sendOtpToShipmentCustomer( orderId,  shipmentId) {
+order.sendOtpToShipmentCustomer( orderId,  shipmentId) {
   //use response
 }
 ```
@@ -513,7 +513,7 @@ Verify Otp code
 
 
 ```java
-applicationClient.order.verifyOtpShipmentCustomer( orderId,  shipmentId, body body) {
+order.verifyOtpShipmentCustomer( orderId,  shipmentId, body body) {
   //use response
 }
 ```
@@ -567,7 +567,7 @@ Get Invoice URL
 
 
 ```java
-applicationClient.order.getInvoiceByShipmentId( shipmentId) {
+order.getInvoiceByShipmentId( shipmentId) {
   //use response
 }
 ```

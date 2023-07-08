@@ -29,7 +29,7 @@ List of giveaways of the current application.
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").rewards.getGiveaways( pageId,  pageSize) {
+client.application("<APPLICATION_ID>").rewards.getGiveaways( pageId,  pageSize) {
   //use response
 }
 ```
@@ -85,7 +85,7 @@ Adds a new giveaway.
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").rewards.createGiveaway(body body) {
+client.application("<APPLICATION_ID>").rewards.createGiveaway(body body) {
   //use response
 }
 ```
@@ -139,7 +139,7 @@ Get giveaway by ID.
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").rewards.getGiveawayByID( id) {
+client.application("<APPLICATION_ID>").rewards.getGiveawayByID( id) {
   //use response
 }
 ```
@@ -194,7 +194,7 @@ Updates the giveaway by it's ID.
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").rewards.updateGiveaway( id, body body) {
+client.application("<APPLICATION_ID>").rewards.updateGiveaway( id, body body) {
   //use response
 }
 ```
@@ -249,7 +249,7 @@ List of offer of the current application.
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").rewards.getOffers() {
+client.application("<APPLICATION_ID>").rewards.getOffers() {
   //use response
 }
 ```
@@ -303,7 +303,7 @@ Get offer by name.
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").rewards.getOfferByName( cookie,  name) {
+client.application("<APPLICATION_ID>").rewards.getOfferByName( cookie,  name) {
   //use response
 }
 ```
@@ -359,7 +359,7 @@ Updates the offer by name.
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").rewards.updateOfferByName( name, body body) {
+client.application("<APPLICATION_ID>").rewards.updateOfferByName( name, body body) {
   //use response
 }
 ```
@@ -414,7 +414,7 @@ User's reward details.
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").rewards.getUserAvailablePoints( userId) {
+client.application("<APPLICATION_ID>").rewards.getUserAvailablePoints( userId) {
   //use response
 }
 ```
@@ -469,7 +469,7 @@ Update User status
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").rewards.updateUserStatus( userId, body body) {
+client.application("<APPLICATION_ID>").rewards.updateUserStatus( userId, body body) {
   //use response
 }
 ```
@@ -524,7 +524,7 @@ Get list of points transactions.
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").rewards.getUserPointsHistory( userId,  pageId,  pageLimit,  pageSize) {
+client.application("<APPLICATION_ID>").rewards.getUserPointsHistory( userId,  pageId,  pageLimit,  pageSize) {
   //use response
 }
 ```

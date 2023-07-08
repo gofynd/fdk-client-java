@@ -43,7 +43,7 @@ Get all pages of a theme
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.getAllPages( themeId) {
+client.application("<APPLICATION_ID>").theme.getAllPages( themeId) {
   //use response
 }
 ```
@@ -394,7 +394,7 @@ Create a page
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.createPage( themeId, body body) {
+client.application("<APPLICATION_ID>").theme.createPage( themeId, body body) {
   //use response
 }
 ```
@@ -817,7 +817,7 @@ Update multiple pages of a theme
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.updateMultiplePages( themeId, body body) {
+client.application("<APPLICATION_ID>").theme.updateMultiplePages( themeId, body body) {
   //use response
 }
 ```
@@ -1168,7 +1168,7 @@ Get page of a theme
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.getPage( themeId,  pageValue) {
+client.application("<APPLICATION_ID>").theme.getPage( themeId,  pageValue) {
   //use response
 }
 ```
@@ -1592,7 +1592,7 @@ Updates a page
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.updatePage( themeId,  pageValue, body body) {
+client.application("<APPLICATION_ID>").theme.updatePage( themeId,  pageValue, body body) {
   //use response
 }
 ```
@@ -2016,7 +2016,7 @@ Deletes a page
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.deletePage( themeId,  pageValue) {
+client.application("<APPLICATION_ID>").theme.deletePage( themeId,  pageValue) {
   //use response
 }
 ```
@@ -2440,7 +2440,7 @@ Get a list of themes from the theme library
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.getThemeLibrary( pageSize,  pageNo) {
+client.application("<APPLICATION_ID>").theme.getThemeLibrary( pageSize,  pageNo) {
   //use response
 }
 ```
@@ -4403,7 +4403,7 @@ Add a theme to the theme library
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.addToThemeLibrary(body body) {
+client.application("<APPLICATION_ID>").theme.addToThemeLibrary(body body) {
   //use response
 }
 ```
@@ -6597,7 +6597,7 @@ Apply a theme
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.applyTheme(body body) {
+client.application("<APPLICATION_ID>").theme.applyTheme(body body) {
   //use response
 }
 ```
@@ -8791,7 +8791,7 @@ Checks if theme is upgradable
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.isUpgradable( themeId) {
+client.application("<APPLICATION_ID>").theme.isUpgradable( themeId) {
   //use response
 }
 ```
@@ -8858,7 +8858,7 @@ Upgrade a theme
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.upgradeTheme( themeId) {
+client.application("<APPLICATION_ID>").theme.upgradeTheme( themeId) {
   //use response
 }
 ```
@@ -11053,7 +11053,7 @@ Get all public themes
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.getPublicThemes( pageSize,  pageNo) {
+client.application("<APPLICATION_ID>").theme.getPublicThemes( pageSize,  pageNo) {
   //use response
 }
 ```
@@ -13016,7 +13016,7 @@ Create a new theme
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.createTheme(body body) {
+client.application("<APPLICATION_ID>").theme.createTheme(body body) {
   //use response
 }
 ```
@@ -15210,7 +15210,7 @@ Get the applied theme
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.getAppliedTheme() {
+client.application("<APPLICATION_ID>").theme.getAppliedTheme() {
   //use response
 }
 ```
@@ -17404,7 +17404,7 @@ Get all the supported fonts in a theme
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.getFonts() {
+client.application("<APPLICATION_ID>").theme.getFonts() {
   //use response
 }
 ```
@@ -17488,7 +17488,7 @@ Gets theme by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.getThemeById( themeId) {
+client.application("<APPLICATION_ID>").theme.getThemeById( themeId) {
   //use response
 }
 ```
@@ -19683,7 +19683,7 @@ Update a theme
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.updateTheme( themeId, body body) {
+client.application("<APPLICATION_ID>").theme.updateTheme( themeId, body body) {
   //use response
 }
 ```
@@ -21878,7 +21878,7 @@ Delete a theme
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.deleteTheme( themeId) {
+client.application("<APPLICATION_ID>").theme.deleteTheme( themeId) {
   //use response
 }
 ```
@@ -24073,7 +24073,7 @@ Get a theme preview
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.getThemeForPreview( themeId) {
+client.application("<APPLICATION_ID>").theme.getThemeForPreview( themeId) {
   //use response
 }
 ```
@@ -26268,7 +26268,7 @@ Publish a theme
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.publishTheme( themeId) {
+client.application("<APPLICATION_ID>").theme.publishTheme( themeId) {
   //use response
 }
 ```
@@ -28463,7 +28463,7 @@ Unpublish a theme
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.unpublishTheme( themeId) {
+client.application("<APPLICATION_ID>").theme.unpublishTheme( themeId) {
   //use response
 }
 ```
@@ -30658,7 +30658,7 @@ Archive a theme
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.archiveTheme( themeId) {
+client.application("<APPLICATION_ID>").theme.archiveTheme( themeId) {
   //use response
 }
 ```
@@ -32853,7 +32853,7 @@ Unarchive a theme
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.unarchiveTheme( themeId) {
+client.application("<APPLICATION_ID>").theme.unarchiveTheme( themeId) {
   //use response
 }
 ```
@@ -35048,7 +35048,7 @@ Fetch last modified timestamp
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").theme.getThemeLastModified( themeId) {
+client.application("<APPLICATION_ID>").theme.getThemeLastModified( themeId) {
   //use response
 }
 ```

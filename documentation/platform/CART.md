@@ -36,7 +36,7 @@ Get with single coupon details or coupon list
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").cart.getCoupons( pageNo,  pageSize,  isArchived,  title,  isPublic,  isDisplay,  typeSlug,  code) {
+client.application("<APPLICATION_ID>").cart.getCoupons( pageNo,  pageSize,  isArchived,  title,  isPublic,  isDisplay,  typeSlug,  code) {
   //use response
 }
 ```
@@ -150,7 +150,7 @@ Create new coupon
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").cart.createCoupon(body body) {
+client.application("<APPLICATION_ID>").cart.createCoupon(body body) {
   //use response
 }
 ```
@@ -207,7 +207,7 @@ Get with single coupon details or coupon list
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").cart.getCouponById( id) {
+client.application("<APPLICATION_ID>").cart.getCouponById( id) {
   //use response
 }
 ```
@@ -402,7 +402,7 @@ Update existing coupon configuration
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").cart.updateCoupon( id, body body) {
+client.application("<APPLICATION_ID>").cart.updateCoupon( id, body body) {
   //use response
 }
 ```
@@ -460,7 +460,7 @@ Update coupon archive state and schedule
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").cart.updateCouponPartially( id, body body) {
+client.application("<APPLICATION_ID>").cart.updateCouponPartially( id, body body) {
   //use response
 }
 ```
@@ -539,7 +539,7 @@ Get promotion list
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").cart.getPromotions( pageNo,  pageSize,  q,  isActive,  promoGroup,  promotionType,  fpPanel,  promotionId) {
+client.application("<APPLICATION_ID>").cart.getPromotions( pageNo,  pageSize,  q,  isActive,  promoGroup,  promotionType,  fpPanel,  promotionId) {
   //use response
 }
 ```
@@ -646,7 +646,7 @@ Create new promotion
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").cart.createPromotion(body body) {
+client.application("<APPLICATION_ID>").cart.createPromotion(body body) {
   //use response
 }
 ```
@@ -814,7 +814,7 @@ Get with single promotion details or promotion list
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").cart.getPromotionById( id) {
+client.application("<APPLICATION_ID>").cart.getPromotionById( id) {
   //use response
 }
 ```
@@ -983,7 +983,7 @@ Update existing promotion configuration
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").cart.updatePromotion( id, body body) {
+client.application("<APPLICATION_ID>").cart.updatePromotion( id, body body) {
   //use response
 }
 ```
@@ -1152,7 +1152,7 @@ Update promotion publish state and schedule
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").cart.updatePromotionPartially( id, body body) {
+client.application("<APPLICATION_ID>").cart.updatePromotionPartially( id, body body) {
   //use response
 }
 ```
@@ -1231,7 +1231,7 @@ Fetch Cart Details
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").cart.fetchAndvalidateCartItems(body body) {
+client.application("<APPLICATION_ID>").cart.fetchAndvalidateCartItems(body body) {
   //use response
 }
 ```
@@ -1559,7 +1559,7 @@ Check Pincode Serviceability
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").cart.checkCartServiceability(body body) {
+client.application("<APPLICATION_ID>").cart.checkCartServiceability(body body) {
   //use response
 }
 ```
@@ -2143,7 +2143,7 @@ Create Fynd order with cart details
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").cart.checkoutCart(body body) {
+client.application("<APPLICATION_ID>").cart.checkoutCart(body body) {
   //use response
 }
 ```
@@ -2202,7 +2202,7 @@ Get with abandoned cart list
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").cart.getAbandonedCart( pageNo,  pageSize,  fromDate,  toDate,  anonymousCart,  lastId,  sortOn) {
+client.application("<APPLICATION_ID>").cart.getAbandonedCart( pageNo,  pageSize,  fromDate,  toDate,  anonymousCart,  lastId,  sortOn) {
   //use response
 }
 ```
@@ -2424,7 +2424,7 @@ Fetch all items added to the cart
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").cart.getAbandonedCartDetails( id,  i,  b) {
+client.application("<APPLICATION_ID>").cart.getAbandonedCartDetails( id,  i,  b) {
   //use response
 }
 ```
@@ -2648,7 +2648,7 @@ Add items to abandoned cart
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").cart.addItems( cartId,  b, body body) {
+client.application("<APPLICATION_ID>").cart.addItems( cartId,  b, body body) {
   //use response
 }
 ```
@@ -3349,7 +3349,7 @@ Update items in the abandoned cart
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").cart.updateCart( cartId,  b, body body) {
+client.application("<APPLICATION_ID>").cart.updateCart( cartId,  b, body body) {
   //use response
 }
 ```

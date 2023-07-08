@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.net.CookieStore;
 import java.util.*;
 
-import com.sdk.platform.*;
+import com.sdk.platform.PlatformConfig;
 
 
 

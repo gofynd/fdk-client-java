@@ -23,7 +23,7 @@ Create short link
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").share.createShortLink(body body) {
+client.application("<APPLICATION_ID>").share.createShortLink(body body) {
   //use response
 }
 ```
@@ -115,7 +115,7 @@ Get short links
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").share.getShortLinks( pageNo,  pageSize,  createdBy,  active,  q) {
+client.application("<APPLICATION_ID>").share.getShortLinks( pageNo,  pageSize,  createdBy,  active,  q) {
   //use response
 }
 ```
@@ -223,7 +223,7 @@ Get short link by hash
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").share.getShortLinkByHash( hash) {
+client.application("<APPLICATION_ID>").share.getShortLinkByHash( hash) {
   //use response
 }
 ```
@@ -316,7 +316,7 @@ Update short link by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").share.updateShortLinkById( id, body body) {
+client.application("<APPLICATION_ID>").share.updateShortLinkById( id, body body) {
   //use response
 }
 ```

@@ -20,6 +20,8 @@ import com.sdk.platform.communication.CommunicationPlatformService;
 
 import com.sdk.platform.payment.PaymentPlatformService;
 
+import com.sdk.platform.order.OrderPlatformService;
+
 import com.sdk.platform.catalog.CatalogPlatformService;
 
 import com.sdk.platform.companyprofile.CompanyProfilePlatformService;
@@ -69,6 +71,8 @@ public class PlatformClient {
     
     public PaymentPlatformService payment;
     
+    public OrderPlatformService order;
+    
     public CatalogPlatformService catalog;
     
     public CompanyProfilePlatformService companyProfile;
@@ -113,6 +117,8 @@ public class PlatformClient {
         this.communication = new CommunicationPlatformService(config);
         
         this.payment = new PaymentPlatformService(config);
+        
+        this.order = new OrderPlatformService(config);
         
         this.catalog = new CatalogPlatformService(config);
         
@@ -170,6 +176,8 @@ public class PlatformClient {
         
         public PaymentPlatformService.ApplicationClient payment;
         
+        public OrderPlatformService.ApplicationClient order;
+        
         public CatalogPlatformService.ApplicationClient catalog;
         
         public CompanyProfilePlatformService.ApplicationClient companyProfile;
@@ -213,6 +221,8 @@ public class PlatformClient {
             this.communication = new CommunicationPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.payment = new PaymentPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.order = new OrderPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.catalog = new CatalogPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
