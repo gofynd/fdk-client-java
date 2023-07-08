@@ -60,7 +60,7 @@ Get campaigns
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getCampaigns( pageNo,  pageSize,  sort) {
+client.application("<APPLICATION_ID>").communication.getCampaigns( pageNo,  pageSize,  sort) {
   //use response
 }
 ```
@@ -189,7 +189,7 @@ Create campaign
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.createCampaign(body body) {
+client.application("<APPLICATION_ID>").communication.createCampaign(body body) {
   //use response
 }
 ```
@@ -278,7 +278,7 @@ Get campaign by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getCampaignById( id) {
+client.application("<APPLICATION_ID>").communication.getCampaignById( id) {
   //use response
 }
 ```
@@ -368,7 +368,7 @@ Update campaign by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.updateCampaignById( id, body body) {
+client.application("<APPLICATION_ID>").communication.updateCampaignById( id, body body) {
   //use response
 }
 ```
@@ -458,7 +458,7 @@ Get stats of campaign by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getStatsOfCampaignById( id) {
+client.application("<APPLICATION_ID>").communication.getStatsOfCampaignById( id) {
   //use response
 }
 ```
@@ -540,7 +540,7 @@ Get audiences
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getAudiences( pageNo,  pageSize,  sort) {
+client.application("<APPLICATION_ID>").communication.getAudiences( pageNo,  pageSize,  sort) {
   //use response
 }
 ```
@@ -639,7 +639,7 @@ Create audience
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.createAudience(body body) {
+client.application("<APPLICATION_ID>").communication.createAudience(body body) {
   //use response
 }
 ```
@@ -724,7 +724,7 @@ Get bigquery headers
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getBigqueryHeaders(body body) {
+client.application("<APPLICATION_ID>").communication.getBigqueryHeaders(body body) {
   //use response
 }
 ```
@@ -813,7 +813,7 @@ Get audience by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getAudienceById( id) {
+client.application("<APPLICATION_ID>").communication.getAudienceById( id) {
   //use response
 }
 ```
@@ -899,7 +899,7 @@ Update audience by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.updateAudienceById( id, body body) {
+client.application("<APPLICATION_ID>").communication.updateAudienceById( id, body body) {
   //use response
 }
 ```
@@ -985,7 +985,7 @@ Get n sample records from csv
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getNSampleRecordsFromCsv(body body) {
+client.application("<APPLICATION_ID>").communication.getNSampleRecordsFromCsv(body body) {
   //use response
 }
 ```
@@ -1055,7 +1055,7 @@ Get email providers
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getEmailProviders( pageNo,  pageSize,  sort) {
+client.application("<APPLICATION_ID>").communication.getEmailProviders( pageNo,  pageSize,  sort) {
   //use response
 }
 ```
@@ -1150,7 +1150,7 @@ Create email provider
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.createEmailProvider(body body) {
+client.application("<APPLICATION_ID>").communication.createEmailProvider(body body) {
   //use response
 }
 ```
@@ -1231,7 +1231,7 @@ Get email provider by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getEmailProviderById( id) {
+client.application("<APPLICATION_ID>").communication.getEmailProviderById( id) {
   //use response
 }
 ```
@@ -1313,7 +1313,7 @@ Update email provider by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.updateEmailProviderById( id, body body) {
+client.application("<APPLICATION_ID>").communication.updateEmailProviderById( id, body body) {
   //use response
 }
 ```
@@ -1395,7 +1395,7 @@ Get email templates
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getEmailTemplates( pageNo,  pageSize,  sort) {
+client.application("<APPLICATION_ID>").communication.getEmailTemplates( pageNo,  pageSize,  sort) {
   //use response
 }
 ```
@@ -1502,7 +1502,7 @@ Create email template
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.createEmailTemplate(body body) {
+client.application("<APPLICATION_ID>").communication.createEmailTemplate(body body) {
   //use response
 }
 ```
@@ -1609,7 +1609,7 @@ Get system email templates
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getSystemEmailTemplates( pageNo,  pageSize,  sort) {
+client.application("<APPLICATION_ID>").communication.getSystemEmailTemplates( pageNo,  pageSize,  sort) {
   //use response
 }
 ```
@@ -1716,7 +1716,7 @@ Get email template by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getEmailTemplateById( id) {
+client.application("<APPLICATION_ID>").communication.getEmailTemplateById( id) {
   //use response
 }
 ```
@@ -1810,7 +1810,7 @@ Update email template by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.updateEmailTemplateById( id, body body) {
+client.application("<APPLICATION_ID>").communication.updateEmailTemplateById( id, body body) {
   //use response
 }
 ```
@@ -1918,7 +1918,7 @@ Delete email template by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.deleteEmailTemplateById( id) {
+client.application("<APPLICATION_ID>").communication.deleteEmailTemplateById( id) {
   //use response
 }
 ```
@@ -1984,7 +1984,7 @@ Send email or sms synchronously
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.sendCommunicationSynchronously(body body) {
+client.application("<APPLICATION_ID>").communication.sendCommunicationSynchronously(body body) {
   //use response
 }
 ```
@@ -2048,7 +2048,7 @@ Send email or sms asynchronously
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.sendCommunicationAsynchronously(body body) {
+client.application("<APPLICATION_ID>").communication.sendCommunicationAsynchronously(body body) {
   //use response
 }
 ```
@@ -2112,7 +2112,7 @@ Get event subscriptions
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getEventSubscriptions( pageNo,  pageSize,  populate) {
+client.application("<APPLICATION_ID>").communication.getEventSubscriptions( pageNo,  pageSize,  populate) {
   //use response
 }
 ```
@@ -2747,7 +2747,7 @@ Get jobs
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getJobs( pageNo,  pageSize,  sort) {
+client.application("<APPLICATION_ID>").communication.getJobs( pageNo,  pageSize,  sort) {
   //use response
 }
 ```
@@ -2832,7 +2832,7 @@ Trigger campaign job
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.triggerCampaignJob(body body) {
+client.application("<APPLICATION_ID>").communication.triggerCampaignJob(body body) {
   //use response
 }
 ```
@@ -2896,7 +2896,7 @@ Get job logs
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getJobLogs( pageNo,  pageSize,  sort) {
+client.application("<APPLICATION_ID>").communication.getJobLogs( pageNo,  pageSize,  sort) {
   //use response
 }
 ```
@@ -2994,7 +2994,7 @@ Get communication logs
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getCommunicationLogs( pageId,  pageSize,  sort,  query) {
+client.application("<APPLICATION_ID>").communication.getCommunicationLogs( pageId,  pageSize,  sort,  query) {
   //use response
 }
 ```
@@ -3094,7 +3094,7 @@ Get system notifications
 
 
 ```java
-platformClient.communication.getSystemNotifications( pageNo,  pageSize) {
+client.communication.getSystemNotifications( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -3190,7 +3190,7 @@ Send OTP using email and sms
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.sendOtp(body body) {
+client.application("<APPLICATION_ID>").communication.sendOtp(body body) {
   //use response
 }
 ```
@@ -3268,7 +3268,7 @@ Verify OTP sent via email and sms
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.verfiyOtp(body body) {
+client.application("<APPLICATION_ID>").communication.verfiyOtp(body body) {
   //use response
 }
 ```
@@ -3335,7 +3335,7 @@ Get sms providers
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getSmsProviders( pageNo,  pageSize,  sort) {
+client.application("<APPLICATION_ID>").communication.getSmsProviders( pageNo,  pageSize,  sort) {
   //use response
 }
 ```
@@ -3426,7 +3426,7 @@ Create sms provider
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.createSmsProvider(body body) {
+client.application("<APPLICATION_ID>").communication.createSmsProvider(body body) {
   //use response
 }
 ```
@@ -3503,7 +3503,7 @@ Get sms provider by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getSmsProviderById( id) {
+client.application("<APPLICATION_ID>").communication.getSmsProviderById( id) {
   //use response
 }
 ```
@@ -3581,7 +3581,7 @@ Update sms provider by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.updateSmsProviderById( id, body body) {
+client.application("<APPLICATION_ID>").communication.updateSmsProviderById( id, body body) {
   //use response
 }
 ```
@@ -3659,7 +3659,7 @@ Get sms templates
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getSmsTemplates( pageNo,  pageSize,  sort) {
+client.application("<APPLICATION_ID>").communication.getSmsTemplates( pageNo,  pageSize,  sort) {
   //use response
 }
 ```
@@ -3755,7 +3755,7 @@ Create sms template
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.createSmsTemplate(body body) {
+client.application("<APPLICATION_ID>").communication.createSmsTemplate(body body) {
   //use response
 }
 ```
@@ -3837,7 +3837,7 @@ Get sms template by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getSmsTemplateById( id) {
+client.application("<APPLICATION_ID>").communication.getSmsTemplateById( id) {
   //use response
 }
 ```
@@ -3920,7 +3920,7 @@ Update sms template by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.updateSmsTemplateById( id, body body) {
+client.application("<APPLICATION_ID>").communication.updateSmsTemplateById( id, body body) {
   //use response
 }
 ```
@@ -4003,7 +4003,7 @@ Delete sms template by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.deleteSmsTemplateById( id) {
+client.application("<APPLICATION_ID>").communication.deleteSmsTemplateById( id) {
   //use response
 }
 ```
@@ -4069,7 +4069,7 @@ Get system sms templates
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getSystemSystemTemplates( pageNo,  pageSize,  sort) {
+client.application("<APPLICATION_ID>").communication.getSystemSystemTemplates( pageNo,  pageSize,  sort) {
   //use response
 }
 ```

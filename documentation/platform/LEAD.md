@@ -43,7 +43,7 @@ Gets the list of company level tickets and/or ticket filters depending on query 
 
 
 ```java
-platformClient.lead.getTickets( items,  filters,  q,  status,  priority,  category,  pageNo,  pageSize) {
+client.lead.getTickets( items,  filters,  q,  status,  priority,  category,  pageNo,  pageSize) {
   //use response
 }
 ```
@@ -478,7 +478,7 @@ Creates a company level ticket
 
 
 ```java
-platformClient.lead.createTicket(body body) {
+client.lead.createTicket(body body) {
   //use response
 }
 ```
@@ -729,7 +729,7 @@ Gets the list of Application level Tickets and/or ticket filters depending on qu
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.getTickets( items,  filters,  q,  status,  priority,  category) {
+client.application("<APPLICATION_ID>").lead.getTickets( items,  filters,  q,  status,  priority,  category) {
   //use response
 }
 ```
@@ -1163,7 +1163,7 @@ Retreives ticket details of a company level ticket with ticket ID
 
 
 ```java
-platformClient.lead.getTicket( id) {
+client.lead.getTicket( id) {
   //use response
 }
 ```
@@ -1415,7 +1415,7 @@ Edits ticket details of a company level ticket
 
 
 ```java
-platformClient.lead.editTicket( id, body body) {
+client.lead.editTicket( id, body body) {
   //use response
 }
 ```
@@ -1667,7 +1667,7 @@ Retreives ticket details of a application level ticket
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.getTicket( id) {
+client.application("<APPLICATION_ID>").lead.getTicket( id) {
   //use response
 }
 ```
@@ -1921,7 +1921,7 @@ Edits ticket details of a application level ticket
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.editTicket( id, body body) {
+client.application("<APPLICATION_ID>").lead.editTicket( id, body body) {
   //use response
 }
 ```
@@ -2175,7 +2175,7 @@ Create history for specific company level ticket
 
 
 ```java
-platformClient.lead.createHistory( id, body body) {
+client.lead.createHistory( id, body body) {
   //use response
 }
 ```
@@ -2271,7 +2271,7 @@ Gets history list for specific company level ticket
 
 
 ```java
-platformClient.lead.getTicketHistory( id) {
+client.lead.getTicketHistory( id) {
   //use response
 }
 ```
@@ -2471,7 +2471,7 @@ Gets a list of feedback submitted against that ticket
 
 
 ```java
-platformClient.lead.getFeedbacks( id) {
+client.lead.getFeedbacks( id) {
   //use response
 }
 ```
@@ -2554,7 +2554,7 @@ Submit a response for feeback form against that ticket
 
 
 ```java
-platformClient.lead.submitFeedback( id, body body) {
+client.lead.submitFeedback( id, body body) {
   //use response
 }
 ```
@@ -2633,7 +2633,7 @@ Create history for specific application level ticket
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.createHistory( id, body body) {
+client.application("<APPLICATION_ID>").lead.createHistory( id, body body) {
   //use response
 }
 ```
@@ -2730,7 +2730,7 @@ Gets history list for specific application level ticket
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.getTicketHistory( id) {
+client.application("<APPLICATION_ID>").lead.getTicketHistory( id) {
   //use response
 }
 ```
@@ -2931,7 +2931,7 @@ Get specific custom form using it's slug
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.getCustomForm( slug) {
+client.application("<APPLICATION_ID>").lead.getCustomForm( slug) {
   //use response
 }
 ```
@@ -3038,7 +3038,7 @@ Edit the given custom form
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.editCustomForm( slug, body body) {
+client.application("<APPLICATION_ID>").lead.editCustomForm( slug, body body) {
   //use response
 }
 ```
@@ -3155,7 +3155,7 @@ Get list of custom form
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.getCustomForms() {
+client.application("<APPLICATION_ID>").lead.getCustomForms() {
   //use response
 }
 ```
@@ -3350,7 +3350,7 @@ Creates a new custom form
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.createCustomForm(body body) {
+client.application("<APPLICATION_ID>").lead.createCustomForm(body body) {
   //use response
 }
 ```
@@ -3466,7 +3466,7 @@ Get Token to join a specific Video Room using it's unqiue name
 
 
 ```java
-platformClient.lead.getTokenForVideoRoom( uniqueName) {
+client.lead.getTokenForVideoRoom( uniqueName) {
   //use response
 }
 ```
@@ -3530,7 +3530,7 @@ Get Token to join a specific Video Room using it's unqiue name
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.getTokenForVideoRoom( uniqueName) {
+client.application("<APPLICATION_ID>").lead.getTokenForVideoRoom( uniqueName) {
   //use response
 }
 ```
@@ -3595,7 +3595,7 @@ Get participants of a specific Video Room using it's unique name
 
 
 ```java
-platformClient.lead.getVideoParticipants( uniqueName) {
+client.lead.getVideoParticipants( uniqueName) {
   //use response
 }
 ```
@@ -3659,7 +3659,7 @@ Get participants of a specific Video Room using it's unique name
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.getVideoParticipants( uniqueName) {
+client.application("<APPLICATION_ID>").lead.getVideoParticipants( uniqueName) {
   //use response
 }
 ```
@@ -3724,7 +3724,7 @@ Open a video room.
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.openVideoRoom(body body) {
+client.application("<APPLICATION_ID>").lead.openVideoRoom(body body) {
   //use response
 }
 ```
@@ -3788,7 +3788,7 @@ Close the video room and force all participants to leave.
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.closeVideoRoom( uniqueName) {
+client.application("<APPLICATION_ID>").lead.closeVideoRoom( uniqueName) {
   //use response
 }
 ```
@@ -3853,7 +3853,7 @@ Get general support configuration.
 
 
 ```java
-platformClient.lead.getGeneralConfig() {
+client.lead.getGeneralConfig() {
   //use response
 }
 ```

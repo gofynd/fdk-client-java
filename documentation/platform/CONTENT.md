@@ -88,7 +88,7 @@ Get a list of announcements
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getAnnouncementsList( pageNo,  pageSize) {
+client.application("<APPLICATION_ID>").content.getAnnouncementsList( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -205,7 +205,7 @@ Create an announcement
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.createAnnouncement(body body) {
+client.application("<APPLICATION_ID>").content.createAnnouncement(body body) {
   //use response
 }
 ```
@@ -313,7 +313,7 @@ Get announcement by ID
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getAnnouncementById( announcementId) {
+client.application("<APPLICATION_ID>").content.getAnnouncementById( announcementId) {
   //use response
 }
 ```
@@ -417,7 +417,7 @@ Update an announcement
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.updateAnnouncement( announcementId, body body) {
+client.application("<APPLICATION_ID>").content.updateAnnouncement( announcementId, body body) {
   //use response
 }
 ```
@@ -526,7 +526,7 @@ Update the schedule and the publish status of an announcement
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.updateAnnouncementSchedule( announcementId, body body) {
+client.application("<APPLICATION_ID>").content.updateAnnouncementSchedule( announcementId, body body) {
   //use response
 }
 ```
@@ -635,7 +635,7 @@ Delete announcement by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.deleteAnnouncement( announcementId) {
+client.application("<APPLICATION_ID>").content.deleteAnnouncement( announcementId) {
   //use response
 }
 ```
@@ -744,7 +744,7 @@ Create a blog
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.createBlog(body body) {
+client.application("<APPLICATION_ID>").content.createBlog(body body) {
   //use response
 }
 ```
@@ -843,7 +843,7 @@ Get blogs
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getBlogs( pageNo,  pageSize) {
+client.application("<APPLICATION_ID>").content.getBlogs( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -948,7 +948,7 @@ Update a blog
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.updateBlog( id, body body) {
+client.application("<APPLICATION_ID>").content.updateBlog( id, body body) {
   //use response
 }
 ```
@@ -1048,7 +1048,7 @@ Delete blogs
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.deleteBlog( id) {
+client.application("<APPLICATION_ID>").content.deleteBlog( id) {
   //use response
 }
 ```
@@ -1148,7 +1148,7 @@ Get components of a blog
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getComponentById( slug) {
+client.application("<APPLICATION_ID>").content.getComponentById( slug) {
   //use response
 }
 ```
@@ -1248,7 +1248,7 @@ Adds a data loader
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.addDataLoader(body body) {
+client.application("<APPLICATION_ID>").content.addDataLoader(body body) {
   //use response
 }
 ```
@@ -1310,7 +1310,7 @@ Get all the data loaders in an application
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getDataLoaders() {
+client.application("<APPLICATION_ID>").content.getDataLoaders() {
   //use response
 }
 ```
@@ -1397,7 +1397,7 @@ Delete data loader in application
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.deleteDataLoader( dataLoaderId) {
+client.application("<APPLICATION_ID>").content.deleteDataLoader( dataLoaderId) {
   //use response
 }
 ```
@@ -1460,7 +1460,7 @@ Edit a data loader by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.editDataLoader( dataLoaderId, body body) {
+client.application("<APPLICATION_ID>").content.editDataLoader( dataLoaderId, body body) {
   //use response
 }
 ```
@@ -1523,7 +1523,7 @@ Select a data loader by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.selectDataLoader( dataLoaderId) {
+client.application("<APPLICATION_ID>").content.selectDataLoader( dataLoaderId) {
   //use response
 }
 ```
@@ -1586,7 +1586,7 @@ Reset a data loader by serive name and operation Id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.resetDataLoader( service,  operationId) {
+client.application("<APPLICATION_ID>").content.resetDataLoader( service,  operationId) {
   //use response
 }
 ```
@@ -1644,7 +1644,7 @@ Get a list of FAQ categories
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getFaqCategories() {
+client.application("<APPLICATION_ID>").content.getFaqCategories() {
   //use response
 }
 ```
@@ -1711,7 +1711,7 @@ Get an FAQ category by slug or id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getFaqCategoryBySlugOrId( idOrSlug) {
+client.application("<APPLICATION_ID>").content.getFaqCategoryBySlugOrId( idOrSlug) {
   //use response
 }
 ```
@@ -1783,7 +1783,7 @@ Create an FAQ category
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.createFaqCategory(body body) {
+client.application("<APPLICATION_ID>").content.createFaqCategory(body body) {
   //use response
 }
 ```
@@ -1846,7 +1846,7 @@ Update an FAQ category
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.updateFaqCategory( id, body body) {
+client.application("<APPLICATION_ID>").content.updateFaqCategory( id, body body) {
   //use response
 }
 ```
@@ -1910,7 +1910,7 @@ Delete an FAQ category
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.deleteFaqCategory( id) {
+client.application("<APPLICATION_ID>").content.deleteFaqCategory( id) {
   //use response
 }
 ```
@@ -1975,7 +1975,7 @@ Get question and answers within an FAQ category
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getFaqsByCategoryIdOrSlug( idOrSlug) {
+client.application("<APPLICATION_ID>").content.getFaqsByCategoryIdOrSlug( idOrSlug) {
   //use response
 }
 ```
@@ -2040,7 +2040,7 @@ Create an FAQ
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.addFaq( categoryId, body body) {
+client.application("<APPLICATION_ID>").content.addFaq( categoryId, body body) {
   //use response
 }
 ```
@@ -2103,7 +2103,7 @@ Update an FAQ
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.updateFaq( categoryId,  faqId, body body) {
+client.application("<APPLICATION_ID>").content.updateFaq( categoryId,  faqId, body body) {
   //use response
 }
 ```
@@ -2167,7 +2167,7 @@ Delete an FAQ
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.deleteFaq( categoryId,  faqId) {
+client.application("<APPLICATION_ID>").content.deleteFaq( categoryId,  faqId) {
   //use response
 }
 ```
@@ -2231,7 +2231,7 @@ Get an FAQ
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getFaqByIdOrSlug( idOrSlug) {
+client.application("<APPLICATION_ID>").content.getFaqByIdOrSlug( idOrSlug) {
   //use response
 }
 ```
@@ -2294,7 +2294,7 @@ Get SEO meta tag title for content
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.generateSEOTitle( type, body body) {
+client.application("<APPLICATION_ID>").content.generateSEOTitle( type, body body) {
   //use response
 }
 ```
@@ -2360,7 +2360,7 @@ Get landing pages
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getLandingPages( pageNo,  pageSize) {
+client.application("<APPLICATION_ID>").content.getLandingPages( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -2456,7 +2456,7 @@ Create a landing page
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.createLandingPage(body body) {
+client.application("<APPLICATION_ID>").content.createLandingPage(body body) {
   //use response
 }
 ```
@@ -2541,7 +2541,7 @@ Update a landing page
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.updateLandingPage( id, body body) {
+client.application("<APPLICATION_ID>").content.updateLandingPage( id, body body) {
   //use response
 }
 ```
@@ -2627,7 +2627,7 @@ Delete a landing page
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.deleteLandingPage( id) {
+client.application("<APPLICATION_ID>").content.deleteLandingPage( id) {
   //use response
 }
 ```
@@ -2713,7 +2713,7 @@ Get legal information
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getLegalInformation() {
+client.application("<APPLICATION_ID>").content.getLegalInformation() {
   //use response
 }
 ```
@@ -2807,7 +2807,7 @@ Save legal information
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.updateLegalInformation(body body) {
+client.application("<APPLICATION_ID>").content.updateLegalInformation(body body) {
   //use response
 }
 ```
@@ -2870,7 +2870,7 @@ Get navigations
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getNavigations( devicePlatform,  pageNo,  pageSize) {
+client.application("<APPLICATION_ID>").content.getNavigations( devicePlatform,  pageNo,  pageSize) {
   //use response
 }
 ```
@@ -3122,7 +3122,7 @@ Create a navigation
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.createNavigation(body body) {
+client.application("<APPLICATION_ID>").content.createNavigation(body body) {
   //use response
 }
 ```
@@ -3367,7 +3367,7 @@ Get default navigations
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getDefaultNavigations() {
+client.application("<APPLICATION_ID>").content.getDefaultNavigations() {
   //use response
 }
 ```
@@ -4091,7 +4091,7 @@ Get a navigation by slug
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getNavigationBySlug( slug,  devicePlatform) {
+client.application("<APPLICATION_ID>").content.getNavigationBySlug( slug,  devicePlatform) {
   //use response
 }
 ```
@@ -4338,7 +4338,7 @@ Update a navigation
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.updateNavigation( id, body body) {
+client.application("<APPLICATION_ID>").content.updateNavigation( id, body body) {
   //use response
 }
 ```
@@ -4584,7 +4584,7 @@ Delete a navigation
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.deleteNavigation( id) {
+client.application("<APPLICATION_ID>").content.deleteNavigation( id) {
   //use response
 }
 ```
@@ -4827,7 +4827,7 @@ Get page meta
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getPageMeta() {
+client.application("<APPLICATION_ID>").content.getPageMeta() {
   //use response
 }
 ```
@@ -4943,7 +4943,7 @@ Get page spec
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getPageSpec() {
+client.application("<APPLICATION_ID>").content.getPageSpec() {
   //use response
 }
 ```
@@ -5031,7 +5031,7 @@ Create a page preview
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.createPagePreview(body body) {
+client.application("<APPLICATION_ID>").content.createPagePreview(body body) {
   //use response
 }
 ```
@@ -5147,7 +5147,7 @@ Change the publish status of a page
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.updatePagePreview( slug, body body) {
+client.application("<APPLICATION_ID>").content.updatePagePreview( slug, body body) {
   //use response
 }
 ```
@@ -5264,7 +5264,7 @@ Delete a page
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.deletePage( id) {
+client.application("<APPLICATION_ID>").content.deletePage( id) {
   //use response
 }
 ```
@@ -5381,7 +5381,7 @@ Save path based redirection rules
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.addPathRedirectionRules(body body) {
+client.application("<APPLICATION_ID>").content.addPathRedirectionRules(body body) {
   //use response
 }
 ```
@@ -5450,7 +5450,7 @@ Get path based redirection rules
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getPathRedirectionRules( pageSize,  pageNo) {
+client.application("<APPLICATION_ID>").content.getPathRedirectionRules( pageSize,  pageNo) {
   //use response
 }
 ```
@@ -5521,7 +5521,7 @@ Get path based redirection rule
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getPathRedirectionRule( pathId) {
+client.application("<APPLICATION_ID>").content.getPathRedirectionRule( pathId) {
   //use response
 }
 ```
@@ -5591,7 +5591,7 @@ Update path based redirection rules
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.updatePathRedirectionRules( pathId, body body) {
+client.application("<APPLICATION_ID>").content.updatePathRedirectionRules( pathId, body body) {
   //use response
 }
 ```
@@ -5661,7 +5661,7 @@ Delete path based redirection rules
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.deletePathRedirectionRules( pathId) {
+client.application("<APPLICATION_ID>").content.deletePathRedirectionRules( pathId) {
   //use response
 }
 ```
@@ -5718,7 +5718,7 @@ Get SEO configuration of an application
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getSEOConfiguration() {
+client.application("<APPLICATION_ID>").content.getSEOConfiguration() {
   //use response
 }
 ```
@@ -5806,7 +5806,7 @@ Update SEO of application
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.updateSEOConfiguration(body body) {
+client.application("<APPLICATION_ID>").content.updateSEOConfiguration(body body) {
   //use response
 }
 ```
@@ -5891,7 +5891,7 @@ Get slideshows
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getSlideshows( devicePlatform,  pageNo,  pageSize) {
+client.application("<APPLICATION_ID>").content.getSlideshows( devicePlatform,  pageNo,  pageSize) {
   //use response
 }
 ```
@@ -6007,7 +6007,7 @@ Create a slideshow
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.createSlideshow(body body) {
+client.application("<APPLICATION_ID>").content.createSlideshow(body body) {
   //use response
 }
 ```
@@ -6108,7 +6108,7 @@ Get slideshow by slug
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getSlideshowBySlug( slug,  devicePlatform) {
+client.application("<APPLICATION_ID>").content.getSlideshowBySlug( slug,  devicePlatform) {
   //use response
 }
 ```
@@ -6211,7 +6211,7 @@ Update a slideshow
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.updateSlideshow( id, body body) {
+client.application("<APPLICATION_ID>").content.updateSlideshow( id, body body) {
   //use response
 }
 ```
@@ -6313,7 +6313,7 @@ Delete a slideshow
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.deleteSlideshow( id) {
+client.application("<APPLICATION_ID>").content.deleteSlideshow( id) {
   //use response
 }
 ```
@@ -6415,7 +6415,7 @@ Get support information
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getSupportInformation() {
+client.application("<APPLICATION_ID>").content.getSupportInformation() {
   //use response
 }
 ```
@@ -6500,7 +6500,7 @@ Update the support data of an application
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.updateSupportInformation(body body) {
+client.application("<APPLICATION_ID>").content.updateSupportInformation(body body) {
   //use response
 }
 ```
@@ -6585,7 +6585,7 @@ Update a tag
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.updateInjectableTag(body body) {
+client.application("<APPLICATION_ID>").content.updateInjectableTag(body body) {
   //use response
 }
 ```
@@ -6661,7 +6661,7 @@ Delete tags in application
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.deleteAllInjectableTags() {
+client.application("<APPLICATION_ID>").content.deleteAllInjectableTags() {
   //use response
 }
 ```
@@ -6737,7 +6737,7 @@ Get all the tags in an application
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getInjectableTags() {
+client.application("<APPLICATION_ID>").content.getInjectableTags() {
   //use response
 }
 ```
@@ -6813,7 +6813,7 @@ Add a tag
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.addInjectableTag(body body) {
+client.application("<APPLICATION_ID>").content.addInjectableTag(body body) {
   //use response
 }
 ```
@@ -6881,7 +6881,7 @@ Remove a tag
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.removeInjectableTag(body body) {
+client.application("<APPLICATION_ID>").content.removeInjectableTag(body body) {
   //use response
 }
 ```
@@ -6937,7 +6937,7 @@ Edit a tag by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.editInjectableTag( tagId, body body) {
+client.application("<APPLICATION_ID>").content.editInjectableTag( tagId, body body) {
   //use response
 }
 ```
@@ -7006,7 +7006,7 @@ Create a page
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.createPage(body body) {
+client.application("<APPLICATION_ID>").content.createPage(body body) {
   //use response
 }
 ```
@@ -7122,7 +7122,7 @@ Get a list of pages
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getPages( pageNo,  pageSize) {
+client.application("<APPLICATION_ID>").content.getPages( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -7231,7 +7231,7 @@ Update a page
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.updatePage( id, body body) {
+client.application("<APPLICATION_ID>").content.updatePage( id, body body) {
   //use response
 }
 ```
@@ -7348,7 +7348,7 @@ Get pages by component Id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getPageBySlug( slug) {
+client.application("<APPLICATION_ID>").content.getPageBySlug( slug) {
   //use response
 }
 ```
@@ -8971,6 +8971,8 @@ Success. Returns a JSON object of components. Refer `PageSchema` for more detail
  | page | page | Symbolic link for Page: /page/:slug |
  | policy | policy | Symbolic link for Privacy Policy: /privacy-policy |
  | product | product | Symbolic link for Product: /product/:slug |
+ | productReviews | product-reviews | Symbolic link for Product Reviews: /product/:slug/reviews |
+ | addProductReview | add-product-review | Symbolic link for Add Product review: /product/:slug/add-review |
  | productRequest | product-request | Symbolic link for Product Request: /product-request/ |
  | products | products | Symbolic link for Products: /products/ |
  | profile | profile | Symbolic link for Profile: /profile |

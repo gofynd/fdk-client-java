@@ -20,8 +20,6 @@ import com.sdk.platform.communication.CommunicationPlatformService;
 
 import com.sdk.platform.payment.PaymentPlatformService;
 
-import com.sdk.platform.order.OrderPlatformService;
-
 import com.sdk.platform.catalog.CatalogPlatformService;
 
 import com.sdk.platform.companyprofile.CompanyProfilePlatformService;
@@ -30,13 +28,9 @@ import com.sdk.platform.filestorage.FileStoragePlatformService;
 
 import com.sdk.platform.share.SharePlatformService;
 
-import com.sdk.platform.inventory.InventoryPlatformService;
-
 import com.sdk.platform.configuration.ConfigurationPlatformService;
 
 import com.sdk.platform.cart.CartPlatformService;
-
-import com.sdk.platform.rewards.RewardsPlatformService;
 
 import com.sdk.platform.analytics.AnalyticsPlatformService;
 
@@ -73,8 +67,6 @@ public class PlatformClient {
     
     public PaymentPlatformService payment;
     
-    public OrderPlatformService order;
-    
     public CatalogPlatformService catalog;
     
     public CompanyProfilePlatformService companyProfile;
@@ -83,13 +75,9 @@ public class PlatformClient {
     
     public SharePlatformService share;
     
-    public InventoryPlatformService inventory;
-    
     public ConfigurationPlatformService configuration;
     
     public CartPlatformService cart;
-    
-    public RewardsPlatformService rewards;
     
     public AnalyticsPlatformService analytics;
     
@@ -122,8 +110,6 @@ public class PlatformClient {
         
         this.payment = new PaymentPlatformService(config);
         
-        this.order = new OrderPlatformService(config);
-        
         this.catalog = new CatalogPlatformService(config);
         
         this.companyProfile = new CompanyProfilePlatformService(config);
@@ -132,13 +118,9 @@ public class PlatformClient {
         
         this.share = new SharePlatformService(config);
         
-        this.inventory = new InventoryPlatformService(config);
-        
         this.configuration = new ConfigurationPlatformService(config);
         
         this.cart = new CartPlatformService(config);
-        
-        this.rewards = new RewardsPlatformService(config);
         
         this.analytics = new AnalyticsPlatformService(config);
         
@@ -182,8 +164,6 @@ public class PlatformClient {
         
         public PaymentPlatformService.ApplicationClient payment;
         
-        public OrderPlatformService.ApplicationClient order;
-        
         public CatalogPlatformService.ApplicationClient catalog;
         
         public CompanyProfilePlatformService.ApplicationClient companyProfile;
@@ -192,13 +172,9 @@ public class PlatformClient {
         
         public SharePlatformService.ApplicationClient share;
         
-        public InventoryPlatformService.ApplicationClient inventory;
-        
         public ConfigurationPlatformService.ApplicationClient configuration;
         
         public CartPlatformService.ApplicationClient cart;
-        
-        public RewardsPlatformService.ApplicationClient rewards;
         
         public AnalyticsPlatformService.ApplicationClient analytics;
         
@@ -230,8 +206,6 @@ public class PlatformClient {
             
             this.payment = new PaymentPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.order = new OrderPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
             this.catalog = new CatalogPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.companyProfile = new CompanyProfilePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
@@ -240,13 +214,9 @@ public class PlatformClient {
             
             this.share = new SharePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.inventory = new InventoryPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
             this.configuration = new ConfigurationPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.cart = new CartPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.rewards = new RewardsPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.analytics = new AnalyticsPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             

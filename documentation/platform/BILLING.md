@@ -31,7 +31,7 @@ Check coupon validity
 
 
 ```java
-platformClient.billing.checkCouponValidity( plan,  couponCode) {
+client.billing.checkCouponValidity( plan,  couponCode) {
   //use response
 }
 ```
@@ -86,7 +86,7 @@ Create subscription charge
 
 
 ```java
-platformClient.billing.createSubscriptionCharge( extensionId, body body) {
+client.billing.createSubscriptionCharge( extensionId, body body) {
   //use response
 }
 ```
@@ -140,7 +140,7 @@ Get subscription charge details
 
 
 ```java
-platformClient.billing.getSubscriptionCharge( extensionId,  subscriptionId) {
+client.billing.getSubscriptionCharge( extensionId,  subscriptionId) {
   //use response
 }
 ```
@@ -195,7 +195,7 @@ Cancel subscription charge
 
 
 ```java
-platformClient.billing.cancelSubscriptionCharge( extensionId,  subscriptionId) {
+client.billing.cancelSubscriptionCharge( extensionId,  subscriptionId) {
   //use response
 }
 ```
@@ -250,7 +250,7 @@ Get invoices
 
 
 ```java
-platformClient.billing.getInvoices() {
+client.billing.getInvoices() {
   //use response
 }
 ```
@@ -543,7 +543,7 @@ Get invoice by id
 
 
 ```java
-platformClient.billing.getInvoiceById( invoiceId) {
+client.billing.getInvoiceById( invoiceId) {
   //use response
 }
 ```
@@ -830,7 +830,7 @@ Get subscription customer detail
 
 
 ```java
-platformClient.billing.getCustomerDetail() {
+client.billing.getCustomerDetail() {
   //use response
 }
 ```
@@ -915,7 +915,7 @@ Upsert subscription customer detail
 
 
 ```java
-platformClient.billing.upsertCustomerDetail(body body) {
+client.billing.upsertCustomerDetail(body body) {
   //use response
 }
 ```
@@ -1000,7 +1000,7 @@ Get current subscription detail
 
 
 ```java
-platformClient.billing.getSubscription() {
+client.billing.getSubscription() {
   //use response
 }
 ```
@@ -1124,7 +1124,7 @@ Get subscription subscription limits
 
 
 ```java
-platformClient.billing.getFeatureLimitConfig() {
+client.billing.getFeatureLimitConfig() {
   //use response
 }
 ```
@@ -1213,7 +1213,7 @@ Activate subscription
 
 
 ```java
-platformClient.billing.activateSubscriptionPlan(body body) {
+client.billing.activateSubscriptionPlan(body body) {
   //use response
 }
 ```
@@ -1322,7 +1322,7 @@ Cancel subscription
 
 
 ```java
-platformClient.billing.cancelSubscriptionPlan(body body) {
+client.billing.cancelSubscriptionPlan(body body) {
   //use response
 }
 ```

@@ -21,7 +21,7 @@ Get All Webhook Events
 
 
 ```java
-publicClient.webhook.fetchAllWebhookEvents() {
+webhook.fetchAllWebhookEvents() {
   //use response
 }
 ```
@@ -69,7 +69,7 @@ Send webhook event name, type, version, category in request body to get complete
 
 
 ```java
-publicClient.webhook.queryWebhookEventDetails(body body) {
+webhook.queryWebhookEventDetails(body body) {
   //use response
 }
 ```

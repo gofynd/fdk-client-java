@@ -10,10 +10,7 @@ import java.util.*;
 import java.io.File;
 
 import com.sdk.common.*;
-import com.sdk.application.*;
-
-
-
+import com.sdk.application.ApplicationConfig;
 
 
 
@@ -66,6 +63,10 @@ import com.sdk.application.*;
             
                     relativeUrls.put("resendOrCancelPayment","/service/application/payment/v1.0/payment/resend_or_cancel".substring(1));
             
+                    relativeUrls.put("renderHTML","/service/application/payment/v1.0/payment/html/render/".substring(1));
+            
+                    relativeUrls.put("validateVPA","/service/application/payment/v1.0/validate-vpa".substring(1));
+            
                     relativeUrls.put("getActiveRefundTransferModes","/service/application/payment/v1.0/refund/transfer-mode".substring(1));
             
                     relativeUrls.put("enableOrDisableRefundTransferMode","/service/application/payment/v1.0/refund/transfer-mode".substring(1));
@@ -85,6 +86,24 @@ import com.sdk.application.*;
                     relativeUrls.put("verifyOtpAndAddBeneficiaryForWallet","/service/application/payment/v1.0/refund/verification/wallet".substring(1));
             
                     relativeUrls.put("updateDefaultBeneficiary","/service/application/payment/v1.0/refund/beneficiary/default".substring(1));
+            
+                    relativeUrls.put("getPaymentLink","/service/application/payment/v1.0/create-payment-link/".substring(1));
+            
+                    relativeUrls.put("createPaymentLink","/service/application/payment/v1.0/create-payment-link/".substring(1));
+            
+                    relativeUrls.put("resendPaymentLink","/service/application/payment/v1.0/resend-payment-link/".substring(1));
+            
+                    relativeUrls.put("cancelPaymentLink","/service/application/payment/v1.0/cancel-payment-link/".substring(1));
+            
+                    relativeUrls.put("getPaymentModeRoutesPaymentLink","/service/application/payment/v1.0/payment/options/link/".substring(1));
+            
+                    relativeUrls.put("pollingPaymentLink","/service/application/payment/v1.0/polling-payment-link/".substring(1));
+            
+                    relativeUrls.put("createOrderHandlerPaymentLink","/service/application/payment/v1.0/create-order/link/".substring(1));
+            
+                    relativeUrls.put("initialisePaymentPaymentLink","/service/application/payment/v1.0/payment/request/link/".substring(1));
+            
+                    relativeUrls.put("checkAndUpdatePaymentStatusPaymentLink","/service/application/payment/v1.0/payment/confirm/polling/link/".substring(1));
             
                     relativeUrls.put("customerCreditSummary","/service/application/payment/v1.0/payment/credit-summary/".substring(1));
             
@@ -367,6 +386,42 @@ import com.sdk.application.*;
     
     
     
+    public PaymentApplicationModels.renderHTMLResponse renderHTML(PaymentApplicationModels.renderHTMLRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("renderHTML");
+        
+
+        Response<PaymentApplicationModels.renderHTMLResponse> response = paymentApplicationApiList.renderHTML(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public PaymentApplicationModels.ValidateVPAResponse validateVPA(PaymentApplicationModels.ValidateVPARequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("validateVPA");
+        
+
+        Response<PaymentApplicationModels.ValidateVPAResponse> response = paymentApplicationApiList.validateVPA(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
     public PaymentApplicationModels.TransferModeResponse getActiveRefundTransferModes() throws IOException {
      
       String fullUrl = relativeUrls.get("getActiveRefundTransferModes");
@@ -535,6 +590,168 @@ import com.sdk.application.*;
         
 
         Response<PaymentApplicationModels.SetDefaultBeneficiaryResponse> response = paymentApplicationApiList.updateDefaultBeneficiary(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public PaymentApplicationModels.GetPaymentLinkResponse getPaymentLink(String paymentLinkId ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getPaymentLink");
+        
+
+        Response<PaymentApplicationModels.GetPaymentLinkResponse> response = paymentApplicationApiList.getPaymentLink(fullUrl  ,paymentLinkId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public PaymentApplicationModels.CreatePaymentLinkResponse createPaymentLink(PaymentApplicationModels.CreatePaymentLinkRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("createPaymentLink");
+        
+
+        Response<PaymentApplicationModels.CreatePaymentLinkResponse> response = paymentApplicationApiList.createPaymentLink(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public PaymentApplicationModels.ResendPaymentLinkResponse resendPaymentLink(PaymentApplicationModels.CancelOrResendPaymentLinkRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("resendPaymentLink");
+        
+
+        Response<PaymentApplicationModels.ResendPaymentLinkResponse> response = paymentApplicationApiList.resendPaymentLink(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public PaymentApplicationModels.CancelPaymentLinkResponse cancelPaymentLink(PaymentApplicationModels.CancelOrResendPaymentLinkRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("cancelPaymentLink");
+        
+
+        Response<PaymentApplicationModels.CancelPaymentLinkResponse> response = paymentApplicationApiList.cancelPaymentLink(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public PaymentApplicationModels.PaymentModeRouteResponse getPaymentModeRoutesPaymentLink(String paymentLinkId ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getPaymentModeRoutesPaymentLink");
+        
+
+        Response<PaymentApplicationModels.PaymentModeRouteResponse> response = paymentApplicationApiList.getPaymentModeRoutesPaymentLink(fullUrl  ,paymentLinkId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public PaymentApplicationModels.PollingPaymentLinkResponse pollingPaymentLink(String paymentLinkId ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("pollingPaymentLink");
+        
+
+        Response<PaymentApplicationModels.PollingPaymentLinkResponse> response = paymentApplicationApiList.pollingPaymentLink(fullUrl  ,paymentLinkId).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public PaymentApplicationModels.CreateOrderUserResponse createOrderHandlerPaymentLink(PaymentApplicationModels.CreateOrderUserRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("createOrderHandlerPaymentLink");
+        
+
+        Response<PaymentApplicationModels.CreateOrderUserResponse> response = paymentApplicationApiList.createOrderHandlerPaymentLink(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public PaymentApplicationModels.PaymentInitializationResponse initialisePaymentPaymentLink(PaymentApplicationModels.PaymentInitializationRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("initialisePaymentPaymentLink");
+        
+
+        Response<PaymentApplicationModels.PaymentInitializationResponse> response = paymentApplicationApiList.initialisePaymentPaymentLink(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public PaymentApplicationModels.PaymentStatusUpdateResponse checkAndUpdatePaymentStatusPaymentLink(PaymentApplicationModels.PaymentStatusUpdateRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("checkAndUpdatePaymentStatusPaymentLink");
+        
+
+        Response<PaymentApplicationModels.PaymentStatusUpdateResponse> response = paymentApplicationApiList.checkAndUpdatePaymentStatusPaymentLink(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

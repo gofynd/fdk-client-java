@@ -1,4 +1,4 @@
-package com.sdk.platform;
+package com.sdk.common;
 
 import com.sdk.platform.PlatformConfig;
 import okhttp3.Interceptor;
@@ -37,7 +37,7 @@ public class PlatformHeaderInterceptor implements Interceptor {
                 .addHeader("Accept-Language", "en-IN")
                 .addHeader("Authorization", "Basic "+ bearerToken)
                 .addHeader("Content-Type","application/x-www-form-urlencoded")
-                .addHeader("x-fp-sdk-version", "1.0.3");
+                .addHeader("x-fp-sdk-version", "1.0.1");
     }            
 
 }

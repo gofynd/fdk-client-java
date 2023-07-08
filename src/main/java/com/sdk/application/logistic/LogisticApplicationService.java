@@ -10,10 +10,7 @@ import java.util.*;
 import java.io.File;
 
 import com.sdk.common.*;
-import com.sdk.application.*;
-
-
-
+import com.sdk.application.ApplicationConfig;
 
 
 
@@ -38,9 +35,15 @@ import com.sdk.application.*;
         this.logisticApplicationApiList = generateLogisticApplicationApiList(this.applicationConfig.getPersistentCookieStore());
 
            
-                    relativeUrls.put("getTatProduct","/service/application/logistics/v1.0".substring(1));
-            
                     relativeUrls.put("getPincodeCity","/service/application/logistics/v1.0/pincode/{pincode}".substring(1));
+            
+                    relativeUrls.put("getTatProduct","/service/application/logistics/v1.0/".substring(1));
+            
+                    relativeUrls.put("getAllCountries","/service/application/logistics/v1.0/country-list".substring(1));
+            
+                    relativeUrls.put("getPincodeZones","/service/application/logistics/v1.0/pincode/zones".substring(1));
+            
+                    relativeUrls.put("getOptimalLocations","/service/application/logistics/v1.0/reassign_stores".substring(1));
              
 
     }
@@ -63,12 +66,14 @@ import com.sdk.application.*;
      
     
     
-    public LogisticApplicationModels.GetTatProductResponse getTatProduct(LogisticApplicationModels.GetTatProductReqBody body) throws IOException {
+    public LogisticApplicationModels.PincodeApiResponse getPincodeCity(String pincode ) throws IOException {
      
-      String fullUrl = relativeUrls.get("getTatProduct");
+      String fullUrl = relativeUrls.get("getPincodeCity");
+        
+        fullUrl = fullUrl.replace("{" + "pincode" +"}",pincode.toString());
         
 
-        Response<LogisticApplicationModels.GetTatProductResponse> response = logisticApplicationApiList.getTatProduct(fullUrl , body).execute();
+        Response<LogisticApplicationModels.PincodeApiResponse> response = logisticApplicationApiList.getPincodeCity(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -81,14 +86,66 @@ import com.sdk.application.*;
     
     
     
-    public LogisticApplicationModels.GetPincodeCityResponse getPincodeCity(String pincode ) throws IOException {
+    public LogisticApplicationModels.TATViewResponse getTatProduct(LogisticApplicationModels.TATViewRequest body) throws IOException {
      
-      String fullUrl = relativeUrls.get("getPincodeCity");
-        
-        fullUrl = fullUrl.replace("{" + "pincode" +"}",pincode.toString());
+      String fullUrl = relativeUrls.get("getTatProduct");
         
 
-        Response<LogisticApplicationModels.GetPincodeCityResponse> response = logisticApplicationApiList.getPincodeCity(fullUrl ).execute();
+        Response<LogisticApplicationModels.TATViewResponse> response = logisticApplicationApiList.getTatProduct(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public LogisticApplicationModels.CountryListResponse getAllCountries() throws IOException {
+     
+      String fullUrl = relativeUrls.get("getAllCountries");
+        
+
+        Response<LogisticApplicationModels.CountryListResponse> response = logisticApplicationApiList.getAllCountries(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public LogisticApplicationModels.GetZoneFromPincodeViewResponse getPincodeZones(LogisticApplicationModels.GetZoneFromPincodeViewRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getPincodeZones");
+        
+
+        Response<LogisticApplicationModels.GetZoneFromPincodeViewResponse> response = logisticApplicationApiList.getPincodeZones(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public LogisticApplicationModels.ReAssignStoreResponse getOptimalLocations(LogisticApplicationModels.ReAssignStoreRequest body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getOptimalLocations");
+        
+
+        Response<LogisticApplicationModels.ReAssignStoreResponse> response = logisticApplicationApiList.getOptimalLocations(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
