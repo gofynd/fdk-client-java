@@ -47,7 +47,7 @@ Fetch all items added to the cart
 
 
 ```java
-cart.getCart( id,  i,  b,  assignCardId,  buyNow) {
+applicationClient.cart.getCart( id,  i,  b,  assignCardId,  buyNow) {
   //use response
 }
 ```
@@ -271,7 +271,7 @@ Fetch last-modified timestamp
 
 
 ```java
-cart.getCartLastModified( id) {
+applicationClient.cart.getCartLastModified( id) {
   //use response
 }
 ```
@@ -305,7 +305,7 @@ Add items to cart
 
 
 ```java
-cart.addItems( i,  b,  buyNow, body body) {
+applicationClient.cart.addItems( i,  b,  buyNow, body body) {
   //use response
 }
 ```
@@ -1005,7 +1005,7 @@ Update items in the cart
 
 
 ```java
-cart.updateCart( id,  i,  b,  buyNow, body body) {
+applicationClient.cart.updateCart( id,  i,  b,  buyNow, body body) {
   //use response
 }
 ```
@@ -1435,7 +1435,7 @@ Delete cart once user made successful checkout
 
 
 ```java
-cart.deleteCart( id) {
+applicationClient.cart.deleteCart( id) {
   //use response
 }
 ```
@@ -1491,7 +1491,7 @@ Count items in the cart
 
 
 ```java
-cart.getItemCount( id,  buyNow) {
+applicationClient.cart.getItemCount( id,  buyNow) {
   //use response
 }
 ```
@@ -1547,7 +1547,7 @@ Fetch Coupon
 
 
 ```java
-cart.getCoupons( id,  buyNow) {
+applicationClient.cart.getCoupons( id,  buyNow) {
   //use response
 }
 ```
@@ -1637,7 +1637,7 @@ Apply Coupon
 
 
 ```java
-cart.applyCoupon( i,  b,  p,  id,  buyNow, body body) {
+applicationClient.cart.applyCoupon( i,  b,  p,  id,  buyNow, body body) {
   //use response
 }
 ```
@@ -2231,7 +2231,7 @@ Remove Coupon Applied
 
 
 ```java
-cart.removeCoupon( id,  buyNow) {
+applicationClient.cart.removeCoupon( id,  buyNow) {
   //use response
 }
 ```
@@ -2443,7 +2443,7 @@ Get discount offers based on quantity
 
 
 ```java
-cart.getBulkDiscountOffers( itemId,  articleId,  uid,  slug) {
+applicationClient.cart.getBulkDiscountOffers( itemId,  articleId,  uid,  slug) {
   //use response
 }
 ```
@@ -2570,7 +2570,7 @@ Apply reward points at cart
 
 
 ```java
-cart.applyRewardPoints( id,  i,  b,  buyNow, body body) {
+applicationClient.cart.applyRewardPoints( id,  i,  b,  buyNow, body body) {
   //use response
 }
 ```
@@ -2793,7 +2793,7 @@ Fetch address
 
 
 ```java
-cart.getAddresses( cartId,  buyNow,  mobileNo,  checkoutMode,  tags,  isDefault) {
+applicationClient.cart.getAddresses( cartId,  buyNow,  mobileNo,  checkoutMode,  tags,  isDefault) {
   //use response
 }
 ```
@@ -2881,7 +2881,7 @@ Add address to an account
 
 
 ```java
-cart.addAddress(body body) {
+applicationClient.cart.addAddress(body body) {
   //use response
 }
 ```
@@ -2937,7 +2937,7 @@ Fetch a single address by its ID
 
 
 ```java
-cart.getAddressById( id,  cartId,  buyNow,  mobileNo,  checkoutMode,  tags,  isDefault) {
+applicationClient.cart.getAddressById( id,  cartId,  buyNow,  mobileNo,  checkoutMode,  tags,  isDefault) {
   //use response
 }
 ```
@@ -3023,7 +3023,7 @@ Update address added to an account
 
 
 ```java
-cart.updateAddress( id, body body) {
+applicationClient.cart.updateAddress( id, body body) {
   //use response
 }
 ```
@@ -3081,7 +3081,7 @@ Remove address associated with an account
 
 
 ```java
-cart.removeAddress( id) {
+applicationClient.cart.removeAddress( id) {
   //use response
 }
 ```
@@ -3137,7 +3137,7 @@ Select an address from available addresses
 
 
 ```java
-cart.selectAddress( cartId,  buyNow,  i,  b, body body) {
+applicationClient.cart.selectAddress( cartId,  buyNow,  i,  b, body body) {
   //use response
 }
 ```
@@ -3449,7 +3449,7 @@ Update cart payment
 
 
 ```java
-cart.selectPaymentMode( id,  buyNow, body body) {
+applicationClient.cart.selectPaymentMode( id,  buyNow, body body) {
   //use response
 }
 ```
@@ -3771,7 +3771,7 @@ Verify the coupon eligibility against the payment mode
 
 
 ```java
-cart.validateCouponForPayment( id,  buyNow,  addressId,  paymentMode,  paymentIdentifier,  aggregatorName,  merchantCode) {
+applicationClient.cart.validateCouponForPayment( id,  buyNow,  addressId,  paymentMode,  paymentIdentifier,  aggregatorName,  merchantCode) {
   //use response
 }
 ```
@@ -3840,7 +3840,7 @@ Get delivery date and options before checkout
 
 
 ```java
-cart.getShipments( p,  id,  buyNow,  addressId,  areaCode) {
+applicationClient.cart.getShipments( p,  id,  buyNow,  addressId,  areaCode) {
   //use response
 }
 ```
@@ -4539,7 +4539,7 @@ Checkout all items in the cart
 
 
 ```java
-cart.checkoutCart( buyNow, body body) {
+applicationClient.cart.checkoutCart( buyNow, body body) {
   //use response
 }
 ```
@@ -4972,7 +4972,7 @@ Update the cart meta
 
 
 ```java
-cart.updateCartMeta( id,  buyNow, body body) {
+applicationClient.cart.updateCartMeta( id,  buyNow, body body) {
   //use response
 }
 ```
@@ -5028,7 +5028,7 @@ Generate token for sharing the cart
 
 
 ```java
-cart.getCartShareLink(body body) {
+applicationClient.cart.getCartShareLink(body body) {
   //use response
 }
 ```
@@ -5091,7 +5091,7 @@ Get details of a shared cart
 
 
 ```java
-cart.getCartSharedItems( token) {
+applicationClient.cart.getCartSharedItems( token) {
   //use response
 }
 ```
@@ -5420,7 +5420,7 @@ Merge or replace existing cart
 
 
 ```java
-cart.updateCartWithSharedItems( token,  action) {
+applicationClient.cart.updateCartWithSharedItems( token,  action) {
   //use response
 }
 ```
@@ -5757,7 +5757,7 @@ Fetch available promotions
 
 
 ```java
-cart.getPromotionOffers( slug,  pageSize,  promotionGroup) {
+applicationClient.cart.getPromotionOffers( slug,  pageSize,  promotionGroup) {
   //use response
 }
 ```
@@ -5843,7 +5843,7 @@ Fetch ladder price promotion
 
 
 ```java
-cart.getLadderOffers( slug,  storeId,  promotionId,  pageSize) {
+applicationClient.cart.getLadderOffers( slug,  storeId,  promotionId,  pageSize) {
   //use response
 }
 ```
@@ -5986,7 +5986,7 @@ Checkout all items in the cart
 
 
 ```java
-cart.checkoutCartV2( buyNow, body body) {
+applicationClient.cart.checkoutCartV2( buyNow, body body) {
   //use response
 }
 ```

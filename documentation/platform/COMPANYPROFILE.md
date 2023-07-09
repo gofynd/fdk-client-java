@@ -33,7 +33,7 @@ Get company profile
 
 
 ```java
-client.companyprofile.cbsOnboardGet() {
+platformClient.companyprofile.cbsOnboardGet() {
   //use response
 }
 ```
@@ -147,7 +147,7 @@ Edit company profile
 
 
 ```java
-client.companyprofile.updateCompany(body body) {
+platformClient.companyprofile.updateCompany(body body) {
   //use response
 }
 ```
@@ -203,7 +203,7 @@ Get company metrics
 
 
 ```java
-client.companyprofile.getCompanyMetrics() {
+platformClient.companyprofile.getCompanyMetrics() {
   //use response
 }
 ```
@@ -279,7 +279,7 @@ Get a single brand.
 
 
 ```java
-client.companyprofile.getBrand( brandId) {
+platformClient.companyprofile.getBrand( brandId) {
   //use response
 }
 ```
@@ -361,7 +361,7 @@ Edit a brand.
 
 
 ```java
-client.companyprofile.editBrand( brandId, body body) {
+platformClient.companyprofile.editBrand( brandId, body body) {
   //use response
 }
 ```
@@ -418,7 +418,7 @@ Create a Brand.
 
 
 ```java
-client.companyprofile.createBrand(body body) {
+platformClient.companyprofile.createBrand(body body) {
   //use response
 }
 ```
@@ -474,7 +474,7 @@ Get brands associated to a company
 
 
 ```java
-client.companyprofile.getBrands( pageNo,  pageSize,  q) {
+platformClient.companyprofile.getBrands( pageNo,  pageSize,  q) {
   //use response
 }
 ```
@@ -617,7 +617,7 @@ Create a company brand mapping.
 
 
 ```java
-client.companyprofile.createCompanyBrandMapping(body body) {
+platformClient.companyprofile.createCompanyBrandMapping(body body) {
   //use response
 }
 ```
@@ -672,7 +672,7 @@ Get list of locations
 
 
 ```java
-client.companyprofile.getLocations( storeType,  q,  stage,  pageNo,  pageSize,  locationIds) {
+platformClient.companyprofile.getLocations( storeType,  q,  stage,  pageNo,  pageSize,  locationIds) {
   //use response
 }
 ```
@@ -914,7 +914,7 @@ Create a location associated to a company.
 
 
 ```java
-client.companyprofile.createLocation(body body) {
+platformClient.companyprofile.createLocation(body body) {
   //use response
 }
 ```
@@ -970,7 +970,7 @@ Get details of a specific location.
 
 
 ```java
-client.companyprofile.getLocationDetail( locationId) {
+platformClient.companyprofile.getLocationDetail( locationId) {
   //use response
 }
 ```
@@ -1205,7 +1205,7 @@ Edit a location asscoiated to a company.
 
 
 ```java
-client.companyprofile.updateLocation( locationId, body body) {
+platformClient.companyprofile.updateLocation( locationId, body body) {
   //use response
 }
 ```
@@ -1262,7 +1262,7 @@ Create a location asscoiated to a company in bulk.
 
 
 ```java
-client.companyprofile.createLocationBulk(body body) {
+platformClient.companyprofile.createLocationBulk(body body) {
   //use response
 }
 ```
@@ -1318,7 +1318,7 @@ Location Reassignment
 
 
 ```java
-client.companyprofile.getOptimalLocations(body body) {
+platformClient.companyprofile.getOptimalLocations(body body) {
   //use response
 }
 ```

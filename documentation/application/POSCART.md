@@ -46,7 +46,7 @@ Fetch all items added to the cart
 
 
 ```java
-poscart.getCart( id,  i,  b,  assignCardId,  buyNow) {
+applicationClient.poscart.getCart( id,  i,  b,  assignCardId,  buyNow) {
   //use response
 }
 ```
@@ -270,7 +270,7 @@ Fetch last-modified timestamp
 
 
 ```java
-poscart.getCartLastModified( id) {
+applicationClient.poscart.getCartLastModified( id) {
   //use response
 }
 ```
@@ -304,7 +304,7 @@ Add items to cart
 
 
 ```java
-poscart.addItems( i,  b,  buyNow, body body) {
+applicationClient.poscart.addItems( i,  b,  buyNow, body body) {
   //use response
 }
 ```
@@ -1004,7 +1004,7 @@ Update items in the cart
 
 
 ```java
-poscart.updateCart( id,  i,  b,  buyNow, body body) {
+applicationClient.poscart.updateCart( id,  i,  b,  buyNow, body body) {
   //use response
 }
 ```
@@ -1434,7 +1434,7 @@ Count items in the cart
 
 
 ```java
-poscart.getItemCount( id,  buyNow) {
+applicationClient.poscart.getItemCount( id,  buyNow) {
   //use response
 }
 ```
@@ -1490,7 +1490,7 @@ Fetch Coupon
 
 
 ```java
-poscart.getCoupons( id,  buyNow) {
+applicationClient.poscart.getCoupons( id,  buyNow) {
   //use response
 }
 ```
@@ -1580,7 +1580,7 @@ Apply Coupon
 
 
 ```java
-poscart.applyCoupon( i,  b,  p,  id,  buyNow, body body) {
+applicationClient.poscart.applyCoupon( i,  b,  p,  id,  buyNow, body body) {
   //use response
 }
 ```
@@ -2174,7 +2174,7 @@ Remove Coupon Applied
 
 
 ```java
-poscart.removeCoupon( id,  buyNow) {
+applicationClient.poscart.removeCoupon( id,  buyNow) {
   //use response
 }
 ```
@@ -2386,7 +2386,7 @@ Get discount offers based on quantity
 
 
 ```java
-poscart.getBulkDiscountOffers( itemId,  articleId,  uid,  slug) {
+applicationClient.poscart.getBulkDiscountOffers( itemId,  articleId,  uid,  slug) {
   //use response
 }
 ```
@@ -2513,7 +2513,7 @@ Apply reward points at cart
 
 
 ```java
-poscart.applyRewardPoints( id,  i,  b,  buyNow, body body) {
+applicationClient.poscart.applyRewardPoints( id,  i,  b,  buyNow, body body) {
   //use response
 }
 ```
@@ -2736,7 +2736,7 @@ Fetch address
 
 
 ```java
-poscart.getAddresses( cartId,  buyNow,  mobileNo,  checkoutMode,  tags,  isDefault) {
+applicationClient.poscart.getAddresses( cartId,  buyNow,  mobileNo,  checkoutMode,  tags,  isDefault) {
   //use response
 }
 ```
@@ -2824,7 +2824,7 @@ Add address to an account
 
 
 ```java
-poscart.addAddress(body body) {
+applicationClient.poscart.addAddress(body body) {
   //use response
 }
 ```
@@ -2880,7 +2880,7 @@ Fetch a single address by its ID
 
 
 ```java
-poscart.getAddressById( id,  cartId,  buyNow,  mobileNo,  checkoutMode,  tags,  isDefault) {
+applicationClient.poscart.getAddressById( id,  cartId,  buyNow,  mobileNo,  checkoutMode,  tags,  isDefault) {
   //use response
 }
 ```
@@ -2966,7 +2966,7 @@ Update address added to an account
 
 
 ```java
-poscart.updateAddress( id, body body) {
+applicationClient.poscart.updateAddress( id, body body) {
   //use response
 }
 ```
@@ -3024,7 +3024,7 @@ Remove address associated with an account
 
 
 ```java
-poscart.removeAddress( id) {
+applicationClient.poscart.removeAddress( id) {
   //use response
 }
 ```
@@ -3080,7 +3080,7 @@ Select an address from available addresses
 
 
 ```java
-poscart.selectAddress( cartId,  buyNow,  i,  b, body body) {
+applicationClient.poscart.selectAddress( cartId,  buyNow,  i,  b, body body) {
   //use response
 }
 ```
@@ -3392,7 +3392,7 @@ Update cart payment
 
 
 ```java
-poscart.selectPaymentMode( id,  buyNow, body body) {
+applicationClient.poscart.selectPaymentMode( id,  buyNow, body body) {
   //use response
 }
 ```
@@ -3714,7 +3714,7 @@ Verify the coupon eligibility against the payment mode
 
 
 ```java
-poscart.validateCouponForPayment( id,  buyNow,  addressId,  paymentMode,  paymentIdentifier,  aggregatorName,  merchantCode) {
+applicationClient.poscart.validateCouponForPayment( id,  buyNow,  addressId,  paymentMode,  paymentIdentifier,  aggregatorName,  merchantCode) {
   //use response
 }
 ```
@@ -3783,7 +3783,7 @@ Get delivery date and options before checkout
 
 
 ```java
-poscart.getShipments( pickAtStoreUid,  orderingStoreId,  p,  id,  addressId,  areaCode,  orderType) {
+applicationClient.poscart.getShipments( pickAtStoreUid,  orderingStoreId,  p,  id,  addressId,  areaCode,  orderType) {
   //use response
 }
 ```
@@ -4482,7 +4482,7 @@ Update shipment delivery type and quantity before checkout
 
 
 ```java
-poscart.updateShipments( i,  p,  id,  addressId,  orderType, body body) {
+applicationClient.poscart.updateShipments( i,  p,  id,  addressId,  orderType, body body) {
   //use response
 }
 ```
@@ -5180,7 +5180,7 @@ Checkout all items in the cart
 
 
 ```java
-poscart.checkoutCart( id, body body) {
+applicationClient.poscart.checkoutCart( id, body body) {
   //use response
 }
 ```
@@ -5613,7 +5613,7 @@ Update the cart meta
 
 
 ```java
-poscart.updateCartMeta( id,  buyNow, body body) {
+applicationClient.poscart.updateCartMeta( id,  buyNow, body body) {
   //use response
 }
 ```
@@ -5669,7 +5669,7 @@ Get available delivery modes for cart
 
 
 ```java
-poscart.getAvailableDeliveryModes( areaCode,  id) {
+applicationClient.poscart.getAvailableDeliveryModes( areaCode,  id) {
   //use response
 }
 ```
@@ -5731,7 +5731,7 @@ Get list of stores for give uids
 
 
 ```java
-poscart.getStoreAddressByUid( storeUid) {
+applicationClient.poscart.getStoreAddressByUid( storeUid) {
   //use response
 }
 ```
@@ -5808,7 +5808,7 @@ Generate token for sharing the cart
 
 
 ```java
-poscart.getCartShareLink(body body) {
+applicationClient.poscart.getCartShareLink(body body) {
   //use response
 }
 ```
@@ -5871,7 +5871,7 @@ Get details of a shared cart
 
 
 ```java
-poscart.getCartSharedItems( token) {
+applicationClient.poscart.getCartSharedItems( token) {
   //use response
 }
 ```
@@ -6200,7 +6200,7 @@ Merge or replace existing cart
 
 
 ```java
-poscart.updateCartWithSharedItems( token,  action) {
+applicationClient.poscart.updateCartWithSharedItems( token,  action) {
   //use response
 }
 ```

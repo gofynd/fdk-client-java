@@ -38,7 +38,7 @@ Get live announcements
 
 
 ```java
-content.getAnnouncements() {
+applicationClient.content.getAnnouncements() {
   //use response
 }
 ```
@@ -121,7 +121,7 @@ Get a blog
 
 
 ```java
-content.getBlog( slug,  rootId) {
+applicationClient.content.getBlog( slug,  rootId) {
   //use response
 }
 ```
@@ -220,7 +220,7 @@ Get a list of blogs
 
 
 ```java
-content.getBlogs( pageNo,  pageSize) {
+applicationClient.content.getBlogs( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -323,7 +323,7 @@ Get the data loaders associated with an application
 
 
 ```java
-content.getDataLoaders() {
+applicationClient.content.getDataLoaders() {
   //use response
 }
 ```
@@ -392,7 +392,7 @@ Get a list of FAQs
 
 
 ```java
-content.getFaqs() {
+applicationClient.content.getFaqs() {
   //use response
 }
 ```
@@ -458,7 +458,7 @@ Get a list of FAQ categories
 
 
 ```java
-content.getFaqCategories() {
+applicationClient.content.getFaqCategories() {
   //use response
 }
 ```
@@ -519,7 +519,7 @@ Get an FAQ
 
 
 ```java
-content.getFaqBySlug( slug) {
+applicationClient.content.getFaqBySlug( slug) {
   //use response
 }
 ```
@@ -578,7 +578,7 @@ Get the FAQ category
 
 
 ```java
-content.getFaqCategoryBySlug( slug) {
+applicationClient.content.getFaqCategoryBySlug( slug) {
   //use response
 }
 ```
@@ -648,7 +648,7 @@ Get FAQs using the slug of FAQ category
 
 
 ```java
-content.getFaqsByCategorySlug( slug) {
+applicationClient.content.getFaqsByCategorySlug( slug) {
   //use response
 }
 ```
@@ -711,7 +711,7 @@ Get the landing page
 
 
 ```java
-content.getLandingPage() {
+applicationClient.content.getLandingPage() {
   //use response
 }
 ```
@@ -790,7 +790,7 @@ Get legal information
 
 
 ```java
-content.getLegalInformation() {
+applicationClient.content.getLegalInformation() {
   //use response
 }
 ```
@@ -878,7 +878,7 @@ Get the navigation
 
 
 ```java
-content.getNavigations( pageNo,  pageSize) {
+applicationClient.content.getNavigations( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -1127,7 +1127,7 @@ Get the SEO of an application
 
 
 ```java
-content.getSEOConfiguration() {
+applicationClient.content.getSEOConfiguration() {
   //use response
 }
 ```
@@ -1209,7 +1209,7 @@ Get the slideshows
 
 
 ```java
-content.getSlideshows( pageNo,  pageSize) {
+applicationClient.content.getSlideshows( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -1322,7 +1322,7 @@ Get a slideshow
 
 
 ```java
-content.getSlideshow( slug) {
+applicationClient.content.getSlideshow( slug) {
   //use response
 }
 ```
@@ -1422,7 +1422,7 @@ Get the support information
 
 
 ```java
-content.getSupportInformation() {
+applicationClient.content.getSupportInformation() {
   //use response
 }
 ```
@@ -1501,7 +1501,7 @@ Get the tags associated with an application
 
 
 ```java
-content.getTags() {
+applicationClient.content.getTags() {
   //use response
 }
 ```
@@ -1565,7 +1565,7 @@ Get a page
 
 
 ```java
-content.getPage( slug,  rootId) {
+applicationClient.content.getPage( slug,  rootId) {
   //use response
 }
 ```
@@ -1667,7 +1667,7 @@ Get all pages
 
 
 ```java
-content.getPages( pageNo,  pageSize) {
+applicationClient.content.getPages( pageNo,  pageSize) {
   //use response
 }
 ```
@@ -3242,8 +3242,6 @@ Success. Returns a list of pages along with their details. Check the example sho
  | page | page | Symbolic link for Page: /page/:slug |
  | policy | policy | Symbolic link for Privacy Policy: /privacy-policy |
  | product | product | Symbolic link for Product: /product/:slug |
- | productReviews | product-reviews | Symbolic link for Product Reviews: /product/:slug/reviews |
- | addProductReview | add-product-review | Symbolic link for Add Product review: /product/:slug/add-review |
  | productRequest | product-request | Symbolic link for Product Request: /product-request/ |
  | products | products | Symbolic link for Products: /products/ |
  | profile | profile | Symbolic link for Profile: /profile |
@@ -3268,6 +3266,7 @@ Success. Returns a list of pages along with their details. Check the example sho
  | register | register | Symbolic link for Register: /auth/register |
  | shippingPolicy | shipping-policy | Symbolic link for Shipping policy: /shipping-policy |
  | returnPolicy | return-policy | Symbolic link for Return policy: /return-policy |
+ | orderStatus | order-status | Symbolic link for Order status: /cart/order-status |
 
 ---
 

@@ -22,7 +22,7 @@ Get TAT of a product
 
 
 ```java
-logistic.getTatProduct(body body) {
+applicationClient.logistic.getTatProduct(body body) {
   //use response
 }
 ```
@@ -74,7 +74,7 @@ Get Pincode Zones
 
 
 ```java
-logistic.getPincodeZones(body body) {
+applicationClient.logistic.getPincodeZones(body body) {
   //use response
 }
 ```
@@ -126,7 +126,7 @@ Get city from PIN Code
 
 
 ```java
-logistic.getPincodeCity( pincode) {
+applicationClient.logistic.getPincodeCity( pincode) {
   //use response
 }
 ```

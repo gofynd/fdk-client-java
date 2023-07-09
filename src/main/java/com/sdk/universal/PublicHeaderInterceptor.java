@@ -1,4 +1,4 @@
-package com.sdk.common;
+package com.sdk.universal;
 
 import com.sdk.universal.PublicConfig;
 import okhttp3.Interceptor;

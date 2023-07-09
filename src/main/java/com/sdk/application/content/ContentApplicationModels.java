@@ -4201,10 +4201,6 @@ public static class TagSourceSchema{
         
         product("product"), 
         
-        productReviews("product-reviews"), 
-        
-        addProductReview("add-product-review"), 
-        
         productRequest("product-request"), 
         
         products("products"), 
@@ -4251,7 +4247,9 @@ public static class TagSourceSchema{
         
         shippingPolicy("shipping-policy"), 
         
-        returnPolicy("return-policy");
+        returnPolicy("return-policy"), 
+        
+        orderStatus("order-status");
         
 
         private String priority;

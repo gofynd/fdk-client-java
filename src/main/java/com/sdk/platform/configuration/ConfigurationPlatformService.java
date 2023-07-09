@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.net.CookieStore;
 import java.util.*;
 
-import com.sdk.platform.PlatformConfig;
+import com.sdk.platform.*;
 
 
 
@@ -401,62 +401,6 @@ public class ConfigurationPlatformService {
     }
     
     
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getAvailableOptIns
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ConfigurationPlatformModels.GetIntegrationsOptInsResponse> getAvailableOptInsPagination(
-        Integer pageSize 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ConfigurationPlatformModels.GetIntegrationsOptInsResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ConfigurationPlatformModels.GetIntegrationsOptInsResponse callback = this.getAvailableOptIns(
-                
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
     
     
     
@@ -506,78 +450,6 @@ public class ConfigurationPlatformService {
         } else {
             return null;
         }    
-    }
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getSelectedOptIns
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ConfigurationPlatformModels.GetIntegrationsOptInsResponse> getSelectedOptInsPagination(
-        String level ,
-        Integer uid ,
-        Integer pageSize 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ConfigurationPlatformModels.GetIntegrationsOptInsResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ConfigurationPlatformModels.GetIntegrationsOptInsResponse callback = this.getSelectedOptIns(
-                
-                 
-                 level,
-                 uid,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
     }
     
     

@@ -10,7 +10,10 @@ import java.util.*;
 import java.io.File;
 
 import com.sdk.common.*;
-import com.sdk.application.ApplicationConfig;
+import com.sdk.application.*;
+
+
+
 
 
 
@@ -411,10 +414,6 @@ import com.sdk.application.ApplicationConfig;
                  paginator.getPageNo()
                 ,
                  paginator.getPageType()
-                
-                
-                
-
                 
             );
                 
