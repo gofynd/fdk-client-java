@@ -429,6 +429,12 @@ public static class DetailedPlanComponents{
     
     
     
+    
+    @JsonProperty("config")
+    private Object config;
+    
+    
+    
 }
 
 
@@ -763,6 +769,104 @@ public static class CreateSubscriptionCharge{
 
 
 /*
+    Model: OneTimeChargeItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OneTimeChargeItem{
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("term")
+    private String term;
+    
+    
+    
+    
+    @JsonProperty("pricing_type")
+    private String pricingType;
+    
+    
+    
+    
+    @JsonProperty("price")
+    private EntityChargePrice price;
+    
+    
+    
+    
+    @JsonProperty("capped_amount")
+    private Double cappedAmount;
+    
+    
+    
+    
+    @JsonProperty("is_test")
+    private Boolean isTest;
+    
+    
+    
+    
+    @JsonProperty("metadata")
+    private Object metadata;
+    
+    
+    
+}
+
+
+/*
+    Model: CreateOneTimeCharge
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateOneTimeCharge{
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("charge")
+    private OneTimeChargeItem charge;
+    
+    
+    
+    
+    @JsonProperty("is_test")
+    private Boolean isTest;
+    
+    
+    
+    
+    @JsonProperty("return_url")
+    private String returnUrl;
+    
+    
+    
+}
+
+
+/*
     Model: CurrentPeriod
 */
 @AllArgsConstructor
@@ -960,6 +1064,134 @@ public static class EntitySubscription{
     
     @JsonProperty("line_items")
     private List<SubscriptionCharge> lineItems;
+    
+    
+    
+}
+
+
+/*
+    Model: OneTimeChargeEntity
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OneTimeChargeEntity{
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("activated_on")
+    private String activatedOn;
+    
+    
+    
+    
+    @JsonProperty("cancelled_on")
+    private String cancelledOn;
+    
+    
+    
+    
+    @JsonProperty("metadata")
+    private Object metadata;
+    
+    
+    
+    
+    @JsonProperty("return_url")
+    private String returnUrl;
+    
+    
+    
+    
+    @JsonProperty("is_test")
+    private Boolean isTest;
+    
+    
+    
+    
+    @JsonProperty("pricing_type")
+    private String pricingType;
+    
+    
+    
+    
+    @JsonProperty("subscriber_id")
+    private String subscriberId;
+    
+    
+    
+    
+    @JsonProperty("entity_type")
+    private String entityType;
+    
+    
+    
+    
+    @JsonProperty("entity_id")
+    private String entityId;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("price")
+    private EntityChargePrice price;
+    
+    
+    
+}
+
+
+/*
+    Model: CreateOneTimeChargeResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateOneTimeChargeResponse{
+    
+    
+    
+    
+    @JsonProperty("charge")
+    private OneTimeChargeEntity charge;
+    
+    
+    
+    
+    @JsonProperty("confirm_url")
+    private String confirmUrl;
     
     
     
@@ -2541,6 +2773,12 @@ public static class Subscription{
     
     
     
+    
+    @JsonProperty("channel_type")
+    private String channelType;
+    
+    
+    
 }
 
 
@@ -2566,6 +2804,30 @@ public static class SubscriptionStatus{
     
     @JsonProperty("subscription")
     private Subscription subscription;
+    
+    
+    
+    
+    @JsonProperty("latest_invoice")
+    private InvoicesData latestInvoice;
+    
+    
+    
+    
+    @JsonProperty("next_plan")
+    private Plan nextPlan;
+    
+    
+    
+    
+    @JsonProperty("current_subscriptions")
+    private List<Subscription> currentSubscriptions;
+    
+    
+    
+    
+    @JsonProperty("mandate_amount")
+    private String mandateAmount;
     
     
     

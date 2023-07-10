@@ -23,8 +23,8 @@ interface RewardsPlatformApiList {
     
     
     
-    @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/giveaways/")
-    Call<RewardsPlatformModels.GiveawayResponse> getGiveaways(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_id") String  pageId ,  @Query("page_size") Integer  pageSize );
+    @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/giveaways")
+    Call<RewardsPlatformModels.GiveawayResponse> showGiveaways(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_id") String  pageId ,  @Query("page_size") Integer  pageSize );
     
     
     
@@ -35,23 +35,8 @@ interface RewardsPlatformApiList {
     
     
     
-    @POST ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/giveaways/")
-    Call<RewardsPlatformModels.Giveaway> createGiveaway(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body RewardsPlatformModels.Giveaway payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/giveaways/{id}/")
-    Call<RewardsPlatformModels.Giveaway> getGiveawayByID(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    @POST ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/giveaways")
+    Call<RewardsPlatformModels.Giveaway> saveGiveAway(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body RewardsPlatformModels.Giveaway payload);
     
     
     
@@ -65,8 +50,23 @@ interface RewardsPlatformApiList {
     
     
     
-    @PUT ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/giveaways/{id}/")
-    Call<RewardsPlatformModels.Giveaway> updateGiveaway(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body RewardsPlatformModels.Giveaway payload);
+    @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/giveaways/{id}")
+    Call<RewardsPlatformModels.Giveaway> getGiveawayById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/giveaways/{id}")
+    Call<RewardsPlatformModels.Giveaway> updateGiveAway(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body RewardsPlatformModels.Giveaway payload);
     
     
     
@@ -78,10 +78,7 @@ interface RewardsPlatformApiList {
     
     
     @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/offers/")
-    Call<List<RewardsPlatformModels.Offer>> getOffers(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
-    
-    
-    
+    Call<List<RewardsPlatformModels.Offer>> showOffers(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
     
     
@@ -96,7 +93,7 @@ interface RewardsPlatformApiList {
     
     
     @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/offers/{name}/")
-    Call<RewardsPlatformModels.Offer> getOfferByName(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("name") String  name );
+    Call<RewardsPlatformModels.Offer> getOfferByName(@Path("name") String  name , @Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
     
     
@@ -111,22 +108,7 @@ interface RewardsPlatformApiList {
     
     
     @PUT ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/offers/{name}/")
-    Call<RewardsPlatformModels.Offer> updateOfferByName(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("name") String  name ,@Body RewardsPlatformModels.Offer payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/users/{user_id}/")
-    Call<RewardsPlatformModels.UserRes> getUserAvailablePoints(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("user_id") String  userId );
+    Call<RewardsPlatformModels.Offer> updateOfferByName(@Path("name") String  name , @Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body RewardsPlatformModels.Offer payload);
     
     
     
@@ -141,10 +123,22 @@ interface RewardsPlatformApiList {
     
     
     @PATCH ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/users/{user_id}/")
-    Call<RewardsPlatformModels.AppUser> updateUserStatus(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("user_id") String  userId ,@Body RewardsPlatformModels.AppUser payload);
+    Call<RewardsPlatformModels.AppUser> updateUserStatus(@Path("user_id") String  userId , @Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body RewardsPlatformModels.AppUser payload);
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/users/{user_id}/")
+    Call<RewardsPlatformModels.UserRes> getUserDetails(@Path("user_id") String  userId , @Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
     
     
@@ -165,6 +159,30 @@ interface RewardsPlatformApiList {
     
     
     @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/users/{user_id}/points/history/")
-    Call<RewardsPlatformModels.HistoryRes> getUserPointsHistory(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("user_id") String  userId , @Query("page_id") String  pageId ,  @Query("page_limit") Integer  pageLimit ,  @Query("page_size") Integer  pageSize );
+    Call<RewardsPlatformModels.HistoryRes> getUserPointsHistory(@Path("user_id") String  userId , @Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_id") String  pageId ,  @Query("page_size") Integer  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/configuration/")
+    Call<RewardsPlatformModels.ConfigurationRes> getRewardsConfiguration(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/configuration/")
+    Call<RewardsPlatformModels.SetConfigurationRes> setRewardsConfiguration(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body RewardsPlatformModels.ConfigurationRequest payload);
     
 }

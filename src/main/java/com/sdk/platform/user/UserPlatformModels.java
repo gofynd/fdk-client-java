@@ -1797,7 +1797,7 @@ public static class SessionListResponseSchema{
     
     
     @JsonProperty("items")
-    private List<String> items;
+    private List<SessionListResponseInfo> items;
     
     
     
@@ -2204,6 +2204,52 @@ public static class AuthSuccessUser{
     
     @JsonProperty("emails")
     private AuthSuccessUserEmails emails;
+    
+    
+    
+}
+
+
+/*
+    Model: SessionListResponseInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SessionListResponseInfo{
+    
+    
+    
+    
+    @JsonProperty("session_id")
+    private String sessionId;
+    
+    
+    
+    
+    @JsonProperty("user_agent")
+    private String userAgent;
+    
+    
+    
+    
+    @JsonProperty("ip")
+    private String ip;
+    
+    
+    
+    
+    @JsonProperty("domain")
+    private String domain;
+    
+    
+    
+    
+    @JsonProperty("expire_in")
+    private String expireIn;
     
     
     
@@ -3323,6 +3369,104 @@ public static class UpdateUserRequestSchema{
     
     
     
+    
+    @JsonProperty("phone_numbers")
+    private List<UserPhoneNumbers> phoneNumbers;
+    
+    
+    
+    
+    @JsonProperty("emails")
+    private List<UserEmails> emails;
+    
+    
+    
+}
+
+
+/*
+    Model: UserEmails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserEmails{
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("primary")
+    private Boolean primary;
+    
+    
+    
+    
+    @JsonProperty("verified")
+    private Boolean verified;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+}
+
+
+/*
+    Model: UserPhoneNumbers
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserPhoneNumbers{
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("primary")
+    private Boolean primary;
+    
+    
+    
+    
+    @JsonProperty("verified")
+    private Boolean verified;
+    
+    
+    
+    
+    @JsonProperty("phone")
+    private String phone;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
 }
 
 
@@ -3414,18 +3558,6 @@ public static class UserSchema{
     
     @JsonProperty("account_type")
     private String accountType;
-    
-    
-    
-    
-    @JsonProperty("debug")
-    private Debug debug;
-    
-    
-    
-    
-    @JsonProperty("has_old_password_hash")
-    private Boolean hasOldPasswordHash;
     
     
     
@@ -3530,34 +3662,6 @@ public static class Email{
     
     @JsonProperty("active")
     private Boolean active;
-    
-    
-    
-}
-
-
-/*
-    Model: Debug
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Debug{
-    
-    
-    
-    
-    @JsonProperty("source")
-    private String source;
-    
-    
-    
-    
-    @JsonProperty("platform")
-    private String platform;
     
     
     

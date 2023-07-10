@@ -16,10 +16,13 @@ interface CartApplicationApiList {
     Call<Object> getCartLastModified(@Url String url1, @Query("id") String id );
     
     @POST 
-    Call<CartApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("id") String id , @Query("buy_now") Boolean buyNow  , @Body CartApplicationModels.AddCartRequest payload );
+    Call<CartApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow , @Query("id") String id  , @Body CartApplicationModels.AddCartRequest payload );
     
     @PUT 
     Call<CartApplicationModels.UpdateCartDetailResponse> updateCart(@Url String url1, @Query("id") String id , @Query("i") Boolean i , @Query("b") Boolean b , @Query("area_code") String areaCode , @Query("buy_now") Boolean buyNow  , @Body CartApplicationModels.UpdateCartRequest payload );
+    
+    @PUT 
+    Call<CartApplicationModels.DeleteCartDetailResponse> deleteCart(@Url String url1, @Query("id") String id );
     
     @GET 
     Call<CartApplicationModels.CartItemCountResponse> getItemCount(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow );
@@ -61,7 +64,7 @@ interface CartApplicationApiList {
     Call<CartApplicationModels.CartDetailResponse> selectPaymentMode(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow  , @Body CartApplicationModels.UpdateCartPaymentRequest payload );
     
     @GET 
-    Call<CartApplicationModels.PaymentCouponValidate> validateCouponForPayment(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode );
+    Call<CartApplicationModels.PaymentCouponValidate> validateCouponForPayment(@Url String url1, @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("payment_mode") String paymentMode , @Query("payment_identifier") String paymentIdentifier , @Query("aggregator_name") String aggregatorName , @Query("merchant_code") String merchantCode , @Query("iin") String iin , @Query("network") String network , @Query("type") String type , @Query("card_id") String cardId );
     
     @GET 
     Call<CartApplicationModels.CartShipmentsResponse> getShipments(@Url String url1, @Query("p") Boolean p , @Query("id") String id , @Query("buy_now") Boolean buyNow , @Query("address_id") String addressId , @Query("area_code") String areaCode );

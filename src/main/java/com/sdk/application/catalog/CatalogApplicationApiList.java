@@ -58,10 +58,10 @@ interface CatalogApplicationApiList {
     Call<CatalogApplicationModels.AutoCompleteResponse> getSearchResults(@Url String url1, @Query("q") String q );
     
     @GET 
-    Call<CatalogApplicationModels.GetCollectionListingResponse> getCollections(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("tag") List<String> tag );
+    Call<CatalogApplicationModels.GetCollectionListingResponse> getCollections(@Url String url1, @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("tag") List<String> tag , @Query("q") String q );
     
     @GET 
-    Call<CatalogApplicationModels.ProductListingResponse> getCollectionItemsBySlug(@Url String url1, @Query("f") String f , @Query("filters") Boolean filters , @Query("sort_on") String sortOn , @Query("page_id") String pageId , @Query("page_size") Integer pageSize , @Query("page_no") Integer pageNo , @Query("page_type") String pageType );
+    Call<CatalogApplicationModels.ProductListingResponse> getCollectionItemsBySlug(@Url String url1, @Query("f") String f , @Query("q") String q , @Query("filters") Boolean filters , @Query("sort_on") String sortOn , @Query("page_id") String pageId , @Query("page_size") Integer pageSize , @Query("page_no") Integer pageNo , @Query("page_type") String pageType );
     
     @GET 
     Call<CatalogApplicationModels.CollectionDetailResponse> getCollectionDetailBySlug(@Url String url1);
@@ -69,11 +69,11 @@ interface CatalogApplicationApiList {
     @GET 
     Call<CatalogApplicationModels.GetFollowListingResponse> getFollowedListing(@Url String url1, @Query("page_id") String pageId , @Query("page_size") Integer pageSize );
     
-    @DELETE 
-    Call<CatalogApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
-    
     @POST 
     Call<CatalogApplicationModels.FollowPostResponse> followById(@Url String url1);
+    
+    @DELETE 
+    Call<CatalogApplicationModels.FollowPostResponse> unfollowById(@Url String url1);
     
     @GET 
     Call<CatalogApplicationModels.FollowerCountResponse> getFollowerCountById(@Url String url1);

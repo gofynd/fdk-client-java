@@ -9,12 +9,18 @@ import java.util.*;
 interface LogisticApplicationApiList {
     
     
-    @POST 
-    Call<LogisticApplicationModels.GetTatProductResponse> getTatProduct(@Url String url1 , @Body LogisticApplicationModels.GetTatProductReqBody payload );
+    @GET 
+    Call<LogisticApplicationModels.PincodeApiResponse> getPincodeCity(@Url String url1);
     
     @POST 
-    Call<LogisticApplicationModels.GetPincodeZonesResponse> getPincodeZones(@Url String url1 , @Body LogisticApplicationModels.GetPincodeZonesReqBody payload );
+    Call<LogisticApplicationModels.TATViewResponse> getTatProduct(@Url String url1 , @Body LogisticApplicationModels.TATViewRequest payload );
     
     @GET 
-    Call<LogisticApplicationModels.GetPincodeCityResponse> getPincodeCity(@Url String url1);
+    Call<LogisticApplicationModels.CountryListResponse> getAllCountries(@Url String url1);
+    
+    @POST 
+    Call<LogisticApplicationModels.GetZoneFromPincodeViewResponse> getPincodeZones(@Url String url1 , @Body LogisticApplicationModels.GetZoneFromPincodeViewRequest payload );
+    
+    @POST 
+    Call<LogisticApplicationModels.ReAssignStoreResponse> getOptimalLocations(@Url String url1 , @Body LogisticApplicationModels.ReAssignStoreRequest payload );
 }

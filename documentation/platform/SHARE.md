@@ -10,6 +10,7 @@ Short link and QR Code
 * [getShortLinks](#getshortlinks)
 * [getShortLinkByHash](#getshortlinkbyhash)
 * [updateShortLinkById](#updateshortlinkbyid)
+* [getShortLinkClickStats](#getshortlinkclickstats)
 
 
 
@@ -402,8 +403,86 @@ Success
 ---
 
 
+### getShortLinkClickStats
+Get click statistics for a short link
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").share.getShortLinkClickStats( surlId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| surlId | String | yes | Short link ID for which click statistics are to be retrieved. |   
+| companyId | String | yes | Company Id |   
+| applicationId | String | yes | Application Id |  
+
+
+
+Retrieve click statistics for a given short link ID.
+
+*Returned Response:*
+
+
+
+
+[ClickStatsResponse](#ClickStatsResponse)
+
+Successful retrieval of click statistics.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 
 ### Schemas
+
+ 
+ 
+ #### [ClickStatsResponse](#ClickStatsResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | clickStats | ArrayList<[ClickStatsItem](#ClickStatsItem)> |  no  | An array of click statistics for the short link. |
+
+---
+
+
+ 
+ 
+ #### [ClickStatsItem](#ClickStatsItem)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | display | String? |  yes  | The display name of the click statistic. |
+ | total | Integer? |  yes  | The total number of clicks for the statistic. |
+
+---
+
 
  
  
