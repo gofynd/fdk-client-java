@@ -2589,6 +2589,142 @@ public static class EventSubscriptions{
 
 
 /*
+    Model: GlobalVariablesGetResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GlobalVariablesGetResponse{
+    
+    
+    
+    
+    @JsonProperty("read_only")
+    private Object readOnly;
+    
+    
+    
+    
+    @JsonProperty("editable")
+    private Object editable;
+    
+    
+    
+}
+
+
+/*
+    Model: GlobalVariablesPostResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GlobalVariablesPostResponse{
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("application")
+    private Object application;
+    
+    
+    
+    
+    @JsonProperty("global_variables")
+    private Object globalVariables;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private Object createdAt;
+    
+    
+    
+}
+
+
+/*
+    Model: GlobalVariablesPostResponseAdmin
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GlobalVariablesPostResponseAdmin{
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("global_variables")
+    private Object globalVariables;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private Object createdAt;
+    
+    
+    
+}
+
+
+/*
+    Model: GlobalVariablesReq
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GlobalVariablesReq{
+    
+    
+    
+    
+    @JsonProperty("global_variables")
+    private Object globalVariables;
+    
+    
+    
+}
+
+
+/*
     Model: Job
 */
 @AllArgsConstructor

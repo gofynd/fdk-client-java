@@ -36,6 +36,8 @@ Manages email, sms, push notifications sent to users
 * [sendCommunicationSynchronously](#sendcommunicationsynchronously)
 * [sendCommunicationAsynchronously](#sendcommunicationasynchronously)
 * [getEventSubscriptions](#geteventsubscriptions)
+* [getGlobalVariables](#getglobalvariables)
+* [postGlobalVariables](#postglobalvariables)
 * [getJobs](#getjobs)
 * [triggerCampaignJob](#triggercampaignjob)
 * [getJobLogs](#getjoblogs)
@@ -3324,6 +3326,161 @@ Success
       "item_total": 28,
       "has_next": false
     }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getGlobalVariables
+get global variables
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.getGlobalVariables() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |  
+
+
+
+get global variables
+
+*Returned Response:*
+
+
+
+
+[GlobalVariablesGetResponse](#GlobalVariablesGetResponse)
+
+Refer `GlobalVariablesGetResponse` schema for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "read_only": {
+      "app.address.address_line": [],
+      "app.shipping_policy": "",
+      "app.returns_policy": "",
+      "app.terms_policy": "",
+      "app.copyright_text": null,
+      "app.address_line": "",
+      "app.city_pincode": "",
+      "app.logo_url": null,
+      "app.support_email": null,
+      "app.support_mobile": null,
+      "app.contact_us": "",
+      "app.domain": "",
+      "app.privacy_policy": "https://fynd.freshdesk.com/support/solutions/articles/33000214398-privacy-policy"
+    },
+    "editable": {
+      "service_country": "uzbekistan",
+      "service_name": "fynd",
+      "service_platform": "fynd platform"
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### postGlobalVariables
+post global variables
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.postGlobalVariables(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |  
+| body | [GlobalVariablesReq](#GlobalVariablesReq) | yes | Request body |
+
+
+psot global variables
+
+*Returned Response:*
+
+
+
+
+[GlobalVariablesPostResponse](#GlobalVariablesPostResponse)
+
+Refer `GlobalVariablesPostResponse` schema for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "_id": "64a2be215cc595c57fa0e40a",
+    "category": "website",
+    "application": "637b6355dc65337da9b5c951",
+    "global_variables": {
+      "service_country": "uzbekistan",
+      "service_name": "fynd-plato",
+      "service_platform": "fynd platform"
+    },
+    "created_at": "2023-07-03T12:25:05.819Z"
   }
 }
 ```
@@ -6703,6 +6860,58 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | items | ArrayList<[EventSubscription](#EventSubscription)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GlobalVariablesGetResponse](#GlobalVariablesGetResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | readOnly | HashMap<String,Object>? |  yes  |  |
+ | editable | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GlobalVariablesPostResponse](#GlobalVariablesPostResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | category | String? |  yes  |  |
+ | application | HashMap<String,Object>? |  yes  |  |
+ | globalVariables | HashMap<String,Object>? |  yes  |  |
+ | createdAt | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GlobalVariablesPostResponseAdmin](#GlobalVariablesPostResponseAdmin)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  |  |
+ | category | String? |  yes  |  |
+ | globalVariables | HashMap<String,Object>? |  yes  |  |
+ | createdAt | HashMap<String,Object>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GlobalVariablesReq](#GlobalVariablesReq)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | globalVariables | HashMap<String,Object>? |  yes  |  |
 
 ---
 

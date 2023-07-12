@@ -464,6 +464,30 @@ interface CommunicationPlatformApiList {
     
     
     
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/global-variables")
+    Call<CommunicationPlatformModels.GlobalVariablesGetResponse> getGlobalVariables(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/global-variables")
+    Call<CommunicationPlatformModels.GlobalVariablesPostResponse> postGlobalVariables(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CommunicationPlatformModels.GlobalVariablesReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
