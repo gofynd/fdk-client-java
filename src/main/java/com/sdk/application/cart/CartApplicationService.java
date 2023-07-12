@@ -463,12 +463,12 @@ import com.sdk.application.*;
     
     
     
-    public CartApplicationModels.CartShipmentsResponse getShipments(Boolean p , String id , Boolean buyNow , String addressId , String areaCode ) throws IOException {
+    public CartApplicationModels.CartShipmentsResponse getShipments(Boolean p , String id , Boolean buyNow , String addressId , String areaCode , String orderType ) throws IOException {
      
       String fullUrl = relativeUrls.get("getShipments");
         
 
-        Response<CartApplicationModels.CartShipmentsResponse> response = cartApplicationApiList.getShipments(fullUrl  ,p, id, buyNow, addressId, areaCode).execute();
+        Response<CartApplicationModels.CartShipmentsResponse> response = cartApplicationApiList.getShipments(fullUrl  ,p, id, buyNow, addressId, areaCode, orderType).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
