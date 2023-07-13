@@ -10,7 +10,10 @@ import java.util.*;
 import java.io.File;
 
 import com.sdk.common.*;
-import com.sdk.application.ApplicationConfig;
+import com.sdk.application.*;
+
+
+
 
 
 
@@ -88,6 +91,8 @@ import com.sdk.application.ApplicationConfig;
                     relativeUrls.put("getPromotionOffers","/service/application/cart/v1.0/available-promotions".substring(1));
             
                     relativeUrls.put("getLadderOffers","/service/application/cart/v1.0/available-ladder-prices".substring(1));
+            
+                    relativeUrls.put("checkoutCartV2","/service/application/cart/v2.0/checkout".substring(1));
              
 
     }
@@ -146,12 +151,12 @@ import com.sdk.application.ApplicationConfig;
     
     
     
-    public CartApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , Boolean buyNow ,CartApplicationModels.AddCartRequest body) throws IOException {
+    public CartApplicationModels.AddCartDetailResponse addItems(Boolean i , Boolean b , String areaCode , Boolean buyNow , String id ,CartApplicationModels.AddCartRequest body) throws IOException {
      
       String fullUrl = relativeUrls.get("addItems");
         
 
-        Response<CartApplicationModels.AddCartDetailResponse> response = cartApplicationApiList.addItems(fullUrl  ,i, b, areaCode, buyNow, body).execute();
+        Response<CartApplicationModels.AddCartDetailResponse> response = cartApplicationApiList.addItems(fullUrl  ,i, b, areaCode, buyNow, id, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -182,7 +187,7 @@ import com.sdk.application.ApplicationConfig;
     
     
     
-    public CartApplicationModels.DeleteCartDetailResponse deleteCart(Integer id ) throws IOException {
+    public CartApplicationModels.DeleteCartDetailResponse deleteCart(String id ) throws IOException {
      
       String fullUrl = relativeUrls.get("deleteCart");
         
@@ -440,12 +445,12 @@ import com.sdk.application.ApplicationConfig;
     
     
     
-    public CartApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode ) throws IOException {
+    public CartApplicationModels.PaymentCouponValidate validateCouponForPayment(String id , Boolean buyNow , String addressId , String paymentMode , String paymentIdentifier , String aggregatorName , String merchantCode , String iin , String network , String type , String cardId ) throws IOException {
      
       String fullUrl = relativeUrls.get("validateCouponForPayment");
         
 
-        Response<CartApplicationModels.PaymentCouponValidate> response = cartApplicationApiList.validateCouponForPayment(fullUrl  ,id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode).execute();
+        Response<CartApplicationModels.PaymentCouponValidate> response = cartApplicationApiList.validateCouponForPayment(fullUrl  ,id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode, iin, network, type, cardId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -572,12 +577,12 @@ import com.sdk.application.ApplicationConfig;
     
     
     
-    public CartApplicationModels.PromotionOffersResponse getPromotionOffers(String slug , Integer pageSize , String promotionGroup ) throws IOException {
+    public CartApplicationModels.PromotionOffersResponse getPromotionOffers(String slug , Integer pageSize , String promotionGroup , Integer storeId ) throws IOException {
      
       String fullUrl = relativeUrls.get("getPromotionOffers");
         
 
-        Response<CartApplicationModels.PromotionOffersResponse> response = cartApplicationApiList.getPromotionOffers(fullUrl  ,slug, pageSize, promotionGroup).execute();
+        Response<CartApplicationModels.PromotionOffersResponse> response = cartApplicationApiList.getPromotionOffers(fullUrl  ,slug, pageSize, promotionGroup, storeId).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -596,6 +601,24 @@ import com.sdk.application.ApplicationConfig;
         
 
         Response<CartApplicationModels.LadderPriceOffers> response = cartApplicationApiList.getLadderOffers(fullUrl  ,slug, storeId, promotionId, pageSize).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public CartApplicationModels.CartCheckoutResponse checkoutCartV2(Boolean buyNow ,CartApplicationModels.CartCheckoutDetailV2Request body) throws IOException {
+     
+      String fullUrl = relativeUrls.get("checkoutCartV2");
+        
+
+        Response<CartApplicationModels.CartCheckoutResponse> response = cartApplicationApiList.checkoutCartV2(fullUrl  ,buyNow, body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

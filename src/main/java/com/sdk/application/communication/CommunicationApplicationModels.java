@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class CommunicationApplicationModels{
 
 
@@ -475,8 +474,6 @@ public static class Page{
     
     
 }
-
-
 
 
 

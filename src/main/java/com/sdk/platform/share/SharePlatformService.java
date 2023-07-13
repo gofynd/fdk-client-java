@@ -2,6 +2,7 @@ package com.sdk.platform.share;
 
 import com.sdk.common.*;
 import com.sdk.common.model.FDKException;
+import com.sdk.common.model.FDKServerResponseError;
 import okhttp3.Interceptor;
 import retrofit2.Response;
 
@@ -9,7 +10,7 @@ import java.io.IOException;
 import java.net.CookieStore;
 import java.util.*;
 
-import com.sdk.platform.PlatformConfig;
+import com.sdk.platform.*;
 
 
 
@@ -84,13 +85,13 @@ public class ApplicationClient {
     
     
 
-    public SharePlatformModels.ShortLinkRes createShortLink(SharePlatformModels.ShortLinkReq body) throws FDKException {
+    public SharePlatformModels.ShortLinkRes createShortLink(SharePlatformModels.ShortLinkReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<SharePlatformModels.ShortLinkRes> response = null;
             try {
             response = sharePlatformApiList.createShortLink(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -99,7 +100,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -145,13 +146,13 @@ public class ApplicationClient {
     
     
 
-    public SharePlatformModels.ShortLinkList getShortLinks(Integer pageNo , Integer pageSize , String createdBy , String active , String q ) throws FDKException {
+    public SharePlatformModels.ShortLinkList getShortLinks(Integer pageNo , Integer pageSize , String createdBy , String active , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<SharePlatformModels.ShortLinkList> response = null;
             try {
             response = sharePlatformApiList.getShortLinks(this.companyId , this.applicationId ,pageNo , pageSize , createdBy , active , q ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -160,7 +161,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -273,13 +274,13 @@ public class ApplicationClient {
     
     
 
-    public SharePlatformModels.ShortLinkRes getShortLinkByHash(String hash ) throws FDKException {
+    public SharePlatformModels.ShortLinkRes getShortLinkByHash(String hash ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<SharePlatformModels.ShortLinkRes> response = null;
             try {
             response = sharePlatformApiList.getShortLinkByHash(this.companyId , this.applicationId , hash ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -288,7 +289,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -318,13 +319,13 @@ public class ApplicationClient {
     
     
 
-    public SharePlatformModels.ShortLinkRes updateShortLinkById(String id ,SharePlatformModels.ShortLinkReq body) throws FDKException {
+    public SharePlatformModels.ShortLinkRes updateShortLinkById(String id ,SharePlatformModels.ShortLinkReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<SharePlatformModels.ShortLinkRes> response = null;
             try {
             response = sharePlatformApiList.updateShortLinkById(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -333,7 +334,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -363,13 +364,13 @@ public class ApplicationClient {
     
     
 
-    public SharePlatformModels.ClickStatsResponse getShortLinkClickStats(String surlId ) throws FDKException {
+    public SharePlatformModels.ClickStatsResponse getShortLinkClickStats(String surlId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<SharePlatformModels.ClickStatsResponse> response = null;
             try {
             response = sharePlatformApiList.getShortLinkClickStats(this.companyId , this.applicationId ,surlId ).execute();
                 if (!response.isSuccessful()) {
-                        throw new FDKException(response.code(),
+                        throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                                 response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                                 response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -378,7 +379,7 @@ public class ApplicationClient {
                                                 response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {

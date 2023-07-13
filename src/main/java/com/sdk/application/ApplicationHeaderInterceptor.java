@@ -1,4 +1,4 @@
-package com.sdk.common;
+package com.sdk.application;
 
 import com.sdk.application.ApplicationConfig;
 import okhttp3.Interceptor;
@@ -39,6 +39,6 @@ public class ApplicationHeaderInterceptor implements Interceptor {
                 .addHeader("User-Agent", applicationConfig.getUserAgent())
                 .addHeader("Accept-Language", "en-IN")
                 .addHeader("Authorization", "Bearer "+bearerToken)
-                .addHeader("x-fp-sdk-version", "1.0.0");
+                .addHeader("x-fp-sdk-version", "1.1.2");
     }
 }
