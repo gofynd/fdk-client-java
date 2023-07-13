@@ -2,6 +2,7 @@ package com.sdk.platform.companyprofile;
 
 import com.sdk.common.*;
 import com.sdk.common.model.FDKException;
+import com.sdk.common.model.FDKServerResponseError;
 import okhttp3.Interceptor;
 import retrofit2.Response;
 
@@ -9,7 +10,7 @@ import java.io.IOException;
 import java.net.CookieStore;
 import java.util.*;
 
-import com.sdk.platform.PlatformConfig;
+import com.sdk.platform.*;
 
 
 
@@ -52,13 +53,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.GetCompanyProfileSerializerResponse cbsOnboardGet() throws FDKException {
+    public CompanyProfilePlatformModels.GetCompanyProfileSerializerResponse cbsOnboardGet() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.GetCompanyProfileSerializerResponse> response = null;
             try {
                 response = companyprofilePlatformApiList.cbsOnboardGet(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -67,7 +68,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -88,13 +89,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse updateCompany(CompanyProfilePlatformModels.UpdateCompany body) throws FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse updateCompany(CompanyProfilePlatformModels.UpdateCompany body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {
                 response = companyprofilePlatformApiList.updateCompany(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -103,7 +104,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -124,13 +125,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.MetricsSerializer getCompanyMetrics() throws FDKException {
+    public CompanyProfilePlatformModels.MetricsSerializer getCompanyMetrics() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.MetricsSerializer> response = null;
             try {
                 response = companyprofilePlatformApiList.getCompanyMetrics(this.companyId ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -139,7 +140,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -164,13 +165,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.GetBrandResponseSerializer getBrand(String brandId ) throws FDKException {
+    public CompanyProfilePlatformModels.GetBrandResponseSerializer getBrand(String brandId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.GetBrandResponseSerializer> response = null;
             try {
                 response = companyprofilePlatformApiList.getBrand(this.companyId , brandId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -179,7 +180,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -204,13 +205,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse editBrand(String brandId ,CompanyProfilePlatformModels.CreateUpdateBrandRequestSerializer body) throws FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse editBrand(String brandId ,CompanyProfilePlatformModels.CreateUpdateBrandRequestSerializer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {
                 response = companyprofilePlatformApiList.editBrand(this.companyId , brandId  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -219,7 +220,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -240,13 +241,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createBrand(CompanyProfilePlatformModels.CreateUpdateBrandRequestSerializer body) throws FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse createBrand(CompanyProfilePlatformModels.CreateUpdateBrandRequestSerializer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {
                 response = companyprofilePlatformApiList.createBrand(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -255,7 +256,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -288,13 +289,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.CompanyBrandListSerializer getBrands(Integer pageNo , Integer pageSize , String q ) throws FDKException {
+    public CompanyProfilePlatformModels.CompanyBrandListSerializer getBrands(Integer pageNo , Integer pageSize , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.CompanyBrandListSerializer> response = null;
             try {
                 response = companyprofilePlatformApiList.getBrands(this.companyId ,pageNo , pageSize , q ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -303,7 +304,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -388,13 +389,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createCompanyBrandMapping(CompanyProfilePlatformModels.CompanyBrandPostRequestSerializer body) throws FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse createCompanyBrandMapping(CompanyProfilePlatformModels.CompanyBrandPostRequestSerializer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {
                 response = companyprofilePlatformApiList.createCompanyBrandMapping(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -403,7 +404,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -448,13 +449,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.LocationListSerializer getLocations(String storeType , String q , String stage , Integer pageNo , Integer pageSize , List<Integer> locationIds ) throws FDKException {
+    public CompanyProfilePlatformModels.LocationListSerializer getLocations(String storeType , String q , String stage , Integer pageNo , Integer pageSize , List<Integer> locationIds ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.LocationListSerializer> response = null;
             try {
                 response = companyprofilePlatformApiList.getLocations(this.companyId ,storeType , q , stage , pageNo , pageSize , locationIds ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -463,7 +464,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -572,13 +573,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createLocation(CompanyProfilePlatformModels.LocationSerializer body) throws FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse createLocation(CompanyProfilePlatformModels.LocationSerializer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {
                 response = companyprofilePlatformApiList.createLocation(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -587,7 +588,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -612,13 +613,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.GetLocationSerializer getLocationDetail(String locationId ) throws FDKException {
+    public CompanyProfilePlatformModels.GetLocationSerializer getLocationDetail(String locationId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.GetLocationSerializer> response = null;
             try {
                 response = companyprofilePlatformApiList.getLocationDetail(this.companyId , locationId  ).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -627,7 +628,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -652,13 +653,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse updateLocation(String locationId ,CompanyProfilePlatformModels.LocationSerializer body) throws FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse updateLocation(String locationId ,CompanyProfilePlatformModels.LocationSerializer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {
                 response = companyprofilePlatformApiList.updateLocation(this.companyId , locationId  , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -667,7 +668,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {
@@ -688,13 +689,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createLocationBulk(CompanyProfilePlatformModels.BulkLocationSerializer body) throws FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse createLocationBulk(CompanyProfilePlatformModels.BulkLocationSerializer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {
                 response = companyprofilePlatformApiList.createLocationBulk(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
-                    throw new FDKException(response.code(),
+                    throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
                                             response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
                                             response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
@@ -703,7 +704,7 @@ public class CompanyProfilePlatformService {
                                             response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
                 }
             } catch (IOException e) {
-                throw new FDKException(e.getMessage(), e);
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
             }
             return response.body();
         } else {

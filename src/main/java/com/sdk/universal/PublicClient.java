@@ -6,9 +6,9 @@ import lombok.Setter;
 
 import com.sdk.universal.configuration.ConfigurationPublicService;
 
-import com.sdk.universal.webhook.WebhookPublicService;
-
 import com.sdk.universal.inventory.InventoryPublicService;
+
+import com.sdk.universal.webhook.WebhookPublicService;
 
 
 @Getter
@@ -20,9 +20,9 @@ public class PublicClient {
     
     public ConfigurationPublicService configuration;
     
-    public WebhookPublicService webhook;
-    
     public InventoryPublicService inventory;
+    
+    public WebhookPublicService webhook;
     
 
     public void setExtraHeader(String key, String value){
@@ -34,9 +34,9 @@ public class PublicClient {
         
         this.configuration = new ConfigurationPublicService(publicConfig);
         
-        this.webhook = new WebhookPublicService(publicConfig);
-        
         this.inventory = new InventoryPublicService(publicConfig);
+        
+        this.webhook = new WebhookPublicService(publicConfig);
         
     }
 }

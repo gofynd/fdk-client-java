@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class CommunicationPlatformModels{
 
 
@@ -18,7 +17,7 @@ public class CommunicationPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StatsImported {
+public static class StatsImported{
     
     
     
@@ -28,8 +27,8 @@ public static class StatsImported {
     
     
     
-    
 }
+
 
 /*
     Model: StatsProcessedEmail
@@ -40,7 +39,7 @@ public static class StatsImported {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StatsProcessedEmail {
+public static class StatsProcessedEmail{
     
     
     
@@ -62,8 +61,8 @@ public static class StatsProcessedEmail {
     
     
     
-    
 }
+
 
 /*
     Model: StatsProcessedSms
@@ -74,7 +73,7 @@ public static class StatsProcessedEmail {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StatsProcessedSms {
+public static class StatsProcessedSms{
     
     
     
@@ -96,8 +95,8 @@ public static class StatsProcessedSms {
     
     
     
-    
 }
+
 
 /*
     Model: StatsProcessed
@@ -108,7 +107,7 @@ public static class StatsProcessedSms {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StatsProcessed {
+public static class StatsProcessed{
     
     
     
@@ -124,8 +123,8 @@ public static class StatsProcessed {
     
     
     
-    
 }
+
 
 /*
     Model: Stats
@@ -136,7 +135,7 @@ public static class StatsProcessed {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Stats {
+public static class Stats{
     
     
     
@@ -158,8 +157,8 @@ public static class Stats {
     
     
     
-    
 }
+
 
 /*
     Model: GetStats
@@ -170,7 +169,7 @@ public static class Stats {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetStats {
+public static class GetStats{
     
     
     
@@ -180,8 +179,8 @@ public static class GetStats {
     
     
     
-    
 }
+
 
 /*
     Model: CampaignReq
@@ -192,7 +191,7 @@ public static class GetStats {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CampaignReq {
+public static class CampaignReq{
     
     
     
@@ -250,8 +249,8 @@ public static class CampaignReq {
     
     
     
-    
 }
+
 
 /*
     Model: RecipientHeaders
@@ -262,7 +261,7 @@ public static class CampaignReq {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RecipientHeaders {
+public static class RecipientHeaders{
     
     
     
@@ -272,8 +271,8 @@ public static class RecipientHeaders {
     
     
     
-    
 }
+
 
 /*
     Model: CampaignEmailTemplate
@@ -284,7 +283,7 @@ public static class RecipientHeaders {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CampaignEmailTemplate {
+public static class CampaignEmailTemplate{
     
     
     
@@ -300,8 +299,8 @@ public static class CampaignEmailTemplate {
     
     
     
-    
 }
+
 
 /*
     Model: CampignEmailProvider
@@ -312,7 +311,7 @@ public static class CampaignEmailTemplate {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CampignEmailProvider {
+public static class CampignEmailProvider{
     
     
     
@@ -334,8 +333,8 @@ public static class CampignEmailProvider {
     
     
     
-    
 }
+
 
 /*
     Model: CampaignEmail
@@ -346,7 +345,7 @@ public static class CampignEmailProvider {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CampaignEmail {
+public static class CampaignEmail{
     
     
     
@@ -362,8 +361,8 @@ public static class CampaignEmail {
     
     
     
-    
 }
+
 
 /*
     Model: Campaign
@@ -374,7 +373,7 @@ public static class CampaignEmail {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Campaign {
+public static class Campaign{
     
     
     
@@ -462,8 +461,8 @@ public static class Campaign {
     
     
     
-    
 }
+
 
 /*
     Model: Campaigns
@@ -474,7 +473,7 @@ public static class Campaign {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Campaigns {
+public static class Campaigns{
     
     
     
@@ -490,8 +489,8 @@ public static class Campaigns {
     
     
     
-    
 }
+
 
 /*
     Model: BadRequestSchema
@@ -502,7 +501,7 @@ public static class Campaigns {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BadRequestSchema {
+public static class BadRequestSchema{
     
     
     
@@ -518,8 +517,8 @@ public static class BadRequestSchema {
     
     
     
-    
 }
+
 
 /*
     Model: NotFound
@@ -530,7 +529,7 @@ public static class BadRequestSchema {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NotFound {
+public static class NotFound{
     
     
     
@@ -540,8 +539,8 @@ public static class NotFound {
     
     
     
-    
 }
+
 
 /*
     Model: BigqueryHeadersReq
@@ -552,7 +551,7 @@ public static class NotFound {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BigqueryHeadersReq {
+public static class BigqueryHeadersReq{
     
     
     
@@ -568,8 +567,8 @@ public static class BigqueryHeadersReq {
     
     
     
-    
 }
+
 
 /*
     Model: BigqueryHeadersResHeaders
@@ -580,7 +579,7 @@ public static class BigqueryHeadersReq {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BigqueryHeadersResHeaders {
+public static class BigqueryHeadersResHeaders{
     
     
     
@@ -596,8 +595,8 @@ public static class BigqueryHeadersResHeaders {
     
     
     
-    
 }
+
 
 /*
     Model: BigqueryHeadersRes
@@ -608,7 +607,7 @@ public static class BigqueryHeadersResHeaders {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BigqueryHeadersRes {
+public static class BigqueryHeadersRes{
     
     
     
@@ -618,8 +617,8 @@ public static class BigqueryHeadersRes {
     
     
     
-    
 }
+
 
 /*
     Model: GetNRecordsCsvReq
@@ -630,7 +629,7 @@ public static class BigqueryHeadersRes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetNRecordsCsvReq {
+public static class GetNRecordsCsvReq{
     
     
     
@@ -652,8 +651,8 @@ public static class GetNRecordsCsvReq {
     
     
     
-    
 }
+
 
 /*
     Model: GetNRecordsCsvResItems
@@ -664,7 +663,7 @@ public static class GetNRecordsCsvReq {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetNRecordsCsvResItems {
+public static class GetNRecordsCsvResItems{
     
     
     
@@ -698,8 +697,8 @@ public static class GetNRecordsCsvResItems {
     
     
     
-    
 }
+
 
 /*
     Model: GetNRecordsCsvRes
@@ -710,7 +709,7 @@ public static class GetNRecordsCsvResItems {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetNRecordsCsvRes {
+public static class GetNRecordsCsvRes{
     
     
     
@@ -720,8 +719,8 @@ public static class GetNRecordsCsvRes {
     
     
     
-    
 }
+
 
 /*
     Model: AudienceReq
@@ -732,7 +731,7 @@ public static class GetNRecordsCsvRes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AudienceReq {
+public static class AudienceReq{
     
     
     
@@ -790,8 +789,8 @@ public static class AudienceReq {
     
     
     
-    
 }
+
 
 /*
     Model: Audience
@@ -802,7 +801,7 @@ public static class AudienceReq {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Audience {
+public static class Audience{
     
     
     
@@ -890,8 +889,8 @@ public static class Audience {
     
     
     
-    
 }
+
 
 /*
     Model: Audiences
@@ -902,7 +901,7 @@ public static class Audience {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Audiences {
+public static class Audiences{
     
     
     
@@ -918,8 +917,8 @@ public static class Audiences {
     
     
     
-    
 }
+
 
 /*
     Model: EmailProviderReqFrom
@@ -930,7 +929,7 @@ public static class Audiences {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailProviderReqFrom {
+public static class EmailProviderReqFrom{
     
     
     
@@ -952,8 +951,8 @@ public static class EmailProviderReqFrom {
     
     
     
-    
 }
+
 
 /*
     Model: EmailProviderReq
@@ -964,7 +963,7 @@ public static class EmailProviderReqFrom {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailProviderReq {
+public static class EmailProviderReq{
     
     
     
@@ -1004,8 +1003,8 @@ public static class EmailProviderReq {
     
     
     
-    
 }
+
 
 /*
     Model: EmailProvider
@@ -1016,7 +1015,7 @@ public static class EmailProviderReq {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailProvider {
+public static class EmailProvider{
     
     
     
@@ -1092,8 +1091,8 @@ public static class EmailProvider {
     
     
     
-    
 }
+
 
 /*
     Model: EmailProviders
@@ -1104,7 +1103,7 @@ public static class EmailProvider {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailProviders {
+public static class EmailProviders{
     
     
     
@@ -1120,8 +1119,8 @@ public static class EmailProviders {
     
     
     
-    
 }
+
 
 /*
     Model: EmailTemplateDeleteSuccessRes
@@ -1132,7 +1131,7 @@ public static class EmailProviders {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailTemplateDeleteSuccessRes {
+public static class EmailTemplateDeleteSuccessRes{
     
     
     
@@ -1148,8 +1147,8 @@ public static class EmailTemplateDeleteSuccessRes {
     
     
     
-    
 }
+
 
 /*
     Model: EmailTemplateDeleteFailureRes
@@ -1160,7 +1159,7 @@ public static class EmailTemplateDeleteSuccessRes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailTemplateDeleteFailureRes {
+public static class EmailTemplateDeleteFailureRes{
     
     
     
@@ -1176,8 +1175,8 @@ public static class EmailTemplateDeleteFailureRes {
     
     
     
-    
 }
+
 
 /*
     Model: EmailTemplateKeys
@@ -1188,7 +1187,7 @@ public static class EmailTemplateDeleteFailureRes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailTemplateKeys {
+public static class EmailTemplateKeys{
     
     
     
@@ -1210,8 +1209,8 @@ public static class EmailTemplateKeys {
     
     
     
-    
 }
+
 
 /*
     Model: EmailTemplateHeaders
@@ -1222,7 +1221,7 @@ public static class EmailTemplateKeys {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailTemplateHeaders {
+public static class EmailTemplateHeaders{
     
     
     
@@ -1238,8 +1237,8 @@ public static class EmailTemplateHeaders {
     
     
     
-    
 }
+
 
 /*
     Model: EmailTemplateReq
@@ -1250,7 +1249,7 @@ public static class EmailTemplateHeaders {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailTemplateReq {
+public static class EmailTemplateReq{
     
     
     
@@ -1332,8 +1331,8 @@ public static class EmailTemplateReq {
     
     
     
-    
 }
+
 
 /*
     Model: TemplateAndType
@@ -1344,7 +1343,7 @@ public static class EmailTemplateReq {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TemplateAndType {
+public static class TemplateAndType{
     
     
     
@@ -1360,8 +1359,8 @@ public static class TemplateAndType {
     
     
     
-    
 }
+
 
 /*
     Model: EmailTemplateRes
@@ -1372,7 +1371,7 @@ public static class TemplateAndType {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailTemplateRes {
+public static class EmailTemplateRes{
     
     
     
@@ -1508,8 +1507,8 @@ public static class EmailTemplateRes {
     
     
     
-    
 }
+
 
 /*
     Model: EmailTemplate
@@ -1520,7 +1519,7 @@ public static class EmailTemplateRes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailTemplate {
+public static class EmailTemplate{
     
     
     
@@ -1650,8 +1649,8 @@ public static class EmailTemplate {
     
     
     
-    
 }
+
 
 /*
     Model: SystemEmailTemplate
@@ -1662,7 +1661,7 @@ public static class EmailTemplate {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SystemEmailTemplate {
+public static class SystemEmailTemplate{
     
     
     
@@ -1792,8 +1791,8 @@ public static class SystemEmailTemplate {
     
     
     
-    
 }
+
 
 /*
     Model: EmailTemplates
@@ -1804,7 +1803,7 @@ public static class SystemEmailTemplate {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailTemplates {
+public static class EmailTemplates{
     
     
     
@@ -1820,8 +1819,8 @@ public static class EmailTemplates {
     
     
     
-    
 }
+
 
 /*
     Model: SystemEmailTemplates
@@ -1832,7 +1831,7 @@ public static class EmailTemplates {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SystemEmailTemplates {
+public static class SystemEmailTemplates{
     
     
     
@@ -1848,8 +1847,8 @@ public static class SystemEmailTemplates {
     
     
     
-    
 }
+
 
 /*
     Model: PayloadEmailTemplateStructure
@@ -1860,7 +1859,7 @@ public static class SystemEmailTemplates {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayloadEmailTemplateStructure {
+public static class PayloadEmailTemplateStructure{
     
     
     
@@ -1876,8 +1875,8 @@ public static class PayloadEmailTemplateStructure {
     
     
     
-    
 }
+
 
 /*
     Model: PayloadEmailProviderStructure
@@ -1888,7 +1887,7 @@ public static class PayloadEmailTemplateStructure {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayloadEmailProviderStructure {
+public static class PayloadEmailProviderStructure{
     
     
     
@@ -1898,8 +1897,8 @@ public static class PayloadEmailProviderStructure {
     
     
     
-    
 }
+
 
 /*
     Model: PayloadEmailStructure
@@ -1910,7 +1909,7 @@ public static class PayloadEmailProviderStructure {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayloadEmailStructure {
+public static class PayloadEmailStructure{
     
     
     
@@ -1926,8 +1925,8 @@ public static class PayloadEmailStructure {
     
     
     
-    
 }
+
 
 /*
     Model: PayloadSmsTemplateStructure
@@ -1938,7 +1937,7 @@ public static class PayloadEmailStructure {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayloadSmsTemplateStructure {
+public static class PayloadSmsTemplateStructure{
     
     
     
@@ -1954,8 +1953,8 @@ public static class PayloadSmsTemplateStructure {
     
     
     
-    
 }
+
 
 /*
     Model: PayloadSmsProviderStructure
@@ -1966,7 +1965,7 @@ public static class PayloadSmsTemplateStructure {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayloadSmsProviderStructure {
+public static class PayloadSmsProviderStructure{
     
     
     
@@ -1976,8 +1975,8 @@ public static class PayloadSmsProviderStructure {
     
     
     
-    
 }
+
 
 /*
     Model: PayloadSmsStructure
@@ -1988,7 +1987,7 @@ public static class PayloadSmsProviderStructure {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayloadSmsStructure {
+public static class PayloadSmsStructure{
     
     
     
@@ -2004,8 +2003,8 @@ public static class PayloadSmsStructure {
     
     
     
-    
 }
+
 
 /*
     Model: PayloadStructure
@@ -2016,7 +2015,7 @@ public static class PayloadSmsStructure {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayloadStructure {
+public static class PayloadStructure{
     
     
     
@@ -2044,8 +2043,8 @@ public static class PayloadStructure {
     
     
     
-    
 }
+
 
 /*
     Model: MetaStructure
@@ -2056,7 +2055,7 @@ public static class PayloadStructure {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MetaStructure {
+public static class MetaStructure{
     
     
     
@@ -2084,8 +2083,8 @@ public static class MetaStructure {
     
     
     
-    
 }
+
 
 /*
     Model: EngineRequest
@@ -2096,7 +2095,7 @@ public static class MetaStructure {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EngineRequest {
+public static class EngineRequest{
     
     
     
@@ -2112,8 +2111,8 @@ public static class EngineRequest {
     
     
     
-    
 }
+
 
 /*
     Model: EngineResponse
@@ -2124,7 +2123,7 @@ public static class EngineRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EngineResponse {
+public static class EngineResponse{
     
     
     
@@ -2134,8 +2133,8 @@ public static class EngineResponse {
     
     
     
-    
 }
+
 
 /*
     Model: EventSubscriptionTemplateSms
@@ -2146,7 +2145,7 @@ public static class EngineResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventSubscriptionTemplateSms {
+public static class EventSubscriptionTemplateSms{
     
     
     
@@ -2162,8 +2161,8 @@ public static class EventSubscriptionTemplateSms {
     
     
     
-    
 }
+
 
 /*
     Model: EventSubscriptionTemplateEmail
@@ -2174,7 +2173,7 @@ public static class EventSubscriptionTemplateSms {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventSubscriptionTemplateEmail {
+public static class EventSubscriptionTemplateEmail{
     
     
     
@@ -2190,8 +2189,8 @@ public static class EventSubscriptionTemplateEmail {
     
     
     
-    
 }
+
 
 /*
     Model: EventSubscriptionTemplate
@@ -2202,7 +2201,7 @@ public static class EventSubscriptionTemplateEmail {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventSubscriptionTemplate {
+public static class EventSubscriptionTemplate{
     
     
     
@@ -2218,8 +2217,8 @@ public static class EventSubscriptionTemplate {
     
     
     
-    
 }
+
 
 /*
     Model: EventSubscription
@@ -2230,7 +2229,7 @@ public static class EventSubscriptionTemplate {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventSubscription {
+public static class EventSubscription{
     
     
     
@@ -2288,8 +2287,8 @@ public static class EventSubscription {
     
     
     
-    
 }
+
 
 /*
     Model: EventSubscriptions
@@ -2300,7 +2299,7 @@ public static class EventSubscription {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventSubscriptions {
+public static class EventSubscriptions{
     
     
     
@@ -2316,52 +2315,8 @@ public static class EventSubscriptions {
     
     
     
-    
 }
 
-/*
-    Model: TriggerJobResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TriggerJobResponse {
-    
-    
-    
-    
-    @JsonProperty("status")
-    private Integer status;
-    
-    
-    
-    
-}
-
-/*
-    Model: TriggerJobRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TriggerJobRequest {
-    
-    
-    
-    
-    @JsonProperty("job_id")
-    private String jobId;
-    
-    
-    
-    
-}
 
 /*
     Model: Job
@@ -2372,7 +2327,7 @@ public static class TriggerJobRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Job {
+public static class Job{
     
     
     
@@ -2424,8 +2379,8 @@ public static class Job {
     
     
     
-    
 }
+
 
 /*
     Model: Jobs
@@ -2436,7 +2391,7 @@ public static class Job {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Jobs {
+public static class Jobs{
     
     
     
@@ -2452,8 +2407,8 @@ public static class Jobs {
     
     
     
-    
 }
+
 
 /*
     Model: JobLog
@@ -2464,7 +2419,7 @@ public static class Jobs {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class JobLog {
+public static class JobLog{
     
     
     
@@ -2516,8 +2471,8 @@ public static class JobLog {
     
     
     
-    
 }
+
 
 /*
     Model: JobLogs
@@ -2528,7 +2483,7 @@ public static class JobLog {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class JobLogs {
+public static class JobLogs{
     
     
     
@@ -2544,8 +2499,52 @@ public static class JobLogs {
     
     
     
+}
+
+
+/*
+    Model: TriggerJobResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TriggerJobResponse{
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Integer status;
+    
+    
     
 }
+
+
+/*
+    Model: TriggerJobRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TriggerJobRequest{
+    
+    
+    
+    
+    @JsonProperty("job_id")
+    private String jobId;
+    
+    
+    
+}
+
 
 /*
     Model: LogEmail
@@ -2556,7 +2555,7 @@ public static class JobLogs {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LogEmail {
+public static class LogEmail{
     
     
     
@@ -2566,8 +2565,8 @@ public static class LogEmail {
     
     
     
-    
 }
+
 
 /*
     Model: LogPushnotification
@@ -2578,7 +2577,7 @@ public static class LogEmail {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LogPushnotification {
+public static class LogPushnotification{
     
     
     
@@ -2588,8 +2587,8 @@ public static class LogPushnotification {
     
     
     
-    
 }
+
 
 /*
     Model: LogMeta
@@ -2600,7 +2599,7 @@ public static class LogPushnotification {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LogMeta {
+public static class LogMeta{
     
     
     
@@ -2640,8 +2639,8 @@ public static class LogMeta {
     
     
     
-    
 }
+
 
 /*
     Model: Log
@@ -2652,7 +2651,7 @@ public static class LogMeta {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Log {
+public static class Log{
     
     
     
@@ -2699,6 +2698,18 @@ public static class Log {
     
     
     
+    @JsonProperty("source")
+    private String source;
+    
+    
+    
+    
+    @JsonProperty("channel_type")
+    private String channelType;
+    
+    
+    
+    
     @JsonProperty("status")
     private String status;
     
@@ -2722,8 +2733,8 @@ public static class Log {
     
     
     
-    
 }
+
 
 /*
     Model: Logs
@@ -2734,7 +2745,7 @@ public static class Log {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Logs {
+public static class Logs{
     
     
     
@@ -2750,8 +2761,8 @@ public static class Logs {
     
     
     
-    
 }
+
 
 /*
     Model: SendOtpSmsCommsTemplate
@@ -2762,7 +2773,7 @@ public static class Logs {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtpSmsCommsTemplate {
+public static class SendOtpSmsCommsTemplate{
     
     
     
@@ -2778,8 +2789,8 @@ public static class SendOtpSmsCommsTemplate {
     
     
     
-    
 }
+
 
 /*
     Model: SendOtpSmsCommsProvider
@@ -2790,7 +2801,7 @@ public static class SendOtpSmsCommsTemplate {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtpSmsCommsProvider {
+public static class SendOtpSmsCommsProvider{
     
     
     
@@ -2806,8 +2817,8 @@ public static class SendOtpSmsCommsProvider {
     
     
     
-    
 }
+
 
 /*
     Model: SendOtpEmailCommsTemplate
@@ -2818,7 +2829,7 @@ public static class SendOtpSmsCommsProvider {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtpEmailCommsTemplate {
+public static class SendOtpEmailCommsTemplate{
     
     
     
@@ -2834,8 +2845,36 @@ public static class SendOtpEmailCommsTemplate {
     
     
     
+}
+
+
+/*
+    Model: SendOtpEmailCommsProvider
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SendOtpEmailCommsProvider{
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
     
 }
+
 
 /*
     Model: SendOtpCommsReqData
@@ -2846,7 +2885,7 @@ public static class SendOtpEmailCommsTemplate {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtpCommsReqData {
+public static class SendOtpCommsReqData{
     
     
     
@@ -2874,8 +2913,8 @@ public static class SendOtpCommsReqData {
     
     
     
-    
 }
+
 
 /*
     Model: SendOtpCommsReqSms
@@ -2886,7 +2925,7 @@ public static class SendOtpCommsReqData {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtpCommsReqSms {
+public static class SendOtpCommsReqSms{
     
     
     
@@ -2914,8 +2953,8 @@ public static class SendOtpCommsReqSms {
     
     
     
-    
 }
+
 
 /*
     Model: SendOtpCommsReqEmail
@@ -2926,7 +2965,7 @@ public static class SendOtpCommsReqSms {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtpCommsReqEmail {
+public static class SendOtpCommsReqEmail{
     
     
     
@@ -2949,7 +2988,13 @@ public static class SendOtpCommsReqEmail {
     
     
     
+    @JsonProperty("provider")
+    private SendOtpEmailCommsProvider provider;
+    
+    
+    
 }
+
 
 /*
     Model: SendOtpCommsResSms
@@ -2960,7 +3005,7 @@ public static class SendOtpCommsReqEmail {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtpCommsResSms {
+public static class SendOtpCommsResSms{
     
     
     
@@ -3000,8 +3045,8 @@ public static class SendOtpCommsResSms {
     
     
     
-    
 }
+
 
 /*
     Model: SendOtpCommsResEmail
@@ -3012,7 +3057,7 @@ public static class SendOtpCommsResSms {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtpCommsResEmail {
+public static class SendOtpCommsResEmail{
     
     
     
@@ -3046,8 +3091,8 @@ public static class SendOtpCommsResEmail {
     
     
     
-    
 }
+
 
 /*
     Model: SendOtpCommsReq
@@ -3058,7 +3103,7 @@ public static class SendOtpCommsResEmail {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtpCommsReq {
+public static class SendOtpCommsReq{
     
     
     
@@ -3080,8 +3125,8 @@ public static class SendOtpCommsReq {
     
     
     
-    
 }
+
 
 /*
     Model: SendOtpCommsRes
@@ -3092,7 +3137,7 @@ public static class SendOtpCommsReq {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtpCommsRes {
+public static class SendOtpCommsRes{
     
     
     
@@ -3108,8 +3153,8 @@ public static class SendOtpCommsRes {
     
     
     
-    
 }
+
 
 /*
     Model: VerifyOtpCommsReq
@@ -3120,7 +3165,7 @@ public static class SendOtpCommsRes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VerifyOtpCommsReq {
+public static class VerifyOtpCommsReq{
     
     
     
@@ -3136,8 +3181,8 @@ public static class VerifyOtpCommsReq {
     
     
     
-    
 }
+
 
 /*
     Model: VerifyOtpCommsSuccessRes
@@ -3148,7 +3193,7 @@ public static class VerifyOtpCommsReq {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VerifyOtpCommsSuccessRes {
+public static class VerifyOtpCommsSuccessRes{
     
     
     
@@ -3176,8 +3221,8 @@ public static class VerifyOtpCommsSuccessRes {
     
     
     
-    
 }
+
 
 /*
     Model: VerifyOtpCommsErrorRes
@@ -3188,7 +3233,7 @@ public static class VerifyOtpCommsSuccessRes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VerifyOtpCommsErrorRes {
+public static class VerifyOtpCommsErrorRes{
     
     
     
@@ -3204,8 +3249,8 @@ public static class VerifyOtpCommsErrorRes {
     
     
     
-    
 }
+
 
 /*
     Model: PushtokenReq
@@ -3216,7 +3261,7 @@ public static class VerifyOtpCommsErrorRes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PushtokenReq {
+public static class PushtokenReq{
     
     
     
@@ -3244,8 +3289,8 @@ public static class PushtokenReq {
     
     
     
-    
 }
+
 
 /*
     Model: PushtokenRes
@@ -3256,7 +3301,7 @@ public static class PushtokenReq {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PushtokenRes {
+public static class PushtokenRes{
     
     
     
@@ -3326,8 +3371,8 @@ public static class PushtokenRes {
     
     
     
-    
 }
+
 
 /*
     Model: SmsProviderReq
@@ -3338,7 +3383,7 @@ public static class PushtokenRes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SmsProviderReq {
+public static class SmsProviderReq{
     
     
     
@@ -3384,8 +3429,8 @@ public static class SmsProviderReq {
     
     
     
-    
 }
+
 
 /*
     Model: SmsProvider
@@ -3396,7 +3441,7 @@ public static class SmsProviderReq {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SmsProvider {
+public static class SmsProvider{
     
     
     
@@ -3484,8 +3529,8 @@ public static class SmsProvider {
     
     
     
-    
 }
+
 
 /*
     Model: SmsProviders
@@ -3496,7 +3541,7 @@ public static class SmsProvider {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SmsProviders {
+public static class SmsProviders{
     
     
     
@@ -3512,8 +3557,8 @@ public static class SmsProviders {
     
     
     
-    
 }
+
 
 /*
     Model: SmsTemplateDeleteSuccessRes
@@ -3524,7 +3569,7 @@ public static class SmsProviders {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SmsTemplateDeleteSuccessRes {
+public static class SmsTemplateDeleteSuccessRes{
     
     
     
@@ -3540,8 +3585,8 @@ public static class SmsTemplateDeleteSuccessRes {
     
     
     
-    
 }
+
 
 /*
     Model: SmsTemplateDeleteFailureRes
@@ -3552,7 +3597,7 @@ public static class SmsTemplateDeleteSuccessRes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SmsTemplateDeleteFailureRes {
+public static class SmsTemplateDeleteFailureRes{
     
     
     
@@ -3568,8 +3613,8 @@ public static class SmsTemplateDeleteFailureRes {
     
     
     
-    
 }
+
 
 /*
     Model: SmsTemplateMessage
@@ -3580,7 +3625,7 @@ public static class SmsTemplateDeleteFailureRes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SmsTemplateMessage {
+public static class SmsTemplateMessage{
     
     
     
@@ -3596,8 +3641,8 @@ public static class SmsTemplateMessage {
     
     
     
-    
 }
+
 
 /*
     Model: SmsTemplateReq
@@ -3608,7 +3653,7 @@ public static class SmsTemplateMessage {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SmsTemplateReq {
+public static class SmsTemplateReq{
     
     
     
@@ -3648,8 +3693,8 @@ public static class SmsTemplateReq {
     
     
     
-    
 }
+
 
 /*
     Model: SmsTemplateRes
@@ -3660,7 +3705,7 @@ public static class SmsTemplateReq {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SmsTemplateRes {
+public static class SmsTemplateRes{
     
     
     
@@ -3748,8 +3793,8 @@ public static class SmsTemplateRes {
     
     
     
-    
 }
+
 
 /*
     Model: SmsTemplate
@@ -3760,7 +3805,7 @@ public static class SmsTemplateRes {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SmsTemplate {
+public static class SmsTemplate{
     
     
     
@@ -3848,8 +3893,8 @@ public static class SmsTemplate {
     
     
     
-    
 }
+
 
 /*
     Model: SystemSmsTemplate
@@ -3860,7 +3905,7 @@ public static class SmsTemplate {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SystemSmsTemplate {
+public static class SystemSmsTemplate{
     
     
     
@@ -3948,8 +3993,8 @@ public static class SystemSmsTemplate {
     
     
     
-    
 }
+
 
 /*
     Model: SmsTemplates
@@ -3960,7 +4005,7 @@ public static class SystemSmsTemplate {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SmsTemplates {
+public static class SmsTemplates{
     
     
     
@@ -3976,8 +4021,8 @@ public static class SmsTemplates {
     
     
     
-    
 }
+
 
 /*
     Model: SystemSmsTemplates
@@ -3988,7 +4033,7 @@ public static class SmsTemplates {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SystemSmsTemplates {
+public static class SystemSmsTemplates{
     
     
     
@@ -4004,8 +4049,8 @@ public static class SystemSmsTemplates {
     
     
     
-    
 }
+
 
 /*
     Model: Notification
@@ -4016,7 +4061,7 @@ public static class SystemSmsTemplates {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Notification {
+public static class Notification{
     
     
     
@@ -4056,8 +4101,8 @@ public static class Notification {
     
     
     
-    
 }
+
 
 /*
     Model: SystemNotificationUser
@@ -4068,7 +4113,7 @@ public static class Notification {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SystemNotificationUser {
+public static class SystemNotificationUser{
     
     
     
@@ -4084,8 +4129,8 @@ public static class SystemNotificationUser {
     
     
     
-    
 }
+
 
 /*
     Model: SystemNotificationSettings
@@ -4096,7 +4141,7 @@ public static class SystemNotificationUser {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SystemNotificationSettings {
+public static class SystemNotificationSettings{
     
     
     
@@ -4118,8 +4163,8 @@ public static class SystemNotificationSettings {
     
     
     
-    
 }
+
 
 /*
     Model: SystemNotification
@@ -4130,7 +4175,7 @@ public static class SystemNotificationSettings {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SystemNotification {
+public static class SystemNotification{
     
     
     
@@ -4170,8 +4215,8 @@ public static class SystemNotification {
     
     
     
-    
 }
+
 
 /*
     Model: SystemNotificationsPage
@@ -4182,7 +4227,7 @@ public static class SystemNotification {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SystemNotificationsPage {
+public static class SystemNotificationsPage{
     
     
     
@@ -4216,8 +4261,8 @@ public static class SystemNotificationsPage {
     
     
     
-    
 }
+
 
 /*
     Model: SystemNotifications
@@ -4228,7 +4273,7 @@ public static class SystemNotificationsPage {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SystemNotifications {
+public static class SystemNotifications{
     
     
     
@@ -4250,8 +4295,8 @@ public static class SystemNotifications {
     
     
     
-    
 }
+
 
 /*
     Model: Page
@@ -4262,7 +4307,7 @@ public static class SystemNotifications {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Page {
+public static class Page{
     
     
     
@@ -4308,9 +4353,7 @@ public static class Page {
     
     
     
-    
 }
-
 
 
 

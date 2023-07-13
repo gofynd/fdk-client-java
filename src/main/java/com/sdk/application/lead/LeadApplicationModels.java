@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class LeadApplicationModels{
 
 
@@ -2148,8 +2147,6 @@ public static class Ticket{
             this.priority = priority;
         }
     }
-
-
 
 
 }

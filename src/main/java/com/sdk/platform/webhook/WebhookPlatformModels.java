@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class WebhookPlatformModels{
 
 
@@ -18,7 +17,7 @@ public class WebhookPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventConfig {
+public static class EventConfig{
     
     
     
@@ -70,8 +69,8 @@ public static class EventConfig {
     
     
     
-    
 }
+
 
 /*
     Model: EventConfigList
@@ -82,7 +81,7 @@ public static class EventConfig {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventConfigList {
+public static class EventConfigList{
     
     
     
@@ -98,8 +97,8 @@ public static class EventConfigList {
     
     
     
-    
 }
+
 
 /*
     Model: EventConfigResponse
@@ -110,7 +109,7 @@ public static class EventConfigList {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventConfigResponse {
+public static class EventConfigResponse{
     
     
     
@@ -120,8 +119,8 @@ public static class EventConfigResponse {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriberConfigList
@@ -132,7 +131,7 @@ public static class EventConfigResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriberConfigList {
+public static class SubscriberConfigList{
     
     
     
@@ -148,8 +147,8 @@ public static class SubscriberConfigList {
     
     
     
-    
 }
+
 
 /*
     Model: Page
@@ -160,7 +159,7 @@ public static class SubscriberConfigList {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Page {
+public static class Page{
     
     
     
@@ -206,8 +205,8 @@ public static class Page {
     
     
     
-    
 }
+
 
 /*
     Model: EventProcessedStatus
@@ -218,7 +217,7 @@ public static class Page {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventProcessedStatus {
+public static class EventProcessedStatus{
     
     
     
@@ -270,8 +269,8 @@ public static class EventProcessedStatus {
     
     
     
-    
 }
+
 
 /*
     Model: EventPayload
@@ -282,7 +281,7 @@ public static class EventProcessedStatus {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventPayload {
+public static class EventPayload{
     
     
     
@@ -328,8 +327,8 @@ public static class EventPayload {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriberConfig
@@ -340,7 +339,7 @@ public static class EventPayload {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriberConfig {
+public static class SubscriberConfig{
     
     
     
@@ -398,8 +397,8 @@ public static class SubscriberConfig {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriberResponse
@@ -410,7 +409,7 @@ public static class SubscriberConfig {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriberResponse {
+public static class SubscriberResponse{
     
     
     
@@ -480,8 +479,8 @@ public static class SubscriberResponse {
     
     
     
-    
 }
+
 
 /*
     Model: SubscriberEvent
@@ -492,7 +491,7 @@ public static class SubscriberResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriberEvent {
+public static class SubscriberEvent{
     
     
     
@@ -520,8 +519,8 @@ public static class SubscriberEvent {
     
     
     
-    
 }
+
 
 /*
     Model: AuthMeta
@@ -532,7 +531,7 @@ public static class SubscriberEvent {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AuthMeta {
+public static class AuthMeta{
     
     
     
@@ -548,8 +547,8 @@ public static class AuthMeta {
     
     
     
-    
 }
+
 
 /*
     Model: Association
@@ -560,7 +559,7 @@ public static class AuthMeta {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Association {
+public static class Association{
     
     
     
@@ -588,8 +587,8 @@ public static class Association {
     
     
     
-    
 }
+
 
 /*
     Model: EventConfigBase
@@ -600,7 +599,7 @@ public static class Association {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventConfigBase {
+public static class EventConfigBase{
     
     
     
@@ -628,8 +627,8 @@ public static class EventConfigBase {
     
     
     
-    
 }
+
 
 
 
@@ -654,8 +653,6 @@ public static class EventConfigBase {
             this.priority = priority;
         }
     }
-
-
 
 
 }

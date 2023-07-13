@@ -35,7 +35,7 @@ Get current sales channel details
 
 
 ```java
-configuration.getApplication() {
+applicationClient.configuration.getApplication() {
   //use response
 }
 ```
@@ -146,7 +146,7 @@ Get sales channel, owner and seller information
 
 
 ```java
-configuration.getOwnerInfo() {
+applicationClient.configuration.getOwnerInfo() {
   //use response
 }
 ```
@@ -295,7 +295,7 @@ Get basic details of the application
 
 
 ```java
-configuration.getBasicDetails() {
+applicationClient.configuration.getBasicDetails() {
   //use response
 }
 ```
@@ -383,7 +383,7 @@ Get integration tokens
 
 
 ```java
-configuration.getIntegrationTokens() {
+applicationClient.configuration.getIntegrationTokens() {
   //use response
 }
 ```
@@ -500,7 +500,7 @@ Get all deployment stores
 
 
 ```java
-configuration.getOrderingStores( pageNo,  pageSize,  q) {
+applicationClient.configuration.getOrderingStores( pageNo,  pageSize,  q) {
   //use response
 }
 ```
@@ -555,7 +555,7 @@ Get ordering store details
 
 
 ```java
-configuration.getStoreDetailById( storeId) {
+applicationClient.configuration.getStoreDetailById( storeId) {
   //use response
 }
 ```
@@ -616,7 +616,7 @@ Get features of application
 
 
 ```java
-configuration.getFeatures() {
+applicationClient.configuration.getFeatures() {
   //use response
 }
 ```
@@ -759,7 +759,7 @@ Get application information
 
 
 ```java
-configuration.getContactInfo() {
+applicationClient.configuration.getContactInfo() {
   //use response
 }
 ```
@@ -922,7 +922,7 @@ Get all currencies list
 
 
 ```java
-configuration.getCurrencies() {
+applicationClient.configuration.getCurrencies() {
   //use response
 }
 ```
@@ -983,7 +983,7 @@ Get currency by its ID
 
 
 ```java
-configuration.getCurrencyById( id) {
+applicationClient.configuration.getCurrencyById( id) {
   //use response
 }
 ```
@@ -1045,7 +1045,7 @@ Get currencies enabled in the application
 
 
 ```java
-configuration.getAppCurrencies() {
+applicationClient.configuration.getAppCurrencies() {
   //use response
 }
 ```
@@ -1111,7 +1111,7 @@ Get list of languages
 
 
 ```java
-configuration.getLanguages() {
+applicationClient.configuration.getLanguages() {
   //use response
 }
 ```
@@ -1174,7 +1174,7 @@ Get an Ordering Store signed cookie on selection of ordering store.
 
 
 ```java
-configuration.getOrderingStoreCookie(body body) {
+applicationClient.configuration.getOrderingStoreCookie(body body) {
   //use response
 }
 ```
@@ -1228,7 +1228,7 @@ Unset the Ordering Store signed cookie.
 
 
 ```java
-configuration.removeOrderingStoreCookie() {
+applicationClient.configuration.removeOrderingStoreCookie() {
   //use response
 }
 ```
@@ -1278,7 +1278,7 @@ Get a list of staff.
 
 
 ```java
-configuration.getAppStaffList( pageNo,  pageSize,  orderIncent,  orderingStore,  user) {
+applicationClient.configuration.getAppStaffList( pageNo,  pageSize,  orderIncent,  orderingStore,  user,  userName) {
   //use response
 }
 ```
@@ -1291,7 +1291,8 @@ configuration.getAppStaffList( pageNo,  pageSize,  orderIncent,  orderingStore, 
 | pageSize | Integer? | no |  |   
 | orderIncent | Boolean? | no | This is a boolean value. Select `true` to retrieve the staff members eligible for getting incentives on orders. |   
 | orderingStore | Integer? | no | ID of the ordering store. Helps in retrieving staff members working at a particular ordering store. |   
-| user | String? | no | Mongo ID of the staff. Helps in retrieving the details of a particular staff member. |  
+| user | String? | no | Mongo ID of the staff. Helps in retrieving the details of a particular staff member. |   
+| userName | String? | no | user name of the member |  
 
 
 
@@ -1335,7 +1336,7 @@ Get a list of staff.
 
 
 ```java
-configuration.getAppStaffs( orderIncent,  orderingStore,  user) {
+applicationClient.configuration.getAppStaffs( orderIncent,  orderingStore,  user) {
   //use response
 }
 ```
