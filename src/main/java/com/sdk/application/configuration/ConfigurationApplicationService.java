@@ -10,7 +10,10 @@ import java.util.*;
 import java.io.File;
 
 import com.sdk.common.*;
-import com.sdk.application.ApplicationConfig;
+import com.sdk.application.*;
+
+
+
 
 
 
@@ -398,12 +401,12 @@ import com.sdk.application.ApplicationConfig;
     
     
     
-    public ConfigurationApplicationModels.AppStaffListResponse getAppStaffList(Integer pageNo , Integer pageSize , Boolean orderIncent , Integer orderingStore , String user ) throws IOException {
+    public ConfigurationApplicationModels.AppStaffListResponse getAppStaffList(Integer pageNo , Integer pageSize , Boolean orderIncent , Integer orderingStore , String user , String userName ) throws IOException {
      
       String fullUrl = relativeUrls.get("getAppStaffList");
         
 
-        Response<ConfigurationApplicationModels.AppStaffListResponse> response = configurationApplicationApiList.getAppStaffList(fullUrl  ,pageNo, pageSize, orderIncent, orderingStore, user).execute();
+        Response<ConfigurationApplicationModels.AppStaffListResponse> response = configurationApplicationApiList.getAppStaffList(fullUrl  ,pageNo, pageSize, orderIncent, orderingStore, user, userName).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -439,6 +442,10 @@ import com.sdk.application.ApplicationConfig;
         
         
         
+        
+        
+        
+        
 
     /**
     * Summary: get paginator for getAppStaffList
@@ -449,7 +456,8 @@ import com.sdk.application.ApplicationConfig;
         Integer pageSize,
         Boolean orderIncent,
         Integer orderingStore,
-        String user
+        String user,
+        String userName
         
         ){ 
     
@@ -467,7 +475,8 @@ import com.sdk.application.ApplicationConfig;
                 ,
                  orderIncent,
                  orderingStore,
-                 user
+                 user,
+                 userName
             );
                 
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;

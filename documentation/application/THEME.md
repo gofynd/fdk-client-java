@@ -23,7 +23,7 @@ Get all pages of a theme
 
 
 ```java
-theme.getAllPages( themeId) {
+applicationClient.theme.getAllPages( themeId) {
   //use response
 }
 ```
@@ -372,7 +372,7 @@ Get page of a theme
 
 
 ```java
-theme.getPage( themeId,  pageValue) {
+applicationClient.theme.getPage( themeId,  pageValue) {
   //use response
 }
 ```
@@ -794,7 +794,7 @@ Get the theme currently applied to an application
 
 
 ```java
-theme.getAppliedTheme() {
+applicationClient.theme.getAppliedTheme() {
   //use response
 }
 ```
@@ -2982,7 +2982,7 @@ Get a theme for a preview
 
 
 ```java
-theme.getThemeForPreview( themeId) {
+applicationClient.theme.getThemeForPreview( themeId) {
   //use response
 }
 ```

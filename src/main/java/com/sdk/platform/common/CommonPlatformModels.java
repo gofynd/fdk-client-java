@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class CommonPlatformModels{
 
 
@@ -18,7 +17,7 @@ public class CommonPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationResponse {
+public static class ApplicationResponse{
     
     
     
@@ -28,8 +27,8 @@ public static class ApplicationResponse {
     
     
     
-    
 }
+
 
 /*
     Model: Currency
@@ -40,7 +39,7 @@ public static class ApplicationResponse {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Currency {
+public static class Currency{
     
     
     
@@ -92,8 +91,8 @@ public static class Currency {
     
     
     
-    
 }
+
 
 /*
     Model: Domain
@@ -104,7 +103,7 @@ public static class Currency {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Domain {
+public static class Domain{
     
     
     
@@ -144,8 +143,8 @@ public static class Domain {
     
     
     
-    
 }
+
 
 /*
     Model: ApplicationWebsite
@@ -156,7 +155,7 @@ public static class Domain {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationWebsite {
+public static class ApplicationWebsite{
     
     
     
@@ -172,8 +171,8 @@ public static class ApplicationWebsite {
     
     
     
-    
 }
+
 
 /*
     Model: ApplicationCors
@@ -184,7 +183,7 @@ public static class ApplicationWebsite {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationCors {
+public static class ApplicationCors{
     
     
     
@@ -194,8 +193,8 @@ public static class ApplicationCors {
     
     
     
-    
 }
+
 
 /*
     Model: ApplicationAuth
@@ -206,7 +205,7 @@ public static class ApplicationCors {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationAuth {
+public static class ApplicationAuth{
     
     
     
@@ -216,8 +215,8 @@ public static class ApplicationAuth {
     
     
     
-    
 }
+
 
 /*
     Model: ApplicationRedirections
@@ -228,7 +227,7 @@ public static class ApplicationAuth {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationRedirections {
+public static class ApplicationRedirections{
     
     
     
@@ -250,8 +249,8 @@ public static class ApplicationRedirections {
     
     
     
-    
 }
+
 
 /*
     Model: ApplicationMeta
@@ -262,7 +261,7 @@ public static class ApplicationRedirections {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationMeta {
+public static class ApplicationMeta{
     
     
     
@@ -278,8 +277,8 @@ public static class ApplicationMeta {
     
     
     
-    
 }
+
 
 /*
     Model: SecureUrl
@@ -290,7 +289,7 @@ public static class ApplicationMeta {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SecureUrl {
+public static class SecureUrl{
     
     
     
@@ -300,8 +299,8 @@ public static class SecureUrl {
     
     
     
-    
 }
+
 
 /*
     Model: Application
@@ -312,7 +311,7 @@ public static class SecureUrl {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Application {
+public static class Application{
     
     
     
@@ -466,8 +465,8 @@ public static class Application {
     
     
     
-    
 }
+
 
 /*
     Model: NotFound
@@ -478,7 +477,7 @@ public static class Application {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NotFound {
+public static class NotFound{
     
     
     
@@ -488,8 +487,8 @@ public static class NotFound {
     
     
     
-    
 }
+
 
 /*
     Model: BadRequest
@@ -500,7 +499,7 @@ public static class NotFound {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BadRequest {
+public static class BadRequest{
     
     
     
@@ -510,8 +509,8 @@ public static class BadRequest {
     
     
     
-    
 }
+
 
 /*
     Model: Page
@@ -522,7 +521,7 @@ public static class BadRequest {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Page {
+public static class Page{
     
     
     
@@ -568,8 +567,8 @@ public static class Page {
     
     
     
-    
 }
+
 
 /*
     Model: LocationDefaultLanguage
@@ -580,7 +579,7 @@ public static class Page {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationDefaultLanguage {
+public static class LocationDefaultLanguage{
     
     
     
@@ -596,8 +595,8 @@ public static class LocationDefaultLanguage {
     
     
     
-    
 }
+
 
 /*
     Model: LocationDefaultCurrency
@@ -608,7 +607,7 @@ public static class LocationDefaultLanguage {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationDefaultCurrency {
+public static class LocationDefaultCurrency{
     
     
     
@@ -630,8 +629,8 @@ public static class LocationDefaultCurrency {
     
     
     
-    
 }
+
 
 /*
     Model: LocationCountry
@@ -642,7 +641,7 @@ public static class LocationDefaultCurrency {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationCountry {
+public static class LocationCountry{
     
     
     
@@ -724,8 +723,8 @@ public static class LocationCountry {
     
     
     
-    
 }
+
 
 /*
     Model: Locations
@@ -736,7 +735,7 @@ public static class LocationCountry {
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Locations {
+public static class Locations{
     
     
     
@@ -746,9 +745,7 @@ public static class Locations {
     
     
     
-    
 }
-
 
 
 

@@ -26,7 +26,7 @@ Get offer by name
 
 
 ```java
-rewards.getOfferByName( name) {
+applicationClient.rewards.getOfferByName( name) {
   //use response
 }
 ```
@@ -128,7 +128,7 @@ Get all transactions of reward points
 
 
 ```java
-rewards.catalogueOrder(body body) {
+applicationClient.rewards.catalogueOrder(body body) {
   //use response
 }
 ```
@@ -196,7 +196,7 @@ Get all transactions of reward points
 
 
 ```java
-rewards.getUserPointsHistory( pageId,  pageSize) {
+applicationClient.rewards.getUserPointsHistory( pageId,  pageSize) {
   //use response
 }
 ```
@@ -306,7 +306,7 @@ Get total available points of a user
 
 
 ```java
-rewards.getUserPoints() {
+applicationClient.rewards.getUserPoints() {
   //use response
 }
 ```
@@ -364,7 +364,7 @@ Get referral details of a user
 
 
 ```java
-rewards.getUserReferralDetails() {
+applicationClient.rewards.getUserReferralDetails() {
   //use response
 }
 ```
@@ -479,7 +479,7 @@ Calculates the discount on order-amount
 
 
 ```java
-rewards.getOrderDiscount(body body) {
+applicationClient.rewards.getOrderDiscount(body body) {
   //use response
 }
 ```
@@ -563,7 +563,7 @@ Redeems a referral code and credits reward points to referee and the referrer as
 
 
 ```java
-rewards.redeemReferralCode(body body) {
+applicationClient.rewards.redeemReferralCode(body body) {
   //use response
 }
 ```

@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-
 public class ThemeApplicationModels{
 
 
@@ -1625,8 +1624,6 @@ public static class BlocksProps{
     
     
 }
-
-
 
 
 
