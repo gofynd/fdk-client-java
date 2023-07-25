@@ -13251,7 +13251,7 @@ Success. Returns a Cart object as shown below. Refer `CartDetailResponse` for mo
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | items | [PromotionListItem](#PromotionListItem)? |  yes  |  |
+ | items | ArrayList<[PromotionListItem](#PromotionListItem)>? |  yes  |  |
  | page | [Page](#Page)? |  yes  |  |
 
 ---

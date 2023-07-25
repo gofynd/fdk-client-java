@@ -5773,6 +5773,12 @@ public static class Application{
     
     
     
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
 }
 
 

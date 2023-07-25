@@ -2179,7 +2179,7 @@ public static class PromotionsResponse{
     
     
     @JsonProperty("items")
-    private PromotionListItem items;
+    private List<PromotionListItem> items;
     
     
     
