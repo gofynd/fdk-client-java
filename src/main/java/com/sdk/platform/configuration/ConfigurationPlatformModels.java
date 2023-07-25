@@ -6257,7 +6257,7 @@ public static class ApplicationInformation{
     
     
     @JsonProperty("links")
-    private Links links;
+    private List<Links> links;
     
     
     
@@ -6333,7 +6333,7 @@ public static class InformationAddress{
     
     
     @JsonProperty("phone")
-    private InformationPhone phone;
+    private List<InformationPhone> phone;
     
     
     
