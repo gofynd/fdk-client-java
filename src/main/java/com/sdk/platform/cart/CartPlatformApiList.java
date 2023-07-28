@@ -260,6 +260,48 @@ interface CartPlatformApiList {
     
     
     
+    
+    
+    
+    @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/price-adjustment/{id}")
+    Call<CartPlatformModels.PriceAdjustmentResponse> updatePriceAdjustment(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CartPlatformModels.PriceAdjustmentUpdate payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/price-adjustment/{id}")
+    Call<CartPlatformModels.SuccessMessage> removePriceAdjustment(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/price-adjustment")
+    Call<CartPlatformModels.PriceAdjustmentResponse> addPriceAdjustment(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CartPlatformModels.PriceAdjustmentAdd payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart/validate")
     Call<CartPlatformModels.OpenapiCartDetailsResponse> fetchAndvalidateCartItems(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CartPlatformModels.OpenapiCartDetailsRequest payload);
     
