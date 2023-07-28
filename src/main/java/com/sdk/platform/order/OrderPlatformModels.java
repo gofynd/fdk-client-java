@@ -5657,7 +5657,7 @@ public static class FinancialBreakup{
     
     
     @JsonProperty("refund_credit")
-    private Integer refundCredit;
+    private Double refundCredit;
     
     
     
@@ -5669,7 +5669,7 @@ public static class FinancialBreakup{
     
     
     @JsonProperty("price_effective")
-    private Integer priceEffective;
+    private Double priceEffective;
     
     
     
@@ -5681,7 +5681,7 @@ public static class FinancialBreakup{
     
     
     @JsonProperty("transfer_price")
-    private Integer transferPrice;
+    private Double transferPrice;
     
     
     
@@ -5699,7 +5699,7 @@ public static class FinancialBreakup{
     
     
     @JsonProperty("tax_collected_at_source")
-    private Integer taxCollectedAtSource;
+    private Double taxCollectedAtSource;
     
     
     
@@ -5729,7 +5729,7 @@ public static class FinancialBreakup{
     
     
     @JsonProperty("cashback")
-    private Integer cashback;
+    private Double cashback;
     
     
     
@@ -5747,19 +5747,19 @@ public static class FinancialBreakup{
     
     
     @JsonProperty("cashback_applied")
-    private Integer cashbackApplied;
+    private Double cashbackApplied;
     
     
     
     
     @JsonProperty("cod_charges")
-    private Integer codCharges;
+    private Double codCharges;
     
     
     
     
     @JsonProperty("price_marked")
-    private Integer priceMarked;
+    private Double priceMarked;
     
     
     
@@ -5783,19 +5783,19 @@ public static class FinancialBreakup{
     
     
     @JsonProperty("discount")
-    private Integer discount;
+    private Double discount;
     
     
     
     
     @JsonProperty("fynd_credits")
-    private Integer fyndCredits;
+    private Double fyndCredits;
     
     
     
     
     @JsonProperty("gst_tax_percentage")
-    private Integer gstTaxPercentage;
+    private Double gstTaxPercentage;
     
     
     
