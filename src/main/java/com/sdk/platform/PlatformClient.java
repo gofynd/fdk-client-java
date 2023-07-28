@@ -40,6 +40,8 @@ import com.sdk.platform.payment.PaymentPlatformService;
 
 import com.sdk.platform.rewards.RewardsPlatformService;
 
+import com.sdk.platform.serviceability.ServiceabilityPlatformService;
+
 import com.sdk.platform.share.SharePlatformService;
 
 import com.sdk.platform.theme.ThemePlatformService;
@@ -93,6 +95,8 @@ public class PlatformClient {
     
     public RewardsPlatformService rewards;
     
+    public ServiceabilityPlatformService serviceability;
+    
     public SharePlatformService share;
     
     public ThemePlatformService theme;
@@ -141,6 +145,8 @@ public class PlatformClient {
         this.payment = new PaymentPlatformService(config);
         
         this.rewards = new RewardsPlatformService(config);
+        
+        this.serviceability = new ServiceabilityPlatformService(config);
         
         this.share = new SharePlatformService(config);
         
@@ -202,6 +208,8 @@ public class PlatformClient {
         
         public RewardsPlatformService.ApplicationClient rewards;
         
+        public ServiceabilityPlatformService.ApplicationClient serviceability;
+        
         public SharePlatformService.ApplicationClient share;
         
         public ThemePlatformService.ApplicationClient theme;
@@ -249,6 +257,8 @@ public class PlatformClient {
             this.payment = new PaymentPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.rewards = new RewardsPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.serviceability = new ServiceabilityPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.share = new SharePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
