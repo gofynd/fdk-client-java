@@ -723,6 +723,30 @@ public static class LocationCountry{
     
     
     
+    
+    @JsonProperty("state_code")
+    private String stateCode;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("latitude")
+    private String latitude;
+    
+    
+    
+    
+    @JsonProperty("longitude")
+    private String longitude;
+    
+    
+    
 }
 
 
