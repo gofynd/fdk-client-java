@@ -23,4 +23,16 @@ interface LogisticApplicationApiList {
     
     @POST 
     Call<LogisticApplicationModels.ReAssignStoreResponse> getOptimalLocations(@Url String url1 , @Body LogisticApplicationModels.ReAssignStoreRequest payload );
+    
+    @GET 
+    Call<LogisticApplicationModels.GetCountries> getCountries(@Url String url1, @Query("onboarding") Boolean onboarding );
+    
+    @GET 
+    Call<LogisticApplicationModels.GetCountry> getCountry(@Url String url1);
+    
+    @GET 
+    Call<LogisticApplicationModels.GetLocalities> getLocalities(@Url String url1, @Query("country") String country , @Query("state") String state , @Query("city") String city );
+    
+    @GET 
+    Call<LogisticApplicationModels.GetLocality> getLocality(@Url String url1, @Query("country") String country , @Query("state") String state , @Query("city") String city );
 }

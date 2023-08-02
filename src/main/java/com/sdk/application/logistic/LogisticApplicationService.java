@@ -47,6 +47,14 @@ import com.sdk.application.*;
                     relativeUrls.put("getPincodeZones","/service/application/logistics/v1.0/pincode/zones".substring(1));
             
                     relativeUrls.put("getOptimalLocations","/service/application/logistics/v1.0/reassign_stores".substring(1));
+            
+                    relativeUrls.put("getCountries","/service/application/logistics/v1.0/countries".substring(1));
+            
+                    relativeUrls.put("getCountry","/service/application/logistics/v1.0/countries/{country_iso_code}".substring(1));
+            
+                    relativeUrls.put("getLocalities","/service/application/logistics/v1.0/localities/{locality_type}".substring(1));
+            
+                    relativeUrls.put("getLocality","/service/application/logistics/v1.0/localities/{locality_type}/{locality_value}".substring(1));
              
 
     }
@@ -149,6 +157,86 @@ import com.sdk.application.*;
         
 
         Response<LogisticApplicationModels.ReAssignStoreResponse> response = logisticApplicationApiList.getOptimalLocations(fullUrl , body).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public LogisticApplicationModels.GetCountries getCountries(Boolean onboarding ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getCountries");
+        
+
+        Response<LogisticApplicationModels.GetCountries> response = logisticApplicationApiList.getCountries(fullUrl  ,onboarding).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public LogisticApplicationModels.GetCountry getCountry(String countryIsoCode ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getCountry");
+        
+        fullUrl = fullUrl.replace("{" + "country_iso_code" +"}",countryIsoCode.toString());
+        
+
+        Response<LogisticApplicationModels.GetCountry> response = logisticApplicationApiList.getCountry(fullUrl ).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public LogisticApplicationModels.GetLocalities getLocalities(String localityType , String country , String state , String city ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getLocalities");
+        
+        fullUrl = fullUrl.replace("{" + "locality_type" +"}",localityType.toString());
+        
+
+        Response<LogisticApplicationModels.GetLocalities> response = logisticApplicationApiList.getLocalities(fullUrl  ,country, state, city).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
+    
+    
+    
+    public LogisticApplicationModels.GetLocality getLocality(String localityType , String localityValue , String country , String state , String city ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getLocality");
+        
+        fullUrl = fullUrl.replace("{" + "locality_type" +"}",localityType.toString());
+        
+        fullUrl = fullUrl.replace("{" + "locality_value" +"}",localityValue.toString());
+        
+
+        Response<LogisticApplicationModels.GetLocality> response = logisticApplicationApiList.getLocality(fullUrl  ,country, state, city).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
