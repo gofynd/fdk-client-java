@@ -8545,7 +8545,7 @@ Validate Product Template Schema
 
 
 ```java
-platformClient.catalog.validateProductTemplate( slug) {
+platformClient.catalog.validateProductTemplate( slug,  itemType,  bulk) {
   //use response
 }
 ```
@@ -8555,7 +8555,9 @@ platformClient.catalog.validateProductTemplate( slug) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | A `company_id` is a unique identifier for a particular seller account. |   
-| slug | String | yes | A `slug` is a unique identifier for a particular template. |  
+| slug | String | yes | A `slug` is a unique identifier for a particular template. |   
+| itemType | String? | no | An `item_type` defines the type of item. The default value is standard. |   
+| bulk | Boolean? | no | This specification determines the schema type to be retrieved. When set to true, it will return the schema for bulk data; when set to false, it will provide the schema for a single product. The default value is false. |  
 
 
 
@@ -8599,7 +8601,7 @@ Download Product Template View
 
 
 ```java
-platformClient.catalog.downloadProductTemplateViews( slug) {
+platformClient.catalog.downloadProductTemplateViews( slug,  itemType,  type) {
   //use response
 }
 ```
@@ -8609,7 +8611,9 @@ platformClient.catalog.downloadProductTemplateViews( slug) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | A `company_id` is a unique identifier for a particular seller account. |   
-| slug | String | yes | A `slug` is a unique identifier for a particular template. |  
+| slug | String | yes | A `slug` is a unique identifier for a particular template. |   
+| itemType | String? | no | An `item_type` defines the type of item. The default value is standard. |   
+| type | String? | no | Format type of the sample file. The default value is excel. |  
 
 
 

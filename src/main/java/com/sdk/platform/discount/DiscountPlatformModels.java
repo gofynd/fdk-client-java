@@ -37,6 +37,40 @@ public static class ValidityObject{
 
 
 /*
+    Model: DiscountMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DiscountMeta{
+    
+    
+    
+    
+    @JsonProperty("timer")
+    private Boolean timer;
+    
+    
+    
+    
+    @JsonProperty("hours")
+    private Double hours;
+    
+    
+    
+    
+    @JsonProperty("minutes")
+    private Double minutes;
+    
+    
+    
+}
+
+
+/*
     Model: CreateUpdateDiscount
 */
 @AllArgsConstructor
@@ -127,6 +161,12 @@ public static class CreateUpdateDiscount{
     
     
     
+    
+    @JsonProperty("discount_meta")
+    private DiscountMeta discountMeta;
+    
+    
+    
 }
 
 
@@ -212,6 +252,12 @@ public static class DiscountJob{
     
     @JsonProperty("store_ids")
     private List<Integer> storeIds;
+    
+    
+    
+    
+    @JsonProperty("discount_meta")
+    private DiscountMeta discountMeta;
     
     
     
@@ -325,6 +371,12 @@ public static class DiscountItems{
     
     
     
+    
+    @JsonProperty("discount_meta")
+    private DiscountMeta discountMeta;
+    
+    
+    
 }
 
 
@@ -408,6 +460,12 @@ public static class FileJobResponse{
     
     @JsonProperty("file_type")
     private String fileType;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
     
     
     
