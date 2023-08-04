@@ -222,12 +222,16 @@ public class FileStoragePlatformService {
     
     
     
+    
+    
+    
+    
 
-    public FileStoragePlatformModels.BrowseResponse browse(String namespace , Integer pageNo ) throws FDKServerResponseError, FDKException {
+    public FileStoragePlatformModels.BrowseResponse browse(String namespace , Integer page , Integer limit ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FileStoragePlatformModels.BrowseResponse> response = null;
             try {
-                response = filestoragePlatformApiList.browse(namespace  , this.companyId ,pageNo ).execute();
+                response = filestoragePlatformApiList.browse(namespace  , this.companyId ,page , limit ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -244,61 +248,6 @@ public class FileStoragePlatformService {
         } else {
             return null;
         }    
-    }
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for browse
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<FileStoragePlatformModels.BrowseResponse> browsePagination(
-        String namespace 
-        
-        ){ 
-    
-     int pageSize = 20; 
-
-    Paginator<FileStoragePlatformModels.BrowseResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            FileStoragePlatformModels.BrowseResponse callback = this.browse(
-                
-                 namespace,
-                 
-                 paginator.getPageNo()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
     }
     
     
@@ -530,12 +479,16 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
 
-    public FileStoragePlatformModels.BrowseResponse appbrowse(String namespace , Integer pageNo ) throws FDKServerResponseError, FDKException {
+    public FileStoragePlatformModels.BrowseResponse appbrowse(String namespace , Integer page , Integer limit ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FileStoragePlatformModels.BrowseResponse> response = null;
             try {
-            response = filestoragePlatformApiList.appbrowse(namespace , this.companyId , this.applicationId ,pageNo ).execute();
+            response = filestoragePlatformApiList.appbrowse(namespace , this.companyId , this.applicationId ,page , limit ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -554,64 +507,6 @@ public class ApplicationClient {
         }    
     }
 
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for appbrowse
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<FileStoragePlatformModels.BrowseResponse> appbrowsePagination(
-        String namespace
-        
-        ){ 
-    
-     int pageSize = 20; 
-
-    Paginator<FileStoragePlatformModels.BrowseResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            FileStoragePlatformModels.BrowseResponse callback = this.appbrowse(
-                
-                 namespace,
-                 
-                 
-                 paginator.getPageNo()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
     
     
     

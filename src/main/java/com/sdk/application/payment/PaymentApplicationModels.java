@@ -1197,7 +1197,7 @@ public static class IntentApp{
     
     
     @JsonProperty("logos")
-    private PaymentModeLogo logos;
+    private Object logos;
     
     
     
@@ -1363,7 +1363,7 @@ public static class PaymentModeList{
     
     
     @JsonProperty("logo_url")
-    private PaymentModeLogo logoUrl;
+    private Object logoUrl;
     
     
     
@@ -1549,85 +1549,85 @@ public static class PaymentFlow{
     
     
     @JsonProperty("bqr_razorpay")
-    private AggregatorRoute bqrRazorpay;
+    private Object bqrRazorpay;
     
     
     
     
     @JsonProperty("fynd")
-    private AggregatorRoute fynd;
+    private Object fynd;
     
     
     
     
     @JsonProperty("epaylater")
-    private AggregatorRoute epaylater;
+    private Object epaylater;
     
     
     
     
     @JsonProperty("razorpay")
-    private AggregatorRoute razorpay;
+    private Object razorpay;
     
     
     
     
     @JsonProperty("juspay")
-    private AggregatorRoute juspay;
+    private Object juspay;
     
     
     
     
     @JsonProperty("ajiodhan")
-    private AggregatorRoute ajiodhan;
+    private Object ajiodhan;
     
     
     
     
     @JsonProperty("simpl")
-    private AggregatorRoute simpl;
+    private Object simpl;
     
     
     
     
     @JsonProperty("rupifi")
-    private AggregatorRoute rupifi;
+    private Object rupifi;
     
     
     
     
     @JsonProperty("mswipe")
-    private AggregatorRoute mswipe;
+    private Object mswipe;
     
     
     
     
     @JsonProperty("stripe")
-    private AggregatorRoute stripe;
+    private Object stripe;
     
     
     
     
     @JsonProperty("ccavenue")
-    private AggregatorRoute ccavenue;
+    private Object ccavenue;
     
     
     
     
     @JsonProperty("payubiz")
-    private AggregatorRoute payubiz;
+    private Object payubiz;
     
     
     
     
     @JsonProperty("jiopay")
-    private AggregatorRoute jiopay;
+    private Object jiopay;
     
     
     
     
     @JsonProperty("upi_razorpay")
-    private AggregatorRoute upiRazorpay;
+    private Object upiRazorpay;
     
     
     
@@ -3207,7 +3207,7 @@ public static class ErrorResponse{
     
     
     @JsonProperty("error")
-    private ErrorDescription error;
+    private Object error;
     
     
     

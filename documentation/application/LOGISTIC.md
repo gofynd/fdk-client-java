@@ -103,8 +103,8 @@ Get pincode data
         "lat_long": {
           "type": "Point",
           "coordinates": [
-            3.8858955,
-            7.2272335
+            "3.8858955",
+            "7.2272335"
           ]
         }
       }
@@ -285,7 +285,7 @@ Get TAT  data
             },
             "manufacturing_time": 2,
             "manufacturing_time_unit": "days",
-            "promise": null,
+            "promise": {},
             "error": {
               "type": "ValueError",
               "value": "99999",

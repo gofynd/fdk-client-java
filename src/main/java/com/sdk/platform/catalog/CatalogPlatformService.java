@@ -1054,12 +1054,20 @@ public class CatalogPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CatalogPlatformModels.TemplatesValidationResponse validateProductTemplate(String slug ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.TemplatesValidationResponse validateProductTemplate(String slug , String itemType , Boolean bulk ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.TemplatesValidationResponse> response = null;
             try {
-                response = catalogPlatformApiList.validateProductTemplate(this.companyId , slug  ).execute();
+                response = catalogPlatformApiList.validateProductTemplate(this.companyId , slug  ,itemType , bulk ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1094,12 +1102,20 @@ public class CatalogPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public String downloadProductTemplateViews(String slug ) throws FDKServerResponseError, FDKException {
+    public String downloadProductTemplateViews(String slug , String itemType , String type ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<String> response = null;
             try {
-                response = catalogPlatformApiList.downloadProductTemplateViews(this.companyId , slug  ).execute();
+                response = catalogPlatformApiList.downloadProductTemplateViews(this.companyId , slug  ,itemType , type ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

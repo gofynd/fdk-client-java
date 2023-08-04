@@ -1797,7 +1797,7 @@ public static class Restrictions1{
     
     
     @JsonProperty("user_registered")
-    private UserRegistered userRegistered;
+    private String userRegistered;
     
     
     
@@ -2161,6 +2161,12 @@ public static class PromotionListItem{
     
     
     
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
 }
 
 
@@ -2179,7 +2185,7 @@ public static class PromotionsResponse{
     
     
     @JsonProperty("items")
-    private PromotionListItem items;
+    private List<PromotionListItem> items;
     
     
     
@@ -2770,6 +2776,384 @@ public static class CartMetaConfigAdd{
     
     @JsonProperty("enabled")
     private Boolean enabled;
+    
+    
+    
+}
+
+
+/*
+    Model: Article
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Article{
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("article_id")
+    private String articleId;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+}
+
+
+/*
+    Model: Collection
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Collection{
+    
+    
+    
+    
+    @JsonProperty("refund_by")
+    private String refundBy;
+    
+    
+    
+    
+    @JsonProperty("collected_by")
+    private String collectedBy;
+    
+    
+    
+}
+
+
+/*
+    Model: PriceAdjustmentUpdate
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PriceAdjustmentUpdate{
+    
+    
+    
+    
+    @JsonProperty("apply_expiry")
+    private String applyExpiry;
+    
+    
+    
+    
+    @JsonProperty("cart_id")
+    private String cartId;
+    
+    
+    
+    
+    @JsonProperty("cart_value")
+    private Double cartValue;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+    
+    @JsonProperty("article_level_distribution")
+    private Boolean articleLevelDistribution;
+    
+    
+    
+    
+    @JsonProperty("article_ids")
+    private List<Article> articleIds;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private String modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("is_authenticated")
+    private Boolean isAuthenticated;
+    
+    
+    
+    
+    @JsonProperty("allowed_refund")
+    private Boolean allowedRefund;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("collection")
+    private Collection collection;
+    
+    
+    
+}
+
+
+/*
+    Model: PriceAdjustment
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PriceAdjustment{
+    
+    
+    
+    
+    @JsonProperty("apply_expiry")
+    private String applyExpiry;
+    
+    
+    
+    
+    @JsonProperty("cart_id")
+    private String cartId;
+    
+    
+    
+    
+    @JsonProperty("cart_value")
+    private Double cartValue;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+    
+    @JsonProperty("article_level_distribution")
+    private Boolean articleLevelDistribution;
+    
+    
+    
+    
+    @JsonProperty("article_ids")
+    private List<Article> articleIds;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("is_authenticated")
+    private Boolean isAuthenticated;
+    
+    
+    
+    
+    @JsonProperty("allowed_refund")
+    private Boolean allowedRefund;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("collection")
+    private Collection collection;
+    
+    
+    
+}
+
+
+/*
+    Model: PriceAdjustmentResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PriceAdjustmentResponse{
+    
+    
+    
+    
+    @JsonProperty("data")
+    private PriceAdjustment data;
+    
+    
+    
+}
+
+
+/*
+    Model: PriceAdjustmentAdd
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PriceAdjustmentAdd{
+    
+    
+    
+    
+    @JsonProperty("apply_expiry")
+    private String applyExpiry;
+    
+    
+    
+    
+    @JsonProperty("cart_id")
+    private String cartId;
+    
+    
+    
+    
+    @JsonProperty("cart_value")
+    private Double cartValue;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private String createdBy;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+    
+    @JsonProperty("article_level_distribution")
+    private Boolean articleLevelDistribution;
+    
+    
+    
+    
+    @JsonProperty("article_ids")
+    private List<Article> articleIds;
+    
+    
+    
+    
+    @JsonProperty("is_authenticated")
+    private Boolean isAuthenticated;
+    
+    
+    
+    
+    @JsonProperty("allowed_refund")
+    private Boolean allowedRefund;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("collection")
+    private Collection collection;
     
     
     

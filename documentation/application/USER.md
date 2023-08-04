@@ -1912,8 +1912,8 @@ Success. Returns a JSON object containing the all the platform configurations. R
 ```json
 {
   "active": true,
-  "mobile_image": null,
-  "desktop_image": null,
+  "mobile_image": "",
+  "desktop_image": "",
   "social": {
     "facebook": true,
     "google": true,
@@ -2938,30 +2938,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
 
  
  
- #### [BlockUserRequestSchema](#BlockUserRequestSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | status | Boolean? |  yes  |  |
- | userId | ArrayList<String>? |  yes  |  |
- | reason | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ArchiveUserRequestSchema](#ArchiveUserRequestSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | userId | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [DeleteApplicationUserRequestSchema](#DeleteApplicationUserRequestSchema)
 
  | Properties | Type | Nullable | Description |
@@ -2971,19 +2947,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | reasonId | String? |  yes  |  |
  | requestId | String? |  yes  |  |
  | otp | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [UnDeleteUserRequestSchema](#UnDeleteUserRequestSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | userId | String? |  yes  |  |
- | reason | String? |  yes  |  |
- | reasonId | String? |  yes  |  |
 
 ---
 
@@ -3069,6 +3032,7 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | action | String? |  yes  |  |
  | token | String? |  yes  |  |
  | registerToken | String? |  yes  |  |
+ | captchaCode | String? |  yes  |  |
 
 ---
 
@@ -3425,40 +3389,7 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
 
  
  
- #### [BlockUserSuccess](#BlockUserSuccess)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [ArchiveUserSuccess](#ArchiveUserSuccess)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
-
----
-
-
- 
- 
  #### [DeleteUserSuccess](#DeleteUserSuccess)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [UnDeleteUserSuccess](#UnDeleteUserSuccess)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -3555,99 +3486,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
 
  
  
- #### [UserSearchResponseSchema](#UserSearchResponseSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | users | ArrayList<[UserSchema](#UserSchema)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [CustomerListResponseSchema](#CustomerListResponseSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[UserSchema](#UserSchema)>? |  yes  |  |
- | page | [PaginationSchema](#PaginationSchema)? |  yes  |  |
-
----
-
-
- 
- 
- #### [PaginationSchema](#PaginationSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | size | Integer? |  yes  |  |
- | itemTotal | Integer? |  yes  |  |
- | hasNext | Boolean? |  yes  |  |
- | type | String? |  yes  |  |
- | current | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [SessionListResponseSchema](#SessionListResponseSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[SessionListResponseInfo](#SessionListResponseInfo)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [SessionDeleteResponseSchema](#SessionDeleteResponseSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<String>? |  yes  |  |
-
----
-
-
- 
- 
- #### [UnauthorizedSchema](#UnauthorizedSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [UnauthenticatedSchema](#UnauthenticatedSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | authenticated | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [NotFoundSchema](#NotFoundSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [AuthenticationInternalServerErrorSchema](#AuthenticationInternalServerErrorSchema)
 
  | Properties | Type | Nullable | Description |
@@ -3664,23 +3502,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | message | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProfileEditSuccessSchema](#ProfileEditSuccessSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | email | String? |  yes  |  |
- | verifyEmailOtp | Boolean? |  yes  |  |
- | verifyEmailLink | Boolean? |  yes  |  |
- | verifyMobileOtp | Boolean? |  yes  |  |
- | user | String? |  yes  |  |
- | registerToken | String? |  yes  |  |
- | userExists | Boolean? |  yes  |  |
 
 ---
 
@@ -3746,162 +3567,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | lastName | String? |  yes  |  |
  | fullName | String? |  yes  |  |
  | firstName | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [AuthSuccessUser](#AuthSuccessUser)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | firstName | String? |  yes  |  |
- | lastName | String? |  yes  |  |
- | debug | [AuthSuccessUserDebug](#AuthSuccessUserDebug)? |  yes  |  |
- | active | Boolean? |  yes  |  |
- | emails | [AuthSuccessUserEmails](#AuthSuccessUserEmails)? |  yes  |  |
-
----
-
-
- 
- 
- #### [SessionListResponseInfo](#SessionListResponseInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | sessionId | String? |  yes  |  |
- | userAgent | String? |  yes  |  |
- | ip | String? |  yes  |  |
- | domain | String? |  yes  |  |
- | expireIn | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [AuthSuccessUserDebug](#AuthSuccessUserDebug)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | platform | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [AuthSuccessUserEmails](#AuthSuccessUserEmails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | email | String? |  yes  |  |
- | verified | Boolean? |  yes  |  |
- | primary | Boolean? |  yes  |  |
- | active | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserGroupResponseSchema](#UserGroupResponseSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | description | String? |  yes  |  |
- | fileUrl | String? |  yes  |  |
- | id | String? |  yes  |  |
- | status | String? |  yes  |  |
- | uid | Integer? |  yes  |  |
- | applicationId | String? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | modifiedAt | String? |  yes  |  |
- | v | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserGroupListResponseSchema](#UserGroupListResponseSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[UserGroupResponseSchema](#UserGroupResponseSchema)>? |  yes  |  |
- | page | [PaginationSchema](#PaginationSchema)? |  yes  |  |
-
----
-
-
- 
- 
- #### [CreateUserGroupSchema](#CreateUserGroupSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String |  no  |  |
- | description | String |  no  |  |
- | fileUrl | String |  no  |  |
-
----
-
-
- 
- 
- #### [CreateUserRequestSchema](#CreateUserRequestSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | phoneNumber | String |  no  |  |
- | email | String? |  yes  |  |
- | firstName | String? |  yes  |  |
- | lastName | String? |  yes  |  |
- | gender | String? |  yes  |  |
- | username | String |  no  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [CreateUserResponseSchema](#CreateUserResponseSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | user | [UserSchema](#UserSchema)? |  yes  |  |
-
----
-
-
- 
- 
- #### [CreateUserSessionRequestSchema](#CreateUserSessionRequestSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | domain | String? |  yes  |  |
- | maxAge | Double? |  yes  |  |
- | userId | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [CreateUserSessionResponseSchema](#CreateUserSessionResponseSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | domain | String? |  yes  |  |
- | maxAge | Double? |  yes  |  |
- | secure | Boolean? |  yes  |  |
- | httpOnly | Boolean? |  yes  |  |
- | cookie | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -4154,65 +3819,6 @@ Request body must contain an email ID. Refer `EditEmailRequestSchema` for more d
  | duration | Integer? |  yes  |  |
  | type | String? |  yes  |  |
  | isRolling | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [UpdateUserGroupSchema](#UpdateUserGroupSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | description | String? |  yes  |  |
- | fileUrl | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [UpdateUserRequestSchema](#UpdateUserRequestSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | firstName | String? |  yes  |  |
- | lastName | String? |  yes  |  |
- | gender | String? |  yes  |  |
- | externalId | String? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | phoneNumbers | ArrayList<[UserPhoneNumbers](#UserPhoneNumbers)>? |  yes  |  |
- | emails | ArrayList<[UserEmails](#UserEmails)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserEmails](#UserEmails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | active | Boolean? |  yes  |  |
- | primary | Boolean? |  yes  |  |
- | verified | Boolean? |  yes  |  |
- | email | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserPhoneNumbers](#UserPhoneNumbers)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | active | Boolean? |  yes  |  |
- | primary | Boolean? |  yes  |  |
- | verified | Boolean? |  yes  |  |
- | phone | String? |  yes  |  |
- | countryCode | String? |  yes  |  |
 
 ---
 

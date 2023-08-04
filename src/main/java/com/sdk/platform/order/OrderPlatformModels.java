@@ -3476,8 +3476,8 @@ public static class LineItem{
     
     
     
-    @JsonProperty("custom_messasge")
-    private String customMessasge;
+    @JsonProperty("custom_message")
+    private String customMessage;
     
     
     
@@ -3942,6 +3942,12 @@ public static class TaxInfo{
     
     @JsonProperty("gstin")
     private String gstin;
+    
+    
+    
+    
+    @JsonProperty("pan_no")
+    private String panNo;
     
     
     
@@ -4569,6 +4575,34 @@ public static class BagStateTransitionMap{
 
 
 /*
+    Model: RoleBaseStateTransitionMapping
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RoleBaseStateTransitionMapping{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("next_statuses")
+    private List<String> nextStatuses;
+    
+    
+    
+}
+
+
+/*
     Model: FetchCreditBalanceRequestPayload
 */
 @AllArgsConstructor
@@ -5174,6 +5208,138 @@ public static class VerifyOtpResponse{
     
     @JsonProperty("data")
     private VerifyOtpResponseData data;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkReportsDownloadRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkReportsDownloadRequest{
+    
+    
+    
+    
+    @JsonProperty("store_ids")
+    private List<String> storeIds;
+    
+    
+    
+    
+    @JsonProperty("lane_type")
+    private String laneType;
+    
+    
+    
+    
+    @JsonProperty("custom_headers")
+    private String customHeaders;
+    
+    
+    
+    
+    @JsonProperty("report_type")
+    private String reportType;
+    
+    
+    
+    
+    @JsonProperty("from_date")
+    private String fromDate;
+    
+    
+    
+    
+    @JsonProperty("to_date")
+    private String toDate;
+    
+    
+    
+    
+    @JsonProperty("entities")
+    private List<String> entities;
+    
+    
+    
+    
+    @JsonProperty("filter_type")
+    private String filterType;
+    
+    
+    
+    
+    @JsonProperty("is_cross_company_enabled")
+    private Boolean isCrossCompanyEnabled;
+    
+    
+    
+    
+    @JsonProperty("custom_filters_for_lane")
+    private Object customFiltersForLane;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkReportsDownloadResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkReportsDownloadResponse{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("batch_id")
+    private String batchId;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkReportsDownloadFailedResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkReportsDownloadFailedResponse{
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Boolean status;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
     
     
     

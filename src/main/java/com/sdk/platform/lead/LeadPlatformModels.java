@@ -551,34 +551,6 @@ public static class TicketHistoryPayload{
 
 
 /*
-    Model: CustomFormSubmissionPayload
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CustomFormSubmissionPayload{
-    
-    
-    
-    
-    @JsonProperty("response")
-    private List<Object> response;
-    
-    
-    
-    
-    @JsonProperty("attachments")
-    private List<TicketAsset> attachments;
-    
-    
-    
-}
-
-
-/*
     Model: GetTokenForVideoRoomResponse
 */
 @AllArgsConstructor
@@ -883,34 +855,6 @@ public static class Debug{
 
 
 /*
-    Model: SubmitCustomFormResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubmitCustomFormResponse{
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("ticket")
-    private Ticket ticket;
-    
-    
-    
-}
-
-
-/*
     Model: TicketContext
 */
 @AllArgsConstructor
@@ -1155,34 +1099,6 @@ public static class Status{
 
 
 /*
-    Model: TicketFeedbackForm
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TicketFeedbackForm{
-    
-    
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("display")
-    private List<Object> display;
-    
-    
-    
-}
-
-
-/*
     Model: TicketFeedbackList
 */
 @AllArgsConstructor
@@ -1401,122 +1317,6 @@ public static class CustomForm{
 
 
 /*
-    Model: CommunicationDetails
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CommunicationDetails{
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("enabled")
-    private Boolean enabled;
-    
-    
-    
-}
-
-
-/*
-    Model: SupportGeneralConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SupportGeneralConfig{
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("support_email")
-    private CommunicationDetails supportEmail;
-    
-    
-    
-    
-    @JsonProperty("support_phone")
-    private CommunicationDetails supportPhone;
-    
-    
-    
-    
-    @JsonProperty("support_faq")
-    private CommunicationDetails supportFaq;
-    
-    
-    
-    
-    @JsonProperty("show_communication_info")
-    private Boolean showCommunicationInfo;
-    
-    
-    
-    
-    @JsonProperty("support_communication")
-    private CommunicationDetails supportCommunication;
-    
-    
-    
-    
-    @JsonProperty("show_support_dris")
-    private Boolean showSupportDris;
-    
-    
-    
-    
-    @JsonProperty("integration")
-    private Object integration;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-}
-
-
-/*
     Model: FeedbackForm
 */
 @AllArgsConstructor
@@ -1544,40 +1344,6 @@ public static class FeedbackForm{
     
     @JsonProperty("timestamps")
     private Object timestamps;
-    
-    
-    
-}
-
-
-/*
-    Model: TicketSubCategory
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TicketSubCategory{
-    
-    
-    
-    
-    @JsonProperty("key")
-    private String key;
-    
-    
-    
-    
-    @JsonProperty("display")
-    private String display;
-    
-    
-    
-    
-    @JsonProperty("sub_categories")
-    private TicketSubCategory subCategories;
     
     
     
@@ -1624,110 +1390,6 @@ public static class TicketCategory{
     
     @JsonProperty("feedback_form")
     private FeedbackForm feedbackForm;
-    
-    
-    
-}
-
-
-/*
-    Model: CategoryData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CategoryData{
-    
-    
-    
-    
-    @JsonProperty("list")
-    private TicketCategory list;
-    
-    
-    
-}
-
-
-/*
-    Model: IntegrationConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class IntegrationConfig{
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("integration_type")
-    private String integrationType;
-    
-    
-    
-    
-    @JsonProperty("base_url")
-    private String baseUrl;
-    
-    
-    
-    
-    @JsonProperty("create_ticket_apikey")
-    private String createTicketApikey;
-    
-    
-    
-    
-    @JsonProperty("update_ticket_apikey")
-    private String updateTicketApikey;
-    
-    
-    
-    
-    @JsonProperty("category_sync_apikey")
-    private String categorySyncApikey;
-    
-    
-    
-    
-    @JsonProperty("category_data")
-    private CategoryData categoryData;
-    
-    
-    
-    
-    @JsonProperty("webhook_apikey")
-    private String webhookApikey;
-    
-    
-    
-    
-    @JsonProperty("config_completed")
-    private Boolean configCompleted;
-    
-    
-    
-    
-    @JsonProperty("allow_ticket_creation")
-    private Boolean allowTicketCreation;
-    
-    
-    
-    
-    @JsonProperty("show_listing")
-    private Boolean showListing;
     
     
     
@@ -2121,29 +1783,6 @@ public static class Ticket{
 
         private String priority;
         TicketSourceEnum(String priority) {
-            this.priority = priority;
-        }
-    }
-
-
-    
-    /*
-        Enum: TicketIntegrationDetails
-        Used By: Lead
-    */
-    @Getter
-    public enum TicketIntegrationDetails {
-
-        
-        defaultCase("default"), 
-        
-        freshdesk("freshdesk"), 
-        
-        kapture("kapture");
-        
-
-        private String priority;
-        TicketIntegrationDetails(String priority) {
             this.priority = priority;
         }
     }

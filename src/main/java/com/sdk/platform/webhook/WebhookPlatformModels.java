@@ -73,34 +73,6 @@ public static class EventConfig{
 
 
 /*
-    Model: EventConfigList
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventConfigList{
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<EventConfig> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-}
-
-
-/*
     Model: EventConfigResponse
 */
 @AllArgsConstructor
@@ -202,128 +174,6 @@ public static class Page{
     
     @JsonProperty("size")
     private Integer size;
-    
-    
-    
-}
-
-
-/*
-    Model: EventProcessedStatus
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventProcessedStatus{
-    
-    
-    
-    
-    @JsonProperty("id")
-    private Integer id;
-    
-    
-    
-    
-    @JsonProperty("subscriber_id")
-    private String subscriberId;
-    
-    
-    
-    
-    @JsonProperty("attempt")
-    private Integer attempt;
-    
-    
-    
-    
-    @JsonProperty("response_code")
-    private String responseCode;
-    
-    
-    
-    
-    @JsonProperty("response_message")
-    private String responseMessage;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("processed_on")
-    private String processedOn;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private Boolean status;
-    
-    
-    
-}
-
-
-/*
-    Model: EventPayload
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventPayload{
-    
-    
-    
-    
-    @JsonProperty("id")
-    private Integer id;
-    
-    
-    
-    
-    @JsonProperty("event_trace_id")
-    private String eventTraceId;
-    
-    
-    
-    
-    @JsonProperty("message_id")
-    private String messageId;
-    
-    
-    
-    
-    @JsonProperty("event_name")
-    private String eventName;
-    
-    
-    
-    
-    @JsonProperty("event_type")
-    private String eventType;
-    
-    
-    
-    
-    @JsonProperty("version")
-    private String version;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private Boolean status;
     
     
     
@@ -483,46 +333,6 @@ public static class SubscriberResponse{
 
 
 /*
-    Model: SubscriberEvent
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriberEvent{
-    
-    
-    
-    
-    @JsonProperty("id")
-    private Integer id;
-    
-    
-    
-    
-    @JsonProperty("subscriber_id")
-    private Integer subscriberId;
-    
-    
-    
-    
-    @JsonProperty("event_id")
-    private Integer eventId;
-    
-    
-    
-    
-    @JsonProperty("created_date")
-    private String createdDate;
-    
-    
-    
-}
-
-
-/*
     Model: AuthMeta
 */
 @AllArgsConstructor
@@ -584,46 +394,6 @@ public static class Association{
     
     @JsonProperty("criteria")
     private String criteria;
-    
-    
-    
-}
-
-
-/*
-    Model: EventConfigBase
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventConfigBase{
-    
-    
-    
-    
-    @JsonProperty("event_name")
-    private String eventName;
-    
-    
-    
-    
-    @JsonProperty("event_type")
-    private String eventType;
-    
-    
-    
-    
-    @JsonProperty("event_category")
-    private String eventCategory;
-    
-    
-    
-    
-    @JsonProperty("version")
-    private String version;
     
     
     

@@ -711,34 +711,6 @@ public static class AppUser{
 
 
 /*
-    Model: GiveawayAudience
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GiveawayAudience{
-    
-    
-    
-    
-    @JsonProperty("audience_id")
-    private String audienceId;
-    
-    
-    
-    
-    @JsonProperty("current_count")
-    private Double currentCount;
-    
-    
-    
-}
-
-
-/*
     Model: HistoryRes
 */
 @AllArgsConstructor

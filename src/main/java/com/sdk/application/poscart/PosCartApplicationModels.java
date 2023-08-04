@@ -3433,7 +3433,7 @@ public static class CartPosCheckoutDetailRequest{
     
     
     @JsonProperty("customer_details")
-    private CustomerDetails customerDetails;
+    private Object customerDetails;
     
     
     

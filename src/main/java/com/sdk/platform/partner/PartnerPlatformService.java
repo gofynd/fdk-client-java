@@ -301,7 +301,7 @@ public class PartnerPlatformService {
     
     
 
-    public PartnerPlatformModels.ExtensionResponse getPrivateExtensions(Double pageSize , Double pageNo , String query ) throws FDKServerResponseError, FDKException {
+    public PartnerPlatformModels.ExtensionResponse getPrivateExtensions(Double pageSize , Double pageNo , Object query ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PartnerPlatformModels.ExtensionResponse> response = null;
             try {
