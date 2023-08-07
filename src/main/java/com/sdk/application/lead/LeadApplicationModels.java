@@ -1083,6 +1083,12 @@ public static class AddTicketPayload{
     
     
     
+    
+    @JsonProperty("subscribers")
+    private List<String> subscribers;
+    
+    
+    
 }
 
 
@@ -2060,7 +2066,9 @@ public static class Ticket{
         
         log("log"), 
         
-        comment("comment");
+        comment("comment"), 
+        
+        thread("thread");
         
 
         private String priority;
