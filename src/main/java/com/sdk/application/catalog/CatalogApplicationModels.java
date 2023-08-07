@@ -4649,7 +4649,7 @@ public static class ProductGroupingModel{
     
     
     @JsonProperty("logo")
-    private Object logo;
+    private String logo;
     
     
     

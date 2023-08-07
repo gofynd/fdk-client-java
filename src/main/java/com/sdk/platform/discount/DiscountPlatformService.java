@@ -113,6 +113,118 @@ public class DiscountPlatformService {
     }
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getDiscounts
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<DiscountPlatformModels.ListOrCalender> getDiscountsPagination(
+        String view ,
+        String q ,
+        Integer pageSize ,
+        Boolean archived ,
+        Integer month ,
+        Integer year ,
+        String type ,
+        List<String> appIds 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<DiscountPlatformModels.ListOrCalender> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            DiscountPlatformModels.ListOrCalender callback = this.getDiscounts(
+                
+                 
+                 view,
+                 q,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 archived,
+                 month,
+                 year,
+                 type,
+                 appIds
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     

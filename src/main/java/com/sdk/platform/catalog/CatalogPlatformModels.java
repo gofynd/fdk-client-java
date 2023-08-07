@@ -4703,7 +4703,7 @@ public static class UpdateCollection{
     
     
     @JsonProperty("modified_by")
-    private UserInfo modifiedBy;
+    private String modifiedBy;
     
     
     
@@ -8443,7 +8443,7 @@ public static class ProductCreateUpdateSchemaV2{
     
     
     @JsonProperty("change_request_id")
-    private Object changeRequestId;
+    private String changeRequestId;
     
     
     
@@ -9426,12 +9426,6 @@ public static class AttributeMasterSerializer{
     
     
     
-    @JsonProperty("example")
-    private String example;
-    
-    
-    
-    
     @JsonProperty("schema")
     private AttributeMaster schema;
     
@@ -10221,7 +10215,7 @@ public static class BulkResponse{
     
     
     @JsonProperty("modified_by")
-    private UserInfo1 modifiedBy;
+    private String modifiedBy;
     
     
     
@@ -11651,7 +11645,7 @@ public static class InventorySellerResponse{
     
     
     @JsonProperty("modified_by")
-    private UserSerializer modifiedBy;
+    private String modifiedBy;
     
     
     
@@ -11777,7 +11771,7 @@ public static class InventorySellerResponse{
     
     
     @JsonProperty("created_by")
-    private UserSerializer createdBy;
+    private String createdBy;
     
     
     

@@ -366,18 +366,6 @@ Success
 
  
  
- #### [EventConfigList](#EventConfigList)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[EventConfig](#EventConfig)>? |  yes  |  |
- | page | [Page](#Page)? |  yes  |  |
-
----
-
-
- 
- 
  #### [EventConfigResponse](#EventConfigResponse)
 
  | Properties | Type | Nullable | Description |
@@ -412,41 +400,6 @@ Success
  | current | Integer? |  yes  |  |
  | type | String |  no  |  |
  | size | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [EventProcessedStatus](#EventProcessedStatus)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | Integer? |  yes  |  |
- | subscriberId | String? |  yes  |  |
- | attempt | Integer? |  yes  |  |
- | responseCode | String? |  yes  |  |
- | responseMessage | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | processedOn | String? |  yes  |  |
- | status | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [EventPayload](#EventPayload)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | Integer? |  yes  |  |
- | eventTraceId | String? |  yes  |  |
- | messageId | String? |  yes  |  |
- | eventName | String? |  yes  |  |
- | eventType | String? |  yes  |  |
- | version | String? |  yes  |  |
- | status | Boolean? |  yes  |  |
 
 ---
 
@@ -493,20 +446,6 @@ Success
 
  
  
- #### [SubscriberEvent](#SubscriberEvent)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | Integer? |  yes  |  |
- | subscriberId | Integer? |  yes  |  |
- | eventId | Integer? |  yes  |  |
- | createdDate | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [AuthMeta](#AuthMeta)
 
  | Properties | Type | Nullable | Description |
@@ -527,20 +466,6 @@ Success
  | applicationId | ArrayList<String>? |  yes  |  |
  | extensionId | String? |  yes  |  |
  | criteria | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [EventConfigBase](#EventConfigBase)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | eventName | String? |  yes  |  |
- | eventType | String? |  yes  |  |
- | eventCategory | String? |  yes  |  |
- | version | String? |  yes  |  |
 
 ---
 

@@ -897,11 +897,11 @@ public class OrderPlatformService {
     
     
 
-    public OrderPlatformModels.RoleBaseStateTransitionMapping getRoleBaseStateTransition(String orderingChannel , String status ) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.RoleBaseStateTransitionMapping getAllowedStateTransition(String orderingChannel , String status ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.RoleBaseStateTransitionMapping> response = null;
             try {
-                response = orderPlatformApiList.getRoleBaseStateTransition(this.companyId ,orderingChannel , status ).execute();
+                response = orderPlatformApiList.getAllowedStateTransition(this.companyId ,orderingChannel , status ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1245,7 +1245,7 @@ public class OrderPlatformService {
     
     
 
-    public OrderPlatformModels.ShipmentInternalPlatformViewResponse getShipments(String lane , String bagStatus , Boolean statusOverrideLane , String timeToDispatch , String searchType , String searchValue , String fromDate , String toDate , String dpIds , String stores , String salesChannels , Integer pageNo , Integer pageSize , Boolean fetchActiveShipment , Boolean excludeLockedShipments , String paymentMethods , String channelShipmentId , String channelOrderId , String customMeta , String orderingChannel , String companyAffiliateTag , Boolean myOrders , String platformUserId , String tags ) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.ShipmentInternalPlatformViewResponse getShipments(String lane , String bagStatus , Boolean statusOverrideLane , Double timeToDispatch , String searchType , String searchValue , String fromDate , String toDate , String dpIds , String stores , String salesChannels , Integer pageNo , Integer pageSize , Boolean fetchActiveShipment , Boolean excludeLockedShipments , String paymentMethods , String channelShipmentId , String channelOrderId , String customMeta , String orderingChannel , String companyAffiliateTag , Boolean myOrders , String platformUserId , String tags ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.ShipmentInternalPlatformViewResponse> response = null;
             try {

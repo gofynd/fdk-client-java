@@ -347,7 +347,7 @@ public static class IntentApp{
     
     
     @JsonProperty("logos")
-    private PaymentModeLogo logos;
+    private Object logos;
     
     
     
@@ -507,7 +507,7 @@ public static class PaymentModeList{
     
     
     @JsonProperty("logo_url")
-    private PaymentModeLogo logoUrl;
+    private Object logoUrl;
     
     
     
@@ -3651,7 +3651,7 @@ public static class ErrorResponse{
     
     
     @JsonProperty("error")
-    private ErrorDescription error;
+    private Object error;
     
     
     

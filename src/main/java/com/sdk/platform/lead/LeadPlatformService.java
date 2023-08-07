@@ -693,11 +693,11 @@ public class ApplicationClient {
     
     
 
-    public LeadPlatformModels.TicketList getTickets(Boolean items , Boolean filters , String q , String status , LeadPlatformModels.PriorityEnum priority , String category ) throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.TicketList getNewTickets(Boolean items , Boolean filters , String q , String status , LeadPlatformModels.PriorityEnum priority , String category ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LeadPlatformModels.TicketList> response = null;
             try {
-            response = leadPlatformApiList.getTickets(this.companyId , this.applicationId ,items , filters , q , status , priority , category ).execute();
+            response = leadPlatformApiList.getNewTickets(this.companyId , this.applicationId ,items , filters , q , status , priority , category ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -742,11 +742,11 @@ public class ApplicationClient {
     
     
 
-    public LeadPlatformModels.Ticket getTicket(String id ) throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.Ticket getNewTicket(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LeadPlatformModels.Ticket> response = null;
             try {
-            response = leadPlatformApiList.getTicket(this.companyId , this.applicationId , id ).execute();
+            response = leadPlatformApiList.getNewTicket(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -787,11 +787,11 @@ public class ApplicationClient {
     
     
 
-    public LeadPlatformModels.Ticket editTicket(String id ,LeadPlatformModels.EditTicketPayload body) throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.Ticket editNewTicket(String id ,LeadPlatformModels.EditTicketPayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LeadPlatformModels.Ticket> response = null;
             try {
-            response = leadPlatformApiList.editTicket(this.companyId , this.applicationId , id , body).execute();
+            response = leadPlatformApiList.editNewTicket(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -840,11 +840,11 @@ public class ApplicationClient {
     
     
 
-    public LeadPlatformModels.TicketHistory createHistory(String id ,LeadPlatformModels.TicketHistoryPayload body) throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.TicketHistory createNewHistory(String id ,LeadPlatformModels.TicketHistoryPayload body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LeadPlatformModels.TicketHistory> response = null;
             try {
-            response = leadPlatformApiList.createHistory(this.companyId , this.applicationId , id , body).execute();
+            response = leadPlatformApiList.createNewHistory(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -885,11 +885,11 @@ public class ApplicationClient {
     
     
 
-    public LeadPlatformModels.TicketHistoryList getTicketHistory(String id ) throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.TicketHistoryList getNewTicketHistory(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LeadPlatformModels.TicketHistoryList> response = null;
             try {
-            response = leadPlatformApiList.getTicketHistory(this.companyId , this.applicationId , id ).execute();
+            response = leadPlatformApiList.getNewTicketHistory(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1104,11 +1104,11 @@ public class ApplicationClient {
     
     
 
-    public LeadPlatformModels.GetTokenForVideoRoomResponse getTokenForVideoRoom(String uniqueName ) throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.GetTokenForVideoRoomResponse getNewTokenForVideoRoom(String uniqueName ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LeadPlatformModels.GetTokenForVideoRoomResponse> response = null;
             try {
-            response = leadPlatformApiList.getTokenForVideoRoom(this.companyId , this.applicationId , uniqueName ).execute();
+            response = leadPlatformApiList.getNewTokenForVideoRoom(this.companyId , this.applicationId , uniqueName ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1151,11 +1151,11 @@ public class ApplicationClient {
     
     
 
-    public LeadPlatformModels.GetParticipantsInsideVideoRoomResponse getVideoParticipants(String uniqueName ) throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.GetParticipantsInsideVideoRoomResponse getNewVideoParticipants(String uniqueName ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LeadPlatformModels.GetParticipantsInsideVideoRoomResponse> response = null;
             try {
-            response = leadPlatformApiList.getVideoParticipants(this.companyId , this.applicationId , uniqueName ).execute();
+            response = leadPlatformApiList.getNewVideoParticipants(this.companyId , this.applicationId , uniqueName ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

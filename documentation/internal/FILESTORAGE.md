@@ -91,7 +91,7 @@ Success
  | storeCode | String |  no  |  |
  | batchId | String |  no  |  |
  | documentType | String? |  yes  |  |
- | shipmentIds | ArrayList<Object> |  no  |  |
+ | shipmentIds | ArrayList<String> |  no  |  |
  | invoiceDocumentType | String? |  yes  |  |
  | labelDocumentType | String? |  yes  |  |
  | document | ArrayList<Object>? |  yes  |  |

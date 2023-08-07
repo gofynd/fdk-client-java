@@ -37,40 +37,6 @@ public static class ValidityObject{
 
 
 /*
-    Model: DiscountMeta
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DiscountMeta{
-    
-    
-    
-    
-    @JsonProperty("timer")
-    private Boolean timer;
-    
-    
-    
-    
-    @JsonProperty("hours")
-    private Double hours;
-    
-    
-    
-    
-    @JsonProperty("minutes")
-    private Double minutes;
-    
-    
-    
-}
-
-
-/*
     Model: CreateUpdateDiscount
 */
 @AllArgsConstructor
@@ -164,6 +130,40 @@ public static class CreateUpdateDiscount{
     
     @JsonProperty("discount_meta")
     private DiscountMeta discountMeta;
+    
+    
+    
+}
+
+
+/*
+    Model: DiscountMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DiscountMeta{
+    
+    
+    
+    
+    @JsonProperty("timer")
+    private Boolean timer;
+    
+    
+    
+    
+    @JsonProperty("hours")
+    private Double hours;
+    
+    
+    
+    
+    @JsonProperty("minutes")
+    private Double minutes;
     
     
     
