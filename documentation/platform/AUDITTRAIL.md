@@ -23,7 +23,7 @@ Get paginated audit logs
 
 
 ```java
-platformClient.audittrail.getAuditLogs( qs) {
+platformClient.audittrail.getAuditLogs( qs,  limit,  sort) {
   //use response
 }
 ```
@@ -33,7 +33,9 @@ platformClient.audittrail.getAuditLogs( qs) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Compnay Id |   
-| qs | String | yes | Logs Query |  
+| qs | String | yes | Logs Query |   
+| limit | Integer? | no | Current request items count |   
+| sort | Object? | no | To sort based on _id |  
 
 
 

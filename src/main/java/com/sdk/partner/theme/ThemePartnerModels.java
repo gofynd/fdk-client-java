@@ -1,33 +1,11 @@
 
-package com.sdk.application.theme;
+package com.sdk.partner.theme;
 
 import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 import java.util.*;
 
-public class ThemeApplicationModels{
-
-
-/*
-    Model: AllAvailablePageSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AllAvailablePageSchema{
-    
-    
-    
-    
-    @JsonProperty("pages")
-    private List<AvailablePageSchema> pages;
-    
-    
-    
-}
+public class ThemePartnerModels{
 
 
 /*
@@ -215,40 +193,6 @@ public static class AvailablePageSchemaSections{
 
 
 /*
-    Model: AvailablePagePredicate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AvailablePagePredicate{
-    
-    
-    
-    
-    @JsonProperty("screen")
-    private AvailablePageScreenPredicate screen;
-    
-    
-    
-    
-    @JsonProperty("user")
-    private AvailablePageUserPredicate user;
-    
-    
-    
-    
-    @JsonProperty("route")
-    private AvailablePageRoutePredicate route;
-    
-    
-    
-}
-
-
-/*
     Model: AvailablePageScreenPredicate
 */
 @AllArgsConstructor
@@ -338,6 +282,794 @@ public static class AvailablePageRoutePredicate{
     
     @JsonProperty("query")
     private Object query;
+    
+    
+    
+}
+
+
+/*
+    Model: AvailablePagePredicate
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AvailablePagePredicate{
+    
+    
+    
+    
+    @JsonProperty("screen")
+    private AvailablePageScreenPredicate screen;
+    
+    
+    
+    
+    @JsonProperty("user")
+    private AvailablePageUserPredicate user;
+    
+    
+    
+    
+    @JsonProperty("route")
+    private AvailablePageRoutePredicate route;
+    
+    
+    
+}
+
+
+/*
+    Model: MarketplaceThemeSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class MarketplaceThemeSchema{
+    
+    
+    
+    
+    @JsonProperty("themes")
+    private List<MarketplaceTheme> themes;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private PaginationSchema page;
+    
+    
+    
+}
+
+
+/*
+    Model: MarketplaceTheme
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class MarketplaceTheme{
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("payment")
+    private PaymentInfo payment;
+    
+    
+    
+    
+    @JsonProperty("contact")
+    private ContactInfo contact;
+    
+    
+    
+    
+    @JsonProperty("industry")
+    private List<String> industry;
+    
+    
+    
+    
+    @JsonProperty("is_update")
+    private Boolean isUpdate;
+    
+    
+    
+    
+    @JsonProperty("is_default")
+    private Boolean isDefault;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("tagline")
+    private String tagline;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("catalog_size")
+    private CatalogSize catalogSize;
+    
+    
+    
+    
+    @JsonProperty("images")
+    private MarketplaceThemeImages images;
+    
+    
+    
+    
+    @JsonProperty("carousel")
+    private List<CarouselItem> carousel;
+    
+    
+    
+    
+    @JsonProperty("src")
+    private String src;
+    
+    
+    
+    
+    @JsonProperty("explore")
+    private ExploreInfo explore;
+    
+    
+    
+    
+    @JsonProperty("features")
+    private List<Feature> features;
+    
+    
+    
+    
+    @JsonProperty("highlights")
+    private List<Highlight> highlights;
+    
+    
+    
+    
+    @JsonProperty("variations")
+    private List<Variation> variations;
+    
+    
+    
+    
+    @JsonProperty("documentation")
+    private Documentation documentation;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("step")
+    private Integer step;
+    
+    
+    
+    
+    @JsonProperty("comments")
+    private Comments comments;
+    
+    
+    
+    
+    @JsonProperty("release")
+    private Release release;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("organization_id")
+    private String organizationId;
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("template_theme_id")
+    private String templateThemeId;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentInfo{
+    
+    
+    
+    
+    @JsonProperty("is_paid")
+    private Boolean isPaid;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+}
+
+
+/*
+    Model: ContactInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ContactInfo{
+    
+    
+    
+    
+    @JsonProperty("developer_contact")
+    private List<String> developerContact;
+    
+    
+    
+    
+    @JsonProperty("seller_contact")
+    private String sellerContact;
+    
+    
+    
+}
+
+
+/*
+    Model: CatalogSize
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CatalogSize{
+    
+    
+    
+    
+    @JsonProperty("min")
+    private Integer min;
+    
+    
+    
+    
+    @JsonProperty("max")
+    private Integer max;
+    
+    
+    
+}
+
+
+/*
+    Model: MarketplaceThemeImages
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class MarketplaceThemeImages{
+    
+    
+    
+    
+    @JsonProperty("desktop")
+    private String desktop;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+}
+
+
+/*
+    Model: CarouselItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CarouselItem{
+    
+    
+    
+    
+    @JsonProperty("desktop")
+    private String desktop;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+}
+
+
+/*
+    Model: ExploreInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ExploreInfo{
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+}
+
+
+/*
+    Model: Feature
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Feature{
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("list")
+    private List<FeatureItem> list;
+    
+    
+    
+}
+
+
+/*
+    Model: FeatureItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FeatureItem{
+    
+    
+    
+    
+    @JsonProperty("label")
+    private String label;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+}
+
+
+/*
+    Model: Highlight
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Highlight{
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("image")
+    private String image;
+    
+    
+    
+}
+
+
+/*
+    Model: Variation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Variation{
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("color")
+    private String color;
+    
+    
+    
+    
+    @JsonProperty("demo_url")
+    private String demoUrl;
+    
+    
+    
+    
+    @JsonProperty("images")
+    private MarketplaceThemeImages images;
+    
+    
+    
+}
+
+
+/*
+    Model: Documentation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Documentation{
+    
+    
+    
+    
+    @JsonProperty("notes")
+    private String notes;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+}
+
+
+/*
+    Model: Comments
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Comments{
+    
+    
+    
+    
+    @JsonProperty("developer_remark")
+    private String developerRemark;
+    
+    
+    
+    
+    @JsonProperty("reviewer_feedback")
+    private String reviewerFeedback;
+    
+    
+    
+}
+
+
+/*
+    Model: ThemeRejectionReasons
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ThemeRejectionReasons{
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("theme_id")
+    private String themeId;
+    
+    
+    
+    
+    @JsonProperty("organization_id")
+    private String organizationId;
+    
+    
+    
+    
+    @JsonProperty("admin_id")
+    private String adminId;
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("rejection_reasons")
+    private HashMap<String,Object> rejectionReasons;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+}
+
+
+/*
+    Model: AllAvailablePageSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AllAvailablePageSchema{
+    
+    
+    
+    
+    @JsonProperty("pages")
+    private List<AvailablePageSchema> pages;
+    
+    
+    
+}
+
+
+/*
+    Model: PaginationSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaginationSchema{
+    
+    
+    
+    
+    @JsonProperty("size")
+    private Integer size;
+    
+    
+    
+    
+    @JsonProperty("item_total")
+    private Integer itemTotal;
+    
+    
+    
+    
+    @JsonProperty("has_next")
+    private Boolean hasNext;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("current")
+    private Integer current;
+    
+    
+    
+}
+
+
+/*
+    Model: BlitzkriegApiErrorSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BlitzkriegApiErrorSchema{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: BlitzkriegInternalServerErrorSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BlitzkriegInternalServerErrorSchema{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -1856,44 +2588,14 @@ public static class Page{
     
     
     
-    @JsonProperty("item_total")
-    private Integer itemTotal;
+    @JsonProperty("sections")
+    private List<Section> sections;
     
     
     
     
-    @JsonProperty("next_id")
-    private String nextId;
-    
-    
-    
-    
-    @JsonProperty("has_previous")
-    private Boolean hasPrevious;
-    
-    
-    
-    
-    @JsonProperty("has_next")
-    private Boolean hasNext;
-    
-    
-    
-    
-    @JsonProperty("current")
-    private Integer current;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private Integer size;
+    @JsonProperty("value")
+    private String value;
     
     
     
@@ -2335,7 +3037,7 @@ public static class Route{
 
 
 /*
-    Model: BlitzkriegInternalServerErrorSchema
+    Model: UpdateThemeRequestBody
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2343,35 +3045,19 @@ public static class Route{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BlitzkriegInternalServerErrorSchema{
+public static class UpdateThemeRequestBody{
     
     
     
     
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
-    Model: BlitzkriegApiErrorSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BlitzkriegApiErrorSchema{
+    @JsonProperty("config")
+    private Config config;
     
     
     
     
-    @JsonProperty("message")
-    private String message;
+    @JsonProperty("font")
+    private Font font;
     
     
     
