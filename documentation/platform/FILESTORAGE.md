@@ -39,7 +39,7 @@ platformClient.filestorage.startUpload( namespace, body body) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
-| companyId | Integer | yes | company_id |  
+| companyId | Integer | yes |  |  
 | body | [StartRequest](#StartRequest) | yes | Request body |
 
 
@@ -70,7 +70,7 @@ This operation will return the url for the uploaded file.
 
 [StartResponse](#StartResponse)
 
-Success
+Success. Returns a response containing relaving and absolute_url of storage service
 
 
 
@@ -111,7 +111,7 @@ platformClient.filestorage.completeUpload( namespace, body body) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
-| companyId | Integer | yes | company_id |  
+| companyId | Integer | yes |  |  
 | body | [StartResponse](#StartResponse) | yes | Request body |
 
 
@@ -183,8 +183,8 @@ platformClient.application("<APPLICATION_ID>").filestorage.appStartUpload( names
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
-| companyId | Integer | yes | company_id |   
-| applicationId | String | yes | application id |  
+| companyId | Integer | yes |  |   
+| applicationId | String | yes |  |  
 | body | [StartRequest](#StartRequest) | yes | Request body |
 
 
@@ -256,8 +256,8 @@ platformClient.application("<APPLICATION_ID>").filestorage.appCompleteUpload( na
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
-| companyId | Integer | yes | company_id |   
-| applicationId | String | yes | application id |  
+| companyId | Integer | yes |  |   
+| applicationId | String | yes |  |  
 | body | [StartResponse](#StartResponse) | yes | Request body |
 
 
@@ -328,7 +328,7 @@ platformClient.filestorage.getSignUrls(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | company_id |  
+| companyId | Integer | yes |  |  
 | body | [SignUrlRequest](#SignUrlRequest) | yes | Request body |
 
 
@@ -347,11 +347,27 @@ Success
 
 
 <details>
-<summary><i>&nbsp; Example:</i></summary>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; success</i></summary>
 
 ```json
-
+{
+  "value": {
+    "urls": [
+      {
+        "url": "https://cdn.pixelbin.io/v2/falling-surf-7c8bb8/fyndnp/wrkr/x0/documents/manifest/PDFs/test/s3EtYk5p9-new_fee.pdf",
+        "signed_url": "https://fynd-staging-assets-private.s3-accelerate.amazonaws.com/addsale/v2/falling-surf-7c8bb8/fyndnp/wrkr/x0/documents/manifest/PDFs/test/s3EtYk5p9-new_fee.pdf",
+        "expiry": 1800
+      }
+    ]
+  }
+}
 ```
+</details>
+
 </details>
 
 
@@ -381,8 +397,8 @@ platformClient.filestorage.copyFiles( sync, body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| sync | Boolean? | no | sync |   
-| companyId | Integer | yes | company_id |  
+| sync | Boolean? | no |  |   
+| companyId | Integer | yes |  |  
 | body | [BulkRequest](#BulkRequest) | yes | Request body |
 
 
@@ -463,8 +479,8 @@ platformClient.application("<APPLICATION_ID>").filestorage.appCopyFiles( sync, b
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | sync | Boolean? | no | sync |   
-| companyId | Integer | yes | company_id |   
-| applicationId | Integer | yes | application_id |  
+| companyId | Integer | yes |  |   
+| applicationId | String | yes |  |  
 | body | [BulkRequest](#BulkRequest) | yes | Request body |
 
 
@@ -535,7 +551,7 @@ Browse Files
 
 
 ```java
-platformClient.filestorage.browse( namespace,  pageNo) {
+platformClient.filestorage.browse( namespace,  page,  limit) {
   //use response
 }
 ```
@@ -544,9 +560,10 @@ platformClient.filestorage.browse( namespace,  pageNo) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| namespace | String | yes | bucket name |   
-| companyId | Integer | yes | company_id |   
-| pageNo | Integer? | no | page no |  
+| namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
+| companyId | Integer | yes |  |   
+| page | Integer? | no | page no |   
+| limit | Integer? | no | Limit |  
 
 
 
@@ -590,7 +607,7 @@ Browse Files
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").filestorage.appbrowse( namespace,  pageNo) {
+platformClient.application("<APPLICATION_ID>").filestorage.appbrowse( namespace,  page,  limit) {
   //use response
 }
 ```
@@ -599,10 +616,11 @@ platformClient.application("<APPLICATION_ID>").filestorage.appbrowse( namespace,
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| namespace | String | yes | bucket name |   
-| companyId | Integer | yes | company_id |   
-| applicationId | Integer | yes | application_id |   
-| pageNo | Integer? | no | page no |  
+| namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
+| companyId | Integer | yes |  |   
+| applicationId | String | yes |  |   
+| page | Integer? | no | page no |   
+| limit | Integer? | no | Limit |  
 
 
 
@@ -655,7 +673,7 @@ platformClient.filestorage.proxy( url) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | company_id |   
+| companyId | Integer | yes |  |   
 | url | String | yes | url |  
 
 
@@ -838,17 +856,6 @@ Success
 
  
  
- #### [ReqConfiguration](#ReqConfiguration)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | concurrency | Integer? |  yes  |  |
-
----
-
-
- 
- 
  #### [Destination](#Destination)
 
  | Properties | Type | Nullable | Description |
@@ -868,7 +875,6 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | urls | ArrayList<String> |  no  |  |
  | destination | [Destination](#Destination) |  no  |  |
- | configuration | [ReqConfiguration](#ReqConfiguration)? |  yes  |  |
 
 ---
 
@@ -956,6 +962,70 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | items | ArrayList<[DbRecord](#DbRecord)> |  no  |  |
  | page | [Page](#Page) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [Status](#Status)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | total | Double |  no  |  |
+ | failed | Double |  no  |  |
+ | succeeded | Double |  no  |  |
+ | result | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [FileSrc](#FileSrc)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | method | String? |  yes  |  |
+ | url | String |  no  |  |
+ | namespace | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [File](#File)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | src | [FileSrc](#FileSrc) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [BulkUploadFailFileResponseItems](#BulkUploadFailFileResponseItems)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | success | Boolean |  no  |  |
+ | error | String? |  yes  |  |
+ | file | [File](#File)? |  yes  |  |
+ | stage | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [BulkUploadFailResponse](#BulkUploadFailResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | status | [Status](#Status) |  no  |  |
+ | files | ArrayList<[BulkUploadFailFileResponseItems](#BulkUploadFailFileResponseItems)> |  no  |  |
 
 ---
 

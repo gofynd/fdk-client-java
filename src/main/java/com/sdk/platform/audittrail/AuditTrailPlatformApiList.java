@@ -17,8 +17,14 @@ interface AuditTrailPlatformApiList {
     
     
     
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/audit-trail/v1.0/company/{company_id}/logs/")
-    Call<AuditTrailPlatformModels.LogSchemaResponse> getAuditLogs(@Path("company_id")  String companyId , @Query("qs") String  qs );
+    Call<AuditTrailPlatformModels.LogSchemaResponse> getAuditLogs(@Path("company_id")  String companyId , @Query("qs") String  qs ,  @Query("limit") Integer  limit ,  @Query("sort") Object  sort );
     
     
     

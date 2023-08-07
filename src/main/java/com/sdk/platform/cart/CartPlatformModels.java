@@ -1797,7 +1797,7 @@ public static class Restrictions1{
     
     
     @JsonProperty("user_registered")
-    private UserRegistered userRegistered;
+    private String userRegistered;
     
     
     
@@ -2158,6 +2158,12 @@ public static class PromotionListItem{
     
     @JsonProperty("date_meta")
     private PromotionDateMeta dateMeta;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
     
     
     

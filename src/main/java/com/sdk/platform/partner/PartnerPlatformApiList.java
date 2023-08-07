@@ -111,7 +111,7 @@ interface PartnerPlatformApiList {
     
     
     @GET ("/service/platform/partners/v1.0/company/{company_id}/private-extensions")
-    Call<PartnerPlatformModels.ExtensionResponse> getPrivateExtensions(@Path("company_id")  String companyId , @Query("page_size") Double  pageSize ,  @Query("page_no") Double  pageNo ,  @Query("query") String  query );
+    Call<PartnerPlatformModels.ExtensionResponse> getPrivateExtensions(@Path("company_id")  String companyId , @Query("page_size") Double  pageSize ,  @Query("page_no") Double  pageNo ,  @Query("query") Object  query );
     
     
     

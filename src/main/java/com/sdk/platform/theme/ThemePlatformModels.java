@@ -525,28 +525,6 @@ public static class BlitzkriegApiErrorSchema{
 
 
 /*
-    Model: BlitzkriegNotFoundSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BlitzkriegNotFoundSchema{
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
     Model: BlitzkriegInternalServerErrorSchema
 */
 @AllArgsConstructor
@@ -1063,28 +1041,6 @@ public static class Css{
 
 
 /*
-    Model: Sections
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Sections{
-    
-    
-    
-    
-    @JsonProperty("attributes")
-    private String attributes;
-    
-    
-    
-}
-
-
-/*
     Model: Config
 */
 @AllArgsConstructor
@@ -1248,28 +1204,6 @@ public static class Colors{
     
     @JsonProperty("button_secondary_color")
     private String buttonSecondaryColor;
-    
-    
-    
-}
-
-
-/*
-    Model: Custom
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Custom{
-    
-    
-    
-    
-    @JsonProperty("props")
-    private Object props;
     
     
     

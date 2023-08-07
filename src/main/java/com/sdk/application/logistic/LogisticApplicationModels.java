@@ -1223,7 +1223,7 @@ public static class Page{
 
 
 /*
-    Model: Logistics
+    Model: LogisticsDPSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1231,7 +1231,7 @@ public static class Page{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Logistics{
+public static class LogisticsDPSchema{
     
     
     
@@ -1277,7 +1277,7 @@ public static class Locality{
     
     
     @JsonProperty("logistics")
-    private Logistics logistics;
+    private LogisticsDPSchema logistics;
     
     
     

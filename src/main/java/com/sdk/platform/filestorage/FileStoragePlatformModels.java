@@ -453,28 +453,6 @@ public static class BulkUploadResponse{
 
 
 /*
-    Model: ReqConfiguration
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReqConfiguration{
-    
-    
-    
-    
-    @JsonProperty("concurrency")
-    private Integer concurrency;
-    
-    
-    
-}
-
-
-/*
     Model: Destination
 */
 @AllArgsConstructor
@@ -530,12 +508,6 @@ public static class BulkRequest{
     
     @JsonProperty("destination")
     private Destination destination;
-    
-    
-    
-    
-    @JsonProperty("configuration")
-    private ReqConfiguration configuration;
     
     
     
@@ -794,6 +766,170 @@ public static class BrowseResponse{
     
     @JsonProperty("page")
     private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: Status
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Status{
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Double total;
+    
+    
+    
+    
+    @JsonProperty("failed")
+    private Double failed;
+    
+    
+    
+    
+    @JsonProperty("succeeded")
+    private Double succeeded;
+    
+    
+    
+    
+    @JsonProperty("result")
+    private String result;
+    
+    
+    
+}
+
+
+/*
+    Model: FileSrc
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FileSrc{
+    
+    
+    
+    
+    @JsonProperty("method")
+    private String method;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("namespace")
+    private String namespace;
+    
+    
+    
+}
+
+
+/*
+    Model: File
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class File{
+    
+    
+    
+    
+    @JsonProperty("src")
+    private FileSrc src;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkUploadFailFileResponseItems
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkUploadFailFileResponseItems{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+    
+    @JsonProperty("file")
+    private File file;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkUploadFailResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkUploadFailResponse{
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Status status;
+    
+    
+    
+    
+    @JsonProperty("files")
+    private List<BulkUploadFailFileResponseItems> files;
     
     
     

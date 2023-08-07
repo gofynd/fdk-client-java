@@ -56,12 +56,20 @@ public class AuditTrailPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public AuditTrailPlatformModels.LogSchemaResponse getAuditLogs(String qs ) throws FDKServerResponseError, FDKException {
+    public AuditTrailPlatformModels.LogSchemaResponse getAuditLogs(String qs , Integer limit , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<AuditTrailPlatformModels.LogSchemaResponse> response = null;
             try {
-                response = audittrailPlatformApiList.getAuditLogs(this.companyId ,qs ).execute();
+                response = audittrailPlatformApiList.getAuditLogs(this.companyId ,qs , limit , sort ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

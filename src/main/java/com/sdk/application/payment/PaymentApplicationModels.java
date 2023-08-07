@@ -1197,7 +1197,7 @@ public static class IntentApp{
     
     
     @JsonProperty("logos")
-    private PaymentModeLogo logos;
+    private Object logos;
     
     
     
@@ -1363,7 +1363,7 @@ public static class PaymentModeList{
     
     
     @JsonProperty("logo_url")
-    private PaymentModeLogo logoUrl;
+    private Object logoUrl;
     
     
     
@@ -1549,85 +1549,85 @@ public static class PaymentFlow{
     
     
     @JsonProperty("bqr_razorpay")
-    private AggregatorRoute bqrRazorpay;
+    private Object bqrRazorpay;
     
     
     
     
     @JsonProperty("fynd")
-    private AggregatorRoute fynd;
+    private Object fynd;
     
     
     
     
     @JsonProperty("epaylater")
-    private AggregatorRoute epaylater;
+    private Object epaylater;
     
     
     
     
     @JsonProperty("razorpay")
-    private AggregatorRoute razorpay;
+    private Object razorpay;
     
     
     
     
     @JsonProperty("juspay")
-    private AggregatorRoute juspay;
+    private Object juspay;
     
     
     
     
     @JsonProperty("ajiodhan")
-    private AggregatorRoute ajiodhan;
+    private Object ajiodhan;
     
     
     
     
     @JsonProperty("simpl")
-    private AggregatorRoute simpl;
+    private Object simpl;
     
     
     
     
     @JsonProperty("rupifi")
-    private AggregatorRoute rupifi;
+    private Object rupifi;
     
     
     
     
     @JsonProperty("mswipe")
-    private AggregatorRoute mswipe;
+    private Object mswipe;
     
     
     
     
     @JsonProperty("stripe")
-    private AggregatorRoute stripe;
+    private Object stripe;
     
     
     
     
     @JsonProperty("ccavenue")
-    private AggregatorRoute ccavenue;
+    private Object ccavenue;
     
     
     
     
     @JsonProperty("payubiz")
-    private AggregatorRoute payubiz;
+    private Object payubiz;
     
     
     
     
     @JsonProperty("jiopay")
-    private AggregatorRoute jiopay;
+    private Object jiopay;
     
     
     
     
     @JsonProperty("upi_razorpay")
-    private AggregatorRoute upiRazorpay;
+    private Object upiRazorpay;
     
     
     
@@ -3207,7 +3207,7 @@ public static class ErrorResponse{
     
     
     @JsonProperty("error")
-    private ErrorDescription error;
+    private Object error;
     
     
     
@@ -3850,8 +3850,20 @@ public static class CreditSummary{
     
     
     
+    @JsonProperty("total_due_amount")
+    private BalanceDetails totalDueAmount;
+    
+    
+    
+    
     @JsonProperty("status")
     private String status;
+    
+    
+    
+    
+    @JsonProperty("limit")
+    private BalanceDetails limit;
     
     
     
@@ -3868,6 +3880,12 @@ public static class CreditSummary{
     
     
     
+    @JsonProperty("due_amount")
+    private BalanceDetails dueAmount;
+    
+    
+    
+    
     @JsonProperty("balance")
     private BalanceDetails balance;
     
@@ -3880,6 +3898,18 @@ public static class CreditSummary{
     
     
     
+    @JsonProperty("repayment_url")
+    private String repaymentUrl;
+    
+    
+    
+    
+    @JsonProperty("is_eligible_for_txn")
+    private Boolean isEligibleForTxn;
+    
+    
+    
+    
     @JsonProperty("merchant_customer_ref_id")
     private String merchantCustomerRefId;
     
@@ -3888,6 +3918,12 @@ public static class CreditSummary{
     
     @JsonProperty("buyer_status")
     private String buyerStatus;
+    
+    
+    
+    
+    @JsonProperty("activation_url")
+    private String activationUrl;
     
     
     
@@ -4456,12 +4492,6 @@ public static class OnboardSummary{
     
     
     
-    @JsonProperty("status")
-    private Boolean status;
-    
-    
-    
-    
     @JsonProperty("redirect_url")
     private String redirectUrl;
     
@@ -4470,6 +4500,36 @@ public static class OnboardSummary{
     
     @JsonProperty("session")
     private Object session;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Boolean status;
+    
+    
+    
+    
+    @JsonProperty("status_remark")
+    private String statusRemark;
+    
+    
+    
+    
+    @JsonProperty("is_eligible_for_txn")
+    private Boolean isEligibleForTxn;
+    
+    
+    
+    
+    @JsonProperty("merchant_customer_ref_id")
+    private String merchantCustomerRefId;
+    
+    
+    
+    
+    @JsonProperty("activation_url")
+    private String activationUrl;
     
     
     
