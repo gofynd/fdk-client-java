@@ -2073,6 +2073,7 @@ Response Data
  | subType | String |  no  |  |
  | uid | String |  no  |  |
  | name | String |  no  |  |
+ | displayName | String? |  yes  |  |
 
 ---
 

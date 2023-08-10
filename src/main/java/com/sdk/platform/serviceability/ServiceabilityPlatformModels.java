@@ -249,6 +249,12 @@ public static class EntityRegionView_Items{
     
     
     
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
 }
 
 
