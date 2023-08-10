@@ -648,7 +648,7 @@ interface PaymentPlatformApiList {
     
     
     @PATCH ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/configuration")
-    Call<PaymentPlatformModels.MerchnatPaymentModeResponse> patchMerchantPaymentOption(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.MerchnatPaymentModeResponse payload);
+    Call<PaymentPlatformModels.MerchnatPaymentModeResponse> patchMerchantPaymentOption(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.MerchnatPaymentModeRequest payload);
     
     
     

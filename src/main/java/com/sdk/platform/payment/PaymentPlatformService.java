@@ -2128,7 +2128,7 @@ public class ApplicationClient {
     
     
 
-    public PaymentPlatformModels.MerchnatPaymentModeResponse patchMerchantPaymentOption(PaymentPlatformModels.MerchnatPaymentModeResponse body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.MerchnatPaymentModeResponse patchMerchantPaymentOption(PaymentPlatformModels.MerchnatPaymentModeRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PaymentPlatformModels.MerchnatPaymentModeResponse> response = null;
             try {

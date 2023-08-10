@@ -535,13 +535,13 @@ public static class ListViewResponse{
     
     
     @JsonProperty("summary")
-    private List<ListViewSummary> summary;
+    private ListViewSummary summary;
     
     
     
     
     @JsonProperty("page")
-    private List<ZoneDataItem> page;
+    private ZoneDataItem page;
     
     
     

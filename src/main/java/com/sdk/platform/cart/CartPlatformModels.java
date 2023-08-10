@@ -1797,7 +1797,7 @@ public static class Restrictions1{
     
     
     @JsonProperty("user_registered")
-    private String userRegistered;
+    private Object userRegistered;
     
     
     

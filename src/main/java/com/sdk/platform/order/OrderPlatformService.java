@@ -1244,12 +1244,16 @@ public class OrderPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public OrderPlatformModels.ShipmentInternalPlatformViewResponse getShipments(String lane , String bagStatus , Boolean statusOverrideLane , Double timeToDispatch , String searchType , String searchValue , String fromDate , String toDate , String dpIds , String stores , String salesChannels , Integer pageNo , Integer pageSize , Boolean fetchActiveShipment , Boolean excludeLockedShipments , String paymentMethods , String channelShipmentId , String channelOrderId , String customMeta , String orderingChannel , String companyAffiliateTag , Boolean myOrders , String platformUserId , String tags ) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.ShipmentInternalPlatformViewResponse getShipments(String lane , String bagStatus , Boolean statusOverrideLane , Double timeToDispatch , String searchType , String searchValue , String fromDate , String toDate , String dpIds , String stores , String salesChannels , Integer pageNo , Integer pageSize , Boolean fetchActiveShipment , Boolean excludeLockedShipments , String paymentMethods , String channelShipmentId , String channelOrderId , String customMeta , String orderingChannel , String companyAffiliateTag , Boolean myOrders , String platformUserId , String tags , String customerId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.ShipmentInternalPlatformViewResponse> response = null;
             try {
-                response = orderPlatformApiList.getShipments(this.companyId ,lane , bagStatus , statusOverrideLane , timeToDispatch , searchType , searchValue , fromDate , toDate , dpIds , stores , salesChannels , pageNo , pageSize , fetchActiveShipment , excludeLockedShipments , paymentMethods , channelShipmentId , channelOrderId , customMeta , orderingChannel , companyAffiliateTag , myOrders , platformUserId , tags ).execute();
+                response = orderPlatformApiList.getShipments(this.companyId ,lane , bagStatus , statusOverrideLane , timeToDispatch , searchType , searchValue , fromDate , toDate , dpIds , stores , salesChannels , pageNo , pageSize , fetchActiveShipment , excludeLockedShipments , paymentMethods , channelShipmentId , channelOrderId , customMeta , orderingChannel , companyAffiliateTag , myOrders , platformUserId , tags , customerId ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1528,12 +1532,16 @@ public class OrderPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public OrderPlatformModels.OrderListingResponse getOrders(String lane , String searchType , String bagStatus , String timeToDispatch , String paymentMethods , String tags , String searchValue , String fromDate , String toDate , String dpIds , String stores , String salesChannels , Integer pageNo , Integer pageSize , Boolean isPrioritySort , String customMeta , Boolean myOrders ) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.OrderListingResponse getOrders(String lane , String searchType , String bagStatus , String timeToDispatch , String paymentMethods , String tags , String searchValue , String fromDate , String toDate , String dpIds , String stores , String salesChannels , Integer pageNo , Integer pageSize , Boolean isPrioritySort , String customMeta , Boolean myOrders , String customerId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.OrderListingResponse> response = null;
             try {
-                response = orderPlatformApiList.getOrders(this.companyId ,lane , searchType , bagStatus , timeToDispatch , paymentMethods , tags , searchValue , fromDate , toDate , dpIds , stores , salesChannels , pageNo , pageSize , isPrioritySort , customMeta , myOrders ).execute();
+                response = orderPlatformApiList.getOrders(this.companyId ,lane , searchType , bagStatus , timeToDispatch , paymentMethods , tags , searchValue , fromDate , toDate , dpIds , stores , salesChannels , pageNo , pageSize , isPrioritySort , customMeta , myOrders , customerId ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

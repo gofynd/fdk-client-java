@@ -4151,6 +4151,34 @@ public static class MerchnatPaymentModeResponse{
 
 
 /*
+    Model: MerchnatPaymentModeRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class MerchnatPaymentModeRequest{
+    
+    
+    
+    
+    @JsonProperty("offline")
+    private Object offline;
+    
+    
+    
+    
+    @JsonProperty("online")
+    private Object online;
+    
+    
+    
+}
+
+
+/*
     Model: AddressDetail
 */
 @AllArgsConstructor
