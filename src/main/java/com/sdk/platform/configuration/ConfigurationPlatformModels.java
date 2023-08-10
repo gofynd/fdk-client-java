@@ -269,7 +269,7 @@ public static class InventoryStore{
     
     
     @JsonProperty("rules")
-    private AppStoreRules rules;
+    private List<AppStoreRules> rules;
     
     
     
