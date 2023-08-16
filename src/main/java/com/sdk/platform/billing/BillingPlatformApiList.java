@@ -167,4 +167,22 @@ interface BillingPlatformApiList {
     @POST ("/service/platform/billing/v1.0/company/{company_id}/subscription/cancel")
     Call<BillingPlatformModels.CancelSubscriptionRes> cancelSubscriptionPlan(@Path("company_id")  String companyId ,@Body BillingPlatformModels.CancelSubscriptionReq payload);
     
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/billing/v1.0/company/{company_id}/plans")
+    Call<List<BillingPlatformModels.Plan>> getEnterprisePlans(@Path("company_id")  String companyId );
+    
+    
+    
+    
+    
+    
+    
+    @PATCH ("/service/platform/billing/v1.0/company/{company_id}/plan/status")
+    Call<BillingPlatformModels.Plan> planStatusUpdate(@Path("company_id")  String companyId ,@Body BillingPlatformModels.PlanStatusUpdateReq payload);
+    
 }
