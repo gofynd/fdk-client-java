@@ -15227,6 +15227,19 @@ Success. Returns a Cart object as shown below. Refer `CartDetailResponse` for mo
 
  
  
+ #### [CustomerDetails](#CustomerDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String? |  yes  |  |
+ | email | String? |  yes  |  |
+ | mobile | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [Files](#Files)
 
  | Properties | Type | Nullable | Description |
@@ -15257,6 +15270,7 @@ Success. Returns a Cart object as shown below. Refer `CartDetailResponse` for mo
  | deliveryAddress | HashMap<String,Object>? |  yes  |  |
  | paymentMode | String |  no  |  |
  | checkoutMode | String? |  yes  |  |
+ | customerDetails | HashMap<String,Object>? |  yes  | Customer details |
  | meta | HashMap<String,Object>? |  yes  |  |
  | staff | [StaffCheckout](#StaffCheckout)? |  yes  |  |
  | employeeCode | String? |  yes  |  |
@@ -15472,6 +15486,7 @@ Success. Returns a Cart object as shown below. Refer `CartDetailResponse` for mo
  | deliveryAddress | HashMap<String,Object>? |  yes  |  |
  | paymentMode | String? |  yes  |  |
  | checkoutMode | String? |  yes  |  |
+ | customerDetails | HashMap<String,Object>? |  yes  | Customer details |
  | meta | HashMap<String,Object>? |  yes  |  |
  | paymentMethods | ArrayList<[PaymentMethod](#PaymentMethod)> |  no  |  |
  | staff | [StaffCheckout](#StaffCheckout)? |  yes  |  |

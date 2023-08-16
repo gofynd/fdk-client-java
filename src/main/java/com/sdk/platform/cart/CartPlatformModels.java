@@ -8193,6 +8193,40 @@ public static class StaffCheckout{
 
 
 /*
+    Model: CustomerDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CustomerDetails{
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+}
+
+
+/*
     Model: Files
 */
 @AllArgsConstructor
@@ -8314,6 +8348,12 @@ public static class PlatformCartCheckoutDetailRequest{
     
     @JsonProperty("checkout_mode")
     private String checkoutMode;
+    
+    
+    
+    
+    @JsonProperty("customer_details")
+    private Object customerDetails;
     
     
     
@@ -9120,6 +9160,12 @@ public static class PlatformCartCheckoutDetailV2Request{
     
     @JsonProperty("checkout_mode")
     private String checkoutMode;
+    
+    
+    
+    
+    @JsonProperty("customer_details")
+    private Object customerDetails;
     
     
     
