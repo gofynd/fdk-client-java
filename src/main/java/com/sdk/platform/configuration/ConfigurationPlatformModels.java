@@ -573,7 +573,7 @@ public static class DeliveryCharges{
     
     
     @JsonProperty("charges")
-    private Charges charges;
+    private List<Charges> charges;
     
     
     

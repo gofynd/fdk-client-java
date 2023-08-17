@@ -39,7 +39,7 @@ interface LeadPlatformApiList {
     
     
     @GET ("/service/platform/lead/v1.0/company/{company_id}/ticket")
-    Call<LeadPlatformModels.TicketList> getTickets(@Path("company_id")  String companyId , @Query("items") Boolean  items ,  @Query("filters") Boolean  filters ,  @Query("q") String  q ,  @Query("status") String  status ,  @Query("priority") LeadPlatformModels.PriorityEnum  priority ,  @Query("category") String  category ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
+    Call<LeadPlatformModels.TicketList> getPlatformTickets(@Path("company_id")  String companyId , @Query("items") Boolean  items ,  @Query("filters") Boolean  filters ,  @Query("q") String  q ,  @Query("status") String  status ,  @Query("priority") LeadPlatformModels.PriorityEnum  priority ,  @Query("category") String  category ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
     
     
     
@@ -78,7 +78,7 @@ interface LeadPlatformApiList {
     
     
     @GET ("/service/platform/lead/v1.0/company/{company_id}/application/{application_id}/ticket")
-    Call<LeadPlatformModels.TicketList> getNewTickets(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("items") Boolean  items ,  @Query("filters") Boolean  filters ,  @Query("q") String  q ,  @Query("status") String  status ,  @Query("priority") LeadPlatformModels.PriorityEnum  priority ,  @Query("category") String  category );
+    Call<LeadPlatformModels.TicketList> getTickets(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("items") Boolean  items ,  @Query("filters") Boolean  filters ,  @Query("q") String  q ,  @Query("status") String  status ,  @Query("priority") LeadPlatformModels.PriorityEnum  priority ,  @Query("category") String  category );
     
     
     
@@ -90,7 +90,7 @@ interface LeadPlatformApiList {
     
     
     @GET ("/service/platform/lead/v1.0/company/{company_id}/ticket/{id}")
-    Call<LeadPlatformModels.Ticket> getTicket(@Path("company_id")  String companyId , @Path("id") String  id );
+    Call<LeadPlatformModels.Ticket> getPlatformTicket(@Path("company_id")  String companyId , @Path("id") String  id );
     
     
     
@@ -102,7 +102,7 @@ interface LeadPlatformApiList {
     
     
     @PUT ("/service/platform/lead/v1.0/company/{company_id}/ticket/{id}")
-    Call<LeadPlatformModels.Ticket> editTicket(@Path("company_id")  String companyId , @Path("id") String  id ,@Body LeadPlatformModels.EditTicketPayload payload);
+    Call<LeadPlatformModels.Ticket> editPlatformTicket(@Path("company_id")  String companyId , @Path("id") String  id ,@Body LeadPlatformModels.EditTicketPayload payload);
     
     
     
@@ -117,7 +117,7 @@ interface LeadPlatformApiList {
     
     
     @GET ("/service/platform/lead/v1.0/company/{company_id}/application/{application_id}/ticket/{id}")
-    Call<LeadPlatformModels.Ticket> getNewTicket(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    Call<LeadPlatformModels.Ticket> getTicket(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
     
     
@@ -132,7 +132,7 @@ interface LeadPlatformApiList {
     
     
     @PUT ("/service/platform/lead/v1.0/company/{company_id}/application/{application_id}/ticket/{id}")
-    Call<LeadPlatformModels.Ticket> editNewTicket(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body LeadPlatformModels.EditTicketPayload payload);
+    Call<LeadPlatformModels.Ticket> editTicket(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body LeadPlatformModels.EditTicketPayload payload);
     
     
     
@@ -144,7 +144,7 @@ interface LeadPlatformApiList {
     
     
     @POST ("/service/platform/lead/v1.0/company/{company_id}/ticket/{id}/history")
-    Call<LeadPlatformModels.TicketHistory> createHistory(@Path("company_id")  String companyId , @Path("id") String  id ,@Body LeadPlatformModels.TicketHistoryPayload payload);
+    Call<LeadPlatformModels.TicketHistory> createPlatformTicketHistory(@Path("company_id")  String companyId , @Path("id") String  id ,@Body LeadPlatformModels.TicketHistoryPayload payload);
     
     
     
@@ -156,7 +156,7 @@ interface LeadPlatformApiList {
     
     
     @GET ("/service/platform/lead/v1.0/company/{company_id}/ticket/{id}/history")
-    Call<LeadPlatformModels.TicketHistoryList> getTicketHistory(@Path("company_id")  String companyId , @Path("id") String  id );
+    Call<LeadPlatformModels.TicketHistoryList> getPlatformTicketHistory(@Path("company_id")  String companyId , @Path("id") String  id );
     
     
     
@@ -195,7 +195,7 @@ interface LeadPlatformApiList {
     
     
     @POST ("/service/platform/lead/v1.0/company/{company_id}/application/{application_id}/ticket/{id}/history")
-    Call<LeadPlatformModels.TicketHistory> createNewHistory(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body LeadPlatformModels.TicketHistoryPayload payload);
+    Call<LeadPlatformModels.TicketHistory> createHistory(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body LeadPlatformModels.TicketHistoryPayload payload);
     
     
     
@@ -210,7 +210,7 @@ interface LeadPlatformApiList {
     
     
     @GET ("/service/platform/lead/v1.0/company/{company_id}/application/{application_id}/ticket/{id}/history")
-    Call<LeadPlatformModels.TicketHistoryList> getNewTicketHistory(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    Call<LeadPlatformModels.TicketHistoryList> getTicketHistory(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
     
     
     
@@ -276,7 +276,7 @@ interface LeadPlatformApiList {
     
     
     @GET ("/service/platform/lead/v1.0/company/{company_id}/video/room/{unique_name}/token")
-    Call<LeadPlatformModels.GetTokenForVideoRoomResponse> getTokenForVideoRoom(@Path("company_id")  String companyId , @Path("unique_name") String  uniqueName );
+    Call<LeadPlatformModels.GetTokenForVideoRoomResponse> getTokenForPlatformVideoRoom(@Path("company_id")  String companyId , @Path("unique_name") String  uniqueName );
     
     
     
@@ -291,7 +291,7 @@ interface LeadPlatformApiList {
     
     
     @GET ("/service/platform/lead/v1.0/company/{company_id}/application/{application_id}/video/room/{unique_name}/token")
-    Call<LeadPlatformModels.GetTokenForVideoRoomResponse> getNewTokenForVideoRoom(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("unique_name") String  uniqueName );
+    Call<LeadPlatformModels.GetTokenForVideoRoomResponse> getTokenForVideoRoom(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("unique_name") String  uniqueName );
     
     
     
@@ -303,7 +303,7 @@ interface LeadPlatformApiList {
     
     
     @GET ("/service/platform/lead/v1.0/company/{company_id}/video/room/{unique_name}/participants")
-    Call<LeadPlatformModels.GetParticipantsInsideVideoRoomResponse> getVideoParticipants(@Path("company_id")  String companyId , @Path("unique_name") String  uniqueName );
+    Call<LeadPlatformModels.GetParticipantsInsideVideoRoomResponse> getPlatformVideoParticipants(@Path("company_id")  String companyId , @Path("unique_name") String  uniqueName );
     
     
     
@@ -318,7 +318,7 @@ interface LeadPlatformApiList {
     
     
     @GET ("/service/platform/lead/v1.0/company/{company_id}/application/{application_id}/video/room/{unique_name}/participants")
-    Call<LeadPlatformModels.GetParticipantsInsideVideoRoomResponse> getNewVideoParticipants(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("unique_name") String  uniqueName );
+    Call<LeadPlatformModels.GetParticipantsInsideVideoRoomResponse> getVideoParticipants(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("unique_name") String  uniqueName );
     
     
     

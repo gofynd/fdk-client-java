@@ -691,7 +691,7 @@ public static class Locations{
     
     
     @JsonProperty("items")
-    private LocationCountry items;
+    private List<LocationCountry> items;
     
     
     

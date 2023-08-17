@@ -6,27 +6,27 @@
 
 ## Lead Methods
 Handles communication between Administrator
-* [getTickets](#gettickets)
+* [getPlatformTickets](#getplatformtickets)
 * [createTicket](#createticket)
-* [getNewTickets](#getnewtickets)
+* [getTickets](#gettickets)
+* [getPlatformTicket](#getplatformticket)
+* [editPlatformTicket](#editplatformticket)
 * [getTicket](#getticket)
 * [editTicket](#editticket)
-* [getNewTicket](#getnewticket)
-* [editNewTicket](#editnewticket)
-* [createHistory](#createhistory)
-* [getTicketHistory](#gettickethistory)
+* [createPlatformTicketHistory](#createplatformtickethistory)
+* [getPlatformTicketHistory](#getplatformtickethistory)
 * [getFeedbacks](#getfeedbacks)
 * [submitFeedback](#submitfeedback)
-* [createNewHistory](#createnewhistory)
-* [getNewTicketHistory](#getnewtickethistory)
+* [createHistory](#createhistory)
+* [getTicketHistory](#gettickethistory)
 * [getCustomForm](#getcustomform)
 * [editCustomForm](#editcustomform)
 * [getCustomForms](#getcustomforms)
 * [createCustomForm](#createcustomform)
+* [getTokenForPlatformVideoRoom](#gettokenforplatformvideoroom)
 * [getTokenForVideoRoom](#gettokenforvideoroom)
-* [getNewTokenForVideoRoom](#getnewtokenforvideoroom)
+* [getPlatformVideoParticipants](#getplatformvideoparticipants)
 * [getVideoParticipants](#getvideoparticipants)
-* [getNewVideoParticipants](#getnewvideoparticipants)
 * [openVideoRoom](#openvideoroom)
 * [closeVideoRoom](#closevideoroom)
 * [getGeneralConfig](#getgeneralconfig)
@@ -36,14 +36,14 @@ Handles communication between Administrator
 ## Methods with example and description
 
 
-### getTickets
+### getPlatformTickets
 Gets the list of company level tickets and/or ticket filters depending on query params
 
 
 
 
 ```java
-platformClient.lead.getTickets( items,  filters,  q,  status,  priority,  category,  pageNo,  pageSize) {
+platformClient.lead.getPlatformTickets( items,  filters,  q,  status,  priority,  category,  pageNo,  pageSize) {
   //use response
 }
 ```
@@ -722,14 +722,14 @@ Success
 ---
 
 
-### getNewTickets
+### getTickets
 Gets the list of Application level Tickets and/or ticket filters depending on query params
 
 
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.getNewTickets( items,  filters,  q,  status,  priority,  category) {
+platformClient.application("<APPLICATION_ID>").lead.getTickets( items,  filters,  q,  status,  priority,  category) {
   //use response
 }
 ```
@@ -1156,14 +1156,14 @@ Success
 ---
 
 
-### getTicket
+### getPlatformTicket
 Retreives ticket details of a company level ticket with ticket ID
 
 
 
 
 ```java
-platformClient.lead.getTicket( id) {
+platformClient.lead.getPlatformTicket( id) {
   //use response
 }
 ```
@@ -1408,14 +1408,14 @@ Success
 ---
 
 
-### editTicket
+### editPlatformTicket
 Edits ticket details of a company level ticket
 
 
 
 
 ```java
-platformClient.lead.editTicket( id, body body) {
+platformClient.lead.editPlatformTicket( id, body body) {
   //use response
 }
 ```
@@ -1660,14 +1660,14 @@ Success
 ---
 
 
-### getNewTicket
+### getTicket
 Retreives ticket details of a application level ticket
 
 
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.getNewTicket( id) {
+platformClient.application("<APPLICATION_ID>").lead.getTicket( id) {
   //use response
 }
 ```
@@ -1914,14 +1914,14 @@ Success
 ---
 
 
-### editNewTicket
+### editTicket
 Edits ticket details of a application level ticket
 
 
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.editNewTicket( id, body body) {
+platformClient.application("<APPLICATION_ID>").lead.editTicket( id, body body) {
   //use response
 }
 ```
@@ -2168,14 +2168,14 @@ Success
 ---
 
 
-### createHistory
+### createPlatformTicketHistory
 Create history for specific company level ticket
 
 
 
 
 ```java
-platformClient.lead.createHistory( id, body body) {
+platformClient.lead.createPlatformTicketHistory( id, body body) {
   //use response
 }
 ```
@@ -2266,14 +2266,14 @@ Success
 ---
 
 
-### getTicketHistory
+### getPlatformTicketHistory
 Gets history list for specific company level ticket
 
 
 
 
 ```java
-platformClient.lead.getTicketHistory( id) {
+platformClient.lead.getPlatformTicketHistory( id) {
   //use response
 }
 ```
@@ -2640,14 +2640,14 @@ Success
 ---
 
 
-### createNewHistory
+### createHistory
 Create history for specific application level ticket
 
 
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.createNewHistory( id, body body) {
+platformClient.application("<APPLICATION_ID>").lead.createHistory( id, body body) {
   //use response
 }
 ```
@@ -2739,14 +2739,14 @@ Success
 ---
 
 
-### getNewTicketHistory
+### getTicketHistory
 Gets history list for specific application level ticket
 
 
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.getNewTicketHistory( id) {
+platformClient.application("<APPLICATION_ID>").lead.getTicketHistory( id) {
   //use response
 }
 ```
@@ -3488,14 +3488,14 @@ Success
 ---
 
 
-### getTokenForVideoRoom
+### getTokenForPlatformVideoRoom
 Get Token to join a specific Video Room using it's unqiue name
 
 
 
 
 ```java
-platformClient.lead.getTokenForVideoRoom( uniqueName) {
+platformClient.lead.getTokenForPlatformVideoRoom( uniqueName) {
   //use response
 }
 ```
@@ -3552,14 +3552,14 @@ Success
 ---
 
 
-### getNewTokenForVideoRoom
+### getTokenForVideoRoom
 Get Token to join a specific Video Room using it's unqiue name
 
 
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.getNewTokenForVideoRoom( uniqueName) {
+platformClient.application("<APPLICATION_ID>").lead.getTokenForVideoRoom( uniqueName) {
   //use response
 }
 ```
@@ -3617,14 +3617,14 @@ Success
 ---
 
 
-### getVideoParticipants
+### getPlatformVideoParticipants
 Get participants of a specific Video Room using it's unique name
 
 
 
 
 ```java
-platformClient.lead.getVideoParticipants( uniqueName) {
+platformClient.lead.getPlatformVideoParticipants( uniqueName) {
   //use response
 }
 ```
@@ -3681,14 +3681,14 @@ Success
 ---
 
 
-### getNewVideoParticipants
+### getVideoParticipants
 Get participants of a specific Video Room using it's unique name
 
 
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").lead.getNewVideoParticipants( uniqueName) {
+platformClient.application("<APPLICATION_ID>").lead.getVideoParticipants( uniqueName) {
   //use response
 }
 ```
