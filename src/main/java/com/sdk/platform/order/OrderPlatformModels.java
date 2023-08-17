@@ -141,6 +141,12 @@ public static class ErrorResponse{
     
     
     
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
 }
 
 
@@ -1459,6 +1465,12 @@ public static class ArticleDetails{
     
     
     
+    
+    @JsonProperty("status")
+    private Object status;
+    
+    
+    
 }
 
 
@@ -1548,6 +1560,24 @@ public static class ShipmentDetails{
     
     @JsonProperty("affiliate_shipment_id")
     private String affiliateShipmentId;
+    
+    
+    
+    
+    @JsonProperty("lock_status")
+    private Boolean lockStatus;
+    
+    
+    
+    
+    @JsonProperty("lock_message")
+    private String lockMessage;
+    
+    
+    
+    
+    @JsonProperty("action_to_status")
+    private Object actionToStatus;
     
     
     
@@ -7939,40 +7969,6 @@ public static class UserDetailsData{
 
 
 /*
-    Model: ShipmentDetails1
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShipmentDetails1{
-    
-    
-    
-    
-    @JsonProperty("lock_status")
-    private Boolean lockStatus;
-    
-    
-    
-    
-    @JsonProperty("lock_message")
-    private String lockMessage;
-    
-    
-    
-    
-    @JsonProperty("action_to_status")
-    private Object actionToStatus;
-    
-    
-    
-}
-
-
-/*
     Model: PhoneDetails
 */
 @AllArgsConstructor
@@ -9967,7 +9963,7 @@ public static class PlatformShipment{
     
     
     @JsonProperty("shipment_details")
-    private ShipmentDetails1 shipmentDetails;
+    private ShipmentDetails shipmentDetails;
     
     
     
@@ -11557,28 +11553,6 @@ public static class BagGSTDetails{
 
 
 /*
-    Model: ArticleDetails1
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ArticleDetails1{
-    
-    
-    
-    
-    @JsonProperty("status")
-    private Object status;
-    
-    
-    
-}
-
-
-/*
     Model: StoreAddress
 */
 @AllArgsConstructor
@@ -12647,7 +12621,7 @@ public static class BagDetailsPlatformResponse{
     
     
     @JsonProperty("article_details")
-    private ArticleDetails1 articleDetails;
+    private ArticleDetails articleDetails;
     
     
     
@@ -12822,34 +12796,6 @@ public static class BagDetailsPlatformResponse{
     
     @JsonProperty("status")
     private BagReturnableCancelableStatus1 status;
-    
-    
-    
-}
-
-
-/*
-    Model: ErrorResponse1
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ErrorResponse1{
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("error")
-    private String error;
     
     
     
