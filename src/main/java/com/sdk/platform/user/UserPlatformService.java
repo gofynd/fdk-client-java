@@ -170,7 +170,7 @@ public class ApplicationClient {
     
     
 
-    public UserPlatformModels.UserSearchResponseSchema searchUsers(String q , List<Object> query ) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserSearchResponseSchema searchUsers(String q , List<String> query ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.UserSearchResponseSchema> response = null;
             try {
