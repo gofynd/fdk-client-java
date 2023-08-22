@@ -1061,6 +1061,110 @@ public static class ReAssignStoreResponse{
 
 
 /*
+    Model: CountryHierarchy
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CountryHierarchy{
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+}
+
+
+/*
+    Model: CountryObject
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CountryObject{
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("iso2")
+    private String iso2;
+    
+    
+    
+    
+    @JsonProperty("iso3")
+    private String iso3;
+    
+    
+    
+    
+    @JsonProperty("timezones")
+    private List<String> timezones;
+    
+    
+    
+    
+    @JsonProperty("hierarchy")
+    private List<CountryHierarchy> hierarchy;
+    
+    
+    
+    
+    @JsonProperty("phone_code")
+    private String phoneCode;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+}
+
+
+/*
     Model: GetCountries
 */
 @AllArgsConstructor
@@ -1074,14 +1178,376 @@ public static class GetCountries{
     
     
     
-    @JsonProperty("page")
-    private Object page;
-    
-    
-    
-    
     @JsonProperty("items")
-    private List<Object> items;
+    private List<CountryObject> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: GetOneOrAllPath
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetOneOrAllPath{
+    
+    
+    
+    
+    @JsonProperty("locality_type")
+    private String localityType;
+    
+    
+    
+    
+    @JsonProperty("locality_value")
+    private String localityValue;
+    
+    
+    
+}
+
+
+/*
+    Model: GetOneOrAllQuery
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetOneOrAllQuery{
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
+    
+    
+    
+    
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("sector")
+    private String sector;
+    
+    
+    
+}
+
+
+/*
+    Model: GetOneOrAllParams
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetOneOrAllParams{
+    
+    
+    
+    
+    @JsonProperty("path")
+    private GetOneOrAllPath path;
+    
+    
+    
+    
+    @JsonProperty("query")
+    private GetOneOrAllQuery query;
+    
+    
+    
+}
+
+
+/*
+    Model: GetOneOrAll
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetOneOrAll{
+    
+    
+    
+    
+    @JsonProperty("operation_id")
+    private String operationId;
+    
+    
+    
+    
+    @JsonProperty("params")
+    private GetOneOrAllParams params;
+    
+    
+    
+}
+
+
+/*
+    Model: LengthValidation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LengthValidation{
+    
+    
+    
+    
+    @JsonProperty("min")
+    private Integer min;
+    
+    
+    
+    
+    @JsonProperty("max")
+    private Integer max;
+    
+    
+    
+}
+
+
+/*
+    Model: FieldValidationRegex
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FieldValidationRegex{
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("length")
+    private LengthValidation length;
+    
+    
+    
+}
+
+
+/*
+    Model: FieldValidation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FieldValidation{
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("regex")
+    private FieldValidationRegex regex;
+    
+    
+    
+}
+
+
+/*
+    Model: GetCountryFieldsAddressValues
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetCountryFieldsAddressValues{
+    
+    
+    
+    
+    @JsonProperty("get_one")
+    private GetOneOrAll getOne;
+    
+    
+    
+    
+    @JsonProperty("get_all")
+    private GetOneOrAll getAll;
+    
+    
+    
+}
+
+
+/*
+    Model: GetCountryFieldsAddress
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetCountryFieldsAddress{
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("required")
+    private Boolean required;
+    
+    
+    
+    
+    @JsonProperty("edit")
+    private Boolean edit;
+    
+    
+    
+    
+    @JsonProperty("input")
+    private String input;
+    
+    
+    
+    
+    @JsonProperty("validation")
+    private FieldValidation validation;
+    
+    
+    
+    
+    @JsonProperty("values")
+    private GetCountryFieldsAddressValues values;
+    
+    
+    
+    
+    @JsonProperty("error_text")
+    private String errorText;
+    
+    
+    
+}
+
+
+/*
+    Model: GetCountryFieldsAddressTemplate
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetCountryFieldsAddressTemplate{
+    
+    
+    
+    
+    @JsonProperty("checkout_form")
+    private String checkoutForm;
+    
+    
+    
+    
+    @JsonProperty("invoice_display")
+    private String invoiceDisplay;
+    
+    
+    
+}
+
+
+/*
+    Model: GetCountryFields
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetCountryFields{
+    
+    
+    
+    
+    @JsonProperty("address")
+    private List<GetCountryFieldsAddress> address;
+    
+    
+    
+    
+    @JsonProperty("serviceability_fields")
+    private List<String> serviceabilityFields;
+    
+    
+    
+    
+    @JsonProperty("address_template")
+    private GetCountryFieldsAddressTemplate addressTemplate;
     
     
     
@@ -1102,14 +1568,32 @@ public static class GetCountry{
     
     
     
-    @JsonProperty("actions")
-    private Object actions;
+    @JsonProperty("id")
+    private String id;
     
     
     
     
-    @JsonProperty("ios2")
-    private String ios2;
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("iso2")
+    private String iso2;
+    
+    
+    
+    
+    @JsonProperty("iso3")
+    private String iso3;
     
     
     
@@ -1121,13 +1605,7 @@ public static class GetCountry{
     
     
     @JsonProperty("hierarchy")
-    private Object hierarchy;
-    
-    
-    
-    
-    @JsonProperty("ios3")
-    private String ios3;
+    private List<CountryHierarchy> hierarchy;
     
     
     
@@ -1144,20 +1622,14 @@ public static class GetCountry{
     
     
     
-    @JsonProperty("sub_type")
-    private String subType;
+    @JsonProperty("type")
+    private String type;
     
     
     
     
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private String uid;
+    @JsonProperty("fields")
+    private GetCountryFields fields;
     
     
     
@@ -1223,7 +1695,7 @@ public static class Page{
 
 
 /*
-    Model: LogisticsDPSchema
+    Model: Localities
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1231,65 +1703,13 @@ public static class Page{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LogisticsDPSchema{
+public static class Localities{
     
     
     
     
-    @JsonProperty("dp")
-    private Object dp;
-    
-    
-    
-}
-
-
-/*
-    Model: Locality
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Locality{
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("parent_id")
-    private List<String> parentId;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("logistics")
-    private LogisticsDPSchema logistics;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private String uid;
-    
-    
-    
-    
-    @JsonProperty("sub_type")
-    private String subType;
+    @JsonProperty("id")
+    private String id;
     
     
     
@@ -1300,14 +1720,20 @@ public static class Locality{
     
     
     
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
     @JsonProperty("display_name")
     private String displayName;
+    
+    
+    
+    
+    @JsonProperty("parent_ids")
+    private List<String> parentIds;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
     
     
     
@@ -1328,14 +1754,14 @@ public static class GetLocalities{
     
     
     
+    @JsonProperty("items")
+    private List<Localities> items;
+    
+    
+    
+    
     @JsonProperty("page")
     private Page page;
-    
-    
-    
-    
-    @JsonProperty("regions")
-    private List<Locality> regions;
     
     
     
@@ -1356,8 +1782,38 @@ public static class GetLocality{
     
     
     
-    @JsonProperty("regions")
-    private Locality regions;
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("parent_ids")
+    private List<String> parentIds;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("localities")
+    private List<Localities> localities;
     
     
     
@@ -1378,8 +1834,8 @@ public static class ErrorResponse{
     
     
     
-    @JsonProperty("error")
-    private String error;
+    @JsonProperty("message")
+    private String message;
     
     
     

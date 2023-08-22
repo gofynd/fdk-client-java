@@ -23,7 +23,7 @@ interface AuditTrailPlatformApiList {
     
     
     
-    @GET ("/service/platform/audit-trail/v1.0/company/{company_id}/logs/")
+    @GET ("/service/platform/webhook/v1.0/company/{company_id}/audit-trail/logs")
     Call<AuditTrailPlatformModels.LogSchemaResponse> getAuditLogs(@Path("company_id")  String companyId , @Query("qs") String  qs ,  @Query("limit") Integer  limit ,  @Query("sort") Object  sort );
     
     
@@ -32,7 +32,7 @@ interface AuditTrailPlatformApiList {
     
     
     
-    @POST ("/service/platform/audit-trail/v1.0/company/{company_id}/logs/")
+    @POST ("/service/platform/webhook/v1.0/company/{company_id}/audit-trail/logs")
     Call<AuditTrailPlatformModels.CreateLogResponse> createAuditLog(@Path("company_id")  String companyId ,@Body AuditTrailPlatformModels.RequestBodyAuditLog payload);
     
     
@@ -44,7 +44,7 @@ interface AuditTrailPlatformApiList {
     
     
     
-    @GET ("/service/platform/audit-trail/v1.0/company/{company_id}/logs/{id}")
+    @GET ("/service/platform/webhook/v1.0/company/{company_id}/audit-trail/logs/{id}")
     Call<AuditTrailPlatformModels.LogSchemaResponse> getAuditLog(@Path("company_id")  String companyId , @Path("id") String  id );
     
     
@@ -53,7 +53,7 @@ interface AuditTrailPlatformApiList {
     
     
     
-    @GET ("/service/platform/audit-trail/v1.0/company/{company_id}/entity-types")
+    @GET ("/service/platform/webhook/v1.0/company/{company_id}/audit-trail/entity-types")
     Call<AuditTrailPlatformModels.EntityTypesResponse> getEntityTypes(@Path("company_id")  String companyId );
     
 }

@@ -3886,6 +3886,12 @@ public static class CreditSummary{
     
     
     
+    @JsonProperty("due_date")
+    private String dueDate;
+    
+    
+    
+    
     @JsonProperty("balance")
     private BalanceDetails balance;
     
@@ -3900,6 +3906,12 @@ public static class CreditSummary{
     
     @JsonProperty("repayment_url")
     private String repaymentUrl;
+    
+    
+    
+    
+    @JsonProperty("soa_url")
+    private String soaUrl;
     
     
     

@@ -4488,8 +4488,9 @@ We are processing the request!
  | ---------- | ---- | -------- | ----------- |
  | status | Integer? |  yes  |  |
  | success | Boolean? |  yes  |  |
- | message | String? |  yes  |  |
+ | message | String |  no  |  |
  | errorTrace | String? |  yes  |  |
+ | error | String |  no  |  |
 
 ---
 
@@ -4959,6 +4960,7 @@ We are processing the request!
  | weight | HashMap<String,Object> |  no  |  |
  | attributes | HashMap<String,Object> |  no  |  |
  | quantity | Integer |  no  |  |
+ | status | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -4989,6 +4991,9 @@ We are processing the request!
  | dpId | Integer? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | affiliateShipmentId | String |  no  |  |
+ | lockStatus | Boolean? |  yes  |  |
+ | lockMessage | String? |  yes  |  |
+ | actionToStatus | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -7017,19 +7022,6 @@ We are processing the request!
 
  
  
- #### [ShipmentDetails1](#ShipmentDetails1)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | lockStatus | Boolean? |  yes  |  |
- | lockMessage | String? |  yes  |  |
- | actionToStatus | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
  #### [PhoneDetails](#PhoneDetails)
 
  | Properties | Type | Nullable | Description |
@@ -7584,7 +7576,7 @@ We are processing the request!
  | billingDetails | [UserDetailsData](#UserDetailsData)? |  yes  |  |
  | forwardShipmentId | String? |  yes  |  |
  | fulfilmentPriority | Integer? |  yes  |  |
- | shipmentDetails | [ShipmentDetails1](#ShipmentDetails1)? |  yes  |  |
+ | shipmentDetails | [ShipmentDetails](#ShipmentDetails)? |  yes  |  |
  | customMeta | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | shipmentQuantity | Integer? |  yes  |  |
  | companyDetails | [CompanyDetails](#CompanyDetails)? |  yes  |  |
@@ -8082,17 +8074,6 @@ We are processing the request!
 
  
  
- #### [ArticleDetails1](#ArticleDetails1)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | status | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
  #### [StoreAddress](#StoreAddress)
 
  | Properties | Type | Nullable | Description |
@@ -8368,7 +8349,7 @@ We are processing the request!
  | bagStatus | ArrayList<[BagStatusHistory](#BagStatusHistory)>? |  yes  |  |
  | sellerIdentifier | String? |  yes  |  |
  | originalBagList | ArrayList<Integer>? |  yes  |  |
- | articleDetails | [ArticleDetails1](#ArticleDetails1)? |  yes  |  |
+ | articleDetails | [ArticleDetails](#ArticleDetails)? |  yes  |  |
  | currentOperationalStatus | [BagStatusHistory](#BagStatusHistory)? |  yes  |  |
  | orderingStore | [Store](#Store)? |  yes  |  |
  | article | [Article](#Article)? |  yes  |  |
@@ -8398,18 +8379,6 @@ We are processing the request!
  | operationalStatus | String? |  yes  |  |
  | entityType | String? |  yes  |  |
  | status | [BagReturnableCancelableStatus1](#BagReturnableCancelableStatus1)? |  yes  |  |
-
----
-
-
- 
- 
- #### [ErrorResponse1](#ErrorResponse1)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | message | String |  no  |  |
- | error | String |  no  |  |
 
 ---
 

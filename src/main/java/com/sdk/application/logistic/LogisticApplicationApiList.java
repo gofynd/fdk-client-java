@@ -25,13 +25,13 @@ interface LogisticApplicationApiList {
     Call<LogisticApplicationModels.ReAssignStoreResponse> getOptimalLocations(@Url String url1 , @Body LogisticApplicationModels.ReAssignStoreRequest payload );
     
     @GET 
-    Call<LogisticApplicationModels.GetCountries> getCountries(@Url String url1, @Query("onboarding") Boolean onboarding );
+    Call<LogisticApplicationModels.GetCountries> getCountries(@Url String url1, @Query("onboarding") Boolean onboarding , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q );
     
     @GET 
     Call<LogisticApplicationModels.GetCountry> getCountry(@Url String url1);
     
     @GET 
-    Call<LogisticApplicationModels.GetLocalities> getLocalities(@Url String url1, @Query("country") String country , @Query("state") String state , @Query("city") String city );
+    Call<LogisticApplicationModels.GetLocalities> getLocalities(@Url String url1, @Query("country") String country , @Query("state") String state , @Query("city") String city , @Query("page_no") Integer pageNo , @Query("page_size") Integer pageSize , @Query("q") String q );
     
     @GET 
     Call<LogisticApplicationModels.GetLocality> getLocality(@Url String url1, @Query("country") String country , @Query("state") String state , @Query("city") String city );

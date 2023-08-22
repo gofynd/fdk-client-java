@@ -169,12 +169,12 @@ import com.sdk.application.*;
     
     
     
-    public LogisticApplicationModels.GetCountries getCountries(Boolean onboarding ) throws IOException {
+    public LogisticApplicationModels.GetCountries getCountries(Boolean onboarding , Integer pageNo , Integer pageSize , String q ) throws IOException {
      
       String fullUrl = relativeUrls.get("getCountries");
         
 
-        Response<LogisticApplicationModels.GetCountries> response = logisticApplicationApiList.getCountries(fullUrl  ,onboarding).execute();
+        Response<LogisticApplicationModels.GetCountries> response = logisticApplicationApiList.getCountries(fullUrl  ,onboarding, pageNo, pageSize, q).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -207,14 +207,14 @@ import com.sdk.application.*;
     
     
     
-    public LogisticApplicationModels.GetLocalities getLocalities(String localityType , String country , String state , String city ) throws IOException {
+    public LogisticApplicationModels.GetLocalities getLocalities(String localityType , String country , String state , String city , Integer pageNo , Integer pageSize , String q ) throws IOException {
      
       String fullUrl = relativeUrls.get("getLocalities");
         
         fullUrl = fullUrl.replace("{" + "locality_type" +"}",localityType.toString());
         
 
-        Response<LogisticApplicationModels.GetLocalities> response = logisticApplicationApiList.getLocalities(fullUrl  ,country, state, city).execute();
+        Response<LogisticApplicationModels.GetLocalities> response = logisticApplicationApiList.getLocalities(fullUrl  ,country, state, city, pageNo, pageSize, q).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
