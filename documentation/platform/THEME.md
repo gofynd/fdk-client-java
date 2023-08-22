@@ -15239,7 +15239,7 @@ platformClient.application("<APPLICATION_ID>").theme.addThemeToApplication(body 
 | --------- | -----  | -------- | ----------- | 
 | companyId | Integer | yes | Numeric ID allotted to a business account on Fynd Platform. |   
 | applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |  
-| body | [CompanyThemeSchema](#CompanyThemeSchema) | yes | Request body |
+| body | [ThemeReq](#ThemeReq) | yes | Request body |
 
 
 Add a theme to an application by providing the marketplace theme ID.

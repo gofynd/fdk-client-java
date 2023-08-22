@@ -1108,7 +1108,7 @@ public class ApplicationClient {
     
     
 
-    public ThemePlatformModels.ThemesSchema addThemeToApplication(ThemePlatformModels.CompanyThemeSchema body) throws FDKServerResponseError, FDKException {
+    public ThemePlatformModels.ThemesSchema addThemeToApplication(ThemePlatformModels.ThemeReq body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {

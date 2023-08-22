@@ -336,7 +336,7 @@ interface ThemePlatformApiList {
     
     
     @POST ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/")
-    Call<ThemePlatformModels.ThemesSchema> addThemeToApplication(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ThemePlatformModels.CompanyThemeSchema payload);
+    Call<ThemePlatformModels.ThemesSchema> addThemeToApplication(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ThemePlatformModels.ThemeReq payload);
     
     
     
