@@ -1111,7 +1111,7 @@ public static class ThemeConfiguration{
     
     
     @JsonProperty("global_config")
-    private GlobalConfig globalConfig;
+    private Object globalConfig;
     
     
     
@@ -1150,14 +1150,8 @@ public static class GlobalConfig{
     
     
     
-    @JsonProperty("auth")
-    private AuthConfig auth;
-    
-    
-    
-    
-    @JsonProperty("palette")
-    private PaletteConfig palette;
+    @JsonProperty("custom")
+    private CustomConfig custom;
     
     
     
@@ -1180,62 +1174,6 @@ public static class StaticConfig{
     
     @JsonProperty("props")
     private StaticProps props;
-    
-    
-    
-}
-
-
-/*
-    Model: AuthConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AuthConfig{
-    
-    
-    
-    
-    @JsonProperty("show_header_auth")
-    private Boolean showHeaderAuth;
-    
-    
-    
-    
-    @JsonProperty("show_footer_auth")
-    private Boolean showFooterAuth;
-    
-    
-    
-}
-
-
-/*
-    Model: PaletteConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaletteConfig{
-    
-    
-    
-    
-    @JsonProperty("general_setting")
-    private GeneralSetting generalSetting;
-    
-    
-    
-    
-    @JsonProperty("advance_setting")
-    private AdvanceSetting advanceSetting;
     
     
     
@@ -1403,6 +1341,12 @@ public static class StaticProps{
     
     
     
+    
+    @JsonProperty("palette")
+    private PaletteConfig palette;
+    
+    
+    
 }
 
 
@@ -1452,6 +1396,62 @@ public static class Colors{
     
     @JsonProperty("bg_color")
     private String bgColor;
+    
+    
+    
+}
+
+
+/*
+    Model: AuthConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AuthConfig{
+    
+    
+    
+    
+    @JsonProperty("show_header_auth")
+    private Boolean showHeaderAuth;
+    
+    
+    
+    
+    @JsonProperty("show_footer_auth")
+    private Boolean showFooterAuth;
+    
+    
+    
+}
+
+
+/*
+    Model: PaletteConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaletteConfig{
+    
+    
+    
+    
+    @JsonProperty("general_setting")
+    private GeneralSetting generalSetting;
+    
+    
+    
+    
+    @JsonProperty("advance_setting")
+    private AdvanceSetting advanceSetting;
     
     
     
