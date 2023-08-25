@@ -2007,6 +2007,36 @@ public static class GetLocationSerializer{
     
     
     
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("default_order_acceptance_timing")
+    private Boolean defaultOrderAcceptanceTiming;
+    
+    
+    
+    
+    @JsonProperty("order_acceptance_timing")
+    private List<LocationDayWiseSerializer> orderAcceptanceTiming;
+    
+    
+    
+    
+    @JsonProperty("avg_order_processing_time")
+    private AverageOrderProcessingTime avgOrderProcessingTime;
+    
+    
+    
+    
+    @JsonProperty("bulk_shipment")
+    private Boolean bulkShipment;
+    
+    
+    
 }
 
 
