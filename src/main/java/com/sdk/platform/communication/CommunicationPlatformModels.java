@@ -3469,6 +3469,78 @@ public static class SmsProviderReq{
     
     
     
+    
+    @JsonProperty("password")
+    private String password;
+    
+    
+    
+    
+    @JsonProperty("senderid")
+    private String senderid;
+    
+    
+    
+    
+    @JsonProperty("feedid")
+    private String feedid;
+    
+    
+    
+    
+    @JsonProperty("entityid")
+    private String entityid;
+    
+    
+    
+    
+    @JsonProperty("override_dnd")
+    private Boolean overrideDnd;
+    
+    
+    
+    
+    @JsonProperty("host")
+    private String host;
+    
+    
+    
+    
+    @JsonProperty("port")
+    private Integer port;
+    
+    
+    
+    
+    @JsonProperty("entity_id")
+    private String entityId;
+    
+    
+    
+    
+    @JsonProperty("apikey")
+    private String apikey;
+    
+    
+    
+    
+    @JsonProperty("version_id")
+    private Integer versionId;
+    
+    
+    
+    
+    @JsonProperty("sender_id")
+    private String senderId;
+    
+    
+    
+    
+    @JsonProperty("api_key")
+    private String apiKey;
+    
+    
+    
 }
 
 

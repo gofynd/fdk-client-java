@@ -332,6 +332,15 @@ interface OrderPlatformApiList {
     
     
     
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/einvoice/retry/irn")
+    Call<OrderPlatformModels.EInvoiceRetryResponse> eInvoiceRetry(@Path("company_id")  String companyId ,@Body OrderPlatformModels.EInvoiceRetry payload);
+    
+    
+    
+    
+    
+    
+    
     
     
     

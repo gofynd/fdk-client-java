@@ -62,6 +62,174 @@ interface CommunicationPlatformApiList {
     
     
     
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/providers")
+    Call<CommunicationPlatformModels.EmailProviders> getEmailProviders(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("sort") Object  sort );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/providers")
+    Call<CommunicationPlatformModels.EmailProvider> createEmailProvider(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CommunicationPlatformModels.EmailProviderReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/providers/{id}")
+    Call<CommunicationPlatformModels.EmailProvider> getEmailProviderById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/providers/{id}")
+    Call<CommunicationPlatformModels.EmailProvider> updateEmailProviderById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CommunicationPlatformModels.EmailProviderReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/providers/{id}")
+    Call<CommunicationPlatformModels.GenericDelete> deleteEmailProviderById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/providers")
+    Call<Object> getSmsProviders(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("sort") Object  sort );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/providers")
+    Call<Object> createSmsProvider(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CommunicationPlatformModels.SmsProviderReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/default-providers")
+    Call<List<CommunicationPlatformModels.DefaultSmsProviders>> getDefaultSmsProviders(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/providers/{id}")
+    Call<Object> getSmsProviderById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/providers/{id}")
+    Call<Object> updateSmsProviderById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CommunicationPlatformModels.SmsProviderReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/providers/{id}")
+    Call<CommunicationPlatformModels.GenericDelete> deleteSmsProviderById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/campaigns/campaigns")
     Call<CommunicationPlatformModels.Campaigns> getCampaigns(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("sort") Object  sort );
     
@@ -287,30 +455,6 @@ interface CommunicationPlatformApiList {
     
     
     
-    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/get-n-records")
-    Call<CommunicationPlatformModels.GetNRecordsCsvRes> getNSampleRecordsFromCsvByGet(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/get-n-records")
-    Call<CommunicationPlatformModels.GetNRecordsCsvRes> getNSampleRecordsFromCsv(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CommunicationPlatformModels.GetNRecordsCsvReq payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/datasources/dummy-data-sources")
     Call<List<CommunicationPlatformModels.DummyDatasources>> getDummyDatasources(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
@@ -338,29 +482,8 @@ interface CommunicationPlatformApiList {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/providers")
-    Call<CommunicationPlatformModels.EmailProviders> getEmailProviders(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("sort") Object  sort );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/providers")
-    Call<CommunicationPlatformModels.EmailProvider> createEmailProvider(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CommunicationPlatformModels.EmailProviderReq payload);
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/get-n-records")
+    Call<CommunicationPlatformModels.GetNRecordsCsvRes> getNSampleRecordsFromCsvByGet(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
     
     
@@ -371,41 +494,8 @@ interface CommunicationPlatformApiList {
     
     
     
-    
-    
-    
-    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/providers/{id}")
-    Call<CommunicationPlatformModels.EmailProvider> getEmailProviderById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/providers/{id}")
-    Call<CommunicationPlatformModels.EmailProvider> updateEmailProviderById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CommunicationPlatformModels.EmailProviderReq payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @DELETE ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/providers/{id}")
-    Call<CommunicationPlatformModels.GenericDelete> deleteEmailProviderById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/get-n-records")
+    Call<CommunicationPlatformModels.GetNRecordsCsvRes> getNSampleRecordsFromCsv(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CommunicationPlatformModels.GetNRecordsCsvReq payload);
     
     
     
@@ -514,6 +604,114 @@ interface CommunicationPlatformApiList {
     
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/subscribedTemplates")
     Call<CommunicationPlatformModels.EmailTemplates> getSubscribedEmailTemplates(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/templates")
+    Call<CommunicationPlatformModels.SmsTemplates> getSmsTemplates(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("sort") Object  sort );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/templates")
+    Call<CommunicationPlatformModels.SmsTemplate> createSmsTemplate(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CommunicationPlatformModels.SmsTemplateReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/system-templates")
+    Call<List<CommunicationPlatformModels.SystemSmsTemplates>> getSystemSmsTemplates(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/templates/{id}")
+    Call<CommunicationPlatformModels.SmsTemplate> getSmsTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/templates/{id}")
+    Call<CommunicationPlatformModels.SmsTemplate> updateSmsTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CommunicationPlatformModels.SmsTemplateReq payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/templates/{id}")
+    Call<CommunicationPlatformModels.GenericDelete> deleteSmsTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/subscribedTemplates")
+    Call<CommunicationPlatformModels.SmsTemplates> getSubscribedSmsTemplates(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
     
     
     
@@ -700,203 +898,5 @@ interface CommunicationPlatformApiList {
     
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/otp/verify-otp-comms")
     Call<CommunicationPlatformModels.VerifyOtpCommsSuccessRes> verfiyOtp(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CommunicationPlatformModels.VerifyOtpCommsReq payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/providers")
-    Call<CommunicationPlatformModels.SmsProviders> getSmsProviders(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("sort") Object  sort );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/providers")
-    Call<CommunicationPlatformModels.SmsProvider> createSmsProvider(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CommunicationPlatformModels.SmsProviderReq payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/default-providers")
-    Call<List<CommunicationPlatformModels.DefaultSmsProviders>> getDefaultSmsProviders(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/providers/{id}")
-    Call<CommunicationPlatformModels.SmsProvider> getSmsProviderById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/providers/{id}")
-    Call<CommunicationPlatformModels.SmsProvider> updateSmsProviderById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CommunicationPlatformModels.SmsProviderReq payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @DELETE ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/providers/{id}")
-    Call<CommunicationPlatformModels.GenericDelete> deleteSmsProviderById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/templates")
-    Call<CommunicationPlatformModels.SmsTemplates> getSmsTemplates(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("sort") Object  sort );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/templates")
-    Call<CommunicationPlatformModels.SmsTemplate> createSmsTemplate(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body CommunicationPlatformModels.SmsTemplateReq payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/system-templates")
-    Call<List<CommunicationPlatformModels.SystemSmsTemplates>> getSystemSmsTemplates(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/templates/{id}")
-    Call<CommunicationPlatformModels.SmsTemplate> getSmsTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/templates/{id}")
-    Call<CommunicationPlatformModels.SmsTemplate> updateSmsTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id ,@Body CommunicationPlatformModels.SmsTemplateReq payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @DELETE ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/templates/{id}")
-    Call<CommunicationPlatformModels.GenericDelete> deleteSmsTemplateById(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("id") String  id );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/subscribedTemplates")
-    Call<CommunicationPlatformModels.SmsTemplates> getSubscribedSmsTemplates(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
     
 }

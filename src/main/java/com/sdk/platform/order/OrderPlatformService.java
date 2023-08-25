@@ -1148,6 +1148,42 @@ public class OrderPlatformService {
     
     
     
+
+    public OrderPlatformModels.EInvoiceRetryResponse eInvoiceRetry(OrderPlatformModels.EInvoiceRetry body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<OrderPlatformModels.EInvoiceRetryResponse> response = null;
+            try {
+                response = orderPlatformApiList.eInvoiceRetry(this.companyId , body).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -2107,6 +2143,8 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
+    
+    
     
     
     

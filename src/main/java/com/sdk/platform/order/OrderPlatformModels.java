@@ -5545,6 +5545,154 @@ public static class BulkReportsDownloadFailedResponse{
 
 
 /*
+    Model: EInvoiceRetryShipmentData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EInvoiceRetryShipmentData{
+    
+    
+    
+    
+    @JsonProperty("shipment_id")
+    private String shipmentId;
+    
+    
+    
+}
+
+
+/*
+    Model: EInvoiceRetry
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EInvoiceRetry{
+    
+    
+    
+    
+    @JsonProperty("shipments_data")
+    private List<EInvoiceRetryShipmentData> shipmentsData;
+    
+    
+    
+}
+
+
+/*
+    Model: EInvoiceResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EInvoiceResponseData{
+    
+    
+    
+    
+    @JsonProperty("shipment_id")
+    private String shipmentId;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("ack_no")
+    private String ackNo;
+    
+    
+    
+    
+    @JsonProperty("irn")
+    private String irn;
+    
+    
+    
+    
+    @JsonProperty("ack_dt")
+    private String ackDt;
+    
+    
+    
+    
+    @JsonProperty("timeout")
+    private Integer timeout;
+    
+    
+    
+    
+    @JsonProperty("timeout_unit")
+    private String timeoutUnit;
+    
+    
+    
+}
+
+
+/*
+    Model: EInvoiceRetryResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EInvoiceRetryResponse{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("success_count")
+    private Integer successCount;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("response_data")
+    private List<EInvoiceResponseData> responseData;
+    
+    
+    
+}
+
+
+/*
     Model: ShipmentStatus
 */
 @AllArgsConstructor
