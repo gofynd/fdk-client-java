@@ -78,6 +78,43 @@ Get started with the Java Development SDK for Fynd Platform
     }
 ```
 
+### Cookie
+
+You can use `persistentCookieStore` from `PlatformConfig` or `ApplicationConfig` to read and write cookies.
+
+Following code snippet will demonstrate how to use `persistentCookieStore`.
+
+```java
+import java.net.CookieStore;
+import java.net.HttpCookie;
+import java.net.URI;
+
+public class CookieExample {
+
+    public static void main(String[] args) {
+
+        try {
+            ApplicationConfig applicationConfig = new ApplicationConfig("APPLICATION_ID", "APPLICATION_TOKEN");
+
+            ApplicationClient applicationClient = new ApplicationClient(applicationConfig);
+
+            // Accessing cookie store
+            CookieStore cookieStore = applicationConfig.getPersistentCookieStore();
+
+            // get cookies
+            cookieStore.getCookies();
+
+            // set cookies
+            cookieStore.add(URI.create("https://api.fynd.com"), new HttpCookie("f.session", "<COOKIE>"));
+
+            // remove cookies
+            cookieStore.removeAll();
+        }
+    }
+}
+```
+
+Cookies added to cookieStore will be automatically attached to subsequent requests. Also any request returning `Set-Cookie` headers will automatically added in the cookieStore.
 
 ### Documentation
 
