@@ -185,4 +185,13 @@ interface BillingPlatformApiList {
     @PATCH ("/service/platform/billing/v1.0/company/{company_id}/plan/status")
     Call<BillingPlatformModels.Plan> planStatusUpdate(@Path("company_id")  String companyId ,@Body BillingPlatformModels.PlanStatusUpdateReq payload);
     
+    
+    
+    
+    
+    
+    
+    @POST ("/service/platform/billing/v1.0/company/{company_id}/payment/initiate")
+    Call<BillingPlatformModels.SubscribePlanRes> subscripePlan(@Path("company_id")  String companyId ,@Body BillingPlatformModels.SunscribePlan payload);
+    
 }
