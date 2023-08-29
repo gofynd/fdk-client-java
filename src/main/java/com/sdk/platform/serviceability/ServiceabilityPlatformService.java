@@ -54,6 +54,8 @@ public class ServiceabilityPlatformService {
     
     
     
+    
+    
 
     public ServiceabilityPlatformModels.EntityRegionView_Response getEntityRegionView(ServiceabilityPlatformModels.EntityRegionView_Request body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
@@ -901,6 +903,47 @@ public class ApplicationClient {
     
     
     
+
+    public ServiceabilityPlatformModels.ApplicationServiceabilityConfigResponse updateApplicationServiceability(ServiceabilityPlatformModels.ServiceabilityPayloadSchema body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.ApplicationServiceabilityConfigResponse> response = null;
+            try {
+            response = serviceabilityPlatformApiList.updateApplicationServiceability(this.companyId , this.applicationId , body).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1368,11 +1411,11 @@ public class ApplicationClient {
     
     
 
-    public ServiceabilityPlatformModels.ApplicationSelfShipConfigResponse patchApplicationServiceabilitySelfShipment(ServiceabilityPlatformModels.SelfShipResponse body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.ApplicationSelfShipConfigResponse updateSelfShip(ServiceabilityPlatformModels.SelfShipResponse body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ServiceabilityPlatformModels.ApplicationSelfShipConfigResponse> response = null;
             try {
-            response = serviceabilityPlatformApiList.patchApplicationServiceabilitySelfShipment(this.companyId , this.applicationId , body).execute();
+            response = serviceabilityPlatformApiList.updateSelfShip(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1409,11 +1452,11 @@ public class ApplicationClient {
     
     
 
-    public ServiceabilityPlatformModels.ApplicationSelfShipConfigResponse getApplicationServiceabilitySelfShipment() throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.ApplicationSelfShipConfigResponse getSelfShip() throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ServiceabilityPlatformModels.ApplicationSelfShipConfigResponse> response = null;
             try {
-            response = serviceabilityPlatformApiList.getApplicationServiceabilitySelfShipment(this.companyId , this.applicationId ).execute();
+            response = serviceabilityPlatformApiList.getSelfShip(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

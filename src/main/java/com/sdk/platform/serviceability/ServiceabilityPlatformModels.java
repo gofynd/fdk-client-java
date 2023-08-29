@@ -9,6 +9,28 @@ public class ServiceabilityPlatformModels{
 
 
 /*
+    Model: ServiceabilityPayloadSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ServiceabilityPayloadSchema{
+    
+    
+    
+    
+    @JsonProperty("serviceability_type")
+    private String serviceabilityType;
+    
+    
+    
+}
+
+
+/*
     Model: ServiceabilityErrorResponse
 */
 @AllArgsConstructor
@@ -3679,7 +3701,7 @@ public static class ApplicationSelfShipConfig{
     
     
     @JsonProperty("self_ship")
-    private SelfShipResponse selfShip;
+    private Object selfShip;
     
     
     

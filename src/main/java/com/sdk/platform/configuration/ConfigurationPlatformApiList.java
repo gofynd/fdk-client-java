@@ -311,6 +311,18 @@ interface ConfigurationPlatformApiList {
     
     
     
+    @GET ("/service/platform/configuration/v1.0/company/{company_id}/application/{application_id}/ordering-store")
+    Call<ConfigurationPlatformModels.OrderingStoreConfig> getOrderingStoreConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -635,7 +647,7 @@ interface ConfigurationPlatformApiList {
     
     
     
-    @GET ("/service/platform/configuration/v1.0/company/{company_id}/other-seller-applications/")
+    @GET ("/service/platform/configuration/v1.0/company/{company_id}/other-seller-applications")
     Call<ConfigurationPlatformModels.OtherSellerApplications> getOtherSellerApplications(@Path("company_id")  String companyId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
     
     

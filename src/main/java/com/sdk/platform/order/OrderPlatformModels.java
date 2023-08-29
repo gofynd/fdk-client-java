@@ -3506,8 +3506,8 @@ public static class LineItem{
     
     
     
-    @JsonProperty("custom_messasge")
-    private String customMessasge;
+    @JsonProperty("custom_message")
+    private String customMessage;
     
     
     
@@ -3972,6 +3972,12 @@ public static class TaxInfo{
     
     @JsonProperty("gstin")
     private String gstin;
+    
+    
+    
+    
+    @JsonProperty("pan_no")
+    private String panNo;
     
     
     
@@ -4599,6 +4605,34 @@ public static class BagStateTransitionMap{
 
 
 /*
+    Model: RoleBaseStateTransitionMapping
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RoleBaseStateTransitionMapping{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("next_statuses")
+    private List<String> nextStatuses;
+    
+    
+    
+}
+
+
+/*
     Model: FetchCreditBalanceRequestPayload
 */
 @AllArgsConstructor
@@ -5204,6 +5238,454 @@ public static class VerifyOtpResponse{
     
     @JsonProperty("data")
     private VerifyOtpResponseData data;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerTrackingDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerTrackingDetails{
+    
+    
+    
+    
+    @JsonProperty("operational_status")
+    private String operationalStatus;
+    
+    
+    
+    
+    @JsonProperty("dp_status")
+    private String dpStatus;
+    
+    
+    
+    
+    @JsonProperty("shipment_id")
+    private String shipmentId;
+    
+    
+    
+    
+    @JsonProperty("awb")
+    private String awb;
+    
+    
+    
+    
+    @JsonProperty("dp_status_updated_at")
+    private String dpStatusUpdatedAt;
+    
+    
+    
+    
+    @JsonProperty("remark")
+    private String remark;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Integer id;
+    
+    
+    
+    
+    @JsonProperty("dp_location")
+    private String dpLocation;
+    
+    
+    
+    
+    @JsonProperty("estimated_delivery_date")
+    private String estimatedDeliveryDate;
+    
+    
+    
+    
+    @JsonProperty("journey")
+    private String journey;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("dp_name")
+    private String dpName;
+    
+    
+    
+    
+    @JsonProperty("promised_delivery_date")
+    private String promisedDeliveryDate;
+    
+    
+    
+}
+
+
+/*
+    Model: PageDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PageDetails{
+    
+    
+    
+    
+    @JsonProperty("item_total")
+    private Integer itemTotal;
+    
+    
+    
+    
+    @JsonProperty("current")
+    private Integer current;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private Integer size;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("has_next")
+    private Boolean hasNext;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerTrackingResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerTrackingResponse{
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<CourierPartnerTrackingDetails> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private PageDetails page;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkReportsDownloadRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkReportsDownloadRequest{
+    
+    
+    
+    
+    @JsonProperty("store_ids")
+    private List<String> storeIds;
+    
+    
+    
+    
+    @JsonProperty("lane_type")
+    private String laneType;
+    
+    
+    
+    
+    @JsonProperty("custom_headers")
+    private String customHeaders;
+    
+    
+    
+    
+    @JsonProperty("report_type")
+    private String reportType;
+    
+    
+    
+    
+    @JsonProperty("from_date")
+    private String fromDate;
+    
+    
+    
+    
+    @JsonProperty("to_date")
+    private String toDate;
+    
+    
+    
+    
+    @JsonProperty("entities")
+    private List<String> entities;
+    
+    
+    
+    
+    @JsonProperty("filter_type")
+    private String filterType;
+    
+    
+    
+    
+    @JsonProperty("is_cross_company_enabled")
+    private Boolean isCrossCompanyEnabled;
+    
+    
+    
+    
+    @JsonProperty("custom_filters_for_lane")
+    private Object customFiltersForLane;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkReportsDownloadResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkReportsDownloadResponse{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("batch_id")
+    private String batchId;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkReportsDownloadFailedResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkReportsDownloadFailedResponse{
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Boolean status;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+}
+
+
+/*
+    Model: EInvoiceRetryShipmentData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EInvoiceRetryShipmentData{
+    
+    
+    
+    
+    @JsonProperty("shipment_id")
+    private String shipmentId;
+    
+    
+    
+}
+
+
+/*
+    Model: EInvoiceRetry
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EInvoiceRetry{
+    
+    
+    
+    
+    @JsonProperty("shipments_data")
+    private List<EInvoiceRetryShipmentData> shipmentsData;
+    
+    
+    
+}
+
+
+/*
+    Model: EInvoiceResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EInvoiceResponseData{
+    
+    
+    
+    
+    @JsonProperty("shipment_id")
+    private String shipmentId;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("ack_no")
+    private String ackNo;
+    
+    
+    
+    
+    @JsonProperty("irn")
+    private String irn;
+    
+    
+    
+    
+    @JsonProperty("ack_dt")
+    private String ackDt;
+    
+    
+    
+    
+    @JsonProperty("timeout")
+    private Integer timeout;
+    
+    
+    
+    
+    @JsonProperty("timeout_unit")
+    private String timeoutUnit;
+    
+    
+    
+}
+
+
+/*
+    Model: EInvoiceRetryResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EInvoiceRetryResponse{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("success_count")
+    private Integer successCount;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("response_data")
+    private List<EInvoiceResponseData> responseData;
     
     
     

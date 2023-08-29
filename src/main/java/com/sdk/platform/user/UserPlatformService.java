@@ -165,12 +165,16 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
 
-    public UserPlatformModels.UserSearchResponseSchema searchUsers(String q ) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserSearchResponseSchema searchUsers(String q , List<String> query ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.UserSearchResponseSchema> response = null;
             try {
-            response = userPlatformApiList.searchUsers(this.companyId , this.applicationId ,q ).execute();
+            response = userPlatformApiList.searchUsers(this.companyId , this.applicationId ,q , query ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

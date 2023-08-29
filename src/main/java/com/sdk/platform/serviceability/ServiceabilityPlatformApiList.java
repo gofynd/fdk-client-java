@@ -26,6 +26,18 @@ interface ServiceabilityPlatformApiList {
     
     
     
+    
+    
+    
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/serviceability")
+    Call<ServiceabilityPlatformModels.ApplicationServiceabilityConfigResponse> updateApplicationServiceability(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ServiceabilityPlatformModels.ServiceabilityPayloadSchema payload);
+    
+    
+    
+    
+    
+    
+    
     @POST ("/service/platform/logistics/v1.0/company/{company_id}/regions")
     Call<ServiceabilityPlatformModels.EntityRegionView_Response> getEntityRegionView(@Path("company_id")  String companyId ,@Body ServiceabilityPlatformModels.EntityRegionView_Request payload);
     
@@ -411,7 +423,7 @@ interface ServiceabilityPlatformApiList {
     
     
     @PATCH ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/selfship")
-    Call<ServiceabilityPlatformModels.ApplicationSelfShipConfigResponse> patchApplicationServiceabilitySelfShipment(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ServiceabilityPlatformModels.SelfShipResponse payload);
+    Call<ServiceabilityPlatformModels.ApplicationSelfShipConfigResponse> updateSelfShip(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ServiceabilityPlatformModels.SelfShipResponse payload);
     
     
     
@@ -423,6 +435,6 @@ interface ServiceabilityPlatformApiList {
     
     
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/selfship")
-    Call<ServiceabilityPlatformModels.ApplicationSelfShipConfigResponse> getApplicationServiceabilitySelfShipment(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    Call<ServiceabilityPlatformModels.ApplicationSelfShipConfigResponse> getSelfShip(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
 }

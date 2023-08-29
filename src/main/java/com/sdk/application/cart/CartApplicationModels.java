@@ -3323,7 +3323,7 @@ public static class CartCheckoutDetailRequest{
     
     
     @JsonProperty("customer_details")
-    private CustomerDetails customerDetails;
+    private Object customerDetails;
     
     
     
@@ -4595,7 +4595,7 @@ public static class CartCheckoutDetailV2Request{
     
     
     @JsonProperty("customer_details")
-    private CustomerDetails customerDetails;
+    private Object customerDetails;
     
     
     

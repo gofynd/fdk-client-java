@@ -309,7 +309,7 @@ public static class CompleteResponse{
 
 
 /*
-    Model: Opts
+    Model: DestinationNamespace
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -317,173 +317,7 @@ public static class CompleteResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Opts{
-    
-    
-    
-    
-    @JsonProperty("attempts")
-    private Integer attempts;
-    
-    
-    
-    
-    @JsonProperty("timestamp")
-    private Integer timestamp;
-    
-    
-    
-    
-    @JsonProperty("delay")
-    private Integer delay;
-    
-    
-    
-}
-
-
-/*
-    Model: CopyFileTask
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CopyFileTask{
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("data")
-    private BulkRequest data;
-    
-    
-    
-    
-    @JsonProperty("opts")
-    private Opts opts;
-    
-    
-    
-    
-    @JsonProperty("progress")
-    private Integer progress;
-    
-    
-    
-    
-    @JsonProperty("delay")
-    private Integer delay;
-    
-    
-    
-    
-    @JsonProperty("timestamp")
-    private Integer timestamp;
-    
-    
-    
-    
-    @JsonProperty("attempts_made")
-    private Integer attemptsMade;
-    
-    
-    
-    
-    @JsonProperty("stacktrace")
-    private List<String> stacktrace;
-    
-    
-    
-    
-    @JsonProperty("finished_on")
-    private Integer finishedOn;
-    
-    
-    
-    
-    @JsonProperty("processed_on")
-    private Integer processedOn;
-    
-    
-    
-}
-
-
-/*
-    Model: BulkUploadResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkUploadResponse{
-    
-    
-    
-    
-    @JsonProperty("tracking_url")
-    private String trackingUrl;
-    
-    
-    
-    
-    @JsonProperty("task")
-    private CopyFileTask task;
-    
-    
-    
-}
-
-
-/*
-    Model: ReqConfiguration
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReqConfiguration{
-    
-    
-    
-    
-    @JsonProperty("concurrency")
-    private Integer concurrency;
-    
-    
-    
-}
-
-
-/*
-    Model: Destination
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Destination{
+public static class DestinationNamespace{
     
     
     
@@ -493,23 +327,11 @@ public static class Destination{
     
     
     
-    
-    @JsonProperty("rewrite")
-    private String rewrite;
-    
-    
-    
-    
-    @JsonProperty("basepath")
-    private String basepath;
-    
-    
-    
 }
 
 
 /*
-    Model: BulkRequest
+    Model: CopyFiles
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -517,7 +339,7 @@ public static class Destination{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkRequest{
+public static class CopyFiles{
     
     
     
@@ -529,13 +351,7 @@ public static class BulkRequest{
     
     
     @JsonProperty("destination")
-    private Destination destination;
-    
-    
-    
-    
-    @JsonProperty("configuration")
-    private ReqConfiguration configuration;
+    private DestinationNamespace destination;
     
     
     
@@ -794,6 +610,508 @@ public static class BrowseResponse{
     
     @JsonProperty("page")
     private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: InvoiceTypesResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoiceTypesResponse{
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("pdf_type_id")
+    private Integer pdfTypeId;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("format")
+    private List<String> format;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Integer v;
+    
+    
+    
+    
+    @JsonProperty("visibility")
+    private Boolean visibility;
+    
+    
+    
+    
+    @JsonProperty("schema")
+    private Object schema;
+    
+    
+    
+}
+
+
+/*
+    Model: DummyTemplateDataItems
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DummyTemplateDataItems{
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("pdf_type_id")
+    private Double pdfTypeId;
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private Object payload;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Integer v;
+    
+    
+    
+}
+
+
+/*
+    Model: Status
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Status{
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Double total;
+    
+    
+    
+    
+    @JsonProperty("failed")
+    private Double failed;
+    
+    
+    
+    
+    @JsonProperty("succeeded")
+    private Double succeeded;
+    
+    
+    
+    
+    @JsonProperty("result")
+    private String result;
+    
+    
+    
+}
+
+
+/*
+    Model: FileSrc
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FileSrc{
+    
+    
+    
+    
+    @JsonProperty("method")
+    private String method;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("namespace")
+    private String namespace;
+    
+    
+    
+}
+
+
+/*
+    Model: File
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class File{
+    
+    
+    
+    
+    @JsonProperty("src")
+    private FileSrc src;
+    
+    
+    
+}
+
+
+/*
+    Model: FilesSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FilesSuccess{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("file")
+    private File file;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkUploadSyncMode
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkUploadSyncMode{
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Status status;
+    
+    
+    
+    
+    @JsonProperty("files")
+    private List<FilesSuccess> files;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkUploadFailResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkUploadFailResponse{
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Status status;
+    
+    
+    
+}
+
+
+/*
+    Model: pdfRender
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class pdfRender{
+    
+    
+    
+    
+    @JsonProperty("format")
+    private String format;
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private Object payload;
+    
+    
+    
+    
+    @JsonProperty("template")
+    private String template;
+    
+    
+    
+}
+
+
+/*
+    Model: pdfConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class pdfConfig{
+    
+    
+    
+    
+    @JsonProperty("format")
+    private String format;
+    
+    
+    
+    
+    @JsonProperty("template")
+    private String template;
+    
+    
+    
+    
+    @JsonProperty("pdf_type_id")
+    private Integer pdfTypeId;
+    
+    
+    
+}
+
+
+/*
+    Model: PdfConfigSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PdfConfigSuccess{
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("pdf_type_id")
+    private Integer pdfTypeId;
+    
+    
+    
+    
+    @JsonProperty("format")
+    private String format;
+    
+    
+    
+    
+    @JsonProperty("template")
+    private String template;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Integer v;
+    
+    
+    
+}
+
+
+/*
+    Model: PdfConfigSaveSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PdfConfigSaveSuccess{
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("pdf_type_id")
+    private Integer pdfTypeId;
+    
+    
+    
+    
+    @JsonProperty("format")
+    private String format;
+    
+    
+    
+    
+    @JsonProperty("template")
+    private String template;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Integer v;
+    
+    
+    
+}
+
+
+/*
+    Model: PdfDefaultTemplateSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PdfDefaultTemplateSuccess{
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("pdf_type_id")
+    private Integer pdfTypeId;
+    
+    
+    
+    
+    @JsonProperty("format")
+    private String format;
+    
+    
+    
+    
+    @JsonProperty("template")
+    private String template;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Integer v;
     
     
     

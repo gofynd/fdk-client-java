@@ -347,7 +347,7 @@ public static class IntentApp{
     
     
     @JsonProperty("logos")
-    private PaymentModeLogo logos;
+    private Object logos;
     
     
     
@@ -507,7 +507,7 @@ public static class PaymentModeList{
     
     
     @JsonProperty("logo_url")
-    private PaymentModeLogo logoUrl;
+    private Object logoUrl;
     
     
     
@@ -3651,7 +3651,7 @@ public static class ErrorResponse{
     
     
     @JsonProperty("error")
-    private ErrorDescription error;
+    private Object error;
     
     
     
@@ -4110,6 +4110,676 @@ public static class GetPaymentCodeResponse{
     
     @JsonProperty("success")
     private Boolean success;
+    
+    
+    
+}
+
+
+/*
+    Model: MerchnatPaymentModeResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class MerchnatPaymentModeResponse{
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<Object> items;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+}
+
+
+/*
+    Model: MerchnatPaymentModeRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class MerchnatPaymentModeRequest{
+    
+    
+    
+    
+    @JsonProperty("offline")
+    private Object offline;
+    
+    
+    
+    
+    @JsonProperty("online")
+    private Object online;
+    
+    
+    
+}
+
+
+/*
+    Model: AddressDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AddressDetail{
+    
+    
+    
+    
+    @JsonProperty("country_iso_code")
+    private String countryIsoCode;
+    
+    
+    
+    
+    @JsonProperty("google_map_point")
+    private Object googleMapPoint;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("area_code")
+    private String areaCode;
+    
+    
+    
+    
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("phone")
+    private String phone;
+    
+    
+    
+    
+    @JsonProperty("expire_at")
+    private String expireAt;
+    
+    
+    
+    
+    @JsonProperty("address")
+    private String address;
+    
+    
+    
+    
+    @JsonProperty("g_address_id")
+    private String gAddressId;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<Object> tags;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
+    
+    
+    
+    
+    @JsonProperty("landmark")
+    private String landmark;
+    
+    
+    
+    
+    @JsonProperty("area")
+    private String area;
+    
+    
+    
+    
+    @JsonProperty("area_code_slug")
+    private String areaCodeSlug;
+    
+    
+    
+    
+    @JsonProperty("address_type")
+    private String addressType;
+    
+    
+    
+    
+    @JsonProperty("country_phone_code")
+    private String countryPhoneCode;
+    
+    
+    
+    
+    @JsonProperty("geo_location")
+    private Object geoLocation;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentSessionDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentSessionDetail{
+    
+    
+    
+    
+    @JsonProperty("aggregator_order_id")
+    private String aggregatorOrderId;
+    
+    
+    
+    
+    @JsonProperty("shipping_address")
+    private AddressDetail shippingAddress;
+    
+    
+    
+    
+    @JsonProperty("amount_captured")
+    private Integer amountCaptured;
+    
+    
+    
+    
+    @JsonProperty("amount_refunded")
+    private Integer amountRefunded;
+    
+    
+    
+    
+    @JsonProperty("aggregator_customer_id")
+    private String aggregatorCustomerId;
+    
+    
+    
+    
+    @JsonProperty("cancel_url")
+    private String cancelUrl;
+    
+    
+    
+    
+    @JsonProperty("payment_id")
+    private String paymentId;
+    
+    
+    
+    
+    @JsonProperty("payment_methods")
+    private List<Object> paymentMethods;
+    
+    
+    
+    
+    @JsonProperty("created")
+    private String created;
+    
+    
+    
+    
+    @JsonProperty("g_user_id")
+    private String gUserId;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+    
+    @JsonProperty("locale")
+    private String locale;
+    
+    
+    
+    
+    @JsonProperty("gid")
+    private String gid;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Integer amount;
+    
+    
+    
+    
+    @JsonProperty("billing_address")
+    private AddressDetail billingAddress;
+    
+    
+    
+    
+    @JsonProperty("success_url")
+    private String successUrl;
+    
+    
+    
+    
+    @JsonProperty("kind")
+    private String kind;
+    
+    
+    
+    
+    @JsonProperty("mode")
+    private String mode;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("merchant_locale")
+    private String merchantLocale;
+    
+    
+    
+    
+    @JsonProperty("captured")
+    private Boolean captured;
+    
+    
+    
+}
+
+
+/*
+    Model: OrderDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderDetail{
+    
+    
+    
+    
+    @JsonProperty("gid")
+    private String gid;
+    
+    
+    
+    
+    @JsonProperty("aggregator")
+    private String aggregator;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Integer amount;
+    
+    
+    
+    
+    @JsonProperty("aggregator_order_details")
+    private Object aggregatorOrderDetails;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentSessionRequestSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentSessionRequestSerializer{
+    
+    
+    
+    
+    @JsonProperty("gid")
+    private String gid;
+    
+    
+    
+    
+    @JsonProperty("payment_details")
+    private List<PaymentSessionDetail> paymentDetails;
+    
+    
+    
+    
+    @JsonProperty("total_amount")
+    private Integer totalAmount;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("order_details")
+    private OrderDetail orderDetails;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentSessionResponseSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentSessionResponseSerializer{
+    
+    
+    
+    
+    @JsonProperty("gid")
+    private String gid;
+    
+    
+    
+    
+    @JsonProperty("platform_transaction_details")
+    private List<Object> platformTransactionDetails;
+    
+    
+    
+    
+    @JsonProperty("total_amount")
+    private Integer totalAmount;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+}
+
+
+/*
+    Model: RefundSessionDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundSessionDetail{
+    
+    
+    
+    
+    @JsonProperty("refund_utr")
+    private String refundUtr;
+    
+    
+    
+    
+    @JsonProperty("receipt_number")
+    private String receiptNumber;
+    
+    
+    
+    
+    @JsonProperty("balance_transaction")
+    private String balanceTransaction;
+    
+    
+    
+    
+    @JsonProperty("payment_id")
+    private String paymentId;
+    
+    
+    
+    
+    @JsonProperty("created")
+    private String created;
+    
+    
+    
+    
+    @JsonProperty("request_id")
+    private String requestId;
+    
+    
+    
+    
+    @JsonProperty("transfer_reversal")
+    private String transferReversal;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Integer amount;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("source_transfer_reversal")
+    private String sourceTransferReversal;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+    
+    @JsonProperty("reason")
+    private String reason;
+    
+    
+    
+}
+
+
+/*
+    Model: RefundSessionRequestSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundSessionRequestSerializer{
+    
+    
+    
+    
+    @JsonProperty("gid")
+    private String gid;
+    
+    
+    
+    
+    @JsonProperty("payment_details")
+    private PaymentSessionDetail paymentDetails;
+    
+    
+    
+    
+    @JsonProperty("total_amount")
+    private Integer totalAmount;
+    
+    
+    
+    
+    @JsonProperty("refund_details")
+    private List<RefundSessionDetail> refundDetails;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+}
+
+
+/*
+    Model: RefundSessionResponseSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundSessionResponseSerializer{
+    
+    
+    
+    
+    @JsonProperty("total_refund_amount")
+    private Integer totalRefundAmount;
+    
+    
+    
+    
+    @JsonProperty("gid")
+    private String gid;
+    
+    
+    
+    
+    @JsonProperty("platform_refund_details")
+    private List<Object> platformRefundDetails;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
     
     
     

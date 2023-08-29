@@ -899,8 +899,20 @@ interface CatalogPlatformApiList {
     
     
     
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/products/templates/{slug}/validation/schema/")
-    Call<CatalogPlatformModels.TemplatesValidationResponse> validateProductTemplate(@Path("company_id")  String companyId , @Path("slug") String  slug );
+    Call<CatalogPlatformModels.TemplatesValidationResponse> validateProductTemplate(@Path("company_id")  String companyId , @Path("slug") String  slug , @Query("item_type") String  itemType ,  @Query("bulk") Boolean  bulk );
+    
+    
+    
+    
+    
+    
     
     
     
@@ -912,7 +924,7 @@ interface CatalogPlatformApiList {
     
     
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/products/templates/{slug}/download/")
-    Call<String> downloadProductTemplateViews(@Path("company_id")  String companyId , @Path("slug") String  slug );
+    Call<String> downloadProductTemplateViews(@Path("company_id")  String companyId , @Path("slug") String  slug , @Query("item_type") String  itemType ,  @Query("type") String  type );
     
     
     

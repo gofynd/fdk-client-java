@@ -1797,7 +1797,7 @@ public static class Restrictions1{
     
     
     @JsonProperty("user_registered")
-    private UserRegistered userRegistered;
+    private Object userRegistered;
     
     
     
@@ -2158,6 +2158,12 @@ public static class PromotionListItem{
     
     @JsonProperty("date_meta")
     private PromotionDateMeta dateMeta;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
     
     
     
@@ -2790,14 +2796,14 @@ public static class Article{
     
     
     
-    @JsonProperty("meta")
-    private Object meta;
+    @JsonProperty("value")
+    private Double value;
     
     
     
     
-    @JsonProperty("article_id")
-    private String articleId;
+    @JsonProperty("code")
+    private String code;
     
     
     
@@ -2808,14 +2814,20 @@ public static class Article{
     
     
     
-    @JsonProperty("value")
-    private Double value;
+    @JsonProperty("article_id")
+    private String articleId;
     
     
     
     
-    @JsonProperty("code")
-    private String code;
+    @JsonProperty("quantity")
+    private Integer quantity;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
     
     
     
@@ -2864,32 +2876,8 @@ public static class PriceAdjustmentUpdate{
     
     
     
-    @JsonProperty("apply_expiry")
-    private String applyExpiry;
-    
-    
-    
-    
-    @JsonProperty("cart_id")
-    private String cartId;
-    
-    
-    
-    
-    @JsonProperty("cart_value")
-    private Double cartValue;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
+    @JsonProperty("modified_by")
+    private String modifiedBy;
     
     
     
@@ -2900,26 +2888,32 @@ public static class PriceAdjustmentUpdate{
     
     
     
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("apply_expiry")
+    private String applyExpiry;
+    
+    
+    
+    
     @JsonProperty("article_level_distribution")
     private Boolean articleLevelDistribution;
     
     
     
     
-    @JsonProperty("article_ids")
-    private List<Article> articleIds;
+    @JsonProperty("collection")
+    private Collection collection;
     
     
     
     
-    @JsonProperty("modified_by")
-    private String modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("is_authenticated")
-    private Boolean isAuthenticated;
+    @JsonProperty("type")
+    private String type;
     
     
     
@@ -2930,14 +2924,26 @@ public static class PriceAdjustmentUpdate{
     
     
     
-    @JsonProperty("message")
-    private String message;
+    @JsonProperty("is_authenticated")
+    private Boolean isAuthenticated;
     
     
     
     
-    @JsonProperty("collection")
-    private Collection collection;
+    @JsonProperty("article_ids")
+    private List<Article> articleIds;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("cart_id")
+    private String cartId;
     
     
     
@@ -2958,68 +2964,8 @@ public static class PriceAdjustment{
     
     
     
-    @JsonProperty("apply_expiry")
-    private String applyExpiry;
-    
-    
-    
-    
-    @JsonProperty("cart_id")
-    private String cartId;
-    
-    
-    
-    
-    @JsonProperty("cart_value")
-    private Double cartValue;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
     @JsonProperty("value")
     private Double value;
-    
-    
-    
-    
-    @JsonProperty("article_level_distribution")
-    private Boolean articleLevelDistribution;
-    
-    
-    
-    
-    @JsonProperty("article_ids")
-    private List<Article> articleIds;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("is_authenticated")
-    private Boolean isAuthenticated;
-    
-    
-    
-    
-    @JsonProperty("allowed_refund")
-    private Boolean allowedRefund;
     
     
     
@@ -3030,8 +2976,62 @@ public static class PriceAdjustment{
     
     
     
+    @JsonProperty("apply_expiry")
+    private String applyExpiry;
+    
+    
+    
+    
+    @JsonProperty("article_level_distribution")
+    private Boolean articleLevelDistribution;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
     @JsonProperty("collection")
     private Collection collection;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("allowed_refund")
+    private Boolean allowedRefund;
+    
+    
+    
+    
+    @JsonProperty("is_authenticated")
+    private Boolean isAuthenticated;
+    
+    
+    
+    
+    @JsonProperty("article_ids")
+    private List<Article> articleIds;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("cart_id")
+    private String cartId;
     
     
     
@@ -3074,68 +3074,8 @@ public static class PriceAdjustmentAdd{
     
     
     
-    @JsonProperty("apply_expiry")
-    private String applyExpiry;
-    
-    
-    
-    
-    @JsonProperty("cart_id")
-    private String cartId;
-    
-    
-    
-    
-    @JsonProperty("cart_value")
-    private Double cartValue;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private String createdBy;
-    
-    
-    
-    
     @JsonProperty("value")
     private Double value;
-    
-    
-    
-    
-    @JsonProperty("article_level_distribution")
-    private Boolean articleLevelDistribution;
-    
-    
-    
-    
-    @JsonProperty("article_ids")
-    private List<Article> articleIds;
-    
-    
-    
-    
-    @JsonProperty("is_authenticated")
-    private Boolean isAuthenticated;
-    
-    
-    
-    
-    @JsonProperty("allowed_refund")
-    private Boolean allowedRefund;
     
     
     
@@ -3146,8 +3086,62 @@ public static class PriceAdjustmentAdd{
     
     
     
+    @JsonProperty("apply_expiry")
+    private String applyExpiry;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private String createdBy;
+    
+    
+    
+    
+    @JsonProperty("article_level_distribution")
+    private Boolean articleLevelDistribution;
+    
+    
+    
+    
     @JsonProperty("collection")
     private Collection collection;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("allowed_refund")
+    private Boolean allowedRefund;
+    
+    
+    
+    
+    @JsonProperty("is_authenticated")
+    private Boolean isAuthenticated;
+    
+    
+    
+    
+    @JsonProperty("article_ids")
+    private List<Article> articleIds;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("cart_id")
+    private String cartId;
     
     
     
@@ -8187,6 +8181,40 @@ public static class StaffCheckout{
 
 
 /*
+    Model: CustomerDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CustomerDetails{
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+}
+
+
+/*
     Model: Files
 */
 @AllArgsConstructor
@@ -8215,6 +8243,34 @@ public static class Files{
 
 
 /*
+    Model: CartCheckoutCustomMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CartCheckoutCustomMeta{
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+}
+
+
+/*
     Model: PlatformCartCheckoutDetailRequest
 */
 @AllArgsConstructor
@@ -8224,6 +8280,12 @@ public static class Files{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PlatformCartCheckoutDetailRequest{
+    
+    
+    
+    
+    @JsonProperty("custom_meta")
+    private List<CartCheckoutCustomMeta> customMeta;
     
     
     
@@ -8308,6 +8370,12 @@ public static class PlatformCartCheckoutDetailRequest{
     
     @JsonProperty("checkout_mode")
     private String checkoutMode;
+    
+    
+    
+    
+    @JsonProperty("customer_details")
+    private Object customerDetails;
     
     
     
@@ -9114,6 +9182,12 @@ public static class PlatformCartCheckoutDetailV2Request{
     
     @JsonProperty("checkout_mode")
     private String checkoutMode;
+    
+    
+    
+    
+    @JsonProperty("customer_details")
+    private Object customerDetails;
     
     
     

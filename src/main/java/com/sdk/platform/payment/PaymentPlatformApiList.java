@@ -593,4 +593,109 @@ interface PaymentPlatformApiList {
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/codes")
     Call<PaymentPlatformModels.GetPaymentCodeResponse> getPaymentCodeOption(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/session/{gid}")
+    Call<PaymentPlatformModels.PaymentSessionResponseSerializer> updatePaymentSession(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("gid") String  gid ,@Body PaymentPlatformModels.PaymentSessionRequestSerializer payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PUT ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/{gid}/refund/session/{request_id}")
+    Call<PaymentPlatformModels.RefundSessionResponseSerializer> updateRefundSession(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("gid") String  gid , @Path("request_id") String  requestId ,@Body PaymentPlatformModels.RefundSessionRequestSerializer payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/configuration")
+    Call<PaymentPlatformModels.MerchnatPaymentModeResponse> getMerchantPaymentOption(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PATCH ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/configuration")
+    Call<PaymentPlatformModels.MerchnatPaymentModeResponse> patchMerchantPaymentOption(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body PaymentPlatformModels.MerchnatPaymentModeRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/aggregators/{aggregator_id}")
+    Call<PaymentPlatformModels.MerchnatPaymentModeResponse> getMerchantAggregatorPaymentModeDetails(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("aggregator_id") Integer  aggregatorId , @Query("business_unit") String  businessUnit ,  @Query("device") String  device );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PATCH ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/aggregators/{aggregator_id}")
+    Call<PaymentPlatformModels.MerchnatPaymentModeResponse> patchMerchantAggregatorPaymentModeDetails(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Path("aggregator_id") Integer  aggregatorId ,@Body PaymentPlatformModels.MerchnatPaymentModeResponse payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/configuration/aggregator")
+    Call<PaymentPlatformModels.MerchnatPaymentModeResponse> getPGConfigAggregators(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
 }

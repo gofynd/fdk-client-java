@@ -9,108 +9,6 @@ public class BillingPlatformModels{
 
 
 /*
-    Model: Page
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Page{
-    
-    
-    
-    
-    @JsonProperty("item_total")
-    private Integer itemTotal;
-    
-    
-    
-    
-    @JsonProperty("next_id")
-    private String nextId;
-    
-    
-    
-    
-    @JsonProperty("has_previous")
-    private Boolean hasPrevious;
-    
-    
-    
-    
-    @JsonProperty("has_next")
-    private Boolean hasNext;
-    
-    
-    
-    
-    @JsonProperty("current")
-    private Integer current;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private Integer size;
-    
-    
-    
-}
-
-
-/*
-    Model: UnauthenticatedUser
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UnauthenticatedUser{
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
-    Model: UnauthenticatedApplication
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UnauthenticatedApplication{
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
     Model: BadRequest
 */
 @AllArgsConstructor
@@ -362,212 +260,6 @@ public static class Plan{
     
     @JsonProperty("modified_at")
     private String modifiedAt;
-    
-    
-    
-}
-
-
-/*
-    Model: DetailedPlanComponents
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DetailedPlanComponents{
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("group")
-    private String group;
-    
-    
-    
-    
-    @JsonProperty("icon")
-    private String icon;
-    
-    
-    
-    
-    @JsonProperty("links")
-    private Object links;
-    
-    
-    
-    
-    @JsonProperty("enabled")
-    private Boolean enabled;
-    
-    
-    
-    
-    @JsonProperty("display_text")
-    private String displayText;
-    
-    
-    
-    
-    @JsonProperty("config")
-    private Object config;
-    
-    
-    
-}
-
-
-/*
-    Model: DetailedPlan
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DetailedPlan{
-    
-    
-    
-    
-    @JsonProperty("recurring")
-    private PlanRecurring recurring;
-    
-    
-    
-    
-    @JsonProperty("is_trial_plan")
-    private Boolean isTrialPlan;
-    
-    
-    
-    
-    @JsonProperty("plan_group")
-    private String planGroup;
-    
-    
-    
-    
-    @JsonProperty("tag_lines")
-    private List<String> tagLines;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private String currency;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("is_visible")
-    private Boolean isVisible;
-    
-    
-    
-    
-    @JsonProperty("trial_period")
-    private Double trialPeriod;
-    
-    
-    
-    
-    @JsonProperty("addons")
-    private List<String> addons;
-    
-    
-    
-    
-    @JsonProperty("tags")
-    private List<String> tags;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("country")
-    private String country;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("amount")
-    private Double amount;
-    
-    
-    
-    
-    @JsonProperty("product_suite_id")
-    private String productSuiteId;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("modified_at")
-    private String modifiedAt;
-    
-    
-    
-    
-    @JsonProperty("components")
-    private List<DetailedPlanComponents> components;
     
     
     
@@ -1322,224 +1014,6 @@ public static class InvoiceDetailsStatusTrail{
     
     @JsonProperty("timestamp")
     private String timestamp;
-    
-    
-    
-}
-
-
-/*
-    Model: InvoiceDetailsPaymentMethodsDataChecks
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceDetailsPaymentMethodsDataChecks{
-    
-    
-    
-    
-    @JsonProperty("cvc_check")
-    private String cvcCheck;
-    
-    
-    
-    
-    @JsonProperty("address_line1_check")
-    private String addressLine1Check;
-    
-    
-    
-    
-    @JsonProperty("address_postal_code_check")
-    private String addressPostalCodeCheck;
-    
-    
-    
-}
-
-
-/*
-    Model: InvoiceDetailsPaymentMethodsDataNetworks
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceDetailsPaymentMethodsDataNetworks{
-    
-    
-    
-    
-    @JsonProperty("available")
-    private List<String> available;
-    
-    
-    
-    
-    @JsonProperty("preferred")
-    private String preferred;
-    
-    
-    
-}
-
-
-/*
-    Model: InvoiceDetailsPaymentMethodsDataThreeDSecureUsage
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceDetailsPaymentMethodsDataThreeDSecureUsage{
-    
-    
-    
-    
-    @JsonProperty("supported")
-    private Boolean supported;
-    
-    
-    
-}
-
-
-/*
-    Model: InvoiceDetailsPaymentMethodsData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceDetailsPaymentMethodsData{
-    
-    
-    
-    
-    @JsonProperty("brand")
-    private String brand;
-    
-    
-    
-    
-    @JsonProperty("last4")
-    private String last4;
-    
-    
-    
-    
-    @JsonProperty("checks")
-    private InvoiceDetailsPaymentMethodsDataChecks checks;
-    
-    
-    
-    
-    @JsonProperty("wallet")
-    private String wallet;
-    
-    
-    
-    
-    @JsonProperty("country")
-    private String country;
-    
-    
-    
-    
-    @JsonProperty("funding")
-    private String funding;
-    
-    
-    
-    
-    @JsonProperty("exp_year")
-    private Integer expYear;
-    
-    
-    
-    
-    @JsonProperty("networks")
-    private InvoiceDetailsPaymentMethodsDataNetworks networks;
-    
-    
-    
-    
-    @JsonProperty("exp_month")
-    private Integer expMonth;
-    
-    
-    
-    
-    @JsonProperty("fingerprint")
-    private String fingerprint;
-    
-    
-    
-    
-    @JsonProperty("generated_from")
-    private String generatedFrom;
-    
-    
-    
-    
-    @JsonProperty("three_d_secure_usage")
-    private InvoiceDetailsPaymentMethodsDataThreeDSecureUsage threeDSecureUsage;
-    
-    
-    
-}
-
-
-/*
-    Model: InvoiceDetailsPaymentMethods
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceDetailsPaymentMethods{
-    
-    
-    
-    
-    @JsonProperty("id")
-    private Integer id;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("pg_payment_method_id")
-    private String pgPaymentMethodId;
-    
-    
-    
-    
-    @JsonProperty("data")
-    private InvoiceDetailsPaymentMethodsData data;
-    
-    
-    
-    
-    @JsonProperty("is_default")
-    private Boolean isDefault;
     
     
     
@@ -3218,6 +2692,160 @@ public static class CancelSubscriptionRes{
     
     @JsonProperty("data")
     private Subscription data;
+    
+    
+    
+}
+
+
+/*
+    Model: PlanStatusUpdateReq
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PlanStatusUpdateReq{
+    
+    
+    
+    
+    @JsonProperty("plan_id")
+    private String planId;
+    
+    
+    
+    
+    @JsonProperty("reason")
+    private String reason;
+    
+    
+    
+    
+    @JsonProperty("seller_status")
+    private String sellerStatus;
+    
+    
+    
+}
+
+
+/*
+    Model: SunscribePlan
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SunscribePlan{
+    
+    
+    
+    
+    @JsonProperty("entity_type")
+    private String entityType;
+    
+    
+    
+    
+    @JsonProperty("collection_type")
+    private String collectionType;
+    
+    
+    
+    
+    @JsonProperty("plan_id")
+    private String planId;
+    
+    
+    
+    
+    @JsonProperty("callback_url")
+    private String callbackUrl;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Meta meta;
+    
+    
+    
+}
+
+
+/*
+    Model: Meta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Meta{
+    
+    
+    
+    
+    @JsonProperty("subscribe")
+    private Boolean subscribe;
+    
+    
+    
+    
+    @JsonProperty("is_custom_plan")
+    private Boolean isCustomPlan;
+    
+    
+    
+    
+    @JsonProperty("is_plan_upgrade")
+    private Boolean isPlanUpgrade;
+    
+    
+    
+}
+
+
+/*
+    Model: SubscribePlanRes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SubscribePlanRes{
+    
+    
+    
+    
+    @JsonProperty("redirect_url")
+    private String redirectUrl;
+    
+    
+    
+    
+    @JsonProperty("transaction_id")
+    private String transactionId;
+    
+    
+    
+    
+    @JsonProperty("current_status")
+    private String currentStatus;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Meta meta;
     
     
     

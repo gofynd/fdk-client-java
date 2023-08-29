@@ -7,6 +7,7 @@
 ## Serviceability Methods
 Logistics Configuration API's allows you to configure zone, application logistics and many more useful features. 
 * [getApplicationServiceability](#getapplicationserviceability)
+* [updateApplicationServiceability](#updateapplicationserviceability)
 * [getEntityRegionView](#getentityregionview)
 * [getListView](#getlistview)
 * [getCompanyStoreView](#getcompanystoreview)
@@ -35,8 +36,8 @@ Logistics Configuration API's allows you to configure zone, application logistic
 * [getDpCompanyRules](#getdpcompanyrules)
 * [upsertDpApplicationRules](#upsertdpapplicationrules)
 * [getDpApplicationRules](#getdpapplicationrules)
-* [patchApplicationServiceabilitySelfShipment](#patchapplicationserviceabilityselfshipment)
-* [getApplicationServiceabilitySelfShipment](#getapplicationserviceabilityselfshipment)
+* [updateSelfShip](#updateselfship)
+* [getSelfShip](#getselfship)
 
 
 
@@ -84,9 +85,75 @@ Response Data
 ```json
 {
   "error": {
-    "type": null,
-    "value": null,
-    "message": null
+    "type": "",
+    "value": "",
+    "message": ""
+  },
+  "success": true,
+  "data": {
+    "channel_id": "5d656121a81320c2e6ee2a72",
+    "channel_type": "application",
+    "serviceability_type": "all"
+  }
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### updateApplicationServiceability
+Zone configuration of application.
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").serviceability.updateApplicationServiceability(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String | yes | A `application_id` is a unique identifier for a particular sale channel. |  
+| body | [ServiceabilityPayloadSchema](#ServiceabilityPayloadSchema) | yes | Request body |
+
+
+This API updates serviceability config of the application.
+
+*Returned Response:*
+
+
+
+
+[ApplicationServiceabilityConfigResponse](#ApplicationServiceabilityConfigResponse)
+
+Response Data
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "error": {
+    "type": "",
+    "value": "",
+    "message": ""
   },
   "success": true,
   "data": {
@@ -1852,14 +1919,14 @@ Response status_code
 ---
 
 
-### patchApplicationServiceabilitySelfShipment
+### updateSelfShip
 Self-ship configuration of application.
 
 
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").serviceability.patchApplicationServiceabilitySelfShipment(body body) {
+platformClient.application("<APPLICATION_ID>").serviceability.updateSelfShip(body body) {
   //use response
 }
 ```
@@ -1898,9 +1965,9 @@ Response Data
   },
   "success": true,
   "error": {
-    "type": null,
-    "value": null,
-    "message": null
+    "type": "",
+    "value": "",
+    "message": ""
   }
 }
 ```
@@ -1917,14 +1984,14 @@ Response Data
 ---
 
 
-### getApplicationServiceabilitySelfShipment
+### getSelfShip
 Self-ship configuration of application.
 
 
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").serviceability.getApplicationServiceabilitySelfShipment() {
+platformClient.application("<APPLICATION_ID>").serviceability.getSelfShip() {
   //use response
 }
 ```
@@ -1963,9 +2030,9 @@ Response Data
   },
   "success": true,
   "error": {
-    "type": null,
-    "value": null,
-    "message": null
+    "type": "",
+    "value": "",
+    "message": ""
   }
 }
 ```
@@ -1984,6 +2051,17 @@ Response Data
 
 
 ### Schemas
+
+ 
+ 
+ #### [ServiceabilityPayloadSchema](#ServiceabilityPayloadSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | serviceabilityType | String |  no  |  |
+
+---
+
 
  
  
@@ -3275,7 +3353,7 @@ Response Data
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | selfShip | [SelfShipResponse](#SelfShipResponse)? |  yes  |  |
+ | selfShip | HashMap<String,Object>? |  yes  |  |
 
 ---
 

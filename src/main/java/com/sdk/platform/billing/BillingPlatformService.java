@@ -590,6 +590,114 @@ public class BillingPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public List<BillingPlatformModels.Plan> getEnterprisePlans() throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<List<BillingPlatformModels.Plan>> response = null;
+            try {
+                response = billingPlatformApiList.getEnterprisePlans(this.companyId ).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public BillingPlatformModels.Plan planStatusUpdate(BillingPlatformModels.PlanStatusUpdateReq body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<BillingPlatformModels.Plan> response = null;
+            try {
+                response = billingPlatformApiList.planStatusUpdate(this.companyId , body).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public BillingPlatformModels.SubscribePlanRes subscripePlan(BillingPlatformModels.SunscribePlan body) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<BillingPlatformModels.SubscribePlanRes> response = null;
+            try {
+                response = billingPlatformApiList.subscripePlan(this.companyId , body).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
 
 
 
@@ -607,6 +715,12 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
+    
+    
+    
+    
+    
+    
     
     
     

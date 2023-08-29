@@ -495,6 +495,40 @@ public static class ProductListingPrice{
 
 
 /*
+    Model: ProductSizesPrice
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductSizesPrice{
+    
+    
+    
+    
+    @JsonProperty("effective")
+    private Price effective;
+    
+    
+    
+    
+    @JsonProperty("marked")
+    private Price marked;
+    
+    
+    
+    
+    @JsonProperty("selling")
+    private Price selling;
+    
+    
+    
+}
+
+
+/*
     Model: ProductDetail
 */
 @AllArgsConstructor
@@ -829,6 +863,46 @@ public static class Weight{
 
 
 /*
+    Model: DiscountMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DiscountMeta{
+    
+    
+    
+    
+    @JsonProperty("timer")
+    private Boolean timer;
+    
+    
+    
+    
+    @JsonProperty("start_timer_in_minutes")
+    private Double startTimerInMinutes;
+    
+    
+    
+    
+    @JsonProperty("start")
+    private String start;
+    
+    
+    
+    
+    @JsonProperty("end")
+    private String end;
+    
+    
+    
+}
+
+
+/*
     Model: ProductSize
 */
 @AllArgsConstructor
@@ -1119,7 +1193,7 @@ public static class ProductSizes{
     
     
     @JsonProperty("price")
-    private ProductListingPrice price;
+    private ProductSizesPrice price;
     
     
     
@@ -1150,6 +1224,12 @@ public static class ProductSizes{
     
     @JsonProperty("stores")
     private ProductSizeStores stores;
+    
+    
+    
+    
+    @JsonProperty("discount_meta")
+    private DiscountMeta discountMeta;
     
     
     
@@ -4569,7 +4649,7 @@ public static class ProductGroupingModel{
     
     
     @JsonProperty("logo")
-    private Object logo;
+    private String logo;
     
     
     
@@ -4990,14 +5070,26 @@ public static class ProductStockPriceV3{
     
     
     
-    @JsonProperty("currency")
-    private String currency;
+    @JsonProperty("currency_code")
+    private String currencyCode;
+    
+    
+    
+    
+    @JsonProperty("currency_symbol")
+    private String currencySymbol;
     
     
     
     
     @JsonProperty("marked")
     private Double marked;
+    
+    
+    
+    
+    @JsonProperty("selling")
+    private Double selling;
     
     
     
@@ -5107,6 +5199,34 @@ public static class SellerV3{
 
 
 /*
+    Model: PromiseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PromiseSchema{
+    
+    
+    
+    
+    @JsonProperty("min")
+    private String min;
+    
+    
+    
+    
+    @JsonProperty("max")
+    private String max;
+    
+    
+    
+}
+
+
+/*
     Model: ProductSizePriceResponseV3
 */
 @AllArgsConstructor
@@ -5198,6 +5318,12 @@ public static class ProductSizePriceResponseV3{
     
     
     
+    @JsonProperty("discount_meta")
+    private DiscountMeta discountMeta;
+    
+    
+    
+    
     @JsonProperty("discount")
     private String discount;
     
@@ -5242,6 +5368,12 @@ public static class ProductSizePriceResponseV3{
     
     @JsonProperty("seller")
     private SellerV3 seller;
+    
+    
+    
+    
+    @JsonProperty("delivery_promise")
+    private PromiseSchema deliveryPromise;
     
     
     

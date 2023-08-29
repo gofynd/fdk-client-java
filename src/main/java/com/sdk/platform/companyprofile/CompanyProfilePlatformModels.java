@@ -2007,6 +2007,36 @@ public static class GetLocationSerializer{
     
     
     
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("default_order_acceptance_timing")
+    private Boolean defaultOrderAcceptanceTiming;
+    
+    
+    
+    
+    @JsonProperty("order_acceptance_timing")
+    private List<LocationDayWiseSerializer> orderAcceptanceTiming;
+    
+    
+    
+    
+    @JsonProperty("avg_order_processing_time")
+    private AverageOrderProcessingTime avgOrderProcessingTime;
+    
+    
+    
+    
+    @JsonProperty("bulk_shipment")
+    private Boolean bulkShipment;
+    
+    
+    
 }
 
 
@@ -2253,6 +2283,36 @@ public static class LocationSerializer{
     
     
     
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("default_order_acceptance_timing")
+    private Boolean defaultOrderAcceptanceTiming;
+    
+    
+    
+    
+    @JsonProperty("order_acceptance_timing")
+    private List<LocationDayWiseSerializer> orderAcceptanceTiming;
+    
+    
+    
+    
+    @JsonProperty("avg_order_processing_time")
+    private AverageOrderProcessingTime avgOrderProcessingTime;
+    
+    
+    
+    
+    @JsonProperty("bulk_shipment")
+    private Boolean bulkShipment;
+    
+    
+    
 }
 
 
@@ -2272,6 +2332,62 @@ public static class BulkLocationSerializer{
     
     @JsonProperty("data")
     private List<LocationSerializer> data;
+    
+    
+    
+}
+
+
+/*
+    Model: AverageOrderProcessingTime
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AverageOrderProcessingTime{
+    
+    
+    
+    
+    @JsonProperty("duration")
+    private Integer duration;
+    
+    
+    
+    
+    @JsonProperty("duration_type")
+    private String durationType;
+    
+    
+    
+}
+
+
+/*
+    Model: StoreTagsResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StoreTagsResponseSchema{
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     

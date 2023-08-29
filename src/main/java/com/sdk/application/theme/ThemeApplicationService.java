@@ -42,9 +42,9 @@ import com.sdk.application.*;
             
                     relativeUrls.put("getPage","/service/application/theme/v1.0/{theme_id}/{page_value}".substring(1));
             
-                    relativeUrls.put("getAppliedTheme","/service/application/theme/v1.0/applied-theme".substring(1));
+                    relativeUrls.put("getAppliedTheme","/service/application/theme/v2.0/applied-theme".substring(1));
             
-                    relativeUrls.put("getThemeForPreview","/service/application/theme/v1.0/{theme_id}/preview".substring(1));
+                    relativeUrls.put("getThemeForPreview","/service/application/theme/v2.0/{theme_id}/preview".substring(1));
              
 
     }
