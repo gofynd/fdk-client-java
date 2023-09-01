@@ -465,7 +465,7 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.SubscriberResponse getSubscribersByCompany(Integer pageNo , Integer pageSize , Integer extensionId ) throws FDKServerResponseError, FDKException {
+    public WebhookPlatformModels.SubscriberResponse getSubscribersByCompany(Integer pageNo , Integer pageSize , String extensionId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<WebhookPlatformModels.SubscriberResponse> response = null;
             try {
@@ -625,7 +625,7 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.SubscriberConfigList getSubscribersByExtensionId(Integer pageNo , Integer pageSize , Integer extensionId ) throws FDKServerResponseError, FDKException {
+    public WebhookPlatformModels.SubscriberConfigList getSubscribersByExtensionId(Integer pageNo , Integer pageSize , String extensionId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<WebhookPlatformModels.SubscriberConfigList> response = null;
             try {

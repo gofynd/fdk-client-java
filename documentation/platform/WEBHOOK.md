@@ -44,7 +44,7 @@ platformClient.webhook.manualRetryOfFailedEvent(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | The ID of the company for which manual retry is to be initiated. |  
+| companyId | Integer | yes | The company id of the application |  
 | body | [EventProcessRequest](#EventProcessRequest) | yes | Request body |
 
 
@@ -98,7 +98,7 @@ platformClient.webhook.getEventCounts(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | The ID of the company for which manual retry is to be initiated. |  
+| companyId | Integer | yes | The company id of the application |  
 | body | [EventProcessRequest](#EventProcessRequest) | yes | Request body |
 
 
@@ -167,7 +167,7 @@ platformClient.webhook.getManualRetryStatus() {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | The ID of the company for which manual retry is to be initiated. |  
+| companyId | Integer | yes | The company id of the application |  
 
 
 
@@ -234,7 +234,7 @@ platformClient.webhook.manualRetryCancel() {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | The ID of the company for which manual retry is to be initiated. |  
+| companyId | Integer | yes | The company id of the application |  
 
 
 
@@ -288,7 +288,7 @@ platformClient.webhook.getDeliveryReports(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | The ID of the company for which manual retry is to be initiated. |  
+| companyId | Integer | yes | The company id of the application |  
 | body | [EventProcessRequest](#EventProcessRequest) | yes | Request body |
 
 
@@ -341,7 +341,7 @@ platformClient.webhook.downloadDeliveryReport(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | The ID of the company for which manual retry is to be initiated. |  
+| companyId | Integer | yes | The company id of the application |  
 | body | [EventProcessRequest](#EventProcessRequest) | yes | Request body |
 
 
@@ -394,7 +394,7 @@ platformClient.webhook.pingWebhook(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | The ID of the company for which manual retry is to be initiated. |  
+| companyId | Integer | yes | The company id of the application |  
 | body | [PingWebhook](#PingWebhook) | yes | Request body |
 
 
@@ -459,7 +459,7 @@ platformClient.webhook.fetchAllEventConfigurations() {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | The ID of the company for which manual retry is to be initiated. |  
+| companyId | Integer | yes | The company id of the application |  
 
 
 
@@ -535,7 +535,7 @@ platformClient.webhook.getReportFilters(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | The ID of the company for which manual retry is to be initiated. |  
+| companyId | Integer | yes | The company id of the application |  
 | body | [ReportFiltersPayload](#ReportFiltersPayload) | yes | Request body |
 
 
@@ -646,7 +646,7 @@ platformClient.webhook.getHistoricalReports(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | The ID of the company for which manual retry is to be initiated. |  
+| companyId | Integer | yes | The company id of the application |  
 | body | [HistoryPayload](#HistoryPayload) | yes | Request body |
 
 
@@ -699,7 +699,7 @@ platformClient.webhook.cancelJobByName( filename) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | The ID of the company for which manual retry is to be initiated. |   
+| companyId | Integer | yes | The company id of the application |   
 | filename | String | yes | Filename of the specific report export to cancel. |  
 
 
@@ -757,8 +757,8 @@ platformClient.webhook.getSubscribersByCompany( pageNo,  pageSize,  extensionId)
 | --------- | -----  | -------- | ----------- | 
 | pageNo | Integer? | no | Page Number |   
 | pageSize | Integer? | no | Page Size |   
-| extensionId | Integer? | no | extension_id |   
-| companyId | Integer | yes | The ID of the company for which manual retry is to be initiated. |  
+| extensionId | String? | no | extension_id |   
+| companyId | Integer | yes | The company id of the application |  
 
 
 
@@ -878,7 +878,7 @@ platformClient.webhook.registerSubscriberToEvent(body body) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | The ID of the company for which manual retry is to be initiated. |  
+| companyId | Integer | yes | The company id of the application |  
 | body | [SubscriberConfig](#SubscriberConfig) | yes | Request body |
 
 
@@ -1040,8 +1040,8 @@ platformClient.webhook.getSubscriberById( subscriberId) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | The ID of the company for which manual retry is to be initiated. |   
-| subscriberId | Integer | yes | The ID of the company for which manual retry is to be initiated. |  
+| companyId | Integer | yes | The company id of the application |   
+| subscriberId | Integer | yes | subscriber id |  
 
 
 
@@ -1453,8 +1453,8 @@ platformClient.webhook.getSubscribersByExtensionId( pageNo,  pageSize,  extensio
 | --------- | -----  | -------- | ----------- | 
 | pageNo | Integer? | no | Page Number |   
 | pageSize | Integer? | no | Page Size |   
-| companyId | Integer | yes | The ID of the company for which manual retry is to be initiated. |   
-| extensionId | Integer | yes | The ID of the company for which manual retry is to be initiated. |  
+| companyId | Integer | yes | The company id of the application |   
+| extensionId | String | yes | extension id |  
 
 
 

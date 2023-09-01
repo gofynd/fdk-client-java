@@ -1378,6 +1378,12 @@ public static class RawBreakup{
     
     
     
+    @JsonProperty("mop_total")
+    private Double mopTotal;
+    
+    
+    
+    
     @JsonProperty("coupon")
     private Double coupon;
     
