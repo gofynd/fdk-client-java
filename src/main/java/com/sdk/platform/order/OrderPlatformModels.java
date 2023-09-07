@@ -6053,7 +6053,7 @@ public static class GSTDetailsData{
     
     
     @JsonProperty("igst_gst_fee")
-    private String igstGstFee;
+    private Double igstGstFee;
     
     
     
@@ -6065,7 +6065,7 @@ public static class GSTDetailsData{
     
     
     @JsonProperty("sgst_gst_fee")
-    private String sgstGstFee;
+    private Double sgstGstFee;
     
     
     
@@ -6083,7 +6083,7 @@ public static class GSTDetailsData{
     
     
     @JsonProperty("cgst_gst_fee")
-    private String cgstGstFee;
+    private Double cgstGstFee;
     
     
     
@@ -10955,7 +10955,7 @@ public static class OrderMeta{
     
     
     @JsonProperty("employee_id")
-    private Integer employeeId;
+    private String employeeId;
     
     
     

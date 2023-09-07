@@ -17,8 +17,14 @@ interface PaymentPlatformApiList {
     
     
     
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/aggregator/request")
-    Call<PaymentPlatformModels.PaymentGatewayConfigResponse> getBrandPaymentGatewayConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    Call<PaymentPlatformModels.PaymentGatewayConfigResponse> getBrandPaymentGatewayConfig(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("aggregator") String  aggregator ,  @Query("config_type") String  configType );
     
     
     

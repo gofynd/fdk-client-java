@@ -6731,12 +6731,12 @@ We are processing the request!
  | igstTaxPercentage | Double? |  yes  |  |
  | gstTaxPercentage | Double? |  yes  |  |
  | hsnCodeId | String? |  yes  |  |
- | igstGstFee | String? |  yes  |  |
+ | igstGstFee | Double? |  yes  |  |
  | isDefaultHsnCode | Boolean? |  yes  |  |
- | sgstGstFee | String? |  yes  |  |
+ | sgstGstFee | Double? |  yes  |  |
  | taxCollectedAtSource | Double |  no  |  |
  | brandCalculatedAmount | Double |  no  |  |
- | cgstGstFee | String? |  yes  |  |
+ | cgstGstFee | Double? |  yes  |  |
  | gstTag | String? |  yes  |  |
  | sgstTaxPercentage | Double? |  yes  |  |
  | hsnCode | String? |  yes  |  |
@@ -8053,7 +8053,7 @@ We are processing the request!
  | orderChildEntities | ArrayList<String>? |  yes  |  |
  | orderType | String? |  yes  |  |
  | orderPlatform | String? |  yes  |  |
- | employeeId | Integer? |  yes  |  |
+ | employeeId | String? |  yes  |  |
  | orderTags | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | customerNote | String? |  yes  |  |
  | staff | HashMap<String,Object>? |  yes  |  |

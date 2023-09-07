@@ -544,12 +544,20 @@ public class ApplicationClient {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public PaymentPlatformModels.PaymentGatewayConfigResponse getBrandPaymentGatewayConfig() throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentGatewayConfigResponse getBrandPaymentGatewayConfig(String aggregator , String configType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PaymentPlatformModels.PaymentGatewayConfigResponse> response = null;
             try {
-            response = paymentPlatformApiList.getBrandPaymentGatewayConfig(this.companyId , this.applicationId ).execute();
+            response = paymentPlatformApiList.getBrandPaymentGatewayConfig(this.companyId , this.applicationId ,aggregator , configType ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

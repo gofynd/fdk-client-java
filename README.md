@@ -1,17 +1,16 @@
 # FDK Java
 
-
 FDK client for Java language
 
-
 ## Getting Started
+
 Get started with the Java Development SDK for Fynd Platform
 
+## Usage
 
-# Usage
+1. Create a new Maven project or use an existing one. Open the project's `pom.xml` file and add the following dependency to the `<dependencies>` section:
 
-1. Create Maven project and add the dependency in the pom.xml 
-```
+```xml
 <dependency>
     <groupId>com.github.gofynd</groupId>
     <artifactId>fdk-client-java</artifactId>
@@ -19,8 +18,11 @@ Get started with the Java Development SDK for Fynd Platform
 </dependency>
 ```
 
-2. Add it in your root pom.xml at the end of repositories:
-```
+make sure to check the available version list on [jitpack](https://jitpack.io/#gofynd/fdk-client-java) and use the appropriate version number.
+
+2. Add the Jitpack repository to your project's `pom.xml` file. Place the following code snippet at the end of the `<repositories>` section:
+
+```xml
 <repositories>
     <repository>
         <id>jitpack.io</id>
@@ -29,7 +31,7 @@ Get started with the Java Development SDK for Fynd Platform
 </repositories>
 ```
 
-3. Start integrating
+3. Now you can start integrating the Java FDK Clients into your app. Below are two sample usage scenarios demonstrating how to use the `ApplicationClient` and `PlatformClient` classes.
 
 ### Sample Usage - ApplicationClient
 

@@ -1057,7 +1057,7 @@ public static class SubscriberResponse{
     
     
     @JsonProperty("status")
-    private String status;
+    private SubscriberStatus status;
     
     
     
@@ -1201,7 +1201,7 @@ public static class SubscriberConfig{
     
     
     @JsonProperty("status")
-    private String status;
+    private SubscriberStatus status;
     
     
     
@@ -1254,6 +1254,29 @@ public static class SubscriberConfigList{
 }
 
 
+
+
+    
+    /*
+        Enum: SubscriberStatus
+        Used By: Webhook
+    */
+    @Getter
+    public enum SubscriberStatus {
+
+        
+        active("active"), 
+        
+        inactive("inactive"), 
+        
+        blocked("blocked");
+        
+
+        private String priority;
+        SubscriberStatus(String priority) {
+            this.priority = priority;
+        }
+    }
 
 
 }

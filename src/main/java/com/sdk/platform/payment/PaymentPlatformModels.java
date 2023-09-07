@@ -287,6 +287,68 @@ public static class IntentAppErrorList{
 
 
 /*
+    Model: ProductCODData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductCODData{
+    
+    
+    
+    
+    @JsonProperty("items")
+    private Object items;
+    
+    
+    
+    
+    @JsonProperty("cod_charges")
+    private Object codCharges;
+    
+    
+    
+}
+
+
+/*
+    Model: CODChargesLimitsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CODChargesLimitsResponse{
+    
+    
+    
+    
+    @JsonProperty("max_cart_value")
+    private Double maxCartValue;
+    
+    
+    
+    
+    @JsonProperty("min_cart_value")
+    private Double minCartValue;
+    
+    
+    
+    
+    @JsonProperty("cod_charge")
+    private Double codCharge;
+    
+    
+    
+}
+
+
+/*
     Model: PaymentModeLogo
 */
 @AllArgsConstructor
@@ -520,6 +582,18 @@ public static class PaymentModeList{
     
     @JsonProperty("aggregator_name")
     private String aggregatorName;
+    
+    
+    
+    
+    @JsonProperty("cod_charges")
+    private Double codCharges;
+    
+    
+    
+    
+    @JsonProperty("product_cod_data")
+    private Object productCodData;
     
     
     
