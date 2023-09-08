@@ -2271,6 +2271,12 @@ public static class AffiliateConfig{
     
     
     
+    
+    @JsonProperty("app_company_id")
+    private Integer appCompanyId;
+    
+    
+    
 }
 
 
@@ -8359,6 +8365,12 @@ public static class OrderDetailsData{
     
     
     
+    
+    @JsonProperty("meta")
+    private OrderMeta meta;
+    
+    
+    
 }
 
 
@@ -9220,6 +9232,12 @@ public static class AffiliateDetails{
     
     @JsonProperty("pdf_links")
     private PDFLinks pdfLinks;
+    
+    
+    
+    
+    @JsonProperty("config")
+    private AffiliateConfig config;
     
     
     
@@ -10638,6 +10656,30 @@ public static class PlatformShipment{
     
     @JsonProperty("shipment_created_at")
     private String shipmentCreatedAt;
+    
+    
+    
+    
+    @JsonProperty("previous_shipment_id")
+    private String previousShipmentId;
+    
+    
+    
+    
+    @JsonProperty("shipment_update_time")
+    private Double shipmentUpdateTime;
+    
+    
+    
+    
+    @JsonProperty("rto_address")
+    private PlatformDeliveryAddress rtoAddress;
+    
+    
+    
+    
+    @JsonProperty("credit_note_id")
+    private String creditNoteId;
     
     
     
