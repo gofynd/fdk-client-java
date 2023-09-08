@@ -1863,7 +1863,7 @@ interface CatalogPlatformApiList {
     
     
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/raw-products/")
-    Call<CatalogPlatformModels.ProductListingResponse> getAppProducts(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("brand_ids") List<Integer>  brandIds ,  @Query("category_ids") List<Integer>  categoryIds ,  @Query("department_ids") List<Integer>  departmentIds ,  @Query("tags") List<String>  tags ,  @Query("item_ids") List<Integer>  itemIds ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("q") String  q );
+    Call<CatalogPlatformModels.RawProductListingResponse> getAppProducts(@Path("company_id")  String companyId , @Path("application_id")  String applicationId , @Query("brand_ids") List<Integer>  brandIds ,  @Query("category_ids") List<Integer>  categoryIds ,  @Query("department_ids") List<Integer>  departmentIds ,  @Query("tags") List<String>  tags ,  @Query("item_ids") List<Integer>  itemIds ,  @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("q") String  q );
     
     
     

@@ -5942,9 +5942,9 @@ public class ApplicationClient {
     
     
 
-    public CatalogPlatformModels.ProductListingResponse getAppProducts(List<Integer> brandIds , List<Integer> categoryIds , List<Integer> departmentIds , List<String> tags , List<Integer> itemIds , Integer pageNo , Integer pageSize , String q ) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.RawProductListingResponse getAppProducts(List<Integer> brandIds , List<Integer> categoryIds , List<Integer> departmentIds , List<String> tags , List<Integer> itemIds , Integer pageNo , Integer pageSize , String q ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ProductListingResponse> response = null;
+            Response<CatalogPlatformModels.RawProductListingResponse> response = null;
             try {
             response = catalogPlatformApiList.getAppProducts(this.companyId , this.applicationId ,brandIds , categoryIds , departmentIds , tags , itemIds , pageNo , pageSize , q ).execute();
                 if (!response.isSuccessful()) {
