@@ -9963,7 +9963,7 @@ public static class CurrentStatus{
     
     
     @JsonProperty("updated_at")
-    private Integer updatedAt;
+    private String updatedAt;
     
     
     
