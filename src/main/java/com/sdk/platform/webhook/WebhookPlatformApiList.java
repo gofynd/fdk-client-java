@@ -4,176 +4,53 @@ import retrofit2.http.*;
 import retrofit2.Call;
 import java.util.*;
 
-
-
 interface WebhookPlatformApiList {
-    
-    
-    
-    
-    
-    
-    
+
     @POST ("/service/platform/webhook/v1.0/company/{company_id}/retry")
-    Call<WebhookPlatformModels.EventProcessedSuccessResponse> manualRetryOfFailedEvent(@Path("company_id")  String companyId ,@Body WebhookPlatformModels.EventProcessRequest payload);
-    
-    
-    
-    
-    
-    
-    
+    Call<WebhookPlatformModels.EventProcessedSuccessResponse> manualRetryOfFailedEvent(@Path("company_id") String companyId, @Body WebhookPlatformModels.EventProcessRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
     @POST ("/service/platform/webhook/v1.0/company/{company_id}/retry/events/counts")
-    Call<WebhookPlatformModels.FailedEventsCountSuccessResponse> getEventCounts(@Path("company_id")  String companyId ,@Body WebhookPlatformModels.EventProcessRequest payload);
-    
-    
-    
-    
-    
-    
-    
+    Call<WebhookPlatformModels.FailedEventsCountSuccessResponse> getEventCounts(@Path("company_id") String companyId, @Body WebhookPlatformModels.EventProcessRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/webhook/v1.0/company/{company_id}/retry/status")
-    Call<WebhookPlatformModels.RetryStatusResponse> getManualRetryStatus(@Path("company_id")  String companyId );
-    
-    
-    
-    
-    
-    
-    
+    Call<WebhookPlatformModels.RetryStatusResponse> getManualRetryStatus(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
+
     @DELETE ("/service/platform/webhook/v1.0/company/{company_id}/retry/cancel")
-    Call<WebhookPlatformModels.EventSuccessResponse> manualRetryCancel(@Path("company_id")  String companyId );
-    
-    
-    
-    
-    
-    
-    
+    Call<WebhookPlatformModels.EventSuccessResponse> manualRetryCancel(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
+
     @POST ("/service/platform/webhook/v1.0/company/{company_id}/reports/event_processed")
-    Call<WebhookPlatformModels.EventProcessReports> getDeliveryReports(@Path("company_id")  String companyId ,@Body WebhookPlatformModels.EventProcessRequest payload);
-    
-    
-    
-    
-    
-    
-    
+    Call<WebhookPlatformModels.EventProcessReports> getDeliveryReports(@Path("company_id") String companyId, @Body WebhookPlatformModels.EventProcessRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
     @POST ("/service/platform/webhook/v1.0/company/{company_id}/reports/download")
-    Call<Object> downloadDeliveryReport(@Path("company_id")  String companyId ,@Body WebhookPlatformModels.EventProcessRequest payload);
-    
-    
-    
-    
-    
-    
-    
+    Call<Object> downloadDeliveryReport(@Path("company_id") String companyId, @Body WebhookPlatformModels.EventProcessRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
     @POST ("/service/platform/webhook/v1.0/company/{company_id}/subscriber/ping")
-    Call<WebhookPlatformModels.PingWebhookResponse> pingWebhook(@Path("company_id")  String companyId ,@Body WebhookPlatformModels.PingWebhook payload);
-    
-    
-    
-    
-    
-    
-    
+    Call<WebhookPlatformModels.PingWebhookResponse> pingWebhook(@Path("company_id") String companyId, @Body WebhookPlatformModels.PingWebhook payload, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/webhook/v1.0/company/{company_id}/events")
-    Call<WebhookPlatformModels.EventConfigResponse> fetchAllEventConfigurations(@Path("company_id")  String companyId );
-    
-    
-    
-    
-    
-    
-    
+    Call<WebhookPlatformModels.EventConfigResponse> fetchAllEventConfigurations(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
+
     @POST ("/service/platform/webhook/v1.0/company/{company_id}/filters")
-    Call<WebhookPlatformModels.ReportFilterResponse> getReportFilters(@Path("company_id")  String companyId ,@Body WebhookPlatformModels.ReportFiltersPayload payload);
-    
-    
-    
-    
-    
-    
-    
+    Call<WebhookPlatformModels.ReportFilterResponse> getReportFilters(@Path("company_id") String companyId, @Body WebhookPlatformModels.ReportFiltersPayload payload, @HeaderMap Map<String, String> requestHeaders);
+
     @POST ("/service/platform/webhook/v1.0/company/{company_id}/reports/history")
-    Call<WebhookPlatformModels.HistoryResponse> getHistoricalReports(@Path("company_id")  String companyId ,@Body WebhookPlatformModels.HistoryPayload payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    Call<WebhookPlatformModels.HistoryResponse> getHistoricalReports(@Path("company_id") String companyId, @Body WebhookPlatformModels.HistoryPayload payload, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/webhook/v1.0/company/{company_id}/reports/cancel/file/{filename}")
-    Call<WebhookPlatformModels.CancelResponse> cancelJobByName(@Path("company_id")  String companyId , @Path("filename") String  filename );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    Call<WebhookPlatformModels.CancelResponse> cancelJobByName(@Path("company_id") String companyId, @Path("filename") String filename, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/webhook/v1.0/company/{company_id}/subscriber")
-    Call<WebhookPlatformModels.SubscriberResponse> getSubscribersByCompany(@Path("company_id")  String companyId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize ,  @Query("extension_id") String  extensionId );
-    
-    
-    
-    
-    
-    
-    
+    Call<WebhookPlatformModels.SubscriberResponse> getSubscribersByCompany(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("extension_id") String extensionId, @HeaderMap Map<String, String> requestHeaders);
+
     @POST ("/service/platform/webhook/v1.0/company/{company_id}/subscriber")
-    Call<WebhookPlatformModels.SubscriberConfig> registerSubscriberToEvent(@Path("company_id")  String companyId ,@Body WebhookPlatformModels.SubscriberConfig payload);
-    
-    
-    
-    
-    
-    
-    
+    Call<WebhookPlatformModels.SubscriberConfig> registerSubscriberToEvent(@Path("company_id") String companyId, @Body WebhookPlatformModels.SubscriberConfig payload, @HeaderMap Map<String, String> requestHeaders);
+
     @PUT ("/service/platform/webhook/v1.0/company/{company_id}/subscriber")
-    Call<WebhookPlatformModels.SubscriberConfig> updateSubscriberConfig(@Path("company_id")  String companyId ,@Body WebhookPlatformModels.SubscriberConfig payload);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    Call<WebhookPlatformModels.SubscriberConfig> updateSubscriberConfig(@Path("company_id") String companyId, @Body WebhookPlatformModels.SubscriberConfig payload, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/webhook/v1.0/company/{company_id}/subscriber/{subscriber_id}")
-    Call<WebhookPlatformModels.SubscriberResponse> getSubscriberById(@Path("company_id")  String companyId , @Path("subscriber_id") Integer  subscriberId );
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    Call<WebhookPlatformModels.SubscriberResponse> getSubscriberById(@Path("company_id") String companyId, @Path("subscriber_id") Integer subscriberId, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/webhook/v1.0/company/{company_id}/extension/{extension_id}/subscriber")
-    Call<WebhookPlatformModels.SubscriberConfigList> getSubscribersByExtensionId(@Path("company_id")  String companyId , @Path("extension_id") String  extensionId , @Query("page_no") Integer  pageNo ,  @Query("page_size") Integer  pageSize );
-    
+    Call<WebhookPlatformModels.SubscriberConfigList> getSubscribersByExtensionId(@Path("company_id") String companyId, @Path("extension_id") String extensionId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 }

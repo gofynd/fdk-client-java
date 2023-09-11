@@ -11,10 +11,6 @@ import java.util.*;
 import com.sdk.universal.*;
 import com.sdk.common.*;
 
-
-
-
-
 @Getter
 public class PartnerPublicService {
     private PublicConfig publicConfig;
@@ -36,22 +32,19 @@ public class PartnerPublicService {
         return retrofitServiceFactory.createService(publicConfig.getDomain(),PartnerPublicApiList.class, interceptorList, cookieStore);
     }
 
+    public PartnerPublicModels.ExtensionUsingSlug getPanelExtensionDetails(String slug) throws IOException {
+        return this.getPanelExtensionDetails(slug, new HashMap<>());
+    }
+
+    public PartnerPublicModels.ExtensionUsingSlug getPanelExtensionDetails(String slug, Map<String, String> requestHeaders) throws IOException {
     
-    
-    
-    public PartnerPublicModels.ExtensionUsingSlug getPanelExtensionDetails(String slug ) throws IOException {
-    
-        Response<PartnerPublicModels.ExtensionUsingSlug> response = partnerPublicApiList.getPanelExtensionDetails(slug).execute();
+        Response<PartnerPublicModels.ExtensionUsingSlug> response = partnerPublicApiList.getPanelExtensionDetails(slug, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
-    }
-
-    
-    
-      
+    }  
 
     private interface Fields {
         String UNKNOWN_ERROR = "Unknown error";

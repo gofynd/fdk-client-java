@@ -13,11 +13,6 @@ import java.util.*;
 import com.sdk.platform.*;
 
 
-
-
-
-
-
 public class PartnerPlatformService {
     private PlatformConfig platformConfig;
 
@@ -49,7 +44,6 @@ public class PartnerPlatformService {
 
 
 
-
 public class ApplicationClient {
     private PlatformConfig platformConfig;
 
@@ -63,31 +57,15 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public PartnerPlatformModels.AddProxyResponse addProxyPath(String extensionId, PartnerPlatformModels.AddProxyReq body) throws FDKServerResponseError, FDKException {
+        return this.addProxyPath(extensionId, body, new HashMap<>());
+    }
 
-    public PartnerPlatformModels.AddProxyResponse addProxyPath(String extensionId ,PartnerPlatformModels.AddProxyReq body) throws FDKServerResponseError, FDKException {
+    public PartnerPlatformModels.AddProxyResponse addProxyPath(String extensionId, PartnerPlatformModels.AddProxyReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PartnerPlatformModels.AddProxyResponse> response = null;
             try {
-            response = partnerPlatformApiList.addProxyPath(this.companyId , this.applicationId , extensionId , body).execute();
+            response = partnerPlatformApiList.addProxyPath(this.companyId, this.applicationId, extensionId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -106,37 +84,15 @@ public class ApplicationClient {
         }    
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public PartnerPlatformModels.RemoveProxyResponse removeProxyPath(String extensionId, String attachedPath) throws FDKServerResponseError, FDKException {
+        return this.removeProxyPath(extensionId, attachedPath, new HashMap<>());
+    }
 
-    public PartnerPlatformModels.RemoveProxyResponse removeProxyPath(String extensionId , String attachedPath ) throws FDKServerResponseError, FDKException {
+    public PartnerPlatformModels.RemoveProxyResponse removeProxyPath(String extensionId, String attachedPath, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PartnerPlatformModels.RemoveProxyResponse> response = null;
             try {
-            response = partnerPlatformApiList.removeProxyPath(this.companyId , this.applicationId , extensionId , attachedPath ).execute();
+            response = partnerPlatformApiList.removeProxyPath(this.companyId, this.applicationId, extensionId, attachedPath, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -154,10 +110,6 @@ public class ApplicationClient {
             return null;
         }    
     }
-
-    
-    
-    
 
 }
 
