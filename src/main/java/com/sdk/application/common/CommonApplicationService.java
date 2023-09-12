@@ -12,6 +12,15 @@ import java.io.File;
 import com.sdk.common.*;
 import com.sdk.application.*;
 
+
+
+
+
+
+
+
+
+
 @Getter
  public class CommonApplicationService { 
 
@@ -21,23 +30,25 @@ import com.sdk.application.*;
 
     private CommonApplicationApiList commonApplicationApiList;
 
-    private HashMap<String,String> relativeUrls = new HashMap<String,String>();
+    private HashMap<String,String> relativeUrls  =new HashMap<String,String>();
 
     public CommonApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
         this.retrofitServiceFactory = new RetrofitServiceFactory();
         this.commonApplicationApiList = generateCommonApplicationApiList(this.applicationConfig.getPersistentCookieStore());
 
-        
-        relativeUrls.put("searchApplication","/service/common/configuration/v1.0/application/search-application".substring(1));
-        relativeUrls.put("getLocations","/service/common/configuration/v1.0/location".substring(1)); 
+           
+                    relativeUrls.put("searchApplication","/service/common/configuration/v1.0/application/search-application".substring(1));
+            
+                    relativeUrls.put("getLocations","/service/common/configuration/v1.0/location".substring(1));
+             
 
     }
 
-    public void update( HashMap<String,String> updatedUrlMap ){
-        for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
-            relativeUrls.put(entry.getKey(),entry.getValue());
-        }
+     public void update( HashMap<String,String> updatedUrlMap ){
+            for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
+                relativeUrls.put(entry.getKey(),entry.getValue());
+            }
     }
 
     private CommonApplicationApiList generateCommonApplicationApiList(CookieStore cookieStore) {
@@ -47,38 +58,44 @@ import com.sdk.application.*;
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),CommonApplicationApiList.class, interceptorList, cookieStore);
     }
 
-    public CommonApplicationModels.ApplicationResponse searchApplication(String authorization, String query) throws IOException {
-        return this.searchApplication(authorization, query, new HashMap<>());
-    }
-
-    public CommonApplicationModels.ApplicationResponse searchApplication(String authorization, String query, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("searchApplication");
-
-        Response<CommonApplicationModels.ApplicationResponse> response = commonApplicationApiList.searchApplication(fullUrl, authorization, query, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
     
 
-    public CommonApplicationModels.Locations getLocations(String locationType, String id) throws IOException {
-        return this.getLocations(locationType, id, new HashMap<>());
-    }
-
-    public CommonApplicationModels.Locations getLocations(String locationType, String id, Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getLocations");
+    
+    
+    public CommonApplicationModels.ApplicationResponse searchApplication(String authorization , String query ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("searchApplication");
+        
 
-        Response<CommonApplicationModels.Locations> response = commonApplicationApiList.getLocations(fullUrl, locationType, id, requestHeaders).execute();
+        Response<CommonApplicationModels.ApplicationResponse> response = commonApplicationApiList.searchApplication(fullUrl  ,authorization, query).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
+
+    
+    
+    
+    
+    
+    public CommonApplicationModels.Locations getLocations(String locationType , String id ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getLocations");
+        
+
+        Response<CommonApplicationModels.Locations> response = commonApplicationApiList.getLocations(fullUrl  ,locationType, id).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    
+    
       
 
     private interface Fields {

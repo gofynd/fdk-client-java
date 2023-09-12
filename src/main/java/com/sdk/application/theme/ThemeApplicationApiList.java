@@ -4,17 +4,20 @@ import retrofit2.http.*;
 import retrofit2.Call;
 import java.util.*;
 
+
+
 interface ThemeApplicationApiList {
-
+    
+    
     @GET 
-    Call<ThemeApplicationModels.AllAvailablePageSchema> getAllPages(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
+    Call<ThemeApplicationModels.AllAvailablePageSchema> getAllPages(@Url String url1);
+    
     @GET 
-    Call<ThemeApplicationModels.AvailablePageSchema> getPage(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
+    Call<ThemeApplicationModels.AvailablePageSchema> getPage(@Url String url1);
+    
     @GET 
-    Call<ThemeApplicationModels.ThemesSchema> getAppliedTheme(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
+    Call<ThemeApplicationModels.ThemesSchema> getAppliedTheme(@Url String url1);
+    
     @GET 
-    Call<ThemeApplicationModels.ThemesSchema> getThemeForPreview(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+    Call<ThemeApplicationModels.ThemesSchema> getThemeForPreview(@Url String url1);
 }

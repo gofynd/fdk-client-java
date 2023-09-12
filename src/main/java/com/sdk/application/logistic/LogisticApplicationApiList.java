@@ -4,20 +4,23 @@ import retrofit2.http.*;
 import retrofit2.Call;
 import java.util.*;
 
+
+
 interface LogisticApplicationApiList {
-
+    
+    
     @GET 
-    Call<LogisticApplicationModels.PincodeApiResponse> getPincodeCity(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
+    Call<LogisticApplicationModels.PincodeApiResponse> getPincodeCity(@Url String url1);
+    
     @POST 
-    Call<LogisticApplicationModels.TATViewResponse> getTatProduct(@Url String url1, @Body LogisticApplicationModels.TATViewRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
+    Call<LogisticApplicationModels.TATViewResponse> getTatProduct(@Url String url1 , @Body LogisticApplicationModels.TATViewRequest payload );
+    
     @GET 
-    Call<LogisticApplicationModels.CountryListResponse> getAllCountries(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
+    Call<LogisticApplicationModels.CountryListResponse> getAllCountries(@Url String url1);
+    
     @POST 
-    Call<LogisticApplicationModels.GetZoneFromPincodeViewResponse> getPincodeZones(@Url String url1, @Body LogisticApplicationModels.GetZoneFromPincodeViewRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
+    Call<LogisticApplicationModels.GetZoneFromPincodeViewResponse> getPincodeZones(@Url String url1 , @Body LogisticApplicationModels.GetZoneFromPincodeViewRequest payload );
+    
     @POST 
-    Call<LogisticApplicationModels.ReAssignStoreResponse> getOptimalLocations(@Url String url1, @Body LogisticApplicationModels.ReAssignStoreRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<LogisticApplicationModels.ReAssignStoreResponse> getOptimalLocations(@Url String url1 , @Body LogisticApplicationModels.ReAssignStoreRequest payload );
 }

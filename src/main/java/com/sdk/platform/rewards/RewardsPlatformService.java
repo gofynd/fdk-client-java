@@ -13,6 +13,11 @@ import java.util.*;
 import com.sdk.platform.*;
 
 
+
+
+
+
+
 public class RewardsPlatformService {
     private PlatformConfig platformConfig;
 
@@ -64,6 +69,7 @@ public class RewardsPlatformService {
 
 
 
+
 public class ApplicationClient {
     private PlatformConfig platformConfig;
 
@@ -77,15 +83,35 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
-    public RewardsPlatformModels.GiveawayResponse showGiveaways(String pageId, Integer pageSize) throws FDKServerResponseError, FDKException {
-        return this.showGiveaways(pageId, pageSize, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public RewardsPlatformModels.GiveawayResponse showGiveaways(String pageId, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public RewardsPlatformModels.GiveawayResponse showGiveaways(String pageId , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<RewardsPlatformModels.GiveawayResponse> response = null;
             try {
-            response = rewardsPlatformApiList.showGiveaways(this.companyId, this.applicationId, pageId, pageSize, requestHeaders).execute();
+            response = rewardsPlatformApiList.showGiveaways(this.companyId , this.applicationId ,pageId , pageSize ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -103,16 +129,30 @@ public class ApplicationClient {
             return null;
         }    
     }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     public RewardsPlatformModels.Giveaway saveGiveAway(RewardsPlatformModels.Giveaway body) throws FDKServerResponseError, FDKException {
-        return this.saveGiveAway(body, new HashMap<>());
-    }
-
-    public RewardsPlatformModels.Giveaway saveGiveAway(RewardsPlatformModels.Giveaway body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<RewardsPlatformModels.Giveaway> response = null;
             try {
-            response = rewardsPlatformApiList.saveGiveAway(this.companyId, this.applicationId, body, requestHeaders).execute();
+            response = rewardsPlatformApiList.saveGiveAway(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -131,15 +171,33 @@ public class ApplicationClient {
         }    
     }
 
-    public RewardsPlatformModels.Giveaway getGiveawayById(String id) throws FDKServerResponseError, FDKException {
-        return this.getGiveawayById(id, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public RewardsPlatformModels.Giveaway getGiveawayById(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public RewardsPlatformModels.Giveaway getGiveawayById(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<RewardsPlatformModels.Giveaway> response = null;
             try {
-            response = rewardsPlatformApiList.getGiveawayById(this.companyId, this.applicationId, id, requestHeaders).execute();
+            response = rewardsPlatformApiList.getGiveawayById(this.companyId , this.applicationId , id ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -158,15 +216,33 @@ public class ApplicationClient {
         }    
     }
 
-    public RewardsPlatformModels.Giveaway updateGiveAway(String id, RewardsPlatformModels.Giveaway body) throws FDKServerResponseError, FDKException {
-        return this.updateGiveAway(id, body, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public RewardsPlatformModels.Giveaway updateGiveAway(String id, RewardsPlatformModels.Giveaway body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public RewardsPlatformModels.Giveaway updateGiveAway(String id ,RewardsPlatformModels.Giveaway body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<RewardsPlatformModels.Giveaway> response = null;
             try {
-            response = rewardsPlatformApiList.updateGiveAway(this.companyId, this.applicationId, id, body, requestHeaders).execute();
+            response = rewardsPlatformApiList.updateGiveAway(this.companyId , this.applicationId , id , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -184,16 +260,30 @@ public class ApplicationClient {
             return null;
         }    
     }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     public List<RewardsPlatformModels.Offer> showOffers() throws FDKServerResponseError, FDKException {
-        return this.showOffers(new HashMap<>());
-    }
-
-    public List<RewardsPlatformModels.Offer> showOffers(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<List<RewardsPlatformModels.Offer>> response = null;
             try {
-            response = rewardsPlatformApiList.showOffers(this.companyId, this.applicationId, requestHeaders).execute();
+            response = rewardsPlatformApiList.showOffers(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -212,15 +302,33 @@ public class ApplicationClient {
         }    
     }
 
-    public RewardsPlatformModels.Offer getOfferByName(String name) throws FDKServerResponseError, FDKException {
-        return this.getOfferByName(name, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public RewardsPlatformModels.Offer getOfferByName(String name, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public RewardsPlatformModels.Offer getOfferByName(String name ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<RewardsPlatformModels.Offer> response = null;
             try {
-            response = rewardsPlatformApiList.getOfferByName(name, this.companyId, this.applicationId, requestHeaders).execute();
+            response = rewardsPlatformApiList.getOfferByName(name , this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -239,15 +347,33 @@ public class ApplicationClient {
         }    
     }
 
-    public RewardsPlatformModels.Offer updateOfferByName(String name, RewardsPlatformModels.Offer body) throws FDKServerResponseError, FDKException {
-        return this.updateOfferByName(name, body, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public RewardsPlatformModels.Offer updateOfferByName(String name, RewardsPlatformModels.Offer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public RewardsPlatformModels.Offer updateOfferByName(String name ,RewardsPlatformModels.Offer body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<RewardsPlatformModels.Offer> response = null;
             try {
-            response = rewardsPlatformApiList.updateOfferByName(name, this.companyId, this.applicationId, body, requestHeaders).execute();
+            response = rewardsPlatformApiList.updateOfferByName(name , this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -266,15 +392,33 @@ public class ApplicationClient {
         }    
     }
 
-    public RewardsPlatformModels.AppUser updateUserStatus(String userId, RewardsPlatformModels.AppUser body) throws FDKServerResponseError, FDKException {
-        return this.updateUserStatus(userId, body, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public RewardsPlatformModels.AppUser updateUserStatus(String userId, RewardsPlatformModels.AppUser body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public RewardsPlatformModels.AppUser updateUserStatus(String userId ,RewardsPlatformModels.AppUser body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<RewardsPlatformModels.AppUser> response = null;
             try {
-            response = rewardsPlatformApiList.updateUserStatus(userId, this.companyId, this.applicationId, body, requestHeaders).execute();
+            response = rewardsPlatformApiList.updateUserStatus(userId , this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -293,15 +437,33 @@ public class ApplicationClient {
         }    
     }
 
-    public RewardsPlatformModels.UserRes getUserDetails(String userId) throws FDKServerResponseError, FDKException {
-        return this.getUserDetails(userId, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public RewardsPlatformModels.UserRes getUserDetails(String userId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public RewardsPlatformModels.UserRes getUserDetails(String userId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<RewardsPlatformModels.UserRes> response = null;
             try {
-            response = rewardsPlatformApiList.getUserDetails(userId, this.companyId, this.applicationId, requestHeaders).execute();
+            response = rewardsPlatformApiList.getUserDetails(userId , this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -320,15 +482,41 @@ public class ApplicationClient {
         }    
     }
 
-    public RewardsPlatformModels.HistoryRes getUserPointsHistory(String userId, String pageId, Integer pageSize) throws FDKServerResponseError, FDKException {
-        return this.getUserPointsHistory(userId, pageId, pageSize, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public RewardsPlatformModels.HistoryRes getUserPointsHistory(String userId, String pageId, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public RewardsPlatformModels.HistoryRes getUserPointsHistory(String userId , String pageId , Integer pageSize ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<RewardsPlatformModels.HistoryRes> response = null;
             try {
-            response = rewardsPlatformApiList.getUserPointsHistory(userId, this.companyId, this.applicationId, pageId, pageSize, requestHeaders).execute();
+            response = rewardsPlatformApiList.getUserPointsHistory(userId , this.companyId , this.applicationId ,pageId , pageSize ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -346,6 +534,38 @@ public class ApplicationClient {
             return null;
         }    
     }
+
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
     /**
     * Summary: get paginator for getUserPointsHistory
@@ -382,16 +602,29 @@ public class ApplicationClient {
     });
     return paginator ;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     public RewardsPlatformModels.ConfigurationRes getRewardsConfiguration() throws FDKServerResponseError, FDKException {
-        return this.getRewardsConfiguration(new HashMap<>());
-    }
-
-    public RewardsPlatformModels.ConfigurationRes getRewardsConfiguration(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<RewardsPlatformModels.ConfigurationRes> response = null;
             try {
-            response = rewardsPlatformApiList.getRewardsConfiguration(this.companyId, this.applicationId, requestHeaders).execute();
+            response = rewardsPlatformApiList.getRewardsConfiguration(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -410,15 +643,29 @@ public class ApplicationClient {
         }    
     }
 
-    public RewardsPlatformModels.SetConfigurationRes setRewardsConfiguration(RewardsPlatformModels.ConfigurationRequest body) throws FDKServerResponseError, FDKException {
-        return this.setRewardsConfiguration(body, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public RewardsPlatformModels.SetConfigurationRes setRewardsConfiguration(RewardsPlatformModels.ConfigurationRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public RewardsPlatformModels.SetConfigurationRes setRewardsConfiguration(RewardsPlatformModels.ConfigurationRequest body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<RewardsPlatformModels.SetConfigurationRes> response = null;
             try {
-            response = rewardsPlatformApiList.setRewardsConfiguration(this.companyId, this.applicationId, body, requestHeaders).execute();
+            response = rewardsPlatformApiList.setRewardsConfiguration(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -436,6 +683,10 @@ public class ApplicationClient {
             return null;
         }    
     }
+
+    
+    
+    
 
 }
 

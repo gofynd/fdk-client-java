@@ -13,6 +13,11 @@ import java.util.*;
 import com.sdk.platform.*;
 
 
+
+
+
+
+
 public class CommonPlatformService {
     private PlatformConfig platformConfig;
 
@@ -52,15 +57,11 @@ public class CommonPlatformService {
     
     
 
-    public CommonPlatformModels.ApplicationResponse searchApplication(String authorization, String query) throws FDKServerResponseError, FDKException {
-        return this.searchApplication(authorization, query, new HashMap<>());
-    }
-
-    public CommonPlatformModels.ApplicationResponse searchApplication(String authorization, String query, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommonPlatformModels.ApplicationResponse searchApplication(String authorization , String query ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommonPlatformModels.ApplicationResponse> response = null;
             try {
-                response = commonPlatformApiList.searchApplication(query, requestHeaders).execute();
+                response = commonPlatformApiList.searchApplication(query ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -96,15 +97,11 @@ public class CommonPlatformService {
     
     
 
-    public CommonPlatformModels.Locations getLocations(String locationType, String id) throws FDKServerResponseError, FDKException {
-        return this.getLocations(locationType, id, new HashMap<>());
-    }
-
-    public CommonPlatformModels.Locations getLocations(String locationType, String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommonPlatformModels.Locations getLocations(String locationType , String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommonPlatformModels.Locations> response = null;
             try {
-                response = commonPlatformApiList.getLocations(locationType, id, requestHeaders).execute();
+                response = commonPlatformApiList.getLocations(locationType , id ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -125,6 +122,7 @@ public class CommonPlatformService {
     
     
     
+
 
 
 
@@ -140,6 +138,12 @@ public class ApplicationClient {
         this.applicationId = applicationId;
         this.companyId = this.platformConfig.getCompanyId();
     }
+
+    
+    
+    
+    
+    
 
 }
 

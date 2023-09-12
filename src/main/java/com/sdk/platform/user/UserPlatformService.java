@@ -13,6 +13,11 @@ import java.util.*;
 import com.sdk.platform.*;
 
 
+
+
+
+
+
 public class UserPlatformService {
     private PlatformConfig platformConfig;
 
@@ -74,6 +79,7 @@ public class UserPlatformService {
 
 
 
+
 public class ApplicationClient {
     private PlatformConfig platformConfig;
 
@@ -87,15 +93,39 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
-    public UserPlatformModels.CustomerListResponseSchema getCustomers(Object q, Integer pageSize, Integer pageNo) throws FDKServerResponseError, FDKException {
-        return this.getCustomers(q, pageSize, pageNo, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public UserPlatformModels.CustomerListResponseSchema getCustomers(Object q, Integer pageSize, Integer pageNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.CustomerListResponseSchema getCustomers(Object q , Integer pageSize , Integer pageNo ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.CustomerListResponseSchema> response = null;
             try {
-            response = userPlatformApiList.getCustomers(this.companyId, this.applicationId, q, pageSize, pageNo, requestHeaders).execute();
+            response = userPlatformApiList.getCustomers(this.companyId , this.applicationId ,q , pageSize , pageNo ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -114,15 +144,37 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.UserSearchResponseSchema searchUsers(String q, List<String> query) throws FDKServerResponseError, FDKException {
-        return this.searchUsers(q, query, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public UserPlatformModels.UserSearchResponseSchema searchUsers(String q, List<String> query, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserSearchResponseSchema searchUsers(String q , List<String> query ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.UserSearchResponseSchema> response = null;
             try {
-            response = userPlatformApiList.searchUsers(this.companyId, this.applicationId, q, query, requestHeaders).execute();
+            response = userPlatformApiList.searchUsers(this.companyId , this.applicationId ,q , query ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -141,15 +193,29 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.CreateUserResponseSchema createUser(UserPlatformModels.CreateUserRequestSchema body) throws FDKServerResponseError, FDKException {
-        return this.createUser(body, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public UserPlatformModels.CreateUserResponseSchema createUser(UserPlatformModels.CreateUserRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.CreateUserResponseSchema createUser(UserPlatformModels.CreateUserRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.CreateUserResponseSchema> response = null;
             try {
-            response = userPlatformApiList.createUser(this.companyId, this.applicationId, body, requestHeaders).execute();
+            response = userPlatformApiList.createUser(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -168,15 +234,29 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.BlockUserSuccess blockOrUnblockUsers(UserPlatformModels.BlockUserRequestSchema body) throws FDKServerResponseError, FDKException {
-        return this.blockOrUnblockUsers(body, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public UserPlatformModels.BlockUserSuccess blockOrUnblockUsers(UserPlatformModels.BlockUserRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.BlockUserSuccess blockOrUnblockUsers(UserPlatformModels.BlockUserRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.BlockUserSuccess> response = null;
             try {
-            response = userPlatformApiList.blockOrUnblockUsers(this.companyId, this.applicationId, body, requestHeaders).execute();
+            response = userPlatformApiList.blockOrUnblockUsers(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -195,15 +275,29 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.ArchiveUserSuccess archiveUser(UserPlatformModels.ArchiveUserRequestSchema body) throws FDKServerResponseError, FDKException {
-        return this.archiveUser(body, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public UserPlatformModels.ArchiveUserSuccess archiveUser(UserPlatformModels.ArchiveUserRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.ArchiveUserSuccess archiveUser(UserPlatformModels.ArchiveUserRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.ArchiveUserSuccess> response = null;
             try {
-            response = userPlatformApiList.archiveUser(this.companyId, this.applicationId, body, requestHeaders).execute();
+            response = userPlatformApiList.archiveUser(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -222,15 +316,29 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.UnDeleteUserSuccess unDeleteUser(UserPlatformModels.UnDeleteUserRequestSchema body) throws FDKServerResponseError, FDKException {
-        return this.unDeleteUser(body, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public UserPlatformModels.UnDeleteUserSuccess unDeleteUser(UserPlatformModels.UnDeleteUserRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UnDeleteUserSuccess unDeleteUser(UserPlatformModels.UnDeleteUserRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.UnDeleteUserSuccess> response = null;
             try {
-            response = userPlatformApiList.unDeleteUser(this.companyId, this.applicationId, body, requestHeaders).execute();
+            response = userPlatformApiList.unDeleteUser(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -249,15 +357,33 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.CreateUserResponseSchema updateUser(String userId, UserPlatformModels.UpdateUserRequestSchema body) throws FDKServerResponseError, FDKException {
-        return this.updateUser(userId, body, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public UserPlatformModels.CreateUserResponseSchema updateUser(String userId, UserPlatformModels.UpdateUserRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.CreateUserResponseSchema updateUser(String userId ,UserPlatformModels.UpdateUserRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.CreateUserResponseSchema> response = null;
             try {
-            response = userPlatformApiList.updateUser(this.companyId, this.applicationId, userId, body, requestHeaders).execute();
+            response = userPlatformApiList.updateUser(this.companyId , this.applicationId , userId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -276,15 +402,29 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.CreateUserSessionResponseSchema createUserSession(UserPlatformModels.CreateUserSessionRequestSchema body) throws FDKServerResponseError, FDKException {
-        return this.createUserSession(body, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public UserPlatformModels.CreateUserSessionResponseSchema createUserSession(UserPlatformModels.CreateUserSessionRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.CreateUserSessionResponseSchema createUserSession(UserPlatformModels.CreateUserSessionRequestSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.CreateUserSessionResponseSchema> response = null;
             try {
-            response = userPlatformApiList.createUserSession(this.companyId, this.applicationId, body, requestHeaders).execute();
+            response = userPlatformApiList.createUserSession(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -303,15 +443,41 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.SessionDeleteResponseSchema deleteSession(String id, String sessionId, String reason) throws FDKServerResponseError, FDKException {
-        return this.deleteSession(id, sessionId, reason, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public UserPlatformModels.SessionDeleteResponseSchema deleteSession(String id, String sessionId, String reason, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.SessionDeleteResponseSchema deleteSession(String id , String sessionId , String reason ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.SessionDeleteResponseSchema> response = null;
             try {
-            response = userPlatformApiList.deleteSession(this.companyId, this.applicationId, id, sessionId, reason, requestHeaders).execute();
+            response = userPlatformApiList.deleteSession(this.companyId , this.applicationId ,id , sessionId , reason ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -330,15 +496,33 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.SessionListResponseSchema getActiveSessions(String id) throws FDKServerResponseError, FDKException {
-        return this.getActiveSessions(id, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public UserPlatformModels.SessionListResponseSchema getActiveSessions(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.SessionListResponseSchema getActiveSessions(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.SessionListResponseSchema> response = null;
             try {
-            response = userPlatformApiList.getActiveSessions(this.companyId, this.applicationId, id, requestHeaders).execute();
+            response = userPlatformApiList.getActiveSessions(this.companyId , this.applicationId ,id ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -357,15 +541,37 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.SessionDeleteResponseSchema deleteActiveSessions(String id, String reason) throws FDKServerResponseError, FDKException {
-        return this.deleteActiveSessions(id, reason, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public UserPlatformModels.SessionDeleteResponseSchema deleteActiveSessions(String id, String reason, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.SessionDeleteResponseSchema deleteActiveSessions(String id , String reason ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.SessionDeleteResponseSchema> response = null;
             try {
-            response = userPlatformApiList.deleteActiveSessions(this.companyId, this.applicationId, id, reason, requestHeaders).execute();
+            response = userPlatformApiList.deleteActiveSessions(this.companyId , this.applicationId ,id , reason ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -383,16 +589,30 @@ public class ApplicationClient {
             return null;
         }    
     }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     public UserPlatformModels.PlatformSchema getPlatformConfig() throws FDKServerResponseError, FDKException {
-        return this.getPlatformConfig(new HashMap<>());
-    }
-
-    public UserPlatformModels.PlatformSchema getPlatformConfig(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.PlatformSchema> response = null;
             try {
-            response = userPlatformApiList.getPlatformConfig(this.companyId, this.applicationId, requestHeaders).execute();
+            response = userPlatformApiList.getPlatformConfig(this.companyId , this.applicationId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -410,16 +630,30 @@ public class ApplicationClient {
             return null;
         }    
     }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     public UserPlatformModels.PlatformSchema updatePlatformConfig(UserPlatformModels.PlatformSchema body) throws FDKServerResponseError, FDKException {
-        return this.updatePlatformConfig(body, new HashMap<>());
-    }
-
-    public UserPlatformModels.PlatformSchema updatePlatformConfig(UserPlatformModels.PlatformSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.PlatformSchema> response = null;
             try {
-            response = userPlatformApiList.updatePlatformConfig(this.companyId, this.applicationId, body, requestHeaders).execute();
+            response = userPlatformApiList.updatePlatformConfig(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -438,15 +672,29 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.UserGroupResponseSchema createUserGroup(UserPlatformModels.CreateUserGroupSchema body) throws FDKServerResponseError, FDKException {
-        return this.createUserGroup(body, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public UserPlatformModels.UserGroupResponseSchema createUserGroup(UserPlatformModels.CreateUserGroupSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserGroupResponseSchema createUserGroup(UserPlatformModels.CreateUserGroupSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.UserGroupResponseSchema> response = null;
             try {
-            response = userPlatformApiList.createUserGroup(this.companyId, this.applicationId, body, requestHeaders).execute();
+            response = userPlatformApiList.createUserGroup(this.companyId , this.applicationId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -465,15 +713,49 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.UserGroupListResponseSchema getUserGroups(String pageNo, String pageSize, String name, String status, Integer groupUid) throws FDKServerResponseError, FDKException {
-        return this.getUserGroups(pageNo, pageSize, name, status, groupUid, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public UserPlatformModels.UserGroupListResponseSchema getUserGroups(String pageNo, String pageSize, String name, String status, Integer groupUid, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserGroupListResponseSchema getUserGroups(String pageNo , String pageSize , String name , String status , Integer groupUid ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.UserGroupListResponseSchema> response = null;
             try {
-            response = userPlatformApiList.getUserGroups(this.companyId, this.applicationId, pageNo, pageSize, name, status, groupUid, requestHeaders).execute();
+            response = userPlatformApiList.getUserGroups(this.companyId , this.applicationId ,pageNo , pageSize , name , status , groupUid ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -492,15 +774,33 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.UserGroupResponseSchema updateUserGroup(String groupId, UserPlatformModels.UpdateUserGroupSchema body) throws FDKServerResponseError, FDKException {
-        return this.updateUserGroup(groupId, body, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public UserPlatformModels.UserGroupResponseSchema updateUserGroup(String groupId, UserPlatformModels.UpdateUserGroupSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserGroupResponseSchema updateUserGroup(String groupId ,UserPlatformModels.UpdateUserGroupSchema body) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.UserGroupResponseSchema> response = null;
             try {
-            response = userPlatformApiList.updateUserGroup(this.companyId, this.applicationId, groupId, body, requestHeaders).execute();
+            response = userPlatformApiList.updateUserGroup(this.companyId , this.applicationId , groupId , body).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -519,15 +819,33 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.UserGroupResponseSchema getUserGroupById(String groupId) throws FDKServerResponseError, FDKException {
-        return this.getUserGroupById(groupId, new HashMap<>());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public UserPlatformModels.UserGroupResponseSchema getUserGroupById(String groupId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserGroupResponseSchema getUserGroupById(String groupId ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.UserGroupResponseSchema> response = null;
             try {
-            response = userPlatformApiList.getUserGroupById(this.companyId, this.applicationId, groupId, requestHeaders).execute();
+            response = userPlatformApiList.getUserGroupById(this.companyId , this.applicationId , groupId ).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -545,6 +863,10 @@ public class ApplicationClient {
             return null;
         }    
     }
+
+    
+    
+    
 
 }
 

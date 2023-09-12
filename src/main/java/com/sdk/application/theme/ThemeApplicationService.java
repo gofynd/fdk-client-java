@@ -12,6 +12,15 @@ import java.io.File;
 import com.sdk.common.*;
 import com.sdk.application.*;
 
+
+
+
+
+
+
+
+
+
 @Getter
  public class ThemeApplicationService { 
 
@@ -21,25 +30,29 @@ import com.sdk.application.*;
 
     private ThemeApplicationApiList themeApplicationApiList;
 
-    private HashMap<String,String> relativeUrls = new HashMap<String,String>();
+    private HashMap<String,String> relativeUrls  =new HashMap<String,String>();
 
     public ThemeApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
         this.retrofitServiceFactory = new RetrofitServiceFactory();
         this.themeApplicationApiList = generateThemeApplicationApiList(this.applicationConfig.getPersistentCookieStore());
 
-        
-        relativeUrls.put("getAllPages","/service/application/theme/v1.0/{theme_id}/page".substring(1));
-        relativeUrls.put("getPage","/service/application/theme/v1.0/{theme_id}/{page_value}".substring(1));
-        relativeUrls.put("getAppliedTheme","/service/application/theme/v2.0/applied-theme".substring(1));
-        relativeUrls.put("getThemeForPreview","/service/application/theme/v2.0/{theme_id}/preview".substring(1)); 
+           
+                    relativeUrls.put("getAllPages","/service/application/theme/v1.0/{theme_id}/page".substring(1));
+            
+                    relativeUrls.put("getPage","/service/application/theme/v1.0/{theme_id}/{page_value}".substring(1));
+            
+                    relativeUrls.put("getAppliedTheme","/service/application/theme/v2.0/applied-theme".substring(1));
+            
+                    relativeUrls.put("getThemeForPreview","/service/application/theme/v2.0/{theme_id}/preview".substring(1));
+             
 
     }
 
-    public void update( HashMap<String,String> updatedUrlMap ){
-        for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
-            relativeUrls.put(entry.getKey(),entry.getValue());
-        }
+     public void update( HashMap<String,String> updatedUrlMap ){
+            for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
+                relativeUrls.put(entry.getKey(),entry.getValue());
+            }
     }
 
     private ThemeApplicationApiList generateThemeApplicationApiList(CookieStore cookieStore) {
@@ -49,76 +62,88 @@ import com.sdk.application.*;
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),ThemeApplicationApiList.class, interceptorList, cookieStore);
     }
 
-    public ThemeApplicationModels.AllAvailablePageSchema getAllPages(String themeId) throws IOException {
-        return this.getAllPages(themeId, new HashMap<>());
-    }
+    
 
-    public ThemeApplicationModels.AllAvailablePageSchema getAllPages(String themeId, Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getAllPages");
-        fullUrl = fullUrl.replace("{" + "theme_id" + "}",themeId.toString());
+    
+    
+    public ThemeApplicationModels.AllAvailablePageSchema getAllPages(String themeId ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getAllPages");
+        
+        fullUrl = fullUrl.replace("{" + "theme_id" +"}",themeId.toString());
+        
 
-        Response<ThemeApplicationModels.AllAvailablePageSchema> response = themeApplicationApiList.getAllPages(fullUrl, requestHeaders).execute();
+        Response<ThemeApplicationModels.AllAvailablePageSchema> response = themeApplicationApiList.getAllPages(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
+
     
-
-    public ThemeApplicationModels.AvailablePageSchema getPage(String themeId, String pageValue) throws IOException {
-        return this.getPage(themeId, pageValue, new HashMap<>());
-    }
-
-    public ThemeApplicationModels.AvailablePageSchema getPage(String themeId, String pageValue, Map<String, String> requestHeaders) throws IOException {
+    
+    
+    
+    
+    public ThemeApplicationModels.AvailablePageSchema getPage(String themeId , String pageValue ) throws IOException {
      
-        String fullUrl = relativeUrls.get("getPage");
-        fullUrl = fullUrl.replace("{" + "theme_id" + "}",themeId.toString());
-        fullUrl = fullUrl.replace("{" + "page_value" + "}",pageValue.toString());
+      String fullUrl = relativeUrls.get("getPage");
+        
+        fullUrl = fullUrl.replace("{" + "theme_id" +"}",themeId.toString());
+        
+        fullUrl = fullUrl.replace("{" + "page_value" +"}",pageValue.toString());
+        
 
-        Response<ThemeApplicationModels.AvailablePageSchema> response = themeApplicationApiList.getPage(fullUrl, requestHeaders).execute();
+        Response<ThemeApplicationModels.AvailablePageSchema> response = themeApplicationApiList.getPage(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
-    
 
+    
+    
+    
+    
+    
     public ThemeApplicationModels.ThemesSchema getAppliedTheme() throws IOException {
-        return this.getAppliedTheme(new HashMap<>());
-    }
-
-    public ThemeApplicationModels.ThemesSchema getAppliedTheme(Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getAppliedTheme");
+      String fullUrl = relativeUrls.get("getAppliedTheme");
+        
 
-        Response<ThemeApplicationModels.ThemesSchema> response = themeApplicationApiList.getAppliedTheme(fullUrl, requestHeaders).execute();
+        Response<ThemeApplicationModels.ThemesSchema> response = themeApplicationApiList.getAppliedTheme(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
+
     
-
-    public ThemeApplicationModels.ThemesSchema getThemeForPreview(String themeId) throws IOException {
-        return this.getThemeForPreview(themeId, new HashMap<>());
-    }
-
-    public ThemeApplicationModels.ThemesSchema getThemeForPreview(String themeId, Map<String, String> requestHeaders) throws IOException {
+    
+    
+    
+    
+    public ThemeApplicationModels.ThemesSchema getThemeForPreview(String themeId ) throws IOException {
      
-        String fullUrl = relativeUrls.get("getThemeForPreview");
-        fullUrl = fullUrl.replace("{" + "theme_id" + "}",themeId.toString());
+      String fullUrl = relativeUrls.get("getThemeForPreview");
+        
+        fullUrl = fullUrl.replace("{" + "theme_id" +"}",themeId.toString());
+        
 
-        Response<ThemeApplicationModels.ThemesSchema> response = themeApplicationApiList.getThemeForPreview(fullUrl, requestHeaders).execute();
+        Response<ThemeApplicationModels.ThemesSchema> response = themeApplicationApiList.getThemeForPreview(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
+
+    
+    
       
 
     private interface Fields {

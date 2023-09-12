@@ -12,6 +12,15 @@ import java.io.File;
 import com.sdk.common.*;
 import com.sdk.application.*;
 
+
+
+
+
+
+
+
+
+
 @Getter
  public class ConfigurationApplicationService { 
 
@@ -21,37 +30,53 @@ import com.sdk.application.*;
 
     private ConfigurationApplicationApiList configurationApplicationApiList;
 
-    private HashMap<String,String> relativeUrls = new HashMap<String,String>();
+    private HashMap<String,String> relativeUrls  =new HashMap<String,String>();
 
     public ConfigurationApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
         this.retrofitServiceFactory = new RetrofitServiceFactory();
         this.configurationApplicationApiList = generateConfigurationApplicationApiList(this.applicationConfig.getPersistentCookieStore());
 
-        
-        relativeUrls.put("getApplication","/service/application/configuration/v1.0/application".substring(1));
-        relativeUrls.put("getOwnerInfo","/service/application/configuration/v1.0/about".substring(1));
-        relativeUrls.put("getBasicDetails","/service/application/configuration/v1.0/detail".substring(1));
-        relativeUrls.put("getIntegrationTokens","/service/application/configuration/v1.0/token".substring(1));
-        relativeUrls.put("getOrderingStores","/service/application/configuration/v1.0/ordering-store/stores".substring(1));
-        relativeUrls.put("getStoreDetailById","/service/application/configuration/v1.0/ordering-store/stores/{store_id}".substring(1));
-        relativeUrls.put("getFeatures","/service/application/configuration/v1.0/feature".substring(1));
-        relativeUrls.put("getContactInfo","/service/application/configuration/v1.0/information".substring(1));
-        relativeUrls.put("getCurrencies","/service/application/configuration/v1.0/currencies".substring(1));
-        relativeUrls.put("getCurrencyById","/service/application/configuration/v1.0/currency/{id}".substring(1));
-        relativeUrls.put("getAppCurrencies","/service/application/configuration/v1.0/currency".substring(1));
-        relativeUrls.put("getLanguages","/service/application/configuration/v1.0/languages".substring(1));
-        relativeUrls.put("getOrderingStoreCookie","/service/application/configuration/v1.0/ordering-store/select".substring(1));
-        relativeUrls.put("removeOrderingStoreCookie","/service/application/configuration/v1.0/ordering-store/select".substring(1));
-        relativeUrls.put("getAppStaffList","/service/application/configuration/v1.0/staff/list".substring(1));
-        relativeUrls.put("getAppStaffs","/service/application/configuration/v1.0/staff".substring(1)); 
+           
+                    relativeUrls.put("getApplication","/service/application/configuration/v1.0/application".substring(1));
+            
+                    relativeUrls.put("getOwnerInfo","/service/application/configuration/v1.0/about".substring(1));
+            
+                    relativeUrls.put("getBasicDetails","/service/application/configuration/v1.0/detail".substring(1));
+            
+                    relativeUrls.put("getIntegrationTokens","/service/application/configuration/v1.0/token".substring(1));
+            
+                    relativeUrls.put("getOrderingStores","/service/application/configuration/v1.0/ordering-store/stores".substring(1));
+            
+                    relativeUrls.put("getStoreDetailById","/service/application/configuration/v1.0/ordering-store/stores/{store_id}".substring(1));
+            
+                    relativeUrls.put("getFeatures","/service/application/configuration/v1.0/feature".substring(1));
+            
+                    relativeUrls.put("getContactInfo","/service/application/configuration/v1.0/information".substring(1));
+            
+                    relativeUrls.put("getCurrencies","/service/application/configuration/v1.0/currencies".substring(1));
+            
+                    relativeUrls.put("getCurrencyById","/service/application/configuration/v1.0/currency/{id}".substring(1));
+            
+                    relativeUrls.put("getAppCurrencies","/service/application/configuration/v1.0/currency".substring(1));
+            
+                    relativeUrls.put("getLanguages","/service/application/configuration/v1.0/languages".substring(1));
+            
+                    relativeUrls.put("getOrderingStoreCookie","/service/application/configuration/v1.0/ordering-store/select".substring(1));
+            
+                    relativeUrls.put("removeOrderingStoreCookie","/service/application/configuration/v1.0/ordering-store/select".substring(1));
+            
+                    relativeUrls.put("getAppStaffList","/service/application/configuration/v1.0/staff/list".substring(1));
+            
+                    relativeUrls.put("getAppStaffs","/service/application/configuration/v1.0/staff".substring(1));
+             
 
     }
 
-    public void update( HashMap<String,String> updatedUrlMap ){
-        for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
-            relativeUrls.put(entry.getKey(),entry.getValue());
-        }
+     public void update( HashMap<String,String> updatedUrlMap ){
+            for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
+                relativeUrls.put(entry.getKey(),entry.getValue());
+            }
     }
 
     private ConfigurationApplicationApiList generateConfigurationApplicationApiList(CookieStore cookieStore) {
@@ -61,89 +86,116 @@ import com.sdk.application.*;
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),ConfigurationApplicationApiList.class, interceptorList, cookieStore);
     }
 
+    
+
+     
+    
+    
     public ConfigurationApplicationModels.Application getApplication() throws IOException {
-        return this.getApplication(new HashMap<>());
-    }
-
-    public ConfigurationApplicationModels.Application getApplication(Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getApplication");
+      String fullUrl = relativeUrls.get("getApplication");
+        
 
-        Response<ConfigurationApplicationModels.Application> response = configurationApplicationApiList.getApplication(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.Application> response = configurationApplicationApiList.getApplication(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
-    
 
+    
+    
+    
+    
+    
     public ConfigurationApplicationModels.ApplicationAboutResponse getOwnerInfo() throws IOException {
-        return this.getOwnerInfo(new HashMap<>());
-    }
-
-    public ConfigurationApplicationModels.ApplicationAboutResponse getOwnerInfo(Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getOwnerInfo");
+      String fullUrl = relativeUrls.get("getOwnerInfo");
+        
 
-        Response<ConfigurationApplicationModels.ApplicationAboutResponse> response = configurationApplicationApiList.getOwnerInfo(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.ApplicationAboutResponse> response = configurationApplicationApiList.getOwnerInfo(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
-    
 
+    
+    
+    
+    
+    
     public ConfigurationApplicationModels.ApplicationDetail getBasicDetails() throws IOException {
-        return this.getBasicDetails(new HashMap<>());
-    }
-
-    public ConfigurationApplicationModels.ApplicationDetail getBasicDetails(Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getBasicDetails");
+      String fullUrl = relativeUrls.get("getBasicDetails");
+        
 
-        Response<ConfigurationApplicationModels.ApplicationDetail> response = configurationApplicationApiList.getBasicDetails(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.ApplicationDetail> response = configurationApplicationApiList.getBasicDetails(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
-    
 
+    
+    
+    
+    
+    
     public ConfigurationApplicationModels.AppTokenResponse getIntegrationTokens() throws IOException {
-        return this.getIntegrationTokens(new HashMap<>());
-    }
-
-    public ConfigurationApplicationModels.AppTokenResponse getIntegrationTokens(Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getIntegrationTokens");
+      String fullUrl = relativeUrls.get("getIntegrationTokens");
+        
 
-        Response<ConfigurationApplicationModels.AppTokenResponse> response = configurationApplicationApiList.getIntegrationTokens(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.AppTokenResponse> response = configurationApplicationApiList.getIntegrationTokens(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
+
     
-
-    public ConfigurationApplicationModels.OrderingStores getOrderingStores(Integer pageNo, Integer pageSize, String q) throws IOException {
-        return this.getOrderingStores(pageNo, pageSize, q, new HashMap<>());
-    }
-
-    public ConfigurationApplicationModels.OrderingStores getOrderingStores(Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws IOException {
+    
+    
+    
+    
+    public ConfigurationApplicationModels.OrderingStores getOrderingStores(Integer pageNo , Integer pageSize , String q ) throws IOException {
      
-        String fullUrl = relativeUrls.get("getOrderingStores");
+      String fullUrl = relativeUrls.get("getOrderingStores");
+        
 
-        Response<ConfigurationApplicationModels.OrderingStores> response = configurationApplicationApiList.getOrderingStores(fullUrl, pageNo, pageSize, q, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.OrderingStores> response = configurationApplicationApiList.getOrderingStores(fullUrl  ,pageNo, pageSize, q).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
     /**
     * Summary: get paginator for getOrderingStores
@@ -178,180 +230,222 @@ import com.sdk.application.*;
             return null;
         }
     });
-    return paginator;
+    return paginator ;
     }
     
-
-    public ConfigurationApplicationModels.OrderingStore getStoreDetailById(Integer storeId) throws IOException {
-        return this.getStoreDetailById(storeId, new HashMap<>());
-    }
-
-    public ConfigurationApplicationModels.OrderingStore getStoreDetailById(Integer storeId, Map<String, String> requestHeaders) throws IOException {
+    
+    
+    public ConfigurationApplicationModels.OrderingStore getStoreDetailById(Integer storeId ) throws IOException {
      
-        String fullUrl = relativeUrls.get("getStoreDetailById");
-        fullUrl = fullUrl.replace("{" + "store_id" + "}",storeId.toString());
+      String fullUrl = relativeUrls.get("getStoreDetailById");
+        
+        fullUrl = fullUrl.replace("{" + "store_id" +"}",storeId.toString());
+        
 
-        Response<ConfigurationApplicationModels.OrderingStore> response = configurationApplicationApiList.getStoreDetailById(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.OrderingStore> response = configurationApplicationApiList.getStoreDetailById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
-    
 
+    
+    
+    
+    
+    
     public ConfigurationApplicationModels.AppFeatureResponse getFeatures() throws IOException {
-        return this.getFeatures(new HashMap<>());
-    }
-
-    public ConfigurationApplicationModels.AppFeatureResponse getFeatures(Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getFeatures");
+      String fullUrl = relativeUrls.get("getFeatures");
+        
 
-        Response<ConfigurationApplicationModels.AppFeatureResponse> response = configurationApplicationApiList.getFeatures(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.AppFeatureResponse> response = configurationApplicationApiList.getFeatures(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
-    
 
+    
+    
+    
+    
+    
     public ConfigurationApplicationModels.ApplicationInformation getContactInfo() throws IOException {
-        return this.getContactInfo(new HashMap<>());
-    }
-
-    public ConfigurationApplicationModels.ApplicationInformation getContactInfo(Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getContactInfo");
+      String fullUrl = relativeUrls.get("getContactInfo");
+        
 
-        Response<ConfigurationApplicationModels.ApplicationInformation> response = configurationApplicationApiList.getContactInfo(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.ApplicationInformation> response = configurationApplicationApiList.getContactInfo(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
-    
 
+    
+    
+    
+    
+    
     public ConfigurationApplicationModels.CurrenciesResponse getCurrencies() throws IOException {
-        return this.getCurrencies(new HashMap<>());
-    }
-
-    public ConfigurationApplicationModels.CurrenciesResponse getCurrencies(Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getCurrencies");
+      String fullUrl = relativeUrls.get("getCurrencies");
+        
 
-        Response<ConfigurationApplicationModels.CurrenciesResponse> response = configurationApplicationApiList.getCurrencies(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.CurrenciesResponse> response = configurationApplicationApiList.getCurrencies(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
+
     
-
-    public ConfigurationApplicationModels.Currency getCurrencyById(String id) throws IOException {
-        return this.getCurrencyById(id, new HashMap<>());
-    }
-
-    public ConfigurationApplicationModels.Currency getCurrencyById(String id, Map<String, String> requestHeaders) throws IOException {
+    
+    
+    
+    
+    public ConfigurationApplicationModels.Currency getCurrencyById(String id ) throws IOException {
      
-        String fullUrl = relativeUrls.get("getCurrencyById");
-        fullUrl = fullUrl.replace("{" + "id" + "}",id.toString());
+      String fullUrl = relativeUrls.get("getCurrencyById");
+        
+        fullUrl = fullUrl.replace("{" + "id" +"}",id.toString());
+        
 
-        Response<ConfigurationApplicationModels.Currency> response = configurationApplicationApiList.getCurrencyById(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.Currency> response = configurationApplicationApiList.getCurrencyById(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
-    
 
+    
+    
+    
+    
+    
     public ConfigurationApplicationModels.AppCurrencyResponse getAppCurrencies() throws IOException {
-        return this.getAppCurrencies(new HashMap<>());
-    }
-
-    public ConfigurationApplicationModels.AppCurrencyResponse getAppCurrencies(Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getAppCurrencies");
+      String fullUrl = relativeUrls.get("getAppCurrencies");
+        
 
-        Response<ConfigurationApplicationModels.AppCurrencyResponse> response = configurationApplicationApiList.getAppCurrencies(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.AppCurrencyResponse> response = configurationApplicationApiList.getAppCurrencies(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
-    
 
+    
+    
+    
+    
+    
     public ConfigurationApplicationModels.LanguageResponse getLanguages() throws IOException {
-        return this.getLanguages(new HashMap<>());
-    }
-
-    public ConfigurationApplicationModels.LanguageResponse getLanguages(Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getLanguages");
+      String fullUrl = relativeUrls.get("getLanguages");
+        
 
-        Response<ConfigurationApplicationModels.LanguageResponse> response = configurationApplicationApiList.getLanguages(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.LanguageResponse> response = configurationApplicationApiList.getLanguages(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
-    
 
+    
+    
+    
+    
+    
     public ConfigurationApplicationModels.SuccessMessageResponse getOrderingStoreCookie(ConfigurationApplicationModels.OrderingStoreSelectRequest body) throws IOException {
-        return this.getOrderingStoreCookie(body, new HashMap<>());
-    }
-
-    public ConfigurationApplicationModels.SuccessMessageResponse getOrderingStoreCookie(ConfigurationApplicationModels.OrderingStoreSelectRequest body, Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getOrderingStoreCookie");
+      String fullUrl = relativeUrls.get("getOrderingStoreCookie");
+        
 
-        Response<ConfigurationApplicationModels.SuccessMessageResponse> response = configurationApplicationApiList.getOrderingStoreCookie(fullUrl, body, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.SuccessMessageResponse> response = configurationApplicationApiList.getOrderingStoreCookie(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
-    
 
+    
+    
+    
+    
+    
     public ConfigurationApplicationModels.SuccessMessageResponse removeOrderingStoreCookie() throws IOException {
-        return this.removeOrderingStoreCookie(new HashMap<>());
-    }
-
-    public ConfigurationApplicationModels.SuccessMessageResponse removeOrderingStoreCookie(Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("removeOrderingStoreCookie");
+      String fullUrl = relativeUrls.get("removeOrderingStoreCookie");
+        
 
-        Response<ConfigurationApplicationModels.SuccessMessageResponse> response = configurationApplicationApiList.removeOrderingStoreCookie(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.SuccessMessageResponse> response = configurationApplicationApiList.removeOrderingStoreCookie(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
+
     
-
-    public ConfigurationApplicationModels.AppStaffListResponse getAppStaffList(Integer pageNo, Integer pageSize, Boolean orderIncent, Integer orderingStore, String user, String userName) throws IOException {
-        return this.getAppStaffList(pageNo, pageSize, orderIncent, orderingStore, user, userName, new HashMap<>());
-    }
-
-    public ConfigurationApplicationModels.AppStaffListResponse getAppStaffList(Integer pageNo, Integer pageSize, Boolean orderIncent, Integer orderingStore, String user, String userName, Map<String, String> requestHeaders) throws IOException {
+    
+    
+    
+    
+    public ConfigurationApplicationModels.AppStaffListResponse getAppStaffList(Integer pageNo , Integer pageSize , Boolean orderIncent , Integer orderingStore , String user , String userName ) throws IOException {
      
-        String fullUrl = relativeUrls.get("getAppStaffList");
+      String fullUrl = relativeUrls.get("getAppStaffList");
+        
 
-        Response<ConfigurationApplicationModels.AppStaffListResponse> response = configurationApplicationApiList.getAppStaffList(fullUrl, pageNo, pageSize, orderIncent, orderingStore, user, userName, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.AppStaffListResponse> response = configurationApplicationApiList.getAppStaffList(fullUrl  ,pageNo, pageSize, orderIncent, orderingStore, user, userName).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
     /**
     * Summary: get paginator for getAppStaffList
@@ -392,25 +486,26 @@ import com.sdk.application.*;
             return null;
         }
     });
-    return paginator;
+    return paginator ;
     }
     
-
-    public ConfigurationApplicationModels.AppStaffResponse getAppStaffs(Boolean orderIncent, Integer orderingStore, String user) throws IOException {
-        return this.getAppStaffs(orderIncent, orderingStore, user, new HashMap<>());
-    }
-
-    public ConfigurationApplicationModels.AppStaffResponse getAppStaffs(Boolean orderIncent, Integer orderingStore, String user, Map<String, String> requestHeaders) throws IOException {
+    
+    
+    public ConfigurationApplicationModels.AppStaffResponse getAppStaffs(Boolean orderIncent , Integer orderingStore , String user ) throws IOException {
      
-        String fullUrl = relativeUrls.get("getAppStaffs");
+      String fullUrl = relativeUrls.get("getAppStaffs");
+        
 
-        Response<ConfigurationApplicationModels.AppStaffResponse> response = configurationApplicationApiList.getAppStaffs(fullUrl, orderIncent, orderingStore, user, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.AppStaffResponse> response = configurationApplicationApiList.getAppStaffs(fullUrl  ,orderIncent, orderingStore, user).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
+
+    
+    
       
 
     private interface Fields {

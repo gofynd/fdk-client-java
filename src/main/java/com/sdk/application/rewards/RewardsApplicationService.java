@@ -12,6 +12,15 @@ import java.io.File;
 import com.sdk.common.*;
 import com.sdk.application.*;
 
+
+
+
+
+
+
+
+
+
 @Getter
  public class RewardsApplicationService { 
 
@@ -21,28 +30,35 @@ import com.sdk.application.*;
 
     private RewardsApplicationApiList rewardsApplicationApiList;
 
-    private HashMap<String,String> relativeUrls = new HashMap<String,String>();
+    private HashMap<String,String> relativeUrls  =new HashMap<String,String>();
 
     public RewardsApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
         this.retrofitServiceFactory = new RetrofitServiceFactory();
         this.rewardsApplicationApiList = generateRewardsApplicationApiList(this.applicationConfig.getPersistentCookieStore());
 
-        
-        relativeUrls.put("getOfferByName","/service/application/rewards/v1.0/offers/{name}/".substring(1));
-        relativeUrls.put("catalogueOrder","/service/application/rewards/v1.0/catalogue/offer/order/".substring(1));
-        relativeUrls.put("getUserPointsHistory","/service/application/rewards/v1.0/user/points/history/".substring(1));
-        relativeUrls.put("getUserPoints","/service/application/rewards/v1.0/user/points/".substring(1));
-        relativeUrls.put("getUserReferralDetails","/service/application/rewards/v1.0/user/referral/".substring(1));
-        relativeUrls.put("getOrderDiscount","/service/application/rewards/v1.0/user/offer/order-discount/".substring(1));
-        relativeUrls.put("redeemReferralCode","/service/application/rewards/v1.0/user/referral/redeem/".substring(1)); 
+           
+                    relativeUrls.put("getOfferByName","/service/application/rewards/v1.0/offers/{name}/".substring(1));
+            
+                    relativeUrls.put("catalogueOrder","/service/application/rewards/v1.0/catalogue/offer/order/".substring(1));
+            
+                    relativeUrls.put("getUserPointsHistory","/service/application/rewards/v1.0/user/points/history/".substring(1));
+            
+                    relativeUrls.put("getUserPoints","/service/application/rewards/v1.0/user/points/".substring(1));
+            
+                    relativeUrls.put("getUserReferralDetails","/service/application/rewards/v1.0/user/referral/".substring(1));
+            
+                    relativeUrls.put("getOrderDiscount","/service/application/rewards/v1.0/user/offer/order-discount/".substring(1));
+            
+                    relativeUrls.put("redeemReferralCode","/service/application/rewards/v1.0/user/referral/redeem/".substring(1));
+             
 
     }
 
-    public void update( HashMap<String,String> updatedUrlMap ){
-        for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
-            relativeUrls.put(entry.getKey(),entry.getValue());
-        }
+     public void update( HashMap<String,String> updatedUrlMap ){
+            for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
+                relativeUrls.put(entry.getKey(),entry.getValue());
+            }
     }
 
     private RewardsApplicationApiList generateRewardsApplicationApiList(CookieStore cookieStore) {
@@ -52,56 +68,78 @@ import com.sdk.application.*;
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),RewardsApplicationApiList.class, interceptorList, cookieStore);
     }
 
-    public RewardsApplicationModels.Offer getOfferByName(String name) throws IOException {
-        return this.getOfferByName(name, new HashMap<>());
-    }
+    
 
-    public RewardsApplicationModels.Offer getOfferByName(String name, Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getOfferByName");
-        fullUrl = fullUrl.replace("{" + "name" + "}",name.toString());
+    
+    
+    public RewardsApplicationModels.Offer getOfferByName(String name ) throws IOException {
+     
+      String fullUrl = relativeUrls.get("getOfferByName");
+        
+        fullUrl = fullUrl.replace("{" + "name" +"}",name.toString());
+        
 
-        Response<RewardsApplicationModels.Offer> response = rewardsApplicationApiList.getOfferByName(fullUrl, requestHeaders).execute();
+        Response<RewardsApplicationModels.Offer> response = rewardsApplicationApiList.getOfferByName(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
-    
 
+    
+    
+    
+    
+    
     public RewardsApplicationModels.CatalogueOrderResponse catalogueOrder(RewardsApplicationModels.CatalogueOrderRequest body) throws IOException {
-        return this.catalogueOrder(body, new HashMap<>());
-    }
-
-    public RewardsApplicationModels.CatalogueOrderResponse catalogueOrder(RewardsApplicationModels.CatalogueOrderRequest body, Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("catalogueOrder");
+      String fullUrl = relativeUrls.get("catalogueOrder");
+        
 
-        Response<RewardsApplicationModels.CatalogueOrderResponse> response = rewardsApplicationApiList.catalogueOrder(fullUrl, body, requestHeaders).execute();
+        Response<RewardsApplicationModels.CatalogueOrderResponse> response = rewardsApplicationApiList.catalogueOrder(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
+
     
-
-    public RewardsApplicationModels.PointsHistoryResponse getUserPointsHistory(String pageId, Integer pageSize) throws IOException {
-        return this.getUserPointsHistory(pageId, pageSize, new HashMap<>());
-    }
-
-    public RewardsApplicationModels.PointsHistoryResponse getUserPointsHistory(String pageId, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+    
+    
+    
+    
+    public RewardsApplicationModels.PointsHistoryResponse getUserPointsHistory(String pageId , Integer pageSize ) throws IOException {
      
-        String fullUrl = relativeUrls.get("getUserPointsHistory");
+      String fullUrl = relativeUrls.get("getUserPointsHistory");
+        
 
-        Response<RewardsApplicationModels.PointsHistoryResponse> response = rewardsApplicationApiList.getUserPointsHistory(fullUrl, pageId, pageSize, requestHeaders).execute();
+        Response<RewardsApplicationModels.PointsHistoryResponse> response = rewardsApplicationApiList.getUserPointsHistory(fullUrl  ,pageId, pageSize).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
+
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
     /**
     * Summary: get paginator for getUserPointsHistory
@@ -134,76 +172,80 @@ import com.sdk.application.*;
             return null;
         }
     });
-    return paginator;
+    return paginator ;
     }
     
-
+    
+    
     public RewardsApplicationModels.PointsResponse getUserPoints() throws IOException {
-        return this.getUserPoints(new HashMap<>());
-    }
-
-    public RewardsApplicationModels.PointsResponse getUserPoints(Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getUserPoints");
+      String fullUrl = relativeUrls.get("getUserPoints");
+        
 
-        Response<RewardsApplicationModels.PointsResponse> response = rewardsApplicationApiList.getUserPoints(fullUrl, requestHeaders).execute();
+        Response<RewardsApplicationModels.PointsResponse> response = rewardsApplicationApiList.getUserPoints(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
-    
 
+    
+    
+    
+    
+    
     public RewardsApplicationModels.ReferralDetailsResponse getUserReferralDetails() throws IOException {
-        return this.getUserReferralDetails(new HashMap<>());
-    }
-
-    public RewardsApplicationModels.ReferralDetailsResponse getUserReferralDetails(Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getUserReferralDetails");
+      String fullUrl = relativeUrls.get("getUserReferralDetails");
+        
 
-        Response<RewardsApplicationModels.ReferralDetailsResponse> response = rewardsApplicationApiList.getUserReferralDetails(fullUrl, requestHeaders).execute();
+        Response<RewardsApplicationModels.ReferralDetailsResponse> response = rewardsApplicationApiList.getUserReferralDetails(fullUrl ).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
-    
 
+    
+    
+    
+    
+    
     public RewardsApplicationModels.OrderDiscountResponse getOrderDiscount(RewardsApplicationModels.OrderDiscountRequest body) throws IOException {
-        return this.getOrderDiscount(body, new HashMap<>());
-    }
-
-    public RewardsApplicationModels.OrderDiscountResponse getOrderDiscount(RewardsApplicationModels.OrderDiscountRequest body, Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getOrderDiscount");
+      String fullUrl = relativeUrls.get("getOrderDiscount");
+        
 
-        Response<RewardsApplicationModels.OrderDiscountResponse> response = rewardsApplicationApiList.getOrderDiscount(fullUrl, body, requestHeaders).execute();
+        Response<RewardsApplicationModels.OrderDiscountResponse> response = rewardsApplicationApiList.getOrderDiscount(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
+
     
-
+    
+    
+    
+    
     public RewardsApplicationModels.RedeemReferralCodeResponse redeemReferralCode(RewardsApplicationModels.RedeemReferralCodeRequest body) throws IOException {
-        return this.redeemReferralCode(body, new HashMap<>());
-    }
-
-    public RewardsApplicationModels.RedeemReferralCodeResponse redeemReferralCode(RewardsApplicationModels.RedeemReferralCodeRequest body, Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("redeemReferralCode");
+      String fullUrl = relativeUrls.get("redeemReferralCode");
+        
 
-        Response<RewardsApplicationModels.RedeemReferralCodeResponse> response = rewardsApplicationApiList.redeemReferralCode(fullUrl, body, requestHeaders).execute();
+        Response<RewardsApplicationModels.RedeemReferralCodeResponse> response = rewardsApplicationApiList.redeemReferralCode(fullUrl , body).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
     }
+
+    
+    
       
 
     private interface Fields {

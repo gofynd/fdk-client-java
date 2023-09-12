@@ -33,8 +33,6 @@ make sure to check the available version list on [jitpack](https://jitpack.io/#g
 
 3. Now you can start integrating the Java FDK Clients into your app. Below are two sample usage scenarios demonstrating how to use the `ApplicationClient` and `PlatformClient` classes.
 
----
-
 ### Sample Usage - ApplicationClient
 
 ```java
@@ -52,8 +50,6 @@ make sure to check the available version list on [jitpack](https://jitpack.io/#g
         System.out.println(e.getMessage());
     }
 ```
-
----
 
 ### Sample Usage - PlatformClient
 
@@ -83,8 +79,6 @@ make sure to check the available version list on [jitpack](https://jitpack.io/#g
         System.out.println(e.getMessage());
     }
 ```
-
----
 
 ### Cookie
 
@@ -123,21 +117,6 @@ public class CookieExample {
 ```
 
 Cookies added to cookieStore will be automatically attached to subsequent requests. Also any request returning `Set-Cookie` headers will automatically added in the cookieStore.
-
----
-
-### Headers
-
-When calling method, custom request headers can be included by passing a HashMap of headers in the method signature
-
-```java
-Map<String, String> headers = new HashMap<>();
-headers.put("x-api-version", "1.0");
-
-ThemePlatformModels.AllAvailablePageSchema response = platformClient.application(applicationId).theme.getAllPages("<THEME_ID>", headers);
-```
-
----
 
 ### Documentation
 

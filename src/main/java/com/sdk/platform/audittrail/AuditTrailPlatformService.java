@@ -13,6 +13,11 @@ import java.util.*;
 import com.sdk.platform.*;
 
 
+
+
+
+
+
 public class AuditTrailPlatformService {
     private PlatformConfig platformConfig;
 
@@ -60,15 +65,11 @@ public class AuditTrailPlatformService {
     
     
 
-    public AuditTrailPlatformModels.LogSchemaResponse getAuditLogs(String qs, Integer limit, Object sort) throws FDKServerResponseError, FDKException {
-        return this.getAuditLogs(qs, limit, sort, new HashMap<>());
-    }
-
-    public AuditTrailPlatformModels.LogSchemaResponse getAuditLogs(String qs, Integer limit, Object sort, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public AuditTrailPlatformModels.LogSchemaResponse getAuditLogs(String qs , Integer limit , Object sort ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<AuditTrailPlatformModels.LogSchemaResponse> response = null;
             try {
-                response = audittrailPlatformApiList.getAuditLogs(this.companyId, qs, limit, sort, requestHeaders).execute();
+                response = audittrailPlatformApiList.getAuditLogs(this.companyId ,qs , limit , sort ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -101,14 +102,10 @@ public class AuditTrailPlatformService {
     
 
     public AuditTrailPlatformModels.CreateLogResponse createAuditLog(AuditTrailPlatformModels.RequestBodyAuditLog body) throws FDKServerResponseError, FDKException {
-        return this.createAuditLog(body, new HashMap<>());
-    }
-
-    public AuditTrailPlatformModels.CreateLogResponse createAuditLog(AuditTrailPlatformModels.RequestBodyAuditLog body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<AuditTrailPlatformModels.CreateLogResponse> response = null;
             try {
-                response = audittrailPlatformApiList.createAuditLog(this.companyId, body, requestHeaders).execute();
+                response = audittrailPlatformApiList.createAuditLog(this.companyId , body).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -144,15 +141,11 @@ public class AuditTrailPlatformService {
     
     
 
-    public AuditTrailPlatformModels.LogSchemaResponse getAuditLog(String id) throws FDKServerResponseError, FDKException {
-        return this.getAuditLog(id, new HashMap<>());
-    }
-
-    public AuditTrailPlatformModels.LogSchemaResponse getAuditLog(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public AuditTrailPlatformModels.LogSchemaResponse getAuditLog(String id ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<AuditTrailPlatformModels.LogSchemaResponse> response = null;
             try {
-                response = audittrailPlatformApiList.getAuditLog(this.companyId, id, requestHeaders).execute();
+                response = audittrailPlatformApiList.getAuditLog(this.companyId , id  ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -185,14 +178,10 @@ public class AuditTrailPlatformService {
     
 
     public AuditTrailPlatformModels.EntityTypesResponse getEntityTypes() throws FDKServerResponseError, FDKException {
-        return this.getEntityTypes(new HashMap<>());
-    }
-
-    public AuditTrailPlatformModels.EntityTypesResponse getEntityTypes(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<AuditTrailPlatformModels.EntityTypesResponse> response = null;
             try {
-                response = audittrailPlatformApiList.getEntityTypes(this.companyId, requestHeaders).execute();
+                response = audittrailPlatformApiList.getEntityTypes(this.companyId ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -216,6 +205,7 @@ public class AuditTrailPlatformService {
 
 
 
+
 public class ApplicationClient {
     private PlatformConfig platformConfig;
 
@@ -228,6 +218,16 @@ public class ApplicationClient {
         this.applicationId = applicationId;
         this.companyId = this.platformConfig.getCompanyId();
     }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 }
 

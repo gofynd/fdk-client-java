@@ -88,7 +88,7 @@ public class PlatformOauthClient {
         this.token = accessTokenDto.getAccessToken();
         this.refreshToken = ObjectUtils.isEmpty(
                 accessTokenDto.getRefreshToken()) ? "" : accessTokenDto.getRefreshToken();
-        if (!ObjectUtils.isEmpty(this.refreshToken) && this.useAutoRenewTimer.equals(Boolean.TRUE)) {
+        if (ObjectUtils.isEmpty(this.refreshToken) && this.useAutoRenewTimer.equals(Boolean.TRUE)) {
             this.retryOAuthTokenTimer(accessTokenDto.getExpiresIn());
         }
     }
