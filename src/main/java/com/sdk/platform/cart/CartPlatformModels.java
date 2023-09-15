@@ -915,6 +915,12 @@ public static class CouponAdd{
     
     
     
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
 }
 
 
@@ -991,7 +997,7 @@ public static class CouponsResponse{
     
     
     @JsonProperty("items")
-    private CouponAdd items;
+    private List<CouponAdd> items;
     
     
     

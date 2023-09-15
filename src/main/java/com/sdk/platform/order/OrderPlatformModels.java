@@ -8059,6 +8059,12 @@ public static class ShipmentItem{
     
     
     
+    
+    @JsonProperty("mode_of_payment")
+    private String modeOfPayment;
+    
+    
+    
 }
 
 
@@ -9068,6 +9074,12 @@ public static class ShipmentMeta{
     
     @JsonProperty("bag_weight")
     private Object bagWeight;
+    
+    
+    
+    
+    @JsonProperty("refund_to")
+    private String refundTo;
     
     
     
@@ -10163,6 +10175,12 @@ public static class OrderBags{
     
     
     
+    
+    @JsonProperty("is_parent")
+    private Boolean isParent;
+    
+    
+    
 }
 
 
@@ -10683,6 +10701,18 @@ public static class PlatformShipment{
     
     
     
+    
+    @JsonProperty("is_self_ship")
+    private Boolean isSelfShip;
+    
+    
+    
+    
+    @JsonProperty("mode_of_payment")
+    private String modeOfPayment;
+    
+    
+    
 }
 
 
@@ -11022,6 +11052,12 @@ public static class OrderMeta{
     
     @JsonProperty("cart_id")
     private Integer cartId;
+    
+    
+    
+    
+    @JsonProperty("cart_object_id")
+    private String cartObjectId;
     
     
     
