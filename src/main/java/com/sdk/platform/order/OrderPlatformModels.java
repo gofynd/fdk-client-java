@@ -8059,6 +8059,12 @@ public static class ShipmentItem{
     
     
     
+    
+    @JsonProperty("mode_of_payment")
+    private String modeOfPayment;
+    
+    
+    
 }
 
 
@@ -9071,6 +9077,12 @@ public static class ShipmentMeta{
     
     
     
+    
+    @JsonProperty("refund_to")
+    private String refundTo;
+    
+    
+    
 }
 
 
@@ -10021,7 +10033,7 @@ public static class OrderBags{
     
     
     @JsonProperty("gst_details")
-    private BagGST gstDetails;
+    private GSTDetailsData gstDetails;
     
     
     
@@ -10160,6 +10172,12 @@ public static class OrderBags{
     
     @JsonProperty("entity_type")
     private String entityType;
+    
+    
+    
+    
+    @JsonProperty("is_parent")
+    private Boolean isParent;
     
     
     
@@ -10683,6 +10701,18 @@ public static class PlatformShipment{
     
     
     
+    
+    @JsonProperty("is_self_ship")
+    private Boolean isSelfShip;
+    
+    
+    
+    
+    @JsonProperty("mode_of_payment")
+    private String modeOfPayment;
+    
+    
+    
 }
 
 
@@ -11022,6 +11052,12 @@ public static class OrderMeta{
     
     @JsonProperty("cart_id")
     private Integer cartId;
+    
+    
+    
+    
+    @JsonProperty("cart_object_id")
+    private String cartObjectId;
     
     
     
@@ -13103,7 +13139,7 @@ public static class BagDetailsPlatformResponse{
     
     
     @JsonProperty("gst_details")
-    private BagGSTDetails gstDetails;
+    private GSTDetailsData gstDetails;
     
     
     

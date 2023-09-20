@@ -2221,7 +2221,7 @@ Shipment Tracking updated successfully
 
 
 ```java
-platformClient.order.getShipments( lane,  bagStatus,  statusOverrideLane,  timeToDispatch,  searchType,  searchValue,  fromDate,  toDate,  dpIds,  stores,  salesChannels,  pageNo,  pageSize,  fetchActiveShipment,  excludeLockedShipments,  paymentMethods,  channelShipmentId,  channelOrderId,  customMeta,  orderingChannel,  companyAffiliateTag,  myOrders,  platformUserId,  sortType,  showCrossCompanyData,  tags,  customerId) {
+platformClient.order.getShipments( lane,  bagStatus,  statusOverrideLane,  timeToDispatch,  searchType,  searchValue,  fromDate,  toDate,  dpIds,  stores,  salesChannels,  pageNo,  pageSize,  fetchActiveShipment,  excludeLockedShipments,  paymentMethods,  channelShipmentId,  channelOrderId,  customMeta,  orderingChannel,  companyAffiliateTag,  myOrders,  platformUserId,  sortType,  showCrossCompanyData,  tags,  customerId,  orderType) {
   //use response
 }
 ```
@@ -2257,7 +2257,8 @@ platformClient.order.getShipments( lane,  bagStatus,  statusOverrideLane,  timeT
 | sortType | String? | no | Sort the result data on basis of input |   
 | showCrossCompanyData | Boolean? | no | Flag to view cross & non-cross company order |   
 | tags | String? | no | Comma separated values of tags |   
-| customerId | String? | no |  |  
+| customerId | String? | no |  |   
+| orderType | String? | no |  |  
 
 
 
@@ -2542,7 +2543,8 @@ We are processing the report!
             "gst_tax_percentage": 5,
             "is_default_hsn_code": true,
             "brand_calculated_amount": 499,
-            "gst_fee": 23.76
+            "gst_fee": 23.76,
+            "tax_collected_at_source": 0
           },
           "article": {
             "uid": "6237fdfec0903e7ae543c201",
@@ -3127,9 +3129,9 @@ We are processing the report!
             "igst_tax_percentage": 0,
             "sgst_tax_percentage": 9,
             "cgst_tax_percentage": 9,
-            "igst_gst_fee": "0",
-            "cgst_gst_fee": "36.17",
-            "sgst_gst_fee": "36.17"
+            "igst_gst_fee": 0,
+            "cgst_gst_fee": 36.17,
+            "sgst_gst_fee": 36.17
           },
           "article": {
             "uid": "62f495f2a604499934540c69",
@@ -3478,7 +3480,7 @@ We are processing the report!
 
 
 ```java
-platformClient.order.getLaneConfig( superLane,  groupEntity,  fromDate,  toDate,  dpIds,  stores,  salesChannels,  paymentMode,  bagStatus,  searchType,  searchValue,  tags,  timeToDispatch,  paymentMethods,  myOrders,  showCrossCompanyData) {
+platformClient.order.getLaneConfig( superLane,  groupEntity,  fromDate,  toDate,  dpIds,  stores,  salesChannels,  paymentMode,  bagStatus,  searchType,  searchValue,  tags,  timeToDispatch,  paymentMethods,  myOrders,  showCrossCompanyData,  orderType) {
   //use response
 }
 ```
@@ -3503,7 +3505,8 @@ platformClient.order.getLaneConfig( superLane,  groupEntity,  fromDate,  toDate,
 | timeToDispatch | String? | no |  |   
 | paymentMethods | String? | no |  |   
 | myOrders | Boolean? | no |  |   
-| showCrossCompanyData | Boolean? | no | Flag to view cross & non-cross company order |  
+| showCrossCompanyData | Boolean? | no | Flag to view cross & non-cross company order |   
+| orderType | String? | no |  |  
 
 
 
@@ -3620,7 +3623,7 @@ Response containing count of shipments of the given status
 
 
 ```java
-platformClient.order.getOrders( lane,  searchType,  bagStatus,  timeToDispatch,  paymentMethods,  tags,  searchValue,  fromDate,  toDate,  dpIds,  stores,  salesChannels,  pageNo,  pageSize,  isPrioritySort,  customMeta,  myOrders,  showCrossCompanyData,  customerId) {
+platformClient.order.getOrders( lane,  searchType,  bagStatus,  timeToDispatch,  paymentMethods,  tags,  searchValue,  fromDate,  toDate,  dpIds,  stores,  salesChannels,  pageNo,  pageSize,  isPrioritySort,  customMeta,  myOrders,  showCrossCompanyData,  customerId,  orderType) {
   //use response
 }
 ```
@@ -3648,7 +3651,8 @@ platformClient.order.getOrders( lane,  searchType,  bagStatus,  timeToDispatch, 
 | customMeta | String? | no |  |   
 | myOrders | Boolean? | no |  |   
 | showCrossCompanyData | Boolean? | no | Flag to view cross & non-cross company order |   
-| customerId | String? | no |  |  
+| customerId | String? | no |  |   
+| orderType | String? | no |  |  
 
 
 
@@ -7249,6 +7253,7 @@ We are processing the request!
  | customerNote | String? |  yes  |  |
  | totalBags | Integer |  no  |  |
  | shipmentCreatedAt | String |  no  |  |
+ | modeOfPayment | String? |  yes  |  |
 
 ---
 
@@ -7534,6 +7539,7 @@ We are processing the request!
  | forwardAffiliateOrderId | String? |  yes  |  |
  | returnAffiliateOrderId | String? |  yes  |  |
  | bagWeight | HashMap<String,Object>? |  yes  |  |
+ | refundTo | String? |  yes  |  |
 
 ---
 
@@ -7824,7 +7830,7 @@ We are processing the request!
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | gstDetails | [BagGST](#BagGST)? |  yes  |  |
+ | gstDetails | [GSTDetailsData](#GSTDetailsData)? |  yes  |  |
  | parentPromoBags | HashMap<String,Object>? |  yes  |  |
  | financialBreakup | [FinancialBreakup](#FinancialBreakup)? |  yes  |  |
  | bagConfigs | [BagConfigs](#BagConfigs)? |  yes  |  |
@@ -7848,6 +7854,7 @@ We are processing the request!
  | currentStatus | [CurrentStatus](#CurrentStatus)? |  yes  |  |
  | bagId | Integer |  no  |  |
  | entityType | String? |  yes  |  |
+ | isParent | Boolean? |  yes  |  |
 
 ---
 
@@ -7964,6 +7971,8 @@ We are processing the request!
  | shipmentUpdateTime | Double? |  yes  |  |
  | rtoAddress | [PlatformDeliveryAddress](#PlatformDeliveryAddress)? |  yes  |  |
  | creditNoteId | String? |  yes  |  |
+ | isSelfShip | Boolean? |  yes  |  |
+ | modeOfPayment | String? |  yes  |  |
 
 ---
 
@@ -8065,6 +8074,7 @@ We are processing the request!
  | customerNote | String? |  yes  |  |
  | staff | HashMap<String,Object>? |  yes  |  |
  | cartId | Integer? |  yes  |  |
+ | cartObjectId | String? |  yes  |  |
 
 ---
 
@@ -8697,7 +8707,7 @@ We are processing the request!
  | ---------- | ---- | -------- | ----------- |
  | bagUpdateTime | Double? |  yes  |  |
  | id | Integer? |  yes  |  |
- | gstDetails | [BagGSTDetails](#BagGSTDetails)? |  yes  |  |
+ | gstDetails | [GSTDetailsData](#GSTDetailsData)? |  yes  |  |
  | parentPromoBags | HashMap<String,Object>? |  yes  |  |
  | tags | ArrayList<String>? |  yes  |  |
  | financialBreakup | ArrayList<[FinancialBreakup](#FinancialBreakup)>? |  yes  |  |

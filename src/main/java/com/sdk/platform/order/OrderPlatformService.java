@@ -1380,12 +1380,16 @@ public class OrderPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public OrderPlatformModels.ShipmentInternalPlatformViewResponse getShipments(String lane , String bagStatus , Boolean statusOverrideLane , Double timeToDispatch , String searchType , String searchValue , String fromDate , String toDate , String dpIds , String stores , String salesChannels , Integer pageNo , Integer pageSize , Boolean fetchActiveShipment , Boolean excludeLockedShipments , String paymentMethods , String channelShipmentId , String channelOrderId , String customMeta , String orderingChannel , String companyAffiliateTag , Boolean myOrders , String platformUserId , String sortType , Boolean showCrossCompanyData , String tags , String customerId ) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.ShipmentInternalPlatformViewResponse getShipments(String lane , String bagStatus , Boolean statusOverrideLane , Double timeToDispatch , String searchType , String searchValue , String fromDate , String toDate , String dpIds , String stores , String salesChannels , Integer pageNo , Integer pageSize , Boolean fetchActiveShipment , Boolean excludeLockedShipments , String paymentMethods , String channelShipmentId , String channelOrderId , String customMeta , String orderingChannel , String companyAffiliateTag , Boolean myOrders , String platformUserId , String sortType , Boolean showCrossCompanyData , String tags , String customerId , String orderType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.ShipmentInternalPlatformViewResponse> response = null;
             try {
-                response = orderPlatformApiList.getShipments(this.companyId ,lane , bagStatus , statusOverrideLane , timeToDispatch , searchType , searchValue , fromDate , toDate , dpIds , stores , salesChannels , pageNo , pageSize , fetchActiveShipment , excludeLockedShipments , paymentMethods , channelShipmentId , channelOrderId , customMeta , orderingChannel , companyAffiliateTag , myOrders , platformUserId , sortType , showCrossCompanyData , tags , customerId ).execute();
+                response = orderPlatformApiList.getShipments(this.companyId ,lane , bagStatus , statusOverrideLane , timeToDispatch , searchType , searchValue , fromDate , toDate , dpIds , stores , salesChannels , pageNo , pageSize , fetchActiveShipment , excludeLockedShipments , paymentMethods , channelShipmentId , channelOrderId , customMeta , orderingChannel , companyAffiliateTag , myOrders , platformUserId , sortType , showCrossCompanyData , tags , customerId , orderType ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1402,6 +1406,270 @@ public class OrderPlatformService {
         } else {
             return null;
         }    
+    }
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getShipments
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<OrderPlatformModels.ShipmentInternalPlatformViewResponse> getShipmentsPagination(
+        String lane ,
+        String bagStatus ,
+        Boolean statusOverrideLane ,
+        Double timeToDispatch ,
+        String searchType ,
+        String searchValue ,
+        String fromDate ,
+        String toDate ,
+        String dpIds ,
+        String stores ,
+        String salesChannels ,
+        Integer pageSize ,
+        Boolean fetchActiveShipment ,
+        Boolean excludeLockedShipments ,
+        String paymentMethods ,
+        String channelShipmentId ,
+        String channelOrderId ,
+        String customMeta ,
+        String orderingChannel ,
+        String companyAffiliateTag ,
+        Boolean myOrders ,
+        String platformUserId ,
+        String sortType ,
+        Boolean showCrossCompanyData ,
+        String tags ,
+        String customerId ,
+        String orderType 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<OrderPlatformModels.ShipmentInternalPlatformViewResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            OrderPlatformModels.ShipmentInternalPlatformViewResponse callback = this.getShipments(
+                
+                 
+                 lane,
+                 bagStatus,
+                 statusOverrideLane,
+                 timeToDispatch,
+                 searchType,
+                 searchValue,
+                 fromDate,
+                 toDate,
+                 dpIds,
+                 stores,
+                 salesChannels,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 fetchActiveShipment,
+                 excludeLockedShipments,
+                 paymentMethods,
+                 channelShipmentId,
+                 channelOrderId,
+                 customMeta,
+                 orderingChannel,
+                 companyAffiliateTag,
+                 myOrders,
+                 platformUserId,
+                 sortType,
+                 showCrossCompanyData,
+                 tags,
+                 customerId,
+                 orderType
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
     }
     
     
@@ -1564,12 +1832,16 @@ public class OrderPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public OrderPlatformModels.LaneConfigResponse getLaneConfig(String superLane , String groupEntity , String fromDate , String toDate , String dpIds , String stores , String salesChannels , String paymentMode , String bagStatus , String searchType , String searchValue , String tags , String timeToDispatch , String paymentMethods , Boolean myOrders , Boolean showCrossCompanyData ) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.LaneConfigResponse getLaneConfig(String superLane , String groupEntity , String fromDate , String toDate , String dpIds , String stores , String salesChannels , String paymentMode , String bagStatus , String searchType , String searchValue , String tags , String timeToDispatch , String paymentMethods , Boolean myOrders , Boolean showCrossCompanyData , String orderType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.LaneConfigResponse> response = null;
             try {
-                response = orderPlatformApiList.getLaneConfig(this.companyId ,superLane , groupEntity , fromDate , toDate , dpIds , stores , salesChannels , paymentMode , bagStatus , searchType , searchValue , tags , timeToDispatch , paymentMethods , myOrders , showCrossCompanyData ).execute();
+                response = orderPlatformApiList.getLaneConfig(this.companyId ,superLane , groupEntity , fromDate , toDate , dpIds , stores , salesChannels , paymentMode , bagStatus , searchType , searchValue , tags , timeToDispatch , paymentMethods , myOrders , showCrossCompanyData , orderType ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1676,12 +1948,16 @@ public class OrderPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public OrderPlatformModels.OrderListingResponse getOrders(String lane , String searchType , String bagStatus , String timeToDispatch , String paymentMethods , String tags , String searchValue , String fromDate , String toDate , String dpIds , String stores , String salesChannels , Integer pageNo , Integer pageSize , Boolean isPrioritySort , String customMeta , Boolean myOrders , Boolean showCrossCompanyData , String customerId ) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.OrderListingResponse getOrders(String lane , String searchType , String bagStatus , String timeToDispatch , String paymentMethods , String tags , String searchValue , String fromDate , String toDate , String dpIds , String stores , String salesChannels , Integer pageNo , Integer pageSize , Boolean isPrioritySort , String customMeta , Boolean myOrders , Boolean showCrossCompanyData , String customerId , String orderType ) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.OrderListingResponse> response = null;
             try {
-                response = orderPlatformApiList.getOrders(this.companyId ,lane , searchType , bagStatus , timeToDispatch , paymentMethods , tags , searchValue , fromDate , toDate , dpIds , stores , salesChannels , pageNo , pageSize , isPrioritySort , customMeta , myOrders , showCrossCompanyData , customerId ).execute();
+                response = orderPlatformApiList.getOrders(this.companyId ,lane , searchType , bagStatus , timeToDispatch , paymentMethods , tags , searchValue , fromDate , toDate , dpIds , stores , salesChannels , pageNo , pageSize , isPrioritySort , customMeta , myOrders , showCrossCompanyData , customerId , orderType ).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1698,6 +1974,206 @@ public class OrderPlatformService {
         } else {
             return null;
         }    
+    }
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getOrders
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<OrderPlatformModels.OrderListingResponse> getOrdersPagination(
+        String lane ,
+        String searchType ,
+        String bagStatus ,
+        String timeToDispatch ,
+        String paymentMethods ,
+        String tags ,
+        String searchValue ,
+        String fromDate ,
+        String toDate ,
+        String dpIds ,
+        String stores ,
+        String salesChannels ,
+        Integer pageSize ,
+        Boolean isPrioritySort ,
+        String customMeta ,
+        Boolean myOrders ,
+        Boolean showCrossCompanyData ,
+        String customerId ,
+        String orderType 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<OrderPlatformModels.OrderListingResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            OrderPlatformModels.OrderListingResponse callback = this.getOrders(
+                
+                 
+                 lane,
+                 searchType,
+                 bagStatus,
+                 timeToDispatch,
+                 paymentMethods,
+                 tags,
+                 searchValue,
+                 fromDate,
+                 toDate,
+                 dpIds,
+                 stores,
+                 salesChannels,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 isPrioritySort,
+                 customMeta,
+                 myOrders,
+                 showCrossCompanyData,
+                 customerId,
+                 orderType
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
     }
     
     

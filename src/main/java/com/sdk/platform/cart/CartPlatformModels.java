@@ -915,6 +915,12 @@ public static class CouponAdd{
     
     
     
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
 }
 
 
@@ -991,7 +997,7 @@ public static class CouponsResponse{
     
     
     @JsonProperty("items")
-    private CouponAdd items;
+    private List<CouponAdd> items;
     
     
     
@@ -8439,6 +8445,12 @@ public static class PlatformCartCheckoutDetailRequest{
     
     
     
+    
+    @JsonProperty("payment_extra_identifiers")
+    private Object paymentExtraIdentifiers;
+    
+    
+    
 }
 
 
@@ -9076,6 +9088,12 @@ public static class PaymentMethod{
     
     @JsonProperty("name")
     private String name;
+    
+    
+    
+    
+    @JsonProperty("payment_extra_identifiers")
+    private Object paymentExtraIdentifiers;
     
     
     

@@ -5078,8 +5078,7 @@ Success. Returns a JSON object of the theme. Check the example shown below or re
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | name | String? |  yes  | The name of the configuration |
- | globalConfig | [GlobalConfig](#GlobalConfig)? |  yes  |  |
- | custom | [CustomConfig](#CustomConfig)? |  yes  |  |
+ | globalConfig | HashMap<String,Object>? |  yes  |  |
  | page | ArrayList<String>? |  yes  | An array of pages |
 
 ---
@@ -5143,20 +5142,7 @@ Success. Returns a JSON object of the theme. Check the example shown below or re
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | statics | [StaticConfig](#StaticConfig)? |  yes  |  |
- | auth | [AuthConfig](#AuthConfig)? |  yes  |  |
- | palette | [PaletteConfig](#PaletteConfig)? |  yes  |  |
-
----
-
-
- 
- 
- #### [PaletteConfig](#PaletteConfig)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | generalSetting | [GeneralSetting](#GeneralSetting)? |  yes  |  |
- | advanceSetting | [AdvanceSetting](#AdvanceSetting)? |  yes  |  |
+ | custom | [CustomConfig](#CustomConfig)? |  yes  |  |
 
 ---
 
@@ -5330,6 +5316,23 @@ Success. Returns a JSON object of the theme. Check the example shown below or re
  | ---------- | ---- | -------- | ----------- |
  | colors | [Colors](#Colors)? |  yes  |  |
  | auth | [AuthConfig](#AuthConfig)? |  yes  |  |
+ | palette | [PaletteConfig](#PaletteConfig)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Colors](#Colors)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | primaryColor | String? |  yes  | The primary color |
+ | secondaryColor | String? |  yes  | The secondary color |
+ | accentColor | String? |  yes  | The accent color |
+ | linkColor | String? |  yes  | The link color |
+ | buttonSecondaryColor | String? |  yes  | The secondary button color |
+ | bgColor | String? |  yes  | The background color |
 
 ---
 
@@ -5348,16 +5351,12 @@ Success. Returns a JSON object of the theme. Check the example shown below or re
 
  
  
- #### [Colors](#Colors)
+ #### [PaletteConfig](#PaletteConfig)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | primaryColor | String? |  yes  | The primary color |
- | secondaryColor | String? |  yes  | The secondary color |
- | accentColor | String? |  yes  | The accent color |
- | linkColor | String? |  yes  | The link color |
- | buttonSecondaryColor | String? |  yes  | The secondary button color |
- | bgColor | String? |  yes  | The background color |
+ | generalSetting | [GeneralSetting](#GeneralSetting)? |  yes  |  |
+ | advanceSetting | [AdvanceSetting](#AdvanceSetting)? |  yes  |  |
 
 ---
 

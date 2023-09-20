@@ -9679,6 +9679,7 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
  | paymentParams | HashMap<String,Object>? |  yes  |  |
  | billingAddressId | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
+ | paymentExtraIdentifiers | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -10038,6 +10039,7 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
  | payment | String? |  yes  |  |
  | amount | Double? |  yes  |  |
  | name | String? |  yes  |  |
+ | paymentExtraIdentifiers | HashMap<String,Object>? |  yes  |  |
 
 ---
 

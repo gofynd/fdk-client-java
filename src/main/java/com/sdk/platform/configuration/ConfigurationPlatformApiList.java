@@ -344,6 +344,30 @@ interface ConfigurationPlatformApiList {
     
     
     
+    @POST ("/service/platform/configuration/v1.0/company/{company_id}/application/{application_id}/ordering-store/select")
+    Call<ConfigurationPlatformModels.SuccessMessageResponse> getOrderingStoreCookie(@Path("company_id")  String companyId , @Path("application_id")  String applicationId ,@Body ConfigurationPlatformModels.OrderingStoreSelectRequest payload);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @DELETE ("/service/platform/configuration/v1.0/company/{company_id}/application/{application_id}/ordering-store/select")
+    Call<ConfigurationPlatformModels.SuccessMessageResponse> removeOrderingStoreCookie(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @GET ("/service/platform/configuration/v1.0/company/{company_id}/application/{application_id}/domain")
     Call<ConfigurationPlatformModels.DomainsResponse> getDomains(@Path("company_id")  String companyId , @Path("application_id")  String applicationId );
     
