@@ -3523,6 +3523,50 @@ public static class OrderingStoreConfig{
 
 
 /*
+    Model: OrderingStoreSelectRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderingStoreSelectRequest{
+    
+    
+    
+    
+    @JsonProperty("ordering_store")
+    private OrderingStoreSelect orderingStore;
+    
+    
+    
+}
+
+
+/*
+    Model: OrderingStoreSelect
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderingStoreSelect{
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+}
+
+
+/*
     Model: OtherSellerCompany
 */
 @AllArgsConstructor

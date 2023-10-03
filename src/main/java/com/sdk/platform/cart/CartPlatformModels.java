@@ -8445,6 +8445,12 @@ public static class PlatformCartCheckoutDetailRequest{
     
     
     
+    
+    @JsonProperty("payment_extra_identifiers")
+    private Object paymentExtraIdentifiers;
+    
+    
+    
 }
 
 
@@ -9082,6 +9088,12 @@ public static class PaymentMethod{
     
     @JsonProperty("name")
     private String name;
+    
+    
+    
+    
+    @JsonProperty("payment_extra_identifiers")
+    private Object paymentExtraIdentifiers;
     
     
     

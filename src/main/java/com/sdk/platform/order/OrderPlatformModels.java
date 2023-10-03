@@ -10033,7 +10033,7 @@ public static class OrderBags{
     
     
     @JsonProperty("gst_details")
-    private BagGST gstDetails;
+    private GSTDetailsData gstDetails;
     
     
     
@@ -13139,7 +13139,7 @@ public static class BagDetailsPlatformResponse{
     
     
     @JsonProperty("gst_details")
-    private BagGSTDetails gstDetails;
+    private GSTDetailsData gstDetails;
     
     
     
