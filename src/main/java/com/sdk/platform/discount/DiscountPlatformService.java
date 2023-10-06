@@ -13,11 +13,6 @@ import java.util.*;
 import com.sdk.platform.*;
 
 
-
-
-
-
-
 public class DiscountPlatformService {
     private PlatformConfig platformConfig;
 
@@ -89,11 +84,15 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.ListOrCalender getDiscounts(String view , String q , Integer pageNo , Integer pageSize , Boolean archived , Integer month , Integer year , String type , List<String> appIds ) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.ListOrCalender getDiscounts(String view, String q, Integer pageNo, Integer pageSize, Boolean archived, Integer month, Integer year, String type, List<String> appIds) throws FDKServerResponseError, FDKException {
+        return this.getDiscounts(view, q, pageNo, pageSize, archived, month, year, type, appIds, new HashMap<>());
+    }
+
+    public DiscountPlatformModels.ListOrCalender getDiscounts(String view, String q, Integer pageNo, Integer pageSize, Boolean archived, Integer month, Integer year, String type, List<String> appIds, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.ListOrCalender> response = null;
             try {
-                response = discountPlatformApiList.getDiscounts(this.companyId ,view , q , pageNo , pageSize , archived , month , year , type , appIds ).execute();
+                response = discountPlatformApiList.getDiscounts(this.companyId, view, q, pageNo, pageSize, archived, month, year, type, appIds, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -238,10 +237,14 @@ public class DiscountPlatformService {
     
 
     public DiscountPlatformModels.DiscountJob createDiscount(DiscountPlatformModels.CreateUpdateDiscount body) throws FDKServerResponseError, FDKException {
+        return this.createDiscount(body, new HashMap<>());
+    }
+
+    public DiscountPlatformModels.DiscountJob createDiscount(DiscountPlatformModels.CreateUpdateDiscount body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.DiscountJob> response = null;
             try {
-                response = discountPlatformApiList.createDiscount(this.companyId , body).execute();
+                response = discountPlatformApiList.createDiscount(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -277,11 +280,15 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.DiscountJob getDiscount(String id ) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.DiscountJob getDiscount(String id) throws FDKServerResponseError, FDKException {
+        return this.getDiscount(id, new HashMap<>());
+    }
+
+    public DiscountPlatformModels.DiscountJob getDiscount(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.DiscountJob> response = null;
             try {
-                response = discountPlatformApiList.getDiscount(this.companyId , id  ).execute();
+                response = discountPlatformApiList.getDiscount(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -317,11 +324,15 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.DiscountJob updateDiscount(String id ,DiscountPlatformModels.CreateUpdateDiscount body) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.DiscountJob updateDiscount(String id, DiscountPlatformModels.CreateUpdateDiscount body) throws FDKServerResponseError, FDKException {
+        return this.updateDiscount(id, body, new HashMap<>());
+    }
+
+    public DiscountPlatformModels.DiscountJob updateDiscount(String id, DiscountPlatformModels.CreateUpdateDiscount body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.DiscountJob> response = null;
             try {
-                response = discountPlatformApiList.updateDiscount(this.companyId , id  , body).execute();
+                response = discountPlatformApiList.updateDiscount(this.companyId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -357,11 +368,15 @@ public class DiscountPlatformService {
     
     
 
-    public Object upsertDiscountItems(String id ,DiscountPlatformModels.BulkDiscount body) throws FDKServerResponseError, FDKException {
+    public Object upsertDiscountItems(String id, DiscountPlatformModels.BulkDiscount body) throws FDKServerResponseError, FDKException {
+        return this.upsertDiscountItems(id, body, new HashMap<>());
+    }
+
+    public Object upsertDiscountItems(String id, DiscountPlatformModels.BulkDiscount body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<Object> response = null;
             try {
-                response = discountPlatformApiList.upsertDiscountItems(this.companyId , id  , body).execute();
+                response = discountPlatformApiList.upsertDiscountItems(this.companyId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -397,11 +412,15 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.FileJobResponse validateDiscountFile(String discount ,DiscountPlatformModels.FileJobRequest body) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.FileJobResponse validateDiscountFile(String discount, DiscountPlatformModels.FileJobRequest body) throws FDKServerResponseError, FDKException {
+        return this.validateDiscountFile(discount, body, new HashMap<>());
+    }
+
+    public DiscountPlatformModels.FileJobResponse validateDiscountFile(String discount, DiscountPlatformModels.FileJobRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.FileJobResponse> response = null;
             try {
-                response = discountPlatformApiList.validateDiscountFile(this.companyId ,discount , body).execute();
+                response = discountPlatformApiList.validateDiscountFile(this.companyId, discount, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -437,11 +456,15 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.FileJobResponse downloadDiscountFile(String type ,DiscountPlatformModels.DownloadFileJob body) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.FileJobResponse downloadDiscountFile(String type, DiscountPlatformModels.DownloadFileJob body) throws FDKServerResponseError, FDKException {
+        return this.downloadDiscountFile(type, body, new HashMap<>());
+    }
+
+    public DiscountPlatformModels.FileJobResponse downloadDiscountFile(String type, DiscountPlatformModels.DownloadFileJob body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.FileJobResponse> response = null;
             try {
-                response = discountPlatformApiList.downloadDiscountFile(this.companyId , type  , body).execute();
+                response = discountPlatformApiList.downloadDiscountFile(this.companyId, type, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -477,11 +500,15 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.FileJobResponse getValidationJob(String id ) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.FileJobResponse getValidationJob(String id) throws FDKServerResponseError, FDKException {
+        return this.getValidationJob(id, new HashMap<>());
+    }
+
+    public DiscountPlatformModels.FileJobResponse getValidationJob(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.FileJobResponse> response = null;
             try {
-                response = discountPlatformApiList.getValidationJob(this.companyId , id  ).execute();
+                response = discountPlatformApiList.getValidationJob(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -517,11 +544,15 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.CancelJobResponse cancelValidationJob(String id ) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.CancelJobResponse cancelValidationJob(String id) throws FDKServerResponseError, FDKException {
+        return this.cancelValidationJob(id, new HashMap<>());
+    }
+
+    public DiscountPlatformModels.CancelJobResponse cancelValidationJob(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.CancelJobResponse> response = null;
             try {
-                response = discountPlatformApiList.cancelValidationJob(this.companyId , id  ).execute();
+                response = discountPlatformApiList.cancelValidationJob(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -557,11 +588,15 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.FileJobResponse getDownloadJob(String id ) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.FileJobResponse getDownloadJob(String id) throws FDKServerResponseError, FDKException {
+        return this.getDownloadJob(id, new HashMap<>());
+    }
+
+    public DiscountPlatformModels.FileJobResponse getDownloadJob(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.FileJobResponse> response = null;
             try {
-                response = discountPlatformApiList.getDownloadJob(this.companyId , id  ).execute();
+                response = discountPlatformApiList.getDownloadJob(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -597,11 +632,15 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.CancelJobResponse cancelDownloadJob(String id ) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.CancelJobResponse cancelDownloadJob(String id) throws FDKServerResponseError, FDKException {
+        return this.cancelDownloadJob(id, new HashMap<>());
+    }
+
+    public DiscountPlatformModels.CancelJobResponse cancelDownloadJob(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<DiscountPlatformModels.CancelJobResponse> response = null;
             try {
-                response = discountPlatformApiList.cancelDownloadJob(this.companyId , id  ).execute();
+                response = discountPlatformApiList.cancelDownloadJob(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -622,7 +661,6 @@ public class DiscountPlatformService {
     
     
     
-
 
 
 
@@ -638,30 +676,6 @@ public class ApplicationClient {
         this.applicationId = applicationId;
         this.companyId = this.platformConfig.getCompanyId();
     }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
 }
 
