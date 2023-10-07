@@ -13,11 +13,6 @@ import java.util.*;
 import com.sdk.platform.*;
 
 
-
-
-
-
-
 public class InventoryPlatformService {
     private PlatformConfig platformConfig;
 
@@ -61,11 +56,15 @@ public class InventoryPlatformService {
     
     
 
-    public InventoryPlatformModels.ResponseEnvelopeListJobConfigRawDTO getJobsByCompany(Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
+    public InventoryPlatformModels.ResponseEnvelopeListJobConfigRawDTO getJobsByCompany(Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+        return this.getJobsByCompany(pageNo, pageSize, new HashMap<>());
+    }
+
+    public InventoryPlatformModels.ResponseEnvelopeListJobConfigRawDTO getJobsByCompany(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<InventoryPlatformModels.ResponseEnvelopeListJobConfigRawDTO> response = null;
             try {
-                response = inventoryPlatformApiList.getJobsByCompany(this.companyId ,pageNo , pageSize ).execute();
+                response = inventoryPlatformApiList.getJobsByCompany(this.companyId, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -98,10 +97,14 @@ public class InventoryPlatformService {
     
 
     public InventoryPlatformModels.ResponseEnvelopeString updateJob(InventoryPlatformModels.JobConfigDTO body) throws FDKServerResponseError, FDKException {
+        return this.updateJob(body, new HashMap<>());
+    }
+
+    public InventoryPlatformModels.ResponseEnvelopeString updateJob(InventoryPlatformModels.JobConfigDTO body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<InventoryPlatformModels.ResponseEnvelopeString> response = null;
             try {
-                response = inventoryPlatformApiList.updateJob(this.companyId , body).execute();
+                response = inventoryPlatformApiList.updateJob(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -134,10 +137,14 @@ public class InventoryPlatformService {
     
 
     public InventoryPlatformModels.ResponseEnvelopeString createJob(InventoryPlatformModels.JobConfigDTO body) throws FDKServerResponseError, FDKException {
+        return this.createJob(body, new HashMap<>());
+    }
+
+    public InventoryPlatformModels.ResponseEnvelopeString createJob(InventoryPlatformModels.JobConfigDTO body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<InventoryPlatformModels.ResponseEnvelopeString> response = null;
             try {
-                response = inventoryPlatformApiList.createJob(this.companyId , body).execute();
+                response = inventoryPlatformApiList.createJob(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -170,10 +177,14 @@ public class InventoryPlatformService {
     
 
     public InventoryPlatformModels.ResponseEnvelopeKafkaResponse suppressStores(InventoryPlatformModels.SuppressStorePayload body) throws FDKServerResponseError, FDKException {
+        return this.suppressStores(body, new HashMap<>());
+    }
+
+    public InventoryPlatformModels.ResponseEnvelopeKafkaResponse suppressStores(InventoryPlatformModels.SuppressStorePayload body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<InventoryPlatformModels.ResponseEnvelopeKafkaResponse> response = null;
             try {
-                response = inventoryPlatformApiList.suppressStores(this.companyId , body).execute();
+                response = inventoryPlatformApiList.suppressStores(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -206,10 +217,14 @@ public class InventoryPlatformService {
     
 
     public InventoryPlatformModels.ResponseEnvelopeListSlingshotConfigurationDetail getConfigByCompany() throws FDKServerResponseError, FDKException {
+        return this.getConfigByCompany(new HashMap<>());
+    }
+
+    public InventoryPlatformModels.ResponseEnvelopeListSlingshotConfigurationDetail getConfigByCompany(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<InventoryPlatformModels.ResponseEnvelopeListSlingshotConfigurationDetail> response = null;
             try {
-                response = inventoryPlatformApiList.getConfigByCompany(this.companyId ).execute();
+                response = inventoryPlatformApiList.getConfigByCompany(this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -245,11 +260,15 @@ public class InventoryPlatformService {
     
     
 
-    public InventoryPlatformModels.ResponseEnvelopeListJobStepsDTO getJobSteps(Integer jobId ) throws FDKServerResponseError, FDKException {
+    public InventoryPlatformModels.ResponseEnvelopeListJobStepsDTO getJobSteps(Integer jobId) throws FDKServerResponseError, FDKException {
+        return this.getJobSteps(jobId, new HashMap<>());
+    }
+
+    public InventoryPlatformModels.ResponseEnvelopeListJobStepsDTO getJobSteps(Integer jobId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<InventoryPlatformModels.ResponseEnvelopeListJobStepsDTO> response = null;
             try {
-                response = inventoryPlatformApiList.getJobSteps(this.companyId , jobId  ).execute();
+                response = inventoryPlatformApiList.getJobSteps(this.companyId, jobId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -293,11 +312,15 @@ public class InventoryPlatformService {
     
     
 
-    public InventoryPlatformModels.ResponseEnvelopeListJobConfigDTO getJobByCompanyAndIntegration(String integrationId , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
+    public InventoryPlatformModels.ResponseEnvelopeListJobConfigDTO getJobByCompanyAndIntegration(String integrationId, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+        return this.getJobByCompanyAndIntegration(integrationId, pageNo, pageSize, new HashMap<>());
+    }
+
+    public InventoryPlatformModels.ResponseEnvelopeListJobConfigDTO getJobByCompanyAndIntegration(String integrationId, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<InventoryPlatformModels.ResponseEnvelopeListJobConfigDTO> response = null;
             try {
-                response = inventoryPlatformApiList.getJobByCompanyAndIntegration(this.companyId , integrationId  ,pageNo , pageSize ).execute();
+                response = inventoryPlatformApiList.getJobByCompanyAndIntegration(this.companyId, integrationId, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -333,11 +356,15 @@ public class InventoryPlatformService {
     
     
 
-    public InventoryPlatformModels.ResponseEnvelopeString disable(String integrationId ) throws FDKServerResponseError, FDKException {
+    public InventoryPlatformModels.ResponseEnvelopeString disable(String integrationId) throws FDKServerResponseError, FDKException {
+        return this.disable(integrationId, new HashMap<>());
+    }
+
+    public InventoryPlatformModels.ResponseEnvelopeString disable(String integrationId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<InventoryPlatformModels.ResponseEnvelopeString> response = null;
             try {
-                response = inventoryPlatformApiList.disable(this.companyId , integrationId  ).execute();
+                response = inventoryPlatformApiList.disable(this.companyId, integrationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -370,10 +397,14 @@ public class InventoryPlatformService {
     
 
     public InventoryPlatformModels.ResponseEnvelopeJobConfigDTO getJobConfigDefaults() throws FDKServerResponseError, FDKException {
+        return this.getJobConfigDefaults(new HashMap<>());
+    }
+
+    public InventoryPlatformModels.ResponseEnvelopeJobConfigDTO getJobConfigDefaults(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<InventoryPlatformModels.ResponseEnvelopeJobConfigDTO> response = null;
             try {
-                response = inventoryPlatformApiList.getJobConfigDefaults(this.companyId ).execute();
+                response = inventoryPlatformApiList.getJobConfigDefaults(this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -409,11 +440,15 @@ public class InventoryPlatformService {
     
     
 
-    public InventoryPlatformModels.ResponseEnvelopeJobConfigDTO getJobByCode(String code ) throws FDKServerResponseError, FDKException {
+    public InventoryPlatformModels.ResponseEnvelopeJobConfigDTO getJobByCode(String code) throws FDKServerResponseError, FDKException {
+        return this.getJobByCode(code, new HashMap<>());
+    }
+
+    public InventoryPlatformModels.ResponseEnvelopeJobConfigDTO getJobByCode(String code, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<InventoryPlatformModels.ResponseEnvelopeJobConfigDTO> response = null;
             try {
-                response = inventoryPlatformApiList.getJobByCode(this.companyId , code  ).execute();
+                response = inventoryPlatformApiList.getJobByCode(this.companyId, code, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -465,11 +500,15 @@ public class InventoryPlatformService {
     
     
 
-    public InventoryPlatformModels.ResponseEnvelopeJobMetricsDto getJobCodeMetrics(String code , Integer pageNo , Integer pageSize , String status , String date ) throws FDKServerResponseError, FDKException {
+    public InventoryPlatformModels.ResponseEnvelopeJobMetricsDto getJobCodeMetrics(String code, Integer pageNo, Integer pageSize, String status, String date) throws FDKServerResponseError, FDKException {
+        return this.getJobCodeMetrics(code, pageNo, pageSize, status, date, new HashMap<>());
+    }
+
+    public InventoryPlatformModels.ResponseEnvelopeJobMetricsDto getJobCodeMetrics(String code, Integer pageNo, Integer pageSize, String status, String date, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<InventoryPlatformModels.ResponseEnvelopeJobMetricsDto> response = null;
             try {
-                response = inventoryPlatformApiList.getJobCodeMetrics(this.companyId , code  ,pageNo , pageSize , status , date ).execute();
+                response = inventoryPlatformApiList.getJobCodeMetrics(this.companyId, code, pageNo, pageSize, status, date, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -513,11 +552,15 @@ public class InventoryPlatformService {
     
     
 
-    public InventoryPlatformModels.ResponseEnvelopeListJobConfigListDTO getJobCodesByCompanyAndIntegration(String integrationId , Integer pageNo , Integer pageSize ) throws FDKServerResponseError, FDKException {
+    public InventoryPlatformModels.ResponseEnvelopeListJobConfigListDTO getJobCodesByCompanyAndIntegration(String integrationId, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+        return this.getJobCodesByCompanyAndIntegration(integrationId, pageNo, pageSize, new HashMap<>());
+    }
+
+    public InventoryPlatformModels.ResponseEnvelopeListJobConfigListDTO getJobCodesByCompanyAndIntegration(String integrationId, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<InventoryPlatformModels.ResponseEnvelopeListJobConfigListDTO> response = null;
             try {
-                response = inventoryPlatformApiList.getJobCodesByCompanyAndIntegration(this.companyId , integrationId  ,pageNo , pageSize ).execute();
+                response = inventoryPlatformApiList.getJobCodesByCompanyAndIntegration(this.companyId, integrationId, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -538,7 +581,6 @@ public class InventoryPlatformService {
     
     
     
-
 
 
 
@@ -554,32 +596,6 @@ public class ApplicationClient {
         this.applicationId = applicationId;
         this.companyId = this.platformConfig.getCompanyId();
     }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
 }
 

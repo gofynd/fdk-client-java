@@ -307,6 +307,40 @@ public static class SendEmailOtpRequestSchema{
 
 
 /*
+    Model: SendEmailForgotOtpRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SendEmailForgotOtpRequestSchema{
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+}
+
+
+/*
     Model: VerifyEmailOtpRequestSchema
 */
 @AllArgsConstructor
@@ -347,6 +381,34 @@ public static class VerifyEmailOtpRequestSchema{
 
 
 /*
+    Model: VerifyEmailForgotOtpRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VerifyEmailForgotOtpRequestSchema{
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("otp")
+    private String otp;
+    
+    
+    
+}
+
+
+/*
     Model: VerifyOtpRequestSchema
 */
 @AllArgsConstructor
@@ -368,6 +430,34 @@ public static class VerifyOtpRequestSchema{
     
     @JsonProperty("register_token")
     private String registerToken;
+    
+    
+    
+    
+    @JsonProperty("otp")
+    private String otp;
+    
+    
+    
+}
+
+
+/*
+    Model: VerifyMobileForgotOtpRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VerifyMobileForgotOtpRequestSchema{
+    
+    
+    
+    
+    @JsonProperty("request_id")
+    private String requestId;
     
     
     
@@ -432,6 +522,52 @@ public static class SendMobileOtpRequestSchema{
     
     @JsonProperty("captcha_code")
     private String captchaCode;
+    
+    
+    
+}
+
+
+/*
+    Model: SendMobileForgotOtpRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SendMobileForgotOtpRequestSchema{
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+    @JsonProperty("android_hash")
+    private String androidHash;
     
     
     
@@ -1091,6 +1227,28 @@ public static class LoginSuccess{
 
 
 /*
+    Model: ResetForgotPasswordSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ResetForgotPasswordSuccess{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+}
+
+
+/*
     Model: VerifyOtpSuccess
 */
 @AllArgsConstructor
@@ -1118,6 +1276,34 @@ public static class VerifyOtpSuccess{
     
     @JsonProperty("register_token")
     private String registerToken;
+    
+    
+    
+}
+
+
+/*
+    Model: VerifyForgotOtpSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VerifyForgotOtpSuccess{
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("forgot_token")
+    private String forgotToken;
     
     
     
@@ -1574,6 +1760,52 @@ public static class AuthenticationApiErrorSchema{
     
     @JsonProperty("message")
     private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: APIError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class APIError{
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("info")
+    private String info;
+    
+    
+    
+    
+    @JsonProperty("request_id")
+    private String requestId;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
     
     
     

@@ -13,11 +13,6 @@ import java.util.*;
 import com.sdk.platform.*;
 
 
-
-
-
-
-
 public class FileStoragePlatformService {
     private PlatformConfig platformConfig;
 
@@ -57,11 +52,15 @@ public class FileStoragePlatformService {
     
     
 
-    public FileStoragePlatformModels.StartResponse startUpload(String namespace ,FileStoragePlatformModels.StartRequest body) throws FDKServerResponseError, FDKException {
+    public FileStoragePlatformModels.StartResponse startUpload(String namespace, FileStoragePlatformModels.StartRequest body) throws FDKServerResponseError, FDKException {
+        return this.startUpload(namespace, body, new HashMap<>());
+    }
+
+    public FileStoragePlatformModels.StartResponse startUpload(String namespace, FileStoragePlatformModels.StartRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FileStoragePlatformModels.StartResponse> response = null;
             try {
-                response = filestoragePlatformApiList.startUpload(namespace  , this.companyId , body).execute();
+                response = filestoragePlatformApiList.startUpload(namespace, this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -97,11 +96,15 @@ public class FileStoragePlatformService {
     
     
 
-    public FileStoragePlatformModels.CompleteResponse completeUpload(String namespace ,FileStoragePlatformModels.StartResponse body) throws FDKServerResponseError, FDKException {
+    public FileStoragePlatformModels.CompleteResponse completeUpload(String namespace, FileStoragePlatformModels.StartResponse body) throws FDKServerResponseError, FDKException {
+        return this.completeUpload(namespace, body, new HashMap<>());
+    }
+
+    public FileStoragePlatformModels.CompleteResponse completeUpload(String namespace, FileStoragePlatformModels.StartResponse body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FileStoragePlatformModels.CompleteResponse> response = null;
             try {
-                response = filestoragePlatformApiList.completeUpload(namespace  , this.companyId , body).execute();
+                response = filestoragePlatformApiList.completeUpload(namespace, this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -138,10 +141,14 @@ public class FileStoragePlatformService {
     
 
     public FileStoragePlatformModels.SignUrlResponse getSignUrls(FileStoragePlatformModels.SignUrlRequest body) throws FDKServerResponseError, FDKException {
+        return this.getSignUrls(body, new HashMap<>());
+    }
+
+    public FileStoragePlatformModels.SignUrlResponse getSignUrls(FileStoragePlatformModels.SignUrlRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FileStoragePlatformModels.SignUrlResponse> response = null;
             try {
-                response = filestoragePlatformApiList.getSignUrls(this.companyId , body).execute();
+                response = filestoragePlatformApiList.getSignUrls(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -177,11 +184,15 @@ public class FileStoragePlatformService {
     
     
 
-    public FileStoragePlatformModels.BulkUploadSyncMode copyFiles(Boolean sync ,FileStoragePlatformModels.CopyFiles body) throws FDKServerResponseError, FDKException {
+    public Object copyFiles(Boolean sync, FileStoragePlatformModels.CopyFiles body) throws FDKServerResponseError, FDKException {
+        return this.copyFiles(sync, body, new HashMap<>());
+    }
+
+    public Object copyFiles(Boolean sync, FileStoragePlatformModels.CopyFiles body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<FileStoragePlatformModels.BulkUploadSyncMode> response = null;
+            Response<Object> response = null;
             try {
-                response = filestoragePlatformApiList.copyFiles(this.companyId ,sync , body).execute();
+                response = filestoragePlatformApiList.copyFiles(this.companyId, sync, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -227,11 +238,15 @@ public class FileStoragePlatformService {
     
     
 
-    public FileStoragePlatformModels.BrowseResponse browse(String namespace , Integer page , Integer limit ) throws FDKServerResponseError, FDKException {
+    public Object browse(String namespace, Integer page, Integer limit) throws FDKServerResponseError, FDKException {
+        return this.browse(namespace, page, limit, new HashMap<>());
+    }
+
+    public Object browse(String namespace, Integer page, Integer limit, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<FileStoragePlatformModels.BrowseResponse> response = null;
+            Response<Object> response = null;
             try {
-                response = filestoragePlatformApiList.browse(namespace  , this.companyId ,page , limit ).execute();
+                response = filestoragePlatformApiList.browse(namespace, this.companyId, page, limit, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -269,11 +284,15 @@ public class FileStoragePlatformService {
     
     
 
-    public String proxy(String url ) throws FDKServerResponseError, FDKException {
+    public String proxy(String url) throws FDKServerResponseError, FDKException {
+        return this.proxy(url, new HashMap<>());
+    }
+
+    public String proxy(String url, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<String> response = null;
             try {
-                response = filestoragePlatformApiList.proxy(this.companyId ,url ).execute();
+                response = filestoragePlatformApiList.proxy(this.companyId, url, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -306,7 +325,8 @@ public class FileStoragePlatformService {
     
     
     
-
+    
+    
 
 
 
@@ -323,35 +343,15 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public FileStoragePlatformModels.StartResponse appStartUpload(String namespace, FileStoragePlatformModels.StartRequest body) throws FDKServerResponseError, FDKException {
+        return this.appStartUpload(namespace, body, new HashMap<>());
+    }
 
-    public FileStoragePlatformModels.StartResponse appStartUpload(String namespace ,FileStoragePlatformModels.StartRequest body) throws FDKServerResponseError, FDKException {
+    public FileStoragePlatformModels.StartResponse appStartUpload(String namespace, FileStoragePlatformModels.StartRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FileStoragePlatformModels.StartResponse> response = null;
             try {
-            response = filestoragePlatformApiList.appStartUpload(namespace , this.companyId , this.applicationId , body).execute();
+            response = filestoragePlatformApiList.appStartUpload(namespace, this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -370,33 +370,15 @@ public class ApplicationClient {
         }    
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public FileStoragePlatformModels.CompleteResponse appCompleteUpload(String namespace, FileStoragePlatformModels.StartResponse body) throws FDKServerResponseError, FDKException {
+        return this.appCompleteUpload(namespace, body, new HashMap<>());
+    }
 
-    public FileStoragePlatformModels.CompleteResponse appCompleteUpload(String namespace ,FileStoragePlatformModels.StartResponse body) throws FDKServerResponseError, FDKException {
+    public FileStoragePlatformModels.CompleteResponse appCompleteUpload(String namespace, FileStoragePlatformModels.StartResponse body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FileStoragePlatformModels.CompleteResponse> response = null;
             try {
-            response = filestoragePlatformApiList.appCompleteUpload(namespace , this.companyId , this.applicationId , body).execute();
+            response = filestoragePlatformApiList.appCompleteUpload(namespace, this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -415,37 +397,15 @@ public class ApplicationClient {
         }    
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public Object appCopyFiles(Boolean sync, FileStoragePlatformModels.CopyFiles body) throws FDKServerResponseError, FDKException {
+        return this.appCopyFiles(sync, body, new HashMap<>());
+    }
 
-    public FileStoragePlatformModels.BulkUploadSyncMode appCopyFiles(Boolean sync ,FileStoragePlatformModels.CopyFiles body) throws FDKServerResponseError, FDKException {
+    public Object appCopyFiles(Boolean sync, FileStoragePlatformModels.CopyFiles body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<FileStoragePlatformModels.BulkUploadSyncMode> response = null;
+            Response<Object> response = null;
             try {
-            response = filestoragePlatformApiList.appCopyFiles(this.companyId , this.applicationId ,sync , body).execute();
+            response = filestoragePlatformApiList.appCopyFiles(this.companyId, this.applicationId, sync, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -464,43 +424,15 @@ public class ApplicationClient {
         }    
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public Object appbrowse(String namespace, Integer page, Integer limit) throws FDKServerResponseError, FDKException {
+        return this.appbrowse(namespace, page, limit, new HashMap<>());
+    }
 
-    public FileStoragePlatformModels.BrowseResponse appbrowse(String namespace , Integer page , Integer limit ) throws FDKServerResponseError, FDKException {
+    public Object appbrowse(String namespace, Integer page, Integer limit, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<FileStoragePlatformModels.BrowseResponse> response = null;
+            Response<Object> response = null;
             try {
-            response = filestoragePlatformApiList.appbrowse(namespace , this.companyId , this.applicationId ,page , limit ).execute();
+            response = filestoragePlatformApiList.appbrowse(namespace, this.companyId, this.applicationId, page, limit, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -519,31 +451,15 @@ public class ApplicationClient {
         }    
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public FileStoragePlatformModels.InvoiceTypesResponse getPdfTypes() throws FDKServerResponseError, FDKException {
+        return this.getPdfTypes(new HashMap<>());
+    }
 
-    public List<FileStoragePlatformModels.InvoiceTypesResponse> getPdfTypes() throws FDKServerResponseError, FDKException {
+    public FileStoragePlatformModels.InvoiceTypesResponse getPdfTypes(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<List<FileStoragePlatformModels.InvoiceTypesResponse>> response = null;
+            Response<FileStoragePlatformModels.InvoiceTypesResponse> response = null;
             try {
-            response = filestoragePlatformApiList.getPdfTypes(this.companyId , this.applicationId ).execute();
+            response = filestoragePlatformApiList.getPdfTypes(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -562,33 +478,15 @@ public class ApplicationClient {
         }    
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public FileStoragePlatformModels.DummyTemplateDataItems getDefaultPdfData(Integer pdfTypeId) throws FDKServerResponseError, FDKException {
+        return this.getDefaultPdfData(pdfTypeId, new HashMap<>());
+    }
 
-    public List<FileStoragePlatformModels.DummyTemplateDataItems> getDefaultPdfData(Integer pdfTypeId ) throws FDKServerResponseError, FDKException {
+    public FileStoragePlatformModels.DummyTemplateDataItems getDefaultPdfData(Integer pdfTypeId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<List<FileStoragePlatformModels.DummyTemplateDataItems>> response = null;
+            Response<FileStoragePlatformModels.DummyTemplateDataItems> response = null;
             try {
-            response = filestoragePlatformApiList.getDefaultPdfData(this.companyId , this.applicationId ,pdfTypeId ).execute();
+            response = filestoragePlatformApiList.getDefaultPdfData(this.companyId, this.applicationId, pdfTypeId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -607,37 +505,15 @@ public class ApplicationClient {
         }    
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public FileStoragePlatformModels.PdfConfigSaveSuccess updateHtmlTemplate(String id, FileStoragePlatformModels.PdfConfig body) throws FDKServerResponseError, FDKException {
+        return this.updateHtmlTemplate(id, body, new HashMap<>());
+    }
 
-    public List<FileStoragePlatformModels.PdfConfigSuccess> getDefaultHtmlTemplate(Integer pdfTypeId , String format ) throws FDKServerResponseError, FDKException {
+    public FileStoragePlatformModels.PdfConfigSaveSuccess updateHtmlTemplate(String id, FileStoragePlatformModels.PdfConfig body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<List<FileStoragePlatformModels.PdfConfigSuccess>> response = null;
+            Response<FileStoragePlatformModels.PdfConfigSaveSuccess> response = null;
             try {
-            response = filestoragePlatformApiList.getDefaultHtmlTemplate(this.companyId , this.applicationId ,pdfTypeId , format ).execute();
+            response = filestoragePlatformApiList.updateHtmlTemplate(this.companyId, this.applicationId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -656,29 +532,15 @@ public class ApplicationClient {
         }    
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public FileStoragePlatformModels.PdfConfigSuccess getDefaultHtmlTemplate(Integer pdfTypeId, String format) throws FDKServerResponseError, FDKException {
+        return this.getDefaultHtmlTemplate(pdfTypeId, format, new HashMap<>());
+    }
 
-    public List<FileStoragePlatformModels.PdfConfigSaveSuccess> saveHtmlTemplate(FileStoragePlatformModels.pdfConfig body) throws FDKServerResponseError, FDKException {
+    public FileStoragePlatformModels.PdfConfigSuccess getDefaultHtmlTemplate(Integer pdfTypeId, String format, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<List<FileStoragePlatformModels.PdfConfigSaveSuccess>> response = null;
+            Response<FileStoragePlatformModels.PdfConfigSuccess> response = null;
             try {
-            response = filestoragePlatformApiList.saveHtmlTemplate(this.companyId , this.applicationId , body).execute();
+            response = filestoragePlatformApiList.getDefaultHtmlTemplate(this.companyId, this.applicationId, pdfTypeId, format, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -697,29 +559,15 @@ public class ApplicationClient {
         }    
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public FileStoragePlatformModels.PdfConfigSaveSuccess saveHtmlTemplate(FileStoragePlatformModels.PdfConfig body) throws FDKServerResponseError, FDKException {
+        return this.saveHtmlTemplate(body, new HashMap<>());
+    }
 
-    public String previewTemplate(FileStoragePlatformModels.pdfRender body) throws FDKServerResponseError, FDKException {
+    public FileStoragePlatformModels.PdfConfigSaveSuccess saveHtmlTemplate(FileStoragePlatformModels.PdfConfig body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<String> response = null;
+            Response<FileStoragePlatformModels.PdfConfigSaveSuccess> response = null;
             try {
-            response = filestoragePlatformApiList.previewTemplate(this.companyId , this.applicationId , body).execute();
+            response = filestoragePlatformApiList.saveHtmlTemplate(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -738,37 +586,15 @@ public class ApplicationClient {
         }    
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public FileStoragePlatformModels.PdfDefaultTemplateSuccess getDefaultPdfTemplate(Integer pdfTypeId, String format) throws FDKServerResponseError, FDKException {
+        return this.getDefaultPdfTemplate(pdfTypeId, format, new HashMap<>());
+    }
 
-    public List<FileStoragePlatformModels.PdfDefaultTemplateSuccess> getDefaultPdfTemplate(Integer pdfTypeId , String format ) throws FDKServerResponseError, FDKException {
+    public FileStoragePlatformModels.PdfDefaultTemplateSuccess getDefaultPdfTemplate(Integer pdfTypeId, String format, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<List<FileStoragePlatformModels.PdfDefaultTemplateSuccess>> response = null;
+            Response<FileStoragePlatformModels.PdfDefaultTemplateSuccess> response = null;
             try {
-            response = filestoragePlatformApiList.getDefaultPdfTemplate(this.companyId , this.applicationId ,pdfTypeId , format ).execute();
+            response = filestoragePlatformApiList.getDefaultPdfTemplate(this.companyId, this.applicationId, pdfTypeId, format, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -787,9 +613,32 @@ public class ApplicationClient {
         }    
     }
 
-    
-    
-    
+    public Object generatePaymentReceipt(FileStoragePlatformModels.PaymentReceiptRequestBody body) throws FDKServerResponseError, FDKException {
+        return this.generatePaymentReceipt(body, new HashMap<>());
+    }
+
+    public Object generatePaymentReceipt(FileStoragePlatformModels.PaymentReceiptRequestBody body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<Object> response = null;
+            try {
+            response = filestoragePlatformApiList.generatePaymentReceipt(this.companyId, this.applicationId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
 
 }
 

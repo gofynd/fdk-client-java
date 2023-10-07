@@ -9,28 +9,6 @@ public class FileStorageApplicationModels{
 
 
 /*
-    Model: FailedResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FailedResponse{
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
     Model: CDN
 */
 @AllArgsConstructor
@@ -169,6 +147,28 @@ public static class StartResponse{
 
 
 /*
+    Model: Params
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Params{
+    
+    
+    
+    
+    @JsonProperty("subpath")
+    private String subpath;
+    
+    
+    
+}
+
+
+/*
     Model: StartRequest
 */
 @AllArgsConstructor
@@ -207,7 +207,29 @@ public static class StartRequest{
     
     
     @JsonProperty("params")
-    private Object params;
+    private Params params;
+    
+    
+    
+}
+
+
+/*
+    Model: CreatedBy
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreatedBy{
+    
+    
+    
+    
+    @JsonProperty("username")
+    private String username;
     
     
     
@@ -302,6 +324,12 @@ public static class CompleteResponse{
     
     @JsonProperty("modified_on")
     private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private CreatedBy createdBy;
     
     
     

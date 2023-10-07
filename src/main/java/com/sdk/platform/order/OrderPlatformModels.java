@@ -7732,6 +7732,12 @@ public static class ShipmentItemMeta{
     
     
     
+    @JsonProperty("is_self_ship")
+    private Boolean isSelfShip;
+    
+    
+    
+    
     @JsonProperty("is_international")
     private Boolean isInternational;
     
@@ -8844,6 +8850,18 @@ public static class ShipmentMeta{
     
     
     
+    @JsonProperty("tracking_url")
+    private String trackingUrl;
+    
+    
+    
+    
+    @JsonProperty("estimated_delivery_date")
+    private String estimatedDeliveryDate;
+    
+    
+    
+    
     @JsonProperty("same_store_available")
     private Boolean sameStoreAvailable;
     
@@ -8870,6 +8888,12 @@ public static class ShipmentMeta{
     
     @JsonProperty("return_awb_number")
     private String returnAwbNumber;
+    
+    
+    
+    
+    @JsonProperty("is_self_ship")
+    private Boolean isSelfShip;
     
     
     

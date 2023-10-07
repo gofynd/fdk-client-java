@@ -4860,6 +4860,114 @@ public static class RefundSessionResponseSerializer{
 }
 
 
+/*
+    Model: RefundSourcesPriority
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundSourcesPriority{
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Integer priority;
+    
+    
+    
+    
+    @JsonProperty("source")
+    private String source;
+    
+    
+    
+}
+
+
+/*
+    Model: RefundPriorityResponseSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundPriorityResponseSerializer{
+    
+    
+    
+    
+    @JsonProperty("configuration")
+    private String configuration;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("apportion")
+    private Boolean apportion;
+    
+    
+    
+    
+    @JsonProperty("refund_sources_priority")
+    private List<RefundSourcesPriority> refundSourcesPriority;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: RefundPriorityRequestSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundPriorityRequestSerializer{
+    
+    
+    
+    
+    @JsonProperty("apportion")
+    private Boolean apportion;
+    
+    
+    
+    
+    @JsonProperty("refund_sources_priority")
+    private List<RefundSourcesPriority> refundSourcesPriority;
+    
+    
+    
+}
+
+
 
 
 }
