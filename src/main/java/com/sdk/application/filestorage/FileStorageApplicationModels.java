@@ -1,33 +1,16 @@
 
+
 package com.sdk.application.filestorage;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class FileStorageApplicationModels{
-
-
-/*
-    Model: FailedResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FailedResponse{
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
 
 
 /*
@@ -40,6 +23,9 @@ public static class FailedResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CDN{
+
+    
+
     
     
     
@@ -74,6 +60,9 @@ public static class CDN{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Upload{
+
+    
+
     
     
     
@@ -102,6 +91,9 @@ public static class Upload{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StartResponse{
+
+    
+
     
     
     
@@ -169,6 +161,31 @@ public static class StartResponse{
 
 
 /*
+    Model: Params
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Params{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("subpath")
+    private String subpath;
+    
+    
+    
+}
+
+
+/*
     Model: StartRequest
 */
 @AllArgsConstructor
@@ -178,6 +195,9 @@ public static class StartResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StartRequest{
+
+    
+
     
     
     
@@ -207,7 +227,32 @@ public static class StartRequest{
     
     
     @JsonProperty("params")
-    private Object params;
+    private Params params;
+    
+    
+    
+}
+
+
+/*
+    Model: CreatedBy
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreatedBy{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("username")
+    private String username;
     
     
     
@@ -224,6 +269,9 @@ public static class StartRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompleteResponse{
+
+    
+
     
     
     
@@ -305,6 +353,12 @@ public static class CompleteResponse{
     
     
     
+    
+    @JsonProperty("created_by")
+    private CreatedBy createdBy;
+    
+    
+    
 }
 
 
@@ -318,6 +372,9 @@ public static class CompleteResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Urls{
+
+    
+
     
     
     
@@ -352,6 +409,9 @@ public static class Urls{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SignUrlResponse{
+
+    
+
     
     
     
@@ -374,6 +434,9 @@ public static class SignUrlResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SignUrlRequest{
+
+    
+
     
     
     

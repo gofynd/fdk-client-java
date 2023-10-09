@@ -1,8 +1,13 @@
 
+
 package com.sdk.universal.partner;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class PartnerPublicModels{
@@ -18,6 +23,9 @@ public class PartnerPublicModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CategoryL1{
+
+    
+
     
     
     
@@ -76,6 +84,9 @@ public static class CategoryL1{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CategoryL2{
+
+    
+
     
     
     
@@ -128,6 +139,9 @@ public static class CategoryL2{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CategoryCommon{
+
+    
+
     
     
     
@@ -156,6 +170,9 @@ public static class CategoryCommon{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ContactInfo{
+
+    
+
     
     
     
@@ -178,6 +195,9 @@ public static class ContactInfo{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ExtensionUsingSlug{
+
+    
+
     
     
     
@@ -302,6 +322,9 @@ public static class ExtensionUsingSlug{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Organization{
+
+    
+
     
     
     
@@ -330,6 +353,9 @@ public static class Organization{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ListingInfo{
+
+    
+
     
     
     
@@ -370,6 +396,9 @@ public static class ListingInfo{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Benefits{
+
+    
+
     
     
     
@@ -398,6 +427,9 @@ public static class Benefits{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Screenshots{
+
+    
+
     
     
     
@@ -426,6 +458,9 @@ public static class Screenshots{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Details{
+
+    
+
     
     
     
@@ -484,6 +519,9 @@ public static class Details{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Support{
+
+    
+
     
     
     
@@ -530,6 +568,9 @@ public static class Support{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Price{
+
+    
+
     
     
     
@@ -558,6 +599,9 @@ public static class Price{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Plans{
+
+    
+
     
     
     
@@ -616,6 +660,9 @@ public static class Plans{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Recurring{
+
+    
+
     
     
     

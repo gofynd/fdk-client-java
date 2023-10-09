@@ -1504,11 +1504,11 @@ public class OrderPlatformService {
     
     
 
-    public OrderPlatformModels.ShipmentInternalPlatformViewResponse getShipments(String lane, String bagStatus, Boolean statusOverrideLane, Double timeToDispatch, String searchType, String searchValue, String fromDate, String toDate, String dpIds, String stores, String salesChannels, Integer pageNo, Integer pageSize, Boolean fetchActiveShipment, Boolean excludeLockedShipments, String paymentMethods, String channelShipmentId, String channelOrderId, String customMeta, String orderingChannel, String companyAffiliateTag, Boolean myOrders, String platformUserId, String sortType, Boolean showCrossCompanyData, String tags, String customerId, String orderType) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.ShipmentInternalPlatformViewResponse getShipments(String lane, String bagStatus, Boolean statusOverrideLane, Integer timeToDispatch, String searchType, String searchValue, String fromDate, String toDate, String dpIds, String stores, String salesChannels, Integer pageNo, Integer pageSize, Boolean fetchActiveShipment, Boolean excludeLockedShipments, String paymentMethods, String channelShipmentId, String channelOrderId, String customMeta, String orderingChannel, String companyAffiliateTag, Boolean myOrders, String platformUserId, String sortType, Boolean showCrossCompanyData, String tags, String customerId, String orderType) throws FDKServerResponseError, FDKException {
         return this.getShipments(lane, bagStatus, statusOverrideLane, timeToDispatch, searchType, searchValue, fromDate, toDate, dpIds, stores, salesChannels, pageNo, pageSize, fetchActiveShipment, excludeLockedShipments, paymentMethods, channelShipmentId, channelOrderId, customMeta, orderingChannel, companyAffiliateTag, myOrders, platformUserId, sortType, showCrossCompanyData, tags, customerId, orderType, new HashMap<>());
     }
 
-    public OrderPlatformModels.ShipmentInternalPlatformViewResponse getShipments(String lane, String bagStatus, Boolean statusOverrideLane, Double timeToDispatch, String searchType, String searchValue, String fromDate, String toDate, String dpIds, String stores, String salesChannels, Integer pageNo, Integer pageSize, Boolean fetchActiveShipment, Boolean excludeLockedShipments, String paymentMethods, String channelShipmentId, String channelOrderId, String customMeta, String orderingChannel, String companyAffiliateTag, Boolean myOrders, String platformUserId, String sortType, Boolean showCrossCompanyData, String tags, String customerId, String orderType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.ShipmentInternalPlatformViewResponse getShipments(String lane, String bagStatus, Boolean statusOverrideLane, Integer timeToDispatch, String searchType, String searchValue, String fromDate, String toDate, String dpIds, String stores, String salesChannels, Integer pageNo, Integer pageSize, Boolean fetchActiveShipment, Boolean excludeLockedShipments, String paymentMethods, String channelShipmentId, String channelOrderId, String customMeta, String orderingChannel, String companyAffiliateTag, Boolean myOrders, String platformUserId, String sortType, Boolean showCrossCompanyData, String tags, String customerId, String orderType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.ShipmentInternalPlatformViewResponse> response = null;
             try {
@@ -1718,7 +1718,7 @@ public class OrderPlatformService {
         String lane ,
         String bagStatus ,
         Boolean statusOverrideLane ,
-        Double timeToDispatch ,
+        Integer timeToDispatch ,
         String searchType ,
         String searchValue ,
         String fromDate ,
@@ -1968,11 +1968,11 @@ public class OrderPlatformService {
     
     
 
-    public OrderPlatformModels.LaneConfigResponse getLaneConfig(String superLane, String groupEntity, String fromDate, String toDate, String dpIds, String stores, String salesChannels, String paymentMode, String bagStatus, String searchType, String searchValue, String tags, String timeToDispatch, String paymentMethods, Boolean myOrders, Boolean showCrossCompanyData, String orderType) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.LaneConfigResponse getLaneConfig(String superLane, String groupEntity, String fromDate, String toDate, String dpIds, String stores, String salesChannels, String paymentMode, String bagStatus, String searchType, String searchValue, String tags, Integer timeToDispatch, String paymentMethods, Boolean myOrders, Boolean showCrossCompanyData, String orderType) throws FDKServerResponseError, FDKException {
         return this.getLaneConfig(superLane, groupEntity, fromDate, toDate, dpIds, stores, salesChannels, paymentMode, bagStatus, searchType, searchValue, tags, timeToDispatch, paymentMethods, myOrders, showCrossCompanyData, orderType, new HashMap<>());
     }
 
-    public OrderPlatformModels.LaneConfigResponse getLaneConfig(String superLane, String groupEntity, String fromDate, String toDate, String dpIds, String stores, String salesChannels, String paymentMode, String bagStatus, String searchType, String searchValue, String tags, String timeToDispatch, String paymentMethods, Boolean myOrders, Boolean showCrossCompanyData, String orderType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.LaneConfigResponse getLaneConfig(String superLane, String groupEntity, String fromDate, String toDate, String dpIds, String stores, String salesChannels, String paymentMode, String bagStatus, String searchType, String searchValue, String tags, Integer timeToDispatch, String paymentMethods, Boolean myOrders, Boolean showCrossCompanyData, String orderType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.LaneConfigResponse> response = null;
             try {
@@ -2088,11 +2088,11 @@ public class OrderPlatformService {
     
     
 
-    public OrderPlatformModels.OrderListingResponse getOrders(String lane, String searchType, String bagStatus, String timeToDispatch, String paymentMethods, String tags, String searchValue, String fromDate, String toDate, String dpIds, String stores, String salesChannels, Integer pageNo, Integer pageSize, Boolean isPrioritySort, String customMeta, Boolean myOrders, Boolean showCrossCompanyData, String customerId, String orderType) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.OrderListingResponse getOrders(String lane, String searchType, String bagStatus, Integer timeToDispatch, String paymentMethods, String tags, String searchValue, String fromDate, String toDate, String dpIds, String stores, String salesChannels, Integer pageNo, Integer pageSize, Boolean isPrioritySort, String customMeta, Boolean myOrders, Boolean showCrossCompanyData, String customerId, String orderType) throws FDKServerResponseError, FDKException {
         return this.getOrders(lane, searchType, bagStatus, timeToDispatch, paymentMethods, tags, searchValue, fromDate, toDate, dpIds, stores, salesChannels, pageNo, pageSize, isPrioritySort, customMeta, myOrders, showCrossCompanyData, customerId, orderType, new HashMap<>());
     }
 
-    public OrderPlatformModels.OrderListingResponse getOrders(String lane, String searchType, String bagStatus, String timeToDispatch, String paymentMethods, String tags, String searchValue, String fromDate, String toDate, String dpIds, String stores, String salesChannels, Integer pageNo, Integer pageSize, Boolean isPrioritySort, String customMeta, Boolean myOrders, Boolean showCrossCompanyData, String customerId, String orderType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.OrderListingResponse getOrders(String lane, String searchType, String bagStatus, Integer timeToDispatch, String paymentMethods, String tags, String searchValue, String fromDate, String toDate, String dpIds, String stores, String salesChannels, Integer pageNo, Integer pageSize, Boolean isPrioritySort, String customMeta, Boolean myOrders, Boolean showCrossCompanyData, String customerId, String orderType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.OrderListingResponse> response = null;
             try {
@@ -2254,7 +2254,7 @@ public class OrderPlatformService {
         String lane ,
         String searchType ,
         String bagStatus ,
-        String timeToDispatch ,
+        Integer timeToDispatch ,
         String paymentMethods ,
         String tags ,
         String searchValue ,

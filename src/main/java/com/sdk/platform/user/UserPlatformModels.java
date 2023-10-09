@@ -1,8 +1,13 @@
 
+
 package com.sdk.platform.user;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class UserPlatformModels{
@@ -18,6 +23,9 @@ public class UserPlatformModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BlockUserRequestSchema{
+
+    
+
     
     
     
@@ -52,6 +60,9 @@ public static class BlockUserRequestSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ArchiveUserRequestSchema{
+
+    
+
     
     
     
@@ -74,6 +85,9 @@ public static class ArchiveUserRequestSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UnDeleteUserRequestSchema{
+
+    
+
     
     
     
@@ -108,6 +122,9 @@ public static class UnDeleteUserRequestSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BlockUserSuccess{
+
+    
+
     
     
     
@@ -130,6 +147,9 @@ public static class BlockUserSuccess{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ArchiveUserSuccess{
+
+    
+
     
     
     
@@ -152,6 +172,9 @@ public static class ArchiveUserSuccess{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UnDeleteUserSuccess{
+
+    
+
     
     
     
@@ -174,6 +197,9 @@ public static class UnDeleteUserSuccess{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UserSearchResponseSchema{
+
+    
+
     
     
     
@@ -196,6 +222,9 @@ public static class UserSearchResponseSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CustomerListResponseSchema{
+
+    
+
     
     
     
@@ -224,6 +253,9 @@ public static class CustomerListResponseSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaginationSchema{
+
+    
+
     
     
     
@@ -270,6 +302,9 @@ public static class PaginationSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SessionListResponseSchema{
+
+    
+
     
     
     
@@ -292,6 +327,9 @@ public static class SessionListResponseSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SessionDeleteResponseSchema{
+
+    
+
     
     
     
@@ -314,6 +352,9 @@ public static class SessionDeleteResponseSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AuthenticationApiErrorSchema{
+
+    
+
     
     
     
@@ -336,6 +377,9 @@ public static class AuthenticationApiErrorSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SessionListResponseInfo{
+
+    
+
     
     
     
@@ -382,6 +426,9 @@ public static class SessionListResponseInfo{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UserGroupResponseSchema{
+
+    
+
     
     
     
@@ -458,6 +505,9 @@ public static class UserGroupResponseSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UserGroupListResponseSchema{
+
+    
+
     
     
     
@@ -486,6 +536,9 @@ public static class UserGroupListResponseSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateUserGroupSchema{
+
+    
+
     
     
     
@@ -520,6 +573,9 @@ public static class CreateUserGroupSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateUserRequestSchema{
+
+    
+
     
     
     
@@ -578,6 +634,9 @@ public static class CreateUserRequestSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateUserResponseSchema{
+
+    
+
     
     
     
@@ -600,6 +659,9 @@ public static class CreateUserResponseSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateUserSessionRequestSchema{
+
+    
+
     
     
     
@@ -634,6 +696,9 @@ public static class CreateUserSessionRequestSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateUserSessionResponseSchema{
+
+    
+
     
     
     
@@ -680,6 +745,9 @@ public static class CreateUserSessionResponseSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PlatformSchema{
+
+    
+
     
     
     
@@ -846,6 +914,9 @@ public static class PlatformSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LookAndFeel{
+
+    
+
     
     
     
@@ -874,6 +945,9 @@ public static class LookAndFeel{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Login{
+
+    
+
     
     
     
@@ -902,6 +976,9 @@ public static class Login{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class MetaSchema{
+
+    
+
     
     
     
@@ -924,6 +1001,9 @@ public static class MetaSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Social{
+
+    
+
     
     
     
@@ -964,6 +1044,9 @@ public static class Social{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RequiredFields{
+
+    
+
     
     
     
@@ -992,6 +1075,9 @@ public static class RequiredFields{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PlatformEmail{
+
+    
+
     
     
     
@@ -1020,6 +1106,9 @@ public static class PlatformEmail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PlatformMobile{
+
+    
+
     
     
     
@@ -1048,6 +1137,9 @@ public static class PlatformMobile{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RegisterRequiredFields{
+
+    
+
     
     
     
@@ -1076,6 +1168,9 @@ public static class RegisterRequiredFields{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RegisterRequiredFieldsEmail{
+
+    
+
     
     
     
@@ -1104,6 +1199,9 @@ public static class RegisterRequiredFieldsEmail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RegisterRequiredFieldsMobile{
+
+    
+
     
     
     
@@ -1132,6 +1230,9 @@ public static class RegisterRequiredFieldsMobile{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FlashCard{
+
+    
+
     
     
     
@@ -1166,6 +1267,9 @@ public static class FlashCard{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SocialTokens{
+
+    
+
     
     
     
@@ -1200,6 +1304,9 @@ public static class SocialTokens{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DeleteAccountReasons{
+
+    
+
     
     
     
@@ -1234,6 +1341,9 @@ public static class DeleteAccountReasons{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DeleteAccountConsent{
+
+    
+
     
     
     
@@ -1256,6 +1366,9 @@ public static class DeleteAccountConsent{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Facebook{
+
+    
+
     
     
     
@@ -1278,6 +1391,9 @@ public static class Facebook{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Accountkit{
+
+    
+
     
     
     
@@ -1300,6 +1416,9 @@ public static class Accountkit{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Google{
+
+    
+
     
     
     
@@ -1322,6 +1441,9 @@ public static class Google{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SessionExpiry{
+
+    
+
     
     
     
@@ -1356,6 +1478,9 @@ public static class SessionExpiry{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UpdateUserGroupSchema{
+
+    
+
     
     
     
@@ -1381,6 +1506,98 @@ public static class UpdateUserGroupSchema{
 
 
 /*
+    Model: PartialUserGroupUpdateSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PartialUserGroupUpdateSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("file_url")
+    private String fileUrl;
+    
+    
+    
+    
+    @JsonProperty("user_data")
+    private List<UserGroupUpdateData> userData;
+    
+    
+    
+}
+
+
+/*
+    Model: UserGroupUpdateData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserGroupUpdateData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("phone_number")
+    private String phoneNumber;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+}
+
+
+/*
     Model: UpdateUserRequestSchema
 */
 @AllArgsConstructor
@@ -1390,6 +1607,9 @@ public static class UpdateUserGroupSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UpdateUserRequestSchema{
+
+    
+
     
     
     
@@ -1448,6 +1668,9 @@ public static class UpdateUserRequestSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UserEmails{
+
+    
+
     
     
     
@@ -1488,6 +1711,9 @@ public static class UserEmails{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UserPhoneNumbers{
+
+    
+
     
     
     
@@ -1534,6 +1760,9 @@ public static class UserPhoneNumbers{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UserSchema{
+
+    
+
     
     
     
@@ -1646,6 +1875,9 @@ public static class UserSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PhoneNumber{
+
+    
+
     
     
     
@@ -1692,6 +1924,9 @@ public static class PhoneNumber{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Email{
+
+    
+
     
     
     

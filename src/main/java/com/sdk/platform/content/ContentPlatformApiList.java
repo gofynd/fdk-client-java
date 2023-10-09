@@ -186,11 +186,8 @@ interface ContentPlatformApiList {
     @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/tags")
     Call<ContentPlatformModels.TagsSchema> updateInjectableTag(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.CreateTagRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/tags")
-    Call<ContentPlatformModels.TagsSchema> deleteAllInjectableTags(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/tags")
-    Call<ContentPlatformModels.TagsSchema> getInjectableTags(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentPlatformModels.TagsSchema> getInjectableTags(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("all") Boolean all, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/tags/add")
     Call<ContentPlatformModels.TagsSchema> addInjectableTag(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.CreateTagRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);

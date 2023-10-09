@@ -152,4 +152,13 @@ interface PaymentPlatformApiList {
 
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/configuration/aggregator")
     Call<PaymentPlatformModels.MerchnatPaymentModeResponse> getPGConfigAggregators(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/refund_priority/config/{config_type}")
+    Call<PaymentPlatformModels.RefundPriorityResponseSerializer> getMerchantRefundPriority(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("config_type") String configType, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/refund_priority/config/{config_type}")
+    Call<PaymentPlatformModels.RefundPriorityResponseSerializer> createMerchantRefundPriority(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("config_type") String configType, @Body PaymentPlatformModels.RefundPriorityRequestSerializer payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/refund_priority/config/{config_type}")
+    Call<PaymentPlatformModels.RefundPriorityResponseSerializer> updateMerchantRefundPriority(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("config_type") String configType, @Body PaymentPlatformModels.RefundPriorityRequestSerializer payload, @HeaderMap Map<String, String> requestHeaders);
 }

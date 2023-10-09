@@ -1,8 +1,13 @@
 
+
 package com.sdk.platform.share;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class SharePlatformModels{
@@ -18,6 +23,9 @@ public class SharePlatformModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ClickStatsResponse{
+
+    
+
     
     
     
@@ -40,6 +48,9 @@ public static class ClickStatsResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ClickStatsItem{
+
+    
+
     
     
     
@@ -68,6 +79,9 @@ public static class ClickStatsItem{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RedirectDevice{
+
+    
+
     
     
     
@@ -96,6 +110,9 @@ public static class RedirectDevice{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class WebRedirect{
+
+    
+
     
     
     
@@ -124,6 +141,9 @@ public static class WebRedirect{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Redirects{
+
+    
+
     
     
     
@@ -164,6 +184,9 @@ public static class Redirects{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CampaignShortLink{
+
+    
+
     
     
     
@@ -192,6 +215,9 @@ public static class CampaignShortLink{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Attribution{
+
+    
+
     
     
     
@@ -214,6 +240,9 @@ public static class Attribution{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SocialMediaTags{
+
+    
+
     
     
     
@@ -248,6 +277,9 @@ public static class SocialMediaTags{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ShortLinkReq{
+
+    
+
     
     
     
@@ -336,6 +368,9 @@ public static class ShortLinkReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UrlInfo{
+
+    
+
     
     
     
@@ -370,6 +405,9 @@ public static class UrlInfo{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ShortLinkRes{
+
+    
+
     
     
     
@@ -506,6 +544,9 @@ public static class ShortLinkRes{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Page{
+
+    
+
     
     
     
@@ -564,6 +605,9 @@ public static class Page{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ShortLinkList{
+
+    
+
     
     
     
@@ -592,6 +636,9 @@ public static class ShortLinkList{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ErrorRes{
+
+    
+
     
     
     

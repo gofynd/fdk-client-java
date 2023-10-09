@@ -39,6 +39,7 @@ import com.sdk.application.*;
         relativeUrls.put("sendResetPasswordEmail","/service/application/user/authentication/v1.0/login/password/reset".substring(1));
         relativeUrls.put("sendResetPasswordMobile","/service/application/user/authentication/v1.0/login/password/mobile/reset".substring(1));
         relativeUrls.put("forgotPassword","/service/application/user/authentication/v1.0/login/password/reset/forgot".substring(1));
+        relativeUrls.put("resetForgotPassword","/service/application/user/authentication/v1.0/login/password/forgot".substring(1));
         relativeUrls.put("sendResetToken","/service/application/user/authentication/v1.0/login/password/reset/token".substring(1));
         relativeUrls.put("loginWithToken","/service/application/user/authentication/v1.0/login/token".substring(1));
         relativeUrls.put("registerWithForm","/service/application/user/authentication/v1.0/register/form".substring(1));
@@ -49,9 +50,13 @@ import com.sdk.application.*;
         relativeUrls.put("deleteUser","/service/application/user/authentication/v1.0/delete".substring(1));
         relativeUrls.put("logout","/service/application/user/authentication/v1.0/logout".substring(1));
         relativeUrls.put("sendOTPOnMobile","/service/application/user/authentication/v1.0/otp/mobile/send".substring(1));
+        relativeUrls.put("sendForgotOTPOnMobile","/service/application/user/authentication/v1.0/otp/forgot/mobile/send".substring(1));
         relativeUrls.put("verifyMobileOTP","/service/application/user/authentication/v1.0/otp/mobile/verify".substring(1));
+        relativeUrls.put("verifyMobileForgotOTP","/service/application/user/authentication/v1.0/otp/forgot/mobile/verify".substring(1));
         relativeUrls.put("sendOTPOnEmail","/service/application/user/authentication/v1.0/otp/email/send".substring(1));
+        relativeUrls.put("sendForgotOTPOnEmail","/service/application/user/authentication/v1.0/otp/forgot/email/send".substring(1));
         relativeUrls.put("verifyEmailOTP","/service/application/user/authentication/v1.0/otp/email/verify".substring(1));
+        relativeUrls.put("verifyEmailForgotOTP","/service/application/user/authentication/v1.0/otp/forgot/email/verify".substring(1));
         relativeUrls.put("getLoggedInUser","/service/application/user/authentication/v1.0/session".substring(1));
         relativeUrls.put("getListOfActiveSessions","/service/application/user/authentication/v1.0/sessions".substring(1));
         relativeUrls.put("getPlatformConfig","/service/application/user/platform/v1.0/config".substring(1));
@@ -250,6 +255,23 @@ import com.sdk.application.*;
     }
     
 
+    public UserApplicationModels.ResetForgotPasswordSuccess resetForgotPassword(UserApplicationModels.ForgotPasswordRequestSchema body) throws IOException {
+        return this.resetForgotPassword(body, new HashMap<>());
+    }
+
+    public UserApplicationModels.ResetForgotPasswordSuccess resetForgotPassword(UserApplicationModels.ForgotPasswordRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("resetForgotPassword");
+
+        Response<UserApplicationModels.ResetForgotPasswordSuccess> response = userApplicationApiList.resetForgotPassword(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
     public UserApplicationModels.ResetPasswordSuccess sendResetToken(UserApplicationModels.CodeRequestBodySchema body) throws IOException {
         return this.sendResetToken(body, new HashMap<>());
     }
@@ -420,6 +442,23 @@ import com.sdk.application.*;
     }
     
 
+    public UserApplicationModels.OtpSuccess sendForgotOTPOnMobile(String platform, UserApplicationModels.SendMobileForgotOtpRequestSchema body) throws IOException {
+        return this.sendForgotOTPOnMobile(platform, body, new HashMap<>());
+    }
+
+    public UserApplicationModels.OtpSuccess sendForgotOTPOnMobile(String platform, UserApplicationModels.SendMobileForgotOtpRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("sendForgotOTPOnMobile");
+
+        Response<UserApplicationModels.OtpSuccess> response = userApplicationApiList.sendForgotOTPOnMobile(fullUrl, platform, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
     public UserApplicationModels.VerifyOtpSuccess verifyMobileOTP(String platform, UserApplicationModels.VerifyOtpRequestSchema body) throws IOException {
         return this.verifyMobileOTP(platform, body, new HashMap<>());
     }
@@ -429,6 +468,23 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("verifyMobileOTP");
 
         Response<UserApplicationModels.VerifyOtpSuccess> response = userApplicationApiList.verifyMobileOTP(fullUrl, platform, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public UserApplicationModels.VerifyForgotOtpSuccess verifyMobileForgotOTP(String platform, UserApplicationModels.VerifyMobileForgotOtpRequestSchema body) throws IOException {
+        return this.verifyMobileForgotOTP(platform, body, new HashMap<>());
+    }
+
+    public UserApplicationModels.VerifyForgotOtpSuccess verifyMobileForgotOTP(String platform, UserApplicationModels.VerifyMobileForgotOtpRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("verifyMobileForgotOTP");
+
+        Response<UserApplicationModels.VerifyForgotOtpSuccess> response = userApplicationApiList.verifyMobileForgotOTP(fullUrl, platform, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -454,6 +510,23 @@ import com.sdk.application.*;
     }
     
 
+    public UserApplicationModels.EmailOtpSuccess sendForgotOTPOnEmail(String platform, UserApplicationModels.SendEmailForgotOtpRequestSchema body) throws IOException {
+        return this.sendForgotOTPOnEmail(platform, body, new HashMap<>());
+    }
+
+    public UserApplicationModels.EmailOtpSuccess sendForgotOTPOnEmail(String platform, UserApplicationModels.SendEmailForgotOtpRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("sendForgotOTPOnEmail");
+
+        Response<UserApplicationModels.EmailOtpSuccess> response = userApplicationApiList.sendForgotOTPOnEmail(fullUrl, platform, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
     public UserApplicationModels.VerifyOtpSuccess verifyEmailOTP(String platform, UserApplicationModels.VerifyEmailOtpRequestSchema body) throws IOException {
         return this.verifyEmailOTP(platform, body, new HashMap<>());
     }
@@ -463,6 +536,23 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("verifyEmailOTP");
 
         Response<UserApplicationModels.VerifyOtpSuccess> response = userApplicationApiList.verifyEmailOTP(fullUrl, platform, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public UserApplicationModels.VerifyForgotOtpSuccess verifyEmailForgotOTP(String platform, UserApplicationModels.VerifyEmailForgotOtpRequestSchema body) throws IOException {
+        return this.verifyEmailForgotOTP(platform, body, new HashMap<>());
+    }
+
+    public UserApplicationModels.VerifyForgotOtpSuccess verifyEmailForgotOTP(String platform, UserApplicationModels.VerifyEmailForgotOtpRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("verifyEmailForgotOTP");
+
+        Response<UserApplicationModels.VerifyForgotOtpSuccess> response = userApplicationApiList.verifyEmailForgotOTP(fullUrl, platform, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

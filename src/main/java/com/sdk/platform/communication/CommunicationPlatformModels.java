@@ -1,8 +1,13 @@
 
+
 package com.sdk.platform.communication;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class CommunicationPlatformModels{
@@ -18,6 +23,9 @@ public class CommunicationPlatformModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AppProvider{
+
+    
+
     
     
     
@@ -82,6 +90,9 @@ public static class AppProvider{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AppProviderRes{
+
+    
+
     
     
     
@@ -116,6 +127,9 @@ public static class AppProviderRes{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AppProviderResVoice{
+
+    
+
     
     
     
@@ -144,6 +158,9 @@ public static class AppProviderResVoice{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AppProviderResObj{
+
+    
+
     
     
     
@@ -166,6 +183,9 @@ public static class AppProviderResObj{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GlobalProviders{
+
+    
+
     
     
     
@@ -200,6 +220,9 @@ public static class GlobalProviders{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GlobalProvidersResObj{
+
+    
+
     
     
     
@@ -228,6 +251,9 @@ public static class GlobalProvidersResObj{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AppProviderReq{
+
+    
+
     
     
     
@@ -262,6 +288,9 @@ public static class AppProviderReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StatsImported{
+
+    
+
     
     
     
@@ -284,6 +313,9 @@ public static class StatsImported{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StatsProcessedEmail{
+
+    
+
     
     
     
@@ -318,6 +350,9 @@ public static class StatsProcessedEmail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StatsProcessedSms{
+
+    
+
     
     
     
@@ -352,6 +387,9 @@ public static class StatsProcessedSms{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StatsProcessed{
+
+    
+
     
     
     
@@ -380,6 +418,9 @@ public static class StatsProcessed{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Stats{
+
+    
+
     
     
     
@@ -414,6 +455,9 @@ public static class Stats{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetStats{
+
+    
+
     
     
     
@@ -436,6 +480,9 @@ public static class GetStats{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CampaignReq{
+
+    
+
     
     
     
@@ -506,6 +553,9 @@ public static class CampaignReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RecipientHeaders{
+
+    
+
     
     
     
@@ -528,6 +578,9 @@ public static class RecipientHeaders{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CampaignEmailTemplate{
+
+    
+
     
     
     
@@ -556,6 +609,9 @@ public static class CampaignEmailTemplate{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CampignEmailProvider{
+
+    
+
     
     
     
@@ -590,6 +646,9 @@ public static class CampignEmailProvider{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CampaignEmail{
+
+    
+
     
     
     
@@ -618,6 +677,9 @@ public static class CampaignEmail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Campaign{
+
+    
+
     
     
     
@@ -718,6 +780,9 @@ public static class Campaign{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Campaigns{
+
+    
+
     
     
     
@@ -746,6 +811,9 @@ public static class Campaigns{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BadRequestSchema{
+
+    
+
     
     
     
@@ -774,6 +842,9 @@ public static class BadRequestSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class NotFound{
+
+    
+
     
     
     
@@ -796,6 +867,9 @@ public static class NotFound{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AudienceReq{
+
+    
+
     
     
     
@@ -854,6 +928,9 @@ public static class AudienceReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Audience{
+
+    
+
     
     
     
@@ -954,6 +1031,9 @@ public static class Audience{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Audiences{
+
+    
+
     
     
     
@@ -982,6 +1062,9 @@ public static class Audiences{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetNRecordsCsvReq{
+
+    
+
     
     
     
@@ -1016,6 +1099,9 @@ public static class GetNRecordsCsvReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetNRecordsCsvResItems{
+
+    
+
     
     
     
@@ -1062,6 +1148,9 @@ public static class GetNRecordsCsvResItems{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetNRecordsCsvRes{
+
+    
+
     
     
     
@@ -1084,6 +1173,9 @@ public static class GetNRecordsCsvRes{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DummyDatasources{
+
+    
+
     
     
     
@@ -1112,6 +1204,9 @@ public static class DummyDatasources{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DummyDatasourcesMeta{
+
+    
+
     
     
     
@@ -1140,6 +1235,9 @@ public static class DummyDatasourcesMeta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DummyDatasourcesMetaObj{
+
+    
+
     
     
     
@@ -1162,6 +1260,9 @@ public static class DummyDatasourcesMetaObj{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EmailProviderReqFrom{
+
+    
+
     
     
     
@@ -1196,6 +1297,9 @@ public static class EmailProviderReqFrom{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EmailProviderReq{
+
+    
+
     
     
     
@@ -1248,6 +1352,9 @@ public static class EmailProviderReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EmailProvider{
+
+    
+
     
     
     
@@ -1336,6 +1443,9 @@ public static class EmailProvider{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EmailProviders{
+
+    
+
     
     
     
@@ -1364,6 +1474,9 @@ public static class EmailProviders{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EmailTemplateKeys{
+
+    
+
     
     
     
@@ -1398,6 +1511,9 @@ public static class EmailTemplateKeys{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EmailTemplateHeaders{
+
+    
+
     
     
     
@@ -1426,6 +1542,9 @@ public static class EmailTemplateHeaders{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EmailTemplateReq{
+
+    
+
     
     
     
@@ -1556,6 +1675,9 @@ public static class EmailTemplateReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TemplateAndType{
+
+    
+
     
     
     
@@ -1584,6 +1706,9 @@ public static class TemplateAndType{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EmailTemplate{
+
+    
+
     
     
     
@@ -1768,6 +1893,9 @@ public static class EmailTemplate{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SystemEmailTemplate{
+
+    
+
     
     
     
@@ -1922,6 +2050,9 @@ public static class SystemEmailTemplate{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EmailTemplates{
+
+    
+
     
     
     
@@ -1950,6 +2081,9 @@ public static class EmailTemplates{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SystemEmailTemplates{
+
+    
+
     
     
     
@@ -1972,6 +2106,9 @@ public static class SystemEmailTemplates{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PayloadEmailTemplateStructure{
+
+    
+
     
     
     
@@ -2000,6 +2137,9 @@ public static class PayloadEmailTemplateStructure{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PayloadEmailProviderStructure{
+
+    
+
     
     
     
@@ -2022,6 +2162,9 @@ public static class PayloadEmailProviderStructure{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PayloadEmailStructure{
+
+    
+
     
     
     
@@ -2050,6 +2193,9 @@ public static class PayloadEmailStructure{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PayloadSmsTemplateStructure{
+
+    
+
     
     
     
@@ -2078,6 +2224,9 @@ public static class PayloadSmsTemplateStructure{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PayloadSmsProviderStructure{
+
+    
+
     
     
     
@@ -2100,6 +2249,9 @@ public static class PayloadSmsProviderStructure{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PayloadSmsStructure{
+
+    
+
     
     
     
@@ -2128,6 +2280,9 @@ public static class PayloadSmsStructure{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PayloadStructure{
+
+    
+
     
     
     
@@ -2168,6 +2323,9 @@ public static class PayloadStructure{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class MetaStructure{
+
+    
+
     
     
     
@@ -2208,6 +2366,9 @@ public static class MetaStructure{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EngineRequest{
+
+    
+
     
     
     
@@ -2236,6 +2397,9 @@ public static class EngineRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EngineResponse{
+
+    
+
     
     
     
@@ -2258,6 +2422,9 @@ public static class EngineResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EventSubscriptionTemplateSms{
+
+    
+
     
     
     
@@ -2286,6 +2453,9 @@ public static class EventSubscriptionTemplateSms{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EventSubscriptionTemplateEmail{
+
+    
+
     
     
     
@@ -2314,6 +2484,9 @@ public static class EventSubscriptionTemplateEmail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EventSubscriptionTemplate{
+
+    
+
     
     
     
@@ -2342,6 +2515,9 @@ public static class EventSubscriptionTemplate{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EventSubscription{
+
+    
+
     
     
     
@@ -2412,6 +2588,9 @@ public static class EventSubscription{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EventSubscriptions{
+
+    
+
     
     
     
@@ -2440,6 +2619,9 @@ public static class EventSubscriptions{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TriggerJobResponse{
+
+    
+
     
     
     
@@ -2462,6 +2644,9 @@ public static class TriggerJobResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TriggerJobRequest{
+
+    
+
     
     
     
@@ -2484,6 +2669,9 @@ public static class TriggerJobRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GlobalVariablesGetResponse{
+
+    
+
     
     
     
@@ -2512,6 +2700,9 @@ public static class GlobalVariablesGetResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GlobalVariablesPostResponse{
+
+    
+
     
     
     
@@ -2558,6 +2749,9 @@ public static class GlobalVariablesPostResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GlobalVariablesReq{
+
+    
+
     
     
     
@@ -2580,6 +2774,9 @@ public static class GlobalVariablesReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Job{
+
+    
+
     
     
     
@@ -2644,6 +2841,9 @@ public static class Job{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Jobs{
+
+    
+
     
     
     
@@ -2672,6 +2872,9 @@ public static class Jobs{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class JobLog{
+
+    
+
     
     
     
@@ -2736,6 +2939,9 @@ public static class JobLog{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class JobLogs{
+
+    
+
     
     
     
@@ -2764,6 +2970,9 @@ public static class JobLogs{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LogEmail{
+
+    
+
     
     
     
@@ -2786,6 +2995,9 @@ public static class LogEmail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LogPushnotification{
+
+    
+
     
     
     
@@ -2808,6 +3020,9 @@ public static class LogPushnotification{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LogMeta{
+
+    
+
     
     
     
@@ -2860,6 +3075,9 @@ public static class LogMeta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Log{
+
+    
+
     
     
     
@@ -2942,6 +3160,9 @@ public static class Log{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Logs{
+
+    
+
     
     
     
@@ -2970,6 +3191,9 @@ public static class Logs{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SendOtpSmsCommsTemplate{
+
+    
+
     
     
     
@@ -2998,6 +3222,9 @@ public static class SendOtpSmsCommsTemplate{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SendOtpSmsCommsProvider{
+
+    
+
     
     
     
@@ -3026,6 +3253,9 @@ public static class SendOtpSmsCommsProvider{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SendOtpEmailCommsTemplate{
+
+    
+
     
     
     
@@ -3054,6 +3284,9 @@ public static class SendOtpEmailCommsTemplate{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SendOtpCommsReqData{
+
+    
+
     
     
     
@@ -3094,6 +3327,9 @@ public static class SendOtpCommsReqData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SendOtpCommsReqSms{
+
+    
+
     
     
     
@@ -3134,6 +3370,9 @@ public static class SendOtpCommsReqSms{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SendOtpCommsReqEmail{
+
+    
+
     
     
     
@@ -3168,6 +3407,9 @@ public static class SendOtpCommsReqEmail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SendOtpCommsResSms{
+
+    
+
     
     
     
@@ -3220,6 +3462,9 @@ public static class SendOtpCommsResSms{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SendOtpCommsResEmail{
+
+    
+
     
     
     
@@ -3266,6 +3511,9 @@ public static class SendOtpCommsResEmail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SendOtpCommsReq{
+
+    
+
     
     
     
@@ -3300,6 +3548,9 @@ public static class SendOtpCommsReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SendOtpCommsRes{
+
+    
+
     
     
     
@@ -3328,6 +3579,9 @@ public static class SendOtpCommsRes{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class VerifyOtpCommsReq{
+
+    
+
     
     
     
@@ -3356,6 +3610,9 @@ public static class VerifyOtpCommsReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class VerifyOtpCommsSuccessRes{
+
+    
+
     
     
     
@@ -3396,6 +3653,9 @@ public static class VerifyOtpCommsSuccessRes{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class VerifyOtpCommsErrorRes{
+
+    
+
     
     
     
@@ -3424,6 +3684,9 @@ public static class VerifyOtpCommsErrorRes{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SmsProviderReq{
+
+    
+
     
     
     
@@ -3554,6 +3817,9 @@ public static class SmsProviderReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SmsProvider{
+
+    
+
     
     
     
@@ -3654,6 +3920,9 @@ public static class SmsProvider{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SmsProviders{
+
+    
+
     
     
     
@@ -3682,6 +3951,9 @@ public static class SmsProviders{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DefaultSmsProviders{
+
+    
+
     
     
     
@@ -3716,6 +3988,9 @@ public static class DefaultSmsProviders{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SmsTemplateMessage{
+
+    
+
     
     
     
@@ -3744,6 +4019,9 @@ public static class SmsTemplateMessage{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SmsTemplates{
+
+    
+
     
     
     
@@ -3772,6 +4050,9 @@ public static class SmsTemplates{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SmsTemplate{
+
+    
+
     
     
     
@@ -3902,6 +4183,9 @@ public static class SmsTemplate{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SystemSmsTemplates{
+
+    
+
     
     
     
@@ -4020,6 +4304,9 @@ public static class SystemSmsTemplates{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class metaObj{
+
+    
+
     
     
     
@@ -4054,6 +4341,9 @@ public static class metaObj{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SmsTemplateReq{
+
+    
+
     
     
     
@@ -4118,6 +4408,9 @@ public static class SmsTemplateReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Notification{
+
+    
+
     
     
     
@@ -4170,6 +4463,9 @@ public static class Notification{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SystemNotificationUser{
+
+    
+
     
     
     
@@ -4198,6 +4494,9 @@ public static class SystemNotificationUser{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SystemNotification{
+
+    
+
     
     
     
@@ -4250,6 +4549,9 @@ public static class SystemNotification{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SystemNotifications{
+
+    
+
     
     
     
@@ -4284,6 +4586,9 @@ public static class SystemNotifications{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Page{
+
+    
+
     
     
     
@@ -4342,6 +4647,9 @@ public static class Page{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GenericError{
+
+    
+
     
     
     
@@ -4370,6 +4678,9 @@ public static class GenericError{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GenericDelete{
+
+    
+
     
     
     
@@ -4410,6 +4721,9 @@ public static class GenericDelete{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Message{
+
+    
+
     
     
     
@@ -4450,6 +4764,9 @@ public static class Message{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EnabledObj{
+
+    
+
     
     
     

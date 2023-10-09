@@ -37,6 +37,9 @@ interface UserApplicationApiList {
     Call<UserApplicationModels.LoginSuccess> forgotPassword(@Url String url1, @Body UserApplicationModels.ForgotPasswordRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
+    Call<UserApplicationModels.ResetForgotPasswordSuccess> resetForgotPassword(@Url String url1, @Body UserApplicationModels.ForgotPasswordRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST 
     Call<UserApplicationModels.ResetPasswordSuccess> sendResetToken(@Url String url1, @Body UserApplicationModels.CodeRequestBodySchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
@@ -67,13 +70,25 @@ interface UserApplicationApiList {
     Call<UserApplicationModels.OtpSuccess> sendOTPOnMobile(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendMobileOtpRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
+    Call<UserApplicationModels.OtpSuccess> sendForgotOTPOnMobile(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendMobileForgotOtpRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST 
     Call<UserApplicationModels.VerifyOtpSuccess> verifyMobileOTP(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.VerifyOtpRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST 
+    Call<UserApplicationModels.VerifyForgotOtpSuccess> verifyMobileForgotOTP(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.VerifyMobileForgotOtpRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<UserApplicationModels.EmailOtpSuccess> sendOTPOnEmail(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendEmailOtpRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
+    Call<UserApplicationModels.EmailOtpSuccess> sendForgotOTPOnEmail(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendEmailForgotOtpRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST 
     Call<UserApplicationModels.VerifyOtpSuccess> verifyEmailOTP(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.VerifyEmailOtpRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST 
+    Call<UserApplicationModels.VerifyForgotOtpSuccess> verifyEmailForgotOTP(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.VerifyEmailForgotOtpRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<UserApplicationModels.UserObjectSchema> getLoggedInUser(@Url String url1, @HeaderMap Map<String, String> requestHeaders);

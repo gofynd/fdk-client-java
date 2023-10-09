@@ -30,7 +30,7 @@ class FileStorage {
 
     public FileStorageApplicationModels.CompleteResponse uploadMedia(String fileName, String contentType, int size,
                                                                      String namespace, File file, FileStorageApplicationService fileStorageApplicationService,
-                                                                     HashMap<String, Object> params) {
+                                                                     FileStorageApplicationModels.Params params) {
         this.retrofitServiceFactory = new RetrofitServiceFactory();
         this.fileStorageApplicationService = fileStorageApplicationService;
         AwsApiList awsApiList = generateAwsApiList();
@@ -84,12 +84,12 @@ public class FileStorageApplicationService extends FileStorage {
     public FileStorageApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
         this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.filestorageApplicationApiList = generateFilestorageApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.filestorageApplicationApiList = generateFileStorageApplicationApiList(this.applicationConfig.getPersistentCookieStore());
 
         
-        relativeUrls.put("startUpload","/service/application/assets/v1.0/namespaces/{namespace}/upload/start/".substring(1));
-        relativeUrls.put("completeUpload","/service/application/assets/v1.0/namespaces/{namespace}/upload/complete/".substring(1));
-        relativeUrls.put("signUrls","/service/application/assets/v1.0/sign-urls/".substring(1)); 
+        relativeUrls.put("startUpload","/service/application/assets/v1.0/namespaces/{namespace}/upload/start".substring(1));
+        relativeUrls.put("completeUpload","/service/application/assets/v1.0/namespaces/{namespace}/upload/complete".substring(1));
+        relativeUrls.put("signUrls","/service/application/assets/v1.0/sign-urls".substring(1)); 
 
     }
 
@@ -99,14 +99,14 @@ public class FileStorageApplicationService extends FileStorage {
         }
     }
 
-    private FileStorageApplicationApiList generateFilestorageApplicationApiList(CookieStore cookieStore) {
+    private FileStorageApplicationApiList generateFileStorageApplicationApiList(CookieStore cookieStore) {
         List<Interceptor> interceptorList = new ArrayList<>();
         interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
         interceptorList.add(new RequestSignerInterceptor());
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),FileStorageApplicationApiList.class, interceptorList, cookieStore);
     }
 
-    public FileStorageApplicationModels.CompleteResponse uploadMedia(String fileName, String contentType, int size, String namespace, File file, HashMap<String,Object> params) {
+    public FileStorageApplicationModels.CompleteResponse uploadMedia(String fileName, String contentType, int size, String namespace, File file, FileStorageApplicationModels.Params params) {
         return super.uploadMedia(fileName, contentType, size, namespace, file, this, params);
     }
 

@@ -1,8 +1,13 @@
 
+
 package com.sdk.application.communication;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class CommunicationApplicationModels{
@@ -18,6 +23,9 @@ public class CommunicationApplicationModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CommunicationConsentReq{
+
+    
+
     
     
     
@@ -52,6 +60,9 @@ public static class CommunicationConsentReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CommunicationConsentRes{
+
+    
+
     
     
     
@@ -86,6 +97,9 @@ public static class CommunicationConsentRes{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CommunicationConsentChannelsEmail{
+
+    
+
     
     
     
@@ -114,6 +128,9 @@ public static class CommunicationConsentChannelsEmail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CommunicationConsentChannelsSms{
+
+    
+
     
     
     
@@ -142,6 +159,9 @@ public static class CommunicationConsentChannelsSms{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CommunicationConsentChannelsWhatsapp{
+
+    
+
     
     
     
@@ -182,6 +202,9 @@ public static class CommunicationConsentChannelsWhatsapp{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CommunicationConsentChannels{
+
+    
+
     
     
     
@@ -216,6 +239,9 @@ public static class CommunicationConsentChannels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CommunicationConsent{
+
+    
+
     
     
     
@@ -250,6 +276,9 @@ public static class CommunicationConsent{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BadRequestSchema{
+
+    
+
     
     
     
@@ -278,6 +307,9 @@ public static class BadRequestSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PushtokenReq{
+
+    
+
     
     
     
@@ -324,6 +356,9 @@ public static class PushtokenReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PushtokenRes{
+
+    
+
     
     
     

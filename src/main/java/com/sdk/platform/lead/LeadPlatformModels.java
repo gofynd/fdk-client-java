@@ -1,8 +1,13 @@
 
+
 package com.sdk.platform.lead;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class LeadPlatformModels{
@@ -18,6 +23,9 @@ public class LeadPlatformModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TicketList{
+
+    
+
     
     
     
@@ -52,6 +60,9 @@ public static class TicketList{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Page{
+
+    
+
     
     
     
@@ -110,6 +121,9 @@ public static class Page{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TicketHistoryList{
+
+    
+
     
     
     
@@ -138,6 +152,9 @@ public static class TicketHistoryList{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CustomFormList{
+
+    
+
     
     
     
@@ -166,6 +183,9 @@ public static class CustomFormList{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateCustomFormPayload{
+
+    
+
     
     
     
@@ -236,6 +256,9 @@ public static class CreateCustomFormPayload{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EditCustomFormPayload{
+
+    
+
     
     
     
@@ -306,6 +329,9 @@ public static class EditCustomFormPayload{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EditTicketPayload{
+
+    
+
     
     
     
@@ -370,6 +396,9 @@ public static class EditTicketPayload{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AgentChangePayload{
+
+    
+
     
     
     
@@ -392,6 +421,9 @@ public static class AgentChangePayload{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateVideoRoomResponse{
+
+    
+
     
     
     
@@ -414,6 +446,9 @@ public static class CreateVideoRoomResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CloseVideoRoomResponse{
+
+    
+
     
     
     
@@ -436,6 +471,9 @@ public static class CloseVideoRoomResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateVideoRoomPayload{
+
+    
+
     
     
     
@@ -464,6 +502,9 @@ public static class CreateVideoRoomPayload{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class NotifyUser{
+
+    
+
     
     
     
@@ -492,6 +533,9 @@ public static class NotifyUser{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Filter{
+
+    
+
     
     
     
@@ -532,6 +576,9 @@ public static class Filter{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TicketHistoryPayload{
+
+    
+
     
     
     
@@ -560,6 +607,9 @@ public static class TicketHistoryPayload{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetTokenForVideoRoomResponse{
+
+    
+
     
     
     
@@ -582,6 +632,9 @@ public static class GetTokenForVideoRoomResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetParticipantsInsideVideoRoomResponse{
+
+    
+
     
     
     
@@ -604,6 +657,9 @@ public static class GetParticipantsInsideVideoRoomResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Participant{
+
+    
+
     
     
     
@@ -638,6 +694,9 @@ public static class Participant{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UserSchema{
+
+    
+
     
     
     
@@ -750,6 +809,9 @@ public static class UserSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PhoneNumber{
+
+    
+
     
     
     
@@ -796,6 +858,9 @@ public static class PhoneNumber{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Email{
+
+    
+
     
     
     
@@ -836,6 +901,9 @@ public static class Email{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Debug{
+
+    
+
     
     
     
@@ -864,6 +932,9 @@ public static class Debug{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TicketContext{
+
+    
+
     
     
     
@@ -892,6 +963,9 @@ public static class TicketContext{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreatedOn{
+
+    
+
     
     
     
@@ -914,6 +988,9 @@ public static class CreatedOn{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TicketAsset{
+
+    
+
     
     
     
@@ -948,6 +1025,9 @@ public static class TicketAsset{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TicketContent{
+
+    
+
     
     
     
@@ -988,6 +1068,9 @@ public static class TicketContent{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AddTicketPayload{
+
+    
+
     
     
     
@@ -1040,6 +1123,9 @@ public static class AddTicketPayload{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Priority{
+
+    
+
     
     
     
@@ -1074,6 +1160,9 @@ public static class Priority{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Status{
+
+    
+
     
     
     
@@ -1108,6 +1197,9 @@ public static class Status{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TicketFeedbackList{
+
+    
+
     
     
     
@@ -1130,6 +1222,9 @@ public static class TicketFeedbackList{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TicketFeedbackPayload{
+
+    
+
     
     
     
@@ -1152,6 +1247,9 @@ public static class TicketFeedbackPayload{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubmitButton{
+
+    
+
     
     
     
@@ -1186,6 +1284,9 @@ public static class SubmitButton{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PollForAssignment{
+
+    
+
     
     
     
@@ -1226,6 +1327,9 @@ public static class PollForAssignment{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CustomForm{
+
+    
+
     
     
     
@@ -1326,6 +1430,9 @@ public static class CustomForm{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FeedbackForm{
+
+    
+
     
     
     
@@ -1360,6 +1467,9 @@ public static class FeedbackForm{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TicketCategory{
+
+    
+
     
     
     
@@ -1406,6 +1516,9 @@ public static class TicketCategory{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FeedbackResponseItem{
+
+    
+
     
     
     
@@ -1440,6 +1553,9 @@ public static class FeedbackResponseItem{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TicketFeedback{
+
+    
+
     
     
     
@@ -1504,6 +1620,9 @@ public static class TicketFeedback{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TicketHistory{
+
+    
+
     
     
     
@@ -1568,6 +1687,9 @@ public static class TicketHistory{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Ticket{
+
+    
+
     
     
     
@@ -1706,6 +1828,12 @@ public static class Ticket{
         PriorityEnum(String priority) {
             this.priority = priority;
         }
+
+        @JsonValue
+        public String getPriority() {
+            return priority;
+        }
+
     }
 
 
@@ -1729,6 +1857,12 @@ public static class Ticket{
         HistoryTypeEnum(String priority) {
             this.priority = priority;
         }
+
+        @JsonValue
+        public String getPriority() {
+            return priority;
+        }
+
     }
 
 
@@ -1764,6 +1898,12 @@ public static class Ticket{
         TicketAssetTypeEnum(String priority) {
             this.priority = priority;
         }
+
+        @JsonValue
+        public String getPriority() {
+            return priority;
+        }
+
     }
 
 
@@ -1785,6 +1925,12 @@ public static class Ticket{
         TicketSourceEnum(String priority) {
             this.priority = priority;
         }
+
+        @JsonValue
+        public String getPriority() {
+            return priority;
+        }
+
     }
 
 

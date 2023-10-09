@@ -26,10 +26,10 @@ public class AuditTrailPlatformService {
         this.platformConfig = platformConfig;
         this.retrofitServiceFactory = new RetrofitServiceFactory();
         this.companyId = this.platformConfig.getCompanyId();
-        this.audittrailPlatformApiList = generateAudittrailPlatformApiList(this.platformConfig.getPersistentCookieStore());
+        this.audittrailPlatformApiList = generateAuditTrailPlatformApiList(this.platformConfig.getPersistentCookieStore());
     }
 
-    private AuditTrailPlatformApiList generateAudittrailPlatformApiList(CookieStore cookieStore) {
+    private AuditTrailPlatformApiList generateAuditTrailPlatformApiList(CookieStore cookieStore) {
         List<Interceptor> interceptorList = new ArrayList<>();
         interceptorList.add(new AccessTokenInterceptor(platformConfig));
         interceptorList.add(new RequestSignerInterceptor());

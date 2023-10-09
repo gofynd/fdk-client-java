@@ -1,8 +1,13 @@
 
+
 package com.sdk.platform.webhook;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class WebhookPlatformModels{
@@ -18,6 +23,9 @@ public class WebhookPlatformModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CancelResponse{
+
+    
+
     
     
     
@@ -40,6 +48,9 @@ public static class CancelResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EventProcessRequest{
+
+    
+
     
     
     
@@ -86,6 +97,9 @@ public static class EventProcessRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Event{
+
+    
+
     
     
     
@@ -126,6 +140,9 @@ public static class Event{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ManualRetryFailedResponse{
+
+    
+
     
     
     
@@ -172,6 +189,9 @@ public static class ManualRetryFailedResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FailedEventsCountSuccessResponse{
+
+    
+
     
     
     
@@ -194,6 +214,9 @@ public static class FailedEventsCountSuccessResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EventCountItem{
+
+    
+
     
     
     
@@ -222,6 +245,9 @@ public static class EventCountItem{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RetryStatusResponse{
+
+    
+
     
     
     
@@ -262,6 +288,9 @@ public static class RetryStatusResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EventSuccessResponse{
+
+    
+
     
     
     
@@ -290,6 +319,9 @@ public static class EventSuccessResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EventProcessedSuccessResponse{
+
+    
+
     
     
     
@@ -318,6 +350,9 @@ public static class EventProcessedSuccessResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Error{
+
+    
+
     
     
     
@@ -340,6 +375,9 @@ public static class Error{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EventProcessReportObject{
+
+    
+
     
     
     
@@ -416,6 +454,9 @@ public static class EventProcessReportObject{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EventProcessReports{
+
+    
+
     
     
     
@@ -444,6 +485,9 @@ public static class EventProcessReports{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PingWebhook{
+
+    
+
     
     
     
@@ -478,6 +522,9 @@ public static class PingWebhook{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PingWebhookResponse{
+
+    
+
     
     
     
@@ -512,6 +559,9 @@ public static class PingWebhookResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ReportFiltersPayload{
+
+    
+
     
     
     
@@ -534,6 +584,9 @@ public static class ReportFiltersPayload{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FilterValues{
+
+    
+
     
     
     
@@ -562,6 +615,9 @@ public static class FilterValues{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FilterResponseObject{
+
+    
+
     
     
     
@@ -590,6 +646,9 @@ public static class FilterResponseObject{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EventConfigResponse{
+
+    
+
     
     
     
@@ -612,6 +671,9 @@ public static class EventConfigResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EventConfig{
+
+    
+
     
     
     
@@ -676,6 +738,9 @@ public static class EventConfig{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ReportFilterResponse{
+
+    
+
     
     
     
@@ -698,6 +763,9 @@ public static class ReportFilterResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class HistoryPayload{
+
+    
+
     
     
     
@@ -732,6 +800,9 @@ public static class HistoryPayload{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class HistoryFilters{
+
+    
+
     
     
     
@@ -772,6 +843,9 @@ public static class HistoryFilters{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Url{
+
+    
+
     
     
     
@@ -800,6 +874,9 @@ public static class Url{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CdnObject{
+
+    
+
     
     
     
@@ -822,6 +899,9 @@ public static class CdnObject{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UploadServiceObject{
+
+    
+
     
     
     
@@ -844,6 +924,9 @@ public static class UploadServiceObject{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class HistoryResponseObject{
+
+    
+
     
     
     
@@ -914,6 +997,9 @@ public static class HistoryResponseObject{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class HistoryResponse{
+
+    
+
     
     
     
@@ -936,6 +1022,9 @@ public static class HistoryResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Page{
+
+    
+
     
     
     
@@ -994,6 +1083,9 @@ public static class Page{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AssociationDetails{
+
+    
+
     
     
     
@@ -1016,6 +1108,9 @@ public static class AssociationDetails{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriberResponse{
+
+    
+
     
     
     
@@ -1098,6 +1193,9 @@ public static class SubscriberResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AuthMeta{
+
+    
+
     
     
     
@@ -1126,6 +1224,9 @@ public static class AuthMeta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Association{
+
+    
+
     
     
     
@@ -1166,6 +1267,9 @@ public static class Association{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriberConfig{
+
+    
+
     
     
     
@@ -1236,6 +1340,9 @@ public static class SubscriberConfig{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriberConfigList{
+
+    
+
     
     
     
@@ -1276,6 +1383,12 @@ public static class SubscriberConfigList{
         SubscriberStatus(String priority) {
             this.priority = priority;
         }
+
+        @JsonValue
+        public String getPriority() {
+            return priority;
+        }
+
     }
 
 

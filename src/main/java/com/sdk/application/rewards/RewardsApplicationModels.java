@@ -1,8 +1,13 @@
 
+
 package com.sdk.application.rewards;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class RewardsApplicationModels{
@@ -18,6 +23,9 @@ public class RewardsApplicationModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RewardsArticle{
+
+    
+
     
     
     
@@ -52,6 +60,9 @@ public static class RewardsArticle{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CatalogueOrderResponse{
+
+    
+
     
     
     
@@ -74,6 +85,9 @@ public static class CatalogueOrderResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CatalogueOrderRequest{
+
+    
+
     
     
     
@@ -96,6 +110,9 @@ public static class CatalogueOrderRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PointsResponse{
+
+    
+
     
     
     
@@ -118,6 +135,9 @@ public static class PointsResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ReferralDetailsUser{
+
+    
+
     
     
     
@@ -158,6 +178,9 @@ public static class ReferralDetailsUser{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Offer{
+
+    
+
     
     
     
@@ -258,6 +281,9 @@ public static class Offer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Schedule{
+
+    
+
     
     
     
@@ -298,6 +324,9 @@ public static class Schedule{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Error{
+
+    
+
     
     
     
@@ -338,6 +367,9 @@ public static class Error{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Asset{
+
+    
+
     
     
     
@@ -372,6 +404,9 @@ public static class Asset{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ShareMessages{
+
+    
+
     
     
     
@@ -442,6 +477,9 @@ public static class ShareMessages{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ReferralDetailsResponse{
+
+    
+
     
     
     
@@ -488,6 +526,9 @@ public static class ReferralDetailsResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class OrderDiscountRequest{
+
+    
+
     
     
     
@@ -516,6 +557,9 @@ public static class OrderDiscountRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class OrderDiscountRuleBucket{
+
+    
+
     
     
     
@@ -562,6 +606,9 @@ public static class OrderDiscountRuleBucket{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DiscountProperties{
+
+    
+
     
     
     
@@ -608,6 +655,9 @@ public static class DiscountProperties{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class OrderDiscountResponse{
+
+    
+
     
     
     
@@ -654,6 +704,9 @@ public static class OrderDiscountResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RedeemReferralCodeRequest{
+
+    
+
     
     
     
@@ -682,6 +735,9 @@ public static class RedeemReferralCodeRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RedeemReferralCodeResponse{
+
+    
+
     
     
     
@@ -728,6 +784,9 @@ public static class RedeemReferralCodeResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PointsHistoryResponse{
+
+    
+
     
     
     
@@ -756,6 +815,9 @@ public static class PointsHistoryResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PointsHistory{
+
+    
+
     
     
     
@@ -856,6 +918,9 @@ public static class PointsHistory{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Page{
+
+    
+
     
     
     

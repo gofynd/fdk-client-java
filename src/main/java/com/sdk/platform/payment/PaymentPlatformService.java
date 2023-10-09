@@ -547,6 +547,12 @@ public class PaymentPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
 
 
 
@@ -1598,6 +1604,87 @@ public class ApplicationClient {
             Response<PaymentPlatformModels.MerchnatPaymentModeResponse> response = null;
             try {
             response = paymentPlatformApiList.getPGConfigAggregators(this.companyId, this.applicationId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public PaymentPlatformModels.RefundPriorityResponseSerializer getMerchantRefundPriority(String configType) throws FDKServerResponseError, FDKException {
+        return this.getMerchantRefundPriority(configType, new HashMap<>());
+    }
+
+    public PaymentPlatformModels.RefundPriorityResponseSerializer getMerchantRefundPriority(String configType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PaymentPlatformModels.RefundPriorityResponseSerializer> response = null;
+            try {
+            response = paymentPlatformApiList.getMerchantRefundPriority(this.companyId, this.applicationId, configType, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public PaymentPlatformModels.RefundPriorityResponseSerializer createMerchantRefundPriority(String configType, PaymentPlatformModels.RefundPriorityRequestSerializer body) throws FDKServerResponseError, FDKException {
+        return this.createMerchantRefundPriority(configType, body, new HashMap<>());
+    }
+
+    public PaymentPlatformModels.RefundPriorityResponseSerializer createMerchantRefundPriority(String configType, PaymentPlatformModels.RefundPriorityRequestSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PaymentPlatformModels.RefundPriorityResponseSerializer> response = null;
+            try {
+            response = paymentPlatformApiList.createMerchantRefundPriority(this.companyId, this.applicationId, configType, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public PaymentPlatformModels.RefundPriorityResponseSerializer updateMerchantRefundPriority(String configType, PaymentPlatformModels.RefundPriorityRequestSerializer body) throws FDKServerResponseError, FDKException {
+        return this.updateMerchantRefundPriority(configType, body, new HashMap<>());
+    }
+
+    public PaymentPlatformModels.RefundPriorityResponseSerializer updateMerchantRefundPriority(String configType, PaymentPlatformModels.RefundPriorityRequestSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PaymentPlatformModels.RefundPriorityResponseSerializer> response = null;
+            try {
+            response = paymentPlatformApiList.updateMerchantRefundPriority(this.companyId, this.applicationId, configType, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

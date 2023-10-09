@@ -1,8 +1,13 @@
 
+
 package com.sdk.platform.filestorage;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class FileStoragePlatformModels{
@@ -18,6 +23,9 @@ public class FileStoragePlatformModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FailedResponse{
+
+    
+
     
     
     
@@ -40,6 +48,9 @@ public static class FailedResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CDN{
+
+    
+
     
     
     
@@ -74,6 +85,9 @@ public static class CDN{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Upload{
+
+    
+
     
     
     
@@ -102,6 +116,9 @@ public static class Upload{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StartResponse{
+
+    
+
     
     
     
@@ -169,6 +186,31 @@ public static class StartResponse{
 
 
 /*
+    Model: Params
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Params{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("subpath")
+    private String subpath;
+    
+    
+    
+}
+
+
+/*
     Model: StartRequest
 */
 @AllArgsConstructor
@@ -178,6 +220,9 @@ public static class StartResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StartRequest{
+
+    
+
     
     
     
@@ -207,7 +252,32 @@ public static class StartRequest{
     
     
     @JsonProperty("params")
-    private Object params;
+    private Params params;
+    
+    
+    
+}
+
+
+/*
+    Model: CreatedBy
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreatedBy{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("username")
+    private String username;
     
     
     
@@ -224,6 +294,9 @@ public static class StartRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompleteResponse{
+
+    
+
     
     
     
@@ -260,6 +333,12 @@ public static class CompleteResponse{
     
     @JsonProperty("operation")
     private String operation;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Double companyId;
     
     
     
@@ -305,6 +384,12 @@ public static class CompleteResponse{
     
     
     
+    
+    @JsonProperty("created_by")
+    private CreatedBy createdBy;
+    
+    
+    
 }
 
 
@@ -318,6 +403,9 @@ public static class CompleteResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DestinationNamespace{
+
+    
+
     
     
     
@@ -340,6 +428,9 @@ public static class DestinationNamespace{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CopyFiles{
+
+    
+
     
     
     
@@ -368,6 +459,9 @@ public static class CopyFiles{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Urls{
+
+    
+
     
     
     
@@ -402,6 +496,9 @@ public static class Urls{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SignUrlResponse{
+
+    
+
     
     
     
@@ -424,6 +521,9 @@ public static class SignUrlResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SignUrlRequest{
+
+    
+
     
     
     
@@ -443,7 +543,7 @@ public static class SignUrlRequest{
 
 
 /*
-    Model: Page
+    Model: InvoiceTypesDataResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -451,181 +551,16 @@ public static class SignUrlRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Page{
-    
-    
-    
-    
-    @JsonProperty("item_total")
-    private Integer itemTotal;
-    
-    
-    
-    
-    @JsonProperty("next_id")
-    private String nextId;
-    
-    
-    
-    
-    @JsonProperty("has_previous")
-    private Boolean hasPrevious;
-    
-    
-    
-    
-    @JsonProperty("has_next")
-    private Boolean hasNext;
-    
-    
-    
-    
-    @JsonProperty("current")
-    private Integer current;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private Integer size;
-    
-    
-    
-}
+public static class InvoiceTypesDataResponse{
 
+    
 
-/*
-    Model: DbRecord
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DbRecord{
     
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("tags")
-    private List<String> tags;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("file_name")
-    private String fileName;
-    
-    
-    
-    
-    @JsonProperty("operation")
-    private String operation;
-    
-    
-    
-    
-    @JsonProperty("namespace")
-    private String namespace;
-    
-    
-    
-    
-    @JsonProperty("content_type")
-    private String contentType;
-    
-    
-    
-    
-    @JsonProperty("file_path")
-    private String filePath;
-    
-    
-    
-    
-    @JsonProperty("upload")
-    private Upload upload;
-    
-    
-    
-    
-    @JsonProperty("cdn")
-    private CDN cdn;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-}
-
-
-/*
-    Model: BrowseResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BrowseResponse{
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<DbRecord> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-}
-
-
-/*
-    Model: InvoiceTypesResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceTypesResponse{
+    @JsonProperty("status")
+    private Boolean status;
     
     
     
@@ -666,8 +601,8 @@ public static class InvoiceTypesResponse{
     
     
     
-    @JsonProperty("schema")
-    private Object schema;
+    @JsonProperty("country_code")
+    private String countryCode;
     
     
     
@@ -675,7 +610,7 @@ public static class InvoiceTypesResponse{
 
 
 /*
-    Model: DummyTemplateDataItems
+    Model: InvoiceTypesResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -683,7 +618,1767 @@ public static class InvoiceTypesResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DummyTemplateDataItems{
+public static class InvoiceTypesResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<InvoiceTypesDataResponse> data;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+}
+
+
+/*
+    Model: Inr
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Inr{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+    
+    @JsonProperty("symbol")
+    private String symbol;
+    
+    
+    
+    
+    @JsonProperty("sub_unit")
+    private String subUnit;
+    
+    
+    
+}
+
+
+/*
+    Model: Usd
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Usd{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+    
+    @JsonProperty("symbol")
+    private String symbol;
+    
+    
+    
+    
+    @JsonProperty("sub_unit")
+    private String subUnit;
+    
+    
+    
+}
+
+
+/*
+    Model: Rates
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Rates{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("inr")
+    private Inr inr;
+    
+    
+    
+    
+    @JsonProperty("usd")
+    private Usd usd;
+    
+    
+    
+}
+
+
+/*
+    Model: ConversionRate
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ConversionRate{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("base")
+    private String base;
+    
+    
+    
+    
+    @JsonProperty("rates")
+    private Rates rates;
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private Double timestamp;
+    
+    
+    
+}
+
+
+/*
+    Model: DeliveryPartnerDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeliveryPartnerDetail{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("awb_number_barcode")
+    private String awbNumberBarcode;
+    
+    
+    
+    
+    @JsonProperty("awb_number")
+    private String awbNumber;
+    
+    
+    
+    
+    @JsonProperty("eway_bill_number")
+    private String ewayBillNumber;
+    
+    
+    
+}
+
+
+/*
+    Model: Image
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Image{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("sales_channel_logo")
+    private String salesChannelLogo;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("payment_type")
+    private String paymentType;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("date")
+    private String date;
+    
+    
+    
+    
+    @JsonProperty("transaction_id")
+    private String transactionId;
+    
+    
+    
+}
+
+
+/*
+    Model: InvoiceDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoiceDetail{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("invoice_id")
+    private String invoiceId;
+    
+    
+    
+    
+    @JsonProperty("invoice_date")
+    private String invoiceDate;
+    
+    
+    
+    
+    @JsonProperty("irn")
+    private String irn;
+    
+    
+    
+    
+    @JsonProperty("external_order_id")
+    private String externalOrderId;
+    
+    
+    
+    
+    @JsonProperty("shipment_id")
+    private String shipmentId;
+    
+    
+    
+    
+    @JsonProperty("signed_qrcode")
+    private String signedQrcode;
+    
+    
+    
+    
+    @JsonProperty("upi_qrcode")
+    private String upiQrcode;
+    
+    
+    
+}
+
+
+/*
+    Model: CompanyDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CompanyDetail{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("address")
+    private String address;
+    
+    
+    
+    
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("zip_code")
+    private Double zipCode;
+    
+    
+    
+    
+    @JsonProperty("state_code")
+    private String stateCode;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("gstin")
+    private String gstin;
+    
+    
+    
+    
+    @JsonProperty("pan")
+    private String pan;
+    
+    
+    
+    
+    @JsonProperty("phone_no")
+    private String phoneNo;
+    
+    
+    
+    
+    @JsonProperty("cin")
+    private String cin;
+    
+    
+    
+    
+    @JsonProperty("website_url")
+    private String websiteUrl;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+}
+
+
+/*
+    Model: StoreDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StoreDetail{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("store_name")
+    private String storeName;
+    
+    
+    
+    
+    @JsonProperty("address")
+    private String address;
+    
+    
+    
+    
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("zip_code")
+    private String zipCode;
+    
+    
+    
+    
+    @JsonProperty("state_code")
+    private String stateCode;
+    
+    
+    
+    
+    @JsonProperty("gstin")
+    private String gstin;
+    
+    
+    
+}
+
+
+/*
+    Model: CustomerBillingDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CustomerBillingDetail{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("phone_no")
+    private String phoneNo;
+    
+    
+    
+    
+    @JsonProperty("address")
+    private String address;
+    
+    
+    
+    
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("zip_code")
+    private String zipCode;
+    
+    
+    
+    
+    @JsonProperty("state_code")
+    private String stateCode;
+    
+    
+    
+    
+    @JsonProperty("gstin")
+    private String gstin;
+    
+    
+    
+}
+
+
+/*
+    Model: CustomerShippingDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CustomerShippingDetail{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("phone_no")
+    private String phoneNo;
+    
+    
+    
+    
+    @JsonProperty("address")
+    private String address;
+    
+    
+    
+    
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("zip_code")
+    private String zipCode;
+    
+    
+    
+    
+    @JsonProperty("state_code")
+    private String stateCode;
+    
+    
+    
+    
+    @JsonProperty("gstin")
+    private String gstin;
+    
+    
+    
+}
+
+
+/*
+    Model: ReturnDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ReturnDetail{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("address")
+    private String address;
+    
+    
+    
+    
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("zip_code")
+    private String zipCode;
+    
+    
+    
+    
+    @JsonProperty("state_code")
+    private String stateCode;
+    
+    
+    
+    
+    @JsonProperty("gstin")
+    private String gstin;
+    
+    
+    
+}
+
+
+/*
+    Model: Brand
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Brand{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+}
+
+
+/*
+    Model: Cgst
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Cgst{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+    
+    @JsonProperty("percent")
+    private Double percent;
+    
+    
+    
+}
+
+
+/*
+    Model: Sgst
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Sgst{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+    
+    @JsonProperty("percent")
+    private Double percent;
+    
+    
+    
+}
+
+
+/*
+    Model: Igst
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Igst{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+    
+    @JsonProperty("percent")
+    private Double percent;
+    
+    
+    
+}
+
+
+/*
+    Model: Tax
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Tax{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("cgst")
+    private Cgst cgst;
+    
+    
+    
+    
+    @JsonProperty("sgst")
+    private Sgst sgst;
+    
+    
+    
+    
+    @JsonProperty("igst")
+    private Igst igst;
+    
+    
+    
+}
+
+
+/*
+    Model: ItemsProductTable
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ItemsProductTable{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("seller_identifier")
+    private String sellerIdentifier;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Double total;
+    
+    
+    
+    
+    @JsonProperty("brand")
+    private Brand brand;
+    
+    
+    
+    
+    @JsonProperty("hsn_code")
+    private String hsnCode;
+    
+    
+    
+    
+    @JsonProperty("item_code")
+    private String itemCode;
+    
+    
+    
+    
+    @JsonProperty("total_units")
+    private Double totalUnits;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private String size;
+    
+    
+    
+    
+    @JsonProperty("mrp")
+    private Double mrp;
+    
+    
+    
+    
+    @JsonProperty("discount")
+    private Double discount;
+    
+    
+    
+    
+    @JsonProperty("taxable_amount")
+    private Double taxableAmount;
+    
+    
+    
+    
+    @JsonProperty("total_taxable_amount")
+    private Double totalTaxableAmount;
+    
+    
+    
+    
+    @JsonProperty("tax")
+    private Tax tax;
+    
+    
+    
+}
+
+
+/*
+    Model: ProductTable
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductTable{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("total_items")
+    private Double totalItems;
+    
+    
+    
+    
+    @JsonProperty("products")
+    private List<ItemsProductTable> products;
+    
+    
+    
+    
+    @JsonProperty("grand_total")
+    private Double grandTotal;
+    
+    
+    
+    
+    @JsonProperty("delivery_charges")
+    private Double deliveryCharges;
+    
+    
+    
+    
+    @JsonProperty("delivery_charge_text")
+    private String deliveryChargeText;
+    
+    
+    
+    
+    @JsonProperty("cod_charges")
+    private Double codCharges;
+    
+    
+    
+    
+    @JsonProperty("fynd_discounts")
+    private Double fyndDiscounts;
+    
+    
+    
+    
+    @JsonProperty("total_in_words")
+    private String totalInWords;
+    
+    
+    
+}
+
+
+/*
+    Model: Taxes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Taxes{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("hsn_code")
+    private String hsnCode;
+    
+    
+    
+    
+    @JsonProperty("tax")
+    private Tax tax;
+    
+    
+    
+    
+    @JsonProperty("total_tax_value")
+    private Double totalTaxValue;
+    
+    
+    
+}
+
+
+/*
+    Model: TaxTable
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TaxTable{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("taxes")
+    private List<Taxes> taxes;
+    
+    
+    
+    
+    @JsonProperty("total_tax")
+    private Double totalTax;
+    
+    
+    
+    
+    @JsonProperty("tax_in_words")
+    private String taxInWords;
+    
+    
+    
+}
+
+
+/*
+    Model: RegisteredCompanyDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RegisteredCompanyDetail{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("address")
+    private String address;
+    
+    
+    
+    
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("zip_code")
+    private Double zipCode;
+    
+    
+    
+    
+    @JsonProperty("state_code")
+    private String stateCode;
+    
+    
+    
+}
+
+
+/*
+    Model: Kwargs
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Kwargs{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentIdBarcodeGenerator
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentIdBarcodeGenerator{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("method")
+    private String method;
+    
+    
+    
+    
+    @JsonProperty("kwargs")
+    private Kwargs kwargs;
+    
+    
+    
+}
+
+
+/*
+    Model: SignedQrcodeGenerator
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SignedQrcodeGenerator{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("method")
+    private String method;
+    
+    
+    
+    
+    @JsonProperty("kwargs")
+    private Kwargs kwargs;
+    
+    
+    
+}
+
+
+/*
+    Model: KwargsUpiQrcode
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class KwargsUpiQrcode{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("qr_data")
+    private String qrData;
+    
+    
+    
+    
+    @JsonProperty("qr_url")
+    private String qrUrl;
+    
+    
+    
+}
+
+
+/*
+    Model: UpiQrcodeGenerator
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpiQrcodeGenerator{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("method")
+    private String method;
+    
+    
+    
+    
+    @JsonProperty("kwargs")
+    private KwargsUpiQrcode kwargs;
+    
+    
+    
+}
+
+
+/*
+    Model: DigitalsignatureGenerator
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DigitalsignatureGenerator{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("method")
+    private String method;
+    
+    
+    
+    
+    @JsonProperty("kwargs")
+    private Kwargs kwargs;
+    
+    
+    
+}
+
+
+/*
+    Model: KwargsAwbNumber
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class KwargsAwbNumber{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private List<Object> value;
+    
+    
+    
+}
+
+
+/*
+    Model: AwbNumberLabelBarcodeGenerator
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AwbNumberLabelBarcodeGenerator{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("method")
+    private String method;
+    
+    
+    
+    
+    @JsonProperty("kwargs")
+    private KwargsAwbNumber kwargs;
+    
+    
+    
+}
+
+
+/*
+    Model: MetaProperty
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class MetaProperty{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("shipment_id_barcode_generator")
+    private ShipmentIdBarcodeGenerator shipmentIdBarcodeGenerator;
+    
+    
+    
+    
+    @JsonProperty("signed_qrcode_generator")
+    private SignedQrcodeGenerator signedQrcodeGenerator;
+    
+    
+    
+    
+    @JsonProperty("upi_qrcode_generator")
+    private UpiQrcodeGenerator upiQrcodeGenerator;
+    
+    
+    
+    
+    @JsonProperty("digitalsignature_generator")
+    private DigitalsignatureGenerator digitalsignatureGenerator;
+    
+    
+    
+    
+    @JsonProperty("awb_number_label_barcode_generator")
+    private AwbNumberLabelBarcodeGenerator awbNumberLabelBarcodeGenerator;
+    
+    
+    
+}
+
+
+/*
+    Model: Meta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Meta{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("generator")
+    private MetaProperty generator;
+    
+    
+    
+}
+
+
+/*
+    Model: DummyTemplateDataPayload
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DummyTemplateDataPayload{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("is_international")
+    private Boolean isInternational;
+    
+    
+    
+    
+    @JsonProperty("app_domain_name")
+    private String appDomainName;
+    
+    
+    
+    
+    @JsonProperty("conversion_rate")
+    private ConversionRate conversionRate;
+    
+    
+    
+    
+    @JsonProperty("currency_code")
+    private String currencyCode;
+    
+    
+    
+    
+    @JsonProperty("shipment_id")
+    private String shipmentId;
+    
+    
+    
+    
+    @JsonProperty("delivery_partner_detail")
+    private DeliveryPartnerDetail deliveryPartnerDetail;
+    
+    
+    
+    
+    @JsonProperty("image")
+    private Image image;
+    
+    
+    
+    
+    @JsonProperty("payments")
+    private List<PaymentData> payments;
+    
+    
+    
+    
+    @JsonProperty("invoice_detail")
+    private InvoiceDetail invoiceDetail;
+    
+    
+    
+    
+    @JsonProperty("company_detail")
+    private CompanyDetail companyDetail;
+    
+    
+    
+    
+    @JsonProperty("store_detail")
+    private StoreDetail storeDetail;
+    
+    
+    
+    
+    @JsonProperty("customer_billing_detail")
+    private CustomerBillingDetail customerBillingDetail;
+    
+    
+    
+    
+    @JsonProperty("customer_shipping_detail")
+    private CustomerShippingDetail customerShippingDetail;
+    
+    
+    
+    
+    @JsonProperty("return_detail")
+    private ReturnDetail returnDetail;
+    
+    
+    
+    
+    @JsonProperty("product_table")
+    private ProductTable productTable;
+    
+    
+    
+    
+    @JsonProperty("tax_table")
+    private TaxTable taxTable;
+    
+    
+    
+    
+    @JsonProperty("declaration_texts")
+    private List<String> declarationTexts;
+    
+    
+    
+    
+    @JsonProperty("registered_company_detail")
+    private RegisteredCompanyDetail registeredCompanyDetail;
+    
+    
+    
+    
+    @JsonProperty("disclaimer")
+    private String disclaimer;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Meta meta;
+    
+    
+    
+    
+    @JsonProperty("is_self_ship")
+    private Boolean isSelfShip;
+    
+    
+    
+    
+    @JsonProperty("mode")
+    private String mode;
+    
+    
+    
+    
+    @JsonProperty("is_self_pickup")
+    private Boolean isSelfPickup;
+    
+    
+    
+    
+    @JsonProperty("platform_name")
+    private String platformName;
+    
+    
+    
+    
+    @JsonProperty("amount_to_be_collected")
+    private Double amountToBeCollected;
+    
+    
+    
+    
+    @JsonProperty("amount_paid")
+    private Double amountPaid;
+    
+    
+    
+    
+    @JsonProperty("waybills")
+    private List<Object> waybills;
+    
+    
+    
+    
+    @JsonProperty("total_items")
+    private Double totalItems;
+    
+    
+    
+    
+    @JsonProperty("brand_logo")
+    private String brandLogo;
+    
+    
+    
+    
+    @JsonProperty("shipment_id_barcode")
+    private String shipmentIdBarcode;
+    
+    
+    
+    
+    @JsonProperty("signed_qrcode")
+    private String signedQrcode;
+    
+    
+    
+    
+    @JsonProperty("upi_qrcode")
+    private String upiQrcode;
+    
+    
+    
+    
+    @JsonProperty("digitalsignature")
+    private String digitalsignature;
+    
+    
+    
+    
+    @JsonProperty("awb_number_barcode")
+    private String awbNumberBarcode;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private String uid;
+    
+    
+    
+}
+
+
+/*
+    Model: DummyTemplateData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DummyTemplateData{
+
+    
+
     
     
     
@@ -701,7 +2396,7 @@ public static class DummyTemplateDataItems{
     
     
     @JsonProperty("payload")
-    private Object payload;
+    private DummyTemplateDataPayload payload;
     
     
     
@@ -715,7 +2410,7 @@ public static class DummyTemplateDataItems{
 
 
 /*
-    Model: Status
+    Model: DummyTemplateDataItems
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -723,103 +2418,16 @@ public static class DummyTemplateDataItems{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Status{
-    
-    
-    
-    
-    @JsonProperty("total")
-    private Double total;
-    
-    
-    
-    
-    @JsonProperty("failed")
-    private Double failed;
-    
-    
-    
-    
-    @JsonProperty("succeeded")
-    private Double succeeded;
-    
-    
-    
-    
-    @JsonProperty("result")
-    private String result;
-    
-    
-    
-}
+public static class DummyTemplateDataItems{
 
+    
 
-/*
-    Model: FileSrc
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FileSrc{
     
     
     
     
-    @JsonProperty("method")
-    private String method;
-    
-    
-    
-    
-    @JsonProperty("url")
-    private String url;
-    
-    
-    
-    
-    @JsonProperty("namespace")
-    private String namespace;
-    
-    
-    
-}
-
-
-/*
-    Model: File
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class File{
-    
-    
-    
-    
-    @JsonProperty("src")
-    private FileSrc src;
-    
-    
-    
-}
-
-
-/*
-    Model: FilesSuccess
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FilesSuccess{
+    @JsonProperty("data")
+    private List<DummyTemplateData> data;
     
     
     
@@ -829,17 +2437,11 @@ public static class FilesSuccess{
     
     
     
-    
-    @JsonProperty("file")
-    private File file;
-    
-    
-    
 }
 
 
 /*
-    Model: BulkUploadSyncMode
+    Model: PdfConfig
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -847,91 +2449,10 @@ public static class FilesSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkUploadSyncMode{
-    
-    
-    
-    
-    @JsonProperty("status")
-    private Status status;
-    
-    
-    
-    
-    @JsonProperty("files")
-    private List<FilesSuccess> files;
-    
-    
-    
-}
+public static class PdfConfig{
 
+    
 
-/*
-    Model: BulkUploadFailResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkUploadFailResponse{
-    
-    
-    
-    
-    @JsonProperty("status")
-    private Status status;
-    
-    
-    
-}
-
-
-/*
-    Model: pdfRender
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class pdfRender{
-    
-    
-    
-    
-    @JsonProperty("format")
-    private String format;
-    
-    
-    
-    
-    @JsonProperty("payload")
-    private Object payload;
-    
-    
-    
-    
-    @JsonProperty("template")
-    private String template;
-    
-    
-    
-}
-
-
-/*
-    Model: pdfConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class pdfConfig{
     
     
     
@@ -957,6 +2478,73 @@ public static class pdfConfig{
 
 
 /*
+    Model: PdfConfigSuccessData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PdfConfigSuccessData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("pdf_type_id")
+    private Integer pdfTypeId;
+    
+    
+    
+    
+    @JsonProperty("format")
+    private String format;
+    
+    
+    
+    
+    @JsonProperty("template")
+    private String template;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Integer v;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+}
+
+
+/*
     Model: PdfConfigSuccess
 */
 @AllArgsConstructor
@@ -966,6 +2554,40 @@ public static class pdfConfig{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PdfConfigSuccess{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<PdfConfigSuccessData> data;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+}
+
+
+/*
+    Model: PdfConfigSaveSuccessData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PdfConfigSaveSuccessData{
+
+    
+
     
     
     
@@ -1024,48 +2646,21 @@ public static class PdfConfigSuccess{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PdfConfigSaveSuccess{
+
+    
+
     
     
     
     
-    @JsonProperty("_id")
-    private String id;
+    @JsonProperty("data")
+    private PdfConfigSaveSuccessData data;
     
     
     
     
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("pdf_type_id")
-    private Integer pdfTypeId;
-    
-    
-    
-    
-    @JsonProperty("format")
-    private String format;
-    
-    
-    
-    
-    @JsonProperty("template")
-    private String template;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Integer v;
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -1082,6 +2677,40 @@ public static class PdfConfigSaveSuccess{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PdfDefaultTemplateSuccess{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<Document> data;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+}
+
+
+/*
+    Model: Document
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Document{
+
+    
+
     
     
     
@@ -1110,8 +2739,413 @@ public static class PdfDefaultTemplateSuccess{
     
     
     
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
     @JsonProperty("__v")
     private Integer v;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentReceiptRequestBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentReceiptRequestBody{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private PaymentReceiptPayload payload;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private PaymentReceiptMeta meta;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentReceiptOrderDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentReceiptOrderDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("jiomart_order_id")
+    private String jiomartOrderId;
+    
+    
+    
+    
+    @JsonProperty("total_items")
+    private Double totalItems;
+    
+    
+    
+    
+    @JsonProperty("final_amount")
+    private Double finalAmount;
+    
+    
+    
+    
+    @JsonProperty("final_amount_in_words")
+    private String finalAmountInWords;
+    
+    
+    
+    
+    @JsonProperty("order_created_date")
+    private String orderCreatedDate;
+    
+    
+    
+    
+    @JsonProperty("order_created_time")
+    private String orderCreatedTime;
+    
+    
+    
+    
+    @JsonProperty("prm_id")
+    private String prmId;
+    
+    
+    
+    
+    @JsonProperty("receipt_no")
+    private String receiptNo;
+    
+    
+    
+    
+    @JsonProperty("taxes")
+    private PaymentReceiptTaxes taxes;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentReceiptCustomerDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentReceiptCustomerDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("email_id")
+    private String emailId;
+    
+    
+    
+    
+    @JsonProperty("last_name")
+    private String lastName;
+    
+    
+    
+    
+    @JsonProperty("first_name")
+    private String firstName;
+    
+    
+    
+    
+    @JsonProperty("mobile_number")
+    private String mobileNumber;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentReceiptPayments
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentReceiptPayments{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("payment_desc")
+    private String paymentDesc;
+    
+    
+    
+    
+    @JsonProperty("txn_date")
+    private String txnDate;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentReceiptFormat
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentReceiptFormat{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("payment_receipt")
+    private List<String> paymentReceipt;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentReceiptService
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentReceiptService{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentReceiptTaxes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentReceiptTaxes{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("gstin")
+    private String gstin;
+    
+    
+    
+    
+    @JsonProperty("pancard")
+    private String pancard;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentReceiptPayload
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentReceiptPayload{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private String uid;
+    
+    
+    
+    
+    @JsonProperty("order_detail")
+    private PaymentReceiptOrderDetails orderDetail;
+    
+    
+    
+    
+    @JsonProperty("customer_detail")
+    private PaymentReceiptCustomerDetails customerDetail;
+    
+    
+    
+    
+    @JsonProperty("payments")
+    private List<PaymentReceiptPayments> payments;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentReceiptMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentReceiptMeta{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("job_type")
+    private String jobType;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("event")
+    private Object event;
+    
+    
+    
+    
+    @JsonProperty("organizaton_id")
+    private String organizatonId;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Double companyId;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private List<String> applicationId;
+    
+    
+    
+    
+    @JsonProperty("format")
+    private PaymentReceiptFormat format;
+    
+    
+    
+    
+    @JsonProperty("trace_id")
+    private List<String> traceId;
+    
+    
+    
+    
+    @JsonProperty("created_timestamp")
+    private Double createdTimestamp;
+    
+    
+    
+    
+    @JsonProperty("service")
+    private PaymentReceiptService service;
+    
+    
+    
+    
+    @JsonProperty("event_trace_info")
+    private Object eventTraceInfo;
+    
+    
+    
+    
+    @JsonProperty("trace")
+    private String trace;
     
     
     

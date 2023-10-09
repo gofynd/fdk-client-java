@@ -175,8 +175,6 @@ public class ContentPlatformService {
     
     
     
-    
-    
 
 
 
@@ -1987,42 +1985,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.TagsSchema deleteAllInjectableTags() throws FDKServerResponseError, FDKException {
-        return this.deleteAllInjectableTags(new HashMap<>());
+    public ContentPlatformModels.TagsSchema getInjectableTags(Boolean all) throws FDKServerResponseError, FDKException {
+        return this.getInjectableTags(all, new HashMap<>());
     }
 
-    public ContentPlatformModels.TagsSchema deleteAllInjectableTags(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.TagsSchema getInjectableTags(Boolean all, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.TagsSchema> response = null;
             try {
-            response = contentPlatformApiList.deleteAllInjectableTags(this.companyId, this.applicationId, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public ContentPlatformModels.TagsSchema getInjectableTags() throws FDKServerResponseError, FDKException {
-        return this.getInjectableTags(new HashMap<>());
-    }
-
-    public ContentPlatformModels.TagsSchema getInjectableTags(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.TagsSchema> response = null;
-            try {
-            response = contentPlatformApiList.getInjectableTags(this.companyId, this.applicationId, requestHeaders).execute();
+            response = contentPlatformApiList.getInjectableTags(this.companyId, this.applicationId, all, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

@@ -1,8 +1,13 @@
 
+
 package com.sdk.platform.companyprofile;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class CompanyProfilePlatformModels{
@@ -18,6 +23,9 @@ public class CompanyProfilePlatformModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompanyTaxesSerializer{
+
+    
+
     
     
     
@@ -52,6 +60,9 @@ public static class CompanyTaxesSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UserSerializer{
+
+    
+
     
     
     
@@ -86,6 +97,9 @@ public static class UserSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Website{
+
+    
+
     
     
     
@@ -108,6 +122,9 @@ public static class Website{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BusinessDetails{
+
+    
+
     
     
     
@@ -130,6 +147,9 @@ public static class BusinessDetails{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SellerPhoneNumber{
+
+    
+
     
     
     
@@ -158,6 +178,9 @@ public static class SellerPhoneNumber{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ContactDetails{
+
+    
+
     
     
     
@@ -186,6 +209,9 @@ public static class ContactDetails{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BusinessCountryInfo{
+
+    
+
     
     
     
@@ -214,6 +240,9 @@ public static class BusinessCountryInfo{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Document{
+
+    
+
     
     
     
@@ -260,6 +289,9 @@ public static class Document{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetAddressSerializer{
+
+    
+
     
     
     
@@ -342,6 +374,9 @@ public static class GetAddressSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetCompanyProfileSerializerResponse{
+
+    
+
     
     
     
@@ -496,6 +531,9 @@ public static class GetCompanyProfileSerializerResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ErrorResponse{
+
+    
+
     
     
     
@@ -536,6 +574,9 @@ public static class ErrorResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompanyTaxesSerializer1{
+
+    
+
     
     
     
@@ -570,6 +611,9 @@ public static class CompanyTaxesSerializer1{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateUpdateAddressSerializer{
+
+    
+
     
     
     
@@ -652,6 +696,9 @@ public static class CreateUpdateAddressSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UpdateCompany{
+
+    
+
     
     
     
@@ -752,6 +799,9 @@ public static class UpdateCompany{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProfileSuccessResponse{
+
+    
+
     
     
     
@@ -786,6 +836,9 @@ public static class ProfileSuccessResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DocumentsObj{
+
+    
+
     
     
     
@@ -814,6 +867,9 @@ public static class DocumentsObj{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class MetricsSerializer{
+
+    
+
     
     
     
@@ -872,6 +928,9 @@ public static class MetricsSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BrandBannerSerializer{
+
+    
+
     
     
     
@@ -900,6 +959,9 @@ public static class BrandBannerSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetBrandResponseSerializer{
+
+    
+
     
     
     
@@ -1030,6 +1092,9 @@ public static class GetBrandResponseSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateUpdateBrandRequestSerializer{
+
+    
+
     
     
     
@@ -1106,6 +1171,9 @@ public static class CreateUpdateBrandRequestSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompanySocialAccounts{
+
+    
+
     
     
     
@@ -1134,6 +1202,9 @@ public static class CompanySocialAccounts{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompanyDetails{
+
+    
+
     
     
     
@@ -1162,6 +1233,9 @@ public static class CompanyDetails{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompanySerializer{
+
+    
+
     
     
     
@@ -1286,6 +1360,9 @@ public static class CompanySerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompanyBrandSerializer{
+
+    
+
     
     
     
@@ -1374,6 +1451,9 @@ public static class CompanyBrandSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Page{
+
+    
+
     
     
     
@@ -1432,6 +1512,9 @@ public static class Page{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompanyBrandListSerializer{
+
+    
+
     
     
     
@@ -1460,6 +1543,9 @@ public static class CompanyBrandListSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompanyBrandPostRequestSerializer{
+
+    
+
     
     
     
@@ -1494,6 +1580,9 @@ public static class CompanyBrandPostRequestSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoiceCredSerializer{
+
+    
+
     
     
     
@@ -1528,6 +1617,9 @@ public static class InvoiceCredSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoiceDetailsSerializer{
+
+    
+
     
     
     
@@ -1556,6 +1648,9 @@ public static class InvoiceDetailsSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetCompanySerializer{
+
+    
+
     
     
     
@@ -1650,6 +1745,9 @@ public static class GetCompanySerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LocationManagerSerializer{
+
+    
+
     
     
     
@@ -1684,6 +1782,9 @@ public static class LocationManagerSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LocationTimingSerializer{
+
+    
+
     
     
     
@@ -1712,6 +1813,9 @@ public static class LocationTimingSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LocationDayWiseSerializer{
+
+    
+
     
     
     
@@ -1752,6 +1856,9 @@ public static class LocationDayWiseSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class HolidayDateSerializer{
+
+    
+
     
     
     
@@ -1780,6 +1887,9 @@ public static class HolidayDateSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class HolidaySchemaSerializer{
+
+    
+
     
     
     
@@ -1814,6 +1924,9 @@ public static class HolidaySchemaSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductReturnConfigSerializer{
+
+    
+
     
     
     
@@ -1842,6 +1955,9 @@ public static class ProductReturnConfigSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetLocationSerializer{
+
+    
+
     
     
     
@@ -2050,6 +2166,9 @@ public static class GetLocationSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LocationListSerializer{
+
+    
+
     
     
     
@@ -2078,6 +2197,9 @@ public static class LocationListSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AddressSerializer{
+
+    
+
     
     
     
@@ -2160,6 +2282,9 @@ public static class AddressSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LocationSerializer{
+
+    
+
     
     
     
@@ -2326,6 +2451,9 @@ public static class LocationSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BulkLocationSerializer{
+
+    
+
     
     
     
@@ -2348,6 +2476,9 @@ public static class BulkLocationSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AverageOrderProcessingTime{
+
+    
+
     
     
     
@@ -2376,6 +2507,9 @@ public static class AverageOrderProcessingTime{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StoreTagsResponseSchema{
+
+    
+
     
     
     
