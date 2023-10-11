@@ -1,8 +1,13 @@
 
+
 package com.sdk.universal.webhook;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class WebhookPublicModels{
@@ -18,6 +23,9 @@ public class WebhookPublicModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EventConfig{
+
+    
+
     
     
     
@@ -82,6 +90,9 @@ public static class EventConfig{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EventConfigResponse{
+
+    
+
     
     
     
@@ -104,6 +115,9 @@ public static class EventConfigResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EventConfigBase{
+
+    
+
     
     
     

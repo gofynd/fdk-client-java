@@ -84,7 +84,7 @@ public class FileStorageApplicationService extends FileStorage {
     public FileStorageApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
         this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.filestorageApplicationApiList = generateFilestorageApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.filestorageApplicationApiList = generateFileStorageApplicationApiList(this.applicationConfig.getPersistentCookieStore());
 
         
         relativeUrls.put("startUpload","/service/application/assets/v1.0/namespaces/{namespace}/upload/start".substring(1));
@@ -99,7 +99,7 @@ public class FileStorageApplicationService extends FileStorage {
         }
     }
 
-    private FileStorageApplicationApiList generateFilestorageApplicationApiList(CookieStore cookieStore) {
+    private FileStorageApplicationApiList generateFileStorageApplicationApiList(CookieStore cookieStore) {
         List<Interceptor> interceptorList = new ArrayList<>();
         interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
         interceptorList.add(new RequestSignerInterceptor());

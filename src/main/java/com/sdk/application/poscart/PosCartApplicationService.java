@@ -26,7 +26,7 @@ import com.sdk.application.*;
     public PosCartApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
         this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.poscartApplicationApiList = generatePoscartApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.poscartApplicationApiList = generatePosCartApplicationApiList(this.applicationConfig.getPersistentCookieStore());
 
         
         relativeUrls.put("getCart","/service/application/pos/cart/v1.0/detail".substring(1));
@@ -65,7 +65,7 @@ import com.sdk.application.*;
         }
     }
 
-    private PosCartApplicationApiList generatePoscartApplicationApiList(CookieStore cookieStore) {
+    private PosCartApplicationApiList generatePosCartApplicationApiList(CookieStore cookieStore) {
         List<Interceptor> interceptorList = new ArrayList<>();
         interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
         interceptorList.add(new RequestSignerInterceptor());

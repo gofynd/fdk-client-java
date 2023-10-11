@@ -1,8 +1,13 @@
 
+
 package com.sdk.platform.filestorage;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class FileStoragePlatformModels{
@@ -18,6 +23,9 @@ public class FileStoragePlatformModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FailedResponse{
+
+    
+
     
     
     
@@ -40,6 +48,9 @@ public static class FailedResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CDN{
+
+    
+
     
     
     
@@ -74,6 +85,9 @@ public static class CDN{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Upload{
+
+    
+
     
     
     
@@ -102,6 +116,9 @@ public static class Upload{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StartResponse{
+
+    
+
     
     
     
@@ -178,6 +195,9 @@ public static class StartResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Params{
+
+    
+
     
     
     
@@ -200,6 +220,9 @@ public static class Params{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StartRequest{
+
+    
+
     
     
     
@@ -246,6 +269,9 @@ public static class StartRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreatedBy{
+
+    
+
     
     
     
@@ -268,6 +294,9 @@ public static class CreatedBy{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompleteResponse{
+
+    
+
     
     
     
@@ -374,6 +403,9 @@ public static class CompleteResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DestinationNamespace{
+
+    
+
     
     
     
@@ -396,6 +428,9 @@ public static class DestinationNamespace{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CopyFiles{
+
+    
+
     
     
     
@@ -424,6 +459,9 @@ public static class CopyFiles{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Urls{
+
+    
+
     
     
     
@@ -458,6 +496,9 @@ public static class Urls{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SignUrlResponse{
+
+    
+
     
     
     
@@ -480,6 +521,9 @@ public static class SignUrlResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SignUrlRequest{
+
+    
+
     
     
     
@@ -508,6 +552,9 @@ public static class SignUrlRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoiceTypesDataResponse{
+
+    
+
     
     
     
@@ -572,6 +619,9 @@ public static class InvoiceTypesDataResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoiceTypesResponse{
+
+    
+
     
     
     
@@ -600,6 +650,9 @@ public static class InvoiceTypesResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Inr{
+
+    
+
     
     
     
@@ -640,6 +693,9 @@ public static class Inr{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Usd{
+
+    
+
     
     
     
@@ -680,6 +736,9 @@ public static class Usd{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Rates{
+
+    
+
     
     
     
@@ -708,6 +767,9 @@ public static class Rates{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ConversionRate{
+
+    
+
     
     
     
@@ -742,6 +804,9 @@ public static class ConversionRate{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DeliveryPartnerDetail{
+
+    
+
     
     
     
@@ -782,6 +847,9 @@ public static class DeliveryPartnerDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Image{
+
+    
+
     
     
     
@@ -804,6 +872,9 @@ public static class Image{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentData{
+
+    
+
     
     
     
@@ -844,6 +915,9 @@ public static class PaymentData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoiceDetail{
+
+    
+
     
     
     
@@ -902,6 +976,9 @@ public static class InvoiceDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompanyDetail{
+
+    
+
     
     
     
@@ -1002,6 +1079,9 @@ public static class CompanyDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StoreDetail{
+
+    
+
     
     
     
@@ -1072,6 +1152,9 @@ public static class StoreDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CustomerBillingDetail{
+
+    
+
     
     
     
@@ -1148,6 +1231,9 @@ public static class CustomerBillingDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CustomerShippingDetail{
+
+    
+
     
     
     
@@ -1224,6 +1310,9 @@ public static class CustomerShippingDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ReturnDetail{
+
+    
+
     
     
     
@@ -1288,6 +1377,9 @@ public static class ReturnDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Brand{
+
+    
+
     
     
     
@@ -1316,6 +1408,9 @@ public static class Brand{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Cgst{
+
+    
+
     
     
     
@@ -1344,6 +1439,9 @@ public static class Cgst{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Sgst{
+
+    
+
     
     
     
@@ -1372,6 +1470,9 @@ public static class Sgst{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Igst{
+
+    
+
     
     
     
@@ -1400,6 +1501,9 @@ public static class Igst{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Tax{
+
+    
+
     
     
     
@@ -1434,6 +1538,9 @@ public static class Tax{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ItemsProductTable{
+
+    
+
     
     
     
@@ -1528,6 +1635,9 @@ public static class ItemsProductTable{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductTable{
+
+    
+
     
     
     
@@ -1592,6 +1702,9 @@ public static class ProductTable{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Taxes{
+
+    
+
     
     
     
@@ -1626,6 +1739,9 @@ public static class Taxes{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TaxTable{
+
+    
+
     
     
     
@@ -1660,6 +1776,9 @@ public static class TaxTable{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RegisteredCompanyDetail{
+
+    
+
     
     
     
@@ -1718,6 +1837,9 @@ public static class RegisteredCompanyDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Kwargs{
+
+    
+
     
     
     
@@ -1740,6 +1862,9 @@ public static class Kwargs{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ShipmentIdBarcodeGenerator{
+
+    
+
     
     
     
@@ -1768,6 +1893,9 @@ public static class ShipmentIdBarcodeGenerator{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SignedQrcodeGenerator{
+
+    
+
     
     
     
@@ -1796,6 +1924,9 @@ public static class SignedQrcodeGenerator{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class KwargsUpiQrcode{
+
+    
+
     
     
     
@@ -1824,6 +1955,9 @@ public static class KwargsUpiQrcode{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UpiQrcodeGenerator{
+
+    
+
     
     
     
@@ -1852,6 +1986,9 @@ public static class UpiQrcodeGenerator{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DigitalsignatureGenerator{
+
+    
+
     
     
     
@@ -1880,6 +2017,9 @@ public static class DigitalsignatureGenerator{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class KwargsAwbNumber{
+
+    
+
     
     
     
@@ -1902,6 +2042,9 @@ public static class KwargsAwbNumber{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AwbNumberLabelBarcodeGenerator{
+
+    
+
     
     
     
@@ -1930,6 +2073,9 @@ public static class AwbNumberLabelBarcodeGenerator{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class MetaProperty{
+
+    
+
     
     
     
@@ -1976,6 +2122,9 @@ public static class MetaProperty{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Meta{
+
+    
+
     
     
     
@@ -1998,6 +2147,9 @@ public static class Meta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DummyTemplateDataPayload{
+
+    
+
     
     
     
@@ -2224,6 +2376,9 @@ public static class DummyTemplateDataPayload{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DummyTemplateData{
+
+    
+
     
     
     
@@ -2264,6 +2419,9 @@ public static class DummyTemplateData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DummyTemplateDataItems{
+
+    
+
     
     
     
@@ -2292,6 +2450,9 @@ public static class DummyTemplateDataItems{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PdfConfig{
+
+    
+
     
     
     
@@ -2326,6 +2487,9 @@ public static class PdfConfig{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PdfConfigSuccessData{
+
+    
+
     
     
     
@@ -2390,6 +2554,9 @@ public static class PdfConfigSuccessData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PdfConfigSuccess{
+
+    
+
     
     
     
@@ -2418,6 +2585,9 @@ public static class PdfConfigSuccess{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PdfConfigSaveSuccessData{
+
+    
+
     
     
     
@@ -2476,6 +2646,9 @@ public static class PdfConfigSaveSuccessData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PdfConfigSaveSuccess{
+
+    
+
     
     
     
@@ -2504,6 +2677,9 @@ public static class PdfConfigSaveSuccess{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PdfDefaultTemplateSuccess{
+
+    
+
     
     
     
@@ -2532,6 +2708,9 @@ public static class PdfDefaultTemplateSuccess{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Document{
+
+    
+
     
     
     
@@ -2584,6 +2763,9 @@ public static class Document{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentReceiptRequestBody{
+
+    
+
     
     
     
@@ -2612,6 +2794,9 @@ public static class PaymentReceiptRequestBody{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentReceiptOrderDetails{
+
+    
+
     
     
     
@@ -2682,6 +2867,9 @@ public static class PaymentReceiptOrderDetails{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentReceiptCustomerDetails{
+
+    
+
     
     
     
@@ -2728,6 +2916,9 @@ public static class PaymentReceiptCustomerDetails{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentReceiptPayments{
+
+    
+
     
     
     
@@ -2756,6 +2947,9 @@ public static class PaymentReceiptPayments{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentReceiptFormat{
+
+    
+
     
     
     
@@ -2778,6 +2972,9 @@ public static class PaymentReceiptFormat{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentReceiptService{
+
+    
+
     
     
     
@@ -2800,6 +2997,9 @@ public static class PaymentReceiptService{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentReceiptTaxes{
+
+    
+
     
     
     
@@ -2828,6 +3028,9 @@ public static class PaymentReceiptTaxes{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentReceiptPayload{
+
+    
+
     
     
     
@@ -2868,6 +3071,9 @@ public static class PaymentReceiptPayload{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentReceiptMeta{
+
+    
+
     
     
     

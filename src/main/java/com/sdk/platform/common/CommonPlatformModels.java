@@ -1,8 +1,13 @@
 
+
 package com.sdk.platform.common;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class CommonPlatformModels{
@@ -18,6 +23,9 @@ public class CommonPlatformModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApplicationResponse{
+
+    
+
     
     
     
@@ -88,6 +96,9 @@ public static class ApplicationResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Domain{
+
+    
+
     
     
     
@@ -140,6 +151,9 @@ public static class Domain{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApplicationWebsite{
+
+    
+
     
     
     
@@ -168,6 +182,9 @@ public static class ApplicationWebsite{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApplicationCors{
+
+    
+
     
     
     
@@ -190,6 +207,9 @@ public static class ApplicationCors{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApplicationAuth{
+
+    
+
     
     
     
@@ -212,6 +232,9 @@ public static class ApplicationAuth{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApplicationRedirections{
+
+    
+
     
     
     
@@ -246,6 +269,9 @@ public static class ApplicationRedirections{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApplicationMeta{
+
+    
+
     
     
     
@@ -274,6 +300,9 @@ public static class ApplicationMeta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SecureUrl{
+
+    
+
     
     
     
@@ -296,6 +325,9 @@ public static class SecureUrl{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Application{
+
+    
+
     
     
     
@@ -462,6 +494,9 @@ public static class Application{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class NotFound{
+
+    
+
     
     
     
@@ -484,6 +519,9 @@ public static class NotFound{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BadRequest{
+
+    
+
     
     
     
@@ -506,6 +544,9 @@ public static class BadRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LocationDefaultLanguage{
+
+    
+
     
     
     
@@ -534,6 +575,9 @@ public static class LocationDefaultLanguage{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LocationDefaultCurrency{
+
+    
+
     
     
     
@@ -568,6 +612,9 @@ public static class LocationDefaultCurrency{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LocationCountry{
+
+    
+
     
     
     
@@ -686,6 +733,9 @@ public static class LocationCountry{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Locations{
+
+    
+
     
     
     

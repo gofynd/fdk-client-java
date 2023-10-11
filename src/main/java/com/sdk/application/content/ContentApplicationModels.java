@@ -1,8 +1,13 @@
 
+
 package com.sdk.application.content;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class ContentApplicationModels{
@@ -18,6 +23,9 @@ public class ContentApplicationModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApplicationLegal{
+
+    
+
     
     
     
@@ -88,6 +96,9 @@ public static class ApplicationLegal{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApplicationLegalFAQ{
+
+    
+
     
     
     
@@ -116,6 +127,9 @@ public static class ApplicationLegalFAQ{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SeoComponent{
+
+    
+
     
     
     
@@ -138,6 +152,9 @@ public static class SeoComponent{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SeoSchema{
+
+    
+
     
     
     
@@ -208,6 +225,9 @@ public static class SeoSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CustomMetaTag{
+
+    
+
     
     
     
@@ -242,6 +262,9 @@ public static class CustomMetaTag{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Detail{
+
+    
+
     
     
     
@@ -276,6 +299,9 @@ public static class Detail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ScheduleSchema{
+
+    
+
     
     
     
@@ -322,6 +348,9 @@ public static class ScheduleSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class NextSchedule{
+
+    
+
     
     
     
@@ -350,6 +379,9 @@ public static class NextSchedule{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AnnouncementSchema{
+
+    
+
     
     
     
@@ -378,6 +410,9 @@ public static class AnnouncementSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ScheduleStartSchema{
+
+    
+
     
     
     
@@ -406,6 +441,9 @@ public static class ScheduleStartSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BlogGetResponse{
+
+    
+
     
     
     
@@ -434,6 +472,9 @@ public static class BlogGetResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ResourceContent{
+
+    
+
     
     
     
@@ -462,6 +503,9 @@ public static class ResourceContent{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Asset{
+
+    
+
     
     
     
@@ -496,6 +540,9 @@ public static class Asset{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Author{
+
+    
+
     
     
     
@@ -530,6 +577,9 @@ public static class Author{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BlogSchema{
+
+    
+
     
     
     
@@ -636,6 +686,9 @@ public static class BlogSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SEO{
+
+    
+
     
     
     
@@ -670,6 +723,9 @@ public static class SEO{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SEOImage{
+
+    
+
     
     
     
@@ -692,6 +748,9 @@ public static class SEOImage{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DateMeta{
+
+    
+
     
     
     
@@ -720,6 +779,9 @@ public static class DateMeta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LocaleLanguage{
+
+    
+
     
     
     
@@ -754,6 +816,9 @@ public static class LocaleLanguage{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Language{
+
+    
+
     
     
     
@@ -776,6 +841,109 @@ public static class Language{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Action{
+
+    
+    
+    public static Action convertUrlToAction(String url) {
+        if (url != null) {
+            String path = Utility.trimChar(url);
+            HashMap<String, List<String>> query = Utility.getQuery(path);
+            String pathname = null;
+            try {
+                pathname = Utility.validURL(path) ? new URL(path).getPath() : path.split("\\?")[0];
+
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            }
+            Map<PageType, Constant.NavigatorPage> allNavigators = new HashMap(Objects.requireNonNull(Constant.getNavigators(PageType.class)));
+
+            Map<String, PageType> typeLink = new HashMap<>();
+
+            for (Map.Entry<PageType, Constant.NavigatorPage> entry : allNavigators.entrySet()) {
+                PageType nav = entry.getKey();
+                Constant.NavigatorPage navInfo = entry.getValue();
+                String link = navInfo.getLink().toString();
+                List<Constant.NavigatorPageParam> params = navInfo.getParams();
+
+                typeLink.put(link, nav);
+
+                if (params != null) {
+                    for (Constant.NavigatorPageParam param : params) {
+                        if (!param.isRequired()) {
+                            String modifiedLink = link.substring(0, link.indexOf(param.getKey().toString()) - 1);
+                            typeLink.put(modifiedLink, nav);
+                        }
+                    }
+                }
+            }
+
+            List<String> allLinks = new ArrayList<>(typeLink.keySet());
+            allLinks.sort((a, b) -> b.length() - a.length());
+
+            Map<String, Object> bestMatchingLink = Utility.findBestMatchingLink(allLinks, pathname);
+            String closestMatchingNavLink = null;
+            for (String pageType : typeLink.keySet()) {
+                if (Utility.trimChar(pageType).equals(bestMatchingLink.get("value"))) {
+                    closestMatchingNavLink = pageType;
+                    break;
+                }
+            }
+
+            PageType closestMatchingNavKey = typeLink.get(closestMatchingNavLink);
+
+            if(closestMatchingNavKey == null){
+                closestMatchingNavKey = PageType.home;
+            }
+
+            ActionPage actionPage = new ActionPage();
+            actionPage.setType(closestMatchingNavKey);
+            actionPage.setQuery(query);
+            actionPage.setParams(bestMatchingLink.containsKey("params") ? (HashMap<String, List<String>>) bestMatchingLink.get("params") : new HashMap<>());
+
+            Action action = new Action();
+            action.setType("page");
+            action.setPage(actionPage);
+
+            return action;
+        } else {
+            Action action = new Action();
+            action.setType("page");
+            
+            ActionPage actionPage = new ActionPage();
+            actionPage.setType(PageType.home);
+
+            action.setPage(new ActionPage());
+            return action;
+        }
+    }
+
+    public static String convertActionToUrl(Action action) {
+        if (action != null && action.getPage() != null && action.getPage().getType() != null) {
+            switch (action.getType()) {
+                case "page": {
+                    Constant.NavigatorPage item = Constant.getNavigators(PageType.class).get(action.page.type);
+                    if (item != null) {
+                        // Get param
+                        item.setLink(Utility.generateUrlWithParams(item, action.page.params));
+//                        item.put("link", Utility.generateUrlWithParams(item, action.getPage().getParams()));
+                        // Get query
+                        if (action.getPage().getQuery() != null && !action.getPage().getQuery().isEmpty()) {
+                            item.setLink(item.getLink() + "/?" + Utility.transformRequestOptions(action.getPage().getQuery()));
+                        }
+                        return item.getLink();
+                    }
+                    return "";
+                }
+                case "popup": {
+                    break;
+                }
+            }
+        }
+        return "";
+    }
+
+    
+
     
     
     
@@ -810,6 +978,9 @@ public static class Action{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ActionPage{
+
+    
+
     
     
     
@@ -850,6 +1021,9 @@ public static class ActionPage{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class NavigationReference{
+
+    
+
     
     
     
@@ -926,6 +1100,9 @@ public static class NavigationReference{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ConfigurationSchema{
+
+    
+
     
     
     
@@ -966,6 +1143,9 @@ public static class ConfigurationSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SlideshowMedia{
+
+    
+
     
     
     
@@ -1018,6 +1198,9 @@ public static class SlideshowMedia{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AnnouncementsResponseSchema{
+
+    
+
     
     
     
@@ -1052,6 +1235,9 @@ public static class AnnouncementsResponseSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FaqResponseSchema{
+
+    
+
     
     
     
@@ -1074,6 +1260,9 @@ public static class FaqResponseSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DataLoaderSchema{
+
+    
+
     
     
     
@@ -1138,6 +1327,9 @@ public static class DataLoaderSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DataLoaderSourceSchema{
+
+    
+
     
     
     
@@ -1166,6 +1358,9 @@ public static class DataLoaderSourceSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DataLoadersSchema{
+
+    
+
     
     
     
@@ -1188,6 +1383,9 @@ public static class DataLoadersSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ContentAPIError{
+
+    
+
     
     
     
@@ -1252,6 +1450,9 @@ public static class ContentAPIError{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CommonError{
+
+    
+
     
     
     
@@ -1274,6 +1475,9 @@ public static class CommonError{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CategorySchema{
+
+    
+
     
     
     
@@ -1344,6 +1548,9 @@ public static class CategorySchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ChildrenSchema{
+
+    
+
     
     
     
@@ -1390,6 +1597,9 @@ public static class ChildrenSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FAQCategorySchema{
+
+    
+
     
     
     
@@ -1460,6 +1670,9 @@ public static class FAQCategorySchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FaqSchema{
+
+    
+
     
     
     
@@ -1512,6 +1725,9 @@ public static class FaqSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetFaqSchema{
+
+    
+
     
     
     
@@ -1534,6 +1750,9 @@ public static class GetFaqSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetFaqCategoriesSchema{
+
+    
+
     
     
     
@@ -1556,6 +1775,9 @@ public static class GetFaqCategoriesSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetFaqCategoryBySlugSchema{
+
+    
+
     
     
     
@@ -1578,6 +1800,9 @@ public static class GetFaqCategoryBySlugSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Page{
+
+    
+
     
     
     
@@ -1636,6 +1861,9 @@ public static class Page{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LandingPageSchema{
+
+    
+
     
     
     
@@ -1706,6 +1934,9 @@ public static class LandingPageSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class NavigationGetResponse{
+
+    
+
     
     
     
@@ -1734,6 +1965,9 @@ public static class NavigationGetResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Orientation{
+
+    
+
     
     
     
@@ -1762,6 +1996,9 @@ public static class Orientation{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class NavigationSchema{
+
+    
+
     
     
     
@@ -1844,6 +2081,9 @@ public static class NavigationSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PageGetResponse{
+
+    
+
     
     
     
@@ -1872,6 +2112,9 @@ public static class PageGetResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PageSchema{
+
+    
+
     
     
     
@@ -2020,6 +2263,9 @@ public static class PageSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreatedBySchema{
+
+    
+
     
     
     
@@ -2042,6 +2288,9 @@ public static class CreatedBySchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CronSchedule{
+
+    
+
     
     
     
@@ -2082,6 +2331,9 @@ public static class CronSchedule{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SlideshowGetResponse{
+
+    
+
     
     
     
@@ -2110,6 +2362,9 @@ public static class SlideshowGetResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SlideshowSchema{
+
+    
+
     
     
     
@@ -2186,6 +2441,9 @@ public static class SlideshowSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Support{
+
+    
+
     
     
     
@@ -2244,6 +2502,9 @@ public static class Support{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PhoneProperties{
+
+    
+
     
     
     
@@ -2278,6 +2539,9 @@ public static class PhoneProperties{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PhoneSchema{
+
+    
+
     
     
     
@@ -2306,6 +2570,9 @@ public static class PhoneSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EmailProperties{
+
+    
+
     
     
     
@@ -2334,6 +2601,9 @@ public static class EmailProperties{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EmailSchema{
+
+    
+
     
     
     
@@ -2362,6 +2632,9 @@ public static class EmailSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ContactSchema{
+
+    
+
     
     
     
@@ -2390,6 +2663,9 @@ public static class ContactSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TagsSchema{
+
+    
+
     
     
     
@@ -2424,6 +2700,9 @@ public static class TagsSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TagSchema{
+
+    
+
     
     
     
@@ -2500,6 +2779,9 @@ public static class TagSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TagSourceSchema{
+
+    
+
     
     
     
@@ -2626,6 +2908,12 @@ public static class TagSourceSchema{
         PageType(String priority) {
             this.priority = priority;
         }
+
+        @JsonValue
+        public String getPriority() {
+            return priority;
+        }
+
     }
 
 

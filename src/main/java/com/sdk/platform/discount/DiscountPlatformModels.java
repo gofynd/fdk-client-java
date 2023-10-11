@@ -1,8 +1,13 @@
 
+
 package com.sdk.platform.discount;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class DiscountPlatformModels{
@@ -18,6 +23,9 @@ public class DiscountPlatformModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ValidityObject{
+
+    
+
     
     
     
@@ -46,6 +54,9 @@ public static class ValidityObject{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateUpdateDiscount{
+
+    
+
     
     
     
@@ -146,6 +157,9 @@ public static class CreateUpdateDiscount{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DiscountMeta{
+
+    
+
     
     
     
@@ -180,6 +194,9 @@ public static class DiscountMeta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DiscountJob{
+
+    
+
     
     
     
@@ -310,6 +327,9 @@ public static class DiscountJob{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ListOrCalender{
+
+    
+
     
     
     
@@ -338,6 +358,9 @@ public static class ListOrCalender{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DiscountItems{
+
+    
+
     
     
     
@@ -390,6 +413,9 @@ public static class DiscountItems{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BulkDiscount{
+
+    
+
     
     
     
@@ -418,6 +444,9 @@ public static class BulkDiscount{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FileJobResponse{
+
+    
+
     
     
     
@@ -482,6 +511,9 @@ public static class FileJobResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FileJobRequest{
+
+    
+
     
     
     
@@ -564,6 +596,9 @@ public static class FileJobRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DownloadFileJob{
+
+    
+
     
     
     
@@ -592,6 +627,9 @@ public static class DownloadFileJob{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CancelJobResponse{
+
+    
+
     
     
     
@@ -614,6 +652,9 @@ public static class CancelJobResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Page{
+
+    
+
     
     
     
@@ -672,6 +713,9 @@ public static class Page{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UserDetails{
+
+    
+
     
     
     
@@ -700,6 +744,9 @@ public static class UserDetails{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BadRequestObject{
+
+    
+
     
     
     

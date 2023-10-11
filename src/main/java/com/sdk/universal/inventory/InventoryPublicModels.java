@@ -1,8 +1,13 @@
 
+
 package com.sdk.universal.inventory;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class InventoryPublicModels{
@@ -18,6 +23,9 @@ public class InventoryPublicModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EmailJobMetrics{
+
+    
+
     
     
     
@@ -64,6 +72,9 @@ public static class EmailJobMetrics{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Page{
+
+    
+
     
     
     
@@ -122,6 +133,9 @@ public static class Page{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ResponseEnvelopeEmailJobMetrics{
+
+    
+
     
     
     
@@ -204,6 +218,9 @@ public static class ResponseEnvelopeEmailJobMetrics{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GCompany{
+
+    
+
     
     
     
@@ -274,6 +291,9 @@ public static class GCompany{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GStore{
+
+    
+
     
     
     
@@ -350,6 +370,9 @@ public static class GStore{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Metum{
+
+    
+
     
     
     
@@ -384,6 +407,9 @@ public static class Metum{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ResponseEnvelopeSlingshotConfigurationDetail{
+
+    
+
     
     
     
@@ -466,6 +492,9 @@ public static class ResponseEnvelopeSlingshotConfigurationDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SlingshotConfigurationDetail{
+
+    
+
     
     
     
@@ -494,6 +523,9 @@ public static class SlingshotConfigurationDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SlingshotIntegration{
+
+    
+
     
     
     
@@ -540,6 +572,9 @@ public static class SlingshotIntegration{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StoreData{
+
+    
+
     
     
     
@@ -562,6 +597,9 @@ public static class StoreData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApikeyModel{
+
+    
+
     
     
     
@@ -590,6 +628,9 @@ public static class ApikeyModel{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ResponseEnvelopeApikeyModel{
+
+    
+
     
     
     
@@ -672,6 +713,9 @@ public static class ResponseEnvelopeApikeyModel{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DataTresholdDTO{
+
+    
+
     
     
     
@@ -718,6 +762,9 @@ public static class DataTresholdDTO{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GenericDTO{
+
+    
+
     
     
     
@@ -746,6 +793,9 @@ public static class GenericDTO{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class JobConfigDTO{
+
+    
+
     
     
     
@@ -810,6 +860,9 @@ public static class JobConfigDTO{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ResponseEnvelopeJobConfigDTO{
+
+    
+
     
     
     
@@ -892,6 +945,9 @@ public static class ResponseEnvelopeJobConfigDTO{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TaskDTO{
+
+    
+
     
     
     
@@ -920,6 +976,9 @@ public static class TaskDTO{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ResponseEnvelopeListJobConfigDTO{
+
+    
+
     
     
     
@@ -1002,6 +1061,9 @@ public static class ResponseEnvelopeListJobConfigDTO{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ResponseEnvelopeObject{
+
+    
+
     
     
     

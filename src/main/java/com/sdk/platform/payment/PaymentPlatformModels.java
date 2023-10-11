@@ -1,8 +1,13 @@
 
+
 package com.sdk.platform.payment;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class PaymentPlatformModels{
@@ -18,6 +23,9 @@ public class PaymentPlatformModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentGatewayConfigResponse{
+
+    
+
     
     
     
@@ -70,6 +78,9 @@ public static class PaymentGatewayConfigResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ErrorCodeDescription{
+
+    
+
     
     
     
@@ -104,6 +115,9 @@ public static class ErrorCodeDescription{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentGatewayConfig{
+
+    
+
     
     
     
@@ -150,6 +164,9 @@ public static class PaymentGatewayConfig{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentGatewayConfigRequest{
+
+    
+
     
     
     
@@ -184,6 +201,9 @@ public static class PaymentGatewayConfigRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentGatewayToBeReviewed{
+
+    
+
     
     
     
@@ -212,6 +232,9 @@ public static class PaymentGatewayToBeReviewed{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ErrorCodeAndDescription{
+
+    
+
     
     
     
@@ -240,6 +263,9 @@ public static class ErrorCodeAndDescription{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class HttpErrorCodeAndResponse{
+
+    
+
     
     
     
@@ -268,6 +294,9 @@ public static class HttpErrorCodeAndResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class IntentAppErrorList{
+
+    
+
     
     
     
@@ -296,6 +325,9 @@ public static class IntentAppErrorList{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductCODData{
+
+    
+
     
     
     
@@ -324,6 +356,9 @@ public static class ProductCODData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CODChargesLimitsResponse{
+
+    
+
     
     
     
@@ -358,6 +393,9 @@ public static class CODChargesLimitsResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentModeLogo{
+
+    
+
     
     
     
@@ -386,6 +424,9 @@ public static class PaymentModeLogo{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class IntentApp{
+
+    
+
     
     
     
@@ -426,6 +467,9 @@ public static class IntentApp{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentModeList{
+
+    
+
     
     
     
@@ -652,6 +696,9 @@ public static class PaymentModeList{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RootPaymentMode{
+
+    
+
     
     
     
@@ -722,6 +769,9 @@ public static class RootPaymentMode{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentOptions{
+
+    
+
     
     
     
@@ -744,6 +794,9 @@ public static class PaymentOptions{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentOptionsResponse{
+
+    
+
     
     
     
@@ -772,6 +825,9 @@ public static class PaymentOptionsResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PayoutCustomer{
+
+    
+
     
     
     
@@ -818,6 +874,9 @@ public static class PayoutCustomer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PayoutMoreAttributes{
+
+    
+
     
     
     
@@ -888,6 +947,9 @@ public static class PayoutMoreAttributes{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PayoutAggregator{
+
+    
+
     
     
     
@@ -922,6 +984,9 @@ public static class PayoutAggregator{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Payout{
+
+    
+
     
     
     
@@ -980,6 +1045,9 @@ public static class Payout{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PayoutsResponse{
+
+    
+
     
     
     
@@ -1008,6 +1076,9 @@ public static class PayoutsResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PayoutBankDetails{
+
+    
+
     
     
     
@@ -1084,6 +1155,9 @@ public static class PayoutBankDetails{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PayoutRequest{
+
+    
+
     
     
     
@@ -1136,6 +1210,9 @@ public static class PayoutRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PayoutResponse{
+
+    
+
     
     
     
@@ -1212,6 +1289,9 @@ public static class PayoutResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UpdatePayoutResponse{
+
+    
+
     
     
     
@@ -1246,6 +1326,9 @@ public static class UpdatePayoutResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UpdatePayoutRequest{
+
+    
+
     
     
     
@@ -1280,6 +1363,9 @@ public static class UpdatePayoutRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DeletePayoutResponse{
+
+    
+
     
     
     
@@ -1302,6 +1388,9 @@ public static class DeletePayoutResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionPaymentMethodResponse{
+
+    
+
     
     
     
@@ -1330,6 +1419,9 @@ public static class SubscriptionPaymentMethodResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DeleteSubscriptionPaymentMethodResponse{
+
+    
+
     
     
     
@@ -1352,6 +1444,9 @@ public static class DeleteSubscriptionPaymentMethodResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionConfigResponse{
+
+    
+
     
     
     
@@ -1386,6 +1481,9 @@ public static class SubscriptionConfigResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SaveSubscriptionSetupIntentRequest{
+
+    
+
     
     
     
@@ -1408,6 +1506,9 @@ public static class SaveSubscriptionSetupIntentRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SaveSubscriptionSetupIntentResponse{
+
+    
+
     
     
     
@@ -1436,6 +1537,9 @@ public static class SaveSubscriptionSetupIntentResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RefundAccountResponse{
+
+    
+
     
     
     
@@ -1476,6 +1580,9 @@ public static class RefundAccountResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class NotFoundResourceError{
+
+    
+
     
     
     
@@ -1510,6 +1617,9 @@ public static class NotFoundResourceError{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BankDetailsForOTP{
+
+    
+
     
     
     
@@ -1556,6 +1666,9 @@ public static class BankDetailsForOTP{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AddBeneficiaryDetailsOTPRequest{
+
+    
+
     
     
     
@@ -1584,6 +1697,9 @@ public static class AddBeneficiaryDetailsOTPRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class IfscCodeResponse{
+
+    
+
     
     
     
@@ -1618,6 +1734,9 @@ public static class IfscCodeResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class OrderBeneficiaryDetails{
+
+    
+
     
     
     
@@ -1748,6 +1867,9 @@ public static class OrderBeneficiaryDetails{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class OrderBeneficiaryResponse{
+
+    
+
     
     
     
@@ -1776,6 +1898,9 @@ public static class OrderBeneficiaryResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class MultiTenderPaymentMeta{
+
+    
+
     
     
     
@@ -1822,6 +1947,9 @@ public static class MultiTenderPaymentMeta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class MultiTenderPaymentMethod{
+
+    
+
     
     
     
@@ -1862,6 +1990,9 @@ public static class MultiTenderPaymentMethod{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentConfirmationRequest{
+
+    
+
     
     
     
@@ -1890,6 +2021,9 @@ public static class PaymentConfirmationRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentConfirmationResponse{
+
+    
+
     
     
     
@@ -1924,6 +2058,9 @@ public static class PaymentConfirmationResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CODdata{
+
+    
+
     
     
     
@@ -1970,6 +2107,9 @@ public static class CODdata{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetUserCODLimitResponse{
+
+    
+
     
     
     
@@ -1998,6 +2138,9 @@ public static class GetUserCODLimitResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SetCODForUserRequest{
+
+    
+
     
     
     
@@ -2032,6 +2175,9 @@ public static class SetCODForUserRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SetCODOptionResponse{
+
+    
+
     
     
     
@@ -2060,6 +2206,9 @@ public static class SetCODOptionResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EdcModelData{
+
+    
+
     
     
     
@@ -2094,6 +2243,9 @@ public static class EdcModelData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EdcAggregatorAndModelListResponse{
+
+    
+
     
     
     
@@ -2122,6 +2274,9 @@ public static class EdcAggregatorAndModelListResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StatisticsData{
+
+    
+
     
     
     
@@ -2150,6 +2305,9 @@ public static class StatisticsData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EdcDeviceStatsResponse{
+
+    
+
     
     
     
@@ -2178,6 +2336,9 @@ public static class EdcDeviceStatsResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EdcAddRequest{
+
+    
+
     
     
     
@@ -2230,6 +2391,9 @@ public static class EdcAddRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EdcDevice{
+
+    
+
     
     
     
@@ -2312,6 +2476,9 @@ public static class EdcDevice{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EdcDeviceAddResponse{
+
+    
+
     
     
     
@@ -2340,6 +2507,9 @@ public static class EdcDeviceAddResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EdcDeviceDetailsResponse{
+
+    
+
     
     
     
@@ -2368,6 +2538,9 @@ public static class EdcDeviceDetailsResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EdcUpdateRequest{
+
+    
+
     
     
     
@@ -2426,6 +2599,9 @@ public static class EdcUpdateRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EdcDeviceUpdateResponse{
+
+    
+
     
     
     
@@ -2448,6 +2624,9 @@ public static class EdcDeviceUpdateResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Page{
+
+    
+
     
     
     
@@ -2506,6 +2685,9 @@ public static class Page{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EdcDeviceListResponse{
+
+    
+
     
     
     
@@ -2540,6 +2722,9 @@ public static class EdcDeviceListResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentInitializationRequest{
+
+    
+
     
     
     
@@ -2634,6 +2819,9 @@ public static class PaymentInitializationRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentInitializationResponse{
+
+    
+
     
     
     
@@ -2752,6 +2940,9 @@ public static class PaymentInitializationResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentStatusUpdateRequest{
+
+    
+
     
     
     
@@ -2846,6 +3037,9 @@ public static class PaymentStatusUpdateRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentStatusUpdateResponse{
+
+    
+
     
     
     
@@ -2892,6 +3086,9 @@ public static class PaymentStatusUpdateResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ResendOrCancelPaymentRequest{
+
+    
+
     
     
     
@@ -2926,6 +3123,9 @@ public static class ResendOrCancelPaymentRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LinkStatus{
+
+    
+
     
     
     
@@ -2954,6 +3154,9 @@ public static class LinkStatus{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ResendOrCancelPaymentResponse{
+
+    
+
     
     
     
@@ -2982,6 +3185,9 @@ public static class ResendOrCancelPaymentResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentStatusBulkHandlerRequest{
+
+    
+
     
     
     
@@ -3004,6 +3210,9 @@ public static class PaymentStatusBulkHandlerRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentObjectListSerializer{
+
+    
+
     
     
     
@@ -3128,6 +3337,9 @@ public static class PaymentObjectListSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentStatusObject{
+
+    
+
     
     
     
@@ -3156,6 +3368,9 @@ public static class PaymentStatusObject{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentStatusBulkHandlerResponse{
+
+    
+
     
     
     
@@ -3202,6 +3417,9 @@ public static class PaymentStatusBulkHandlerResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetOauthUrlResponse{
+
+    
+
     
     
     
@@ -3230,6 +3448,9 @@ public static class GetOauthUrlResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RevokeOAuthToken{
+
+    
+
     
     
     
@@ -3258,6 +3479,9 @@ public static class RevokeOAuthToken{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RepaymentRequestDetails{
+
+    
+
     
     
     
@@ -3334,6 +3558,9 @@ public static class RepaymentRequestDetails{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RepaymentDetailsSerialiserPayAll{
+
+    
+
     
     
     
@@ -3380,6 +3607,9 @@ public static class RepaymentDetailsSerialiserPayAll{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RepaymentResponse{
+
+    
+
     
     
     
@@ -3408,6 +3638,9 @@ public static class RepaymentResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class MerchantOnBoardingRequest{
+
+    
+
     
     
     
@@ -3454,6 +3687,9 @@ public static class MerchantOnBoardingRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class MerchantOnBoardingResponse{
+
+    
+
     
     
     
@@ -3482,6 +3718,9 @@ public static class MerchantOnBoardingResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ValidateCustomerRequest{
+
+    
+
     
     
     
@@ -3546,6 +3785,9 @@ public static class ValidateCustomerRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ValidateCustomerResponse{
+
+    
+
     
     
     
@@ -3580,6 +3822,9 @@ public static class ValidateCustomerResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetPaymentLinkResponse{
+
+    
+
     
     
     
@@ -3650,6 +3895,9 @@ public static class GetPaymentLinkResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ErrorDescription{
+
+    
+
     
     
     
@@ -3714,6 +3962,9 @@ public static class ErrorDescription{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ErrorResponse{
+
+    
+
     
     
     
@@ -3754,6 +4005,9 @@ public static class ErrorResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreatePaymentLinkMeta{
+
+    
+
     
     
     
@@ -3800,6 +4054,9 @@ public static class CreatePaymentLinkMeta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreatePaymentLinkRequest{
+
+    
+
     
     
     
@@ -3852,6 +4109,9 @@ public static class CreatePaymentLinkRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreatePaymentLinkResponse{
+
+    
+
     
     
     
@@ -3904,6 +4164,9 @@ public static class CreatePaymentLinkResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PollingPaymentLinkResponse{
+
+    
+
     
     
     
@@ -3980,6 +4243,9 @@ public static class PollingPaymentLinkResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CancelOrResendPaymentLinkRequest{
+
+    
+
     
     
     
@@ -4002,6 +4268,9 @@ public static class CancelOrResendPaymentLinkRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ResendPaymentLinkResponse{
+
+    
+
     
     
     
@@ -4042,6 +4311,9 @@ public static class ResendPaymentLinkResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CancelPaymentLinkResponse{
+
+    
+
     
     
     
@@ -4076,6 +4348,9 @@ public static class CancelPaymentLinkResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Code{
+
+    
+
     
     
     
@@ -4110,6 +4385,9 @@ public static class Code{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentCode{
+
+    
+
     
     
     
@@ -4150,6 +4428,9 @@ public static class PaymentCode{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetPaymentCode{
+
+    
+
     
     
     
@@ -4172,6 +4453,9 @@ public static class GetPaymentCode{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetPaymentCodeResponse{
+
+    
+
     
     
     
@@ -4200,6 +4484,9 @@ public static class GetPaymentCodeResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class MerchnatPaymentModeResponse{
+
+    
+
     
     
     
@@ -4234,6 +4521,9 @@ public static class MerchnatPaymentModeResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class MerchnatPaymentModeRequest{
+
+    
+
     
     
     
@@ -4262,6 +4552,9 @@ public static class MerchnatPaymentModeRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AddressDetail{
+
+    
+
     
     
     
@@ -4392,6 +4685,9 @@ public static class AddressDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentSessionDetail{
+
+    
+
     
     
     
@@ -4534,6 +4830,9 @@ public static class PaymentSessionDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class OrderDetail{
+
+    
+
     
     
     
@@ -4586,6 +4885,9 @@ public static class OrderDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentSessionRequestSerializer{
+
+    
+
     
     
     
@@ -4638,6 +4940,9 @@ public static class PaymentSessionRequestSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PaymentSessionResponseSerializer{
+
+    
+
     
     
     
@@ -4684,6 +4989,9 @@ public static class PaymentSessionResponseSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RefundSessionDetail{
+
+    
+
     
     
     
@@ -4772,6 +5080,9 @@ public static class RefundSessionDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RefundSessionRequestSerializer{
+
+    
+
     
     
     
@@ -4824,6 +5135,9 @@ public static class RefundSessionRequestSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RefundSessionResponseSerializer{
+
+    
+
     
     
     
@@ -4870,6 +5184,9 @@ public static class RefundSessionResponseSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RefundSourcesPriority{
+
+    
+
     
     
     
@@ -4904,6 +5221,9 @@ public static class RefundSourcesPriority{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RefundPriorityResponseSerializer{
+
+    
+
     
     
     
@@ -4950,6 +5270,9 @@ public static class RefundPriorityResponseSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RefundPriorityRequestSerializer{
+
+    
+
     
     
     

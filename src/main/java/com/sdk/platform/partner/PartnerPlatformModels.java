@@ -1,8 +1,13 @@
 
+
 package com.sdk.platform.partner;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class PartnerPlatformModels{
@@ -18,6 +23,9 @@ public class PartnerPlatformModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AddProxyReq{
+
+    
+
     
     
     
@@ -46,6 +54,9 @@ public static class AddProxyReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AddProxyResponse{
+
+    
+
     
     
     
@@ -110,6 +121,9 @@ public static class AddProxyResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RemoveProxyResponse{
+
+    
+
     
     
     
@@ -138,6 +152,9 @@ public static class RemoveProxyResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class APIError{
+
+    
+
     
     
     

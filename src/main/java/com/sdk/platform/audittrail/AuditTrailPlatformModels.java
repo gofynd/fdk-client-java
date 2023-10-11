@@ -1,8 +1,13 @@
 
+
 package com.sdk.platform.audittrail;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class AuditTrailPlatformModels{
@@ -18,6 +23,9 @@ public class AuditTrailPlatformModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RequestBodyAuditLog{
+
+    
+
     
     
     
@@ -46,6 +54,9 @@ public static class RequestBodyAuditLog{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateLogResponse{
+
+    
+
     
     
     
@@ -74,6 +85,9 @@ public static class CreateLogResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LogMetaObj{
+
+    
+
     
     
     
@@ -120,6 +134,9 @@ public static class LogMetaObj{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EntityObject{
+
+    
+
     
     
     
@@ -154,6 +171,9 @@ public static class EntityObject{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LogSchemaResponse{
+
+    
+
     
     
     
@@ -176,6 +196,9 @@ public static class LogSchemaResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LogDocs{
+
+    
+
     
     
     
@@ -252,6 +275,9 @@ public static class LogDocs{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EntityObj{
+
+    
+
     
     
     
@@ -292,6 +318,9 @@ public static class EntityObj{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Modifier{
+
+    
+
     
     
     
@@ -326,6 +355,9 @@ public static class Modifier{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DeviceInfo{
+
+    
+
     
     
     
@@ -354,6 +386,9 @@ public static class DeviceInfo{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Location{
+
+    
+
     
     
     
@@ -376,6 +411,9 @@ public static class Location{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BadRequest{
+
+    
+
     
     
     
@@ -398,6 +436,9 @@ public static class BadRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InternalServerError{
+
+    
+
     
     
     
@@ -426,6 +467,9 @@ public static class InternalServerError{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EntityTypesResponse{
+
+    
+
     
     
     
@@ -448,6 +492,9 @@ public static class EntityTypesResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EntityTypeObj{
+
+    
+
     
     
     

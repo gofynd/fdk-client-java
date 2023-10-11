@@ -26,10 +26,10 @@ public class FileStoragePlatformService {
         this.platformConfig = platformConfig;
         this.retrofitServiceFactory = new RetrofitServiceFactory();
         this.companyId = this.platformConfig.getCompanyId();
-        this.filestoragePlatformApiList = generateFilestoragePlatformApiList(this.platformConfig.getPersistentCookieStore());
+        this.filestoragePlatformApiList = generateFileStoragePlatformApiList(this.platformConfig.getPersistentCookieStore());
     }
 
-    private FileStoragePlatformApiList generateFilestoragePlatformApiList(CookieStore cookieStore) {
+    private FileStoragePlatformApiList generateFileStoragePlatformApiList(CookieStore cookieStore) {
         List<Interceptor> interceptorList = new ArrayList<>();
         interceptorList.add(new AccessTokenInterceptor(platformConfig));
         interceptorList.add(new RequestSignerInterceptor());

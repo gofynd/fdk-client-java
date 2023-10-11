@@ -1,8 +1,13 @@
 
+
 package com.sdk.platform.theme;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class ThemePlatformModels{
@@ -18,6 +23,9 @@ public class ThemePlatformModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ThemeReq{
+
+    
+
     
     
     
@@ -40,6 +48,9 @@ public static class ThemeReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompanyThemeSchema{
+
+    
+
     
     
     
@@ -98,6 +109,9 @@ public static class CompanyThemeSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class MarketplaceThemeId{
+
+    
+
     
     
     
@@ -126,6 +140,9 @@ public static class MarketplaceThemeId{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ThemeMeta{
+
+    
+
     
     
     
@@ -172,6 +189,9 @@ public static class ThemeMeta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ThemePayment{
+
+    
+
     
     
     
@@ -200,6 +220,9 @@ public static class ThemePayment{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ThemeImages{
+
+    
+
     
     
     
@@ -228,6 +251,9 @@ public static class ThemeImages{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AvailablePageSchema{
+
+    
+
     
     
     
@@ -304,6 +330,9 @@ public static class AvailablePageSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AvailablePageSectionMetaAttributes{
+
+    
+
     
     
     
@@ -326,6 +355,9 @@ public static class AvailablePageSectionMetaAttributes{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AvailablePageSeo{
+
+    
+
     
     
     
@@ -360,6 +392,9 @@ public static class AvailablePageSeo{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AvailablePageSchemaSections{
+
+    
+
     
     
     
@@ -412,6 +447,9 @@ public static class AvailablePageSchemaSections{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AvailablePageScreenPredicate{
+
+    
+
     
     
     
@@ -446,6 +484,9 @@ public static class AvailablePageScreenPredicate{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AvailablePageUserPredicate{
+
+    
+
     
     
     
@@ -474,6 +515,9 @@ public static class AvailablePageUserPredicate{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AvailablePageRoutePredicate{
+
+    
+
     
     
     
@@ -508,6 +552,9 @@ public static class AvailablePageRoutePredicate{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AvailablePagePredicate{
+
+    
+
     
     
     
@@ -542,6 +589,9 @@ public static class AvailablePagePredicate{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AllAvailablePageSchema{
+
+    
+
     
     
     
@@ -564,6 +614,9 @@ public static class AllAvailablePageSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AddThemeRequestSchema{
+
+    
+
     
     
     
@@ -586,6 +639,9 @@ public static class AddThemeRequestSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FontsSchema{
+
+    
+
     
     
     
@@ -614,6 +670,9 @@ public static class FontsSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BlitzkriegApiErrorSchema{
+
+    
+
     
     
     
@@ -636,6 +695,9 @@ public static class BlitzkriegApiErrorSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BlitzkriegInternalServerErrorSchema{
+
+    
+
     
     
     
@@ -658,6 +720,9 @@ public static class BlitzkriegInternalServerErrorSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FontsSchemaItems{
+
+    
+
     
     
     
@@ -722,6 +787,9 @@ public static class FontsSchemaItems{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FontsSchemaItemsFiles{
+
+    
+
     
     
     
@@ -756,6 +824,9 @@ public static class FontsSchemaItemsFiles{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ThemesSchema{
+
+    
+
     
     
     
@@ -874,6 +945,9 @@ public static class ThemesSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ThemeUpgradableResponse{
+
+    
+
     
     
     
@@ -908,6 +982,9 @@ public static class ThemeUpgradableResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UpdateThemeNameRequestBody{
+
+    
+
     
     
     
@@ -930,6 +1007,9 @@ public static class UpdateThemeNameRequestBody{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UpdateThemeRequestBody{
+
+    
+
     
     
     
@@ -958,6 +1038,9 @@ public static class UpdateThemeRequestBody{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Font{
+
+    
+
     
     
     
@@ -986,6 +1069,9 @@ public static class Font{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FontVariants{
+
+    
+
     
     
     
@@ -1032,6 +1118,9 @@ public static class FontVariants{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FontVariant{
+
+    
+
     
     
     
@@ -1060,6 +1149,9 @@ public static class FontVariant{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Config{
+
+    
+
     
     
     
@@ -1100,6 +1192,9 @@ public static class Config{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ThemeConfiguration{
+
+    
+
     
     
     
@@ -1140,6 +1235,9 @@ public static class ThemeConfiguration{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CustomConfig{
+
+    
+
     
     
     
@@ -1162,6 +1260,9 @@ public static class CustomConfig{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Meta{
+
+    
+
     
     
     
@@ -1220,6 +1321,9 @@ public static class Meta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Release{
+
+    
+
     
     
     
@@ -1248,6 +1352,9 @@ public static class Release{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Images{
+
+    
+
     
     
     
@@ -1276,6 +1383,9 @@ public static class Images{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CustomProps{
+
+    
+
     
     
     
@@ -1472,6 +1582,9 @@ public static class CustomProps{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GlobalSchema{
+
+    
+
     
     
     
@@ -1494,6 +1607,9 @@ public static class GlobalSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Prop{
+
+    
+
     
     
     
@@ -1540,6 +1656,9 @@ public static class Prop{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Assets{
+
+    
+
     
     
     
@@ -1574,6 +1693,9 @@ public static class Assets{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UMDJs{
+
+    
+
     
     
     
@@ -1596,6 +1718,9 @@ public static class UMDJs{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CommonJS{
+
+    
+
     
     
     
@@ -1618,6 +1743,9 @@ public static class CommonJS{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CSS{
+
+    
+
     
     
     
@@ -1640,6 +1768,9 @@ public static class CSS{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SectionItem{
+
+    
+
     
     
     
@@ -1680,6 +1811,9 @@ public static class SectionItem{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Preset{
+
+    
+
     
     
     
@@ -1702,6 +1836,9 @@ public static class Preset{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Page{
+
+    
+
     
     
     
@@ -1760,6 +1897,9 @@ public static class Page{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Section{
+
+    
+
     
     
     
@@ -1806,6 +1946,9 @@ public static class Section{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Block{
+
+    
+
     
     
     
@@ -1840,6 +1983,9 @@ public static class Block{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Predicate{
+
+    
+
     
     
     
@@ -1874,6 +2020,9 @@ public static class Predicate{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Screen{
+
+    
+
     
     
     
@@ -1908,6 +2057,9 @@ public static class Screen{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ThemeUserSchema{
+
+    
+
     
     
     
@@ -1936,6 +2088,9 @@ public static class ThemeUserSchema{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Route{
+
+    
+
     
     
     
@@ -1964,6 +2119,9 @@ public static class Route{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SectionProps{
+
+    
+
     
     
     
@@ -2004,6 +2162,9 @@ public static class SectionProps{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SectionPreset{
+
+    
+
     
     
     
@@ -2026,6 +2187,9 @@ public static class SectionPreset{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BlockProps{
+
+    
+
     
     
     
@@ -2054,6 +2218,9 @@ public static class BlockProps{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TextProp{
+
+    
+
     
     
     
@@ -2082,6 +2249,9 @@ public static class TextProp{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CheckboxProp{
+
+    
+
     
     
     
@@ -2110,6 +2280,9 @@ public static class CheckboxProp{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RangeProp{
+
+    
+
     
     
     
@@ -2138,6 +2311,9 @@ public static class RangeProp{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ImagePickerProp{
+
+    
+
     
     
     
@@ -2166,6 +2342,9 @@ public static class ImagePickerProp{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UrlProp{
+
+    
+
     
     
     
@@ -2194,6 +2373,9 @@ public static class UrlProp{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ThemeVersions{
+
+    
+
     
     
     
@@ -2222,6 +2404,9 @@ public static class ThemeVersions{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DummyResponse{
+
+    
+
     
     
     

@@ -1,8 +1,13 @@
 
+
 package com.sdk.platform.catalog;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class CatalogPlatformModels{
@@ -18,6 +23,109 @@ public class CatalogPlatformModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Action{
+
+    
+    
+    public static Action convertUrlToAction(String url) {
+        if (url != null) {
+            String path = Utility.trimChar(url);
+            HashMap<String, List<String>> query = Utility.getQuery(path);
+            String pathname = null;
+            try {
+                pathname = Utility.validURL(path) ? new URL(path).getPath() : path.split("\\?")[0];
+
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            }
+            Map<PageType, Constant.NavigatorPage> allNavigators = new HashMap(Objects.requireNonNull(Constant.getNavigators(PageType.class)));
+
+            Map<String, PageType> typeLink = new HashMap<>();
+
+            for (Map.Entry<PageType, Constant.NavigatorPage> entry : allNavigators.entrySet()) {
+                PageType nav = entry.getKey();
+                Constant.NavigatorPage navInfo = entry.getValue();
+                String link = navInfo.getLink().toString();
+                List<Constant.NavigatorPageParam> params = navInfo.getParams();
+
+                typeLink.put(link, nav);
+
+                if (params != null) {
+                    for (Constant.NavigatorPageParam param : params) {
+                        if (!param.isRequired()) {
+                            String modifiedLink = link.substring(0, link.indexOf(param.getKey().toString()) - 1);
+                            typeLink.put(modifiedLink, nav);
+                        }
+                    }
+                }
+            }
+
+            List<String> allLinks = new ArrayList<>(typeLink.keySet());
+            allLinks.sort((a, b) -> b.length() - a.length());
+
+            Map<String, Object> bestMatchingLink = Utility.findBestMatchingLink(allLinks, pathname);
+            String closestMatchingNavLink = null;
+            for (String pageType : typeLink.keySet()) {
+                if (Utility.trimChar(pageType).equals(bestMatchingLink.get("value"))) {
+                    closestMatchingNavLink = pageType;
+                    break;
+                }
+            }
+
+            PageType closestMatchingNavKey = typeLink.get(closestMatchingNavLink);
+
+            if(closestMatchingNavKey == null){
+                closestMatchingNavKey = PageType.home;
+            }
+
+            ActionPage actionPage = new ActionPage();
+            actionPage.setType(closestMatchingNavKey);
+            actionPage.setQuery(query);
+            actionPage.setParams(bestMatchingLink.containsKey("params") ? (HashMap<String, List<String>>) bestMatchingLink.get("params") : new HashMap<>());
+
+            Action action = new Action();
+            action.setType("page");
+            action.setPage(actionPage);
+
+            return action;
+        } else {
+            Action action = new Action();
+            action.setType("page");
+            
+            ActionPage actionPage = new ActionPage();
+            actionPage.setType(PageType.home);
+
+            action.setPage(new ActionPage());
+            return action;
+        }
+    }
+
+    public static String convertActionToUrl(Action action) {
+        if (action != null && action.getPage() != null && action.getPage().getType() != null) {
+            switch (action.getType()) {
+                case "page": {
+                    Constant.NavigatorPage item = Constant.getNavigators(PageType.class).get(action.page.type);
+                    if (item != null) {
+                        // Get param
+                        item.setLink(Utility.generateUrlWithParams(item, action.page.params));
+//                        item.put("link", Utility.generateUrlWithParams(item, action.getPage().getParams()));
+                        // Get query
+                        if (action.getPage().getQuery() != null && !action.getPage().getQuery().isEmpty()) {
+                            item.setLink(item.getLink() + "/?" + Utility.transformRequestOptions(action.getPage().getQuery()));
+                        }
+                        return item.getLink();
+                    }
+                    return "";
+                }
+                case "popup": {
+                    break;
+                }
+            }
+        }
+        return "";
+    }
+
+    
+
     
     
     
@@ -52,6 +160,9 @@ public static class Action{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ActionPage{
+
+    
+
     
     
     
@@ -92,6 +203,9 @@ public static class ActionPage{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AllSizes{
+
+    
+
     
     
     
@@ -156,6 +270,9 @@ public static class AllSizes{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AllowSingleRequest{
+
+    
+
     
     
     
@@ -178,6 +295,9 @@ public static class AllowSingleRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AppCatalogConfiguration{
+
+    
+
     
     
     
@@ -260,6 +380,9 @@ public static class AppCatalogConfiguration{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AppConfiguration{
+
+    
+
     
     
     
@@ -336,6 +459,9 @@ public static class AppConfiguration{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AppConfigurationDetail{
+
+    
+
     
     
     
@@ -406,6 +532,9 @@ public static class AppConfigurationDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AppConfigurationsSort{
+
+    
+
     
     
     
@@ -470,6 +599,9 @@ public static class AppConfigurationsSort{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApplicationBrandJson{
+
+    
+
     
     
     
@@ -492,6 +624,9 @@ public static class ApplicationBrandJson{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApplicationCategoryJson{
+
+    
+
     
     
     
@@ -514,6 +649,9 @@ public static class ApplicationCategoryJson{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApplicationDepartment{
+
+    
+
     
     
     
@@ -566,6 +704,9 @@ public static class ApplicationDepartment{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApplicationDepartmentJson{
+
+    
+
     
     
     
@@ -588,6 +729,9 @@ public static class ApplicationDepartmentJson{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApplicationDepartmentListingResponse{
+
+    
+
     
     
     
@@ -616,6 +760,9 @@ public static class ApplicationDepartmentListingResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApplicationItemMOQ{
+
+    
+
     
     
     
@@ -650,6 +797,9 @@ public static class ApplicationItemMOQ{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApplicationItemMeta{
+
+    
+
     
     
     
@@ -708,6 +858,9 @@ public static class ApplicationItemMeta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApplicationItemSEO{
+
+    
+
     
     
     
@@ -736,6 +889,9 @@ public static class ApplicationItemSEO{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApplicationProductListingResponse{
+
+    
+
     
     
     
@@ -782,6 +938,9 @@ public static class ApplicationProductListingResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ApplicationStoreJson{
+
+    
+
     
     
     
@@ -804,6 +963,9 @@ public static class ApplicationStoreJson{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ArticleAssignment{
+
+    
+
     
     
     
@@ -832,6 +994,9 @@ public static class ArticleAssignment{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ArticleAssignment1{
+
+    
+
     
     
     
@@ -860,6 +1025,9 @@ public static class ArticleAssignment1{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ArticleQuery{
+
+    
+
     
     
     
@@ -894,6 +1062,9 @@ public static class ArticleQuery{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ArticleStoreResponse{
+
+    
+
     
     
     
@@ -934,6 +1105,9 @@ public static class ArticleStoreResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AssignStore{
+
+    
+
     
     
     
@@ -992,6 +1166,9 @@ public static class AssignStore{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AssignStoreArticle{
+
+    
+
     
     
     
@@ -1038,6 +1215,9 @@ public static class AssignStoreArticle{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AttributeDetailsGroup{
+
+    
+
     
     
     
@@ -1102,6 +1282,9 @@ public static class AttributeDetailsGroup{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AttributeMaster{
+
+    
+
     
     
     
@@ -1154,6 +1337,9 @@ public static class AttributeMaster{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AttributeMasterDetails{
+
+    
+
     
     
     
@@ -1176,6 +1362,9 @@ public static class AttributeMasterDetails{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AttributeMasterFilter{
+
+    
+
     
     
     
@@ -1210,6 +1399,9 @@ public static class AttributeMasterFilter{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AttributeMasterMandatoryDetails{
+
+    
+
     
     
     
@@ -1232,6 +1424,9 @@ public static class AttributeMasterMandatoryDetails{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AttributeMasterMeta{
+
+    
+
     
     
     
@@ -1260,6 +1455,9 @@ public static class AttributeMasterMeta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AttributeMasterSerializer{
+
+    
+
     
     
     
@@ -1396,6 +1594,9 @@ public static class AttributeMasterSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AttributeSchemaRange{
+
+    
+
     
     
     
@@ -1424,6 +1625,9 @@ public static class AttributeSchemaRange{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AutoCompleteMedia{
+
+    
+
     
     
     
@@ -1458,6 +1662,9 @@ public static class AutoCompleteMedia{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AutocompleteAction{
+
+    
+
     
     
     
@@ -1486,6 +1693,9 @@ public static class AutocompleteAction{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AutocompletePageAction{
+
+    
+
     
     
     
@@ -1526,6 +1736,9 @@ public static class AutocompletePageAction{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AutocompleteResult{
+
+    
+
     
     
     
@@ -1566,6 +1779,9 @@ public static class AutocompleteResult{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BannerImage{
+
+    
+
     
     
     
@@ -1600,6 +1816,9 @@ public static class BannerImage{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Brand{
+
+    
+
     
     
     
@@ -1634,6 +1853,9 @@ public static class Brand{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BrandItem{
+
+    
+
     
     
     
@@ -1698,6 +1920,9 @@ public static class BrandItem{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BrandListingResponse{
+
+    
+
     
     
     
@@ -1726,6 +1951,9 @@ public static class BrandListingResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BrandMeta{
+
+    
+
     
     
     
@@ -1754,6 +1982,9 @@ public static class BrandMeta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BrandMeta1{
+
+    
+
     
     
     
@@ -1782,6 +2013,9 @@ public static class BrandMeta1{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BulkAssetResponse{
+
+    
+
     
     
     
@@ -1810,6 +2044,9 @@ public static class BulkAssetResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BulkHsnResponse{
+
+    
+
     
     
     
@@ -1832,6 +2069,9 @@ public static class BulkHsnResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BulkHsnUpsert{
+
+    
+
     
     
     
@@ -1854,6 +2094,9 @@ public static class BulkHsnUpsert{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BulkInventoryGet{
+
+    
+
     
     
     
@@ -1882,6 +2125,9 @@ public static class BulkInventoryGet{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BulkInventoryGetItems{
+
+    
+
     
     
     
@@ -1988,6 +2234,9 @@ public static class BulkInventoryGetItems{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BulkJob{
+
+    
+
     
     
     
@@ -2106,6 +2355,9 @@ public static class BulkJob{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BulkProductRequest{
+
+    
+
     
     
     
@@ -2146,6 +2398,9 @@ public static class BulkProductRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BulkResponse{
+
+    
+
     
     
     
@@ -2198,6 +2453,9 @@ public static class BulkResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CatalogInsightBrand{
+
+    
+
     
     
     
@@ -2250,6 +2508,9 @@ public static class CatalogInsightBrand{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CatalogInsightItem{
+
+    
+
     
     
     
@@ -2284,6 +2545,9 @@ public static class CatalogInsightItem{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CatalogInsightResponse{
+
+    
+
     
     
     
@@ -2312,6 +2576,9 @@ public static class CatalogInsightResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CategoriesResponse{
+
+    
+
     
     
     
@@ -2358,6 +2625,9 @@ public static class CategoriesResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Category{
+
+    
+
     
     
     
@@ -2476,6 +2746,9 @@ public static class Category{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CategoryCreateResponse{
+
+    
+
     
     
     
@@ -2504,6 +2777,9 @@ public static class CategoryCreateResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CategoryItems{
+
+    
+
     
     
     
@@ -2556,6 +2832,9 @@ public static class CategoryItems{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CategoryListingResponse{
+
+    
+
     
     
     
@@ -2584,6 +2863,9 @@ public static class CategoryListingResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CategoryMapping{
+
+    
+
     
     
     
@@ -2618,6 +2900,9 @@ public static class CategoryMapping{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CategoryMappingValues{
+
+    
+
     
     
     
@@ -2646,6 +2931,9 @@ public static class CategoryMappingValues{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CategoryRequestBody{
+
+    
+
     
     
     
@@ -2728,6 +3016,9 @@ public static class CategoryRequestBody{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CategoryResponse{
+
+    
+
     
     
     
@@ -2756,6 +3047,9 @@ public static class CategoryResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CategoryUpdateResponse{
+
+    
+
     
     
     
@@ -2784,6 +3078,9 @@ public static class CategoryUpdateResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Child{
+
+    
+
     
     
     
@@ -2842,6 +3139,9 @@ public static class Child{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CollectionBadge{
+
+    
+
     
     
     
@@ -2870,6 +3170,9 @@ public static class CollectionBadge{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CollectionBanner{
+
+    
+
     
     
     
@@ -2898,6 +3201,9 @@ public static class CollectionBanner{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CollectionCreateResponse{
+
+    
+
     
     
     
@@ -3028,6 +3334,9 @@ public static class CollectionCreateResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CollectionDetailResponse{
+
+    
+
     
     
     
@@ -3158,6 +3467,9 @@ public static class CollectionDetailResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CollectionImage{
+
+    
+
     
     
     
@@ -3186,6 +3498,9 @@ public static class CollectionImage{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CollectionItem{
+
+    
+
     
     
     
@@ -3220,6 +3535,9 @@ public static class CollectionItem{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CollectionItemUpdate{
+
+    
+
     
     
     
@@ -3272,6 +3590,9 @@ public static class CollectionItemUpdate{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CollectionListingFilter{
+
+    
+
     
     
     
@@ -3300,6 +3621,9 @@ public static class CollectionListingFilter{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CollectionListingFilterTag{
+
+    
+
     
     
     
@@ -3334,6 +3658,9 @@ public static class CollectionListingFilterTag{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CollectionListingFilterType{
+
+    
+
     
     
     
@@ -3368,6 +3695,9 @@ public static class CollectionListingFilterType{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CollectionQuery{
+
+    
+
     
     
     
@@ -3402,6 +3732,9 @@ public static class CollectionQuery{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CollectionSchedule{
+
+    
+
     
     
     
@@ -3448,6 +3781,9 @@ public static class CollectionSchedule{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompanyBrandDetail{
+
+    
+
     
     
     
@@ -3488,6 +3824,9 @@ public static class CompanyBrandDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompanyMeta{
+
+    
+
     
     
     
@@ -3510,6 +3849,9 @@ public static class CompanyMeta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompanyMeta1{
+
+    
+
     
     
     
@@ -3532,6 +3874,9 @@ public static class CompanyMeta1{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompanyOptIn{
+
+    
+
     
     
     
@@ -3608,6 +3953,9 @@ public static class CompanyOptIn{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ConfigErrorResponse{
+
+    
+
     
     
     
@@ -3630,6 +3978,9 @@ public static class ConfigErrorResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ConfigSuccessResponse{
+
+    
+
     
     
     
@@ -3652,6 +4003,9 @@ public static class ConfigSuccessResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ConfigurationBucketPoints{
+
+    
+
     
     
     
@@ -3686,6 +4040,9 @@ public static class ConfigurationBucketPoints{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ConfigurationListing{
+
+    
+
     
     
     
@@ -3714,6 +4071,9 @@ public static class ConfigurationListing{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ConfigurationListingFilter{
+
+    
+
     
     
     
@@ -3742,6 +4102,9 @@ public static class ConfigurationListingFilter{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ConfigurationListingFilterConfig{
+
+    
+
     
     
     
@@ -3806,6 +4169,9 @@ public static class ConfigurationListingFilterConfig{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ConfigurationListingFilterValue{
+
+    
+
     
     
     
@@ -3864,6 +4230,9 @@ public static class ConfigurationListingFilterValue{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ConfigurationListingSort{
+
+    
+
     
     
     
@@ -3892,6 +4261,9 @@ public static class ConfigurationListingSort{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ConfigurationListingSortConfig{
+
+    
+
     
     
     
@@ -3938,6 +4310,9 @@ public static class ConfigurationListingSortConfig{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ConfigurationProduct{
+
+    
+
     
     
     
@@ -3966,6 +4341,9 @@ public static class ConfigurationProduct{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ConfigurationProductConfig{
+
+    
+
     
     
     
@@ -4024,6 +4402,9 @@ public static class ConfigurationProductConfig{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ConfigurationProductSimilar{
+
+    
+
     
     
     
@@ -4046,6 +4427,9 @@ public static class ConfigurationProductSimilar{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ConfigurationProductVariant{
+
+    
+
     
     
     
@@ -4068,6 +4452,9 @@ public static class ConfigurationProductVariant{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ConfigurationProductVariantConfig{
+
+    
+
     
     
     
@@ -4126,6 +4513,9 @@ public static class ConfigurationProductVariantConfig{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateAutocompleteKeyword{
+
+    
+
     
     
     
@@ -4172,6 +4562,9 @@ public static class CreateAutocompleteKeyword{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateAutocompleteWordsResponse{
+
+    
+
     
     
     
@@ -4212,6 +4605,9 @@ public static class CreateAutocompleteWordsResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateCollection{
+
+    
+
     
     
     
@@ -4378,6 +4774,9 @@ public static class CreateCollection{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateSearchConfigurationRequest{
+
+    
+
     
     
     
@@ -4448,6 +4847,9 @@ public static class CreateSearchConfigurationRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateSearchConfigurationResponse{
+
+    
+
     
     
     
@@ -4470,6 +4872,9 @@ public static class CreateSearchConfigurationResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateSearchKeyword{
+
+    
+
     
     
     
@@ -4516,6 +4921,9 @@ public static class CreateSearchKeyword{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CrossSellingData{
+
+    
+
     
     
     
@@ -4544,6 +4952,9 @@ public static class CrossSellingData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CrossSellingResponse{
+
+    
+
     
     
     
@@ -4572,6 +4983,9 @@ public static class CrossSellingResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CustomOrder{
+
+    
+
     
     
     
@@ -4606,6 +5020,9 @@ public static class CustomOrder{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DateMeta{
+
+    
+
     
     
     
@@ -4646,6 +5063,9 @@ public static class DateMeta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DefaultKeyRequest{
+
+    
+
     
     
     
@@ -4668,6 +5088,9 @@ public static class DefaultKeyRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DeleteResponse{
+
+    
+
     
     
     
@@ -4690,6 +5113,9 @@ public static class DeleteResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DeleteSearchConfigurationResponse{
+
+    
+
     
     
     
@@ -4712,6 +5138,9 @@ public static class DeleteSearchConfigurationResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Department{
+
+    
+
     
     
     
@@ -4758,6 +5187,9 @@ public static class Department{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DepartmentCategoryTree{
+
+    
+
     
     
     
@@ -4786,6 +5218,9 @@ public static class DepartmentCategoryTree{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DepartmentCreateErrorResponse{
+
+    
+
     
     
     
@@ -4808,6 +5243,9 @@ public static class DepartmentCreateErrorResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DepartmentCreateResponse{
+
+    
+
     
     
     
@@ -4836,6 +5274,9 @@ public static class DepartmentCreateResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DepartmentCreateUpdate{
+
+    
+
     
     
     
@@ -4918,6 +5359,9 @@ public static class DepartmentCreateUpdate{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DepartmentErrorResponse{
+
+    
+
     
     
     
@@ -4964,6 +5408,9 @@ public static class DepartmentErrorResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DepartmentIdentifier{
+
+    
+
     
     
     
@@ -4992,6 +5439,9 @@ public static class DepartmentIdentifier{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DepartmentModel{
+
+    
+
     
     
     
@@ -5104,6 +5554,9 @@ public static class DepartmentModel{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DepartmentResponse{
+
+    
+
     
     
     
@@ -5126,6 +5579,9 @@ public static class DepartmentResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DepartmentsResponse{
+
+    
+
     
     
     
@@ -5154,6 +5610,9 @@ public static class DepartmentsResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DimensionResponse{
+
+    
+
     
     
     
@@ -5200,6 +5659,9 @@ public static class DimensionResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DimensionResponse1{
+
+    
+
     
     
     
@@ -5240,6 +5702,9 @@ public static class DimensionResponse1{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Document{
+
+    
+
     
     
     
@@ -5286,6 +5751,9 @@ public static class Document{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EntityConfiguration{
+
+    
+
     
     
     
@@ -5338,6 +5806,9 @@ public static class EntityConfiguration{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ErrorResponse{
+
+    
+
     
     
     
@@ -5384,6 +5855,9 @@ public static class ErrorResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class FilerList{
+
+    
+
     
     
     
@@ -5412,6 +5886,9 @@ public static class FilerList{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RawProduct{
+
+    
+
     
     
     
@@ -5800,6 +6277,9 @@ public static class RawProduct{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class RawProductListingResponse{
+
+    
+
     
     
     
@@ -5828,6 +6308,9 @@ public static class RawProductListingResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GTIN{
+
+    
+
     
     
     
@@ -5862,6 +6345,9 @@ public static class GTIN{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GenderDetail{
+
+    
+
     
     
     
@@ -5950,6 +6436,9 @@ public static class GenderDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetAddressSerializer{
+
+    
+
     
     
     
@@ -6032,6 +6521,9 @@ public static class GetAddressSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetAllSizes{
+
+    
+
     
     
     
@@ -6054,6 +6546,9 @@ public static class GetAllSizes{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetAppCatalogConfiguration{
+
+    
+
     
     
     
@@ -6082,6 +6577,9 @@ public static class GetAppCatalogConfiguration{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetAppCatalogEntityConfiguration{
+
+    
+
     
     
     
@@ -6110,6 +6608,9 @@ public static class GetAppCatalogEntityConfiguration{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetAutocompleteWordsData{
+
+    
+
     
     
     
@@ -6156,6 +6657,9 @@ public static class GetAutocompleteWordsData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetAutocompleteWordsResponse{
+
+    
+
     
     
     
@@ -6184,6 +6688,9 @@ public static class GetAutocompleteWordsResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetCatalogConfigurationDetailsProduct{
+
+    
+
     
     
     
@@ -6224,6 +6731,9 @@ public static class GetCatalogConfigurationDetailsProduct{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetCatalogConfigurationDetailsSchemaListing{
+
+    
+
     
     
     
@@ -6252,6 +6762,9 @@ public static class GetCatalogConfigurationDetailsSchemaListing{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetCatalogConfigurationMetaData{
+
+    
+
     
     
     
@@ -6280,6 +6793,9 @@ public static class GetCatalogConfigurationMetaData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetCollectionDetailNest{
+
+    
+
     
     
     
@@ -6416,6 +6932,9 @@ public static class GetCollectionDetailNest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetCollectionItemsResponse{
+
+    
+
     
     
     
@@ -6456,6 +6975,9 @@ public static class GetCollectionItemsResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetCollectionListingResponse{
+
+    
+
     
     
     
@@ -6490,6 +7012,9 @@ public static class GetCollectionListingResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetCollectionQueryOptionResponse{
+
+    
+
     
     
     
@@ -6524,6 +7049,9 @@ public static class GetCollectionQueryOptionResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetCompanySerializer{
+
+    
+
     
     
     
@@ -6618,6 +7146,9 @@ public static class GetCompanySerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetConfigMetadataResponse{
+
+    
+
     
     
     
@@ -6652,6 +7183,9 @@ public static class GetConfigMetadataResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetConfigResponse{
+
+    
+
     
     
     
@@ -6680,6 +7214,9 @@ public static class GetConfigResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetDepartment{
+
+    
+
     
     
     
@@ -6786,6 +7323,9 @@ public static class GetDepartment{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetInventories{
+
+    
+
     
     
     
@@ -6982,6 +7522,9 @@ public static class GetInventories{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetInventoriesResponse{
+
+    
+
     
     
     
@@ -7010,6 +7553,9 @@ public static class GetInventoriesResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetLocationSerializer{
+
+    
+
     
     
     
@@ -7176,6 +7722,9 @@ public static class GetLocationSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetOptInPlatform{
+
+    
+
     
     
     
@@ -7204,6 +7753,9 @@ public static class GetOptInPlatform{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetProductBundleCreateResponse{
+
+    
+
     
     
     
@@ -7310,6 +7862,9 @@ public static class GetProductBundleCreateResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetProductBundleListingResponse{
+
+    
+
     
     
     
@@ -7338,6 +7893,9 @@ public static class GetProductBundleListingResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetProductBundleResponse{
+
+    
+
     
     
     
@@ -7414,6 +7972,9 @@ public static class GetProductBundleResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetProducts{
+
+    
+
     
     
     
@@ -7484,6 +8045,9 @@ public static class GetProducts{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetSearchConfigurationResponse{
+
+    
+
     
     
     
@@ -7554,6 +8118,9 @@ public static class GetSearchConfigurationResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetSearchWordsData{
+
+    
+
     
     
     
@@ -7606,6 +8173,9 @@ public static class GetSearchWordsData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetSearchWordsDetailResponse{
+
+    
+
     
     
     
@@ -7634,6 +8204,9 @@ public static class GetSearchWordsDetailResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetSearchWordsResponse{
+
+    
+
     
     
     
@@ -7662,6 +8235,9 @@ public static class GetSearchWordsResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GlobalValidation{
+
+    
+
     
     
     
@@ -7714,6 +8290,9 @@ public static class GlobalValidation{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Guide{
+
+    
+
     
     
     
@@ -7736,6 +8315,9 @@ public static class Guide{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class HSNCodesResponse{
+
+    
+
     
     
     
@@ -7764,6 +8346,9 @@ public static class HSNCodesResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class HSNData{
+
+    
+
     
     
     
@@ -7792,6 +8377,9 @@ public static class HSNData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class HSNDataInsertV2{
+
+    
+
     
     
     
@@ -7874,6 +8462,9 @@ public static class HSNDataInsertV2{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Hierarchy{
+
+    
+
     
     
     
@@ -7908,6 +8499,9 @@ public static class Hierarchy{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class HsnCode{
+
+    
+
     
     
     
@@ -7930,6 +8524,9 @@ public static class HsnCode{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class HsnCodesListingResponseSchemaV2{
+
+    
+
     
     
     
@@ -7958,6 +8555,9 @@ public static class HsnCodesListingResponseSchemaV2{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class HsnCodesObject{
+
+    
+
     
     
     
@@ -8040,6 +8640,9 @@ public static class HsnCodesObject{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class HsnUpsert{
+
+    
+
     
     
     
@@ -8122,6 +8725,9 @@ public static class HsnUpsert{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Image{
+
+    
+
     
     
     
@@ -8162,6 +8768,9 @@ public static class Image{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ImageUrls{
+
+    
+
     
     
     
@@ -8190,6 +8799,9 @@ public static class ImageUrls{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvSize{
+
+    
+
     
     
     
@@ -8308,6 +8920,9 @@ public static class InvSize{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryBulkRequest{
+
+    
+
     
     
     
@@ -8348,6 +8963,9 @@ public static class InventoryBulkRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryConfig{
+
+    
+
     
     
     
@@ -8376,6 +8994,9 @@ public static class InventoryConfig{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryCreateRequest{
+
+    
+
     
     
     
@@ -8416,6 +9037,9 @@ public static class InventoryCreateRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryExportAdvanceOption{
+
+    
+
     
     
     
@@ -8462,6 +9086,9 @@ public static class InventoryExportAdvanceOption{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryExportFilter{
+
+    
+
     
     
     
@@ -8508,6 +9135,9 @@ public static class InventoryExportFilter{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryExportJob{
+
+    
+
     
     
     
@@ -8572,6 +9202,9 @@ public static class InventoryExportJob{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryExportJobListResponse{
+
+    
+
     
     
     
@@ -8594,6 +9227,9 @@ public static class InventoryExportJobListResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryExportQuantityFilter{
+
+    
+
     
     
     
@@ -8628,6 +9264,9 @@ public static class InventoryExportQuantityFilter{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryExportRequest{
+
+    
+
     
     
     
@@ -8662,6 +9301,9 @@ public static class InventoryExportRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryExportResponse{
+
+    
+
     
     
     
@@ -8732,6 +9374,9 @@ public static class InventoryExportResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryFailedReason{
+
+    
+
     
     
     
@@ -8760,6 +9405,9 @@ public static class InventoryFailedReason{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryJobDetailResponse{
+
+    
+
     
     
     
@@ -8860,6 +9508,9 @@ public static class InventoryJobDetailResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryJobFilters{
+
+    
+
     
     
     
@@ -8906,6 +9557,9 @@ public static class InventoryJobFilters{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryJobPayload{
+
+    
+
     
     
     
@@ -9000,6 +9654,9 @@ public static class InventoryJobPayload{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryPage{
+
+    
+
     
     
     
@@ -9046,6 +9703,9 @@ public static class InventoryPage{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryPayload{
+
+    
+
     
     
     
@@ -9110,6 +9770,9 @@ public static class InventoryPayload{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryRequest{
+
+    
+
     
     
     
@@ -9144,6 +9807,9 @@ public static class InventoryRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryRequestSchemaV2{
+
+    
+
     
     
     
@@ -9178,6 +9844,9 @@ public static class InventoryRequestSchemaV2{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryResponse{
+
+    
+
     
     
     
@@ -9272,6 +9941,9 @@ public static class InventoryResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryResponseItem{
+
+    
+
     
     
     
@@ -9300,6 +9972,9 @@ public static class InventoryResponseItem{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryResponsePaginated{
+
+    
+
     
     
     
@@ -9328,6 +10003,9 @@ public static class InventoryResponsePaginated{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventorySellerIdentifierResponsePaginated{
+
+    
+
     
     
     
@@ -9356,6 +10034,9 @@ public static class InventorySellerIdentifierResponsePaginated{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventorySellerResponse{
+
+    
+
     
     
     
@@ -9588,6 +10269,9 @@ public static class InventorySellerResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventorySet{
+
+    
+
     
     
     
@@ -9622,6 +10306,9 @@ public static class InventorySet{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryStockResponse{
+
+    
+
     
     
     
@@ -9650,6 +10337,9 @@ public static class InventoryStockResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryUpdateResponse{
+
+    
+
     
     
     
@@ -9678,6 +10368,9 @@ public static class InventoryUpdateResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InventoryValidationResponse{
+
+    
+
     
     
     
@@ -9706,6 +10399,9 @@ public static class InventoryValidationResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoiceCredSerializer{
+
+    
+
     
     
     
@@ -9740,6 +10436,9 @@ public static class InvoiceCredSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoiceDetailsSerializer{
+
+    
+
     
     
     
@@ -9768,6 +10467,9 @@ public static class InvoiceDetailsSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ItemQuery{
+
+    
+
     
     
     
@@ -9802,6 +10504,9 @@ public static class ItemQuery{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Items{
+
+    
+
     
     
     
@@ -9920,6 +10625,9 @@ public static class Items{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LimitedProductData{
+
+    
+
     
     
     
@@ -10008,6 +10716,9 @@ public static class LimitedProductData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ListSizeGuide{
+
+    
+
     
     
     
@@ -10036,6 +10747,9 @@ public static class ListSizeGuide{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LocationDayWiseSerializer{
+
+    
+
     
     
     
@@ -10076,6 +10790,9 @@ public static class LocationDayWiseSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LocationIntegrationType{
+
+    
+
     
     
     
@@ -10104,6 +10821,9 @@ public static class LocationIntegrationType{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LocationListSerializer{
+
+    
+
     
     
     
@@ -10132,6 +10852,9 @@ public static class LocationListSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LocationManagerSerializer{
+
+    
+
     
     
     
@@ -10166,6 +10889,9 @@ public static class LocationManagerSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LocationTimingSerializer{
+
+    
+
     
     
     
@@ -10194,6 +10920,9 @@ public static class LocationTimingSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Logo{
+
+    
+
     
     
     
@@ -10234,6 +10963,9 @@ public static class Logo{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class MOQData{
+
+    
+
     
     
     
@@ -10268,6 +11000,9 @@ public static class MOQData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ManufacturerResponse{
+
+    
+
     
     
     
@@ -10302,6 +11037,9 @@ public static class ManufacturerResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ManufacturerResponse1{
+
+    
+
     
     
     
@@ -10336,6 +11074,9 @@ public static class ManufacturerResponse1{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Media{
+
+    
+
     
     
     
@@ -10370,6 +11111,9 @@ public static class Media{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Media1{
+
+    
+
     
     
     
@@ -10404,6 +11148,9 @@ public static class Media1{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Media2{
+
+    
+
     
     
     
@@ -10438,6 +11185,9 @@ public static class Media2{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Meta{
+
+    
+
     
     
     
@@ -10472,6 +11222,9 @@ public static class Meta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class MetaDataListingFilterMetaResponse{
+
+    
+
     
     
     
@@ -10512,6 +11265,9 @@ public static class MetaDataListingFilterMetaResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class MetaDataListingFilterResponse{
+
+    
+
     
     
     
@@ -10534,6 +11290,9 @@ public static class MetaDataListingFilterResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class MetaDataListingResponse{
+
+    
+
     
     
     
@@ -10562,6 +11321,9 @@ public static class MetaDataListingResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class MetaDataListingSortMetaResponse{
+
+    
+
     
     
     
@@ -10590,6 +11352,9 @@ public static class MetaDataListingSortMetaResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class MetaDataListingSortResponse{
+
+    
+
     
     
     
@@ -10612,6 +11377,9 @@ public static class MetaDataListingSortResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class MetaFields{
+
+    
+
     
     
     
@@ -10640,6 +11408,9 @@ public static class MetaFields{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class NetQuantity{
+
+    
+
     
     
     
@@ -10668,6 +11439,9 @@ public static class NetQuantity{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class NetQuantityResponse{
+
+    
+
     
     
     
@@ -10696,6 +11470,9 @@ public static class NetQuantityResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class NextSchedule{
+
+    
+
     
     
     
@@ -10724,6 +11501,9 @@ public static class NextSchedule{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class OptInPostRequest{
+
+    
+
     
     
     
@@ -10776,6 +11556,9 @@ public static class OptInPostRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class OptinCompanyBrandDetailsView{
+
+    
+
     
     
     
@@ -10804,6 +11587,9 @@ public static class OptinCompanyBrandDetailsView{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class OptinCompanyDetail{
+
+    
+
     
     
     
@@ -10844,6 +11630,9 @@ public static class OptinCompanyDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class OptinCompanyMetrics{
+
+    
+
     
     
     
@@ -10878,6 +11667,9 @@ public static class OptinCompanyMetrics{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class OptinStoreDetails{
+
+    
+
     
     
     
@@ -10906,6 +11698,9 @@ public static class OptinStoreDetails{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class OwnerAppItemResponse{
+
+    
+
     
     
     
@@ -10952,6 +11747,9 @@ public static class OwnerAppItemResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PTErrorResponse{
+
+    
+
     
     
     
@@ -10998,6 +11796,9 @@ public static class PTErrorResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Page{
+
+    
+
     
     
     
@@ -11056,6 +11857,9 @@ public static class Page{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PageResponse{
+
+    
+
     
     
     
@@ -11102,6 +11906,9 @@ public static class PageResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PageResponseType{
+
+    
+
     
     
     
@@ -11142,6 +11949,9 @@ public static class PageResponseType{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Price{
+
+    
+
     
     
     
@@ -11188,6 +11998,9 @@ public static class Price{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Price1{
+
+    
+
     
     
     
@@ -11228,6 +12041,9 @@ public static class Price1{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PriceArticle{
+
+    
+
     
     
     
@@ -11274,6 +12090,9 @@ public static class PriceArticle{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PriceMeta{
+
+    
+
     
     
     
@@ -11326,6 +12145,9 @@ public static class PriceMeta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProdcutTemplateCategoriesResponse{
+
+    
+
     
     
     
@@ -11354,6 +12176,9 @@ public static class ProdcutTemplateCategoriesResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Product{
+
+    
+
     
     
     
@@ -11742,6 +12567,9 @@ public static class Product{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductAttributesResponse{
+
+    
+
     
     
     
@@ -11764,6 +12592,9 @@ public static class ProductAttributesResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductBrand{
+
+    
+
     
     
     
@@ -11804,6 +12635,9 @@ public static class ProductBrand{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductBulkAssets{
+
+    
+
     
     
     
@@ -11844,6 +12678,9 @@ public static class ProductBulkAssets{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductBulkRequest{
+
+    
+
     
     
     
@@ -11956,12 +12793,15 @@ public static class ProductBulkRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductBulkRequestList{
+
+    
+
     
     
     
     
     @JsonProperty("items")
-    private ProductBulkRequest items;
+    private List<ProductBulkRequest> items;
     
     
     
@@ -11984,6 +12824,9 @@ public static class ProductBulkRequestList{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductBundleItem{
+
+    
+
     
     
     
@@ -12036,6 +12879,9 @@ public static class ProductBundleItem{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductBundleRequest{
+
+    
+
     
     
     
@@ -12136,6 +12982,9 @@ public static class ProductBundleRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductBundleUpdateRequest{
+
+    
+
     
     
     
@@ -12224,6 +13073,9 @@ public static class ProductBundleUpdateRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductConfigurationDownloads{
+
+    
+
     
     
     
@@ -12252,6 +13104,9 @@ public static class ProductConfigurationDownloads{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductCreateUpdateSchemaV2{
+
+    
+
     
     
     
@@ -12520,6 +13375,9 @@ public static class ProductCreateUpdateSchemaV2{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductDetail{
+
+    
+
     
     
     
@@ -12674,6 +13532,9 @@ public static class ProductDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductDetailAttribute{
+
+    
+
     
     
     
@@ -12708,6 +13569,9 @@ public static class ProductDetailAttribute{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductDetailGroupedAttribute{
+
+    
+
     
     
     
@@ -12736,6 +13600,9 @@ public static class ProductDetailGroupedAttribute{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductDownloadsResponse{
+
+    
+
     
     
     
@@ -12758,6 +13625,9 @@ public static class ProductDownloadsResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductFilters{
+
+    
+
     
     
     
@@ -12786,6 +13656,9 @@ public static class ProductFilters{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductFiltersKey{
+
+    
+
     
     
     
@@ -12832,6 +13705,9 @@ public static class ProductFiltersKey{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductFiltersValue{
+
+    
+
     
     
     
@@ -12920,6 +13796,9 @@ public static class ProductFiltersValue{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductListingDetail{
+
+    
+
     
     
     
@@ -13092,6 +13971,9 @@ public static class ProductListingDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductListingPrice{
+
+    
+
     
     
     
@@ -13120,6 +14002,9 @@ public static class ProductListingPrice{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductListingResponse{
+
+    
+
     
     
     
@@ -13148,6 +14033,9 @@ public static class ProductListingResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductListingResponseV2{
+
+    
+
     
     
     
@@ -13176,6 +14064,9 @@ public static class ProductListingResponseV2{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductPublish{
+
+    
+
     
     
     
@@ -13204,6 +14095,9 @@ public static class ProductPublish{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductPublish1{
+
+    
+
     
     
     
@@ -13232,6 +14126,9 @@ public static class ProductPublish1{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductPublished{
+
+    
+
     
     
     
@@ -13260,6 +14157,9 @@ public static class ProductPublished{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductReturnConfigSerializer{
+
+    
+
     
     
     
@@ -13288,6 +14188,9 @@ public static class ProductReturnConfigSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductSchemaV2{
+
+    
+
     
     
     
@@ -13676,6 +14579,9 @@ public static class ProductSchemaV2{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductSize{
+
+    
+
     
     
     
@@ -13704,6 +14610,9 @@ public static class ProductSize{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductSizeDeleteDataResponse{
+
+    
+
     
     
     
@@ -13738,6 +14647,9 @@ public static class ProductSizeDeleteDataResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductSizeDeleteResponse{
+
+    
+
     
     
     
@@ -13766,6 +14678,9 @@ public static class ProductSizeDeleteResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductSortOn{
+
+    
+
     
     
     
@@ -13800,6 +14715,9 @@ public static class ProductSortOn{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductTagsViewResponse{
+
+    
+
     
     
     
@@ -13822,6 +14740,9 @@ public static class ProductTagsViewResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductTemplate{
+
+    
+
     
     
     
@@ -13934,6 +14855,9 @@ public static class ProductTemplate{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductTemplateDownloadsExport{
+
+    
+
     
     
     
@@ -13968,6 +14892,9 @@ public static class ProductTemplateDownloadsExport{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductTemplateExportFilterRequest{
+
+    
+
     
     
     
@@ -14014,6 +14941,9 @@ public static class ProductTemplateExportFilterRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductTemplateExportResponse{
+
+    
+
     
     
     
@@ -14090,6 +15020,9 @@ public static class ProductTemplateExportResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductVariants{
+
+    
+
     
     
     
@@ -14142,6 +15075,9 @@ public static class ProductVariants{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ProductVariantsResponse{
+
+    
+
     
     
     
@@ -14170,6 +15106,9 @@ public static class ProductVariantsResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Properties{
+
+    
+
     
     
     
@@ -14360,6 +15299,9 @@ public static class Properties{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Quantities{
+
+    
+
     
     
     
@@ -14400,6 +15342,9 @@ public static class Quantities{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class QuantitiesArticle{
+
+    
+
     
     
     
@@ -14440,6 +15385,9 @@ public static class QuantitiesArticle{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Quantity{
+
+    
+
     
     
     
@@ -14462,6 +15410,9 @@ public static class Quantity{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class QuantityBase{
+
+    
+
     
     
     
@@ -14490,6 +15441,9 @@ public static class QuantityBase{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ReturnConfig{
+
+    
+
     
     
     
@@ -14524,6 +15478,9 @@ public static class ReturnConfig{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ReturnConfig1{
+
+    
+
     
     
     
@@ -14558,6 +15515,9 @@ public static class ReturnConfig1{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ReturnConfig2{
+
+    
+
     
     
     
@@ -14592,6 +15552,9 @@ public static class ReturnConfig2{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ReturnConfigResponse{
+
+    
+
     
     
     
@@ -14626,6 +15589,9 @@ public static class ReturnConfigResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SEOData{
+
+    
+
     
     
     
@@ -14654,6 +15620,9 @@ public static class SEOData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SearchKeywordResult{
+
+    
+
     
     
     
@@ -14682,6 +15651,9 @@ public static class SearchKeywordResult{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SearchableAttribute{
+
+    
+
     
     
     
@@ -14716,6 +15688,9 @@ public static class SearchableAttribute{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SecondLevelChild{
+
+    
+
     
     
     
@@ -14774,6 +15749,9 @@ public static class SecondLevelChild{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SellerPhoneNumber{
+
+    
+
     
     
     
@@ -14802,6 +15780,9 @@ public static class SellerPhoneNumber{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SeoDetail{
+
+    
+
     
     
     
@@ -14830,6 +15811,9 @@ public static class SeoDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SetSize{
+
+    
+
     
     
     
@@ -14858,6 +15842,9 @@ public static class SetSize{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SingleCategoryResponse{
+
+    
+
     
     
     
@@ -14880,6 +15867,9 @@ public static class SingleCategoryResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SingleProductResponse{
+
+    
+
     
     
     
@@ -14902,6 +15892,9 @@ public static class SingleProductResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Size{
+
+    
+
     
     
     
@@ -14942,6 +15935,9 @@ public static class Size{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SizeDistribution{
+
+    
+
     
     
     
@@ -14964,6 +15960,9 @@ public static class SizeDistribution{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SizeGuideResponse{
+
+    
+
     
     
     
@@ -15058,6 +16057,9 @@ public static class SizeGuideResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StoreAssignResponse{
+
+    
+
     
     
     
@@ -15176,6 +16178,9 @@ public static class StoreAssignResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StoreDetail{
+
+    
+
     
     
     
@@ -15270,6 +16275,9 @@ public static class StoreDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StoreMeta{
+
+    
+
     
     
     
@@ -15292,6 +16300,9 @@ public static class StoreMeta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SuccessResponse{
+
+    
+
     
     
     
@@ -15314,6 +16325,9 @@ public static class SuccessResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SuccessResponse1{
+
+    
+
     
     
     
@@ -15342,6 +16356,9 @@ public static class SuccessResponse1{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TaxIdentifier{
+
+    
+
     
     
     
@@ -15376,6 +16393,9 @@ public static class TaxIdentifier{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TaxSlab{
+
+    
+
     
     
     
@@ -15416,6 +16436,9 @@ public static class TaxSlab{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TeaserTag{
+
+    
+
     
     
     
@@ -15444,6 +16467,9 @@ public static class TeaserTag{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TemplateDetails{
+
+    
+
     
     
     
@@ -15538,6 +16564,9 @@ public static class TemplateDetails{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TemplateValidationData{
+
+    
+
     
     
     
@@ -15566,6 +16595,9 @@ public static class TemplateValidationData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TemplatesResponse{
+
+    
+
     
     
     
@@ -15594,6 +16626,9 @@ public static class TemplatesResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TemplatesValidationResponse{
+
+    
+
     
     
     
@@ -15622,6 +16657,9 @@ public static class TemplatesValidationResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ThirdLevelChild{
+
+    
+
     
     
     
@@ -15680,6 +16718,9 @@ public static class ThirdLevelChild{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Trader{
+
+    
+
     
     
     
@@ -15714,6 +16755,9 @@ public static class Trader{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Trader1{
+
+    
+
     
     
     
@@ -15748,6 +16792,9 @@ public static class Trader1{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Trader2{
+
+    
+
     
     
     
@@ -15782,6 +16829,9 @@ public static class Trader2{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UpdateCollection{
+
+    
+
     
     
     
@@ -15936,6 +16986,9 @@ public static class UpdateCollection{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UpdateSearchConfigurationRequest{
+
+    
+
     
     
     
@@ -16006,6 +17059,9 @@ public static class UpdateSearchConfigurationRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UpdateSearchConfigurationResponse{
+
+    
+
     
     
     
@@ -16028,6 +17084,9 @@ public static class UpdateSearchConfigurationResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UpdatedResponse{
+
+    
+
     
     
     
@@ -16056,6 +17115,9 @@ public static class UpdatedResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UserCommon{
+
+    
+
     
     
     
@@ -16090,6 +17152,9 @@ public static class UserCommon{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UserDetail{
+
+    
+
     
     
     
@@ -16130,6 +17195,9 @@ public static class UserDetail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UserDetail1{
+
+    
+
     
     
     
@@ -16164,6 +17232,9 @@ public static class UserDetail1{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UserInfo{
+
+    
+
     
     
     
@@ -16204,6 +17275,9 @@ public static class UserInfo{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UserInfo1{
+
+    
+
     
     
     
@@ -16244,6 +17318,9 @@ public static class UserInfo1{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UserSerializer{
+
+    
+
     
     
     
@@ -16278,6 +17355,9 @@ public static class UserSerializer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UserSerializer1{
+
+    
+
     
     
     
@@ -16324,6 +17404,9 @@ public static class UserSerializer1{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UserSerializer2{
+
+    
+
     
     
     
@@ -16358,6 +17441,9 @@ public static class UserSerializer2{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class UserSerializer3{
+
+    
+
     
     
     
@@ -16392,6 +17478,9 @@ public static class UserSerializer3{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ValidateIdentifier{
+
+    
+
     
     
     
@@ -16426,6 +17515,9 @@ public static class ValidateIdentifier{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ValidateProduct{
+
+    
+
     
     
     
@@ -16448,6 +17540,9 @@ public static class ValidateProduct{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ValidateSizeGuide{
+
+    
+
     
     
     
@@ -16554,6 +17649,9 @@ public static class ValidateSizeGuide{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class VerifiedBy{
+
+    
+
     
     
     
@@ -16582,6 +17680,9 @@ public static class VerifiedBy{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class WeightResponse{
+
+    
+
     
     
     
@@ -16616,6 +17717,9 @@ public static class WeightResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class WeightResponse1{
+
+    
+
     
     
     
@@ -16742,6 +17846,12 @@ public static class WeightResponse1{
         PageType(String priority) {
             this.priority = priority;
         }
+
+        @JsonValue
+        public String getPriority() {
+            return priority;
+        }
+
     }
 
 

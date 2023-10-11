@@ -1,8 +1,13 @@
 
+
 package com.sdk.platform.billing;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class BillingPlatformModels{
@@ -18,6 +23,9 @@ public class BillingPlatformModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class BadRequest{
+
+    
+
     
     
     
@@ -40,6 +48,9 @@ public static class BadRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ResourceNotFound{
+
+    
+
     
     
     
@@ -62,6 +73,9 @@ public static class ResourceNotFound{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InternalServerError{
+
+    
+
     
     
     
@@ -90,6 +104,9 @@ public static class InternalServerError{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CheckValidityResponse{
+
+    
+
     
     
     
@@ -118,6 +135,9 @@ public static class CheckValidityResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PlanRecurring{
+
+    
+
     
     
     
@@ -146,6 +166,9 @@ public static class PlanRecurring{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Plan{
+
+    
+
     
     
     
@@ -276,6 +299,9 @@ public static class Plan{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionTrialPeriod{
+
+    
+
     
     
     
@@ -304,6 +330,9 @@ public static class SubscriptionTrialPeriod{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EntityChargePrice{
+
+    
+
     
     
     
@@ -332,6 +361,9 @@ public static class EntityChargePrice{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EntityChargeRecurring{
+
+    
+
     
     
     
@@ -354,6 +386,9 @@ public static class EntityChargeRecurring{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ChargeLineItem{
+
+    
+
     
     
     
@@ -424,6 +459,9 @@ public static class ChargeLineItem{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateSubscriptionCharge{
+
+    
+
     
     
     
@@ -470,6 +508,9 @@ public static class CreateSubscriptionCharge{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class OneTimeChargeItem{
+
+    
+
     
     
     
@@ -528,6 +569,9 @@ public static class OneTimeChargeItem{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateOneTimeCharge{
+
+    
+
     
     
     
@@ -568,6 +612,9 @@ public static class CreateOneTimeCharge{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CurrentPeriod{
+
+    
+
     
     
     
@@ -596,6 +643,9 @@ public static class CurrentPeriod{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionCharge{
+
+    
+
     
     
     
@@ -696,6 +746,9 @@ public static class SubscriptionCharge{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class EntitySubscription{
+
+    
+
     
     
     
@@ -772,6 +825,9 @@ public static class EntitySubscription{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class OneTimeChargeEntity{
+
+    
+
     
     
     
@@ -872,6 +928,9 @@ public static class OneTimeChargeEntity{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateOneTimeChargeResponse{
+
+    
+
     
     
     
@@ -900,6 +959,9 @@ public static class CreateOneTimeChargeResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreateSubscriptionResponse{
+
+    
+
     
     
     
@@ -928,6 +990,9 @@ public static class CreateSubscriptionResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoiceDetailsPeriod{
+
+    
+
     
     
     
@@ -956,6 +1021,9 @@ public static class InvoiceDetailsPeriod{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoiceDetailsClient{
+
+    
+
     
     
     
@@ -996,6 +1064,9 @@ public static class InvoiceDetailsClient{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoiceDetailsStatusTrail{
+
+    
+
     
     
     
@@ -1030,6 +1101,9 @@ public static class InvoiceDetailsStatusTrail{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoicePaymentMethod{
+
+    
+
     
     
     
@@ -1052,6 +1126,9 @@ public static class InvoicePaymentMethod{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoiceDetails{
+
+    
+
     
     
     
@@ -1212,6 +1289,9 @@ public static class InvoiceDetails{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoiceItemsPlanRecurring{
+
+    
+
     
     
     
@@ -1240,6 +1320,9 @@ public static class InvoiceItemsPlanRecurring{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoiceItemsPlan{
+
+    
+
     
     
     
@@ -1370,6 +1453,9 @@ public static class InvoiceItemsPlan{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoiceItemsPeriod{
+
+    
+
     
     
     
@@ -1398,6 +1484,9 @@ public static class InvoiceItemsPeriod{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoiceItems{
+
+    
+
     
     
     
@@ -1492,6 +1581,9 @@ public static class InvoiceItems{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Invoice{
+
+    
+
     
     
     
@@ -1520,6 +1612,9 @@ public static class Invoice{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoicesDataClient{
+
+    
+
     
     
     
@@ -1560,6 +1655,9 @@ public static class InvoicesDataClient{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoicesDataPeriod{
+
+    
+
     
     
     
@@ -1588,6 +1686,9 @@ public static class InvoicesDataPeriod{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoicesDataPaymentMethod{
+
+    
+
     
     
     
@@ -1610,6 +1711,9 @@ public static class InvoicesDataPaymentMethod{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class InvoicesData{
+
+    
+
     
     
     
@@ -1776,6 +1880,9 @@ public static class InvoicesData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Invoices{
+
+    
+
     
     
     
@@ -1828,6 +1935,9 @@ public static class Invoices{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Phone{
+
+    
+
     
     
     
@@ -1856,6 +1966,9 @@ public static class Phone{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionBillingAddress{
+
+    
+
     
     
     
@@ -1908,6 +2021,9 @@ public static class SubscriptionBillingAddress{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionCustomer{
+
+    
+
     
     
     
@@ -1984,6 +2100,9 @@ public static class SubscriptionCustomer{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionCustomerCreate{
+
+    
+
     
     
     
@@ -2036,6 +2155,9 @@ public static class SubscriptionCustomerCreate{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionCurrentPeriod{
+
+    
+
     
     
     
@@ -2064,6 +2186,9 @@ public static class SubscriptionCurrentPeriod{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionPauseCollection{
+
+    
+
     
     
     
@@ -2092,6 +2217,9 @@ public static class SubscriptionPauseCollection{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionTrial{
+
+    
+
     
     
     
@@ -2120,6 +2248,9 @@ public static class SubscriptionTrial{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionInvoiceSettings{
+
+    
+
     
     
     
@@ -2148,6 +2279,9 @@ public static class SubscriptionInvoiceSettings{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Subscription{
+
+    
+
     
     
     
@@ -2266,6 +2400,9 @@ public static class Subscription{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionStatus{
+
+    
+
     
     
     
@@ -2318,6 +2455,9 @@ public static class SubscriptionStatus{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionLimitApplication{
+
+    
+
     
     
     
@@ -2352,6 +2492,9 @@ public static class SubscriptionLimitApplication{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionLimitMarketplace{
+
+    
+
     
     
     
@@ -2374,6 +2517,9 @@ public static class SubscriptionLimitMarketplace{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionLimitOtherPlatform{
+
+    
+
     
     
     
@@ -2396,6 +2542,9 @@ public static class SubscriptionLimitOtherPlatform{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionLimitTeam{
+
+    
+
     
     
     
@@ -2418,6 +2567,9 @@ public static class SubscriptionLimitTeam{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionLimitProducts{
+
+    
+
     
     
     
@@ -2446,6 +2598,9 @@ public static class SubscriptionLimitProducts{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionLimitExtensions{
+
+    
+
     
     
     
@@ -2474,6 +2629,9 @@ public static class SubscriptionLimitExtensions{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionLimitIntegrations{
+
+    
+
     
     
     
@@ -2502,6 +2660,9 @@ public static class SubscriptionLimitIntegrations{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionLimit{
+
+    
+
     
     
     
@@ -2566,6 +2727,9 @@ public static class SubscriptionLimit{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionActivateReq{
+
+    
+
     
     
     
@@ -2612,6 +2776,9 @@ public static class SubscriptionActivateReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscriptionActivateRes{
+
+    
+
     
     
     
@@ -2640,6 +2807,9 @@ public static class SubscriptionActivateRes{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CancelSubscriptionReq{
+
+    
+
     
     
     
@@ -2680,6 +2850,9 @@ public static class CancelSubscriptionReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CancelSubscriptionRes{
+
+    
+
     
     
     
@@ -2708,6 +2881,9 @@ public static class CancelSubscriptionRes{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PlanStatusUpdateReq{
+
+    
+
     
     
     
@@ -2742,6 +2918,9 @@ public static class PlanStatusUpdateReq{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SunscribePlan{
+
+    
+
     
     
     
@@ -2788,6 +2967,9 @@ public static class SunscribePlan{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Meta{
+
+    
+
     
     
     
@@ -2822,6 +3004,9 @@ public static class Meta{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SubscribePlanRes{
+
+    
+
     
     
     

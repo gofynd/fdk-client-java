@@ -26,10 +26,10 @@ public class CompanyProfilePlatformService {
         this.platformConfig = platformConfig;
         this.retrofitServiceFactory = new RetrofitServiceFactory();
         this.companyId = this.platformConfig.getCompanyId();
-        this.companyprofilePlatformApiList = generateCompanyprofilePlatformApiList(this.platformConfig.getPersistentCookieStore());
+        this.companyprofilePlatformApiList = generateCompanyProfilePlatformApiList(this.platformConfig.getPersistentCookieStore());
     }
 
-    private CompanyProfilePlatformApiList generateCompanyprofilePlatformApiList(CookieStore cookieStore) {
+    private CompanyProfilePlatformApiList generateCompanyProfilePlatformApiList(CookieStore cookieStore) {
         List<Interceptor> interceptorList = new ArrayList<>();
         interceptorList.add(new AccessTokenInterceptor(platformConfig));
         interceptorList.add(new RequestSignerInterceptor());

@@ -1,8 +1,13 @@
 
+
 package com.sdk.application.logistic;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class LogisticApplicationModels{
@@ -18,6 +23,9 @@ public class LogisticApplicationModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PincodeParentsResponse{
+
+    
+
     
     
     
@@ -58,6 +66,9 @@ public static class PincodeParentsResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PincodeMetaResponse{
+
+    
+
     
     
     
@@ -86,6 +97,9 @@ public static class PincodeMetaResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PincodeErrorSchemaResponse{
+
+    
+
     
     
     
@@ -120,6 +134,9 @@ public static class PincodeErrorSchemaResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CountryMetaResponse{
+
+    
+
     
     
     
@@ -148,6 +165,9 @@ public static class CountryMetaResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PincodeLatLongData{
+
+    
+
     
     
     
@@ -176,6 +196,9 @@ public static class PincodeLatLongData{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PincodeDataResponse{
+
+    
+
     
     
     
@@ -246,6 +269,9 @@ public static class PincodeDataResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class PincodeApiResponse{
+
+    
+
     
     
     
@@ -280,6 +306,9 @@ public static class PincodeApiResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TATCategoryRequest{
+
+    
+
     
     
     
@@ -308,6 +337,9 @@ public static class TATCategoryRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TATArticlesRequest{
+
+    
+
     
     
     
@@ -342,6 +374,9 @@ public static class TATArticlesRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TATLocationDetailsRequest{
+
+    
+
     
     
     
@@ -376,6 +411,9 @@ public static class TATLocationDetailsRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TATViewRequest{
+
+    
+
     
     
     
@@ -428,6 +466,9 @@ public static class TATViewRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TATErrorSchemaResponse{
+
+    
+
     
     
     
@@ -462,6 +503,9 @@ public static class TATErrorSchemaResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TATTimestampResponse{
+
+    
+
     
     
     
@@ -490,6 +534,9 @@ public static class TATTimestampResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TATFormattedResponse{
+
+    
+
     
     
     
@@ -518,6 +565,9 @@ public static class TATFormattedResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TATPromiseResponse{
+
+    
+
     
     
     
@@ -546,6 +596,9 @@ public static class TATPromiseResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TATArticlesResponse{
+
+    
+
     
     
     
@@ -604,6 +657,9 @@ public static class TATArticlesResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TATLocationDetailsResponse{
+
+    
+
     
     
     
@@ -638,6 +694,9 @@ public static class TATLocationDetailsResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class TATViewResponse{
+
+    
+
     
     
     
@@ -732,6 +791,9 @@ public static class TATViewResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class DP{
+
+    
+
     
     
     
@@ -808,6 +870,9 @@ public static class DP{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class LogisticsResponse{
+
+    
+
     
     
     
@@ -830,6 +895,9 @@ public static class LogisticsResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CountryEntityResponse{
+
+    
+
     
     
     
@@ -900,6 +968,9 @@ public static class CountryEntityResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CountryListResponse{
+
+    
+
     
     
     
@@ -922,6 +993,9 @@ public static class CountryListResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetZoneFromPincodeViewRequest{
+
+    
+
     
     
     
@@ -950,6 +1024,9 @@ public static class GetZoneFromPincodeViewRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class GetZoneFromPincodeViewResponse{
+
+    
+
     
     
     
@@ -978,6 +1055,9 @@ public static class GetZoneFromPincodeViewResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ReAssignStoreRequest{
+
+    
+
     
     
     
@@ -1024,6 +1104,9 @@ public static class ReAssignStoreRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class ReAssignStoreResponse{
+
+    
+
     
     
     

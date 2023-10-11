@@ -1,8 +1,13 @@
 
+
 package com.sdk.application.filestorage;
 
 import com.fasterxml.jackson.annotation.*;
+import com.sdk.common.Constant;
+import com.sdk.common.Utility;
 import lombok.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 public class FileStorageApplicationModels{
@@ -18,6 +23,9 @@ public class FileStorageApplicationModels{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CDN{
+
+    
+
     
     
     
@@ -52,6 +60,9 @@ public static class CDN{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Upload{
+
+    
+
     
     
     
@@ -80,6 +91,9 @@ public static class Upload{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StartResponse{
+
+    
+
     
     
     
@@ -156,6 +170,9 @@ public static class StartResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Params{
+
+    
+
     
     
     
@@ -178,6 +195,9 @@ public static class Params{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class StartRequest{
+
+    
+
     
     
     
@@ -224,6 +244,9 @@ public static class StartRequest{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CreatedBy{
+
+    
+
     
     
     
@@ -246,6 +269,9 @@ public static class CreatedBy{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CompleteResponse{
+
+    
+
     
     
     
@@ -346,6 +372,9 @@ public static class CompleteResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class Urls{
+
+    
+
     
     
     
@@ -380,6 +409,9 @@ public static class Urls{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SignUrlResponse{
+
+    
+
     
     
     
@@ -402,6 +434,9 @@ public static class SignUrlResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class SignUrlRequest{
+
+    
+
     
     
     
