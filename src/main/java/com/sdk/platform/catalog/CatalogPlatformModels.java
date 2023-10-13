@@ -12692,7 +12692,7 @@ public static class ProductBulkRequest{
     
     
     @JsonProperty("cancelled_records")
-    private List<String> cancelledRecords;
+    private List<Object> cancelledRecords;
     
     
     
@@ -12722,7 +12722,7 @@ public static class ProductBulkRequest{
     
     
     @JsonProperty("failed_records")
-    private List<String> failedRecords;
+    private List<Object> failedRecords;
     
     
     

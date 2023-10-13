@@ -3908,6 +3908,12 @@ public static class Shipment{
     
     
     
+    
+    @JsonProperty("order_type")
+    private String orderType;
+    
+    
+    
 }
 
 
@@ -10999,6 +11005,12 @@ public static class ShipmentStatusData{
     
     @JsonProperty("display_name")
     private String displayName;
+    
+    
+    
+    
+    @JsonProperty("current_shipment_status")
+    private String currentShipmentStatus;
     
     
     
