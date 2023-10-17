@@ -1731,6 +1731,7 @@ Success. returns updated User Group. `UserGroupResponseSchema` for more details.
  | gender | String? |  yes  |  |
  | username | String |  no  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
+ | externalId | String? |  yes  |  |
 
 ---
 
@@ -2136,6 +2137,7 @@ Success. returns updated User Group. `UserGroupResponseSchema` for more details.
  | id | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
+ | externalId | String? |  yes  |  |
 
 ---
 

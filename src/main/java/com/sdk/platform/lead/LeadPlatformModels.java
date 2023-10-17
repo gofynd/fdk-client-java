@@ -796,6 +796,12 @@ public static class UserSchema{
     
     
     
+    
+    @JsonProperty("external_id")
+    private String externalId;
+    
+    
+    
 }
 
 

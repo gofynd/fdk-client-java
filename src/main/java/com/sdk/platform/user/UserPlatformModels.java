@@ -621,6 +621,12 @@ public static class CreateUserRequestSchema{
     
     
     
+    
+    @JsonProperty("external_id")
+    private String externalId;
+    
+    
+    
 }
 
 
@@ -1859,6 +1865,12 @@ public static class UserSchema{
     
     @JsonProperty("updated_at")
     private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("external_id")
+    private String externalId;
     
     
     
