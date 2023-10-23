@@ -2702,7 +2702,7 @@ We are processing the report!
 
 
 ```java
-platformClient.order.getOrderById( orderId) {
+platformClient.order.getOrderById( orderId,  myOrders) {
   //use response
 }
 ```
@@ -2712,7 +2712,8 @@ platformClient.order.getOrderById( orderId) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | companyId | Integer | yes | Id of company |   
-| orderId | String | yes |  |  
+| orderId | String | yes |  |   
+| myOrders | Boolean? | no |  |  
 
 
 
@@ -5937,6 +5938,7 @@ We are processing the request!
  | meta | HashMap<String,Object>? |  yes  |  |
  | priority | Integer? |  yes  |  |
  | locationId | Integer |  no  |  |
+ | orderType | String? |  yes  |  |
 
 ---
 
@@ -6010,6 +6012,23 @@ We are processing the request!
 
  
  
+ #### [UserInfo](#UserInfo)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | userId | String? |  yes  |  |
+ | userType | String? |  yes  |  |
+ | email | String |  no  |  |
+ | gender | String? |  yes  |  |
+ | firstName | String |  no  |  |
+ | lastName | String? |  yes  |  |
+ | mobile | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [TaxInfo](#TaxInfo)
 
  | Properties | Type | Nullable | Description |
@@ -6067,6 +6086,7 @@ We are processing the request!
  | taxInfo | [TaxInfo](#TaxInfo)? |  yes  |  |
  | config | HashMap<String,Object>? |  yes  |  |
  | paymentInfo | [PaymentInfo](#PaymentInfo) |  no  |  |
+ | userInfo | [UserInfo](#UserInfo) |  no  |  |
 
 ---
 
@@ -7911,6 +7931,7 @@ We are processing the request!
  | shipmentId | String? |  yes  |  |
  | status | String? |  yes  |  |
  | displayName | String? |  yes  |  |
+ | currentShipmentStatus | String? |  yes  |  |
 
 ---
 

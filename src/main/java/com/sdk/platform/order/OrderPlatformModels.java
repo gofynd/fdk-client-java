@@ -3908,6 +3908,12 @@ public static class Shipment{
     
     
     
+    
+    @JsonProperty("order_type")
+    private String orderType;
+    
+    
+    
 }
 
 
@@ -4232,6 +4238,67 @@ public static class BillingInfo{
 
 
 /*
+    Model: UserInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserInfo{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("user_type")
+    private String userType;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("gender")
+    private String gender;
+    
+    
+    
+    
+    @JsonProperty("first_name")
+    private String firstName;
+    
+    
+    
+    
+    @JsonProperty("last_name")
+    private String lastName;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+}
+
+
+/*
     Model: TaxInfo
 */
 @AllArgsConstructor
@@ -4439,6 +4506,12 @@ public static class CreateOrderAPI{
     
     @JsonProperty("payment_info")
     private PaymentInfo paymentInfo;
+    
+    
+    
+    
+    @JsonProperty("user_info")
+    private UserInfo userInfo;
     
     
     
@@ -10999,6 +11072,12 @@ public static class ShipmentStatusData{
     
     @JsonProperty("display_name")
     private String displayName;
+    
+    
+    
+    
+    @JsonProperty("current_shipment_status")
+    private String currentShipmentStatus;
     
     
     

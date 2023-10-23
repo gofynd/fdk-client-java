@@ -860,6 +860,12 @@ public static class Item{
     
     
     
+    
+    @JsonProperty("attributes")
+    private HashMap<String,Object> attributes;
+    
+    
+    
 }
 
 

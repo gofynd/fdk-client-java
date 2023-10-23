@@ -9316,6 +9316,12 @@ public static class PickupStoreDetail{
     
     
     
+    @JsonProperty("store_manager_name")
+    private String storeManagerName;
+    
+    
+    
+    
     @JsonProperty("name")
     private String name;
     

@@ -845,6 +845,12 @@ public static class ApplicationItemMeta{
     
     
     
+    
+    @JsonProperty("size_promotion_threshold")
+    private SizePromotionThreshold sizePromotionThreshold;
+    
+    
+    
 }
 
 
@@ -15580,6 +15586,223 @@ public static class ReturnConfigResponse{
 
 
 /*
+    Model: Sitemap
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Sitemap{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Double priority;
+    
+    
+    
+    
+    @JsonProperty("frequency")
+    private String frequency;
+    
+    
+    
+}
+
+
+/*
+    Model: ApplicationItemSeoAction
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApplicationItemSeoAction{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Object page;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+}
+
+
+/*
+    Model: ApplicationItemSeoBreadcrumbs
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApplicationItemSeoBreadcrumbs{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private List<ApplicationItemSeoAction> action;
+    
+    
+    
+}
+
+
+/*
+    Model: ApplicationItemSeoMetaTagItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApplicationItemSeoMetaTagItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+}
+
+
+/*
+    Model: ApplicationItemSeoMetaTags
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApplicationItemSeoMetaTags{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<ApplicationItemSeoMetaTagItem> items;
+    
+    
+    
+}
+
+
+/*
+    Model: Metatags
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Metatags{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<ApplicationItemSeoMetaTags> items;
+    
+    
+    
+}
+
+
+/*
+    Model: SizePromotionThreshold
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SizePromotionThreshold{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("threshold_type")
+    private String thresholdType;
+    
+    
+    
+    
+    @JsonProperty("threshold_value")
+    private Integer thresholdValue;
+    
+    
+    
+}
+
+
+/*
     Model: SEOData
 */
 @AllArgsConstructor
@@ -15604,6 +15827,24 @@ public static class SEOData{
     
     @JsonProperty("title")
     private String title;
+    
+    
+    
+    
+    @JsonProperty("sitemap")
+    private Sitemap sitemap;
+    
+    
+    
+    
+    @JsonProperty("breadcrumbs")
+    private List<ApplicationItemSeoBreadcrumbs> breadcrumbs;
+    
+    
+    
+    
+    @JsonProperty("meta_tags")
+    private List<Metatags> metaTags;
     
     
     
@@ -15795,6 +16036,24 @@ public static class SeoDetail{
     
     @JsonProperty("title")
     private String title;
+    
+    
+    
+    
+    @JsonProperty("sitemap")
+    private Object sitemap;
+    
+    
+    
+    
+    @JsonProperty("breadcrumbs")
+    private List<ApplicationItemSeoBreadcrumbs> breadcrumbs;
+    
+    
+    
+    
+    @JsonProperty("meta_tags")
+    private List<Metatags> metaTags;
     
     
     

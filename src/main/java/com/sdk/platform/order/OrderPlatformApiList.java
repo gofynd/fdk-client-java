@@ -106,7 +106,7 @@ interface OrderPlatformApiList {
     Call<OrderPlatformModels.ShipmentInfoResponse> getShipmentById(@Path("company_id") String companyId, @Query("channel_shipment_id") String channelShipmentId, @Query("shipment_id") String shipmentId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/order/v1.0/company/{company_id}/order-details")
-    Call<OrderPlatformModels.OrderDetailsResponse> getOrderById(@Path("company_id") String companyId, @Query("order_id") String orderId, @HeaderMap Map<String, String> requestHeaders);
+    Call<OrderPlatformModels.OrderDetailsResponse> getOrderById(@Path("company_id") String companyId, @Query("order_id") String orderId, @Query("my_orders") Boolean myOrders, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/order/v1.0/company/{company_id}/lane-config/")
     Call<OrderPlatformModels.LaneConfigResponse> getLaneConfig(@Path("company_id") String companyId, @Query("super_lane") String superLane, @Query("group_entity") String groupEntity, @Query("from_date") String fromDate, @Query("to_date") String toDate, @Query("dp_ids") String dpIds, @Query("stores") String stores, @Query("sales_channels") String salesChannels, @Query("payment_mode") String paymentMode, @Query("bag_status") String bagStatus, @Query("search_type") String searchType, @Query("search_value") String searchValue, @Query("tags") String tags, @Query("time_to_dispatch") Integer timeToDispatch, @Query("payment_methods") String paymentMethods, @Query("my_orders") Boolean myOrders, @Query("show_cross_company_data") Boolean showCrossCompanyData, @Query("order_type") String orderType, @HeaderMap Map<String, String> requestHeaders);

@@ -5,7 +5,7 @@
 ##### [Back to Platform docs](./README.md)
 
 ## Catalog Methods
-Catalog - Platform Front API's' API's allows you to access list of products, prices, seller details, similar features, variants and many more useful features. 
+Catalog - Platform Front API's' API's allows you to access list of products, prices, seller details, similar features, variants and many more useful features.
 * [getCatalogInsights](#getcataloginsights)
 * [getApplicationBrandListing](#getapplicationbrandlisting)
 * [updateAppBrand](#updateappbrand)
@@ -3518,7 +3518,14 @@ The Company Applicaton Product Data(MOQ/SEO).
   },
   "seo": {
     "description": "test-description",
-    "title": "test-title"
+    "title": "test-title",
+    "breadcrumbs": [],
+    "sitemap": {},
+    "meta_tags": []
+  },
+  "size_promotion_threshold": {
+    "threshold_type": "flat",
+    "threshold_value": 100
   }
 }
 ```
@@ -16463,6 +16470,7 @@ Returns a success response
  | isGift | Boolean? |  yes  | Whether the item is a gift or not |
  | moq | [ApplicationItemMOQ](#ApplicationItemMOQ)? |  yes  | Minimum Order Quantity information for the item |
  | seo | [ApplicationItemSEO](#ApplicationItemSEO)? |  yes  | Search Engine Optimization information for the item |
+ | sizePromotionThreshold | [SizePromotionThreshold](#SizePromotionThreshold)? |  yes  | Size level promotion limitation information for item |
 
 ---
 
@@ -20776,12 +20784,99 @@ Returns a success response
 
  
  
+ #### [Sitemap](#Sitemap)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | priority | Double? |  yes  |  |
+ | frequency | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ApplicationItemSeoAction](#ApplicationItemSeoAction)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | page | HashMap<String,Object>? |  yes  |  |
+ | type | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ApplicationItemSeoBreadcrumbs](#ApplicationItemSeoBreadcrumbs)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | url | String? |  yes  |  |
+ | action | ArrayList<[ApplicationItemSeoAction](#ApplicationItemSeoAction)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ApplicationItemSeoMetaTagItem](#ApplicationItemSeoMetaTagItem)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | key | String? |  yes  |  |
+ | value | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ApplicationItemSeoMetaTags](#ApplicationItemSeoMetaTags)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | title | String? |  yes  |  |
+ | items | ArrayList<[ApplicationItemSeoMetaTagItem](#ApplicationItemSeoMetaTagItem)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Metatags](#Metatags)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | title | String? |  yes  |  |
+ | items | ArrayList<[ApplicationItemSeoMetaTags](#ApplicationItemSeoMetaTags)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SizePromotionThreshold](#SizePromotionThreshold)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | thresholdType | String? |  yes  |  |
+ | thresholdValue | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [SEOData](#SEOData)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | description | String? |  yes  |  |
  | title | String? |  yes  |  |
+ | sitemap | [Sitemap](#Sitemap)? |  yes  |  |
+ | breadcrumbs | ArrayList<[ApplicationItemSeoBreadcrumbs](#ApplicationItemSeoBreadcrumbs)>? |  yes  |  |
+ | metaTags | ArrayList<[Metatags](#Metatags)>? |  yes  |  |
 
 ---
 
@@ -20848,6 +20943,9 @@ Returns a success response
  | ---------- | ---- | -------- | ----------- |
  | description | String? |  yes  |  |
  | title | String? |  yes  |  |
+ | sitemap | HashMap<String,Object>? |  yes  |  |
+ | breadcrumbs | ArrayList<[ApplicationItemSeoBreadcrumbs](#ApplicationItemSeoBreadcrumbs)>? |  yes  |  |
+ | metaTags | ArrayList<[Metatags](#Metatags)>? |  yes  |  |
 
 ---
 
