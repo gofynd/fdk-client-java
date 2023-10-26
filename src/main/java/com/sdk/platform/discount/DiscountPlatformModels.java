@@ -498,6 +498,12 @@ public static class FileJobResponse{
     
     
     
+    
+    @JsonProperty("file_path")
+    private String filePath;
+    
+    
+    
 }
 
 

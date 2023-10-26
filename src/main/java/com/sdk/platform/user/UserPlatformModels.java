@@ -334,8 +334,45 @@ public static class SessionDeleteResponseSchema{
     
     
     
-    @JsonProperty("items")
-    private List<String> items;
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("session_id")
+    private String sessionId;
+    
+    
+    
+}
+
+
+/*
+    Model: SessionsDeleteResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SessionsDeleteResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("session_ids")
+    private List<String> sessionIds;
     
     
     
@@ -618,6 +655,12 @@ public static class CreateUserRequestSchema{
     
     @JsonProperty("meta")
     private Object meta;
+    
+    
+    
+    
+    @JsonProperty("external_id")
+    private String externalId;
     
     
     
@@ -1859,6 +1902,12 @@ public static class UserSchema{
     
     @JsonProperty("updated_at")
     private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("external_id")
+    private String externalId;
     
     
     

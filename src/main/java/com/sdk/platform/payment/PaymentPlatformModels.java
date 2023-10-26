@@ -4543,6 +4543,61 @@ public static class MerchnatPaymentModeRequest{
 
 
 /*
+    Model: OrderDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderDetail{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("gid")
+    private String gid;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Integer amount;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+    
+    @JsonProperty("aggregator_order_details")
+    private Object aggregatorOrderDetails;
+    
+    
+    
+    
+    @JsonProperty("aggregator")
+    private String aggregator;
+    
+    
+    
+}
+
+
+/*
     Model: AddressDetail
 */
 @AllArgsConstructor
@@ -4559,80 +4614,8 @@ public static class AddressDetail{
     
     
     
-    @JsonProperty("country_iso_code")
-    private String countryIsoCode;
-    
-    
-    
-    
     @JsonProperty("google_map_point")
     private Object googleMapPoint;
-    
-    
-    
-    
-    @JsonProperty("country")
-    private String country;
-    
-    
-    
-    
-    @JsonProperty("email")
-    private String email;
-    
-    
-    
-    
-    @JsonProperty("area_code")
-    private String areaCode;
-    
-    
-    
-    
-    @JsonProperty("city")
-    private String city;
-    
-    
-    
-    
-    @JsonProperty("phone")
-    private String phone;
-    
-    
-    
-    
-    @JsonProperty("expire_at")
-    private String expireAt;
-    
-    
-    
-    
-    @JsonProperty("address")
-    private String address;
-    
-    
-    
-    
-    @JsonProperty("g_address_id")
-    private String gAddressId;
-    
-    
-    
-    
-    @JsonProperty("tags")
-    private List<Object> tags;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("state")
-    private String state;
     
     
     
@@ -4643,8 +4626,56 @@ public static class AddressDetail{
     
     
     
+    @JsonProperty("phone")
+    private String phone;
+    
+    
+    
+    
+    @JsonProperty("country_iso_code")
+    private String countryIsoCode;
+    
+    
+    
+    
+    @JsonProperty("area_code")
+    private String areaCode;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("expire_at")
+    private String expireAt;
+    
+    
+    
+    
+    @JsonProperty("geo_location")
+    private Object geoLocation;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
+    
+    
+    
+    
     @JsonProperty("area")
     private String area;
+    
+    
+    
+    
+    @JsonProperty("g_address_id")
+    private String gAddressId;
     
     
     
@@ -4655,20 +4686,44 @@ public static class AddressDetail{
     
     
     
-    @JsonProperty("address_type")
-    private String addressType;
-    
-    
-    
-    
     @JsonProperty("country_phone_code")
     private String countryPhoneCode;
     
     
     
     
-    @JsonProperty("geo_location")
-    private Object geoLocation;
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("address_type")
+    private String addressType;
+    
+    
+    
+    
+    @JsonProperty("address")
+    private String address;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<Object> tags;
     
     
     
@@ -4692,56 +4747,32 @@ public static class PaymentSessionDetail{
     
     
     
-    @JsonProperty("aggregator_order_id")
-    private String aggregatorOrderId;
-    
-    
-    
-    
-    @JsonProperty("shipping_address")
-    private AddressDetail shippingAddress;
-    
-    
-    
-    
-    @JsonProperty("amount_captured")
-    private Integer amountCaptured;
-    
-    
-    
-    
-    @JsonProperty("amount_refunded")
-    private Integer amountRefunded;
-    
-    
-    
-    
-    @JsonProperty("aggregator_customer_id")
-    private String aggregatorCustomerId;
-    
-    
-    
-    
-    @JsonProperty("cancel_url")
-    private String cancelUrl;
-    
-    
-    
-    
     @JsonProperty("payment_id")
     private String paymentId;
     
     
     
     
-    @JsonProperty("payment_methods")
-    private List<Object> paymentMethods;
+    @JsonProperty("mode")
+    private String mode;
     
     
     
     
-    @JsonProperty("created")
-    private String created;
+    @JsonProperty("amount")
+    private Integer amount;
+    
+    
+    
+    
+    @JsonProperty("success_url")
+    private String successUrl;
+    
+    
+    
+    
+    @JsonProperty("shipping_address")
+    private AddressDetail shippingAddress;
     
     
     
@@ -4758,8 +4789,20 @@ public static class PaymentSessionDetail{
     
     
     
+    @JsonProperty("merchant_locale")
+    private String merchantLocale;
+    
+    
+    
+    
     @JsonProperty("locale")
     private String locale;
+    
+    
+    
+    
+    @JsonProperty("aggregator_order_id")
+    private String aggregatorOrderId;
     
     
     
@@ -4770,20 +4813,32 @@ public static class PaymentSessionDetail{
     
     
     
-    @JsonProperty("amount")
-    private Integer amount;
+    @JsonProperty("cancel_url")
+    private String cancelUrl;
     
     
     
     
-    @JsonProperty("billing_address")
-    private AddressDetail billingAddress;
+    @JsonProperty("amount_refunded")
+    private Integer amountRefunded;
     
     
     
     
-    @JsonProperty("success_url")
-    private String successUrl;
+    @JsonProperty("captured")
+    private Boolean captured;
+    
+    
+    
+    
+    @JsonProperty("created")
+    private String created;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
     
     
     
@@ -4794,81 +4849,26 @@ public static class PaymentSessionDetail{
     
     
     
-    @JsonProperty("mode")
-    private String mode;
+    @JsonProperty("aggregator_customer_id")
+    private String aggregatorCustomerId;
     
     
     
     
-    @JsonProperty("status")
-    private String status;
+    @JsonProperty("payment_methods")
+    private List<Object> paymentMethods;
     
     
     
     
-    @JsonProperty("merchant_locale")
-    private String merchantLocale;
+    @JsonProperty("billing_address")
+    private AddressDetail billingAddress;
     
     
     
     
-    @JsonProperty("captured")
-    private Boolean captured;
-    
-    
-    
-}
-
-
-/*
-    Model: OrderDetail
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderDetail{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("gid")
-    private String gid;
-    
-    
-    
-    
-    @JsonProperty("aggregator")
-    private String aggregator;
-    
-    
-    
-    
-    @JsonProperty("amount")
-    private Integer amount;
-    
-    
-    
-    
-    @JsonProperty("aggregator_order_details")
-    private Object aggregatorOrderDetails;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private String currency;
+    @JsonProperty("amount_captured")
+    private Integer amountCaptured;
     
     
     
@@ -4892,8 +4892,32 @@ public static class PaymentSessionRequestSerializer{
     
     
     
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
     @JsonProperty("gid")
     private String gid;
+    
+    
+    
+    
+    @JsonProperty("order_details")
+    private OrderDetail orderDetails;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
     
     
     
@@ -4906,24 +4930,6 @@ public static class PaymentSessionRequestSerializer{
     
     @JsonProperty("total_amount")
     private Integer totalAmount;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("order_details")
-    private OrderDetail orderDetails;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private String currency;
     
     
     
@@ -4959,12 +4965,6 @@ public static class PaymentSessionResponseSerializer{
     
     
     
-    @JsonProperty("total_amount")
-    private Integer totalAmount;
-    
-    
-    
-    
     @JsonProperty("status")
     private String status;
     
@@ -4973,6 +4973,12 @@ public static class PaymentSessionResponseSerializer{
     
     @JsonProperty("currency")
     private String currency;
+    
+    
+    
+    
+    @JsonProperty("total_amount")
+    private Integer totalAmount;
     
     
     
@@ -5002,14 +5008,8 @@ public static class RefundSessionDetail{
     
     
     
-    @JsonProperty("receipt_number")
-    private String receiptNumber;
-    
-    
-    
-    
-    @JsonProperty("balance_transaction")
-    private String balanceTransaction;
+    @JsonProperty("request_id")
+    private String requestId;
     
     
     
@@ -5020,26 +5020,14 @@ public static class RefundSessionDetail{
     
     
     
-    @JsonProperty("created")
-    private String created;
-    
-    
-    
-    
-    @JsonProperty("request_id")
-    private String requestId;
-    
-    
-    
-    
-    @JsonProperty("transfer_reversal")
-    private String transferReversal;
-    
-    
-    
-    
     @JsonProperty("amount")
     private Integer amount;
+    
+    
+    
+    
+    @JsonProperty("reason")
+    private String reason;
     
     
     
@@ -5050,8 +5038,20 @@ public static class RefundSessionDetail{
     
     
     
+    @JsonProperty("created")
+    private String created;
+    
+    
+    
+    
     @JsonProperty("source_transfer_reversal")
     private String sourceTransferReversal;
+    
+    
+    
+    
+    @JsonProperty("receipt_number")
+    private String receiptNumber;
     
     
     
@@ -5062,8 +5062,14 @@ public static class RefundSessionDetail{
     
     
     
-    @JsonProperty("reason")
-    private String reason;
+    @JsonProperty("transfer_reversal")
+    private String transferReversal;
+    
+    
+    
+    
+    @JsonProperty("balance_transaction")
+    private String balanceTransaction;
     
     
     
@@ -5087,26 +5093,14 @@ public static class RefundSessionRequestSerializer{
     
     
     
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
     @JsonProperty("gid")
     private String gid;
-    
-    
-    
-    
-    @JsonProperty("payment_details")
-    private PaymentSessionDetail paymentDetails;
-    
-    
-    
-    
-    @JsonProperty("total_amount")
-    private Integer totalAmount;
-    
-    
-    
-    
-    @JsonProperty("refund_details")
-    private List<RefundSessionDetail> refundDetails;
     
     
     
@@ -5119,6 +5113,24 @@ public static class RefundSessionRequestSerializer{
     
     @JsonProperty("currency")
     private String currency;
+    
+    
+    
+    
+    @JsonProperty("payment_details")
+    private PaymentSessionDetail paymentDetails;
+    
+    
+    
+    
+    @JsonProperty("refund_details")
+    private List<RefundSessionDetail> refundDetails;
+    
+    
+    
+    
+    @JsonProperty("total_amount")
+    private Integer totalAmount;
     
     
     
@@ -5142,20 +5154,8 @@ public static class RefundSessionResponseSerializer{
     
     
     
-    @JsonProperty("total_refund_amount")
-    private Integer totalRefundAmount;
-    
-    
-    
-    
     @JsonProperty("gid")
     private String gid;
-    
-    
-    
-    
-    @JsonProperty("platform_refund_details")
-    private List<Object> platformRefundDetails;
     
     
     
@@ -5168,6 +5168,18 @@ public static class RefundSessionResponseSerializer{
     
     @JsonProperty("currency")
     private String currency;
+    
+    
+    
+    
+    @JsonProperty("platform_refund_details")
+    private List<Object> platformRefundDetails;
+    
+    
+    
+    
+    @JsonProperty("total_refund_amount")
+    private Integer totalRefundAmount;
     
     
     

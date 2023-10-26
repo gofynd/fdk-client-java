@@ -3908,6 +3908,12 @@ public static class Shipment{
     
     
     
+    
+    @JsonProperty("order_type")
+    private String orderType;
+    
+    
+    
 }
 
 
@@ -4232,6 +4238,67 @@ public static class BillingInfo{
 
 
 /*
+    Model: UserInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserInfo{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("user_type")
+    private String userType;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("gender")
+    private String gender;
+    
+    
+    
+    
+    @JsonProperty("first_name")
+    private String firstName;
+    
+    
+    
+    
+    @JsonProperty("last_name")
+    private String lastName;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+}
+
+
+/*
     Model: TaxInfo
 */
 @AllArgsConstructor
@@ -4439,6 +4506,12 @@ public static class CreateOrderAPI{
     
     @JsonProperty("payment_info")
     private PaymentInfo paymentInfo;
+    
+    
+    
+    
+    @JsonProperty("user_info")
+    private UserInfo userInfo;
     
     
     
@@ -6206,6 +6279,18 @@ public static class UserDataInfo{
     
     @JsonProperty("uid")
     private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("user_oid")
+    private String userOid;
+    
+    
+    
+    
+    @JsonProperty("external_customer_id")
+    private String externalCustomerId;
     
     
     
@@ -8903,7 +8988,7 @@ public static class OrderDetailsData{
     
     
     @JsonProperty("meta")
-    private OrderMeta meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -11002,6 +11087,12 @@ public static class ShipmentStatusData{
     
     
     
+    
+    @JsonProperty("current_shipment_status")
+    private String currentShipmentStatus;
+    
+    
+    
 }
 
 
@@ -11245,7 +11336,7 @@ public static class PlatformShipment{
     
     
     @JsonProperty("meta")
-    private ShipmentMeta meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -14068,7 +14159,7 @@ public static class BagDetailsPlatformResponse{
     
     
     @JsonProperty("meta")
-    private BagMeta meta;
+    private HashMap<String,Object> meta;
     
     
     

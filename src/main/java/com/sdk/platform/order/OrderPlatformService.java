@@ -1859,16 +1859,20 @@ public class OrderPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public OrderPlatformModels.OrderDetailsResponse getOrderById(String orderId) throws FDKServerResponseError, FDKException {
-        return this.getOrderById(orderId, new HashMap<>());
+    public OrderPlatformModels.OrderDetailsResponse getOrderById(String orderId, Boolean myOrders) throws FDKServerResponseError, FDKException {
+        return this.getOrderById(orderId, myOrders, new HashMap<>());
     }
 
-    public OrderPlatformModels.OrderDetailsResponse getOrderById(String orderId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.OrderDetailsResponse getOrderById(String orderId, Boolean myOrders, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.OrderDetailsResponse> response = null;
             try {
-                response = orderPlatformApiList.getOrderById(this.companyId, orderId, requestHeaders).execute();
+                response = orderPlatformApiList.getOrderById(this.companyId, orderId, myOrders, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
