@@ -37,6 +37,13 @@ Catalog - Platform Front API's' API's allows you to access list of products, pri
 * [getDiscountedInventoryBySizeIdentifier](#getdiscountedinventorybysizeidentifier)
 * [getProductDetailBySlug](#getproductdetailbyslug)
 * [getAppProducts](#getappproducts)
+* [getAppReturnConfiguration](#getappreturnconfiguration)
+* [createAppReturnConfiguration](#createappreturnconfiguration)
+* [updateAppReturnConfiguration](#updateappreturnconfiguration)
+* [deleteAppCategoryReturnConfiguration](#deleteappcategoryreturnconfiguration)
+* [getAppCategoryReturnConfig](#getappcategoryreturnconfig)
+* [createAppCategoryReturnConfiguration](#createappcategoryreturnconfiguration)
+* [updateAppCategoryReturnConfiguration](#updateappcategoryreturnconfiguration)
 * [getAutocompleteConfig](#getautocompleteconfig)
 * [createCustomAutocompleteRule](#createcustomautocompleterule)
 * [deleteAutocompleteKeyword](#deleteautocompletekeyword)
@@ -5041,6 +5048,478 @@ The Product object. See example below or refer `ApplicationProductListingRespons
   }
 }
 ```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getAppReturnConfiguration
+Get Return configuration level set for an application
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").catalog.getAppReturnConfiguration() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String | yes | A `application_id` is a unique identifier for a particular sale channel. |  
+
+
+
+Get Product Return configuration set at an application level
+
+*Returned Response:*
+
+
+
+
+[AppReturnConfigResponse](#AppReturnConfigResponse)
+
+success message will tell whether the operation was successful.
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+{
+  "app_id": "5d638512c9accedcd910591a",
+  "category_count": 32,
+  "company_id": 1,
+  "created_by": {
+    "user_id": "054bb99f009aece85a3fa087",
+    "username": "test"
+  },
+  "modified_by": {
+    "user_id": "054bb99f009aece85a3fa087",
+    "username": "test"
+  },
+  "modified_on": "2023-03-28T06:05:24.026000",
+  "return_config_level": "category"
+}
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### createAppReturnConfiguration
+Create Return configuration level set for an application
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").catalog.createAppReturnConfiguration(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String | yes | A `application_id` is a unique identifier for a particular sale channel. |  
+| body | [CreateUpdateAppReturnConfig](#CreateUpdateAppReturnConfig) | yes | Request body |
+
+
+Create Return configuration level set for an application.
+
+*Returned Response:*
+
+
+
+
+[SuccessResponse1](#SuccessResponse1)
+
+success message will tell whether the operation was successful.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "success": true
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### updateAppReturnConfiguration
+Update Return configuration level set for an application
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").catalog.updateAppReturnConfiguration(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String | yes | A `application_id` is a unique identifier for a particular sale channel. |  
+| body | [CreateUpdateAppReturnConfig](#CreateUpdateAppReturnConfig) | yes | Request body |
+
+
+Update Return configuration level set for an application.
+
+*Returned Response:*
+
+
+
+
+[SuccessResponse1](#SuccessResponse1)
+
+success message will tell whether the operation was successful.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "success": true
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### deleteAppCategoryReturnConfiguration
+Delete Category level Application Return Configuration setttings
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").catalog.deleteAppCategoryReturnConfiguration(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String | yes | A `application_id` is a unique identifier for a particular sale channel. |  
+| body | [DeleteAppCategoryReturnConfig](#DeleteAppCategoryReturnConfig) | yes | Request body |
+
+
+Delete Category level Application Return Configuration setttings
+
+*Returned Response:*
+
+
+
+
+[SuccessResponse](#SuccessResponse)
+
+success message will tell whether the operation was successful.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "success": true
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getAppCategoryReturnConfig
+Get all category level configuration level set for an application
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").catalog.getAppCategoryReturnConfig() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String | yes | A `application_id` is a unique identifier for a particular sale channel. |  
+
+
+
+Get all category level configuration level set for an application.
+
+*Returned Response:*
+
+
+
+
+[BaseAppCategoryReturnConfigResponse](#BaseAppCategoryReturnConfigResponse)
+
+success message will tell whether the operation was successful.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "data": [
+      {
+        "app_id": "5d638512c9accedcd910591a",
+        "category_id": 1659,
+        "logo": "https://hdn-1.addsale.com/addsale/category/pictures/square-logo/original/7hR5xHVUi0-eTdgOunCZ-.jpeg",
+        "name": "MG TEST DIGITAL",
+        "return_config": {
+          "returnable": true,
+          "time": 10,
+          "unit": "days"
+        }
+      }
+    ],
+    "page": {
+      "current": "1",
+      "has_next": false,
+      "has_previous": false,
+      "item_total": 1,
+      "size": 1,
+      "type": "number"
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### createAppCategoryReturnConfiguration
+Create Category level Application Return Configuration setttings
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").catalog.createAppCategoryReturnConfiguration(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String | yes | A `application_id` is a unique identifier for a particular sale channel. |  
+| body | [BaseAppCategoryReturnConfig](#BaseAppCategoryReturnConfig) | yes | Request body |
+
+
+Create Category level Application Return Configuration setttings
+
+*Returned Response:*
+
+
+
+
+[SuccessResponse1](#SuccessResponse1)
+
+success message will tell whether the operation was successful.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "success": true
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### updateAppCategoryReturnConfiguration
+Update Category level Application Return Configuration setttings
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").catalog.updateAppCategoryReturnConfiguration(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | A `company_id` is a unique identifier for a particular seller account. |   
+| applicationId | String | yes | A `application_id` is a unique identifier for a particular sale channel. |  
+| body | [BaseAppCategoryReturnConfig](#BaseAppCategoryReturnConfig) | yes | Request body |
+
+
+Update Category level Application Return Configuration setttings
+
+*Returned Response:*
+
+
+
+
+[SuccessResponse](#SuccessResponse)
+
+success message will tell whether the operation was successful.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "success": true
+  }
+}
+```
+</details>
+
 </details>
 
 
@@ -16328,6 +16807,33 @@ Returns a success response
 
  
  
+ #### [AppCategoryReturnConfig](#AppCategoryReturnConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | categoryId | Integer |  no  | Unique identifier for L3 category |
+ | returnConfig | [ProductReturnConfigBaseSerializer](#ProductReturnConfigBaseSerializer) |  no  | Return configuration details |
+
+---
+
+
+ 
+ 
+ #### [AppCategoryReturnConfigResponse](#AppCategoryReturnConfigResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | appId | String? |  yes  | Channel identifier |
+ | categoryId | Integer? |  yes  | Unique identifer of L3 category |
+ | logo | String? |  yes  |  |
+ | name | String? |  yes  | Name of L3 category |
+ | returnConfig | [ProductReturnConfigBaseSerializer](#ProductReturnConfigBaseSerializer)? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [AppConfiguration](#AppConfiguration)
 
  | Properties | Type | Nullable | Description |
@@ -16509,6 +17015,23 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | customJson | HashMap<String,Object> |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [AppReturnConfigResponse](#AppReturnConfigResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | appId | String? |  yes  | Channel identifier |
+ | categoryCount | Integer? |  yes  | Count of L3 category return config set for application |
+ | companyId | Integer? |  yes  | Unique identifer of company |
+ | createdBy | HashMap<String,Object>? |  yes  | User details |
+ | modifiedBy | HashMap<String,Object>? |  yes  | User details |
+ | modifiedOn | String? |  yes  | Modification date |
+ | returnConfigLevel | String? |  yes  | configuration level of return window category\|product\|no-return |
 
 ---
 
@@ -16781,6 +17304,31 @@ Returns a success response
  | aspectRatio | String? |  yes  |  |
  | type | String? |  yes  |  |
  | url | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [BaseAppCategoryReturnConfig](#BaseAppCategoryReturnConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | appId | String |  no  | Channel identifier |
+ | companyId | Integer |  no  | Unique identifer of company |
+ | data | ArrayList<[AppCategoryReturnConfig](#AppCategoryReturnConfig)> |  no  | Category level return config details |
+
+---
+
+
+ 
+ 
+ #### [BaseAppCategoryReturnConfigResponse](#BaseAppCategoryReturnConfigResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | data | ArrayList<[AppCategoryReturnConfigResponse](#AppCategoryReturnConfigResponse)>? |  yes  |  |
+ | page | [PageResponse](#PageResponse)? |  yes  |  |
 
 ---
 
@@ -17735,6 +18283,19 @@ Returns a success response
 
  
  
+ #### [CreateUpdateAppReturnConfig](#CreateUpdateAppReturnConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | appId | String |  no  | Channel identifier |
+ | companyId | Integer |  no  | Unique identifer of company |
+ | returnConfigLevel | String |  no  | Return configurtion Level category\|product\|no-return |
+
+---
+
+
+ 
+ 
  #### [CrossSellingData](#CrossSellingData)
 
  | Properties | Type | Nullable | Description |
@@ -17791,6 +18352,19 @@ Returns a success response
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | defaultKey | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [DeleteAppCategoryReturnConfig](#DeleteAppCategoryReturnConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | appId | String |  no  | Channel identifier |
+ | categoryIds | ArrayList<Integer> |  no  | List of category_ids to be deleted. |
+ | companyId | Integer |  no  | Unique identifer of company |
 
 ---
 
@@ -19808,6 +20382,22 @@ Returns a success response
 
  
  
+ #### [PageResponse1](#PageResponse1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | current | Integer? |  yes  |  |
+ | hasNext | Boolean? |  yes  |  |
+ | hasPrevious | Boolean? |  yes  |  |
+ | itemTotal | Integer? |  yes  |  |
+ | size | Integer? |  yes  |  |
+ | type | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [PageResponseType](#PageResponseType)
 
  | Properties | Type | Nullable | Description |
@@ -20401,6 +20991,19 @@ Returns a success response
  | ---------- | ---- | -------- | ----------- |
  | onSameStore | Boolean? |  yes  |  |
  | storeUid | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ProductReturnConfigBaseSerializer](#ProductReturnConfigBaseSerializer)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | returnable | Boolean |  no  | Boolean Flag for item returnable |
+ | time | Integer |  no  | Valid return time for an item |
+ | unit | String |  no  | Unit of return config days\|hours |
 
 ---
 

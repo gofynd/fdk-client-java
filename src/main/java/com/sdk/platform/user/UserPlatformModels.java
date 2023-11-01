@@ -334,8 +334,45 @@ public static class SessionDeleteResponseSchema{
     
     
     
-    @JsonProperty("items")
-    private List<String> items;
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("session_id")
+    private String sessionId;
+    
+    
+    
+}
+
+
+/*
+    Model: SessionsDeleteResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SessionsDeleteResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("session_ids")
+    private List<String> sessionIds;
     
     
     

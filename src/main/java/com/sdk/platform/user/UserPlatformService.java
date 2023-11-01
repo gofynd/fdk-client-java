@@ -359,13 +359,13 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.SessionDeleteResponseSchema deleteActiveSessions(String id, String reason) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.SessionsDeleteResponseSchema deleteActiveSessions(String id, String reason) throws FDKServerResponseError, FDKException {
         return this.deleteActiveSessions(id, reason, new HashMap<>());
     }
 
-    public UserPlatformModels.SessionDeleteResponseSchema deleteActiveSessions(String id, String reason, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.SessionsDeleteResponseSchema deleteActiveSessions(String id, String reason, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<UserPlatformModels.SessionDeleteResponseSchema> response = null;
+            Response<UserPlatformModels.SessionsDeleteResponseSchema> response = null;
             try {
             response = userPlatformApiList.deleteActiveSessions(this.companyId, this.applicationId, id, reason, requestHeaders).execute();
                 if (!response.isSuccessful()) {

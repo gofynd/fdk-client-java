@@ -6283,6 +6283,18 @@ public static class UserDataInfo{
     
     
     
+    @JsonProperty("user_oid")
+    private String userOid;
+    
+    
+    
+    
+    @JsonProperty("external_customer_id")
+    private String externalCustomerId;
+    
+    
+    
+    
     @JsonProperty("first_name")
     private String firstName;
     
@@ -8586,7 +8598,7 @@ public static class ShipmentItem{
     
     
     @JsonProperty("meta")
-    private ShipmentItemMeta meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -8901,6 +8913,12 @@ public static class InvoiceInfo{
     
     
     
+    
+    @JsonProperty("links")
+    private HashMap<String,Object> links;
+    
+    
+    
 }
 
 
@@ -8976,7 +8994,7 @@ public static class OrderDetailsData{
     
     
     @JsonProperty("meta")
-    private OrderMeta meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -10846,7 +10864,7 @@ public static class OrderBags{
     
     
     @JsonProperty("meta")
-    private BagMeta meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -11324,7 +11342,7 @@ public static class PlatformShipment{
     
     
     @JsonProperty("meta")
-    private ShipmentMeta meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -11835,7 +11853,7 @@ public static class OrderData{
     
     
     @JsonProperty("meta")
-    private OrderMeta meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -14147,7 +14165,7 @@ public static class BagDetailsPlatformResponse{
     
     
     @JsonProperty("meta")
-    private BagMeta meta;
+    private HashMap<String,Object> meta;
     
     
     

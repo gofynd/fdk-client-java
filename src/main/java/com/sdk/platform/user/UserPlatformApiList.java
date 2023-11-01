@@ -37,7 +37,7 @@ interface UserPlatformApiList {
     Call<UserPlatformModels.SessionListResponseSchema> getActiveSessions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @DELETE ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/sessions")
-    Call<UserPlatformModels.SessionDeleteResponseSchema> deleteActiveSessions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("reason") String reason, @HeaderMap Map<String, String> requestHeaders);
+    Call<UserPlatformModels.SessionsDeleteResponseSchema> deleteActiveSessions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("reason") String reason, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/platform/config")
     Call<UserPlatformModels.PlatformSchema> getPlatformConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);

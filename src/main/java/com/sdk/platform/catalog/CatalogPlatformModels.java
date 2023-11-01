@@ -371,6 +371,86 @@ public static class AppCatalogConfiguration{
 
 
 /*
+    Model: AppCategoryReturnConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AppCategoryReturnConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("category_id")
+    private Integer categoryId;
+    
+    
+    
+    
+    @JsonProperty("return_config")
+    private ProductReturnConfigBaseSerializer returnConfig;
+    
+    
+    
+}
+
+
+/*
+    Model: AppCategoryReturnConfigResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AppCategoryReturnConfigResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    
+    
+    @JsonProperty("category_id")
+    private Integer categoryId;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("return_config")
+    private ProductReturnConfigBaseSerializer returnConfig;
+    
+    
+    
+}
+
+
+/*
     Model: AppConfiguration
 */
 @AllArgsConstructor
@@ -953,6 +1033,67 @@ public static class ApplicationStoreJson{
     
     @JsonProperty("_custom_json")
     private Object customJson;
+    
+    
+    
+}
+
+
+/*
+    Model: AppReturnConfigResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AppReturnConfigResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    
+    
+    @JsonProperty("category_count")
+    private Integer categoryCount;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private Object createdBy;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private Object modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("return_config_level")
+    private String returnConfigLevel;
     
     
     
@@ -1806,6 +1947,74 @@ public static class BannerImage{
     
     @JsonProperty("url")
     private String url;
+    
+    
+    
+}
+
+
+/*
+    Model: BaseAppCategoryReturnConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BaseAppCategoryReturnConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<AppCategoryReturnConfig> data;
+    
+    
+    
+}
+
+
+/*
+    Model: BaseAppCategoryReturnConfigResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BaseAppCategoryReturnConfigResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<AppCategoryReturnConfigResponse> data;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private PageResponse page;
     
     
     
@@ -4918,6 +5127,43 @@ public static class CreateSearchKeyword{
 
 
 /*
+    Model: CreateUpdateAppReturnConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateUpdateAppReturnConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("return_config_level")
+    private String returnConfigLevel;
+    
+    
+    
+}
+
+
+/*
     Model: CrossSellingData
 */
 @AllArgsConstructor
@@ -5078,6 +5324,43 @@ public static class DefaultKeyRequest{
     
     @JsonProperty("default_key")
     private String defaultKey;
+    
+    
+    
+}
+
+
+/*
+    Model: DeleteAppCategoryReturnConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeleteAppCategoryReturnConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    
+    
+    @JsonProperty("category_ids")
+    private List<Integer> categoryIds;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
     
     
     
@@ -11903,6 +12186,61 @@ public static class PageResponse{
 
 
 /*
+    Model: PageResponse1
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PageResponse1{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("current")
+    private Integer current;
+    
+    
+    
+    
+    @JsonProperty("has_next")
+    private Boolean hasNext;
+    
+    
+    
+    
+    @JsonProperty("has_previous")
+    private Boolean hasPrevious;
+    
+    
+    
+    
+    @JsonProperty("item_total")
+    private Integer itemTotal;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private Integer size;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+}
+
+
+/*
     Model: PageResponseType
 */
 @AllArgsConstructor
@@ -14178,6 +14516,43 @@ public static class ProductReturnConfigSerializer{
     
     @JsonProperty("store_uid")
     private Integer storeUid;
+    
+    
+    
+}
+
+
+/*
+    Model: ProductReturnConfigBaseSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductReturnConfigBaseSerializer{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("returnable")
+    private Boolean returnable;
+    
+    
+    
+    
+    @JsonProperty("time")
+    private Integer time;
+    
+    
+    
+    
+    @JsonProperty("unit")
+    private String unit;
     
     
     
