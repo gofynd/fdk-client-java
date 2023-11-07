@@ -3244,6 +3244,37 @@ public static class SendOtpSmsCommsProvider{
 
 
 /*
+    Model: SendOtpEmailCommsProvider
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SendOtpEmailCommsProvider{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+}
+
+
+/*
     Model: SendOtpEmailCommsTemplate
 */
 @AllArgsConstructor
@@ -3391,6 +3422,12 @@ public static class SendOtpCommsReqEmail{
     
     @JsonProperty("template")
     private SendOtpEmailCommsTemplate template;
+    
+    
+    
+    
+    @JsonProperty("provider")
+    private SendOtpEmailCommsProvider provider;
     
     
     

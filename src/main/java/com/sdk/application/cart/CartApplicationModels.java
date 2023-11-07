@@ -843,6 +843,92 @@ public static class ProductPriceInfo{
 
 
 /*
+    Model: ProductPricePerUnit
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductPricePerUnit{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("currency_symbol")
+    private String currencySymbol;
+    
+    
+    
+    
+    @JsonProperty("selling_price")
+    private Double sellingPrice;
+    
+    
+    
+    
+    @JsonProperty("currency_code")
+    private String currencyCode;
+    
+    
+    
+    
+    @JsonProperty("add_on")
+    private Double addOn;
+    
+    
+    
+    
+    @JsonProperty("effective")
+    private Double effective;
+    
+    
+    
+    
+    @JsonProperty("marked")
+    private Double marked;
+    
+    
+    
+}
+
+
+/*
+    Model: ProductPricePerUnitInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductPricePerUnitInfo{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("base")
+    private ProductPricePerUnit base;
+    
+    
+    
+    
+    @JsonProperty("converted")
+    private ProductPricePerUnit converted;
+    
+    
+    
+}
+
+
+/*
     Model: ProductAvailabilitySize
 */
 @AllArgsConstructor
@@ -1343,7 +1429,7 @@ public static class CartProductInfo{
     
     
     @JsonProperty("price_per_unit")
-    private ProductPriceInfo pricePerUnit;
+    private ProductPricePerUnitInfo pricePerUnit;
     
     
     

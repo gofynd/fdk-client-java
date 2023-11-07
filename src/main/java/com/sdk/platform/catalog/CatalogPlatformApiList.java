@@ -99,6 +99,27 @@ interface CatalogPlatformApiList {
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/raw-products/")
     Call<CatalogPlatformModels.RawProductListingResponse> getAppProducts(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("brand_ids") List<Integer> brandIds, @Query("category_ids") List<Integer> categoryIds, @Query("department_ids") List<Integer> departmentIds, @Query("tags") List<String> tags, @Query("item_ids") List<Integer> itemIds, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
 
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/return-config")
+    Call<CatalogPlatformModels.AppReturnConfigResponse> getAppReturnConfiguration(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/return-config")
+    Call<CatalogPlatformModels.SuccessResponse1> createAppReturnConfiguration(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CatalogPlatformModels.CreateUpdateAppReturnConfig payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/return-config")
+    Call<CatalogPlatformModels.SuccessResponse1> updateAppReturnConfiguration(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CatalogPlatformModels.CreateUpdateAppReturnConfig payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/return-config/categories")
+    Call<CatalogPlatformModels.SuccessResponse> deleteAppCategoryReturnConfiguration(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CatalogPlatformModels.DeleteAppCategoryReturnConfig payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/return-config/categories")
+    Call<CatalogPlatformModels.BaseAppCategoryReturnConfigResponse> getAppCategoryReturnConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/return-config/categories")
+    Call<CatalogPlatformModels.SuccessResponse1> createAppCategoryReturnConfiguration(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CatalogPlatformModels.BaseAppCategoryReturnConfig payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/return-config/categories")
+    Call<CatalogPlatformModels.SuccessResponse> updateAppCategoryReturnConfiguration(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CatalogPlatformModels.BaseAppCategoryReturnConfig payload, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/search/autocomplete/")
     Call<CatalogPlatformModels.GetAutocompleteWordsResponse> getAutocompleteConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
