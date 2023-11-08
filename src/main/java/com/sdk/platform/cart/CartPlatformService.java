@@ -870,15 +870,15 @@ public class ApplicationClient {
     return paginator ;
     }
 
-    public CartPlatformModels.CartDetailResponse getAbandonedCartDetails(String id, Boolean i, Boolean b) throws FDKServerResponseError, FDKException {
-        return this.getAbandonedCartDetails(id, i, b, new HashMap<>());
+    public CartPlatformModels.CartDetailResponse getAbandonedCartDetails(String id, Boolean i, Boolean b, Boolean c) throws FDKServerResponseError, FDKException {
+        return this.getAbandonedCartDetails(id, i, b, c, new HashMap<>());
     }
 
-    public CartPlatformModels.CartDetailResponse getAbandonedCartDetails(String id, Boolean i, Boolean b, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.CartDetailResponse getAbandonedCartDetails(String id, Boolean i, Boolean b, Boolean c, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartDetailResponse> response = null;
             try {
-            response = cartPlatformApiList.getAbandonedCartDetails(this.companyId, this.applicationId, id, i, b, requestHeaders).execute();
+            response = cartPlatformApiList.getAbandonedCartDetails(this.companyId, this.applicationId, id, i, b, c, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

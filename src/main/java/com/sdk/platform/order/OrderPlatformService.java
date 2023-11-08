@@ -1403,56 +1403,6 @@ public class OrderPlatformService {
     
     
     
-
-    public OrderPlatformModels.ShipmentBagReasons getShipmentBagReasons(String applicationId, String shipmentId, Integer lineNumber) throws FDKServerResponseError, FDKException {
-        return this.getShipmentBagReasons(applicationId, shipmentId, lineNumber, new HashMap<>());
-    }
-
-    public OrderPlatformModels.ShipmentBagReasons getShipmentBagReasons(String applicationId, String shipmentId, Integer lineNumber, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<OrderPlatformModels.ShipmentBagReasons> response = null;
-            try {
-                response = orderPlatformApiList.getShipmentBagReasons(this.companyId, applicationId, shipmentId, lineNumber, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -2845,6 +2795,33 @@ public class ApplicationClient {
         this.platformConfig = platformConfig;
         this.applicationId = applicationId;
         this.companyId = this.platformConfig.getCompanyId();
+    }
+
+    public OrderPlatformModels.ShipmentBagReasons getShipmentBagReasons(String shipmentId, Integer lineNumber) throws FDKServerResponseError, FDKException {
+        return this.getShipmentBagReasons(shipmentId, lineNumber, new HashMap<>());
+    }
+
+    public OrderPlatformModels.ShipmentBagReasons getShipmentBagReasons(String shipmentId, Integer lineNumber, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<OrderPlatformModels.ShipmentBagReasons> response = null;
+            try {
+            response = orderPlatformApiList.getShipmentBagReasons(this.companyId, this.applicationId, shipmentId, lineNumber, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
     }
 
     public OrderPlatformModels.ShipmentInternalPlatformViewResponse getApplicationShipments(String lane, String searchType, String searchId, String fromDate, String toDate, String dpIds, String orderingCompanyId, String stores, String salesChannel, String requestByExt, Integer pageNo, Integer pageSize, String customerId, Boolean isPrioritySort, Boolean excludeLockedShipments) throws FDKServerResponseError, FDKException {

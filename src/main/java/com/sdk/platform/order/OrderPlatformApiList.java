@@ -99,7 +99,7 @@ interface OrderPlatformApiList {
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/tracking")
     Call<OrderPlatformModels.CourierPartnerTrackingDetails> updateShipmentTracking(@Path("company_id") String companyId, @Body OrderPlatformModels.CourierPartnerTrackingDetails payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/order/v1.0/company/{company_id}/application/<application_id>/orders/shipments/<shipment_id>/line_number/<line_number>/reasons")
+    @GET ("/service/platform/order/v1.0/company/{company_id}/application/{application_id}/orders/shipments/{shipment_id}/line_number/{line_number}/reasons")
     Call<OrderPlatformModels.ShipmentBagReasons> getShipmentBagReasons(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("shipment_id") String shipmentId, @Path("line_number") Integer lineNumber, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/order/v1.0/company/{company_id}/shipments-listing")
