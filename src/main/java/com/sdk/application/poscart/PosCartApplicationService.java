@@ -72,15 +72,15 @@ import com.sdk.application.*;
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),PosCartApplicationApiList.class, interceptorList, cookieStore);
     }
 
-    public PosCartApplicationModels.CartDetailResponse getCart(String id, Boolean i, Boolean b, Boolean c, Integer assignCardId, String areaCode, Boolean buyNow) throws IOException {
-        return this.getCart(id, i, b, c, assignCardId, areaCode, buyNow, new HashMap<>());
+    public PosCartApplicationModels.CartDetailResponse getCart(String id, Boolean i, Boolean b, Integer assignCardId, String areaCode, Boolean buyNow) throws IOException {
+        return this.getCart(id, i, b, assignCardId, areaCode, buyNow, new HashMap<>());
     }
 
-    public PosCartApplicationModels.CartDetailResponse getCart(String id, Boolean i, Boolean b, Boolean c, Integer assignCardId, String areaCode, Boolean buyNow, Map<String, String> requestHeaders) throws IOException {
+    public PosCartApplicationModels.CartDetailResponse getCart(String id, Boolean i, Boolean b, Integer assignCardId, String areaCode, Boolean buyNow, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getCart");
 
-        Response<PosCartApplicationModels.CartDetailResponse> response = poscartApplicationApiList.getCart(fullUrl, id, i, b, c, assignCardId, areaCode, buyNow, requestHeaders).execute();
+        Response<PosCartApplicationModels.CartDetailResponse> response = poscartApplicationApiList.getCart(fullUrl, id, i, b, assignCardId, areaCode, buyNow, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

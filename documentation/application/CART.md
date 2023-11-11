@@ -47,7 +47,7 @@ Fetch all items added to the cart
 
 
 ```java
-applicationClient.cart.getCart( id,  i,  b,  c,  assignCardId,  areaCode,  buyNow) {
+applicationClient.cart.getCart( id,  i,  b,  assignCardId,  areaCode,  buyNow) {
   //use response
 }
 ```
@@ -59,7 +59,6 @@ applicationClient.cart.getCart( id,  i,  b,  c,  assignCardId,  areaCode,  buyNo
 | id | String? | no |  |   
 | i | Boolean? | no |  |   
 | b | Boolean? | no |  |   
-| c | Boolean? | no |  |   
 | assignCardId | Integer? | no |  |   
 | areaCode | String? | no |  |   
 | buyNow | Boolean? | no |  |  
