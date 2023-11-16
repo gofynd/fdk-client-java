@@ -70,7 +70,7 @@ interface CartPlatformApiList {
     Call<CartPlatformModels.AbandonedCartResponse> getAbandonedCart(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("from_date") String fromDate, @Query("to_date") String toDate, @Query("anonymous_cart") Boolean anonymousCart, @Query("last_id") String lastId, @Query("sort_on") String sortOn, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/abandoned/cart/detail")
-    Call<CartPlatformModels.CartDetailResponse> getAbandonedCartDetails(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartPlatformModels.CartDetailResponse> getAbandonedCartDetails(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("c") Boolean c, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/abandoned/carts/{cart_id}")
     Call<CartPlatformModels.AddCartDetailResponse> addItems(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("cart_id") String cartId, @Query("b") Boolean b, @Body CartPlatformModels.AddCartRequest payload, @HeaderMap Map<String, String> requestHeaders);

@@ -3050,7 +3050,7 @@ Fetch all items added to the cart
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").cart.getAbandonedCartDetails( id,  i,  b) {
+platformClient.application("<APPLICATION_ID>").cart.getAbandonedCartDetails( id,  i,  b,  c) {
   //use response
 }
 ```
@@ -3063,7 +3063,8 @@ platformClient.application("<APPLICATION_ID>").cart.getAbandonedCartDetails( id,
 | applicationId | String | yes | Current Application _id |   
 | id | String? | no |  |   
 | i | Boolean? | no |  |   
-| b | Boolean? | no |  |  
+| b | Boolean? | no |  |   
+| c | Boolean? | no |  |  
 
 
 
