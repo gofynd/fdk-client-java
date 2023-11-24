@@ -7602,6 +7602,24 @@ public static class AffiliateMeta{
     
     
     
+    
+    @JsonProperty("is_serial_number_required")
+    private Boolean isSerialNumberRequired;
+    
+    
+    
+    
+    @JsonProperty("fulfilment_priority")
+    private Integer fulfilmentPriority;
+    
+    
+    
+    
+    @JsonProperty("customer_selling_price")
+    private Double customerSellingPrice;
+    
+    
+    
 }
 
 

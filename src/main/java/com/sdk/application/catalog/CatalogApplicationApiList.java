@@ -79,7 +79,7 @@ interface CatalogApplicationApiList {
     Call<CatalogApplicationModels.FollowIdsResponse> getFollowIds(@Url String url1, @Query("collection_type") String collectionType, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CatalogApplicationModels.StoreListingResponse> getStores(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("q") String q, @Query("city") String city, @Query("range") Integer range, @Query("latitude") Double latitude, @Query("longitude") Double longitude, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogApplicationModels.StoreListingResponse> getStores(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("q") String q, @Query("city") String city, @Query("range") Integer range, @Query("latitude") Double latitude, @Query("longitude") Double longitude, @Query("tags") String tags, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<CatalogApplicationModels.ApplicationStoreListing> getInStockLocations(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("q") String q, @Query("city") String city, @Query("range") Integer range, @Query("latitude") Double latitude, @Query("longitude") Double longitude, @HeaderMap Map<String, String> requestHeaders);

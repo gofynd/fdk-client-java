@@ -4108,6 +4108,12 @@ public static class Store{
     
     
     
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
 }
 
 

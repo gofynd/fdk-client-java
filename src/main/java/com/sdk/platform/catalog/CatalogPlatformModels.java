@@ -3423,6 +3423,12 @@ public static class CollectionCreateResponse{
     
     
     
+    @JsonProperty("uid")
+    private String uid;
+    
+    
+    
+    
     @JsonProperty("_schedule")
     private Object schedule;
     

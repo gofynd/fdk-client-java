@@ -47,7 +47,7 @@ Fetch all items added to the cart
 
 
 ```java
-applicationClient.cart.getCart( id,  i,  b,  assignCardId,  areaCode,  buyNow) {
+applicationClient.cart.getCart( id,  i,  b,  c,  assignCardId,  areaCode,  buyNow) {
   //use response
 }
 ```
@@ -59,6 +59,7 @@ applicationClient.cart.getCart( id,  i,  b,  assignCardId,  areaCode,  buyNow) {
 | id | String? | no |  |   
 | i | Boolean? | no |  |   
 | b | Boolean? | no |  |   
+| c | Boolean? | no |  |   
 | assignCardId | Integer? | no |  |   
 | areaCode | String? | no |  |   
 | buyNow | Boolean? | no |  |  
@@ -9153,10 +9154,73 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
 
  
  
+ #### [CartDetailCoupon](#CartDetailCoupon)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | cashbackAmount | Double? |  yes  |  |
+ | cashbackMessagePrimary | String? |  yes  |  |
+ | cashbackMessageSecondary | String? |  yes  |  |
+ | couponCode | String? |  yes  |  |
+ | couponDescription | String? |  yes  |  |
+ | couponId | String? |  yes  |  |
+ | couponSubtitle | String? |  yes  |  |
+ | couponTitle | String? |  yes  |  |
+ | couponType | String? |  yes  |  |
+ | couponValue | Double? |  yes  |  |
+ | discount | Double? |  yes  |  |
+ | isApplied | Boolean? |  yes  |  |
+ | isValid | Boolean? |  yes  |  |
+ | maximumDiscountValue | Double? |  yes  |  |
+ | message | String? |  yes  |  |
+ | minimumCartValue | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ChargesThreshold](#ChargesThreshold)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | charges | Double? |  yes  |  |
+ | threshold | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DeliveryChargesConfig](#DeliveryChargesConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | enabled | Boolean? |  yes  |  |
+ | charges | ArrayList<[ChargesThreshold](#ChargesThreshold)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CartCommonConfig](#CartCommonConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | deliveryChargesConfig | [DeliveryChargesConfig](#DeliveryChargesConfig)? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [CartDetailResponse](#CartDetailResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | cartId | Integer? |  yes  |  |
+ | uid | String? |  yes  |  |
  | appliedPromoDetails | ArrayList<[AppliedPromotion](#AppliedPromotion)>? |  yes  |  |
  | checkoutMode | String? |  yes  |  |
  | panNo | String? |  yes  |  |
@@ -9167,7 +9231,12 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
  | comment | String? |  yes  |  |
  | items | ArrayList<[CartProductInfo](#CartProductInfo)>? |  yes  |  |
  | deliveryChargeInfo | String? |  yes  |  |
+ | commonConfig | [CartCommonConfig](#CartCommonConfig)? |  yes  |  |
+ | coupon | [CartDetailCoupon](#CartDetailCoupon)? |  yes  |  |
  | message | String? |  yes  |  |
+ | notification | HashMap<String,Object>? |  yes  |  |
+ | staffUserId | String? |  yes  |  |
+ | success | Boolean? |  yes  |  |
  | gstin | String? |  yes  |  |
  | restrictCheckout | Boolean? |  yes  |  |
  | lastModified | String? |  yes  |  |

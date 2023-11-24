@@ -43,6 +43,7 @@ Handles all platform order and shipment api(s)
 * [getOrderById](#getorderbyid)
 * [getLaneConfig](#getlaneconfig)
 * [getOrders](#getorders)
+* [getApplicationShipments](#getapplicationshipments)
 * [trackShipmentPlatform](#trackshipmentplatform)
 * [getfilters](#getfilters)
 * [getBulkShipmentExcelFile](#getbulkshipmentexcelfile)
@@ -2222,7 +2223,7 @@ Get reasons behind full or partial cancellation of a shipment
 
 
 ```java
-platformClient.order.getShipmentBagReasons( shipmentId,  lineNumber) {
+platformClient.application("<APPLICATION_ID>").order.getShipmentBagReasons( shipmentId,  lineNumber) {
   //use response
 }
 ```
@@ -2232,6 +2233,7 @@ platformClient.order.getShipmentBagReasons( shipmentId,  lineNumber) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | companyId | Integer | yes | Id of company |   
+| applicationId | String | yes | Application ID of company |   
 | shipmentId | String | yes | ID of the bag. An order may contain multiple items and may get divided into one or more shipment, each having its own ID. |   
 | lineNumber | Integer | yes | line number of bag. |  
 
@@ -2319,7 +2321,7 @@ Success. Check the example shown below or refer `ShipmentBagReasons` for more de
 
 
 ```java
-platformClient.order.getShipments( lane,  bagStatus,  statusOverrideLane,  timeToDispatch,  searchType,  searchValue,  fromDate,  toDate,  dpIds,  stores,  salesChannels,  pageNo,  pageSize,  fetchActiveShipment,  excludeLockedShipments,  paymentMethods,  channelShipmentId,  channelOrderId,  customMeta,  orderingChannel,  companyAffiliateTag,  myOrders,  platformUserId,  sortType,  showCrossCompanyData,  tags,  customerId,  orderType) {
+platformClient.order.getShipments( lane,  bagStatus,  statusOverrideLane,  timeToDispatch,  searchType,  searchValue,  fromDate,  toDate,  dpIds,  stores,  salesChannels,  pageNo,  pageSize,  fetchActiveShipment,  allowInactive,  excludeLockedShipments,  paymentMethods,  channelShipmentId,  channelOrderId,  customMeta,  orderingChannel,  companyAffiliateTag,  myOrders,  platformUserId,  sortType,  showCrossCompanyData,  tags,  customerId,  orderType) {
   //use response
 }
 ```
@@ -2343,6 +2345,7 @@ platformClient.order.getShipments( lane,  bagStatus,  statusOverrideLane,  timeT
 | pageNo | Integer? | no | Page number for paginated data |   
 | pageSize | Integer? | no | Page size of data received per page |   
 | fetchActiveShipment | Boolean? | no | flag to fetch active shipments |   
+| allowInactive | Boolean? | no | Flag to allow inactive shipments |   
 | excludeLockedShipments | Boolean? | no | flag to fetch locked shipments |   
 | paymentMethods | String? | no | Comma separated values of payment methods |   
 | channelShipmentId | String? | no | App Shipment Id |   
@@ -3763,6 +3766,75 @@ Get Orders Listing
 
 
 [OrderListingResponse](#OrderListingResponse)
+
+We are processing the report!
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getApplicationShipments
+
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").order.getApplicationShipments( lane,  searchType,  searchId,  fromDate,  toDate,  dpIds,  orderingCompanyId,  stores,  salesChannel,  requestByExt,  pageNo,  pageSize,  customerId,  isPrioritySort,  excludeLockedShipments) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes |  |   
+| applicationId | String | yes |  |   
+| lane | String? | no |  |   
+| searchType | String? | no |  |   
+| searchId | String? | no |  |   
+| fromDate | String? | no |  |   
+| toDate | String? | no |  |   
+| dpIds | String? | no |  |   
+| orderingCompanyId | String? | no |  |   
+| stores | String? | no |  |   
+| salesChannel | String? | no |  |   
+| requestByExt | String? | no |  |   
+| pageNo | Integer? | no |  |   
+| pageSize | Integer? | no |  |   
+| customerId | String? | no |  |   
+| isPrioritySort | Boolean? | no |  |   
+| excludeLockedShipments | Boolean? | no |  |  
+
+
+
+
+
+*Returned Response:*
+
+
+
+
+[ShipmentInternalPlatformViewResponse](#ShipmentInternalPlatformViewResponse)
 
 We are processing the report!
 
@@ -7130,6 +7202,9 @@ We are processing the request!
  | dueDate | String? |  yes  |  |
  | couponCode | String? |  yes  |  |
  | isPriority | Boolean? |  yes  |  |
+ | isSerialNumberRequired | Boolean? |  yes  |  |
+ | fulfilmentPriority | Integer? |  yes  |  |
+ | customerSellingPrice | Double? |  yes  |  |
 
 ---
 
