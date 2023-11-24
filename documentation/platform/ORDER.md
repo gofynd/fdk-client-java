@@ -2321,7 +2321,7 @@ Success. Check the example shown below or refer `ShipmentBagReasons` for more de
 
 
 ```java
-platformClient.order.getShipments( lane,  bagStatus,  statusOverrideLane,  timeToDispatch,  searchType,  searchValue,  fromDate,  toDate,  dpIds,  stores,  salesChannels,  pageNo,  pageSize,  fetchActiveShipment,  excludeLockedShipments,  paymentMethods,  channelShipmentId,  channelOrderId,  customMeta,  orderingChannel,  companyAffiliateTag,  myOrders,  platformUserId,  sortType,  showCrossCompanyData,  tags,  customerId,  orderType) {
+platformClient.order.getShipments( lane,  bagStatus,  statusOverrideLane,  timeToDispatch,  searchType,  searchValue,  fromDate,  toDate,  dpIds,  stores,  salesChannels,  pageNo,  pageSize,  fetchActiveShipment,  allowInactive,  excludeLockedShipments,  paymentMethods,  channelShipmentId,  channelOrderId,  customMeta,  orderingChannel,  companyAffiliateTag,  myOrders,  platformUserId,  sortType,  showCrossCompanyData,  tags,  customerId,  orderType) {
   //use response
 }
 ```
@@ -2345,6 +2345,7 @@ platformClient.order.getShipments( lane,  bagStatus,  statusOverrideLane,  timeT
 | pageNo | Integer? | no | Page number for paginated data |   
 | pageSize | Integer? | no | Page size of data received per page |   
 | fetchActiveShipment | Boolean? | no | flag to fetch active shipments |   
+| allowInactive | Boolean? | no | Flag to allow inactive shipments |   
 | excludeLockedShipments | Boolean? | no | flag to fetch locked shipments |   
 | paymentMethods | String? | no | Comma separated values of payment methods |   
 | channelShipmentId | String? | no | App Shipment Id |   
@@ -7201,6 +7202,9 @@ We are processing the request!
  | dueDate | String? |  yes  |  |
  | couponCode | String? |  yes  |  |
  | isPriority | Boolean? |  yes  |  |
+ | isSerialNumberRequired | Boolean? |  yes  |  |
+ | fulfilmentPriority | Integer? |  yes  |  |
+ | customerSellingPrice | Double? |  yes  |  |
 
 ---
 

@@ -1815,6 +1815,208 @@ public static class CartCurrency{
 
 
 /*
+    Model: CartDetailCoupon
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CartDetailCoupon{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("cashback_amount")
+    private Double cashbackAmount;
+    
+    
+    
+    
+    @JsonProperty("cashback_message_primary")
+    private String cashbackMessagePrimary;
+    
+    
+    
+    
+    @JsonProperty("cashback_message_secondary")
+    private String cashbackMessageSecondary;
+    
+    
+    
+    
+    @JsonProperty("coupon_code")
+    private String couponCode;
+    
+    
+    
+    
+    @JsonProperty("coupon_description")
+    private String couponDescription;
+    
+    
+    
+    
+    @JsonProperty("coupon_id")
+    private String couponId;
+    
+    
+    
+    
+    @JsonProperty("coupon_subtitle")
+    private String couponSubtitle;
+    
+    
+    
+    
+    @JsonProperty("coupon_title")
+    private String couponTitle;
+    
+    
+    
+    
+    @JsonProperty("coupon_type")
+    private String couponType;
+    
+    
+    
+    
+    @JsonProperty("coupon_value")
+    private Double couponValue;
+    
+    
+    
+    
+    @JsonProperty("discount")
+    private Double discount;
+    
+    
+    
+    
+    @JsonProperty("is_applied")
+    private Boolean isApplied;
+    
+    
+    
+    
+    @JsonProperty("is_valid")
+    private Boolean isValid;
+    
+    
+    
+    
+    @JsonProperty("maximum_discount_value")
+    private Double maximumDiscountValue;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("minimum_cart_value")
+    private Double minimumCartValue;
+    
+    
+    
+}
+
+
+/*
+    Model: ChargesThreshold
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ChargesThreshold{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("charges")
+    private Double charges;
+    
+    
+    
+    
+    @JsonProperty("threshold")
+    private Double threshold;
+    
+    
+    
+}
+
+
+/*
+    Model: DeliveryChargesConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeliveryChargesConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+    
+    @JsonProperty("charges")
+    private List<ChargesThreshold> charges;
+    
+    
+    
+}
+
+
+/*
+    Model: CartCommonConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CartCommonConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("delivery_charges_config")
+    private DeliveryChargesConfig deliveryChargesConfig;
+    
+    
+    
+}
+
+
+/*
     Model: CartDetailResponse
 */
 @AllArgsConstructor
@@ -1827,6 +2029,18 @@ public static class CartDetailResponse{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("cart_id")
+    private Integer cartId;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private String uid;
     
     
     
@@ -1891,8 +2105,38 @@ public static class CartDetailResponse{
     
     
     
+    @JsonProperty("common_config")
+    private CartCommonConfig commonConfig;
+    
+    
+    
+    
+    @JsonProperty("coupon")
+    private CartDetailCoupon coupon;
+    
+    
+    
+    
     @JsonProperty("message")
     private String message;
+    
+    
+    
+    
+    @JsonProperty("notification")
+    private Object notification;
+    
+    
+    
+    
+    @JsonProperty("staff_user_id")
+    private String staffUserId;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     

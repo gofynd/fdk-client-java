@@ -775,15 +775,15 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.StoreListingResponse getStores(Integer pageNo, Integer pageSize, String q, String city, Integer range, Double latitude, Double longitude) throws IOException {
-        return this.getStores(pageNo, pageSize, q, city, range, latitude, longitude, new HashMap<>());
+    public CatalogApplicationModels.StoreListingResponse getStores(Integer pageNo, Integer pageSize, String q, String city, Integer range, Double latitude, Double longitude, String tags) throws IOException {
+        return this.getStores(pageNo, pageSize, q, city, range, latitude, longitude, tags, new HashMap<>());
     }
 
-    public CatalogApplicationModels.StoreListingResponse getStores(Integer pageNo, Integer pageSize, String q, String city, Integer range, Double latitude, Double longitude, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.StoreListingResponse getStores(Integer pageNo, Integer pageSize, String q, String city, Integer range, Double latitude, Double longitude, String tags, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getStores");
 
-        Response<CatalogApplicationModels.StoreListingResponse> response = catalogApplicationApiList.getStores(fullUrl, pageNo, pageSize, q, city, range, latitude, longitude, requestHeaders).execute();
+        Response<CatalogApplicationModels.StoreListingResponse> response = catalogApplicationApiList.getStores(fullUrl, pageNo, pageSize, q, city, range, latitude, longitude, tags, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -802,7 +802,8 @@ import com.sdk.application.*;
         String city,
         Integer range,
         Double latitude,
-        Double longitude
+        Double longitude,
+        String tags
         
         ){ 
     
@@ -822,7 +823,8 @@ import com.sdk.application.*;
                  city,
                  range,
                  latitude,
-                 longitude
+                 longitude,
+                 tags
             );
                 
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
