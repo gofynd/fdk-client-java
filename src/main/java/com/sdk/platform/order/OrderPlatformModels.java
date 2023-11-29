@@ -10448,6 +10448,12 @@ public static class AffiliateBagsDetails{
     
     
     
+    
+    @JsonProperty("affiliate_meta")
+    private AffiliateMeta affiliateMeta;
+    
+    
+    
 }
 
 
