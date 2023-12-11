@@ -6,6 +6,8 @@
 
 ## CompanyProfile Methods
 Catalog CBS - platform Front API's
+
+Default
 * [cbsOnboardGet](#cbsonboardget)
 * [updateCompany](#updatecompany)
 * [getCompanyMetrics](#getcompanymetrics)
@@ -23,7 +25,9 @@ Catalog CBS - platform Front API's
 
 
 
+
 ## Methods with example and description
+
 
 
 ### cbsOnboardGet
@@ -1391,6 +1395,7 @@ Tags list. See example below or refer `StoreTagsResponseSchema` for details
 
 
 ---
+
 
 
 

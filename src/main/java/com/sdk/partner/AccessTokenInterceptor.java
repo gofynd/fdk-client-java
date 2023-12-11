@@ -1,10 +1,10 @@
-package com.sdk.platform;
+package com.sdk.partner;
 
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
-import com.sdk.platform.*;
+import com.sdk.partner.*;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.io.IOException;
@@ -14,21 +14,21 @@ import java.util.*;
 
 public class AccessTokenInterceptor implements Interceptor {
 
-    private PlatformConfig platformConfig;
+    private PartnerConfig partnerConfig;
 
-    public AccessTokenInterceptor(PlatformConfig platformConfig) {
-        this.platformConfig = platformConfig;
+    public AccessTokenInterceptor(PartnerConfig partnerConfig) {
+        this.partnerConfig = partnerConfig;
     }
 
     @Override
     public Response intercept(Chain chain) throws IOException {
         okhttp3.Request original = chain.request();
         okhttp3.Request.Builder builder = original.newBuilder()
-                .addHeader("Authorization", "Bearer "+ platformConfig.getPlatformOauthClient().getToken())
+                .addHeader("Authorization", "Bearer "+ partnerConfig.getPartnerOauthClient().getToken())
                 .addHeader("Content-Type", "application/x-www-form-urlencoded")
                 .addHeader("x-fp-sdk-version", "1.3.10-beta.2");
-        if (!platformConfig.getExtraHeaders().isEmpty()) {
-            HashMap<String, String> extraHeaders = platformConfig.getExtraHeaders();
+        if (!partnerConfig.getExtraHeaders().isEmpty()) {
+            HashMap<String, String> extraHeaders = partnerConfig.getExtraHeaders();
             for(Map.Entry<String,String> entry:extraHeaders.entrySet()){
                 builder.addHeader(entry.getKey(),entry.getValue());
             }

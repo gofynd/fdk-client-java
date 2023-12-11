@@ -6,6 +6,8 @@
 
 ## Theme Methods
 Responsible for Storefront
+
+Default
 * [getAllPages](#getallpages)
 * [getPage](#getpage)
 * [getAppliedTheme](#getappliedtheme)
@@ -13,7 +15,9 @@ Responsible for Storefront
 
 
 
+
 ## Methods with example and description
+
 
 
 ### getAllPages
@@ -4864,6 +4868,7 @@ Success. Returns a JSON object of the theme. Check the example shown below or re
 
 
 ---
+
 
 
 

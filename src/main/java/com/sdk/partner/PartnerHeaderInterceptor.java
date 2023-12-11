@@ -1,6 +1,6 @@
-package com.sdk.platform;
+package com.sdk.partner;
 
-import com.sdk.platform.PlatformConfig;
+import com.sdk.partner.PartnerConfig;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -9,21 +9,21 @@ import java.io.IOException;
 import java.util.Base64;
 import java.util.*;
 
-public class PlatformHeaderInterceptor implements Interceptor {
+public class PartnerHeaderInterceptor implements Interceptor {
 
-    private PlatformConfig platformConfig;
+    private PartnerConfig partnerConfig;
 
-    public PlatformHeaderInterceptor(PlatformConfig platformConfig) {
-        this.platformConfig = platformConfig;
+    public PartnerHeaderInterceptor(PartnerConfig partnerConfig) {
+        this.partnerConfig = partnerConfig;
     }
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-        String bearerToken = Base64.getEncoder().encodeToString((platformConfig.getApiKey()+":"+ platformConfig.getApiSecret()).getBytes());
+        String bearerToken = Base64.getEncoder().encodeToString((partnerConfig.getApiKey()+":"+ partnerConfig.getApiSecret()).getBytes());
         Request request = chain.request();
         Request.Builder builder = buildHeaders(request, bearerToken);
-        if (!platformConfig.getExtraHeaders().isEmpty()) {
-            HashMap<String, String> extraHeaders = platformConfig.getExtraHeaders();
+        if (!partnerConfig.getExtraHeaders().isEmpty()) {
+            HashMap<String, String> extraHeaders = partnerConfig.getExtraHeaders();
             for(Map.Entry<String,String> entry:extraHeaders.entrySet()){
                 builder.addHeader(entry.getKey(),entry.getValue());
             }

@@ -8254,7 +8254,7 @@ public static class ShipmentItemFulFillingStore{
     
     
     @JsonProperty("brand_store_tags")
-    private String brandStoreTags;
+    private List<String> brandStoreTags;
     
     
     
@@ -10923,6 +10923,12 @@ public static class OrderBags{
     
     @JsonProperty("gst_details")
     private GSTDetailsData gstDetails;
+    
+    
+    
+    
+    @JsonProperty("bag_status")
+    private List<BagStatusHistory> bagStatus;
     
     
     

@@ -6,6 +6,8 @@
 
 ## Rewards Methods
 Earn and redeem reward points
+
+Default
 * [getOfferByName](#getofferbyname)
 * [catalogueOrder](#catalogueorder)
 * [getUserPointsHistory](#getuserpointshistory)
@@ -16,7 +18,9 @@ Earn and redeem reward points
 
 
 
+
 ## Methods with example and description
+
 
 
 ### getOfferByName
@@ -620,6 +624,7 @@ Success. Check example below or refer `RedeemReferralCodeResponse` for more deta
 
 
 ---
+
 
 
 

@@ -133,6 +133,12 @@ public static class CreateUpdateDiscount{
     
     
     
+    @JsonProperty("zone_ids")
+    private List<String> zoneIds;
+    
+    
+    
+    
     @JsonProperty("validity")
     private ValidityObject validity;
     
