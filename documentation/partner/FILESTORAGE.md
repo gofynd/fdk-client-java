@@ -37,7 +37,7 @@ partnerClient.filestorage.startUpload( namespace,  organizationId, body body) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
-| organizationId | Integer | yes |  |  
+| organizationId | String | yes |  |  
 | body | [StartRequest](#StartRequest) | yes | Request body |
 
 
@@ -138,7 +138,7 @@ partnerClient.filestorage.completeUpload( namespace,  organizationId, body body)
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
-| organizationId | Integer | yes |  |  
+| organizationId | String | yes |  |  
 | body | [StartResponse](#StartResponse) | yes | Request body |
 
 
@@ -242,7 +242,7 @@ partnerClient.filestorage.browse( namespace,  organizationId,  page,  limit) {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
-| organizationId | Integer | yes |  |   
+| organizationId | String | yes |  |   
 | applicationId | String | yes |  |   
 | companyId | Integer | yes |  |   
 | page | Integer? | no | page no |   

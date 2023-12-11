@@ -1263,6 +1263,12 @@ public static class CartProduct{
     
     
     
+    
+    @JsonProperty("attributes")
+    private Object attributes;
+    
+    
+    
 }
 
 
@@ -1376,6 +1382,12 @@ public static class CartProductInfo{
     
     @JsonProperty("product")
     private CartProduct product;
+    
+    
+    
+    
+    @JsonProperty("product_ean_id")
+    private String productEanId;
     
     
     
