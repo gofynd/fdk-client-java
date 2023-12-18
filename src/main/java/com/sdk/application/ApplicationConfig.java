@@ -1,12 +1,14 @@
 package com.sdk.application;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.net.CookieManager;
 import java.net.CookieStore;
 import java.util.HashMap;
 
 @Getter
+@Setter
 public class ApplicationConfig {
 
     private String applicationId;
@@ -21,15 +23,6 @@ public class ApplicationConfig {
 
     private CookieStore persistentCookieStore = new CookieManager().getCookieStore();
 
-    public ApplicationConfig(String applicationId, String applicationToken) {
-        this.applicationId = applicationId;
-        this.applicationToken = applicationToken;
-        var regex = "^[0-9a-fA-F]{24}$";
-        if (!this.applicationId.matches(regex)) {
-            throw new IllegalArgumentException("Invalid Application Id");
-        }
-    }
-
     public ApplicationConfig(String applicationId, String applicationToken, String domain) {
         this.applicationId = applicationId;
         this.applicationToken = applicationToken;
@@ -38,5 +31,9 @@ public class ApplicationConfig {
         if (!this.applicationId.matches(regex)) {
             throw new IllegalArgumentException("Invalid Application Id");
         }
+    }
+
+    public ApplicationConfig(String applicationId, String applicationToken) {
+        this(applicationId, applicationToken, "https://api.fynd.com");
     }
 }

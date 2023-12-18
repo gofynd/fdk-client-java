@@ -44,6 +44,10 @@ public final class PartnerConfig {
         this.partnerOauthClient = new PartnerOauthClient(this);
     }
 
+    public PartnerConfig(String organizationId, String apiKey, String apiSecret) {
+        this(organizationId, apiKey, apiSecret, "https://api.fynd.com");
+    }
+
     public AccessTokenDto getAccessToken() {
         return this.partnerOauthClient.getRawToken();
     }

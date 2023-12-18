@@ -6188,6 +6188,167 @@ public static class EInvoiceRetryResponse{
 
 
 /*
+    Model: GenerateInvoiceIDResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GenerateInvoiceIDResponseData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("shipment_id")
+    private String shipmentId;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("invoice_id")
+    private String invoiceId;
+    
+    
+    
+    
+    @JsonProperty("error_message")
+    private Boolean errorMessage;
+    
+    
+    
+}
+
+
+/*
+    Model: GenerateInvoiceIDErrorResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GenerateInvoiceIDErrorResponseData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("shipment_id")
+    private String shipmentId;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("invoice_id")
+    private Boolean invoiceId;
+    
+    
+    
+    
+    @JsonProperty("error_message")
+    private String errorMessage;
+    
+    
+    
+}
+
+
+/*
+    Model: GenerateInvoiceIDRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GenerateInvoiceIDRequest{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("shipment_ids")
+    private List<String> shipmentIds;
+    
+    
+    
+}
+
+
+/*
+    Model: GenerateInvoiceIDResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GenerateInvoiceIDResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private GenerateInvoiceIDResponseData items;
+    
+    
+    
+}
+
+
+/*
+    Model: GenerateInvoiceIDErrorResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GenerateInvoiceIDErrorResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private GenerateInvoiceIDErrorResponseData items;
+    
+    
+    
+}
+
+
+/*
     Model: BagReasonMeta
 */
 @AllArgsConstructor
