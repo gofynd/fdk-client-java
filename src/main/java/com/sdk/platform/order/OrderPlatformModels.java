@@ -6316,7 +6316,7 @@ public static class GenerateInvoiceIDResponse{
     
     
     @JsonProperty("items")
-    private GenerateInvoiceIDResponseData items;
+    private List<GenerateInvoiceIDResponseData> items;
     
     
     
@@ -6341,7 +6341,7 @@ public static class GenerateInvoiceIDErrorResponse{
     
     
     @JsonProperty("items")
-    private GenerateInvoiceIDErrorResponseData items;
+    private List<GenerateInvoiceIDErrorResponseData> items;
     
     
     
