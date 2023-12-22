@@ -8415,7 +8415,7 @@ public static class ShipmentItemFulFillingStore{
     
     
     @JsonProperty("brand_store_tags")
-    private List<String> brandStoreTags;
+    private String brandStoreTags;
     
     
     

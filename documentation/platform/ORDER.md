@@ -7495,7 +7495,7 @@ We are processing the request!
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | phone | String? |  yes  |  |
- | brandStoreTags | ArrayList<String>? |  yes  |  |
+ | brandStoreTags | String? |  yes  |  |
  | pincode | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | address | String? |  yes  |  |
