@@ -25,7 +25,7 @@ interface CartApplicationApiList {
     Call<CartApplicationModels.CartItemCountResponse> getItemCount(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CartApplicationModels.GetCouponResponse> getCoupons(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.GetCouponResponse> getCoupons(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("slug") String slug, @Query("store_id") String storeId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<CartApplicationModels.CartDetailResponse> applyCoupon(@Url String url1, @Query("i") Boolean i, @Query("b") Boolean b, @Query("p") Boolean p, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Body CartApplicationModels.ApplyCouponRequest payload, @HeaderMap Map<String, String> requestHeaders);

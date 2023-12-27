@@ -1810,6 +1810,31 @@ public static class Ticket{
 }
 
 
+/*
+    Model: ErrorMessage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ErrorMessage{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
 
 
     
@@ -1856,7 +1881,9 @@ public static class Ticket{
         
         log("log"), 
         
-        comment("comment");
+        comment("comment"), 
+        
+        thread("thread");
         
 
         private String priority;

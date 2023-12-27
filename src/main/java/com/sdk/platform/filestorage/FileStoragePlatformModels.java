@@ -2154,8 +2154,8 @@ public static class DummyTemplateDataPayload{
     
     
     
-    @JsonProperty("is_international")
-    private Boolean isInternational;
+    @JsonProperty("is_export")
+    private Boolean isExport;
     
     
     
@@ -2397,6 +2397,12 @@ public static class DummyTemplateData{
     
     @JsonProperty("payload")
     private DummyTemplateDataPayload payload;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
     
     
     
@@ -3146,6 +3152,31 @@ public static class PaymentReceiptMeta{
     
     @JsonProperty("trace")
     private String trace;
+    
+    
+    
+}
+
+
+/*
+    Model: ExtensionSlug
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ExtensionSlug{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("extension_slug")
+    private String extensionSlug;
     
     
     

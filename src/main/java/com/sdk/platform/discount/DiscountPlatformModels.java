@@ -133,12 +133,6 @@ public static class CreateUpdateDiscount{
     
     
     
-    @JsonProperty("zone_ids")
-    private List<String> zoneIds;
-    
-    
-    
-    
     @JsonProperty("validity")
     private ValidityObject validity;
     
@@ -279,6 +273,151 @@ public static class DiscountJob{
     
     
     
+    @JsonProperty("zone_ids")
+    private List<String> zoneIds;
+    
+    
+    
+    
+    @JsonProperty("discount_meta")
+    private DiscountMeta discountMeta;
+    
+    
+    
+    
+    @JsonProperty("validity")
+    private ValidityObject validity;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private UserDetails createdBy;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private UserDetails modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+}
+
+
+/*
+    Model: FileJobBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FileJobBody{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("app_ids")
+    private List<String> appIds;
+    
+    
+    
+    
+    @JsonProperty("job_type")
+    private String jobType;
+    
+    
+    
+    
+    @JsonProperty("discount_type")
+    private String discountType;
+    
+    
+    
+    
+    @JsonProperty("discount_level")
+    private String discountLevel;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Integer value;
+    
+    
+    
+    
+    @JsonProperty("file_path")
+    private String filePath;
+    
+    
+    
+    
+    @JsonProperty("brand_ids")
+    private List<Integer> brandIds;
+    
+    
+    
+    
+    @JsonProperty("store_ids")
+    private List<Integer> storeIds;
+    
+    
+    
+    
+    @JsonProperty("extension_ids")
+    private List<String> extensionIds;
+    
+    
+    
+    
+    @JsonProperty("zone_ids")
+    private List<String> zoneIds;
+    
+    
+    
+    
     @JsonProperty("discount_meta")
     private DiscountMeta discountMeta;
     
@@ -377,8 +516,8 @@ public static class DiscountItems{
     
     
     
-    @JsonProperty("brand_uid")
-    private Integer brandUid;
+    @JsonProperty("brand_name")
+    private String brandName;
     
     
     
@@ -482,7 +621,7 @@ public static class FileJobResponse{
     
     
     @JsonProperty("body")
-    private Object body;
+    private FileJobBody body;
     
     
     
@@ -507,6 +646,42 @@ public static class FileJobResponse{
     
     @JsonProperty("file_path")
     private String filePath;
+    
+    
+    
+    
+    @JsonProperty("progress")
+    private Integer progress;
+    
+    
+    
+    
+    @JsonProperty("extension_ids")
+    private List<String> extensionIds;
+    
+    
+    
+    
+    @JsonProperty("zone_ids")
+    private List<String> zoneIds;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private UserDetails createdBy;
     
     
     
@@ -538,6 +713,12 @@ public static class FileJobRequest{
     
     @JsonProperty("is_active")
     private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
     
     
     
@@ -765,6 +946,68 @@ public static class BadRequestObject{
     
     @JsonProperty("message")
     private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: BadRequestData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BadRequestData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: BadRequestObjectGet
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BadRequestObjectGet{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private BadRequestData data;
     
     
     

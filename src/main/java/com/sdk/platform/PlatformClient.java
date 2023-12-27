@@ -32,6 +32,8 @@ import com.sdk.platform.inventory.InventoryPlatformService;
 
 import com.sdk.platform.lead.LeadPlatformService;
 
+import com.sdk.platform.serviceability.ServiceabilityPlatformService;
+
 import com.sdk.platform.order.OrderPlatformService;
 
 import com.sdk.platform.partner.PartnerPlatformService;
@@ -39,8 +41,6 @@ import com.sdk.platform.partner.PartnerPlatformService;
 import com.sdk.platform.payment.PaymentPlatformService;
 
 import com.sdk.platform.rewards.RewardsPlatformService;
-
-import com.sdk.platform.serviceability.ServiceabilityPlatformService;
 
 import com.sdk.platform.share.SharePlatformService;
 
@@ -87,6 +87,8 @@ public class PlatformClient {
     
     public LeadPlatformService lead;
     
+    public ServiceabilityPlatformService serviceability;
+    
     public OrderPlatformService order;
     
     public PartnerPlatformService partner;
@@ -94,8 +96,6 @@ public class PlatformClient {
     public PaymentPlatformService payment;
     
     public RewardsPlatformService rewards;
-    
-    public ServiceabilityPlatformService serviceability;
     
     public SharePlatformService share;
     
@@ -138,6 +138,8 @@ public class PlatformClient {
         
         this.lead = new LeadPlatformService(config);
         
+        this.serviceability = new ServiceabilityPlatformService(config);
+        
         this.order = new OrderPlatformService(config);
         
         this.partner = new PartnerPlatformService(config);
@@ -145,8 +147,6 @@ public class PlatformClient {
         this.payment = new PaymentPlatformService(config);
         
         this.rewards = new RewardsPlatformService(config);
-        
-        this.serviceability = new ServiceabilityPlatformService(config);
         
         this.share = new SharePlatformService(config);
         
@@ -200,6 +200,8 @@ public class PlatformClient {
         
         public LeadPlatformService.ApplicationClient lead;
         
+        public ServiceabilityPlatformService.ApplicationClient serviceability;
+        
         public OrderPlatformService.ApplicationClient order;
         
         public PartnerPlatformService.ApplicationClient partner;
@@ -207,8 +209,6 @@ public class PlatformClient {
         public PaymentPlatformService.ApplicationClient payment;
         
         public RewardsPlatformService.ApplicationClient rewards;
-        
-        public ServiceabilityPlatformService.ApplicationClient serviceability;
         
         public SharePlatformService.ApplicationClient share;
         
@@ -250,6 +250,8 @@ public class PlatformClient {
             
             this.lead = new LeadPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
+            this.serviceability = new ServiceabilityPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
             this.order = new OrderPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.partner = new PartnerPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
@@ -257,8 +259,6 @@ public class PlatformClient {
             this.payment = new PaymentPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.rewards = new RewardsPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.serviceability = new ServiceabilityPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.share = new SharePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             

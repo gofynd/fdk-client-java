@@ -14,7 +14,7 @@ Get started with the Java Development SDK for Fynd Platform
 <dependency>
     <groupId>com.github.gofynd</groupId>
     <artifactId>fdk-client-java</artifactId>
-    <version>1.3.11-beta.7</version>
+    <version>1.3.11-beta.8</version>
 </dependency>
 ```
 
