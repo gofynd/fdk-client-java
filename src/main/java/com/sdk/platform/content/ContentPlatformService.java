@@ -875,16 +875,28 @@ public class ContentPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public ContentPlatformModels.CustomObjectsSchema getCustomObjects() throws FDKServerResponseError, FDKException {
-        return this.getCustomObjects(new HashMap<>());
+    public ContentPlatformModels.CustomObjectsSchema getCustomObjects(String definitionId, String pageNo, String pageSize) throws FDKServerResponseError, FDKException {
+        return this.getCustomObjects(definitionId, pageNo, pageSize, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomObjectsSchema getCustomObjects(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomObjectsSchema getCustomObjects(String definitionId, String pageNo, String pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomObjectsSchema> response = null;
             try {
-                response = contentPlatformApiList.getCustomObjects(this.companyId, requestHeaders).execute();
+                response = contentPlatformApiList.getCustomObjects(this.companyId, definitionId, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3002,11 +3014,11 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.SEOSchemaMarkupTemplate editSEOMarkupSchema(String id, ContentPlatformModels.SEOSchemaMarkupTemplate body) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.SEOSchemaMarkupTemplate editSEOMarkupSchema(String id, ContentPlatformModels.SEOSchemaMarkupTemplateRequestBody body) throws FDKServerResponseError, FDKException {
         return this.editSEOMarkupSchema(id, body, new HashMap<>());
     }
 
-    public ContentPlatformModels.SEOSchemaMarkupTemplate editSEOMarkupSchema(String id, ContentPlatformModels.SEOSchemaMarkupTemplate body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.SEOSchemaMarkupTemplate editSEOMarkupSchema(String id, ContentPlatformModels.SEOSchemaMarkupTemplateRequestBody body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.SEOSchemaMarkupTemplate> response = null;
             try {
@@ -3990,15 +4002,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.CustomObjectsSchema getAppCustomObjects() throws FDKServerResponseError, FDKException {
-        return this.getAppCustomObjects(new HashMap<>());
+    public ContentPlatformModels.CustomObjectsSchema getAppCustomObjects(String definitionId, String pageNo, String pageSize) throws FDKServerResponseError, FDKException {
+        return this.getAppCustomObjects(definitionId, pageNo, pageSize, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomObjectsSchema getAppCustomObjects(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomObjectsSchema getAppCustomObjects(String definitionId, String pageNo, String pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomObjectsSchema> response = null;
             try {
-            response = contentPlatformApiList.getAppCustomObjects(this.companyId, this.applicationId, requestHeaders).execute();
+            response = contentPlatformApiList.getAppCustomObjects(this.companyId, this.applicationId, definitionId, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

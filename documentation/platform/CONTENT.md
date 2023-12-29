@@ -6276,7 +6276,7 @@ platformClient.application("<APPLICATION_ID>").content.editSEOMarkupSchema( id, 
 | companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform |   
 | applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
 | id | String | yes | Alphanumeric ID allotted to a SEO Markup Schema Template created within a business. |  
-| body | [SEOSchemaMarkupTemplate](#SEOSchemaMarkupTemplate) | yes | Request body |
+| body | [SEOSchemaMarkupTemplateRequestBody](#SEOSchemaMarkupTemplateRequestBody) | yes | Request body |
 
 
 Use this API to edit an existing SEO Markup schema an application
@@ -9888,7 +9888,7 @@ Get list of custom objects
 
 
 ```java
-platformClient.content.getCustomObjects() {
+platformClient.content.getCustomObjects( definitionId,  pageNo,  pageSize) {
   //use response
 }
 ```
@@ -9897,7 +9897,10 @@ platformClient.content.getCustomObjects() {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes |  |  
+| companyId | Integer | yes |  |   
+| definitionId | String? | no |  |   
+| pageNo | String | yes |  |   
+| pageSize | String | yes |  |  
 
 
 
@@ -12618,7 +12621,7 @@ Get list of custom objects
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getAppCustomObjects() {
+platformClient.application("<APPLICATION_ID>").content.getAppCustomObjects( definitionId,  pageNo,  pageSize) {
   //use response
 }
 ```
@@ -12628,7 +12631,10 @@ platformClient.application("<APPLICATION_ID>").content.getAppCustomObjects() {
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | companyId | Integer | yes |  |   
-| applicationId | String | yes |  |  
+| applicationId | String | yes |  |   
+| definitionId | String? | no |  |   
+| pageNo | String | yes |  |   
+| pageSize | String | yes |  |  
 
 
 
@@ -13594,6 +13600,7 @@ Success. Get headers of custom object definition
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | application | String? |  yes  |  |
+ | targetJson | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -13608,6 +13615,7 @@ Success. Get headers of custom object definition
  | pageType | String? |  yes  |  |
  | schema | String? |  yes  |  |
  | description | String? |  yes  |  |
+ | targetJson | HashMap<String,Object>? |  yes  |  |
  | active | Boolean? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
@@ -13693,6 +13701,7 @@ Success. Get headers of custom object definition
  | ---------- | ---- | -------- | ----------- |
  | pageType | String? |  yes  |  |
  | schema | String? |  yes  |  |
+ | targetJson | HashMap<String,Object>? |  yes  |  |
 
 ---
 

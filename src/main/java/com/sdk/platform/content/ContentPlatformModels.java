@@ -562,6 +562,12 @@ public static class SEOSchemaMarkupTemplate{
     
     
     
+    
+    @JsonProperty("target_json")
+    private HashMap<String,Object> targetJson;
+    
+    
+    
 }
 
 
@@ -602,6 +608,12 @@ public static class SEOSchemaMarkupTemplateRequestBody{
     
     @JsonProperty("description")
     private String description;
+    
+    
+    
+    
+    @JsonProperty("target_json")
+    private HashMap<String,Object> targetJson;
     
     
     
@@ -866,6 +878,12 @@ public static class DefaultSEOSchemaMarkupTemplate{
     
     @JsonProperty("schema")
     private String schema;
+    
+    
+    
+    
+    @JsonProperty("target_json")
+    private HashMap<String,Object> targetJson;
     
     
     
