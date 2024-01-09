@@ -58,48 +58,6 @@ public class WebhookPublicService {
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
-    }
-
-    public WebhookPublicModels.EventNotifier notifyDepricatedEvent() throws IOException {
-        return this.notifyDepricatedEvent(new HashMap<>());
-    }
-
-    public WebhookPublicModels.EventNotifier notifyDepricatedEvent(Map<String, String> requestHeaders) throws IOException {
-    
-        Response<WebhookPublicModels.EventNotifier> response = webhookPublicApiList.notifyDepricatedEvent(requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    public WebhookPublicModels.TransformEventResponse testHandlerTransformation(WebhookPublicModels.TransformEventRequest body) throws IOException {
-        return this.testHandlerTransformation(body, new HashMap<>());
-    }
-
-    public WebhookPublicModels.TransformEventResponse testHandlerTransformation(WebhookPublicModels.TransformEventRequest body, Map<String, String> requestHeaders) throws IOException {
-    
-        Response<WebhookPublicModels.TransformEventResponse> response = webhookPublicApiList.testHandlerTransformation(body, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    public WebhookPublicModels.ValidateSchemaResponse validateSchema(WebhookPublicModels.ValidateSchemaRequest body) throws IOException {
-        return this.validateSchema(body, new HashMap<>());
-    }
-
-    public WebhookPublicModels.ValidateSchemaResponse validateSchema(WebhookPublicModels.ValidateSchemaRequest body, Map<String, String> requestHeaders) throws IOException {
-    
-        Response<WebhookPublicModels.ValidateSchemaResponse> response = webhookPublicApiList.validateSchema(body, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
     }  
 
     private interface Fields {

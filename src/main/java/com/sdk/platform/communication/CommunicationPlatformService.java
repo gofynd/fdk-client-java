@@ -169,18 +169,6 @@ public class CommunicationPlatformService {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     public CommunicationPlatformModels.SystemNotifications getSystemNotifications(Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
         return this.getSystemNotifications(pageNo, pageSize, new HashMap<>());
@@ -264,10 +252,6 @@ public class CommunicationPlatformService {
     });
     return paginator ;
     }
-    
-    
-    
-    
     
     
     
@@ -372,15 +356,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.EmailProviders getEmailProviders(Integer pageNo, Integer pageSize, Object sort, Object query) throws FDKServerResponseError, FDKException {
-        return this.getEmailProviders(pageNo, pageSize, sort, query, new HashMap<>());
+    public CommunicationPlatformModels.EmailProviders getEmailProviders(Integer pageNo, Integer pageSize, Object sort) throws FDKServerResponseError, FDKException {
+        return this.getEmailProviders(pageNo, pageSize, sort, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.EmailProviders getEmailProviders(Integer pageNo, Integer pageSize, Object sort, Object query, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EmailProviders getEmailProviders(Integer pageNo, Integer pageSize, Object sort, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.EmailProviders> response = null;
             try {
-            response = communicationPlatformApiList.getEmailProviders(this.companyId, this.applicationId, pageNo, pageSize, sort, query, requestHeaders).execute();
+            response = communicationPlatformApiList.getEmailProviders(this.companyId, this.applicationId, pageNo, pageSize, sort, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -405,8 +389,7 @@ public class ApplicationClient {
     **/
     public Paginator<CommunicationPlatformModels.EmailProviders> getEmailProvidersPagination(
         Integer pageSize,
-        Object sort,
-        Object query
+        Object sort
         
         ){ 
     
@@ -424,8 +407,7 @@ public class ApplicationClient {
                 ,
                  paginator.getPageSize()
                 ,
-                 sort,
-                 query
+                 sort
             );
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
             paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
@@ -707,15 +689,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.Campaigns getCampaigns(Object query, Integer pageNo, Integer pageSize, Object sort) throws FDKServerResponseError, FDKException {
-        return this.getCampaigns(query, pageNo, pageSize, sort, new HashMap<>());
+    public CommunicationPlatformModels.Campaigns getCampaigns(Integer pageNo, Integer pageSize, Object sort) throws FDKServerResponseError, FDKException {
+        return this.getCampaigns(pageNo, pageSize, sort, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.Campaigns getCampaigns(Object query, Integer pageNo, Integer pageSize, Object sort, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.Campaigns getCampaigns(Integer pageNo, Integer pageSize, Object sort, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.Campaigns> response = null;
             try {
-            response = communicationPlatformApiList.getCampaigns(this.companyId, this.applicationId, query, pageNo, pageSize, sort, requestHeaders).execute();
+            response = communicationPlatformApiList.getCampaigns(this.companyId, this.applicationId, pageNo, pageSize, sort, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -732,6 +714,42 @@ public class ApplicationClient {
         } else {
             return null;
         }    
+    }
+
+    /**
+    * Summary: get paginator for getCampaigns
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CommunicationPlatformModels.Campaigns> getCampaignsPagination(
+        Integer pageSize,
+        Object sort
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CommunicationPlatformModels.Campaigns> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CommunicationPlatformModels.Campaigns callback = this.getCampaigns(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 sort
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
     }
 
     public CommunicationPlatformModels.Campaign createCampaign(CommunicationPlatformModels.CampaignReq body) throws FDKServerResponseError, FDKException {
@@ -1004,15 +1022,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.Audiences getAudiences(Integer pageNo, Integer pageSize, Object sort, Object query) throws FDKServerResponseError, FDKException {
-        return this.getAudiences(pageNo, pageSize, sort, query, new HashMap<>());
+    public CommunicationPlatformModels.Audiences getAudiences(Integer pageNo, Integer pageSize, Object sort) throws FDKServerResponseError, FDKException {
+        return this.getAudiences(pageNo, pageSize, sort, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.Audiences getAudiences(Integer pageNo, Integer pageSize, Object sort, Object query, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.Audiences getAudiences(Integer pageNo, Integer pageSize, Object sort, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.Audiences> response = null;
             try {
-            response = communicationPlatformApiList.getAudiences(this.companyId, this.applicationId, pageNo, pageSize, sort, query, requestHeaders).execute();
+            response = communicationPlatformApiList.getAudiences(this.companyId, this.applicationId, pageNo, pageSize, sort, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1037,8 +1055,7 @@ public class ApplicationClient {
     **/
     public Paginator<CommunicationPlatformModels.Audiences> getAudiencesPagination(
         Integer pageSize,
-        Object sort,
-        Object query
+        Object sort
         
         ){ 
     
@@ -1056,8 +1073,7 @@ public class ApplicationClient {
                 ,
                  paginator.getPageSize()
                 ,
-                 sort,
-                 query
+                 sort
             );
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
             paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
@@ -1150,15 +1166,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.Audience deleteAudienceById(String id, CommunicationPlatformModels.AudienceReq body) throws FDKServerResponseError, FDKException {
-        return this.deleteAudienceById(id, body, new HashMap<>());
+    public CommunicationPlatformModels.GenericDelete deleteAudienceById(String id) throws FDKServerResponseError, FDKException {
+        return this.deleteAudienceById(id, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.Audience deleteAudienceById(String id, CommunicationPlatformModels.AudienceReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.GenericDelete deleteAudienceById(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.Audience> response = null;
+            Response<CommunicationPlatformModels.GenericDelete> response = null;
             try {
-            response = communicationPlatformApiList.deleteAudienceById(this.companyId, this.applicationId, id, body, requestHeaders).execute();
+            response = communicationPlatformApiList.deleteAudienceById(this.companyId, this.applicationId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1285,15 +1301,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.EmailTemplates getEmailTemplates(Integer pageNo, Integer pageSize, Object sort, Object query) throws FDKServerResponseError, FDKException {
-        return this.getEmailTemplates(pageNo, pageSize, sort, query, new HashMap<>());
+    public CommunicationPlatformModels.EmailTemplates getEmailTemplates(Integer pageNo, Integer pageSize, Object sort) throws FDKServerResponseError, FDKException {
+        return this.getEmailTemplates(pageNo, pageSize, sort, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.EmailTemplates getEmailTemplates(Integer pageNo, Integer pageSize, Object sort, Object query, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EmailTemplates getEmailTemplates(Integer pageNo, Integer pageSize, Object sort, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.EmailTemplates> response = null;
             try {
-            response = communicationPlatformApiList.getEmailTemplates(this.companyId, this.applicationId, pageNo, pageSize, sort, query, requestHeaders).execute();
+            response = communicationPlatformApiList.getEmailTemplates(this.companyId, this.applicationId, pageNo, pageSize, sort, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1318,8 +1334,7 @@ public class ApplicationClient {
     **/
     public Paginator<CommunicationPlatformModels.EmailTemplates> getEmailTemplatesPagination(
         Integer pageSize,
-        Object sort,
-        Object query
+        Object sort
         
         ){ 
     
@@ -1337,8 +1352,7 @@ public class ApplicationClient {
                 ,
                  paginator.getPageSize()
                 ,
-                 sort,
-                 query
+                 sort
             );
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
             paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
@@ -1485,15 +1499,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.EmailTemplates getSubscribedEmailTemplates(Integer pageNo, Integer pageSize, Object query) throws FDKServerResponseError, FDKException {
-        return this.getSubscribedEmailTemplates(pageNo, pageSize, query, new HashMap<>());
+    public CommunicationPlatformModels.EmailTemplates getSubscribedEmailTemplates(Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+        return this.getSubscribedEmailTemplates(pageNo, pageSize, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.EmailTemplates getSubscribedEmailTemplates(Integer pageNo, Integer pageSize, Object query, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EmailTemplates getSubscribedEmailTemplates(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.EmailTemplates> response = null;
             try {
-            response = communicationPlatformApiList.getSubscribedEmailTemplates(this.companyId, this.applicationId, pageNo, pageSize, query, requestHeaders).execute();
+            response = communicationPlatformApiList.getSubscribedEmailTemplates(this.companyId, this.applicationId, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1517,8 +1531,7 @@ public class ApplicationClient {
     * Description: fetch the next page by calling .next(...) function
     **/
     public Paginator<CommunicationPlatformModels.EmailTemplates> getSubscribedEmailTemplatesPagination(
-        Integer pageSize,
-        Object query
+        Integer pageSize
         
         ){ 
     
@@ -1535,8 +1548,7 @@ public class ApplicationClient {
                  paginator.getPageNo()
                 ,
                  paginator.getPageSize()
-                ,
-                 query
+                
             );
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
             paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
@@ -1548,15 +1560,15 @@ public class ApplicationClient {
     return paginator ;
     }
 
-    public CommunicationPlatformModels.SmsTemplates getSmsTemplates(Integer pageNo, Integer pageSize, Object sort, Object query) throws FDKServerResponseError, FDKException {
-        return this.getSmsTemplates(pageNo, pageSize, sort, query, new HashMap<>());
+    public CommunicationPlatformModels.SmsTemplates getSmsTemplates(Integer pageNo, Integer pageSize, Object sort) throws FDKServerResponseError, FDKException {
+        return this.getSmsTemplates(pageNo, pageSize, sort, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.SmsTemplates getSmsTemplates(Integer pageNo, Integer pageSize, Object sort, Object query, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.SmsTemplates getSmsTemplates(Integer pageNo, Integer pageSize, Object sort, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.SmsTemplates> response = null;
             try {
-            response = communicationPlatformApiList.getSmsTemplates(this.companyId, this.applicationId, pageNo, pageSize, sort, query, requestHeaders).execute();
+            response = communicationPlatformApiList.getSmsTemplates(this.companyId, this.applicationId, pageNo, pageSize, sort, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1581,8 +1593,7 @@ public class ApplicationClient {
     **/
     public Paginator<CommunicationPlatformModels.SmsTemplates> getSmsTemplatesPagination(
         Integer pageSize,
-        Object sort,
-        Object query
+        Object sort
         
         ){ 
     
@@ -1600,8 +1611,7 @@ public class ApplicationClient {
                 ,
                  paginator.getPageSize()
                 ,
-                 sort,
-                 query
+                 sort
             );
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
             paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
@@ -1748,15 +1758,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.SmsTemplates getSubscribedSmsTemplates(Integer pageNo, Integer pageSize, Object query) throws FDKServerResponseError, FDKException {
-        return this.getSubscribedSmsTemplates(pageNo, pageSize, query, new HashMap<>());
+    public CommunicationPlatformModels.SmsTemplates getSubscribedSmsTemplates(Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+        return this.getSubscribedSmsTemplates(pageNo, pageSize, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.SmsTemplates getSubscribedSmsTemplates(Integer pageNo, Integer pageSize, Object query, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.SmsTemplates getSubscribedSmsTemplates(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.SmsTemplates> response = null;
             try {
-            response = communicationPlatformApiList.getSubscribedSmsTemplates(this.companyId, this.applicationId, pageNo, pageSize, query, requestHeaders).execute();
+            response = communicationPlatformApiList.getSubscribedSmsTemplates(this.companyId, this.applicationId, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1780,8 +1790,7 @@ public class ApplicationClient {
     * Description: fetch the next page by calling .next(...) function
     **/
     public Paginator<CommunicationPlatformModels.SmsTemplates> getSubscribedSmsTemplatesPagination(
-        Integer pageSize,
-        Object query
+        Integer pageSize
         
         ){ 
     
@@ -1798,8 +1807,7 @@ public class ApplicationClient {
                  paginator.getPageNo()
                 ,
                  paginator.getPageSize()
-                ,
-                 query
+                
             );
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
             paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
@@ -1928,141 +1936,6 @@ public class ApplicationClient {
     return paginator ;
     }
 
-    public CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse createEventSubscriptions(CommunicationPlatformModels.SubscriptionsObject body) throws FDKServerResponseError, FDKException {
-        return this.createEventSubscriptions(body, new HashMap<>());
-    }
-
-    public CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse createEventSubscriptions(CommunicationPlatformModels.SubscriptionsObject body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse> response = null;
-            try {
-            response = communicationPlatformApiList.createEventSubscriptions(this.companyId, this.applicationId, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public CommunicationPlatformModels.EventSubscription getEventSubscriptionsById(String id, String populate) throws FDKServerResponseError, FDKException {
-        return this.getEventSubscriptionsById(id, populate, new HashMap<>());
-    }
-
-    public CommunicationPlatformModels.EventSubscription getEventSubscriptionsById(String id, String populate, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.EventSubscription> response = null;
-            try {
-            response = communicationPlatformApiList.getEventSubscriptionsById(this.companyId, this.applicationId, id, populate, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse editEventSubscriptions(String id, CommunicationPlatformModels.SubscriptionsObject body) throws FDKServerResponseError, FDKException {
-        return this.editEventSubscriptions(id, body, new HashMap<>());
-    }
-
-    public CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse editEventSubscriptions(String id, CommunicationPlatformModels.SubscriptionsObject body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse> response = null;
-            try {
-            response = communicationPlatformApiList.editEventSubscriptions(this.companyId, this.applicationId, id, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public CommunicationPlatformModels.GenericDelete deleteEventSubscriptionsById(String id) throws FDKServerResponseError, FDKException {
-        return this.deleteEventSubscriptionsById(id, new HashMap<>());
-    }
-
-    public CommunicationPlatformModels.GenericDelete deleteEventSubscriptionsById(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.GenericDelete> response = null;
-            try {
-            response = communicationPlatformApiList.deleteEventSubscriptionsById(this.companyId, this.applicationId, id, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public List<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse> createEventSubscriptionsByBulk(CommunicationPlatformModels.EventSubscriptionsBulkUpdateRequest body) throws FDKServerResponseError, FDKException {
-        return this.createEventSubscriptionsByBulk(body, new HashMap<>());
-    }
-
-    public List<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse> createEventSubscriptionsByBulk(CommunicationPlatformModels.EventSubscriptionsBulkUpdateRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<List<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse>> response = null;
-            try {
-            response = communicationPlatformApiList.createEventSubscriptionsByBulk(this.companyId, this.applicationId, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
     public CommunicationPlatformModels.GlobalVariablesGetResponse getGlobalVariables() throws FDKServerResponseError, FDKException {
         return this.getGlobalVariables(new HashMap<>());
     }
@@ -2117,15 +1990,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.Jobs getJobs(Integer pageNo, Integer pageSize, Object sort, Object query) throws FDKServerResponseError, FDKException {
-        return this.getJobs(pageNo, pageSize, sort, query, new HashMap<>());
+    public CommunicationPlatformModels.Jobs getJobs(Integer pageNo, Integer pageSize, Object sort) throws FDKServerResponseError, FDKException {
+        return this.getJobs(pageNo, pageSize, sort, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.Jobs getJobs(Integer pageNo, Integer pageSize, Object sort, Object query, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.Jobs getJobs(Integer pageNo, Integer pageSize, Object sort, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.Jobs> response = null;
             try {
-            response = communicationPlatformApiList.getJobs(this.companyId, this.applicationId, pageNo, pageSize, sort, query, requestHeaders).execute();
+            response = communicationPlatformApiList.getJobs(this.companyId, this.applicationId, pageNo, pageSize, sort, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2150,8 +2023,7 @@ public class ApplicationClient {
     **/
     public Paginator<CommunicationPlatformModels.Jobs> getJobsPagination(
         Integer pageSize,
-        Object sort,
-        Object query
+        Object sort
         
         ){ 
     
@@ -2169,8 +2041,7 @@ public class ApplicationClient {
                 ,
                  paginator.getPageSize()
                 ,
-                 sort,
-                 query
+                 sort
             );
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
             paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
@@ -2180,33 +2051,6 @@ public class ApplicationClient {
         }
     });
     return paginator ;
-    }
-
-    public CommunicationPlatformModels.CreateJobsRes createJobs(CommunicationPlatformModels.CreateJobsReq body) throws FDKServerResponseError, FDKException {
-        return this.createJobs(body, new HashMap<>());
-    }
-
-    public CommunicationPlatformModels.CreateJobsRes createJobs(CommunicationPlatformModels.CreateJobsReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.CreateJobsRes> response = null;
-            try {
-            response = communicationPlatformApiList.createJobs(this.companyId, this.applicationId, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
     }
 
     public CommunicationPlatformModels.TriggerJobResponse triggerCampaignJob(CommunicationPlatformModels.TriggerJobRequest body) throws FDKServerResponseError, FDKException {
@@ -2236,15 +2080,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.JobLogs getJobLogs(Integer pageNo, Integer pageSize, Object sort, Object query) throws FDKServerResponseError, FDKException {
-        return this.getJobLogs(pageNo, pageSize, sort, query, new HashMap<>());
+    public CommunicationPlatformModels.JobLogs getJobLogs(Integer pageNo, Integer pageSize, Object sort) throws FDKServerResponseError, FDKException {
+        return this.getJobLogs(pageNo, pageSize, sort, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.JobLogs getJobLogs(Integer pageNo, Integer pageSize, Object sort, Object query, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.JobLogs getJobLogs(Integer pageNo, Integer pageSize, Object sort, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.JobLogs> response = null;
             try {
-            response = communicationPlatformApiList.getJobLogs(this.companyId, this.applicationId, pageNo, pageSize, sort, query, requestHeaders).execute();
+            response = communicationPlatformApiList.getJobLogs(this.companyId, this.applicationId, pageNo, pageSize, sort, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2269,8 +2113,7 @@ public class ApplicationClient {
     **/
     public Paginator<CommunicationPlatformModels.JobLogs> getJobLogsPagination(
         Integer pageSize,
-        Object sort,
-        Object query
+        Object sort
         
         ){ 
     
@@ -2288,8 +2131,7 @@ public class ApplicationClient {
                 ,
                  paginator.getPageSize()
                 ,
-                 sort,
-                 query
+                 sort
             );
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
             paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
@@ -2402,60 +2244,6 @@ public class ApplicationClient {
             Response<CommunicationPlatformModels.VerifyOtpCommsSuccessRes> response = null;
             try {
             response = communicationPlatformApiList.verfiyOtp(this.companyId, this.applicationId, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public CommunicationPlatformModels.OtpConfiguration getOtpConfiguration() throws FDKServerResponseError, FDKException {
-        return this.getOtpConfiguration(new HashMap<>());
-    }
-
-    public CommunicationPlatformModels.OtpConfiguration getOtpConfiguration(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.OtpConfiguration> response = null;
-            try {
-            response = communicationPlatformApiList.getOtpConfiguration(this.companyId, this.applicationId, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public CommunicationPlatformModels.OtpConfiguration updateOtpConfiguration() throws FDKServerResponseError, FDKException {
-        return this.updateOtpConfiguration(new HashMap<>());
-    }
-
-    public CommunicationPlatformModels.OtpConfiguration updateOtpConfiguration(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.OtpConfiguration> response = null;
-            try {
-            response = communicationPlatformApiList.updateOtpConfiguration(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

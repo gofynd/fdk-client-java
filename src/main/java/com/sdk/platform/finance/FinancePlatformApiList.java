@@ -77,13 +77,4 @@ interface FinancePlatformApiList {
 
     @GET ("/service/platform/finance/v1.0/company/{company_id}/reporting-filters")
     Call<FinancePlatformModels.GetReportingFiltersResponse> getReportingFilters(@Path("company_id") String companyId, @Query("filter_key") String filterKey, @Query("affiliate_id") String affiliateId, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/finance/v1.0/company/{company_id}/invoice/{invoice_number}/payment")
-    Call<FinancePlatformModels.InvoicePaymentDetailsResponse> invoicePaymentDetails(@Path("company_id") String companyId, @Path("invoice_number") String invoiceNumber, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/finance/v1.0/company/{company_id}/invoice/{invoice_number}/activity")
-    Call<FinancePlatformModels.InvoiceActivityLogsResponse> invoiceActivityLogs(@Path("company_id") String companyId, @Path("invoice_number") String invoiceNumber, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/finance/v1.0/company/{company_id}/credit-notes/unlock")
-    Call<FinancePlatformModels.UnlockCreditNoteResponse> unlockCreditNote(@Path("company_id") String companyId, @Body FinancePlatformModels.UnlockCreditNoteRequest payload, @HeaderMap Map<String, String> requestHeaders);
 }

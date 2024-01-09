@@ -115,7 +115,7 @@ interface ConfigurationPlatformApiList {
     Call<ConfigurationPlatformModels.DomainSuggestionsResponse> getDomainAvailibility(@Path("company_id") String companyId, @Body ConfigurationPlatformModels.DomainSuggestionsRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/configuration/v1.0/company/{company_id}/integration/{id}")
-    Call<ConfigurationPlatformModels.Integration> getIntegrationById(@Path("company_id") String companyId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
+    Call<ConfigurationPlatformModels.Integration> getIntegrationById(@Path("company_id") String companyId, @Path("id") Integer id, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/configuration/v1.0/company/{company_id}/integration-opt-in/available")
     Call<ConfigurationPlatformModels.GetIntegrationsOptInsResponse> getAvailableOptIns(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);

@@ -6,23 +6,53 @@ import java.util.*;
 
 interface ServiceabilityPlatformApiList {
 
-    @GET ("/service/platform/logistics/v2.0/company/{company_id}/zones")
-    Call<ServiceabilityPlatformModels.ListViewResponse> getZones(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("is_active") Boolean isActive, @Query("channel_id") String channelId, @Query("q") String q, @Query("country") String country, @Query("state") String state, @Query("city") String city, @Query("pincode") String pincode, @Query("sector") String sector, @HeaderMap Map<String, String> requestHeaders);
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/serviceability")
+    Call<ServiceabilityPlatformModels.ApplicationServiceabilityConfigResponse> getApplicationServiceability(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/logistics/v2.0/company/{company_id}/zones")
-    Call<ServiceabilityPlatformModels.ZoneResponse> createZone(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.CreateZoneData payload, @HeaderMap Map<String, String> requestHeaders);
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/serviceability")
+    Call<ServiceabilityPlatformModels.ApplicationServiceabilityConfigResponse> updateApplicationServiceability(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.ServiceabilityPayloadSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/logistics/v2.0/company/{company_id}/zones/{zone_id}")
-    Call<ServiceabilityPlatformModels.ZoneSuccessResponse> updateZoneById(@Path("company_id") String companyId, @Path("zone_id") String zoneId, @Body ServiceabilityPlatformModels.UpdateZoneData payload, @HeaderMap Map<String, String> requestHeaders);
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/regions")
+    Call<ServiceabilityPlatformModels.EntityRegionView_Response> getEntityRegionView(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.EntityRegionView_Request payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/logistics/v2.0/company/{company_id}/zones/{zone_id}")
-    Call<ServiceabilityPlatformModels.GetZoneByIdSchema> getZoneById(@Path("company_id") String companyId, @Path("zone_id") String zoneId, @HeaderMap Map<String, String> requestHeaders);
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/zones")
+    Call<ServiceabilityPlatformModels.ListViewResponse> getListView(@Path("company_id") String companyId, @Query("page_number") Integer pageNumber, @Query("page_size") Integer pageSize, @Query("name") String name, @Query("is_active") Boolean isActive, @Query("channel_ids") String channelIds, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/all-stores")
+    Call<ServiceabilityPlatformModels.CompanyStoreView_Response> getCompanyStoreView(@Path("company_id") String companyId, @Query("page_number") Integer pageNumber, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
+    Call<ServiceabilityPlatformModels.ZoneSuccessResponse> updateZoneControllerView(@Path("zone_id") String zoneId, @Path("company_id") String companyId, @Body ServiceabilityPlatformModels.ZoneUpdateRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/zone/{zone_id}")
+    Call<ServiceabilityPlatformModels.GetSingleZoneDataViewResponse> getZoneDataView(@Path("company_id") String companyId, @Path("zone_id") String zoneId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/zone")
+    Call<ServiceabilityPlatformModels.ZoneResponse> createZone(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.ZoneRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/zones")
+    Call<ServiceabilityPlatformModels.GetZoneFromPincodeViewResponse> getZoneFromPincodeView(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.GetZoneFromPincodeViewRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/zones")
+    Call<ServiceabilityPlatformModels.GetZoneFromApplicationIdViewResponse> getZonesFromApplicationIdView(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("zone_id") List<String> zoneId, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/zones-list")
+    Call<ServiceabilityPlatformModels.ListViewResponse> getZoneListView(@Path("company_id") String companyId, @Query("page_number") Integer pageNumber, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("name") String name, @Query("is_active") Boolean isActive, @Query("channel_ids") String channelIds, @Query("q") String q, @Query("zone_id") List<String> zoneId, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/stores/{store_uid}")
+    Call<ServiceabilityPlatformModels.GetStoresViewResponse> getStore(@Path("company_id") String companyId, @Path("store_uid") Integer storeUid, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/logistics/stores")
     Call<ServiceabilityPlatformModels.GetStoresViewResponse> getAllStores(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/logistics/v1.0/company/{company_id}/reassign")
     Call<ServiceabilityPlatformModels.ReAssignStoreResponse> getOptimalLocations(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.ReAssignStoreRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}")
+    Call<ServiceabilityPlatformModels.ApplicationCompanyDpViewResponse> addAppDp(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.ApplicationCompanyDpViewRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/courier-partner/{courier_partner_id}")
+    Call<ServiceabilityPlatformModels.ApplicationCompanyDpViewResponse> deleteAppDp(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("courier_partner_id") Integer courierPartnerId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/pincode-mop-update")
     Call<ServiceabilityPlatformModels.PincodeMOPresponse> updatePincodeMopView(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.PincodeMopData payload, @HeaderMap Map<String, String> requestHeaders);
@@ -36,111 +66,39 @@ interface ServiceabilityPlatformApiList {
     @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/history")
     Call<ServiceabilityPlatformModels.PincodeMopUpdateAuditHistoryResponseData> updatePincodeAuditHistory(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.PincodeMopUpdateAuditHistoryRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/logistics/v1.0/company/{company_id}/courier-partner/account")
-    Call<ServiceabilityPlatformModels.CourierAccount> createCourierPartnerAccount(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.CourierAccount payload, @HeaderMap Map<String, String> requestHeaders);
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/courier/account")
+    Call<ServiceabilityPlatformModels.CompanyDpAccountResponse> upsertDpAccount(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.CompanyDpAccountRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier-partner/account")
-    Call<ServiceabilityPlatformModels.CompanyCourierPartnerAccountListResponse> getCourierPartnerAccounts(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("stage") String stage, @Query("payment_mode") String paymentMode, @Query("transport_type") String transportType, @HeaderMap Map<String, String> requestHeaders);
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier/account")
+    Call<ServiceabilityPlatformModels.CompanyDpAccountListResponse> getDpAccount(@Path("company_id") String companyId, @Query("page_number") Integer pageNumber, @Query("page_size") Integer pageSize, @Query("stage") String stage, @Query("payment_mode") String paymentMode, @Query("transport_type") String transportType, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/courier-partner/account/{account_id}")
-    Call<ServiceabilityPlatformModels.CourierAccountResponse> updateCourierPartnerAccount(@Path("company_id") String companyId, @Path("account_id") String accountId, @Body ServiceabilityPlatformModels.CourierAccount payload, @HeaderMap Map<String, String> requestHeaders);
+    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/courier/rules/{rule_uid}")
+    Call<ServiceabilityPlatformModels.DpRuleUpdateSuccessResponse> updateDpRule(@Path("company_id") String companyId, @Path("rule_uid") String ruleUid, @Body ServiceabilityPlatformModels.DpRulesUpdateRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier-partner/account/{account_id}")
-    Call<ServiceabilityPlatformModels.CourierAccountResponse> getCourierPartnerAccount(@Path("company_id") String companyId, @Path("account_id") String accountId, @HeaderMap Map<String, String> requestHeaders);
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier/rules/{rule_uid}")
+    Call<ServiceabilityPlatformModels.DpRuleSuccessResponse> getDpRules(@Path("company_id") String companyId, @Path("rule_uid") String ruleUid, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/courier-partner/rules/{rule_id}")
-    Call<ServiceabilityPlatformModels.CourierPartnerRule> updateCourierRule(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("rule_id") String ruleId, @Body ServiceabilityPlatformModels.CourierPartnerRule payload, @HeaderMap Map<String, String> requestHeaders);
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/courier/rules")
+    Call<ServiceabilityPlatformModels.DpRuleSuccessResponse> upsertDpRules(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.DpRuleRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/courier-partner/rules/{rule_id}")
-    Call<ServiceabilityPlatformModels.CourierPartnerRule> getCourierPartnerRule(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("rule_id") String ruleId, @HeaderMap Map<String, String> requestHeaders);
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier/rules")
+    Call<ServiceabilityPlatformModels.DpMultipleRuleSuccessResponse> getDpRuleInsert(@Path("company_id") String companyId, @Query("page_number") Integer pageNumber, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/courier-partner/rules")
-    Call<ServiceabilityPlatformModels.CourierPartnerRule> createCourierPartnerRule(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.CourierPartnerRule payload, @HeaderMap Map<String, String> requestHeaders);
+    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/courier/priority")
+    Call<ServiceabilityPlatformModels.DPCompanyRuleResponse> upsertDpCompanyRules(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.DPCompanyRuleRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/courier-partner/rules")
-    Call<ServiceabilityPlatformModels.CourierPartnerRulesListResponse> getCourierPartnerRules(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("status") String status, @HeaderMap Map<String, String> requestHeaders);
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier/priority")
+    Call<ServiceabilityPlatformModels.DPCompanyRuleResponse> getDpCompanyRules(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/configuration")
-    Call<ServiceabilityPlatformModels.CompanyConfig> updateCompanyConfiguration(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.CompanyConfig payload, @HeaderMap Map<String, String> requestHeaders);
+    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/courier/priority")
+    Call<ServiceabilityPlatformModels.DPApplicationRuleResponse> upsertDpApplicationRules(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.DPApplicationRuleRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/configuration")
-    Call<ServiceabilityPlatformModels.CompanyConfig> getCompanyConfiguration(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
-
-    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/configuration")
-    Call<ServiceabilityPlatformModels.ApplicationConfig> updateApplicationConfiguration(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.ApplicationConfig payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/configuration")
-    Call<ServiceabilityPlatformModels.ApplicationConfig> getApplicationConfiguration(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/logistics/v1.0/company/{company_id}/courier-partner/{extension_id}/scheme/{scheme_id}/tat")
-    Call<ServiceabilityPlatformModels.BulkRegionResponseItemData> bulkTat(@Path("company_id") String companyId, @Path("extension_id") String extensionId, @Path("scheme_id") String schemeId, @Body ServiceabilityPlatformModels.BulkRegionJobSerializer payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier-partner/{extension_id}/scheme/{scheme_id}/tat")
-    Call<ServiceabilityPlatformModels.BulkRegionResponse> getBulkTat(@Path("company_id") String companyId, @Path("extension_id") String extensionId, @Path("scheme_id") String schemeId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("batch_id") String batchId, @Query("action") String action, @Query("status") String status, @Query("country") String country, @Query("region") String region, @Query("start_date") String startDate, @Query("end_date") String endDate, @HeaderMap Map<String, String> requestHeaders);
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/courier/priority")
+    Call<ServiceabilityPlatformModels.DPApplicationRuleResponse> getDpApplicationRules(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
     @PATCH ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/selfship")
-    Call<ServiceabilityPlatformModels.ApplicationSelfShipConfigResponse> patchApplicationServiceabilitySelfShipment(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.SelfShipResponse payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<ServiceabilityPlatformModels.ApplicationSelfShipConfigResponse> updateSelfShip(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.SelfShipResponse payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/selfship")
-    Call<ServiceabilityPlatformModels.ApplicationSelfShipConfigResponse> getApplicationServiceabilitySelfShipment(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/store/configuration")
-    Call<ServiceabilityPlatformModels.StoreRuleConfigData> getApplicationConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/store/configuration")
-    Call<ServiceabilityPlatformModels.StoreRuleConfigData> insertApplicationConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.StoreRuleConfigData payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/store/configuration")
-    Call<ServiceabilityPlatformModels.StoreRuleConfigData> updateStoreRulesConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.StoreRuleConfigData payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/store/rules")
-    Call<ServiceabilityPlatformModels.GetStoreRulesApiResponse> getStoreRules(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("status") String status, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/store/rules")
-    Call<ServiceabilityPlatformModels.StoreRuleResponseSchema> createStoreRules(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.CreateStoreRuleRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/store/rules/{rule_uid}")
-    Call<ServiceabilityPlatformModels.StoreRuleDataSchema> getStoreRule(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("rule_uid") String ruleUid, @HeaderMap Map<String, String> requestHeaders);
-
-    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/store/rules/{rule_uid}")
-    Call<ServiceabilityPlatformModels.StoreRuleUpdateResponseSchema> updateStoreRules(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("rule_uid") String ruleUid, @Body ServiceabilityPlatformModels.CreateStoreRuleRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/logistics/v1.0/company/{company_id}/courier-partner/{extension_id}/scheme/{scheme_id}/serviceability/bulk")
-    Call<ServiceabilityPlatformModels.BulkRegionResponseItemData> bulkServiceability(@Path("company_id") String companyId, @Path("extension_id") String extensionId, @Path("scheme_id") String schemeId, @Body ServiceabilityPlatformModels.BulkRegionJobSerializer payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier-partner/{extension_id}/scheme/{scheme_id}/serviceability/bulk")
-    Call<ServiceabilityPlatformModels.BulkRegionResponse> getBulkServiceability(@Path("company_id") String companyId, @Path("extension_id") String extensionId, @Path("scheme_id") String schemeId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("batch_id") String batchId, @Query("action") String action, @Query("status") String status, @Query("country") String country, @Query("region") String region, @Query("start_date") String startDate, @Query("end_date") String endDate, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier-partner/{extension_id}/scheme/{scheme_id}/serviceability/region/{region_id}")
-    Call<ServiceabilityPlatformModels.ServiceabilityModel> getServiceability(@Path("company_id") String companyId, @Path("extension_id") String extensionId, @Path("scheme_id") String schemeId, @Path("region_id") String regionId, @HeaderMap Map<String, String> requestHeaders);
-
-    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/courier-partner/{extension_id}/scheme/{scheme_id}/serviceability/region/{region_id}")
-    Call<ServiceabilityPlatformModels.ServiceabilityModel> updateServiceability(@Path("company_id") String companyId, @Path("extension_id") String extensionId, @Path("scheme_id") String schemeId, @Path("region_id") String regionId, @Body ServiceabilityPlatformModels.ServiceabilityModel payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/logistics/v1.0/company/{company_id}/packaging-materials")
-    Call<ServiceabilityPlatformModels.PackageMaterialResponse> createPackageMaterial(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.PackageMaterial payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/packaging-materials")
-    Call<ServiceabilityPlatformModels.PackageMaterialList> getPackageMaterialList(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("q") String q, @Query("size") String size, @Query("package_type") String packageType, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/logistics/v1.0/company/{company_id}/packaging-material/rules")
-    Call<ServiceabilityPlatformModels.PackageRuleResponse> createPackageMaterialRule(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.PackageRule payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/packaging-material/rules")
-    Call<ServiceabilityPlatformModels.PackageMaterialRuleList> getPackageMaterialRules(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("is_active") String isActive, @HeaderMap Map<String, String> requestHeaders);
-
-    @PATCH ("/service/platform/logistics/v1.0/company/{company_id}/packaging-material/rules/{rule_id}")
-    Call<ServiceabilityPlatformModels.PackageRuleResponse> updatePackageMaterialRule(@Path("company_id") String companyId, @Path("rule_id") String ruleId, @Body ServiceabilityPlatformModels.PackageRule payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/packaging-material/rules/{rule_id}")
-    Call<ServiceabilityPlatformModels.PackageRuleResponse> getPackageMaterialRule(@Path("company_id") String companyId, @Path("rule_id") String ruleId, @HeaderMap Map<String, String> requestHeaders);
-
-    @PATCH ("/service/platform/logistics/v1.0/company/{company_id}/packaging-material/{package_material_id}")
-    Call<ServiceabilityPlatformModels.PackageMaterialResponse> updatePackageMaterials(@Path("company_id") String companyId, @Path("package_material_id") String packageMaterialId, @Body ServiceabilityPlatformModels.PackageMaterial payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/packaging-material/{package_material_id}")
-    Call<ServiceabilityPlatformModels.PackageMaterialResponse> getPackageMaterials(@Path("company_id") String companyId, @Path("package_material_id") String packageMaterialId, @HeaderMap Map<String, String> requestHeaders);
-
-    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/courier-partner/rules/priority")
-    Call<ServiceabilityPlatformModels.RulePriorityResponse> updateCourierPartnerRulePriority(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.RulePriorityRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<ServiceabilityPlatformModels.ApplicationSelfShipConfigResponse> getSelfShip(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 }

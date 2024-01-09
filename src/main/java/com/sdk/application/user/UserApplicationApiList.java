@@ -125,13 +125,4 @@ interface UserApplicationApiList {
 
     @POST 
     Call<UserApplicationModels.SendEmailVerifyLinkSuccess> sendVerificationLinkToEmail(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.EditEmailRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<UserApplicationModels.UserExistsResponse> userExists(@Url String url1, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<UserApplicationModels.UserAttributes> getUserAttributes(@Url String url1, @Query("slug") String slug, @HeaderMap Map<String, String> requestHeaders);
-
-    @PATCH 
-    Call<UserApplicationModels.UserAttributes> updateUserAttributes(@Url String url1, @Body UserApplicationModels.UpdateUserAttributesRequest payload, @HeaderMap Map<String, String> requestHeaders);
 }

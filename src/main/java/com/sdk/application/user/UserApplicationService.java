@@ -68,10 +68,7 @@ import com.sdk.application.*;
         relativeUrls.put("addEmail","/service/application/user/profile/v1.0/email".substring(1));
         relativeUrls.put("deleteEmail","/service/application/user/profile/v1.0/email".substring(1));
         relativeUrls.put("setEmailAsPrimary","/service/application/user/profile/v1.0/email/primary".substring(1));
-        relativeUrls.put("sendVerificationLinkToEmail","/service/application/user/profile/v1.0/email/link/send".substring(1));
-        relativeUrls.put("userExists","/service/application/user/authentication/v1.0/user-exists".substring(1));
-        relativeUrls.put("getUserAttributes","/service/application/user/profile/v1.0/user-attributes".substring(1));
-        relativeUrls.put("updateUserAttributes","/service/application/user/profile/v1.0/user-attributes".substring(1)); 
+        relativeUrls.put("sendVerificationLinkToEmail","/service/application/user/profile/v1.0/email/link/send".substring(1)); 
 
     }
 
@@ -760,57 +757,6 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("sendVerificationLinkToEmail");
 
         Response<UserApplicationModels.SendEmailVerifyLinkSuccess> response = userApplicationApiList.sendVerificationLinkToEmail(fullUrl, platform, body, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public UserApplicationModels.UserExistsResponse userExists(String q) throws IOException {
-        return this.userExists(q, new HashMap<>());
-    }
-
-    public UserApplicationModels.UserExistsResponse userExists(String q, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("userExists");
-
-        Response<UserApplicationModels.UserExistsResponse> response = userApplicationApiList.userExists(fullUrl, q, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public UserApplicationModels.UserAttributes getUserAttributes(String slug) throws IOException {
-        return this.getUserAttributes(slug, new HashMap<>());
-    }
-
-    public UserApplicationModels.UserAttributes getUserAttributes(String slug, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getUserAttributes");
-
-        Response<UserApplicationModels.UserAttributes> response = userApplicationApiList.getUserAttributes(fullUrl, slug, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public UserApplicationModels.UserAttributes updateUserAttributes(UserApplicationModels.UpdateUserAttributesRequest body) throws IOException {
-        return this.updateUserAttributes(body, new HashMap<>());
-    }
-
-    public UserApplicationModels.UserAttributes updateUserAttributes(UserApplicationModels.UpdateUserAttributesRequest body, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("updateUserAttributes");
-
-        Response<UserApplicationModels.UserAttributes> response = userApplicationApiList.updateUserAttributes(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

@@ -380,6 +380,17 @@ Success
 
  
  
+ #### [Params](#Params)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | subpath | String? |  yes  | The subpath for the file. |
+
+---
+
+
+ 
+ 
  #### [StartRequest](#StartRequest)
 
  | Properties | Type | Nullable | Description |
@@ -388,7 +399,7 @@ Success
  | contentType | String |  no  |  |
  | size | Integer |  no  |  |
  | tags | ArrayList<String>? |  yes  |  |
- | params | HashMap<String,Object>? |  yes  |  |
+ | params | [Params](#Params)? |  yes  |  |
 
 ---
 

@@ -25,7 +25,6 @@ Default
 * [getEnterprisePlans](#getenterpriseplans)
 * [planStatusUpdate](#planstatusupdate)
 * [subscripePlan](#subscripeplan)
-* [getentityDetail](#getentitydetail)
 
 
 
@@ -1668,7 +1667,7 @@ Get subscription subscription limits
 
 
 ```java
-platformClient.billing.getFeatureLimitConfig( productSuite,  type) {
+platformClient.billing.getFeatureLimitConfig() {
   //use response
 }
 ```
@@ -1677,9 +1676,7 @@ platformClient.billing.getFeatureLimitConfig( productSuite,  type) {
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Customer unique id. In case of company it will be company id. |   
-| productSuite | String? | no |  |   
-| type | String? | no |  |  
+| companyId | String | yes | Customer unique id. In case of company it will be company id. |  
 
 
 
@@ -2475,64 +2472,6 @@ Success
 ```
 </details>
 
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getentityDetail
-Generic api to get the entity detail
-
-
-
-
-```java
-platformClient.billing.getentityDetail( entityName,  entityId,  channel,  component,  componentName) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Customer unique id. In case of company it will be company id. |   
-| entityName | String | yes | Entity name. |   
-| entityId | String? | no | Entity unique id. |   
-| channel | String | yes | Ordering channel. |   
-| component | String? | no | The coponents the user would like to know. |   
-| componentName | String? | no | The name of component the preferred to be fetched. |  
-
-
-
-Generic api to get the entity detail
-
-*Returned Response:*
-
-
-
-
-[EntityResponse](#EntityResponse)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
 </details>
 
 
@@ -3460,65 +3399,6 @@ Success
  | transactionId | String? |  yes  |  |
  | currentStatus | String? |  yes  |  |
  | meta | [Meta](#Meta)? |  yes  |  |
-
----
-
-
- 
- 
- #### [Features](#Features)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String? |  yes  |  |
- | slug | String? |  yes  |  |
- | description | String? |  yes  |  |
- | group | String? |  yes  |  |
- | enabled | Boolean? |  yes  |  |
- | displayText | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [FeeComponents](#FeeComponents)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | brand | ArrayList<String>? |  yes  |  |
- | location | ArrayList<String>? |  yes  |  |
- | channel | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | businessLead | String? |  yes  |  |
- | settlementType | String? |  yes  |  |
- | settleCyclePeriod | HashMap<String,Object>? |  yes  |  |
- | components | ArrayList<HashMap<String,Object>>? |  yes  |  |
-
----
-
-
- 
- 
- #### [Details](#Details)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | feeComponents | ArrayList<[FeeComponents](#FeeComponents)>? |  yes  |  |
- | features | ArrayList<[Features](#Features)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [EntityResponse](#EntityResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
- | page | Integer? |  yes  |  |
- | pageSize | Integer? |  yes  |  |
- | items | ArrayList<[Details](#Details)>? |  yes  |  |
 
 ---
 

@@ -27,7 +27,6 @@ Default
 * [createNewThemeInOrganization](#createnewthemeinorganization)
 * [getThemeRejectionReasons](#getthemerejectionreasons)
 * [getThemeVersions](#getthemeversions)
-* [createTheme](#createtheme)
 
 
 
@@ -4465,8 +4464,7 @@ The list of themes for the application was fetched successfully.
           }
         }
       ],
-      "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64b0eb01c35f990518880a82/theme/assets/7yuL57qP2-archive.zip",
-      "company_id": 1
+      "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64b0eb01c35f990518880a82/theme/assets/7yuL57qP2-archive.zip"
     }
   ]
 }
@@ -6439,8 +6437,7 @@ The list of themes for the application was fetched successfully.
           }
         }
       ],
-      "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64aec4634bc407961ed265c5/theme/assets/Gpbt5naNG-archive.zip",
-      "company_id": 1
+      "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64aec4634bc407961ed265c5/theme/assets/Gpbt5naNG-archive.zip"
     }
   ]
 }
@@ -8542,8 +8539,7 @@ Theme updated successfully
         }
       }
     ],
-    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64b0eb01c35f990518880a82/theme/assets/7yuL57qP2-archive.zip",
-    "company_id": 1
+    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64b0eb01c35f990518880a82/theme/assets/7yuL57qP2-archive.zip"
   }
 }
 ```
@@ -10514,8 +10510,7 @@ Theme updated successfully
         }
       }
     ],
-    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64aec4634bc407961ed265c5/theme/assets/Gpbt5naNG-archive.zip",
-    "company_id": 1
+    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64aec4634bc407961ed265c5/theme/assets/Gpbt5naNG-archive.zip"
   }
 }
 ```
@@ -12560,8 +12555,7 @@ Theme successfully deleted.
         }
       }
     ],
-    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64b0eb01c35f990518880a82/theme/assets/7yuL57qP2-archive.zip",
-    "company_id": 1
+    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64b0eb01c35f990518880a82/theme/assets/7yuL57qP2-archive.zip"
   }
 }
 ```
@@ -14532,8 +14526,7 @@ Theme successfully deleted.
         }
       }
     ],
-    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64aec4634bc407961ed265c5/theme/assets/Gpbt5naNG-archive.zip",
-    "company_id": 1
+    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64aec4634bc407961ed265c5/theme/assets/Gpbt5naNG-archive.zip"
   }
 }
 ```
@@ -15834,61 +15827,6 @@ Successful operation.
 ---
 
 
-### createTheme
-Create a new theme
-
-
-
-
-```java
-partnerClient.theme.createTheme( organizationId, body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | Company ID |   
-| applicationId | String | yes | Application ID |   
-| organizationId | String | yes | Organization ID |  
-| body | [CreateNewTheme](#CreateNewTheme) | yes | Request body |
-
-
-Themes improve the look and appearance of a website. Use this API to create a theme.
-
-*Returned Response:*
-
-
-
-
-[ThemesSchema](#ThemesSchema)
-
-Returns the new application theme details
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 
 
 ### Schemas
@@ -16283,7 +16221,7 @@ Returns the new application theme details
  | id | String? |  yes  | The unique identifier of the theme |
  | applicationId | String? |  yes  | The ID of the application |
  | marketplaceThemeId | String? |  yes  | The ID of the theme in the marketplace |
- | meta | [ThemeMeta](#ThemeMeta)? |  yes  |  |
+ | meta | [Meta](#Meta)? |  yes  |  |
  | name | String? |  yes  | The name of the theme |
  | templateThemeId | String? |  yes  | The ID of the template theme |
  | version | String? |  yes  | The version of the theme |
@@ -16292,8 +16230,6 @@ Returns the new application theme details
  | updatedAt | String? |  yes  | The last update timestamp of the theme |
  | assets | [Assets](#Assets)? |  yes  |  |
  | availableSections | ArrayList<[SectionItem](#SectionItem)>? |  yes  | Available sections information |
- | themeType | String? |  yes  |  |
- | companyId | Double? |  yes  | The company id in which sales channel exists |
 
 ---
 
@@ -16644,7 +16580,7 @@ Returns the new application theme details
 
  
  
- #### [ThemeMeta](#ThemeMeta)
+ #### [Meta](#Meta)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -16987,25 +16923,6 @@ Returns the new application theme details
  | ---------- | ---- | -------- | ----------- |
  | config | [Config](#Config)? |  yes  |  |
  | font | [Font](#Font)? |  yes  |  |
-
----
-
-
- 
- 
- #### [CreateNewTheme](#CreateNewTheme)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String |  no  | The name of the theme |
- | availableSections | ArrayList<[SectionItem](#SectionItem)> |  no  | Available sections information |
- | version | String |  no  | The version of the theme |
- | themeType | String |  no  | Type of the Theme |
- | list | ArrayList<[ThemeConfiguration](#ThemeConfiguration)>? |  yes  | A list of configurations |
- | globalSchema | [GlobalSchema](#GlobalSchema)? |  yes  |  |
- | preset | [Preset](#Preset)? |  yes  |  |
- | current | String? |  yes  | The current configuration |
- | pages | ArrayList<[Page](#Page)>? |  yes  |  |
 
 ---
 

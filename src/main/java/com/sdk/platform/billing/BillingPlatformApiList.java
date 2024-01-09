@@ -40,7 +40,7 @@ interface BillingPlatformApiList {
     Call<BillingPlatformModels.SubscriptionStatus> getSubscription(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/billing/v1.0/company/{company_id}/subscription/current-limit")
-    Call<BillingPlatformModels.SubscriptionLimit> getFeatureLimitConfig(@Path("company_id") String companyId, @Query("product_suite") String productSuite, @Query("type") String type, @HeaderMap Map<String, String> requestHeaders);
+    Call<BillingPlatformModels.SubscriptionLimit> getFeatureLimitConfig(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/billing/v1.0/company/{company_id}/subscription/activate")
     Call<BillingPlatformModels.SubscriptionActivateRes> activateSubscriptionPlan(@Path("company_id") String companyId, @Body BillingPlatformModels.SubscriptionActivateReq payload, @HeaderMap Map<String, String> requestHeaders);
@@ -56,7 +56,4 @@ interface BillingPlatformApiList {
 
     @POST ("/service/platform/billing/v1.0/company/{company_id}/payment/initiate")
     Call<BillingPlatformModels.SubscribePlanRes> subscripePlan(@Path("company_id") String companyId, @Body BillingPlatformModels.SunscribePlan payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/billing/v1.0/company/{company_id}/entity/detail")
-    Call<BillingPlatformModels.EntityResponse> getentityDetail(@Path("company_id") String companyId, @Query("entity_name") String entityName, @Query("entity_id") String entityId, @Query("channel") String channel, @Query("component") String component, @Query("component_name") String componentName, @HeaderMap Map<String, String> requestHeaders);
 }

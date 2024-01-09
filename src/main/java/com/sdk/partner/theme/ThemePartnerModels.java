@@ -1228,7 +1228,7 @@ public static class ThemesSchema{
     
     
     @JsonProperty("meta")
-    private ThemeMeta meta;
+    private Meta meta;
     
     
     
@@ -1277,18 +1277,6 @@ public static class ThemesSchema{
     
     @JsonProperty("available_sections")
     private List<SectionItem> availableSections;
-    
-    
-    
-    
-    @JsonProperty("theme_type")
-    private String themeType;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Double companyId;
     
     
     
@@ -2376,7 +2364,7 @@ public static class Colors{
 
 
 /*
-    Model: ThemeMeta
+    Model: Meta
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2384,7 +2372,7 @@ public static class Colors{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ThemeMeta{
+public static class Meta{
 
     
 
@@ -2800,44 +2788,14 @@ public static class Page{
     
     
     
-    @JsonProperty("item_total")
-    private Integer itemTotal;
+    @JsonProperty("sections")
+    private List<Section> sections;
     
     
     
     
-    @JsonProperty("next_id")
-    private String nextId;
-    
-    
-    
-    
-    @JsonProperty("has_previous")
-    private Boolean hasPrevious;
-    
-    
-    
-    
-    @JsonProperty("has_next")
-    private Boolean hasNext;
-    
-    
-    
-    
-    @JsonProperty("current")
-    private Integer current;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private Integer size;
+    @JsonProperty("value")
+    private String value;
     
     
     
@@ -3345,79 +3303,6 @@ public static class UpdateThemeRequestBody{
     
     @JsonProperty("font")
     private Font font;
-    
-    
-    
-}
-
-
-/*
-    Model: CreateNewTheme
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateNewTheme{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("available_sections")
-    private List<SectionItem> availableSections;
-    
-    
-    
-    
-    @JsonProperty("version")
-    private String version;
-    
-    
-    
-    
-    @JsonProperty("theme_type")
-    private String themeType;
-    
-    
-    
-    
-    @JsonProperty("list")
-    private List<ThemeConfiguration> list;
-    
-    
-    
-    
-    @JsonProperty("global_schema")
-    private GlobalSchema globalSchema;
-    
-    
-    
-    
-    @JsonProperty("preset")
-    private Preset preset;
-    
-    
-    
-    
-    @JsonProperty("current")
-    private String current;
-    
-    
-    
-    
-    @JsonProperty("pages")
-    private List<Page> pages;
     
     
     
