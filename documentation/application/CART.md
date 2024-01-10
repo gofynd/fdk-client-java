@@ -8648,6 +8648,8 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
  | articleQuantity | Integer? |  yes  | Quantity of article on which promotion is applicable |
  | appliedFreeArticles | ArrayList<[AppliedFreeArticles](#AppliedFreeArticles)>? |  yes  | Applied free article for free gift item promotions |
  | promotionType | String? |  yes  | Promotion type of current promotion |
+ | meta | HashMap<String,Object>? |  yes  | Meta object for extra data |
+ | code | String? |  yes  | Promotion code |
 
 ---
 
