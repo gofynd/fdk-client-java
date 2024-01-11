@@ -18,6 +18,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
+import com.moczul.ok2curl.CurlInterceptor;
 
 /**
  * Service Generator class for Retrofit communication Depends on baseUrl
@@ -31,7 +32,11 @@ public class RetrofitServiceFactory {
 
     private Retrofit retrofit;
 
+    private FDKLogger fdkLogger;
+
     private HttpLoggingInterceptor logging;
+
+    private CurlInterceptor ok2CurlInterceptor;
 
     public RetrofitServiceFactory() {
         baseURL = "http://localhost:8080";
@@ -41,7 +46,9 @@ public class RetrofitServiceFactory {
                     .baseUrl(httpUrl)
                     .addConverterFactory(JacksonConverterFactory.create());
             retrofit = builder.build();
-            logging = new HttpLoggingInterceptor(new FDKLogger()).setLevel(HttpLoggingInterceptor.Level.BODY);
+            fdkLogger = new FDKLogger();
+            logging = new HttpLoggingInterceptor(fdkLogger).setLevel(HttpLoggingInterceptor.Level.BODY);
+            ok2CurlInterceptor = new CurlInterceptor(s -> fdkLogger.log(s));
         }
     }
 
@@ -62,6 +69,9 @@ public class RetrofitServiceFactory {
 
         if(!interceptorList.contains(logging)) {
             interceptorList.add(logging);
+        }
+        if(!interceptorList.contains(ok2CurlInterceptor)){
+            interceptorList.add(ok2CurlInterceptor);
         }
         builder.client(getUnsafeOkHttpClient(interceptorList, cookieStore));
         retrofit = builder.build();

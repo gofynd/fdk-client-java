@@ -75,16 +75,64 @@ public class ThemePlatformService {
     
     
     
+    
+    
+    
+    
 
-    public List<ThemePlatformModels.CompanyThemeSchema> getCompanyLevelThemes() throws FDKServerResponseError, FDKException {
-        return this.getCompanyLevelThemes(new HashMap<>());
+    public List<ThemePlatformModels.CompanyThemeSchema> getCompanyLevelThemes(String searchText) throws FDKServerResponseError, FDKException {
+        return this.getCompanyLevelThemes(searchText, new HashMap<>());
     }
 
-    public List<ThemePlatformModels.CompanyThemeSchema> getCompanyLevelThemes(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public List<ThemePlatformModels.CompanyThemeSchema> getCompanyLevelThemes(String searchText, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<List<ThemePlatformModels.CompanyThemeSchema>> response = null;
             try {
-                response = themePlatformApiList.getCompanyLevelThemes(this.companyId, requestHeaders).execute();
+                response = themePlatformApiList.getCompanyLevelThemes(this.companyId, searchText, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public List<ThemePlatformModels.CompanyPrivateTheme> getCompanyLevelPrivateThemes(String searchText) throws FDKServerResponseError, FDKException {
+        return this.getCompanyLevelPrivateThemes(searchText, new HashMap<>());
+    }
+
+    public List<ThemePlatformModels.CompanyPrivateTheme> getCompanyLevelPrivateThemes(String searchText, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<List<ThemePlatformModels.CompanyPrivateTheme>> response = null;
+            try {
+                response = themePlatformApiList.getCompanyLevelPrivateThemes(this.companyId, searchText, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

@@ -489,6 +489,12 @@ public static class TrackingDetails{
     
     
     
+    @JsonProperty("created_ts")
+    private String createdTs;
+    
+    
+    
+    
     @JsonProperty("tracking_details")
     private List<NestedTrackingDetails> trackingDetails;
     
@@ -1481,6 +1487,12 @@ public static class DeliveryAddress{
     
     
     
+    @JsonProperty("display_address")
+    private String displayAddress;
+    
+    
+    
+    
     @JsonProperty("name")
     private String name;
     
@@ -1682,6 +1694,12 @@ public static class Shipments{
     
     @JsonProperty("shipment_created_at")
     private String shipmentCreatedAt;
+    
+    
+    
+    
+    @JsonProperty("shipment_created_ts")
+    private String shipmentCreatedTs;
     
     
     
@@ -1889,6 +1907,12 @@ public static class OrderSchema{
     
     @JsonProperty("order_created_time")
     private String orderCreatedTime;
+    
+    
+    
+    
+    @JsonProperty("order_created_ts")
+    private String orderCreatedTs;
     
     
     

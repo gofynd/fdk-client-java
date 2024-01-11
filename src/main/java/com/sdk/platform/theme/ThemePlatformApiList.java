@@ -49,7 +49,10 @@ interface ThemePlatformApiList {
     Call<ThemePlatformModels.DummyResponse> unarchiveTheme(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/theme/v2.0/company/{company_id}/themes")
-    Call<List<ThemePlatformModels.CompanyThemeSchema>> getCompanyLevelThemes(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
+    Call<List<ThemePlatformModels.CompanyThemeSchema>> getCompanyLevelThemes(@Path("company_id") String companyId, @Query("search_text") String searchText, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/theme/v2.0/company/{company_id}/private_themes")
+    Call<List<ThemePlatformModels.CompanyPrivateTheme>> getCompanyLevelPrivateThemes(@Path("company_id") String companyId, @Query("search_text") String searchText, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/theme/v2.0/company/{company_id}")
     Call<ThemePlatformModels.CompanyThemeSchema> addMarketplaceThemeToCompany(@Path("company_id") String companyId, @Body ThemePlatformModels.ThemeReq payload, @HeaderMap Map<String, String> requestHeaders);

@@ -376,6 +376,37 @@ public static class PromiseFormatted{
 
 
 /*
+    Model: PromiseISOFormat
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PromiseISOFormat{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("max")
+    private String max;
+    
+    
+    
+    
+    @JsonProperty("min")
+    private String min;
+    
+    
+    
+}
+
+
+/*
     Model: PromiseTimestamp
 */
 @AllArgsConstructor
@@ -431,6 +462,12 @@ public static class ShipmentPromise{
     
     @JsonProperty("timestamp")
     private PromiseTimestamp timestamp;
+    
+    
+    
+    
+    @JsonProperty("iso")
+    private PromiseISOFormat iso;
     
     
     
@@ -703,6 +740,12 @@ public static class ProductArticle{
     
     
     
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
 }
 
 
@@ -750,6 +793,92 @@ public static class PromoMeta{
     
     @JsonProperty("message")
     private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: ChargesAmount
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ChargesAmount{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+}
+
+
+/*
+    Model: Charges
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Charges{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private ChargesAmount amount;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("allow_refund")
+    private Boolean allowRefund;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
     
     
     
@@ -1263,6 +1392,12 @@ public static class CartProduct{
     
     
     
+    
+    @JsonProperty("attributes")
+    private Object attributes;
+    
+    
+    
 }
 
 
@@ -1356,6 +1491,12 @@ public static class CartProductInfo{
     
     
     
+    @JsonProperty("charges")
+    private List<Charges> charges;
+    
+    
+    
+    
     @JsonProperty("discount")
     private String discount;
     
@@ -1376,6 +1517,12 @@ public static class CartProductInfo{
     
     @JsonProperty("product")
     private CartProduct product;
+    
+    
+    
+    
+    @JsonProperty("product_ean_id")
+    private String productEanId;
     
     
     
@@ -1494,6 +1641,12 @@ public static class DisplayBreakup{
     
     
     
+    
+    @JsonProperty("preset")
+    private Double preset;
+    
+    
+    
 }
 
 
@@ -1564,6 +1717,12 @@ public static class RawBreakup{
     
     @JsonProperty("mop_total")
     private Double mopTotal;
+    
+    
+    
+    
+    @JsonProperty("total_charge")
+    private Double totalCharge;
     
     
     
@@ -2291,6 +2450,12 @@ public static class AddProductCart{
     
     
     
+    
+    @JsonProperty("seller_identifier")
+    private String sellerIdentifier;
+    
+    
+    
 }
 
 
@@ -2637,6 +2802,12 @@ public static class Coupon{
     
     
     
+    @JsonProperty("coupon_amount")
+    private Double couponAmount;
+    
+    
+    
+    
     @JsonProperty("coupon_value")
     private Double couponValue;
     
@@ -2705,6 +2876,24 @@ public static class Coupon{
     
     @JsonProperty("is_applied")
     private Boolean isApplied;
+    
+    
+    
+    
+    @JsonProperty("start_date")
+    private String startDate;
+    
+    
+    
+    
+    @JsonProperty("end_date")
+    private String endDate;
+    
+    
+    
+    
+    @JsonProperty("coupon_applicable_message")
+    private String couponApplicableMessage;
     
     
     
@@ -3099,6 +3288,18 @@ public static class Address{
     
     @JsonProperty("city")
     private String city;
+    
+    
+    
+    
+    @JsonProperty("sector")
+    private String sector;
+    
+    
+    
+    
+    @JsonProperty("state_code")
+    private String stateCode;
     
     
     
@@ -4037,7 +4238,7 @@ public static class CheckCart{
     
     
     @JsonProperty("delivery_charges")
-    private Integer deliveryCharges;
+    private Double deliveryCharges;
     
     
     
@@ -4175,7 +4376,7 @@ public static class CheckCart{
     
     
     @JsonProperty("cod_charges")
-    private Integer codCharges;
+    private Double codCharges;
     
     
     

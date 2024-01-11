@@ -14,6 +14,56 @@ public class UserApplicationModels{
 
 
 /*
+    Model: UpdateUserAttributesRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateUserAttributesRequest{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("attributes")
+    private Object attributes;
+    
+    
+    
+}
+
+
+/*
+    Model: UserAttributes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserAttributes{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("attributes")
+    private Object attributes;
+    
+    
+    
+}
+
+
+/*
     Model: DeleteApplicationUserRequestSchema
 */
 @AllArgsConstructor
@@ -323,12 +373,6 @@ public static class SendEmailOtpRequestSchema{
     
     
     
-    
-    @JsonProperty("captcha_code")
-    private String captchaCode;
-    
-    
-    
 }
 
 
@@ -560,12 +604,6 @@ public static class SendMobileOtpRequestSchema{
     
     @JsonProperty("force")
     private String force;
-    
-    
-    
-    
-    @JsonProperty("captcha_code")
-    private String captchaCode;
     
     
     
@@ -816,12 +854,6 @@ public static class SendResetPasswordEmailRequestSchema{
     
     
     
-    
-    @JsonProperty("captcha_code")
-    private String captchaCode;
-    
-    
-    
 }
 
 
@@ -853,12 +885,6 @@ public static class SendResetPasswordMobileRequestSchema{
     
     
     
-    
-    @JsonProperty("captcha_code")
-    private String captchaCode;
-    
-    
-    
 }
 
 
@@ -875,12 +901,6 @@ public static class PasswordLoginRequestSchema{
 
     
 
-    
-    
-    
-    
-    @JsonProperty("captcha_code")
-    private String captchaCode;
     
     
     
@@ -918,12 +938,6 @@ public static class SendOtpRequestSchema{
     
     @JsonProperty("country_code")
     private String countryCode;
-    
-    
-    
-    
-    @JsonProperty("captcha_code")
-    private String captchaCode;
     
     
     
@@ -1072,6 +1086,31 @@ public static class AuthSuccess{
     
     @JsonProperty("user")
     private UserSchema user;
+    
+    
+    
+}
+
+
+/*
+    Model: UserExistsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserExistsResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("user_exists")
+    private Boolean userExists;
     
     
     

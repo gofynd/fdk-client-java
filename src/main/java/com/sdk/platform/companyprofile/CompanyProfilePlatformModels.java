@@ -200,6 +200,43 @@ public static class ContactDetails{
 
 
 /*
+    Model: CountryCurrencyInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CountryCurrencyInfo{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("symbol")
+    private String symbol;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+}
+
+
+/*
     Model: BusinessCountryInfo
 */
 @AllArgsConstructor
@@ -224,6 +261,18 @@ public static class BusinessCountryInfo{
     
     @JsonProperty("country")
     private String country;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private CountryCurrencyInfo currency;
+    
+    
+    
+    
+    @JsonProperty("timezone")
+    private String timezone;
     
     
     
@@ -340,6 +389,18 @@ public static class GetAddressSerializer{
     
     @JsonProperty("state")
     private String state;
+    
+    
+    
+    
+    @JsonProperty("state_code")
+    private String stateCode;
+    
+    
+    
+    
+    @JsonProperty("sector")
+    private String sector;
     
     
     
@@ -2153,6 +2214,12 @@ public static class GetLocationSerializer{
     
     
     
+    
+    @JsonProperty("auto_assign_courier_partner")
+    private Boolean autoAssignCourierPartner;
+    
+    
+    
 }
 
 
@@ -2248,6 +2315,18 @@ public static class AddressSerializer{
     
     @JsonProperty("state")
     private String state;
+    
+    
+    
+    
+    @JsonProperty("sector")
+    private String sector;
+    
+    
+    
+    
+    @JsonProperty("state_code")
+    private String stateCode;
     
     
     
@@ -2435,6 +2514,12 @@ public static class LocationSerializer{
     
     @JsonProperty("bulk_shipment")
     private Boolean bulkShipment;
+    
+    
+    
+    
+    @JsonProperty("auto_assign_courier_partner")
+    private Boolean autoAssignCourierPartner;
     
     
     

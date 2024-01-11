@@ -14,7 +14,7 @@ Get started with the Java Development SDK for Fynd Platform
 <dependency>
     <groupId>com.github.gofynd</groupId>
     <artifactId>fdk-client-java</artifactId>
-    <version>1.3.9</version>
+    <version>1.3.10-local</version>
 </dependency>
 ```
 
@@ -123,6 +123,18 @@ public class CookieExample {
 ```
 
 Cookies added to cookieStore will be automatically attached to subsequent requests. Also any request returning `Set-Cookie` headers will automatically added in the cookieStore.
+
+---
+
+### Logging
+
+To enable detailed logging of FDK in your Java project, set the log level for the SDK to `DEBUG` in the `application.yml` file:
+
+```yaml
+logging.level.com.sdk: DEBUG
+```
+
+This setting provides comprehensive insights into Spring Boot operations and logs cURL commands for FDK-initiated requests.
 
 ---
 
