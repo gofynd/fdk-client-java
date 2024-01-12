@@ -481,7 +481,7 @@ public static class ActionPage{
     
     
     @JsonProperty("type")
-    private String type;
+    private PageType type;
     
     
     
@@ -3419,6 +3419,121 @@ public static class CreateNewTheme{
 }
 
 
+
+
+    
+    /*
+        Enum: PageType
+        Used By: Theme
+    */
+    @Getter
+    public enum PageType {
+
+        
+        aboutUs("about-us"), 
+        
+        addresses("addresses"), 
+        
+        blog("blog"), 
+        
+        brands("brands"), 
+        
+        cards("cards"), 
+        
+        cart("cart"), 
+        
+        categories("categories"), 
+        
+        brand("brand"), 
+        
+        category("category"), 
+        
+        collection("collection"), 
+        
+        collections("collections"), 
+        
+        contactUs("contact-us"), 
+        
+        externalLink("external"), 
+        
+        faq("faq"), 
+        
+        freshchat("freshchat"), 
+        
+        home("home"), 
+        
+        notificationSettings("notification-settings"), 
+        
+        orders("orders"), 
+        
+        page("page"), 
+        
+        policy("policy"), 
+        
+        product("product"), 
+        
+        productRequest("product-request"), 
+        
+        products("products"), 
+        
+        profile("profile"), 
+        
+        profileOrderShipment("profile-order-shipment"), 
+        
+        profileBasic("profile-basic"), 
+        
+        profileCompany("profile-company"), 
+        
+        profileEmails("profile-emails"), 
+        
+        profilePhones("profile-phones"), 
+        
+        rateUs("rate-us"), 
+        
+        referEarn("refer-earn"), 
+        
+        settings("settings"), 
+        
+        sharedCart("shared-cart"), 
+        
+        tnc("tnc"), 
+        
+        trackOrder("track-order"), 
+        
+        wishlist("wishlist"), 
+        
+        sections("sections"), 
+        
+        form("form"), 
+        
+        cartDelivery("cart-delivery"), 
+        
+        cartPayment("cart-payment"), 
+        
+        cartReview("cart-review"), 
+        
+        login("login"), 
+        
+        register("register"), 
+        
+        shippingPolicy("shipping-policy"), 
+        
+        returnPolicy("return-policy"), 
+        
+        orderStatus("order-status");
+        
+
+        private String priority;
+        PageType(String priority) {
+            this.priority = priority;
+        }
+
+        @JsonValue
+        public String getPriority() {
+            return priority;
+        }
+
+    }
 
 
 }
