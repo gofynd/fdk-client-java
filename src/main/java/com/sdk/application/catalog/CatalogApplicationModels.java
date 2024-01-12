@@ -3557,8 +3557,8 @@ public static class GetCollectionDetailNest{
     
     
     
-    @JsonProperty("tag")
-    private List<String> tag;
+    @JsonProperty("tags")
+    private List<String> tags;
     
     
     

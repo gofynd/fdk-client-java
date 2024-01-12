@@ -7,16 +7,16 @@ import java.util.*;
 interface OrderApplicationApiList {
 
     @GET 
-    Call<OrderApplicationModels.OrderList> getOrders(@Url String url1, @Query("status") Integer status, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("from_date") String fromDate, @Query("to_date") String toDate, @Query("custom_meta") String customMeta, @HeaderMap Map<String, String> requestHeaders);
+    Call<OrderApplicationModels.OrderList> getOrders(@Url String url1, @Query("status") Integer status, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("from_date") String fromDate, @Query("to_date") String toDate, @Query("start_date") String startDate, @Query("end_date") String endDate, @Query("custom_meta") String customMeta, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<OrderApplicationModels.OrderById> getOrderById(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+    Call<OrderApplicationModels.OrderById> getOrderById(@Url String url1, @Query("allow_inactive") Boolean allowInactive, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<OrderApplicationModels.OrderById> getPosOrderById(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<OrderApplicationModels.ShipmentById> getShipmentById(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+    Call<OrderApplicationModels.ShipmentById> getShipmentById(@Url String url1, @Query("allow_inactive") Boolean allowInactive, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<OrderApplicationModels.ResponseGetInvoiceShipment> getInvoiceByShipmentId(@Url String url1, @HeaderMap Map<String, String> requestHeaders);

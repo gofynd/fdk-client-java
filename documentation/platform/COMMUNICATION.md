@@ -59,15 +59,23 @@ Default
 * [sendCommunicationSynchronously](#sendcommunicationsynchronously)
 * [sendCommunicationAsynchronously](#sendcommunicationasynchronously)
 * [getEventSubscriptions](#geteventsubscriptions)
+* [createEventSubscriptions](#createeventsubscriptions)
+* [getEventSubscriptionsById](#geteventsubscriptionsbyid)
+* [editEventSubscriptions](#editeventsubscriptions)
+* [deleteEventSubscriptionsById](#deleteeventsubscriptionsbyid)
+* [createEventSubscriptionsByBulk](#createeventsubscriptionsbybulk)
 * [getGlobalVariables](#getglobalvariables)
 * [postGlobalVariables](#postglobalvariables)
 * [getJobs](#getjobs)
+* [createJobs](#createjobs)
 * [triggerCampaignJob](#triggercampaignjob)
 * [getJobLogs](#getjoblogs)
 * [getCommunicationLogs](#getcommunicationlogs)
 * [getSystemNotifications](#getsystemnotifications)
 * [sendOtp](#sendotp)
 * [verfiyOtp](#verfiyotp)
+* [getOtpConfiguration](#getotpconfiguration)
+* [updateOtpConfiguration](#updateotpconfiguration)
 
 
 
@@ -364,7 +372,7 @@ Get email providers
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getEmailProviders( pageNo,  pageSize,  sort) {
+platformClient.application("<APPLICATION_ID>").communication.getEmailProviders( pageNo,  pageSize,  sort,  query) {
   //use response
 }
 ```
@@ -377,7 +385,8 @@ platformClient.application("<APPLICATION_ID>").communication.getEmailProviders( 
 | applicationId | String | yes | Application id |   
 | pageNo | Integer? | no | Current page no |   
 | pageSize | Integer? | no | Current request items count |   
-| sort | Object? | no | To sort based on created_at |  
+| sort | Object? | no | To sort based on created_at |   
+| query | Object? | no | To search based on plain text |  
 
 
 
@@ -772,7 +781,7 @@ Get sms providers
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getSmsProviders( pageNo,  pageSize,  sort) {
+platformClient.application("<APPLICATION_ID>").communication.getSmsProviders( pageNo,  pageSize,  sort,  query) {
   //use response
 }
 ```
@@ -785,7 +794,8 @@ platformClient.application("<APPLICATION_ID>").communication.getSmsProviders( pa
 | applicationId | String | yes | Application id |   
 | pageNo | Integer? | no | Current page no |   
 | pageSize | Integer? | no | Current request items count |   
-| sort | Object? | no | To sort based on created_at |  
+| sort | Object? | no | To sort based on created_at |   
+| query | Object? | no | To search based on plain text |  
 
 
 
@@ -1232,7 +1242,7 @@ Get campaigns
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getCampaigns( pageNo,  pageSize,  sort) {
+platformClient.application("<APPLICATION_ID>").communication.getCampaigns( query,  pageNo,  pageSize,  sort) {
   //use response
 }
 ```
@@ -1243,6 +1253,7 @@ platformClient.application("<APPLICATION_ID>").communication.getCampaigns( pageN
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Company id |   
 | applicationId | String | yes | Application id |   
+| query | Object? | no | To search based on plain text |   
 | pageNo | Integer? | no | Current page no |   
 | pageSize | Integer? | no | Current request items count |   
 | sort | Object? | no | To sort based on created_at |  
@@ -2088,7 +2099,7 @@ Get audiences
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getAudiences( pageNo,  pageSize,  sort) {
+platformClient.application("<APPLICATION_ID>").communication.getAudiences( pageNo,  pageSize,  sort,  query) {
   //use response
 }
 ```
@@ -2101,7 +2112,8 @@ platformClient.application("<APPLICATION_ID>").communication.getAudiences( pageN
 | applicationId | String | yes | Application id |   
 | pageNo | Integer? | no | Current page no |   
 | pageSize | Integer? | no | Current request items count |   
-| sort | Object? | no | To sort based on created_at |  
+| sort | Object? | no | To sort based on created_at |   
+| query | Object? | no | To search based on plain text |  
 
 
 
@@ -2436,7 +2448,7 @@ Delete audience by id
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.deleteAudienceById( id) {
+platformClient.application("<APPLICATION_ID>").communication.deleteAudienceById( id, body body) {
   //use response
 }
 ```
@@ -2448,7 +2460,7 @@ platformClient.application("<APPLICATION_ID>").communication.deleteAudienceById(
 | companyId | String | yes | Company id |   
 | applicationId | String | yes | Application id |   
 | id | String | yes | Audience id |  
-
+| body | [AudienceReq](#AudienceReq) | yes | Request body |
 
 
 Audience is used to import CSV files containing emails, phone numbers, and other variables in order to populate email/SMS templates for bulk delivery via a Campaign. Use this API to delete audience by id.
@@ -2458,9 +2470,9 @@ Audience is used to import CSV files containing emails, phone numbers, and other
 
 
 
-[GenericDelete](#GenericDelete)
+[Audience](#Audience)
 
-Refer `GenericDelete` schema for more details.
+Refer `Audience` schema for more details.
 
 
 
@@ -2475,10 +2487,26 @@ Refer `GenericDelete` schema for more details.
 ```json
 {
   "value": {
-    "message": "Deletion Successfull",
-    "acknowledged": true,
-    "affected": 1,
-    "operation": "TEMP-ST-DEL:ID"
+    "_id": "64ad30a15efbc5f85fb549d8",
+    "application": "64802b8bd4dc759bcc1fef86",
+    "name": "dummy ds",
+    "description": "desc",
+    "records_count": 1,
+    "type": "raw_csv",
+    "tags": [
+      "tag1",
+      "tag2"
+    ],
+    "headers": [
+      "phone",
+      "mail"
+    ],
+    "file_url": "https://cdn.pixelbin.io/v2/falling-surf-7c8bb8/fyndnp/wrkr/x5/application/64802b8bd4dc759bcc1fef86/datasources/ODKRR6aBQ-jsonviewer.csv",
+    "is_active": true,
+    "created_at": "2023-07-11T10:36:17.340Z",
+    "updated_at": "2023-07-11T10:36:17.340Z",
+    "slug": "dummy-1-5JrNGM8LA",
+    "__v": 0
   }
 }
 ```
@@ -2787,7 +2815,7 @@ Get email templates
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getEmailTemplates( pageNo,  pageSize,  sort) {
+platformClient.application("<APPLICATION_ID>").communication.getEmailTemplates( pageNo,  pageSize,  sort,  query) {
   //use response
 }
 ```
@@ -2800,7 +2828,8 @@ platformClient.application("<APPLICATION_ID>").communication.getEmailTemplates( 
 | applicationId | String | yes | Application id |   
 | pageNo | Integer? | no | Current page no |   
 | pageSize | Integer? | no | Current request items count |   
-| sort | Object? | no | To sort based on created_at |  
+| sort | Object? | no | To sort based on created_at |   
+| query | Object? | no | To search based on plain text |  
 
 
 
@@ -3408,7 +3437,7 @@ Get subscribed email templates
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getSubscribedEmailTemplates( pageNo,  pageSize) {
+platformClient.application("<APPLICATION_ID>").communication.getSubscribedEmailTemplates( pageNo,  pageSize,  query) {
   //use response
 }
 ```
@@ -3420,7 +3449,8 @@ platformClient.application("<APPLICATION_ID>").communication.getSubscribedEmailT
 | companyId | String | yes | Company id |   
 | applicationId | String | yes | Application id |   
 | pageNo | Integer? | no | Current page no |   
-| pageSize | Integer? | no | Current request items count |  
+| pageSize | Integer? | no | Current request items count |   
+| query | Object? | no | To search based on plain text |  
 
 
 
@@ -3531,7 +3561,7 @@ Get sms templates
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getSmsTemplates( pageNo,  pageSize,  sort) {
+platformClient.application("<APPLICATION_ID>").communication.getSmsTemplates( pageNo,  pageSize,  sort,  query) {
   //use response
 }
 ```
@@ -3544,7 +3574,8 @@ platformClient.application("<APPLICATION_ID>").communication.getSmsTemplates( pa
 | applicationId | String | yes | Application id |   
 | pageNo | Integer? | no | Current page no |   
 | pageSize | Integer? | no | Current request items count |   
-| sort | Object? | no | To sort based on created_at |  
+| sort | Object? | no | To sort based on created_at |   
+| query | Object? | no | To search based on plain text |  
 
 
 
@@ -4119,7 +4150,7 @@ Get subscribed sms templates
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getSubscribedSmsTemplates( pageNo,  pageSize) {
+platformClient.application("<APPLICATION_ID>").communication.getSubscribedSmsTemplates( pageNo,  pageSize,  query) {
   //use response
 }
 ```
@@ -4131,7 +4162,8 @@ platformClient.application("<APPLICATION_ID>").communication.getSubscribedSmsTem
 | companyId | String | yes | Company id |   
 | applicationId | String | yes | Application id |   
 | pageNo | Integer? | no | Current page no |   
-| pageSize | Integer? | no | Current request items count |  
+| pageSize | Integer? | no | Current request items count |   
+| query | Object? | no | To search based on plain text |  
 
 
 
@@ -4369,7 +4401,7 @@ platformClient.application("<APPLICATION_ID>").communication.getEventSubscriptio
 | applicationId | String | yes | Application id |   
 | pageNo | Integer? | no | Current page no |   
 | pageSize | Integer? | no | Current request items count |   
-| populate | String? | no | populate fields |  
+| populate | String? | no | Populate Fields |  
 
 
 
@@ -4984,6 +5016,416 @@ Success
 ---
 
 
+### createEventSubscriptions
+Create event subscriptions
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.createEventSubscriptions(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |  
+| body | [SubscriptionsObject](#SubscriptionsObject) | yes | Request body |
+
+
+Create event subscriptions
+
+*Returned Response:*
+
+
+
+
+[EventSubscriptionsBulkUpdateResponse](#EventSubscriptionsBulkUpdateResponse)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": [
+    {
+      "template": {
+        "sms": {
+          "subscribed": true,
+          "template": "65252a7f2b235b3b7a75e4be"
+        },
+        "email": {
+          "subscribed": true,
+          "template": "65252a196fcb371a2d6aa418"
+        },
+        "pushnotification": {
+          "subscribed": false
+        }
+      },
+      "_id": "64b2ddb856dd97a75c452f2d",
+      "application": "64b2ddb6cb99a609e12a9bea",
+      "event": "64aec4c6c987e14691600e2b",
+      "slug": "invite-event",
+      "category": "website",
+      "created_at": "2023-07-15T17:56:08.601Z",
+      "updated_at": "2023-10-10T10:50:28.781Z"
+    }
+  ]
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getEventSubscriptionsById
+Get event subscriptions by id
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.getEventSubscriptionsById( id,  populate) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |   
+| id | String | yes | Event subscription id |   
+| populate | String? | no | Populate Fields |  
+
+
+
+Get event subscriptions by id
+
+*Returned Response:*
+
+
+
+
+[EventSubscription](#EventSubscription)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "template": {
+      "sms": {
+        "subscribed": true,
+        "template": "64aec4c4c987e14691600d1a"
+      },
+      "email": {
+        "subscribed": true,
+        "template": "64aec4c4c987e14691600d1a"
+      },
+      "pushnotification": {
+        "subscribed": false
+      }
+    },
+    "_id": "64b2ddb756dd97a75c452ee6",
+    "application": "64b2ddb6cb99a609e12a9bea",
+    "event": "64aec4c4c987e14691600d1d",
+    "slug": "arriving_early_out_for_delivery-event",
+    "category": "website",
+    "created_at": "2023-07-15T17:56:07.926Z",
+    "updated_at": "2023-10-07T09:41:32.836Z",
+    "__v": 0
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### editEventSubscriptions
+Create event subscriptions
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.editEventSubscriptions( id, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |   
+| id | String | yes | Event subscription id |  
+| body | [SubscriptionsObject](#SubscriptionsObject) | yes | Request body |
+
+
+Create event subscriptions
+
+*Returned Response:*
+
+
+
+
+[EventSubscriptionsBulkUpdateResponse](#EventSubscriptionsBulkUpdateResponse)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": [
+    {
+      "template": {
+        "sms": {
+          "subscribed": true,
+          "template": "65252a7f2b235b3b7a75e4be"
+        },
+        "email": {
+          "subscribed": true,
+          "template": "65252a196fcb371a2d6aa418"
+        },
+        "pushnotification": {
+          "subscribed": false
+        }
+      },
+      "_id": "64b2ddb856dd97a75c452f2d",
+      "application": "64b2ddb6cb99a609e12a9bea",
+      "event": "64aec4c6c987e14691600e2b",
+      "slug": "invite-event",
+      "category": "website",
+      "created_at": "2023-07-15T17:56:08.601Z",
+      "updated_at": "2023-10-10T10:50:28.781Z"
+    }
+  ]
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### deleteEventSubscriptionsById
+Create event subscriptions
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.deleteEventSubscriptionsById( id) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |   
+| id | String | yes | Event subscription id |  
+
+
+
+Create event subscriptions
+
+*Returned Response:*
+
+
+
+
+[GenericDelete](#GenericDelete)
+
+Refer `GenericDelete` schema for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "message": "Deletion Successfull",
+    "acknowledged": true,
+    "affected": 1,
+    "operation": "TEMP-ST-DEL:ID"
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### createEventSubscriptionsByBulk
+Create event subscriptions by bulk
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.createEventSubscriptionsByBulk(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |  
+| body | [EventSubscriptionsBulkUpdateRequest](#EventSubscriptionsBulkUpdateRequest) | yes | Request body |
+
+
+Create event subscriptions by bulk
+
+*Returned Response:*
+
+
+
+
+[List<EventSubscriptionsBulkUpdateResponse>](#List<EventSubscriptionsBulkUpdateResponse>)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": [
+    {
+      "template": {
+        "sms": {
+          "subscribed": true,
+          "template": "65252a7f2b235b3b7a75e4be"
+        },
+        "email": {
+          "subscribed": true,
+          "template": "65252a196fcb371a2d6aa418"
+        },
+        "pushnotification": {
+          "subscribed": false
+        }
+      },
+      "_id": "64b2ddb856dd97a75c452f2d",
+      "application": "64b2ddb6cb99a609e12a9bea",
+      "event": "64aec4c6c987e14691600e2b",
+      "slug": "invite-event",
+      "category": "website",
+      "created_at": "2023-07-15T17:56:08.601Z",
+      "updated_at": "2023-10-10T10:50:28.781Z"
+    }
+  ]
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getGlobalVariables
 get global variables
 
@@ -5146,7 +5588,7 @@ Get jobs
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getJobs( pageNo,  pageSize,  sort) {
+platformClient.application("<APPLICATION_ID>").communication.getJobs( pageNo,  pageSize,  sort,  query) {
   //use response
 }
 ```
@@ -5159,7 +5601,8 @@ platformClient.application("<APPLICATION_ID>").communication.getJobs( pageNo,  p
 | applicationId | String | yes | Application id |   
 | pageNo | Integer? | no | Current page no |   
 | pageSize | Integer? | no | Current request items count |   
-| sort | Object? | no | To sort based on created_at |  
+| sort | Object? | no | To sort based on created_at |   
+| query | Object? | no | To search based on plain text |  
 
 
 
@@ -5206,6 +5649,77 @@ Success
       "item_total": 1,
       "has_next": false
     }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### createJobs
+Create jobs
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.createJobs(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |  
+| body | [CreateJobsReq](#CreateJobsReq) | yes | Request body |
+
+
+Create jobs
+
+*Returned Response:*
+
+
+
+
+[CreateJobsRes](#CreateJobsRes)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "application": "000000000000000000000004",
+    "campaign": "656c9cad5638b4af9e2329af",
+    "completed": true,
+    "is_active": true,
+    "_id": "5fd9fd44c474a7e3d5d376d6",
+    "created_at": "2020-12-16T12:27:48.051Z",
+    "updated_at": "2020-12-16T12:27:48.051Z",
+    "__v": 0
   }
 }
 ```
@@ -5295,7 +5809,7 @@ Get job logs
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.getJobLogs( pageNo,  pageSize,  sort) {
+platformClient.application("<APPLICATION_ID>").communication.getJobLogs( pageNo,  pageSize,  sort,  query) {
   //use response
 }
 ```
@@ -5308,7 +5822,8 @@ platformClient.application("<APPLICATION_ID>").communication.getJobLogs( pageNo,
 | applicationId | String | yes | Application id |   
 | pageNo | Integer? | no | Current page no |   
 | pageSize | Integer? | no | Current request items count |   
-| sort | Object? | no | To sort based on created_at |  
+| sort | Object? | no | To sort based on created_at |   
+| query | Object? | no | To search based on plain text |  
 
 
 
@@ -5727,9 +6242,224 @@ Success
 ---
 
 
+### getOtpConfiguration
+Get otp-configuration, if not present in db then return default settings
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.getOtpConfiguration() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |  
+
+
+
+Get otp-configuration
+
+*Returned Response:*
+
+
+
+
+[OtpConfiguration](#OtpConfiguration)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "type": "numeric",
+    "otp_length": 4,
+    "expiry": {
+      "type": "new",
+      "duration": {
+        "time": 5,
+        "denomination": "min"
+      }
+    },
+    "application_id": "6399ba6924ab1bacf0131492",
+    "company_id": "1"
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### updateOtpConfiguration
+Update/insert otp configurations
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.updateOtpConfiguration() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |  
+
+
+
+Update otp-configuration
+
+*Returned Response:*
+
+
+
+
+[OtpConfiguration](#OtpConfiguration)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "type": "numeric",
+    "otp_length": 4,
+    "expiry": {
+      "type": "new",
+      "duration": {
+        "time": 5,
+        "denomination": "min"
+      }
+    },
+    "application_id": "6399ba6924ab1bacf0131492",
+    "company_id": "1"
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 
 
 ### Schemas
+
+ 
+ 
+ #### [EventSubscriptionsBulkUpdateRequest](#EventSubscriptionsBulkUpdateRequest)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | subscriptions | ArrayList<[SubscriptionsObject](#SubscriptionsObject)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [EventSubscriptionsBulkUpdateResponse](#EventSubscriptionsBulkUpdateResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | template | [EventSubscriptionTemplate](#EventSubscriptionTemplate)? |  yes  |  |
+ | id | String? |  yes  |  |
+ | application | String? |  yes  |  |
+ | event | String? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | category | String? |  yes  |  |
+ | createdAt | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
+ | v | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SubscriptionsObject](#SubscriptionsObject)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | id | String? |  yes  | Subscription ID |
+ | template | [TemplateObject](#TemplateObject)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [TemplateObject](#TemplateObject)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | sms | [CommunicationTemplate](#CommunicationTemplate)? |  yes  |  |
+ | email | [CommunicationTemplate](#CommunicationTemplate)? |  yes  |  |
+ | pushnotification | [CommunicationTemplate](#CommunicationTemplate)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CommunicationTemplate](#CommunicationTemplate)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | subscribed | Boolean? |  yes  | Whether the user is subscribed or not |
+ | template | String? |  yes  | Template ID |
+
+---
+
 
  
  
@@ -6652,6 +7382,35 @@ Success
 
  
  
+ #### [CreateJobsRes](#CreateJobsRes)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | application | String? |  yes  |  |
+ | campaign | String? |  yes  |  |
+ | completed | Boolean? |  yes  |  |
+ | isActive | Boolean? |  yes  |  |
+ | id | String? |  yes  |  |
+ | createdAt | String? |  yes  |  |
+ | updatedAt | String? |  yes  |  |
+ | v | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CreateJobsReq](#CreateJobsReq)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | campaign | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [JobLog](#JobLog)
 
  | Properties | Type | Nullable | Description |
@@ -7245,6 +8004,45 @@ Success
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | enabled | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OtpConfigurationExpiryDuration](#OtpConfigurationExpiryDuration)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | time | Double |  no  |  |
+ | denomination | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [OtpConfigurationExpiry](#OtpConfigurationExpiry)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | duration | [OtpConfigurationExpiryDuration](#OtpConfigurationExpiryDuration) |  no  |  |
+ | type | String |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [OtpConfiguration](#OtpConfiguration)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | otpLength | Integer |  no  |  |
+ | type | String |  no  |  |
+ | expiry | [OtpConfigurationExpiry](#OtpConfigurationExpiry) |  no  |  |
+ | applicationId | String? |  yes  |  |
+ | companyId | String? |  yes  |  |
 
 ---
 

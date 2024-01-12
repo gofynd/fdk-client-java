@@ -27,6 +27,7 @@ Default
 * [createNewThemeInOrganization](#createnewthemeinorganization)
 * [getThemeRejectionReasons](#getthemerejectionreasons)
 * [getThemeVersions](#getthemeversions)
+* [createTheme](#createtheme)
 
 
 
@@ -4464,7 +4465,8 @@ The list of themes for the application was fetched successfully.
           }
         }
       ],
-      "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64b0eb01c35f990518880a82/theme/assets/7yuL57qP2-archive.zip"
+      "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64b0eb01c35f990518880a82/theme/assets/7yuL57qP2-archive.zip",
+      "company_id": 1
     }
   ]
 }
@@ -6437,7 +6439,8 @@ The list of themes for the application was fetched successfully.
           }
         }
       ],
-      "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64aec4634bc407961ed265c5/theme/assets/Gpbt5naNG-archive.zip"
+      "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64aec4634bc407961ed265c5/theme/assets/Gpbt5naNG-archive.zip",
+      "company_id": 1
     }
   ]
 }
@@ -8539,7 +8542,8 @@ Theme updated successfully
         }
       }
     ],
-    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64b0eb01c35f990518880a82/theme/assets/7yuL57qP2-archive.zip"
+    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64b0eb01c35f990518880a82/theme/assets/7yuL57qP2-archive.zip",
+    "company_id": 1
   }
 }
 ```
@@ -10510,7 +10514,8 @@ Theme updated successfully
         }
       }
     ],
-    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64aec4634bc407961ed265c5/theme/assets/Gpbt5naNG-archive.zip"
+    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64aec4634bc407961ed265c5/theme/assets/Gpbt5naNG-archive.zip",
+    "company_id": 1
   }
 }
 ```
@@ -12555,7 +12560,8 @@ Theme successfully deleted.
         }
       }
     ],
-    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64b0eb01c35f990518880a82/theme/assets/7yuL57qP2-archive.zip"
+    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64b0eb01c35f990518880a82/theme/assets/7yuL57qP2-archive.zip",
+    "company_id": 1
   }
 }
 ```
@@ -14526,7 +14532,8 @@ Theme successfully deleted.
         }
       }
     ],
-    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64aec4634bc407961ed265c5/theme/assets/Gpbt5naNG-archive.zip"
+    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64aec4634bc407961ed265c5/theme/assets/Gpbt5naNG-archive.zip",
+    "company_id": 1
   }
 }
 ```
@@ -15827,6 +15834,61 @@ Successful operation.
 ---
 
 
+### createTheme
+Create a new theme
+
+
+
+
+```java
+partnerClient.theme.createTheme( organizationId, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes | Company ID |   
+| applicationId | String | yes | Application ID |   
+| organizationId | String | yes | Organization ID |  
+| body | [CreateNewTheme](#CreateNewTheme) | yes | Request body |
+
+
+Themes improve the look and appearance of a website. Use this API to create a theme.
+
+*Returned Response:*
+
+
+
+
+[ThemesSchema](#ThemesSchema)
+
+Returns the new application theme details
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 
 
 ### Schemas
@@ -15847,6 +15909,8 @@ Successful operation.
  | seo | [AvailablePageSeo](#AvailablePageSeo)? |  yes  |  |
  | props | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | id | String? |  yes  |  |
+ | createdAt | String? |  yes  | The creation timestamp of the page |
+ | updatedAt | String? |  yes  | The last update timestamp of the page |
 
 ---
 
@@ -15870,7 +15934,85 @@ Successful operation.
  | ---------- | ---- | -------- | ----------- |
  | title | String? |  yes  |  |
  | description | String? |  yes  |  |
+ | metaTags | ArrayList<[SEOMetaItem](#SEOMetaItem)>? |  yes  |  |
+ | sitemap | [SEOSitemap](#SEOSitemap)? |  yes  |  |
+ | breadcrumb | ArrayList<[SEObreadcrumb](#SEObreadcrumb)>? |  yes  |  |
  | id | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SEOMetaItem](#SEOMetaItem)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | title | String? |  yes  |  |
+ | items | ArrayList<[SEOMetaItems](#SEOMetaItems)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SEOMetaItems](#SEOMetaItems)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | key | String? |  yes  |  |
+ | value | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SEOSitemap](#SEOSitemap)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | priority | Double? |  yes  |  |
+ | frequency | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [SEObreadcrumb](#SEObreadcrumb)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | url | String? |  yes  |  |
+ | action | [Action](#Action)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Action](#Action)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | page | [ActionPage](#ActionPage)? |  yes  |  |
+ | popup | [ActionPage](#ActionPage)? |  yes  |  |
+ | type | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ActionPage](#ActionPage)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | params | HashMap<String,ArrayList<String>>? |  yes  |  |
+ | query | HashMap<String,ArrayList<String>>? |  yes  |  |
+ | url | String? |  yes  |  |
+ | type | String? |  yes  |  |
 
 ---
 
@@ -15887,6 +16029,7 @@ Successful operation.
  | blocks | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | preset | HashMap<String,Object>? |  yes  |  |
  | predicate | [AvailablePagePredicate](#AvailablePagePredicate)? |  yes  |  |
+ | source | String? |  yes  |  |
 
 ---
 
@@ -15931,6 +16074,32 @@ Successful operation.
 
  
  
+ #### [AvailablePagePlatformPredicate](#AvailablePagePlatformPredicate)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | ios | Boolean? |  yes  | Section visibility on ios platform |
+ | android | Boolean? |  yes  | Section visibility on android platform |
+ | web | Boolean? |  yes  | Section visibility on web platform |
+
+---
+
+
+ 
+ 
+ #### [AvailablePageSchedulePredicate](#AvailablePageSchedulePredicate)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | cron | String? |  yes  |  |
+ | start | String? |  yes  |  |
+ | end | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [AvailablePagePredicate](#AvailablePagePredicate)
 
  | Properties | Type | Nullable | Description |
@@ -15938,6 +16107,9 @@ Successful operation.
  | screen | [AvailablePageScreenPredicate](#AvailablePageScreenPredicate)? |  yes  |  |
  | user | [AvailablePageUserPredicate](#AvailablePageUserPredicate)? |  yes  |  |
  | route | [AvailablePageRoutePredicate](#AvailablePageRoutePredicate)? |  yes  |  |
+ | schedule | [AvailablePageSchedulePredicate](#AvailablePageSchedulePredicate)? |  yes  |  |
+ | platform | [AvailablePagePlatformPredicate](#AvailablePagePlatformPredicate)? |  yes  |  |
+ | zones | ArrayList<String>? |  yes  | An array of zone ids associated with the section |
 
 ---
 
@@ -16221,7 +16393,7 @@ Successful operation.
  | id | String? |  yes  | The unique identifier of the theme |
  | applicationId | String? |  yes  | The ID of the application |
  | marketplaceThemeId | String? |  yes  | The ID of the theme in the marketplace |
- | meta | [Meta](#Meta)? |  yes  |  |
+ | meta | [ThemeMeta](#ThemeMeta)? |  yes  |  |
  | name | String? |  yes  | The name of the theme |
  | templateThemeId | String? |  yes  | The ID of the template theme |
  | version | String? |  yes  | The version of the theme |
@@ -16230,6 +16402,9 @@ Successful operation.
  | updatedAt | String? |  yes  | The last update timestamp of the theme |
  | assets | [Assets](#Assets)? |  yes  |  |
  | availableSections | ArrayList<[SectionItem](#SectionItem)>? |  yes  | Available sections information |
+ | themeType | String? |  yes  |  |
+ | companyId | Double? |  yes  | The company id in which sales channel exists |
+ | src | String? |  yes  |  |
 
 ---
 
@@ -16294,9 +16469,83 @@ Successful operation.
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | name | String? |  yes  | The name of the configuration |
- | globalConfig | [GlobalConfig](#GlobalConfig)? |  yes  |  |
- | custom | [CustomConfig](#CustomConfig)? |  yes  |  |
- | page | ArrayList<String>? |  yes  | An array of pages |
+ | globalConfig | HashMap<String,Object>? |  yes  |  |
+ | page | ArrayList<[ThemeConfigListPage](#ThemeConfigListPage)>? |  yes  | An array of pages |
+
+---
+
+
+ 
+ 
+ #### [OverlayPopup](#OverlayPopup)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | dialogBackgroung | String? |  yes  |  |
+ | overlay | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [DividerStrokeHighlight](#DividerStrokeHighlight)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | dividerStrokes | String? |  yes  |  |
+ | highlight | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UserAlerts](#UserAlerts)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | successBackground | String? |  yes  |  |
+ | successText | String? |  yes  |  |
+ | errorBackground | String? |  yes  |  |
+ | errorText | String? |  yes  |  |
+ | infoBackground | String? |  yes  |  |
+ | infoText | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OrderTracking](#OrderTracking)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | showHeader | Boolean? |  yes  |  |
+ | showFooter | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ThemeConfigListPage](#ThemeConfigListPage)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | page | String? |  yes  | Name of the page |
+ | settings | [ThemeConfigListPageSettingsProps](#ThemeConfigListPageSettingsProps)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ThemeConfigListPageSettingsProps](#ThemeConfigListPageSettingsProps)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | props | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -16354,233 +16603,7 @@ Successful operation.
 
  
  
- #### [GlobalConfig](#GlobalConfig)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | statics | [StaticConfig](#StaticConfig)? |  yes  |  |
- | auth | [AuthConfig](#AuthConfig)? |  yes  |  |
- | palette | [PaletteConfig](#PaletteConfig)? |  yes  |  |
-
----
-
-
- 
- 
- #### [PaletteConfig](#PaletteConfig)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | generalSetting | [GeneralSetting](#GeneralSetting)? |  yes  |  |
- | advanceSetting | [AdvanceSetting](#AdvanceSetting)? |  yes  |  |
-
----
-
-
- 
- 
- #### [GeneralSetting](#GeneralSetting)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | theme | [ThemeSetting](#ThemeSetting)? |  yes  |  |
- | text | [TextSetting](#TextSetting)? |  yes  |  |
- | button | [ButtonSetting](#ButtonSetting)? |  yes  |  |
- | saleDiscount | [SaleDiscountSetting](#SaleDiscountSetting)? |  yes  |  |
- | header | [HeaderSetting](#HeaderSetting)? |  yes  |  |
- | footer | [FooterSetting](#FooterSetting)? |  yes  |  |
-
----
-
-
- 
- 
- #### [AdvanceSetting](#AdvanceSetting)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | overlayPopup | [OverlayPopupSetting](#OverlayPopupSetting)? |  yes  |  |
- | dividerStrokeHighlight | [DividerStrokeHighlightSetting](#DividerStrokeHighlightSetting)? |  yes  |  |
- | userAlerts | [UserAlertsSetting](#UserAlertsSetting)? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserAlertsSetting](#UserAlertsSetting)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | successBackground | String? |  yes  | The success background color |
- | successText | String? |  yes  | The success text color |
- | errorBackground | String? |  yes  | The error background color |
- | errorText | String? |  yes  | The error text color |
- | infoBackground | String? |  yes  | The info background color |
- | infoText | String? |  yes  | The info text color |
-
----
-
-
- 
- 
- #### [ThemeSetting](#ThemeSetting)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | pageBackground | String? |  yes  | The page background color |
- | themeAccent | String? |  yes  | The theme accent color |
-
----
-
-
- 
- 
- #### [TextSetting](#TextSetting)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | textHeading | String? |  yes  | The text heading color |
- | textBody | String? |  yes  | The text body color |
- | textLabel | String? |  yes  | The text label color |
- | textSecondary | String? |  yes  | The secondary text color |
-
----
-
-
- 
- 
- #### [ButtonSetting](#ButtonSetting)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | buttonPrimary | String? |  yes  | The primary button color |
- | buttonSecondary | String? |  yes  | The secondary button color |
- | buttonLink | String? |  yes  | The button link color |
-
----
-
-
- 
- 
- #### [SaleDiscountSetting](#SaleDiscountSetting)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | saleBadgeBackground | String? |  yes  | The sale badge background color |
- | saleBadgeText | String? |  yes  | The sale badge text color |
- | saleDiscountText | String? |  yes  | The sale discount text color |
- | saleTimer | String? |  yes  | The sale timer color |
-
----
-
-
- 
- 
- #### [HeaderSetting](#HeaderSetting)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | headerBackground | String? |  yes  | The header background color |
- | headerNav | String? |  yes  | The header navigation color |
- | headerIcon | String? |  yes  | The header icon color |
-
----
-
-
- 
- 
- #### [FooterSetting](#FooterSetting)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | footerBackground | String? |  yes  | The footer background color |
- | footerBottomBackground | String? |  yes  | The footer bottom background color |
- | footerHeadingText | String? |  yes  | The footer heading text color |
- | footerBodyText | String? |  yes  | The footer body text color |
- | footerIcon | String? |  yes  | The footer icon color |
-
----
-
-
- 
- 
- #### [OverlayPopupSetting](#OverlayPopupSetting)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | dialogBackgroung | String? |  yes  | The dialog background color |
- | overlay | String? |  yes  | The overlay color |
-
----
-
-
- 
- 
- #### [DividerStrokeHighlightSetting](#DividerStrokeHighlightSetting)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | dividerStrokes | String? |  yes  | The divider strokes color |
- | highlight | String? |  yes  | The highlight color |
-
----
-
-
- 
- 
- #### [StaticConfig](#StaticConfig)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | props | [StaticProps](#StaticProps)? |  yes  |  |
-
----
-
-
- 
- 
- #### [StaticProps](#StaticProps)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | colors | [Colors](#Colors)? |  yes  |  |
- | auth | [AuthConfig](#AuthConfig)? |  yes  |  |
-
----
-
-
- 
- 
- #### [AuthConfig](#AuthConfig)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | showHeaderAuth | Boolean? |  yes  | Whether to show header authentication or not |
- | showFooterAuth | Boolean? |  yes  | Whether to show footer authentication or not |
-
----
-
-
- 
- 
- #### [Colors](#Colors)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | primaryColor | String? |  yes  | The primary color |
- | secondaryColor | String? |  yes  | The secondary color |
- | accentColor | String? |  yes  | The accent color |
- | linkColor | String? |  yes  | The link color |
- | buttonSecondaryColor | String? |  yes  | The secondary button color |
- | bgColor | String? |  yes  | The background color |
-
----
-
-
- 
- 
- #### [Meta](#Meta)
+ #### [ThemeMeta](#ThemeMeta)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -16650,6 +16673,7 @@ Successful operation.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | link | String? |  yes  |  |
  | links | ArrayList<String>? |  yes  |  |
 
 ---
@@ -16672,6 +16696,7 @@ Successful operation.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | link | String? |  yes  |  |
  | links | ArrayList<String>? |  yes  |  |
 
 ---
@@ -16710,6 +16735,7 @@ Successful operation.
  | ---------- | ---- | -------- | ----------- |
  | type | String? |  yes  | The type of the property |
  | category | String? |  yes  | The category of the property |
+ | value | String? |  yes  | The value of the property |
  | id | String? |  yes  | The ID of the property |
  | label | String? |  yes  | The label of the property |
  | info | String? |  yes  | Additional information about the property |
@@ -16923,6 +16949,25 @@ Successful operation.
  | ---------- | ---- | -------- | ----------- |
  | config | [Config](#Config)? |  yes  |  |
  | font | [Font](#Font)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CreateNewTheme](#CreateNewTheme)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | name | String |  no  | The name of the theme |
+ | availableSections | ArrayList<[SectionItem](#SectionItem)> |  no  | Available sections information |
+ | version | String |  no  | The version of the theme |
+ | themeType | String |  no  | Type of the Theme |
+ | list | ArrayList<[ThemeConfiguration](#ThemeConfiguration)>? |  yes  | A list of configurations |
+ | globalSchema | [GlobalSchema](#GlobalSchema)? |  yes  |  |
+ | preset | [Preset](#Preset)? |  yes  |  |
+ | current | String? |  yes  | The current configuration |
+ | pages | ArrayList<[Page](#Page)>? |  yes  |  |
 
 ---
 

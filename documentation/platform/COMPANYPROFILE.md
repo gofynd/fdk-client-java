@@ -127,7 +127,13 @@ Company profile object. See example below or refer `GetCompanyProfileSerializerR
   "uid": 1,
   "business_country_info": {
     "country": "India",
-    "country_code": "IN"
+    "country_code": "IN",
+    "currency": {
+      "code": "INR",
+      "symbol": "₹",
+      "name": "Indian Rupee"
+    },
+    "timezone": "Asia/Calcutta"
   }
 }
 ```
@@ -677,7 +683,7 @@ Get list of locations
 
 
 ```java
-platformClient.companyprofile.getLocations( storeType,  q,  stage,  pageNo,  pageSize,  locationIds) {
+platformClient.companyprofile.getLocations( storeType,  q,  stage,  pageNo,  pageSize,  locationIds,  types,  tags) {
   //use response
 }
 ```
@@ -692,7 +698,9 @@ platformClient.companyprofile.getLocations( storeType,  q,  stage,  pageNo,  pag
 | stage | String? | no | to filter companies on basis of verified or unverified companies. |   
 | pageNo | Integer? | no | The page number to navigate through the given set of results |   
 | pageSize | Integer? | no | Number of items to retrieve in each page. Default is 10. |   
-| locationIds | List<Integer>? | no | Helps to filter stores on the basis of uids. |  
+| locationIds | List<Integer>? | no | Helps to filter stores on the basis of uids. |   
+| types | List<String>? | no | Helps to get the location list on the basis of multiple location type. |   
+| tags | List<String>? | no | Helps to get the location list on the basis of multiple location tag. |  
 
 
 
@@ -1475,12 +1483,27 @@ Tags list. See example below or refer `StoreTagsResponseSchema` for details
 
  
  
+ #### [CountryCurrencyInfo](#CountryCurrencyInfo)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | code | String |  no  |  |
+ | symbol | String |  no  |  |
+ | name | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [BusinessCountryInfo](#BusinessCountryInfo)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | countryCode | String? |  yes  |  |
- | country | String? |  yes  |  |
+ | countryCode | String |  no  |  |
+ | country | String |  no  |  |
+ | currency | [CountryCurrencyInfo](#CountryCurrencyInfo) |  no  |  |
+ | timezone | String |  no  |  |
 
 ---
 
@@ -1514,6 +1537,8 @@ Tags list. See example below or refer `StoreTagsResponseSchema` for details
  | country | String? |  yes  |  |
  | address2 | String? |  yes  |  |
  | state | String? |  yes  |  |
+ | stateCode | String? |  yes  |  |
+ | sector | String? |  yes  |  |
  | address1 | String? |  yes  |  |
  | city | String? |  yes  |  |
  | latitude | Double |  no  |  |
@@ -2007,6 +2032,7 @@ Tags list. See example below or refer `StoreTagsResponseSchema` for details
  | orderAcceptanceTiming | ArrayList<[LocationDayWiseSerializer](#LocationDayWiseSerializer)>? |  yes  |  |
  | avgOrderProcessingTime | [AverageOrderProcessingTime](#AverageOrderProcessingTime)? |  yes  |  |
  | bulkShipment | Boolean? |  yes  |  |
+ | autoAssignCourierPartner | Boolean? |  yes  |  |
 
 ---
 
@@ -2030,13 +2056,15 @@ Tags list. See example below or refer `StoreTagsResponseSchema` for details
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | landmark | String? |  yes  |  |
- | countryCode | String? |  yes  |  |
+ | countryCode | String |  no  |  |
  | pincode | Integer? |  yes  |  |
  | addressType | String? |  yes  |  |
  | longitude | Double |  no  |  |
  | country | String? |  yes  |  |
  | address2 | String? |  yes  |  |
  | state | String? |  yes  |  |
+ | sector | String? |  yes  |  |
+ | stateCode | String? |  yes  |  |
  | address1 | String? |  yes  |  |
  | city | String? |  yes  |  |
  | latitude | Double |  no  |  |
@@ -2064,7 +2092,7 @@ Tags list. See example below or refer `StoreTagsResponseSchema` for details
  | uid | Integer? |  yes  |  |
  | timing | ArrayList<[LocationDayWiseSerializer](#LocationDayWiseSerializer)>? |  yes  |  |
  | stage | String? |  yes  |  |
- | documents | ArrayList<[Document](#Document)>? |  yes  |  |
+ | documents | ArrayList<[Document](#Document)> |  no  |  |
  | creditNote | Boolean? |  yes  |  |
  | holiday | ArrayList<[HolidaySchemaSerializer](#HolidaySchemaSerializer)>? |  yes  |  |
  | productReturnConfig | [ProductReturnConfigSerializer](#ProductReturnConfigSerializer)? |  yes  |  |
@@ -2075,6 +2103,7 @@ Tags list. See example below or refer `StoreTagsResponseSchema` for details
  | orderAcceptanceTiming | ArrayList<[LocationDayWiseSerializer](#LocationDayWiseSerializer)>? |  yes  | Order acceptance timing of the store |
  | avgOrderProcessingTime | [AverageOrderProcessingTime](#AverageOrderProcessingTime)? |  yes  |  |
  | bulkShipment | Boolean? |  yes  |  |
+ | autoAssignCourierPartner | Boolean? |  yes  |  |
 
 ---
 

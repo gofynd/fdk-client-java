@@ -42,12 +42,15 @@ import com.sdk.application.*;
         relativeUrls.put("getLegalInformation","/service/application/content/v1.0/legal".substring(1));
         relativeUrls.put("getNavigations","/service/application/content/v1.0/navigations/".substring(1));
         relativeUrls.put("getSEOConfiguration","/service/application/content/v1.0/seo".substring(1));
+        relativeUrls.put("getSEOMarkupSchemas","/service/application/content/v1.0/seo/schema".substring(1));
         relativeUrls.put("getSlideshows","/service/application/content/v1.0/slideshow/".substring(1));
         relativeUrls.put("getSlideshow","/service/application/content/v1.0/slideshow/{slug}".substring(1));
         relativeUrls.put("getSupportInformation","/service/application/content/v1.0/support".substring(1));
         relativeUrls.put("getTags","/service/application/content/v1.0/tags".substring(1));
         relativeUrls.put("getPage","/service/application/content/v2.0/pages/{slug}".substring(1));
-        relativeUrls.put("getPages","/service/application/content/v2.0/pages/".substring(1)); 
+        relativeUrls.put("getPages","/service/application/content/v2.0/pages/".substring(1));
+        relativeUrls.put("getCustomObject","/service/application/content/v1.0/metaobjects/{metaobject_id}".substring(1));
+        relativeUrls.put("getCustomFields","/service/application/content/v1.0/metafields/{resource}/{resource_id}".substring(1)); 
 
     }
 
@@ -357,6 +360,23 @@ import com.sdk.application.*;
     }
     
 
+    public ContentApplicationModels.SeoSchemaComponent getSEOMarkupSchemas(String pageType, Boolean active) throws IOException {
+        return this.getSEOMarkupSchemas(pageType, active, new HashMap<>());
+    }
+
+    public ContentApplicationModels.SeoSchemaComponent getSEOMarkupSchemas(String pageType, Boolean active, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getSEOMarkupSchemas");
+
+        Response<ContentApplicationModels.SeoSchemaComponent> response = contentApplicationApiList.getSEOMarkupSchemas(fullUrl, pageType, active, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
     public ContentApplicationModels.SlideshowGetResponse getSlideshows(Integer pageNo, Integer pageSize) throws IOException {
         return this.getSlideshows(pageNo, pageSize, new HashMap<>());
     }
@@ -526,6 +546,43 @@ import com.sdk.application.*;
         }
     });
     return paginator;
+    }
+    
+
+    public ContentApplicationModels.CustomObjectByIdSchema getCustomObject(String metaobjectId) throws IOException {
+        return this.getCustomObject(metaobjectId, new HashMap<>());
+    }
+
+    public ContentApplicationModels.CustomObjectByIdSchema getCustomObject(String metaobjectId, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getCustomObject");
+        fullUrl = fullUrl.replace("{" + "metaobject_id" + "}",metaobjectId.toString());
+
+        Response<ContentApplicationModels.CustomObjectByIdSchema> response = contentApplicationApiList.getCustomObject(fullUrl, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public ContentApplicationModels.CustomFieldsResponseByResourceIdSchema getCustomFields(String resource, String resourceId) throws IOException {
+        return this.getCustomFields(resource, resourceId, new HashMap<>());
+    }
+
+    public ContentApplicationModels.CustomFieldsResponseByResourceIdSchema getCustomFields(String resource, String resourceId, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getCustomFields");
+        fullUrl = fullUrl.replace("{" + "resource" + "}",resource.toString());
+        fullUrl = fullUrl.replace("{" + "resource_id" + "}",resourceId.toString());
+
+        Response<ContentApplicationModels.CustomFieldsResponseByResourceIdSchema> response = contentApplicationApiList.getCustomFields(fullUrl, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
     }
       
 

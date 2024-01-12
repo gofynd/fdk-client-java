@@ -175,15 +175,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.GetCouponResponse getCoupons(String id, Boolean buyNow) throws IOException {
-        return this.getCoupons(id, buyNow, new HashMap<>());
+    public CartApplicationModels.GetCouponResponse getCoupons(String id, Boolean buyNow, String slug, String storeId) throws IOException {
+        return this.getCoupons(id, buyNow, slug, storeId, new HashMap<>());
     }
 
-    public CartApplicationModels.GetCouponResponse getCoupons(String id, Boolean buyNow, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.GetCouponResponse getCoupons(String id, Boolean buyNow, String slug, String storeId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getCoupons");
 
-        Response<CartApplicationModels.GetCouponResponse> response = cartApplicationApiList.getCoupons(fullUrl, id, buyNow, requestHeaders).execute();
+        Response<CartApplicationModels.GetCouponResponse> response = cartApplicationApiList.getCoupons(fullUrl, id, buyNow, slug, storeId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
