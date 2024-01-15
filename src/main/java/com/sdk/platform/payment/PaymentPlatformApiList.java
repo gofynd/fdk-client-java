@@ -13,7 +13,7 @@ interface PaymentPlatformApiList {
     Call<PaymentPlatformModels.PaymentGatewayToBeReviewed> saveBrandPaymentGatewayConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.PaymentGatewayConfigRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options")
-    Call<PaymentPlatformModels.PaymentOptionsResponse> getPaymentModeRoutes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("refresh") Boolean refresh, @Query("request_type") String requestType, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentPlatformModels.PaymentOptionsResponse> getPaymentModeRoutes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("refresh") Boolean refresh, @Query("request_type") String requestType, @Query("order_id") String orderId, @Query("shipment_id") String shipmentId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/payment/v1.0/company/{company_id}/payouts")
     Call<PaymentPlatformModels.PayoutsResponse> getAllPayouts(@Path("company_id") String companyId, @Query("unique_external_id") String uniqueExternalId, @HeaderMap Map<String, String> requestHeaders);
@@ -85,7 +85,7 @@ interface PaymentPlatformApiList {
     Call<PaymentPlatformModels.EdcDeviceListResponse> edcDeviceList(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("is_active") Boolean isActive, @Query("store_id") Integer storeId, @Query("device_tag") String deviceTag, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/pos")
-    Call<PaymentPlatformModels.PaymentOptionsResponse> getPosPaymentModeRoutes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("amount") Integer amount, @Query("cart_id") String cartId, @Query("pincode") String pincode, @Query("checkout_mode") String checkoutMode, @Query("refresh") Boolean refresh, @Query("card_reference") String cardReference, @Query("order_type") String orderType, @Query("user_details") String userDetails, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentPlatformModels.PaymentModeRouteResponse> getPosPaymentModeRoutes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("amount") Integer amount, @Query("cart_id") String cartId, @Query("pincode") String pincode, @Query("checkout_mode") String checkoutMode, @Query("refresh") Boolean refresh, @Query("order_id") String orderId, @Query("card_reference") String cardReference, @Query("order_type") String orderType, @Query("user_details") String userDetails, @Query("display_split") Boolean displaySplit, @Query("advance_payment") Boolean advancePayment, @Query("shipment_id") String shipmentId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/request")
     Call<PaymentPlatformModels.PaymentInitializationResponse> initialisePayment(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.PaymentInitializationRequest payload, @HeaderMap Map<String, String> requestHeaders);
@@ -129,8 +129,23 @@ interface PaymentPlatformApiList {
     @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/cancel-payment-link/")
     Call<PaymentPlatformModels.CancelPaymentLinkResponse> cancelPaymentLink(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.CancelOrResendPaymentLinkRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/modes/{mode}")
+    Call<PaymentPlatformModels.PlatformPaymentModeResponse> getPaymentModeControlRoutes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("mode") String mode, @HeaderMap Map<String, String> requestHeaders);
+
+    @PATCH ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/modes/{mode}")
+    Call<PaymentPlatformModels.PlatformPaymentModeResponse> setMerchantModeControlRoutes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("mode") String mode, @Body PaymentPlatformModels.MerchantPaymentModeRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/modes/{mode}/custom-config")
+    Call<PaymentPlatformModels.PaymentCustomConfigResponseSchema> getPaymentModeCustomConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("mode") String mode, @HeaderMap Map<String, String> requestHeaders);
+
+    @PATCH ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/modes/{mode}/custom-config")
+    Call<PaymentPlatformModels.PaymentCustomConfigResponseSchema> setPaymentModeCustomConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("mode") String mode, @Body PaymentPlatformModels.PaymentCustomConfigRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/codes")
     Call<PaymentPlatformModels.GetPaymentCodeResponse> getPaymentCodeOption(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/session/{gid}")
+    Call<PaymentPlatformModels.PaymentSessionSerializer> getPaymentSession(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("gid") String gid, @Query("line-item") Boolean lineItem, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/session/{gid}")
     Call<PaymentPlatformModels.PaymentSessionResponseSerializer> updatePaymentSession(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("gid") String gid, @Body PaymentPlatformModels.PaymentSessionRequestSerializer payload, @HeaderMap Map<String, String> requestHeaders);
@@ -139,19 +154,19 @@ interface PaymentPlatformApiList {
     Call<PaymentPlatformModels.RefundSessionResponseSerializer> updateRefundSession(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("gid") String gid, @Path("request_id") String requestId, @Body PaymentPlatformModels.RefundSessionRequestSerializer payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/configuration")
-    Call<PaymentPlatformModels.MerchnatPaymentModeResponse> getMerchantPaymentOption(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentPlatformModels.PlatformPaymentModeResponse> getMerchantPaymentOption(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
     @PATCH ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/configuration")
-    Call<PaymentPlatformModels.MerchnatPaymentModeResponse> patchMerchantPaymentOption(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.MerchnatPaymentModeRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentPlatformModels.PlatformPaymentModeResponse> patchMerchantPaymentOption(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.MerchnatPaymentModeRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/aggregators/{aggregator_id}")
-    Call<PaymentPlatformModels.MerchnatPaymentModeResponse> getMerchantAggregatorPaymentModeDetails(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("aggregator_id") Integer aggregatorId, @Query("business_unit") String businessUnit, @Query("device") String device, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentPlatformModels.PlatformPaymentModeResponse> getMerchantAggregatorPaymentModeDetails(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("aggregator_id") Integer aggregatorId, @Query("business_unit") String businessUnit, @Query("device") String device, @HeaderMap Map<String, String> requestHeaders);
 
     @PATCH ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/aggregators/{aggregator_id}")
-    Call<PaymentPlatformModels.MerchnatPaymentModeResponse> patchMerchantAggregatorPaymentModeDetails(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("aggregator_id") Integer aggregatorId, @Body PaymentPlatformModels.MerchnatPaymentModeResponse payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentPlatformModels.PlatformPaymentModeResponse> patchMerchantAggregatorPaymentModeDetails(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("aggregator_id") Integer aggregatorId, @Body PaymentPlatformModels.PlatformPaymentModeResponse payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/configuration/aggregator")
-    Call<PaymentPlatformModels.MerchnatPaymentModeResponse> getPGConfigAggregators(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentPlatformModels.PlatformPaymentModeResponse> getPGConfigAggregators(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/refund_priority/config/{config_type}")
     Call<PaymentPlatformModels.RefundPriorityResponseSerializer> getMerchantRefundPriority(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("config_type") String configType, @HeaderMap Map<String, String> requestHeaders);
@@ -161,4 +176,13 @@ interface PaymentPlatformApiList {
 
     @PUT ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/refund_priority/config/{config_type}")
     Call<PaymentPlatformModels.RefundPriorityResponseSerializer> updateMerchantRefundPriority(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("config_type") String configType, @Body PaymentPlatformModels.RefundPriorityRequestSerializer payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment-orders/")
+    Call<PaymentPlatformModels.PaymentOrderResponse> createPaymentOrder(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.PaymentOrderRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/aggregators/{aggregator_id}/version")
+    Call<PaymentPlatformModels.AggregatorVersionResponse> getMerchantAggregatorAppVersion(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("aggregator_id") Integer aggregatorId, @Query("business_unit") String businessUnit, @Query("device") String device, @Query("payment_mode_id") Integer paymentModeId, @Query("sub_payment_mode") String subPaymentMode, @HeaderMap Map<String, String> requestHeaders);
+
+    @PATCH ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/aggregators/{aggregator_id}/version")
+    Call<PaymentPlatformModels.PlatformPaymentModeResponse> patchMerchantPaymentOptionVersion(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("aggregator_id") Integer aggregatorId, @Body PaymentPlatformModels.AggregatorControlRequest payload, @HeaderMap Map<String, String> requestHeaders);
 }

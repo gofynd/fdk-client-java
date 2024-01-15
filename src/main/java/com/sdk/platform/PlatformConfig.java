@@ -43,6 +43,10 @@ public final class PlatformConfig {
         this.platformOauthClient = new PlatformOauthClient(this);
     }
 
+    public PlatformConfig(String companyId, String apiKey, String apiSecret) {
+        this(companyId, apiKey, apiSecret, "https://api.fynd.com");
+    }
+
     public AccessTokenDto getAccessToken() {
         return this.platformOauthClient.getRawToken();
     }

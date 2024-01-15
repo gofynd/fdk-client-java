@@ -352,11 +352,11 @@ public class ConfigurationPlatformService {
     
     
 
-    public ConfigurationPlatformModels.Integration getIntegrationById(Integer id) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.Integration getIntegrationById(String id) throws FDKServerResponseError, FDKException {
         return this.getIntegrationById(id, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.Integration getIntegrationById(Integer id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.Integration getIntegrationById(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ConfigurationPlatformModels.Integration> response = null;
             try {

@@ -223,6 +223,43 @@ public static class Page{
 
 
 /*
+    Model: Currency
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Currency{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("symbol")
+    private String symbol;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+}
+
+
+/*
     Model: GenerateReportJson
 */
 @AllArgsConstructor
@@ -1269,7 +1306,7 @@ public static class CreditlineDataPlatformResponse{
     
     
     @JsonProperty("page")
-    private Object page;
+    private Page page;
     
     
     
@@ -1720,6 +1757,12 @@ public static class InvoiceListingResponseItems{
     
     @JsonProperty("invoice_id")
     private String invoiceId;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private Currency currency;
     
     
     
@@ -2596,7 +2639,7 @@ public static class CreditNoteDetails{
     
     
     @JsonProperty("cn_details")
-    private Object cnDetails;
+    private CnDetails cnDetails;
     
     
     
@@ -3609,6 +3652,377 @@ public static class GetReportingFiltersResponse{
     
     @JsonProperty("status")
     private GetReportingFilters status;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentDetail{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+}
+
+
+/*
+    Model: PaidInvoicePaymentDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaidInvoicePaymentDetail{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("payment_details")
+    private List<PaymentDetail> paymentDetails;
+    
+    
+    
+    
+    @JsonProperty("date_of_payment")
+    private String dateOfPayment;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+}
+
+
+/*
+    Model: InvoicePaymentDetailsResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoicePaymentDetailsResponseData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("paid_invoice_payment_details")
+    private List<PaidInvoicePaymentDetail> paidInvoicePaymentDetails;
+    
+    
+    
+    
+    @JsonProperty("failed_attempts_details")
+    private List<Object> failedAttemptsDetails;
+    
+    
+    
+}
+
+
+/*
+    Model: InvoicePaymentDetailsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoicePaymentDetailsResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("data")
+    private InvoicePaymentDetailsResponseData data;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("payment_details_visible")
+    private Boolean paymentDetailsVisible;
+    
+    
+    
+}
+
+
+/*
+    Model: InvoiceActivityLogsResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoiceActivityLogsResponseData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("performed_by")
+    private String performedBy;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("reason")
+    private String reason;
+    
+    
+    
+    
+    @JsonProperty("is_resolved")
+    private Boolean isResolved;
+    
+    
+    
+    
+    @JsonProperty("retry_attempts")
+    private Double retryAttempts;
+    
+    
+    
+    
+    @JsonProperty("max_retry_attempts")
+    private Double maxRetryAttempts;
+    
+    
+    
+}
+
+
+/*
+    Model: InvoiceActivityLogsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoiceActivityLogsResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<InvoiceActivityLogsResponseData> data;
+    
+    
+    
+}
+
+
+/*
+    Model: InvoiceActivityLogError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoiceActivityLogError{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("reason")
+    private String reason;
+    
+    
+    
+}
+
+
+/*
+    Model: UnlockCreditNoteRequestData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UnlockCreditNoteRequestData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("seller_id")
+    private String sellerId;
+    
+    
+    
+    
+    @JsonProperty("locked_credit_notes")
+    private List<String> lockedCreditNotes;
+    
+    
+    
+    
+    @JsonProperty("unlock_reason")
+    private String unlockReason;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+}
+
+
+/*
+    Model: UnlockCreditNoteRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UnlockCreditNoteRequest{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("data")
+    private UnlockCreditNoteRequestData data;
+    
+    
+    
+}
+
+
+/*
+    Model: UnlockCreditNoteResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UnlockCreditNoteResponseData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("is_cn_unlocked")
+    private Boolean isCnUnlocked;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+}
+
+
+/*
+    Model: UnlockCreditNoteResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UnlockCreditNoteResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private UnlockCreditNoteResponseData data;
     
     
     

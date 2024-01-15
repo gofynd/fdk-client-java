@@ -14,6 +14,481 @@ public class UserPlatformModels{
 
 
 /*
+    Model: SuccessMessageResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SuccessMessageResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private String success;
+    
+    
+    
+}
+
+
+/*
+    Model: UserAttributeDefinition
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserAttributeDefinition{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("multi_value")
+    private Boolean multiValue;
+    
+    
+    
+    
+    @JsonProperty("customer_editable")
+    private Boolean customerEditable;
+    
+    
+    
+    
+    @JsonProperty("encrypted")
+    private Boolean encrypted;
+    
+    
+    
+    
+    @JsonProperty("pinned")
+    private Boolean pinned;
+    
+    
+    
+    
+    @JsonProperty("pin_order")
+    private Integer pinOrder;
+    
+    
+    
+    
+    @JsonProperty("validations")
+    private List<Object> validations;
+    
+    
+    
+    
+    @JsonProperty("is_locked")
+    private Boolean isLocked;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("modified_at")
+    private String modifiedAt;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Integer v;
+    
+    
+    
+}
+
+
+/*
+    Model: UserAttributeDefinitionResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserAttributeDefinitionResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("multi_value")
+    private Boolean multiValue;
+    
+    
+    
+    
+    @JsonProperty("customer_editable")
+    private Boolean customerEditable;
+    
+    
+    
+    
+    @JsonProperty("encrypted")
+    private Boolean encrypted;
+    
+    
+    
+    
+    @JsonProperty("pinned")
+    private Boolean pinned;
+    
+    
+    
+    
+    @JsonProperty("pin_order")
+    private Integer pinOrder;
+    
+    
+    
+    
+    @JsonProperty("validations")
+    private List<UserAttributeDefinitionValidation> validations;
+    
+    
+    
+    
+    @JsonProperty("is_locked")
+    private Boolean isLocked;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private String createdBy;
+    
+    
+    
+    
+    @JsonProperty("updated_by")
+    private String updatedBy;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("modified_at")
+    private String modifiedAt;
+    
+    
+    
+}
+
+
+/*
+    Model: UserAttributeDefinitionValidation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserAttributeDefinitionValidation{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Object value;
+    
+    
+    
+}
+
+
+/*
+    Model: UserAttributeResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserAttributeResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("customer_overriden")
+    private Boolean customerOverriden;
+    
+    
+    
+    
+    @JsonProperty("attribute")
+    private Object attribute;
+    
+    
+    
+    
+    @JsonProperty("updated_by")
+    private String updatedBy;
+    
+    
+    
+}
+
+
+/*
+    Model: CreateUserAttributeRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateUserAttributeRequest{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("customer_overriden")
+    private Boolean customerOverriden;
+    
+    
+    
+    
+    @JsonProperty("attribute")
+    private Object attribute;
+    
+    
+    
+}
+
+
+/*
+    Model: CreateUserAttributeDefinition
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateUserAttributeDefinition{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("multi_value")
+    private Boolean multiValue;
+    
+    
+    
+    
+    @JsonProperty("customer_editable")
+    private Boolean customerEditable;
+    
+    
+    
+    
+    @JsonProperty("encrypted")
+    private Boolean encrypted;
+    
+    
+    
+    
+    @JsonProperty("pinned")
+    private Boolean pinned;
+    
+    
+    
+    
+    @JsonProperty("pin_order")
+    private Double pinOrder;
+    
+    
+    
+    
+    @JsonProperty("default_value")
+    private String defaultValue;
+    
+    
+    
+    
+    @JsonProperty("validations")
+    private List<Object> validations;
+    
+    
+    
+}
+
+
+/*
     Model: BlockUserRequestSchema
 */
 @AllArgsConstructor
@@ -454,6 +929,80 @@ public static class SessionListResponseInfo{
 
 
 /*
+    Model: Conditions
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Conditions{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("user_attribute_definition_id")
+    private String userAttributeDefinitionId;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+}
+
+
+/*
+    Model: UserResponseErrorSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserResponseErrorSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("count")
+    private Integer count;
+    
+    
+    
+    
+    @JsonProperty("file_url")
+    private String fileUrl;
+    
+    
+    
+}
+
+
+/*
     Model: UserGroupResponseSchema
 */
 @AllArgsConstructor
@@ -466,6 +1015,18 @@ public static class UserGroupResponseSchema{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("conditions")
+    private List<Conditions> conditions;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private UserResponseErrorSchema error;
     
     
     
@@ -496,6 +1057,18 @@ public static class UserGroupResponseSchema{
     
     @JsonProperty("status")
     private String status;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
     
     
     
@@ -564,7 +1137,7 @@ public static class UserGroupListResponseSchema{
 
 
 /*
-    Model: CreateUserGroupSchema
+    Model: ConditionsSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -572,10 +1145,59 @@ public static class UserGroupListResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateUserGroupSchema{
+public static class ConditionsSchema{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("user_attribute_definition_id")
+    private String userAttributeDefinitionId;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+}
+
+
+/*
+    Model: CreateUserGroup
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateUserGroup{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("conditions")
+    private List<ConditionsSchema> conditions;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
     
     
     
@@ -1524,6 +2146,18 @@ public static class UpdateUserGroupSchema{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("conditions")
+    private List<ConditionsSchema> conditions;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
     
     
     

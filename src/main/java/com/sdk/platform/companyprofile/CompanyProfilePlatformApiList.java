@@ -31,7 +31,7 @@ interface CompanyProfilePlatformApiList {
     Call<CompanyProfilePlatformModels.ProfileSuccessResponse> createCompanyBrandMapping(@Path("company_id") String companyId, @Body CompanyProfilePlatformModels.CompanyBrandPostRequestSerializer payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/company-profile/v1.0/company/{company_id}/location")
-    Call<CompanyProfilePlatformModels.LocationListSerializer> getLocations(@Path("company_id") String companyId, @Query("store_type") String storeType, @Query("q") String q, @Query("stage") String stage, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("location_ids") List<Integer> locationIds, @HeaderMap Map<String, String> requestHeaders);
+    Call<CompanyProfilePlatformModels.LocationListSerializer> getLocations(@Path("company_id") String companyId, @Query("store_type") String storeType, @Query("q") String q, @Query("stage") String stage, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("location_ids") List<Integer> locationIds, @Query("types") List<String> types, @Query("tags") List<String> tags, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/company-profile/v1.0/company/{company_id}/location")
     Call<CompanyProfilePlatformModels.ProfileSuccessResponse> createLocation(@Path("company_id") String companyId, @Body CompanyProfilePlatformModels.LocationSerializer payload, @HeaderMap Map<String, String> requestHeaders);

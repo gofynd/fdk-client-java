@@ -299,6 +299,12 @@ public static class AppliedPromotion{
     
     
     
+    @JsonProperty("currency")
+    private CartCurrency currency;
+    
+    
+    
+    
     @JsonProperty("promotion_group")
     private String promotionGroup;
     
@@ -742,6 +748,37 @@ public static class PromiseFormatted{
 
 
 /*
+    Model: PromiseISOFormat
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PromiseISOFormat{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("max")
+    private String max;
+    
+    
+    
+    
+    @JsonProperty("min")
+    private String min;
+    
+    
+    
+}
+
+
+/*
     Model: ShipmentPromise
 */
 @AllArgsConstructor
@@ -766,6 +803,12 @@ public static class ShipmentPromise{
     
     @JsonProperty("formatted")
     private PromiseFormatted formatted;
+    
+    
+    
+    
+    @JsonProperty("iso")
+    private PromiseISOFormat iso;
     
     
     
@@ -1035,6 +1078,12 @@ public static class ProductArticle{
     
     @JsonProperty("is_gift_visible")
     private Boolean isGiftVisible;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
     
     
     
@@ -2730,6 +2779,18 @@ public static class Address{
     
     
     
+    @JsonProperty("sector")
+    private String sector;
+    
+    
+    
+    
+    @JsonProperty("state_code")
+    private String stateCode;
+    
+    
+    
+    
     @JsonProperty("address_type")
     private String addressType;
     
@@ -3751,7 +3812,7 @@ public static class CheckCart{
     
     
     @JsonProperty("delivery_charges")
-    private Integer deliveryCharges;
+    private Double deliveryCharges;
     
     
     
@@ -3865,7 +3926,7 @@ public static class CheckCart{
     
     
     @JsonProperty("cod_charges")
-    private Integer codCharges;
+    private Double codCharges;
     
     
     

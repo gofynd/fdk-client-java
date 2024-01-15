@@ -19,9 +19,15 @@ import com.sdk.fixtures.models.UrlToActionFixtureModel;
 
 import com.sdk.application.content.ContentApplicationModels;
 
+import com.sdk.application.theme.ThemeApplicationModels;
+
+import com.sdk.partner.theme.ThemePartnerModels;
+
 import com.sdk.platform.catalog.CatalogPlatformModels;
 
 import com.sdk.platform.content.ContentPlatformModels;
+
+import com.sdk.platform.theme.ThemePlatformModels;
 
 
 
@@ -130,6 +136,224 @@ public class UtilityMethodsTests {
             String path = testCase.getResult().getPath();
 
             String resultedPath = ContentApplicationModels.Action.convertActionToUrl(action);
+
+            Assertions.assertEquals(path, resultedPath, "Test case: " + testName);
+
+        }
+    }
+
+    
+
+    boolean isThemeApplicationActionEqual(ThemeApplicationModels.Action action1, ThemeApplicationModels.Action action2){
+        if(action1 == action2){
+            return true;
+        }
+
+        // Comparing Type
+        if(!(action1.getType() == null ? action2.getType() == null : action1.getType().equals(action2.getType()))){
+            return false;
+        }
+
+        // Comparing page
+        if(!isThemeApplicationActionPageEqual(action1.getPage(), action2.getPage())){
+            return false;
+        }
+
+        // Comparing popup
+        if(!isThemeApplicationActionPageEqual(action1.getPopup(), action2.getPopup())){
+            return false;
+        }
+
+        return true;
+    }
+
+    boolean isThemeApplicationActionPageEqual(ThemeApplicationModels.ActionPage actionPage1, ThemeApplicationModels.ActionPage actionPage2){
+        if(actionPage1 == actionPage2){
+            return true;
+        }
+        if(!(actionPage1.getUrl() == null ? actionPage2.getUrl() == null : actionPage1.getUrl().equals(actionPage2.getUrl()))){
+            return false;
+        }
+        if(!(actionPage1.getType() == null ? actionPage2.getType() == null : actionPage1.getType().equals(actionPage2.getType()))){
+            return false;
+        }
+        if(!(actionPage1.getParams() == null ? actionPage2.getParams() == null || actionPage2.getParams().isEmpty() : actionPage1.getParams().equals(actionPage2.getParams()))){
+            return false;
+        }
+        if(!(actionPage1.getQuery() == null ? actionPage2.getQuery() == null || actionPage2.getQuery().isEmpty() : actionPage1.getQuery().equals(actionPage2.getQuery()))){
+            return false;
+        }
+        return true;
+    }
+
+    @Test
+    public void testConvertUrlToActionForApplicationTheme(){
+        UrlToActionFixtureModel<ThemeApplicationModels.Action> testData;
+        try{
+            ObjectMapper objectMapper = new ObjectMapper();
+            TypeReference<UrlToActionFixtureModel<ThemeApplicationModels.Action>> fixtureType = new TypeReference<UrlToActionFixtureModel<ThemeApplicationModels.Action>>(){};
+
+            testData = objectMapper.readValue(new File("src/test/java/com/sdk/fixtures/url-action.json"), fixtureType);
+
+        } catch (StreamReadException e) {
+            throw new RuntimeException(e);
+        } catch (DatabindException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        for(UrlToActionCase<ThemeApplicationModels.Action> testCase : testData.getTests()){
+            String testName = testCase.getName();
+            String path = testCase.getPath();
+            ThemeApplicationModels.Action action = testCase.getResult().getAction();
+
+            ThemeApplicationModels.Action resultedAction = ThemeApplicationModels.Action.convertUrlToAction(path);
+
+//            boolean ans = isThemeApplicationActionEqual(action, resultedAction);
+//
+//            if(ans == false){
+//                ThemeApplicationModels.Action.convertUrlToAction(path);
+//            }
+
+            Assertions.assertTrue(isThemeApplicationActionEqual(action, resultedAction), "Test case: " + testName);
+
+        }
+    }
+
+
+    @Test
+    public void testConvertActionToUrlForApplicationTheme(){
+        ActionToUrlFixtureModel<ThemeApplicationModels.Action> testData;
+        try{
+            ObjectMapper objectMapper = new ObjectMapper();
+            TypeReference<ActionToUrlFixtureModel<ThemeApplicationModels.Action>> fixtureType = new TypeReference<ActionToUrlFixtureModel<ThemeApplicationModels.Action>>(){};
+
+            testData = objectMapper.readValue(new File("src/test/java/com/sdk/fixtures/action-url.json"), fixtureType);
+
+        } catch (StreamReadException e) {
+            throw new RuntimeException(e);
+        } catch (DatabindException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        for(ActionToUrlCase<ThemeApplicationModels.Action> testCase : testData.getTests()){
+            String testName = testCase.getName();
+            ThemeApplicationModels.Action action = testCase.getAction();
+            String path = testCase.getResult().getPath();
+
+            String resultedPath = ThemeApplicationModels.Action.convertActionToUrl(action);
+
+            Assertions.assertEquals(path, resultedPath, "Test case: " + testName);
+
+        }
+    }
+
+    
+
+    boolean isThemePartnerActionEqual(ThemePartnerModels.Action action1, ThemePartnerModels.Action action2){
+        if(action1 == action2){
+            return true;
+        }
+
+        // Comparing Type
+        if(!(action1.getType() == null ? action2.getType() == null : action1.getType().equals(action2.getType()))){
+            return false;
+        }
+
+        // Comparing page
+        if(!isThemePartnerActionPageEqual(action1.getPage(), action2.getPage())){
+            return false;
+        }
+
+        // Comparing popup
+        if(!isThemePartnerActionPageEqual(action1.getPopup(), action2.getPopup())){
+            return false;
+        }
+
+        return true;
+    }
+
+    boolean isThemePartnerActionPageEqual(ThemePartnerModels.ActionPage actionPage1, ThemePartnerModels.ActionPage actionPage2){
+        if(actionPage1 == actionPage2){
+            return true;
+        }
+        if(!(actionPage1.getUrl() == null ? actionPage2.getUrl() == null : actionPage1.getUrl().equals(actionPage2.getUrl()))){
+            return false;
+        }
+        if(!(actionPage1.getType() == null ? actionPage2.getType() == null : actionPage1.getType().equals(actionPage2.getType()))){
+            return false;
+        }
+        if(!(actionPage1.getParams() == null ? actionPage2.getParams() == null || actionPage2.getParams().isEmpty() : actionPage1.getParams().equals(actionPage2.getParams()))){
+            return false;
+        }
+        if(!(actionPage1.getQuery() == null ? actionPage2.getQuery() == null || actionPage2.getQuery().isEmpty() : actionPage1.getQuery().equals(actionPage2.getQuery()))){
+            return false;
+        }
+        return true;
+    }
+
+    @Test
+    public void testConvertUrlToActionForPartnerTheme(){
+        UrlToActionFixtureModel<ThemePartnerModels.Action> testData;
+        try{
+            ObjectMapper objectMapper = new ObjectMapper();
+            TypeReference<UrlToActionFixtureModel<ThemePartnerModels.Action>> fixtureType = new TypeReference<UrlToActionFixtureModel<ThemePartnerModels.Action>>(){};
+
+            testData = objectMapper.readValue(new File("src/test/java/com/sdk/fixtures/url-action.json"), fixtureType);
+
+        } catch (StreamReadException e) {
+            throw new RuntimeException(e);
+        } catch (DatabindException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        for(UrlToActionCase<ThemePartnerModels.Action> testCase : testData.getTests()){
+            String testName = testCase.getName();
+            String path = testCase.getPath();
+            ThemePartnerModels.Action action = testCase.getResult().getAction();
+
+            ThemePartnerModels.Action resultedAction = ThemePartnerModels.Action.convertUrlToAction(path);
+
+//            boolean ans = isThemePartnerActionEqual(action, resultedAction);
+//
+//            if(ans == false){
+//                ThemePartnerModels.Action.convertUrlToAction(path);
+//            }
+
+            Assertions.assertTrue(isThemePartnerActionEqual(action, resultedAction), "Test case: " + testName);
+
+        }
+    }
+
+
+    @Test
+    public void testConvertActionToUrlForPartnerTheme(){
+        ActionToUrlFixtureModel<ThemePartnerModels.Action> testData;
+        try{
+            ObjectMapper objectMapper = new ObjectMapper();
+            TypeReference<ActionToUrlFixtureModel<ThemePartnerModels.Action>> fixtureType = new TypeReference<ActionToUrlFixtureModel<ThemePartnerModels.Action>>(){};
+
+            testData = objectMapper.readValue(new File("src/test/java/com/sdk/fixtures/action-url.json"), fixtureType);
+
+        } catch (StreamReadException e) {
+            throw new RuntimeException(e);
+        } catch (DatabindException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        for(ActionToUrlCase<ThemePartnerModels.Action> testCase : testData.getTests()){
+            String testName = testCase.getName();
+            ThemePartnerModels.Action action = testCase.getAction();
+            String path = testCase.getResult().getPath();
+
+            String resultedPath = ThemePartnerModels.Action.convertActionToUrl(action);
 
             Assertions.assertEquals(path, resultedPath, "Test case: " + testName);
 
@@ -348,6 +572,115 @@ public class UtilityMethodsTests {
             String path = testCase.getResult().getPath();
 
             String resultedPath = ContentPlatformModels.Action.convertActionToUrl(action);
+
+            Assertions.assertEquals(path, resultedPath, "Test case: " + testName);
+
+        }
+    }
+
+    
+
+    boolean isThemePlatformActionEqual(ThemePlatformModels.Action action1, ThemePlatformModels.Action action2){
+        if(action1 == action2){
+            return true;
+        }
+
+        // Comparing Type
+        if(!(action1.getType() == null ? action2.getType() == null : action1.getType().equals(action2.getType()))){
+            return false;
+        }
+
+        // Comparing page
+        if(!isThemePlatformActionPageEqual(action1.getPage(), action2.getPage())){
+            return false;
+        }
+
+        // Comparing popup
+        if(!isThemePlatformActionPageEqual(action1.getPopup(), action2.getPopup())){
+            return false;
+        }
+
+        return true;
+    }
+
+    boolean isThemePlatformActionPageEqual(ThemePlatformModels.ActionPage actionPage1, ThemePlatformModels.ActionPage actionPage2){
+        if(actionPage1 == actionPage2){
+            return true;
+        }
+        if(!(actionPage1.getUrl() == null ? actionPage2.getUrl() == null : actionPage1.getUrl().equals(actionPage2.getUrl()))){
+            return false;
+        }
+        if(!(actionPage1.getType() == null ? actionPage2.getType() == null : actionPage1.getType().equals(actionPage2.getType()))){
+            return false;
+        }
+        if(!(actionPage1.getParams() == null ? actionPage2.getParams() == null || actionPage2.getParams().isEmpty() : actionPage1.getParams().equals(actionPage2.getParams()))){
+            return false;
+        }
+        if(!(actionPage1.getQuery() == null ? actionPage2.getQuery() == null || actionPage2.getQuery().isEmpty() : actionPage1.getQuery().equals(actionPage2.getQuery()))){
+            return false;
+        }
+        return true;
+    }
+
+    @Test
+    public void testConvertUrlToActionForPlatformTheme(){
+        UrlToActionFixtureModel<ThemePlatformModels.Action> testData;
+        try{
+            ObjectMapper objectMapper = new ObjectMapper();
+            TypeReference<UrlToActionFixtureModel<ThemePlatformModels.Action>> fixtureType = new TypeReference<UrlToActionFixtureModel<ThemePlatformModels.Action>>(){};
+
+            testData = objectMapper.readValue(new File("src/test/java/com/sdk/fixtures/url-action.json"), fixtureType);
+
+        } catch (StreamReadException e) {
+            throw new RuntimeException(e);
+        } catch (DatabindException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        for(UrlToActionCase<ThemePlatformModels.Action> testCase : testData.getTests()){
+            String testName = testCase.getName();
+            String path = testCase.getPath();
+            ThemePlatformModels.Action action = testCase.getResult().getAction();
+
+            ThemePlatformModels.Action resultedAction = ThemePlatformModels.Action.convertUrlToAction(path);
+
+//            boolean ans = isThemePlatformActionEqual(action, resultedAction);
+//
+//            if(ans == false){
+//                ThemePlatformModels.Action.convertUrlToAction(path);
+//            }
+
+            Assertions.assertTrue(isThemePlatformActionEqual(action, resultedAction), "Test case: " + testName);
+
+        }
+    }
+
+
+    @Test
+    public void testConvertActionToUrlForPlatformTheme(){
+        ActionToUrlFixtureModel<ThemePlatformModels.Action> testData;
+        try{
+            ObjectMapper objectMapper = new ObjectMapper();
+            TypeReference<ActionToUrlFixtureModel<ThemePlatformModels.Action>> fixtureType = new TypeReference<ActionToUrlFixtureModel<ThemePlatformModels.Action>>(){};
+
+            testData = objectMapper.readValue(new File("src/test/java/com/sdk/fixtures/action-url.json"), fixtureType);
+
+        } catch (StreamReadException e) {
+            throw new RuntimeException(e);
+        } catch (DatabindException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        for(ActionToUrlCase<ThemePlatformModels.Action> testCase : testData.getTests()){
+            String testName = testCase.getName();
+            ThemePlatformModels.Action action = testCase.getAction();
+            String path = testCase.getResult().getPath();
+
+            String resultedPath = ThemePlatformModels.Action.convertActionToUrl(action);
 
             Assertions.assertEquals(path, resultedPath, "Test case: " + testName);
 

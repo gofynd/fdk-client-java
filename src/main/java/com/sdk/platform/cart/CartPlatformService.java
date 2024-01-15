@@ -1329,15 +1329,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CartPlatformModels.GetCouponResponse getAppCoupons(String id, Boolean buyNow) throws FDKServerResponseError, FDKException {
-        return this.getAppCoupons(id, buyNow, new HashMap<>());
+    public CartPlatformModels.GetCouponResponse getAppCoupons(String id, Boolean buyNow, String slug, String storeId) throws FDKServerResponseError, FDKException {
+        return this.getAppCoupons(id, buyNow, slug, storeId, new HashMap<>());
     }
 
-    public CartPlatformModels.GetCouponResponse getAppCoupons(String id, Boolean buyNow, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.GetCouponResponse getAppCoupons(String id, Boolean buyNow, String slug, String storeId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.GetCouponResponse> response = null;
             try {
-            response = cartPlatformApiList.getAppCoupons(this.companyId, this.applicationId, id, buyNow, requestHeaders).execute();
+            response = cartPlatformApiList.getAppCoupons(this.companyId, this.applicationId, id, buyNow, slug, storeId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
