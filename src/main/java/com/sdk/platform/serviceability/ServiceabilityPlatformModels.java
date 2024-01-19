@@ -640,7 +640,7 @@ public static class ListViewItems{
     
     
     @JsonProperty("channels")
-    private ListViewChannels channels;
+    private List<ListViewChannels> channels;
     
     
     

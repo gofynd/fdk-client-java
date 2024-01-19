@@ -3162,37 +3162,6 @@ public static class PostHistoryData{
 
 
 /*
-    Model: PostActivityHistory
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PostActivityHistory{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("filters")
-    private List<PostHistoryFilters> filters;
-    
-    
-    
-    
-    @JsonProperty("data")
-    private PostHistoryData data;
-    
-    
-    
-}
-
-
-/*
     Model: PostHistoryDict
 */
 @AllArgsConstructor
@@ -3209,8 +3178,14 @@ public static class PostHistoryDict{
     
     
     
-    @JsonProperty("activity_history")
-    private PostActivityHistory activityHistory;
+    @JsonProperty("filters")
+    private List<PostHistoryFilters> filters;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private PostHistoryData data;
     
     
     

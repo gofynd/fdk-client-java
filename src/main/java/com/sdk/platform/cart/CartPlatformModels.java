@@ -4609,6 +4609,18 @@ public static class AppliedPromotion{
     
     
     
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
 }
 
 
