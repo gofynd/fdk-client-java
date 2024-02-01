@@ -19261,7 +19261,7 @@ public static class UpdateMarketplaceOptinResponse{
         
         contactUs("contact-us"), 
         
-        externalLink("external"), 
+        external("external"), 
         
         faq("faq"), 
         

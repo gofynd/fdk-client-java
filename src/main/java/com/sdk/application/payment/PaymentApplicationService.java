@@ -40,7 +40,7 @@ import com.sdk.application.*;
         relativeUrls.put("checkAndUpdatePaymentStatus","/service/application/payment/v1.0/payment/confirm/polling".substring(1));
         relativeUrls.put("getPaymentModeRoutes","/service/application/payment/v1.0/payment/options".substring(1));
         relativeUrls.put("getPosPaymentModeRoutes","/service/application/payment/v1.0/payment/options/pos".substring(1));
-        relativeUrls.put("walletLinkInitate","/service/application/payment/v1.0/payment/options/wallet/link".substring(1));
+        relativeUrls.put("walletLinkInitiate","/service/application/payment/v1.0/payment/options/wallet/link".substring(1));
         relativeUrls.put("linkWallet","/service/application/payment/v1.0/payment/options/wallet/verify".substring(1));
         relativeUrls.put("delinkWallet","/service/application/payment/v1.0/payment/options/wallet/delink".substring(1));
         relativeUrls.put("getRupifiBannerDetails","/service/application/payment/v1.0/rupifi/banner".substring(1));
@@ -278,15 +278,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.WalletResponseSchema walletLinkInitate(PaymentApplicationModels.WalletLinkRequestSchema body) throws IOException {
-        return this.walletLinkInitate(body, new HashMap<>());
+    public PaymentApplicationModels.WalletResponseSchema walletLinkInitiate(PaymentApplicationModels.WalletLinkRequestSchema body) throws IOException {
+        return this.walletLinkInitiate(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.WalletResponseSchema walletLinkInitate(PaymentApplicationModels.WalletLinkRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.WalletResponseSchema walletLinkInitiate(PaymentApplicationModels.WalletLinkRequestSchema body, Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("walletLinkInitate");
+        String fullUrl = relativeUrls.get("walletLinkInitiate");
 
-        Response<PaymentApplicationModels.WalletResponseSchema> response = paymentApplicationApiList.walletLinkInitate(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.WalletResponseSchema> response = paymentApplicationApiList.walletLinkInitiate(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

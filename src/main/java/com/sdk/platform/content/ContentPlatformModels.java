@@ -7336,7 +7336,7 @@ public static class CustomObjectBulkSchema{
         
         contactUs("contact-us"), 
         
-        externalLink("external"), 
+        external("external"), 
         
         faq("faq"), 
         

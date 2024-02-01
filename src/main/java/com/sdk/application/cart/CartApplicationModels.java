@@ -4199,6 +4199,30 @@ public static class CartCheckoutDetailRequest{
     
     
     
+    
+    @JsonProperty("iin")
+    private String iin;
+    
+    
+    
+    
+    @JsonProperty("network")
+    private String network;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("card_id")
+    private String cardId;
+    
+    
+    
 }
 
 
@@ -5558,6 +5582,30 @@ public static class CartCheckoutDetailV2Request{
     
     @JsonProperty("meta")
     private Object meta;
+    
+    
+    
+    
+    @JsonProperty("iin")
+    private String iin;
+    
+    
+    
+    
+    @JsonProperty("network")
+    private String network;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("card_id")
+    private String cardId;
     
     
     

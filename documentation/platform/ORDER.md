@@ -6161,6 +6161,7 @@ Sucessfully Created the Template Url.
  | action | String |  no  | Expected Actions: [lock, unlock, check] |
  | actionType | String |  no  | Expected action_type: [complete, operational, financial] |
  | entities | ArrayList<[Entities](#Entities)> |  no  | Shipment/Entity |
+ | resumeTasksAfterUnlock | Boolean? |  yes  |  |
 
 ---
 
@@ -9468,6 +9469,7 @@ Sucessfully Created the Template Url.
  | source | String? |  yes  |  |
  | fyndOrderId | String |  no  |  |
  | affiliateId | String? |  yes  |  |
+ | affiliateOrderId | String? |  yes  |  |
  | orderingChannelLogo | HashMap<String,Object>? |  yes  |  |
  | orderValue | String? |  yes  |  |
  | orderingChannel | String? |  yes  |  |
@@ -10547,7 +10549,7 @@ Sucessfully Created the Template Url.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | phone | Integer |  no  |  |
+ | phone | String |  no  |  |
  | isActive | Boolean? |  yes  |  |
  | companyId | Integer |  no  |  |
  | alohomoraUserId | Integer? |  yes  |  |
@@ -10604,7 +10606,7 @@ Sucessfully Created the Template Url.
  | createdOn | String? |  yes  |  |
  | brandName | String |  no  |  |
  | brandId | Integer? |  yes  |  |
- | modifiedOn | Integer? |  yes  |  |
+ | modifiedOn | String? |  yes  |  |
  | id | Integer? |  yes  |  |
 
 ---
@@ -10704,7 +10706,7 @@ Sucessfully Created the Template Url.
  | gstFee | Double? |  yes  |  |
  | brandCalculatedAmount | Double? |  yes  |  |
  | taxCollectedAtSource | Double? |  yes  |  |
- | gstinCode | Double? |  yes  |  |
+ | gstinCode | String? |  yes  |  |
 
 ---
 

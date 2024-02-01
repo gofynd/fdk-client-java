@@ -40,7 +40,7 @@ interface PaymentApplicationApiList {
     Call<PaymentApplicationModels.PaymentModeRouteResponse> getPosPaymentModeRoutes(@Url String url1, @Query("amount") Integer amount, @Query("cart_id") String cartId, @Query("pincode") String pincode, @Query("checkout_mode") String checkoutMode, @Query("refresh") Boolean refresh, @Query("card_reference") String cardReference, @Query("order_type") String orderType, @Query("user_details") String userDetails, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<PaymentApplicationModels.WalletResponseSchema> walletLinkInitate(@Url String url1, @Body PaymentApplicationModels.WalletLinkRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentApplicationModels.WalletResponseSchema> walletLinkInitiate(@Url String url1, @Body PaymentApplicationModels.WalletLinkRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<PaymentApplicationModels.WalletResponseSchema> linkWallet(@Url String url1, @Body PaymentApplicationModels.WalletVerifyRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);

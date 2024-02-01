@@ -3430,7 +3430,7 @@ public static class CustomFieldsResponseByResourceIdSchema{
         
         contactUs("contact-us"), 
         
-        externalLink("external"), 
+        external("external"), 
         
         faq("faq"), 
         

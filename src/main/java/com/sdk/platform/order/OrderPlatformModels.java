@@ -372,6 +372,12 @@ public static class UpdateShipmentLockPayload{
     
     
     
+    
+    @JsonProperty("resume_tasks_after_unlock")
+    private Boolean resumeTasksAfterUnlock;
+    
+    
+    
 }
 
 
@@ -11488,6 +11494,12 @@ public static class OrderDetailsData{
     
     
     
+    @JsonProperty("affiliate_order_id")
+    private String affiliateOrderId;
+    
+    
+    
+    
     @JsonProperty("ordering_channel_logo")
     private Object orderingChannelLogo;
     
@@ -15339,7 +15351,7 @@ public static class Store{
     
     
     @JsonProperty("phone")
-    private Integer phone;
+    private String phone;
     
     
     
@@ -15640,7 +15652,7 @@ public static class Brand{
     
     
     @JsonProperty("modified_on")
-    private Integer modifiedOn;
+    private String modifiedOn;
     
     
     
@@ -16035,7 +16047,7 @@ public static class ShipmentGstDetails{
     
     
     @JsonProperty("gstin_code")
-    private Double gstinCode;
+    private String gstinCode;
     
     
     

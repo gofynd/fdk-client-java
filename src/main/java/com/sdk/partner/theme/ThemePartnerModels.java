@@ -3454,7 +3454,7 @@ public static class CreateNewTheme{
         
         contactUs("contact-us"), 
         
-        externalLink("external"), 
+        external("external"), 
         
         faq("faq"), 
         

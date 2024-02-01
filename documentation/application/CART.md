@@ -10305,6 +10305,10 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
  | billingAddressId | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | paymentExtraIdentifiers | HashMap<String,Object>? |  yes  |  |
+ | iin | String? |  yes  |  |
+ | network | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | cardId | String? |  yes  |  |
 
 ---
 
@@ -10696,6 +10700,10 @@ Success. Returns the status of cart checkout. Refer `CartCheckoutResponseSchema`
  | paymentParams | HashMap<String,Object>? |  yes  |  |
  | billingAddressId | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
+ | iin | String? |  yes  |  |
+ | network | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | cardId | String? |  yes  |  |
 
 ---
 

@@ -9371,6 +9371,30 @@ public static class PlatformCartCheckoutDetailRequest{
     
     
     
+    
+    @JsonProperty("iin")
+    private String iin;
+    
+    
+    
+    
+    @JsonProperty("network")
+    private String network;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("card_id")
+    private String cardId;
+    
+    
+    
 }
 
 
@@ -10231,6 +10255,30 @@ public static class PlatformCartCheckoutDetailV2Request{
     
     @JsonProperty("ordering_store")
     private Integer orderingStore;
+    
+    
+    
+    
+    @JsonProperty("iin")
+    private String iin;
+    
+    
+    
+    
+    @JsonProperty("network")
+    private String network;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("card_id")
+    private String cardId;
     
     
     

@@ -2426,6 +2426,12 @@ public static class ValidateVPARequest{
     
     
     
+    
+    @JsonProperty("aggregator")
+    private String aggregator;
+    
+    
+    
 }
 
 
