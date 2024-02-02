@@ -621,12 +621,6 @@ public static class ListViewItems{
     
     
     
-    @JsonProperty("product")
-    private ListViewProduct product;
-    
-    
-    
-    
     @JsonProperty("regions_count")
     private Integer regionsCount;
     
@@ -665,7 +659,7 @@ public static class ListViewResponse{
     
     
     @JsonProperty("page")
-    private List<ZoneDataItem> page;
+    private ZoneDataItem page;
     
     
     

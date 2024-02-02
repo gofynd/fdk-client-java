@@ -5342,6 +5342,12 @@ public static class PaymentSessionRequestSerializer{
     
     
     
+    
+    @JsonProperty("checksum")
+    private String checksum;
+    
+    
+    
 }
 
 
@@ -5552,6 +5558,12 @@ public static class RefundSessionRequestSerializer{
     
     @JsonProperty("message")
     private String message;
+    
+    
+    
+    
+    @JsonProperty("checksum")
+    private String checksum;
     
     
     
