@@ -952,7 +952,7 @@ public static class TicketCategory{
     
     
     @JsonProperty("sub_categories")
-    private TicketCategory subCategories;
+    private List<TicketCategory> subCategories;
     
     
     

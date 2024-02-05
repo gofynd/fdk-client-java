@@ -491,15 +491,15 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.AutoCompleteResponse getSearchResults(String q) throws IOException {
-        return this.getSearchResults(q, new HashMap<>());
+    public CatalogApplicationModels.AutoCompleteResponse getSearchResults(String q, Integer categorySuggestion, Integer brandSuggestion, Integer collectionSuggestion, Integer productSuggestion, Integer querySuggestion) throws IOException {
+        return this.getSearchResults(q, categorySuggestion, brandSuggestion, collectionSuggestion, productSuggestion, querySuggestion, new HashMap<>());
     }
 
-    public CatalogApplicationModels.AutoCompleteResponse getSearchResults(String q, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.AutoCompleteResponse getSearchResults(String q, Integer categorySuggestion, Integer brandSuggestion, Integer collectionSuggestion, Integer productSuggestion, Integer querySuggestion, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getSearchResults");
 
-        Response<CatalogApplicationModels.AutoCompleteResponse> response = catalogApplicationApiList.getSearchResults(fullUrl, q, requestHeaders).execute();
+        Response<CatalogApplicationModels.AutoCompleteResponse> response = catalogApplicationApiList.getSearchResults(fullUrl, q, categorySuggestion, brandSuggestion, collectionSuggestion, productSuggestion, querySuggestion, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -934,17 +934,17 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductSizePriceResponseV3 getProductPriceBySlug(String slug, String size, Integer storeId, Integer moq) throws IOException {
-        return this.getProductPriceBySlug(slug, size, storeId, moq, new HashMap<>());
+    public CatalogApplicationModels.ProductSizePriceResponseV3 getProductPriceBySlug(String slug, String size, Integer storeId, String exchangeSellerIdentifier, Integer moq, Integer sellerId) throws IOException {
+        return this.getProductPriceBySlug(slug, size, storeId, exchangeSellerIdentifier, moq, sellerId, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductSizePriceResponseV3 getProductPriceBySlug(String slug, String size, Integer storeId, Integer moq, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductSizePriceResponseV3 getProductPriceBySlug(String slug, String size, Integer storeId, String exchangeSellerIdentifier, Integer moq, Integer sellerId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getProductPriceBySlug");
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
         fullUrl = fullUrl.replace("{" + "size" + "}",size.toString());
 
-        Response<CatalogApplicationModels.ProductSizePriceResponseV3> response = catalogApplicationApiList.getProductPriceBySlug(fullUrl, storeId, moq, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductSizePriceResponseV3> response = catalogApplicationApiList.getProductPriceBySlug(fullUrl, storeId, exchangeSellerIdentifier, moq, sellerId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

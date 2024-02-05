@@ -64,7 +64,7 @@ interface PaymentPlatformApiList {
     Call<PaymentPlatformModels.GetUserCODLimitResponse> getUserCODlimitRoutes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("merchant_user_id") String merchantUserId, @Query("mobile_no") String mobileNo, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/user-cod")
-    Call<PaymentPlatformModels.SetCODOptionResponse> setUserCODlimitRoutes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.SetCODForUserRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentPlatformModels.GetUserCODLimitResponse> setUserCODlimitRoutes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.SetCODForUserRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/edc-aggregator-list")
     Call<PaymentPlatformModels.EdcAggregatorAndModelListResponse> edcAggregatorsAndModelList(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
@@ -154,7 +154,7 @@ interface PaymentPlatformApiList {
     Call<PaymentPlatformModels.RefundSessionResponseSerializer> updateRefundSession(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("gid") String gid, @Path("request_id") String requestId, @Body PaymentPlatformModels.RefundSessionRequestSerializer payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/configuration")
-    Call<PaymentPlatformModels.PlatformPaymentModeResponse> getMerchantPaymentOption(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentPlatformModels.PlatformOnlineOfflinePaymentResponse> getMerchantPaymentOption(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("payment_option_type") String paymentOptionType, @HeaderMap Map<String, String> requestHeaders);
 
     @PATCH ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/configuration")
     Call<PaymentPlatformModels.PlatformPaymentModeResponse> patchMerchantPaymentOption(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.MerchnatPaymentModeRequest payload, @HeaderMap Map<String, String> requestHeaders);
@@ -185,4 +185,31 @@ interface PaymentPlatformApiList {
 
     @PATCH ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/aggregators/{aggregator_id}/version")
     Call<PaymentPlatformModels.PlatformPaymentModeResponse> patchMerchantPaymentOptionVersion(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("aggregator_id") Integer aggregatorId, @Body PaymentPlatformModels.AggregatorControlRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/refund/account/{beneficiary_id}")
+    Call<PaymentPlatformModels.DeleteRefundAccountResponse> deleteBeneficiaryDetails(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("beneficiary_id") String beneficiaryId, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/refundoptions/")
+    Call<PaymentPlatformModels.RefundOptionResponse> getRefundOptions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("configuration") String configuration, @Query("product_type") String productType, @Query("amount") String amount, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/refundoptions/")
+    Call<PaymentPlatformModels.ShipmentRefundResponse> setRefundOptionforShipment(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.ShipmentRefundRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/selected_refund_options")
+    Call<PaymentPlatformModels.SelectedRefundOptionResponse> getSelectedRefundOption(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("shipment_id") String shipmentId, @Query("order_id") String orderId, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/payment/v2.0/company/{company_id}/application/{application_id}/refund/user/beneficiary")
+    Call<PaymentPlatformModels.OrderBeneficiaryResponseSchemaV2> getUserBeneficiariesDetailV2(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("order_id") String orderId, @Query("shipment_id") String shipmentId, @Query("mop") String mop, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/validate/beneficiary-address")
+    Call<PaymentPlatformModels.ValidateValidateAddressResponse> validateBeneficiaryAddress(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.ValidateValidateAddressRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/refund/beneficiary/default")
+    Call<PaymentPlatformModels.SetDefaultBeneficiaryResponse> updateDefaultBeneficiary(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.SetDefaultBeneficiaryRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/pennydrop/validation")
+    Call<PaymentPlatformModels.PennyDropValidationResponse> getPennyDropValidation(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/pennydrop/validation")
+    Call<PaymentPlatformModels.PennyDropValidationResponse> updatePennyDropValidation(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.UpdatePennyDropValidationRequest payload, @HeaderMap Map<String, String> requestHeaders);
 }

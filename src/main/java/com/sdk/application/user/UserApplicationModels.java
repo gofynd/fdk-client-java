@@ -234,6 +234,12 @@ public static class EditProfileRequestSchema{
     
     
     
+    @JsonProperty("ci")
+    private Boolean ci;
+    
+    
+    
+    
     @JsonProperty("first_name")
     private String firstName;
     
@@ -568,6 +574,12 @@ public static class SendMobileOtpRequestSchema{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("ci")
+    private Boolean ci;
     
     
     
@@ -932,6 +944,12 @@ public static class SendOtpRequestSchema{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("ci")
+    private Boolean ci;
     
     
     
@@ -1618,7 +1636,7 @@ public static class HasPasswordSuccess{
     
     
     @JsonProperty("result")
-    private Boolean result;
+    private Integer result;
     
     
     
@@ -1764,6 +1782,12 @@ public static class EmailOtpSuccess{
     
     
     
+    
+    @JsonProperty("resend_email_token")
+    private String resendEmailToken;
+    
+    
+    
 }
 
 
@@ -1905,56 +1929,6 @@ public static class SendEmailVerifyLinkSuccess{
 
 
 /*
-    Model: AuthenticationInternalServerErrorSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AuthenticationInternalServerErrorSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
-    Model: AuthenticationApiErrorSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AuthenticationApiErrorSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
     Model: APIError
 */
 @AllArgsConstructor
@@ -1995,8 +1969,20 @@ public static class APIError{
     
     
     
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+    
     @JsonProperty("meta")
     private Object meta;
+    
+    
+    
+    
+    @JsonProperty("authenticated")
+    private Boolean authenticated;
     
     
     
@@ -2344,13 +2330,19 @@ public static class PlatformSchema{
     
     
     @JsonProperty("delete_account_consent")
-    private Object deleteAccountConsent;
+    private DeleteAccountConsent deleteAccountConsent;
     
     
     
     
     @JsonProperty("session_config")
-    private Object sessionConfig;
+    private SessionExpiry sessionConfig;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Integer v;
     
     
     
@@ -2733,8 +2725,8 @@ public static class SocialTokens{
     
     
     
-    @JsonProperty("account_kit")
-    private Accountkit accountKit;
+    @JsonProperty("accountkit")
+    private Accountkit accountkit;
     
     
     

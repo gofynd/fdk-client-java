@@ -199,7 +199,7 @@ interface CommunicationPlatformApiList {
     Call<CommunicationPlatformModels.SystemNotifications> getSystemNotifications(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/otp/send-otp-comms")
-    Call<CommunicationPlatformModels.SendOtpCommsRes> sendOtp(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.SendOtpCommsReq payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CommunicationPlatformModels.SendOtpCommsRes> sendOtp(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("ci") Boolean ci, @Body CommunicationPlatformModels.SendOtpCommsReq payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/otp/verify-otp-comms")
     Call<CommunicationPlatformModels.VerifyOtpCommsSuccessRes> verfiyOtp(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.VerifyOtpCommsReq payload, @HeaderMap Map<String, String> requestHeaders);

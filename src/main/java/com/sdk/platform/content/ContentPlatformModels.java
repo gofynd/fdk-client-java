@@ -2026,8 +2026,57 @@ public static class NavigationReference{
     
     
     
+    @JsonProperty("schedule")
+    private CronBasedScheduleSchema schedule;
+    
+    
+    
+    
     @JsonProperty("sub_navigation")
     private List<NavigationReference> subNavigation;
+    
+    
+    
+}
+
+
+/*
+    Model: CronBasedScheduleSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CronBasedScheduleSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+    
+    @JsonProperty("cron")
+    private String cron;
+    
+    
+    
+    
+    @JsonProperty("start")
+    private String start;
+    
+    
+    
+    
+    @JsonProperty("end")
+    private String end;
     
     
     
@@ -5132,31 +5181,6 @@ public static class CustomDataDeleteSchema{
 
 
 /*
-    Model: CustomFieldValue
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CustomFieldValue{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("value")
-    private Object value;
-    
-    
-    
-}
-
-
-/*
     Model: CustomFieldSchema
 */
 @AllArgsConstructor
@@ -5204,7 +5228,7 @@ public static class CustomFieldSchema{
     
     
     @JsonProperty("value")
-    private List<CustomFieldValue> value;
+    private List<Object> value;
     
     
     

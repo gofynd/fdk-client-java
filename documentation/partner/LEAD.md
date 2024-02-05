@@ -117,7 +117,6 @@ Success
           "key": "high"
         }
       ],
-      "assignees": [],
       "categories": [
         {
           "form": {
@@ -387,7 +386,6 @@ Success
           "key": "high"
         }
       ],
-      "assignees": [],
       "categories": [
         {
           "form": {
@@ -1710,14 +1708,14 @@ Success
       {
         "type": "email",
         "title": "dfdafdsa",
-        "value": "asdfad@kdfkd.coj",
+        "value": "test@gmail.com",
         "description": "asdfadsf",
         "enabled": true
       },
       {
         "type": "email",
         "title": "testanu",
-        "value": "anushkakamat@gofynd.com",
+        "value": "testing@gmail.com",
         "description": "tesr",
         "enabled": true
       }
@@ -1919,7 +1917,6 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | type | String? |  yes  |  |
  | title | String? |  yes  |  |
- | value | HashMap<String,Object>? |  yes  |  |
  | description | String? |  yes  |  |
  | enabled | Boolean? |  yes  |  |
 
@@ -1970,7 +1967,7 @@ Success
  | priorities | ArrayList<[Priority](#Priority)> |  no  | List of possible priorities for tickets |
  | categories | ArrayList<[TicketCategory](#TicketCategory)>? |  yes  | List of possible categories for tickets |
  | statuses | ArrayList<[Status](#Status)> |  no  | List of possible statuses for tickets |
- | assignees | ArrayList<HashMap<String,Object>> |  no  | List of support staff availble for tickets assignment |
+ | assignees | ArrayList<HashMap<String,Object>>? |  yes  | List of support staff availble for tickets assignment |
 
 ---
 
@@ -2273,7 +2270,7 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | display | String |  no  | Category display value identifier |
  | key | String |  no  | Category key value identifier |
- | subCategories | [TicketCategory](#TicketCategory)? |  yes  |  |
+ | subCategories | ArrayList<[TicketCategory](#TicketCategory)>? |  yes  |  |
  | groupId | Double? |  yes  | Group id of category releted data |
  | feedbackForm | [FeedbackForm](#FeedbackForm)? |  yes  |  |
 

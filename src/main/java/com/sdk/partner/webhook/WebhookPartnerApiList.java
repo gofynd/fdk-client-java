@@ -32,4 +32,16 @@ interface WebhookPartnerApiList {
 
     @PATCH ("/service/partner/webhook/v1.0/organization/{organization_id}/extension/{extension_id}/subscriber/{subscriber_id}")
     Call<WebhookPartnerModels.UpdateSubscriberResponse> updateSubscriber(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Path("subscriber_id") Double subscriberId, @Body WebhookPartnerModels.UpdateSubscriberRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/partner/webhook/v1.0/organization/{organization_id}/extension/{extension_id}/kafka_config")
+    Call<WebhookPartnerModels.KafkaConfigResponse> createKafkaConfiguration(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Body WebhookPartnerModels.KafkaConfigRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/partner/webhook/v1.0/organization/{organization_id}/extension/{extension_id}/kafka_config")
+    Call<WebhookPartnerModels.KafkaConfigResponse> fetchKafkaConfiguration(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/partner/webhook/v1.0/organization/{organization_id}/extension/{extension_id}/kafka_config")
+    Call<WebhookPartnerModels.KafkaConfigResponse> updateKafkaConfiguration(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Body WebhookPartnerModels.KafkaConfigUpdateRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/partner/webhook/v1.0/organization/{organization_id}/extension/{extension_id}/kafka_config/validate")
+    Call<WebhookPartnerModels.KafkaConfigValidateResponse> validateKafkaConfiguration(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Body WebhookPartnerModels.KafkaConfigRequest payload, @HeaderMap Map<String, String> requestHeaders);
 }

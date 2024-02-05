@@ -122,7 +122,7 @@ Get short links
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").share.getShortLinks( pageNo,  pageSize,  createdBy,  active,  q) {
+platformClient.application("<APPLICATION_ID>").share.getShortLinks( pageNo,  pageSize,  createdBy,  active,  shortUrl,  originalUrl,  title) {
   //use response
 }
 ```
@@ -137,7 +137,9 @@ platformClient.application("<APPLICATION_ID>").share.getShortLinks( pageNo,  pag
 | pageSize | Integer? | no | Current page size |   
 | createdBy | String? | no | Short link creator |   
 | active | String? | no | Short link active status |   
-| q | String? | no | Search text for original and short url |  
+| shortUrl | String? | no | Search for short url |   
+| originalUrl | String? | no | Search for original url |   
+| title | String? | no | Search text for title |  
 
 
 

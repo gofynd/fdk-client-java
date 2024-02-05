@@ -10,7 +10,7 @@ interface SharePlatformApiList {
     Call<SharePlatformModels.ShortLinkRes> createShortLink(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body SharePlatformModels.ShortLinkReq payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/share/v1.0/company/{company_id}/application/{application_id}/links/short-link/")
-    Call<SharePlatformModels.ShortLinkList> getShortLinks(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("created_by") String createdBy, @Query("active") String active, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
+    Call<SharePlatformModels.ShortLinkList> getShortLinks(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("created_by") String createdBy, @Query("active") String active, @Query("short_url") String shortUrl, @Query("original_url") String originalUrl, @Query("title") String title, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/share/v1.0/company/{company_id}/application/{application_id}/links/short-link/{hash}/")
     Call<SharePlatformModels.ShortLinkRes> getShortLinkByHash(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("hash") String hash, @HeaderMap Map<String, String> requestHeaders);

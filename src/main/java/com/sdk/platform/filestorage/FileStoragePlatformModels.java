@@ -369,6 +369,37 @@ public static class CompleteResponse{
 
 
 /*
+    Model: ProxyResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProxyResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("data")
+    private HashMap<String,Object> data;
+    
+    
+    
+    
+    @JsonProperty("support")
+    private HashMap<String,Object> support;
+    
+    
+    
+}
+
+
+/*
     Model: DestinationNamespace
 */
 @AllArgsConstructor
@@ -572,6 +603,12 @@ public static class InvoiceTypesDataResponse{
     
     @JsonProperty("visibility")
     private Boolean visibility;
+    
+    
+    
+    
+    @JsonProperty("store_os")
+    private Boolean storeOs;
     
     
     

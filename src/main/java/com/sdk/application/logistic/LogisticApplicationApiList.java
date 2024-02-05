@@ -7,12 +7,6 @@ import java.util.*;
 interface LogisticApplicationApiList {
 
     @GET 
-    Call<LogisticApplicationModels.PincodeApiResponse> getPincodeCity(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<LogisticApplicationModels.TATViewResponse> getTatProduct(@Url String url1, @Body LogisticApplicationModels.TATViewRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
     Call<LogisticApplicationModels.CountryListResponse> getAllCountries(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 

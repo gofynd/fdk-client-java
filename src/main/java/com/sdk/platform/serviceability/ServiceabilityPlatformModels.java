@@ -3774,6 +3774,12 @@ public static class CourierPartnerRule{
     
     
     
+    @JsonProperty("manual_priority")
+    private List<String> manualPriority;
+    
+    
+    
+    
     @JsonProperty("sort")
     private List<String> sort;
     
@@ -3907,6 +3913,283 @@ public static class ZoneConfig{
 
 
 /*
+    Model: BuyboxConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BuyboxConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("show_seller")
+    private Boolean showSeller;
+    
+    
+    
+    
+    @JsonProperty("enable_selection")
+    private Boolean enableSelection;
+    
+    
+    
+    
+    @JsonProperty("is_seller_buybox_enabled")
+    private Boolean isSellerBuyboxEnabled;
+    
+    
+    
+}
+
+
+/*
+    Model: BuyboxRuleConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BuyboxRuleConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("store_type_priority")
+    private List<String> storeTypePriority;
+    
+    
+    
+    
+    @JsonProperty("store_tag_priority")
+    private List<String> storeTagPriority;
+    
+    
+    
+    
+    @JsonProperty("sort")
+    private List<String> sort;
+    
+    
+    
+}
+
+
+/*
+    Model: PromiseType
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PromiseType{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("is_default")
+    private Boolean isDefault;
+    
+    
+    
+}
+
+
+/*
+    Model: StorePromiseAttributeConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StorePromiseAttributeConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("is_operational_timing_enabled")
+    private Boolean isOperationalTimingEnabled;
+    
+    
+    
+    
+    @JsonProperty("is_order_acceptance_timing_enabled")
+    private Boolean isOrderAcceptanceTimingEnabled;
+    
+    
+    
+    
+    @JsonProperty("is_average_processing_time")
+    private Boolean isAverageProcessingTime;
+    
+    
+    
+    
+    @JsonProperty("is_holiday_enabled")
+    private Boolean isHolidayEnabled;
+    
+    
+    
+}
+
+
+/*
+    Model: DeliveryServiceAttributeConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeliveryServiceAttributeConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("is_pickup_cutoff_time_enabled")
+    private Boolean isPickupCutoffTimeEnabled;
+    
+    
+    
+    
+    @JsonProperty("is_service_tat_enabled")
+    private Boolean isServiceTatEnabled;
+    
+    
+    
+    
+    @JsonProperty("is_holiday_enabled")
+    private Boolean isHolidayEnabled;
+    
+    
+    
+}
+
+
+/*
+    Model: BufferField
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BufferField{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("unit")
+    private String unit;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Integer value;
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+}
+
+
+/*
+    Model: PromiseConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PromiseConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("store_attributes")
+    private StorePromiseAttributeConfig storeAttributes;
+    
+    
+    
+    
+    @JsonProperty("delivery_service_attributes")
+    private DeliveryServiceAttributeConfig deliveryServiceAttributes;
+    
+    
+    
+    
+    @JsonProperty("buffer_field")
+    private BufferField bufferField;
+    
+    
+    
+}
+
+
+/*
     Model: ApplicationConfig
 */
 @AllArgsConstructor
@@ -3935,8 +4218,118 @@ public static class ApplicationConfig{
     
     
     
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("manual_priority")
+    private List<String> manualPriority;
+    
+    
+    
+    
     @JsonProperty("zones")
     private ZoneConfig zones;
+    
+    
+    
+    
+    @JsonProperty("buybox_config")
+    private BuyboxConfig buyboxConfig;
+    
+    
+    
+    
+    @JsonProperty("buybox_rule_config")
+    private BuyboxRuleConfig buyboxRuleConfig;
+    
+    
+    
+    
+    @JsonProperty("promise_types")
+    private List<PromiseType> promiseTypes;
+    
+    
+    
+    
+    @JsonProperty("promise_config")
+    private PromiseConfig promiseConfig;
+    
+    
+    
+}
+
+
+/*
+    Model: ApplicationConfigPatchRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApplicationConfigPatchRequest{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("buybox_config")
+    private BuyboxConfig buyboxConfig;
+    
+    
+    
+    
+    @JsonProperty("buybox_rule_config")
+    private BuyboxRuleConfig buyboxRuleConfig;
+    
+    
+    
+    
+    @JsonProperty("promise_types")
+    private List<PromiseType> promiseTypes;
+    
+    
+    
+    
+    @JsonProperty("promise_config")
+    private PromiseConfig promiseConfig;
+    
+    
+    
+}
+
+
+/*
+    Model: ApplicationConfigPatchResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApplicationConfigPatchResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -4241,6 +4634,12 @@ public static class StoreRuleConfigData{
     
     
     
+    
+    @JsonProperty("manual_priority")
+    private List<String> manualPriority;
+    
+    
+    
 }
 
 
@@ -4443,6 +4842,12 @@ public static class StoreRuleDataSchema{
     
     
     
+    @JsonProperty("manual_priority")
+    private List<String> manualPriority;
+    
+    
+    
+    
     @JsonProperty("conditions")
     private StoreRuleConditionSchema conditions;
     
@@ -4572,6 +4977,12 @@ public static class CreateStoreRuleRequestSchema{
     
     
     
+    @JsonProperty("manual_priority")
+    private List<String> manualPriority;
+    
+    
+    
+    
     @JsonProperty("sort")
     private List<String> sort;
     
@@ -4635,6 +5046,12 @@ public static class StoreRuleResponseSchema{
     
     @JsonProperty("sort")
     private List<String> sort;
+    
+    
+    
+    
+    @JsonProperty("manual_priority")
+    private List<String> manualPriority;
     
     
     
@@ -4708,6 +5125,12 @@ public static class StoreRuleUpdateResponseSchema{
     
     @JsonProperty("sort")
     private List<String> sort;
+    
+    
+    
+    
+    @JsonProperty("manual_priority")
+    private List<String> manualPriority;
     
     
     

@@ -1267,6 +1267,12 @@ public static class SubscriberResponse{
     
     
     
+    @JsonProperty("provider")
+    private String provider;
+    
+    
+    
+    
     @JsonProperty("webhook_url")
     private String webhookUrl;
     
@@ -1323,6 +1329,116 @@ public static class SubscriberResponse{
     
     @JsonProperty("event_configs")
     private List<EventConfig> eventConfigs;
+    
+    
+    
+}
+
+
+/*
+    Model: Events
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Events{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("topic")
+    private String topic;
+    
+    
+    
+}
+
+
+/*
+    Model: SubscriberConfigRequestV2
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SubscriberConfigRequestV2{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Integer id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("webhook_url")
+    private String webhookUrl;
+    
+    
+    
+    
+    @JsonProperty("provider")
+    private String provider;
+    
+    
+    
+    
+    @JsonProperty("association")
+    private Association association;
+    
+    
+    
+    
+    @JsonProperty("custom_headers")
+    private Object customHeaders;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("email_id")
+    private String emailId;
+    
+    
+    
+    
+    @JsonProperty("auth_meta")
+    private AuthMeta authMeta;
+    
+    
+    
+    
+    @JsonProperty("events")
+    private List<Events> events;
     
     
     
@@ -1439,6 +1555,12 @@ public static class SubscriberConfigResponse{
     
     @JsonProperty("webhook_url")
     private String webhookUrl;
+    
+    
+    
+    
+    @JsonProperty("provider")
+    private String provider;
     
     
     

@@ -8394,7 +8394,7 @@ Get custom fields definitions
 
 
 ```java
-platformClient.content.getCustomFieldDefinitions( pageNo,  pageSize,  resource,  type,  search) {
+platformClient.content.getCustomFieldDefinitions( pageNo,  pageSize,  resources,  types,  search) {
   //use response
 }
 ```
@@ -8406,8 +8406,8 @@ platformClient.content.getCustomFieldDefinitions( pageNo,  pageSize,  resource, 
 | companyId | Integer | yes |  |   
 | pageNo | String | yes |  |   
 | pageSize | String | yes |  |   
-| resource | String? | no |  |   
-| type | String? | no |  |   
+| resources | String? | no |  |   
+| types | String? | no |  |   
 | search | String? | no |  |  
 
 
@@ -11114,7 +11114,7 @@ Get custom fields definitions
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").content.getAppCustomFieldDefinitions( pageNo,  pageSize,  resource,  type,  search) {
+platformClient.application("<APPLICATION_ID>").content.getAppCustomFieldDefinitions( pageNo,  pageSize,  resources,  types,  search) {
   //use response
 }
 ```
@@ -11127,8 +11127,8 @@ platformClient.application("<APPLICATION_ID>").content.getAppCustomFieldDefiniti
 | applicationId | String | yes |  |   
 | pageNo | String | yes |  |   
 | pageSize | String | yes |  |   
-| resource | String? | no |  |   
-| type | String? | no |  |   
+| resources | String? | no |  |   
+| types | String? | no |  |   
 | search | String? | no |  |  
 
 
@@ -14004,7 +14004,6 @@ Success. Get headers of custom object definition
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | page | [ActionPage](#ActionPage)? |  yes  |  |
- | popup | [ActionPage](#ActionPage)? |  yes  |  |
  | type | String? |  yes  |  |
 
 ---
@@ -14039,7 +14038,22 @@ Success. Get headers of custom object definition
  | active | Boolean? |  yes  |  |
  | display | String? |  yes  |  |
  | sortOrder | Integer? |  yes  |  |
+ | schedule | [CronBasedScheduleSchema](#CronBasedScheduleSchema)? |  yes  |  |
  | subNavigation | ArrayList<[NavigationReference](#NavigationReference)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [CronBasedScheduleSchema](#CronBasedScheduleSchema)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | enabled | Boolean? |  yes  |  |
+ | cron | String? |  yes  |  |
+ | start | String? |  yes  |  |
+ | end | String? |  yes  |  |
 
 ---
 
@@ -15020,17 +15034,6 @@ Success. Get headers of custom object definition
 
  
  
- #### [CustomFieldValue](#CustomFieldValue)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | value | Object? |  yes  |  |
-
----
-
-
- 
- 
  #### [CustomFieldSchema](#CustomFieldSchema)
 
  | Properties | Type | Nullable | Description |
@@ -15040,7 +15043,7 @@ Success. Get headers of custom object definition
  | key | String? |  yes  |  |
  | resource | String? |  yes  |  |
  | creator | String? |  yes  |  |
- | value | ArrayList<[CustomFieldValue](#CustomFieldValue)>? |  yes  |  |
+ | value | ArrayList<Object>? |  yes  |  |
  | resourceId | String? |  yes  |  |
  | type | String? |  yes  |  |
  | multiValue | Boolean? |  yes  |  |

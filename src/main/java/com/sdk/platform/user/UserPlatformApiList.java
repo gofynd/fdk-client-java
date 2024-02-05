@@ -18,9 +18,6 @@ interface UserPlatformApiList {
     @PUT ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/activation")
     Call<UserPlatformModels.BlockUserSuccess> blockOrUnblockUsers(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body UserPlatformModels.BlockUserRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/archive")
-    Call<UserPlatformModels.ArchiveUserSuccess> archiveUser(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body UserPlatformModels.ArchiveUserRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
     @PUT ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/undelete")
     Call<UserPlatformModels.UnDeleteUserSuccess> unDeleteUser(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body UserPlatformModels.UnDeleteUserRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
@@ -38,6 +35,9 @@ interface UserPlatformApiList {
 
     @DELETE ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/sessions")
     Call<UserPlatformModels.SessionsDeleteResponseSchema> deleteActiveSessions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("reason") String reason, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/archive")
+    Call<UserPlatformModels.ArchiveUserSuccess> archiveUser(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body UserPlatformModels.ArchiveUserRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/platform/config")
     Call<UserPlatformModels.PlatformSchema> getPlatformConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
