@@ -21,10 +21,8 @@ Default
 * [browsefiles](#browsefiles)
 * [proxy](#proxy)
 * [getPdfTypes](#getpdftypes)
-* [deletePdfType](#deletepdftype)
 * [getDefaultPdfData](#getdefaultpdfdata)
 * [updateHtmlTemplate](#updatehtmltemplate)
-* [deletePdfConfigTemplate](#deletepdfconfigtemplate)
 * [getDefaultHtmlTemplate](#getdefaulthtmltemplate)
 * [saveHtmlTemplate](#savehtmltemplate)
 * [getDefaultPdfTemplate](#getdefaultpdftemplate)
@@ -1177,69 +1175,6 @@ Get all the invoice types and its format
 ---
 
 
-### deletePdfType
-delete Pdf Type
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").filestorage.deletePdfType( id) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes |  |   
-| applicationId | String | yes |  |   
-| id | String | yes |  |  
-
-
-
-delete Pdf Type for invoice such as Invoice, Label, Deliver challan
-
-*Returned Response:*
-
-
-
-
-[String](#String)
-
-pdf type deleted successfully for given id.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-{
-  "value": "Pdf type deleted successfully"
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### getDefaultPdfData
 Get Dummy pdf data for invoice or label
 
@@ -1646,69 +1581,6 @@ Update html template for invoice
     },
     "success": true
   }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### deletePdfConfigTemplate
-delete html template for invoice or label
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").filestorage.deletePdfConfigTemplate( id) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes |  |   
-| applicationId | String | yes |  |   
-| id | String | yes |  |  
-
-
-
-delete html template for invoice such as Invoice, Label, Deliver challan
-
-*Returned Response:*
-
-
-
-
-[String](#String)
-
-pdf config Template deleted successfully for given id.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-{
-  "value": "Configured template deleted successfully"
 }
 ```
 </details>

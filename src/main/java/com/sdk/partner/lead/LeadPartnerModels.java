@@ -533,6 +533,12 @@ public static class SupportCommunicationSchema{
     
     
     
+    @JsonProperty("value")
+    private Object value;
+    
+    
+    
+    
     @JsonProperty("description")
     private String description;
     
@@ -1592,7 +1598,7 @@ public static class TicketCategory{
     
     
     @JsonProperty("sub_categories")
-    private List<TicketCategory> subCategories;
+    private TicketCategory subCategories;
     
     
     

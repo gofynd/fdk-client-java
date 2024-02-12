@@ -12,12 +12,6 @@ interface CartPlatformApiList {
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/coupon")
     Call<CartPlatformModels.SuccessMessage> createCoupon(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CartPlatformModels.CouponAdd payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/coupon-tags")
-    Call<CartPlatformModels.TagsViewResponse> getCouponTags(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promo-tags")
-    Call<CartPlatformModels.TagsViewResponse> getPromotionTags(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/coupon/{id}")
     Call<CartPlatformModels.CouponUpdate> getCouponById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
@@ -45,23 +39,14 @@ interface CartPlatformApiList {
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promo-coupons")
     Call<CartPlatformModels.ActivePromosResponse> getPromosCouponConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("entity_type") String entityType, @Query("is_hidden") Boolean isHidden, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart_configuration/{cart_meta_id}")
-    Call<CartPlatformModels.CartMetaConfigDetailResponse> getCartMetaConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("cart_meta_id") String cartMetaId, @HeaderMap Map<String, String> requestHeaders);
-
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart_configuration/{cart_meta_id}")
-    Call<CartPlatformModels.CartMetaConfigDetailResponse> updateCartMetaConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("cart_meta_id") String cartMetaId, @Body CartPlatformModels.CartMetaConfigUpdate payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @PATCH ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart_configuration/{cart_meta_id}")
-    Call<CartPlatformModels.CartMetaConfigDetailResponse> upateCartMetaActiveStatus(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("cart_meta_id") String cartMetaId, @Body CartPlatformModels.CartMetaConfigUpdate payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @DELETE ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart_configuration/{cart_meta_id}")
-    Call<CartPlatformModels.SuccessMessage> deleteCartMetaConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("cart_meta_id") String cartMetaId, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartPlatformModels.CartMetaConfigUpdate> updateCartMetaConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("cart_meta_id") String cartMetaId, @Body CartPlatformModels.CartMetaConfigUpdate payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart_configuration")
-    Call<CartPlatformModels.CartMetaConfigListResponse> getCartMetaConfigs(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartPlatformModels.CartMetaConfigAdd> fetchCartMetaConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart_configuration")
-    Call<CartPlatformModels.CartMetaConfigDetailResponse> createCartMetaConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CartPlatformModels.CartMetaConfigAdd payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartPlatformModels.CartMetaConfigAdd> createCartMetaConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CartPlatformModels.CartMetaConfigAdd payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/price-adjustment/{id}")
     Call<CartPlatformModels.PriceAdjustmentResponse> updatePriceAdjustment(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CartPlatformModels.PriceAdjustmentUpdate payload, @HeaderMap Map<String, String> requestHeaders);
@@ -71,9 +56,6 @@ interface CartPlatformApiList {
 
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/price-adjustment")
     Call<CartPlatformModels.PriceAdjustmentResponse> addPriceAdjustment(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CartPlatformModels.PriceAdjustmentAdd payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/price-adjustment")
-    Call<CartPlatformModels.PriceAdjustmentResponse> getPriceAdjustments(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("cart_id") String cartId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart/validate")
     Call<CartPlatformModels.OpenapiCartDetailsResponse> fetchAndvalidateCartItems(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CartPlatformModels.OpenapiCartDetailsRequest payload, @HeaderMap Map<String, String> requestHeaders);
@@ -124,19 +106,19 @@ interface CartPlatformApiList {
     Call<CartPlatformModels.UserCartMappingResponse> updateCartUser(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Body CartPlatformModels.UpdateUserCartMapping payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/detail")
-    Call<CartPlatformModels.CartDetailResponse> getCart(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("user_id") String userId, @Query("i") Boolean i, @Query("b") Boolean b, @Query("assign_card_id") Integer assignCardId, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartPlatformModels.CartDetailResponse> getCart(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("user_id") String userId, @Query("i") Boolean i, @Query("b") Boolean b, @Query("assign_card_id") Integer assignCardId, @Query("buy_now") Boolean buyNow, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/detail")
-    Call<CartPlatformModels.AddCartDetailResponse> platformAddItems(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("i") Boolean i, @Query("b") Boolean b, @Query("buy_now") Boolean buyNow, @Query("id") String id, @Query("cart_type") String cartType, @Body CartPlatformModels.PlatformAddCartRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartPlatformModels.AddCartDetailResponse> platformAddItems(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("i") Boolean i, @Query("b") Boolean b, @Query("buy_now") Boolean buyNow, @Query("id") String id, @Body CartPlatformModels.PlatformAddCartRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/detail")
-    Call<CartPlatformModels.UpdateCartDetailResponse> platformUpdateCart(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Body CartPlatformModels.PlatformUpdateCartRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartPlatformModels.UpdateCartDetailResponse> platformUpdateCart(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("buy_now") Boolean buyNow, @Body CartPlatformModels.PlatformUpdateCartRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart_archive")
-    Call<CartPlatformModels.DeleteCartDetailResponse> deleteCart(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("cart_type") String cartType, @Body CartPlatformModels.DeleteCartRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartPlatformModels.DeleteCartDetailResponse> deleteCart(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Body CartPlatformModels.DeleteCartRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/basic")
-    Call<CartPlatformModels.CartItemCountResponse> getItemCount(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartPlatformModels.CartItemCountResponse> getItemCount(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("buy_now") Boolean buyNow, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/platform-pos-coupon")
     Call<CartPlatformModels.GetCouponResponse> getAppCoupons(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("slug") String slug, @Query("store_id") String storeId, @HeaderMap Map<String, String> requestHeaders);
@@ -175,7 +157,7 @@ interface CartPlatformApiList {
     Call<CartPlatformModels.CartMetaResponse> updateCartMeta(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Body CartPlatformModels.PlatformCartMetaRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/checkout")
-    Call<CartPlatformModels.CartCheckoutResponse> platformCheckoutCart(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("cart_type") String cartType, @Body CartPlatformModels.PlatformCartCheckoutDetailRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartPlatformModels.CartCheckoutResponse> platformCheckoutCart(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Body CartPlatformModels.PlatformCartCheckoutDetailRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/available-delivery-mode")
     Call<CartPlatformModels.CartDeliveryModesResponse> getAvailableDeliveryModes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("area_code") String areaCode, @Query("id") String id, @HeaderMap Map<String, String> requestHeaders);
@@ -190,7 +172,7 @@ interface CartPlatformApiList {
     Call<CartPlatformModels.PaymentCouponValidate> validateCouponForPayment(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("address_id") String addressId, @Query("payment_mode") String paymentMode, @Query("payment_identifier") String paymentIdentifier, @Query("aggregator_name") String aggregatorName, @Query("merchant_code") String merchantCode, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/cart/v2.0/company/{company_id}/application/{application_id}/checkout")
-    Call<CartPlatformModels.CartCheckoutResponse> platformCheckoutCartV2(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("cart_type") String cartType, @Body CartPlatformModels.PlatformCartCheckoutDetailV2Request payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartPlatformModels.CartCheckoutResponse> platformCheckoutCartV2(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Body CartPlatformModels.PlatformCartCheckoutDetailV2Request payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/cart/v2.0/company/{company_id}/application/{application_id}/payment")
     Call<CartPlatformModels.CartDetailResponse> selectPaymentModeV2(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("order_type") String orderType, @Body CartPlatformModels.UpdateCartPaymentRequestV2 payload, @HeaderMap Map<String, String> requestHeaders);

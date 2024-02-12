@@ -1289,6 +1289,7 @@ Success
  | filePath | String? |  yes  |  |
  | brandIds | ArrayList<Integer>? |  yes  |  |
  | storeIds | ArrayList<Integer>? |  yes  |  |
+ | zoneIds | ArrayList<String>? |  yes  |  |
  | validity | [ValidityObject](#ValidityObject) |  no  |  |
  | discountMeta | [DiscountMeta](#DiscountMeta)? |  yes  |  |
 

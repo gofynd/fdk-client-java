@@ -2366,15 +2366,15 @@ public class ApplicationClient {
     return paginator ;
     }
 
-    public CommunicationPlatformModels.SendOtpCommsRes sendOtp(Boolean ci, CommunicationPlatformModels.SendOtpCommsReq body) throws FDKServerResponseError, FDKException {
-        return this.sendOtp(ci, body, new HashMap<>());
+    public CommunicationPlatformModels.SendOtpCommsRes sendOtp(CommunicationPlatformModels.SendOtpCommsReq body) throws FDKServerResponseError, FDKException {
+        return this.sendOtp(body, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.SendOtpCommsRes sendOtp(Boolean ci, CommunicationPlatformModels.SendOtpCommsReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.SendOtpCommsRes sendOtp(CommunicationPlatformModels.SendOtpCommsReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.SendOtpCommsRes> response = null;
             try {
-            response = communicationPlatformApiList.sendOtp(this.companyId, this.applicationId, ci, body, requestHeaders).execute();
+            response = communicationPlatformApiList.sendOtp(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

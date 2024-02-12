@@ -449,11 +449,6 @@ Success
       "order": {
         "buy_again": true
       },
-      "buybox": {
-        "show_name": true,
-        "enable_selection": true,
-        "is_seller_buybox_enabled": false
-      },
       "_id": "5e57643c986e4119c973df7d",
       "app": "000000000000000000000001",
       "created_at": "2020-02-27T06:39:56.088Z",
@@ -601,11 +596,6 @@ Success
     "order": {
       "buy_again": true
     },
-    "buybox": {
-      "show_name": true,
-      "enable_selection": true,
-      "is_seller_buybox_enabled": false
-    },
     "_id": "5e57643c986e4119c973df7d",
     "app": "000000000000000000000001",
     "created_at": "2020-02-27T06:39:56.088Z",
@@ -751,11 +741,6 @@ Success
     },
     "order": {
       "buy_again": true
-    },
-    "buybox": {
-      "show_name": true,
-      "enable_selection": true,
-      "is_seller_buybox_enabled": false
     },
     "_id": "5e57643c986e4119c973df7d",
     "app": "000000000000000000000001",
@@ -1849,10 +1834,6 @@ Success
         "min": 0,
         "max": 100
       },
-      "pricing_strategy": {
-        "is_active": false,
-        "value": "all"
-      },
       "out_of_stock": true,
       "franchise_enabled": true,
       "exclude_category": [],
@@ -2394,10 +2375,6 @@ Success
       "discount": {
         "min": 0,
         "max": 100
-      },
-      "pricing_strategy": {
-        "is_active": false,
-        "value": "all"
       },
       "out_of_stock": true,
       "franchise_enabled": true,
@@ -5581,7 +5558,6 @@ Success
  | category | [InventoryCategory](#InventoryCategory)? |  yes  |  |
  | price | [InventoryPrice](#InventoryPrice)? |  yes  |  |
  | discount | [InventoryDiscount](#InventoryDiscount)? |  yes  |  |
- | pricingStrategy | [PricingStrategy](#PricingStrategy)? |  yes  |  |
  | outOfStock | Boolean? |  yes  | Indicates whether out of stock products are allowed to show up on the website |
  | onlyVerifiedProducts | Boolean? |  yes  | Show only verified products (the ones whose data has been verified by the admin) |
  | franchiseEnabled | Boolean? |  yes  | Allow other businesses (companies) to consume the current sales channel's inventory and sell products |
@@ -6688,7 +6664,6 @@ Success
  | franchiseEnabled | Boolean? |  yes  | Allow other businesses (companies) to consume the current sales channel's inventory and sell products |
  | outOfStock | Boolean? |  yes  | Indicates whether out of stock products are allowed to show up on the website. |
  | onlyVerifiedProducts | Boolean? |  yes  | Show only verified products (the ones whose data have been verified by the admin) |
- | pricingStrategy | [PricingStrategy](#PricingStrategy)? |  yes  |  |
 
 ---
 
@@ -7325,7 +7300,6 @@ Success
  | qr | [QrFeature](#QrFeature)? |  yes  |  |
  | pcr | [PcrFeature](#PcrFeature)? |  yes  |  |
  | order | [OrderFeature](#OrderFeature)? |  yes  |  |
- | buybox | [BuyboxFeature](#BuyboxFeature)? |  yes  |  |
  | id | String? |  yes  | The unique identifier (24-digit Mongo Object ID) for the sales channel features |
  | app | String? |  yes  | Application ID of the sales channel |
  | createdAt | String? |  yes  | ISO 8601 timestamp showing the date when the features were configured |
@@ -7510,19 +7484,6 @@ Success
 
  
  
- #### [BuyboxFeature](#BuyboxFeature)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | showName | Boolean? |  yes  | Allow users to see seller/stores name on PDP (product detail page). |
- | enableSelection | Boolean? |  yes  | Allow selection of sellers/stores on PDP (product detail page). |
- | isSellerBuyboxEnabled | Boolean? |  yes  | Toggle buybox listing between sellers and stores. True indicates seller listing, while False indicates store listing. |
-
----
-
-
- 
- 
  #### [AppFeatureRequest](#AppFeatureRequest)
 
  | Properties | Type | Nullable | Description |
@@ -7651,7 +7612,7 @@ Success
  | name | String? |  yes  | Name of the sales channel, e.g. Zenz Fashion |
  | owner | String? |  yes  | The unique identifier (24-digit Mongo Object ID) of owner who owns the application |
  | companyId | Integer? |  yes  | Numeric ID allotted to a business account where the sales channel exists |
- | token | String? |  yes  | Random generated fix length string for sales channel. It is required and auto-generated. |
+ | token | String? |  yes  | Random generated fix length string for sales channel. It is required and auto-generated.           |
  | redirections | ArrayList<[ApplicationRedirections](#ApplicationRedirections)>? |  yes  |  |
  | meta | ArrayList<[ApplicationMeta](#ApplicationMeta)>? |  yes  |  |
  | createdAt | String? |  yes  | ISO 8601 timestamp of sales channel creation |
@@ -7706,18 +7667,6 @@ Success
  | ---------- | ---- | -------- | ----------- |
  | criteria | String? |  yes  | Whether all brands are enabled, or explicitly few brands in the inventory |
  | brands | ArrayList<Integer>? |  yes  |  |
-
----
-
-
- 
- 
- #### [PricingStrategy](#PricingStrategy)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | isActive | Boolean? |  yes  | Indicates whether the pricing strategy is active or not active |
- | value | String? |  yes  | Indicates the pricing strategy value. |
 
 ---
 

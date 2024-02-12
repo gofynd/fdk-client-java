@@ -6104,7 +6104,7 @@ Send OTP using email and sms
 
 
 ```java
-platformClient.application("<APPLICATION_ID>").communication.sendOtp( ci, body body) {
+platformClient.application("<APPLICATION_ID>").communication.sendOtp(body body) {
   //use response
 }
 ```
@@ -6114,8 +6114,7 @@ platformClient.application("<APPLICATION_ID>").communication.sendOtp( ci, body b
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
 | companyId | String | yes | Company id |   
-| applicationId | String | yes | Application id |   
-| ci | Boolean? | no | Common Information |  
+| applicationId | String | yes | Application id |  
 | body | [SendOtpCommsReq](#SendOtpCommsReq) | yes | Request body |
 
 

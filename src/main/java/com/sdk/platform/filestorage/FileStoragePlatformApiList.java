@@ -42,17 +42,11 @@ interface FileStoragePlatformApiList {
     @GET ("/service/platform/assets/v1.0/company/{company_id}/application/{application_id}/pdf/types")
     Call<FileStoragePlatformModels.InvoiceTypesResponse> getPdfTypes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("country_code") String countryCode, @Query("store_os") Boolean storeOs, @HeaderMap Map<String, String> requestHeaders);
 
-    @DELETE ("/service/platform/assets/v1.0/company/{company_id}/application/{application_id}/pdf/types/{id}")
-    Call<String> deletePdfType(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/assets/v1.0/company/{company_id}/application/{application_id}/pdf/mapper")
     Call<FileStoragePlatformModels.DummyTemplateDataItems> getDefaultPdfData(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("pdf_type_id") Integer pdfTypeId, @Query("country_code") String countryCode, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/assets/v1.0/company/{company_id}/application/{application_id}/pdf/config/{id}")
     Call<FileStoragePlatformModels.PdfConfigSaveSuccess> updateHtmlTemplate(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body FileStoragePlatformModels.PdfConfig payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @DELETE ("/service/platform/assets/v1.0/company/{company_id}/application/{application_id}/pdf/config/{id}")
-    Call<String> deletePdfConfigTemplate(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/assets/v1.0/company/{company_id}/application/{application_id}/pdf/config")
     Call<FileStoragePlatformModels.PdfConfigSuccess> getDefaultHtmlTemplate(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("pdf_type_id") Integer pdfTypeId, @Query("format") String format, @Query("country_code") String countryCode, @HeaderMap Map<String, String> requestHeaders);

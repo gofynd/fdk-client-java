@@ -5499,7 +5499,7 @@ Get relevant suggestions for a search query
 
 
 ```java
-applicationClient.catalog.getSearchResults( q,  categorySuggestion,  brandSuggestion,  collectionSuggestion,  productSuggestion,  querySuggestion) {
+applicationClient.catalog.getSearchResults( q) {
   //use response
 }
 ```
@@ -5508,12 +5508,7 @@ applicationClient.catalog.getSearchResults( q,  categorySuggestion,  brandSugges
 
 | Argument  |  Type  | Required | Description |
 | --------- | -----  | -------- | ----------- | 
-| q | String? | no | The search query for entering partial or full name of a product, brand or category. For example, if the given search query `q` is _ski_, the relevant search suggestions could be _skirt_, _ski shoes_, __skin cream_ etc. |   
-| categorySuggestion | Integer? | no | For getting related category suggestions. |   
-| brandSuggestion | Integer? | no | For getting related brand suggestions. |   
-| collectionSuggestion | Integer? | no | For getting related collection suggestions. |   
-| productSuggestion | Integer? | no | For getting related product suggestions. |   
-| querySuggestion | Integer? | no | For getting related query suggestions. |  
+| q | String | yes | The search query for entering partial or full name of a product, brand or category. For example, if the given search query `q` is _ski_, the relevant search suggestions could be _skirt_, _ski shoes_, __skin cream_ etc. |  
 
 
 
@@ -5526,7 +5521,7 @@ Retrieves a list of suggestions for a given search query. Each suggestion is a v
 
 [AutoCompleteResponse](#AutoCompleteResponse)
 
-Success. Returns a list autocomplete suggestions for the search query `q` along side provided suggestion configs. Check the example shown below or refer `AutoCompleteResponse` for more details.
+Success. Returns a list autocomplete suggestions for the search query `q`. Check the example shown below or refer `AutoCompleteResponse` for more details.
 
 
 
@@ -7460,7 +7455,7 @@ Get the price of a product size at a PIN Code
 
 
 ```java
-applicationClient.catalog.getProductPriceBySlug( slug,  size,  storeId,  exchangeSellerIdentifier,  moq,  sellerId) {
+applicationClient.catalog.getProductPriceBySlug( slug,  size,  storeId,  moq) {
   //use response
 }
 ```
@@ -7472,9 +7467,7 @@ applicationClient.catalog.getProductPriceBySlug( slug,  size,  storeId,  exchang
 | slug | String | yes | A short, human-readable, URL-friendly identifier of a product. You can get slug value from the endpoint /service/application/catalog/v1.0/products/ |   
 | size | String | yes | A string indicating the size of the product, e.g. S, M, XL. You can get slug value from the endpoint /service/application/catalog/v1.0/products/sizes |   
 | storeId | Integer? | no | The ID of the store that is selling the product, e.g. 1,2,3. |   
-| exchangeSellerIdentifier | String? | no | The seller identifier of the exchange product. |   
-| moq | Integer? | no | An Integer indication the Minimum Order Quantity of a product, e.g. 100. |   
-| sellerId | Integer? | no | The ID of the seller that is selling the product, e.g. 1,2,3. |  
+| moq | Integer? | no | An Integer indication the Minimum Order Quantity of a product, e.g. 100. |  
 
 
 
@@ -7950,7 +7943,6 @@ Success. Returns a ProductSizeSellerV3 object. Check the example shown below or 
  | ---------- | ---- | -------- | ----------- |
  | effective | [Price](#Price)? |  yes  |  |
  | marked | [Price](#Price)? |  yes  |  |
- | selling | [Price](#Price)? |  yes  |  |
 
 ---
 
@@ -8425,7 +8417,6 @@ Success. Returns a ProductSizeSellerV3 object. Check the example shown below or 
  | similars | ArrayList<String>? |  yes  |  |
  | tags | ArrayList<String>? |  yes  |  |
  | seo | [ApplicationItemSEO](#ApplicationItemSEO)? |  yes  |  |
- | discountMeta | [DiscountMeta](#DiscountMeta)? |  yes  |  |
  | imageNature | String? |  yes  |  |
  | hasVariant | Boolean? |  yes  |  |
  | itemType | String? |  yes  |  |

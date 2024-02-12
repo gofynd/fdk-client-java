@@ -52,7 +52,7 @@ interface CatalogApplicationApiList {
     Call<CatalogApplicationModels.DepartmentResponse> getDepartments(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CatalogApplicationModels.AutoCompleteResponse> getSearchResults(@Url String url1, @Query("q") String q, @Query("category_suggestion") Integer categorySuggestion, @Query("brand_suggestion") Integer brandSuggestion, @Query("collection_suggestion") Integer collectionSuggestion, @Query("product_suggestion") Integer productSuggestion, @Query("query_suggestion") Integer querySuggestion, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogApplicationModels.AutoCompleteResponse> getSearchResults(@Url String url1, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<CatalogApplicationModels.GetCollectionListingResponse> getCollections(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("tag") List<String> tag, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
@@ -91,7 +91,7 @@ interface CatalogApplicationApiList {
     Call<CatalogApplicationModels.ProductBundle> getProductBundlesBySlug(@Url String url1, @Query("slug") String slug, @Query("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CatalogApplicationModels.ProductSizePriceResponseV3> getProductPriceBySlug(@Url String url1, @Query("store_id") Integer storeId, @Query("exchange_seller_identifier") String exchangeSellerIdentifier, @Query("moq") Integer moq, @Query("seller_id") Integer sellerId, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogApplicationModels.ProductSizePriceResponseV3> getProductPriceBySlug(@Url String url1, @Query("store_id") Integer storeId, @Query("moq") Integer moq, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<CatalogApplicationModels.ProductSizeSellersResponseV3> getProductSellersBySlug(@Url String url1, @Query("strategy") String strategy, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);

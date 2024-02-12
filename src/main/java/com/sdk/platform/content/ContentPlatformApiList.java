@@ -241,7 +241,7 @@ interface ContentPlatformApiList {
     Call<ContentPlatformModels.ResourcesSchema> getResources(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/metafields/definitions")
-    Call<ContentPlatformModels.CustomFieldDefinitionsSchema> getCustomFieldDefinitions(@Path("company_id") String companyId, @Query("page_no") String pageNo, @Query("page_size") String pageSize, @Query("resources") String resources, @Query("types") String types, @Query("search") String search, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentPlatformModels.CustomFieldDefinitionsSchema> getCustomFieldDefinitions(@Path("company_id") String companyId, @Query("page_no") String pageNo, @Query("page_size") String pageSize, @Query("resource") String resource, @Query("type") String type, @Query("search") String search, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/content/v1.0/company/{company_id}/metafields/definitions")
     Call<ContentPlatformModels.CustomFieldDefinitionDetailResSchema> createCustomFieldDefinition(@Path("company_id") String companyId, @Body ContentPlatformModels.CustomFieldDefinitionRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
@@ -313,7 +313,7 @@ interface ContentPlatformApiList {
     Call<ContentPlatformModels.ResourcesSchema> getAppResources(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/definitions")
-    Call<ContentPlatformModels.CustomFieldDefinitionsSchema> getAppCustomFieldDefinitions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") String pageNo, @Query("page_size") String pageSize, @Query("resources") String resources, @Query("types") String types, @Query("search") String search, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentPlatformModels.CustomFieldDefinitionsSchema> getAppCustomFieldDefinitions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") String pageNo, @Query("page_size") String pageSize, @Query("resource") String resource, @Query("type") String type, @Query("search") String search, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/definitions")
     Call<ContentPlatformModels.CustomFieldDefinitionDetailResSchema> createAppCustomFieldDefinition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.CustomFieldDefinitionRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);

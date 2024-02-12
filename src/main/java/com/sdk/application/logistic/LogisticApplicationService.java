@@ -29,6 +29,8 @@ import com.sdk.application.*;
         this.logisticApplicationApiList = generateLogisticApplicationApiList(this.applicationConfig.getPersistentCookieStore());
 
         
+        relativeUrls.put("getPincodeCity","/service/application/logistics/v1.0/pincode/{pincode}".substring(1));
+        relativeUrls.put("getTatProduct","/service/application/logistics/v1.0/".substring(1));
         relativeUrls.put("getAllCountries","/service/application/logistics/v1.0/country-list".substring(1));
         relativeUrls.put("getPincodeZones","/service/application/logistics/v1.0/pincode/zones".substring(1));
         relativeUrls.put("getOptimalLocations","/service/application/logistics/v1.0/reassign_stores".substring(1));
@@ -53,6 +55,41 @@ import com.sdk.application.*;
         interceptorList.add(new RequestSignerInterceptor());
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),LogisticApplicationApiList.class, interceptorList, cookieStore);
     }
+
+    public LogisticApplicationModels.PincodeApiResponse getPincodeCity(String pincode) throws IOException {
+        return this.getPincodeCity(pincode, new HashMap<>());
+    }
+
+    public LogisticApplicationModels.PincodeApiResponse getPincodeCity(String pincode, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getPincodeCity");
+        fullUrl = fullUrl.replace("{" + "pincode" + "}",pincode.toString());
+
+        Response<LogisticApplicationModels.PincodeApiResponse> response = logisticApplicationApiList.getPincodeCity(fullUrl, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public LogisticApplicationModels.TATViewResponse getTatProduct(LogisticApplicationModels.TATViewRequest body) throws IOException {
+        return this.getTatProduct(body, new HashMap<>());
+    }
+
+    public LogisticApplicationModels.TATViewResponse getTatProduct(LogisticApplicationModels.TATViewRequest body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getTatProduct");
+
+        Response<LogisticApplicationModels.TATViewResponse> response = logisticApplicationApiList.getTatProduct(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
 
     public LogisticApplicationModels.CountryListResponse getAllCountries() throws IOException {
         return this.getAllCountries(new HashMap<>());

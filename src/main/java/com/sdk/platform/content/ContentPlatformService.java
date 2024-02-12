@@ -300,15 +300,15 @@ public class ContentPlatformService {
     
     
 
-    public ContentPlatformModels.CustomFieldDefinitionsSchema getCustomFieldDefinitions(String pageNo, String pageSize, String resources, String types, String search) throws FDKServerResponseError, FDKException {
-        return this.getCustomFieldDefinitions(pageNo, pageSize, resources, types, search, new HashMap<>());
+    public ContentPlatformModels.CustomFieldDefinitionsSchema getCustomFieldDefinitions(String pageNo, String pageSize, String resource, String type, String search) throws FDKServerResponseError, FDKException {
+        return this.getCustomFieldDefinitions(pageNo, pageSize, resource, type, search, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomFieldDefinitionsSchema getCustomFieldDefinitions(String pageNo, String pageSize, String resources, String types, String search, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomFieldDefinitionsSchema getCustomFieldDefinitions(String pageNo, String pageSize, String resource, String type, String search, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomFieldDefinitionsSchema> response = null;
             try {
-                response = contentPlatformApiList.getCustomFieldDefinitions(this.companyId, pageNo, pageSize, resources, types, search, requestHeaders).execute();
+                response = contentPlatformApiList.getCustomFieldDefinitions(this.companyId, pageNo, pageSize, resource, type, search, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3651,15 +3651,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.CustomFieldDefinitionsSchema getAppCustomFieldDefinitions(String pageNo, String pageSize, String resources, String types, String search) throws FDKServerResponseError, FDKException {
-        return this.getAppCustomFieldDefinitions(pageNo, pageSize, resources, types, search, new HashMap<>());
+    public ContentPlatformModels.CustomFieldDefinitionsSchema getAppCustomFieldDefinitions(String pageNo, String pageSize, String resource, String type, String search) throws FDKServerResponseError, FDKException {
+        return this.getAppCustomFieldDefinitions(pageNo, pageSize, resource, type, search, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomFieldDefinitionsSchema getAppCustomFieldDefinitions(String pageNo, String pageSize, String resources, String types, String search, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomFieldDefinitionsSchema getAppCustomFieldDefinitions(String pageNo, String pageSize, String resource, String type, String search, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomFieldDefinitionsSchema> response = null;
             try {
-            response = contentPlatformApiList.getAppCustomFieldDefinitions(this.companyId, this.applicationId, pageNo, pageSize, resources, types, search, requestHeaders).execute();
+            response = contentPlatformApiList.getAppCustomFieldDefinitions(this.companyId, this.applicationId, pageNo, pageSize, resource, type, search, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

@@ -40,7 +40,7 @@ interface PaymentApplicationApiList {
     Call<PaymentApplicationModels.PaymentModeRouteResponse> getPosPaymentModeRoutes(@Url String url1, @Query("amount") Integer amount, @Query("cart_id") String cartId, @Query("pincode") String pincode, @Query("checkout_mode") String checkoutMode, @Query("refresh") Boolean refresh, @Query("card_reference") String cardReference, @Query("order_type") String orderType, @Query("user_details") String userDetails, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<PaymentApplicationModels.WalletResponseSchema> walletLinkInitate(@Url String url1, @Body PaymentApplicationModels.WalletLinkRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentApplicationModels.WalletResponseSchema> walletLinkInitiate(@Url String url1, @Body PaymentApplicationModels.WalletLinkRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<PaymentApplicationModels.WalletResponseSchema> linkWallet(@Url String url1, @Body PaymentApplicationModels.WalletVerifyRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
@@ -143,22 +143,4 @@ interface PaymentApplicationApiList {
 
     @POST 
     Call<PaymentApplicationModels.PaymentOrderResponse> createPaymentOrder(@Url String url1, @Body PaymentApplicationModels.PaymentOrderRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @DELETE 
-    Call<PaymentApplicationModels.DeleteRefundAccountResponse> deleteBeneficiaryDetails(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<PaymentApplicationModels.RefundOptionResponse> getRefundOptions(@Url String url1, @Query("configuration") String configuration, @Query("product_type") String productType, @Query("amount") String amount, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<PaymentApplicationModels.ShipmentRefundResponse> setRefundOptionforShipment(@Url String url1, @Body PaymentApplicationModels.ShipmentRefundRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<PaymentApplicationModels.SelectedRefundOptionResponse> getSelectedRefundOption(@Url String url1, @Query("shipment_id") String shipmentId, @Query("order_id") String orderId, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<PaymentApplicationModels.OrderBeneficiaryResponseSchemaV2> getUserBeneficiariesDetailV2(@Url String url1, @Query("order_id") String orderId, @Query("shipment_id") String shipmentId, @Query("mop") String mop, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<PaymentApplicationModels.ValidateValidateAddressResponse> validateBeneficiaryAddress(@Url String url1, @Body PaymentApplicationModels.ValidateValidateAddressRequest payload, @HeaderMap Map<String, String> requestHeaders);
 }
