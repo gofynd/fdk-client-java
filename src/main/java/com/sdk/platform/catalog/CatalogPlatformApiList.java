@@ -48,11 +48,11 @@ interface CatalogPlatformApiList {
     @PUT ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/collections/{id}/")
     Call<CatalogPlatformModels.UpdateCollection> updateCollection(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CatalogPlatformModels.UpdateCollection payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/collections/{id}/items/")
+    @GET ("/service/platform/catalog/v2.0/company/{company_id}/application/{application_id}/collections/{id}/items/")
     Call<CatalogPlatformModels.GetCollectionItemsResponse> getCollectionItems(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Query("sort_on") String sortOn, @Query("page_id") String pageId, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/collections/{id}/items/")
-    Call<CatalogPlatformModels.UpdatedResponse> addCollectionItems(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CatalogPlatformModels.CollectionItemUpdate payload, @HeaderMap Map<String, String> requestHeaders);
+    @POST ("/service/platform/catalog/v2.0/company/{company_id}/application/{application_id}/collections/{id}/items/")
+    Call<CatalogPlatformModels.CommonResponseSchemaCollection> addCollectionItems(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CatalogPlatformModels.CollectionItemUpdateSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/collections/{slug}/")
     Call<CatalogPlatformModels.GetCollectionDetailResponse> getCollectionDetail(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("slug") String slug, @HeaderMap Map<String, String> requestHeaders);

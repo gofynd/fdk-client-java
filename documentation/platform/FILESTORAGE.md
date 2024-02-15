@@ -8,25 +8,34 @@
 This service provides functionality to manage assets and generate pdf. You can upload the assets, get the cdn link for the assets, proxy the assets and many more things.
 
 
-Default
+File Upload and Management
 * [startUpload](#startupload)
 * [completeUpload](#completeupload)
 * [appStartUpload](#appstartupload)
 * [appCompleteUpload](#appcompleteupload)
 * [getSignUrls](#getsignurls)
+
+
+File Transfer Suite
 * [copyFiles](#copyfiles)
 * [appCopyFiles](#appcopyfiles)
 * [browse](#browse)
-* [appbrowse](#appbrowse)
 * [browsefiles](#browsefiles)
 * [proxy](#proxy)
-* [getPdfTypes](#getpdftypes)
-* [getDefaultPdfData](#getdefaultpdfdata)
+
+
+Default
+* [appbrowse](#appbrowse)
 * [updateHtmlTemplate](#updatehtmltemplate)
 * [getDefaultHtmlTemplate](#getdefaulthtmltemplate)
+* [generatePaymentReceipt](#generatepaymentreceipt)
+
+
+PDF and HTML Template Management
+* [getPdfTypes](#getpdftypes)
+* [getDefaultPdfData](#getdefaultpdfdata)
 * [saveHtmlTemplate](#savehtmltemplate)
 * [getDefaultPdfTemplate](#getdefaultpdftemplate)
-* [generatePaymentReceipt](#generatepaymentreceipt)
 
 
 
@@ -36,7 +45,7 @@ Default
 
 
 ### startUpload
-This operation initiates upload and returns storage link which is valid for 30 Minutes. You can use that storage link to make subsequent upload request with file buffer or blob.
+Start file upload.
 
 
 
@@ -56,25 +65,7 @@ platformClient.filestorage.startUpload( namespace, body body) {
 | body | [StartRequest](#StartRequest) | yes | Request body |
 
 
-Uploads an arbitrarily sized buffer or blob.
-
-It has three Major Steps:
-* Start
-* Upload
-* Complete
-
-### Start
-Initiates the assets upload using `startUpload`.
-It returns the storage link in response.
-
-### Upload
-Use the storage link to upload a file (Buffer or Blob) to the File Storage.
-Make a `PUT` request on storage link received from `startUpload` api with file (Buffer or Blob) as a request body.
-
-### Complete
-After successfully upload, call `completeUpload` api to complete the upload process.
-This operation will return the url for the uploaded file.
-
+Inititates the process of uploading a file to storage location, and returns a storage link in response.
 
 *Returned Response:*
 
@@ -137,7 +128,7 @@ Success. Returns a response containing relaving and absolute_url of storage serv
 
 
 ### completeUpload
-This will complete the upload process. After successfully uploading file, you can call this operation to complete the upload process.
+Complete file upload.
 
 
 
@@ -157,25 +148,7 @@ platformClient.filestorage.completeUpload( namespace, body body) {
 | body | [StartResponse](#StartResponse) | yes | Request body |
 
 
-Uploads an arbitrarily sized buffer or blob.
-
-It has three Major Steps:
-* Start
-* Upload
-* Complete
-
-### Start
-Initiates the assets upload using `startUpload`.
-It returns the storage link in response.
-
-### Upload
-Use the storage link to upload a file (Buffer or Blob) to the File Storage.
-Make a `PUT` request on storage link received from `startUpload` api with file (Buffer or Blob) as a request body.
-
-### Complete
-After successfully upload, call `completeUpload` api to complete the upload process.
-This operation will return the url for the uploaded file.
-
+Starts the process of uploading a file to storage location, and returns a storage link in response.
 
 *Returned Response:*
 
@@ -242,7 +215,7 @@ Success
 
 
 ### appStartUpload
-This operation initiates upload and returns storage link which is valid for 30 Minutes. You can use that storage link to make subsequent upload request with file buffer or blob.
+Application start upload.
 
 
 
@@ -263,25 +236,7 @@ platformClient.application("<APPLICATION_ID>").filestorage.appStartUpload( names
 | body | [StartRequest](#StartRequest) | yes | Request body |
 
 
-Uploads an arbitrarily sized buffer or blob.
-
-It has three Major Steps:
-* Start
-* Upload
-* Complete
-
-### Start
-Initiates the assets upload using `appStartUpload`.
-It returns the storage link in response.
-
-### Upload
-Use the storage link to upload a file (Buffer or Blob) to the File Storage.
-Make a `PUT` request on storage link received from `appStartUpload` api with file (Buffer or Blob) as a request body.
-
-### Complete
-After successfully upload, call `appCompleteUpload` api to complete the upload process.
-This operation will return the url for the uploaded file.
-
+Start uploading a file from an application and returns a storage link in response.
 
 *Returned Response:*
 
@@ -344,7 +299,7 @@ Success. Returns a response containing relaving and absolute_url of storage serv
 
 
 ### appCompleteUpload
-This will complete the upload process. After successfully uploading file, you can call this operation to complete the upload process.
+Application complete upload.
 
 
 
@@ -365,25 +320,7 @@ platformClient.application("<APPLICATION_ID>").filestorage.appCompleteUpload( na
 | body | [StartResponse](#StartResponse) | yes | Request body |
 
 
-Uploads an arbitrarily sized buffer or blob.
-
-It has three Major Steps:
-* Start
-* Upload
-* Complete
-
-### Start
-Initiates the assets upload using `appStartUpload`.
-It returns the storage link in response.
-
-### Upload
-Use the storage link to upload a file (Buffer or Blob) to the File Storage.
-Make a `PUT` request on storage link received from `appStartUpload` api with file (Buffer or Blob) as a request body.
-
-### Complete
-After successfully upload, call `appCompleteUpload` api to complete the upload process.
-This operation will return the url for the uploaded file.
-
+Finish uploading a file from an application.
 
 *Returned Response:*
 
@@ -450,7 +387,7 @@ Success
 
 
 ### getSignUrls
-Gives signed urls to access private files
+Get signed URLs.
 
 
 
@@ -469,7 +406,7 @@ platformClient.filestorage.getSignUrls(body body) {
 | body | [SignUrlRequest](#SignUrlRequest) | yes | Request body |
 
 
-Describe here
+Retrieve signed URLs for file access.
 
 *Returned Response:*
 
@@ -518,8 +455,10 @@ Success
 ---
 
 
+
+
 ### copyFiles
-Copy Files
+Copy files.
 
 
 
@@ -539,7 +478,7 @@ platformClient.filestorage.copyFiles( sync, body body) {
 | body | [CopyFiles](#CopyFiles) | yes | Request body |
 
 
-Copy Files
+Duplicate files to another location.
 
 *Returned Response:*
 
@@ -613,7 +552,7 @@ Success
 
 
 ### appCopyFiles
-Copy Files
+Application copy files.
 
 
 
@@ -634,7 +573,7 @@ platformClient.application("<APPLICATION_ID>").filestorage.appCopyFiles( sync, b
 | body | [CopyFiles](#CopyFiles) | yes | Request body |
 
 
-Copy Files
+Copy files from an application to another location.
 
 *Returned Response:*
 
@@ -708,7 +647,7 @@ Success
 
 
 ### browse
-Browse Files
+Browse files.
 
 
 
@@ -730,111 +669,7 @@ platformClient.filestorage.browse( namespace,  page,  limit) {
 
 
 
-Browse Files
-
-*Returned Response:*
-
-
-
-
-[Object](#Object)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-{
-  "value": {
-    "items": [
-      {
-        "_id": "64e1e6fe0153e1a6d3e101f4",
-        "file_name": "logo.png",
-        "file_path": "/brands/pictures/square-logo/original/uY0P_ZtIz-logo.png",
-        "success": true,
-        "namespace": "brand-square-logo",
-        "content_type": "image/png",
-        "size": 3298,
-        "operation": "putObject",
-        "tags": [],
-        "cdn": {
-          "url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/brands/pictures/square-logo/original/uY0P_ZtIz-logo.png",
-          "absolute_url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/brands/pictures/square-logo/original/uY0P_ZtIz-logo.png",
-          "relative_url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/brands/pictures/square-logo/original/uY0P_ZtIz-logo.png"
-        },
-        "upload": {
-          "url": "https://fynd-staging-assets.s3-accelerate.amazonaws.com/addsale/brands/pictures/square-logo/original/uY0P_ZtIz-logo.png?Content-Type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=%2F20230820%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230820T101213Z&X-Amz-Expires=1800&X-Amz-Signature=04915b14aec15712abdea3c340d5dc43729e7c982a4994650488c0150c22b0ae&X-Amz-SignedHeaders=host%3Bx-amz-acl&x-amz-acl=public-read",
-          "expiry": 1800
-        },
-        "created_by": {
-          "username": "fp_sdet_gofynd_com_65071"
-        },
-        "company_id": 6520,
-        "bucket_key": "addsale/brands/pictures/square-logo/original/uY0P_ZtIz-logo.png",
-        "createdAt": "2023-08-20T10:12:14.118Z",
-        "updatedAt": "2023-08-20T10:12:14.118Z",
-        "__v": 0
-      }
-    ],
-    "page": {
-      "current": 1,
-      "has_previous": false,
-      "has_next": true,
-      "item_total": 481,
-      "type": "number"
-    }
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### appbrowse
-Browse Files
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").filestorage.appbrowse( namespace,  page,  limit,  search) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
-| companyId | Integer | yes |  |   
-| applicationId | String | yes |  |   
-| page | Integer? | no | page no |   
-| limit | Integer? | no | Limit |   
-| search | String? | no | Search |  
-
-
-
-Browse Files
+View and navigate through available files.
 
 *Returned Response:*
 
@@ -1018,7 +853,7 @@ Success
 
 
 ### proxy
-Proxy
+Proxy file access.
 
 
 
@@ -1038,14 +873,82 @@ platformClient.filestorage.proxy( url) {
 
 
 
-Proxy
+Access files through a proxy.
 
 *Returned Response:*
 
 
 
 
-[ProxyResponse](#ProxyResponse)
+[String](#String)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; success</i></summary>
+
+```json
+{
+  "value": "Binary stream data"
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
+### appbrowse
+Application browse files.
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").filestorage.appbrowse( namespace,  page,  limit,  search) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| namespace | String | yes | Segregation of different types of files(products, orders, logistics etc), Required for validating the data of the file being uploaded, decides where exactly the file will be stored inside the storage bucket. |   
+| companyId | Integer | yes |  |   
+| applicationId | String | yes |  |   
+| page | Integer? | no | page no |   
+| limit | Integer? | no | Limit |   
+| search | String? | no | Search |  
+
+
+
+Browse files within an application.
+
+*Returned Response:*
+
+
+
+
+[Object](#Object)
 
 Success
 
@@ -1062,18 +965,42 @@ Success
 ```json
 {
   "value": {
-    "data": {
-      "id": 2,
-      "email": "janet.weaver@reqres.in",
-      "first_name": "Janet",
-      "last_name": "Weaver",
-      "avatar": "https://reqres.in/img/faces/2-image.jpg",
-      "additionalProperty": "This is an additional property in the example"
-    },
-    "support": {
-      "url": "https://reqres.in/#support-heading",
-      "text": "To keep ReqRes free, contributions towards server costs are appreciated!",
-      "additionalProperty": "This is another additional property in the example"
+    "items": [
+      {
+        "_id": "64e1e6fe0153e1a6d3e101f4",
+        "file_name": "logo.png",
+        "file_path": "/brands/pictures/square-logo/original/uY0P_ZtIz-logo.png",
+        "success": true,
+        "namespace": "brand-square-logo",
+        "content_type": "image/png",
+        "size": 3298,
+        "operation": "putObject",
+        "tags": [],
+        "cdn": {
+          "url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/brands/pictures/square-logo/original/uY0P_ZtIz-logo.png",
+          "absolute_url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/brands/pictures/square-logo/original/uY0P_ZtIz-logo.png",
+          "relative_url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/brands/pictures/square-logo/original/uY0P_ZtIz-logo.png"
+        },
+        "upload": {
+          "url": "https://fynd-staging-assets.s3-accelerate.amazonaws.com/addsale/brands/pictures/square-logo/original/uY0P_ZtIz-logo.png?Content-Type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=%2F20230820%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230820T101213Z&X-Amz-Expires=1800&X-Amz-Signature=04915b14aec15712abdea3c340d5dc43729e7c982a4994650488c0150c22b0ae&X-Amz-SignedHeaders=host%3Bx-amz-acl&x-amz-acl=public-read",
+          "expiry": 1800
+        },
+        "created_by": {
+          "username": "fp_sdet_gofynd_com_65071"
+        },
+        "company_id": 6520,
+        "bucket_key": "addsale/brands/pictures/square-logo/original/uY0P_ZtIz-logo.png",
+        "createdAt": "2023-08-20T10:12:14.118Z",
+        "updatedAt": "2023-08-20T10:12:14.118Z",
+        "__v": 0
+      }
+    ],
+    "page": {
+      "current": 1,
+      "has_previous": false,
+      "has_next": true,
+      "item_total": 481,
+      "type": "number"
     }
   }
 }
@@ -1093,8 +1020,237 @@ Success
 ---
 
 
+### updateHtmlTemplate
+Update HTML Template
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").filestorage.updateHtmlTemplate( id, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes |  |   
+| applicationId | String | yes |  |   
+| id | String | yes |  |  
+| body | [PdfConfig](#PdfConfig) | yes | Request body |
+
+
+Update the HTML Template.
+
+*Returned Response:*
+
+
+
+
+[PdfConfigSaveSuccess](#PdfConfigSaveSuccess)
+
+Update html template for invoice
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; success</i></summary>
+
+```json
+{
+  "value": {
+    "data": {
+      "_id": "64dfd8fc8f3b8b5ae5beb72c",
+      "format": "A4",
+      "pdf_type_id": 1,
+      "template": "<div>\n  \n</div>",
+      "__v": 0
+    },
+    "success": true
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getDefaultHtmlTemplate
+Get html template for sales channel
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").filestorage.getDefaultHtmlTemplate( pdfTypeId,  format,  countryCode) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes |  |   
+| applicationId | String | yes |  |   
+| pdfTypeId | Integer | yes |  |   
+| format | String | yes |  |   
+| countryCode | String? | no |  |  
+
+
+
+Get default html template for invoice or label
+
+*Returned Response:*
+
+
+
+
+[PdfConfigSuccess](#PdfConfigSuccess)
+
+Get last saved html template for invoice
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; success</i></summary>
+
+```json
+{
+  "value": {
+    "data": [
+      {
+        "_id": "64b7f52d56a0cba5231964b0",
+        "company_id": 1,
+        "application_id": "64aed475db2cfb5b8a9f623d",
+        "pdf_type_id": 1,
+        "format": "A4",
+        "template": "<p>Hello world</p>",
+        "__v": 0
+      }
+    ],
+    "success": true
+  }
+}
+```
+</details>
+
+<details>
+<summary><i>&nbsp; failure</i></summary>
+
+```json
+{
+  "value": {
+    "data": [],
+    "success": true
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### generatePaymentReceipt
+Generate payment receipt.
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").filestorage.generatePaymentReceipt(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes |  |   
+| applicationId | String | yes |  |  
+| body | [PaymentReceiptRequestBody](#PaymentReceiptRequestBody) | yes | Request body |
+
+
+Generate Payment Receipt for Jiomart Digital
+
+*Returned Response:*
+
+
+
+
+[Object](#Object)
+
+Kafka response published to generate payment receipt
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; success</i></summary>
+
+```json
+{
+  "value": {
+    "success": true
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
 ### getPdfTypes
-Get all the supported invoice pdf types
+Get PDF types.
 
 
 
@@ -1116,7 +1272,7 @@ platformClient.application("<APPLICATION_ID>").filestorage.getPdfTypes( countryC
 
 
 
-Get all the supported invoice pdf types such as Invoice, Label, Delivery challan
+Retrieve a list of available PDF types.
 
 *Returned Response:*
 
@@ -1176,7 +1332,7 @@ Get all the invoice types and its format
 
 
 ### getDefaultPdfData
-Get Dummy pdf data for invoice or label
+Get default PDF data.
 
 
 
@@ -1198,7 +1354,7 @@ platformClient.application("<APPLICATION_ID>").filestorage.getDefaultPdfData( pd
 
 
 
-Get Dummy pdf data for invoice or label
+Retrieve default data for PDF generation.
 
 *Returned Response:*
 
@@ -1526,171 +1682,8 @@ Get dummy json data for invoice
 ---
 
 
-### updateHtmlTemplate
-Update html template for invoice or label
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").filestorage.updateHtmlTemplate( id, body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes |  |   
-| applicationId | String | yes |  |   
-| id | String | yes |  |  
-| body | [PdfConfig](#PdfConfig) | yes | Request body |
-
-
-Update html template for invoice such as Invoice, Label, Deliver challan
-
-*Returned Response:*
-
-
-
-
-[PdfConfigSaveSuccess](#PdfConfigSaveSuccess)
-
-Update html template for invoice
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-{
-  "value": {
-    "data": {
-      "_id": "64dfd8fc8f3b8b5ae5beb72c",
-      "format": "A4",
-      "pdf_type_id": 1,
-      "template": "<div>\n  \n</div>",
-      "__v": 0
-    },
-    "success": true
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getDefaultHtmlTemplate
-Get html template for sales channel
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").filestorage.getDefaultHtmlTemplate( pdfTypeId,  format,  countryCode) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes |  |   
-| applicationId | String | yes |  |   
-| pdfTypeId | Integer | yes |  |   
-| format | String | yes |  |   
-| countryCode | String? | no |  |  
-
-
-
-Get default html template for invoice or label
-
-*Returned Response:*
-
-
-
-
-[PdfConfigSuccess](#PdfConfigSuccess)
-
-Get last saved html template for invoice
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-{
-  "value": {
-    "data": [
-      {
-        "_id": "64b7f52d56a0cba5231964b0",
-        "company_id": 1,
-        "application_id": "64aed475db2cfb5b8a9f623d",
-        "pdf_type_id": 1,
-        "format": "A4",
-        "template": "<p>Hello world</p>",
-        "__v": 0
-      }
-    ],
-    "success": true
-  }
-}
-```
-</details>
-
-<details>
-<summary><i>&nbsp; failure</i></summary>
-
-```json
-{
-  "value": {
-    "data": [],
-    "success": true
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### saveHtmlTemplate
-Update html template for invoice or label
+Save HTML template.
 
 
 
@@ -1710,7 +1703,7 @@ platformClient.application("<APPLICATION_ID>").filestorage.saveHtmlTemplate(body
 | body | [PdfConfig](#PdfConfig) | yes | Request body |
 
 
-Update html template for invoice such as Invoice, Label, Deliver challan
+Store an HTML template.
 
 *Returned Response:*
 
@@ -1761,7 +1754,7 @@ Saved html template for invoice
 
 
 ### getDefaultPdfTemplate
-Default html template
+Get default PDF template.
 
 
 
@@ -1784,7 +1777,7 @@ platformClient.application("<APPLICATION_ID>").filestorage.getDefaultPdfTemplate
 
 
 
-Get default html template data for invoice or label
+Retrieve the default PDF template.
 
 *Returned Response:*
 
@@ -1831,70 +1824,6 @@ Get rendered html with dummy json payload
 {
   "value": {
     "data": [],
-    "success": true
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### generatePaymentReceipt
-Generate Payment Receipt for Jiomart Digital
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").filestorage.generatePaymentReceipt(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes |  |   
-| applicationId | String | yes |  |  
-| body | [PaymentReceiptRequestBody](#PaymentReceiptRequestBody) | yes | Request body |
-
-
-Generate Payment Receipt for Jiomart Digital
-
-*Returned Response:*
-
-
-
-
-[Object](#Object)
-
-Kafka response published to generate payment receipt
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-{
-  "value": {
     "success": true
   }
 }
@@ -1976,6 +1905,17 @@ Kafka response published to generate payment receipt
 
  
  
+ #### [Params](#Params)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | subpath | String? |  yes  | The subpath for the file. |
+
+---
+
+
+ 
+ 
  #### [StartRequest](#StartRequest)
 
  | Properties | Type | Nullable | Description |
@@ -2021,18 +1961,6 @@ Kafka response published to generate payment receipt
  | createdOn | String |  no  |  |
  | modifiedOn | String |  no  |  |
  | createdBy | [CreatedBy](#CreatedBy)? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProxyResponse](#ProxyResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | data | HashMap<String,Object>? |  yes  |  |
- | support | HashMap<String,Object>? |  yes  |  |
 
 ---
 

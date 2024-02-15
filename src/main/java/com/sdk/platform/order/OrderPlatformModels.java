@@ -10172,6 +10172,12 @@ public static class Article{
     
     
     
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
 }
 
 
@@ -12765,6 +12771,12 @@ public static class OrderBagArticle{
     
     
     
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
 }
 
 
@@ -14039,6 +14051,79 @@ public static class TaxDetails{
 
 
 /*
+    Model: PaymentInfoData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentInfoData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("mode")
+    private String mode;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("collected")
+    private Boolean collected;
+    
+    
+    
+    
+    @JsonProperty("refund_by")
+    private String refundBy;
+    
+    
+    
+    
+    @JsonProperty("collect_by")
+    private String collectBy;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("merchant_transaction_id")
+    private String merchantTransactionId;
+    
+    
+    
+}
+
+
+/*
     Model: OrderData
 */
 @AllArgsConstructor
@@ -14098,7 +14183,7 @@ public static class OrderData{
     
     
     @JsonProperty("payment_info")
-    private List<Object> paymentInfo;
+    private List<PaymentInfoData> paymentInfo;
     
     
     

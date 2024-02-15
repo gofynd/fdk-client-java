@@ -144,42 +144,6 @@ import com.sdk.application.*;
         }
         return response.body();
     }
-
-    /**
-    * Summary: get paginator for getOrderingStores
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ConfigurationApplicationModels.OrderingStores> getOrderingStoresPagination(
-        
-        Integer pageSize,
-        String q
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ConfigurationApplicationModels.OrderingStores> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ConfigurationApplicationModels.OrderingStores callback = this.getOrderingStores(
-                
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 q
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator;
-    }
     
 
     public ConfigurationApplicationModels.OrderingStore getStoreDetailById(Integer storeId) throws IOException {
@@ -351,48 +315,6 @@ import com.sdk.application.*;
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
-    }
-
-    /**
-    * Summary: get paginator for getAppStaffList
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ConfigurationApplicationModels.AppStaffListResponse> getAppStaffListPagination(
-        
-        Integer pageSize,
-        Boolean orderIncent,
-        Integer orderingStore,
-        String user,
-        String userName
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ConfigurationApplicationModels.AppStaffListResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ConfigurationApplicationModels.AppStaffListResponse callback = this.getAppStaffList(
-                
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 orderIncent,
-                 orderingStore,
-                 user,
-                 userName
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator;
     }
     
 

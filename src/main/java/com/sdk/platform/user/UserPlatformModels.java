@@ -1993,8 +1993,8 @@ public static class SocialTokens{
     
     
     
-    @JsonProperty("accountkit")
-    private Accountkit accountkit;
+    @JsonProperty("account_kit")
+    private Accountkit accountKit;
     
     
     

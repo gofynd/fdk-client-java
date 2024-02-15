@@ -78,7 +78,7 @@ Default
 
 
 ### invalidateShipmentCache
-
+Invalidate shipment cache.
 
 
 
@@ -97,7 +97,7 @@ platformClient.order.invalidateShipmentCache(body body) {
 | body | [InvalidateShipmentCachePayload](#InvalidateShipmentCachePayload) | yes | Request body |
 
 
-Invalidate shipment Cache
+Invalidate shipment Cache.
 
 *Returned Response:*
 
@@ -152,7 +152,7 @@ Successfully updated shipment cache!
 
 
 ### reassignLocation
-
+Reassign location.
 
 
 
@@ -171,7 +171,7 @@ platformClient.order.reassignLocation(body body) {
 | body | [StoreReassign](#StoreReassign) | yes | Request body |
 
 
-Reassign Location
+Change the assigned location for an order or shipment.
 
 *Returned Response:*
 
@@ -205,7 +205,7 @@ Successfully reassigned location!
 
 
 ### updateShipmentLock
-
+Update shipment lock.
 
 
 
@@ -224,7 +224,7 @@ platformClient.order.updateShipmentLock(body body) {
 | body | [UpdateShipmentLockPayload](#UpdateShipmentLockPayload) | yes | Request body |
 
 
-update shipment/bag lock and check status
+Modify shipment/bag lock and check status.
 
 *Returned Response:*
 
@@ -283,7 +283,7 @@ Successfully update the Lock and get check status of the shipment/Bag
 
 
 ### getAnnouncements
-
+Get announcements.
 
 
 
@@ -303,7 +303,7 @@ platformClient.order.getAnnouncements( date) {
 
 
 
-Get Announcements
+Retrieve announcements related to orders or shipments.
 
 *Returned Response:*
 
@@ -337,7 +337,7 @@ Announcements retrieved successfully
 
 
 ### updateAddress
-
+Update address.
 
 
 
@@ -368,7 +368,7 @@ platformClient.order.updateAddress( shipmentId,  name,  address,  addressType,  
 
 
 
-Update Address for the order
+Modify the shipping address for an order.
 
 *Returned Response:*
 
@@ -402,7 +402,7 @@ Update Address will be processed!
 
 
 ### click2Call
-
+Click to call.
 
 
 
@@ -426,7 +426,7 @@ platformClient.order.click2Call( caller,  receiver,  bagId,  callerId,  method) 
 
 
 
-Click to Call
+Click to call. 
 
 *Returned Response:*
 
@@ -463,7 +463,7 @@ Process call on request!
 
 
 ### updateShipmentStatus
-
+Update shipment status.
 
 
 
@@ -482,7 +482,7 @@ platformClient.order.updateShipmentStatus(body body) {
 | body | [UpdateShipmentStatusRequest](#UpdateShipmentStatusRequest) | yes | Request body |
 
 
-This API is for Shipment State transition or Shipment data update or both below example is for partial state transition with data update
+Shipment state transition or Shipment data update or both.
 
 *Returned Response:*
 
@@ -544,7 +544,7 @@ NOTE success response can contains success and failed result as well
 
 
 ### getRoleBasedActions
-
+Get role-based actions.
 
 
 
@@ -563,7 +563,7 @@ platformClient.order.getRoleBasedActions() {
 
 
 
-Get Role Based Actions
+Retrieve role based actions.
 
 *Returned Response:*
 
@@ -612,7 +612,7 @@ You will get an array of actions allowed for that particular user based on their
 
 
 ### getShipmentHistory
-
+Get shipment history.
 
 
 
@@ -633,7 +633,7 @@ platformClient.order.getShipmentHistory( shipmentId,  bagId) {
 
 
 
-Get Shipment History
+Retrieve the shipment history.
 
 *Returned Response:*
 
@@ -700,7 +700,7 @@ It shows the journey of the shipment!
 
 
 ### postShipmentHistory
-
+Post shipment history.
 
 
 
@@ -719,7 +719,7 @@ platformClient.order.postShipmentHistory(body body) {
 | body | [PostShipmentHistory](#PostShipmentHistory) | yes | Request body |
 
 
-Post shipment history
+Add history records for a shipment.
 
 *Returned Response:*
 
@@ -787,7 +787,7 @@ It shows the journey of the shipment!
 
 
 ### sendSmsNinja
-
+Send SMS via Ninja.
 
 
 
@@ -806,7 +806,7 @@ platformClient.order.sendSmsNinja(body body) {
 | body | [SendSmsPayload](#SendSmsPayload) | yes | Request body |
 
 
-Send SMS Ninja Panel
+Send SMS Ninja Panel.
 
 *Returned Response:*
 
@@ -843,7 +843,7 @@ Sms Sent successfully
 
 
 ### updatePackagingDimensions
-
+Update packaging dimensions.
 
 
 
@@ -862,7 +862,7 @@ platformClient.order.updatePackagingDimensions(body body) {
 | body | [UpdatePackagingDimensionsPayload](#UpdatePackagingDimensionsPayload) | yes | Request body |
 
 
-Update Packaging Dimensions
+Modify the dimensions of packaging.
 
 *Returned Response:*
 
@@ -896,7 +896,7 @@ Manifest will be processed!
 
 
 ### createOrder
-
+Create order.
 
 
 
@@ -915,7 +915,7 @@ platformClient.order.createOrder(body body) {
 | body | [CreateOrderAPI](#CreateOrderAPI) | yes | Request body |
 
 
-Create Order
+Create order.
 
 *Returned Response:*
 
@@ -949,7 +949,7 @@ Successfully created an order!
 
 
 ### getChannelConfig
-
+Get channel configuration.
 
 
 
@@ -968,7 +968,7 @@ platformClient.order.getChannelConfig() {
 
 
 
-getChannelConfig
+Retrieve configuration settings for a channel.
 
 *Returned Response:*
 
@@ -1025,7 +1025,7 @@ Successfully created the config data
 
 
 ### createChannelConfig
-
+Create channel configuration.
 
 
 
@@ -1044,7 +1044,7 @@ platformClient.order.createChannelConfig(body body) {
 | body | [CreateChannelConfigData](#CreateChannelConfigData) | yes | Request body |
 
 
-createChannelConfig
+Set up configuration for a channel.
 
 *Returned Response:*
 
@@ -1084,7 +1084,7 @@ Successfully updateShipmentStatus!
 
 
 ### orderUpdate
-
+Order update.
 
 
 
@@ -1103,7 +1103,7 @@ platformClient.order.orderUpdate(body body) {
 | body | [PlatformOrderUpdate](#PlatformOrderUpdate) | yes | Request body |
 
 
-Update Order
+Modify the details and status of an order. 
 
 *Returned Response:*
 
@@ -1137,7 +1137,7 @@ We are processing the order!
 
 
 ### checkOrderStatus
-
+Check order status.
 
 
 
@@ -1156,7 +1156,7 @@ platformClient.order.checkOrderStatus(body body) {
 | body | [OrderStatus](#OrderStatus) | yes | Request body |
 
 
-Check order status
+Verify the current status of an order.
 
 *Returned Response:*
 
@@ -1190,7 +1190,7 @@ Order Status retrieved successfully
 
 
 ### getStateTransitionMap
-
+Get state transition map.
 
 
 
@@ -1209,7 +1209,7 @@ platformClient.order.getStateTransitionMap() {
 
 
 
-Get State Transition Map
+Retrieve a map of state transitions for orders.
 
 *Returned Response:*
 
@@ -1430,7 +1430,7 @@ State Transition Mapping, for next possible state
 
 
 ### getAllowedStateTransition
-To fetch next state transitions.
+Get allowed state transition.
 
 
 
@@ -1451,8 +1451,7 @@ platformClient.order.getAllowedStateTransition( orderingChannel,  status) {
 
 
 
-This endpoint will fetch next possible states based on logged in user
-
+Retrieve next possible states based on logged in user.
 
 *Returned Response:*
 
@@ -1502,7 +1501,7 @@ Role wise state transition mapping, for next possible state
 
 
 ### fetchCreditBalanceDetail
-
+Fetch credit balance detail.
 
 
 
@@ -1521,7 +1520,7 @@ platformClient.order.fetchCreditBalanceDetail(body body) {
 | body | [FetchCreditBalanceRequestPayload](#FetchCreditBalanceRequestPayload) | yes | Request body |
 
 
-Fetch Credit Balance Detail
+Retrieve details about credit balance.
 
 *Returned Response:*
 
@@ -1555,7 +1554,7 @@ Credit Balance will be fetched
 
 
 ### fetchRefundModeConfig
-
+Fetch refund mode config.
 
 
 
@@ -1574,7 +1573,7 @@ platformClient.order.fetchRefundModeConfig(body body) {
 | body | [RefundModeConfigRequestPayload](#RefundModeConfigRequestPayload) | yes | Request body |
 
 
-Fetch Refund Mode Config
+Retrieve configuration for refund modes.
 
 *Returned Response:*
 
@@ -1608,7 +1607,7 @@ Refund mode config is returned based on input parameter
 
 
 ### attachOrderUser
-
+Attach order user.
 
 
 
@@ -1627,7 +1626,7 @@ platformClient.order.attachOrderUser(body body) {
 | body | [AttachOrderUser](#AttachOrderUser) | yes | Request body |
 
 
-Attach Order User
+Attach order User
 
 *Returned Response:*
 
@@ -1661,7 +1660,7 @@ Attach user to order
 
 
 ### sendUserMobileOTP
-
+Send user mobile OTP.
 
 
 
@@ -1680,7 +1679,7 @@ platformClient.order.sendUserMobileOTP(body body) {
 | body | [SendUserMobileOTP](#SendUserMobileOTP) | yes | Request body |
 
 
-Send User Mobile OTP
+Send a one-time OTP to a users mobile device.
 
 *Returned Response:*
 
@@ -1723,7 +1722,7 @@ Send OTP to user mobile
 
 
 ### verifyMobileOTP
-
+Verify mobile OTP.
 
 
 
@@ -1776,7 +1775,7 @@ Verify OTP
 
 
 ### downloadLanesReport
-
+Download lanes report.
 
 
 
@@ -1795,7 +1794,7 @@ platformClient.order.downloadLanesReport(body body) {
 | body | [BulkReportsDownloadRequest](#BulkReportsDownloadRequest) | yes | Request body |
 
 
-downloads lanes shipment/orders.
+Downloads lanes shipment/orders.
 
 *Returned Response:*
 
@@ -2736,7 +2735,7 @@ List of filters
 
 
 ### eInvoiceRetry
-
+E-invoice retry.
 
 
 
@@ -2916,7 +2915,7 @@ E-invoice generated successfully for all/few shipments from given list of shipme
 
 
 ### trackShipment
-
+Track shipment.
 
 
 
@@ -2939,7 +2938,7 @@ platformClient.order.trackShipment( shipmentId,  awb,  pageNo,  pageSize) {
 
 
 
-This endpoint allows users to get courier partner tracking details for a given shipment id or awb no. The service will fetch courier partner statuses that are pushed to oms.
+Retrieve courier partner tracking details for a given shipment id or awb no.
 
 *Returned Response:*
 
@@ -3005,7 +3004,7 @@ Shipment Tracking fetched successfully
 
 
 ### updateShipmentTracking
-Post courier partner tracking details
+Update shipment tracking.
 
 
 
@@ -3024,7 +3023,7 @@ platformClient.order.updateShipmentTracking(body body) {
 | body | [CourierPartnerTrackingDetails](#CourierPartnerTrackingDetails) | yes | Request body |
 
 
-This endpoint allows users to post courier partner tracking details for a given shipment id or awb no. The service will add entry for courier partner statuses and will be saved to oms.
+Modify courier partner tracking details for a given shipment id or awb no.
 
 *Returned Response:*
 
@@ -3352,7 +3351,7 @@ Success. Check the example shown below or refer `ShipmentBagReasons` for more de
 
 
 ### getShipments
-
+Get shipments.
 
 
 
@@ -3402,7 +3401,7 @@ platformClient.order.getShipments( lane,  bagStatus,  statusOverrideLane,  timeT
 
 
 
-Get Shipments Listing for the company id
+Retrieve a list of available shipments.
 
 *Returned Response:*
 
@@ -3436,7 +3435,7 @@ We are processing the report!
 
 
 ### getShipmentById
-
+Get shipment by ID.
 
 
 
@@ -3458,7 +3457,7 @@ platformClient.order.getShipmentById( channelShipmentId,  shipmentId,  fetchActi
 
 
 
-Get shipment details for the given shipment.
+Retrieve detailed information about a specific shipment.
 
 *Returned Response:*
 
@@ -3699,7 +3698,10 @@ We are processing the report!
               "time": 30,
               "unit": "days",
               "returnable": true
-            }
+            },
+            "tags": [
+              "1P"
+            ]
           },
           "quantity": 1
         }
@@ -3840,7 +3842,7 @@ We are processing the report!
 
 
 ### getOrderById
-
+Get order by ID.
 
 
 
@@ -3862,7 +3864,7 @@ platformClient.order.getOrderById( orderId,  myOrders,  allowInactive) {
 
 
 
-Get Order Details by ID
+Retrieve detailed information about a specific order.
 
 *Returned Response:*
 
@@ -4292,7 +4294,10 @@ We are processing the report!
               "time": 7,
               "unit": "days",
               "returnable": true
-            }
+            },
+            "tags": [
+              "1P"
+            ]
           },
           "affiliate_bag_details": {
             "coupon_code": null
@@ -4634,7 +4639,7 @@ We are processing the report!
 
 
 ### getLaneConfig
-
+Get lane configuration.
 
 
 
@@ -4672,7 +4677,7 @@ platformClient.order.getLaneConfig( superLane,  groupEntity,  fromDate,  toDate,
 
 
 
-Get lane config for the order
+Retrieve configuration settings for lanes.
 
 *Returned Response:*
 
@@ -4779,7 +4784,7 @@ Response containing count of shipments of the given status
 
 
 ### getOrders
-
+Get orders.
 
 
 
@@ -4820,7 +4825,7 @@ platformClient.order.getOrders( lane,  searchType,  bagStatus,  timeToDispatch, 
 
 
 
-Get Orders Listing
+Retrieve a list of available orders.
 
 *Returned Response:*
 
@@ -4923,7 +4928,7 @@ We are processing the report!
 
 
 ### trackShipmentPlatform
-Track shipment
+Track shipment on the platform.
 
 
 
@@ -4944,7 +4949,7 @@ platformClient.application("<APPLICATION_ID>").order.trackShipmentPlatform( ship
 
 
 
-Track Shipment by shipment id, for application based on application Id
+Track shipment by Shipment ID for application based on application Id
 
 *Returned Response:*
 
@@ -4994,7 +4999,7 @@ Success. Check the example shown below or refer `PlatformShipmentTrack` for more
 
 
 ### getfilters
-
+Get filters.
 
 
 
@@ -5015,7 +5020,7 @@ platformClient.order.getfilters( view,  groupEntity) {
 
 
 
-Get Listing Filters
+Retrieve listing filters.
 
 *Returned Response:*
 
@@ -5397,7 +5402,7 @@ List of filters
 
 
 ### getBulkShipmentExcelFile
-
+Get bulk shipment Excel file.
 
 
 
@@ -5428,7 +5433,7 @@ platformClient.order.getBulkShipmentExcelFile( salesChannels,  dpIds,  startDate
 
 
 
-Generate Bulk Shipment Excel Report.
+Retrieve a bulk shipment Excel report.
 
 *Returned Response:*
 
@@ -5478,7 +5483,7 @@ We are processing the file!
 
 
 ### getBulkActionTemplate
-
+Get bulk action template.
 
 
 
@@ -5497,7 +5502,7 @@ platformClient.order.getBulkActionTemplate() {
 
 
 
-Get Bulk Action seller templates.
+Retrieve bulk action seller templates.
 
 *Returned Response:*
 
@@ -5538,7 +5543,7 @@ Slug names
 
 
 ### downloadBulkActionTemplate
-
+Download bulk action template.
 
 
 
@@ -5608,7 +5613,7 @@ We are processing the file!
 
 
 ### getShipmentReasons
-Get reasons behind full or partial cancellation of a shipment
+Get shipment reasons.
 
 
 
@@ -5630,7 +5635,7 @@ platformClient.order.getShipmentReasons( shipmentId,  bagId,  state) {
 
 
 
-Use this API to retrieve the issues that led to the cancellation of bags within a shipment.
+Retrieve the issues that led to the cancellation of bags within a shipment.
 
 *Returned Response:*
 
@@ -5692,7 +5697,7 @@ Success. Check the example shown below or refer `PlatformShipmentReasonsResponse
 
 
 ### getPlatformShipmentReasons
-Use this API to retrieve the issues that led to the cancellation of bags within a shipment.
+Get platform shipment reasons.
 
 
 
@@ -5713,7 +5718,7 @@ platformClient.application("<APPLICATION_ID>").order.getPlatformShipmentReasons(
 
 
 
-Using action, get reasons behind full or partial cancellation of a shipment
+Retrieve reasons behind full or partial cancellation of a shipment
 
 *Returned Response:*
 
@@ -5747,7 +5752,7 @@ Success. Check the example shown below or refer `ShipmentReasonsResponse` for mo
 
 
 ### getBagById
-
+Get bag by ID.
 
 
 
@@ -5769,7 +5774,7 @@ platformClient.order.getBagById( bagId,  channelBagId,  channelId) {
 
 
 
-Get Order Bag Details.
+Retrieve detailed information about a specific bag.
 
 *Returned Response:*
 
@@ -5803,7 +5808,7 @@ Successfully retrived shipment details!
 
 
 ### getBags
-
+Get bags.
 
 
 
@@ -5831,7 +5836,7 @@ platformClient.order.getBags( bagIds,  shipmentIds,  orderIds,  channelBagIds,  
 
 
 
-Get Bags for the order
+Retrieve Bags for the order.
 
 *Returned Response:*
 
@@ -5865,7 +5870,7 @@ Successfully retrived all the given shipments details!
 
 
 ### generatePOSReceiptByOrderId
-
+Generate POS receipt by order ID.
 
 
 
@@ -5887,7 +5892,7 @@ platformClient.order.generatePOSReceiptByOrderId( orderId,  shipmentId,  documen
 
 
 
-Generate POS recipt by order id.
+Create a point-of-sale (POS) receipt for a specific order by order ID.
 
 *Returned Response:*
 
@@ -9133,6 +9138,7 @@ Sucessfully Created the Template Url.
  | rawMeta | String? |  yes  |  |
  | size | String |  no  |  |
  | isSet | Boolean? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -9818,6 +9824,7 @@ Sucessfully Created the Template Url.
  | returnConfig | [ReturnConfig](#ReturnConfig)? |  yes  |  |
  | uid | String? |  yes  |  |
  | size | String? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -10145,6 +10152,25 @@ Sucessfully Created the Template Url.
 
  
  
+ #### [PaymentInfoData](#PaymentInfoData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | mode | String? |  yes  |  |
+ | name | String? |  yes  |  |
+ | amount | Double? |  yes  |  |
+ | collected | Boolean? |  yes  |  |
+ | refundBy | String? |  yes  |  |
+ | collectBy | String? |  yes  |  |
+ | displayName | String? |  yes  |  |
+ | merchantTransactionId | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [OrderData](#OrderData)
 
  | Properties | Type | Nullable | Description |
@@ -10156,7 +10182,7 @@ Sucessfully Created the Template Url.
  | fyndOrderId | String |  no  |  |
  | prices | [Prices](#Prices)? |  yes  |  |
  | paymentMethods | HashMap<String,Object>? |  yes  |  |
- | paymentInfo | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | paymentInfo | ArrayList<[PaymentInfoData](#PaymentInfoData)>? |  yes  |  |
 
 ---
 

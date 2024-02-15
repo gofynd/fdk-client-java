@@ -8746,7 +8746,7 @@ public static class CollectionItemSchemaV2{
 
 
 /*
-    Model: CollectionItemUpdateSchemaV2
+    Model: CollectionItemUpdateSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -8754,7 +8754,7 @@ public static class CollectionItemSchemaV2{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CollectionItemUpdateSchemaV2{
+public static class CollectionItemUpdateSchema{
 
     
 

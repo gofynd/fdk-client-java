@@ -7,17 +7,26 @@
 ## Rewards Methods
 Earn and redeem reward points
 
-Default
+Giveaways
 * [showGiveaways](#showgiveaways)
 * [saveGiveAway](#savegiveaway)
 * [getGiveawayById](#getgiveawaybyid)
 * [updateGiveAway](#updategiveaway)
+
+
+Offers
 * [showOffers](#showoffers)
 * [getOfferByName](#getofferbyname)
 * [updateOfferByName](#updateofferbyname)
+
+
+User Management
 * [updateUserStatus](#updateuserstatus)
 * [getUserDetails](#getuserdetails)
 * [getUserPointsHistory](#getuserpointshistory)
+
+
+Rewards Configuration
 * [getRewardsConfiguration](#getrewardsconfiguration)
 * [setRewardsConfiguration](#setrewardsconfiguration)
 
@@ -29,7 +38,7 @@ Default
 
 
 ### showGiveaways
-List of giveaways of the current application.
+Display giveaways.
 
 
 
@@ -51,7 +60,7 @@ platformClient.application("<APPLICATION_ID>").rewards.showGiveaways( pageId,  p
 
 
 
-Fetch the detailed compilation of live, completed, and scheduled point-based giveaways created.
+Retrieve and display available giveaways.
 
 *Returned Response:*
 
@@ -154,7 +163,7 @@ ok
 
 
 ### saveGiveAway
-List of giveaways of the current application.
+Save giveaway.
 
 
 
@@ -174,7 +183,7 @@ platformClient.application("<APPLICATION_ID>").rewards.saveGiveAway(body body) {
 | body | [Giveaway](#Giveaway) | yes | Request body |
 
 
-Creates a new giveaway in the current application, specifying the target audience, points allocation, as well as the name and display name of the giveaway.
+Store and manage details of a giveaway.
 
 *Returned Response:*
 
@@ -258,7 +267,7 @@ platformClient.application("<APPLICATION_ID>").rewards.getGiveawayById( id) {
 
 
 
-Retrieve the specific giveaway by giveaway ID. It will show all the details of the requested giveaway.
+Retrieve specific giveaway details by its unique identifier.
 
 *Returned Response:*
 
@@ -321,7 +330,7 @@ ok
 
 
 ### updateGiveAway
-Updates the giveaway by it's ID.
+Update giveaway.
 
 
 
@@ -342,7 +351,7 @@ platformClient.application("<APPLICATION_ID>").rewards.updateGiveAway( id, body 
 | body | [Giveaway](#Giveaway) | yes | Request body |
 
 
-Make the necessary updates to the giveaway based on its giveaway ID.
+Modify and update information about a giveaway.
 
 *Returned Response:*
 
@@ -404,8 +413,10 @@ ok
 ---
 
 
+
+
 ### showOffers
-List of offers of the current application.
+Show offers.
 
 
 
@@ -425,7 +436,7 @@ platformClient.application("<APPLICATION_ID>").rewards.showOffers() {
 
 
 
-Retrieve the list of offers within the current application, including order_discount, order, sign_up, and referral, along with their respective details.
+Display available offers for users.
 
 *Returned Response:*
 
@@ -677,7 +688,7 @@ ok
 
 
 ### getOfferByName
-Fetch a offer by its name
+Get offer by name.
 
 
 
@@ -698,7 +709,7 @@ platformClient.application("<APPLICATION_ID>").rewards.getOfferByName( name) {
 
 
 
-Fetch the specific offer details and configuration by the name of the offer.
+Retrieve an offer by its name.
 
 *Returned Response:*
 
@@ -781,7 +792,7 @@ Success. Check example below or refer `Offer` for more details.
 
 
 ### updateOfferByName
-Update offer by name
+Update offer by name.
 
 
 
@@ -802,7 +813,7 @@ platformClient.application("<APPLICATION_ID>").rewards.updateOfferByName( name, 
 | body | [Offer](#Offer) | yes | Request body |
 
 
-Update the specific offer details and its configuration by offer name.
+Modify and manage an offer using its name.
 
 *Returned Response:*
 
@@ -884,8 +895,10 @@ Success. Check example below or refer `Offer` for more details.
 ---
 
 
+
+
 ### updateUserStatus
-Update user status
+Update user status.
 
 
 
@@ -906,7 +919,7 @@ platformClient.application("<APPLICATION_ID>").rewards.updateUserStatus( userId,
 | body | [AppUser](#AppUser) | yes | Request body |
 
 
-Update the user status by marking them as a block or unblock. It can be done by changing the active flag in request body.
+Change and update the status of a user in the rewards system.
 
 *Returned Response:*
 
@@ -964,7 +977,7 @@ Success
 
 
 ### getUserDetails
-Get user reward details
+Get user details.
 
 
 
@@ -985,7 +998,7 @@ platformClient.application("<APPLICATION_ID>").rewards.getUserDetails( userId) {
 
 
 
-Fetches the user details and the user reward details with their current reward points for the specific user.
+Retrieve comprehensive details about a user in the rewards program.
 
 *Returned Response:*
 
@@ -1043,7 +1056,7 @@ Success. Check example below or refer `UserRes` for more details.
 
 
 ### getUserPointsHistory
-Get all transactions of reward points
+Get user points history.
 
 
 
@@ -1066,7 +1079,7 @@ platformClient.application("<APPLICATION_ID>").rewards.getUserPointsHistory( use
 
 
 
-Fetches a list of points transactions like giveaway points, signup points, referral points, order earn points, redeem points and expired points.
+Retrieve the history of points earned and redeemed by a user.
 
 *Returned Response:*
 
@@ -1155,8 +1168,10 @@ Success. Check example below or refer `HistoryRes` for more details.
 ---
 
 
+
+
 ### getRewardsConfiguration
-Get all valid android paths
+Get rewards configuration.
 
 
 
@@ -1176,7 +1191,7 @@ platformClient.application("<APPLICATION_ID>").rewards.getRewardsConfiguration()
 
 
 
-Use this API to get a list of valid android paths required by the Rewards INIT API to validate a fraudulent device.
+Retrieve the configuration settings for the rewards program.
 
 *Returned Response:*
 
@@ -1225,7 +1240,7 @@ Success. Refer `ConfigurationRes` for more details.
 
 
 ### setRewardsConfiguration
-Updates the collection with given android paths.
+Set rewards configuration.
 
 
 
@@ -1245,7 +1260,7 @@ platformClient.application("<APPLICATION_ID>").rewards.setRewardsConfiguration(b
 | body | [ConfigurationRequest](#ConfigurationRequest) | yes | Request body |
 
 
-Updates the configuration or inserts new records with the given android paths.
+Configure and modify the settings for the rewards program.
 
 *Returned Response:*
 

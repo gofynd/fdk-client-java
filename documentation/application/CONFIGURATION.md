@@ -7,21 +7,33 @@
 ## Configuration Methods
 The Application Configuration module simplifies tasks related to configuring the app. You can use it to retrieve information about sales channels, ownership details, app-specific settings, and integration tokens. This module also offers insights into store performance, ordering options, and available modules. It allows you to access currency information, support multiple languages, and customize store cookies for a personalized user experience. Additionally, the module can retrieve the staff list.
 
-Default
+Application Information
 * [getApplication](#getapplication)
 * [getOwnerInfo](#getownerinfo)
 * [getBasicDetails](#getbasicdetails)
 * [getIntegrationTokens](#getintegrationtokens)
-* [getOrderingStores](#getorderingstores)
-* [getStoreDetailById](#getstoredetailbyid)
 * [getFeatures](#getfeatures)
 * [getContactInfo](#getcontactinfo)
+
+
+Store Information
+* [getOrderingStores](#getorderingstores)
+* [getStoreDetailById](#getstoredetailbyid)
+* [getOrderingStoreCookie](#getorderingstorecookie)
+* [removeOrderingStoreCookie](#removeorderingstorecookie)
+
+
+Currency Management
 * [getCurrencies](#getcurrencies)
 * [getCurrencyById](#getcurrencybyid)
 * [getAppCurrencies](#getappcurrencies)
+
+
+Language Information
 * [getLanguages](#getlanguages)
-* [getOrderingStoreCookie](#getorderingstorecookie)
-* [removeOrderingStoreCookie](#removeorderingstorecookie)
+
+
+Staff and User Management
 * [getAppStaffList](#getappstafflist)
 * [getAppStaffs](#getappstaffs)
 
@@ -33,7 +45,7 @@ Default
 
 
 ### getApplication
-Get current sales channel details
+Fetches application details.
 
 
 
@@ -47,7 +59,7 @@ applicationClient.configuration.getApplication() {
 
 
 
-Use this API to get the current sales channel details which includes configurations that indicate the status of the website, domain, ID, tokens, images, etc.
+Retrieve the current sales channel details which includes configurations that indicate the status of the website, domain, ID, tokens, images, etc.
 
 *Returned Response:*
 
@@ -151,7 +163,7 @@ Success. Check the example shown below or refer `Application` for more details.
 
 
 ### getOwnerInfo
-Get sales channel, owner and seller information
+Retrieves application owner details.
 
 
 
@@ -165,7 +177,7 @@ applicationClient.configuration.getOwnerInfo() {
 
 
 
-Use this API to get the current sales channel details which includes channel name, description, banner, logo, favicon, domain details, etc. This API also retrieves the seller and owner information such as address, email address, and phone number.
+Retrieve the current sales channel details which includes channel name, description, banner, logo, favicon, domain details, etc. Also retrieves the seller and owner information such as address, email address, and phone number.
 
 *Returned Response:*
 
@@ -307,7 +319,7 @@ Success. Check the example shown below or refer `ApplicationAboutResponse` for m
 
 
 ### getBasicDetails
-Get basic details of the application
+Retrieves basic app info.
 
 
 
@@ -321,7 +333,7 @@ applicationClient.configuration.getBasicDetails() {
 
 
 
-Use this API to retrieve only the basic details of the application which includes channel name, description, banner, logo, favicon, domain details, etc.
+Retrieve only the basic details of the application which includes channel name, description, banner, logo, favicon, domain details, etc.
 
 *Returned Response:*
 
@@ -403,7 +415,7 @@ Success. Check the example shown below or refer `ApplicationDetail` for more det
 
 
 ### getIntegrationTokens
-Get integration tokens
+Fetches API tokens.
 
 
 
@@ -417,7 +429,7 @@ applicationClient.configuration.getIntegrationTokens() {
 
 
 
-Use this API to retrieve the tokens used while integrating Firebase, MoEngage, Segment, GTM, Freshchat, Safetynet, Google Map and Facebook. **Note** - Token values are encrypted with AES encryption using a secret key. Kindly reach out to the developers for obtaining the secret key.
+Retrieve the tokens used while integrating Firebase, MoEngage, Segment, GTM, Freshchat, Safetynet, Google Map and Facebook.
 
 *Returned Response:*
 
@@ -527,146 +539,8 @@ Success. Check the example shown below or refer `AppTokenResponse` for more deta
 ---
 
 
-### getOrderingStores
-Get all deployment stores
-
-
-
-
-```java
-applicationClient.configuration.getOrderingStores( pageNo,  pageSize,  q) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| pageNo | Integer? | no | The page number to navigate through the given set of results. Default value is 1. |   
-| pageSize | Integer? | no | The number of items to retrieve in each page. Default value is 10. |   
-| q | String? | no | Store code or name of the ordering store. |  
-
-
-
-Use this API to retrieve the details of all the deployment stores (the selling locations where the application will be utilized for placing orders).
-
-*Returned Response:*
-
-
-
-
-[OrderingStores](#OrderingStores)
-
-Success. Check the example shown below or refer `OrderingStores` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-{
-  "value": {
-    "items": [
-      {
-        "uid": 1
-      }
-    ]
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getStoreDetailById
-Get ordering store details
-
-
-
-
-```java
-applicationClient.configuration.getStoreDetailById( storeId) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| storeId | Integer | yes | Store uid |  
-
-
-
-Use this API to retrieve the details of given stores uid (the selling locations where the application will be utilized for placing orders).
-
-*Returned Response:*
-
-
-
-
-[OrderingStore](#OrderingStore)
-
-Success. Check the example shown below or refer `OrderingStore` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-{
-  "value": {
-    "uid": 1,
-    "name": "THE MANDHANA PARK KAMLANAGAR DELHI",
-    "pincode": 110007,
-    "store_code": "MRVLB22",
-    "code": "MRVLB22",
-    "display_name": "Kamla Nagar",
-    "store_type": "mall"
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### getFeatures
-Get features of application
+Fetches app features.
 
 
 
@@ -680,7 +554,7 @@ applicationClient.configuration.getFeatures() {
 
 
 
-Use this API to retrieve the configuration of features such as product detail, landing page, options in the login/registration screen, communication opt-in, cart options and many more.
+Retrieve the configuration of features such as product detail, landing page, options in the login/registration screen, communication opt-in, cart options and many more.
 
 *Returned Response:*
 
@@ -817,7 +691,7 @@ Success. Check the example shown below or refer `AppFeatureResponse` for more de
 
 
 ### getContactInfo
-Get application information
+Retrieves contact details.
 
 
 
@@ -831,7 +705,7 @@ applicationClient.configuration.getContactInfo() {
 
 
 
-Use this API to retrieve information about the social links, address and contact information of the company/seller/brand operating the application.
+Retrieve information about the social links, address and contact information of the company/seller/brand operating the application.
 
 *Returned Response:*
 
@@ -985,8 +859,270 @@ Success. Check the example shown below or refer `ApplicationAboutResponse` for m
 ---
 
 
+
+
+### getOrderingStores
+Lists order-enabled stores.
+
+
+
+
+```java
+applicationClient.configuration.getOrderingStores( pageNo,  pageSize,  q) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| pageNo | Integer? | no | The page number to navigate through the given set of results. Default value is 1. |   
+| pageSize | Integer? | no | The number of items to retrieve in each page. Default value is 10. |   
+| q | String? | no | Store code or name of the ordering store. |  
+
+
+
+Retrieve the details of all the deployment stores (the selling locations where the application will be utilized for placing orders).
+
+*Returned Response:*
+
+
+
+
+[OrderingStores](#OrderingStores)
+
+Success. Check the example shown below or refer `OrderingStores` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; success</i></summary>
+
+```json
+{
+  "value": {
+    "items": [
+      {
+        "uid": 1
+      }
+    ]
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getStoreDetailById
+Retrieves store details by ID.
+
+
+
+
+```java
+applicationClient.configuration.getStoreDetailById( storeId) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| storeId | Integer | yes | Store uid |  
+
+
+
+Retrieve the details of given stores uid (the selling locations where the application will be utilized for placing orders). 
+
+*Returned Response:*
+
+
+
+
+[OrderingStore](#OrderingStore)
+
+Success. Check the example shown below or refer `OrderingStore` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; success</i></summary>
+
+```json
+{
+  "value": {
+    "uid": 1,
+    "name": "THE MANDHANA PARK KAMLANAGAR DELHI",
+    "pincode": 110007,
+    "store_code": "MRVLB22",
+    "code": "MRVLB22",
+    "display_name": "Kamla Nagar",
+    "store_type": "mall"
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getOrderingStoreCookie
+Retrieves store selection cookie.
+
+
+
+
+```java
+applicationClient.configuration.getOrderingStoreCookie(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- |
+| body | [OrderingStoreSelectRequest](#OrderingStoreSelectRequest) | yes | Request body |
+
+
+Retrieve an Ordering Store signed cookie upon selecting an ordering store. This will be used by the cart service to verify a coupon against the selected ordering store in cart. 
+
+*Returned Response:*
+
+
+
+
+[SuccessMessageResponse](#SuccessMessageResponse)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; success</i></summary>
+
+```json
+{
+  "value": {
+    "message": "success"
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### removeOrderingStoreCookie
+Deletes store cookie.
+
+
+
+
+```java
+applicationClient.configuration.removeOrderingStoreCookie() {
+  //use response
+}
+```
+
+
+
+
+Unset the Ordering Store cookie upon changing the sales channel, by its domain URL, in the Universal Fynd Store app.
+
+*Returned Response:*
+
+
+
+
+[SuccessMessageResponse](#SuccessMessageResponse)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; success</i></summary>
+
+```json
+{
+  "value": {
+    "message": "success"
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
 ### getCurrencies
-Get all currencies list
+Lists supported currencies.
 
 
 
@@ -1000,7 +1136,7 @@ applicationClient.configuration.getCurrencies() {
 
 
 
-Use this API to get a list of currencies available. Moreover, get the name, code, symbol, and the decimal digits of the currencies.
+Retrieve a list of currencies available. Also get the name, code, symbol, and the decimal digits of the currencies. 
 
 *Returned Response:*
 
@@ -1055,7 +1191,7 @@ Success. Check the example shown below or refer `CurrenciesResponse` for more de
 
 
 ### getCurrencyById
-Get currency by its ID
+Fetches currency by ID.
 
 
 
@@ -1074,7 +1210,7 @@ applicationClient.configuration.getCurrencyById( id) {
 
 
 
-Use this API to retrieve a currency using its ID.
+Retrieve details of a specific currency using its ID. 
 
 *Returned Response:*
 
@@ -1125,7 +1261,7 @@ Success. Check the example shown below or refer `Currency` for more details.
 
 
 ### getAppCurrencies
-Get currencies enabled in the application
+Retrieves app-specific currencies.
 
 
 
@@ -1139,7 +1275,7 @@ applicationClient.configuration.getAppCurrencies() {
 
 
 
-Use this API to get a list of currencies allowed in the current application. Moreover, get the name, code, symbol, and the decimal digits of the currencies.
+Retrieve a list of currencies allowed in the current application. Moreover, get the name, code, symbol, and the decimal digits of the currencies.
 
 *Returned Response:*
 
@@ -1198,8 +1334,10 @@ Success. Check the example shown below or refer `AppCurrencyResponse` for more d
 ---
 
 
+
+
 ### getLanguages
-Get list of languages
+Lists available languages.
 
 
 
@@ -1213,7 +1351,7 @@ applicationClient.configuration.getLanguages() {
 
 
 
-Use this API to get a list of languages supported in the application
+Retrieves all languages supported by the app.
 
 *Returned Response:*
 
@@ -1269,128 +1407,10 @@ Success. Check the example shown below or refer `LanguageResponse` for more deta
 ---
 
 
-### getOrderingStoreCookie
-Get an Ordering Store signed cookie on selection of ordering store.
-
-
-
-
-```java
-applicationClient.configuration.getOrderingStoreCookie(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- |
-| body | [OrderingStoreSelectRequest](#OrderingStoreSelectRequest) | yes | Request body |
-
-
-Use this API to get an Ordering Store signed cookie upon selecting an ordering store. This will be used by the cart service to verify a coupon against the selected ordering store in cart.
-
-*Returned Response:*
-
-
-
-
-[SuccessMessageResponse](#SuccessMessageResponse)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-{
-  "value": {
-    "message": "success"
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### removeOrderingStoreCookie
-Unset the Ordering Store signed cookie.
-
-
-
-
-```java
-applicationClient.configuration.removeOrderingStoreCookie() {
-  //use response
-}
-```
-
-
-
-
-Use this API to unset the Ordering Store cookie upon changing the sales channel, by its domain URL, in the Universal Fynd Store app.
-
-*Returned Response:*
-
-
-
-
-[SuccessMessageResponse](#SuccessMessageResponse)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-{
-  "value": {
-    "message": "success"
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
 
 
 ### getAppStaffList
-Get a list of staff.
+Lists app staff members.
 
 
 
@@ -1414,7 +1434,7 @@ applicationClient.configuration.getAppStaffList( pageNo,  pageSize,  orderIncent
 
 
 
-Use this API to get a list of staff including the names, employee code, incentive status, assigned ordering stores, and title of each staff added to the application.
+Retrieve a list of staff including the names, employee code, incentive status, assigned ordering stores, and title of each staff added to the application.
 
 *Returned Response:*
 
@@ -1462,7 +1482,7 @@ Success. Check the example shown below or refer `AppStaffListResponse` for more 
 
 
 ### getAppStaffs
-Get a list of staff.
+Fetches detailed staff info.
 
 
 
@@ -1483,7 +1503,7 @@ applicationClient.configuration.getAppStaffs( orderIncent,  orderingStore,  user
 
 
 
-Use this API to get a list of staff including the names, employee code, incentive status, assigned ordering stores, and title of each staff added to the application.
+Retrieve a list of staff including the names, employee code, incentive status, assigned ordering stores, and title of each staff added to the application.
 
 *Returned Response:*
 

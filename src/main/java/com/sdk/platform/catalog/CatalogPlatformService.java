@@ -214,6 +214,102 @@ public class CatalogPlatformService {
     }
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for listCategories
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CatalogPlatformModels.CategoryResponse> listCategoriesPagination(
+        String level ,
+        Integer department ,
+        String q ,
+        Integer pageSize ,
+        List<Integer> uids ,
+        String slug 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CatalogPlatformModels.CategoryResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CatalogPlatformModels.CategoryResponse callback = this.listCategories(
+                
+                 
+                 level,
+                 department,
+                 q,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 uids,
+                 slug
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     
@@ -451,6 +547,102 @@ public class CatalogPlatformService {
         } else {
             return null;
         }    
+    }
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for listDepartmentsData
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CatalogPlatformModels.DepartmentsResponse> listDepartmentsDataPagination(
+        String itemType ,
+        Integer pageSize ,
+        String name ,
+        String search ,
+        Boolean isActive ,
+        String slug 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CatalogPlatformModels.DepartmentsResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CatalogPlatformModels.DepartmentsResponse callback = this.listDepartmentsData(
+                
+                 
+                 paginator.getPageNo()
+                ,
+                 itemType,
+                 paginator.getPageSize()
+                ,
+                 name,
+                 search,
+                 isActive,
+                 slug
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
     }
     
     
@@ -834,6 +1026,110 @@ public class CatalogPlatformService {
     }
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getInventories
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CatalogPlatformModels.GetInventoriesResponse> getInventoriesPagination(
+        String itemId ,
+        String size ,
+        Integer pageSize ,
+        String q ,
+        Boolean sellable ,
+        List<Integer> storeIds ,
+        String sizeIdentifier 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CatalogPlatformModels.GetInventoriesResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CatalogPlatformModels.GetInventoriesResponse callback = this.getInventories(
+                
+                 
+                 itemId,
+                 size,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 q,
+                 sellable,
+                 storeIds,
+                 sizeIdentifier
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     
@@ -879,6 +1175,62 @@ public class CatalogPlatformService {
         } else {
             return null;
         }    
+    }
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getInventoryBulkUploadHistory
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CatalogPlatformModels.BulkInventoryGet> getInventoryBulkUploadHistoryPagination(
+        Integer pageSize 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CatalogPlatformModels.BulkInventoryGet> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CatalogPlatformModels.BulkInventoryGet callback = this.getInventoryBulkUploadHistory(
+                
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
     }
     
     
@@ -1494,6 +1846,70 @@ public class CatalogPlatformService {
     }
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getStoreDetail
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CatalogPlatformModels.OptinStoreDetails> getStoreDetailPagination(
+        String q ,
+        Integer pageSize 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CatalogPlatformModels.OptinStoreDetails> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CatalogPlatformModels.OptinStoreDetails callback = this.getStoreDetail(
+                
+                 
+                 q,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     
@@ -1854,6 +2270,62 @@ public class CatalogPlatformService {
     }
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getProductAssetsInBulk
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CatalogPlatformModels.BulkAssetResponse> getProductAssetsInBulkPagination(
+        Integer pageSize 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CatalogPlatformModels.BulkAssetResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CatalogPlatformModels.BulkAssetResponse callback = this.getProductAssetsInBulk(
+                
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     
@@ -1943,6 +2415,70 @@ public class CatalogPlatformService {
         } else {
             return null;
         }    
+    }
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getProductBulkUploadHistory
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CatalogPlatformModels.ProductBulkRequestList> getProductBulkUploadHistoryPagination(
+        String search ,
+        Integer pageSize 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CatalogPlatformModels.ProductBulkRequestList> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CatalogPlatformModels.ProductBulkRequestList callback = this.getProductBulkUploadHistory(
+                
+                 
+                 search,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
     }
     
     
@@ -2494,6 +3030,94 @@ public class CatalogPlatformService {
     }
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getInventoryBySizeIdentifier
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CatalogPlatformModels.InventorySellerIdentifierResponsePaginated> getInventoryBySizeIdentifierPagination(
+        Integer itemId ,
+        String sizeIdentifier ,
+        Integer pageSize ,
+        String q ,
+        List<Integer> locationIds 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CatalogPlatformModels.InventorySellerIdentifierResponsePaginated> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CatalogPlatformModels.InventorySellerIdentifierResponsePaginated callback = this.getInventoryBySizeIdentifier(
+                
+                 
+                 itemId,
+                 sizeIdentifier,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 q,
+                 locationIds
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     
@@ -2662,6 +3286,94 @@ public class CatalogPlatformService {
     }
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getInventoryBySize
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CatalogPlatformModels.InventoryResponsePaginated> getInventoryBySizePagination(
+        Integer itemId ,
+        String size ,
+        Integer pageSize ,
+        String q ,
+        Boolean sellable 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CatalogPlatformModels.InventoryResponsePaginated> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CatalogPlatformModels.InventoryResponsePaginated callback = this.getInventoryBySize(
+                
+                 
+                 itemId,
+                 size,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 q,
+                 sellable
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     
@@ -2763,6 +3475,78 @@ public class CatalogPlatformService {
         } else {
             return null;
         }    
+    }
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getVariantsOfProducts
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CatalogPlatformModels.ProductVariantsResponse> getVariantsOfProductsPagination(
+        Integer itemId ,
+        String variantType ,
+        Integer pageSize 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CatalogPlatformModels.ProductVariantsResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CatalogPlatformModels.ProductVariantsResponse callback = this.getVariantsOfProducts(
+                
+                 
+                 itemId,
+                 variantType,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
     }
     
     
@@ -3289,6 +4073,118 @@ public class CatalogPlatformService {
         } else {
             return null;
         }    
+    }
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getProducts
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CatalogPlatformModels.ProductListingResponseV2> getProductsPagination(
+        List<Integer> brandIds ,
+        List<Integer> categoryIds ,
+        List<Integer> itemIds ,
+        List<Integer> departmentIds ,
+        List<String> itemCode ,
+        String q ,
+        List<String> tags ,
+        Integer pageSize 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CatalogPlatformModels.ProductListingResponseV2> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CatalogPlatformModels.ProductListingResponseV2 callback = this.getProducts(
+                
+                 
+                 brandIds,
+                 categoryIds,
+                 itemIds,
+                 departmentIds,
+                 itemCode,
+                 q,
+                 tags,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
     }
     
     
@@ -4187,6 +5083,50 @@ public class ApplicationClient {
         }    
     }
 
+    /**
+    * Summary: get paginator for getAllCollections
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CatalogPlatformModels.GetCollectionListingResponse> getAllCollectionsPagination(
+        String q,
+        String scheduleStatus,
+        String type,
+        List<String> tags,
+        Boolean isActive,
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CatalogPlatformModels.GetCollectionListingResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CatalogPlatformModels.GetCollectionListingResponse callback = this.getAllCollections(
+                
+                 
+                 
+                 q,
+                 scheduleStatus,
+                 type,
+                 tags,
+                 isActive,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+
     public CatalogPlatformModels.CollectionCreateResponse createCollection(CatalogPlatformModels.CreateCollection body) throws FDKServerResponseError, FDKException {
         return this.createCollection(body, new HashMap<>());
     }
@@ -4376,13 +5316,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.UpdatedResponse addCollectionItems(String id, CatalogPlatformModels.CollectionItemUpdate body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CommonResponseSchemaCollection addCollectionItems(String id, CatalogPlatformModels.CollectionItemUpdateSchema body) throws FDKServerResponseError, FDKException {
         return this.addCollectionItems(id, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.UpdatedResponse addCollectionItems(String id, CatalogPlatformModels.CollectionItemUpdate body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CommonResponseSchemaCollection addCollectionItems(String id, CatalogPlatformModels.CollectionItemUpdateSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.UpdatedResponse> response = null;
+            Response<CatalogPlatformModels.CommonResponseSchemaCollection> response = null;
             try {
             response = catalogPlatformApiList.addCollectionItems(this.companyId, this.applicationId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -4942,6 +5882,48 @@ public class ApplicationClient {
         }    
     }
 
+    /**
+    * Summary: get paginator for getDiscountedInventoryBySizeIdentifier
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CatalogPlatformModels.InventorySellerIdentifierResponsePaginated> getDiscountedInventoryBySizeIdentifierPagination(
+        Integer itemId,
+        String sizeIdentifier,
+        Integer pageSize,
+        String q,
+        List<Integer> locationIds
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CatalogPlatformModels.InventorySellerIdentifierResponsePaginated> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CatalogPlatformModels.InventorySellerIdentifierResponsePaginated callback = this.getDiscountedInventoryBySizeIdentifier(
+                
+                 
+                 
+                 itemId,
+                 sizeIdentifier,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 q,
+                 locationIds
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+
     public CatalogPlatformModels.ProductDetail getProductDetailBySlug(String slug) throws FDKServerResponseError, FDKException {
         return this.getProductDetailBySlug(slug, new HashMap<>());
     }
@@ -4994,6 +5976,52 @@ public class ApplicationClient {
         } else {
             return null;
         }    
+    }
+
+    /**
+    * Summary: get paginator for getAppProducts
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<CatalogPlatformModels.RawProductListingResponse> getAppProductsPagination(
+        List<Integer> brandIds,
+        List<Integer> categoryIds,
+        List<Integer> departmentIds,
+        List<String> tags,
+        List<Integer> itemIds,
+        Integer pageSize,
+        String q
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<CatalogPlatformModels.RawProductListingResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            CatalogPlatformModels.RawProductListingResponse callback = this.getAppProducts(
+                
+                 
+                 
+                 brandIds,
+                 categoryIds,
+                 departmentIds,
+                 tags,
+                 itemIds,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 q
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
     }
 
     public CatalogPlatformModels.AppReturnConfigResponse getAppReturnConfiguration() throws FDKServerResponseError, FDKException {

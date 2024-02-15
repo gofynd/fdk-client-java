@@ -7,7 +7,7 @@
 ## Communication Methods
 Manages email, sms, push notifications sent to users
 
-Default
+Provider Management - Email and SMS
 * [getAppProviders](#getappproviders)
 * [updateAppProviders](#updateappproviders)
 * [getGlobalProviders](#getglobalproviders)
@@ -22,6 +22,9 @@ Default
 * [getSmsProviderById](#getsmsproviderbyid)
 * [updateSmsProviderById](#updatesmsproviderbyid)
 * [deleteSmsProviderById](#deletesmsproviderbyid)
+
+
+Campaign Management
 * [getCampaigns](#getcampaigns)
 * [createCampaign](#createcampaign)
 * [getCampaignById](#getcampaignbyid)
@@ -32,16 +35,25 @@ Default
 * [getBigQueryHeadersById](#getbigqueryheadersbyid)
 * [createBigQueryNCount](#createbigqueryncount)
 * [createBigQueryHeaders](#createbigqueryheaders)
+* [getJobs](#getjobs)
+* [triggerCampaignJob](#triggercampaignjob)
+* [getJobLogs](#getjoblogs)
+* [getCommunicationLogs](#getcommunicationlogs)
+
+
+Audience Management
 * [getSystemAudiences](#getsystemaudiences)
 * [getAudiences](#getaudiences)
 * [createAudience](#createaudience)
 * [getAudienceById](#getaudiencebyid)
 * [updateAudienceById](#updateaudiencebyid)
 * [deleteAudienceById](#deleteaudiencebyid)
-* [getDummyDatasources](#getdummydatasources)
-* [getDummyDatasourcesMeta](#getdummydatasourcesmeta)
 * [getNSampleRecordsFromCsvByGet](#getnsamplerecordsfromcsvbyget)
 * [getNSampleRecordsFromCsv](#getnsamplerecordsfromcsv)
+
+
+Email Template Management
+* [getDummyDatasources](#getdummydatasources)
 * [getEmailTemplates](#getemailtemplates)
 * [createEmailTemplate](#createemailtemplate)
 * [getSystemEmailTemplates](#getsystememailtemplates)
@@ -49,6 +61,10 @@ Default
 * [updateEmailTemplateById](#updateemailtemplatebyid)
 * [deleteEmailTemplateById](#deleteemailtemplatebyid)
 * [getSubscribedEmailTemplates](#getsubscribedemailtemplates)
+
+
+SMS Template Management
+* [getDummyDatasourcesMeta](#getdummydatasourcesmeta)
 * [getSmsTemplates](#getsmstemplates)
 * [createSmsTemplate](#createsmstemplate)
 * [getSystemSmsTemplates](#getsystemsmstemplates)
@@ -56,26 +72,40 @@ Default
 * [updateSmsTemplateById](#updatesmstemplatebyid)
 * [deleteSmsTemplateById](#deletesmstemplatebyid)
 * [getSubscribedSmsTemplates](#getsubscribedsmstemplates)
+
+
+Sync/Async Communication
 * [sendCommunicationSynchronously](#sendcommunicationsynchronously)
 * [sendCommunicationAsynchronously](#sendcommunicationasynchronously)
+
+
+Event and Variable Management
 * [getEventSubscriptions](#geteventsubscriptions)
+
+
+Default
 * [createEventSubscriptions](#createeventsubscriptions)
 * [getEventSubscriptionsById](#geteventsubscriptionsbyid)
 * [editEventSubscriptions](#editeventsubscriptions)
 * [deleteEventSubscriptionsById](#deleteeventsubscriptionsbyid)
 * [createEventSubscriptionsByBulk](#createeventsubscriptionsbybulk)
-* [getGlobalVariables](#getglobalvariables)
-* [postGlobalVariables](#postglobalvariables)
-* [getJobs](#getjobs)
 * [createJobs](#createjobs)
-* [triggerCampaignJob](#triggercampaignjob)
-* [getJobLogs](#getjoblogs)
-* [getCommunicationLogs](#getcommunicationlogs)
-* [getSystemNotifications](#getsystemnotifications)
-* [sendOtp](#sendotp)
-* [verfiyOtp](#verfiyotp)
 * [getOtpConfiguration](#getotpconfiguration)
 * [updateOtpConfiguration](#updateotpconfiguration)
+
+
+Event and Variable Management:
+* [getGlobalVariables](#getglobalvariables)
+* [postGlobalVariables](#postglobalvariables)
+
+
+System Notifications 
+* [getSystemNotifications](#getsystemnotifications)
+
+
+OTP Handling
+* [sendOtp](#sendotp)
+* [verfiyOtp](#verfiyotp)
 
 
 
@@ -85,7 +115,7 @@ Default
 
 
 ### getAppProviders
-Get app providers
+Get application providers.
 
 
 
@@ -105,7 +135,7 @@ platformClient.application("<APPLICATION_ID>").communication.getAppProviders() {
 
 
 
-Using this API will return a list of application providers.
+Retrieve a list of providers associated with the platform.
 
 *Returned Response:*
 
@@ -183,7 +213,7 @@ Success
 
 
 ### updateAppProviders
-update app providers
+Update application providers.
 
 
 
@@ -203,7 +233,7 @@ platformClient.application("<APPLICATION_ID>").communication.updateAppProviders(
 | body | [AppProviderReq](#AppProviderReq) | yes | Request body |
 
 
-Using this API will update the application providers.
+Modify provider information for the platform.
 
 *Returned Response:*
 
@@ -281,7 +311,7 @@ Success
 
 
 ### getGlobalProviders
-Get global providers
+Get global providers.
 
 
 
@@ -301,7 +331,7 @@ platformClient.application("<APPLICATION_ID>").communication.getGlobalProviders(
 
 
 
-Using this API, will retrieve a list of global providers.
+Retrieve a list of global communication providers.
 
 *Returned Response:*
 
@@ -366,7 +396,7 @@ Success
 
 
 ### getEmailProviders
-Get email providers
+Get email providers.
 
 
 
@@ -390,7 +420,7 @@ platformClient.application("<APPLICATION_ID>").communication.getEmailProviders( 
 
 
 
-Get email providers
+Retrieve a list of email communication providers.
 
 *Returned Response:*
 
@@ -462,7 +492,7 @@ Success
 
 
 ### createEmailProvider
-Create email provider
+Create email provider.
 
 
 
@@ -482,7 +512,7 @@ platformClient.application("<APPLICATION_ID>").communication.createEmailProvider
 | body | [EmailProviderReq](#EmailProviderReq) | yes | Request body |
 
 
-Create email provider
+Generate and add a new email communication provider.
 
 *Returned Response:*
 
@@ -543,7 +573,7 @@ Success
 
 
 ### getEmailProviderById
-Get email provider by id
+Get email provider by ID.
 
 
 
@@ -564,7 +594,7 @@ platformClient.application("<APPLICATION_ID>").communication.getEmailProviderByI
 
 
 
-Get email provider by id
+Retrieve detailed information about a specific email communication provider.
 
 *Returned Response:*
 
@@ -625,7 +655,7 @@ Success
 
 
 ### updateEmailProviderById
-Update email provider by id
+Update email provider by ID.
 
 
 
@@ -646,7 +676,7 @@ platformClient.application("<APPLICATION_ID>").communication.updateEmailProvider
 | body | [EmailProviderReq](#EmailProviderReq) | yes | Request body |
 
 
-Update email provider by id
+Modify the settings of a specific email communication provider.
 
 *Returned Response:*
 
@@ -707,7 +737,7 @@ Success
 
 
 ### deleteEmailProviderById
-Delete email provider by id
+Delete email provider by ID.
 
 
 
@@ -728,7 +758,7 @@ platformClient.application("<APPLICATION_ID>").communication.deleteEmailProvider
 
 
 
-Delete email provider by id
+Remove a specific email communication provider from the platform.
 
 *Returned Response:*
 
@@ -775,7 +805,7 @@ Refer `GenericDelete` schema for more details.
 
 
 ### getSmsProviders
-Get sms providers
+Get SMS providers.
 
 
 
@@ -799,7 +829,7 @@ platformClient.application("<APPLICATION_ID>").communication.getSmsProviders( pa
 
 
 
-Get sms providers
+Retrieve a list of SMS communication providers.
 
 *Returned Response:*
 
@@ -867,7 +897,7 @@ Success
 
 
 ### createSmsProvider
-Create sms provider
+Create SMS provider.
 
 
 
@@ -887,7 +917,7 @@ platformClient.application("<APPLICATION_ID>").communication.createSmsProvider(b
 | body | [SmsProviderReq](#SmsProviderReq) | yes | Request body |
 
 
-Create sms provider
+Add a new SMS communication provider.
 
 *Returned Response:*
 
@@ -944,7 +974,7 @@ Success
 
 
 ### getDefaultSmsProviders
-Get default sms providers
+Get default SMS providers.
 
 
 
@@ -964,7 +994,7 @@ platformClient.application("<APPLICATION_ID>").communication.getDefaultSmsProvid
 
 
 
-Get default sms providers
+Retrieve the default SMS communication providers.
 
 *Returned Response:*
 
@@ -1012,7 +1042,7 @@ Successful retrieval of the default SMS providers list
 
 
 ### getSmsProviderById
-Get sms provider by id
+Get SMS provider by ID.
 
 
 
@@ -1033,7 +1063,7 @@ platformClient.application("<APPLICATION_ID>").communication.getSmsProviderById(
 
 
 
-Get sms provider by id
+Retrieve detailed information about a specific SMS communication provider.
 
 *Returned Response:*
 
@@ -1090,7 +1120,7 @@ Success
 
 
 ### updateSmsProviderById
-Update sms provider by id
+Update SMS provider by ID.
 
 
 
@@ -1111,7 +1141,7 @@ platformClient.application("<APPLICATION_ID>").communication.updateSmsProviderBy
 | body | [SmsProviderReq](#SmsProviderReq) | yes | Request body |
 
 
-Update sms provider by id
+Modify specific SMS communication provider.
 
 *Returned Response:*
 
@@ -1168,7 +1198,7 @@ Success
 
 
 ### deleteSmsProviderById
-Delete sms provider by id
+Delete SMS provider by ID.
 
 
 
@@ -1189,7 +1219,7 @@ platformClient.application("<APPLICATION_ID>").communication.deleteSmsProviderBy
 
 
 
-Delete sms provider by id
+Remove a specific SMS communication provider.
 
 *Returned Response:*
 
@@ -1235,8 +1265,10 @@ Refer `GenericDelete` schema for more details.
 ---
 
 
+
+
 ### getCampaigns
-Get campaigns
+Get campaigns.
 
 
 
@@ -1260,7 +1292,7 @@ platformClient.application("<APPLICATION_ID>").communication.getCampaigns( query
 
 
 
-Get campaigns
+Retrieve a list of communication campaigns.
 
 *Returned Response:*
 
@@ -1366,7 +1398,7 @@ Success
 
 
 ### createCampaign
-Create campaign
+Create campaign.
 
 
 
@@ -1386,7 +1418,7 @@ platformClient.application("<APPLICATION_ID>").communication.createCampaign(body
 | body | [CampaignReq](#CampaignReq) | yes | Request body |
 
 
-Create campaign
+Add a new communication campaign.
 
 *Returned Response:*
 
@@ -1455,7 +1487,7 @@ Success
 
 
 ### getCampaignById
-Get campaign by id
+Get campaign by ID.
 
 
 
@@ -1476,7 +1508,7 @@ platformClient.application("<APPLICATION_ID>").communication.getCampaignById( id
 
 
 
-Get campaign by id
+Retrieve detailed information about a specific communication campaign.
 
 *Returned Response:*
 
@@ -1545,7 +1577,7 @@ Success
 
 
 ### updateCampaignById
-Update campaign by id
+Update campaign by ID.
 
 
 
@@ -1566,7 +1598,7 @@ platformClient.application("<APPLICATION_ID>").communication.updateCampaignById(
 | body | [CampaignReq](#CampaignReq) | yes | Request body |
 
 
-Update campaign by id
+Modify the settings of a specific communication campaign.
 
 *Returned Response:*
 
@@ -1635,7 +1667,7 @@ Success
 
 
 ### getStatsOfCampaignById
-Get stats of campaign by id
+Get campaign statistics by ID.
 
 
 
@@ -1656,7 +1688,7 @@ platformClient.application("<APPLICATION_ID>").communication.getStatsOfCampaignB
 
 
 
-Get stats of campaign by id
+Retrieve statistical data for a specific communication campaign.
 
 *Returned Response:*
 
@@ -1719,7 +1751,7 @@ Success
 
 
 ### getBigQueryRowCountById
-Get big query row count by id
+Get BigQuery row count by ID.
 
 
 
@@ -1740,7 +1772,7 @@ platformClient.application("<APPLICATION_ID>").communication.getBigQueryRowCount
 
 
 
-Get big query row count by id
+Retrieve big query row count by id
 
 *Returned Response:*
 
@@ -1782,7 +1814,7 @@ Success
 
 
 ### createBigQueryRowCount
-Create big query row count
+Create BigQuery row count.
 
 
 
@@ -1844,7 +1876,7 @@ Success
 
 
 ### getBigQueryHeadersById
-Get big query headers by id
+Get BigQuery headers by ID.
 
 
 
@@ -1865,7 +1897,7 @@ platformClient.application("<APPLICATION_ID>").communication.getBigQueryHeadersB
 
 
 
-Get big query headers by id
+Retrieve header information from BigQuery for a specific campaign.
 
 *Returned Response:*
 
@@ -1907,7 +1939,7 @@ Success
 
 
 ### createBigQueryNCount
-Create big query n count
+Create BigQuery N-count.
 
 
 
@@ -1969,7 +2001,7 @@ Success
 
 
 ### createBigQueryHeaders
-Create big query headers
+Create BigQuery headers.
 
 
 
@@ -2030,8 +2062,359 @@ Success
 ---
 
 
+### getJobs
+Get jobs.
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.getJobs( pageNo,  pageSize,  sort,  query) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |   
+| pageNo | Integer? | no | Current page no |   
+| pageSize | Integer? | no | Current request items count |   
+| sort | Object? | no | To sort based on created_at |   
+| query | Object? | no | To search based on plain text |  
+
+
+
+Retrieve a list of communication jobs.
+
+*Returned Response:*
+
+
+
+
+[Jobs](#Jobs)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "items": [
+      {
+        "completed": true,
+        "is_active": false,
+        "_id": "6044be260c92a7be0624f1cf",
+        "campaign": "6044be1e0c92a7026924f1ce",
+        "application": "000000000000000000000001",
+        "created_at": "2021-03-07T11:51:02.234Z",
+        "updated_at": "2021-03-07T12:12:36.587Z",
+        "__v": 0
+      }
+    ],
+    "page": {
+      "type": "number",
+      "current": 1,
+      "size": 50,
+      "item_total": 1,
+      "has_next": false
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### triggerCampaignJob
+Trigger campaign job.
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.triggerCampaignJob(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |  
+| body | [TriggerJobRequest](#TriggerJobRequest) | yes | Request body |
+
+
+Initiate a job to execute a communication campaign.
+
+*Returned Response:*
+
+
+
+
+[TriggerJobResponse](#TriggerJobResponse)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "status": 200
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getJobLogs
+Get job logs.
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.getJobLogs( pageNo,  pageSize,  sort,  query) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |   
+| pageNo | Integer? | no | Current page no |   
+| pageSize | Integer? | no | Current request items count |   
+| sort | Object? | no | To sort based on created_at |   
+| query | Object? | no | To search based on plain text |  
+
+
+
+Retrieve logs and details related to communication jobs.
+
+*Returned Response:*
+
+
+
+
+[JobLogs](#JobLogs)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "items": [
+      {
+        "imported": {
+          "count": 61135
+        },
+        "processed": {
+          "email": {
+            "success": 0,
+            "failed": 0,
+            "suppressed": 0
+          },
+          "sms": {
+            "success": 61313,
+            "failed": 85,
+            "suppressed": 87
+          }
+        },
+        "_id": "6044be30bc5f4b79aae7b29f",
+        "job": "6044be260c92a7be0624f1cf",
+        "campaign": "6044be1e0c92a7026924f1ce",
+        "created_at": "2021-03-07T11:51:12.778Z",
+        "updated_at": "2021-03-07T12:14:11.475Z",
+        "__v": 0
+      }
+    ],
+    "page": {
+      "type": "number",
+      "current": 1,
+      "size": 50,
+      "item_total": 1,
+      "has_next": false
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getCommunicationLogs
+Get communication logs.
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.getCommunicationLogs( pageId,  pageSize,  sort,  query) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |   
+| pageId | String? | no | Current page no |   
+| pageSize | Integer? | no | Current request items count |   
+| sort | Object? | no | To sort based on _id |   
+| query | Object? | no |  |  
+
+
+
+Retrieve logs and records of communication activities.
+
+*Returned Response:*
+
+
+
+
+[Logs](#Logs)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "items": [
+      {
+        "sms": {
+          "phone_number": "1234567890",
+          "country_code": "+91",
+          "template": "603e00649014219f87943213",
+          "provider": "5f8ee2234d70f7c5624f0413"
+        },
+        "pushnotification": {
+          "pushtokens": []
+        },
+        "meta": {
+          "type": "job",
+          "job": "603e021f171b19ee5a4324f4",
+          "campaign": "603e0217171b19556e4324f3",
+          "identifier": "pointblank.00395d65-c0a9-f9dc-0c46-5d65c0aa0c46"
+        },
+        "_id": "603e02300b9f817e1592fcbd",
+        "application": "000000000000000000000004",
+        "service": "sms-consumer",
+        "step": "MSG_SENT",
+        "status": "success",
+        "pod": "fynd-core-pointblank-smslow-cnsmr-dply-d6dbf9d7f-b6h2f",
+        "expire_at": "2021-04-01T09:15:28.526Z",
+        "created_at": "2021-03-02T09:15:28.527Z"
+      }
+    ],
+    "page": {
+      "type": "cursor",
+      "next_id": "null",
+      "has_previous": false,
+      "has_next": false
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
 ### getSystemAudiences
-Get system audiences
+Get system audiences.
 
 
 
@@ -2051,7 +2434,7 @@ platformClient.application("<APPLICATION_ID>").communication.getSystemAudiences(
 
 
 
-Get system audiences
+Retrieve system-defined audiences for communication.
 
 *Returned Response:*
 
@@ -2093,7 +2476,7 @@ Success
 
 
 ### getAudiences
-Get audiences
+Get audiences.
 
 
 
@@ -2117,7 +2500,7 @@ platformClient.application("<APPLICATION_ID>").communication.getAudiences( pageN
 
 
 
-Audience is used to import CSV files containing emails, phone numbers, and other variables in order to populate email/SMS templates for bulk delivery via a Campaign. Use this API to get audiences.
+Audience is used to import CSV files containing emails, phone numbers, and other variables in order to populate email/SMS templates for bulk delivery via a Campaign.
 
 *Returned Response:*
 
@@ -2191,7 +2574,7 @@ Success
 
 
 ### createAudience
-Create audience
+Create audience.
 
 
 
@@ -2211,7 +2594,7 @@ platformClient.application("<APPLICATION_ID>").communication.createAudience(body
 | body | [AudienceReq](#AudienceReq) | yes | Request body |
 
 
-Audience is used to import CSV files containing emails, phone numbers, and other variables in order to populate email/SMS templates for bulk delivery via a Campaign. Use this API to create audience.
+Add audience which is used to import CSV files containing emails, phone numbers, and other variables in order to populate email/SMS templates for bulk delivery via a Campaign. 
 
 *Returned Response:*
 
@@ -2274,7 +2657,7 @@ Refer `Audience` schema for more details.
 
 
 ### getAudienceById
-Get audience by id
+Get audience by ID.
 
 
 
@@ -2295,7 +2678,7 @@ platformClient.application("<APPLICATION_ID>").communication.getAudienceById( id
 
 
 
-Audience is used to import CSV files containing emails, phone numbers, and other variables in order to populate email/SMS templates for bulk delivery via a Campaign. Use this API to get audiences by Id.
+Retrieve detailed information about a specific custom communication audience.
 
 *Returned Response:*
 
@@ -2358,7 +2741,7 @@ Refer `Audience` schema for more details.
 
 
 ### updateAudienceById
-Update audience by id
+Update audience by ID.
 
 
 
@@ -2379,7 +2762,7 @@ platformClient.application("<APPLICATION_ID>").communication.updateAudienceById(
 | body | [AudienceReq](#AudienceReq) | yes | Request body |
 
 
-Audience is used to import CSV files containing emails, phone numbers, and other variables in order to populate email/SMS templates for bulk delivery via a Campaign. Use this API to update audience by id.
+Modify the settings of a specific custom communication audience.
 
 *Returned Response:*
 
@@ -2442,7 +2825,7 @@ Refer `Audience` schema for more details.
 
 
 ### deleteAudienceById
-Delete audience by id
+Delete audience by ID.
 
 
 
@@ -2463,7 +2846,7 @@ platformClient.application("<APPLICATION_ID>").communication.deleteAudienceById(
 | body | [AudienceReq](#AudienceReq) | yes | Request body |
 
 
-Audience is used to import CSV files containing emails, phone numbers, and other variables in order to populate email/SMS templates for bulk delivery via a Campaign. Use this API to delete audience by id.
+Remove a specific custom communication audience.
 
 *Returned Response:*
 
@@ -2525,147 +2908,8 @@ Refer `Audience` schema for more details.
 ---
 
 
-### getDummyDatasources
-Get dummy data sources
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").communication.getDummyDatasources() {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Company id |   
-| applicationId | String | yes | Application id |  
-
-
-
-Audience is used to import CSV files containing emails, phone numbers, and other variables in order to populate email/SMS templates for bulk delivery via a Campaign. Use this API to get dummy data sources.
-
-*Returned Response:*
-
-
-
-
-[List<DummyDatasources>](#List<DummyDatasources>)
-
-Refer `DummyDatasources` schema for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; default</i></summary>
-
-```json
-{
-  "value": [
-    {
-      "id": 1,
-      "name": "Data source 1"
-    },
-    {
-      "id": 2,
-      "name": "Data source 2"
-    }
-  ]
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getDummyDatasourcesMeta
-Get dummy data sources meta
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").communication.getDummyDatasourcesMeta( id) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Company id |   
-| applicationId | String | yes | Application id |   
-| id | Integer | yes | Dummy datasources meta ID |  
-
-
-
-Audience is used to import CSV files containing emails, phone numbers, and other variables in order to populate email/SMS templates for bulk delivery via a Campaign. Use this API to get dummy data sources meta.
-
-*Returned Response:*
-
-
-
-
-[DummyDatasourcesMeta](#DummyDatasourcesMeta)
-
-Refer `DummyDatasourcesMeta` schema for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; default</i></summary>
-
-```json
-{
-  "value": {
-    "id": 2,
-    "data": {
-      "b": 2
-    }
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### getNSampleRecordsFromCsvByGet
-Get n sample records from csv
+Get N sample records in CSV 
 
 
 
@@ -2685,7 +2929,7 @@ platformClient.application("<APPLICATION_ID>").communication.getNSampleRecordsFr
 
 
 
-Audience is used to import CSV files containing emails, phone numbers, and other variables in order to populate email/SMS templates for bulk delivery via a Campaign. Use this API to get n sample records from csv.
+Retrieve a specified number of sample records from a CSV data source using a GET request.
 
 *Returned Response:*
 
@@ -2737,7 +2981,7 @@ Refer `GetNRecordsCsvRes` schema for more details.
 
 
 ### getNSampleRecordsFromCsv
-Get n sample records from csv
+Get N sample records from CSV.
 
 
 
@@ -2757,7 +3001,7 @@ platformClient.application("<APPLICATION_ID>").communication.getNSampleRecordsFr
 | body | [GetNRecordsCsvReq](#GetNRecordsCsvReq) | yes | Request body |
 
 
-Audience is used to import CSV files containing emails, phone numbers, and other variables in order to populate email/SMS templates for bulk delivery via a Campaign. Use this API to get n sample records from csv
+Retrieve a specified number of sample records from a CSV data source.
 
 *Returned Response:*
 
@@ -2808,8 +3052,81 @@ Refer `GetNRecordsCsvRes` schema for more details.
 ---
 
 
+
+
+### getDummyDatasources
+Get dummy data sources.
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.getDummyDatasources() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |  
+
+
+
+Retrieve a list of dummy data sources for testing.
+
+*Returned Response:*
+
+
+
+
+[List<DummyDatasources>](#List<DummyDatasources>)
+
+Refer `DummyDatasources` schema for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": [
+    {
+      "id": 1,
+      "name": "Data source 1"
+    },
+    {
+      "id": 2,
+      "name": "Data source 2"
+    }
+  ]
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getEmailTemplates
-Get email templates
+Get email templates.
 
 
 
@@ -2833,7 +3150,7 @@ platformClient.application("<APPLICATION_ID>").communication.getEmailTemplates( 
 
 
 
-Email templates are predefined formats linked to various events for delivering messages to users. Use this API to get all email templates.
+Retrieve a list of available email communication templates.
 
 *Returned Response:*
 
@@ -2934,7 +3251,7 @@ Refer `EmailTemplates` schema for more details.
 
 
 ### createEmailTemplate
-Create email template
+Create email template.
 
 
 
@@ -2954,7 +3271,7 @@ platformClient.application("<APPLICATION_ID>").communication.createEmailTemplate
 | body | [EmailTemplateReq](#EmailTemplateReq) | yes | Request body |
 
 
-Email templates are predefined formats linked to various events for delivering messages to users. Use this API to create an email template.
+Generate and add a new email communication template.
 
 *Returned Response:*
 
@@ -3044,7 +3361,7 @@ Refer `EmailTemplate` schema for more details.
 
 
 ### getSystemEmailTemplates
-Get system email templates
+Get system email templates.
 
 
 
@@ -3064,7 +3381,7 @@ platformClient.application("<APPLICATION_ID>").communication.getSystemEmailTempl
 
 
 
-Email templates are predefined formats linked to various events for delivering messages to users. Use this API to get all system email templates.
+Retrieve system-defined email communication templates.
 
 *Returned Response:*
 
@@ -3141,7 +3458,7 @@ Refer `SystemEmailTemplates` schema for more details.
 
 
 ### getEmailTemplateById
-Get email template by id
+Get email template by ID.
 
 
 
@@ -3162,7 +3479,7 @@ platformClient.application("<APPLICATION_ID>").communication.getEmailTemplateByI
 
 
 
-Email templates are predefined formats linked to various events for delivering messages to users. Use this API to get an email template by id.
+Retrieve detailed information about a specific email communication template.
 
 *Returned Response:*
 
@@ -3252,7 +3569,7 @@ Refer `EmailTemplate` schema for more details.
 
 
 ### updateEmailTemplateById
-Update email template by id
+Update email template by ID.
 
 
 
@@ -3273,7 +3590,7 @@ platformClient.application("<APPLICATION_ID>").communication.updateEmailTemplate
 | body | [EmailTemplateReq](#EmailTemplateReq) | yes | Request body |
 
 
-Email templates are predefined formats linked to various events for delivering messages to users. Use this API to update an email template by id.
+Modify the content and settings of a specific email communication template.
 
 *Returned Response:*
 
@@ -3363,7 +3680,7 @@ Refer `EmailTemplate` schema for more details.
 
 
 ### deleteEmailTemplateById
-Delete email template by id
+Delete email template by ID.
 
 
 
@@ -3384,7 +3701,7 @@ platformClient.application("<APPLICATION_ID>").communication.deleteEmailTemplate
 
 
 
-Email templates are predefined formats linked to various events for delivering messages to users. Use this API to delete an email template by id.
+Email templates are predefined formats linked to various events for delivering messages to users. Remove a specific email communication template by its ID.
 
 *Returned Response:*
 
@@ -3431,7 +3748,7 @@ Refer `GenericDelete` schema for more details.
 
 
 ### getSubscribedEmailTemplates
-Get subscribed email templates
+Get subscribed email templates.
 
 
 
@@ -3454,7 +3771,7 @@ platformClient.application("<APPLICATION_ID>").communication.getSubscribedEmailT
 
 
 
-Email templates are predefined formats linked to various events for delivering messages to users. Use this API to get all subscribed email templates.
+Retrieve email communication templates that are subscribed to.
 
 *Returned Response:*
 
@@ -3554,8 +3871,78 @@ Refer `EmailTemplates` schema for more details.
 ---
 
 
+
+
+### getDummyDatasourcesMeta
+Get dummy data sources metadata.
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.getDummyDatasourcesMeta( id) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |   
+| id | Integer | yes | Dummy datasources meta ID |  
+
+
+
+Retrieve metadata information about dummy data sources.
+
+*Returned Response:*
+
+
+
+
+[DummyDatasourcesMeta](#DummyDatasourcesMeta)
+
+Refer `DummyDatasourcesMeta` schema for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "id": 2,
+    "data": {
+      "b": 2
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getSmsTemplates
-Get sms templates
+Get SMS templates.
 
 
 
@@ -3579,7 +3966,7 @@ platformClient.application("<APPLICATION_ID>").communication.getSmsTemplates( pa
 
 
 
-SMS templates are predefined message formats linked to various events for delivering messages to users. Use this API to get all sms templates.
+Retrieve a list of available SMS communication templates.
 
 *Returned Response:*
 
@@ -3666,7 +4053,7 @@ Refer `SmsTemplates` schema for more details.
 
 
 ### createSmsTemplate
-Create sms template
+Create SMS template.
 
 
 
@@ -3686,7 +4073,7 @@ platformClient.application("<APPLICATION_ID>").communication.createSmsTemplate(b
 | body | [SmsTemplateReq](#SmsTemplateReq) | yes | Request body |
 
 
-SMS templates are predefined message formats linked to various events for delivering messages to users. Use this API to create an sms template.
+Add a new SMS communication template.
 
 *Returned Response:*
 
@@ -3762,7 +4149,7 @@ Refer `SmsTemplate` schema for more details.
 
 
 ### getSystemSmsTemplates
-Get system sms templates
+Get system SMS templates.
 
 
 
@@ -3782,7 +4169,7 @@ platformClient.application("<APPLICATION_ID>").communication.getSystemSmsTemplat
 
 
 
-SMS templates are predefined message formats linked to various events for delivering messages to users. Use this API to get all system sms templates.
+Retrieve system-defined SMS communication templates.
 
 *Returned Response:*
 
@@ -3882,7 +4269,7 @@ Refer `SystemSmsTemplates` schema for more details.
 
 
 ### getSmsTemplateById
-Get sms template by id
+Get SMS template by ID.
 
 
 
@@ -3903,7 +4290,7 @@ platformClient.application("<APPLICATION_ID>").communication.getSmsTemplateById(
 
 
 
-SMS templates are predefined message formats linked to various events for delivering messages to users. Use this API to get an sms template by ID.
+Retrieve detailed information about a specific SMS communication template.
 
 *Returned Response:*
 
@@ -3979,7 +4366,7 @@ Refer `SmsTemplate` schema for more details.
 
 
 ### updateSmsTemplateById
-Update sms template by id
+Update SMS template by ID.
 
 
 
@@ -4000,7 +4387,7 @@ platformClient.application("<APPLICATION_ID>").communication.updateSmsTemplateBy
 | body | [SmsTemplateReq](#SmsTemplateReq) | yes | Request body |
 
 
-SMS templates are predefined message formats linked to various events for delivering messages to users. Use this API to update an sms template by ID.
+Modify the content and settings of a specific SMS communication template.
 
 *Returned Response:*
 
@@ -4076,7 +4463,7 @@ Refer `SmsTemplate` schema for more details.
 
 
 ### deleteSmsTemplateById
-Delete sms template by id
+Delete SMS template by ID.
 
 
 
@@ -4097,7 +4484,7 @@ platformClient.application("<APPLICATION_ID>").communication.deleteSmsTemplateBy
 
 
 
-SMS templates are predefined message formats linked to various events for delivering messages to users. Use this API to delete an sms template by ID.
+Remove a specific SMS communication template.
 
 *Returned Response:*
 
@@ -4144,7 +4531,7 @@ Refer `GenericDelete` schema for more details.
 
 
 ### getSubscribedSmsTemplates
-Get subscribed sms templates
+Get subscribed SMS templates.
 
 
 
@@ -4167,7 +4554,7 @@ platformClient.application("<APPLICATION_ID>").communication.getSubscribedSmsTem
 
 
 
-SMS templates are predefined message formats linked to various events for delivering messages to users. Use this API to get all subscribed sms templates.
+Retrieve SMS communication templates that are subscribed to.
 
 *Returned Response:*
 
@@ -4253,8 +4640,10 @@ Refer `SmsTemplates` schema for more details.
 ---
 
 
+
+
 ### sendCommunicationSynchronously
-Send email or sms synchronously
+Send communication synchronously.
 
 
 
@@ -4274,7 +4663,7 @@ platformClient.application("<APPLICATION_ID>").communication.sendCommunicationSy
 | body | [EngineRequest](#EngineRequest) | yes | Request body |
 
 
-Send email or sms synchronously
+Initiate and send communication in real-time.
 
 *Returned Response:*
 
@@ -4318,7 +4707,7 @@ Success
 
 
 ### sendCommunicationAsynchronously
-Send email or sms asynchronously
+Send communication asynchronously.
 
 
 
@@ -4338,7 +4727,7 @@ platformClient.application("<APPLICATION_ID>").communication.sendCommunicationAs
 | body | [EngineRequest](#EngineRequest) | yes | Request body |
 
 
-Send email or sms asynchronously
+Initiate and send communication with the option for asynchronous processing.
 
 *Returned Response:*
 
@@ -4381,8 +4770,10 @@ Success
 ---
 
 
+
+
 ### getEventSubscriptions
-Get event subscriptions
+Get event subscriptions.
 
 
 
@@ -4405,7 +4796,7 @@ platformClient.application("<APPLICATION_ID>").communication.getEventSubscriptio
 
 
 
-Get event subscriptions
+Retrieve a list of event subscriptions related to communication.
 
 *Returned Response:*
 
@@ -5016,6 +5407,8 @@ Success
 ---
 
 
+
+
 ### createEventSubscriptions
 Create event subscriptions
 
@@ -5426,247 +5819,6 @@ Success
 ---
 
 
-### getGlobalVariables
-get global variables
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").communication.getGlobalVariables() {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Company id |   
-| applicationId | String | yes | Application id |  
-
-
-
-get global variables
-
-*Returned Response:*
-
-
-
-
-[GlobalVariablesGetResponse](#GlobalVariablesGetResponse)
-
-Refer `GlobalVariablesGetResponse` schema for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; default</i></summary>
-
-```json
-{
-  "value": {
-    "read_only": {
-      "app.address.address_line": [],
-      "app.shipping_policy": "",
-      "app.returns_policy": "",
-      "app.terms_policy": "",
-      "app.copyright_text": null,
-      "app.address_line": "",
-      "app.city_pincode": "",
-      "app.logo_url": null,
-      "app.support_email": null,
-      "app.support_mobile": null,
-      "app.contact_us": "",
-      "app.domain": "",
-      "app.privacy_policy": "https://fynd.freshdesk.com/support/solutions/articles/33000214398-privacy-policy"
-    },
-    "editable": {
-      "service_country": "uzbekistan",
-      "service_name": "fynd",
-      "service_platform": "fynd platform"
-    }
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### postGlobalVariables
-post global variables
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").communication.postGlobalVariables(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Company id |   
-| applicationId | String | yes | Application id |  
-| body | [GlobalVariablesReq](#GlobalVariablesReq) | yes | Request body |
-
-
-psot global variables
-
-*Returned Response:*
-
-
-
-
-[GlobalVariablesPostResponse](#GlobalVariablesPostResponse)
-
-Refer `GlobalVariablesPostResponse` schema for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; default</i></summary>
-
-```json
-{
-  "value": {
-    "_id": "64a2be215cc595c57fa0e40a",
-    "category": "website",
-    "application": "637b6355dc65337da9b5c951",
-    "global_variables": {
-      "service_country": "uzbekistan",
-      "service_name": "fynd-plato",
-      "service_platform": "fynd platform"
-    },
-    "created_at": "2023-07-03T12:25:05.819Z"
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getJobs
-Get jobs
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").communication.getJobs( pageNo,  pageSize,  sort,  query) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Company id |   
-| applicationId | String | yes | Application id |   
-| pageNo | Integer? | no | Current page no |   
-| pageSize | Integer? | no | Current request items count |   
-| sort | Object? | no | To sort based on created_at |   
-| query | Object? | no | To search based on plain text |  
-
-
-
-Get jobs
-
-*Returned Response:*
-
-
-
-
-[Jobs](#Jobs)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; default</i></summary>
-
-```json
-{
-  "value": {
-    "items": [
-      {
-        "completed": true,
-        "is_active": false,
-        "_id": "6044be260c92a7be0624f1cf",
-        "campaign": "6044be1e0c92a7026924f1ce",
-        "application": "000000000000000000000001",
-        "created_at": "2021-03-07T11:51:02.234Z",
-        "updated_at": "2021-03-07T12:12:36.587Z",
-        "__v": 0
-      }
-    ],
-    "page": {
-      "type": "number",
-      "current": 1,
-      "size": 50,
-      "item_total": 1,
-      "has_next": false
-    }
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### createJobs
 Create jobs
 
@@ -5720,510 +5872,6 @@ Success
     "created_at": "2020-12-16T12:27:48.051Z",
     "updated_at": "2020-12-16T12:27:48.051Z",
     "__v": 0
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### triggerCampaignJob
-Trigger campaign job
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").communication.triggerCampaignJob(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Company id |   
-| applicationId | String | yes | Application id |  
-| body | [TriggerJobRequest](#TriggerJobRequest) | yes | Request body |
-
-
-Trigger campaign job
-
-*Returned Response:*
-
-
-
-
-[TriggerJobResponse](#TriggerJobResponse)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; default</i></summary>
-
-```json
-{
-  "value": {
-    "status": 200
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getJobLogs
-Get job logs
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").communication.getJobLogs( pageNo,  pageSize,  sort,  query) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Company id |   
-| applicationId | String | yes | Application id |   
-| pageNo | Integer? | no | Current page no |   
-| pageSize | Integer? | no | Current request items count |   
-| sort | Object? | no | To sort based on created_at |   
-| query | Object? | no | To search based on plain text |  
-
-
-
-Get job logs
-
-*Returned Response:*
-
-
-
-
-[JobLogs](#JobLogs)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; default</i></summary>
-
-```json
-{
-  "value": {
-    "items": [
-      {
-        "imported": {
-          "count": 61135
-        },
-        "processed": {
-          "email": {
-            "success": 0,
-            "failed": 0,
-            "suppressed": 0
-          },
-          "sms": {
-            "success": 61313,
-            "failed": 85,
-            "suppressed": 87
-          }
-        },
-        "_id": "6044be30bc5f4b79aae7b29f",
-        "job": "6044be260c92a7be0624f1cf",
-        "campaign": "6044be1e0c92a7026924f1ce",
-        "created_at": "2021-03-07T11:51:12.778Z",
-        "updated_at": "2021-03-07T12:14:11.475Z",
-        "__v": 0
-      }
-    ],
-    "page": {
-      "type": "number",
-      "current": 1,
-      "size": 50,
-      "item_total": 1,
-      "has_next": false
-    }
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getCommunicationLogs
-Get communication logs
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").communication.getCommunicationLogs( pageId,  pageSize,  sort,  query) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Company id |   
-| applicationId | String | yes | Application id |   
-| pageId | String? | no | Current page no |   
-| pageSize | Integer? | no | Current request items count |   
-| sort | Object? | no | To sort based on _id |   
-| query | Object? | no |  |  
-
-
-
-Get communication logs
-
-*Returned Response:*
-
-
-
-
-[Logs](#Logs)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; default</i></summary>
-
-```json
-{
-  "value": {
-    "items": [
-      {
-        "sms": {
-          "phone_number": "1234567890",
-          "country_code": "+91",
-          "template": "603e00649014219f87943213",
-          "provider": "5f8ee2234d70f7c5624f0413"
-        },
-        "pushnotification": {
-          "pushtokens": []
-        },
-        "meta": {
-          "type": "job",
-          "job": "603e021f171b19ee5a4324f4",
-          "campaign": "603e0217171b19556e4324f3",
-          "identifier": "pointblank.00395d65-c0a9-f9dc-0c46-5d65c0aa0c46"
-        },
-        "_id": "603e02300b9f817e1592fcbd",
-        "application": "000000000000000000000004",
-        "service": "sms-consumer",
-        "step": "MSG_SENT",
-        "status": "success",
-        "pod": "fynd-core-pointblank-smslow-cnsmr-dply-d6dbf9d7f-b6h2f",
-        "expire_at": "2021-04-01T09:15:28.526Z",
-        "created_at": "2021-03-02T09:15:28.527Z"
-      }
-    ],
-    "page": {
-      "type": "cursor",
-      "next_id": "null",
-      "has_previous": false,
-      "has_next": false
-    }
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getSystemNotifications
-Get system notifications
-
-
-
-
-```java
-platformClient.communication.getSystemNotifications( pageNo,  pageSize) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Company id |   
-| pageNo | Integer? | no |  |   
-| pageSize | Integer? | no |  |  
-
-
-
-Get system notifications
-
-*Returned Response:*
-
-
-
-
-[SystemNotifications](#SystemNotifications)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; default</i></summary>
-
-```json
-{
-  "value": {
-    "items": [
-      {
-        "notification": {
-          "title": "Xyz Company is verified!",
-          "body": "",
-          "subtitle": "",
-          "icon": "icon.png",
-          "deeplink": "",
-          "click_action": ""
-        },
-        "user": {
-          "type": "company",
-          "value": "1"
-        },
-        "settings": {
-          "sound": true,
-          "priority": "normal",
-          "time_to_live": "60"
-        },
-        "_id": "60619f167dbd13ff0722f6dd",
-        "group": "fynd-platform",
-        "created_at": "2021-03-29T09:34:14.182Z"
-      }
-    ],
-    "last_read_anchor": 1616748860,
-    "page": {
-      "type": "number",
-      "current": 1,
-      "size": 1,
-      "item_total": 1,
-      "has_next": false
-    }
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### sendOtp
-Send OTP using email and sms
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").communication.sendOtp(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Company id |   
-| applicationId | String | yes | Application id |  
-| body | [SendOtpCommsReq](#SendOtpCommsReq) | yes | Request body |
-
-
-Send OTP Comms via email and sms
-
-*Returned Response:*
-
-
-
-
-[SendOtpCommsRes](#SendOtpCommsRes)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; default</i></summary>
-
-```json
-{
-  "value": {
-    "sms": {
-      "success": true,
-      "request_id": "c8d1bd63d56a2d368aae9dbd4e7d8326",
-      "message": "OTP sent",
-      "mobile": "9096686804",
-      "country_code": "91",
-      "resend_timer": 30
-    },
-    "email": {
-      "success": true,
-      "request_id": "1cc79c911923971580d903039ea9ee05",
-      "message": "OTP sent",
-      "to": "parvezshaikh@gofynd.com",
-      "resend_timer": 30
-    }
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### verfiyOtp
-Verify OTP sent via email and sms
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").communication.verfiyOtp(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Company id |   
-| applicationId | String | yes | Application id |  
-| body | [VerifyOtpCommsReq](#VerifyOtpCommsReq) | yes | Request body |
-
-
-Verify OTP sent via email and sms
-
-*Returned Response:*
-
-
-
-
-[VerifyOtpCommsSuccessRes](#VerifyOtpCommsSuccessRes)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; default</i></summary>
-
-```json
-{
-  "value": {
-    "success": true,
-    "mobile": "9096686804",
-    "country_code": "91",
-    "message": "OTP verified"
   }
 }
 ```
@@ -6372,6 +6020,408 @@ Success
     },
     "application_id": "6399ba6924ab1bacf0131492",
     "company_id": "1"
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
+### getGlobalVariables
+Get global variables.
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.getGlobalVariables() {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |  
+
+
+
+Retrieve global variables used in communication.
+
+*Returned Response:*
+
+
+
+
+[GlobalVariablesGetResponse](#GlobalVariablesGetResponse)
+
+Refer `GlobalVariablesGetResponse` schema for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "read_only": {
+      "app.address.address_line": [],
+      "app.shipping_policy": "",
+      "app.returns_policy": "",
+      "app.terms_policy": "",
+      "app.copyright_text": null,
+      "app.address_line": "",
+      "app.city_pincode": "",
+      "app.logo_url": null,
+      "app.support_email": null,
+      "app.support_mobile": null,
+      "app.contact_us": "",
+      "app.domain": "",
+      "app.privacy_policy": "https://fynd.freshdesk.com/support/solutions/articles/33000214398-privacy-policy"
+    },
+    "editable": {
+      "service_country": "uzbekistan",
+      "service_name": "fynd",
+      "service_platform": "fynd platform"
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### postGlobalVariables
+Post global variables.
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.postGlobalVariables(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |  
+| body | [GlobalVariablesReq](#GlobalVariablesReq) | yes | Request body |
+
+
+Update and post global variables for communication.
+
+*Returned Response:*
+
+
+
+
+[GlobalVariablesPostResponse](#GlobalVariablesPostResponse)
+
+Refer `GlobalVariablesPostResponse` schema for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "_id": "64a2be215cc595c57fa0e40a",
+    "category": "website",
+    "application": "637b6355dc65337da9b5c951",
+    "global_variables": {
+      "service_country": "uzbekistan",
+      "service_name": "fynd-plato",
+      "service_platform": "fynd platform"
+    },
+    "created_at": "2023-07-03T12:25:05.819Z"
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
+### getSystemNotifications
+Get system notifications.
+
+
+
+
+```java
+platformClient.communication.getSystemNotifications( pageNo,  pageSize) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| pageNo | Integer? | no |  |   
+| pageSize | Integer? | no |  |  
+
+
+
+Retrieve system notifications related to communication.
+
+*Returned Response:*
+
+
+
+
+[SystemNotifications](#SystemNotifications)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "items": [
+      {
+        "notification": {
+          "title": "Xyz Company is verified!",
+          "body": "",
+          "subtitle": "",
+          "icon": "icon.png",
+          "deeplink": "",
+          "click_action": ""
+        },
+        "user": {
+          "type": "company",
+          "value": "1"
+        },
+        "settings": {
+          "sound": true,
+          "priority": "normal",
+          "time_to_live": "60"
+        },
+        "_id": "60619f167dbd13ff0722f6dd",
+        "group": "fynd-platform",
+        "created_at": "2021-03-29T09:34:14.182Z"
+      }
+    ],
+    "last_read_anchor": 1616748860,
+    "page": {
+      "type": "number",
+      "current": 1,
+      "size": 1,
+      "item_total": 1,
+      "has_next": false
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
+### sendOtp
+Send OTP.
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.sendOtp(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |  
+| body | [SendOtpCommsReq](#SendOtpCommsReq) | yes | Request body |
+
+
+Send a one-time password (OTP) for authentication or verification.
+
+*Returned Response:*
+
+
+
+
+[SendOtpCommsRes](#SendOtpCommsRes)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "sms": {
+      "success": true,
+      "request_id": "c8d1bd63d56a2d368aae9dbd4e7d8326",
+      "message": "OTP sent",
+      "mobile": "9096686804",
+      "country_code": "91",
+      "resend_timer": 30
+    },
+    "email": {
+      "success": true,
+      "request_id": "1cc79c911923971580d903039ea9ee05",
+      "message": "OTP sent",
+      "to": "parvezshaikh@gofynd.com",
+      "resend_timer": 30
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### verfiyOtp
+Verify OTP.
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").communication.verfiyOtp(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company id |   
+| applicationId | String | yes | Application id |  
+| body | [VerifyOtpCommsReq](#VerifyOtpCommsReq) | yes | Request body |
+
+
+Verify the one-time password (OTP) for authentication or verification.
+
+*Returned Response:*
+
+
+
+
+[VerifyOtpCommsSuccessRes](#VerifyOtpCommsSuccessRes)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; default</i></summary>
+
+```json
+{
+  "value": {
+    "success": true,
+    "mobile": "9096686804",
+    "country_code": "91",
+    "message": "OTP verified"
   }
 }
 ```

@@ -117,40 +117,6 @@ import com.sdk.application.*;
         }
         return response.body();
     }
-
-    /**
-    * Summary: get paginator for getBlogs
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ContentApplicationModels.BlogGetResponse> getBlogsPagination(
-        
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ContentApplicationModels.BlogGetResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ContentApplicationModels.BlogGetResponse callback = this.getBlogs(
-                
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator;
-    }
     
 
     public ContentApplicationModels.DataLoadersSchema getDataLoaders() throws IOException {
@@ -306,40 +272,6 @@ import com.sdk.application.*;
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
-    }
-
-    /**
-    * Summary: get paginator for getNavigations
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ContentApplicationModels.NavigationGetResponse> getNavigationsPagination(
-        
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ContentApplicationModels.NavigationGetResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ContentApplicationModels.NavigationGetResponse callback = this.getNavigations(
-                
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator;
     }
     
 
@@ -512,40 +444,6 @@ import com.sdk.application.*;
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
-    }
-
-    /**
-    * Summary: get paginator for getPages
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ContentApplicationModels.PageGetResponse> getPagesPagination(
-        
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ContentApplicationModels.PageGetResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ContentApplicationModels.PageGetResponse callback = this.getPages(
-                
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator;
     }
     
 

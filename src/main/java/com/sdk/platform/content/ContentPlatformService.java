@@ -300,15 +300,15 @@ public class ContentPlatformService {
     
     
 
-    public ContentPlatformModels.CustomFieldDefinitionsSchema getCustomFieldDefinitions(String pageNo, String pageSize, String resource, String type, String search) throws FDKServerResponseError, FDKException {
-        return this.getCustomFieldDefinitions(pageNo, pageSize, resource, type, search, new HashMap<>());
+    public ContentPlatformModels.CustomFieldDefinitionsSchema getCustomFieldDefinitions(String pageNo, String pageSize, String resources, String types, String search) throws FDKServerResponseError, FDKException {
+        return this.getCustomFieldDefinitions(pageNo, pageSize, resources, types, search, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomFieldDefinitionsSchema getCustomFieldDefinitions(String pageNo, String pageSize, String resource, String type, String search, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomFieldDefinitionsSchema getCustomFieldDefinitions(String pageNo, String pageSize, String resources, String types, String search, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomFieldDefinitionsSchema> response = null;
             try {
-                response = contentPlatformApiList.getCustomFieldDefinitions(this.companyId, pageNo, pageSize, resource, type, search, requestHeaders).execute();
+                response = contentPlatformApiList.getCustomFieldDefinitions(this.companyId, pageNo, pageSize, resources, types, search, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1364,40 +1364,6 @@ public class ApplicationClient {
         }    
     }
 
-    /**
-    * Summary: get paginator for getAnnouncementsList
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ContentPlatformModels.GetAnnouncementListSchema> getAnnouncementsListPagination(
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ContentPlatformModels.GetAnnouncementListSchema> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ContentPlatformModels.GetAnnouncementListSchema callback = this.getAnnouncementsList(
-                
-                 
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-
     public ContentPlatformModels.CreateAnnouncementSchema createAnnouncement(ContentPlatformModels.AdminAnnouncementSchema body) throws FDKServerResponseError, FDKException {
         return this.createAnnouncement(body, new HashMap<>());
     }
@@ -1585,40 +1551,6 @@ public class ApplicationClient {
         } else {
             return null;
         }    
-    }
-
-    /**
-    * Summary: get paginator for getBlogs
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ContentPlatformModels.BlogGetResponse> getBlogsPagination(
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ContentPlatformModels.BlogGetResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ContentPlatformModels.BlogGetResponse callback = this.getBlogs(
-                
-                 
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
     }
 
     public ContentPlatformModels.BlogSchema updateBlog(String id, ContentPlatformModels.BlogRequest body) throws FDKServerResponseError, FDKException {
@@ -2215,40 +2147,6 @@ public class ApplicationClient {
         }    
     }
 
-    /**
-    * Summary: get paginator for getLandingPages
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ContentPlatformModels.LandingPageGetResponse> getLandingPagesPagination(
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ContentPlatformModels.LandingPageGetResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ContentPlatformModels.LandingPageGetResponse callback = this.getLandingPages(
-                
-                 
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-
     public ContentPlatformModels.LandingPageSchema createLandingPage(ContentPlatformModels.LandingPageSchema body) throws FDKServerResponseError, FDKException {
         return this.createLandingPage(body, new HashMap<>());
     }
@@ -2409,42 +2307,6 @@ public class ApplicationClient {
         } else {
             return null;
         }    
-    }
-
-    /**
-    * Summary: get paginator for getNavigations
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ContentPlatformModels.NavigationGetResponse> getNavigationsPagination(
-        String devicePlatform,
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ContentPlatformModels.NavigationGetResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ContentPlatformModels.NavigationGetResponse callback = this.getNavigations(
-                
-                 
-                 
-                 devicePlatform,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
     }
 
     public ContentPlatformModels.NavigationSchema createNavigation(ContentPlatformModels.NavigationRequest body) throws FDKServerResponseError, FDKException {
@@ -3509,40 +3371,6 @@ public class ApplicationClient {
         }    
     }
 
-    /**
-    * Summary: get paginator for getPages
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ContentPlatformModels.PageGetResponse> getPagesPagination(
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ContentPlatformModels.PageGetResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ContentPlatformModels.PageGetResponse callback = this.getPages(
-                
-                 
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-
     public ContentPlatformModels.PageSchema updatePage(String id, ContentPlatformModels.PageSchema body) throws FDKServerResponseError, FDKException {
         return this.updatePage(id, body, new HashMap<>());
     }
@@ -3651,15 +3479,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.CustomFieldDefinitionsSchema getAppCustomFieldDefinitions(String pageNo, String pageSize, String resource, String type, String search) throws FDKServerResponseError, FDKException {
-        return this.getAppCustomFieldDefinitions(pageNo, pageSize, resource, type, search, new HashMap<>());
+    public ContentPlatformModels.CustomFieldDefinitionsSchema getAppCustomFieldDefinitions(String pageNo, String pageSize, String resources, String types, String search) throws FDKServerResponseError, FDKException {
+        return this.getAppCustomFieldDefinitions(pageNo, pageSize, resources, types, search, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomFieldDefinitionsSchema getAppCustomFieldDefinitions(String pageNo, String pageSize, String resource, String type, String search, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomFieldDefinitionsSchema getAppCustomFieldDefinitions(String pageNo, String pageSize, String resources, String types, String search, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomFieldDefinitionsSchema> response = null;
             try {
-            response = contentPlatformApiList.getAppCustomFieldDefinitions(this.companyId, this.applicationId, pageNo, pageSize, resource, type, search, requestHeaders).execute();
+            response = contentPlatformApiList.getAppCustomFieldDefinitions(this.companyId, this.applicationId, pageNo, pageSize, resources, types, search, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

@@ -1146,6 +1146,12 @@ public static class OperationErrorResponse{
     
     
     
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
 }
 
 
@@ -2319,6 +2325,12 @@ public static class PromotionListItem{
     
     
     
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
 }
 
 
@@ -2501,6 +2513,12 @@ public static class PromotionAdd{
     
     
     
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
 }
 
 
@@ -2649,6 +2667,12 @@ public static class PromotionUpdate{
     
     @JsonProperty("date_meta")
     private PromotionDateMeta dateMeta;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
     
     
     
@@ -2850,6 +2874,12 @@ public static class CartMetaConfigUpdate{
     
     
     
+    @JsonProperty("max_cart_value")
+    private Integer maxCartValue;
+    
+    
+    
+    
     @JsonProperty("bulk_coupons")
     private Boolean bulkCoupons;
     
@@ -2913,6 +2943,12 @@ public static class CartMetaConfigAdd{
     
     @JsonProperty("min_cart_value")
     private Integer minCartValue;
+    
+    
+    
+    
+    @JsonProperty("max_cart_value")
+    private Integer maxCartValue;
     
     
     

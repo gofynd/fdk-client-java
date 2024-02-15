@@ -7,13 +7,16 @@
 ## Theme Methods
 Responsible for partner theme submission
 
-Default
+Page Management
 * [getAllPages](#getallpages)
 * [createPage](#createpage)
 * [updateMultiplePages](#updatemultiplepages)
 * [getPage](#getpage)
 * [updatePage](#updatepage)
 * [deletePage](#deletepage)
+
+
+Theme management 
 * [getApplicationThemes](#getapplicationthemes)
 * [getThemeById](#getthemebyid)
 * [updateTheme](#updatetheme)
@@ -27,6 +30,9 @@ Default
 * [createNewThemeInOrganization](#createnewthemeinorganization)
 * [getThemeRejectionReasons](#getthemerejectionreasons)
 * [getThemeVersions](#getthemeversions)
+
+
+Default
 * [createTheme](#createtheme)
 
 
@@ -37,7 +43,7 @@ Default
 
 
 ### getAllPages
-Get all pages of a theme
+Get all pages.
 
 
 
@@ -59,7 +65,7 @@ partnerClient.theme.getAllPages( themeId,  organizationId) {
 
 
 
-Use this API to retrieve all the available pages of a theme by its ID.
+Retrieve a list of all pages available in the partner server setup.
 
 *Returned Response:*
 
@@ -389,7 +395,7 @@ Success. Returns an array all the pages of the theme. Refer `AllAvailablePageSch
 
 
 ### createPage
-Create a page 
+Create page.
 
 
 
@@ -411,7 +417,7 @@ partnerClient.theme.createPage( themeId,  organizationId, body body) {
 | body | [AvailablePageSchema](#AvailablePageSchema) | yes | Request body |
 
 
-Use this API to create a page for a theme by its ID.
+Add a new page to the partner server configurations.
 
 *Returned Response:*
 
@@ -813,7 +819,7 @@ Success. Returns the page of the theme. Refer `AvailablePageSchema` for more det
 
 
 ### updateMultiplePages
-Update multiple pages of a theme
+Update multiple pages.
 
 
 
@@ -835,7 +841,7 @@ partnerClient.theme.updateMultiplePages( themeId,  organizationId, body body) {
 | body | [AllAvailablePageSchema](#AllAvailablePageSchema) | yes | Request body |
 
 
-Use this API to update multiple pages of a theme by its ID.
+Modify and update multiple pages in the partner server setup.
 
 *Returned Response:*
 
@@ -1165,7 +1171,7 @@ Success. Returns an array all the pages of the theme. Refer `AllAvailablePageSch
 
 
 ### getPage
-Get page of a theme
+Get page.
 
 
 
@@ -1188,7 +1194,7 @@ partnerClient.theme.getPage( themeId,  pageValue,  organizationId) {
 
 
 
-Use this API to retrieve a page of a theme.
+Obtain detailed information about a specific page in the partner server.
 
 *Returned Response:*
 
@@ -1590,7 +1596,7 @@ Success. Returns an object of the page.  Refer `AvailablePageSchema` for more de
 
 
 ### updatePage
-Updates a page 
+Update page.
 
 
 
@@ -1613,7 +1619,7 @@ partnerClient.theme.updatePage( themeId,  pageValue,  organizationId, body body)
 | body | [AvailablePageSchema](#AvailablePageSchema) | yes | Request body |
 
 
-Use this API to update a page for a theme by its ID.
+Modify and update information related to a specific page in the partner server.
 
 *Returned Response:*
 
@@ -2015,7 +2021,7 @@ Success. Returns a the page of the theme. Refer `AvailablePageSchema` for more d
 
 
 ### deletePage
-Deletes a page 
+Delete page.
 
 
 
@@ -2038,7 +2044,7 @@ partnerClient.theme.deletePage( themeId,  pageValue,  organizationId) {
 
 
 
-Use this API to delete a page for a theme by its ID and page_value.
+Remove a page from the partner server configurations.
 
 *Returned Response:*
 
@@ -2439,8 +2445,10 @@ Success. Returns a the page of the theme. Refer `AvailablePageSchema` for more d
 ---
 
 
+
+
 ### getApplicationThemes
-Get all the themes for a specific application
+Get application themes.
 
 
 
@@ -2461,7 +2469,7 @@ partnerClient.theme.getApplicationThemes( organizationId) {
 
 
 
-Use this API to get list of theme
+Retrieve a list of themes available for the partner server application.
 
 *Returned Response:*
 
@@ -6461,7 +6469,7 @@ The list of themes for the application was fetched successfully.
 
 
 ### getThemeById
-Get Theme By Theme Id
+Get theme by ID.
 
 
 
@@ -6483,7 +6491,7 @@ partnerClient.theme.getThemeById( themeId,  organizationId) {
 
 
 
-Use this API to get theme details
+Obtain detailed information about a theme using its unique ID.
 
 *Returned Response:*
 
@@ -6517,7 +6525,7 @@ The Details of themes for the application was fetched successfully.
 
 
 ### updateTheme
-Update theme for a specific company and application
+Update theme.
 
 
 
@@ -6539,7 +6547,7 @@ partnerClient.theme.updateTheme( themeId,  organizationId, body body) {
 | body | [UpdateThemeRequestBody](#UpdateThemeRequestBody) | yes | Request body |
 
 
-Update theme for a specific company and application
+Modify and update information related to a theme in the partner server.
 
 *Returned Response:*
 
@@ -10535,7 +10543,7 @@ Theme updated successfully
 
 
 ### deleteTheme
-Delete a theme
+Delete theme.
 
 
 
@@ -10557,7 +10565,7 @@ partnerClient.theme.deleteTheme( themeId,  organizationId) {
 
 
 
-This endpoint is used to delete a theme from the specified company and application.
+Remove a theme from the partner server configurations.
 
 *Returned Response:*
 
@@ -14553,7 +14561,7 @@ Theme successfully deleted.
 
 
 ### getOrganizationThemes
-Get organization's themes
+Get organization themes.
 
 
 
@@ -14575,7 +14583,7 @@ partnerClient.theme.getOrganizationThemes( organizationId,  status,  pageSize,  
 
 
 
-Get organization's themes
+Retrieve a list of themes associated with partner server organizations.
 
 *Returned Response:*
 
@@ -14609,7 +14617,7 @@ Successful operation
 
 
 ### getOrganizationThemeDetails
-Get theme details for an organization
+Get organization theme details.
 
 
 
@@ -14629,7 +14637,7 @@ partnerClient.theme.getOrganizationThemeDetails( organizationId,  themeId) {
 
 
 
-Fetches the theme details for a specific organization and theme ID
+Obtain detailed information about a theme within partner server organizations.
 
 *Returned Response:*
 
@@ -14663,7 +14671,7 @@ Successful response
 
 
 ### updateDraftTheme
-Update theme draft/submitted
+Update draft theme.
 
 
 
@@ -14683,7 +14691,7 @@ partnerClient.theme.updateDraftTheme( organizationId,  themeId, body body) {
 | body | [MarketplaceTheme](#MarketplaceTheme) | yes | Request body |
 
 
-Update theme draft/submitted
+Modify and update a draft theme in partner server organizations.
 
 *Returned Response:*
 
@@ -15049,7 +15057,7 @@ Theme updated successfully
 
 
 ### submitOrganizationTheme
-Submit a theme
+Submit organization theme.
 
 
 
@@ -15069,7 +15077,7 @@ partnerClient.theme.submitOrganizationTheme( organizationId,  themeId, body body
 | body | [MarketplaceTheme](#MarketplaceTheme) | yes | Request body |
 
 
-Use this api to Submit a theme
+Initiate the process of submitting a theme within partner server organizations.
 
 *Returned Response:*
 
@@ -15333,7 +15341,7 @@ Theme updated successfully
 
 
 ### deleteOrganizationTheme
-Delete a theme
+Delete organization theme.
 
 
 
@@ -15353,7 +15361,7 @@ partnerClient.theme.deleteOrganizationTheme( organizationId,  themeId) {
 
 
 
-This endpoint allows you to delete a theme by providing the organization and theme IDs.
+Remove a theme from partner server organizations.
 
 *Returned Response:*
 
@@ -15387,7 +15395,7 @@ Successful deletion of the theme
 
 
 ### getLatestVersionOfThemeBySlug
-Get latest version of specified theme
+Get latest version of theme by slug.
 
 
 
@@ -15407,7 +15415,7 @@ partnerClient.theme.getLatestVersionOfThemeBySlug( organizationId,  slugName) {
 
 
 
-Use this api to get latest version of specified theme
+Retrieve the most recent version of a theme using its slug.
 
 *Returned Response:*
 
@@ -15441,7 +15449,7 @@ Successful operation
 
 
 ### createNewThemeInOrganization
-Create a new theme for the organization
+Create new theme in organization.
 
 
 
@@ -15461,7 +15469,7 @@ partnerClient.theme.createNewThemeInOrganization( organizationId,  slug, body bo
 | body | [MarketplaceTheme](#MarketplaceTheme) | yes | Request body |
 
 
-Use this api to create a new theme for the organization
+Add a new theme to partner server organizations.
 
 *Returned Response:*
 
@@ -15725,7 +15733,7 @@ Theme updated successfully
 
 
 ### getThemeRejectionReasons
-Get theme rejection reasons
+Get theme rejection reasons.
 
 
 
@@ -15745,7 +15753,7 @@ partnerClient.theme.getThemeRejectionReasons( organizationId,  themeId) {
 
 
 
-Use this api to get theme rejection reasons
+Retrieve reasons for the rejection of themes within partner server organizations.
 
 *Returned Response:*
 
@@ -15779,7 +15787,7 @@ Theme rejection reasons retrieved successfully
 
 
 ### getThemeVersions
-Get theme versions
+Get theme versions.
 
 
 
@@ -15801,7 +15809,7 @@ partnerClient.theme.getThemeVersions( organizationId,  themeSlug,  pageSize,  pa
 
 
 
-Retrieve a list of theme versions for a specific theme in an organization.
+Retrieve a list of versions available for a theme within partner server organizations.
 
 *Returned Response:*
 
@@ -15832,6 +15840,8 @@ Successful operation.
 
 
 ---
+
+
 
 
 ### createTheme

@@ -7,7 +7,7 @@
 ## Billing Methods
 Handle platform subscription
 
-Default
+Billing & Subscription
 * [checkCouponValidity](#checkcouponvalidity)
 * [createSubscriptionCharge](#createsubscriptioncharge)
 * [getSubscriptionCharge](#getsubscriptioncharge)
@@ -25,6 +25,9 @@ Default
 * [getEnterprisePlans](#getenterpriseplans)
 * [planStatusUpdate](#planstatusupdate)
 * [subscripePlan](#subscripeplan)
+
+
+Default
 * [getentityDetail](#getentitydetail)
 
 
@@ -35,7 +38,7 @@ Default
 
 
 ### checkCouponValidity
-Check coupon validity
+Verify coupon validity.
 
 
 
@@ -56,7 +59,7 @@ platformClient.billing.checkCouponValidity( plan,  couponCode) {
 
 
 
-Check coupon validity.
+Checks whether a coupon code is valid for discounts while billing.
 
 *Returned Response:*
 
@@ -90,7 +93,7 @@ Success
 
 
 ### createSubscriptionCharge
-Create subscription charge
+Initiate subscription billing.
 
 
 
@@ -110,7 +113,7 @@ platformClient.billing.createSubscriptionCharge( extensionId, body body) {
 | body | [CreateSubscriptionCharge](#CreateSubscriptionCharge) | yes | Request body |
 
 
-Register subscription charge for a seller of your extension.
+Register a subscription charge for a seller using your extension.
 
 *Returned Response:*
 
@@ -144,7 +147,7 @@ Success
 
 
 ### getSubscriptionCharge
-Get subscription charge details
+Retrieve subscription charge details.
 
 
 
@@ -165,7 +168,7 @@ platformClient.billing.getSubscriptionCharge( extensionId,  subscriptionId) {
 
 
 
-Get created subscription charge details
+Retrieve detailed information about subscription charges using this API.
 
 *Returned Response:*
 
@@ -199,7 +202,7 @@ Success
 
 
 ### cancelSubscriptionCharge
-Cancel subscription charge
+Cancel a subscription charge.
 
 
 
@@ -220,7 +223,7 @@ platformClient.billing.cancelSubscriptionCharge( extensionId,  subscriptionId) {
 
 
 
-Cancel subscription and attached charges.
+Cancel an ongoing subscription charge for a customer.
 
 *Returned Response:*
 
@@ -254,7 +257,7 @@ Success
 
 
 ### createOneTimeCharge
-Create one time subscription charge
+Generate a one-time charge.
 
 
 
@@ -274,7 +277,7 @@ platformClient.billing.createOneTimeCharge( extensionId, body body) {
 | body | [CreateOneTimeCharge](#CreateOneTimeCharge) | yes | Request body |
 
 
-Register one time subscription charge for a seller of your extension.
+Generate a one-time charge for specific services or products.
 
 *Returned Response:*
 
@@ -308,7 +311,7 @@ Success
 
 
 ### getChargeDetails
-Get subscription charge details
+Obtain charge details.
 
 
 
@@ -329,7 +332,7 @@ platformClient.billing.getChargeDetails( extensionId,  chargeId) {
 
 
 
-Get created subscription charge details
+Retrieve comprehensive details about a specific billing charge.
 
 *Returned Response:*
 
@@ -363,7 +366,7 @@ Success
 
 
 ### getInvoices
-Get invoices
+Retrieve invoices.
 
 
 
@@ -382,7 +385,7 @@ platformClient.billing.getInvoices() {
 
 
 
-Get invoices.
+Retrieve invoices for billing and payment tracking.
 
 *Returned Response:*
 
@@ -655,7 +658,7 @@ Success
 
 
 ### getInvoiceById
-Get invoice by id
+Get a specific invoice.
 
 
 
@@ -675,7 +678,7 @@ platformClient.billing.getInvoiceById( invoiceId) {
 
 
 
-Get invoice by id.
+Retrieve a particular invoice's details by providing its unique ID.
 
 *Returned Response:*
 
@@ -942,7 +945,7 @@ Success
 
 
 ### getCustomerDetail
-Get subscription customer detail
+Fetch customer details.
 
 
 
@@ -961,7 +964,7 @@ platformClient.billing.getCustomerDetail() {
 
 
 
-Get subscription customer detail.
+Obtain customer-related billing information.
 
 *Returned Response:*
 
@@ -1027,7 +1030,7 @@ Success
 
 
 ### upsertCustomerDetail
-Upsert subscription customer detail
+Update or insert customer details.
 
 
 
@@ -1046,7 +1049,7 @@ platformClient.billing.upsertCustomerDetail(body body) {
 | body | [SubscriptionCustomerCreate](#SubscriptionCustomerCreate) | yes | Request body |
 
 
-Upsert subscription customer detail.
+Allows you to modify or insert customer information in the billing system.
 
 *Returned Response:*
 
@@ -1112,7 +1115,7 @@ Success
 
 
 ### getSubscription
-Get current subscription detail
+Retrieve subscription details.
 
 
 
@@ -1131,8 +1134,7 @@ platformClient.billing.getSubscription() {
 
 
 
-If subscription is active then it will return is_enabled true and return subscription object. If subscription is not active then is_enabled false and message.
-
+Retrieve details of a customer's subscription information.
 
 *Returned Response:*
 
@@ -1662,7 +1664,7 @@ Success
 
 
 ### getFeatureLimitConfig
-Get subscription subscription limits
+Obtain feature limit configurations.
 
 
 
@@ -1683,7 +1685,7 @@ platformClient.billing.getFeatureLimitConfig( productSuite,  type) {
 
 
 
-Get subscription subscription limits.
+Retrieve configuration settings for feature limits in subscription plans.
 
 *Returned Response:*
 
@@ -1753,7 +1755,7 @@ Success
 
 
 ### activateSubscriptionPlan
-Activate subscription
+Activate a subscription plan.
 
 
 
@@ -1772,7 +1774,7 @@ platformClient.billing.activateSubscriptionPlan(body body) {
 | body | [SubscriptionActivateReq](#SubscriptionActivateReq) | yes | Request body |
 
 
-It will activate subscription plan for customer
+Activate a specific subscription plan for a customer.
 
 *Returned Response:*
 
@@ -1862,7 +1864,7 @@ Success
 
 
 ### cancelSubscriptionPlan
-Cancel subscription
+Cancel a subscription plan.
 
 
 
@@ -1881,7 +1883,7 @@ platformClient.billing.cancelSubscriptionPlan(body body) {
 | body | [CancelSubscriptionReq](#CancelSubscriptionReq) | yes | Request body |
 
 
-It will cancel current active subscription.
+Cancel an active subscription plan for a customer
 
 *Returned Response:*
 
@@ -1973,7 +1975,7 @@ Success
 
 
 ### getEnterprisePlans
-Get Enterprise Plans
+Retrieve enterprise-level plans.
 
 
 
@@ -1992,8 +1994,7 @@ platformClient.billing.getEnterprisePlans() {
 
 
 
-Get Enterprise Plans.
-
+Retrieve available enterprise-level subscription plans.
 
 *Returned Response:*
 
@@ -2163,7 +2164,7 @@ Success
 
 
 ### planStatusUpdate
-Update Status of The plan
+Update subscription plan status.
 
 
 
@@ -2182,7 +2183,7 @@ platformClient.billing.planStatusUpdate(body body) {
 | body | [PlanStatusUpdateReq](#PlanStatusUpdateReq) | yes | Request body |
 
 
-It will update the status of the plan
+Modify the status of a subscription plan.
 
 *Returned Response:*
 
@@ -2419,7 +2420,7 @@ Success
 
 
 ### subscripePlan
-Subscribe plan.
+Subscribe to a plan.
 
 
 
@@ -2438,7 +2439,7 @@ platformClient.billing.subscripePlan(body body) {
 | body | [SunscribePlan](#SunscribePlan) | yes | Request body |
 
 
-It will subscribe a plan.
+Subscribe to a specific billing plan.
 
 *Returned Response:*
 
@@ -2486,6 +2487,8 @@ Success
 
 
 ---
+
+
 
 
 ### getentityDetail
