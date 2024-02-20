@@ -7,7 +7,7 @@
 ## Share Methods
 The Sharing module simplifies the creation and sharing of QR codes and short links. Use it to generate QR codes for apps, products, collections, and URLs. Create short links for long URLs and retrieve them, along with the original URLs, using their respective codes.
 
-QR Code & Short Link management
+Default
 * [getApplicationQRCode](#getapplicationqrcode)
 * [getProductQRCodeBySlug](#getproductqrcodebyslug)
 * [getCollectionQRCodeBySlug](#getcollectionqrcodebyslug)
@@ -24,7 +24,7 @@ QR Code & Short Link management
 
 
 ### getApplicationQRCode
-App QR code.
+Create QR Code of an app
 
 
 
@@ -38,7 +38,7 @@ applicationClient.share.getApplicationQRCode() {
 
 
 
-Generates a QR code for the application for easy sharing.
+Use this API to create a QR code of an app for sharing it with users who want to use the app.
 
 *Returned Response:*
 
@@ -75,7 +75,7 @@ Success. Check the example shown below or refer `QRCodeResp` for more details.
 
 
 ### getProductQRCodeBySlug
-Product QR code.
+Create QR Code of a product
 
 
 
@@ -94,7 +94,7 @@ applicationClient.share.getProductQRCodeBySlug( slug) {
 
 
 
-Creates a QR code for a specific product identified by its slug.
+Use this API to create a QR code of a product for sharing it with users who want to view/purchase the product.
 
 *Returned Response:*
 
@@ -131,7 +131,7 @@ Success. Check the example shown below or refer `QRCodeResp` for more details.
 
 
 ### getCollectionQRCodeBySlug
-Collection QR code.
+Create QR Code of a collection
 
 
 
@@ -150,7 +150,7 @@ applicationClient.share.getCollectionQRCodeBySlug( slug) {
 
 
 
-Generates a QR code for a specific product collection using its slug.
+Use this API to create a QR code of a collection of products for sharing it with users who want to view/purchase the collection.
 
 *Returned Response:*
 
@@ -187,7 +187,7 @@ Success. Check the example shown below or refer `QRCodeResp` for more details.
 
 
 ### getUrlQRCode
-URL to QR code.
+Create QR Code of a URL
 
 
 
@@ -206,7 +206,7 @@ applicationClient.share.getUrlQRCode( url) {
 
 
 
-Converts a given URL into a scannable QR code.
+Use this API to create a QR code of a URL for sharing it with users who want to visit the link.
 
 *Returned Response:*
 
@@ -243,7 +243,7 @@ Success. Check the example shown below or refer `QRCodeResp` for more details.
 
 
 ### createShortLink
-Shorten URL.
+Create a short link
 
 
 
@@ -261,7 +261,7 @@ applicationClient.share.createShortLink(body body) {
 | body | [ShortLinkReq](#ShortLinkReq) | yes | Request body |
 
 
-Creates a shortened version of a given URL for easier sharing.
+Use this API to create a short link that is easy to write/share/read as compared to long URLs.
 
 *Returned Response:*
 
@@ -335,7 +335,7 @@ Success. Check the example shown below or refer `ShortLinkRes` for more details.
 
 
 ### getShortLinkByHash
-Fetch short link.
+Get short link by hash
 
 
 
@@ -354,7 +354,7 @@ applicationClient.share.getShortLinkByHash( hash) {
 
 
 
-Retrieves a previously created short link using its hash identifier.
+Use this API to get a short link by using a hash value.
 
 *Returned Response:*
 
@@ -428,7 +428,7 @@ Success. Check the example shown below or refer `ShortLinkRes` for more details.
 
 
 ### getOriginalShortLinkByHash
-Original URL.
+Get original link by hash
 
 
 
@@ -447,7 +447,7 @@ applicationClient.share.getOriginalShortLinkByHash( hash) {
 
 
 
-Retrieve the original link from a short-link by using a hash value.
+Use this API to retrieve the original link from a short-link by using a hash value.
 
 *Returned Response:*
 

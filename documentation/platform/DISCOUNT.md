@@ -7,25 +7,16 @@
 ## Discount Methods
 Discount
 
-Discount Management
+Default
 * [getDiscounts](#getdiscounts)
 * [createDiscount](#creatediscount)
 * [getDiscount](#getdiscount)
 * [updateDiscount](#updatediscount)
-
-
-Discount Items Management
 * [upsertDiscountItems](#upsertdiscountitems)
-
-
-Discount File Validation
 * [validateDiscountFile](#validatediscountfile)
+* [downloadDiscountFile](#downloaddiscountfile)
 * [getValidationJob](#getvalidationjob)
 * [cancelValidationJob](#cancelvalidationjob)
-
-
-Discount File Download
-* [downloadDiscountFile](#downloaddiscountfile)
 * [getDownloadJob](#getdownloadjob)
 * [cancelDownloadJob](#canceldownloadjob)
 
@@ -37,7 +28,7 @@ Discount File Download
 
 
 ### getDiscounts
-Get discounts.
+Fetch discount list.
 
 
 
@@ -65,7 +56,7 @@ platformClient.discount.getDiscounts( view,  q,  pageNo,  pageSize,  archived,  
 
 
 
-Retrieve a list of available discounts.
+Fetch discount list.
 
 *Returned Response:*
 
@@ -206,7 +197,7 @@ Success
 
 
 ### createDiscount
-Create discount.
+Create Discount.
 
 
 
@@ -225,7 +216,7 @@ platformClient.discount.createDiscount(body body) {
 | body | [CreateUpdateDiscount](#CreateUpdateDiscount) | yes | Request body |
 
 
-Create discount.
+Create Discount.
 
 *Returned Response:*
 
@@ -351,7 +342,7 @@ Success
 
 
 ### getDiscount
-Get discount by ID.
+Fetch discount.
 
 
 
@@ -371,7 +362,7 @@ platformClient.discount.getDiscount( id) {
 
 
 
-Retrieve detailed information about a specific discount.
+Fetch discount.
 
 *Returned Response:*
 
@@ -498,7 +489,7 @@ Success
 
 
 ### updateDiscount
-Update discount.
+Update Discount.
 
 
 
@@ -518,7 +509,7 @@ platformClient.discount.updateDiscount( id, body body) {
 | body | [CreateUpdateDiscount](#CreateUpdateDiscount) | yes | Request body |
 
 
-Create discount.
+Update Discount.
 
 *Returned Response:*
 
@@ -640,10 +631,8 @@ Success
 ---
 
 
-
-
 ### upsertDiscountItems
-Upsert discount items.
+Create custom discount from bulk.
 
 
 
@@ -663,7 +652,7 @@ platformClient.discount.upsertDiscountItems( id, body body) {
 | body | [BulkDiscount](#BulkDiscount) | yes | Request body |
 
 
-Create custom discounts.
+Create custom discounts through API.
 
 *Returned Response:*
 
@@ -718,10 +707,8 @@ Success
 ---
 
 
-
-
 ### validateDiscountFile
-Validate discount file.
+Validate File.
 
 
 
@@ -741,7 +728,7 @@ platformClient.discount.validateDiscountFile( discount, body body) {
 | body | [FileJobRequest](#FileJobRequest) | yes | Request body |
 
 
-Validate file.
+Validate File.
 
 *Returned Response:*
 
@@ -825,8 +812,113 @@ Success
 ---
 
 
+### downloadDiscountFile
+Validate File.
+
+
+
+
+```java
+platformClient.discount.downloadDiscountFile( type, body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes | company_id |   
+| type | String | yes | type |  
+| body | [DownloadFileJob](#DownloadFileJob) | yes | Request body |
+
+
+Validate File.
+
+*Returned Response:*
+
+
+
+
+[FileJobResponse](#FileJobResponse)
+
+Success
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; success</i></summary>
+
+```json
+{
+  "value": {
+    "_id": "xxxxxxxxxxxx",
+    "stage": "processing",
+    "total": 10,
+    "failed": 0,
+    "company_id": 90,
+    "file_path": "https://xxx.xxx.xxx/file.xlsx",
+    "body": {
+      "is_active": false,
+      "app_ids": [
+        "646f43ee3b7f8c2847e31fb0"
+      ],
+      "_id": "xxxxxxxxxxxx",
+      "name": "Discount",
+      "job_type": "app",
+      "discount_type": "percentage",
+      "discount_level": "application",
+      "company_id": 90,
+      "file_path": "https://xxx.xxx.xxx/file.xlsx",
+      "validity": {
+        "start": "2021-04-06T08:25:34.110Z",
+        "end": "2021-04-22T18:30:00.000Z"
+      },
+      "value": null,
+      "created_by": {
+        "username": "narutouzumaki",
+        "user_id": "0"
+      },
+      "modified_by": {
+        "username": "narutouzumaki",
+        "user_id": "0"
+      },
+      "created_on": "2021-04-06T08:10:16.609Z",
+      "modified_on": "2021-04-07T08:19:12.007Z",
+      "brand_ids": [
+        90
+      ],
+      "store_ids": [
+        1001
+      ]
+    },
+    "type": "download",
+    "file_type": "product"
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getValidationJob
-Get validation job.
+Validate File Job.
 
 
 
@@ -846,7 +938,7 @@ platformClient.discount.getValidationJob( id) {
 
 
 
-Validate file.
+Validate File Job.
 
 *Returned Response:*
 
@@ -931,7 +1023,7 @@ Success
 
 
 ### cancelValidationJob
-Cancel validation job.
+Cancel Validation Job.
 
 
 
@@ -951,7 +1043,7 @@ platformClient.discount.cancelValidationJob( id) {
 
 
 
-Validate file.
+Cancel Validation Job.
 
 *Returned Response:*
 
@@ -994,115 +1086,8 @@ Success
 ---
 
 
-
-
-### downloadDiscountFile
-Download discount file.
-
-
-
-
-```java
-platformClient.discount.downloadDiscountFile( type, body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | company_id |   
-| type | String | yes | type |  
-| body | [DownloadFileJob](#DownloadFileJob) | yes | Request body |
-
-
-Validate file.
-
-*Returned Response:*
-
-
-
-
-[FileJobResponse](#FileJobResponse)
-
-Success
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-{
-  "value": {
-    "_id": "xxxxxxxxxxxx",
-    "stage": "processing",
-    "total": 10,
-    "failed": 0,
-    "company_id": 90,
-    "file_path": "https://xxx.xxx.xxx/file.xlsx",
-    "body": {
-      "is_active": false,
-      "app_ids": [
-        "646f43ee3b7f8c2847e31fb0"
-      ],
-      "_id": "xxxxxxxxxxxx",
-      "name": "Discount",
-      "job_type": "app",
-      "discount_type": "percentage",
-      "discount_level": "application",
-      "company_id": 90,
-      "file_path": "https://xxx.xxx.xxx/file.xlsx",
-      "validity": {
-        "start": "2021-04-06T08:25:34.110Z",
-        "end": "2021-04-22T18:30:00.000Z"
-      },
-      "value": null,
-      "created_by": {
-        "username": "narutouzumaki",
-        "user_id": "0"
-      },
-      "modified_by": {
-        "username": "narutouzumaki",
-        "user_id": "0"
-      },
-      "created_on": "2021-04-06T08:10:16.609Z",
-      "modified_on": "2021-04-07T08:19:12.007Z",
-      "brand_ids": [
-        90
-      ],
-      "store_ids": [
-        1001
-      ]
-    },
-    "type": "download",
-    "file_type": "product"
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### getDownloadJob
-Get download job.
+Download File Job.
 
 
 
@@ -1122,7 +1107,7 @@ platformClient.discount.getDownloadJob( id) {
 
 
 
-Download file Job.
+Download File Job.
 
 *Returned Response:*
 
@@ -1207,7 +1192,7 @@ Success
 
 
 ### cancelDownloadJob
-Cancel download job.
+Cancel Download Job.
 
 
 
@@ -1227,7 +1212,7 @@ platformClient.discount.cancelDownloadJob( id) {
 
 
 
-Cancel download Job.
+Cancel Download Job.
 
 *Returned Response:*
 
@@ -1304,7 +1289,6 @@ Success
  | filePath | String? |  yes  |  |
  | brandIds | ArrayList<Integer>? |  yes  |  |
  | storeIds | ArrayList<Integer>? |  yes  |  |
- | zoneIds | ArrayList<String>? |  yes  |  |
  | validity | [ValidityObject](#ValidityObject) |  no  |  |
  | discountMeta | [DiscountMeta](#DiscountMeta)? |  yes  |  |
 

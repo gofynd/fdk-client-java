@@ -473,6 +473,182 @@ public class WebhookPartnerService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public WebhookPartnerModels.KafkaConfigResponse createKafkaConfiguration(String extensionId, WebhookPartnerModels.KafkaConfigRequest body) throws FDKServerResponseError, FDKException {
+        return this.createKafkaConfiguration(extensionId, body, new HashMap<>());
+    }
+
+    public WebhookPartnerModels.KafkaConfigResponse createKafkaConfiguration(String extensionId, WebhookPartnerModels.KafkaConfigRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<WebhookPartnerModels.KafkaConfigResponse> response = null;
+            try {
+                response = webhookPartnerApiList.createKafkaConfiguration(this.organizationId, extensionId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public WebhookPartnerModels.KafkaConfigResponse fetchKafkaConfiguration(String extensionId) throws FDKServerResponseError, FDKException {
+        return this.fetchKafkaConfiguration(extensionId, new HashMap<>());
+    }
+
+    public WebhookPartnerModels.KafkaConfigResponse fetchKafkaConfiguration(String extensionId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<WebhookPartnerModels.KafkaConfigResponse> response = null;
+            try {
+                response = webhookPartnerApiList.fetchKafkaConfiguration(this.organizationId, extensionId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public WebhookPartnerModels.KafkaConfigResponse updateKafkaConfiguration(String extensionId, WebhookPartnerModels.KafkaConfigUpdateRequest body) throws FDKServerResponseError, FDKException {
+        return this.updateKafkaConfiguration(extensionId, body, new HashMap<>());
+    }
+
+    public WebhookPartnerModels.KafkaConfigResponse updateKafkaConfiguration(String extensionId, WebhookPartnerModels.KafkaConfigUpdateRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<WebhookPartnerModels.KafkaConfigResponse> response = null;
+            try {
+                response = webhookPartnerApiList.updateKafkaConfiguration(this.organizationId, extensionId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public WebhookPartnerModels.KafkaConfigValidateResponse validateKafkaConfiguration(String extensionId, WebhookPartnerModels.KafkaConfigRequest body) throws FDKServerResponseError, FDKException {
+        return this.validateKafkaConfiguration(extensionId, body, new HashMap<>());
+    }
+
+    public WebhookPartnerModels.KafkaConfigValidateResponse validateKafkaConfiguration(String extensionId, WebhookPartnerModels.KafkaConfigRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<WebhookPartnerModels.KafkaConfigValidateResponse> response = null;
+            try {
+                response = webhookPartnerApiList.validateKafkaConfiguration(this.organizationId, extensionId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
 
 
 private interface Fields {

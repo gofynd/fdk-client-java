@@ -5181,31 +5181,6 @@ public static class CustomDataDeleteSchema{
 
 
 /*
-    Model: CustomFieldValue
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CustomFieldValue{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("value")
-    private Object value;
-    
-    
-    
-}
-
-
-/*
     Model: CustomFieldSchema
 */
 @AllArgsConstructor
@@ -5253,7 +5228,7 @@ public static class CustomFieldSchema{
     
     
     @JsonProperty("value")
-    private List<CustomFieldValue> value;
+    private List<Object> value;
     
     
     

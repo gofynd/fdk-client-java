@@ -584,6 +584,12 @@ public static class ProductListingPrice{
     
     
     
+    
+    @JsonProperty("selling")
+    private Price selling;
+    
+    
+    
 }
 
 
@@ -2154,6 +2160,12 @@ public static class ProductListingDetail{
     
     @JsonProperty("seo")
     private ApplicationItemSEO seo;
+    
+    
+    
+    
+    @JsonProperty("discount_meta")
+    private DiscountMeta discountMeta;
     
     
     

@@ -234,8 +234,8 @@ public static class EditProfileRequestSchema{
     
     
     
-    @JsonProperty("encrypt_otp")
-    private Boolean encryptOtp;
+    @JsonProperty("ci")
+    private Boolean ci;
     
     
     
@@ -578,8 +578,8 @@ public static class SendMobileOtpRequestSchema{
     
     
     
-    @JsonProperty("encrypt_otp")
-    private Boolean encryptOtp;
+    @JsonProperty("ci")
+    private Boolean ci;
     
     
     
@@ -948,8 +948,8 @@ public static class SendOtpRequestSchema{
     
     
     
-    @JsonProperty("encrypt_otp")
-    private Boolean encryptOtp;
+    @JsonProperty("ci")
+    private Boolean ci;
     
     
     

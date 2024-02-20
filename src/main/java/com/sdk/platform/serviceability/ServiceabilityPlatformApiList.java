@@ -21,6 +21,9 @@ interface ServiceabilityPlatformApiList {
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/logistics/stores")
     Call<ServiceabilityPlatformModels.GetStoresViewResponse> getAllStores(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/reassign")
+    Call<ServiceabilityPlatformModels.ReAssignStoreResponse> getOptimalLocations(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.ReAssignStoreRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
     @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/pincode-mop-update")
     Call<ServiceabilityPlatformModels.PincodeMOPresponse> updatePincodeMopView(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.PincodeMopData payload, @HeaderMap Map<String, String> requestHeaders);
 
@@ -37,7 +40,7 @@ interface ServiceabilityPlatformApiList {
     Call<ServiceabilityPlatformModels.CourierAccount> createCourierPartnerAccount(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.CourierAccount payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier-partner/account")
-    Call<ServiceabilityPlatformModels.CompanyCourierPartnerAccountListResponse> getCourierPartnerAccounts(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("stage") String stage, @Query("payment_mode") String paymentMode, @Query("transport_type") String transportType, @HeaderMap Map<String, String> requestHeaders);
+    Call<ServiceabilityPlatformModels.CompanyCourierPartnerAccountListResponse> getCourierPartnerAccounts(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("stage") String stage, @Query("payment_mode") String paymentMode, @Query("transport_type") String transportType, @Query("account_ids") List<String> accountIds, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/logistics/v1.0/company/{company_id}/courier-partner/account/{account_id}")
     Call<ServiceabilityPlatformModels.CourierAccountResponse> updateCourierPartnerAccount(@Path("company_id") String companyId, @Path("account_id") String accountId, @Body ServiceabilityPlatformModels.CourierAccount payload, @HeaderMap Map<String, String> requestHeaders);
@@ -68,6 +71,9 @@ interface ServiceabilityPlatformApiList {
 
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/configuration")
     Call<ServiceabilityPlatformModels.ApplicationConfig> getApplicationConfiguration(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+
+    @PATCH ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/configuration")
+    Call<ServiceabilityPlatformModels.ApplicationConfigPatchResponse> patchApplicationConfiguration(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.ApplicationConfigPatchRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/logistics/v1.0/company/{company_id}/courier-partner/{extension_id}/scheme/{scheme_id}/tat")
     Call<ServiceabilityPlatformModels.BulkRegionResponseItemData> bulkTat(@Path("company_id") String companyId, @Path("extension_id") String extensionId, @Path("scheme_id") String schemeId, @Body ServiceabilityPlatformModels.BulkRegionJobSerializer payload, @HeaderMap Map<String, String> requestHeaders);
@@ -140,7 +146,4 @@ interface ServiceabilityPlatformApiList {
 
     @PUT ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/courier-partner/rules/priority")
     Call<ServiceabilityPlatformModels.RulePriorityResponse> updateCourierPartnerRulePriority(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.RulePriorityRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/logistics/v1.0/company/{company_id}/optimal-locations")
-    Call<ServiceabilityPlatformModels.OptimalLocationsResponse> getOptimalLocations(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.OptimlLocationsRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 }

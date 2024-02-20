@@ -347,6 +347,42 @@ public class ApplicationClient {
         }    
     }
 
+    /**
+    * Summary: get paginator for getUserPointsHistory
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<RewardsPlatformModels.HistoryRes> getUserPointsHistoryPagination(
+        String userId,
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<RewardsPlatformModels.HistoryRes> paginator = new Paginator<>(pageSize, "cursor");
+
+    paginator.setCallback(()-> {
+        try {
+            RewardsPlatformModels.HistoryRes callback = this.getUserPointsHistory(
+                
+                 userId,
+                 
+                 
+                 paginator.getNextId()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+
     public RewardsPlatformModels.ConfigurationRes getRewardsConfiguration() throws FDKServerResponseError, FDKException {
         return this.getRewardsConfiguration(new HashMap<>());
     }

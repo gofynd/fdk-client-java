@@ -7,37 +7,25 @@
 ## User Methods
 Authentication Service
 
-User Management
+Default
 * [getCustomers](#getcustomers)
 * [searchUsers](#searchusers)
 * [createUser](#createuser)
 * [blockOrUnblockUsers](#blockorunblockusers)
 * [unDeleteUser](#undeleteuser)
 * [updateUser](#updateuser)
-* [archiveUser](#archiveuser)
-
-
-Session Management
 * [createUserSession](#createusersession)
 * [deleteSession](#deletesession)
 * [getActiveSessions](#getactivesessions)
 * [deleteActiveSessions](#deleteactivesessions)
-
-
-Website Configuration Management
+* [archiveUser](#archiveuser)
 * [getPlatformConfig](#getplatformconfig)
 * [updatePlatformConfig](#updateplatformconfig)
-
-
-User Group Management
 * [createUserGroup](#createusergroup)
 * [getUserGroups](#getusergroups)
 * [updateUserGroup](#updateusergroup)
 * [getUserGroupById](#getusergroupbyid)
 * [updateUserGroupPartially](#updateusergrouppartially)
-
-
-User Attributes Definition
 * [createUserAttributeDefinition](#createuserattributedefinition)
 * [getUserAttributeDefinitions](#getuserattributedefinitions)
 * [updateUserAttributeDefinition](#updateuserattributedefinition)
@@ -57,7 +45,7 @@ User Attributes Definition
 
 
 ### getCustomers
-Get customers.
+Get a list of customers
 
 
 
@@ -80,7 +68,7 @@ platformClient.application("<APPLICATION_ID>").user.getCustomers( q,  pageSize, 
 
 
 
-Retrieve a list of customer profiles.
+Use this API to retrieve a list of customers who have registered in the application.
 
 *Returned Response:*
 
@@ -169,7 +157,7 @@ Success. Refer `CustomerListResponseSchema` for more details.
 
 
 ### searchUsers
-Search users.
+Search an existing user.
 
 
 
@@ -191,7 +179,7 @@ platformClient.application("<APPLICATION_ID>").user.searchUsers( q,  query) {
 
 
 
-Search and filter user profiles.
+Use this API to retrieve an existing user from a list.
 
 *Returned Response:*
 
@@ -275,7 +263,7 @@ Success. Returns first name, last name, emails, phone number and gender of the u
 
 
 ### createUser
-Create user.
+Create user
 
 
 
@@ -295,7 +283,7 @@ platformClient.application("<APPLICATION_ID>").user.createUser(body body) {
 | body | [CreateUserRequestSchema](#CreateUserRequestSchema) | yes | Request body |
 
 
-Register and add a new user to the platform.
+Create user
 
 *Returned Response:*
 
@@ -379,7 +367,7 @@ User create
 
 
 ### blockOrUnblockUsers
-Block/unblock users.
+Block/Unblock user
 
 
 
@@ -399,7 +387,7 @@ platformClient.application("<APPLICATION_ID>").user.blockOrUnblockUsers(body bod
 | body | [BlockUserRequestSchema](#BlockUserRequestSchema) | yes | Request body |
 
 
-Control user access by blocking or unblocking their accounts.
+Block/Unblock user
 
 *Returned Response:*
 
@@ -443,7 +431,7 @@ Success
 
 
 ### unDeleteUser
-Undelete user.
+undelete user who deleted from application and have not elapsed the platform configured delete days
 
 
 
@@ -463,7 +451,7 @@ platformClient.application("<APPLICATION_ID>").user.unDeleteUser(body body) {
 | body | [UnDeleteUserRequestSchema](#UnDeleteUserRequestSchema) | yes | Request body |
 
 
-Restore a previously deleted user account.
+undelete user who deleted from application and have not elapsed the platform configured delete days
 
 *Returned Response:*
 
@@ -507,7 +495,7 @@ Success
 
 
 ### updateUser
-Update user.
+Update user
 
 
 
@@ -528,7 +516,7 @@ platformClient.application("<APPLICATION_ID>").user.updateUser( userId, body bod
 | body | [UpdateUserRequestSchema](#UpdateUserRequestSchema) | yes | Request body |
 
 
-Modify and update user profile information.
+Use this API to update user details, Note: Existing emails and phone numbers of user will be replaced directly if phone_numbers or emails field sent in request data.
 
 *Returned Response:*
 
@@ -611,6 +599,294 @@ User update
 ---
 
 
+### createUserSession
+Create user session
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").user.createUserSession(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Company ID |   
+| applicationId | String | yes | Application ID |  
+| body | [CreateUserSessionRequestSchema](#CreateUserSessionRequestSchema) | yes | Request body |
+
+
+Create user session
+
+*Returned Response:*
+
+
+
+
+[CreateUserSessionResponseSchema](#CreateUserSessionResponseSchema)
+
+Create user session
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; create user session success</i></summary>
+
+```json
+{
+  "value": {
+    "domain": "vinit.com",
+    "max_age": 4555555,
+    "secure": true,
+    "http_only": true,
+    "cookie": {
+      "f.session": "s%3A-LrEF5FVR8jrT5DCtCHSbAy7JFyX-f9T.uXOQwzje8nOfx4ODANrLi4yNX5fW2W5kLQ2rkBdO2xE"
+    }
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### deleteSession
+Delete a session for a user
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").user.deleteSession( id,  sessionId,  reason) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
+| id | String | yes | ID of a customer. |   
+| sessionId | String | yes | Session ID of a customer. |   
+| reason | String | yes | Reason for deleting session. |  
+
+
+
+Use this API to Delete a session of customers who have registered in the application.
+
+*Returned Response:*
+
+
+
+
+[SessionDeleteResponseSchema](#SessionDeleteResponseSchema)
+
+Success. Refer `SessionDeleteResponseSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; delete user session success</i></summary>
+
+```json
+{
+  "value": {
+    "user_id": "61f02c3dcc701256044ed6c0",
+    "session_id": "sess:123"
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### getActiveSessions
+Get a list of all session with info for a user
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").user.getActiveSessions( id) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
+| id | String | yes | ID of a customer. |  
+
+
+
+Use this API to retrieve a list of session with info of customers who have registered in the application.
+
+*Returned Response:*
+
+
+
+
+[SessionListResponseSchema](#SessionListResponseSchema)
+
+Success. Refer `SessionListResponseSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; get user sessions success</i></summary>
+
+```json
+{
+  "value": {
+    "items": [
+      {
+        "session_id": "134",
+        "user_agent": "134",
+        "ip": "134",
+        "domain": "134",
+        "expire_in": "134"
+      },
+      {
+        "session_id": "134",
+        "user_agent": "134",
+        "ip": "134",
+        "domain": "134",
+        "expire_in": "134"
+      }
+    ]
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### deleteActiveSessions
+Delete a list of all session for a user
+
+
+
+
+```java
+platformClient.application("<APPLICATION_ID>").user.deleteActiveSessions( id,  reason) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
+| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
+| id | String | yes | ID of a customer. |   
+| reason | String | yes | Reason to delete sessions. |  
+
+
+
+Use this API to Delete a list of session of customers who have registered in the application.
+
+*Returned Response:*
+
+
+
+
+[SessionsDeleteResponseSchema](#SessionsDeleteResponseSchema)
+
+Success. Refer `SessionsDeleteResponseSchema` for more details.
+
+
+
+
+<details>
+<summary><i>&nbsp; Examples:</i></summary>
+
+
+<details>
+<summary><i>&nbsp; delete user sessions success</i></summary>
+
+```json
+{
+  "value": {
+    "user_id": "61f02c3dcc701256044ed6c0",
+    "session_ids": [
+      "sess:123",
+      "sess:456"
+    ]
+  }
+}
+```
+</details>
+
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### archiveUser
 archive user
 
@@ -675,300 +951,8 @@ Success
 ---
 
 
-
-
-### createUserSession
-Create user session.
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").user.createUserSession(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Company ID |   
-| applicationId | String | yes | Application ID |  
-| body | [CreateUserSessionRequestSchema](#CreateUserSessionRequestSchema) | yes | Request body |
-
-
-Establish a session for user interactions.
-
-*Returned Response:*
-
-
-
-
-[CreateUserSessionResponseSchema](#CreateUserSessionResponseSchema)
-
-Create user session
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; create user session success</i></summary>
-
-```json
-{
-  "value": {
-    "domain": "vinit.com",
-    "max_age": 4555555,
-    "secure": true,
-    "http_only": true,
-    "cookie": {
-      "f.session": "s%3A-LrEF5FVR8jrT5DCtCHSbAy7JFyX-f9T.uXOQwzje8nOfx4ODANrLi4yNX5fW2W5kLQ2rkBdO2xE"
-    }
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### deleteSession
-Delete session.
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").user.deleteSession( id,  sessionId,  reason) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
-| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
-| id | String | yes | ID of a customer. |   
-| sessionId | String | yes | Session ID of a customer. |   
-| reason | String | yes | Reason for deleting session. |  
-
-
-
-Terminate an active user session.
-
-*Returned Response:*
-
-
-
-
-[SessionDeleteResponseSchema](#SessionDeleteResponseSchema)
-
-Success. Refer `SessionDeleteResponseSchema` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; delete user session success</i></summary>
-
-```json
-{
-  "value": {
-    "user_id": "61f02c3dcc701256044ed6c0",
-    "session_id": "sess:123"
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getActiveSessions
-Get active sessions.
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").user.getActiveSessions( id) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
-| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
-| id | String | yes | ID of a customer. |  
-
-
-
-Retrieve a list of currently active user sessions.
-
-*Returned Response:*
-
-
-
-
-[SessionListResponseSchema](#SessionListResponseSchema)
-
-Success. Refer `SessionListResponseSchema` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; get user sessions success</i></summary>
-
-```json
-{
-  "value": {
-    "items": [
-      {
-        "session_id": "134",
-        "user_agent": "134",
-        "ip": "134",
-        "domain": "134",
-        "expire_in": "134"
-      },
-      {
-        "session_id": "134",
-        "user_agent": "134",
-        "ip": "134",
-        "domain": "134",
-        "expire_in": "134"
-      }
-    ]
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### deleteActiveSessions
-Delete active sessions.
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").user.deleteActiveSessions( id,  reason) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | String | yes | Numeric ID allotted to a business account on Fynd Platform. |   
-| applicationId | String | yes | Alphanumeric ID allotted to an application created within a business account. |   
-| id | String | yes | ID of a customer. |   
-| reason | String | yes | Reason to delete sessions. |  
-
-
-
-End multiple active user sessions.
-
-*Returned Response:*
-
-
-
-
-[SessionsDeleteResponseSchema](#SessionsDeleteResponseSchema)
-
-Success. Refer `SessionsDeleteResponseSchema` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; delete user sessions success</i></summary>
-
-```json
-{
-  "value": {
-    "user_id": "61f02c3dcc701256044ed6c0",
-    "session_ids": [
-      "sess:123",
-      "sess:456"
-    ]
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-
-
 ### getPlatformConfig
-Get platform config.
+Get platform configurations
 
 
 
@@ -988,7 +972,7 @@ platformClient.application("<APPLICATION_ID>").user.getPlatformConfig() {
 
 
 
-Retrieve configuration settings for the platform.
+Use this API to get all the platform configurations such as mobile image, desktop image, social logins, and all other text.
 
 *Returned Response:*
 
@@ -1111,7 +1095,7 @@ Success. Returns a JSON object containing the all the platform configurations. R
 
 
 ### updatePlatformConfig
-Update platform config.
+Update platform configurations
 
 
 
@@ -1131,7 +1115,7 @@ platformClient.application("<APPLICATION_ID>").user.updatePlatformConfig(body bo
 | body | [PlatformSchema](#PlatformSchema) | yes | Request body |
 
 
-Modify and update platform configuration settings.
+Use this API to edit the existing platform configurations such as mobile image, desktop image, social logins, and all other text.
 
 *Returned Response:*
 
@@ -1253,10 +1237,8 @@ Success. Returns a JSON object with the updated platform configurations. Refer `
 ---
 
 
-
-
 ### createUserGroup
-Create user group.
+Create an User Group
 
 
 
@@ -1276,7 +1258,7 @@ platformClient.application("<APPLICATION_ID>").user.createUserGroup(body body) {
 | body | [CreateUserGroup](#CreateUserGroup) | yes | Request body |
 
 
-Form and add a new user group.
+Use this API to create new user Group
 
 *Returned Response:*
 
@@ -1330,7 +1312,7 @@ Success. returns created User Group. `UserGroupResponseSchema` for more details.
 
 
 ### getUserGroups
-Get user groups.
+Get User Groups mathcing criteria
 
 
 
@@ -1356,7 +1338,7 @@ platformClient.application("<APPLICATION_ID>").user.getUserGroups( pageNo,  page
 
 
 
-Retrieve a list of user groups.
+Use this API to get User Groups mathing criteria passed in query
 
 *Returned Response:*
 
@@ -1434,7 +1416,7 @@ Success. User Group details. `UserGroupListResponseSchema` for more details.
 
 
 ### updateUserGroup
-Update user group.
+Update an User Group
 
 
 
@@ -1455,7 +1437,7 @@ platformClient.application("<APPLICATION_ID>").user.updateUserGroup( groupId, bo
 | body | [UpdateUserGroupSchema](#UpdateUserGroupSchema) | yes | Request body |
 
 
-Modify and update user group details.
+Use this API to update an existing user Group
 
 *Returned Response:*
 
@@ -1509,7 +1491,7 @@ Success. returns updated User Group. `UserGroupResponseSchema` for more details.
 
 
 ### getUserGroupById
-Get user group by ID.
+Get an User Group by Id
 
 
 
@@ -1530,7 +1512,7 @@ platformClient.application("<APPLICATION_ID>").user.getUserGroupById( groupId) {
 
 
 
-Retrieve a user group by its unique identifier.
+Use this API to get details of an existing user Group
 
 *Returned Response:*
 
@@ -1605,7 +1587,7 @@ platformClient.application("<APPLICATION_ID>").user.updateUserGroupPartially( gr
 | body | [PartialUserGroupUpdateSchema](#PartialUserGroupUpdateSchema) | yes | Request body |
 
 
-Update user group partially on the platform.
+Use this API to update user group details and add or remove an user to the user group.
 
 *Returned Response:*
 
@@ -1656,8 +1638,6 @@ Success. returns updated User Group. `UserGroupResponseSchema` for more details.
 
 
 ---
-
-
 
 
 ### createUserAttributeDefinition
@@ -2878,7 +2858,7 @@ Successful update
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | facebook | [Facebook](#Facebook)? |  yes  |  |
- | accountKit | [Accountkit](#Accountkit)? |  yes  |  |
+ | accountkit | [Accountkit](#Accountkit)? |  yes  |  |
  | google | [Google](#Google)? |  yes  |  |
 
 ---

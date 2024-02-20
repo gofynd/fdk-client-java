@@ -14,6 +14,298 @@ public class WebhookPartnerModels{
 
 
 /*
+    Model: KafkaConfigValidateResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class KafkaConfigValidateResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Boolean status;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: KafkaConfigResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class KafkaConfigResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Double id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("client_id")
+    private String clientId;
+    
+    
+    
+    
+    @JsonProperty("brokers")
+    private List<String> brokers;
+    
+    
+    
+    
+    @JsonProperty("ssl_enabled")
+    private Boolean sslEnabled;
+    
+    
+    
+    
+    @JsonProperty("sasl_enabled")
+    private Boolean saslEnabled;
+    
+    
+    
+    
+    @JsonProperty("sasl_configuration")
+    private HashMap<String,Object> saslConfiguration;
+    
+    
+    
+    
+    @JsonProperty("ssl_configuration")
+    private HashMap<String,Object> sslConfiguration;
+    
+    
+    
+    
+    @JsonProperty("connection_timeout")
+    private Double connectionTimeout;
+    
+    
+    
+    
+    @JsonProperty("authentication_timeout")
+    private Double authenticationTimeout;
+    
+    
+    
+    
+    @JsonProperty("request_timeout")
+    private Double requestTimeout;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("association")
+    private HashMap<String,Object> association;
+    
+    
+    
+}
+
+
+/*
+    Model: KafkaConfigUpdateRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class KafkaConfigUpdateRequest{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("client_id")
+    private String clientId;
+    
+    
+    
+    
+    @JsonProperty("brokers")
+    private List<String> brokers;
+    
+    
+    
+    
+    @JsonProperty("ssl_enabled")
+    private Boolean sslEnabled;
+    
+    
+    
+    
+    @JsonProperty("sasl_enabled")
+    private Boolean saslEnabled;
+    
+    
+    
+    
+    @JsonProperty("sasl_configuration")
+    private HashMap<String,Object> saslConfiguration;
+    
+    
+    
+    
+    @JsonProperty("ssl_configuration")
+    private HashMap<String,Object> sslConfiguration;
+    
+    
+    
+    
+    @JsonProperty("connection_timeout")
+    private Double connectionTimeout;
+    
+    
+    
+    
+    @JsonProperty("authentication_timeout")
+    private Double authenticationTimeout;
+    
+    
+    
+    
+    @JsonProperty("request_timeout")
+    private Double requestTimeout;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Double id;
+    
+    
+    
+}
+
+
+/*
+    Model: KafkaConfigRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class KafkaConfigRequest{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("client_id")
+    private String clientId;
+    
+    
+    
+    
+    @JsonProperty("brokers")
+    private List<String> brokers;
+    
+    
+    
+    
+    @JsonProperty("ssl_enabled")
+    private Boolean sslEnabled;
+    
+    
+    
+    
+    @JsonProperty("sasl_enabled")
+    private Boolean saslEnabled;
+    
+    
+    
+    
+    @JsonProperty("sasl_configuration")
+    private HashMap<String,Object> saslConfiguration;
+    
+    
+    
+    
+    @JsonProperty("ssl_configuration")
+    private HashMap<String,Object> sslConfiguration;
+    
+    
+    
+    
+    @JsonProperty("connection_timeout")
+    private Double connectionTimeout;
+    
+    
+    
+    
+    @JsonProperty("authentication_timeout")
+    private Double authenticationTimeout;
+    
+    
+    
+    
+    @JsonProperty("request_timeout")
+    private Double requestTimeout;
+    
+    
+    
+}
+
+
+/*
     Model: UpdateSubscriberResponse
 */
 @AllArgsConstructor
@@ -168,6 +460,12 @@ public static class SubscriberEventMapping{
     
     @JsonProperty("subscriber_id")
     private Integer subscriberId;
+    
+    
+    
+    
+    @JsonProperty("topic")
+    private String topic;
     
     
     
@@ -1322,6 +1620,12 @@ public static class ItemSchema{
     
     @JsonProperty("webhook_url")
     private String webhookUrl;
+    
+    
+    
+    
+    @JsonProperty("provider")
+    private String provider;
     
     
     

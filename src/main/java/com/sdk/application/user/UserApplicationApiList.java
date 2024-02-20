@@ -31,7 +31,7 @@ interface UserApplicationApiList {
     Call<UserApplicationModels.ResetPasswordSuccess> sendResetPasswordEmail(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendResetPasswordEmailRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<Object> sendResetPasswordMobile(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendResetPasswordMobileRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<UserApplicationModels.ResetPasswordSuccess> sendResetPasswordMobile(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendResetPasswordMobileRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<UserApplicationModels.ResetPasswordSuccess> sendResetToken(@Url String url1, @Body UserApplicationModels.CodeRequestBodySchema payload, @HeaderMap Map<String, String> requestHeaders);

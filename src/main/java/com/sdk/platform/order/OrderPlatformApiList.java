@@ -9,6 +9,21 @@ interface OrderPlatformApiList {
     @PUT ("/service/platform/order-manage/v1.0/company/{company_id}/update-cache")
     Call<OrderPlatformModels.InvalidateShipmentCacheResponse> invalidateShipmentCache(@Path("company_id") String companyId, @Body OrderPlatformModels.InvalidateShipmentCachePayload payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/refund/states/config")
+    Call<OrderPlatformModels.PostRefundStateConfigurationResponse> postRefundStateConfiguration(@Path("company_id") String companyId, @Query("app_id") String appId, @Body OrderPlatformModels.PostRefundStateConfiguration payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/refund/states/config")
+    Call<OrderPlatformModels.GetRefundStateConfigurationResponse> getRefundStateConfiguration(@Path("company_id") String companyId, @Query("app_id") String appId, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/refund/states")
+    Call<OrderPlatformModels.GetRefundStates> getRefundEnableStateList(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/refund/config")
+    Call<OrderPlatformModels.RefundStateConfigurationManualSchemaResponse> postRefundConfiguration(@Path("company_id") String companyId, @Query("app_id") String appId, @Body OrderPlatformModels.RefundStateConfigurationManualSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/refund/config")
+    Call<OrderPlatformModels.RefundStateConfigurationManualSchemaResponse> getRefundConfiguration(@Path("company_id") String companyId, @Query("app_id") String appId, @HeaderMap Map<String, String> requestHeaders);
+
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/store/reassign-internal")
     Call<OrderPlatformModels.StoreReassignResponse> reassignLocation(@Path("company_id") String companyId, @Body OrderPlatformModels.StoreReassign payload, @HeaderMap Map<String, String> requestHeaders);
 
@@ -126,11 +141,35 @@ interface OrderPlatformApiList {
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/orders/failed")
     Call<OrderPlatformModels.FailedOrderLogs> failedOrderLogs(@Path("company_id") String companyId, @Query("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("search_type") String searchType, @Query("search_value") String searchValue, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/{invoice_type}/id/generate")
-    Call<OrderPlatformModels.GenerateInvoiceIDResponse> generateInvoiceID(@Path("company_id") String companyId, @Path("invoice_type") String invoiceType, @Body OrderPlatformModels.GenerateInvoiceIDRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/orders/failed/logs/{log_id}")
     Call<OrderPlatformModels.FailedOrderLogDetails> failedOrderLogDetails(@Path("company_id") String companyId, @Path("log_id") String logId, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/application/{application_id}/question/")
+    Call<Object> getQuestions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("q") String q, @Query("is_active") String isActive, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/application/{application_id}/rule-lane-config")
+    Call<Object> getRuleLaneConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("search_value") String searchValue, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/application/{application_id}/rule")
+    Call<OrderPlatformModels.CreateRuleResponse> createRule(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body OrderPlatformModels.RuleRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/application/{application_id}/rule/{rule_id}")
+    Call<OrderPlatformModels.RuleResponse> getRuleById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("rule_id") String ruleId, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/order-manage/v1.0/company/{company_id}/application/{application_id}/rule/{rule_id}")
+    Call<OrderPlatformModels.RuleUpdateResponse> updateRule(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("rule_id") String ruleId, @Body OrderPlatformModels.RuleUpdateRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/order-manage/v1.0/company/{company_id}/application/{application_id}/rule/{rule_id}")
+    Call<OrderPlatformModels.DeleteRuleResponse> deleteRule(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("rule_id") String ruleId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/application/{application_id}/rule-position/")
+    Call<OrderPlatformModels.UpdateRulePositionResponse> updateRulePosition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body OrderPlatformModels.UpdateRulePositionRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/application/{application_id}/rule-parameters/")
+    Call<OrderPlatformModels.RuleParametersResponse> getRuleParameters(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/application/{application_id}/rule_list")
+    Call<OrderPlatformModels.RuleListResponse> getRuleList(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body OrderPlatformModels.RuleListRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/order/v1.0/company/{company_id}/application/{application_id}/orders/shipments/{shipment_id}/line_number/{line_number}/reasons")
     Call<OrderPlatformModels.ShipmentBagReasons> getShipmentBagReasons(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("shipment_id") String shipmentId, @Path("line_number") Integer lineNumber, @HeaderMap Map<String, String> requestHeaders);
@@ -155,6 +194,21 @@ interface OrderPlatformApiList {
 
     @GET ("/service/platform/order/v1.0/company/{company_id}/application/{application_id}/orders/shipments/{shipment_id}/track")
     Call<OrderPlatformModels.PlatformShipmentTrack> trackShipmentPlatform(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("shipment_id") String shipmentId, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/order/v1.0/company/{company_id}/views")
+    Call<OrderPlatformModels.UserViewsResponse> getuserviews(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/order/v1.0/company/{company_id}/views")
+    Call<OrderPlatformModels.CreateUpdateDeleteResponse> postuserviews(@Path("company_id") String companyId, @Body OrderPlatformModels.UserViewsResponse payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/order/v1.0/company/{company_id}/views")
+    Call<OrderPlatformModels.CreateUpdateDeleteResponse> updateuserviews(@Path("company_id") String companyId, @Body OrderPlatformModels.UserViewsResponse payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/order/v1.0/company/{company_id}/views/{id}")
+    Call<OrderPlatformModels.CreateUpdateDeleteResponse> deleteuserviews(@Path("company_id") String companyId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/order/v1.0/company/{company_id}/filters")
+    Call<OrderPlatformModels.GlobalFiltersResponse> globalfilters(@Path("company_id") String companyId, @Query("show_in") String showIn, @Query("request_source") String requestSource, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/order/v1.0/company/{company_id}/filter-listing")
     Call<OrderPlatformModels.FiltersResponse> getfilters(@Path("company_id") String companyId, @Query("view") String view, @Query("group_entity") String groupEntity, @HeaderMap Map<String, String> requestHeaders);

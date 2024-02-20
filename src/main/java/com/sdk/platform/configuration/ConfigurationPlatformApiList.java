@@ -106,7 +106,7 @@ interface ConfigurationPlatformApiList {
     Call<ConfigurationPlatformModels.ApplicationsResponse> getApplications(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/configuration/v1.0/company/{company_id}/application/{application_id}")
-    Call<ConfigurationPlatformModels.ApplicationById> getApplicationById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+    Call<ConfigurationPlatformModels.Application> getApplicationById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/configuration/v1.0/company/{company_id}/currencies")
     Call<ConfigurationPlatformModels.CurrenciesResponse> getCurrencies(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
