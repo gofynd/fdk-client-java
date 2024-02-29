@@ -14,117 +14,6 @@ public class LeadPlatformModels{
 
 
 /*
-    Model: GeneralConfigResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeneralConfigResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("support_communication")
-    private List<SupportCommunicationSchema> supportCommunication;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("integration")
-    private GeneralConfigIntegrationSchema integration;
-    
-    
-    
-    
-    @JsonProperty("available_integration")
-    private List<String> availableIntegration;
-    
-    
-    
-}
-
-
-/*
-    Model: SupportCommunicationSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SupportCommunicationSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("enabled")
-    private Boolean enabled;
-    
-    
-    
-}
-
-
-/*
-    Model: GeneralConfigIntegrationSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeneralConfigIntegrationSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-}
-
-
-/*
     Model: TicketList
 */
 @AllArgsConstructor
@@ -1604,7 +1493,7 @@ public static class TicketCategory{
     
     
     @JsonProperty("sub_categories")
-    private List<TicketCategory> subCategories;
+    private TicketCategory subCategories;
     
     
     

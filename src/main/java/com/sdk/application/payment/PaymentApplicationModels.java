@@ -1624,6 +1624,43 @@ public static class AggregatorRoute{
 
 
 /*
+    Model: PaymentDefaultSelection
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentDefaultSelection{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("mode")
+    private String mode;
+    
+    
+    
+    
+    @JsonProperty("identifier")
+    private String identifier;
+    
+    
+    
+    
+    @JsonProperty("skip")
+    private Boolean skip;
+    
+    
+    
+}
+
+
+/*
     Model: PaymentFlow
 */
 @AllArgsConstructor
@@ -1744,13 +1781,19 @@ public static class PaymentOptionAndFlow{
     
     
     @JsonProperty("payment_option")
-    private List<RootPaymentMode> paymentOption;
+    private RootPaymentMode paymentOption;
     
     
     
     
     @JsonProperty("payment_flows")
     private PaymentFlow paymentFlows;
+    
+    
+    
+    
+    @JsonProperty("payment_default_selection")
+    private PaymentDefaultSelection paymentDefaultSelection;
     
     
     
@@ -2423,6 +2466,12 @@ public static class ValidateVPARequest{
     
     @JsonProperty("upi_vpa")
     private String upiVpa;
+    
+    
+    
+    
+    @JsonProperty("aggregator")
+    private String aggregator;
     
     
     
@@ -3552,12 +3601,6 @@ public static class SetDefaultBeneficiaryRequest{
     
     @JsonProperty("beneficiary_id")
     private String beneficiaryId;
-    
-    
-    
-    
-    @JsonProperty("shipment_id")
-    private String shipmentId;
     
     
     

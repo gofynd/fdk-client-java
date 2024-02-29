@@ -210,62 +210,6 @@ public class CommunicationPlatformService {
     }
     
     
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getSystemNotifications
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CommunicationPlatformModels.SystemNotifications> getSystemNotificationsPagination(
-        Integer pageSize 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CommunicationPlatformModels.SystemNotifications> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CommunicationPlatformModels.SystemNotifications callback = this.getSystemNotifications(
-                
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
     
     
     
@@ -397,44 +341,6 @@ public class ApplicationClient {
         } else {
             return null;
         }    
-    }
-
-    /**
-    * Summary: get paginator for getEmailProviders
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CommunicationPlatformModels.EmailProviders> getEmailProvidersPagination(
-        Integer pageSize,
-        Object sort,
-        Object query
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CommunicationPlatformModels.EmailProviders> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CommunicationPlatformModels.EmailProviders callback = this.getEmailProviders(
-                
-                 
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 sort,
-                 query
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
     }
 
     public CommunicationPlatformModels.EmailProvider createEmailProvider(CommunicationPlatformModels.EmailProviderReq body) throws FDKServerResponseError, FDKException {
@@ -1031,44 +937,6 @@ public class ApplicationClient {
         }    
     }
 
-    /**
-    * Summary: get paginator for getAudiences
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CommunicationPlatformModels.Audiences> getAudiencesPagination(
-        Integer pageSize,
-        Object sort,
-        Object query
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CommunicationPlatformModels.Audiences> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CommunicationPlatformModels.Audiences callback = this.getAudiences(
-                
-                 
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 sort,
-                 query
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-
     public CommunicationPlatformModels.Audience createAudience(CommunicationPlatformModels.AudienceReq body) throws FDKServerResponseError, FDKException {
         return this.createAudience(body, new HashMap<>());
     }
@@ -1312,44 +1180,6 @@ public class ApplicationClient {
         }    
     }
 
-    /**
-    * Summary: get paginator for getEmailTemplates
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CommunicationPlatformModels.EmailTemplates> getEmailTemplatesPagination(
-        Integer pageSize,
-        Object sort,
-        Object query
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CommunicationPlatformModels.EmailTemplates> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CommunicationPlatformModels.EmailTemplates callback = this.getEmailTemplates(
-                
-                 
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 sort,
-                 query
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-
     public CommunicationPlatformModels.EmailTemplate createEmailTemplate(CommunicationPlatformModels.EmailTemplateReq body) throws FDKServerResponseError, FDKException {
         return this.createEmailTemplate(body, new HashMap<>());
     }
@@ -1512,42 +1342,6 @@ public class ApplicationClient {
         }    
     }
 
-    /**
-    * Summary: get paginator for getSubscribedEmailTemplates
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CommunicationPlatformModels.EmailTemplates> getSubscribedEmailTemplatesPagination(
-        Integer pageSize,
-        Object query
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CommunicationPlatformModels.EmailTemplates> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CommunicationPlatformModels.EmailTemplates callback = this.getSubscribedEmailTemplates(
-                
-                 
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 query
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-
     public CommunicationPlatformModels.SmsTemplates getSmsTemplates(Integer pageNo, Integer pageSize, Object sort, Object query) throws FDKServerResponseError, FDKException {
         return this.getSmsTemplates(pageNo, pageSize, sort, query, new HashMap<>());
     }
@@ -1573,44 +1367,6 @@ public class ApplicationClient {
         } else {
             return null;
         }    
-    }
-
-    /**
-    * Summary: get paginator for getSmsTemplates
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CommunicationPlatformModels.SmsTemplates> getSmsTemplatesPagination(
-        Integer pageSize,
-        Object sort,
-        Object query
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CommunicationPlatformModels.SmsTemplates> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CommunicationPlatformModels.SmsTemplates callback = this.getSmsTemplates(
-                
-                 
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 sort,
-                 query
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
     }
 
     public CommunicationPlatformModels.SmsTemplate createSmsTemplate(CommunicationPlatformModels.SmsTemplateReq body) throws FDKServerResponseError, FDKException {
@@ -1775,42 +1531,6 @@ public class ApplicationClient {
         }    
     }
 
-    /**
-    * Summary: get paginator for getSubscribedSmsTemplates
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CommunicationPlatformModels.SmsTemplates> getSubscribedSmsTemplatesPagination(
-        Integer pageSize,
-        Object query
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CommunicationPlatformModels.SmsTemplates> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CommunicationPlatformModels.SmsTemplates callback = this.getSubscribedSmsTemplates(
-                
-                 
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 query
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-
     public CommunicationPlatformModels.EngineResponse sendCommunicationSynchronously(CommunicationPlatformModels.EngineRequest body) throws FDKServerResponseError, FDKException {
         return this.sendCommunicationSynchronously(body, new HashMap<>());
     }
@@ -1890,42 +1610,6 @@ public class ApplicationClient {
         } else {
             return null;
         }    
-    }
-
-    /**
-    * Summary: get paginator for getEventSubscriptions
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CommunicationPlatformModels.EventSubscriptions> getEventSubscriptionsPagination(
-        Integer pageSize,
-        String populate
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CommunicationPlatformModels.EventSubscriptions> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CommunicationPlatformModels.EventSubscriptions callback = this.getEventSubscriptions(
-                
-                 
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 populate
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
     }
 
     public CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse createEventSubscriptions(CommunicationPlatformModels.SubscriptionsObject body) throws FDKServerResponseError, FDKException {
@@ -2144,44 +1828,6 @@ public class ApplicationClient {
         }    
     }
 
-    /**
-    * Summary: get paginator for getJobs
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CommunicationPlatformModels.Jobs> getJobsPagination(
-        Integer pageSize,
-        Object sort,
-        Object query
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CommunicationPlatformModels.Jobs> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CommunicationPlatformModels.Jobs callback = this.getJobs(
-                
-                 
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 sort,
-                 query
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-
     public CommunicationPlatformModels.CreateJobsRes createJobs(CommunicationPlatformModels.CreateJobsReq body) throws FDKServerResponseError, FDKException {
         return this.createJobs(body, new HashMap<>());
     }
@@ -2263,44 +1909,6 @@ public class ApplicationClient {
         }    
     }
 
-    /**
-    * Summary: get paginator for getJobLogs
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CommunicationPlatformModels.JobLogs> getJobLogsPagination(
-        Integer pageSize,
-        Object sort,
-        Object query
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CommunicationPlatformModels.JobLogs> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CommunicationPlatformModels.JobLogs callback = this.getJobLogs(
-                
-                 
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 sort,
-                 query
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-
     public CommunicationPlatformModels.Logs getCommunicationLogs(String pageId, Integer pageSize, Object sort, Object query) throws FDKServerResponseError, FDKException {
         return this.getCommunicationLogs(pageId, pageSize, sort, query, new HashMap<>());
     }
@@ -2328,53 +1936,15 @@ public class ApplicationClient {
         }    
     }
 
-    /**
-    * Summary: get paginator for getCommunicationLogs
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CommunicationPlatformModels.Logs> getCommunicationLogsPagination(
-        Integer pageSize,
-        Object sort,
-        Object query
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CommunicationPlatformModels.Logs> paginator = new Paginator<>(pageSize, "cursor");
-
-    paginator.setCallback(()-> {
-        try {
-            CommunicationPlatformModels.Logs callback = this.getCommunicationLogs(
-                
-                 
-                 
-                 paginator.getNextId()
-                ,
-                 paginator.getPageSize()
-                ,
-                 sort,
-                 query
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
+    public CommunicationPlatformModels.SendOtpCommsRes sendOtp(CommunicationPlatformModels.SendOtpCommsReq body) throws FDKServerResponseError, FDKException {
+        return this.sendOtp(body, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.SendOtpCommsRes sendOtp(Boolean ci, CommunicationPlatformModels.SendOtpCommsReq body) throws FDKServerResponseError, FDKException {
-        return this.sendOtp(ci, body, new HashMap<>());
-    }
-
-    public CommunicationPlatformModels.SendOtpCommsRes sendOtp(Boolean ci, CommunicationPlatformModels.SendOtpCommsReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.SendOtpCommsRes sendOtp(CommunicationPlatformModels.SendOtpCommsReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.SendOtpCommsRes> response = null;
             try {
-            response = communicationPlatformApiList.sendOtp(this.companyId, this.applicationId, ci, body, requestHeaders).execute();
+            response = communicationPlatformApiList.sendOtp(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

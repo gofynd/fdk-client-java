@@ -224,15 +224,15 @@ import com.sdk.application.*;
     }
     
 
-    public UserApplicationModels.ResetPasswordSuccess sendResetPasswordMobile(String platform, UserApplicationModels.SendResetPasswordMobileRequestSchema body) throws IOException {
+    public Object sendResetPasswordMobile(String platform, UserApplicationModels.SendResetPasswordMobileRequestSchema body) throws IOException {
         return this.sendResetPasswordMobile(platform, body, new HashMap<>());
     }
 
-    public UserApplicationModels.ResetPasswordSuccess sendResetPasswordMobile(String platform, UserApplicationModels.SendResetPasswordMobileRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+    public Object sendResetPasswordMobile(String platform, UserApplicationModels.SendResetPasswordMobileRequestSchema body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("sendResetPasswordMobile");
 
-        Response<UserApplicationModels.ResetPasswordSuccess> response = userApplicationApiList.sendResetPasswordMobile(fullUrl, platform, body, requestHeaders).execute();
+        Response<Object> response = userApplicationApiList.sendResetPasswordMobile(fullUrl, platform, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

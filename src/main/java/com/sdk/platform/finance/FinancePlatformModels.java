@@ -1702,7 +1702,7 @@ public static class InvoiceListingResponseItems{
     
     
     @JsonProperty("amount")
-    private Double amount;
+    private String amount;
     
     
     

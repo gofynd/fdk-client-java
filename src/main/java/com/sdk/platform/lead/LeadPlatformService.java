@@ -108,110 +108,6 @@ public class LeadPlatformService {
     }
     
     
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getPlatformTickets
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<LeadPlatformModels.TicketList> getPlatformTicketsPagination(
-        Boolean items ,
-        Boolean filters ,
-        String q ,
-        String status ,
-        LeadPlatformModels.PriorityEnum priority ,
-        String category ,
-        Integer pageSize 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<LeadPlatformModels.TicketList> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            LeadPlatformModels.TicketList callback = this.getPlatformTickets(
-                
-                 
-                 items,
-                 filters,
-                 q,
-                 status,
-                 priority,
-                 category,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
     
     
     
@@ -644,13 +540,13 @@ public class LeadPlatformService {
     
     
 
-    public LeadPlatformModels.GeneralConfigResponse getGeneralConfig() throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.CloseVideoRoomResponse getGeneralConfig() throws FDKServerResponseError, FDKException {
         return this.getGeneralConfig(new HashMap<>());
     }
 
-    public LeadPlatformModels.GeneralConfigResponse getGeneralConfig(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.CloseVideoRoomResponse getGeneralConfig(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LeadPlatformModels.GeneralConfigResponse> response = null;
+            Response<LeadPlatformModels.CloseVideoRoomResponse> response = null;
             try {
                 response = leadPlatformApiList.getGeneralConfig(this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {

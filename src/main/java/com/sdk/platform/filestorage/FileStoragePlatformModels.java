@@ -186,6 +186,31 @@ public static class StartResponse{
 
 
 /*
+    Model: Params
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Params{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("subpath")
+    private String subpath;
+    
+    
+    
+}
+
+
+/*
     Model: StartRequest
 */
 @AllArgsConstructor
@@ -362,37 +387,6 @@ public static class CompleteResponse{
     
     @JsonProperty("created_by")
     private CreatedBy createdBy;
-    
-    
-    
-}
-
-
-/*
-    Model: ProxyResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProxyResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("data")
-    private HashMap<String,Object> data;
-    
-    
-    
-    
-    @JsonProperty("support")
-    private HashMap<String,Object> support;
     
     
     
@@ -603,12 +597,6 @@ public static class InvoiceTypesDataResponse{
     
     @JsonProperty("visibility")
     private Boolean visibility;
-    
-    
-    
-    
-    @JsonProperty("store_os")
-    private Boolean storeOs;
     
     
     

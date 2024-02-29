@@ -59,28 +59,4 @@ interface BillingPlatformApiList {
 
     @GET ("/service/platform/billing/v1.0/company/{company_id}/entity/detail")
     Call<BillingPlatformModels.EntityResponse> getentityDetail(@Path("company_id") String companyId, @Query("entity_name") String entityName, @Query("entity_id") String entityId, @Query("channel") String channel, @Query("component") String component, @Query("component_name") String componentName, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/billing/v1.0/company/{company_id}/subscription/payment-options")
-    Call<BillingPlatformModels.PaymentOptions> paymentOptions(@Path("company_id") String companyId, @Query("code") String code, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/billing/v1.0/company/{company_id}/subscription/verify-payment")
-    Call<BillingPlatformModels.VerifyPaymentRes> verifyPayment(@Path("company_id") String companyId, @Body BillingPlatformModels.VerifyPaymentReq payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/billing/v1.0/company/{company_id}/global-settings")
-    Call<BillingPlatformModels.GlobalSettings> globalSettings(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("query") Object query, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/billing/v1.0/company/{company_id}/subscription/methods")
-    Call<BillingPlatformModels.SubscriptionMethods> subscriptionMethods(@Path("company_id") String companyId, @Query("unique_external_id") Object uniqueExternalId, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/billing/v1.0/company/{company_id}/subscription/configs")
-    Call<BillingPlatformModels.ConfigRes> subscriptionConfigs(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/billing/v1.0/company/{company_id}/subscription/plan-change")
-    Call<BillingPlatformModels.PlanChangeDetails> subscriptionPlanChange(@Path("company_id") String companyId, @Query("product_suite") String productSuite, @Query("unique_id") Integer uniqueId, @Query("platform") String platform, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/billing/v1.0/company/{company_id}/payment/transaction/{transactionId}")
-    Call<BillingPlatformModels.PaymentTransactionDetails> getPaymentTransaction(@Path("company_id") String companyId, @Path("transactionId") String transactionId, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/billing/v1.0/company/{company_id}/payment/options")
-    Call<BillingPlatformModels.GetPaymentOptions> getPaymentOptions(@Path("company_id") String companyId, @Query("transaction_id") String transactionId, @HeaderMap Map<String, String> requestHeaders);
 }

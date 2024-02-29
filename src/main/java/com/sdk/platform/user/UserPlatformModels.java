@@ -705,7 +705,7 @@ public static class CustomerListResponseSchema{
     
     
     @JsonProperty("items")
-    private List<UserSchema> items;
+    private List<UserSearchSchema> items;
     
     
     
@@ -1993,8 +1993,8 @@ public static class SocialTokens{
     
     
     
-    @JsonProperty("accountkit")
-    private Accountkit accountkit;
+    @JsonProperty("account_kit")
+    private Accountkit accountKit;
     
     
     

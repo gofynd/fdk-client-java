@@ -44,20 +44,6 @@ public class BillingPublicService {
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
-    }
-
-    public BillingPublicModels.PlanDetails getPlanDetails(String planId) throws IOException {
-        return this.getPlanDetails(planId, new HashMap<>());
-    }
-
-    public BillingPublicModels.PlanDetails getPlanDetails(String planId, Map<String, String> requestHeaders) throws IOException {
-    
-        Response<BillingPublicModels.PlanDetails> response = billingPublicApiList.getPlanDetails(planId, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
     }  
 
     private interface Fields {

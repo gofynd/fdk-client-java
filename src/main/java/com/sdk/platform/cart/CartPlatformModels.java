@@ -1088,37 +1088,6 @@ public static class CouponsResponse{
 
 
 /*
-    Model: TagsViewResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TagsViewResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<String> items;
-    
-    
-    
-}
-
-
-/*
     Model: SuccessMessage
 */
 @AllArgsConstructor
@@ -2362,12 +2331,6 @@ public static class PromotionListItem{
     
     
     
-    
-    @JsonProperty("custom_field_meta")
-    private List<Object> customFieldMeta;
-    
-    
-    
 }
 
 
@@ -2713,12 +2676,6 @@ public static class PromotionUpdate{
     
     
     
-    
-    @JsonProperty("custom_field_meta")
-    private List<Object> customFieldMeta;
-    
-    
-    
 }
 
 
@@ -2895,74 +2852,6 @@ public static class DeliveryCharges{
 
 
 /*
-    Model: OrderPlacing
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderPlacing{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("enabled")
-    private Boolean enabled;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
-    Model: PanCard
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PanCard{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("enabled")
-    private Boolean enabled;
-    
-    
-    
-    
-    @JsonProperty("cod_threshold_amount")
-    private Integer codThresholdAmount;
-    
-    
-    
-    
-    @JsonProperty("online_threshold_amount")
-    private Integer onlineThresholdAmount;
-    
-    
-    
-}
-
-
-/*
     Model: CartMetaConfigUpdate
 */
 @AllArgsConstructor
@@ -3015,12 +2904,6 @@ public static class CartMetaConfigUpdate{
     
     
     
-    @JsonProperty("international_delivery_charges")
-    private DeliveryCharges internationalDeliveryCharges;
-    
-    
-    
-    
     @JsonProperty("revenue_engine_coupon")
     private Boolean revenueEngineCoupon;
     
@@ -3035,226 +2918,6 @@ public static class CartMetaConfigUpdate{
     
     @JsonProperty("enabled")
     private Boolean enabled;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("order_placing")
-    private OrderPlacing orderPlacing;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("article_tags")
-    private List<String> articleTags;
-    
-    
-    
-    
-    @JsonProperty("allow_coupon_with_rewards")
-    private Boolean allowCouponWithRewards;
-    
-    
-    
-    
-    @JsonProperty("gst_input")
-    private Boolean gstInput;
-    
-    
-    
-    
-    @JsonProperty("staff_selection")
-    private Boolean staffSelection;
-    
-    
-    
-    
-    @JsonProperty("placing_for_customer")
-    private Boolean placingForCustomer;
-    
-    
-    
-    
-    @JsonProperty("pan_card")
-    private PanCard panCard;
-    
-    
-    
-}
-
-
-/*
-    Model: TimeStampIDResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TimeStampIDResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("app_id")
-    private String appId;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("updated_on")
-    private String updatedOn;
-    
-    
-    
-    
-    @JsonProperty("last_modified_by")
-    private String lastModifiedBy;
-    
-    
-    
-}
-
-
-/*
-    Model: CartMetaConfigDetailResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartMetaConfigDetailResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("data")
-    private Object data;
-    
-    
-    
-}
-
-
-/*
-    Model: CartMetaConfigListObj
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartMetaConfigListObj{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-}
-
-
-/*
-    Model: CartMetaConfigListResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartMetaConfigListResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("data")
-    private List<CartMetaConfigListObj> data;
     
     
     
@@ -3314,12 +2977,6 @@ public static class CartMetaConfigAdd{
     
     
     
-    @JsonProperty("international_delivery_charges")
-    private DeliveryCharges internationalDeliveryCharges;
-    
-    
-    
-    
     @JsonProperty("revenue_engine_coupon")
     private Boolean revenueEngineCoupon;
     
@@ -3334,66 +2991,6 @@ public static class CartMetaConfigAdd{
     
     @JsonProperty("enabled")
     private Boolean enabled;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("order_placing")
-    private OrderPlacing orderPlacing;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("article_tags")
-    private List<String> articleTags;
-    
-    
-    
-    
-    @JsonProperty("allow_coupon_with_rewards")
-    private Boolean allowCouponWithRewards;
-    
-    
-    
-    
-    @JsonProperty("gst_input")
-    private Boolean gstInput;
-    
-    
-    
-    
-    @JsonProperty("staff_selection")
-    private Boolean staffSelection;
-    
-    
-    
-    
-    @JsonProperty("placing_for_customer")
-    private Boolean placingForCustomer;
-    
-    
-    
-    
-    @JsonProperty("pan_card")
-    private PanCard panCard;
     
     
     
@@ -3594,18 +3191,6 @@ public static class PriceAdjustmentUpdate{
     
     
     
-    @JsonProperty("remove_articles")
-    private Boolean removeArticles;
-    
-    
-    
-    
-    @JsonProperty("auto_remove")
-    private Boolean autoRemove;
-    
-    
-    
-    
     @JsonProperty("meta")
     private Object meta;
     
@@ -3711,30 +3296,6 @@ public static class PriceAdjustment{
     
     @JsonProperty("cart_id")
     private String cartId;
-    
-    
-    
-    
-    @JsonProperty("remove_articles")
-    private Boolean removeArticles;
-    
-    
-    
-    
-    @JsonProperty("auto_remove")
-    private Boolean autoRemove;
-    
-    
-    
-    
-    @JsonProperty("distribution_level")
-    private String distributionLevel;
-    
-    
-    
-    
-    @JsonProperty("distribution_type")
-    private String distributionType;
     
     
     
@@ -3857,30 +3418,6 @@ public static class PriceAdjustmentAdd{
     
     @JsonProperty("cart_id")
     private String cartId;
-    
-    
-    
-    
-    @JsonProperty("remove_articles")
-    private Boolean removeArticles;
-    
-    
-    
-    
-    @JsonProperty("auto_remove")
-    private Boolean autoRemove;
-    
-    
-    
-    
-    @JsonProperty("distribution_level")
-    private String distributionLevel;
-    
-    
-    
-    
-    @JsonProperty("distribution_type")
-    private String distributionType;
     
     
     
@@ -4713,12 +4250,6 @@ public static class ProductArticle{
     
     
     
-    @JsonProperty("product_name")
-    private String productName;
-    
-    
-    
-    
     @JsonProperty("cart_item_meta")
     private Object cartItemMeta;
     
@@ -5123,12 +4654,6 @@ public static class AppliedPromotion{
     
     @JsonProperty("code")
     private String code;
-    
-    
-    
-    
-    @JsonProperty("custom_field_meta")
-    private List<Object> customFieldMeta;
     
     
     
@@ -5591,12 +5116,6 @@ public static class CartProductInfo{
     
     @JsonProperty("delivery_promise")
     private ShipmentPromise deliveryPromise;
-    
-    
-    
-    
-    @JsonProperty("seller_count")
-    private Integer sellerCount;
     
     
     
@@ -6956,49 +6475,6 @@ public static class CartCommonConfig{
 
 
 /*
-    Model: CustomCart
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CustomCart{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("cart_name")
-    private String cartName;
-    
-    
-    
-    
-    @JsonProperty("cart_type")
-    private String cartType;
-    
-    
-    
-    
-    @JsonProperty("is_universal")
-    private Boolean isUniversal;
-    
-    
-    
-}
-
-
-/*
     Model: CartDetailResponse
 */
 @AllArgsConstructor
@@ -7170,18 +6646,6 @@ public static class CartDetailResponse{
     
     
     
-    
-    @JsonProperty("is_pan_received")
-    private Boolean isPanReceived;
-    
-    
-    
-    
-    @JsonProperty("custom_cart")
-    private CustomCart customCart;
-    
-    
-    
 }
 
 
@@ -7222,12 +6686,6 @@ public static class AddProductCart{
     
     @JsonProperty("parent_item_identifiers")
     private List<HashMap<String,String>> parentItemIdentifiers;
-    
-    
-    
-    
-    @JsonProperty("price_factory_type_id")
-    private String priceFactoryTypeId;
     
     
     
@@ -7423,12 +6881,6 @@ public static class UpdateProductCart{
     
     @JsonProperty("_custom_json")
     private Object customJson;
-    
-    
-    
-    
-    @JsonProperty("price_factory_type_id")
-    private String priceFactoryTypeId;
     
     
     
@@ -8393,12 +7845,6 @@ public static class UserCartMappingResponse{
     
     @JsonProperty("pan_no")
     private String panNo;
-    
-    
-    
-    
-    @JsonProperty("is_pan_received")
-    private Boolean isPanReceived;
     
     
     
@@ -9453,12 +8899,6 @@ public static class PlatformCartShipmentsResponse{
     
     
     
-    
-    @JsonProperty("is_pan_received")
-    private Boolean isPanReceived;
-    
-    
-    
 }
 
 
@@ -9567,12 +9007,6 @@ public static class PlatformCartMetaRequest{
     
     @JsonProperty("pan_no")
     private String panNo;
-    
-    
-    
-    
-    @JsonProperty("is_pan_received")
-    private Boolean isPanReceived;
     
     
     
@@ -10187,12 +9621,6 @@ public static class CheckCart{
     
     @JsonProperty("delivery_charges")
     private Double deliveryCharges;
-    
-    
-    
-    
-    @JsonProperty("custom_cart")
-    private CustomCart customCart;
     
     
     
