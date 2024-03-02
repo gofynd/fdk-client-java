@@ -1034,7 +1034,7 @@ public static class EventProcessReportObject{
     
     
     @JsonProperty("data")
-    private HashMap<String,Object> data;
+    private String data;
     
     
     

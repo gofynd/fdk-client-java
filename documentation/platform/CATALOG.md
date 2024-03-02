@@ -1268,7 +1268,7 @@ Success. Returns the article/stock of the product stock.
         "width": 20
       },
       "discount_applied": null,
-      "expiration_date": "9998-01-30T23:59:00",
+      "expiration_date": "9998-01-30T23:59:00.000Z",
       "fragile": false,
       "fynd_article_code": "LS101269_11",
       "fynd_item_code": "LS101269",
@@ -1299,7 +1299,7 @@ Success. Returns the article/stock of the product stock.
         "effective": 3250,
         "marked": 5000,
         "transfer": 0,
-        "updated_at": "2022-07-20T13:58:06.122914+00:00"
+        "updated_at": "2022-07-20T13:58:06.122Z"
       },
       "quantities": {
         "sellable": {
@@ -1370,7 +1370,7 @@ Success. Returns the article/stock of the product stock.
         "width": 20
       },
       "discount_applied": null,
-      "expiration_date": "9998-01-30T23:59:00",
+      "expiration_date": "9998-01-30T23:59:00.000Z",
       "fragile": false,
       "fynd_article_code": "LS101163_11",
       "fynd_item_code": "LS101163",
@@ -1401,7 +1401,7 @@ Success. Returns the article/stock of the product stock.
         "effective": 3250,
         "marked": 5000,
         "transfer": 0,
-        "updated_at": "2022-07-20T13:58:06.396235+00:00"
+        "updated_at": "2022-07-20T13:58:06.396Z"
       },
       "quantities": {
         "sellable": {
@@ -1472,7 +1472,7 @@ Success. Returns the article/stock of the product stock.
         "width": 20
       },
       "discount_applied": null,
-      "expiration_date": "9998-01-30T23:59:00",
+      "expiration_date": "9998-01-30T23:59:00.000Z",
       "fragile": false,
       "fynd_article_code": "LS101173_11",
       "fynd_item_code": "LS101173",
@@ -1503,7 +1503,7 @@ Success. Returns the article/stock of the product stock.
         "effective": 3250,
         "marked": 5000,
         "transfer": 0,
-        "updated_at": "2022-07-20T13:58:06.635248+00:00"
+        "updated_at": "2022-07-20T13:58:06.635Z"
       },
       "quantities": {
         "sellable": {
@@ -1574,7 +1574,7 @@ Success. Returns the article/stock of the product stock.
         "width": 20
       },
       "discount_applied": null,
-      "expiration_date": "9998-01-30T23:59:00",
+      "expiration_date": "9998-01-30T23:59:00.000Z",
       "fragile": false,
       "fynd_article_code": "LS101198_11",
       "fynd_item_code": "LS101198",
@@ -1605,7 +1605,7 @@ Success. Returns the article/stock of the product stock.
         "effective": 3250,
         "marked": 5000,
         "transfer": 0,
-        "updated_at": "2022-07-20T13:58:06.898687+00:00"
+        "updated_at": "2022-07-20T13:58:06.898Z"
       },
       "quantities": {
         "sellable": {
@@ -2595,7 +2595,7 @@ The Product object. See example below or refer `ProductDetail` for details.
   ],
   "name": "benchmark collaborative paradigms",
   "no_of_boxes": 1,
-  "product_online_date": "2021-02-03T07:22:29Z",
+  "product_online_date": "2021-02-03T07:22:29.000Z",
   "rating": 2.7,
   "rating_count": 2,
   "similars": [
@@ -2716,7 +2716,7 @@ The Product object. See example below or refer `ApplicationProductListingRespons
         "user_id": "5",
         "username": "919049753052_37528"
       },
-      "created_on": "2021-04-02T15:43:59.410000Z",
+      "created_on": "2021-04-02T15:43:59.410Z",
       "currency": "INR",
       "custom_order": {
         "is_custom_order": true,
@@ -2758,7 +2758,7 @@ The Product object. See example below or refer `ApplicationProductListingRespons
         "user_id": "xxxxxxxxxxx",
         "username": "xxxxxxxxxx"
       },
-      "modified_on": "2021-04-02T15:43:59.410000Z",
+      "modified_on": "2021-04-02T15:43:59.410Z",
       "multi_size": true,
       "name": "TV Set",
       "no_of_boxes": 1,
@@ -2824,7 +2824,7 @@ The Product object. See example below or refer `ApplicationProductListingRespons
         "user_id": "0",
         "username": "Silverbolt"
       },
-      "verified_on": "2021-04-02T15:43:59.410000Z"
+      "verified_on": "2021-04-02T15:43:59.410Z"
     }
   ],
   "page": {
@@ -3026,10 +3026,10 @@ List of collections. See example below or refer `GetCollectionListingResponse` f
         "next_schedule": [
           {
             "end": null,
-            "start": "2021-03-04T15:35:13.640000Z"
+            "start": "2021-03-04T15:35:13.640Z"
           }
         ],
-        "start": "2021-03-04T15:35:13.640000Z"
+        "start": "2021-03-04T15:35:13.640Z"
       },
       "action": {
         "page": {
@@ -3083,10 +3083,10 @@ List of collections. See example below or refer `GetCollectionListingResponse` f
         "next_schedule": [
           {
             "end": null,
-            "start": "2021-03-04T09:33:53.686000Z"
+            "start": "2021-03-04T09:33:53.686Z"
           }
         ],
-        "start": "2021-03-04T09:33:53.686000Z"
+        "start": "2021-03-04T09:33:53.686Z"
       },
       "action": {
         "page": {
@@ -3149,10 +3149,10 @@ List of collections. See example below or refer `GetCollectionListingResponse` f
         "next_schedule": [
           {
             "end": null,
-            "start": "2021-03-03T10:45:40.544000Z"
+            "start": "2021-03-03T10:45:40.544Z"
           }
         ],
-        "start": "2021-03-03T10:45:40.544000Z"
+        "start": "2021-03-03T10:45:40.544Z"
       },
       "action": {
         "page": {
@@ -3671,10 +3671,10 @@ The Collection object. See example below or refer `GetCollectionDetailResponse` 
     "next_schedule": [
       {
         "end": null,
-        "start": "2020-05-21T03:58:41.237000Z"
+        "start": "2020-05-21T03:58:41.237Z"
       }
     ],
-    "start": "2020-05-21T03:58:41.237000Z"
+    "start": "2020-05-21T03:58:41.237Z"
   },
   "action": {
     "page": {
@@ -6871,7 +6871,7 @@ returns a list of all inventory grouped by size and store
           "primary": true
         }
       ],
-      "inventory_updated_on": "2021-04-06T03:30:01.487000",
+      "inventory_updated_on": "2021-04-06T03:30:01.487Z",
       "item_id": 7500651,
       "manufacturer": {
         "address": "st",
@@ -6931,7 +6931,7 @@ returns a list of all inventory grouped by size and store
           "primary": true
         }
       ],
-      "inventory_updated_on": "2021-04-06T03:29:35.291000",
+      "inventory_updated_on": "2021-04-06T03:29:35.291Z",
       "item_id": 7500651,
       "manufacturer": {
         "address": "st",
@@ -6991,7 +6991,7 @@ returns a list of all inventory grouped by size and store
           "primary": true
         }
       ],
-      "inventory_updated_on": "2021-03-17T12:35:29.992000",
+      "inventory_updated_on": "2021-03-17T12:35:29.992Z",
       "item_id": 7500651,
       "manufacturer": {
         "address": "st",
@@ -7053,7 +7053,7 @@ returns a list of all inventory grouped by size and store
           "primary": true
         }
       ],
-      "inventory_updated_on": "2021-03-31T19:00:10.943000",
+      "inventory_updated_on": "2021-03-31T19:00:10.943Z",
       "item_id": 7500651,
       "manufacturer": {
         "address": "st",
@@ -7115,7 +7115,7 @@ returns a list of all inventory grouped by size and store
           "primary": true
         }
       ],
-      "inventory_updated_on": "2020-07-07T10:37:06.146000",
+      "inventory_updated_on": "2020-07-07T10:37:06.146Z",
       "item_id": 7500651,
       "manufacturer": {
         "address": "st",
@@ -7438,10 +7438,10 @@ returns a list of all inventory grouped by size and store
         "username": "abhishekbhakurlekar_gofynd_com_63787"
       },
       "date_meta": {
-        "added_on_store": "2023-01-20T07:26:18.834000",
-        "created_on": "2023-01-20T07:26:18.828000",
-        "inventory_updated_on": "2023-01-20T07:26:18.828000",
-        "modified_on": "2023-01-20T07:26:18.828000"
+        "added_on_store": "2023-01-20T07:26:18.834Z",
+        "created_on": "2023-01-20T07:26:18.828Z",
+        "inventory_updated_on": "2023-01-20T07:26:18.828Z",
+        "modified_on": "2023-01-20T07:26:18.828Z"
       },
       "dimension": {
         "height": 10,
@@ -7449,7 +7449,7 @@ returns a list of all inventory grouped by size and store
         "unit": "cm",
         "width": 15
       },
-      "expiration_date": "9998-01-30T23:59:00",
+      "expiration_date": "9998-01-30T23:59:00.000Z",
       "id": "63ca421a6fb0ce930685f46e",
       "identifier": {
         "alu": "410163085004",
@@ -7528,10 +7528,10 @@ returns a list of all inventory grouped by size and store
         "username": "abhishekbhakurlekar_gofynd_com_63787"
       },
       "date_meta": {
-        "added_on_store": "2023-01-16T05:25:49.491000",
-        "created_on": "2023-01-16T05:25:49.482000",
-        "inventory_updated_on": "2023-01-16T05:25:49.482000",
-        "modified_on": "2023-01-16T05:25:49.482000"
+        "added_on_store": "2023-01-16T05:25:49.491Z",
+        "created_on": "2023-01-16T05:25:49.482Z",
+        "inventory_updated_on": "2023-01-16T05:25:49.482Z",
+        "modified_on": "2023-01-16T05:25:49.482Z"
       },
       "dimension": {
         "height": 10,
@@ -7539,7 +7539,7 @@ returns a list of all inventory grouped by size and store
         "unit": "cm",
         "width": 15
       },
-      "expiration_date": "9998-01-30T23:59:00",
+      "expiration_date": "9998-01-30T23:59:00.000Z",
       "id": "63c4dfdd11e44ffd96d600bc",
       "identifier": {
         "alu": "410163085005",
@@ -7618,10 +7618,10 @@ returns a list of all inventory grouped by size and store
         "username": "sagardhiman_gofynd_com_43846"
       },
       "date_meta": {
-        "added_on_store": "2023-01-05T10:45:41.988000",
-        "created_on": "2023-01-05T10:45:41.979000",
-        "inventory_updated_on": "2023-01-19T10:37:00.504000",
-        "modified_on": "2023-01-19T10:37:00.504000"
+        "added_on_store": "2023-01-05T10:45:41.988Z",
+        "created_on": "2023-01-05T10:45:41.979Z",
+        "inventory_updated_on": "2023-01-19T10:37:00.504Z",
+        "modified_on": "2023-01-19T10:37:00.504Z"
       },
       "dimension": {
         "height": 10,
@@ -7629,7 +7629,7 @@ returns a list of all inventory grouped by size and store
         "unit": "cm",
         "width": 15
       },
-      "expiration_date": "9998-01-30T23:59:00",
+      "expiration_date": "9998-01-30T23:59:00.000Z",
       "id": "63b6aa5558bf3ed100740c10",
       "identifier": {
         "alu": "410163085004",
@@ -7714,10 +7714,10 @@ returns a list of all inventory grouped by size and store
         "username": "meghanakate_gofynd_com_58351"
       },
       "date_meta": {
-        "added_on_store": "2022-11-29T11:17:42.271000",
-        "created_on": "2022-11-29T11:17:42.263000",
-        "inventory_updated_on": "2022-11-29T11:18:35.183000",
-        "modified_on": "2022-11-29T11:18:35.183000"
+        "added_on_store": "2022-11-29T11:17:42.271Z",
+        "created_on": "2022-11-29T11:17:42.263Z",
+        "inventory_updated_on": "2022-11-29T11:18:35.183Z",
+        "modified_on": "2022-11-29T11:18:35.183Z"
       },
       "dimension": {
         "height": 10,
@@ -7725,7 +7725,7 @@ returns a list of all inventory grouped by size and store
         "unit": "cm",
         "width": 15
       },
-      "expiration_date": "9998-01-30T23:59:00",
+      "expiration_date": "9998-01-30T23:59:00.000Z",
       "id": "6385ea569715e74d8a92ce88",
       "identifier": {
         "alu": "410163085001",
@@ -7809,10 +7809,10 @@ returns a list of all inventory grouped by size and store
         "username": "meghanakate_gofynd_com_58351"
       },
       "date_meta": {
-        "added_on_store": "2022-11-29T11:17:34.431000",
-        "created_on": "2022-11-29T11:17:34.424000",
-        "inventory_updated_on": "2022-11-29T11:18:27.331000",
-        "modified_on": "2022-11-29T11:18:27.331000"
+        "added_on_store": "2022-11-29T11:17:34.431Z",
+        "created_on": "2022-11-29T11:17:34.424Z",
+        "inventory_updated_on": "2022-11-29T11:18:27.331Z",
+        "modified_on": "2022-11-29T11:18:27.331Z"
       },
       "dimension": {
         "height": 10,
@@ -7820,7 +7820,7 @@ returns a list of all inventory grouped by size and store
         "unit": "cm",
         "width": 15
       },
-      "expiration_date": "9998-01-30T23:59:00",
+      "expiration_date": "9998-01-30T23:59:00.000Z",
       "id": "6385ea4e9715e74d8a92ce86",
       "identifier": {
         "alu": "410163085003",
@@ -7966,7 +7966,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "16",
         "username": "nikhilmhatre_gofynd_com_97636"
       },
-      "created_on": "2021-03-11T10:54:44.998000Z",
+      "created_on": "2021-03-11T10:54:44.998Z",
       "failed": 0,
       "failed_records": [],
       "file_path": "https://hdn-1.addsale.com/x0/company/1/self/documents/inventory-import/free/original/50DbgKLND-NtnL_EAVb-REicn1sDv-V8ZrKdnLt-product_inventory.csv",
@@ -7976,7 +7976,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "0",
         "username": "Silverbolt"
       },
-      "modified_on": "2021-03-11T10:54:45.296000Z",
+      "modified_on": "2021-03-11T10:54:45.296Z",
       "stage": "completed",
       "succeed": 1,
       "total": 1
@@ -7989,7 +7989,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "-1",
         "username": "silverbolt"
       },
-      "created_on": "2021-03-04T09:46:51.714000Z",
+      "created_on": "2021-03-04T09:46:51.714Z",
       "failed": 0,
       "failed_records": [],
       "file_path": "https://hdn-1.addsale.com/x0/company/1/self/documents/inventory-import/free/original/NtnL_EAVb-REicn1sDv-V8ZrKdnLt-product_inventory.csv",
@@ -7999,7 +7999,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "0",
         "username": "Silverbolt"
       },
-      "modified_on": "2021-03-04T09:46:55.349000Z",
+      "modified_on": "2021-03-04T09:46:55.349Z",
       "stage": "completed",
       "succeed": 1,
       "total": 1
@@ -8012,7 +8012,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "-1",
         "username": "silverbolt"
       },
-      "created_on": "2021-03-04T09:22:32.222000Z",
+      "created_on": "2021-03-04T09:22:32.222Z",
       "failed": 0,
       "failed_records": [],
       "file_path": "https://hdn-1.addsale.com/x0/company/1/self/documents/inventory-import/free/original/bmBZY9iAX-REicn1sDv-V8ZrKdnLt-product_inventory.csv",
@@ -8022,7 +8022,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "-1",
         "username": "silverbolt"
       },
-      "modified_on": "2021-03-04T09:22:32.222000Z",
+      "modified_on": "2021-03-04T09:22:32.222Z",
       "stage": "terminated",
       "succeed": 0,
       "total": 1
@@ -8035,7 +8035,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "-1",
         "username": "silverbolt"
       },
-      "created_on": "2021-03-04T09:20:29.719000Z",
+      "created_on": "2021-03-04T09:20:29.719Z",
       "failed": 0,
       "failed_records": [],
       "file_path": "https://hdn-1.addsale.com/x0/company/1/self/documents/inventory-import/free/original/m73yWRT3v-REicn1sDv-V8ZrKdnLt-product_inventory.csv",
@@ -8045,7 +8045,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "-1",
         "username": "silverbolt"
       },
-      "modified_on": "2021-03-04T09:20:29.719000Z",
+      "modified_on": "2021-03-04T09:20:29.719Z",
       "stage": "terminated",
       "succeed": 0,
       "total": 1
@@ -8058,7 +8058,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "-1",
         "username": "silverbolt"
       },
-      "created_on": "2021-03-04T08:50:49.367000Z",
+      "created_on": "2021-03-04T08:50:49.367Z",
       "failed": 0,
       "failed_records": [],
       "file_path": "https://hdn-1.addsale.com/x0/company/1/self/documents/inventory-import/free/original/W9lxe19Uu-REicn1sDv-V8ZrKdnLt-product_inventory.csv",
@@ -8068,7 +8068,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "-1",
         "username": "silverbolt"
       },
-      "modified_on": "2021-03-04T08:50:49.367000Z",
+      "modified_on": "2021-03-04T08:50:49.367Z",
       "stage": "terminated",
       "succeed": 0,
       "total": 1
@@ -8082,7 +8082,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "5646",
         "username": "917972410891_48194"
       },
-      "created_on": "2021-02-10T10:57:57.236000Z",
+      "created_on": "2021-02-10T10:57:57.236Z",
       "failed": 0,
       "failed_records": [],
       "file_path": "https://hdn-1.addsale.com/x0/company/1/self/documents/inventory-import/free/original/REicn1sDv-V8ZrKdnLt-product_inventory.csv",
@@ -8092,7 +8092,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "0",
         "username": "Silverbolt"
       },
-      "modified_on": "2021-02-10T10:57:57.571000Z",
+      "modified_on": "2021-02-10T10:57:57.571Z",
       "stage": "completed",
       "succeed": 1,
       "total": 1
@@ -8106,7 +8106,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "5646",
         "username": "917972410891_48194"
       },
-      "created_on": "2021-02-10T10:57:22.535000Z",
+      "created_on": "2021-02-10T10:57:22.535Z",
       "failed": 0,
       "failed_records": [],
       "file_path": "https://hdn-1.addsale.com/x0/company/1/self/documents/inventory-import/free/original/Oth_LaVyI-V8ZrKdnLt-product_inventory.csv",
@@ -8116,7 +8116,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "0",
         "username": "Silverbolt"
       },
-      "modified_on": "2021-02-10T10:57:23.311000Z",
+      "modified_on": "2021-02-10T10:57:23.311Z",
       "stage": "completed",
       "succeed": 1,
       "total": 1
@@ -8130,7 +8130,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "16",
         "username": "nikhilmhatre_gofynd_com_97636"
       },
-      "created_on": "2021-01-13T13:58:06.155000Z",
+      "created_on": "2021-01-13T13:58:06.155Z",
       "failed": 0,
       "failed_records": [],
       "file_path": "https://hdn-1.addsale.com/x0/company/1/self/documents/inventory-import/free/original/V8ZrKdnLt-product_inventory.csv",
@@ -8140,7 +8140,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "0",
         "username": "Silverbolt"
       },
-      "modified_on": "2021-01-13T13:58:06.369000Z",
+      "modified_on": "2021-01-13T13:58:06.369Z",
       "stage": "completed",
       "succeed": 1,
       "total": 1
@@ -8154,7 +8154,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "16",
         "username": "nikhilmhatre_gofynd_com_97636"
       },
-      "created_on": "2021-01-13T13:57:38.598000Z",
+      "created_on": "2021-01-13T13:57:38.598Z",
       "failed": 1,
       "failed_records": [],
       "file_path": "https://hdn-1.addsale.com/x0/company/1/self/documents/inventory-import/free/original/t3T6X2Riy-product_inventory.csv",
@@ -8164,7 +8164,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "0",
         "username": "Silverbolt"
       },
-      "modified_on": "2021-01-13T13:57:38.832000Z",
+      "modified_on": "2021-01-13T13:57:38.832Z",
       "stage": "failed",
       "succeed": 0,
       "total": 1
@@ -8178,7 +8178,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "16",
         "username": "nikhilmhatre_gofynd_com_97636"
       },
-      "created_on": "2021-01-13T13:57:13.639000Z",
+      "created_on": "2021-01-13T13:57:13.639Z",
       "failed": 1,
       "failed_records": [],
       "file_path": "https://hdn-1.addsale.com/x0/company/1/self/documents/inventory-import/free/original/NSTuhgsgq-product_inventory.csv",
@@ -8188,7 +8188,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "0",
         "username": "Silverbolt"
       },
-      "modified_on": "2021-01-13T13:57:13.847000Z",
+      "modified_on": "2021-01-13T13:57:13.847Z",
       "stage": "failed",
       "succeed": 0,
       "total": 1
@@ -8202,7 +8202,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "16",
         "username": "nikhilmhatre_gofynd_com_97636"
       },
-      "created_on": "2021-01-12T06:37:06.167000Z",
+      "created_on": "2021-01-12T06:37:06.167Z",
       "failed": 0,
       "failed_records": [],
       "file_path": "https://hdn-1.addsale.com/x0/company/1/self/documents/inventory-import/free/original/cwQV-Z6gT-product_inventory.xlsx",
@@ -8212,7 +8212,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "0",
         "username": "Silverbolt"
       },
-      "modified_on": "2021-01-12T06:37:06.307000Z",
+      "modified_on": "2021-01-12T06:37:06.307Z",
       "stage": "completed",
       "succeed": 1,
       "total": 1
@@ -8226,7 +8226,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "16",
         "username": "nikhilmhatre_gofynd_com_97636"
       },
-      "created_on": "2021-01-12T06:36:24.292000Z",
+      "created_on": "2021-01-12T06:36:24.292Z",
       "failed": 0,
       "failed_records": [],
       "file_path": "https://hdn-1.addsale.com/x0/company/1/self/documents/inventory-import/free/original/gccehef2f-product_inventory.xlsx",
@@ -8236,7 +8236,7 @@ List of bulk Inventory upload jobs. See `BulkInventoryGetSchema` for details
         "user_id": "0",
         "username": "Silverbolt"
       },
-      "modified_on": "2021-01-12T06:36:24.535000Z",
+      "modified_on": "2021-01-12T06:36:24.535Z",
       "stage": "completed",
       "succeed": 1,
       "total": 1
@@ -8305,7 +8305,7 @@ Returns a success response
 ```json
 {
   "batch_id": "507f1f77bcf86cd799439011",
-  "created_on": "2021-04-02T15:43:59.410000Z"
+  "created_on": "2021-04-02T15:43:59.410Z"
 }
 ```
 </details>
@@ -8652,7 +8652,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "8ec76d9df98f4246a9d6e5a6",
         "username": "anveshreddy_fynd_external_com_85084"
       },
-      "created_on": "2022-05-25T16:15:01.276000Z",
+      "created_on": "2022-05-25T16:15:01.276Z",
       "departments": [
         "men-s-fashion"
       ],
@@ -8668,7 +8668,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "8ec76d9df98f4246a9d6e5a6",
         "username": "anveshreddy_fynd_external_com_85084"
       },
-      "modified_on": "2022-05-25T16:15:01.276000Z",
+      "modified_on": "2022-05-25T16:15:01.276Z",
       "name": "test number area",
       "schema": {
         "allowed_values": [],
@@ -8686,7 +8686,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "8ec76d9df98f4246a9d6e5a6",
         "username": "anveshreddy_fynd_external_com_85084"
       },
-      "created_on": "2022-05-05T09:40:00.453000Z",
+      "created_on": "2022-05-05T09:40:00.453Z",
       "departments": [
         "men-s-fashion",
         "anvesh-department"
@@ -8706,7 +8706,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "8ec76d9df98f4246a9d6e5a6",
         "username": "anveshreddy_fynd_external_com_85084"
       },
-      "modified_on": "2022-05-05T09:40:00.453000Z",
+      "modified_on": "2022-05-05T09:40:00.453Z",
       "name": "Motor Power",
       "schema": {
         "allowed_values": [],
@@ -8728,7 +8728,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "8ec76d9df98f4246a9d6e5a6",
         "username": "anveshreddy_fynd_external_com_85084"
       },
-      "created_on": "2022-05-05T08:56:59.483000Z",
+      "created_on": "2022-05-05T08:56:59.483Z",
       "departments": [
         "men-s-fashion",
         "electronics-test",
@@ -8751,7 +8751,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "8ec76d9df98f4246a9d6e5a6",
         "username": "anveshreddy_fynd_external_com_85084"
       },
-      "modified_on": "2022-05-05T13:25:33.353000Z",
+      "modified_on": "2022-05-05T13:25:33.353Z",
       "name": "SIZE NEW",
       "schema": {
         "allowed_values": [
@@ -8776,7 +8776,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "5d9aa3ca5acdcb33fdcc8472",
         "username": "piyushsinha_fynd_external_com_34090"
       },
-      "created_on": "2022-04-13T13:35:53.611000Z",
+      "created_on": "2022-04-13T13:35:53.611Z",
       "departments": [
         "men-s-fashion"
       ],
@@ -8791,7 +8791,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "5d9aa3ca5acdcb33fdcc8472",
         "username": "piyushsinha_fynd_external_com_34090"
       },
-      "modified_on": "2022-04-13T13:35:53.611000Z",
+      "modified_on": "2022-04-13T13:35:53.611Z",
       "name": "White",
       "schema": {
         "allowed_values": [],
@@ -8808,7 +8808,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "f6fccadda27e6b365b87c027",
         "username": "jagadeshsahadevan_gofynd_com_66706"
       },
-      "created_on": "2022-03-24T07:16:59.998000Z",
+      "created_on": "2022-03-24T07:16:59.998Z",
       "departments": [
         "men-s-fashion"
       ],
@@ -8824,7 +8824,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "f6fccadda27e6b365b87c027",
         "username": "jagadeshsahadevan_gofynd_com_66706"
       },
-      "modified_on": "2022-03-24T07:16:59.998000Z",
+      "modified_on": "2022-03-24T07:16:59.998Z",
       "name": "Test Attributes",
       "schema": {
         "allowed_values": [
@@ -8844,7 +8844,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "59ad6a452775bfd63674f0a5",
         "username": "rockypatro_gofynd_com_32787"
       },
-      "created_on": "2022-03-17T14:54:41.251000Z",
+      "created_on": "2022-03-17T14:54:41.251Z",
       "departments": [
         "men-s-fashion"
       ],
@@ -8862,7 +8862,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "59ad6a452775bfd63674f0a5",
         "username": "rockypatro_gofynd_com_32787"
       },
-      "modified_on": "2022-03-17T14:54:41.251000Z",
+      "modified_on": "2022-03-17T14:54:41.251Z",
       "name": "Care Instructions",
       "schema": {
         "allowed_values": [],
@@ -8879,7 +8879,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "59ad6a452775bfd63674f0a5",
         "username": "rockypatro_gofynd_com_32787"
       },
-      "created_on": "2022-03-17T14:53:45.700000Z",
+      "created_on": "2022-03-17T14:53:45.700Z",
       "departments": [
         "men-s-fashion"
       ],
@@ -8897,7 +8897,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "59ad6a452775bfd63674f0a5",
         "username": "rockypatro_gofynd_com_32787"
       },
-      "modified_on": "2022-03-17T14:53:45.700000Z",
+      "modified_on": "2022-03-17T14:53:45.700Z",
       "name": "Sleeve Length",
       "schema": {
         "allowed_values": [
@@ -8918,7 +8918,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "59ad6a452775bfd63674f0a5",
         "username": "rockypatro_gofynd_com_32787"
       },
-      "created_on": "2022-03-17T14:52:12.367000Z",
+      "created_on": "2022-03-17T14:52:12.367Z",
       "departments": [
         "men-s-fashion",
         "women-s-fashion"
@@ -8937,7 +8937,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "f6fccadda27e6b365b87c027",
         "username": "jagadeshsahadevan_gofynd_com_66706"
       },
-      "modified_on": "2022-03-24T07:23:32.752000Z",
+      "modified_on": "2022-03-24T07:23:32.752Z",
       "name": "Pattern",
       "schema": {
         "allowed_values": [
@@ -8959,7 +8959,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "59ad6a452775bfd63674f0a5",
         "username": "rockypatro_gofynd_com_32787"
       },
-      "created_on": "2022-03-17T14:50:30.717000Z",
+      "created_on": "2022-03-17T14:50:30.717Z",
       "departments": [
         "men-s-fashion",
         "beauty-and-personal-care",
@@ -8979,7 +8979,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "59ad6a452775bfd63674f0a5",
         "username": "rockypatro_gofynd_com_32787"
       },
-      "modified_on": "2022-03-17T14:50:30.717000Z",
+      "modified_on": "2022-03-17T14:50:30.717Z",
       "name": "Material",
       "schema": {
         "allowed_values": [],
@@ -8996,7 +8996,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "59ad6a452775bfd63674f0a5",
         "username": "rockypatro_gofynd_com_32787"
       },
-      "created_on": "2022-03-17T14:49:43.160000Z",
+      "created_on": "2022-03-17T14:49:43.160Z",
       "departments": [
         "men-s-fashion",
         "beauty-and-personal-care",
@@ -9016,7 +9016,7 @@ Size guide object. See example below or refer `ProductAttributesResponseSchema` 
         "user_id": "59ad6a452775bfd63674f0a5",
         "username": "rockypatro_gofynd_com_32787"
       },
-      "modified_on": "2022-03-17T14:49:43.160000Z",
+      "modified_on": "2022-03-17T14:49:43.160Z",
       "name": "Colour",
       "schema": {
         "allowed_values": [],
@@ -9095,7 +9095,7 @@ List of bulk asset jobs List. See `BulkUtil.modify_batch_response` for details
         "user_id": "23175373",
         "username": "nikhilmhatre_gofynd_com_28085_23175373"
       },
-      "created_on": "2021-02-25T16:45:22.425000Z",
+      "created_on": "2021-02-25T16:45:22.425Z",
       "failed": 0,
       "failed_records": [],
       "file_path": "https://hdn-1.fynd.com/company/61/self/documents/product-import/free/original/ZUSmmXHmZ-U8mTYx3KR-Nike-hoddie.zip",
@@ -9105,7 +9105,7 @@ List of bulk asset jobs List. See `BulkUtil.modify_batch_response` for details
         "user_id": "23175373",
         "username": "nikhilmhatre_gofynd_com_28085_23175373"
       },
-      "modified_on": "2021-02-25T16:47:24.551000Z",
+      "modified_on": "2021-02-25T16:47:24.551Z",
       "retry": 1,
       "stage": "completed",
       "succeed": 1,
@@ -9243,7 +9243,7 @@ List of bulk product upload jobs. See `BulkRequestGetSchema` for details
         "user_id": "23218433",
         "username": "yadavanuja039_gmail_com_82948"
       },
-      "created_on": "2021-03-12T08:11:06.848000Z",
+      "created_on": "2021-03-12T08:11:06.848Z",
       "failed": 0,
       "failed_records": [],
       "file_path": "https://hdn-1.fynd.com/company/61/self/documents/product-import/free/original/mkX5ApRmw-sample_bulk_products_footwear.xlsx",
@@ -9253,7 +9253,7 @@ List of bulk product upload jobs. See `BulkRequestGetSchema` for details
         "user_id": "0",
         "username": "Silverbolt"
       },
-      "modified_on": "2021-03-12T08:11:08.646000Z",
+      "modified_on": "2021-03-12T08:11:08.646Z",
       "stage": "completed",
       "succeed": 1,
       "template": {
@@ -9597,7 +9597,7 @@ returns a list of all inventory grouped by size and store
           "primary": true
         }
       ],
-      "inventory_updated_on": "2021-04-06T03:30:01.487000",
+      "inventory_updated_on": "2021-04-06T03:30:01.487Z",
       "item_id": 7500651,
       "manufacturer": {
         "address": "ab",
@@ -9655,7 +9655,7 @@ returns a list of all inventory grouped by size and store
           "primary": true
         }
       ],
-      "inventory_updated_on": "2021-04-06T03:29:35.291000",
+      "inventory_updated_on": "2021-04-06T03:29:35.291Z",
       "item_id": 7500651,
       "manufacturer": {
         "address": "ab",
@@ -9713,7 +9713,7 @@ returns a list of all inventory grouped by size and store
           "primary": true
         }
       ],
-      "inventory_updated_on": "2021-03-17T12:35:29.992000",
+      "inventory_updated_on": "2021-03-17T12:35:29.992Z",
       "item_id": 7500651,
       "manufacturer": {
         "address": "ab",
@@ -9773,7 +9773,7 @@ returns a list of all inventory grouped by size and store
           "primary": true
         }
       ],
-      "inventory_updated_on": "2021-03-31T19:00:10.943000",
+      "inventory_updated_on": "2021-03-31T19:00:10.943Z",
       "item_id": 7500651,
       "manufacturer": {
         "address": "ab",
@@ -9833,7 +9833,7 @@ returns a list of all inventory grouped by size and store
           "primary": true
         }
       ],
-      "inventory_updated_on": "2020-07-07T10:37:06.146000",
+      "inventory_updated_on": "2020-07-07T10:37:06.146Z",
       "item_id": 7500651,
       "manufacturer": {
         "address": "ab",
@@ -9941,7 +9941,7 @@ Product object. See example below for details
       "user_id": "-1",
       "username": "silverbolt"
     },
-    "created_on": "2020-07-23T04:20:43.810000Z",
+    "created_on": "2020-07-23T04:20:43.810Z",
     "essential": "Yes",
     "gender": [
       "Men"
@@ -9961,7 +9961,7 @@ Product object. See example below for details
       "user_id": "-1",
       "username": "silverbolt"
     },
-    "modified_on": "2020-07-23T04:20:44.185000Z",
+    "modified_on": "2020-07-23T04:20:44.185Z",
     "neck_type": "Round Neck",
     "pattern": "Printed",
     "primary_color": "Red",
@@ -10160,7 +10160,7 @@ returns a list of all inventory grouped by size and store
         "gtin_value": "RTYUIDSDFV",
         "primary": true
       },
-      "inventory_updated_on": "2021-04-06T03:30:01.487000",
+      "inventory_updated_on": "2021-04-06T03:30:01.487Z",
       "item_id": 7500651,
       "price": 1234,
       "price_effective": 1234,
@@ -10212,7 +10212,7 @@ returns a list of all inventory grouped by size and store
         "gtin_value": "RTYUIDSDFV",
         "primary": true
       },
-      "inventory_updated_on": "2021-04-06T03:29:35.291000",
+      "inventory_updated_on": "2021-04-06T03:29:35.291Z",
       "item_id": 7500651,
       "price": 1234,
       "price_effective": 1234,
@@ -10263,7 +10263,7 @@ returns a list of all inventory grouped by size and store
         "gtin_value": "RTYUIDSDFV",
         "primary": true
       },
-      "inventory_updated_on": "2021-03-17T12:35:29.992000",
+      "inventory_updated_on": "2021-03-17T12:35:29.992Z",
       "item_id": 7500651,
       "order_committed_quantity": 0,
       "price": 1234,
@@ -10316,7 +10316,7 @@ returns a list of all inventory grouped by size and store
         "gtin_value": "RTYUIDSDFV",
         "primary": true
       },
-      "inventory_updated_on": "2021-03-31T19:00:10.943000",
+      "inventory_updated_on": "2021-03-31T19:00:10.943Z",
       "item_id": 7500651,
       "not_available_quantity": 0,
       "order_committed_quantity": 7,
@@ -10369,7 +10369,7 @@ returns a list of all inventory grouped by size and store
         "gtin_value": "RTYUIDSDFV",
         "primary": true
       },
-      "inventory_updated_on": "2020-07-07T10:37:06.146000",
+      "inventory_updated_on": "2020-07-07T10:37:06.146Z",
       "item_id": 7500651,
       "order_committed_quantity": 39,
       "price": 1234,
@@ -10627,16 +10627,16 @@ List of all HSN Codes. See example below or refer `HsnCodesListingResponseSchema
       "hs2_code": "26",
       "hsn_code": "123fght3",
       "id": "619e17925e3d3ea77d6fe8cf",
-      "modified_on": "2021-11-25T06:37:00.880000Z",
+      "modified_on": "2021-11-25T06:37:00.880Z",
       "reporting_hsn": "12345678",
       "slabs": [
         {
-          "effective_date": "2021-11-18T10:00:31.798000+00:00",
+          "effective_date": "2021-11-18T10:00:31.798Z",
           "tax": 10,
           "threshold": 100
         },
         {
-          "effective_date": "2022-11-18T10:00:31.798000+00:00",
+          "effective_date": "2022-11-18T10:00:31.798Z",
           "tax": 20,
           "threshold": 200
         }
@@ -10645,7 +10645,7 @@ List of all HSN Codes. See example below or refer `HsnCodesListingResponseSchema
       "tax_on_mrp": false,
       "taxes": [
         {
-          "effective_date": "2021-04-02T15:43:59.410000Z",
+          "effective_date": "2021-04-02T15:43:59.410Z",
           "rate": 0,
           "threshold": 0.5
         }
@@ -10722,7 +10722,7 @@ Get specific HSN details. See example below or refer `HsnCodesListingResponseSch
     "user_id": -1,
     "username": "silverbolt"
   },
-  "created_on": "2022-02-24T09:14:03Z",
+  "created_on": "2022-02-24T09:14:03.000Z",
   "description": "Data for HSN Code",
   "hsn_code": "89787179",
   "id": "6216ff0378da3f906fc82544",
@@ -10730,22 +10730,22 @@ Get specific HSN details. See example below or refer `HsnCodesListingResponseSch
     "user_id": -1,
     "username": "silverbolt"
   },
-  "modified_on": "2022-02-24T09:14:03Z",
+  "modified_on": "2022-02-24T09:14:03.000Z",
   "reporting_hsn": "89787179H29",
   "taxes": [
     {
       "cess": 23,
-      "effective_date": "2022-02-11T15:00:00",
+      "effective_date": "2022-02-11T15:00:00.000Z",
       "rate": 5,
       "threshold": 10000
     },
     {
-      "effective_date": "2022-02-11T15:00:00",
+      "effective_date": "2022-02-11T15:00:00.000Z",
       "rate": 12,
       "threshold": 12000
     },
     {
-      "effective_date": "2022-02-12T15:00:00",
+      "effective_date": "2022-02-12T15:00:00.000Z",
       "rate": 18,
       "threshold": 5000
     }
@@ -10808,7 +10808,7 @@ Returns a success or partial success response
   "items": [
     {
       "data": {
-        "expiration_date": "9998-01-30T23:59:00",
+        "expiration_date": "9998-01-30T23:59:00.000Z",
         "price_effective": 109.01,
         "price_marked": 130,
         "seller_identifier": "SELLER123",
@@ -10822,7 +10822,7 @@ Returns a success or partial success response
     },
     {
       "data": {
-        "expiration_date": "9998-01-30T23:59:00",
+        "expiration_date": "9998-01-30T23:59:00.000Z",
         "price_effective": 109.01,
         "price_marked": 130,
         "seller_identifier": "SELLER123",
@@ -10896,12 +10896,12 @@ Returns a list of inventory export jobs
 {
   "items": {
     "_id": "6401bd972a2e6c3d508c9203",
-    "completed_on": "2023-03-03T09:33:11.416000Z",
+    "completed_on": "2023-03-03T09:33:11.416Z",
     "created_by": {
       "user_id": "5e199e6998cfe1776f1385dc",
       "username": "rohanshah@fynd.com"
     },
-    "created_on": "2023-03-03T09:27:51.262000Z",
+    "created_on": "2023-03-03T09:27:51.262Z",
     "filters": {
       "brand_ids": [
         2751
@@ -10917,7 +10917,7 @@ Returns a list of inventory export jobs
       ]
     },
     "id": "6401bd972a2e6c3d508c9203",
-    "modified_on": "2023-03-03T09:27:51.262000",
+    "modified_on": "2023-03-03T09:27:51.262Z",
     "notification_emails": [],
     "seller_id": 577,
     "status": "success",
@@ -11085,7 +11085,7 @@ Product Meta. See example below for details
         "user_id": "5",
         "username": "919049753052_37528"
       },
-      "created_on": "2021-04-02T15:43:59.410000Z",
+      "created_on": "2021-04-02T15:43:59.410Z",
       "currency": "INR",
       "custom_order": {
         "is_custom_order": true,
@@ -11129,7 +11129,7 @@ Product Meta. See example below for details
         "user_id": "xxxxxxxxxxx",
         "username": "xxxxxxxxxx"
       },
-      "modified_on": "2021-04-02T15:43:59.410000Z",
+      "modified_on": "2021-04-02T15:43:59.410Z",
       "multi_size": true,
       "name": "TV Set",
       "no_of_boxes": 1,
@@ -11146,7 +11146,7 @@ Product Meta. See example below for details
       "product_group_tag": [],
       "product_publish": {
         "is_set": false,
-        "product_online_date": "2021-04-02T15:43:59.410000Z"
+        "product_online_date": "2021-04-02T15:43:59.410Z"
       },
       "return_config": {
         "returnable": false,
@@ -11195,7 +11195,7 @@ Product Meta. See example below for details
         "user_id": "0",
         "username": "Silverbolt"
       },
-      "verified_on": "2020-07-23T04:20:43.810000Z"
+      "verified_on": "2020-07-23T04:20:43.810Z"
     }
   ],
   "page": {
@@ -11318,7 +11318,7 @@ Returns a success response
 ```json
 {
   "batch_id": "507f1f77bcf86cd799439011",
-  "created_on": "2021-04-02T15:43:59.410000Z"
+  "created_on": "2021-04-02T15:43:59.410Z"
 }
 ```
 </details>
@@ -11487,7 +11487,7 @@ Product object. See example below or refer `product.utils.format_product_respons
       "user_id": "757bf08ff5dd4ba95f8778cf",
       "username": "mdnehalahmed_fynd_external_com_90136"
     },
-    "created_on": "2023-02-16T09:37:31.304000",
+    "created_on": "2023-02-16T09:37:31.304Z",
     "currency": "INR",
     "custom_order": {
       "is_custom_order": false,
@@ -11518,7 +11518,7 @@ Product object. See example below or refer `product.utils.format_product_respons
       "user_id": "757bf08ff5dd4ba95f8778cf",
       "username": "mdnehalahmed_fynd_external_com_90136"
     },
-    "modified_on": "2023-02-16T09:37:31.304000",
+    "modified_on": "2023-02-16T09:37:31.304Z",
     "multi_size": false,
     "name": "Test-01",
     "net_quantity": {},
@@ -11526,7 +11526,7 @@ Product object. See example below or refer `product.utils.format_product_respons
     "product_group_tag": [],
     "product_publish": {
       "is_set": false,
-      "product_online_date": "2023-02-16T09:37:29.620000Z"
+      "product_online_date": "2023-02-16T09:37:29.620Z"
     },
     "return_config": {
       "returnable": false,
@@ -11540,7 +11540,7 @@ Product object. See example below or refer `product.utils.format_product_respons
         "_custom_json": {},
         "brand_uid": 3272,
         "company_id": 835,
-        "created_on": "2023-02-16T09:37:31.352000",
+        "created_on": "2023-02-16T09:37:31.352Z",
         "currency": "INR",
         "id": "63edf95bf314486d44a6b364",
         "identifiers": [
@@ -11558,7 +11558,7 @@ Product object. See example below or refer `product.utils.format_product_respons
         "item_weight": 10,
         "item_weight_unit_of_measure": "gram",
         "item_width": 10,
-        "modified_on": "2023-02-16T09:37:31.352000",
+        "modified_on": "2023-02-16T09:37:31.352Z",
         "price": 10,
         "price_effective": 10,
         "price_transfer": 0,
@@ -11778,7 +11778,7 @@ Returns a success response
   "items": [
     {
       "data": {
-        "expiration_date": "9998-01-30T23:59:00",
+        "expiration_date": "9998-01-30T23:59:00.000Z",
         "price_effective": 109.01,
         "price_marked": 130,
         "seller_identifier": "SELLER123",
@@ -11792,7 +11792,7 @@ Returns a success response
     },
     {
       "data": {
-        "expiration_date": "9998-01-30T23:59:00",
+        "expiration_date": "9998-01-30T23:59:00.000Z",
         "price_effective": 109.01,
         "price_marked": 130,
         "seller_identifier": "SELLER123",
@@ -11865,7 +11865,7 @@ Returns a success response
   "items": [
     {
       "data": {
-        "expiration_date": "9998-01-30T23:59:00",
+        "expiration_date": "9998-01-30T23:59:00.000Z",
         "price_effective": 109.01,
         "price_marked": 130,
         "seller_identifier": "SELLER123",
@@ -11879,7 +11879,7 @@ Returns a success response
     },
     {
       "data": {
-        "expiration_date": "9998-01-30T23:59:00",
+        "expiration_date": "9998-01-30T23:59:00.000Z",
         "price_effective": 109.01,
         "price_marked": 130,
         "seller_identifier": "SELLER123",
@@ -11961,7 +11961,7 @@ success message will tell whether the operation was successful.
     "user_id": "054bb99f009aece85a3fa087",
     "username": "test"
   },
-  "modified_on": "2023-03-28T06:05:24.026000",
+  "modified_on": "2023-03-28T06:05:24.026Z",
   "return_config_level": "category"
 }
 ```
@@ -13370,7 +13370,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
         "user_id": "5646",
         "username": "917972410891_48194"
       },
-      "created_on": "2021-04-02T15:43:59.410000Z",
+      "created_on": "2021-04-02T15:43:59.410Z",
       "departments": [
         1
       ],
@@ -13394,7 +13394,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
         "user_id": "5646",
         "username": "917972410891_48194"
       },
-      "modified_on": "2021-04-02T15:43:59.410000Z",
+      "modified_on": "2021-04-02T15:43:59.410Z",
       "name": "Air Conditioners",
       "priority": 1,
       "slug": "air-conditioners",
@@ -13407,7 +13407,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
         "user_id": "5646",
         "username": "917972410891_48194"
       },
-      "created_on": "2021-04-02T15:42:55.405000Z",
+      "created_on": "2021-04-02T15:42:55.405Z",
       "departments": [
         1
       ],
@@ -13424,7 +13424,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
         "user_id": "5646",
         "username": "917972410891_48194"
       },
-      "modified_on": "2021-04-02T15:42:55.405000Z",
+      "modified_on": "2021-04-02T15:42:55.405Z",
       "name": "Home Appliances",
       "priority": 1,
       "slug": "home-appliances",
@@ -13436,7 +13436,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
         "user_id": "5721",
         "username": "919821012599_75351"
       },
-      "created_on": "2021-01-14T05:28:02.148000Z",
+      "created_on": "2021-01-14T05:28:02.148Z",
       "departments": [
         21
       ],
@@ -13453,7 +13453,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
         "user_id": "5677",
         "username": "917753852478_51632"
       },
-      "modified_on": "2021-03-04T15:43:50.495000Z",
+      "modified_on": "2021-03-04T15:43:50.495Z",
       "name": "Dummy category level 2 by fahim",
       "priority": 123456,
       "slug": "dummy-category-level-2",
@@ -13469,7 +13469,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
         "user_id": "-1",
         "username": "silverbolt"
       },
-      "created_on": "2021-02-25T00:00:47.589000Z",
+      "created_on": "2021-02-25T00:00:47.589Z",
       "departments": [
         21
       ],
@@ -13493,7 +13493,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
         "user_id": "5677",
         "username": "917753852478_51632"
       },
-      "modified_on": "2021-03-04T15:39:52.108000Z",
+      "modified_on": "2021-03-04T15:39:52.108Z",
       "name": "Dummy level 4",
       "priority": 986532,
       "slug": "dummy-level-4",
@@ -13506,7 +13506,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
         "user_id": "5721",
         "username": "919821012599_75351"
       },
-      "created_on": "2021-01-14T05:28:59.852000Z",
+      "created_on": "2021-01-14T05:28:59.852Z",
       "departments": [
         2,
         4,
@@ -13542,7 +13542,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
         "user_id": "5677",
         "username": "917753852478_51632"
       },
-      "modified_on": "2021-03-04T15:39:46.246000Z",
+      "modified_on": "2021-03-04T15:39:46.246Z",
       "name": "Dummy level 3 by fahim",
       "priority": 986532,
       "slug": "dummy-level-3",
@@ -13554,7 +13554,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
       "uid": 22324
     },
     {
-      "created_on": "2016-04-09T06:44:35Z",
+      "created_on": "2016-04-09T06:44:35.000Z",
       "departments": [
         4
       ],
@@ -13571,7 +13571,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
         "uid": "5677",
         "username": "917753852478_51632"
       },
-      "modified_on": "2021-03-03T09:35:50.415000Z",
+      "modified_on": "2021-03-03T09:35:50.415Z",
       "name": "Gourmet & World Food",
       "priority": 123,
       "slug": "gourmet-world-food",
@@ -13587,7 +13587,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
         "uid": "5677",
         "username": "917753852478_51632"
       },
-      "created_on": "2021-03-03T06:30:08.342000Z",
+      "created_on": "2021-03-03T06:30:08.342Z",
       "departments": [
         1,
         2
@@ -13617,7 +13617,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
         "uid": "5677",
         "username": "917753852478_51632"
       },
-      "modified_on": "2021-03-03T08:34:47.999000Z",
+      "modified_on": "2021-03-03T08:34:47.999Z",
       "name": "Test Category kaf",
       "priority": 23,
       "slug": "test-category-kaf",
@@ -13636,7 +13636,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
         "user_id": "-1",
         "username": "silverbolt"
       },
-      "created_on": "2021-02-25T09:26:53.123000Z",
+      "created_on": "2021-02-25T09:26:53.123Z",
       "departments": [
         1
       ],
@@ -13660,7 +13660,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
         "user_id": "-1",
         "username": "silverbolt"
       },
-      "modified_on": "2021-02-25T09:26:53.123000Z",
+      "modified_on": "2021-02-25T09:26:53.123Z",
       "name": "Smart Cell",
       "priority": 5,
       "slug": "smart-cell",
@@ -13673,7 +13673,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
         "user_id": "-1",
         "username": "silverbolt"
       },
-      "created_on": "2021-02-25T00:09:35.026000Z",
+      "created_on": "2021-02-25T00:09:35.026Z",
       "departments": [
         21
       ],
@@ -13697,7 +13697,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
         "user_id": "-1",
         "username": "silverbolt"
       },
-      "modified_on": "2021-02-25T00:09:35.026000Z",
+      "modified_on": "2021-02-25T00:09:35.026Z",
       "name": "Dummy level 98",
       "priority": 986532,
       "slug": "dummy-level-98",
@@ -13706,7 +13706,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
       "uid": 22326
     },
     {
-      "created_on": "2016-04-09T06:44:35Z",
+      "created_on": "2016-04-09T06:44:35.000Z",
       "departments": [
         2,
         3
@@ -13741,7 +13741,7 @@ Category Meta. See example below or refer `CategoryResponse` for details
         "user_id": "5677",
         "username": "917753852478_51632"
       },
-      "modified_on": "2021-02-15T15:48:05.329000Z",
+      "modified_on": "2021-02-15T15:48:05.329Z",
       "name": "Sports Bra",
       "priority": 281,
       "slug": "sports-bra",
@@ -13878,7 +13878,7 @@ Get Data for one category. See example below or refer `CategoryResponse` for det
       "user_id": "5646",
       "username": "917972410891_48194"
     },
-    "created_on": "2021-04-02T15:43:59.410000Z",
+    "created_on": "2021-04-02T15:43:59.410Z",
     "departments": [
       1
     ],
@@ -13902,7 +13902,7 @@ Get Data for one category. See example below or refer `CategoryResponse` for det
       "user_id": "16",
       "username": "nikhilmhatre_gofynd_com_97636"
     },
-    "modified_on": "2021-04-13T13:57:56.443000Z",
+    "modified_on": "2021-04-13T13:57:56.443Z",
     "name": "Air Conditioners",
     "priority": 1,
     "slug": "air-conditioners",
@@ -14035,7 +14035,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "3",
         "username": "918793638893_86554"
       },
-      "created_on": "2020-07-01T05:33:39.325000Z",
+      "created_on": "2020-07-01T05:33:39.325Z",
       "id": "5efc2033623d390001782238",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/x0/seller/pictures/logo/original/BSQ9Gk_123522-best-starry-sky-wallpaper-1920x1200-ipad-pro.jpgc7d0c15c-c1ff-47eb-8423-6e2df51f2ddf/BSQ9Gk_123522-best-starry-sky-wallpaper-1920x1200-ipad-pro.jpg",
@@ -14043,7 +14043,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "5677",
         "username": "917753852478_51632"
       },
-      "modified_on": "2021-03-03T15:55:25.118000Z",
+      "modified_on": "2021-03-03T15:55:25.118Z",
       "name": "Sample Dept",
       "platforms": {},
       "priority_order": 111,
@@ -14062,7 +14062,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "0",
         "username": "app@fynd.com"
       },
-      "created_on": "2020-05-19T06:53:37.629000Z",
+      "created_on": "2020-05-19T06:53:37.629Z",
       "id": "5ec3827156a7200001c9aeea",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/addsale/media/logo/department/original/15974_381e2236c2a348cc851c29a5d05c66a9.png",
@@ -14070,7 +14070,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "10",
         "username": "fahimsakri_gofynd_com_44938"
       },
-      "modified_on": "2021-03-04T14:01:02.556000Z",
+      "modified_on": "2021-03-04T14:01:02.556Z",
       "name": "Men's Fashion",
       "platforms": {
         "fynd": true,
@@ -14093,7 +14093,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "10",
         "username": "fahimsakri_gofynd_com_44938"
       },
-      "created_on": "2020-06-29T10:59:33.620000Z",
+      "created_on": "2020-06-29T10:59:33.620Z",
       "id": "5ef9c9959b04f00001e40dba",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/x0/seller/pictures/logo/original/ywPVrU_preview_a637ca6e4da6e38f03eb0d650ac5d6ba.jpgc73cc22f-b5ee-4fd4-a585-8ada35762d68/ywPVrU_preview_a637ca6e4da6e38f03eb0d650ac5d6ba.jpg",
@@ -14101,7 +14101,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "3",
         "username": "918793638893_86554"
       },
-      "modified_on": "2020-08-06T18:08:02.675000Z",
+      "modified_on": "2020-08-06T18:08:02.675Z",
       "name": "Groceries",
       "platforms": {},
       "priority_order": 10,
@@ -14117,7 +14117,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "0",
         "username": "app@fynd.com"
       },
-      "created_on": "2020-05-18T16:14:41.689000Z",
+      "created_on": "2020-05-18T16:14:41.689Z",
       "id": "5ec2b471661a4100019fca0d",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/x0/platform/pictures/free-logo/original/_G1Z2Fg1L-http:d3p8ifzkmzds37.cloudfront.netmedialogodepartmentoriginal15870_c287d3c2431a432bb0e49363ef6b82bc.png.png",
@@ -14125,7 +14125,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "5677",
         "username": "917753852478_51632"
       },
-      "modified_on": "2021-03-04T15:39:38.528000Z",
+      "modified_on": "2021-03-04T15:39:38.528Z",
       "name": "Electronics",
       "platforms": {
         "fynd": true,
@@ -14148,7 +14148,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "3",
         "username": "918793638893_86554"
       },
-      "created_on": "2020-05-27T12:04:19.111000Z",
+      "created_on": "2020-05-27T12:04:19.111Z",
       "id": "5ece5743cd1bae0001440427",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/x0/seller/pictures/landscape-banner/original/g2plam_logo_Jio.pngeeb392ca-3958-46a0-9f13-23c205b596f7/g2plam_logo_Jio.png",
@@ -14156,7 +14156,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "3",
         "username": "918793638893_86554"
       },
-      "modified_on": "2020-08-06T18:07:46.060000Z",
+      "modified_on": "2020-08-06T18:07:46.060Z",
       "name": "Industrial Supplies",
       "platforms": {},
       "priority_order": 111,
@@ -14172,7 +14172,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "13",
         "username": "abhinavsrivastava_gofynd_com_05674"
       },
-      "created_on": "2020-07-06T07:56:01.508000Z",
+      "created_on": "2020-07-06T07:56:01.508Z",
       "id": "5f02d9116b0ae500018923dd",
       "is_active": false,
       "logo": "https://hdn-1.addsale.com/x0/seller/pictures/logo/original/wTcfEi_crysis_-_1.jpg14580947-a659-486d-b2d3-d2ca025b1cac/wTcfEi_crysis_-_1.jpg",
@@ -14180,7 +14180,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "3",
         "username": "918793638893_86554"
       },
-      "modified_on": "2020-08-06T18:08:12.576000Z",
+      "modified_on": "2020-08-06T18:08:12.576Z",
       "name": "Clothing",
       "platforms": {},
       "priority_order": 1,
@@ -14196,7 +14196,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "5634",
         "username": "asavarijadhav_gofynd_com_99880"
       },
-      "created_on": "2020-08-05T09:04:33.604000Z",
+      "created_on": "2020-08-05T09:04:33.604Z",
       "id": "5f2a762131c66700018cdc47",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/x0/seller/pictures/logo/original/RxTsd8_0DEFAULT-LOGO.jpg000ccfc1-2f79-4426-9ac3-de2468c2fcb9/RxTsd8_0DEFAULT-LOGO.jpg",
@@ -14204,7 +14204,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "5634",
         "username": "asavarijadhav_gofynd_com_99880"
       },
-      "modified_on": "2020-08-05T09:44:01.234000Z",
+      "modified_on": "2020-08-05T09:44:01.234Z",
       "name": "Kids",
       "platforms": {},
       "priority_order": 3,
@@ -14220,7 +14220,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "5634",
         "username": "asavarijadhav_gofynd_com_99880"
       },
-      "created_on": "2020-08-05T09:44:46.632000Z",
+      "created_on": "2020-08-05T09:44:46.632Z",
       "id": "5f2a7f8e31c66700018cdc49",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/x0/seller/pictures/logo/original/tKkDB8_0DEFAULT-LOGO.jpg1c324d4d-f667-4af8-8d98-37205d34e3b5/tKkDB8_0DEFAULT-LOGO.jpg",
@@ -14228,7 +14228,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "3",
         "username": "918793638893_86554"
       },
-      "modified_on": "2020-08-06T18:07:35.231000Z",
+      "modified_on": "2020-08-06T18:07:35.231Z",
       "name": "Women's Fashion",
       "platforms": {},
       "priority_order": 2,
@@ -14244,7 +14244,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "5634",
         "username": "asavarijadhav_gofynd_com_99880"
       },
-      "created_on": "2020-08-05T09:45:12.075000Z",
+      "created_on": "2020-08-05T09:45:12.075Z",
       "id": "5f2a7fa831c66700018cdc4a",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/x0/seller/pictures/logo/original/oLoxiL_0DEFAULT-LOGO.jpgbd050200-700a-4a3e-9da6-e6b78fbee943/oLoxiL_0DEFAULT-LOGO.jpg",
@@ -14252,7 +14252,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "5634",
         "username": "asavarijadhav_gofynd_com_99880"
       },
-      "modified_on": "2020-08-05T09:48:01.660000Z",
+      "modified_on": "2020-08-05T09:48:01.660Z",
       "name": "Beauty & Personal Care",
       "platforms": {},
       "priority_order": 4,
@@ -14268,7 +14268,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "5634",
         "username": "asavarijadhav_gofynd_com_99880"
       },
-      "created_on": "2020-08-05T09:45:39.797000Z",
+      "created_on": "2020-08-05T09:45:39.797Z",
       "id": "5f2a7fc331c66700018cdc4b",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/x0/seller/pictures/logo/original/vQv4ot_0DEFAULT-LOGO.jpg701cb5af-2024-4abf-ae5d-b68bc1a3cd43/vQv4ot_0DEFAULT-LOGO.jpg",
@@ -14276,7 +14276,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "3",
         "username": "918793638893_86554"
       },
-      "modified_on": "2020-08-06T11:38:57.599000Z",
+      "modified_on": "2020-08-06T11:38:57.599Z",
       "name": "Home & Living",
       "platforms": {},
       "priority_order": 5,
@@ -14292,7 +14292,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "5634",
         "username": "asavarijadhav_gofynd_com_99880"
       },
-      "created_on": "2020-08-05T09:48:42.347000Z",
+      "created_on": "2020-08-05T09:48:42.347Z",
       "id": "5f2a807a31c66700018cdc4e",
       "is_active": false,
       "logo": "https://hdn-1.addsale.com/x0/seller/pictures/logo/original/hTobjV_0DEFAULT-LOGO.jpga020159c-7fe7-4c1c-a11a-4be61a60da9f/hTobjV_0DEFAULT-LOGO.jpg",
@@ -14300,7 +14300,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "5634",
         "username": "asavarijadhav_gofynd_com_99880"
       },
-      "modified_on": "2020-08-05T09:48:42.347000Z",
+      "modified_on": "2020-08-05T09:48:42.347Z",
       "name": "Baby Care & Kids Essentials",
       "platforms": {},
       "priority_order": 7,
@@ -14316,7 +14316,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "5721",
         "username": "919821012599_75351"
       },
-      "created_on": "2021-01-13T10:12:33.002000Z",
+      "created_on": "2021-01-13T10:12:33.002Z",
       "id": "5ffec79192813f0001eb6560",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/rNz8grLys-.png",
@@ -14324,7 +14324,7 @@ List of departments data. See example below or refer `DepartmentsResponse` for d
         "user_id": "5721",
         "username": "919821012599_75351"
       },
-      "modified_on": "2021-01-13T13:50:55.415000Z",
+      "modified_on": "2021-01-13T13:50:55.415Z",
       "name": "Skin care products",
       "platforms": {},
       "priority_order": 10235,
@@ -14464,7 +14464,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "3",
         "username": "918793638893_86554"
       },
-      "created_on": "2020-07-01T05:33:39.325000Z",
+      "created_on": "2020-07-01T05:33:39.325Z",
       "id": "5efc2033623d390001782238",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/x0/seller/pictures/logo/original/BSQ9Gk_123522-best-starry-sky-wallpaper-1920x1200-ipad-pro.jpgc7d0c15c-c1ff-47eb-8423-6e2df51f2ddf/BSQ9Gk_123522-best-starry-sky-wallpaper-1920x1200-ipad-pro.jpg",
@@ -14472,7 +14472,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "5677",
         "username": "917753852478_51632"
       },
-      "modified_on": "2021-03-03T15:55:25.118000Z",
+      "modified_on": "2021-03-03T15:55:25.118Z",
       "name": "Sample Dept",
       "platforms": {},
       "priority_order": 111,
@@ -14491,7 +14491,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "0",
         "username": "app@fynd.com"
       },
-      "created_on": "2020-05-19T06:53:37.629000Z",
+      "created_on": "2020-05-19T06:53:37.629Z",
       "id": "5ec3827156a7200001c9aeea",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/addsale/media/logo/department/original/15974_381e2236c2a348cc851c29a5d05c66a9.png",
@@ -14499,7 +14499,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "10",
         "username": "fahimsakri_gofynd_com_44938"
       },
-      "modified_on": "2021-03-04T14:01:02.556000Z",
+      "modified_on": "2021-03-04T14:01:02.556Z",
       "name": "Men's Fashion",
       "platforms": {
         "fynd": true,
@@ -14522,7 +14522,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "10",
         "username": "fahimsakri_gofynd_com_44938"
       },
-      "created_on": "2020-06-29T10:59:33.620000Z",
+      "created_on": "2020-06-29T10:59:33.620Z",
       "id": "5ef9c9959b04f00001e40dba",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/x0/seller/pictures/logo/original/ywPVrU_preview_a637ca6e4da6e38f03eb0d650ac5d6ba.jpgc73cc22f-b5ee-4fd4-a585-8ada35762d68/ywPVrU_preview_a637ca6e4da6e38f03eb0d650ac5d6ba.jpg",
@@ -14530,7 +14530,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "3",
         "username": "918793638893_86554"
       },
-      "modified_on": "2020-08-06T18:08:02.675000Z",
+      "modified_on": "2020-08-06T18:08:02.675Z",
       "name": "Groceries",
       "platforms": {},
       "priority_order": 10,
@@ -14546,7 +14546,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "0",
         "username": "app@fynd.com"
       },
-      "created_on": "2020-05-18T16:14:41.689000Z",
+      "created_on": "2020-05-18T16:14:41.689Z",
       "id": "5ec2b471661a4100019fca0d",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/x0/platform/pictures/free-logo/original/_G1Z2Fg1L-http:d3p8ifzkmzds37.cloudfront.netmedialogodepartmentoriginal15870_c287d3c2431a432bb0e49363ef6b82bc.png.png",
@@ -14554,7 +14554,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "5677",
         "username": "917753852478_51632"
       },
-      "modified_on": "2021-03-04T15:39:38.528000Z",
+      "modified_on": "2021-03-04T15:39:38.528Z",
       "name": "Electronics",
       "platforms": {
         "fynd": true,
@@ -14577,7 +14577,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "3",
         "username": "918793638893_86554"
       },
-      "created_on": "2020-05-27T12:04:19.111000Z",
+      "created_on": "2020-05-27T12:04:19.111Z",
       "id": "5ece5743cd1bae0001440427",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/x0/seller/pictures/landscape-banner/original/g2plam_logo_Jio.pngeeb392ca-3958-46a0-9f13-23c205b596f7/g2plam_logo_Jio.png",
@@ -14585,7 +14585,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "3",
         "username": "918793638893_86554"
       },
-      "modified_on": "2020-08-06T18:07:46.060000Z",
+      "modified_on": "2020-08-06T18:07:46.060Z",
       "name": "Industrial Supplies",
       "platforms": {},
       "priority_order": 111,
@@ -14601,7 +14601,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "13",
         "username": "abhinavsrivastava_gofynd_com_05674"
       },
-      "created_on": "2020-07-06T07:56:01.508000Z",
+      "created_on": "2020-07-06T07:56:01.508Z",
       "id": "5f02d9116b0ae500018923dd",
       "is_active": false,
       "logo": "https://hdn-1.addsale.com/x0/seller/pictures/logo/original/wTcfEi_crysis_-_1.jpg14580947-a659-486d-b2d3-d2ca025b1cac/wTcfEi_crysis_-_1.jpg",
@@ -14609,7 +14609,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "3",
         "username": "918793638893_86554"
       },
-      "modified_on": "2020-08-06T18:08:12.576000Z",
+      "modified_on": "2020-08-06T18:08:12.576Z",
       "name": "Clothing",
       "platforms": {},
       "priority_order": 1,
@@ -14625,7 +14625,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "5634",
         "username": "asavarijadhav_gofynd_com_99880"
       },
-      "created_on": "2020-08-05T09:04:33.604000Z",
+      "created_on": "2020-08-05T09:04:33.604Z",
       "id": "5f2a762131c66700018cdc47",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/x0/seller/pictures/logo/original/RxTsd8_0DEFAULT-LOGO.jpg000ccfc1-2f79-4426-9ac3-de2468c2fcb9/RxTsd8_0DEFAULT-LOGO.jpg",
@@ -14633,7 +14633,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "5634",
         "username": "asavarijadhav_gofynd_com_99880"
       },
-      "modified_on": "2020-08-05T09:44:01.234000Z",
+      "modified_on": "2020-08-05T09:44:01.234Z",
       "name": "Kids",
       "platforms": {},
       "priority_order": 3,
@@ -14649,7 +14649,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "5634",
         "username": "asavarijadhav_gofynd_com_99880"
       },
-      "created_on": "2020-08-05T09:44:46.632000Z",
+      "created_on": "2020-08-05T09:44:46.632Z",
       "id": "5f2a7f8e31c66700018cdc49",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/x0/seller/pictures/logo/original/tKkDB8_0DEFAULT-LOGO.jpg1c324d4d-f667-4af8-8d98-37205d34e3b5/tKkDB8_0DEFAULT-LOGO.jpg",
@@ -14657,7 +14657,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "3",
         "username": "918793638893_86554"
       },
-      "modified_on": "2020-08-06T18:07:35.231000Z",
+      "modified_on": "2020-08-06T18:07:35.231Z",
       "name": "Women's Fashion",
       "platforms": {},
       "priority_order": 2,
@@ -14673,7 +14673,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "5634",
         "username": "asavarijadhav_gofynd_com_99880"
       },
-      "created_on": "2020-08-05T09:45:12.075000Z",
+      "created_on": "2020-08-05T09:45:12.075Z",
       "id": "5f2a7fa831c66700018cdc4a",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/x0/seller/pictures/logo/original/oLoxiL_0DEFAULT-LOGO.jpgbd050200-700a-4a3e-9da6-e6b78fbee943/oLoxiL_0DEFAULT-LOGO.jpg",
@@ -14681,7 +14681,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "5634",
         "username": "asavarijadhav_gofynd_com_99880"
       },
-      "modified_on": "2020-08-05T09:48:01.660000Z",
+      "modified_on": "2020-08-05T09:48:01.660Z",
       "name": "Beauty & Personal Care",
       "platforms": {},
       "priority_order": 4,
@@ -14697,7 +14697,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "5634",
         "username": "asavarijadhav_gofynd_com_99880"
       },
-      "created_on": "2020-08-05T09:45:39.797000Z",
+      "created_on": "2020-08-05T09:45:39.797Z",
       "id": "5f2a7fc331c66700018cdc4b",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/x0/seller/pictures/logo/original/vQv4ot_0DEFAULT-LOGO.jpg701cb5af-2024-4abf-ae5d-b68bc1a3cd43/vQv4ot_0DEFAULT-LOGO.jpg",
@@ -14705,7 +14705,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "3",
         "username": "918793638893_86554"
       },
-      "modified_on": "2020-08-06T11:38:57.599000Z",
+      "modified_on": "2020-08-06T11:38:57.599Z",
       "name": "Home & Living",
       "platforms": {},
       "priority_order": 5,
@@ -14721,7 +14721,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "5634",
         "username": "asavarijadhav_gofynd_com_99880"
       },
-      "created_on": "2020-08-05T09:48:42.347000Z",
+      "created_on": "2020-08-05T09:48:42.347Z",
       "id": "5f2a807a31c66700018cdc4e",
       "is_active": false,
       "logo": "https://hdn-1.addsale.com/x0/seller/pictures/logo/original/hTobjV_0DEFAULT-LOGO.jpga020159c-7fe7-4c1c-a11a-4be61a60da9f/hTobjV_0DEFAULT-LOGO.jpg",
@@ -14729,7 +14729,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "5634",
         "username": "asavarijadhav_gofynd_com_99880"
       },
-      "modified_on": "2020-08-05T09:48:42.347000Z",
+      "modified_on": "2020-08-05T09:48:42.347Z",
       "name": "Baby Care & Kids Essentials",
       "platforms": {},
       "priority_order": 7,
@@ -14745,7 +14745,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "5721",
         "username": "919821012599_75351"
       },
-      "created_on": "2021-01-13T10:12:33.002000Z",
+      "created_on": "2021-01-13T10:12:33.002Z",
       "id": "5ffec79192813f0001eb6560",
       "is_active": true,
       "logo": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/rNz8grLys-.png",
@@ -14753,7 +14753,7 @@ Departments Data. See example below or refer `DepartmentsResponse` for details
         "user_id": "5721",
         "username": "919821012599_75351"
       },
-      "modified_on": "2021-01-13T13:50:55.415000Z",
+      "modified_on": "2021-01-13T13:50:55.415Z",
       "name": "Skin care products",
       "platforms": {},
       "priority_order": 10235,
@@ -14824,14 +14824,14 @@ Success Response. See example below or refer `DepartmentCreateResponseSchema` fo
 
 ```json
 {
-  "created_on": "2021-04-02T15:43:59.410000Z",
+  "created_on": "2021-04-02T15:43:59.410Z",
   "is_active": true,
   "logo": "https://hdn-1.addsale.com/x0/department/pictures/square-logo/original/xKDsQBbu4-department.png",
   "modified_by": {
     "user_id": "f5b6a546565146sdfg584c342",
     "username": "31315573458_05620"
   },
-  "modified_on": "2022-08-09T15:44:02.540740",
+  "modified_on": "2022-08-09T15:44:02.540Z",
   "name": "Fashion",
   "priority_order": 1,
   "slug": "fashion",
@@ -15447,7 +15447,7 @@ List of Product Downloads Data. See example below or refer `ProductDownloadsResp
 {
   "items": [
     {
-      "completed_on": "2020-12-23T07:23:41.031000Z",
+      "completed_on": "2020-12-23T07:23:41.031Z",
       "created_by": {
         "user_id": "5646",
         "username": "917972410891_48194"
@@ -15471,7 +15471,7 @@ List of Product Downloads Data. See example below or refer `ProductDownloadsResp
           "logo": "https://hdn-1.jiox0.de/jiox0/seller/pictures/logo/original/Oda39B_99946594-portable-devices-with-tablet-and-mobile-phone-vector-icon-for-apps-and-websites.jpgcc2dff44-7fae-4002-9ebe-d2b59c8bee91/Oda39B_99946594-portable-devices-with-tablet-and-mobile-phone-vector-icon-for-apps-and-websites.jpg"
         }
       },
-      "trigger_on": "2020-12-23T07:23:35.302000Z",
+      "trigger_on": "2020-12-23T07:23:35.302Z",
       "url": "https://regrowth.s3.amazonaws.com/slingshot-catalogues/seller-catalog/3/c4b54ace-44ef-11eb-9806-1ef9bc4a2da1/c4b54ace-44ef-11eb-9806-1ef9bc4a2da1.zip"
     }
   ],
@@ -15599,7 +15599,7 @@ List of Product Downloads Data. See example below or refer `ProductDownloadsResp
 {
   "items": [
     {
-      "completed_on": "2020-12-23T07:23:41.031000Z",
+      "completed_on": "2020-12-23T07:23:41.031Z",
       "created_by": {
         "user_id": "5646",
         "username": "917972410891_48194"
@@ -15623,7 +15623,7 @@ List of Product Downloads Data. See example below or refer `ProductDownloadsResp
           "logo": "https://hdn-1.jiox0.de/jiox0/seller/pictures/logo/original/Oda39B_99946594-portable-devices-with-tablet-and-mobile-phone-vector-icon-for-apps-and-websites.jpgcc2dff44-7fae-4002-9ebe-d2b59c8bee91/Oda39B_99946594-portable-devices-with-tablet-and-mobile-phone-vector-icon-for-apps-and-websites.jpg"
         }
       },
-      "trigger_on": "2020-12-23T07:23:35.302000Z",
+      "trigger_on": "2020-12-23T07:23:35.302Z",
       "url": "https://regrowth.s3.amazonaws.com/slingshot-catalogues/seller-catalog/3/c4b54ace-44ef-11eb-9806-1ef9bc4a2da1/c4b54ace-44ef-11eb-9806-1ef9bc4a2da1.zip"
     }
   ],
@@ -15688,7 +15688,7 @@ Returns a success response
       "user_id": "550fe8ce436ea332b9e4b4b0",
       "username": "purvashukla_gofynd_com_44895"
     },
-    "created_on": "2023-03-03T10:26:47.047171Z",
+    "created_on": "2023-03-03T10:26:47.047Z",
     "filters": {
       "brands": [],
       "catalogue_types": [
@@ -15698,7 +15698,7 @@ Returns a success response
         "footwear"
       ]
     },
-    "modified_on": "2023-03-03T10:26:47.047179",
+    "modified_on": "2023-03-03T10:26:47.047Z",
     "notification_emails": [],
     "seller_id": 577,
     "stats": {},
@@ -16274,7 +16274,7 @@ List of bundle configured for a company. See example below or refer `GetProductB
         "uid": "123",
         "username": "917827311650_22960"
       },
-      "created_on": "2021-02-19 16:40:26.310007",
+      "created_on": "2021-02-19T16:40:26.310Z",
       "id": "602f9ca2a596ce312f5956f9",
       "is_active": true,
       "logo": "http://g.com/poo.png/",
@@ -16283,7 +16283,7 @@ List of bundle configured for a company. See example below or refer `GetProductB
         "uid": "123",
         "username": "917827311650_22960"
       },
-      "modified_on": "2021-02-19 16:40:26.310027",
+      "modified_on": "2021-02-19T16:40:26.310Z",
       "name": "Bag",
       "page_visibility": [
         "pdp"
@@ -16308,7 +16308,7 @@ List of bundle configured for a company. See example below or refer `GetProductB
         "uid": "123",
         "username": "917827311650_22960"
       },
-      "created_on": "2021-02-19 16:21:35.091512",
+      "created_on": "2021-02-19T16:21:35.091Z",
       "id": "602f9837a596ce2edf9868e2",
       "is_active": true,
       "logo": "http://g.com/poo.png/",
@@ -16317,7 +16317,7 @@ List of bundle configured for a company. See example below or refer `GetProductB
         "uid": "123",
         "username": "917827311650_22960"
       },
-      "modified_on": "2021-02-19 16:21:35.091540",
+      "modified_on": "2021-02-19T16:21:35.091Z",
       "name": "Bag",
       "page_visibility": [
         "pdp"
@@ -16342,7 +16342,7 @@ List of bundle configured for a company. See example below or refer `GetProductB
         "uid": "123",
         "username": "917827311650_22960"
       },
-      "created_on": "2021-02-19 16:20:24.605207",
+      "created_on": "2021-02-19T16:20:24.605Z",
       "id": "602f97f0a596ce2ead47cd0b",
       "is_active": true,
       "logo": "http://g.com/poo.png/",
@@ -16351,7 +16351,7 @@ List of bundle configured for a company. See example below or refer `GetProductB
         "uid": "123",
         "username": "917827311650_22960"
       },
-      "modified_on": "2021-02-19 16:20:24.605230",
+      "modified_on": "2021-02-19T16:20:24.605Z",
       "name": "Bag",
       "page_visibility": [
         "pdp"
@@ -16376,7 +16376,7 @@ List of bundle configured for a company. See example below or refer `GetProductB
         "uid": "123",
         "username": "917827311650_22960"
       },
-      "created_on": "2021-02-19 16:16:46.196449",
+      "created_on": "2021-02-19T16:16:46.196Z",
       "id": "602f9716a596ce2e415196df",
       "is_active": true,
       "logo": "http://g.com/poo.png/",
@@ -16385,7 +16385,7 @@ List of bundle configured for a company. See example below or refer `GetProductB
         "uid": "123",
         "username": "917827311650_22960"
       },
-      "modified_on": "2021-02-19 16:16:46.196467",
+      "modified_on": "2021-02-19T16:16:46.196Z",
       "name": "Bag",
       "page_visibility": [
         "pdp"
@@ -16472,7 +16472,7 @@ Get bundle with id that is added. See example below or refer `GetProductBundleCr
     "uid": "123",
     "username": "917827311650_22960"
   },
-  "created_on": "2021-02-19 16:40:26.310007",
+  "created_on": "2021-02-19T16:40:26.310Z",
   "id": "602f9ca2a596ce312f5956f9",
   "is_active": true,
   "logo": "http://g.com/poo.png/",
@@ -16481,7 +16481,7 @@ Get bundle with id that is added. See example below or refer `GetProductBundleCr
     "uid": "123",
     "username": "917827311650_22960"
   },
-  "modified_on": "2021-02-19 16:40:26.310027",
+  "modified_on": "2021-02-19T16:40:26.310Z",
   "name": "Bag",
   "page_visibility": [
     "pdp"
@@ -16647,7 +16647,7 @@ The Collection object. See example below or refer `GetProductBundleCreateRespons
     "uid": "123",
     "username": "917827311650_22960"
   },
-  "created_on": "2021-02-19 16:40:26.310007",
+  "created_on": "2021-02-19T16:40:26.310Z",
   "id": "602f9ca2a596ce312f5956f9",
   "is_active": true,
   "logo": "http://g.com/poo.png/",
@@ -16656,7 +16656,7 @@ The Collection object. See example below or refer `GetProductBundleCreateRespons
     "uid": "123",
     "username": "917827311650_22960"
   },
-  "modified_on": "2021-02-19 16:40:26.310027",
+  "modified_on": "2021-02-19T16:40:26.310Z",
   "name": "Bag",
   "page_visibility": [
     "pdp"
@@ -16730,7 +16730,7 @@ Returns a success response
 ```json
 {
   "batch_id": "507f1f77bcf86cd799439011",
-  "created_on": "2021-04-02T15:43:59.410000Z"
+  "created_on": "2021-04-02T15:43:59.410Z"
 }
 ```
 </details>
@@ -16802,7 +16802,7 @@ Size guide object. See example below or refer `ListSizeGuide` for details
         "user_id": "-1",
         "username": "silverbolt"
       },
-      "created_on": "2021-02-24T17:46:04.146000Z",
+      "created_on": "2021-02-24T17:46:04.146Z",
       "guide": {
         "meta": {
           "headers": {
@@ -16837,7 +16837,7 @@ Size guide object. See example below or refer `ListSizeGuide` for details
         "user_id": "-1",
         "username": "silverbolt"
       },
-      "modified_on": "2021-02-24T17:46:04.146000Z",
+      "modified_on": "2021-02-24T17:46:04.146Z",
       "name": "Demo",
       "subtitle": "I am demo",
       "tag": "demo",
@@ -16969,7 +16969,7 @@ Brand object. See example below or refer `SizeGuideResponseSchema` for details
     "user_id": "-1",
     "username": "silverbolt"
   },
-  "created_on": "2021-02-24T17:46:04.146000Z",
+  "created_on": "2021-02-24T17:46:04.146Z",
   "guide": {
     "meta": {
       "headers": {
@@ -17004,7 +17004,7 @@ Brand object. See example below or refer `SizeGuideResponseSchema` for details
     "user_id": "123",
     "username": "917827311650_22960"
   },
-  "modified_on": "2021-02-25T15:19:30.822000Z",
+  "modified_on": "2021-02-25T15:19:30.822Z",
   "name": "edited size guide",
   "subtitle": "I am demo",
   "tag": "demo",
@@ -17130,7 +17130,7 @@ List all Marketplace details.
         "username": "test@gofynd.com",
         "user_id": "ef56cde2dc3227c44bcb73fd"
       },
-      "created_on": "2023-07-11T18:27:10.477000",
+      "created_on": "2023-07-11T18:27:10.477Z",
       "opt_level": "company",
       "company_id": 1,
       "modified_by": {
@@ -17138,7 +17138,7 @@ List all Marketplace details.
         "user_id": "ef56cde2dc3227c44bcb73fd"
       },
       "store_ids": [],
-      "modified_on": "2023-07-11T18:27:10.477000",
+      "modified_on": "2023-07-11T18:27:10.477Z",
       "platform": "fynd",
       "_id": "64ad9efe8069f0f413265003"
     }

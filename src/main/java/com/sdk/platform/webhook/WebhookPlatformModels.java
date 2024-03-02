@@ -475,7 +475,7 @@ public static class EventProcessReportObject{
     
     
     @JsonProperty("data")
-    private HashMap<String,Object> data;
+    private String data;
     
     
     
@@ -702,6 +702,12 @@ public static class EventConfig{
     
     @JsonProperty("event_category")
     private String eventCategory;
+    
+    
+    
+    
+    @JsonProperty("subscriber_event_mapping")
+    private SubscriberEventMapping subscriberEventMapping;
     
     
     
@@ -1226,128 +1232,6 @@ public static class AuthMeta{
     
     @JsonProperty("secret")
     private String secret;
-    
-    
-    
-}
-
-
-/*
-    Model: SubscriberFailureResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriberFailureResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("stack")
-    private String stack;
-    
-    
-    
-}
-
-
-/*
-    Model: EventConfigs
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventConfigs{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private Integer id;
-    
-    
-    
-    
-    @JsonProperty("event_name")
-    private String eventName;
-    
-    
-    
-    
-    @JsonProperty("event_type")
-    private String eventType;
-    
-    
-    
-    
-    @JsonProperty("event_category")
-    private String eventCategory;
-    
-    
-    
-    
-    @JsonProperty("event_schema")
-    private HashMap<String,Object> eventSchema;
-    
-    
-    
-    
-    @JsonProperty("version")
-    private String version;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("updated_on")
-    private String updatedOn;
-    
-    
-    
-    
-    @JsonProperty("subscriber_event_mapping")
-    private SubscriberEventMapping subscriberEventMapping;
     
     
     

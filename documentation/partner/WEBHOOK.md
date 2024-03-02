@@ -1083,7 +1083,7 @@ It will give you subscriber config details of a selected subscribers.
  | eventName | String? |  yes  | The name of the processed event. |
  | responseCode | Integer? |  yes  | The response code of the event. |
  | responseMessage | String? |  yes  | The response message of the event. |
- | data | HashMap<String,Object>? |  yes  | The data associated with the event. |
+ | data | String? |  yes  | The data associated with the event. |
  | attempt | Integer? |  yes  | The attempt number of the event. |
  | lastAttemptedOn | Double? |  yes  | The timestamp of the last attempted event. |
  | status | String? |  yes  | The status of the event (e.g., "FAILED"). |
