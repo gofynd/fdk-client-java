@@ -11,11 +11,11 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.1</version>
+        <version>3.2.3</version>
     </parent>
     <properties>
         <retrofit.version>2.9.0</retrofit.version>
-        <okhttp3.version>3.14.9</okhttp3.version>
+        <okhttp3.version>4.12.0</okhttp3.version>
         <lombok.version>1.18.30</lombok.version>
         <commons.version>1.9</commons.version>
         <commons.lang>3.12.0</commons.lang>
