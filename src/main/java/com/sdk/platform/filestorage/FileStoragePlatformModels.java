@@ -14,6 +14,37 @@ public class FileStoragePlatformModels{
 
 
 /*
+    Model: ProxyResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProxyResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("data")
+    private HashMap<String,Object> data;
+    
+    
+    
+    
+    @JsonProperty("support")
+    private HashMap<String,Object> support;
+    
+    
+    
+}
+
+
+/*
     Model: FailedResponse
 */
 @AllArgsConstructor
@@ -179,6 +210,31 @@ public static class StartResponse{
     
     @JsonProperty("tags")
     private List<String> tags;
+    
+    
+    
+}
+
+
+/*
+    Model: Params
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Params{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("subpath")
+    private String subpath;
     
     
     

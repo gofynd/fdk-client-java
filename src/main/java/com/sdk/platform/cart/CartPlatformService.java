@@ -194,52 +194,6 @@ public class ApplicationClient {
         }    
     }
 
-    /**
-    * Summary: get paginator for getCoupons
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CartPlatformModels.CouponsResponse> getCouponsPagination(
-        Integer pageSize,
-        Boolean isArchived,
-        String title,
-        Boolean isPublic,
-        Boolean isDisplay,
-        String typeSlug,
-        String code
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CartPlatformModels.CouponsResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CartPlatformModels.CouponsResponse callback = this.getCoupons(
-                
-                 
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 isArchived,
-                 title,
-                 isPublic,
-                 isDisplay,
-                 typeSlug,
-                 code
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-
     public CartPlatformModels.SuccessMessage createCoupon(CartPlatformModels.CouponAdd body) throws FDKServerResponseError, FDKException {
         return this.createCoupon(body, new HashMap<>());
     }
@@ -373,52 +327,6 @@ public class ApplicationClient {
         } else {
             return null;
         }    
-    }
-
-    /**
-    * Summary: get paginator for getPromotions
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CartPlatformModels.PromotionsResponse> getPromotionsPagination(
-        Integer pageSize,
-        String q,
-        Boolean isActive,
-        String promoGroup,
-        String promotionType,
-        String fpPanel,
-        String promotionId
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CartPlatformModels.PromotionsResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CartPlatformModels.PromotionsResponse callback = this.getPromotions(
-                
-                 
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 q,
-                 isActive,
-                 promoGroup,
-                 promotionType,
-                 fpPanel,
-                 promotionId
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
     }
 
     public CartPlatformModels.PromotionAdd createPromotion(CartPlatformModels.PromotionAdd body) throws FDKServerResponseError, FDKException {
@@ -824,50 +732,6 @@ public class ApplicationClient {
         } else {
             return null;
         }    
-    }
-
-    /**
-    * Summary: get paginator for getAbandonedCart
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CartPlatformModels.AbandonedCartResponse> getAbandonedCartPagination(
-        Integer pageSize,
-        String fromDate,
-        String toDate,
-        Boolean anonymousCart,
-        String lastId,
-        String sortOn
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CartPlatformModels.AbandonedCartResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CartPlatformModels.AbandonedCartResponse callback = this.getAbandonedCart(
-                
-                 
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 fromDate,
-                 toDate,
-                 anonymousCart,
-                 lastId,
-                 sortOn
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
     }
 
     public CartPlatformModels.CartDetailResponse getAbandonedCartDetails(String id, Boolean i, Boolean b, Boolean c) throws FDKServerResponseError, FDKException {

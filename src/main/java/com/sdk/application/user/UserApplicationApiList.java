@@ -31,16 +31,16 @@ interface UserApplicationApiList {
     Call<UserApplicationModels.ResetPasswordSuccess> sendResetPasswordEmail(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendResetPasswordEmailRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<UserApplicationModels.ResetPasswordSuccess> sendResetPasswordMobile(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendResetPasswordMobileRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<Object> sendResetPasswordMobile(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendResetPasswordMobileRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST 
+    Call<UserApplicationModels.ResetPasswordSuccess> sendResetToken(@Url String url1, @Body UserApplicationModels.CodeRequestBodySchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<UserApplicationModels.LoginSuccess> forgotPassword(@Url String url1, @Body UserApplicationModels.ForgotPasswordRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<UserApplicationModels.ResetForgotPasswordSuccess> resetForgotPassword(@Url String url1, @Body UserApplicationModels.ForgotPasswordRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<UserApplicationModels.ResetPasswordSuccess> sendResetToken(@Url String url1, @Body UserApplicationModels.CodeRequestBodySchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<UserApplicationModels.LoginSuccess> loginWithToken(@Url String url1, @Body UserApplicationModels.TokenRequestBodySchema payload, @HeaderMap Map<String, String> requestHeaders);
@@ -59,12 +59,6 @@ interface UserApplicationApiList {
 
     @POST 
     Call<UserApplicationModels.VerifyEmailSuccess> updatePassword(@Url String url1, @Body UserApplicationModels.UpdatePasswordRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<UserApplicationModels.DeleteUserSuccess> deleteUser(@Url String url1, @Body UserApplicationModels.DeleteApplicationUserRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<UserApplicationModels.LogoutSuccess> logout(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<UserApplicationModels.OtpSuccess> sendOTPOnMobile(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendMobileOtpRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
@@ -128,6 +122,12 @@ interface UserApplicationApiList {
 
     @GET 
     Call<UserApplicationModels.UserExistsResponse> userExists(@Url String url1, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST 
+    Call<UserApplicationModels.DeleteUserSuccess> deleteUser(@Url String url1, @Body UserApplicationModels.DeleteApplicationUserRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
+    Call<UserApplicationModels.LogoutSuccess> logout(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<UserApplicationModels.UserAttributes> getUserAttributes(@Url String url1, @Query("slug") String slug, @HeaderMap Map<String, String> requestHeaders);

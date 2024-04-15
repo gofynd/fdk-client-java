@@ -37,7 +37,7 @@ interface FileStoragePlatformApiList {
     Call<Object> browsefiles(@Path("namespace") String namespace, @Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page") Integer page, @Query("limit") Integer limit, @Query("search") String search, @Body FileStoragePlatformModels.ExtensionSlug payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/assets/v1.0/company/{company_id}/proxy")
-    Call<String> proxy(@Path("company_id") String companyId, @Query("url") String url, @HeaderMap Map<String, String> requestHeaders);
+    Call<FileStoragePlatformModels.ProxyResponse> proxy(@Path("company_id") String companyId, @Query("url") String url, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/assets/v1.0/company/{company_id}/application/{application_id}/pdf/types")
     Call<FileStoragePlatformModels.InvoiceTypesResponse> getPdfTypes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("country_code") String countryCode, @HeaderMap Map<String, String> requestHeaders);

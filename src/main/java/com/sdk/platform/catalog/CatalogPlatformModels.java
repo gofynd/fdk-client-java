@@ -130,6 +130,12 @@ public static class Action{
     
     
     
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
     @JsonProperty("page")
     private ActionPage page;
     
@@ -138,55 +144,6 @@ public static class Action{
     
     @JsonProperty("popup")
     private ActionPage popup;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-}
-
-
-/*
-    Model: ActionPage
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ActionPage{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("params")
-    private HashMap<String,List<String>> params;
-    
-    
-    
-    
-    @JsonProperty("query")
-    private HashMap<String,List<String>> query;
-    
-    
-    
-    
-    @JsonProperty("url")
-    private String url;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private PageType type;
     
     
     
@@ -935,6 +892,37 @@ public static class ApplicationItemMeta{
 
 
 /*
+    Model: ApplicationItemSeoSitemap
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApplicationItemSeoSitemap{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Double priority;
+    
+    
+    
+    
+    @JsonProperty("frequency")
+    private String frequency;
+    
+    
+    
+}
+
+
+/*
     Model: ApplicationItemSEO
 */
 @AllArgsConstructor
@@ -959,6 +947,30 @@ public static class ApplicationItemSEO{
     
     @JsonProperty("title")
     private String title;
+    
+    
+    
+    
+    @JsonProperty("sitemap")
+    private ApplicationItemSeoSitemap sitemap;
+    
+    
+    
+    
+    @JsonProperty("breadcrumbs")
+    private List<ApplicationItemSeoBreadcrumbs> breadcrumbs;
+    
+    
+    
+    
+    @JsonProperty("meta_tags")
+    private List<ApplicationItemSeoMetaTags> metaTags;
+    
+    
+    
+    
+    @JsonProperty("canonical_url")
+    private String canonicalUrl;
     
     
     
@@ -6559,6 +6571,12 @@ public static class RawProduct{
     
     
     
+    
+    @JsonProperty("store_id_list")
+    private List<String> storeIdList;
+    
+    
+    
 }
 
 
@@ -8531,6 +8549,43 @@ public static class CommonResponseSchemaCollection{
 
 
 /*
+    Model: GetQueryFiltersKeysResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetQueryFiltersKeysResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("filters")
+    private List<ProductFiltersKeysOnly> filters;
+    
+    
+    
+    
+    @JsonProperty("operators")
+    private HashMap<String,String> operators;
+    
+    
+    
+    
+    @JsonProperty("sort_on")
+    private List<ProductSortOn> sortOn;
+    
+    
+    
+}
+
+
+/*
     Model: GetQueryFiltersResponse
 */
 @AllArgsConstructor
@@ -8709,7 +8764,7 @@ public static class CollectionItemSchemaV2{
 
 
 /*
-    Model: CollectionItemUpdateSchemaV2
+    Model: CollectionItemUpdateSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -8717,7 +8772,7 @@ public static class CollectionItemSchemaV2{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CollectionItemUpdateSchemaV2{
+public static class CollectionItemUpdateSchema{
 
     
 
@@ -12584,6 +12639,18 @@ public static class OwnerAppItemResponse{
     
     
     
+    
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("_custom_meta")
+    private List<MetaFields> customMeta;
+    
+    
+    
 }
 
 
@@ -14545,6 +14612,62 @@ public static class ProductFilters{
     
     @JsonProperty("values")
     private List<ProductFiltersValue> values;
+    
+    
+    
+}
+
+
+/*
+    Model: GetQueryFiltersValuesResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetQueryFiltersValuesResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("values")
+    private List<ProductFiltersValue> values;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: ProductFiltersKeysOnly
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductFiltersKeysOnly{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private ProductFiltersKey key;
     
     
     
@@ -16700,7 +16823,7 @@ public static class Metatags{
     
     
     @JsonProperty("items")
-    private List<ApplicationItemSeoMetaTags> items;
+    private List<ApplicationItemSeoMetaTagItem> items;
     
     
     
@@ -19226,6 +19349,49 @@ public static class UpdateMarketplaceOptinResponse{
 }
 
 
+/*
+    Model: ActionPage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ActionPage{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("params")
+    private HashMap<String,List<String>> params;
+    
+    
+    
+    
+    @JsonProperty("query")
+    private HashMap<String,List<String>> query;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private PageType type;
+    
+    
+    
+}
+
+
 
 
     
@@ -19261,7 +19427,7 @@ public static class UpdateMarketplaceOptinResponse{
         
         contactUs("contact-us"), 
         
-        externalLink("external"), 
+        external("external"), 
         
         faq("faq"), 
         

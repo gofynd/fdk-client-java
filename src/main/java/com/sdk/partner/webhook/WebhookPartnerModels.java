@@ -1034,7 +1034,7 @@ public static class EventProcessReportObject{
     
     
     @JsonProperty("data")
-    private HashMap<String,Object> data;
+    private String data;
     
     
     
@@ -1046,7 +1046,7 @@ public static class EventProcessReportObject{
     
     
     @JsonProperty("last_attempted_on")
-    private Integer lastAttemptedOn;
+    private Double lastAttemptedOn;
     
     
     

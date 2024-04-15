@@ -33,6 +33,12 @@ interface CatalogPlatformApiList {
     @POST ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/collections/")
     Call<CatalogPlatformModels.CollectionCreateResponse> createCollection(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CatalogPlatformModels.CreateCollection payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/filter-options/{filter_key}/values")
+    Call<CatalogPlatformModels.GetQueryFiltersValuesResponse> getApplicationFilterValues(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("filter_key") String filterKey, @Query("c") String c, @Query("collection_id") String collectionId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/filter-options/keys")
+    Call<CatalogPlatformModels.GetQueryFiltersKeysResponse> getApplicationFilterKeys(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("c") String c, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/collections/query-options/")
     Call<CatalogPlatformModels.GetQueryFiltersResponse> getQueryFilters(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
@@ -46,7 +52,7 @@ interface CatalogPlatformApiList {
     Call<CatalogPlatformModels.GetCollectionItemsResponse> getCollectionItems(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Query("sort_on") String sortOn, @Query("page_id") String pageId, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/collections/{id}/items/")
-    Call<CatalogPlatformModels.UpdatedResponse> addCollectionItems(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CatalogPlatformModels.CollectionItemUpdate payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogPlatformModels.CommonResponseSchemaCollection> addCollectionItems(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CatalogPlatformModels.CollectionItemUpdateSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/collections/{slug}/")
     Call<CatalogPlatformModels.GetCollectionDetailResponse> getCollectionDetail(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("slug") String slug, @HeaderMap Map<String, String> requestHeaders);

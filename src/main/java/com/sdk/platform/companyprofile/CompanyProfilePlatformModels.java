@@ -1219,6 +1219,12 @@ public static class CreateUpdateBrandRequestSerializer{
     
     
     
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
 }
 
 

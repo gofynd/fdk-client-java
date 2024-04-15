@@ -286,13 +286,13 @@ public class FileStoragePlatformService {
     
     
 
-    public String proxy(String url) throws FDKServerResponseError, FDKException {
+    public FileStoragePlatformModels.ProxyResponse proxy(String url) throws FDKServerResponseError, FDKException {
         return this.proxy(url, new HashMap<>());
     }
 
-    public String proxy(String url, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FileStoragePlatformModels.ProxyResponse proxy(String url, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<String> response = null;
+            Response<FileStoragePlatformModels.ProxyResponse> response = null;
             try {
                 response = filestoragePlatformApiList.proxy(this.companyId, url, requestHeaders).execute();
                 if (!response.isSuccessful()) {

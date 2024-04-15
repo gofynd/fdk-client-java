@@ -372,6 +372,12 @@ public static class UpdateShipmentLockPayload{
     
     
     
+    
+    @JsonProperty("resume_tasks_after_unlock")
+    private Boolean resumeTasksAfterUnlock;
+    
+    
+    
 }
 
 
@@ -4859,6 +4865,18 @@ public static class CreateOrderAPI{
     
     @JsonProperty("user_info")
     private UserInfo userInfo;
+    
+    
+    
+    
+    @JsonProperty("ordering_store_id")
+    private Integer orderingStoreId;
+    
+    
+    
+    
+    @JsonProperty("order_platform")
+    private String orderPlatform;
     
     
     
@@ -9365,6 +9383,12 @@ public static class Prices{
     
     
     
+    
+    @JsonProperty("amount_to_be_collected")
+    private Double amountToBeCollected;
+    
+    
+    
 }
 
 
@@ -9574,6 +9598,12 @@ public static class FinancialBreakup{
     
     @JsonProperty("gst_tax_percentage")
     private Double gstTaxPercentage;
+    
+    
+    
+    
+    @JsonProperty("amount_to_be_collected")
+    private Double amountToBeCollected;
     
     
     
@@ -10151,6 +10181,12 @@ public static class Article{
     
     @JsonProperty("is_set")
     private Boolean isSet;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
     
     
     
@@ -11142,6 +11178,12 @@ public static class ShipmentItem{
     
     
     
+    @JsonProperty("payment_info")
+    private List<Object> paymentInfo;
+    
+    
+    
+    
     @JsonProperty("status_created_at")
     private String statusCreatedAt;
     
@@ -11484,6 +11526,12 @@ public static class OrderDetailsData{
     
     @JsonProperty("affiliate_id")
     private String affiliateId;
+    
+    
+    
+    
+    @JsonProperty("affiliate_order_id")
+    private String affiliateOrderId;
     
     
     
@@ -12735,6 +12783,12 @@ public static class OrderBagArticle{
     
     
     
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
 }
 
 
@@ -13209,6 +13263,12 @@ public static class OrderBags{
     
     @JsonProperty("payment_methods")
     private List<BagPaymentMethods> paymentMethods;
+    
+    
+    
+    
+    @JsonProperty("payment_info")
+    private List<BagPaymentMethods> paymentInfo;
     
     
     
@@ -13704,6 +13764,12 @@ public static class PlatformShipment{
     
     
     
+    @JsonProperty("order_platform")
+    private String orderPlatform;
+    
+    
+    
+    
     @JsonProperty("lock_status")
     private Boolean lockStatus;
     
@@ -13736,6 +13802,12 @@ public static class PlatformShipment{
     
     @JsonProperty("payment_methods")
     private Object paymentMethods;
+    
+    
+    
+    
+    @JsonProperty("payment_info")
+    private List<Object> paymentInfo;
     
     
     
@@ -13997,6 +14069,79 @@ public static class TaxDetails{
 
 
 /*
+    Model: PaymentInfoData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentInfoData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("mode")
+    private String mode;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("collected")
+    private Boolean collected;
+    
+    
+    
+    
+    @JsonProperty("refund_by")
+    private String refundBy;
+    
+    
+    
+    
+    @JsonProperty("collect_by")
+    private String collectBy;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("merchant_transaction_id")
+    private String merchantTransactionId;
+    
+    
+    
+}
+
+
+/*
     Model: OrderData
 */
 @AllArgsConstructor
@@ -14051,6 +14196,12 @@ public static class OrderData{
     
     @JsonProperty("payment_methods")
     private Object paymentMethods;
+    
+    
+    
+    
+    @JsonProperty("payment_info")
+    private List<PaymentInfoData> paymentInfo;
     
     
     
@@ -15339,7 +15490,7 @@ public static class Store{
     
     
     @JsonProperty("phone")
-    private Integer phone;
+    private String phone;
     
     
     
@@ -15640,7 +15791,7 @@ public static class Brand{
     
     
     @JsonProperty("modified_on")
-    private Integer modifiedOn;
+    private String modifiedOn;
     
     
     
@@ -16035,7 +16186,7 @@ public static class ShipmentGstDetails{
     
     
     @JsonProperty("gstin_code")
-    private Double gstinCode;
+    private String gstinCode;
     
     
     

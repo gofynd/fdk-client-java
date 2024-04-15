@@ -475,7 +475,7 @@ public static class EventProcessReportObject{
     
     
     @JsonProperty("data")
-    private HashMap<String,Object> data;
+    private String data;
     
     
     
@@ -487,7 +487,7 @@ public static class EventProcessReportObject{
     
     
     @JsonProperty("last_attempted_on")
-    private Integer lastAttemptedOn;
+    private Double lastAttemptedOn;
     
     
     
@@ -702,6 +702,12 @@ public static class EventConfig{
     
     @JsonProperty("event_category")
     private String eventCategory;
+    
+    
+    
+    
+    @JsonProperty("subscriber_event_mapping")
+    private SubscriberEventMapping subscriberEventMapping;
     
     
     
@@ -1226,6 +1232,49 @@ public static class AuthMeta{
     
     @JsonProperty("secret")
     private String secret;
+    
+    
+    
+}
+
+
+/*
+    Model: SubscriberEventMapping
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SubscriberEventMapping{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Integer id;
+    
+    
+    
+    
+    @JsonProperty("event_id")
+    private Integer eventId;
+    
+    
+    
+    
+    @JsonProperty("subscriber_id")
+    private Integer subscriberId;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
     
     
     

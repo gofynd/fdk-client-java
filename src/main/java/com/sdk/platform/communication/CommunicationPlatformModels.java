@@ -3966,6 +3966,12 @@ public static class VerifyOtpCommsSuccessRes{
     
     
     
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
 }
 
 
@@ -4019,6 +4025,12 @@ public static class SmsProviderReq{
     
     @JsonProperty("name")
     private String name;
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
     
     
     
@@ -4146,6 +4158,30 @@ public static class SmsProvider{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+    @JsonProperty("sender_id")
+    private String senderId;
+    
+    
+    
+    
+    @JsonProperty("api_key")
+    private String apiKey;
+    
+    
+    
+    
+    @JsonProperty("expiry_date")
+    private Integer expiryDate;
     
     
     

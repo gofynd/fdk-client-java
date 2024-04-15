@@ -32,13 +32,13 @@ public class BillingPublicService {
         return retrofitServiceFactory.createService(publicConfig.getDomain(),BillingPublicApiList.class, interceptorList, cookieStore);
     }
 
-    public BillingPublicModels.DetailList getStandardPlans(String platformType) throws IOException {
-        return this.getStandardPlans(platformType, new HashMap<>());
+    public BillingPublicModels.DetailList getStandardPlans(String platform) throws IOException {
+        return this.getStandardPlans(platform, new HashMap<>());
     }
 
-    public BillingPublicModels.DetailList getStandardPlans(String platformType, Map<String, String> requestHeaders) throws IOException {
+    public BillingPublicModels.DetailList getStandardPlans(String platform, Map<String, String> requestHeaders) throws IOException {
     
-        Response<BillingPublicModels.DetailList> response = billingPublicApiList.getStandardPlans(platformType, requestHeaders).execute();
+        Response<BillingPublicModels.DetailList> response = billingPublicApiList.getStandardPlans(platform, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

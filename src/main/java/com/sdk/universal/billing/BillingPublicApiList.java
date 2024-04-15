@@ -7,5 +7,5 @@ import java.util.*;
 interface BillingPublicApiList {
 
     @GET ("/service/public/billing/v1.0/plan/detailed-list")
-    Call<BillingPublicModels.DetailList> getStandardPlans(@Query("platform_type") String platformType, @HeaderMap Map<String, String> requestHeaders);
+    Call<BillingPublicModels.DetailList> getStandardPlans(@Query("platform") String platform, @HeaderMap Map<String, String> requestHeaders);
 }

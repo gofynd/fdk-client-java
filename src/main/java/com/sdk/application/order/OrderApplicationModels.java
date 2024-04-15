@@ -750,6 +750,12 @@ public static class Prices{
     
     
     
+    
+    @JsonProperty("amount_to_be_collected")
+    private Double amountToBeCollected;
+    
+    
+    
 }
 
 
@@ -1188,6 +1194,12 @@ public static class FinancialBreakup{
     
     
     
+    
+    @JsonProperty("amount_to_be_collected")
+    private Double amountToBeCollected;
+    
+    
+    
 }
 
 
@@ -1352,6 +1364,12 @@ public static class Bags{
     
     
     
+    
+    @JsonProperty("article")
+    private Article article;
+    
+    
+    
 }
 
 
@@ -1380,6 +1398,31 @@ public static class FulfillingCompany{
     
     @JsonProperty("name")
     private String name;
+    
+    
+    
+}
+
+
+/*
+    Model: Article
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Article{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
     
     
     
@@ -1562,6 +1605,12 @@ public static class Shipments{
     
     @JsonProperty("payment")
     private ShipmentPayment payment;
+    
+    
+    
+    
+    @JsonProperty("payment_info")
+    private List<ShipmentPayment> paymentInfo;
     
     
     
@@ -1778,6 +1827,12 @@ public static class Shipments{
     
     @JsonProperty("delivery_date")
     private String deliveryDate;
+    
+    
+    
+    
+    @JsonProperty("order")
+    private OrderRequest order;
     
     
     
@@ -3049,6 +3104,31 @@ public static class StatuesRequest{
     
     @JsonProperty("status")
     private String status;
+    
+    
+    
+}
+
+
+/*
+    Model: OrderRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderRequest{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
     
     
     
