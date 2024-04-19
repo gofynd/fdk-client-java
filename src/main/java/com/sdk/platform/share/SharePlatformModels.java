@@ -375,6 +375,18 @@ public static class UrlInfo{
     
     
     
+    @JsonProperty("original")
+    private String original;
+    
+    
+    
+    
+    @JsonProperty("short")
+    private String shortName;
+    
+    
+    
+    
     @JsonProperty("hash")
     private String hash;
     

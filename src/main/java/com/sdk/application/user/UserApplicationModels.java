@@ -14,56 +14,6 @@ public class UserApplicationModels{
 
 
 /*
-    Model: UpdateUserAttributesRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateUserAttributesRequest{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("attributes")
-    private Object attributes;
-    
-    
-    
-}
-
-
-/*
-    Model: UserAttributes
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserAttributes{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("attributes")
-    private Object attributes;
-    
-    
-    
-}
-
-
-/*
     Model: DeleteApplicationUserRequestSchema
 */
 @AllArgsConstructor
@@ -234,12 +184,6 @@ public static class EditProfileRequestSchema{
     
     
     
-    @JsonProperty("encrypt_otp")
-    private Boolean encryptOtp;
-    
-    
-    
-    
     @JsonProperty("first_name")
     private String firstName;
     
@@ -376,6 +320,12 @@ public static class SendEmailOtpRequestSchema{
     
     @JsonProperty("register_token")
     private String registerToken;
+    
+    
+    
+    
+    @JsonProperty("captcha_code")
+    private String captchaCode;
     
     
     
@@ -578,12 +528,6 @@ public static class SendMobileOtpRequestSchema{
     
     
     
-    @JsonProperty("encrypt_otp")
-    private Boolean encryptOtp;
-    
-    
-    
-    
     @JsonProperty("mobile")
     private String mobile;
     
@@ -616,6 +560,12 @@ public static class SendMobileOtpRequestSchema{
     
     @JsonProperty("force")
     private String force;
+    
+    
+    
+    
+    @JsonProperty("captcha_code")
+    private String captchaCode;
     
     
     
@@ -866,6 +816,12 @@ public static class SendResetPasswordEmailRequestSchema{
     
     
     
+    
+    @JsonProperty("captcha_code")
+    private String captchaCode;
+    
+    
+    
 }
 
 
@@ -897,6 +853,12 @@ public static class SendResetPasswordMobileRequestSchema{
     
     
     
+    
+    @JsonProperty("captcha_code")
+    private String captchaCode;
+    
+    
+    
 }
 
 
@@ -913,6 +875,12 @@ public static class PasswordLoginRequestSchema{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("captcha_code")
+    private String captchaCode;
     
     
     
@@ -948,14 +916,14 @@ public static class SendOtpRequestSchema{
     
     
     
-    @JsonProperty("encrypt_otp")
-    private Boolean encryptOtp;
-    
-    
-    
-    
     @JsonProperty("country_code")
     private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("captcha_code")
+    private String captchaCode;
     
     
     
@@ -1104,31 +1072,6 @@ public static class AuthSuccess{
     
     @JsonProperty("user")
     private UserSchema user;
-    
-    
-    
-}
-
-
-/*
-    Model: UserExistsResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserExistsResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("user_exists")
-    private Boolean userExists;
     
     
     
@@ -1636,7 +1579,7 @@ public static class HasPasswordSuccess{
     
     
     @JsonProperty("result")
-    private Integer result;
+    private Boolean result;
     
     
     
@@ -1782,12 +1725,6 @@ public static class EmailOtpSuccess{
     
     
     
-    
-    @JsonProperty("resend_email_token")
-    private String resendEmailToken;
-    
-    
-    
 }
 
 
@@ -1929,6 +1866,56 @@ public static class SendEmailVerifyLinkSuccess{
 
 
 /*
+    Model: AuthenticationInternalServerErrorSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AuthenticationInternalServerErrorSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: AuthenticationApiErrorSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AuthenticationApiErrorSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
     Model: APIError
 */
 @AllArgsConstructor
@@ -1969,20 +1956,8 @@ public static class APIError{
     
     
     
-    @JsonProperty("error")
-    private String error;
-    
-    
-    
-    
     @JsonProperty("meta")
     private Object meta;
-    
-    
-    
-    
-    @JsonProperty("authenticated")
-    private Boolean authenticated;
     
     
     
@@ -2330,19 +2305,13 @@ public static class PlatformSchema{
     
     
     @JsonProperty("delete_account_consent")
-    private DeleteAccountConsent deleteAccountConsent;
+    private Object deleteAccountConsent;
     
     
     
     
     @JsonProperty("session_config")
-    private SessionExpiry sessionConfig;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Integer v;
+    private Object sessionConfig;
     
     
     
@@ -2725,8 +2694,8 @@ public static class SocialTokens{
     
     
     
-    @JsonProperty("accountkit")
-    private Accountkit accountkit;
+    @JsonProperty("account_kit")
+    private Accountkit accountKit;
     
     
     

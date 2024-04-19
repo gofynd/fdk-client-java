@@ -57,15 +57,15 @@ import com.sdk.application.*;
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),OrderApplicationApiList.class, interceptorList, cookieStore);
     }
 
-    public OrderApplicationModels.OrderList getOrders(Integer status, Integer pageNo, Integer pageSize, String fromDate, String toDate, String startDate, String endDate, String customMeta, Boolean allowInactive) throws IOException {
-        return this.getOrders(status, pageNo, pageSize, fromDate, toDate, startDate, endDate, customMeta, allowInactive, new HashMap<>());
+    public OrderApplicationModels.OrderList getOrders(Integer status, Integer pageNo, Integer pageSize, String fromDate, String toDate, String customMeta) throws IOException {
+        return this.getOrders(status, pageNo, pageSize, fromDate, toDate, customMeta, new HashMap<>());
     }
 
-    public OrderApplicationModels.OrderList getOrders(Integer status, Integer pageNo, Integer pageSize, String fromDate, String toDate, String startDate, String endDate, String customMeta, Boolean allowInactive, Map<String, String> requestHeaders) throws IOException {
+    public OrderApplicationModels.OrderList getOrders(Integer status, Integer pageNo, Integer pageSize, String fromDate, String toDate, String customMeta, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getOrders");
 
-        Response<OrderApplicationModels.OrderList> response = orderApplicationApiList.getOrders(fullUrl, status, pageNo, pageSize, fromDate, toDate, startDate, endDate, customMeta, allowInactive, requestHeaders).execute();
+        Response<OrderApplicationModels.OrderList> response = orderApplicationApiList.getOrders(fullUrl, status, pageNo, pageSize, fromDate, toDate, customMeta, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -74,16 +74,16 @@ import com.sdk.application.*;
     }
     
 
-    public OrderApplicationModels.OrderById getOrderById(String orderId, Boolean allowInactive) throws IOException {
-        return this.getOrderById(orderId, allowInactive, new HashMap<>());
+    public OrderApplicationModels.OrderById getOrderById(String orderId) throws IOException {
+        return this.getOrderById(orderId, new HashMap<>());
     }
 
-    public OrderApplicationModels.OrderById getOrderById(String orderId, Boolean allowInactive, Map<String, String> requestHeaders) throws IOException {
+    public OrderApplicationModels.OrderById getOrderById(String orderId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getOrderById");
         fullUrl = fullUrl.replace("{" + "order_id" + "}",orderId.toString());
 
-        Response<OrderApplicationModels.OrderById> response = orderApplicationApiList.getOrderById(fullUrl, allowInactive, requestHeaders).execute();
+        Response<OrderApplicationModels.OrderById> response = orderApplicationApiList.getOrderById(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -110,16 +110,16 @@ import com.sdk.application.*;
     }
     
 
-    public OrderApplicationModels.ShipmentById getShipmentById(String shipmentId, Boolean allowInactive) throws IOException {
-        return this.getShipmentById(shipmentId, allowInactive, new HashMap<>());
+    public OrderApplicationModels.ShipmentById getShipmentById(String shipmentId) throws IOException {
+        return this.getShipmentById(shipmentId, new HashMap<>());
     }
 
-    public OrderApplicationModels.ShipmentById getShipmentById(String shipmentId, Boolean allowInactive, Map<String, String> requestHeaders) throws IOException {
+    public OrderApplicationModels.ShipmentById getShipmentById(String shipmentId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getShipmentById");
         fullUrl = fullUrl.replace("{" + "shipment_id" + "}",shipmentId.toString());
 
-        Response<OrderApplicationModels.ShipmentById> response = orderApplicationApiList.getShipmentById(fullUrl, allowInactive, requestHeaders).execute();
+        Response<OrderApplicationModels.ShipmentById> response = orderApplicationApiList.getShipmentById(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

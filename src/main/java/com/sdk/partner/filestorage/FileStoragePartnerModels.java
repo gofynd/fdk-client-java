@@ -161,6 +161,31 @@ public static class StartResponse{
 
 
 /*
+    Model: Params
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Params{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("subpath")
+    private String subpath;
+    
+    
+    
+}
+
+
+/*
     Model: StartRequest
 */
 @AllArgsConstructor
@@ -202,7 +227,7 @@ public static class StartRequest{
     
     
     @JsonProperty("params")
-    private HashMap<String,Object> params;
+    private Params params;
     
     
     

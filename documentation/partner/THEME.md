@@ -7,16 +7,13 @@
 ## Theme Methods
 Responsible for partner theme submission
 
-Page Management
+Default
 * [getAllPages](#getallpages)
 * [createPage](#createpage)
 * [updateMultiplePages](#updatemultiplepages)
 * [getPage](#getpage)
 * [updatePage](#updatepage)
 * [deletePage](#deletepage)
-
-
-Theme management 
 * [getApplicationThemes](#getapplicationthemes)
 * [getThemeById](#getthemebyid)
 * [updateTheme](#updatetheme)
@@ -32,10 +29,6 @@ Theme management
 * [getThemeVersions](#getthemeversions)
 
 
-Default
-* [createTheme](#createtheme)
-
-
 
 
 ## Methods with example and description
@@ -43,7 +36,7 @@ Default
 
 
 ### getAllPages
-Get all pages.
+Get all pages of a theme
 
 
 
@@ -65,7 +58,7 @@ partnerClient.theme.getAllPages( themeId,  organizationId) {
 
 
 
-Retrieve a list of all pages available in the partner server setup.
+Use this API to retrieve all the available pages of a theme by its ID.
 
 *Returned Response:*
 
@@ -395,7 +388,7 @@ Success. Returns an array all the pages of the theme. Refer `AllAvailablePageSch
 
 
 ### createPage
-Create page.
+Create a page 
 
 
 
@@ -417,7 +410,7 @@ partnerClient.theme.createPage( themeId,  organizationId, body body) {
 | body | [AvailablePageSchema](#AvailablePageSchema) | yes | Request body |
 
 
-Add a new page to the partner server configurations.
+Use this API to create a page for a theme by its ID.
 
 *Returned Response:*
 
@@ -819,7 +812,7 @@ Success. Returns the page of the theme. Refer `AvailablePageSchema` for more det
 
 
 ### updateMultiplePages
-Update multiple pages.
+Update multiple pages of a theme
 
 
 
@@ -841,7 +834,7 @@ partnerClient.theme.updateMultiplePages( themeId,  organizationId, body body) {
 | body | [AllAvailablePageSchema](#AllAvailablePageSchema) | yes | Request body |
 
 
-Modify and update multiple pages in the partner server setup.
+Use this API to update multiple pages of a theme by its ID.
 
 *Returned Response:*
 
@@ -1171,7 +1164,7 @@ Success. Returns an array all the pages of the theme. Refer `AllAvailablePageSch
 
 
 ### getPage
-Get page.
+Get page of a theme
 
 
 
@@ -1194,7 +1187,7 @@ partnerClient.theme.getPage( themeId,  pageValue,  organizationId) {
 
 
 
-Obtain detailed information about a specific page in the partner server.
+Use this API to retrieve a page of a theme.
 
 *Returned Response:*
 
@@ -1596,7 +1589,7 @@ Success. Returns an object of the page.  Refer `AvailablePageSchema` for more de
 
 
 ### updatePage
-Update page.
+Updates a page 
 
 
 
@@ -1619,7 +1612,7 @@ partnerClient.theme.updatePage( themeId,  pageValue,  organizationId, body body)
 | body | [AvailablePageSchema](#AvailablePageSchema) | yes | Request body |
 
 
-Modify and update information related to a specific page in the partner server.
+Use this API to update a page for a theme by its ID.
 
 *Returned Response:*
 
@@ -2021,7 +2014,7 @@ Success. Returns a the page of the theme. Refer `AvailablePageSchema` for more d
 
 
 ### deletePage
-Delete page.
+Deletes a page 
 
 
 
@@ -2044,7 +2037,7 @@ partnerClient.theme.deletePage( themeId,  pageValue,  organizationId) {
 
 
 
-Remove a page from the partner server configurations.
+Use this API to delete a page for a theme by its ID and page_value.
 
 *Returned Response:*
 
@@ -2445,10 +2438,8 @@ Success. Returns a the page of the theme. Refer `AvailablePageSchema` for more d
 ---
 
 
-
-
 ### getApplicationThemes
-Get application themes.
+Get all the themes for a specific application
 
 
 
@@ -2469,7 +2460,7 @@ partnerClient.theme.getApplicationThemes( organizationId) {
 
 
 
-Retrieve a list of themes available for the partner server application.
+Use this API to get list of theme
 
 *Returned Response:*
 
@@ -4473,8 +4464,7 @@ The list of themes for the application was fetched successfully.
           }
         }
       ],
-      "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64b0eb01c35f990518880a82/theme/assets/7yuL57qP2-archive.zip",
-      "company_id": 1
+      "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64b0eb01c35f990518880a82/theme/assets/7yuL57qP2-archive.zip"
     }
   ]
 }
@@ -6447,8 +6437,7 @@ The list of themes for the application was fetched successfully.
           }
         }
       ],
-      "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64aec4634bc407961ed265c5/theme/assets/Gpbt5naNG-archive.zip",
-      "company_id": 1
+      "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64aec4634bc407961ed265c5/theme/assets/Gpbt5naNG-archive.zip"
     }
   ]
 }
@@ -6469,7 +6458,7 @@ The list of themes for the application was fetched successfully.
 
 
 ### getThemeById
-Get theme by ID.
+Get Theme By Theme Id
 
 
 
@@ -6491,7 +6480,7 @@ partnerClient.theme.getThemeById( themeId,  organizationId) {
 
 
 
-Obtain detailed information about a theme using its unique ID.
+Use this API to get theme details
 
 *Returned Response:*
 
@@ -6525,7 +6514,7 @@ The Details of themes for the application was fetched successfully.
 
 
 ### updateTheme
-Update theme.
+Update theme for a specific company and application
 
 
 
@@ -6547,7 +6536,7 @@ partnerClient.theme.updateTheme( themeId,  organizationId, body body) {
 | body | [UpdateThemeRequestBody](#UpdateThemeRequestBody) | yes | Request body |
 
 
-Modify and update information related to a theme in the partner server.
+Update theme for a specific company and application
 
 *Returned Response:*
 
@@ -8550,8 +8539,7 @@ Theme updated successfully
         }
       }
     ],
-    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64b0eb01c35f990518880a82/theme/assets/7yuL57qP2-archive.zip",
-    "company_id": 1
+    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64b0eb01c35f990518880a82/theme/assets/7yuL57qP2-archive.zip"
   }
 }
 ```
@@ -10522,8 +10510,7 @@ Theme updated successfully
         }
       }
     ],
-    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64aec4634bc407961ed265c5/theme/assets/Gpbt5naNG-archive.zip",
-    "company_id": 1
+    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64aec4634bc407961ed265c5/theme/assets/Gpbt5naNG-archive.zip"
   }
 }
 ```
@@ -10543,7 +10530,7 @@ Theme updated successfully
 
 
 ### deleteTheme
-Delete theme.
+Delete a theme
 
 
 
@@ -10565,7 +10552,7 @@ partnerClient.theme.deleteTheme( themeId,  organizationId) {
 
 
 
-Remove a theme from the partner server configurations.
+This endpoint is used to delete a theme from the specified company and application.
 
 *Returned Response:*
 
@@ -12568,8 +12555,7 @@ Theme successfully deleted.
         }
       }
     ],
-    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64b0eb01c35f990518880a82/theme/assets/7yuL57qP2-archive.zip",
-    "company_id": 1
+    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64b0eb01c35f990518880a82/theme/assets/7yuL57qP2-archive.zip"
   }
 }
 ```
@@ -14540,8 +14526,7 @@ Theme successfully deleted.
         }
       }
     ],
-    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64aec4634bc407961ed265c5/theme/assets/Gpbt5naNG-archive.zip",
-    "company_id": 1
+    "src": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/organization/64aec4634bc407961ed265c5/theme/assets/Gpbt5naNG-archive.zip"
   }
 }
 ```
@@ -14561,7 +14546,7 @@ Theme successfully deleted.
 
 
 ### getOrganizationThemes
-Get organization themes.
+Get organization's themes
 
 
 
@@ -14583,7 +14568,7 @@ partnerClient.theme.getOrganizationThemes( organizationId,  status,  pageSize,  
 
 
 
-Retrieve a list of themes associated with partner server organizations.
+Get organization's themes
 
 *Returned Response:*
 
@@ -14617,7 +14602,7 @@ Successful operation
 
 
 ### getOrganizationThemeDetails
-Get organization theme details.
+Get theme details for an organization
 
 
 
@@ -14637,7 +14622,7 @@ partnerClient.theme.getOrganizationThemeDetails( organizationId,  themeId) {
 
 
 
-Obtain detailed information about a theme within partner server organizations.
+Fetches the theme details for a specific organization and theme ID
 
 *Returned Response:*
 
@@ -14671,7 +14656,7 @@ Successful response
 
 
 ### updateDraftTheme
-Update draft theme.
+Update theme draft/submitted
 
 
 
@@ -14691,7 +14676,7 @@ partnerClient.theme.updateDraftTheme( organizationId,  themeId, body body) {
 | body | [MarketplaceTheme](#MarketplaceTheme) | yes | Request body |
 
 
-Modify and update a draft theme in partner server organizations.
+Update theme draft/submitted
 
 *Returned Response:*
 
@@ -15057,7 +15042,7 @@ Theme updated successfully
 
 
 ### submitOrganizationTheme
-Submit organization theme.
+Submit a theme
 
 
 
@@ -15077,7 +15062,7 @@ partnerClient.theme.submitOrganizationTheme( organizationId,  themeId, body body
 | body | [MarketplaceTheme](#MarketplaceTheme) | yes | Request body |
 
 
-Initiate the process of submitting a theme within partner server organizations.
+Use this api to Submit a theme
 
 *Returned Response:*
 
@@ -15341,7 +15326,7 @@ Theme updated successfully
 
 
 ### deleteOrganizationTheme
-Delete organization theme.
+Delete a theme
 
 
 
@@ -15361,7 +15346,7 @@ partnerClient.theme.deleteOrganizationTheme( organizationId,  themeId) {
 
 
 
-Remove a theme from partner server organizations.
+This endpoint allows you to delete a theme by providing the organization and theme IDs.
 
 *Returned Response:*
 
@@ -15395,7 +15380,7 @@ Successful deletion of the theme
 
 
 ### getLatestVersionOfThemeBySlug
-Get latest version of theme by slug.
+Get latest version of specified theme
 
 
 
@@ -15415,7 +15400,7 @@ partnerClient.theme.getLatestVersionOfThemeBySlug( organizationId,  slugName) {
 
 
 
-Retrieve the most recent version of a theme using its slug.
+Use this api to get latest version of specified theme
 
 *Returned Response:*
 
@@ -15449,7 +15434,7 @@ Successful operation
 
 
 ### createNewThemeInOrganization
-Create new theme in organization.
+Create a new theme for the organization
 
 
 
@@ -15469,7 +15454,7 @@ partnerClient.theme.createNewThemeInOrganization( organizationId,  slug, body bo
 | body | [MarketplaceTheme](#MarketplaceTheme) | yes | Request body |
 
 
-Add a new theme to partner server organizations.
+Use this api to create a new theme for the organization
 
 *Returned Response:*
 
@@ -15733,7 +15718,7 @@ Theme updated successfully
 
 
 ### getThemeRejectionReasons
-Get theme rejection reasons.
+Get theme rejection reasons
 
 
 
@@ -15753,7 +15738,7 @@ partnerClient.theme.getThemeRejectionReasons( organizationId,  themeId) {
 
 
 
-Retrieve reasons for the rejection of themes within partner server organizations.
+Use this api to get theme rejection reasons
 
 *Returned Response:*
 
@@ -15787,7 +15772,7 @@ Theme rejection reasons retrieved successfully
 
 
 ### getThemeVersions
-Get theme versions.
+Get theme versions
 
 
 
@@ -15809,7 +15794,7 @@ partnerClient.theme.getThemeVersions( organizationId,  themeSlug,  pageSize,  pa
 
 
 
-Retrieve a list of versions available for a theme within partner server organizations.
+Retrieve a list of theme versions for a specific theme in an organization.
 
 *Returned Response:*
 
@@ -15819,63 +15804,6 @@ Retrieve a list of versions available for a theme within partner server organiza
 [MarketplaceThemeSchema](#MarketplaceThemeSchema)
 
 Successful operation.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-
-
-### createTheme
-Create a new theme
-
-
-
-
-```java
-partnerClient.theme.createTheme( organizationId, body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | Company ID |   
-| applicationId | String | yes | Application ID |   
-| organizationId | String | yes | Organization ID |  
-| body | [CreateNewTheme](#CreateNewTheme) | yes | Request body |
-
-
-Themes improve the look and appearance of a website. Use this API to create a theme.
-
-*Returned Response:*
-
-
-
-
-[ThemesSchema](#ThemesSchema)
-
-Returns the new application theme details
 
 
 
@@ -15919,8 +15847,6 @@ Returns the new application theme details
  | seo | [AvailablePageSeo](#AvailablePageSeo)? |  yes  |  |
  | props | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | id | String? |  yes  |  |
- | createdAt | String? |  yes  | The creation timestamp of the page |
- | updatedAt | String? |  yes  | The last update timestamp of the page |
 
 ---
 
@@ -15944,85 +15870,7 @@ Returns the new application theme details
  | ---------- | ---- | -------- | ----------- |
  | title | String? |  yes  |  |
  | description | String? |  yes  |  |
- | metaTags | ArrayList<[SEOMetaItem](#SEOMetaItem)>? |  yes  |  |
- | sitemap | [SEOSitemap](#SEOSitemap)? |  yes  |  |
- | breadcrumb | ArrayList<[SEObreadcrumb](#SEObreadcrumb)>? |  yes  |  |
  | id | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [SEOMetaItem](#SEOMetaItem)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | title | String? |  yes  |  |
- | items | ArrayList<[SEOMetaItems](#SEOMetaItems)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [SEOMetaItems](#SEOMetaItems)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | key | String? |  yes  |  |
- | value | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [SEOSitemap](#SEOSitemap)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | priority | Double? |  yes  |  |
- | frequency | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [SEObreadcrumb](#SEObreadcrumb)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | url | String? |  yes  |  |
- | action | [Action](#Action)? |  yes  |  |
-
----
-
-
- 
- 
- #### [Action](#Action)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | page | [ActionPage](#ActionPage)? |  yes  |  |
- | popup | [ActionPage](#ActionPage)? |  yes  |  |
- | type | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ActionPage](#ActionPage)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | params | HashMap<String,ArrayList<String>>? |  yes  |  |
- | query | HashMap<String,ArrayList<String>>? |  yes  |  |
- | url | String? |  yes  |  |
- | type | String? |  yes  |  |
 
 ---
 
@@ -16039,7 +15887,6 @@ Returns the new application theme details
  | blocks | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | preset | HashMap<String,Object>? |  yes  |  |
  | predicate | [AvailablePagePredicate](#AvailablePagePredicate)? |  yes  |  |
- | source | String? |  yes  |  |
 
 ---
 
@@ -16084,32 +15931,6 @@ Returns the new application theme details
 
  
  
- #### [AvailablePagePlatformPredicate](#AvailablePagePlatformPredicate)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | ios | Boolean? |  yes  | Section visibility on ios platform |
- | android | Boolean? |  yes  | Section visibility on android platform |
- | web | Boolean? |  yes  | Section visibility on web platform |
-
----
-
-
- 
- 
- #### [AvailablePageSchedulePredicate](#AvailablePageSchedulePredicate)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | cron | String? |  yes  |  |
- | start | String? |  yes  |  |
- | end | String? |  yes  |  |
-
----
-
-
- 
- 
  #### [AvailablePagePredicate](#AvailablePagePredicate)
 
  | Properties | Type | Nullable | Description |
@@ -16117,9 +15938,6 @@ Returns the new application theme details
  | screen | [AvailablePageScreenPredicate](#AvailablePageScreenPredicate)? |  yes  |  |
  | user | [AvailablePageUserPredicate](#AvailablePageUserPredicate)? |  yes  |  |
  | route | [AvailablePageRoutePredicate](#AvailablePageRoutePredicate)? |  yes  |  |
- | schedule | [AvailablePageSchedulePredicate](#AvailablePageSchedulePredicate)? |  yes  |  |
- | platform | [AvailablePagePlatformPredicate](#AvailablePagePlatformPredicate)? |  yes  |  |
- | zones | ArrayList<String>? |  yes  | An array of zone ids associated with the section |
 
 ---
 
@@ -16403,7 +16221,7 @@ Returns the new application theme details
  | id | String? |  yes  | The unique identifier of the theme |
  | applicationId | String? |  yes  | The ID of the application |
  | marketplaceThemeId | String? |  yes  | The ID of the theme in the marketplace |
- | meta | [ThemeMeta](#ThemeMeta)? |  yes  |  |
+ | meta | [Meta](#Meta)? |  yes  |  |
  | name | String? |  yes  | The name of the theme |
  | templateThemeId | String? |  yes  | The ID of the template theme |
  | version | String? |  yes  | The version of the theme |
@@ -16412,9 +16230,6 @@ Returns the new application theme details
  | updatedAt | String? |  yes  | The last update timestamp of the theme |
  | assets | [Assets](#Assets)? |  yes  |  |
  | availableSections | ArrayList<[SectionItem](#SectionItem)>? |  yes  | Available sections information |
- | themeType | String? |  yes  |  |
- | companyId | Double? |  yes  | The company id in which sales channel exists |
- | src | String? |  yes  |  |
 
 ---
 
@@ -16479,83 +16294,9 @@ Returns the new application theme details
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | name | String? |  yes  | The name of the configuration |
- | globalConfig | HashMap<String,Object>? |  yes  |  |
- | page | ArrayList<[ThemeConfigListPage](#ThemeConfigListPage)>? |  yes  | An array of pages |
-
----
-
-
- 
- 
- #### [OverlayPopup](#OverlayPopup)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | dialogBackgroung | String? |  yes  |  |
- | overlay | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [DividerStrokeHighlight](#DividerStrokeHighlight)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | dividerStrokes | String? |  yes  |  |
- | highlight | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserAlerts](#UserAlerts)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | successBackground | String? |  yes  |  |
- | successText | String? |  yes  |  |
- | errorBackground | String? |  yes  |  |
- | errorText | String? |  yes  |  |
- | infoBackground | String? |  yes  |  |
- | infoText | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [OrderTracking](#OrderTracking)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | showHeader | Boolean? |  yes  |  |
- | showFooter | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [ThemeConfigListPage](#ThemeConfigListPage)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | page | String? |  yes  | Name of the page |
- | settings | [ThemeConfigListPageSettingsProps](#ThemeConfigListPageSettingsProps)? |  yes  |  |
-
----
-
-
- 
- 
- #### [ThemeConfigListPageSettingsProps](#ThemeConfigListPageSettingsProps)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | props | HashMap<String,Object>? |  yes  |  |
+ | globalConfig | [GlobalConfig](#GlobalConfig)? |  yes  |  |
+ | custom | [CustomConfig](#CustomConfig)? |  yes  |  |
+ | page | ArrayList<String>? |  yes  | An array of pages |
 
 ---
 
@@ -16613,7 +16354,233 @@ Returns the new application theme details
 
  
  
- #### [ThemeMeta](#ThemeMeta)
+ #### [GlobalConfig](#GlobalConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | statics | [StaticConfig](#StaticConfig)? |  yes  |  |
+ | auth | [AuthConfig](#AuthConfig)? |  yes  |  |
+ | palette | [PaletteConfig](#PaletteConfig)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [PaletteConfig](#PaletteConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | generalSetting | [GeneralSetting](#GeneralSetting)? |  yes  |  |
+ | advanceSetting | [AdvanceSetting](#AdvanceSetting)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GeneralSetting](#GeneralSetting)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | theme | [ThemeSetting](#ThemeSetting)? |  yes  |  |
+ | text | [TextSetting](#TextSetting)? |  yes  |  |
+ | button | [ButtonSetting](#ButtonSetting)? |  yes  |  |
+ | saleDiscount | [SaleDiscountSetting](#SaleDiscountSetting)? |  yes  |  |
+ | header | [HeaderSetting](#HeaderSetting)? |  yes  |  |
+ | footer | [FooterSetting](#FooterSetting)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [AdvanceSetting](#AdvanceSetting)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | overlayPopup | [OverlayPopupSetting](#OverlayPopupSetting)? |  yes  |  |
+ | dividerStrokeHighlight | [DividerStrokeHighlightSetting](#DividerStrokeHighlightSetting)? |  yes  |  |
+ | userAlerts | [UserAlertsSetting](#UserAlertsSetting)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [UserAlertsSetting](#UserAlertsSetting)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | successBackground | String? |  yes  | The success background color |
+ | successText | String? |  yes  | The success text color |
+ | errorBackground | String? |  yes  | The error background color |
+ | errorText | String? |  yes  | The error text color |
+ | infoBackground | String? |  yes  | The info background color |
+ | infoText | String? |  yes  | The info text color |
+
+---
+
+
+ 
+ 
+ #### [ThemeSetting](#ThemeSetting)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | pageBackground | String? |  yes  | The page background color |
+ | themeAccent | String? |  yes  | The theme accent color |
+
+---
+
+
+ 
+ 
+ #### [TextSetting](#TextSetting)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | textHeading | String? |  yes  | The text heading color |
+ | textBody | String? |  yes  | The text body color |
+ | textLabel | String? |  yes  | The text label color |
+ | textSecondary | String? |  yes  | The secondary text color |
+
+---
+
+
+ 
+ 
+ #### [ButtonSetting](#ButtonSetting)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | buttonPrimary | String? |  yes  | The primary button color |
+ | buttonSecondary | String? |  yes  | The secondary button color |
+ | buttonLink | String? |  yes  | The button link color |
+
+---
+
+
+ 
+ 
+ #### [SaleDiscountSetting](#SaleDiscountSetting)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | saleBadgeBackground | String? |  yes  | The sale badge background color |
+ | saleBadgeText | String? |  yes  | The sale badge text color |
+ | saleDiscountText | String? |  yes  | The sale discount text color |
+ | saleTimer | String? |  yes  | The sale timer color |
+
+---
+
+
+ 
+ 
+ #### [HeaderSetting](#HeaderSetting)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | headerBackground | String? |  yes  | The header background color |
+ | headerNav | String? |  yes  | The header navigation color |
+ | headerIcon | String? |  yes  | The header icon color |
+
+---
+
+
+ 
+ 
+ #### [FooterSetting](#FooterSetting)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | footerBackground | String? |  yes  | The footer background color |
+ | footerBottomBackground | String? |  yes  | The footer bottom background color |
+ | footerHeadingText | String? |  yes  | The footer heading text color |
+ | footerBodyText | String? |  yes  | The footer body text color |
+ | footerIcon | String? |  yes  | The footer icon color |
+
+---
+
+
+ 
+ 
+ #### [OverlayPopupSetting](#OverlayPopupSetting)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | dialogBackgroung | String? |  yes  | The dialog background color |
+ | overlay | String? |  yes  | The overlay color |
+
+---
+
+
+ 
+ 
+ #### [DividerStrokeHighlightSetting](#DividerStrokeHighlightSetting)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | dividerStrokes | String? |  yes  | The divider strokes color |
+ | highlight | String? |  yes  | The highlight color |
+
+---
+
+
+ 
+ 
+ #### [StaticConfig](#StaticConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | props | [StaticProps](#StaticProps)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [StaticProps](#StaticProps)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | colors | [Colors](#Colors)? |  yes  |  |
+ | auth | [AuthConfig](#AuthConfig)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [AuthConfig](#AuthConfig)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | showHeaderAuth | Boolean? |  yes  | Whether to show header authentication or not |
+ | showFooterAuth | Boolean? |  yes  | Whether to show footer authentication or not |
+
+---
+
+
+ 
+ 
+ #### [Colors](#Colors)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | primaryColor | String? |  yes  | The primary color |
+ | secondaryColor | String? |  yes  | The secondary color |
+ | accentColor | String? |  yes  | The accent color |
+ | linkColor | String? |  yes  | The link color |
+ | buttonSecondaryColor | String? |  yes  | The secondary button color |
+ | bgColor | String? |  yes  | The background color |
+
+---
+
+
+ 
+ 
+ #### [Meta](#Meta)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -16683,7 +16650,6 @@ Returns the new application theme details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | link | String? |  yes  |  |
  | links | ArrayList<String>? |  yes  |  |
 
 ---
@@ -16706,7 +16672,6 @@ Returns the new application theme details
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | link | String? |  yes  |  |
  | links | ArrayList<String>? |  yes  |  |
 
 ---
@@ -16745,7 +16710,6 @@ Returns the new application theme details
  | ---------- | ---- | -------- | ----------- |
  | type | String? |  yes  | The type of the property |
  | category | String? |  yes  | The category of the property |
- | value | String? |  yes  | The value of the property |
  | id | String? |  yes  | The ID of the property |
  | label | String? |  yes  | The label of the property |
  | info | String? |  yes  | Additional information about the property |
@@ -16961,90 +16925,6 @@ Returns the new application theme details
  | font | [Font](#Font)? |  yes  |  |
 
 ---
-
-
- 
- 
- #### [CreateNewTheme](#CreateNewTheme)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | name | String |  no  | The name of the theme |
- | availableSections | ArrayList<[SectionItem](#SectionItem)> |  no  | Available sections information |
- | version | String |  no  | The version of the theme |
- | themeType | String |  no  | Type of the Theme |
- | list | ArrayList<[ThemeConfiguration](#ThemeConfiguration)>? |  yes  | A list of configurations |
- | globalSchema | [GlobalSchema](#GlobalSchema)? |  yes  |  |
- | preset | [Preset](#Preset)? |  yes  |  |
- | current | String? |  yes  | The current configuration |
- | pages | ArrayList<[Page](#Page)>? |  yes  |  |
-
----
-
-
-
-
-### Enums
-
-
-
-
-
- #### [PageType](#PageType)
- Type : string
-
- | Name | Value | Description |
- | ---- | ----- | ----------- |
- | aboutUs | about-us | Symbolic link for About Us: /about-us |
- | addresses | addresses | Symbolic link for Saved Addresses: /profile/address |
- | blog | blog | Symbolic link for Blog: /blog/:slug |
- | brands | brands | Symbolic link for Brands: /brands/:department |
- | cards | cards | Symbolic link for Saved Cards: /profile/my-cards |
- | cart | cart | Symbolic link for Cart: /cart/bag/ |
- | categories | categories | Symbolic link for Categories: /categories/:department |
- | brand | brand | Symbolic link for Brand: /brand/:slug |
- | category | category | Symbolic link for Category: /category/:slug |
- | collection | collection | Symbolic link for Collection: /collection/:slug |
- | collections | collections | Symbolic link for Collections: /collections/ |
- | contactUs | contact-us | Symbolic link for Contact Us: /contact-us/ |
- | external | external | Symbolic link for External Link: /external/ |
- | faq | faq | Symbolic link for FAQ: /faq |
- | freshchat | freshchat | Symbolic link for Chat by Freshchat: /freshchat |
- | home | home | Symbolic link for Home: / |
- | notificationSettings | notification-settings | Symbolic link for Notification Settings: /notification-settings |
- | orders | orders | Symbolic link for Orders: /profile/orders |
- | page | page | Symbolic link for Page: /page/:slug |
- | policy | policy | Symbolic link for Privacy Policy: /privacy-policy |
- | product | product | Symbolic link for Product: /product/:slug |
- | productRequest | product-request | Symbolic link for Product Request: /product-request/ |
- | products | products | Symbolic link for Products: /products/ |
- | profile | profile | Symbolic link for Profile: /profile |
- | profileOrderShipment | profile-order-shipment | Symbolic link for profile orders shipment: /profile/orders/shipment/:shipmentid |
- | profileBasic | profile-basic | Symbolic link for Basic Profile: /profile/details |
- | profileCompany | profile-company | Symbolic link for Profile Company: /profile/company |
- | profileEmails | profile-emails | Symbolic link for Profile Emails: /profile/email |
- | profilePhones | profile-phones | Symbolic link for Profile Phones: /profile/phone |
- | rateUs | rate-us | Symbolic link for Rate Us: /rate-us |
- | referEarn | refer-earn | Symbolic link for Refer & Earn: /profile/refer-earn |
- | settings | settings | Symbolic link for Settings: /setting/currency |
- | sharedCart | shared-cart | Symbolic link for Shared Cart: /shared-cart/:token |
- | tnc | tnc | Symbolic link for Terms and Conditions: /terms-and-conditions |
- | trackOrder | track-order | Symbolic link for Track Order: /order-tracking/:orderId |
- | wishlist | wishlist | Symbolic link for Wishlist: /wishlist/ |
- | sections | sections | Symbolic link for Sections: /sections/:group |
- | form | form | Symbolic link for Form: /form/:slug |
- | cartDelivery | cart-delivery | Symbolic link for Cart Delivery: /cart/delivery |
- | cartPayment | cart-payment | Symbolic link for Cart Payment Information: /cart/payment-info |
- | cartReview | cart-review | Symbolic link for Cart Order Review: /cart/order-review |
- | login | login | Symbolic link for Login: /auth/login |
- | register | register | Symbolic link for Register: /auth/register |
- | shippingPolicy | shipping-policy | Symbolic link for Shipping policy: /shipping-policy |
- | returnPolicy | return-policy | Symbolic link for Return policy: /return-policy |
- | orderStatus | order-status | Symbolic link for Order status: /cart/order-status |
-
----
-
-
 
 
 

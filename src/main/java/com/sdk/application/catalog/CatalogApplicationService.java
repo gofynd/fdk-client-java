@@ -934,17 +934,17 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductSizePriceResponseV3 getProductPriceBySlug(String slug, String size, Integer storeId, Integer moq) throws IOException {
-        return this.getProductPriceBySlug(slug, size, storeId, moq, new HashMap<>());
+    public CatalogApplicationModels.ProductSizePriceResponseV3 getProductPriceBySlug(String slug, String size, Integer storeId, String pincode, Integer moq) throws IOException {
+        return this.getProductPriceBySlug(slug, size, storeId, pincode, moq, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductSizePriceResponseV3 getProductPriceBySlug(String slug, String size, Integer storeId, Integer moq, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductSizePriceResponseV3 getProductPriceBySlug(String slug, String size, Integer storeId, String pincode, Integer moq, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getProductPriceBySlug");
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
         fullUrl = fullUrl.replace("{" + "size" + "}",size.toString());
 
-        Response<CatalogApplicationModels.ProductSizePriceResponseV3> response = catalogApplicationApiList.getProductPriceBySlug(fullUrl, storeId, moq, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductSizePriceResponseV3> response = catalogApplicationApiList.getProductPriceBySlug(fullUrl, storeId, pincode, moq, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -953,17 +953,17 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductSizeSellersResponseV3 getProductSellersBySlug(String slug, String size, String strategy, Integer pageNo, Integer pageSize) throws IOException {
-        return this.getProductSellersBySlug(slug, size, strategy, pageNo, pageSize, new HashMap<>());
+    public CatalogApplicationModels.ProductSizeSellersResponseV3 getProductSellersBySlug(String slug, String size, String pincode, String strategy, Integer pageNo, Integer pageSize) throws IOException {
+        return this.getProductSellersBySlug(slug, size, pincode, strategy, pageNo, pageSize, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductSizeSellersResponseV3 getProductSellersBySlug(String slug, String size, String strategy, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductSizeSellersResponseV3 getProductSellersBySlug(String slug, String size, String pincode, String strategy, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getProductSellersBySlug");
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
         fullUrl = fullUrl.replace("{" + "size" + "}",size.toString());
 
-        Response<CatalogApplicationModels.ProductSizeSellersResponseV3> response = catalogApplicationApiList.getProductSellersBySlug(fullUrl, strategy, pageNo, pageSize, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductSizeSellersResponseV3> response = catalogApplicationApiList.getProductSellersBySlug(fullUrl, pincode, strategy, pageNo, pageSize, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -979,6 +979,7 @@ import com.sdk.application.*;
         
         String slug,
         String size,
+        String pincode,
         String strategy,
         Integer pageSize
         
@@ -994,6 +995,7 @@ import com.sdk.application.*;
                 
                  slug,
                  size,
+                 pincode,
                  strategy,
                  paginator.getPageNo()
                 ,

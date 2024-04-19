@@ -62,7 +62,4 @@ interface ThemePartnerApiList {
 
     @GET ("/service/partner/theme/v1.0/organization/{organization_id}/theme/{theme_slug}/versions")
     Call<ThemePartnerModels.MarketplaceThemeSchema> getThemeVersions(@Path("organization_id") String organizationId, @Path("theme_slug") String themeSlug, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/partner/theme/v1.0/organization/{organization_id}/company/{company_id}/application/{application_id}")
-    Call<ThemePartnerModels.ThemesSchema> createTheme(@Path("company_id") Integer companyId, @Path("application_id") String applicationId, @Path("organization_id") String organizationId, @Body ThemePartnerModels.CreateNewTheme payload, @HeaderMap Map<String, String> requestHeaders);
 }

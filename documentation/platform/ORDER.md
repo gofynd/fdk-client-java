@@ -15,6 +15,8 @@ Default
 * [updateAddress](#updateaddress)
 * [click2Call](#click2call)
 * [updateShipmentStatus](#updateshipmentstatus)
+* [processManifest](#processmanifest)
+* [dispatchManifest](#dispatchmanifest)
 * [getRoleBasedActions](#getrolebasedactions)
 * [getShipmentHistory](#getshipmenthistory)
 * [postShipmentHistory](#postshipmenthistory)
@@ -23,6 +25,7 @@ Default
 * [createOrder](#createorder)
 * [getChannelConfig](#getchannelconfig)
 * [createChannelConfig](#createchannelconfig)
+* [uploadConsent](#uploadconsent)
 * [orderUpdate](#orderupdate)
 * [checkOrderStatus](#checkorderstatus)
 * [getStateTransitionMap](#getstatetransitionmap)
@@ -33,23 +36,10 @@ Default
 * [sendUserMobileOTP](#sendusermobileotp)
 * [verifyMobileOTP](#verifymobileotp)
 * [downloadLanesReport](#downloadlanesreport)
-* [bulkStateTransistion](#bulkstatetransistion)
-* [bulkListing](#bulklisting)
-* [jobDetails](#jobdetails)
-* [getFileByStatus](#getfilebystatus)
-* [getManifestShipments](#getmanifestshipments)
-* [getManifests](#getmanifests)
-* [processManifests](#processmanifests)
-* [getManifestDetails](#getmanifestdetails)
-* [dispatchManifests](#dispatchmanifests)
-* [uploadConsents](#uploadconsents)
-* [getManifestfilters](#getmanifestfilters)
 * [eInvoiceRetry](#einvoiceretry)
 * [trackShipment](#trackshipment)
 * [updateShipmentTracking](#updateshipmenttracking)
-* [failedOrderLogs](#failedorderlogs)
 * [generateInvoiceID](#generateinvoiceid)
-* [failedOrderLogDetails](#failedorderlogdetails)
 * [getShipmentBagReasons](#getshipmentbagreasons)
 * [getShipments](#getshipments)
 * [getShipmentById](#getshipmentbyid)
@@ -67,8 +57,6 @@ Default
 * [getBagById](#getbagbyid)
 * [getBags](#getbags)
 * [generatePOSReceiptByOrderId](#generateposreceiptbyorderid)
-* [getAllowedTemplatesForBulk](#getallowedtemplatesforbulk)
-* [getTemplate](#gettemplate)
 
 
 
@@ -78,7 +66,7 @@ Default
 
 
 ### invalidateShipmentCache
-Invalidate shipment cache.
+
 
 
 
@@ -97,7 +85,7 @@ platformClient.order.invalidateShipmentCache(body body) {
 | body | [InvalidateShipmentCachePayload](#InvalidateShipmentCachePayload) | yes | Request body |
 
 
-Invalidate shipment Cache.
+Invalidate shipment Cache
 
 *Returned Response:*
 
@@ -152,7 +140,7 @@ Successfully updated shipment cache!
 
 
 ### reassignLocation
-Reassign location.
+
 
 
 
@@ -171,7 +159,7 @@ platformClient.order.reassignLocation(body body) {
 | body | [StoreReassign](#StoreReassign) | yes | Request body |
 
 
-Change the assigned location for an order or shipment.
+Reassign Location
 
 *Returned Response:*
 
@@ -205,7 +193,7 @@ Successfully reassigned location!
 
 
 ### updateShipmentLock
-Update shipment lock.
+
 
 
 
@@ -224,7 +212,7 @@ platformClient.order.updateShipmentLock(body body) {
 | body | [UpdateShipmentLockPayload](#UpdateShipmentLockPayload) | yes | Request body |
 
 
-Modify shipment/bag lock and check status.
+update shipment/bag lock and check status
 
 *Returned Response:*
 
@@ -283,7 +271,7 @@ Successfully update the Lock and get check status of the shipment/Bag
 
 
 ### getAnnouncements
-Get announcements.
+
 
 
 
@@ -303,7 +291,7 @@ platformClient.order.getAnnouncements( date) {
 
 
 
-Retrieve announcements related to orders or shipments.
+Get Announcements
 
 *Returned Response:*
 
@@ -337,7 +325,7 @@ Announcements retrieved successfully
 
 
 ### updateAddress
-Update address.
+
 
 
 
@@ -368,7 +356,7 @@ platformClient.order.updateAddress( shipmentId,  name,  address,  addressType,  
 
 
 
-Modify the shipping address for an order.
+Update Address for the order
 
 *Returned Response:*
 
@@ -402,7 +390,7 @@ Update Address will be processed!
 
 
 ### click2Call
-Click to call.
+
 
 
 
@@ -426,7 +414,7 @@ platformClient.order.click2Call( caller,  receiver,  bagId,  callerId,  method) 
 
 
 
-Click to call. 
+Click to Call
 
 *Returned Response:*
 
@@ -463,7 +451,7 @@ Process call on request!
 
 
 ### updateShipmentStatus
-Update shipment status.
+
 
 
 
@@ -482,7 +470,7 @@ platformClient.order.updateShipmentStatus(body body) {
 | body | [UpdateShipmentStatusRequest](#UpdateShipmentStatusRequest) | yes | Request body |
 
 
-Shipment state transition or Shipment data update or both.
+This API is for Shipment State transition or Shipment data update or both below example is for partial state transition with data update
 
 *Returned Response:*
 
@@ -543,8 +531,114 @@ NOTE success response can contains success and failed result as well
 ---
 
 
+### processManifest
+
+
+
+
+
+```java
+platformClient.order.processManifest(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes |  |  
+| body | [CreateOrderPayload](#CreateOrderPayload) | yes | Request body |
+
+
+Process Manifest
+
+*Returned Response:*
+
+
+
+
+[CreateOrderResponse](#CreateOrderResponse)
+
+Manifest will be processed!
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
+### dispatchManifest
+
+
+
+
+
+```java
+platformClient.order.dispatchManifest(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes |  |  
+| body | [DispatchManifest](#DispatchManifest) | yes | Request body |
+
+
+Dispatch Manifest
+
+*Returned Response:*
+
+
+
+
+[SuccessResponse](#SuccessResponse)
+
+Shipment Dispatched mapped with manifest!
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### getRoleBasedActions
-Get role-based actions.
+
 
 
 
@@ -563,7 +657,7 @@ platformClient.order.getRoleBasedActions() {
 
 
 
-Retrieve role based actions.
+Get Role Based Actions
 
 *Returned Response:*
 
@@ -612,7 +706,7 @@ You will get an array of actions allowed for that particular user based on their
 
 
 ### getShipmentHistory
-Get shipment history.
+
 
 
 
@@ -633,7 +727,7 @@ platformClient.order.getShipmentHistory( shipmentId,  bagId) {
 
 
 
-Retrieve the shipment history.
+Get Shipment History
 
 *Returned Response:*
 
@@ -700,7 +794,7 @@ It shows the journey of the shipment!
 
 
 ### postShipmentHistory
-Post shipment history.
+
 
 
 
@@ -719,7 +813,7 @@ platformClient.order.postShipmentHistory(body body) {
 | body | [PostShipmentHistory](#PostShipmentHistory) | yes | Request body |
 
 
-Add history records for a shipment.
+Post shipment history
 
 *Returned Response:*
 
@@ -787,7 +881,7 @@ It shows the journey of the shipment!
 
 
 ### sendSmsNinja
-Send SMS via Ninja.
+
 
 
 
@@ -806,7 +900,7 @@ platformClient.order.sendSmsNinja(body body) {
 | body | [SendSmsPayload](#SendSmsPayload) | yes | Request body |
 
 
-Send SMS Ninja Panel.
+Send SMS Ninja Panel
 
 *Returned Response:*
 
@@ -843,7 +937,7 @@ Sms Sent successfully
 
 
 ### updatePackagingDimensions
-Update packaging dimensions.
+
 
 
 
@@ -862,7 +956,7 @@ platformClient.order.updatePackagingDimensions(body body) {
 | body | [UpdatePackagingDimensionsPayload](#UpdatePackagingDimensionsPayload) | yes | Request body |
 
 
-Modify the dimensions of packaging.
+Update Packaging Dimensions
 
 *Returned Response:*
 
@@ -896,7 +990,7 @@ Manifest will be processed!
 
 
 ### createOrder
-Create order.
+
 
 
 
@@ -915,7 +1009,7 @@ platformClient.order.createOrder(body body) {
 | body | [CreateOrderAPI](#CreateOrderAPI) | yes | Request body |
 
 
-Create order.
+Create Order
 
 *Returned Response:*
 
@@ -949,7 +1043,7 @@ Successfully created an order!
 
 
 ### getChannelConfig
-Get channel configuration.
+
 
 
 
@@ -968,7 +1062,7 @@ platformClient.order.getChannelConfig() {
 
 
 
-Retrieve configuration settings for a channel.
+getChannelConfig
 
 *Returned Response:*
 
@@ -1025,7 +1119,7 @@ Successfully created the config data
 
 
 ### createChannelConfig
-Create channel configuration.
+
 
 
 
@@ -1044,7 +1138,7 @@ platformClient.order.createChannelConfig(body body) {
 | body | [CreateChannelConfigData](#CreateChannelConfigData) | yes | Request body |
 
 
-Set up configuration for a channel.
+createChannelConfig
 
 *Returned Response:*
 
@@ -1083,8 +1177,61 @@ Successfully updateShipmentStatus!
 ---
 
 
+### uploadConsent
+
+
+
+
+
+```java
+platformClient.order.uploadConsent(body body) {
+  //use response
+}
+```
+
+
+
+| Argument  |  Type  | Required | Description |
+| --------- | -----  | -------- | ----------- | 
+| companyId | Integer | yes |  |  
+| body | [UploadConsent](#UploadConsent) | yes | Request body |
+
+
+Upload Consent
+
+*Returned Response:*
+
+
+
+
+[SuccessResponse](#SuccessResponse)
+
+Successful Manifest upload!
+
+
+
+
+<details>
+<summary><i>&nbsp; Example:</i></summary>
+
+```json
+
+```
+</details>
+
+
+
+
+
+
+
+
+
+---
+
+
 ### orderUpdate
-Order update.
+
 
 
 
@@ -1103,7 +1250,7 @@ platformClient.order.orderUpdate(body body) {
 | body | [PlatformOrderUpdate](#PlatformOrderUpdate) | yes | Request body |
 
 
-Modify the details and status of an order. 
+Update Order
 
 *Returned Response:*
 
@@ -1137,7 +1284,7 @@ We are processing the order!
 
 
 ### checkOrderStatus
-Check order status.
+
 
 
 
@@ -1156,7 +1303,7 @@ platformClient.order.checkOrderStatus(body body) {
 | body | [OrderStatus](#OrderStatus) | yes | Request body |
 
 
-Verify the current status of an order.
+Check order status
 
 *Returned Response:*
 
@@ -1190,7 +1337,7 @@ Order Status retrieved successfully
 
 
 ### getStateTransitionMap
-Get state transition map.
+
 
 
 
@@ -1209,7 +1356,7 @@ platformClient.order.getStateTransitionMap() {
 
 
 
-Retrieve a map of state transitions for orders.
+Get State Transition Map
 
 *Returned Response:*
 
@@ -1430,7 +1577,7 @@ State Transition Mapping, for next possible state
 
 
 ### getAllowedStateTransition
-Get allowed state transition.
+To fetch next state transitions.
 
 
 
@@ -1451,7 +1598,8 @@ platformClient.order.getAllowedStateTransition( orderingChannel,  status) {
 
 
 
-Retrieve next possible states based on logged in user.
+This endpoint will fetch next possible states based on logged in user
+
 
 *Returned Response:*
 
@@ -1501,7 +1649,7 @@ Role wise state transition mapping, for next possible state
 
 
 ### fetchCreditBalanceDetail
-Fetch credit balance detail.
+
 
 
 
@@ -1520,7 +1668,7 @@ platformClient.order.fetchCreditBalanceDetail(body body) {
 | body | [FetchCreditBalanceRequestPayload](#FetchCreditBalanceRequestPayload) | yes | Request body |
 
 
-Retrieve details about credit balance.
+Fetch Credit Balance Detail
 
 *Returned Response:*
 
@@ -1554,7 +1702,7 @@ Credit Balance will be fetched
 
 
 ### fetchRefundModeConfig
-Fetch refund mode config.
+
 
 
 
@@ -1573,7 +1721,7 @@ platformClient.order.fetchRefundModeConfig(body body) {
 | body | [RefundModeConfigRequestPayload](#RefundModeConfigRequestPayload) | yes | Request body |
 
 
-Retrieve configuration for refund modes.
+Fetch Refund Mode Config
 
 *Returned Response:*
 
@@ -1607,7 +1755,7 @@ Refund mode config is returned based on input parameter
 
 
 ### attachOrderUser
-Attach order user.
+
 
 
 
@@ -1626,7 +1774,7 @@ platformClient.order.attachOrderUser(body body) {
 | body | [AttachOrderUser](#AttachOrderUser) | yes | Request body |
 
 
-Attach order User
+Attach Order User
 
 *Returned Response:*
 
@@ -1660,7 +1808,7 @@ Attach user to order
 
 
 ### sendUserMobileOTP
-Send user mobile OTP.
+
 
 
 
@@ -1679,7 +1827,7 @@ platformClient.order.sendUserMobileOTP(body body) {
 | body | [SendUserMobileOTP](#SendUserMobileOTP) | yes | Request body |
 
 
-Send a one-time OTP to a users mobile device.
+Send User Mobile OTP
 
 *Returned Response:*
 
@@ -1722,7 +1870,7 @@ Send OTP to user mobile
 
 
 ### verifyMobileOTP
-Verify mobile OTP.
+
 
 
 
@@ -1775,7 +1923,7 @@ Verify OTP
 
 
 ### downloadLanesReport
-Download lanes report.
+
 
 
 
@@ -1794,7 +1942,7 @@ platformClient.order.downloadLanesReport(body body) {
 | body | [BulkReportsDownloadRequest](#BulkReportsDownloadRequest) | yes | Request body |
 
 
-Downloads lanes shipment/orders.
+downloads lanes shipment/orders.
 
 *Returned Response:*
 
@@ -1838,904 +1986,8 @@ Bulk Report creation initiated.
 ---
 
 
-### bulkStateTransistion
-
-
-
-
-
-```java
-platformClient.order.bulkStateTransistion(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes |  |  
-| body | [BulkStateTransistionRequest](#BulkStateTransistionRequest) | yes | Request body |
-
-
-Performs State Transisiton in Bulk for the given shipments in the excel/csv file url.
-
-*Returned Response:*
-
-
-
-
-[BulkStateTransistionResponse](#BulkStateTransistionResponse)
-
-Bulk State Transistion Sucessfully Initiated Response.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; BulkReportsSucessfulEventSample</i></summary>
-
-```json
-{
-  "value": {
-    "status": true,
-    "message": "Successfully started processing with batch_id: 0000-1111-2222-3333",
-    "batch_id": "0000-1111-2222-3333"
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### bulkListing
-
-
-
-
-
-```java
-platformClient.order.bulkListing( pageSize,  pageNo,  startDate,  endDate,  status,  bulkActionType,  searchKey) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | Company ID |   
-| pageSize | Integer | yes | page size |   
-| pageNo | Integer | yes | page number |   
-| startDate | String | yes | UTC start date in ISO format |   
-| endDate | String | yes | UTC end date in ISO format |   
-| status | String? | no | status for which to fetch the jobs. |   
-| bulkActionType | String? | no | job type. |   
-| searchKey | String? | no | search_key. |  
-
-
-
-Fetches of previous or running  bulk jobs.
-
-
-*Returned Response:*
-
-
-
-
-[BulkListingResponse](#BulkListingResponse)
-
-Fetches Bulk Action Listing
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; BulkListingPartiallyCompletedEventSample</i></summary>
-
-```json
-{
-  "value": {
-    "success": true,
-    "page": [
-      {
-        "current": 1,
-        "has_previous": false,
-        "has_next": false,
-        "total": 1,
-        "item_total": 1,
-        "type": "number",
-        "size": 10
-      }
-    ],
-    "total_count": 1,
-    "data": [
-      {
-        "store_id": 1462,
-        "uploaded_on": "2023-09-05T15:01:28.000Z",
-        "company_id": 2,
-        "shipments_action_info": {
-          "label": [],
-          "invoice": [],
-          "failed_shipments": [
-            {
-              "16938979620571207303": "got error for tag_loops: Field cannot be empty."
-            }
-          ],
-          "processing_shipments": [],
-          "successful_shipments": [
-            "16939056920921266090",
-            "16939056919331910027"
-          ],
-          "invoiceable_shipments": [],
-          "failed_invoiced_shipments": {},
-          "processing_invoice_shipments": [],
-          "successful_invoiced_shipments": []
-        },
-        "is_invoiceable": false,
-        "user_name": "sonalnalawade_gofynd_com_18670",
-        "file_url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/misc/general/free/original/fTPuVwPj2-store_reassigned_and_placed_and__1462_1693905700.6916761.xlsx",
-        "meta": null,
-        "invoice_document_type": "",
-        "file_name": "store_reassigned_and_placed_and__1462_1693905700.6916761.xlsx",
-        "store_name": "DK Store",
-        "label_document_type": "",
-        "updated_ts": 1693906287,
-        "status": "PARTIALLY COMPLETED",
-        "store_code": "28",
-        "bulk_action_type": "order_processing",
-        "created_ts": "2023-09-12T06:05:53.395Z",
-        "invoice_status": "yet_to_initiate",
-        "do_invoice_label_generated": false,
-        "id": 340,
-        "user_id": "eaad334a6fc2a3f6fd004e88",
-        "last_selected_invoice_label_type": "a4",
-        "batch_id": "d2cd3858-a4f2-4faa-bb86-f7dbc228d277",
-        "uploaded_by": null,
-        "failed_sh_count": 1,
-        "successful_sh_count": 2,
-        "total_count": 3,
-        "failed_shipments": [
-          {
-            "16938979620571207303": "got error for tag_loops: Field cannot be empty."
-          }
-        ],
-        "successful_invoiced_count": 0,
-        "failed_invoiced_count": 0,
-        "total_invoiced_count": 0
-      }
-    ]
-  }
-}
-```
-</details>
-
-<details>
-<summary><i>&nbsp; BulkListingCompletedEventSample</i></summary>
-
-```json
-{
-  "value": {
-    "success": true,
-    "page": {
-      "current": 1,
-      "has_previous": false,
-      "has_next": false,
-      "total": 1,
-      "item_total": 1,
-      "type": "number",
-      "size": 10
-    },
-    "total_count": 1,
-    "data": [
-      {
-        "store_id": 2,
-        "uploaded_on": "2023-09-07T13:10:14.000Z",
-        "company_id": 2,
-        "shipments_action_info": {
-          "label": [],
-          "invoice": [],
-          "failed_shipments": [],
-          "processing_shipments": [],
-          "successful_shipments": [
-            "16940656109321358201",
-            "16940123806821572491"
-          ],
-          "invoiceable_shipments": [],
-          "failed_invoiced_shipments": {},
-          "processing_invoice_shipments": [],
-          "successful_invoiced_shipments": []
-        },
-        "is_invoiceable": false,
-        "user_name": "hansrajdeghun_gofynd_com_07968",
-        "file_url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/misc/general/free/original/50sqxcYl3-gM0qwREGq-store_reassigned_and_placed_and__2_1694072387.2223.csv",
-        "meta": null,
-        "invoice_document_type": "",
-        "file_name": "gM0qwREGq-store_reassigned_and_placed_and__2_1694072387.2223.csv",
-        "store_name": "Maryam2948442024720231628917",
-        "label_document_type": "",
-        "updated_ts": 1694072414,
-        "status": "COMPLETED",
-        "store_code": "Maryam2948442024720231628917",
-        "bulk_action_type": "order_processing",
-        "created_ts": "2023-09-12T06:05:53.395Z",
-        "invoice_status": "yet_to_initiate",
-        "do_invoice_label_generated": false,
-        "id": 385,
-        "user_id": "a735b8f3fe2200e3de562c63",
-        "last_selected_invoice_label_type": "a4",
-        "batch_id": "4552cc62-688d-45f3-a5e4-dd5c9367daf0",
-        "uploaded_by": null,
-        "failed_sh_count": 0,
-        "successful_sh_count": 2,
-        "total_count": 2,
-        "failed_shipments": [],
-        "successful_invoiced_count": 0,
-        "failed_invoiced_count": 0,
-        "total_invoiced_count": 0
-      }
-    ]
-  }
-}
-```
-</details>
-
-<details>
-<summary><i>&nbsp; BulkListingFailedEventSample</i></summary>
-
-```json
-{
-  "value": {
-    "success": true,
-    "data": [
-      {
-        "store_id": 1,
-        "uploaded_on": "2023-09-07T13:07:13.000Z",
-        "company_id": 2,
-        "shipments_action_info": {
-          "label": [],
-          "invoice": [],
-          "failed_shipments": [
-            {
-              "all": "due to no of rows being less than 2 or greater than 5000"
-            }
-          ],
-          "processing_shipments": [],
-          "successful_shipments": [],
-          "invoiceable_shipments": [],
-          "failed_invoiced_shipments": {},
-          "processing_invoice_shipments": [],
-          "successful_invoiced_shipments": []
-        },
-        "is_invoiceable": false,
-        "user_name": "hansrajdeghun_gofynd_com_07968",
-        "file_url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/misc/general/free/original/1IWqTaL6e-rZjSQ5aR0-store_reassigned_and_placed_and__3935_1694072101.4739661.csv",
-        "meta": null,
-        "invoice_document_type": "",
-        "file_name": "rZjSQ5aR0-store_reassigned_and_placed_and__3935_1694072101.4739661.csv",
-        "store_name": null,
-        "label_document_type": "",
-        "updated_ts": 1694072233,
-        "status": "FAILED",
-        "store_code": null,
-        "bulk_action_type": "order_processing",
-        "created_ts": "2023-09-12T06:05:53.395Z",
-        "invoice_status": "yet_to_initiate",
-        "do_invoice_label_generated": false,
-        "id": 384,
-        "user_id": "a735b8f3fe2200e3de562c63",
-        "last_selected_invoice_label_type": "a4",
-        "batch_id": "219bfed9-6347-4b7f-96cf-9b7f528c57a1",
-        "uploaded_by": null,
-        "failed_sh_count": 1,
-        "successful_sh_count": 0,
-        "total_count": 1,
-        "failed_shipments": [
-          {
-            "all": "due to no of rows being less than 2 or greater than 5000"
-          }
-        ],
-        "successful_invoiced_count": 0,
-        "failed_invoiced_count": 0,
-        "total_invoiced_count": 0
-      }
-    ],
-    "page": {
-      "current": 1,
-      "has_previous": false,
-      "has_next": false,
-      "total": 1,
-      "item_total": 1,
-      "type": "number",
-      "size": 10
-    },
-    "total_count": 1
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### jobDetails
-
-
-
-
-
-```java
-platformClient.order.jobDetails( batchId) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes |  |   
-| batchId | String | yes |  |  
-
-
-
-Fetches details for the job of the provided batch_id
-
-*Returned Response:*
-
-
-
-
-[JobDetailsResponse](#JobDetailsResponse)
-
-Job details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; JobDetailsSucessfulEventSample</i></summary>
-
-```json
-{
-  "value": {
-    "success": true,
-    "data": [
-      {
-        "batch_id": "1dc51db3-89fc-4985-9237-d96efb9060ae",
-        "total_shipments_count": 1,
-        "successful_shipment_ids": [],
-        "successful_shipments_count": 0,
-        "failed_shipments_count": 1,
-        "processing_shipments_count": 0,
-        "company_id": "2"
-      }
-    ],
-    "file_url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/misc/general/free/original/kctNhcXxX-UV71fzH2U-store_reassigned_and_placed_and__3809_1694082156.8009899.csv",
-    "failed_records": [
-      {
-        "all": "due to no of rows being less than 2 or greater than 5000"
-      }
-    ],
-    "uploaded_by": "mohitmahatme_gofynd_com_31814",
-    "user_id": "d7595ec4e390849545a68c92",
-    "uploaded_on": "2023-09-07T15:55:24.000Z",
-    "status": "FAILED"
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getFileByStatus
-
-
-
-
-
-```java
-platformClient.order.getFileByStatus( batchId,  status,  fileType,  reportType) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes |  |   
-| batchId | String | yes |  |   
-| status | String | yes |  |   
-| fileType | String | yes |  |   
-| reportType | String? | no |  |  
-
-
-
-Get the file URL consisting Records of the provided status.
-
-*Returned Response:*
-
-
-
-
-[JobFailedResponse](#JobFailedResponse)
-
-Job details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; DetailsForFailedJobResponse</i></summary>
-
-```json
-{
-  "value": {
-    "file_name": "failed_reason.csv",
-    "url": "www.fynd.com/excelfile.csv"
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getManifestShipments
-
-
-
-
-
-```java
-platformClient.order.getManifestShipments( dpIds,  stores,  toDate,  fromDate,  dpName,  salesChannels,  searchType,  searchValue,  pageNo,  pageSize) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes |  |   
-| dpIds | Integer | yes |  |   
-| stores | String | yes |  |   
-| toDate | String | yes |  |   
-| fromDate | String | yes |  |   
-| dpName | String? | no |  |   
-| salesChannels | String? | no |  |   
-| searchType | String? | no |  |   
-| searchValue | String? | no |  |   
-| pageNo | String? | no |  |   
-| pageSize | String? | no |  |  
-
-
-
-get Manifest Shipments.
-
-*Returned Response:*
-
-
-
-
-[ManifestShipmentListing](#ManifestShipmentListing)
-
-Successful Manifest upload!
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getManifests
-
-
-
-
-
-```java
-platformClient.order.getManifests( status,  startDate,  endDate,  searchType,  storeId,  searchValue,  dpIds,  pageNo,  pageSize) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes |  |   
-| status | String? | no | Possible Status [ active, closed ] |   
-| startDate | String? | no | UTC Start Date in ISO format |   
-| endDate | String? | no | UTC End Date in ISO format |   
-| searchType | String? | no | Search type options [ fynd_order_id, shipment_id, manifest_id, dp_name, awb_no ] |   
-| storeId | Integer? | no | Fetch manifests for a Store. |   
-| searchValue | String? | no | Search value for selected search type |   
-| dpIds | String? | no | DP Ids separated by ',' (comma) |   
-| pageNo | Integer? | no |  |   
-| pageSize | Integer? | no |  |  
-
-
-
-Fetch Manifests
-
-*Returned Response:*
-
-
-
-
-[ManifestList](#ManifestList)
-
-Successful Manifest upload!
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### processManifests
-
-
-
-
-
-```java
-platformClient.order.processManifests(body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes |  |  
-| body | [ProcessManifest](#ProcessManifest) | yes | Request body |
-
-
-Process Manifest.
-
-*Returned Response:*
-
-
-
-
-[ProcessManifestItemResponse](#ProcessManifestItemResponse)
-
-Manifest will be processed!
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getManifestDetails
-
-
-
-
-
-```java
-platformClient.order.getManifestDetails( manifestId) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes |  |   
-| manifestId | String | yes |  |  
-
-
-
-get Manifest Details.
-
-*Returned Response:*
-
-
-
-
-[ManifestDetails](#ManifestDetails)
-
-Successful Manifest upload!
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### dispatchManifests
-
-
-
-
-
-```java
-platformClient.order.dispatchManifests( manifestId, body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes |  |   
-| manifestId | String | yes |  |  
-| body | [DispatchManifest](#DispatchManifest) | yes | Request body |
-
-
-Dispatch Manifest
-
-*Returned Response:*
-
-
-
-
-[SuccessResponse](#SuccessResponse)
-
-Shipment Dispatched mapped with manifest!
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### uploadConsents
-
-
-
-
-
-```java
-platformClient.order.uploadConsents( manifestId, body body) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes |  |   
-| manifestId | String | yes |  |  
-| body | [UploadConsent](#UploadConsent) | yes | Request body |
-
-
-Upload Consent
-
-*Returned Response:*
-
-
-
-
-[SuccessResponse](#SuccessResponse)
-
-Successful Manifest upload!
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getManifestfilters
-
-
-
-
-
-```java
-platformClient.order.getManifestfilters( view) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | Id of company |   
-| view | String | yes | Name of View |  
-
-
-
-get Manifest Filters.
-
-*Returned Response:*
-
-
-
-
-[ManifestFiltersResponse](#ManifestFiltersResponse)
-
-List of filters
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-{}
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
 ### eInvoiceRetry
-E-invoice retry.
+
 
 
 
@@ -2763,7 +2015,7 @@ Retry e-invoice after failure
 
 [EInvoiceRetryResponse](#EInvoiceRetryResponse)
 
-E-invoice generated successfully for all/few shipments from given list of shipments.
+E-invoice Retry Successfully!!
 
 
 
@@ -2781,121 +2033,13 @@ E-invoice generated successfully for all/few shipments from given list of shipme
     "response_data": [
       {
         "shipment_id": "16342342342343423",
-        "einvoice_type": "invoice",
-        "status": 200,
-        "message": "E-invoice generated for given shipment",
-        "einvoice_info": {
-          "irn_details": {
-            "ack_no": "172313559180590",
-            "ack_dt": "2023-10-01T12:09:00.000Z",
-            "irn": "5ac2752f161c356d6957d5e7e52759343acfa516638b92718a1309dc25ee0015",
-            "signed_invoice": "d6GXwwhz86_aRlXmueRHboFRB8UhnWGU3CREZKesJkYz42e2HduZ5_d29zoh7yhIiIDC5TLueWHIMHE0UJ5C1z5i0QQSdjMrqBcamu7rpS6wOVIEt6RMs2CZulKt",
-            "signed_qr_code": "d6GXwwhz86_aRlXmueRHboFRB8UhnWGU3CREZKesJkYz42e2HduZ5_d29zoh7yhIiIDC5TLueWHIMHE0UJ5C1z5i0QQSdjMrqBcamu7rpS6wOVIEt6RMs2CZulKt"
-          }
-        }
-      },
-      {
-        "shipment_id": "16342342342343424",
-        "einvoice_type": "invoice",
-        "status": 200,
-        "message": "E-invoice generated for given shipment",
-        "einvoice_info": {
-          "irn_details": {
-            "ack_no": "172313559180590",
-            "ack_dt": "2023-10-01T12:09:00.000Z",
-            "irn": "5ac2752f161c356d6957d5e7e52759343acfa516638b92718a1309dc25ee0015",
-            "signed_invoice": "d6GXwwhz86_aRlXmueRHboFRB8UhnWGU3CREZKesJkYz42e2HduZ5_d29zoh7yhIiIDC5TLueWHIMHE0UJ5C1z5i0QQSdjMrqBcamu7rpS6wOVIEt6RMs2CZulKt",
-            "signed_qr_code": "d6GXwwhz86_aRlXmueRHboFRB8UhnWGU3CREZKesJkYz42e2HduZ5_d29zoh7yhIiIDC5TLueWHIMHE0UJ5C1z5i0QQSdjMrqBcamu7rpS6wOVIEt6RMs2CZulKt"
-          }
-        }
+        "success": true,
+        "message": "IRN already generated, for e-invoice type: invoice"
       }
-    ]
-  }
-}
-```
-</details>
-
-<details>
-<summary><i>&nbsp; sample2</i></summary>
-
-```json
-{
-  "value": {
-    "response_data": [
-      {
-        "shipment_id": "16342342342343423",
-        "einvoice_type": "invoice",
-        "status": 200,
-        "message": "E-invoice generated for given shipment",
-        "einvoice_info": {
-          "irn_details": null,
-          "ack_no": "172313559180590",
-          "ack_dt": "2023-10-01T12:09:00.000Z",
-          "irn": "5ac2752f161c356d6957d5e7e52759343acfa516638b92718a1309dc25ee0015",
-          "signed_invoice": "d6GXwwhz86_aRlXmueRHboFRB8UhnWGU3CREZKesJkYz42e2HduZ5_d29zoh7yhIiIDC5TLueWHIMHE0UJ5C1z5i0QQSdjMrqBcamu7rpS6wOVIEt6RMs2CZulKt",
-          "signed_qr_code": "d6GXwwhz86_aRlXmueRHboFRB8UhnWGU3CREZKesJkYz42e2HduZ5_d29zoh7yhIiIDC5TLueWHIMHE0UJ5C1z5i0QQSdjMrqBcamu7rpS6wOVIEt6RMs2CZulKt"
-        }
-      },
-      {
-        "shipment_id": "16342342342343424",
-        "einvoice_type": "invoice",
-        "status": 400,
-        "message": "E-invoice generation failed for shipment",
-        "einvoice_info": {
-          "error_details": [
-            {
-              "error_code": "3028",
-              "error_message": "GSTIN -22AQDPK3837A1Z5 is invalid."
-            },
-            {
-              "error_code": "2265",
-              "error_message": "Recipient GSTIN state code does not match with the state code passed in recipient details"
-            }
-          ]
-        }
-      }
-    ]
-  }
-}
-```
-</details>
-
-<details>
-<summary><i>&nbsp; sample3</i></summary>
-
-```json
-{
-  "value": {
-    "response_data": [
-      {
-        "shipment_id": "16342342342343423",
-        "einvoice_type": "invoice",
-        "status": 200,
-        "message": "E-invoice generated for given shipment",
-        "einvoice_info": {
-          "irn_details": null,
-          "ack_no": "172313559180590",
-          "ack_dt": "2023-10-01T12:09:00.000Z",
-          "irn": "5ac2752f161c356d6957d5e7e52759343acfa516638b92718a1309dc25ee0015",
-          "signed_invoice": "d6GXwwhz86_aRlXmueRHboFRB8UhnWGU3CREZKesJkYz42e2HduZ5_d29zoh7yhIiIDC5TLueWHIMHE0UJ5C1z5i0QQSdjMrqBcamu7rpS6wOVIEt6RMs2CZulKt",
-          "signed_qr_code": "d6GXwwhz86_aRlXmueRHboFRB8UhnWGU3CREZKesJkYz42e2HduZ5_d29zoh7yhIiIDC5TLueWHIMHE0UJ5C1z5i0QQSdjMrqBcamu7rpS6wOVIEt6RMs2CZulKt"
-        }
-      },
-      {
-        "shipment_id": "16342342342343424",
-        "einvoice_type": "invoice",
-        "status": 400,
-        "message": "E-invoice generation cannot processed because invoice id is not present in shipment",
-        "einvoice_info": {}
-      },
-      {
-        "shipment_id": "16342342342343425",
-        "einvoice_type": "invoice",
-        "status": 500,
-        "message": "Error while generatin E-invoice for shipment, please contact platform support team for assistance",
-        "einvoice_info": {}
-      }
-    ]
+    ],
+    "success_count": 1,
+    "message": "Success Count: 1 out of 1",
+    "success": true
   }
 }
 ```
@@ -2915,7 +2059,7 @@ E-invoice generated successfully for all/few shipments from given list of shipme
 
 
 ### trackShipment
-Track shipment.
+Get courier partner tracking details
 
 
 
@@ -2938,7 +2082,7 @@ platformClient.order.trackShipment( shipmentId,  awb,  pageNo,  pageSize) {
 
 
 
-Retrieve courier partner tracking details for a given shipment id or awb no.
+This endpoint allows users to get courier partner tracking details for a given shipment id or awb no. The service will fetch courier partner statuses that are pushed to oms.
 
 *Returned Response:*
 
@@ -2979,11 +2123,11 @@ Shipment Tracking fetched successfully
       }
     ],
     "page": {
+      "type": "number",
+      "size": 200,
       "current": 1,
       "has_next": true,
-      "item_total": 3,
-      "size": 200,
-      "type": "number"
+      "item_total": 3
     }
   }
 }
@@ -3004,7 +2148,7 @@ Shipment Tracking fetched successfully
 
 
 ### updateShipmentTracking
-Update shipment tracking.
+Post courier partner tracking details
 
 
 
@@ -3023,7 +2167,7 @@ platformClient.order.updateShipmentTracking(body body) {
 | body | [CourierPartnerTrackingDetails](#CourierPartnerTrackingDetails) | yes | Request body |
 
 
-Modify courier partner tracking details for a given shipment id or awb no.
+This endpoint allows users to post courier partner tracking details for a given shipment id or awb no. The service will add entry for courier partner statuses and will be saved to oms.
 
 *Returned Response:*
 
@@ -3064,64 +2208,6 @@ Shipment Tracking updated successfully
 ```
 </details>
 
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### failedOrderLogs
-Get failed order logs according to the filter provided
-
-
-
-
-```java
-platformClient.application("<APPLICATION_ID>").order.failedOrderLogs( pageNo,  pageSize,  searchType,  searchValue) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | Company ID |   
-| applicationId | String? | no | Application ID |   
-| pageNo | Integer? | no | Page Number |   
-| pageSize | Integer? | no | Page Size |   
-| searchType | String? | no | Search type for filter |   
-| searchValue | String? | no | Search value for filter |  
-
-
-
-This endpoint allows users to get failed order logs listing for filters based on order id, user contact number, user email id and sales channel id.
-
-*Returned Response:*
-
-
-
-
-[FailedOrderLogs](#FailedOrderLogs)
-
-Order Logs listing fetched successfully
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
 </details>
 
 
@@ -3184,60 +2270,6 @@ NOTE success response can contains success and failed result as well
     }
   ]
 }
-```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### failedOrderLogDetails
-Get failed order logs according to the filter provided
-
-
-
-
-```java
-platformClient.order.failedOrderLogDetails( logId) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes | Company ID |   
-| logId | String | yes | Log Error ID |  
-
-
-
-This endpoint allows users to get the exact error trace from the log id provided
-
-*Returned Response:*
-
-
-
-
-[FailedOrderLogDetails](#FailedOrderLogDetails)
-
-Order Logs listing fetched successfully
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
 ```
 </details>
 
@@ -3351,13 +2383,13 @@ Success. Check the example shown below or refer `ShipmentBagReasons` for more de
 
 
 ### getShipments
-Get shipments.
+
 
 
 
 
 ```java
-platformClient.order.getShipments( lane,  bagStatus,  statusOverrideLane,  timeToDispatch,  searchType,  searchValue,  fromDate,  toDate,  startDate,  endDate,  dpIds,  stores,  salesChannels,  pageNo,  pageSize,  fetchActiveShipment,  allowInactive,  excludeLockedShipments,  paymentMethods,  channelShipmentId,  channelOrderId,  customMeta,  orderingChannel,  companyAffiliateTag,  myOrders,  platformUserId,  sortType,  showCrossCompanyData,  tags,  customerId,  orderType) {
+platformClient.order.getShipments( lane,  bagStatus,  statusOverrideLane,  timeToDispatch,  searchType,  searchValue,  fromDate,  toDate,  dpIds,  stores,  salesChannels,  pageNo,  pageSize,  fetchActiveShipment,  allowInactive,  excludeLockedShipments,  paymentMethods,  channelShipmentId,  channelOrderId,  customMeta,  orderingChannel,  companyAffiliateTag,  myOrders,  platformUserId,  sortType,  showCrossCompanyData,  tags,  customerId,  orderType) {
   //use response
 }
 ```
@@ -3375,8 +2407,6 @@ platformClient.order.getShipments( lane,  bagStatus,  statusOverrideLane,  timeT
 | searchValue | String? | no | Search type value |   
 | fromDate | String? | no | Start Date in DD-MM-YYYY format |   
 | toDate | String? | no | End Date in DD-MM-YYYY format |   
-| startDate | String? | no | UTC Start Date in ISO format |   
-| endDate | String? | no | UTC End Date in ISO format |   
 | dpIds | String? | no | Comma separated values of delivery partner ids |   
 | stores | String? | no | Comma separated values of store ids |   
 | salesChannels | String? | no | Comma separated values of sales channel ids |   
@@ -3401,7 +2431,7 @@ platformClient.order.getShipments( lane,  bagStatus,  statusOverrideLane,  timeT
 
 
 
-Retrieve a list of available shipments.
+Get Shipments Listing for the company id
 
 *Returned Response:*
 
@@ -3435,13 +2465,13 @@ We are processing the report!
 
 
 ### getShipmentById
-Get shipment by ID.
+
 
 
 
 
 ```java
-platformClient.order.getShipmentById( channelShipmentId,  shipmentId,  fetchActiveShipment,  allowInactive) {
+platformClient.order.getShipmentById( channelShipmentId,  shipmentId) {
   //use response
 }
 ```
@@ -3452,13 +2482,11 @@ platformClient.order.getShipmentById( channelShipmentId,  shipmentId,  fetchActi
 | --------- | -----  | -------- | ----------- | 
 | companyId | Integer | yes | Id of company |   
 | channelShipmentId | String? | no | App Shipment Id |   
-| shipmentId | String? | no | Shipment Id |   
-| fetchActiveShipment | Boolean? | no | flag to fetch active or deactivated shipments |   
-| allowInactive | Boolean? | no | Flag indicating whether inactive shipments are allowed |  
+| shipmentId | String? | no | Shipment Id |  
 
 
 
-Retrieve detailed information about a specific shipment.
+Get shipment details for the given shipment.
 
 *Returned Response:*
 
@@ -3481,7 +2509,7 @@ We are processing the report!
   "order": {
     "fynd_order_id": "FY62B13E2101810C19E4",
     "shipment_count": 1,
-    "order_date": "2022-06-21T09:12:26.000Z"
+    "order_date": "2022-06-21T09:12:26+00:00"
   },
   "shipments": [
     {
@@ -3499,10 +2527,7 @@ We are processing the report!
         "city": "MUMBAI",
         "state": "MAHARASHTRA",
         "country": "INDIA",
-        "pincode": "400093",
-        "tags": [
-          "infibeam"
-        ]
+        "pincode": "400093"
       },
       "delivery_details": {
         "name": "Manish Prakash",
@@ -3543,7 +2568,7 @@ We are processing the report!
         "tax_details": {
           "gstin": null
         },
-        "order_date": "2022-06-21T09:12:26.000Z"
+        "order_date": "2022-06-21T09:12:26+00:00"
       },
       "gst_details": {
         "value_of_good": 475.24,
@@ -3556,7 +2581,7 @@ We are processing the report!
       "bag_status_history": [
         {
           "status": "pending",
-          "updated_at": "2022-06-21T09:12:26.000Z",
+          "updated_at": "2022-06-21T09:12:26+00:00",
           "state_type": "operational",
           "app_display_name": "Pending",
           "display_name": "Pending",
@@ -3564,7 +2589,7 @@ We are processing the report!
         },
         {
           "status": "placed",
-          "updated_at": "2022-06-21T09:12:32.000Z",
+          "updated_at": "2022-06-21T09:12:32+00:00",
           "state_type": "operational",
           "app_display_name": "Ordered",
           "display_name": "Placed",
@@ -3572,7 +2597,7 @@ We are processing the report!
         },
         {
           "status": "bag_confirmed",
-          "updated_at": "2022-06-21T09:39:13.000Z",
+          "updated_at": "2022-06-21T09:39:13+00:00",
           "state_type": "operational",
           "app_display_name": "Ordered",
           "display_name": "Bag Confirmed",
@@ -3580,7 +2605,7 @@ We are processing the report!
         },
         {
           "status": "dp_assigned",
-          "updated_at": "2022-06-21T09:40:04.000Z",
+          "updated_at": "2022-06-21T09:40:04+00:00",
           "state_type": "operational",
           "app_display_name": "DP Assigned",
           "display_name": "DP Assigned",
@@ -3588,7 +2613,7 @@ We are processing the report!
         },
         {
           "status": "bag_picked",
-          "updated_at": "2022-06-21T09:40:12.000Z",
+          "updated_at": "2022-06-21T09:40:12+00:00",
           "state_type": "operational",
           "app_display_name": "Shipped",
           "display_name": "In Transit",
@@ -3596,7 +2621,7 @@ We are processing the report!
         },
         {
           "status": "out_for_delivery",
-          "updated_at": "2022-06-21T09:40:29.000Z",
+          "updated_at": "2022-06-21T09:40:29+00:00",
           "state_type": "operational",
           "app_display_name": "Out For Delivery",
           "display_name": "Out For Delivery",
@@ -3604,7 +2629,7 @@ We are processing the report!
         },
         {
           "status": "delivery_done",
-          "updated_at": "2022-06-21T09:40:37.000Z",
+          "updated_at": "2022-06-21T09:40:37+00:00",
           "state_type": "operational",
           "app_display_name": "Delivered",
           "display_name": "Delivery Done",
@@ -3699,19 +2724,16 @@ We are processing the report!
               "time": 30,
               "unit": "days",
               "returnable": true
-            },
-            "tags": [
-              "1P"
-            ]
+            }
           },
           "quantity": 1
         }
       ],
       "delivery_slot": {
         "slot": "By 03:00 AM",
-        "upper_bound": "2022-06-21T03:42:23.000Z",
-        "lower_bound": "2022-06-21T03:42:23.000Z",
-        "date": "2022-06-21T03:42:23.000Z",
+        "upper_bound": "2022-06-21T03:42:23+00:00",
+        "lower_bound": "2022-06-21T03:42:23+00:00",
+        "date": "2022-06-21T03:42:23+00:00",
         "type": "order_window"
       },
       "total_items": 1,
@@ -3767,56 +2789,56 @@ We are processing the report!
       "tracking_list": [
         {
           "status": "Order Placed",
-          "time": "2022-06-21T09:12:32.000Z",
+          "time": "2022-06-21T09:12:32+00:00",
           "is_passed": true,
           "is_current": false,
           "text": ""
         },
         {
           "status": "Order Confirmed",
-          "time": "2022-06-21T09:39:13.000Z",
+          "time": "2022-06-21T09:39:13+00:00",
           "is_passed": true,
           "is_current": false,
           "text": ""
         },
         {
           "status": "Invoiced",
-          "time": "2022-06-21T09:40:12.000Z",
+          "time": "2022-06-21T09:40:12+00:00",
           "is_passed": true,
           "is_current": false,
           "text": ""
         },
         {
           "status": "Delivery Partner Assigned",
-          "time": "2022-06-21T09:40:12.000Z",
+          "time": "2022-06-21T09:40:12+00:00",
           "is_passed": true,
           "is_current": false,
           "text": ""
         },
         {
           "status": "Packed",
-          "time": "2022-06-21T09:40:12.000Z",
+          "time": "2022-06-21T09:40:12+00:00",
           "is_passed": true,
           "is_current": false,
           "text": ""
         },
         {
           "status": "In Transit",
-          "time": "2022-06-21T09:40:12.000Z",
+          "time": "2022-06-21T09:40:12+00:00",
           "is_passed": true,
           "is_current": false,
           "text": ""
         },
         {
           "status": "Out For Delivery",
-          "time": "2022-06-21T09:40:29.000Z",
+          "time": "2022-06-21T09:40:29+00:00",
           "is_passed": true,
           "is_current": false,
           "text": ""
         },
         {
           "status": "Delivered",
-          "time": "2022-06-21T09:40:37.000Z",
+          "time": "2022-06-21T09:40:37+00:00",
           "is_passed": true,
           "is_current": true,
           "text": ""
@@ -3843,13 +2865,13 @@ We are processing the report!
 
 
 ### getOrderById
-Get order by ID.
+
 
 
 
 
 ```java
-platformClient.order.getOrderById( orderId,  myOrders,  allowInactive) {
+platformClient.order.getOrderById( orderId,  myOrders) {
   //use response
 }
 ```
@@ -3860,12 +2882,11 @@ platformClient.order.getOrderById( orderId,  myOrders,  allowInactive) {
 | --------- | -----  | -------- | ----------- | 
 | companyId | Integer | yes | Id of company |   
 | orderId | String | yes |  |   
-| myOrders | Boolean? | no |  |   
-| allowInactive | Boolean? | no | Flag to allow inactive shipments |  
+| myOrders | Boolean? | no |  |  
 
 
 
-Retrieve detailed information about a specific order.
+Get Order Details by ID
 
 *Returned Response:*
 
@@ -3911,7 +2932,7 @@ We are processing the report!
     "tax_details": {
       "gstin": null
     },
-    "order_date": "2022-11-22T22:15:53.000Z",
+    "order_date": "2022-11-22T22:15:53+00:00",
     "prices": {
       "amount_paid": 948.5,
       "refund_amount": 948.5,
@@ -3928,8 +2949,7 @@ We are processing the report!
       "coupon_value": 0,
       "tax_collected_at_source": 0,
       "promotion_effective_discount": 100,
-      "amount_paid_roundoff": 948,
-      "amount_to_be_collected": 0
+      "amount_paid_roundoff": 948
     },
     "raw_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36",
     "comment": ""
@@ -4121,7 +3141,7 @@ We are processing the report!
         "tax_details": {
           "gstin": null
         },
-        "order_date": "2022-11-22T22:15:53.000Z",
+        "order_date": "2022-11-22T22:15:53+00:00",
         "prices": {
           "amount_paid": 948.5,
           "refund_amount": 948.5,
@@ -4138,8 +3158,7 @@ We are processing the report!
           "coupon_value": 0,
           "tax_collected_at_source": 0,
           "promotion_effective_discount": 100,
-          "amount_paid_roundoff": 948,
-          "amount_to_be_collected": 0
+          "amount_paid_roundoff": 948
         },
         "raw_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36",
         "comment": ""
@@ -4155,7 +3174,7 @@ We are processing the report!
       "bag_status_history": [
         {
           "status": "pending",
-          "updated_at": "2022-11-22T22:15:54.000Z",
+          "updated_at": "2022-11-22T22:15:54+00:00",
           "state_type": "operational",
           "app_display_name": "Pending",
           "display_name": "Pending",
@@ -4163,7 +3182,7 @@ We are processing the report!
         },
         {
           "status": "placed",
-          "updated_at": "2022-11-22T22:15:59.000Z",
+          "updated_at": "2022-11-22T22:15:59+00:00",
           "state_type": "operational",
           "app_display_name": "Ordered",
           "display_name": "Placed",
@@ -4171,7 +3190,7 @@ We are processing the report!
         },
         {
           "status": "bag_confirmed",
-          "updated_at": "2022-11-22T22:54:50.000Z",
+          "updated_at": "2022-11-22T22:54:50+00:00",
           "state_type": "operational",
           "app_display_name": "Ordered",
           "display_name": "Bag Confirmed",
@@ -4217,7 +3236,6 @@ We are processing the report!
             "promotion_effective_discount": 50,
             "coupon_value": 0,
             "amount_paid_roundoff": 474,
-            "amount_to_be_collected": 0,
             "size": "OS",
             "total_units": 1,
             "hsn_code": "20472574",
@@ -4254,10 +3272,10 @@ We are processing the report!
           },
           "brand": {
             "credit_note_expiry_days": null,
-            "modified_on": "2022-11-22T09:08:25.000Z",
+            "modified_on": "2022-11-22T09:08:25",
             "id": 2,
             "logo": "https://cdn.pixelbin.io/v2/falling-surf-7c8bb8/tira-n/wrkr/tiraz0/brands/pictures/square-logo/original/iCMr3gmUF-Logo.jpeg",
-            "created_on": "2022-08-09T13:17:41.000Z",
+            "created_on": "2022-08-09T13:17:41",
             "credit_note_allowed": false,
             "start_date": null,
             "company": null,
@@ -4295,10 +3313,7 @@ We are processing the report!
               "time": 7,
               "unit": "days",
               "returnable": true
-            },
-            "tags": [
-              "1P"
-            ]
+            }
           },
           "affiliate_bag_details": {
             "coupon_code": null
@@ -4350,9 +3365,9 @@ We are processing the report!
       "pickup_slot": {},
       "delivery_slot": {
         "slot": "By 16:00 PM",
-        "upper_bound": "2022-11-25T16:45:50.000Z",
-        "lower_bound": "2022-11-23T16:45:50.000Z",
-        "date": "2022-11-25T16:45:50.000Z",
+        "upper_bound": "2022-11-25T16:45:50+00:00",
+        "lower_bound": "2022-11-23T16:45:50+00:00",
+        "date": "2022-11-25T16:45:50+00:00",
         "type": "order_window"
       },
       "total_items": 1,
@@ -4366,20 +3381,10 @@ We are processing the report!
           "meta": {}
         }
       },
-      "payment_info": [
-        {
-          "amount": 474.25,
-          "mode": "PP",
-          "name": "PartnerPay",
-          "collect_by": "seller",
-          "refund_by": "seller",
-          "meta": {}
-        }
-      ],
       "vertical": null,
       "priority_text": null,
       "status": {
-        "created_at": "2022-11-22T22:54:50.000Z",
+        "created_at": "2022-11-22T22:54:50+00:00",
         "id": 88117778,
         "meta": {
           "request_meta": {},
@@ -4392,7 +3397,7 @@ We are processing the report!
           "20472628"
         ],
         "current_shipment_status": "bag_confirmed",
-        "status_created_at": "2022-11-22T22:54:50.000Z"
+        "status_created_at": "2022-11-22T22:54:50"
       },
       "prices": {
         "amount_paid": 474.25,
@@ -4410,21 +3415,20 @@ We are processing the report!
         "coupon_value": 0,
         "tax_collected_at_source": 0,
         "promotion_effective_discount": 50,
-        "amount_paid_roundoff": 474,
-        "amount_to_be_collected": 0
+        "amount_paid_roundoff": 474
       },
       "tracking_list": [
         {
           "text": "Placed",
           "status": "processing",
           "is_passed": true,
-          "time": "2022-11-22T22:15:59.000Z"
+          "time": "2022-11-22T22:15:59+00:00"
         },
         {
           "text": "Bag Confirmed",
           "status": "confirmed",
           "is_passed": true,
-          "time": "2022-11-22T22:54:50.000Z"
+          "time": "2022-11-22T22:54:50+00:00"
         },
         {
           "text": "Dp Assigned",
@@ -4456,7 +3460,7 @@ We are processing the report!
       "packaging_type": "POLYB_DFLT_L",
       "enable_dp_tracking": false,
       "invoice": {
-        "updated_date": "1970-01-01T00:00:00.000Z",
+        "updated_date": "1970-01-01T00:00:00",
         "store_invoice_id": null,
         "invoice_url": "",
         "label_url": "",
@@ -4493,7 +3497,7 @@ We are processing the report!
         "fulfilment_priority_text": null,
         "auto_trigger_dp_assignment_ACF": true
       },
-      "shipment_created_at": "2022-11-22T22:15:53.000Z",
+      "shipment_created_at": "2022-11-22T22:15:53+00:00",
       "mark_as_returnable": false,
       "ordering_store": {
         "id": 5,
@@ -4640,13 +3644,13 @@ We are processing the report!
 
 
 ### getLaneConfig
-Get lane configuration.
+
 
 
 
 
 ```java
-platformClient.order.getLaneConfig( superLane,  groupEntity,  fromDate,  toDate,  startDate,  endDate,  dpIds,  stores,  salesChannels,  paymentMode,  bagStatus,  searchType,  searchValue,  tags,  timeToDispatch,  paymentMethods,  myOrders,  showCrossCompanyData,  orderType) {
+platformClient.order.getLaneConfig( superLane,  groupEntity,  fromDate,  toDate,  dpIds,  stores,  salesChannels,  paymentMode,  bagStatus,  searchType,  searchValue,  tags,  timeToDispatch,  paymentMethods,  myOrders,  showCrossCompanyData,  orderType) {
   //use response
 }
 ```
@@ -4660,8 +3664,6 @@ platformClient.order.getLaneConfig( superLane,  groupEntity,  fromDate,  toDate,
 | groupEntity | String? | no | Name of group entity |   
 | fromDate | String? | no | Start Date in DD-MM-YYYY format |   
 | toDate | String? | no | End Date in DD-MM-YYYY format |   
-| startDate | String? | no | UTC Start Date in ISO format |   
-| endDate | String? | no | UTC End Date in ISO format |   
 | dpIds | String? | no | Comma separated values of delivery partner ids |   
 | stores | String? | no | Comma separated values of store ids |   
 | salesChannels | String? | no |  |   
@@ -4678,7 +3680,7 @@ platformClient.order.getLaneConfig( superLane,  groupEntity,  fromDate,  toDate,
 
 
 
-Retrieve configuration settings for lanes.
+Get lane config for the order
 
 *Returned Response:*
 
@@ -4785,13 +3787,13 @@ Response containing count of shipments of the given status
 
 
 ### getOrders
-Get orders.
+
 
 
 
 
 ```java
-platformClient.order.getOrders( lane,  searchType,  bagStatus,  timeToDispatch,  paymentMethods,  tags,  searchValue,  fromDate,  toDate,  startDate,  endDate,  dpIds,  stores,  salesChannels,  pageNo,  pageSize,  isPrioritySort,  customMeta,  myOrders,  showCrossCompanyData,  customerId,  orderType,  allowInactive) {
+platformClient.order.getOrders( lane,  searchType,  bagStatus,  timeToDispatch,  paymentMethods,  tags,  searchValue,  fromDate,  toDate,  dpIds,  stores,  salesChannels,  pageNo,  pageSize,  isPrioritySort,  customMeta,  myOrders,  showCrossCompanyData,  customerId,  orderType) {
   //use response
 }
 ```
@@ -4810,8 +3812,6 @@ platformClient.order.getOrders( lane,  searchType,  bagStatus,  timeToDispatch, 
 | searchValue | String? | no | search_value is matched against the field specified by the search_type |   
 | fromDate | String? | no |  |   
 | toDate | String? | no |  |   
-| startDate | String? | no |  |   
-| endDate | String? | no |  |   
 | dpIds | String? | no | Delivery Partner IDs to which shipments are assigned. |   
 | stores | String? | no |  |   
 | salesChannels | String? | no |  |   
@@ -4822,12 +3822,11 @@ platformClient.order.getOrders( lane,  searchType,  bagStatus,  timeToDispatch, 
 | myOrders | Boolean? | no |  |   
 | showCrossCompanyData | Boolean? | no | Flag to view cross & non-cross company order |   
 | customerId | String? | no |  |   
-| orderType | String? | no |  |   
-| allowInactive | Boolean? | no | Flag indicating whether inactive shipments are allowed |  
+| orderType | String? | no |  |  
 
 
 
-Retrieve a list of available orders.
+Get Orders Listing
 
 *Returned Response:*
 
@@ -4896,7 +3895,7 @@ platformClient.application("<APPLICATION_ID>").order.getApplicationShipments( la
 
 
 
-Get cross selling platform shipments
+
 
 *Returned Response:*
 
@@ -4930,7 +3929,7 @@ We are processing the report!
 
 
 ### trackShipmentPlatform
-Track shipment on the platform.
+Track shipment
 
 
 
@@ -4951,7 +3950,7 @@ platformClient.application("<APPLICATION_ID>").order.trackShipmentPlatform( ship
 
 
 
-Track shipment by Shipment ID for application based on application Id
+Track Shipment by shipment id, for application based on application Id
 
 *Returned Response:*
 
@@ -4978,7 +3977,7 @@ Success. Check the example shown below or refer `PlatformShipmentTrack` for more
       "reason": "Fyndr",
       "shipment_type": "forward",
       "status": "dp_assigned",
-      "updated_time": "2022-11-24T07:09:38.000Z",
+      "updated_time": "2022-11-24T12:39:38+05:30",
       "account_name": "fyndr",
       "awb": "2125658183710",
       "raw_status": "dp_assigned",
@@ -5001,7 +4000,7 @@ Success. Check the example shown below or refer `PlatformShipmentTrack` for more
 
 
 ### getfilters
-Get filters.
+
 
 
 
@@ -5022,7 +4021,7 @@ platformClient.order.getfilters( view,  groupEntity) {
 
 
 
-Retrieve listing filters.
+Get Listing Filters
 
 *Returned Response:*
 
@@ -5404,13 +4403,13 @@ List of filters
 
 
 ### getBulkShipmentExcelFile
-Get bulk shipment Excel file.
+
 
 
 
 
 ```java
-platformClient.order.getBulkShipmentExcelFile( salesChannels,  dpIds,  startDate,  endDate,  stores,  tags,  bagStatus,  paymentMethods,  fileType,  timeToDispatch,  pageNo,  pageSize) {
+platformClient.order.getBulkShipmentExcelFile( salesChannels,  dpIds,  fromDate,  toDate,  stores,  tags,  bagStatus,  paymentMethods,  fileType,  timeToDispatch,  pageNo,  pageSize) {
   //use response
 }
 ```
@@ -5422,8 +4421,8 @@ platformClient.order.getBulkShipmentExcelFile( salesChannels,  dpIds,  startDate
 | companyId | Integer | yes | Id of company |   
 | salesChannels | String? | no | Comma separated values of sales channel ids |   
 | dpIds | String? | no | Comma separated values of delivery partner ids |   
-| startDate | String? | no | UTC start date in ISO format |   
-| endDate | String? | no | UTC end date in ISO format |   
+| fromDate | String? | no | Start Date in DD-MM-YYYY format |   
+| toDate | String? | no | End Date in DD-MM-YYYY format |   
 | stores | String? | no | Comma separated values of store ids |   
 | tags | String? | no | Comma separated values of tags |   
 | bagStatus | String? | no | Comma separated values of bag statuses |   
@@ -5435,7 +4434,7 @@ platformClient.order.getBulkShipmentExcelFile( salesChannels,  dpIds,  startDate
 
 
 
-Retrieve a bulk shipment Excel report.
+Generate Bulk Shipment Excel Report.
 
 *Returned Response:*
 
@@ -5463,7 +4462,7 @@ We are processing the file!
   "method": "PUT",
   "tags": [],
   "upload": {
-    "url": "https://fynd-staging-assets.s3-accelerate.amazonaws.com/x0/misc/general/free/original/0Ex0-zTyw-placed_352_1668856953.7936668.xlsx?Content-Type=application%2Fvnd.openxmlformats-officedocument.spreadsheetml.sheet&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJUADR2WMPQT6ZJ2Q%2F20221119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221119T112233Z&X-Amz-Expires=1800&X-Amz-Signature=3408400dbe95ff12d0ea5487846aab74b0f2ae6963a58ac980fb46c11cd0b7be&X-Amz-SignedHeaders=host%3Bx-amz-acl&x-amz-acl=public-read",
+    "url": "https://fynd-staging-assets.s3-accelerate.amazonaws.com",
     "expiry": 1800
   },
   "cdn": {
@@ -5485,7 +4484,7 @@ We are processing the file!
 
 
 ### getBulkActionTemplate
-Get bulk action template.
+
 
 
 
@@ -5504,7 +4503,7 @@ platformClient.order.getBulkActionTemplate() {
 
 
 
-Retrieve bulk action seller templates.
+Get Bulk Action seller templates.
 
 *Returned Response:*
 
@@ -5545,7 +4544,7 @@ Slug names
 
 
 ### downloadBulkActionTemplate
-Download bulk action template.
+
 
 
 
@@ -5593,7 +4592,7 @@ We are processing the file!
   "method": "PUT",
   "tags": [],
   "upload": {
-    "url": "https://fynd-staging-assets.s3-accelerate.amazonaws.com/x0/misc/general/free/original/0Ex0-zTyw-placed_352_1668856953.7936668.xlsx?Content-Type=application%2Fvnd.openxmlformats-officedocument.spreadsheetml.sheet&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJUADR2WMPQT6ZJ2Q%2F20221119%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221119T112233Z&X-Amz-Expires=1800&X-Amz-Signature=3408400dbe95ff12d0ea5487846aab74b0f2ae6963a58ac980fb46c11cd0b7be&X-Amz-SignedHeaders=host%3Bx-amz-acl&x-amz-acl=public-read",
+    "url": "https://fynd-staging-assets.s3-accelerate.amazonaws.com",
     "expiry": 1800
   },
   "cdn": {
@@ -5615,7 +4614,7 @@ We are processing the file!
 
 
 ### getShipmentReasons
-Get shipment reasons.
+Get reasons behind full or partial cancellation of a shipment
 
 
 
@@ -5637,7 +4636,7 @@ platformClient.order.getShipmentReasons( shipmentId,  bagId,  state) {
 
 
 
-Retrieve the issues that led to the cancellation of bags within a shipment.
+Use this API to retrieve the issues that led to the cancellation of bags within a shipment.
 
 *Returned Response:*
 
@@ -5699,7 +4698,7 @@ Success. Check the example shown below or refer `PlatformShipmentReasonsResponse
 
 
 ### getPlatformShipmentReasons
-Get platform shipment reasons.
+Use this API to retrieve the issues that led to the cancellation of bags within a shipment.
 
 
 
@@ -5720,7 +4719,7 @@ platformClient.application("<APPLICATION_ID>").order.getPlatformShipmentReasons(
 
 
 
-Retrieve reasons behind full or partial cancellation of a shipment
+Using action, get reasons behind full or partial cancellation of a shipment
 
 *Returned Response:*
 
@@ -5754,7 +4753,7 @@ Success. Check the example shown below or refer `ShipmentReasonsResponse` for mo
 
 
 ### getBagById
-Get bag by ID.
+
 
 
 
@@ -5776,7 +4775,7 @@ platformClient.order.getBagById( bagId,  channelBagId,  channelId) {
 
 
 
-Retrieve detailed information about a specific bag.
+Get Order Bag Details.
 
 *Returned Response:*
 
@@ -5810,7 +4809,7 @@ Successfully retrived shipment details!
 
 
 ### getBags
-Get bags.
+
 
 
 
@@ -5838,7 +4837,7 @@ platformClient.order.getBags( bagIds,  shipmentIds,  orderIds,  channelBagIds,  
 
 
 
-Retrieve Bags for the order.
+Get Bags for the order
 
 *Returned Response:*
 
@@ -5872,7 +4871,7 @@ Successfully retrived all the given shipments details!
 
 
 ### generatePOSReceiptByOrderId
-Generate POS receipt by order ID.
+
 
 
 
@@ -5894,7 +4893,7 @@ platformClient.order.generatePOSReceiptByOrderId( orderId,  shipmentId,  documen
 
 
 
-Create a point-of-sale (POS) receipt for a specific order by order ID.
+Generate POS recipt by order id.
 
 *Returned Response:*
 
@@ -5914,146 +4913,6 @@ We are processing the request!
 ```json
 
 ```
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getAllowedTemplatesForBulk
-
-
-
-
-
-```java
-platformClient.order.getAllowedTemplatesForBulk() {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes |  |  
-
-
-
-Gets All the allowed Templates to perform Bulk Operations.
-
-*Returned Response:*
-
-
-
-
-[AllowedTemplatesResponse](#AllowedTemplatesResponse)
-
-Successfully Found the templates.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; AllowedTemplatesResponseExample</i></summary>
-
-```json
-{
-  "value": {
-    "template_x_slug": [
-      {
-        "text": "DP Assignment",
-        "value": "MANUAL_DP_ASSIGNMENT"
-      },
-      {
-        "text": "Fluid",
-        "value": "MOVE_TO_FLUID_STATE"
-      },
-      {
-        "text": "Cancellation"
-      }
-    ]
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getTemplate
-
-
-
-
-
-```java
-platformClient.order.getTemplate( templateName) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| companyId | Integer | yes |  |   
-| templateName | String | yes |  |  
-
-
-
-Get the Excel file URL for the Template.
-
-*Returned Response:*
-
-
-
-
-[TemplateDownloadResponse](#TemplateDownloadResponse)
-
-Sucessfully Created the Template Url.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; AllowedTemplatesResponseExample</i></summary>
-
-```json
-{
-  "value": {
-    "file_name": "template.xlsx",
-    "url": "www.fynd.com/excelfile.xlsx"
-  }
-}
-```
-</details>
-
 </details>
 
 
@@ -6119,7 +4978,7 @@ Sucessfully Created the Template Url.
  | success | Boolean? |  yes  |  |
  | message | String |  no  |  |
  | errorTrace | String? |  yes  |  |
- | error | String? |  yes  |  |
+ | error | String |  no  |  |
 
 ---
 
@@ -6182,7 +5041,6 @@ Sucessfully Created the Template Url.
  | action | String |  no  | Expected Actions: [lock, unlock, check] |
  | actionType | String |  no  | Expected action_type: [complete, operational, financial] |
  | entities | ArrayList<[Entities](#Entities)> |  no  | Shipment/Entity |
- | resumeTasksAfterUnlock | Boolean? |  yes  |  |
 
 ---
 
@@ -6590,6 +5448,7 @@ Sucessfully Created the Template Url.
  | weight | HashMap<String,Object> |  no  |  |
  | attributes | HashMap<String,Object> |  no  |  |
  | quantity | Integer |  no  |  |
+ | status | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -6617,11 +5476,11 @@ Sucessfully Created the Template Url.
  | shipments | Integer |  no  |  |
  | fulfillmentId | Integer |  no  |  |
  | articles | ArrayList<[ArticleDetails](#ArticleDetails)> |  no  |  |
- | dpId | String? |  yes  |  |
+ | dpId | Integer? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | affiliateShipmentId | String |  no  |  |
- | dpOptions | HashMap<String,Object>? |  yes  |  |
  | lockStatus | Boolean? |  yes  |  |
+ | lockMessage | String? |  yes  |  |
  | actionToStatus | HashMap<String,Object>? |  yes  |  |
 
 ---
@@ -6900,9 +5759,9 @@ Sucessfully Created the Template Url.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | affiliateId | String |  no  |  |
  | orderInfo | [OrderInfo](#OrderInfo) |  no  |  |
  | orderConfig | [OrderConfig](#OrderConfig) |  no  |  |
+ | affiliateId | String |  no  |  |
 
 ---
 
@@ -7077,12 +5936,23 @@ Sucessfully Created the Template Url.
 
  
  
- #### [PostHistoryDict](#PostHistoryDict)
+ #### [PostActivityHistory](#PostActivityHistory)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | filters | ArrayList<[PostHistoryFilters](#PostHistoryFilters)> |  no  |  |
  | data | [PostHistoryData](#PostHistoryData) |  no  |  |
+
+---
+
+
+ 
+ 
+ #### [PostHistoryDict](#PostHistoryDict)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | activityHistory | [PostActivityHistory](#PostActivityHistory) |  no  |  |
 
 ---
 
@@ -7138,35 +6008,6 @@ Sucessfully Created the Template Url.
  | ---------- | ---- | -------- | ----------- |
  | fyndOrderId | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
- | userId | String? |  yes  |  |
- | taxDetails | [TaxDetails](#TaxDetails)? |  yes  |  |
- | mongoCartId | Double? |  yes  |  |
- | deliveryCharges | Double? |  yes  |  |
- | transactionId | String? |  yes  |  |
- | collectBy | String? |  yes  |  |
- | headers | HashMap<String,Object>? |  yes  |  |
- | couponValue | Double? |  yes  |  |
- | orderValue | Double? |  yes  |  |
- | createdTime | String? |  yes  |  |
- | currency | String? |  yes  |  |
- | totalOrderValue | Double? |  yes  |  |
- | orderingChannel | String? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | codCharges | Double? |  yes  |  |
- | cashbackValue | Double? |  yes  |  |
- | refundBy | String? |  yes  |  |
- | affiliateOrderDate | String? |  yes  |  |
- | paymentMethods | HashMap<String,Object>? |  yes  |  |
- | affiliateOrderId | String? |  yes  |  |
- | paymentModeId | Double? |  yes  |  |
- | promotionEffectiveDiscount | Double? |  yes  |  |
- | modeOfPayment | String? |  yes  |  |
- | discount | Double? |  yes  |  |
- | cashbackApplied | Double? |  yes  |  |
- | fyndCredits | Double? |  yes  |  |
- | affiliateId | String? |  yes  |  |
- | orderingChannelLogo | String? |  yes  |  |
- | prices | [Prices](#Prices)? |  yes  |  |
 
 ---
 
@@ -7337,33 +6178,6 @@ Sucessfully Created the Template Url.
  | priority | Integer? |  yes  |  |
  | locationId | Integer |  no  |  |
  | orderType | String? |  yes  |  |
- | parentType | String? |  yes  |  |
- | storeInvoiceId | String? |  yes  |  |
- | lockStatus | String? |  yes  |  |
- | type | String? |  yes  |  |
- | billingAddressJson | [PlatformDeliveryAddress](#PlatformDeliveryAddress)? |  yes  |  |
- | id | String? |  yes  |  |
- | fulfilmentPriority | Integer? |  yes  |  |
- | isActive | Boolean? |  yes  |  |
- | previousShipmentId | String? |  yes  |  |
- | pdfLinks | HashMap<String,Object>? |  yes  |  |
- | deliveryAddressJson | [PlatformDeliveryAddress](#PlatformDeliveryAddress)? |  yes  |  |
- | ewayBillId | String? |  yes  |  |
- | affiliateShipmentId | String? |  yes  |  |
- | fyndOrderId | String? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | deliveryAwbNumber | String? |  yes  |  |
- | handOverContactJson | [PlatformDeliveryAddress](#PlatformDeliveryAddress)? |  yes  |  |
- | creditNoteId | String? |  yes  |  |
- | parentId | String? |  yes  |  |
- | affiliateId | String? |  yes  |  |
- | packagingType | String? |  yes  |  |
- | vertical | String? |  yes  |  |
- | quantity | Double? |  yes  |  |
- | status | [ShipmentStatusData](#ShipmentStatusData)? |  yes  |  |
- | price | [Prices](#Prices)? |  yes  |  |
- | gst | [ShipmentGstDetails](#ShipmentGstDetails)? |  yes  |  |
 
 ---
 
@@ -7375,34 +6189,31 @@ Sucessfully Created the Template Url.
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | alternateMobileNumber | String? |  yes  |  |
- | state | String? |  yes  |  |
+ | state | String |  no  |  |
  | customerCode | String? |  yes  |  |
  | shippingType | String? |  yes  |  |
  | middleName | String? |  yes  |  |
- | primaryMobileNumber | String? |  yes  |  |
+ | primaryMobileNumber | String |  no  |  |
  | lastName | String? |  yes  |  |
  | geoLocation | HashMap<String,Object>? |  yes  |  |
  | gender | String? |  yes  |  |
  | houseNo | String? |  yes  |  |
- | firstName | String? |  yes  |  |
+ | firstName | String |  no  |  |
  | title | String? |  yes  |  |
  | landmark | String? |  yes  |  |
- | country | String? |  yes  |  |
+ | country | String |  no  |  |
  | addressType | String? |  yes  |  |
  | stateCode | String? |  yes  |  |
- | city | String? |  yes  |  |
+ | city | String |  no  |  |
  | externalCustomerCode | String? |  yes  |  |
  | floorNo | String? |  yes  |  |
  | alternateEmail | String? |  yes  |  |
  | slot | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | address | String? |  yes  |  |
- | area | String? |  yes  |  |
- | address1 | String? |  yes  |  |
- | pincode | String? |  yes  |  |
- | primaryEmail | String? |  yes  |  |
+ | address1 | String |  no  |  |
+ | pincode | String |  no  |  |
+ | primaryEmail | String |  no  |  |
  | address2 | String? |  yes  |  |
  | countryCode | String? |  yes  |  |
- | countryIsoCode | String? |  yes  | Country Code in ISO 2 format (e.g. US, IN) |
 
 ---
 
@@ -7414,30 +6225,26 @@ Sucessfully Created the Template Url.
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | alternateMobileNumber | String? |  yes  |  |
- | state | String? |  yes  |  |
+ | state | String |  no  |  |
  | customerCode | String? |  yes  |  |
  | middleName | String? |  yes  |  |
- | primaryMobileNumber | String? |  yes  |  |
+ | primaryMobileNumber | String |  no  |  |
  | lastName | String? |  yes  |  |
  | gender | String? |  yes  |  |
  | houseNo | String? |  yes  |  |
- | firstName | String? |  yes  |  |
+ | firstName | String |  no  |  |
  | title | String? |  yes  |  |
- | country | String? |  yes  |  |
+ | country | String |  no  |  |
  | stateCode | String? |  yes  |  |
- | city | String? |  yes  |  |
+ | city | String |  no  |  |
  | externalCustomerCode | String? |  yes  |  |
  | floorNo | String? |  yes  |  |
  | alternateEmail | String? |  yes  |  |
- | address | String? |  yes  |  |
- | area | String? |  yes  |  |
- | address1 | String? |  yes  |  |
- | pincode | String? |  yes  |  |
- | primaryEmail | String? |  yes  |  |
+ | address1 | String |  no  |  |
+ | pincode | String |  no  |  |
+ | primaryEmail | String |  no  |  |
  | address2 | String? |  yes  |  |
- | landmark | String? |  yes  |  |
  | countryCode | String? |  yes  |  |
- | countryIsoCode | String? |  yes  | Country Code in ISO 2 format (e.g. US, IN) |
 
 ---
 
@@ -7949,6 +6756,56 @@ Sucessfully Created the Template Url.
 
  
  
+ #### [CourierPartnerTrackingDetails](#CourierPartnerTrackingDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | operationalStatus | String |  no  | Operational status of OMS |
+ | dpStatus | String |  no  | Status at Courier partner end |
+ | shipmentId | String |  no  | Shipment ID |
+ | awb | String |  no  | AWB Number |
+ | dpStatusUpdatedAt | String |  no  | Date Time at which status was updated at Courier partner |
+ | remark | String? |  yes  | Remark from courier partner |
+ | id | Integer? |  yes  | Id of Tracking history |
+ | dpLocation | String? |  yes  | Current location of Courier partner |
+ | estimatedDeliveryDate | String? |  yes  | Estimated delivery date received from Courier partner |
+ | journey | String |  no  | Journey type of the shipment |
+ | meta | HashMap<String,Object>? |  yes  | Meta field to store Courier partner's meta data |
+ | dpName | String |  no  | Courier Partner name |
+ | promisedDeliveryDate | String? |  yes  | Promised delivery date received from Courier partner |
+
+---
+
+
+ 
+ 
+ #### [PageDetails](#PageDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | itemTotal | Integer |  no  | Total count of the results present in the requested filter |
+ | current | Integer? |  yes  | Current page number |
+ | size | Integer? |  yes  | Page size |
+ | type | String? |  yes  | Type of the page |
+ | hasNext | Boolean? |  yes  | if next page contains any result |
+
+---
+
+
+ 
+ 
+ #### [CourierPartnerTrackingResponse](#CourierPartnerTrackingResponse)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | items | ArrayList<[CourierPartnerTrackingDetails](#CourierPartnerTrackingDetails)>? |  yes  |  |
+ | page | [PageDetails](#PageDetails)? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [BulkReportsDownloadRequest](#BulkReportsDownloadRequest)
 
  | Properties | Type | Nullable | Description |
@@ -7957,8 +6814,8 @@ Sucessfully Created the Template Url.
  | laneType | String? |  yes  |  |
  | customHeaders | String? |  yes  | Download report with specific headers |
  | reportType | String? |  yes  | Type of report |
- | startDate | String? |  yes  | UTC start date in ISO format |
- | endDate | String? |  yes  | UTC end date in ISO format |
+ | fromDate | String? |  yes  |  |
+ | toDate | String? |  yes  |  |
  | entities | ArrayList<String>? |  yes  | Download for specific enitites, entities can be bag, shipment or order_id, etc. |
  | filterType | String? |  yes  |  |
  | isCrossCompanyEnabled | Boolean? |  yes  | Download lanes for cross company. |
@@ -7981,7 +6838,7 @@ Sucessfully Created the Template Url.
 
  
  
- #### [BulkFailedResponse](#BulkFailedResponse)
+ #### [BulkReportsDownloadFailedResponse](#BulkReportsDownloadFailedResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
@@ -7993,526 +6850,11 @@ Sucessfully Created the Template Url.
 
  
  
- #### [BulkStateTransistionRequest](#BulkStateTransistionRequest)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | url | String? |  yes  |  |
- | fileName | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [BulkStateTransistionResponse](#BulkStateTransistionResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | status | Boolean? |  yes  |  |
- | message | String? |  yes  |  |
- | batchId | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ShipmentActionInfo](#ShipmentActionInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | label | ArrayList<String>? |  yes  |  |
- | invoice | ArrayList<String>? |  yes  |  |
- | failedShipments | ArrayList<HashMap<String,String>>? |  yes  |  |
- | processingShipments | ArrayList<String>? |  yes  |  |
- | successfulShipments | ArrayList<String>? |  yes  |  |
- | invoiceableShipments | ArrayList<String>? |  yes  |  |
- | failedInvoicedShipments | HashMap<String,String>? |  yes  |  |
- | processingInvoiceShipments | ArrayList<String>? |  yes  |  |
- | successfulInvoicedShipments | ArrayList<String>? |  yes  |  |
-
----
-
-
- 
- 
- #### [BulkActionListingData](#BulkActionListingData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | storeId | Integer? |  yes  |  |
- | uploadedOn | String? |  yes  |  |
- | companyId | Integer? |  yes  |  |
- | shipmentsActionInfo | [ShipmentActionInfo](#ShipmentActionInfo)? |  yes  |  |
- | isInvoiceable | Boolean? |  yes  |  |
- | userName | String? |  yes  |  |
- | fileUrl | String? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | invoiceDocumentType | String? |  yes  |  |
- | labelDocumentType | String? |  yes  |  |
- | fileName | String? |  yes  |  |
- | storeName | String? |  yes  |  |
- | updatedTs | Integer? |  yes  |  |
- | status | Boolean? |  yes  |  |
- | storeCode | String? |  yes  |  |
- | bulkActionType | String? |  yes  |  |
- | createdTs | String? |  yes  |  |
- | invoiceStatus | String? |  yes  |  |
- | doInvoiceLabelGenerated | Boolean? |  yes  |  |
- | id | Integer? |  yes  |  |
- | userId | String? |  yes  |  |
- | lastSelectedInvoiceLabelType | String? |  yes  |  |
- | batchId | String? |  yes  |  |
- | uploadedBy | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [BulkListinPage](#BulkListinPage)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | current | Integer? |  yes  |  |
- | hasPrevious | Boolean? |  yes  |  |
- | hasNext | Boolean? |  yes  |  |
- | total | Integer? |  yes  |  |
- | itemTotal | Integer? |  yes  |  |
- | type | String? |  yes  |  |
- | size | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [BulkListingResponse](#BulkListingResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
- | data | ArrayList<[BulkActionListingData](#BulkActionListingData)>? |  yes  |  |
- | page | [BulkListinPage](#BulkListinPage)? |  yes  |  |
- | totalCount | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [JobDetailsData](#JobDetailsData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | batchId | String? |  yes  |  |
- | totalShipmentsCount | Integer? |  yes  |  |
- | successfulShipmentIds | ArrayList<String>? |  yes  |  |
- | successfulShipmentsCount | Integer? |  yes  |  |
- | failedShipmentsCount | Integer? |  yes  |  |
- | processingShipmentsCount | Integer? |  yes  |  |
- | companyId | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [JobDetailsResponse](#JobDetailsResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | success | Boolean? |  yes  |  |
- | data | ArrayList<[JobDetailsData](#JobDetailsData)>? |  yes  |  |
- | fileUrl | String? |  yes  |  |
- | message | String? |  yes  |  |
- | failedRecords | ArrayList<HashMap<String,String>>? |  yes  |  |
- | uploadedBy | String? |  yes  |  |
- | userId | String? |  yes  |  |
- | createdTs | String? |  yes  |  |
- | uploadedOn | String? |  yes  |  |
- | status | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [JobFailedResponse](#JobFailedResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | fileName | String? |  yes  |  |
- | url | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ManifestPageInfo](#ManifestPageInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | current | Integer |  no  |  |
- | total | Integer |  no  |  |
- | hasNext | Boolean |  no  |  |
- | size | Integer |  no  |  |
- | hasPrevious | Boolean |  no  |  |
- | type | String |  no  |  |
-
----
-
-
- 
- 
- #### [ManifestItemDetails](#ManifestItemDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | quantity | Integer? |  yes  |  |
- | shipmentId | String |  no  |  |
- | orderId | String |  no  |  |
- | awbNumber | String? |  yes  |  |
- | invoiceId | String? |  yes  |  |
- | shipmentCreatedAt | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ManifestShipmentListing](#ManifestShipmentListing)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | totalCount | Integer |  no  |  |
- | lane | String? |  yes  |  |
- | page | [ManifestPageInfo](#ManifestPageInfo) |  no  |  |
- | success | Boolean |  no  |  |
- | status | Integer |  no  |  |
- | items | ArrayList<[ManifestItemDetails](#ManifestItemDetails)>? |  yes  |  |
- | message | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [DateRange](#DateRange)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | fromDate | String? |  yes  |  |
- | toDate | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Filters](#Filters)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | dateRange | [DateRange](#DateRange)? |  yes  |  |
- | logo | String? |  yes  |  |
- | fromDate | String? |  yes  |  |
- | stores | Integer? |  yes  |  |
- | toDate | String? |  yes  |  |
- | dpName | String? |  yes  |  |
- | dpIds | Integer? |  yes  |  |
- | lane | String? |  yes  |  |
- | selectedShipments | String? |  yes  |  |
- | storeName | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ManifestFile](#ManifestFile)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | key | String? |  yes  |  |
- | region | String? |  yes  |  |
- | bucket | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ManifestMediaUpdate](#ManifestMediaUpdate)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | entity | String? |  yes  |  |
- | link | String? |  yes  |  |
- | code | Integer? |  yes  |  |
- | mediaType | String? |  yes  |  |
- | status | Boolean? |  yes  |  |
- | file | [ManifestFile](#ManifestFile)? |  yes  |  |
-
----
-
-
- 
- 
- #### [PDFMeta](#PDFMeta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | consent | String? |  yes  |  |
- | mediaUpdates | ArrayList<[ManifestMediaUpdate](#ManifestMediaUpdate)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [TotalShipmentPricesCount](#TotalShipmentPricesCount)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | totalPrice | Double? |  yes  |  |
- | shipmentCount | Integer? |  yes  |  |
-
----
-
-
- 
- 
- #### [ManifestMeta](#ManifestMeta)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | filters | [Filters](#Filters)? |  yes  |  |
- | totalShipmentPricesCount | [TotalShipmentPricesCount](#TotalShipmentPricesCount)? |  yes  |  |
-
----
-
-
- 
- 
- #### [Manifest](#Manifest)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | companyId | Integer |  no  |  |
- | filters | [Filters](#Filters)? |  yes  |  |
- | pdfMeta | [PDFMeta](#PDFMeta)? |  yes  |  |
- | meta | [ManifestMeta](#ManifestMeta)? |  yes  |  |
- | isActive | Boolean |  no  |  |
- | userId | String |  no  |  |
- | createdAt | String |  no  |  |
- | createdTs | String? |  yes  |  |
- | manifestId | String |  no  |  |
- | status | String |  no  |  |
- | id | Integer |  no  |  |
- | uid | String |  no  |  |
- | createdBy | String |  no  |  |
-
----
-
-
- 
- 
- #### [ManifestList](#ManifestList)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[Manifest](#Manifest)>? |  yes  |  |
- | page | [ManifestPageInfo](#ManifestPageInfo)? |  yes  |  |
-
----
-
-
- 
- 
- #### [ManifestDetails](#ManifestDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[ManifestItemDetails](#ManifestItemDetails)>? |  yes  |  |
- | page | [ManifestPageInfo](#ManifestPageInfo)? |  yes  |  |
- | additionalShipmentCount | Integer? |  yes  |  |
- | manifestDetails | ArrayList<[Manifest](#Manifest)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [FiltersRequest](#FiltersRequest)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | dateRange | [DateRange](#DateRange)? |  yes  |  |
- | logo | String? |  yes  |  |
- | stores | Integer |  no  |  |
- | dpName | String |  no  |  |
- | dpIds | Integer |  no  |  |
- | lane | String |  no  |  |
- | storeName | String |  no  |  |
-
----
-
-
- 
- 
- #### [ProcessManifest](#ProcessManifest)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | filters | [FiltersRequest](#FiltersRequest) |  no  |  |
- | action | String |  no  |  |
- | uniqueId | String |  no  |  |
- | manifestId | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProcessManifestResponse](#ProcessManifestResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | companyId | Integer? |  yes  |  |
- | filters | [Filters](#Filters)? |  yes  |  |
- | userId | String? |  yes  |  |
- | manifestId | String? |  yes  |  |
- | action | String? |  yes  |  |
- | uid | String? |  yes  |  |
- | createdBy | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ProcessManifestItemResponse](#ProcessManifestItemResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | [ProcessManifestResponse](#ProcessManifestResponse)? |  yes  |  |
-
----
-
-
- 
- 
- #### [FilterInfoOption](#FilterInfoOption)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | text | String? |  yes  |  |
- | name | String? |  yes  |  |
- | placeholderText | String? |  yes  |  |
- | value | String? |  yes  |  |
- | minSearchSize | Integer? |  yes  |  |
- | showUi | Boolean? |  yes  |  |
-
----
-
-
- 
- 
- #### [FiltersInfo](#FiltersInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | options | ArrayList<[FilterInfoOption](#FilterInfoOption)>? |  yes  |  |
- | text | String |  no  |  |
- | placeholderText | String? |  yes  |  |
- | value | String |  no  |  |
- | required | Boolean? |  yes  |  |
- | type | String |  no  |  |
-
----
-
-
- 
- 
- #### [ManifestFiltersResponse](#ManifestFiltersResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | advanceFilter | ArrayList<[FiltersInfo](#FiltersInfo)>? |  yes  |  |
- | globalFilter | ArrayList<[FiltersInfo](#FiltersInfo)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [PageDetails](#PageDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | current | Integer? |  yes  | Current page number |
- | hasNext | Boolean? |  yes  | if next page contains any result |
- | hasPrevious | Boolean? |  yes  | if previous page contains any result |
- | itemTotal | Integer |  no  | Total count of the results present in the requested filter |
- | size | Integer? |  yes  | Page size |
- | type | String? |  yes  | Type of the page |
-
----
-
-
- 
- 
- #### [EInvoiceIrnDetails](#EInvoiceIrnDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | ackDt | String |  no  |  |
- | ackNo | String |  no  |  |
- | irn | String |  no  |  |
- | signedInvoice | String |  no  |  |
- | signedQrCode | String |  no  |  |
-
----
-
-
- 
- 
- #### [EInvoiceErrorDetails](#EInvoiceErrorDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | errorCode | String? |  yes  |  |
- | errorMessage | String |  no  |  |
-
----
-
-
- 
- 
- #### [EInvoiceDetails](#EInvoiceDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | irnDetails | [EInvoiceIrnDetails](#EInvoiceIrnDetails)? |  yes  |  |
- | errorDetails | ArrayList<[EInvoiceErrorDetails](#EInvoiceErrorDetails)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [EInvoiceResponseData](#EInvoiceResponseData)
+ #### [EInvoiceRetryShipmentData](#EInvoiceRetryShipmentData)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | shipmentId | String |  no  |  |
- | einvoiceType | String |  no  |  |
- | status | Integer |  no  |  |
- | message | String |  no  |  |
- | einvoiceInfo | [EInvoiceDetails](#EInvoiceDetails)? |  yes  |  |
 
 ---
 
@@ -8530,177 +6872,32 @@ Sucessfully Created the Template Url.
 
  
  
+ #### [EInvoiceResponseData](#EInvoiceResponseData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | shipmentId | String |  no  |  |
+ | message | String |  no  |  |
+ | success | Boolean |  no  |  |
+ | ackNo | String? |  yes  |  |
+ | irn | String? |  yes  |  |
+ | ackDt | String? |  yes  |  |
+ | timeout | Integer? |  yes  |  |
+ | timeoutUnit | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [EInvoiceRetryResponse](#EInvoiceRetryResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
+ | success | Boolean? |  yes  |  |
+ | successCount | Integer |  no  |  |
+ | message | String? |  yes  |  |
  | responseData | ArrayList<[EInvoiceResponseData](#EInvoiceResponseData)> |  no  |  |
-
----
-
-
- 
- 
- #### [EInvoiceErrorInfo](#EInvoiceErrorInfo)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | errorDetails | ArrayList<[EInvoiceErrorDetails](#EInvoiceErrorDetails)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [EInvoiceErrorResponseData](#EInvoiceErrorResponseData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | shipmentId | String |  no  |  |
- | einvoiceType | String |  no  |  |
- | status | Integer |  no  |  |
- | message | String |  no  |  |
- | einvoiceInfo | [EInvoiceErrorInfo](#EInvoiceErrorInfo)? |  yes  |  |
-
----
-
-
- 
- 
- #### [EInvoiceErrorResponse](#EInvoiceErrorResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | responseData | ArrayList<[EInvoiceErrorResponseData](#EInvoiceErrorResponseData)>? |  yes  |  |
- | message | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [EInvoiceErrorResponseDetails](#EInvoiceErrorResponseDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | responseData | ArrayList<[EInvoiceErrorResponseData](#EInvoiceErrorResponseData)> |  no  |  |
- | message | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [EInvoiceRetryShipmentData](#EInvoiceRetryShipmentData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | shipmentId | String |  no  |  |
- | einvoiceType | String |  no  |  |
-
----
-
-
- 
- 
- #### [CourierPartnerTrackingDetails](#CourierPartnerTrackingDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | awb | String |  no  | AWB Number |
- | dpLocation | String? |  yes  | Current location of Courier partner |
- | dpName | String |  no  | Courier Partner name |
- | dpStatus | String |  no  | Status at Courier partner end |
- | dpStatusUpdatedAt | String |  no  | Date Time at which status was updated at Courier partner |
- | estimatedDeliveryDate | String? |  yes  | Estimated delivery date received from Courier partner |
- | id | Integer? |  yes  | Id of Tracking history |
- | journey | String |  no  | Journey type of the shipment |
- | meta | HashMap<String,Object>? |  yes  | Meta field to store Courier partner's meta data |
- | operationalStatus | String |  no  | Operational status of OMS |
- | promisedDeliveryDate | String? |  yes  | Promised delivery date received from Courier partner |
- | remark | String? |  yes  | Remark from courier partner |
- | shipmentId | String |  no  | Shipment ID |
-
----
-
-
- 
- 
- #### [CourierPartnerTrackingResponse](#CourierPartnerTrackingResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[CourierPartnerTrackingDetails](#CourierPartnerTrackingDetails)>? |  yes  |  |
- | page | [PageDetails](#PageDetails)? |  yes  |  |
-
----
-
-
- 
- 
- #### [LogsChannelDetails](#LogsChannelDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | channelId | String? |  yes  |  |
- | name | String? |  yes  |  |
- | logo | String? |  yes  |  |
- | channelShipmentId | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [LogPaymentDetails](#LogPaymentDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | paymentMode | String? |  yes  |  |
- | amountPaid | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [FailedOrdersItem](#FailedOrdersItem)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | logId | Integer |  no  |  |
- | orderId | String |  no  |  |
- | channel | [LogsChannelDetails](#LogsChannelDetails) |  no  |  |
- | payment | [LogPaymentDetails](#LogPaymentDetails) |  no  |  |
- | createdAt | String |  no  |  |
- | errorMessage | String |  no  |  |
- | displayMessage | String |  no  |  |
- | methodName | String |  no  |  |
- | meta | HashMap<String,Object> |  no  |  |
-
----
-
-
- 
- 
- #### [FailedOrderLogs](#FailedOrderLogs)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | [FailedOrdersItem](#FailedOrdersItem) |  no  |  |
- | page | [PageDetails](#PageDetails) |  no  |  |
-
----
-
-
- 
- 
- #### [FailedOrderLogDetails](#FailedOrderLogDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | errorTrace | String |  no  |  |
- | exception | String |  no  |  |
 
 ---
 
@@ -8768,22 +6965,6 @@ Sucessfully Created the Template Url.
 
  
  
- #### [Page](#Page)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | type | String? |  yes  |  |
- | hasPrevious | Boolean? |  yes  |  |
- | hasNext | Boolean? |  yes  |  |
- | total | Integer? |  yes  |  |
- | size | Integer? |  yes  |  |
- | current | Integer? |  yes  |  |
-
----
-
-
- 
- 
  #### [BagReasonMeta](#BagReasonMeta)
 
  | Properties | Type | Nullable | Description |
@@ -8845,10 +7026,8 @@ Sucessfully Created the Template Url.
  | bagList | ArrayList<String>? |  yes  |  |
  | title | String |  no  |  |
  | createdAt | String? |  yes  |  |
- | createdTs | String? |  yes  |  |
  | shipmentId | String? |  yes  |  |
  | statusCreatedAt | String? |  yes  |  |
- | statusCreatedTs | String? |  yes  |  |
  | status | String |  no  |  |
 
 ---
@@ -8892,7 +7071,6 @@ Sucessfully Created the Template Url.
  | email | String? |  yes  |  |
  | createdAt | String? |  yes  |  |
  | address1 | String? |  yes  |  |
- | displayAddress | String? |  yes  |  |
  | landmark | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | version | String? |  yes  |  |
@@ -8920,32 +7098,26 @@ Sucessfully Created the Template Url.
 
  
  
- #### [Prices](#Prices)
+ #### [GSTDetailsData](#GSTDetailsData)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | refundCredit | Double? |  yes  |  |
- | amountPaidRoundoff | Double? |  yes  |  |
- | priceEffective | Double? |  yes  |  |
- | promotionEffectiveDiscount | Double? |  yes  |  |
- | pmPriceSplit | Double? |  yes  |  |
- | refundAmount | Double? |  yes  |  |
- | transferPrice | Double? |  yes  |  |
- | couponEffectiveDiscount | Double? |  yes  |  |
- | taxCollectedAtSource | Double? |  yes  |  |
- | brandCalculatedAmount | Double? |  yes  |  |
- | deliveryCharge | Double? |  yes  |  |
- | cashback | Double? |  yes  |  |
- | valueOfGood | Double? |  yes  |  |
- | cashbackApplied | Double? |  yes  |  |
- | codCharges | Double? |  yes  |  |
- | priceMarked | Double? |  yes  |  |
- | amountPaid | Double? |  yes  |  |
- | couponValue | Double? |  yes  |  |
- | discount | Double? |  yes  |  |
- | fyndCredits | Double? |  yes  |  |
- | giftPrice | Double? |  yes  |  |
- | amountToBeCollected | Double? |  yes  |  |
+ | cgstTaxPercentage | Double? |  yes  |  |
+ | gstinCode | String? |  yes  |  |
+ | valueOfGood | Double |  no  |  |
+ | gstFee | Double |  no  |  |
+ | igstTaxPercentage | Double? |  yes  |  |
+ | gstTaxPercentage | Double? |  yes  |  |
+ | hsnCodeId | String? |  yes  |  |
+ | igstGstFee | Double? |  yes  |  |
+ | isDefaultHsnCode | Boolean? |  yes  |  |
+ | sgstGstFee | Double? |  yes  |  |
+ | taxCollectedAtSource | Double |  no  |  |
+ | brandCalculatedAmount | Double |  no  |  |
+ | cgstGstFee | Double? |  yes  |  |
+ | gstTag | String? |  yes  |  |
+ | sgstTaxPercentage | Double? |  yes  |  |
+ | hsnCode | String? |  yes  |  |
 
 ---
 
@@ -8995,36 +7167,9 @@ Sucessfully Created the Template Url.
  | discount | Double |  no  |  |
  | fyndCredits | Double |  no  |  |
  | gstTaxPercentage | Double |  no  |  |
- | amountToBeCollected | Double? |  yes  |  |
  | identifiers | [Identifier](#Identifier) |  no  |  |
  | totalUnits | Integer |  no  |  |
  | addedToFyndCash | Boolean |  no  |  |
-
----
-
-
- 
- 
- #### [GSTDetailsData](#GSTDetailsData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | cgstTaxPercentage | Double? |  yes  |  |
- | gstinCode | String? |  yes  |  |
- | valueOfGood | Double |  no  |  |
- | gstFee | Double |  no  |  |
- | igstTaxPercentage | Double? |  yes  |  |
- | gstTaxPercentage | Double? |  yes  |  |
- | hsnCodeId | String? |  yes  |  |
- | igstGstFee | Double? |  yes  |  |
- | isDefaultHsnCode | Boolean? |  yes  |  |
- | sgstGstFee | Double? |  yes  |  |
- | taxCollectedAtSource | Double |  no  |  |
- | brandCalculatedAmount | Double |  no  |  |
- | cgstGstFee | Double? |  yes  |  |
- | gstTag | String? |  yes  |  |
- | sgstTaxPercentage | Double? |  yes  |  |
- | hsnCode | String? |  yes  |  |
 
 ---
 
@@ -9065,10 +7210,8 @@ Sucessfully Created the Template Url.
  | stateType | String? |  yes  |  |
  | bshId | Integer? |  yes  |  |
  | createdAt | String? |  yes  |  |
- | createdTs | String? |  yes  |  |
  | shipmentId | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
- | updatedTs | String? |  yes  |  |
  | bagStateMapper | [BagStateMapper](#BagStateMapper)? |  yes  |  |
  | bagId | Integer? |  yes  |  |
  | reasons | ArrayList<HashMap<String,Object>>? |  yes  |  |
@@ -9140,7 +7283,6 @@ Sucessfully Created the Template Url.
  | rawMeta | String? |  yes  |  |
  | size | String |  no  |  |
  | isSet | Boolean? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -9256,6 +7398,37 @@ Sucessfully Created the Template Url.
 
  
  
+ #### [Prices](#Prices)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | refundCredit | Double? |  yes  |  |
+ | amountPaidRoundoff | Double? |  yes  |  |
+ | priceEffective | Double? |  yes  |  |
+ | promotionEffectiveDiscount | Double? |  yes  |  |
+ | pmPriceSplit | Double? |  yes  |  |
+ | refundAmount | Double? |  yes  |  |
+ | transferPrice | Double? |  yes  |  |
+ | couponEffectiveDiscount | Double? |  yes  |  |
+ | taxCollectedAtSource | Double? |  yes  |  |
+ | brandCalculatedAmount | Double? |  yes  |  |
+ | deliveryCharge | Double? |  yes  |  |
+ | cashback | Double? |  yes  |  |
+ | valueOfGood | Double? |  yes  |  |
+ | cashbackApplied | Double? |  yes  |  |
+ | codCharges | Double? |  yes  |  |
+ | priceMarked | Double? |  yes  |  |
+ | amountPaid | Double? |  yes  |  |
+ | couponValue | Double? |  yes  |  |
+ | discount | Double? |  yes  |  |
+ | fyndCredits | Double? |  yes  |  |
+ | giftPrice | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [Dates](#Dates)
 
  | Properties | Type | Nullable | Description |
@@ -9322,12 +7495,10 @@ Sucessfully Created the Template Url.
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | phone | String? |  yes  |  |
- | brandStoreTags | ArrayList<String>? |  yes  |  |
+ | brandStoreTags | String? |  yes  |  |
  | pincode | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | address | String? |  yes  |  |
- | address1 | String? |  yes  |  |
- | displayAddress | String? |  yes  |  |
  | locationType | String? |  yes  |  |
  | id | Integer |  no  |  |
  | code | String |  no  |  |
@@ -9335,57 +7506,96 @@ Sucessfully Created the Template Url.
  | name | String? |  yes  |  |
  | state | String? |  yes  |  |
  | city | String? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
 
 ---
 
 
  
  
- #### [Currency](#Currency)
+ #### [Formatted](#Formatted)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | currencyCode | String? |  yes  |  |
- | currencySymbol | String? |  yes  |  |
+ | max | String? |  yes  |  |
+ | min | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [OrderingCurrency](#OrderingCurrency)
+ #### [ShipmentTags](#ShipmentTags)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | currencyCode | String? |  yes  |  |
- | currencyName | String? |  yes  |  |
- | currencySymbol | String? |  yes  |  |
- | currencySubUnit | String? |  yes  |  |
+ | slug | String? |  yes  |  |
+ | entityType | String? |  yes  |  |
+ | displayText | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [ConversionRate](#ConversionRate)
+ #### [LockData](#LockData)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | base | String? |  yes  |  |
- | rates | HashMap<String,Object>? |  yes  |  |
+ | locked | Boolean? |  yes  |  |
+ | mto | Boolean? |  yes  |  |
+ | lockMessage | String? |  yes  |  |
 
 ---
 
 
  
  
- #### [CurrencyInfo](#CurrencyInfo)
+ #### [ShipmentTimeStamp](#ShipmentTimeStamp)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | orderingCurrency | [OrderingCurrency](#OrderingCurrency)? |  yes  |  |
- | conversionRate | [ConversionRate](#ConversionRate)? |  yes  |  |
+ | max | Integer? |  yes  |  |
+ | min | Integer? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [ShipmentItemMeta](#ShipmentItemMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | sameStoreAvailable | Boolean? |  yes  |  |
+ | isSelfShip | Boolean? |  yes  |  |
+ | isInternational | Boolean? |  yes  |  |
+ | formatted | [Formatted](#Formatted)? |  yes  |  |
+ | debugInfo | HashMap<String,Object>? |  yes  |  |
+ | sla | Double? |  yes  |  |
+ | shipmentChargeableWeight | Double? |  yes  |  |
+ | pdfMedia | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | tags | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | existingDpList | ArrayList<String>? |  yes  |  |
+ | parentDpId | String? |  yes  |  |
+ | shipmentWeight | Double? |  yes  |  |
+ | dpOptions | HashMap<String,Object>? |  yes  |  |
+ | assignDpFromSb | Boolean? |  yes  |  |
+ | shippingZone | String? |  yes  |  |
+ | storeInvoiceUpdatedDate | String? |  yes  |  |
+ | activityComment | String? |  yes  |  |
+ | fulfilmentPriorityText | String? |  yes  |  |
+ | shipmentTags | ArrayList<[ShipmentTags](#ShipmentTags)>? |  yes  |  |
+ | external | HashMap<String,Object>? |  yes  |  |
+ | ewaybillInfo | HashMap<String,Object>? |  yes  |  |
+ | lockData | [LockData](#LockData)? |  yes  |  |
+ | orderType | String? |  yes  |  |
+ | shipmentVolumetricWeight | Double? |  yes  |  |
+ | dpSortKey | String? |  yes  |  |
+ | packagingName | String? |  yes  |  |
+ | timestamp | [ShipmentTimeStamp](#ShipmentTimeStamp)? |  yes  |  |
+ | autoTriggerDpAssignmentAcf | Boolean |  no  |  |
+ | weight | Double? |  yes  |  |
+ | bagWeight | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -9397,20 +7607,16 @@ Sucessfully Created the Template Url.
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | orderDate | String? |  yes  |  |
- | orderCreatedTs | String? |  yes  |  |
  | shipmentStatus | [ShipmentStatus](#ShipmentStatus)? |  yes  |  |
  | user | [UserDataInfo](#UserDataInfo)? |  yes  |  |
  | estimatedSlaTime | String? |  yes  |  |
- | estimatedSlaTs | String? |  yes  |  |
  | deliveryAddress | [PlatformDeliveryAddress](#PlatformDeliveryAddress)? |  yes  |  |
  | channel | [ShipmentListingChannel](#ShipmentListingChannel)? |  yes  |  |
  | previousShipmentId | String? |  yes  |  |
  | lockStatus | Boolean? |  yes  |  |
  | invoiceId | String? |  yes  |  |
  | paymentMethods | HashMap<String,Object>? |  yes  |  |
- | paymentInfo | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | statusCreatedAt | String? |  yes  |  |
- | statusCreatedTs | String? |  yes  |  |
  | displayName | String? |  yes  |  |
  | bags | ArrayList<[BagUnit](#BagUnit)>? |  yes  |  |
  | fulfillingStore | [ShipmentItemFulFillingStore](#ShipmentItemFulFillingStore)? |  yes  |  |
@@ -9425,9 +7631,22 @@ Sucessfully Created the Template Url.
  | totalBags | Integer |  no  |  |
  | shipmentCreatedAt | String |  no  |  |
  | modeOfPayment | String? |  yes  |  |
- | shipmentCreatedTs | String? |  yes  |  |
- | currency | [Currency](#Currency)? |  yes  |  |
- | currencyInfo | [CurrencyInfo](#CurrencyInfo)? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [Page](#Page)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | type | String? |  yes  |  |
+ | hasPrevious | Boolean? |  yes  |  |
+ | hasNext | Boolean? |  yes  |  |
+ | total | Integer? |  yes  |  |
+ | size | Integer? |  yes  |  |
+ | current | Integer? |  yes  |  |
 
 ---
 
@@ -9450,6 +7669,18 @@ Sucessfully Created the Template Url.
 
  
  
+ #### [Error](#Error)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | message | String? |  yes  |  |
+ | success | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [TrackingList](#TrackingList)
 
  | Properties | Type | Nullable | Description |
@@ -9458,7 +7689,6 @@ Sucessfully Created the Template Url.
  | text | String |  no  |  |
  | isCurrent | Boolean? |  yes  |  |
  | time | String? |  yes  |  |
- | createdTs | String? |  yes  |  |
  | status | String |  no  |  |
 
 ---
@@ -9488,13 +7718,11 @@ Sucessfully Created the Template Url.
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | orderDate | String? |  yes  |  |
- | createdTs | String? |  yes  |  |
  | taxDetails | HashMap<String,Object>? |  yes  |  |
  | codCharges | String? |  yes  |  |
  | source | String? |  yes  |  |
  | fyndOrderId | String |  no  |  |
  | affiliateId | String? |  yes  |  |
- | affiliateOrderId | String? |  yes  |  |
  | orderingChannelLogo | HashMap<String,Object>? |  yes  |  |
  | orderValue | String? |  yes  |  |
  | orderingChannel | String? |  yes  |  |
@@ -9521,10 +7749,6 @@ Sucessfully Created the Template Url.
  | state | String |  no  |  |
  | name | String |  no  |  |
  | city | String |  no  |  |
- | stateCode | String? |  yes  |  |
- | countryIsoCode | String? |  yes  |  |
- | countryPhoneCode | String? |  yes  |  |
- | displayAddress | String? |  yes  |  |
 
 ---
 
@@ -9579,8 +7803,6 @@ Sucessfully Created the Template Url.
  | pincode | String? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | address | String? |  yes  |  |
- | address1 | String? |  yes  |  |
- | displayAddress | String? |  yes  |  |
  | id | Integer? |  yes  |  |
  | code | String? |  yes  |  |
  | storeName | String? |  yes  |  |
@@ -9646,56 +7868,6 @@ Sucessfully Created the Template Url.
  | ---------- | ---- | -------- | ----------- |
  | creditNote | HashMap<String,Object>? |  yes  |  |
  | invoice | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [Formatted](#Formatted)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | max | String? |  yes  |  |
- | min | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ShipmentTags](#ShipmentTags)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | slug | String? |  yes  |  |
- | entityType | String? |  yes  |  |
- | displayText | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [LockData](#LockData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | locked | Boolean? |  yes  |  |
- | mto | Boolean? |  yes  |  |
- | lockMessage | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ShipmentTimeStamp](#ShipmentTimeStamp)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | max | Integer? |  yes  |  |
- | min | Integer? |  yes  |  |
 
 ---
 
@@ -9802,6 +7974,32 @@ Sucessfully Created the Template Url.
 
  
  
+ #### [BagGST](#BagGST)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | cgstTaxPercentage | Double? |  yes  |  |
+ | cgstGstFee | String? |  yes  |  |
+ | gstinCode | String? |  yes  |  |
+ | valueOfGood | Double? |  yes  |  |
+ | gstFee | Double? |  yes  |  |
+ | igstTaxPercentage | Double? |  yes  |  |
+ | gstTaxPercentage | Integer? |  yes  |  |
+ | hsnCodeId | String? |  yes  |  |
+ | igstGstFee | String? |  yes  |  |
+ | sgstGstFee | String? |  yes  |  |
+ | taxCollectedAtSource | Double? |  yes  |  |
+ | brandCalculatedAmount | Double? |  yes  |  |
+ | isDefaultHsnCode | Boolean? |  yes  |  |
+ | gstTag | String? |  yes  |  |
+ | sgstTaxPercentage | Double? |  yes  |  |
+ | hsnCode | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [BagConfigs](#BagConfigs)
 
  | Properties | Type | Nullable | Description |
@@ -9818,15 +8016,27 @@ Sucessfully Created the Template Url.
 
  
  
+ #### [ReturnConfig1](#ReturnConfig1)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | returnable | Boolean? |  yes  |  |
+ | time | Double? |  yes  |  |
+ | unit | String? |  yes  |  |
+
+---
+
+
+ 
+ 
  #### [OrderBagArticle](#OrderBagArticle)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | identifiers | HashMap<String,Object>? |  yes  |  |
- | returnConfig | [ReturnConfig](#ReturnConfig)? |  yes  |  |
+ | returnConfig | [ReturnConfig1](#ReturnConfig1)? |  yes  |  |
  | uid | String? |  yes  |  |
  | size | String? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
 
 ---
 
@@ -9868,6 +8078,54 @@ Sucessfully Created the Template Url.
  | ---------- | ---- | -------- | ----------- |
  | mode | String? |  yes  |  |
  | amount | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [GiftCard](#GiftCard)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | giftMessage | String? |  yes  |  |
+ | giftPrice | Integer? |  yes  |  |
+ | displayText | String? |  yes  |  |
+ | isGiftApplied | Boolean? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [B2BPODetails](#B2BPODetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | dockerNumber | String? |  yes  |  |
+ | poLineAmount | Double? |  yes  |  |
+ | totalGstPercentage | Double? |  yes  |  |
+ | partialCanRet | Boolean? |  yes  |  |
+ | poTaxAmount | Double? |  yes  |  |
+ | itemBasePrice | Double? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [BagMeta](#BagMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | giftCard | [GiftCard](#GiftCard)? |  yes  |  |
+ | customMessage | String? |  yes  |  |
+ | docketNumber | String? |  yes  |  |
+ | groupId | String? |  yes  |  |
+ | partialCanRet | Boolean? |  yes  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
+ | b2BPoDetails | [B2BPODetails](#B2BPODetails)? |  yes  |  |
+ | customJson | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -9939,7 +8197,6 @@ Sucessfully Created the Template Url.
  | stateId | Integer? |  yes  |  |
  | id | Integer |  no  |  |
  | createdAt | String? |  yes  |  |
- | createdTs | String? |  yes  |  |
  | shipmentId | String? |  yes  |  |
  | updatedAt | String? |  yes  |  |
  | bagStateMapper | [BagStateMapper](#BagStateMapper)? |  yes  |  |
@@ -9968,7 +8225,6 @@ Sucessfully Created the Template Url.
  | affiliateBagDetails | [AffiliateBagsDetails](#AffiliateBagsDetails)? |  yes  |  |
  | item | [PlatformItem](#PlatformItem)? |  yes  |  |
  | paymentMethods | ArrayList<[BagPaymentMethods](#BagPaymentMethods)>? |  yes  |  |
- | paymentInfo | ArrayList<[BagPaymentMethods](#BagPaymentMethods)>? |  yes  |  |
  | quantity | Integer? |  yes  |  |
  | identifier | String? |  yes  |  |
  | canReturn | Boolean? |  yes  |  |
@@ -9996,8 +8252,6 @@ Sucessfully Created the Template Url.
  | pincode | String |  no  |  |
  | meta | HashMap<String,Object> |  no  |  |
  | address | String |  no  |  |
- | address1 | String? |  yes  |  |
- | displayAddress | String? |  yes  |  |
  | id | Integer |  no  |  |
  | code | String |  no  |  |
  | storeName | String |  no  |  |
@@ -10033,25 +8287,10 @@ Sucessfully Created the Template Url.
  | bagList | ArrayList<String>? |  yes  |  |
  | id | Integer? |  yes  |  |
  | createdAt | String? |  yes  |  |
- | createdTs | String? |  yes  |  |
  | shipmentId | String? |  yes  |  |
  | status | String? |  yes  |  |
  | displayName | String? |  yes  |  |
  | currentShipmentStatus | String? |  yes  |  |
- | statusCreatedAt | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ShipmentLockDetails](#ShipmentLockDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | lockStatus | Boolean? |  yes  |  |
- | lockMessage | String? |  yes  |  |
- | actionToStatus | HashMap<String,Object>? |  yes  |  |
 
 ---
 
@@ -10073,14 +8312,13 @@ Sucessfully Created the Template Url.
  | enableDpTracking | Boolean? |  yes  |  |
  | customMessage | String? |  yes  |  |
  | estimatedSlaTime | String? |  yes  |  |
- | estimatedSlaTs | String? |  yes  |  |
  | canUpdateDimension | Boolean? |  yes  |  |
  | shipmentImages | ArrayList<String>? |  yes  |  |
  | deliveryDetails | [UserDetailsData](#UserDetailsData)? |  yes  |  |
  | billingDetails | [UserDetailsData](#UserDetailsData)? |  yes  |  |
  | forwardShipmentId | String? |  yes  |  |
  | fulfilmentPriority | Integer? |  yes  |  |
- | shipmentDetails | [ShipmentLockDetails](#ShipmentLockDetails)? |  yes  |  |
+ | shipmentDetails | [ShipmentDetails](#ShipmentDetails)? |  yes  |  |
  | customMeta | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | shipmentQuantity | Integer? |  yes  |  |
  | companyDetails | [CompanyDetails](#CompanyDetails)? |  yes  |  |
@@ -10091,7 +8329,6 @@ Sucessfully Created the Template Url.
  | dpDetails | [DPDetailsData](#DPDetailsData)? |  yes  |  |
  | invoiceId | String? |  yes  |  |
  | paymentMethods | HashMap<String,Object>? |  yes  |  |
- | paymentInfo | ArrayList<HashMap<String,Object>>? |  yes  |  |
  | coupon | HashMap<String,Object>? |  yes  |  |
  | affiliateDetails | [AffiliateDetails](#AffiliateDetails)? |  yes  |  |
  | priorityText | String? |  yes  |  |
@@ -10114,9 +8351,6 @@ Sucessfully Created the Template Url.
  | status | [ShipmentStatusData](#ShipmentStatusData)? |  yes  |  |
  | totalBags | Integer? |  yes  |  |
  | shipmentCreatedAt | String? |  yes  |  |
- | shipmentCreatedTs | String? |  yes  |  |
- | currency | [Currency](#Currency)? |  yes  |  |
- | currencyInfo | [CurrencyInfo](#CurrencyInfo)? |  yes  |  |
  | previousShipmentId | String? |  yes  |  |
  | shipmentUpdateTime | Double? |  yes  |  |
  | rtoAddress | [PlatformDeliveryAddress](#PlatformDeliveryAddress)? |  yes  |  |
@@ -10154,19 +8388,77 @@ Sucessfully Created the Template Url.
 
  
  
- #### [PaymentInfoData](#PaymentInfoData)
+ #### [PlatformUserDetails](#PlatformUserDetails)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | meta | HashMap<String,Object>? |  yes  |  |
- | mode | String? |  yes  |  |
- | name | String? |  yes  |  |
- | amount | Double? |  yes  |  |
- | collected | Boolean? |  yes  |  |
- | refundBy | String? |  yes  |  |
- | collectBy | String? |  yes  |  |
- | displayName | String? |  yes  |  |
- | merchantTransactionId | String? |  yes  |  |
+ | platformUserEmployeeCode | String? |  yes  |  |
+ | platformUserFirstName | String? |  yes  |  |
+ | platformUserId | String? |  yes  |  |
+ | platformUserLastName | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [TransactionData](#TransactionData)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | currency | String? |  yes  |  |
+ | amountPaid | Double? |  yes  |  |
+ | paymentId | String? |  yes  |  |
+ | uniqueReferenceNumber | String? |  yes  |  |
+ | terminalId | String? |  yes  |  |
+ | entity | String? |  yes  |  |
+ | transactionId | String? |  yes  |  |
+ | status | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [BillingStaffDetails](#BillingStaffDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | firstName | String? |  yes  |  |
+ | lastName | String? |  yes  |  |
+ | staffId | Integer? |  yes  |  |
+ | employeeCode | String? |  yes  |  |
+ | user | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [OrderMeta](#OrderMeta)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | platformUserDetails | [PlatformUserDetails](#PlatformUserDetails)? |  yes  |  |
+ | companyLogo | String? |  yes  |  |
+ | currencySymbol | String? |  yes  |  |
+ | comment | String? |  yes  |  |
+ | extraMeta | HashMap<String,Object>? |  yes  |  |
+ | files | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | transactionData | [TransactionData](#TransactionData)? |  yes  |  |
+ | billingStaffDetails | [BillingStaffDetails](#BillingStaffDetails)? |  yes  |  |
+ | orderingStore | Integer? |  yes  |  |
+ | paymentType | String? |  yes  |  |
+ | mongoCartId | Integer? |  yes  |  |
+ | orderChildEntities | ArrayList<String>? |  yes  |  |
+ | orderType | String? |  yes  |  |
+ | orderPlatform | String? |  yes  |  |
+ | employeeId | String? |  yes  |  |
+ | orderTags | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | customerNote | String? |  yes  |  |
+ | staff | HashMap<String,Object>? |  yes  |  |
+ | cartId | Integer? |  yes  |  |
+ | cartObjectId | String? |  yes  |  |
 
 ---
 
@@ -10178,13 +8470,11 @@ Sucessfully Created the Template Url.
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | orderDate | String |  no  |  |
- | createdTs | String? |  yes  |  |
  | taxDetails | [TaxDetails](#TaxDetails)? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | fyndOrderId | String |  no  |  |
  | prices | [Prices](#Prices)? |  yes  |  |
  | paymentMethods | HashMap<String,Object>? |  yes  |  |
- | paymentInfo | ArrayList<[PaymentInfoData](#PaymentInfoData)>? |  yes  |  |
 
 ---
 
@@ -10277,15 +8567,12 @@ Sucessfully Created the Template Url.
  | totalOrderValue | Double? |  yes  |  |
  | meta | HashMap<String,Object>? |  yes  |  |
  | orderCreatedTime | String? |  yes  |  |
- | orderCreatedTs | String? |  yes  |  |
  | paymentMode | String? |  yes  |  |
  | shipments | ArrayList<[PlatformShipment](#PlatformShipment)>? |  yes  |  |
  | orderId | String? |  yes  |  |
  | channel | [PlatformChannel](#PlatformChannel)? |  yes  |  |
  | userInfo | [UserDataInfo](#UserDataInfo)? |  yes  |  |
  | orderValue | Double? |  yes  |  |
- | currency | [Currency](#Currency)? |  yes  |  |
- | currencyInfo | [CurrencyInfo](#CurrencyInfo)? |  yes  |  |
 
 ---
 
@@ -10334,6 +8621,38 @@ Sucessfully Created the Template Url.
  | ---------- | ---- | -------- | ----------- |
  | meta | HashMap<String,Object>? |  yes  |  |
  | results | ArrayList<[PlatformTrack](#PlatformTrack)>? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [FilterInfoOption](#FilterInfoOption)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | value | String? |  yes  |  |
+ | text | String? |  yes  |  |
+ | showUi | Boolean? |  yes  |  |
+ | placeholderText | String? |  yes  |  |
+ | minSearchSize | Integer? |  yes  |  |
+ | name | String? |  yes  |  |
+
+---
+
+
+ 
+ 
+ #### [FiltersInfo](#FiltersInfo)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | value | String |  no  |  |
+ | type | String |  no  |  |
+ | text | String |  no  |  |
+ | options | ArrayList<[FilterInfoOption](#FilterInfoOption)>? |  yes  |  |
+ | placeholderText | String? |  yes  |  |
+ | required | Boolean? |  yes  |  |
 
 ---
 
@@ -10466,6 +8785,32 @@ Sucessfully Created the Template Url.
 
  
  
+ #### [BagGSTDetails](#BagGSTDetails)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | cgstTaxPercentage | Double |  no  |  |
+ | cgstGstFee | String |  no  |  |
+ | gstinCode | String? |  yes  |  |
+ | valueOfGood | Double |  no  |  |
+ | gstFee | Double |  no  |  |
+ | igstTaxPercentage | Double |  no  |  |
+ | gstTaxPercentage | Double |  no  |  |
+ | hsnCodeId | String |  no  |  |
+ | igstGstFee | String |  no  |  |
+ | sgstGstFee | String |  no  |  |
+ | taxCollectedAtSource | Double |  no  |  |
+ | brandCalculatedAmount | Double |  no  |  |
+ | isDefaultHsnCode | Boolean? |  yes  |  |
+ | gstTag | String |  no  |  |
+ | sgstTaxPercentage | Double |  no  |  |
+ | hsnCode | String |  no  |  |
+
+---
+
+
+ 
+ 
  #### [StoreAddress](#StoreAddress)
 
  | Properties | Type | Nullable | Description |
@@ -10476,7 +8821,6 @@ Sucessfully Created the Template Url.
  | pincode | Integer |  no  |  |
  | addressType | String |  no  |  |
  | address1 | String |  no  |  |
- | displayAddress | String? |  yes  |  |
  | version | String? |  yes  |  |
  | addressCategory | String |  no  |  |
  | city | String |  no  |  |
@@ -10597,23 +8941,23 @@ Sucessfully Created the Template Url.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | phone | String |  no  |  |
+ | phone | Integer |  no  |  |
  | isActive | Boolean? |  yes  |  |
  | companyId | Integer |  no  |  |
  | alohomoraUserId | Integer? |  yes  |  |
  | createdAt | String |  no  |  |
  | contactPerson | String |  no  |  |
+ | brandId | Object? |  yes  |  |
  | storeEmail | String |  no  |  |
  | isEnabledForRecon | Boolean? |  yes  |  |
  | pincode | String |  no  |  |
  | mallArea | String? |  yes  |  |
  | vatNo | String? |  yes  |  |
  | address1 | String |  no  |  |
- | displayAddress | String? |  yes  |  |
  | storeActiveFrom | String? |  yes  |  |
  | city | String |  no  |  |
  | name | String |  no  |  |
- | longitude | Double? |  yes  |  |
+ | longitude | Double |  no  |  |
  | brandStoreTags | ArrayList<String>? |  yes  |  |
  | orderIntegrationId | String? |  yes  |  |
  | parentStoreId | Integer? |  yes  |  |
@@ -10623,14 +8967,14 @@ Sucessfully Created the Template Url.
  | updatedAt | String? |  yes  |  |
  | storeAddressJson | [StoreAddress](#StoreAddress)? |  yes  |  |
  | meta | [StoreMeta](#StoreMeta) |  no  |  |
- | sId | String? |  yes  |  |
+ | sId | String |  no  |  |
  | state | String |  no  |  |
  | country | String |  no  |  |
  | packagingMaterialCount | Integer? |  yes  |  |
  | isArchived | Boolean? |  yes  |  |
- | loginUsername | String? |  yes  |  |
+ | loginUsername | String |  no  |  |
  | mallName | String? |  yes  |  |
- | latitude | Double? |  yes  |  |
+ | latitude | Double |  no  |  |
  | address2 | String? |  yes  |  |
 
 ---
@@ -10647,15 +8991,14 @@ Sucessfully Created the Template Url.
  | invoicePrefix | String? |  yes  |  |
  | creditNoteAllowed | Boolean? |  yes  |  |
  | startDate | String? |  yes  |  |
- | company | String? |  yes  |  |
+ | company | String |  no  |  |
  | isVirtualInvoice | Boolean? |  yes  |  |
  | scriptLastRan | String? |  yes  |  |
  | pickupLocation | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
+ | createdOn | Integer? |  yes  |  |
  | brandName | String |  no  |  |
- | brandId | Integer? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | id | Integer? |  yes  |  |
+ | brandId | Integer |  no  |  |
+ | modifiedOn | Integer? |  yes  |  |
 
 ---
 
@@ -10715,187 +9058,15 @@ Sucessfully Created the Template Url.
 
  
  
- #### [ArticleStatusDetails](#ArticleStatusDetails)
+ #### [BagReturnableCancelableStatus1](#BagReturnableCancelableStatus1)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | status | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [Company](#Company)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | panNo | String? |  yes  |  |
- | createdOn | String? |  yes  |  |
- | id | Integer? |  yes  |  |
- | companyName | String? |  yes  |  |
- | gstNumber | String? |  yes  |  |
- | companyType | String? |  yes  |  |
- | modifiedOn | String? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | businessType | String? |  yes  |  |
- | agreementStartDate | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [ShipmentGstDetails](#ShipmentGstDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | valueOfGood | Double? |  yes  |  |
- | gstFee | Double? |  yes  |  |
- | brandCalculatedAmount | Double? |  yes  |  |
- | taxCollectedAtSource | Double? |  yes  |  |
- | gstinCode | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [DeliverySlotDetails](#DeliverySlotDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | slot | String? |  yes  |  |
- | upperBound | String? |  yes  |  |
- | lowerBound | String? |  yes  |  |
- | date | String? |  yes  |  |
- | type | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [InvoiceDetails](#InvoiceDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | updatedDate | String? |  yes  |  |
- | storeInvoiceId | String? |  yes  |  |
- | invoiceUrl | String? |  yes  |  |
- | labelUrl | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [UserDetails](#UserDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | userOid | String? |  yes  |  |
- | externalCustomerId | String? |  yes  |  |
- | firstName | String? |  yes  |  |
- | lastName | String? |  yes  |  |
- | mobile | String? |  yes  |  |
- | email | String? |  yes  |  |
- | isAnonymousUser | Boolean? |  yes  |  |
- | gender | String? |  yes  |  |
- | mongoUserId | String? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
-
----
-
-
- 
- 
- #### [WeightData](#WeightData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | value | Double? |  yes  |  |
- | unit | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [BagDetails](#BagDetails)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | bagUpdateTime | Double? |  yes  |  |
- | id | String? |  yes  |  |
- | bagId | Integer? |  yes  |  |
- | affiliateBagDetails | [AffiliateBagDetails](#AffiliateBagDetails)? |  yes  |  |
- | affiliateDetails | [AffiliateDetails](#AffiliateDetails)? |  yes  |  |
- | appliedPromos | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | article | [Article](#Article)? |  yes  |  |
- | articleDetails | [ArticleStatusDetails](#ArticleStatusDetails)? |  yes  |  |
- | bagStatus | ArrayList<[BagStatusHistory](#BagStatusHistory)>? |  yes  |  |
- | bagStatusHistory | [BagStatusHistory](#BagStatusHistory)? |  yes  |  |
- | brand | [Brand](#Brand)? |  yes  |  |
- | company | [Company](#Company)? |  yes  |  |
- | currentOperationalStatus | [BagStatusHistory](#BagStatusHistory)? |  yes  |  |
- | currentStatus | [BagStatusHistory](#BagStatusHistory)? |  yes  |  |
- | dates | [Dates](#Dates)? |  yes  |  |
- | deliveryAddress | [PlatformDeliveryAddress](#PlatformDeliveryAddress)? |  yes  |  |
- | deliverySlot | [DeliverySlotDetails](#DeliverySlotDetails)? |  yes  |  |
- | displayName | String? |  yes  |  |
- | dpDetails | HashMap<String,Object>? |  yes  |  |
- | einvoiceInfo | HashMap<String,Object>? |  yes  |  |
- | entityType | String? |  yes  |  |
- | fallbackUser | HashMap<String,Object>? |  yes  |  |
- | financialBreakup | ArrayList<[FinancialBreakup](#FinancialBreakup)>? |  yes  |  |
- | fulfillingStore | [Store](#Store)? |  yes  |  |
- | fyndstoreEmp | HashMap<String,Object>? |  yes  |  |
- | gstDetails | [GSTDetailsData](#GSTDetailsData)? |  yes  |  |
- | invoice | [InvoiceDetails](#InvoiceDetails)? |  yes  |  |
- | item | [Item](#Item)? |  yes  |  |
- | journeyType | String? |  yes  |  |
- | lineNumber | Integer? |  yes  |  |
- | lockStatus | Boolean? |  yes  |  |
- | manifestId | String? |  yes  |  |
- | meta | HashMap<String,Object>? |  yes  |  |
- | modeOfPayment | String? |  yes  |  |
- | noOfBagsOrder | Integer? |  yes  |  |
- | operationalStatus | String? |  yes  |  |
- | order | [OrderDetails](#OrderDetails)? |  yes  |  |
- | orderIntegrationId | String? |  yes  |  |
- | orderType | String? |  yes  |  |
- | orderValue | Double? |  yes  |  |
- | orderingStore | [Store](#Store)? |  yes  |  |
- | parentPromoBags | HashMap<String,Object>? |  yes  |  |
- | paymentMethods | HashMap<String,Object>? |  yes  |  |
- | paymentType | String? |  yes  |  |
- | payments | HashMap<String,Object>? |  yes  |  |
- | prices | [Prices](#Prices)? |  yes  |  |
- | qcRequired | Boolean? |  yes  |  |
- | quantity | Double? |  yes  |  |
- | reasons | ArrayList<HashMap<String,Object>>? |  yes  |  |
- | restoreCoupon | Boolean? |  yes  |  |
- | restorePromos | HashMap<String,Object>? |  yes  |  |
- | rtoAddress | [PlatformDeliveryAddress](#PlatformDeliveryAddress)? |  yes  |  |
- | sellerIdentifier | String? |  yes  |  |
- | shipment | [Shipment](#Shipment)? |  yes  |  |
- | shipmentDetails | [ShipmentDetails](#ShipmentDetails)? |  yes  |  |
- | shipmentId | String? |  yes  |  |
- | shipmentGst | [ShipmentGstDetails](#ShipmentGstDetails)? |  yes  |  |
- | shipmentStatus | [ShipmentStatusData](#ShipmentStatusData)? |  yes  |  |
- | shipmentStatusHistory | ArrayList<[ShipmentStatusData](#ShipmentStatusData)>? |  yes  |  |
- | status | [BagReturnableCancelableStatus](#BagReturnableCancelableStatus)? |  yes  |  |
- | tags | ArrayList<String>? |  yes  |  |
- | totalShipmentBags | Integer? |  yes  |  |
- | totalShipmentsInOrder | Integer? |  yes  |  |
- | transactionType | String? |  yes  |  |
- | type | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | user | [UserDetails](#UserDetails)? |  yes  |  |
- | weight | [WeightData](#WeightData)? |  yes  |  |
- | originalBagList | ArrayList<Integer>? |  yes  |  |
- | identifier | String? |  yes  |  |
+ | isReturnable | Boolean |  no  |  |
+ | isActive | Boolean |  no  |  |
+ | canBeCancelled | Boolean |  no  |  |
+ | enableTracking | Boolean |  no  |  |
+ | isCustomerReturnAllowed | Boolean |  no  |  |
 
 ---
 
@@ -10906,8 +9077,45 @@ Sucessfully Created the Template Url.
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | statusCode | Integer? |  yes  |  |
- | data | [BagDetails](#BagDetails)? |  yes  |  |
+ | bagUpdateTime | Double? |  yes  |  |
+ | id | Integer? |  yes  |  |
+ | gstDetails | [GSTDetailsData](#GSTDetailsData)? |  yes  |  |
+ | parentPromoBags | HashMap<String,Object>? |  yes  |  |
+ | tags | ArrayList<String>? |  yes  |  |
+ | financialBreakup | ArrayList<[FinancialBreakup](#FinancialBreakup)>? |  yes  |  |
+ | bagStatus | ArrayList<[BagStatusHistory](#BagStatusHistory)>? |  yes  |  |
+ | sellerIdentifier | String? |  yes  |  |
+ | originalBagList | ArrayList<Integer>? |  yes  |  |
+ | articleDetails | [ArticleDetails](#ArticleDetails)? |  yes  |  |
+ | currentOperationalStatus | [BagStatusHistory](#BagStatusHistory)? |  yes  |  |
+ | orderingStore | [Store](#Store)? |  yes  |  |
+ | article | [Article](#Article)? |  yes  |  |
+ | brand | [Brand](#Brand)? |  yes  |  |
+ | affiliateBagDetails | [AffiliateBagDetails](#AffiliateBagDetails)? |  yes  |  |
+ | item | [Item](#Item)? |  yes  |  |
+ | qcRequired | Object? |  yes  |  |
+ | identifier | String? |  yes  |  |
+ | quantity | Double? |  yes  |  |
+ | restorePromos | HashMap<String,Object>? |  yes  |  |
+ | affiliateDetails | [AffiliateDetails](#AffiliateDetails)? |  yes  |  |
+ | reasons | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | bagStatusHistory | [BagStatusHistory](#BagStatusHistory)? |  yes  |  |
+ | displayName | String? |  yes  |  |
+ | type | String? |  yes  |  |
+ | lineNumber | Integer? |  yes  |  |
+ | restoreCoupon | Boolean? |  yes  |  |
+ | meta | HashMap<String,Object>? |  yes  |  |
+ | noOfBagsOrder | Integer? |  yes  |  |
+ | appliedPromos | ArrayList<HashMap<String,Object>>? |  yes  |  |
+ | journeyType | String? |  yes  |  |
+ | prices | [Prices](#Prices)? |  yes  |  |
+ | dates | [Dates](#Dates)? |  yes  |  |
+ | shipmentId | String? |  yes  |  |
+ | currentStatus | [BagStatusHistory](#BagStatusHistory)? |  yes  |  |
+ | orderIntegrationId | String? |  yes  |  |
+ | operationalStatus | String? |  yes  |  |
+ | entityType | String? |  yes  |  |
+ | status | [BagReturnableCancelableStatus1](#BagReturnableCancelableStatus1)? |  yes  |  |
 
 ---
 
@@ -10929,24 +9137,12 @@ Sucessfully Created the Template Url.
 
  
  
- #### [BagData](#BagData)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[BagDetails](#BagDetails)>? |  yes  |  |
- | page | [BagsPage](#BagsPage)? |  yes  |  |
-
----
-
-
- 
- 
  #### [GetBagsPlatformResponse](#GetBagsPlatformResponse)
 
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
- | statusCode | Integer? |  yes  |  |
- | data | [BagData](#BagData)? |  yes  |  |
+ | items | ArrayList<[BagDetailsPlatformResponse](#BagDetailsPlatformResponse)> |  no  |  |
+ | page | [BagsPage](#BagsPage) |  no  |  |
 
 ---
 
@@ -10963,56 +9159,6 @@ Sucessfully Created the Template Url.
  | invoiceReceipt | String? |  yes  |  |
  | paymentReceipt | String? |  yes  |  |
  | merchantCnReceipt | String? |  yes  |  |
- | paymentReceiptTemplate | String? |  yes  |  |
- | customerCnReceiptTemplate | String? |  yes  |  |
- | invoiceReceiptTemplate | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Templates](#Templates)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | text | String? |  yes  |  |
- | value | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [AllowedTemplatesResponse](#AllowedTemplatesResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | templateXSlug | ArrayList<[Templates](#Templates)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [TemplateDownloadResponse](#TemplateDownloadResponse)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | fileName | String? |  yes  |  |
- | url | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [Error](#Error)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | message | String? |  yes  |  |
- | success | Boolean? |  yes  |  |
 
 ---
 

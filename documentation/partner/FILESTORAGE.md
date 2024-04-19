@@ -291,7 +291,7 @@ Success
           "relative_url": "https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyndnp/wrkr/addsale/brands/pictures/square-logo/original/uY0P_ZtIz-logo.png"
         },
         "upload": {
-          "url": "https://fynd-staging-assets.s3-accelerate.amazonaws.com/addsale/brands/pictures/square-logo/original/uY0P_ZtIz-logo.png?Content-Type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=%2F20230820%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230820T101213Z&X-Amz-Expires=1800&X-Amz-Signature=04915b14aec15712abdea3c340d5dc43729e7c982a4994650488c0150c22b0ae&X-Amz-SignedHeaders=host%3Bx-amz-acl&x-amz-acl=public-read",
+          "url": "https://fynd-staging-assets.s3-accelerate.amazonaws.com",
           "expiry": 1800
         },
         "created_by": {
@@ -380,6 +380,17 @@ Success
 
  
  
+ #### [Params](#Params)
+
+ | Properties | Type | Nullable | Description |
+ | ---------- | ---- | -------- | ----------- |
+ | subpath | String? |  yes  | The subpath for the file. |
+
+---
+
+
+ 
+ 
  #### [StartRequest](#StartRequest)
 
  | Properties | Type | Nullable | Description |
@@ -388,7 +399,7 @@ Success
  | contentType | String |  no  |  |
  | size | Integer |  no  |  |
  | tags | ArrayList<String>? |  yes  |  |
- | params | HashMap<String,Object>? |  yes  |  |
+ | params | [Params](#Params)? |  yes  |  |
 
 ---
 

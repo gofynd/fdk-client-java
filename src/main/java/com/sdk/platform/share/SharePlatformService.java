@@ -90,15 +90,15 @@ public class ApplicationClient {
         }    
     }
 
-    public SharePlatformModels.ShortLinkList getShortLinks(Integer pageNo, Integer pageSize, String createdBy, String active, String shortUrl, String originalUrl, String title) throws FDKServerResponseError, FDKException {
-        return this.getShortLinks(pageNo, pageSize, createdBy, active, shortUrl, originalUrl, title, new HashMap<>());
+    public SharePlatformModels.ShortLinkList getShortLinks(Integer pageNo, Integer pageSize, String createdBy, String active, String q) throws FDKServerResponseError, FDKException {
+        return this.getShortLinks(pageNo, pageSize, createdBy, active, q, new HashMap<>());
     }
 
-    public SharePlatformModels.ShortLinkList getShortLinks(Integer pageNo, Integer pageSize, String createdBy, String active, String shortUrl, String originalUrl, String title, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public SharePlatformModels.ShortLinkList getShortLinks(Integer pageNo, Integer pageSize, String createdBy, String active, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<SharePlatformModels.ShortLinkList> response = null;
             try {
-            response = sharePlatformApiList.getShortLinks(this.companyId, this.applicationId, pageNo, pageSize, createdBy, active, shortUrl, originalUrl, title, requestHeaders).execute();
+            response = sharePlatformApiList.getShortLinks(this.companyId, this.applicationId, pageNo, pageSize, createdBy, active, q, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

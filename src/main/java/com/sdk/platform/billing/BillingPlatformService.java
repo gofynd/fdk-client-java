@@ -531,24 +531,16 @@ public class BillingPlatformService {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
 
-    public BillingPlatformModels.SubscriptionLimit getFeatureLimitConfig(String productSuite, String type) throws FDKServerResponseError, FDKException {
-        return this.getFeatureLimitConfig(productSuite, type, new HashMap<>());
+    public BillingPlatformModels.SubscriptionLimit getFeatureLimitConfig() throws FDKServerResponseError, FDKException {
+        return this.getFeatureLimitConfig(new HashMap<>());
     }
 
-    public BillingPlatformModels.SubscriptionLimit getFeatureLimitConfig(String productSuite, String type, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public BillingPlatformModels.SubscriptionLimit getFeatureLimitConfig(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<BillingPlatformModels.SubscriptionLimit> response = null;
             try {
-                response = billingPlatformApiList.getFeatureLimitConfig(this.companyId, productSuite, type, requestHeaders).execute();
+                response = billingPlatformApiList.getFeatureLimitConfig(this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -749,66 +741,6 @@ public class BillingPlatformService {
             Response<BillingPlatformModels.SubscribePlanRes> response = null;
             try {
                 response = billingPlatformApiList.subscripePlan(this.companyId, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    public BillingPlatformModels.EntityResponse getentityDetail(String entityName, String entityId, String channel, String component, String componentName) throws FDKServerResponseError, FDKException {
-        return this.getentityDetail(entityName, entityId, channel, component, componentName, new HashMap<>());
-    }
-
-    public BillingPlatformModels.EntityResponse getentityDetail(String entityName, String entityId, String channel, String component, String componentName, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<BillingPlatformModels.EntityResponse> response = null;
-            try {
-                response = billingPlatformApiList.getentityDetail(this.companyId, entityName, entityId, channel, component, componentName, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

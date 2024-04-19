@@ -78,24 +78,6 @@ public static class ApplicationInventory{
     
     
     
-    @JsonProperty("pii_masking")
-    private PiiMasking piiMasking;
-    
-    
-    
-    
-    @JsonProperty("tags")
-    private List<String> tags;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Integer v;
-    
-    
-    
-    
     @JsonProperty("business")
     private String business;
     
@@ -144,39 +126,14 @@ public static class ApplicationInventory{
     
     
     
-    @JsonProperty("modified_at")
-    private String modifiedAt;
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     
     
     @JsonProperty("modified_by")
     private String modifiedBy;
-    
-    
-    
-}
-
-
-/*
-    Model: PiiMasking
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PiiMasking{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("enabled")
-    private Boolean enabled;
     
     
     
@@ -265,12 +222,6 @@ public static class AppInventoryConfig{
     
     
     
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
 }
 
 
@@ -298,7 +249,7 @@ public static class InventoryBrand{
     
     
     @JsonProperty("brands")
-    private List<Integer> brands;
+    private List<Object> brands;
     
     
     
@@ -366,7 +317,7 @@ public static class AppStoreRules{
     
     
     @JsonProperty("brands")
-    private List<Integer> brands;
+    private List<Object> brands;
     
     
     
@@ -525,12 +476,6 @@ public static class ArticleAssignmentConfig{
     
     
     
-    
-    @JsonProperty("enforced_stores")
-    private List<Integer> enforcedStores;
-    
-    
-    
 }
 
 
@@ -613,12 +558,6 @@ public static class AppCartConfig{
     
     
     
-    @JsonProperty("international_delivery_charges")
-    private InternationalDeliveryCharges internationalDeliveryCharges;
-    
-    
-    
-    
     @JsonProperty("enabled")
     private Boolean enabled;
     
@@ -651,37 +590,6 @@ public static class AppCartConfig{
     
     @JsonProperty("pan_card")
     private PanCardConfig panCard;
-    
-    
-    
-}
-
-
-/*
-    Model: InternationalDeliveryCharges
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InternationalDeliveryCharges{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("enabled")
-    private Boolean enabled;
-    
-    
-    
-    
-    @JsonProperty("charges")
-    private List<Charges> charges;
     
     
     
@@ -817,12 +725,6 @@ public static class AppPaymentConfig{
     
     @JsonProperty("anonymous_cod")
     private Boolean anonymousCod;
-    
-    
-    
-    
-    @JsonProperty("user_cod_limit")
-    private Double userCodLimit;
     
     
     
@@ -1504,7 +1406,7 @@ public static class BrandsByCompanyResponse{
     
     
     @JsonProperty("brands")
-    private List<CompanyBrandInfo> brands;
+    private CompanyBrandInfo brands;
     
     
     
@@ -1555,12 +1457,6 @@ public static class NotFound{
     
     @JsonProperty("message")
     private String message;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
     
     
     
@@ -1690,7 +1586,7 @@ public static class CreateApplicationRequest{
     
     
     @JsonProperty("configuration")
-    private ApplicationInventory configuration;
+    private AppInventory configuration;
     
     
     
@@ -1830,8 +1726,8 @@ public static class MobileAppConfiguration{
     
     
     
-    @JsonProperty("modified_at")
-    private String modifiedAt;
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     
@@ -1973,7 +1869,7 @@ public static class BuildVersionHistory{
     
     
     @JsonProperty("versions")
-    private List<BuildVersion> versions;
+    private BuildVersion versions;
     
     
     
@@ -2039,20 +1935,14 @@ public static class BuildVersion{
     
     
     
-    @JsonProperty("download_url")
-    private LandingImage downloadUrl;
-    
-    
-    
-    
     @JsonProperty("created_at")
     private String createdAt;
     
     
     
     
-    @JsonProperty("modified_at")
-    private String modifiedAt;
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     
@@ -2112,8 +2002,8 @@ public static class AppSupportedCurrency{
     
     
     
-    @JsonProperty("modified_at")
-    private String modifiedAt;
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     
@@ -2286,12 +2176,6 @@ public static class Domain{
     
     @JsonProperty("is_predefined")
     private Boolean isPredefined;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
     
     
     
@@ -2699,7 +2583,7 @@ public static class IntegrationOptIn{
     
     
     @JsonProperty("companies")
-    private List<String> companies;
+    private List<Object> companies;
     
     
     
@@ -2718,18 +2602,6 @@ public static class IntegrationOptIn{
     
     @JsonProperty("name")
     private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("hidden")
-    private Boolean hidden;
     
     
     
@@ -2758,8 +2630,8 @@ public static class IntegrationOptIn{
     
     
     
-    @JsonProperty("modified_at")
-    private String modifiedAt;
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     
@@ -3079,7 +2951,7 @@ public static class Integration{
     
     
     @JsonProperty("companies")
-    private List<String> companies;
+    private List<Object> companies;
     
     
     
@@ -3102,12 +2974,6 @@ public static class Integration{
     
     
     
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
     @JsonProperty("meta")
     private List<IntegrationMeta> meta;
     
@@ -3116,12 +2982,6 @@ public static class Integration{
     
     @JsonProperty("icon")
     private String icon;
-    
-    
-    
-    
-    @JsonProperty("hidden")
-    private Boolean hidden;
     
     
     
@@ -3138,8 +2998,8 @@ public static class Integration{
     
     
     
-    @JsonProperty("modified_at")
-    private String modifiedAt;
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     
@@ -3248,12 +3108,6 @@ public static class IntegrationLevel{
     
     
     
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
     @JsonProperty("meta")
     private List<IntegrationMeta> meta;
     
@@ -3272,8 +3126,8 @@ public static class IntegrationLevel{
     
     
     
-    @JsonProperty("modified_at")
-    private String modifiedAt;
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     
@@ -3286,18 +3140,6 @@ public static class IntegrationLevel{
     
     @JsonProperty("data")
     private Object data;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
     
     
     
@@ -3449,8 +3291,8 @@ public static class OtherEntity{
     
     
     
-    @JsonProperty("modified_at")
-    private String modifiedAt;
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     
@@ -3575,7 +3417,7 @@ public static class App{
 
 
 /*
-    Model: InventoryConfig
+    Model: AppInventory
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3583,7 +3425,7 @@ public static class App{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InventoryConfig{
+public static class AppInventory{
 
     
 
@@ -3623,31 +3465,6 @@ public static class InventoryConfig{
     
     @JsonProperty("only_verified_products")
     private Boolean onlyVerifiedProducts;
-    
-    
-    
-}
-
-
-/*
-    Model: AppInventory
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AppInventory{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("inventory")
-    private InventoryConfig inventory;
     
     
     
@@ -3709,7 +3526,7 @@ public static class CompaniesResponse{
     
     
     @JsonProperty("items")
-    private List<AppInventoryCompanies> items;
+    private AppInventoryCompanies items;
     
     
     
@@ -3777,7 +3594,7 @@ public static class StoresResponse{
     
     
     @JsonProperty("items")
-    private List<AppInventoryStores> items;
+    private AppInventoryStores items;
     
     
     
@@ -3851,18 +3668,6 @@ public static class AppInventoryStores{
     
     @JsonProperty("company_id")
     private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("address")
-    private HashMap<String,Object> address;
-    
-    
-    
-    
-    @JsonProperty("integration_type")
-    private HashMap<String,Object> integrationType;
     
     
     
@@ -3955,12 +3760,6 @@ public static class DeploymentMeta{
     
     @JsonProperty("app")
     private String app;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Integer v;
     
     
     
@@ -4248,12 +4047,6 @@ public static class OptedCompany{
     
     
     
-    
-    @JsonProperty("id")
-    private Integer id;
-    
-    
-    
 }
 
 
@@ -4281,7 +4074,7 @@ public static class OptedInventory{
     
     
     @JsonProperty("items")
-    private List<Object> items;
+    private Object items;
     
     
     
@@ -4464,8 +4257,8 @@ public static class TokenResponse{
     
     
     
-    @JsonProperty("modified_at")
-    private String modifiedAt;
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     
@@ -5122,18 +4915,6 @@ public static class FyndRewardsCredentials{
     
     
     
-    
-    @JsonProperty("private_key")
-    @Getter(AccessLevel.NONE)
-    private String privateKey_b64;
-
-    public String getPrivate_key_b64() {
-        return new String(Base64.getDecoder()
-                         .decode(this.privateKey_b64));
-    }
-    
-    
-    
 }
 
 
@@ -5416,31 +5197,6 @@ public static class LandingPageFeature{
 
 
 /*
-    Model: ListingPageFeature
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ListingPageFeature{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("sort_on")
-    private String sortOn;
-    
-    
-    
-}
-
-
-/*
     Model: RegistrationPageFeature
 */
 @AllArgsConstructor
@@ -5554,8 +5310,8 @@ public static class AppFeature{
     
     
     
-    @JsonProperty("modified_at")
-    private String modifiedAt;
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     
@@ -5628,12 +5384,6 @@ public static class CommonFeature{
     
     
     
-    @JsonProperty("listing_page")
-    private ListingPageFeature listingPage;
-    
-    
-    
-    
     @JsonProperty("currency")
     private CurrencyFeature currency;
     
@@ -5660,37 +5410,6 @@ public static class CommonFeature{
     
     @JsonProperty("reward_points")
     private RewardPointsConfig rewardPoints;
-    
-    
-    
-    
-    @JsonProperty("international_shipping")
-    private InternationalShipping internationalShipping;
-    
-    
-    
-}
-
-
-/*
-    Model: InternationalShipping
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InternationalShipping{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("enabled")
-    private Boolean enabled;
     
     
     
@@ -6129,8 +5848,8 @@ public static class Currency{
     
     
     
-    @JsonProperty("modified_at")
-    private String modifiedAt;
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     
@@ -6143,18 +5862,6 @@ public static class Currency{
     
     @JsonProperty("symbol")
     private String symbol;
-    
-    
-    
-    
-    @JsonProperty("country_name")
-    private String countryName;
-    
-    
-    
-    
-    @JsonProperty("country_code")
-    private String countryCode;
     
     
     
@@ -6448,8 +6155,8 @@ public static class Application{
     
     
     
-    @JsonProperty("modified_at")
-    private String modifiedAt;
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     
@@ -6504,303 +6211,6 @@ public static class Application{
     
     @JsonProperty("slug")
     private String slug;
-    
-    
-    
-    
-    @JsonProperty("mode")
-    private String mode;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("tokens")
-    private List<TokenSchema> tokens;
-    
-    
-    
-    
-    @JsonProperty("secret")
-    private String secret;
-    
-    
-    
-}
-
-
-/*
-    Model: ApplicationById
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationById{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("website")
-    private ApplicationWebsite website;
-    
-    
-    
-    
-    @JsonProperty("cors")
-    private ApplicationCors cors;
-    
-    
-    
-    
-    @JsonProperty("auth")
-    private ApplicationAuth auth;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("channel_type")
-    private String channelType;
-    
-    
-    
-    
-    @JsonProperty("cache_ttl")
-    private Integer cacheTtl;
-    
-    
-    
-    
-    @JsonProperty("is_internal")
-    private Boolean isInternal;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("owner")
-    private String owner;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("token")
-    private String token;
-    
-    
-    
-    
-    @JsonProperty("redirections")
-    private List<ApplicationRedirections> redirections;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private List<ApplicationMeta> meta;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("modified_at")
-    private String modifiedAt;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Integer v;
-    
-    
-    
-    
-    @JsonProperty("banner")
-    private SecureUrl banner;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private SecureUrl logo;
-    
-    
-    
-    
-    @JsonProperty("favicon")
-    private SecureUrl favicon;
-    
-    
-    
-    
-    @JsonProperty("domains")
-    private List<Domain> domains;
-    
-    
-    
-    
-    @JsonProperty("app_type")
-    private String appType;
-    
-    
-    
-    
-    @JsonProperty("mobile_logo")
-    private SecureUrl mobileLogo;
-    
-    
-    
-    
-    @JsonProperty("domain")
-    private Domain domain;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("mode")
-    private String mode;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("tokens")
-    private List<TokenSchemaID> tokens;
-    
-    
-    
-    
-    @JsonProperty("secret")
-    private String secret;
-    
-    
-    
-}
-
-
-/*
-    Model: TokenSchemaID
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TokenSchemaID{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("token")
-    private String token;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private String createdBy;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-}
-
-
-/*
-    Model: TokenSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TokenSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("token")
-    private String token;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private HashMap<String,Object> createdBy;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
     
     
     
@@ -6826,12 +6236,6 @@ public static class InvalidPayloadRequest{
     
     @JsonProperty("message")
     private String message;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
     
     
     
@@ -7170,7 +6574,7 @@ public static class ApplicationInformation{
     
     
     @JsonProperty("business_highlights")
-    private List<BusinessHighlights> businessHighlights;
+    private BusinessHighlights businessHighlights;
     
     
     
@@ -7187,8 +6591,8 @@ public static class ApplicationInformation{
     
     
     
-    @JsonProperty("modified_at")
-    private String modifiedAt;
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     
@@ -7219,7 +6623,7 @@ public static class InformationAddress{
     
     
     @JsonProperty("loc")
-    private InformationLoc loc;
+    private String loc;
     
     
     
@@ -7288,37 +6692,6 @@ public static class InformationPhone{
 
 
 /*
-    Model: InformationLoc
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InformationLoc{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("coordinates")
-    private List<Integer> coordinates;
-    
-    
-    
-}
-
-
-/*
     Model: InformationSupport
 */
 @AllArgsConstructor
@@ -7336,87 +6709,19 @@ public static class InformationSupport{
     
     
     @JsonProperty("phone")
-    private List<InformationSupportPhone> phone;
+    private List<String> phone;
     
     
     
     
     @JsonProperty("email")
-    private List<InformationSupportEmail> email;
+    private List<String> email;
     
     
     
     
     @JsonProperty("timing")
     private String timing;
-    
-    
-    
-}
-
-
-/*
-    Model: InformationSupportPhone
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InformationSupportPhone{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("number")
-    private String number;
-    
-    
-    
-    
-    @JsonProperty("key")
-    private String key;
-    
-    
-    
-}
-
-
-/*
-    Model: InformationSupportEmail
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InformationSupportEmail{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-    
-    @JsonProperty("key")
-    private String key;
     
     
     
@@ -7973,18 +7278,6 @@ public static class ApplicationDetail{
     
     
     
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
 }
 
 
@@ -8030,12 +7323,6 @@ public static class AppCurrencyResponse{
     
     
     
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
     @JsonProperty("application")
     private String application;
     
@@ -8050,18 +7337,6 @@ public static class AppCurrencyResponse{
     
     @JsonProperty("supported_currency")
     private List<Currency> supportedCurrency;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("modified_at")
-    private String modifiedAt;
     
     
     
@@ -8154,24 +7429,6 @@ public static class OptedStoreAddress{
     
     @JsonProperty("city")
     private String city;
-    
-    
-    
-    
-    @JsonProperty("sector")
-    private String sector;
-    
-    
-    
-    
-    @JsonProperty("country_code")
-    private String countryCode;
-    
-    
-    
-    
-    @JsonProperty("state_code")
-    private String stateCode;
     
     
     

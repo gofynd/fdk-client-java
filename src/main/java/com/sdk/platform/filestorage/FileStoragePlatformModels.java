@@ -252,7 +252,7 @@ public static class StartRequest{
     
     
     @JsonProperty("params")
-    private HashMap<String,Object> params;
+    private Params params;
     
     
     
@@ -641,6 +641,123 @@ public static class InvoiceTypesResponse{
 
 
 /*
+    Model: Inr
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Inr{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+    
+    @JsonProperty("symbol")
+    private String symbol;
+    
+    
+    
+    
+    @JsonProperty("sub_unit")
+    private String subUnit;
+    
+    
+    
+}
+
+
+/*
+    Model: Usd
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Usd{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+    
+    @JsonProperty("symbol")
+    private String symbol;
+    
+    
+    
+    
+    @JsonProperty("sub_unit")
+    private String subUnit;
+    
+    
+    
+}
+
+
+/*
+    Model: Rates
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Rates{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("inr")
+    private Inr inr;
+    
+    
+    
+    
+    @JsonProperty("usd")
+    private Usd usd;
+    
+    
+    
+}
+
+
+/*
     Model: ConversionRate
 */
 @AllArgsConstructor
@@ -664,7 +781,7 @@ public static class ConversionRate{
     
     
     @JsonProperty("rates")
-    private HashMap<String,Object> rates;
+    private Rates rates;
     
     
     
@@ -708,18 +825,6 @@ public static class DeliveryPartnerDetail{
     
     @JsonProperty("awb_number")
     private String awbNumber;
-    
-    
-    
-    
-    @JsonProperty("origin")
-    private String origin;
-    
-    
-    
-    
-    @JsonProperty("destination")
-    private String destination;
     
     
     
@@ -797,30 +902,6 @@ public static class PaymentData{
     
     
     
-    
-    @JsonProperty("time")
-    private String time;
-    
-    
-    
-    
-    @JsonProperty("mode")
-    private String mode;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private HashMap<String,Object> meta;
-    
-    
-    
 }
 
 
@@ -879,30 +960,6 @@ public static class InvoiceDetail{
     
     @JsonProperty("upi_qrcode")
     private String upiQrcode;
-    
-    
-    
-    
-    @JsonProperty("device_id")
-    private String deviceId;
-    
-    
-    
-    
-    @JsonProperty("marketplace_invoice_id")
-    private String marketplaceInvoiceId;
-    
-    
-    
-    
-    @JsonProperty("marketplace_shipment_id")
-    private String marketplaceShipmentId;
-    
-    
-    
-    
-    @JsonProperty("channel_order_id")
-    private String channelOrderId;
     
     
     
@@ -1009,48 +1066,6 @@ public static class CompanyDetail{
     
     
     
-    
-    @JsonProperty("display_address")
-    private String displayAddress;
-    
-    
-    
-    
-    @JsonProperty("sector")
-    private String sector;
-    
-    
-    
-    
-    @JsonProperty("phone")
-    private HashMap<String,Object> phone;
-    
-    
-    
-    
-    @JsonProperty("trn")
-    private String trn;
-    
-    
-    
-    
-    @JsonProperty("vat")
-    private String vat;
-    
-    
-    
-    
-    @JsonProperty("business_country_timezone")
-    private String businessCountryTimezone;
-    
-    
-    
-    
-    @JsonProperty("business_country_currency")
-    private HashMap<String,Object> businessCountryCurrency;
-    
-    
-    
 }
 
 
@@ -1121,24 +1136,6 @@ public static class StoreDetail{
     
     @JsonProperty("gstin")
     private String gstin;
-    
-    
-    
-    
-    @JsonProperty("display_address")
-    private String displayAddress;
-    
-    
-    
-    
-    @JsonProperty("sector")
-    private String sector;
-    
-    
-    
-    
-    @JsonProperty("store_id")
-    private String storeId;
     
     
     
@@ -1221,24 +1218,6 @@ public static class CustomerBillingDetail{
     
     
     
-    
-    @JsonProperty("display_address")
-    private String displayAddress;
-    
-    
-    
-    
-    @JsonProperty("sector")
-    private String sector;
-    
-    
-    
-    
-    @JsonProperty("email")
-    private String email;
-    
-    
-    
 }
 
 
@@ -1318,18 +1297,6 @@ public static class CustomerShippingDetail{
     
     
     
-    
-    @JsonProperty("display_address")
-    private String displayAddress;
-    
-    
-    
-    
-    @JsonProperty("sector")
-    private String sector;
-    
-    
-    
 }
 
 
@@ -1394,18 +1361,6 @@ public static class ReturnDetail{
     
     @JsonProperty("gstin")
     private String gstin;
-    
-    
-    
-    
-    @JsonProperty("display_address")
-    private String displayAddress;
-    
-    
-    
-    
-    @JsonProperty("sector")
-    private String sector;
     
     
     
@@ -1667,18 +1622,6 @@ public static class ItemsProductTable{
     
     
     
-    
-    @JsonProperty("meta")
-    private HashMap<String,Object> meta;
-    
-    
-    
-    
-    @JsonProperty("country_of_origin")
-    private String countryOfOrigin;
-    
-    
-    
 }
 
 
@@ -1743,60 +1686,6 @@ public static class ProductTable{
     
     @JsonProperty("total_in_words")
     private String totalInWords;
-    
-    
-    
-    
-    @JsonProperty("gift_price")
-    private Double giftPrice;
-    
-    
-    
-    
-    @JsonProperty("total_quantity")
-    private Double totalQuantity;
-    
-    
-    
-    
-    @JsonProperty("sub_total")
-    private Double subTotal;
-    
-    
-    
-    
-    @JsonProperty("discount")
-    private Double discount;
-    
-    
-    
-    
-    @JsonProperty("promotion")
-    private Double promotion;
-    
-    
-    
-    
-    @JsonProperty("coupon")
-    private Double coupon;
-    
-    
-    
-    
-    @JsonProperty("reward")
-    private Double reward;
-    
-    
-    
-    
-    @JsonProperty("round_off")
-    private Double roundOff;
-    
-    
-    
-    
-    @JsonProperty("total_value_of_goods")
-    private Double totalValueOfGoods;
     
     
     
@@ -1932,18 +1821,6 @@ public static class RegisteredCompanyDetail{
     
     @JsonProperty("state_code")
     private String stateCode;
-    
-    
-    
-    
-    @JsonProperty("display_address")
-    private String displayAddress;
-    
-    
-    
-    
-    @JsonProperty("sector")
-    private String sector;
     
     
     
@@ -2187,37 +2064,6 @@ public static class AwbNumberLabelBarcodeGenerator{
 
 
 /*
-    Model: AwbNumberBarcodeGenerator
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AwbNumberBarcodeGenerator{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("method")
-    private String method;
-    
-    
-    
-    
-    @JsonProperty("kwargs")
-    private Kwargs kwargs;
-    
-    
-    
-}
-
-
-/*
     Model: MetaProperty
 */
 @AllArgsConstructor
@@ -2260,12 +2106,6 @@ public static class MetaProperty{
     
     @JsonProperty("awb_number_label_barcode_generator")
     private AwbNumberLabelBarcodeGenerator awbNumberLabelBarcodeGenerator;
-    
-    
-    
-    
-    @JsonProperty("awb_number_barcode_generator")
-    private AwbNumberBarcodeGenerator awbNumberBarcodeGenerator;
     
     
     
@@ -2314,74 +2154,14 @@ public static class DummyTemplateDataPayload{
     
     
     
-    @JsonProperty("is_export")
-    private Boolean isExport;
-    
-    
-    
-    
-    @JsonProperty("is_export_shipment")
-    private Boolean isExportShipment;
+    @JsonProperty("is_international")
+    private Boolean isInternational;
     
     
     
     
     @JsonProperty("app_domain_name")
     private String appDomainName;
-    
-    
-    
-    
-    @JsonProperty("txn_id")
-    private String txnId;
-    
-    
-    
-    
-    @JsonProperty("utr")
-    private String utr;
-    
-    
-    
-    
-    @JsonProperty("po_number")
-    private String poNumber;
-    
-    
-    
-    
-    @JsonProperty("credit_note_id")
-    private String creditNoteId;
-    
-    
-    
-    
-    @JsonProperty("current_date")
-    private String currentDate;
-    
-    
-    
-    
-    @JsonProperty("total_value_of_goods")
-    private Double totalValueOfGoods;
-    
-    
-    
-    
-    @JsonProperty("b2b_buyer_details")
-    private HashMap<String,Object> b2BBuyerDetails;
-    
-    
-    
-    
-    @JsonProperty("is_qwik")
-    private HashMap<String,Object> isQwik;
-    
-    
-    
-    
-    @JsonProperty("order_type")
-    private String orderType;
     
     
     
@@ -2617,12 +2397,6 @@ public static class DummyTemplateData{
     
     @JsonProperty("payload")
     private DummyTemplateDataPayload payload;
-    
-    
-    
-    
-    @JsonProperty("country_code")
-    private String countryCode;
     
     
     
@@ -3372,31 +3146,6 @@ public static class PaymentReceiptMeta{
     
     @JsonProperty("trace")
     private String trace;
-    
-    
-    
-}
-
-
-/*
-    Model: ExtensionSlug
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ExtensionSlug{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("extension_slug")
-    private String extensionSlug;
     
     
     

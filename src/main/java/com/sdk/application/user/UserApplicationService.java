@@ -38,15 +38,17 @@ import com.sdk.application.*;
         relativeUrls.put("loginWithEmailAndPassword","/service/application/user/authentication/v1.0/login/password".substring(1));
         relativeUrls.put("sendResetPasswordEmail","/service/application/user/authentication/v1.0/login/password/reset".substring(1));
         relativeUrls.put("sendResetPasswordMobile","/service/application/user/authentication/v1.0/login/password/mobile/reset".substring(1));
-        relativeUrls.put("sendResetToken","/service/application/user/authentication/v1.0/login/password/reset/token".substring(1));
         relativeUrls.put("forgotPassword","/service/application/user/authentication/v1.0/login/password/reset/forgot".substring(1));
         relativeUrls.put("resetForgotPassword","/service/application/user/authentication/v1.0/login/password/forgot".substring(1));
+        relativeUrls.put("sendResetToken","/service/application/user/authentication/v1.0/login/password/reset/token".substring(1));
         relativeUrls.put("loginWithToken","/service/application/user/authentication/v1.0/login/token".substring(1));
         relativeUrls.put("registerWithForm","/service/application/user/authentication/v1.0/register/form".substring(1));
         relativeUrls.put("verifyEmail","/service/application/user/authentication/v1.0/verify/email".substring(1));
         relativeUrls.put("verifyMobile","/service/application/user/authentication/v1.0/verify/mobile".substring(1));
         relativeUrls.put("hasPassword","/service/application/user/authentication/v1.0/has-password".substring(1));
         relativeUrls.put("updatePassword","/service/application/user/authentication/v1.0/password".substring(1));
+        relativeUrls.put("deleteUser","/service/application/user/authentication/v1.0/delete".substring(1));
+        relativeUrls.put("logout","/service/application/user/authentication/v1.0/logout".substring(1));
         relativeUrls.put("sendOTPOnMobile","/service/application/user/authentication/v1.0/otp/mobile/send".substring(1));
         relativeUrls.put("sendForgotOTPOnMobile","/service/application/user/authentication/v1.0/otp/forgot/mobile/send".substring(1));
         relativeUrls.put("verifyMobileOTP","/service/application/user/authentication/v1.0/otp/mobile/verify".substring(1));
@@ -66,12 +68,7 @@ import com.sdk.application.*;
         relativeUrls.put("addEmail","/service/application/user/profile/v1.0/email".substring(1));
         relativeUrls.put("deleteEmail","/service/application/user/profile/v1.0/email".substring(1));
         relativeUrls.put("setEmailAsPrimary","/service/application/user/profile/v1.0/email/primary".substring(1));
-        relativeUrls.put("sendVerificationLinkToEmail","/service/application/user/profile/v1.0/email/link/send".substring(1));
-        relativeUrls.put("userExists","/service/application/user/authentication/v1.0/user-exists".substring(1));
-        relativeUrls.put("deleteUser","/service/application/user/authentication/v1.0/delete".substring(1));
-        relativeUrls.put("logout","/service/application/user/authentication/v1.0/logout".substring(1));
-        relativeUrls.put("getUserAttributes","/service/application/user/profile/v1.0/user-attributes".substring(1));
-        relativeUrls.put("updateUserAttributes","/service/application/user/profile/v1.0/user-attributes".substring(1)); 
+        relativeUrls.put("sendVerificationLinkToEmail","/service/application/user/profile/v1.0/email/link/send".substring(1)); 
 
     }
 
@@ -224,32 +221,15 @@ import com.sdk.application.*;
     }
     
 
-    public Object sendResetPasswordMobile(String platform, UserApplicationModels.SendResetPasswordMobileRequestSchema body) throws IOException {
+    public UserApplicationModels.ResetPasswordSuccess sendResetPasswordMobile(String platform, UserApplicationModels.SendResetPasswordMobileRequestSchema body) throws IOException {
         return this.sendResetPasswordMobile(platform, body, new HashMap<>());
     }
 
-    public Object sendResetPasswordMobile(String platform, UserApplicationModels.SendResetPasswordMobileRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+    public UserApplicationModels.ResetPasswordSuccess sendResetPasswordMobile(String platform, UserApplicationModels.SendResetPasswordMobileRequestSchema body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("sendResetPasswordMobile");
 
-        Response<Object> response = userApplicationApiList.sendResetPasswordMobile(fullUrl, platform, body, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public UserApplicationModels.ResetPasswordSuccess sendResetToken(UserApplicationModels.CodeRequestBodySchema body) throws IOException {
-        return this.sendResetToken(body, new HashMap<>());
-    }
-
-    public UserApplicationModels.ResetPasswordSuccess sendResetToken(UserApplicationModels.CodeRequestBodySchema body, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("sendResetToken");
-
-        Response<UserApplicationModels.ResetPasswordSuccess> response = userApplicationApiList.sendResetToken(fullUrl, body, requestHeaders).execute();
+        Response<UserApplicationModels.ResetPasswordSuccess> response = userApplicationApiList.sendResetPasswordMobile(fullUrl, platform, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -284,6 +264,23 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("resetForgotPassword");
 
         Response<UserApplicationModels.ResetForgotPasswordSuccess> response = userApplicationApiList.resetForgotPassword(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public UserApplicationModels.ResetPasswordSuccess sendResetToken(UserApplicationModels.CodeRequestBodySchema body) throws IOException {
+        return this.sendResetToken(body, new HashMap<>());
+    }
+
+    public UserApplicationModels.ResetPasswordSuccess sendResetToken(UserApplicationModels.CodeRequestBodySchema body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("sendResetToken");
+
+        Response<UserApplicationModels.ResetPasswordSuccess> response = userApplicationApiList.sendResetToken(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -386,6 +383,40 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("updatePassword");
 
         Response<UserApplicationModels.VerifyEmailSuccess> response = userApplicationApiList.updatePassword(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public UserApplicationModels.DeleteUserSuccess deleteUser(UserApplicationModels.DeleteApplicationUserRequestSchema body) throws IOException {
+        return this.deleteUser(body, new HashMap<>());
+    }
+
+    public UserApplicationModels.DeleteUserSuccess deleteUser(UserApplicationModels.DeleteApplicationUserRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("deleteUser");
+
+        Response<UserApplicationModels.DeleteUserSuccess> response = userApplicationApiList.deleteUser(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public UserApplicationModels.LogoutSuccess logout() throws IOException {
+        return this.logout(new HashMap<>());
+    }
+
+    public UserApplicationModels.LogoutSuccess logout(Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("logout");
+
+        Response<UserApplicationModels.LogoutSuccess> response = userApplicationApiList.logout(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -726,91 +757,6 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("sendVerificationLinkToEmail");
 
         Response<UserApplicationModels.SendEmailVerifyLinkSuccess> response = userApplicationApiList.sendVerificationLinkToEmail(fullUrl, platform, body, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public UserApplicationModels.UserExistsResponse userExists(String q) throws IOException {
-        return this.userExists(q, new HashMap<>());
-    }
-
-    public UserApplicationModels.UserExistsResponse userExists(String q, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("userExists");
-
-        Response<UserApplicationModels.UserExistsResponse> response = userApplicationApiList.userExists(fullUrl, q, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public UserApplicationModels.DeleteUserSuccess deleteUser(UserApplicationModels.DeleteApplicationUserRequestSchema body) throws IOException {
-        return this.deleteUser(body, new HashMap<>());
-    }
-
-    public UserApplicationModels.DeleteUserSuccess deleteUser(UserApplicationModels.DeleteApplicationUserRequestSchema body, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("deleteUser");
-
-        Response<UserApplicationModels.DeleteUserSuccess> response = userApplicationApiList.deleteUser(fullUrl, body, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public UserApplicationModels.LogoutSuccess logout() throws IOException {
-        return this.logout(new HashMap<>());
-    }
-
-    public UserApplicationModels.LogoutSuccess logout(Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("logout");
-
-        Response<UserApplicationModels.LogoutSuccess> response = userApplicationApiList.logout(fullUrl, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public UserApplicationModels.UserAttributes getUserAttributes(String slug) throws IOException {
-        return this.getUserAttributes(slug, new HashMap<>());
-    }
-
-    public UserApplicationModels.UserAttributes getUserAttributes(String slug, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getUserAttributes");
-
-        Response<UserApplicationModels.UserAttributes> response = userApplicationApiList.getUserAttributes(fullUrl, slug, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public UserApplicationModels.UserAttributes updateUserAttributes(UserApplicationModels.UpdateUserAttributesRequest body) throws IOException {
-        return this.updateUserAttributes(body, new HashMap<>());
-    }
-
-    public UserApplicationModels.UserAttributes updateUserAttributes(UserApplicationModels.UpdateUserAttributesRequest body, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("updateUserAttributes");
-
-        Response<UserApplicationModels.UserAttributes> response = userApplicationApiList.updateUserAttributes(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

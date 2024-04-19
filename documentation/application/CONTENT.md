@@ -5,66 +5,27 @@
 ##### [Back to Application docs](./README.md)
 
 ## Content Methods
-The Content module manages content in the application. Use it to help users stay updated with announcements, read blog posts, manage data loaders, consult FAQs, and access legal and support information. It also enhances navigation modules and SEO capabilities for better online visibility, as well as supports slideshow interactions.
+Content System
 
-Announcement Management
+Default
 * [getAnnouncements](#getannouncements)
-
-
-Blog Management
 * [getBlog](#getblog)
 * [getBlogs](#getblogs)
-
-
-Data Loaders
 * [getDataLoaders](#getdataloaders)
-
-
-FAQ and FAQ Categories
 * [getFaqs](#getfaqs)
 * [getFaqCategories](#getfaqcategories)
 * [getFaqBySlug](#getfaqbyslug)
 * [getFaqCategoryBySlug](#getfaqcategorybyslug)
 * [getFaqsByCategorySlug](#getfaqsbycategoryslug)
-
-
-Landing Page Management
 * [getLandingPage](#getlandingpage)
-
-
-Legal Pages Management
 * [getLegalInformation](#getlegalinformation)
-
-
-Navigation Management
 * [getNavigations](#getnavigations)
-
-
-Application SEO Configuration
 * [getSEOConfiguration](#getseoconfiguration)
-
-
-Default
-* [getSEOMarkupSchemas](#getseomarkupschemas)
 * [getSlideshows](#getslideshows)
 * [getSlideshow](#getslideshow)
-* [getCustomObject](#getcustomobject)
-* [getCustomFields](#getcustomfields)
-
-
-Legal Information and Support
 * [getSupportInformation](#getsupportinformation)
-
-
-HTML Tags Management
 * [getTags](#gettags)
-
-
-Page information
 * [getPage](#getpage)
-
-
-Page management
 * [getPages](#getpages)
 
 
@@ -75,7 +36,7 @@ Page management
 
 
 ### getAnnouncements
-Fetches announcements of an Application
+Get live announcements
 
 
 
@@ -89,7 +50,7 @@ applicationClient.content.getAnnouncements() {
 
 
 
-Retrieves all current announcements in the application.
+Announcements are useful to highlight a message or information on top of a webpage. Use this API to retrieve live announcements. Get announcements on individual pages or for all pages.
 
 *Returned Response:*
 
@@ -157,10 +118,8 @@ Success. Returns a JSON object with the details of the announcement shown on an 
 ---
 
 
-
-
 ### getBlog
-Retrieves a single blog post.
+Get a blog
 
 
 
@@ -180,7 +139,7 @@ applicationClient.content.getBlog( slug,  rootId) {
 
 
 
-Retrieves all information relate to a specific blog such as it's contents, author, publish date, SEO related information.
+Use this API to get the details of a blog using its slug. Details include the title, reading time, publish status, feature image, tags, author, etc.
 
 *Returned Response:*
 
@@ -259,7 +218,7 @@ Success. Returns a JSON object with blog details. Check the example shown below 
 
 
 ### getBlogs
-Lists all blog posts
+Get a list of blogs
 
 
 
@@ -279,7 +238,7 @@ applicationClient.content.getBlogs( pageNo,  pageSize) {
 
 
 
-Retrieve all the blogs which are present in the application.
+Use this API to get all the blogs.
 
 *Returned Response:*
 
@@ -361,10 +320,8 @@ Success. Check the example shown below or refer `BlogGetResponse` for more detai
 ---
 
 
-
-
 ### getDataLoaders
-Retrieves data loaders enabled for an application
+Get the data loaders associated with an application
 
 
 
@@ -378,7 +335,7 @@ applicationClient.content.getDataLoaders() {
 
 
 
-Retrieves all the data loaders that are added and enabled for an application.
+Use this API to get all selected data loaders of the application in the form of tags.
 
 *Returned Response:*
 
@@ -432,10 +389,8 @@ Success. Returns a JSON object containing all the data loaders injected in the a
 ---
 
 
-
-
 ### getFaqs
-Fetches FAQs of an applicaiton
+Get a list of FAQs
 
 
 
@@ -449,7 +404,7 @@ applicationClient.content.getFaqs() {
 
 
 
-Retrieves a list of frequently asked questions.
+Use this API to get a list of frequently asked questions. Users will benefit from it when facing any issue with the website.
 
 *Returned Response:*
 
@@ -501,7 +456,7 @@ Success. Returns a JSON object with question and answers. Check the example show
 
 
 ### getFaqCategories
-Lists FAQ categories.
+Get a list of FAQ categories
 
 
 
@@ -515,7 +470,7 @@ applicationClient.content.getFaqCategories() {
 
 
 
-Retrieve categories for organizing FAQs.
+FAQs can be divided into categories. Use this API to get a list of FAQ categories.
 
 *Returned Response:*
 
@@ -562,7 +517,7 @@ Success. Returns a JSON object with categories of FAQ. Check the example shown b
 
 
 ### getFaqBySlug
-Retrieves FAQ by slug.
+Get an FAQ
 
 
 
@@ -581,7 +536,7 @@ applicationClient.content.getFaqBySlug( slug) {
 
 
 
-Retrieves a specific FAQ using its slug identifier.
+Use this API to get a particular FAQ by its slug.
 
 *Returned Response:*
 
@@ -621,7 +576,7 @@ Success. Returns a question and answer by its slug. Check the example shown belo
 
 
 ### getFaqCategoryBySlug
-Retrieves FAQ category by slug.
+Get the FAQ category
 
 
 
@@ -640,7 +595,7 @@ applicationClient.content.getFaqCategoryBySlug( slug) {
 
 
 
-Retrieve a specific FAQ category using its slug.
+FAQs can be divided into categories. Use this API to get the category to which an FAQ belongs.
 
 *Returned Response:*
 
@@ -691,7 +646,7 @@ Success. Returns a FAQ category with its slug. Check the example shown below or 
 
 
 ### getFaqsByCategorySlug
-Retrieves FAQs by category.
+Get FAQs using the slug of FAQ category
 
 
 
@@ -710,7 +665,7 @@ applicationClient.content.getFaqsByCategorySlug( slug) {
 
 
 
-Retrieves FAQs belonging to a specific category slug.
+FAQs can be divided into categories. Use this API to get all the FAQs belonging to a category by using the category slug.
 
 *Returned Response:*
 
@@ -753,10 +708,8 @@ Success. Returns a categorized list of question and answers using its slug. Chec
 ---
 
 
-
-
 ### getLandingPage
-Fetches landing page.
+Get the landing page
 
 
 
@@ -770,7 +723,7 @@ applicationClient.content.getLandingPage() {
 
 
 
-Gets the content of the application's landing page.
+Landing page is the first page that a prospect lands upon while visiting a website. Use this API to fetch the details of a landing page.
 
 *Returned Response:*
 
@@ -834,10 +787,8 @@ Success. Returns the landing page details. Check the example shown below or refe
 ---
 
 
-
-
 ### getLegalInformation
-Retrieves legal information.
+Get legal information
 
 
 
@@ -851,7 +802,7 @@ applicationClient.content.getLegalInformation() {
 
 
 
-Retrieve legal policies for an application which includes Terms and conditions, return policy, shipping policy and privacy policy.
+Use this API to get the legal information of an application, which includes Privacy Policy, Terms and Conditions, Shipping Policy and FAQs regarding the usage of the application.
 
 *Returned Response:*
 
@@ -924,10 +875,8 @@ Success. Returns the T&C, Shipping Policy, Privacy Policy and Return Policy. Che
 ---
 
 
-
-
 ### getNavigations
-Retrieves navigation items
+Get the navigation
 
 
 
@@ -947,7 +896,7 @@ applicationClient.content.getNavigations( pageNo,  pageSize) {
 
 
 
-Retrieves the navigation link items which can be powered to genreate menus on application's website or equivalent mobile apps
+Use this API to fetch the navigations details which includes the items of the navigation panel. It also shows the links and sub-navigations.
 
 *Returned Response:*
 
@@ -1175,10 +1124,8 @@ Success. Returns a JSON object with navigation details. Check the example shown 
 ---
 
 
-
-
 ### getSEOConfiguration
-Retrieves SEO settings of an applicaiton
+Get the SEO of an application
 
 
 
@@ -1192,7 +1139,7 @@ applicationClient.content.getSEOConfiguration() {
 
 
 
-Retrieve search engine optimization configurations of an application. Details include the title, description and an image
+Use this API to get the SEO details of an application, which includes a robot.txt, meta-tags and sitemap.
 
 *Returned Response:*
 
@@ -1248,62 +1195,6 @@ Success. Returns a JSON object SEO details such as robots.txt, meta-tags, and si
 ```
 </details>
 
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-
-
-### getSEOMarkupSchemas
-Get SEO Markup schemas of an application
-
-
-
-
-```java
-applicationClient.content.getSEOMarkupSchemas( pageType,  active) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| pageType | String? | no | The type of page against which schema template was created |   
-| active | Boolean? | no | Boolean value for fetching seo schema. |  
-
-
-
-Use this API to get all SEO Markup schema Templates setup for an application
-
-*Returned Response:*
-
-
-
-
-[SeoSchemaComponent](#SeoSchemaComponent)
-
-Success. Refer `SeoSchemaComponent` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Example:</i></summary>
-
-```json
-
-```
 </details>
 
 
@@ -1530,189 +1421,8 @@ Success. Returns the details of how a slideshow is configured. Check the example
 ---
 
 
-### getCustomObject
-Get custom object details
-
-
-
-
-```java
-applicationClient.content.getCustomObject( metaobjectId) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| metaobjectId | String | yes |  |  
-
-
-
-Use this API to retrieve the custom object details, their fields details with definitions and references.
-
-*Returned Response:*
-
-
-
-
-[CustomObjectByIdSchema](#CustomObjectByIdSchema)
-
-Success. Returns a custom object. Refer `CustomObjectByIdSchema` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-{
-  "value": {
-    "_id": "653929f012376081aafa90f1",
-    "status": "active",
-    "display_name": "painter #653929f012376081aafa90f1",
-    "definition": {
-      "_id": "653907ced878d53c1a502d92",
-      "name": "painter",
-      "type": "painter"
-    },
-    "references": [],
-    "fields": [
-      {
-        "_id": "653929f012376081aafa90f5",
-        "key": "name",
-        "value": [
-          "Bruce Wayne"
-        ],
-        "type": "string_single_line",
-        "definition_id": "653907ced878d53c1a502d95"
-      },
-      {
-        "_id": "653929f012376081aafa90f6",
-        "key": "age",
-        "value": [
-          5
-        ],
-        "type": "integer",
-        "definition_id": "653907ced878d53c1a502d96"
-      }
-    ]
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-### getCustomFields
-Get list of custom fields of given resource and resource_id.
-
-
-
-
-```java
-applicationClient.content.getCustomFields( resource,  resourceId) {
-  //use response
-}
-```
-
-
-
-| Argument  |  Type  | Required | Description |
-| --------- | -----  | -------- | ----------- | 
-| resource | String | yes |  |   
-| resourceId | String | yes |  |  
-
-
-
-Use this API to retrieve the custom fields for given resource and resource_id in param.
-
-*Returned Response:*
-
-
-
-
-[CustomFieldsResponseByResourceIdSchema](#CustomFieldsResponseByResourceIdSchema)
-
-Success. Returns a list of custom fields. Refer `CustomFieldsResponseByResourceIdSchema` for more details.
-
-
-
-
-<details>
-<summary><i>&nbsp; Examples:</i></summary>
-
-
-<details>
-<summary><i>&nbsp; success</i></summary>
-
-```json
-{
-  "value": {
-    "items": [
-      {
-        "_id": "653929f012376081aafa90f6",
-        "namespace": "painter",
-        "key": "age",
-        "resource": "metaobject",
-        "creator": "application",
-        "value": [
-          5
-        ],
-        "resource_id": "653929f012376081aafa90f1",
-        "type": "integer",
-        "multi_value": false,
-        "company_id": "1",
-        "application_id": "000000000000000000000001",
-        "definition_id": "653907ced878d53c1a502d96",
-        "metaobject_definition_id": "653907ced878d53c1a502d92",
-        "has_invalid_values": false,
-        "invalid_value_errors": [],
-        "created_by": "000000000000000000000001",
-        "is_deleted": false,
-        "created_at": "2023-10-25T14:45:04.441Z",
-        "updated_at": "2023-10-25T14:45:04.441Z"
-      }
-    ]
-  }
-}
-```
-</details>
-
-</details>
-
-
-
-
-
-
-
-
-
----
-
-
-
-
 ### getSupportInformation
-Retrieves support related info of an applicaiton
+Get the support information
 
 
 
@@ -1726,7 +1436,7 @@ applicationClient.content.getSupportInformation() {
 
 
 
-Retrieves customer support contact details. Contact Details can be either phone number or email-id or both.
+Use this API to get contact details for customer support including emails and phone numbers.
 
 *Returned Response:*
 
@@ -1790,10 +1500,8 @@ Success. Returns all support information including email and phone number. Check
 ---
 
 
-
-
 ### getTags
-Retrieves HTML tags
+Get the tags associated with an application
 
 
 
@@ -1807,7 +1515,7 @@ applicationClient.content.getTags() {
 
 
 
-Retrieve any HTML tags to power additional functionalities within an application.
+Use this API to get all the CSS and JS injected in the application in the form of tags.
 
 *Returned Response:*
 
@@ -1856,10 +1564,8 @@ Success. Returns a JSON object containing all the tags injected in the applicati
 ---
 
 
-
-
 ### getPage
-Single page details.
+Get a page
 
 
 
@@ -1879,7 +1585,7 @@ applicationClient.content.getPage( slug,  rootId) {
 
 
 
-Retrieve detailed information for a specific page within the theme.
+Use this API to get the details of a page using its slug. Details include the title, seo, publish status, feature image, tags, meta, etc.
 
 *Returned Response:*
 
@@ -1960,10 +1666,8 @@ Success. Returns a JSON object with page details. Check the example shown below 
 ---
 
 
-
-
 ### getPages
-Lists all pages.
+Get all pages
 
 
 
@@ -1983,7 +1687,7 @@ applicationClient.content.getPages( pageNo,  pageSize) {
 
 
 
-Retrieve all available content pages in the app.
+Use this API to get a list of pages.
 
 *Returned Response:*
 
@@ -2125,7 +1829,6 @@ Success. Returns a list of pages along with their details. Check the example sho
  | id | String? |  yes  |  |
  | robotsTxt | String? |  yes  |  |
  | sitemapEnabled | Boolean? |  yes  |  |
- | additonalSitemap | String? |  yes  |  |
  | cannonicalEnabled | Boolean? |  yes  |  |
  | customMetaTags | ArrayList<[CustomMetaTag](#CustomMetaTag)>? |  yes  |  |
  | details | [Detail](#Detail)? |  yes  |  |
@@ -2157,36 +1860,6 @@ Success. Returns a list of pages along with their details. Check the example sho
  | title | String? |  yes  |  |
  | description | String? |  yes  |  |
  | imageUrl | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [SeoSchemaComponent](#SeoSchemaComponent)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[SEOSchemaMarkupTemplate](#SEOSchemaMarkupTemplate)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [SEOSchemaMarkupTemplate](#SEOSchemaMarkupTemplate)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | title | String? |  yes  |  |
- | pageType | String? |  yes  |  |
- | description | String? |  yes  |  |
- | schema | String? |  yes  |  |
- | active | Boolean? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
- | application | String? |  yes  |  |
 
 ---
 
@@ -2326,10 +1999,6 @@ Success. Returns a list of pages along with their details. Check the example sho
  | description | String? |  yes  |  |
  | image | [SEOImage](#SEOImage)? |  yes  |  |
  | title | String? |  yes  |  |
- | metaTags | ArrayList<[SEOMetaItem](#SEOMetaItem)>? |  yes  |  |
- | sitemap | [SEOSitemap](#SEOSitemap)? |  yes  |  |
- | breadcrumb | ArrayList<[SEObreadcrumb](#SEObreadcrumb)>? |  yes  |  |
- | canonicalUrl | String? |  yes  |  |
 
 ---
 
@@ -2341,54 +2010,6 @@ Success. Returns a list of pages along with their details. Check the example sho
  | Properties | Type | Nullable | Description |
  | ---------- | ---- | -------- | ----------- |
  | url | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [SEOMetaItem](#SEOMetaItem)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | title | String? |  yes  |  |
- | items | ArrayList<[SEOMetaItems](#SEOMetaItems)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [SEOMetaItems](#SEOMetaItems)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | key | String? |  yes  |  |
- | value | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [SEOSitemap](#SEOSitemap)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | priority | Double? |  yes  |  |
- | frequency | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [SEObreadcrumb](#SEObreadcrumb)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | url | String? |  yes  |  |
- | action | [Action](#Action)? |  yes  |  |
 
 ---
 
@@ -3003,111 +2624,6 @@ Success. Returns a list of pages along with their details. Check the example sho
  | ---------- | ---- | -------- | ----------- |
  | type | String? |  yes  |  |
  | id | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [CustomObjectFieldValue](#CustomObjectFieldValue)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | value | Object? |  yes  |  |
-
----
-
-
- 
- 
- #### [CustomObjectListItemDefinationSchema](#CustomObjectListItemDefinationSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | name | String? |  yes  |  |
- | type | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [CustomObjectFieldSchema](#CustomObjectFieldSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | key | String? |  yes  |  |
- | value | ArrayList<[CustomObjectFieldValue](#CustomObjectFieldValue)>? |  yes  |  |
- | type | String? |  yes  |  |
- | definitionId | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [CustomObjectByIdSchema](#CustomObjectByIdSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | status | String? |  yes  |  |
- | displayName | String? |  yes  |  |
- | definition | [CustomObjectListItemDefinationSchema](#CustomObjectListItemDefinationSchema)? |  yes  |  |
- | references | ArrayList<Object>? |  yes  |  |
- | fields | ArrayList<[CustomObjectFieldSchema](#CustomObjectFieldSchema)>? |  yes  |  |
-
----
-
-
- 
- 
- #### [CustomFieldValue](#CustomFieldValue)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | value | Object? |  yes  |  |
-
----
-
-
- 
- 
- #### [CustomFieldSchema](#CustomFieldSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | id | String? |  yes  |  |
- | namespace | String? |  yes  |  |
- | key | String? |  yes  |  |
- | resource | String? |  yes  |  |
- | creator | String? |  yes  |  |
- | value | ArrayList<[CustomFieldValue](#CustomFieldValue)>? |  yes  |  |
- | resourceId | String? |  yes  |  |
- | type | String? |  yes  |  |
- | multiValue | Boolean? |  yes  |  |
- | companyId | String? |  yes  |  |
- | applicationId | String? |  yes  |  |
- | definitionId | String? |  yes  |  |
- | hasInvalidValues | Boolean? |  yes  |  |
- | invalidValueErrors | ArrayList<Object>? |  yes  |  |
- | createdBy | String? |  yes  |  |
- | isDeleted | Boolean? |  yes  |  |
- | createdAt | String? |  yes  |  |
- | updatedAt | String? |  yes  |  |
-
----
-
-
- 
- 
- #### [CustomFieldsResponseByResourceIdSchema](#CustomFieldsResponseByResourceIdSchema)
-
- | Properties | Type | Nullable | Description |
- | ---------- | ---- | -------- | ----------- |
- | items | ArrayList<[CustomFieldSchema](#CustomFieldSchema)>? |  yes  |  |
 
 ---
 

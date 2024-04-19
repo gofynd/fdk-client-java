@@ -15,7 +15,6 @@ import java.net.CookiePolicy;
 import java.net.CookieStore;
 import java.security.cert.CertificateException;
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -78,32 +77,6 @@ public class RetrofitServiceFactory {
         retrofit = builder.build();
         return retrofit.create(serviceClass);
     }
-
-    public <S> S getInstance(String baseUrl, Class<S> serviceClass) {
-        return getInstance(baseUrl, serviceClass, null);
-    }
-
-    /**
-     * This method generates retrofit Service call object
-     *
-     * @param baseUrl      the base url for retrofit
-     * @param serviceClass the class call object which needs to be returned
-     * @return the service class call object
-     */
-     public <S> S getInstance(String baseUrl, Class<S> serviceClass, CookieStore cookieStore) {
-         setApiBaseUrl(baseUrl);
-         List<Interceptor> interceptorList = new ArrayList<>();
-         interceptorList.add(new RequestSignerInterceptor());
-         if (!interceptorList.contains(logging)) {
-             interceptorList.add(logging);
-         }
-         if(!interceptorList.contains(ok2CurlInterceptor)){
-             interceptorList.add(ok2CurlInterceptor);
-         }
-         builder.client(getUnsafeOkHttpClient(interceptorList, cookieStore));
-         retrofit = builder.build();
-         return retrofit.create(serviceClass);
-     }
 
     private static OkHttpClient getUnsafeOkHttpClient(List<Interceptor> interceptorList, CookieStore cookieStore) {
         try {

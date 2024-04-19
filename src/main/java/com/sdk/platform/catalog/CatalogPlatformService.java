@@ -173,28 +173,16 @@ public class CatalogPlatformService {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-    public CatalogPlatformModels.CategoryResponse listCategories(String level, Integer department, String q, Integer pageNo, Integer pageSize, List<Integer> uids, String slug) throws FDKServerResponseError, FDKException {
-        return this.listCategories(level, department, q, pageNo, pageSize, uids, slug, new HashMap<>());
+    public CatalogPlatformModels.CategoryResponse listCategories(String level, String departments, String q, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+        return this.listCategories(level, departments, q, pageNo, pageSize, new HashMap<>());
     }
 
-    public CatalogPlatformModels.CategoryResponse listCategories(String level, Integer department, String q, Integer pageNo, Integer pageSize, List<Integer> uids, String slug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CategoryResponse listCategories(String level, String departments, String q, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.CategoryResponse> response = null;
             try {
-                response = catalogPlatformApiList.listCategories(this.companyId, level, department, q, pageNo, pageSize, uids, slug, requestHeaders).execute();
+                response = catalogPlatformApiList.listCategories(this.companyId, level, departments, q, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -211,102 +199,6 @@ public class CatalogPlatformService {
         } else {
             return null;
         }    
-    }
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for listCategories
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CatalogPlatformModels.CategoryResponse> listCategoriesPagination(
-        String level ,
-        Integer department ,
-        String q ,
-        Integer pageSize ,
-        List<Integer> uids ,
-        String slug 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CatalogPlatformModels.CategoryResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CatalogPlatformModels.CategoryResponse callback = this.listCategories(
-                
-                 
-                 level,
-                 department,
-                 q,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 uids,
-                 slug
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
     }
     
     
@@ -517,20 +409,16 @@ public class CatalogPlatformService {
     
     
     
-    
-    
-    
-    
 
-    public CatalogPlatformModels.DepartmentsResponse listDepartmentsData(Integer pageNo, String itemType, Integer pageSize, String name, String search, Boolean isActive, String slug) throws FDKServerResponseError, FDKException {
-        return this.listDepartmentsData(pageNo, itemType, pageSize, name, search, isActive, slug, new HashMap<>());
+    public CatalogPlatformModels.DepartmentsResponse listDepartmentsData(Integer pageNo, String itemType, Integer pageSize, String name, String search, Boolean isActive) throws FDKServerResponseError, FDKException {
+        return this.listDepartmentsData(pageNo, itemType, pageSize, name, search, isActive, new HashMap<>());
     }
 
-    public CatalogPlatformModels.DepartmentsResponse listDepartmentsData(Integer pageNo, String itemType, Integer pageSize, String name, String search, Boolean isActive, String slug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.DepartmentsResponse listDepartmentsData(Integer pageNo, String itemType, Integer pageSize, String name, String search, Boolean isActive, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.DepartmentsResponse> response = null;
             try {
-                response = catalogPlatformApiList.listDepartmentsData(this.companyId, pageNo, itemType, pageSize, name, search, isActive, slug, requestHeaders).execute();
+                response = catalogPlatformApiList.listDepartmentsData(this.companyId, pageNo, itemType, pageSize, name, search, isActive, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -547,102 +435,6 @@ public class CatalogPlatformService {
         } else {
             return null;
         }    
-    }
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for listDepartmentsData
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CatalogPlatformModels.DepartmentsResponse> listDepartmentsDataPagination(
-        String itemType ,
-        Integer pageSize ,
-        String name ,
-        String search ,
-        Boolean isActive ,
-        String slug 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CatalogPlatformModels.DepartmentsResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CatalogPlatformModels.DepartmentsResponse callback = this.listDepartmentsData(
-                
-                 
-                 paginator.getPageNo()
-                ,
-                 itemType,
-                 paginator.getPageSize()
-                ,
-                 name,
-                 search,
-                 isActive,
-                 slug
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
     }
     
     
@@ -1026,110 +818,6 @@ public class CatalogPlatformService {
     }
     
     
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getInventories
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CatalogPlatformModels.GetInventoriesResponse> getInventoriesPagination(
-        String itemId ,
-        String size ,
-        Integer pageSize ,
-        String q ,
-        Boolean sellable ,
-        List<Integer> storeIds ,
-        String sizeIdentifier 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CatalogPlatformModels.GetInventoriesResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CatalogPlatformModels.GetInventoriesResponse callback = this.getInventories(
-                
-                 
-                 itemId,
-                 size,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 q,
-                 sellable,
-                 storeIds,
-                 sizeIdentifier
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
     
     
     
@@ -1175,62 +863,6 @@ public class CatalogPlatformService {
         } else {
             return null;
         }    
-    }
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getInventoryBulkUploadHistory
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CatalogPlatformModels.BulkInventoryGet> getInventoryBulkUploadHistoryPagination(
-        Integer pageSize 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CatalogPlatformModels.BulkInventoryGet> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CatalogPlatformModels.BulkInventoryGet callback = this.getInventoryBulkUploadHistory(
-                
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
     }
     
     
@@ -1846,70 +1478,6 @@ public class CatalogPlatformService {
     }
     
     
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getStoreDetail
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CatalogPlatformModels.OptinStoreDetails> getStoreDetailPagination(
-        String q ,
-        Integer pageSize 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CatalogPlatformModels.OptinStoreDetails> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CatalogPlatformModels.OptinStoreDetails callback = this.getStoreDetail(
-                
-                 
-                 q,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
     
     
     
@@ -2270,62 +1838,6 @@ public class CatalogPlatformService {
     }
     
     
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getProductAssetsInBulk
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CatalogPlatformModels.BulkAssetResponse> getProductAssetsInBulkPagination(
-        Integer pageSize 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CatalogPlatformModels.BulkAssetResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CatalogPlatformModels.BulkAssetResponse callback = this.getProductAssetsInBulk(
-                
-                 
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
     
     
     
@@ -2415,70 +1927,6 @@ public class CatalogPlatformService {
         } else {
             return null;
         }    
-    }
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getProductBulkUploadHistory
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CatalogPlatformModels.ProductBulkRequestList> getProductBulkUploadHistoryPagination(
-        String search ,
-        Integer pageSize 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CatalogPlatformModels.ProductBulkRequestList> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CatalogPlatformModels.ProductBulkRequestList callback = this.getProductBulkUploadHistory(
-                
-                 
-                 search,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
     }
     
     
@@ -3030,94 +2478,6 @@ public class CatalogPlatformService {
     }
     
     
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getInventoryBySizeIdentifier
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CatalogPlatformModels.InventorySellerIdentifierResponsePaginated> getInventoryBySizeIdentifierPagination(
-        Integer itemId ,
-        String sizeIdentifier ,
-        Integer pageSize ,
-        String q ,
-        List<Integer> locationIds 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CatalogPlatformModels.InventorySellerIdentifierResponsePaginated> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CatalogPlatformModels.InventorySellerIdentifierResponsePaginated callback = this.getInventoryBySizeIdentifier(
-                
-                 
-                 itemId,
-                 sizeIdentifier,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 q,
-                 locationIds
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
     
     
     
@@ -3286,94 +2646,6 @@ public class CatalogPlatformService {
     }
     
     
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getInventoryBySize
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CatalogPlatformModels.InventoryResponsePaginated> getInventoryBySizePagination(
-        Integer itemId ,
-        String size ,
-        Integer pageSize ,
-        String q ,
-        Boolean sellable 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CatalogPlatformModels.InventoryResponsePaginated> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CatalogPlatformModels.InventoryResponsePaginated callback = this.getInventoryBySize(
-                
-                 
-                 itemId,
-                 size,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 q,
-                 sellable
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
     
     
     
@@ -3403,6 +2675,58 @@ public class CatalogPlatformService {
             Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogPlatformApiList.addInventory(this.companyId, itemId, size, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public CatalogPlatformModels.SuccessResponse deleteInventory(String size, Integer itemId, Double locationId) throws FDKServerResponseError, FDKException {
+        return this.deleteInventory(size, itemId, locationId, new HashMap<>());
+    }
+
+    public CatalogPlatformModels.SuccessResponse deleteInventory(String size, Integer itemId, Double locationId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
+            try {
+                response = catalogPlatformApiList.deleteInventory(this.companyId, size, itemId, locationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3478,82 +2802,6 @@ public class CatalogPlatformService {
     }
     
     
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getVariantsOfProducts
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CatalogPlatformModels.ProductVariantsResponse> getVariantsOfProductsPagination(
-        Integer itemId ,
-        String variantType ,
-        Integer pageSize 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CatalogPlatformModels.ProductVariantsResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CatalogPlatformModels.ProductVariantsResponse callback = this.getVariantsOfProducts(
-                
-                 
-                 itemId,
-                 variantType,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
-    
-    
-    
-    
     
     
     
@@ -3586,15 +2834,15 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.ListSizeGuide getSizeGuides(Boolean active, String q, String tag, Integer pageNo, Integer pageSize, Integer brandId) throws FDKServerResponseError, FDKException {
-        return this.getSizeGuides(active, q, tag, pageNo, pageSize, brandId, new HashMap<>());
+    public CatalogPlatformModels.ListSizeGuide getSizeGuides(Boolean active, String q, String tag, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+        return this.getSizeGuides(active, q, tag, pageNo, pageSize, new HashMap<>());
     }
 
-    public CatalogPlatformModels.ListSizeGuide getSizeGuides(Boolean active, String q, String tag, Integer pageNo, Integer pageSize, Integer brandId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ListSizeGuide getSizeGuides(Boolean active, String q, String tag, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.ListSizeGuide> response = null;
             try {
-                response = catalogPlatformApiList.getSizeGuides(this.companyId, active, q, tag, pageNo, pageSize, brandId, requestHeaders).execute();
+                response = catalogPlatformApiList.getSizeGuides(this.companyId, active, q, tag, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -4076,118 +3324,6 @@ public class CatalogPlatformService {
     }
     
     
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getProducts
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CatalogPlatformModels.ProductListingResponseV2> getProductsPagination(
-        List<Integer> brandIds ,
-        List<Integer> categoryIds ,
-        List<Integer> itemIds ,
-        List<Integer> departmentIds ,
-        List<String> itemCode ,
-        String q ,
-        List<String> tags ,
-        Integer pageSize 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CatalogPlatformModels.ProductListingResponseV2> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CatalogPlatformModels.ProductListingResponseV2 callback = this.getProducts(
-                
-                 
-                 brandIds,
-                 categoryIds,
-                 itemIds,
-                 departmentIds,
-                 itemCode,
-                 q,
-                 tags,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
     
     
     
@@ -4200,13 +3336,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponse1 createProduct(CatalogPlatformModels.ProductCreateUpdateSchemaV2 body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse createProduct(CatalogPlatformModels.ProductCreateUpdateSchemaV2 body) throws FDKServerResponseError, FDKException {
         return this.createProduct(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponse1 createProduct(CatalogPlatformModels.ProductCreateUpdateSchemaV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse createProduct(CatalogPlatformModels.ProductCreateUpdateSchemaV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponse1> response = null;
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogPlatformApiList.createProduct(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -4653,90 +3789,6 @@ public class CatalogPlatformService {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    public CatalogPlatformModels.GetAllMarketplaces getMarketplaces() throws FDKServerResponseError, FDKException {
-        return this.getMarketplaces(new HashMap<>());
-    }
-
-    public CatalogPlatformModels.GetAllMarketplaces getMarketplaces(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetAllMarketplaces> response = null;
-            try {
-                response = catalogPlatformApiList.getMarketplaces(this.companyId, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    public CatalogPlatformModels.UpdateMarketplaceOptinResponse updateMarketplaceOptin(String marketplaceSlug, CatalogPlatformModels.UpdateMarketplaceOptinRequest body) throws FDKServerResponseError, FDKException {
-        return this.updateMarketplaceOptin(marketplaceSlug, body, new HashMap<>());
-    }
-
-    public CatalogPlatformModels.UpdateMarketplaceOptinResponse updateMarketplaceOptin(String marketplaceSlug, CatalogPlatformModels.UpdateMarketplaceOptinRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.UpdateMarketplaceOptinResponse> response = null;
-            try {
-                response = catalogPlatformApiList.updateMarketplaceOptin(this.companyId, marketplaceSlug, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
 
 
 
@@ -5083,50 +4135,6 @@ public class ApplicationClient {
         }    
     }
 
-    /**
-    * Summary: get paginator for getAllCollections
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CatalogPlatformModels.GetCollectionListingResponse> getAllCollectionsPagination(
-        String q,
-        String scheduleStatus,
-        String type,
-        List<String> tags,
-        Boolean isActive,
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CatalogPlatformModels.GetCollectionListingResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CatalogPlatformModels.GetCollectionListingResponse callback = this.getAllCollections(
-                
-                 
-                 
-                 q,
-                 scheduleStatus,
-                 type,
-                 tags,
-                 isActive,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-
     public CatalogPlatformModels.CollectionCreateResponse createCollection(CatalogPlatformModels.CreateCollection body) throws FDKServerResponseError, FDKException {
         return this.createCollection(body, new HashMap<>());
     }
@@ -5154,67 +4162,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetQueryFiltersValuesResponse getApplicationFilterValues(String filterKey, String c, String collectionId, Integer pageNo, Integer pageSize, String q) throws FDKServerResponseError, FDKException {
-        return this.getApplicationFilterValues(filterKey, c, collectionId, pageNo, pageSize, q, new HashMap<>());
-    }
-
-    public CatalogPlatformModels.GetQueryFiltersValuesResponse getApplicationFilterValues(String filterKey, String c, String collectionId, Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetQueryFiltersValuesResponse> response = null;
-            try {
-            response = catalogPlatformApiList.getApplicationFilterValues(this.companyId, this.applicationId, filterKey, c, collectionId, pageNo, pageSize, q, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public CatalogPlatformModels.GetQueryFiltersKeysResponse getApplicationFilterKeys(String c) throws FDKServerResponseError, FDKException {
-        return this.getApplicationFilterKeys(c, new HashMap<>());
-    }
-
-    public CatalogPlatformModels.GetQueryFiltersKeysResponse getApplicationFilterKeys(String c, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetQueryFiltersKeysResponse> response = null;
-            try {
-            response = catalogPlatformApiList.getApplicationFilterKeys(this.companyId, this.applicationId, c, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public CatalogPlatformModels.GetQueryFiltersResponse getQueryFilters() throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetCollectionQueryOptionResponse getQueryFilters() throws FDKServerResponseError, FDKException {
         return this.getQueryFilters(new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetQueryFiltersResponse getQueryFilters(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetCollectionQueryOptionResponse getQueryFilters(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetQueryFiltersResponse> response = null;
+            Response<CatalogPlatformModels.GetCollectionQueryOptionResponse> response = null;
             try {
             response = catalogPlatformApiList.getQueryFilters(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -5235,13 +4189,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.CommonResponseSchemaCollection deleteCollection(String id) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.DeleteResponse deleteCollection(String id) throws FDKServerResponseError, FDKException {
         return this.deleteCollection(id, new HashMap<>());
     }
 
-    public CatalogPlatformModels.CommonResponseSchemaCollection deleteCollection(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.DeleteResponse deleteCollection(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.CommonResponseSchemaCollection> response = null;
+            Response<CatalogPlatformModels.DeleteResponse> response = null;
             try {
             response = catalogPlatformApiList.deleteCollection(this.companyId, this.applicationId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -5316,13 +4270,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.CommonResponseSchemaCollection addCollectionItems(String id, CatalogPlatformModels.CollectionItemUpdateSchema body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.UpdatedResponse addCollectionItems(String id, CatalogPlatformModels.CollectionItemUpdate body) throws FDKServerResponseError, FDKException {
         return this.addCollectionItems(id, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.CommonResponseSchemaCollection addCollectionItems(String id, CatalogPlatformModels.CollectionItemUpdateSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.UpdatedResponse addCollectionItems(String id, CatalogPlatformModels.CollectionItemUpdate body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.CommonResponseSchemaCollection> response = null;
+            Response<CatalogPlatformModels.UpdatedResponse> response = null;
             try {
             response = catalogPlatformApiList.addCollectionItems(this.companyId, this.applicationId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -5343,13 +4297,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetCollectionDetailResponse getCollectionDetail(String slug) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CollectionDetailResponse getCollectionDetail(String slug) throws FDKServerResponseError, FDKException {
         return this.getCollectionDetail(slug, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetCollectionDetailResponse getCollectionDetail(String slug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CollectionDetailResponse getCollectionDetail(String slug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetCollectionDetailResponse> response = null;
+            Response<CatalogPlatformModels.CollectionDetailResponse> response = null;
             try {
             response = catalogPlatformApiList.getCollectionDetail(this.companyId, this.applicationId, slug, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -5514,15 +4468,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.LocationListSerializer getAppLocations(String storeType, List<Integer> uid, String q, String stage, Integer pageNo, Integer pageSize, List<String> tags, List<String> storeTypes) throws FDKServerResponseError, FDKException {
-        return this.getAppLocations(storeType, uid, q, stage, pageNo, pageSize, tags, storeTypes, new HashMap<>());
+    public CatalogPlatformModels.LocationListSerializer getAppLocations(String storeType, List<Integer> uid, String q, String stage, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+        return this.getAppLocations(storeType, uid, q, stage, pageNo, pageSize, new HashMap<>());
     }
 
-    public CatalogPlatformModels.LocationListSerializer getAppLocations(String storeType, List<Integer> uid, String q, String stage, Integer pageNo, Integer pageSize, List<String> tags, List<String> storeTypes, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.LocationListSerializer getAppLocations(String storeType, List<Integer> uid, String q, String stage, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.LocationListSerializer> response = null;
             try {
-            response = catalogPlatformApiList.getAppLocations(this.companyId, this.applicationId, storeType, uid, q, stage, pageNo, pageSize, tags, storeTypes, requestHeaders).execute();
+            response = catalogPlatformApiList.getAppLocations(this.companyId, this.applicationId, storeType, uid, q, stage, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -5550,9 +4504,7 @@ public class ApplicationClient {
         List<Integer> uid,
         String q,
         String stage,
-        Integer pageSize,
-        List<String> tags,
-        List<String> storeTypes
+        Integer pageSize
         
         ){ 
     
@@ -5573,9 +4525,7 @@ public class ApplicationClient {
                  paginator.getPageNo()
                 ,
                  paginator.getPageSize()
-                ,
-                 tags,
-                 storeTypes
+                
             );
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
             paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
@@ -5882,48 +4832,6 @@ public class ApplicationClient {
         }    
     }
 
-    /**
-    * Summary: get paginator for getDiscountedInventoryBySizeIdentifier
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CatalogPlatformModels.InventorySellerIdentifierResponsePaginated> getDiscountedInventoryBySizeIdentifierPagination(
-        Integer itemId,
-        String sizeIdentifier,
-        Integer pageSize,
-        String q,
-        List<Integer> locationIds
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CatalogPlatformModels.InventorySellerIdentifierResponsePaginated> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CatalogPlatformModels.InventorySellerIdentifierResponsePaginated callback = this.getDiscountedInventoryBySizeIdentifier(
-                
-                 
-                 
-                 itemId,
-                 sizeIdentifier,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 q,
-                 locationIds
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-
     public CatalogPlatformModels.ProductDetail getProductDetailBySlug(String slug) throws FDKServerResponseError, FDKException {
         return this.getProductDetailBySlug(slug, new HashMap<>());
     }
@@ -5976,52 +4884,6 @@ public class ApplicationClient {
         } else {
             return null;
         }    
-    }
-
-    /**
-    * Summary: get paginator for getAppProducts
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CatalogPlatformModels.RawProductListingResponse> getAppProductsPagination(
-        List<Integer> brandIds,
-        List<Integer> categoryIds,
-        List<Integer> departmentIds,
-        List<String> tags,
-        List<Integer> itemIds,
-        Integer pageSize,
-        String q
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CatalogPlatformModels.RawProductListingResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CatalogPlatformModels.RawProductListingResponse callback = this.getAppProducts(
-                
-                 
-                 
-                 brandIds,
-                 categoryIds,
-                 departmentIds,
-                 tags,
-                 itemIds,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 q
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
     }
 
     public CatalogPlatformModels.AppReturnConfigResponse getAppReturnConfiguration() throws FDKServerResponseError, FDKException {
@@ -6888,15 +5750,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetConfigMetadataResponse getConfigurationMetadata(String configType, String templateSlug, Integer pageNo, Integer pageSize, String q) throws FDKServerResponseError, FDKException {
-        return this.getConfigurationMetadata(configType, templateSlug, pageNo, pageSize, q, new HashMap<>());
+    public CatalogPlatformModels.GetConfigMetadataResponse getConfigurationMetadata(String configType, String templateSlug) throws FDKServerResponseError, FDKException {
+        return this.getConfigurationMetadata(configType, templateSlug, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetConfigMetadataResponse getConfigurationMetadata(String configType, String templateSlug, Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetConfigMetadataResponse getConfigurationMetadata(String configType, String templateSlug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.GetConfigMetadataResponse> response = null;
             try {
-            response = catalogPlatformApiList.getConfigurationMetadata(this.companyId, this.applicationId, configType, templateSlug, pageNo, pageSize, q, requestHeaders).execute();
+            response = catalogPlatformApiList.getConfigurationMetadata(this.companyId, this.applicationId, configType, templateSlug, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

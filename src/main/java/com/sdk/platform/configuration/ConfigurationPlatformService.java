@@ -190,6 +190,70 @@ public class ConfigurationPlatformService {
     }
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getApplications
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ConfigurationPlatformModels.ApplicationsResponse> getApplicationsPagination(
+        Integer pageSize ,
+        String q 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ConfigurationPlatformModels.ApplicationsResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ConfigurationPlatformModels.ApplicationsResponse callback = this.getApplications(
+                
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 q
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     
@@ -288,11 +352,11 @@ public class ConfigurationPlatformService {
     
     
 
-    public ConfigurationPlatformModels.Integration getIntegrationById(String id) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.Integration getIntegrationById(Integer id) throws FDKServerResponseError, FDKException {
         return this.getIntegrationById(id, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.Integration getIntegrationById(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.Integration getIntegrationById(Integer id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ConfigurationPlatformModels.Integration> response = null;
             try {
@@ -364,6 +428,62 @@ public class ConfigurationPlatformService {
     }
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getAvailableOptIns
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ConfigurationPlatformModels.GetIntegrationsOptInsResponse> getAvailableOptInsPagination(
+        Integer pageSize 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ConfigurationPlatformModels.GetIntegrationsOptInsResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ConfigurationPlatformModels.GetIntegrationsOptInsResponse callback = this.getAvailableOptIns(
+                
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     
@@ -417,6 +537,78 @@ public class ConfigurationPlatformService {
         } else {
             return null;
         }    
+    }
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getSelectedOptIns
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ConfigurationPlatformModels.GetIntegrationsOptInsResponse> getSelectedOptInsPagination(
+        String level ,
+        Integer uid ,
+        Integer pageSize 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ConfigurationPlatformModels.GetIntegrationsOptInsResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ConfigurationPlatformModels.GetIntegrationsOptInsResponse callback = this.getSelectedOptIns(
+                
+                 
+                 level,
+                 uid,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
     }
     
     
@@ -772,6 +964,62 @@ public class ConfigurationPlatformService {
     }
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getCompanyByBrands
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ConfigurationPlatformModels.CompanyByBrandsResponse> getCompanyByBrandsPagination(
+        Integer pageSize ,
+        
+        ConfigurationPlatformModels.CompanyByBrandsRequest body){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ConfigurationPlatformModels.CompanyByBrandsResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ConfigurationPlatformModels.CompanyByBrandsResponse callback = this.getCompanyByBrands(
+                
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,body 
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     
@@ -820,6 +1068,62 @@ public class ConfigurationPlatformService {
     }
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getStoreByBrands
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ConfigurationPlatformModels.StoreByBrandsResponse> getStoreByBrandsPagination(
+        Integer pageSize ,
+        
+        ConfigurationPlatformModels.StoreByBrandsRequest body){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ConfigurationPlatformModels.StoreByBrandsResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ConfigurationPlatformModels.StoreByBrandsResponse callback = this.getStoreByBrands(
+                
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,body 
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     
@@ -865,6 +1169,62 @@ public class ConfigurationPlatformService {
         } else {
             return null;
         }    
+    }
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getOtherSellerApplications
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ConfigurationPlatformModels.OtherSellerApplications> getOtherSellerApplicationsPagination(
+        Integer pageSize 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ConfigurationPlatformModels.OtherSellerApplications> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ConfigurationPlatformModels.OtherSellerApplications callback = this.getOtherSellerApplications(
+                
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
     }
     
     
@@ -1324,6 +1684,42 @@ public class ApplicationClient {
         }    
     }
 
+    /**
+    * Summary: get paginator for getAppCompanies
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ConfigurationPlatformModels.CompaniesResponse> getAppCompaniesPagination(
+        Integer uid,
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ConfigurationPlatformModels.CompaniesResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ConfigurationPlatformModels.CompaniesResponse callback = this.getAppCompanies(
+                
+                 
+                 
+                 uid,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+
     public ConfigurationPlatformModels.StoresResponse getAppStores(Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
         return this.getAppStores(pageNo, pageSize, new HashMap<>());
     }
@@ -1349,6 +1745,40 @@ public class ApplicationClient {
         } else {
             return null;
         }    
+    }
+
+    /**
+    * Summary: get paginator for getAppStores
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ConfigurationPlatformModels.StoresResponse> getAppStoresPagination(
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ConfigurationPlatformModels.StoresResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ConfigurationPlatformModels.StoresResponse callback = this.getAppStores(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
     }
 
     public ConfigurationPlatformModels.ApplicationInventory getInventoryConfig() throws FDKServerResponseError, FDKException {
@@ -1540,6 +1970,40 @@ public class ApplicationClient {
         }    
     }
 
+    /**
+    * Summary: get paginator for getOrderingStoresByFilter
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ConfigurationPlatformModels.OrderingStores> getOrderingStoresByFilterPagination(
+        Integer pageSize,
+        
+        ConfigurationPlatformModels.FilterOrderingStoreRequest body){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ConfigurationPlatformModels.OrderingStores> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ConfigurationPlatformModels.OrderingStores callback = this.getOrderingStoresByFilter(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,body 
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+
     public ConfigurationPlatformModels.DeploymentMeta updateOrderingStoreConfig(ConfigurationPlatformModels.OrderingStoreConfig body) throws FDKServerResponseError, FDKException {
         return this.updateOrderingStoreConfig(body, new HashMap<>());
     }
@@ -1619,6 +2083,42 @@ public class ApplicationClient {
         } else {
             return null;
         }    
+    }
+
+    /**
+    * Summary: get paginator for getStaffOrderingStores
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ConfigurationPlatformModels.OrderingStoresResponse> getStaffOrderingStoresPagination(
+        Integer pageSize,
+        String q
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ConfigurationPlatformModels.OrderingStoresResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ConfigurationPlatformModels.OrderingStoresResponse callback = this.getStaffOrderingStores(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 q
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
     }
 
     public ConfigurationPlatformModels.SuccessMessageResponse getOrderingStoreCookie(ConfigurationPlatformModels.OrderingStoreSelectRequest body) throws FDKServerResponseError, FDKException {
@@ -1810,13 +2310,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.ApplicationById getApplicationById() throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.Application getApplicationById() throws FDKServerResponseError, FDKException {
         return this.getApplicationById(new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.ApplicationById getApplicationById(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.Application getApplicationById(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.ApplicationById> response = null;
+            Response<ConfigurationPlatformModels.Application> response = null;
             try {
             response = configurationPlatformApiList.getApplicationById(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {

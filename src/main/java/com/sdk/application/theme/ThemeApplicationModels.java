@@ -143,310 +143,6 @@ public static class AvailablePageSectionMetaAttributes{
 
 
 /*
-    Model: SEOMetaItem
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SEOMetaItem{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<SEOMetaItems> items;
-    
-    
-    
-}
-
-
-/*
-    Model: SEOMetaItems
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SEOMetaItems{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("key")
-    private String key;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-}
-
-
-/*
-    Model: SEOSitemap
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SEOSitemap{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private Double priority;
-    
-    
-    
-    
-    @JsonProperty("frequency")
-    private String frequency;
-    
-    
-    
-}
-
-
-/*
-    Model: SEObreadcrumb
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SEObreadcrumb{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("url")
-    private String url;
-    
-    
-    
-    
-    @JsonProperty("action")
-    private Action action;
-    
-    
-    
-}
-
-
-/*
-    Model: Action
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Action{
-
-    
-    
-    public static Action convertUrlToAction(String url) {
-        if (url != null) {
-            String path = Utility.trimChar(url);
-            HashMap<String, List<String>> query = Utility.getQuery(path);
-            String pathname = null;
-            try {
-                pathname = Utility.validURL(path) ? new URL(path).getPath() : path.split("\\?")[0];
-
-            } catch (MalformedURLException e) {
-                throw new RuntimeException(e);
-            }
-            Map<PageType, Constant.NavigatorPage> allNavigators = new HashMap(Objects.requireNonNull(Constant.getNavigators(PageType.class)));
-
-            Map<String, PageType> typeLink = new HashMap<>();
-
-            for (Map.Entry<PageType, Constant.NavigatorPage> entry : allNavigators.entrySet()) {
-                PageType nav = entry.getKey();
-                Constant.NavigatorPage navInfo = entry.getValue();
-                String link = navInfo.getLink().toString();
-                List<Constant.NavigatorPageParam> params = navInfo.getParams();
-
-                typeLink.put(link, nav);
-
-                if (params != null) {
-                    for (Constant.NavigatorPageParam param : params) {
-                        if (!param.isRequired()) {
-                            String modifiedLink = link.substring(0, link.indexOf(param.getKey().toString()) - 1);
-                            typeLink.put(modifiedLink, nav);
-                        }
-                    }
-                }
-            }
-
-            List<String> allLinks = new ArrayList<>(typeLink.keySet());
-            allLinks.sort((a, b) -> b.length() - a.length());
-
-            Map<String, Object> bestMatchingLink = Utility.findBestMatchingLink(allLinks, pathname);
-            String closestMatchingNavLink = null;
-            for (String pageType : typeLink.keySet()) {
-                if (Utility.trimChar(pageType).equals(bestMatchingLink.get("value"))) {
-                    closestMatchingNavLink = pageType;
-                    break;
-                }
-            }
-
-            PageType closestMatchingNavKey = typeLink.get(closestMatchingNavLink);
-
-            if(closestMatchingNavKey == null){
-                closestMatchingNavKey = PageType.home;
-            }
-
-            ActionPage actionPage = new ActionPage();
-            actionPage.setType(closestMatchingNavKey);
-            actionPage.setQuery(query);
-            actionPage.setParams(bestMatchingLink.containsKey("params") ? (HashMap<String, List<String>>) bestMatchingLink.get("params") : new HashMap<>());
-
-            Action action = new Action();
-            action.setType("page");
-            action.setPage(actionPage);
-
-            return action;
-        } else {
-            Action action = new Action();
-            action.setType("page");
-            
-            ActionPage actionPage = new ActionPage();
-            actionPage.setType(PageType.home);
-
-            action.setPage(new ActionPage());
-            return action;
-        }
-    }
-
-    public static String convertActionToUrl(Action action) {
-        if (action != null && action.getPage() != null && action.getPage().getType() != null) {
-            switch (action.getType()) {
-                case "page": {
-                    Constant.NavigatorPage item = Constant.getNavigators(PageType.class).get(action.page.type);
-                    if (item != null) {
-                        // Get param
-                        item.setLink(Utility.generateUrlWithParams(item, action.page.params));
-//                        item.put("link", Utility.generateUrlWithParams(item, action.getPage().getParams()));
-                        // Get query
-                        if (action.getPage().getQuery() != null && !action.getPage().getQuery().isEmpty()) {
-                            item.setLink(item.getLink() + "/?" + Utility.transformRequestOptions(action.getPage().getQuery()));
-                        }
-                        return item.getLink();
-                    }
-                    return "";
-                }
-                case "popup": {
-                    break;
-                }
-            }
-        }
-        return "";
-    }
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("page")
-    private ActionPage page;
-    
-    
-    
-    
-    @JsonProperty("popup")
-    private ActionPage popup;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-}
-
-
-/*
-    Model: ActionPage
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ActionPage{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("params")
-    private HashMap<String,List<String>> params;
-    
-    
-    
-    
-    @JsonProperty("query")
-    private HashMap<String,List<String>> query;
-    
-    
-    
-    
-    @JsonProperty("url")
-    private String url;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private PageType type;
-    
-    
-    
-}
-
-
-/*
     Model: AvailablePageSeo
 */
 @AllArgsConstructor
@@ -471,30 +167,6 @@ public static class AvailablePageSeo{
     
     @JsonProperty("description")
     private String description;
-    
-    
-    
-    
-    @JsonProperty("canonical_url")
-    private String canonicalUrl;
-    
-    
-    
-    
-    @JsonProperty("meta_tags")
-    private List<SEOMetaItem> metaTags;
-    
-    
-    
-    
-    @JsonProperty("sitemap")
-    private SEOSitemap sitemap;
-    
-    
-    
-    
-    @JsonProperty("breadcrumb")
-    private List<SEObreadcrumb> breadcrumb;
     
     
     
@@ -593,24 +265,6 @@ public static class AvailablePagePredicate{
     
     @JsonProperty("route")
     private AvailablePageRoutePredicate route;
-    
-    
-    
-    
-    @JsonProperty("schedule")
-    private AvailablePageSchedulePredicate schedule;
-    
-    
-    
-    
-    @JsonProperty("platform")
-    private AvailablePagePlatformPredicate platform;
-    
-    
-    
-    
-    @JsonProperty("zones")
-    private List<String> zones;
     
     
     
@@ -723,43 +377,6 @@ public static class AvailablePageRoutePredicate{
 
 
 /*
-    Model: AvailablePageSchedulePredicate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AvailablePageSchedulePredicate{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("cron")
-    private String cron;
-    
-    
-    
-    
-    @JsonProperty("start")
-    private String start;
-    
-    
-    
-    
-    @JsonProperty("end")
-    private String end;
-    
-    
-    
-}
-
-
-/*
     Model: ThemesSchema
 */
 @AllArgsConstructor
@@ -825,7 +442,7 @@ public static class ThemesSchema{
     
     
     @JsonProperty("meta")
-    private ThemeMeta meta;
+    private Meta meta;
     
     
     
@@ -874,18 +491,6 @@ public static class ThemesSchema{
     
     @JsonProperty("available_sections")
     private List<SectionItem> availableSections;
-    
-    
-    
-    
-    @JsonProperty("theme_type")
-    private String themeType;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Double companyId;
     
     
     
@@ -1967,7 +1572,7 @@ public static class PaletteConfig{
 
 
 /*
-    Model: ThemeMeta
+    Model: Meta
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1975,7 +1580,7 @@ public static class PaletteConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ThemeMeta{
+public static class Meta{
 
     
 
@@ -2912,43 +2517,6 @@ public static class Route{
 
 
 /*
-    Model: AvailablePagePlatformPredicate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AvailablePagePlatformPredicate{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("ios")
-    private Boolean ios;
-    
-    
-    
-    
-    @JsonProperty("android")
-    private Boolean android;
-    
-    
-    
-    
-    @JsonProperty("web")
-    private Boolean web;
-    
-    
-    
-}
-
-
-/*
     Model: BlitzkriegInternalServerErrorSchema
 */
 @AllArgsConstructor
@@ -2998,121 +2566,6 @@ public static class BlitzkriegApiErrorSchema{
 }
 
 
-
-
-    
-    /*
-        Enum: PageType
-        Used By: Theme
-    */
-    @Getter
-    public enum PageType {
-
-        
-        aboutUs("about-us"), 
-        
-        addresses("addresses"), 
-        
-        blog("blog"), 
-        
-        brands("brands"), 
-        
-        cards("cards"), 
-        
-        cart("cart"), 
-        
-        categories("categories"), 
-        
-        brand("brand"), 
-        
-        category("category"), 
-        
-        collection("collection"), 
-        
-        collections("collections"), 
-        
-        contactUs("contact-us"), 
-        
-        external("external"), 
-        
-        faq("faq"), 
-        
-        freshchat("freshchat"), 
-        
-        home("home"), 
-        
-        notificationSettings("notification-settings"), 
-        
-        orders("orders"), 
-        
-        page("page"), 
-        
-        policy("policy"), 
-        
-        product("product"), 
-        
-        productRequest("product-request"), 
-        
-        products("products"), 
-        
-        profile("profile"), 
-        
-        profileOrderShipment("profile-order-shipment"), 
-        
-        profileBasic("profile-basic"), 
-        
-        profileCompany("profile-company"), 
-        
-        profileEmails("profile-emails"), 
-        
-        profilePhones("profile-phones"), 
-        
-        rateUs("rate-us"), 
-        
-        referEarn("refer-earn"), 
-        
-        settings("settings"), 
-        
-        sharedCart("shared-cart"), 
-        
-        tnc("tnc"), 
-        
-        trackOrder("track-order"), 
-        
-        wishlist("wishlist"), 
-        
-        sections("sections"), 
-        
-        form("form"), 
-        
-        cartDelivery("cart-delivery"), 
-        
-        cartPayment("cart-payment"), 
-        
-        cartReview("cart-review"), 
-        
-        login("login"), 
-        
-        register("register"), 
-        
-        shippingPolicy("shipping-policy"), 
-        
-        returnPolicy("return-policy"), 
-        
-        orderStatus("order-status");
-        
-
-        private String priority;
-        PageType(String priority) {
-            this.priority = priority;
-        }
-
-        @JsonValue
-        public String getPriority() {
-            return priority;
-        }
-
-    }
 
 
 }
