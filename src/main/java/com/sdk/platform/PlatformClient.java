@@ -28,8 +28,6 @@ import com.sdk.platform.filestorage.FileStoragePlatformService;
 
 import com.sdk.platform.finance.FinancePlatformService;
 
-import com.sdk.platform.inventory.InventoryPlatformService;
-
 import com.sdk.platform.lead.LeadPlatformService;
 
 import com.sdk.platform.serviceability.ServiceabilityPlatformService;
@@ -83,8 +81,6 @@ public class PlatformClient {
     
     public FinancePlatformService finance;
     
-    public InventoryPlatformService inventory;
-    
     public LeadPlatformService lead;
     
     public ServiceabilityPlatformService serviceability;
@@ -133,8 +129,6 @@ public class PlatformClient {
         this.fileStorage = new FileStoragePlatformService(config);
         
         this.finance = new FinancePlatformService(config);
-        
-        this.inventory = new InventoryPlatformService(config);
         
         this.lead = new LeadPlatformService(config);
         
@@ -196,8 +190,6 @@ public class PlatformClient {
         
         public FinancePlatformService.ApplicationClient finance;
         
-        public InventoryPlatformService.ApplicationClient inventory;
-        
         public LeadPlatformService.ApplicationClient lead;
         
         public ServiceabilityPlatformService.ApplicationClient serviceability;
@@ -245,8 +237,6 @@ public class PlatformClient {
             this.fileStorage = new FileStoragePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.finance = new FinancePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.inventory = new InventoryPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.lead = new LeadPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             

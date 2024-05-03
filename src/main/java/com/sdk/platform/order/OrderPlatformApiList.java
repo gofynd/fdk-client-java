@@ -21,9 +21,6 @@ interface OrderPlatformApiList {
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/delight/update-address")
     Call<OrderPlatformModels.BaseResponse> updateAddress(@Path("company_id") String companyId, @Query("shipment_id") String shipmentId, @Query("name") String name, @Query("address") String address, @Query("address_type") String addressType, @Query("pincode") String pincode, @Query("phone") String phone, @Query("email") String email, @Query("landmark") String landmark, @Query("address_category") String addressCategory, @Query("city") String city, @Query("state") String state, @Query("country") String country, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/ninja/click2call")
-    Call<OrderPlatformModels.Click2CallResponse> click2Call(@Path("company_id") String companyId, @Query("caller") String caller, @Query("receiver") String receiver, @Query("bag_id") String bagId, @Query("caller_id") String callerId, @Query("method") String method, @HeaderMap Map<String, String> requestHeaders);
-
     @PUT ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/status-internal")
     Call<OrderPlatformModels.UpdateShipmentStatusResponseBody> updateShipmentStatus(@Path("company_id") String companyId, @Body OrderPlatformModels.UpdateShipmentStatusRequest payload, @HeaderMap Map<String, String> requestHeaders);
 

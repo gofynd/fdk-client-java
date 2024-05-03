@@ -31,7 +31,6 @@ import com.sdk.application.*;
         
         relativeUrls.put("getOrders","/service/application/order/v1.0/orders".substring(1));
         relativeUrls.put("getOrderById","/service/application/order/v1.0/orders/{order_id}".substring(1));
-        relativeUrls.put("getPosOrderById","/service/application/order/v1.0/orders/pos-order/{order_id}".substring(1));
         relativeUrls.put("getShipmentById","/service/application/order/v1.0/orders/shipments/{shipment_id}".substring(1));
         relativeUrls.put("getInvoiceByShipmentId","/service/application/order/v1.0/orders/shipments/{shipment_id}/invoice".substring(1));
         relativeUrls.put("trackShipment","/service/application/order/v1.0/orders/shipments/{shipment_id}/track".substring(1));
@@ -84,24 +83,6 @@ import com.sdk.application.*;
         fullUrl = fullUrl.replace("{" + "order_id" + "}",orderId.toString());
 
         Response<OrderApplicationModels.OrderById> response = orderApplicationApiList.getOrderById(fullUrl, allowInactive, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public OrderApplicationModels.OrderById getPosOrderById(String orderId) throws IOException {
-        return this.getPosOrderById(orderId, new HashMap<>());
-    }
-
-    public OrderApplicationModels.OrderById getPosOrderById(String orderId, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getPosOrderById");
-        fullUrl = fullUrl.replace("{" + "order_id" + "}",orderId.toString());
-
-        Response<OrderApplicationModels.OrderById> response = orderApplicationApiList.getPosOrderById(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

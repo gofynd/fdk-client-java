@@ -378,6 +378,18 @@ public static class UpdateShipmentLockPayload{
     
     
     
+    
+    @JsonProperty("lock_after_transition")
+    private Boolean lockAfterTransition;
+    
+    
+    
+    
+    @JsonProperty("unlock_before_transition")
+    private Boolean unlockBeforeTransition;
+    
+    
+    
 }
 
 

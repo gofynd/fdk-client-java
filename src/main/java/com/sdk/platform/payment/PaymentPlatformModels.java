@@ -5514,6 +5514,12 @@ public static class RefundSessionDetail{
     
     
     
+    @JsonProperty("pg_refund_id")
+    private String pgRefundId;
+    
+    
+    
+    
     @JsonProperty("currency")
     private String currency;
     

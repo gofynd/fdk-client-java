@@ -299,66 +299,6 @@ public class OrderPlatformService {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    public OrderPlatformModels.Click2CallResponse click2Call(String caller, String receiver, String bagId, String callerId, String method) throws FDKServerResponseError, FDKException {
-        return this.click2Call(caller, receiver, bagId, callerId, method, new HashMap<>());
-    }
-
-    public OrderPlatformModels.Click2CallResponse click2Call(String caller, String receiver, String bagId, String callerId, String method, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<OrderPlatformModels.Click2CallResponse> response = null;
-            try {
-                response = orderPlatformApiList.click2Call(this.companyId, caller, receiver, bagId, callerId, method, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     public OrderPlatformModels.UpdateShipmentStatusResponseBody updateShipmentStatus(OrderPlatformModels.UpdateShipmentStatusRequest body) throws FDKServerResponseError, FDKException {
         return this.updateShipmentStatus(body, new HashMap<>());

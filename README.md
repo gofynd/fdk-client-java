@@ -153,11 +153,3 @@ headers.put("x-api-version", "1.0");
 ThemePlatformModels.AllAvailablePageSchema response = platformClient.application(applicationId).theme.getAllPages("<THEME_ID>", headers);
 ```
 
----
-
-### Documentation
-
-- [Application Front](documentation/application/README.md)
-- [Platform Front](documentation/platform/README.md)
-- [Public Front](documentation/public/README.md)
-

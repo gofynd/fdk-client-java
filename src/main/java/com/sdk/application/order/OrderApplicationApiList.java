@@ -13,9 +13,6 @@ interface OrderApplicationApiList {
     Call<OrderApplicationModels.OrderById> getOrderById(@Url String url1, @Query("allow_inactive") Boolean allowInactive, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<OrderApplicationModels.OrderById> getPosOrderById(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
     Call<OrderApplicationModels.ShipmentById> getShipmentById(@Url String url1, @Query("allow_inactive") Boolean allowInactive, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
