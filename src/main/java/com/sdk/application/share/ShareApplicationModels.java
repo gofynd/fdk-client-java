@@ -361,6 +361,12 @@ public static class UrlInfo{
     
     
     
+    
+    @JsonProperty("short_url")
+    private String shortUrl;
+    
+    
+    
 }
 
 

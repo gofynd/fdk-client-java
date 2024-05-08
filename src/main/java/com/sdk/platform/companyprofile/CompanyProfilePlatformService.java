@@ -216,11 +216,11 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse editBrand(String brandId, CompanyProfilePlatformModels.CreateUpdateBrandRequestSerializer body) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse editBrand(String brandId, CompanyProfilePlatformModels.UpdateBrandRequestSerializer body) throws FDKServerResponseError, FDKException {
         return this.editBrand(brandId, body, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse editBrand(String brandId, CompanyProfilePlatformModels.CreateUpdateBrandRequestSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse editBrand(String brandId, CompanyProfilePlatformModels.UpdateBrandRequestSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {
@@ -256,11 +256,11 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createBrand(CompanyProfilePlatformModels.CreateUpdateBrandRequestSerializer body) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse createBrand(CompanyProfilePlatformModels.CreateBrandRequestSerializer body) throws FDKServerResponseError, FDKException {
         return this.createBrand(body, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createBrand(CompanyProfilePlatformModels.CreateUpdateBrandRequestSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse createBrand(CompanyProfilePlatformModels.CreateBrandRequestSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {

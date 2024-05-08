@@ -19,10 +19,10 @@ interface CompanyProfilePlatformApiList {
     Call<CompanyProfilePlatformModels.GetBrandResponseSerializer> getBrand(@Path("company_id") String companyId, @Path("brand_id") String brandId, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/company-profile/v1.0/company/{company_id}/brand/{brand_id}")
-    Call<CompanyProfilePlatformModels.ProfileSuccessResponse> editBrand(@Path("company_id") String companyId, @Path("brand_id") String brandId, @Body CompanyProfilePlatformModels.CreateUpdateBrandRequestSerializer payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CompanyProfilePlatformModels.ProfileSuccessResponse> editBrand(@Path("company_id") String companyId, @Path("brand_id") String brandId, @Body CompanyProfilePlatformModels.UpdateBrandRequestSerializer payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/company-profile/v1.0/company/{company_id}/brand/")
-    Call<CompanyProfilePlatformModels.ProfileSuccessResponse> createBrand(@Path("company_id") String companyId, @Body CompanyProfilePlatformModels.CreateUpdateBrandRequestSerializer payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CompanyProfilePlatformModels.ProfileSuccessResponse> createBrand(@Path("company_id") String companyId, @Body CompanyProfilePlatformModels.CreateBrandRequestSerializer payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/company-profile/v1.0/company/{company_id}/company-brand")
     Call<CompanyProfilePlatformModels.CompanyBrandListSerializer> getBrands(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
