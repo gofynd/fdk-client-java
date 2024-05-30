@@ -16462,6 +16462,12 @@ public static class Quantity{
     
     
     
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
 }
 
 

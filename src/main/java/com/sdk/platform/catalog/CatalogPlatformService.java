@@ -997,16 +997,52 @@ public class CatalogPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CatalogPlatformModels.GetInventoriesResponse getInventories(String itemId, String size, Integer pageNo, Integer pageSize, String q, Boolean sellable, List<Integer> storeIds, String sizeIdentifier) throws FDKServerResponseError, FDKException {
-        return this.getInventories(itemId, size, pageNo, pageSize, q, sellable, storeIds, sizeIdentifier, new HashMap<>());
+    public CatalogPlatformModels.GetInventoriesResponse getInventories(String itemId, String size, Integer pageNo, Integer pageSize, String pageId, String pageType, String q, Boolean sellable, List<Integer> storeIds, List<Integer> brandIds, List<String> sellerIdentifiers, Integer qtyGt, Integer qtyLt, String qtyType, String fromDate, String toDate, String sizeIdentifier) throws FDKServerResponseError, FDKException {
+        return this.getInventories(itemId, size, pageNo, pageSize, pageId, pageType, q, sellable, storeIds, brandIds, sellerIdentifiers, qtyGt, qtyLt, qtyType, fromDate, toDate, sizeIdentifier, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetInventoriesResponse getInventories(String itemId, String size, Integer pageNo, Integer pageSize, String q, Boolean sellable, List<Integer> storeIds, String sizeIdentifier, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetInventoriesResponse getInventories(String itemId, String size, Integer pageNo, Integer pageSize, String pageId, String pageType, String q, Boolean sellable, List<Integer> storeIds, List<Integer> brandIds, List<String> sellerIdentifiers, Integer qtyGt, Integer qtyLt, String qtyType, String fromDate, String toDate, String sizeIdentifier, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.GetInventoriesResponse> response = null;
             try {
-                response = catalogPlatformApiList.getInventories(this.companyId, itemId, size, pageNo, pageSize, q, sellable, storeIds, sizeIdentifier, requestHeaders).execute();
+                response = catalogPlatformApiList.getInventories(this.companyId, itemId, size, pageNo, pageSize, pageId, pageType, q, sellable, storeIds, brandIds, sellerIdentifiers, qtyGt, qtyLt, qtyType, fromDate, toDate, sizeIdentifier, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1083,6 +1119,60 @@ public class CatalogPlatformService {
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
     /**
     * Summary: get paginator for getInventories
@@ -1095,13 +1185,20 @@ public class CatalogPlatformService {
         String q ,
         Boolean sellable ,
         List<Integer> storeIds ,
+        List<Integer> brandIds ,
+        List<String> sellerIdentifiers ,
+        Integer qtyGt ,
+        Integer qtyLt ,
+        String qtyType ,
+        String fromDate ,
+        String toDate ,
         String sizeIdentifier 
         
         ){ 
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogPlatformModels.GetInventoriesResponse> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CatalogPlatformModels.GetInventoriesResponse> paginator = new Paginator<>(pageSize, "cursor");
 
     paginator.setCallback(()-> {
         try {
@@ -1114,9 +1211,20 @@ public class CatalogPlatformService {
                 ,
                  paginator.getPageSize()
                 ,
+                 paginator.getNextId()
+                ,
+                 paginator.getPageType()
+                ,
                  q,
                  sellable,
                  storeIds,
+                 brandIds,
+                 sellerIdentifiers,
+                 qtyGt,
+                 qtyLt,
+                 qtyType,
+                 fromDate,
+                 toDate,
                  sizeIdentifier
             );
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
