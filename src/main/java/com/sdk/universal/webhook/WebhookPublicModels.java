@@ -89,6 +89,12 @@ public static class EventConfig{
     
     
     
+    
+    @JsonProperty("group")
+    private String group;
+    
+    
+    
 }
 
 

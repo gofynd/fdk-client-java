@@ -2343,6 +2343,37 @@ public static class BulkInventoryGet{
 
 
 /*
+    Model: FailedRecord
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FailedRecord{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("identifiers")
+    private String identifiers;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
     Model: BulkInventoryGetItems
 */
 @AllArgsConstructor
@@ -2396,7 +2427,7 @@ public static class BulkInventoryGetItems{
     
     
     @JsonProperty("failed_records")
-    private List<String> failedRecords;
+    private List<FailedRecord> failedRecords;
     
     
     
@@ -2445,6 +2476,55 @@ public static class BulkInventoryGetItems{
     
     @JsonProperty("total")
     private Integer total;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkProductJob
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkProductJob{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("template_tag")
+    private String templateTag;
+    
+    
+    
+    
+    @JsonProperty("product_type")
+    private String productType;
+    
+    
+    
+    
+    @JsonProperty("department")
+    private String department;
+    
+    
+    
+    
+    @JsonProperty("file_path")
+    private String filePath;
     
     
     
@@ -7450,6 +7530,142 @@ public static class GetCompanySerializer{
 
 
 /*
+    Model: ConditionItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ConditionItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+}
+
+
+/*
+    Model: DataItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DataItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+    
+    @JsonProperty("filter_types")
+    private List<String> filterTypes;
+    
+    
+    
+    
+    @JsonProperty("compatible_units")
+    private List<String> compatibleUnits;
+    
+    
+    
+}
+
+
+/*
+    Model: ValueTypeItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValueTypeItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+}
+
+
+/*
+    Model: SortTypeItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SortTypeItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+}
+
+
+/*
     Model: GetConfigMetadataResponse
 */
 @AllArgsConstructor
@@ -7467,13 +7683,13 @@ public static class GetConfigMetadataResponse{
     
     
     @JsonProperty("condition")
-    private List<Object> condition;
+    private List<ConditionItem> condition;
     
     
     
     
     @JsonProperty("data")
-    private List<Object> data;
+    private List<DataItem> data;
     
     
     
@@ -7485,7 +7701,38 @@ public static class GetConfigMetadataResponse{
     
     
     @JsonProperty("values")
-    private List<Object> values;
+    private GetConfigMetadataValues values;
+    
+    
+    
+}
+
+
+/*
+    Model: GetConfigMetadataValues
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetConfigMetadataValues{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private List<ValueTypeItem> type;
+    
+    
+    
+    
+    @JsonProperty("sort")
+    private List<SortTypeItem> sort;
     
     
     
@@ -18411,7 +18658,7 @@ public static class UpdateSearchConfigurationResponse{
 
 
 /*
-    Model: UpdatedResponse
+    Model: CreateMarketplaceOptinResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18419,7 +18666,7 @@ public static class UpdateSearchConfigurationResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdatedResponse{
+public static class CreateMarketplaceOptinResponse{
 
     
 
@@ -18427,14 +18674,56 @@ public static class UpdatedResponse{
     
     
     
-    @JsonProperty("items_not_updated")
-    private List<Integer> itemsNotUpdated;
+    @JsonProperty("store_ids")
+    private List<Integer> storeIds;
     
     
     
     
-    @JsonProperty("message")
-    private String message;
+    @JsonProperty("brand_ids")
+    private List<Integer> brandIds;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("opt_level")
+    private String optLevel;
+    
+    
+    
+    
+    @JsonProperty("platform")
+    private String platform;
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private CreatedBy createdBy;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private CreatedBy modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("app_id")
+    private String appId;
     
     
     

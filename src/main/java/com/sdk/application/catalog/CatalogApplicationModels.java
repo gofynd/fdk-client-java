@@ -1336,6 +1336,12 @@ public static class ProductSizes{
     
     
     
+    @JsonProperty("price_per_piece")
+    private ProductSizesPrice pricePerPiece;
+    
+    
+    
+    
     @JsonProperty("size_chart")
     private SizeChart sizeChart;
     
@@ -1618,6 +1624,12 @@ public static class ProductVariantItemResponse{
     
     
     
+    @JsonProperty("_custom_json")
+    private HashMap<String,Object> customJson;
+    
+    
+    
+    
     @JsonProperty("action")
     private ProductListingAction action;
     
@@ -1663,6 +1675,12 @@ public static class ProductVariantResponse{
     
     @JsonProperty("key")
     private String key;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
     
     
     

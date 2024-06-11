@@ -39,6 +39,12 @@ interface WebhookPlatformApiList {
     @GET ("/service/platform/webhook/v1.0/company/{company_id}/events")
     Call<WebhookPlatformModels.EventConfigResponse> fetchAllEventConfigurations(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 
+    @POST ("/service/platform/webhook/v2.0/company/{company_id}/subscriber/")
+    Call<WebhookPlatformModels.SubscriberConfigResponse> registerSubscriberToEventV2(@Path("company_id") String companyId, @Body WebhookPlatformModels.SubscriberConfigRequestV2 payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/webhook/v2.0/company/{company_id}/subscriber/")
+    Call<WebhookPlatformModels.SubscriberConfigResponse> updateSubscriberV2(@Path("company_id") String companyId, @Body WebhookPlatformModels.SubscriberConfigRequestV2 payload, @HeaderMap Map<String, String> requestHeaders);
+
     @POST ("/service/platform/webhook/v1.0/company/{company_id}/subscriber/")
     Call<WebhookPlatformModels.SubscriberConfigResponse> registerSubscriberToEvent(@Path("company_id") String companyId, @Body WebhookPlatformModels.SubscriberConfig payload, @HeaderMap Map<String, String> requestHeaders);
 

@@ -1183,6 +1183,12 @@ public static class BlogSchema{
     
     
     
+    @JsonProperty("publish_date")
+    private String publishDate;
+    
+    
+    
+    
     @JsonProperty("tags")
     private List<String> tags;
     

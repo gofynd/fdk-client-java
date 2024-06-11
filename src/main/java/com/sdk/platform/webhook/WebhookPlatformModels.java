@@ -666,6 +666,55 @@ public static class PingWebhookResponse{
 
 
 /*
+    Model: SubscriberEventMapping
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SubscriberEventMapping{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Double id;
+    
+    
+    
+    
+    @JsonProperty("event_id")
+    private Double eventId;
+    
+    
+    
+    
+    @JsonProperty("subscriber_id")
+    private Double subscriberId;
+    
+    
+    
+    
+    @JsonProperty("topic")
+    private String topic;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+}
+
+
+/*
     Model: EventConfig
 */
 @AllArgsConstructor
@@ -714,6 +763,12 @@ public static class EventConfig{
     
     @JsonProperty("event_schema")
     private HashMap<String,Object> eventSchema;
+    
+    
+    
+    
+    @JsonProperty("group")
+    private String group;
     
     
     
@@ -917,6 +972,12 @@ public static class HistoryFilters{
     
     @JsonProperty("subscribers")
     private List<Integer> subscribers;
+    
+    
+    
+    
+    @JsonProperty("webhook_type")
+    private List<String> webhookType;
     
     
     
@@ -1239,49 +1300,6 @@ public static class AuthMeta{
 
 
 /*
-    Model: SubscriberEventMapping
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriberEventMapping{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private Integer id;
-    
-    
-    
-    
-    @JsonProperty("event_id")
-    private Integer eventId;
-    
-    
-    
-    
-    @JsonProperty("subscriber_id")
-    private Integer subscriberId;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-}
-
-
-/*
     Model: SubscriberResponse
 */
 @AllArgsConstructor
@@ -1312,6 +1330,12 @@ public static class SubscriberResponse{
     
     @JsonProperty("name")
     private String name;
+    
+    
+    
+    
+    @JsonProperty("provider")
+    private String provider;
     
     
     
@@ -1372,6 +1396,116 @@ public static class SubscriberResponse{
     
     @JsonProperty("event_configs")
     private List<EventConfig> eventConfigs;
+    
+    
+    
+}
+
+
+/*
+    Model: Events
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Events{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("topic")
+    private String topic;
+    
+    
+    
+}
+
+
+/*
+    Model: SubscriberConfigRequestV2
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SubscriberConfigRequestV2{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Integer id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("webhook_url")
+    private String webhookUrl;
+    
+    
+    
+    
+    @JsonProperty("provider")
+    private String provider;
+    
+    
+    
+    
+    @JsonProperty("association")
+    private Association association;
+    
+    
+    
+    
+    @JsonProperty("custom_headers")
+    private Object customHeaders;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private SubscriberStatus status;
+    
+    
+    
+    
+    @JsonProperty("email_id")
+    private String emailId;
+    
+    
+    
+    
+    @JsonProperty("auth_meta")
+    private AuthMeta authMeta;
+    
+    
+    
+    
+    @JsonProperty("events")
+    private List<Events> events;
     
     
     
@@ -1492,6 +1626,12 @@ public static class SubscriberConfigResponse{
     
     
     
+    @JsonProperty("provider")
+    private String provider;
+    
+    
+    
+    
     @JsonProperty("association")
     private Association association;
     
@@ -1592,9 +1732,7 @@ public static class SubscriberConfigList{
         
         active("active"), 
         
-        inactive("inactive"), 
-        
-        blocked("blocked");
+        inactive("inactive");
         
 
         private String priority;

@@ -754,6 +754,12 @@ public static class BlogSchema{
     
     
     
+    @JsonProperty("publish_date")
+    private String publishDate;
+    
+    
+    
+    
     @JsonProperty("seo")
     private SEO seo;
     

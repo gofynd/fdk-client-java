@@ -214,7 +214,7 @@ interface CatalogPlatformApiList {
     Call<CatalogPlatformModels.GetInventoriesResponse> getInventories(@Path("company_id") String companyId, @Query("item_id") String itemId, @Query("size") String size, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("page_id") String pageId, @Query("page_type") String pageType, @Query("q") String q, @Query("sellable") Boolean sellable, @Query("store_ids") List<Integer> storeIds, @Query("brand_ids") List<Integer> brandIds, @Query("seller_identifiers") List<String> sellerIdentifiers, @Query("qty_gt") Integer qtyGt, @Query("qty_lt") Integer qtyLt, @Query("qty_type") String qtyType, @Query("from_date") String fromDate, @Query("to_date") String toDate, @Query("size_identifier") String sizeIdentifier, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/inventory/bulk/")
-    Call<CatalogPlatformModels.BulkInventoryGet> getInventoryBulkUploadHistory(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogPlatformModels.BulkInventoryGet> getInventoryBulkUploadHistory(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("search") String search, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/catalog/v1.0/company/{company_id}/inventory/bulk/")
     Call<CatalogPlatformModels.BulkResponse> createBulkInventoryJob(@Path("company_id") String companyId, @Body CatalogPlatformModels.BulkJob payload, @HeaderMap Map<String, String> requestHeaders);
@@ -257,9 +257,6 @@ interface CatalogPlatformApiList {
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/marketplaces/location-details/")
     Call<CatalogPlatformModels.OptinStoreDetails> getStoreDetail(@Path("company_id") String companyId, @Query("q") String q, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/catalog/v1.0/company/{company_id}/marketplaces/{marketplace}/optin/")
-    Call<CatalogPlatformModels.UpdatedResponse> createMarketplaceOptin(@Path("company_id") String companyId, @Path("marketplace") String marketplace, @Body CatalogPlatformModels.OptInPostRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/product-attributes/")
     Call<CatalogPlatformModels.ProductAttributesResponse> getProductAttributes(@Path("company_id") String companyId, @Query("category") String category, @Query("filter") Boolean filter, @HeaderMap Map<String, String> requestHeaders);
@@ -406,7 +403,7 @@ interface CatalogPlatformApiList {
     Call<CatalogPlatformModels.SuccessResponse1> createProduct(@Path("company_id") String companyId, @Body CatalogPlatformModels.ProductCreateUpdateSchemaV2 payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/catalog/v2.0/company/{company_id}/products/bulk")
-    Call<CatalogPlatformModels.BulkResponse> uploadBulkProducts(@Path("company_id") String companyId, @Query("department") String department, @Query("product_type") String productType, @Body CatalogPlatformModels.BulkJob payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogPlatformModels.BulkResponse> uploadBulkProducts(@Path("company_id") String companyId, @Query("department") String department, @Query("product_type") String productType, @Body CatalogPlatformModels.BulkProductJob payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v2.0/company/{company_id}/products/downloads/")
     Call<CatalogPlatformModels.ProductDownloadsResponse> getProductExportJobs(@Path("company_id") String companyId, @Query("status") String status, @Query("from_date") String fromDate, @Query("to_date") String toDate, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
@@ -437,4 +434,7 @@ interface CatalogPlatformApiList {
 
     @PUT ("/service/platform/catalog/v1.0/company/{company_id}/channel/{marketplace_slug}/opt-in")
     Call<CatalogPlatformModels.UpdateMarketplaceOptinResponse> updateMarketplaceOptin(@Path("company_id") String companyId, @Path("marketplace_slug") String marketplaceSlug, @Body CatalogPlatformModels.UpdateMarketplaceOptinRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/catalog/v1.0/company/{company_id}/channel/{marketplace_slug}/opt-in")
+    Call<CatalogPlatformModels.CreateMarketplaceOptinResponse> createMarketplaceOptin(@Path("company_id") String companyId, @Path("marketplace_slug") String marketplaceSlug, @Body CatalogPlatformModels.OptInPostRequest payload, @HeaderMap Map<String, String> requestHeaders);
 }

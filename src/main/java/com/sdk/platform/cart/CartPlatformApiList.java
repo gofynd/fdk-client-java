@@ -57,6 +57,9 @@ interface CartPlatformApiList {
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/price-adjustment")
     Call<CartPlatformModels.PriceAdjustmentResponse> addPriceAdjustment(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CartPlatformModels.PriceAdjustmentAdd payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/price-adjustment")
+    Call<CartPlatformModels.PriceAdjustmentResponse> getPriceAdjustments(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("cart_id") String cartId, @HeaderMap Map<String, String> requestHeaders);
+
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart/validate")
     Call<CartPlatformModels.OpenapiCartDetailsResponse> fetchAndvalidateCartItems(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CartPlatformModels.OpenapiCartDetailsRequest payload, @HeaderMap Map<String, String> requestHeaders);
 

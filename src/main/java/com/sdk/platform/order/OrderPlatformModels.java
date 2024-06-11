@@ -7062,7 +7062,7 @@ public static class Filters{
     
     
     @JsonProperty("dp_ids")
-    private Integer dpIds;
+    private String dpIds;
     
     
     
@@ -7081,6 +7081,12 @@ public static class Filters{
     
     @JsonProperty("store_name")
     private String storeName;
+    
+    
+    
+    
+    @JsonProperty("deselected_shipments")
+    private String deselectedShipments;
     
     
     
@@ -8698,6 +8704,178 @@ public static class GenerateInvoiceIDErrorResponse{
     
     @JsonProperty("items")
     private List<GenerateInvoiceIDErrorResponseData> items;
+    
+    
+    
+}
+
+
+/*
+    Model: ManifestResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ManifestResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private ManifestItems items;
+    
+    
+    
+}
+
+
+/*
+    Model: ProcessManifestRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProcessManifestRequest{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("manifest_id")
+    private String manifestId;
+    
+    
+    
+    
+    @JsonProperty("filters")
+    private Filters filters;
+    
+    
+    
+    
+    @JsonProperty("unique_id")
+    private String uniqueId;
+    
+    
+    
+}
+
+
+/*
+    Model: ManifestItems
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ManifestItems{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("filters")
+    private Filters filters;
+    
+    
+    
+    
+    @JsonProperty("manifest_id")
+    private String manifestId;
+    
+    
+    
+    
+    @JsonProperty("unique_id")
+    private String uniqueId;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("dp_id")
+    private String dpId;
+    
+    
+    
+    
+    @JsonProperty("courier_partner_slug")
+    private String courierPartnerSlug;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private String createdBy;
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+}
+
+
+/*
+    Model: ManifestErrorResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ManifestErrorResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
     
     
     

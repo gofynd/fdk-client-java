@@ -34,6 +34,8 @@ import com.sdk.application.theme.ThemeApplicationService;
 
 import com.sdk.application.user.UserApplicationService;
 
+import com.sdk.application.webhook.WebhookApplicationService;
+
 
 @Getter
 @Setter
@@ -72,6 +74,8 @@ public class ApplicationClient {
     
     public UserApplicationService user;
     
+    public WebhookApplicationService webhook;
+    
 
     public void setExtraHeader(String key, String value){
         this.config.getExtraHeaders().put(key, value);
@@ -109,6 +113,8 @@ public class ApplicationClient {
         this.theme = new ThemeApplicationService(applicationConfig);
         
         this.user = new UserApplicationService(applicationConfig);
+        
+        this.webhook = new WebhookApplicationService(applicationConfig);
         
     }
 }

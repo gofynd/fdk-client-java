@@ -222,6 +222,67 @@ public static class ShipmentPayment{
 
 
 /*
+    Model: ShipmentPaymentInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentPaymentInfo{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("mop")
+    private String mop;
+    
+    
+    
+    
+    @JsonProperty("payment_mode")
+    private String paymentMode;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("mode")
+    private String mode;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+}
+
+
+/*
     Model: ShipmentUserInfo
 */
 @AllArgsConstructor
@@ -1430,7 +1491,7 @@ public static class Article{
 
 
 /*
-    Model: DeliveryAddress
+    Model: Address
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1438,7 +1499,7 @@ public static class Article{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeliveryAddress{
+public static class Address{
 
     
 
@@ -1610,7 +1671,7 @@ public static class Shipments{
     
     
     @JsonProperty("payment_info")
-    private List<ShipmentPayment> paymentInfo;
+    private List<ShipmentPaymentInfo> paymentInfo;
     
     
     
@@ -1796,7 +1857,13 @@ public static class Shipments{
     
     
     @JsonProperty("delivery_address")
-    private DeliveryAddress deliveryAddress;
+    private Address deliveryAddress;
+    
+    
+    
+    
+    @JsonProperty("billing_address")
+    private Address billingAddress;
     
     
     
@@ -1944,6 +2011,12 @@ public static class OrderSchema{
     
     @JsonProperty("total_shipments_in_order")
     private Integer totalShipmentsInOrder;
+    
+    
+    
+    
+    @JsonProperty("gstin_code")
+    private String gstinCode;
     
     
     

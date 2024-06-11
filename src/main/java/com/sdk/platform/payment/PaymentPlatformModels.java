@@ -808,7 +808,7 @@ public static class AggregatorRoute{
     
     
     @JsonProperty("payment_flow_data")
-    private String paymentFlowData;
+    private Object paymentFlowData;
     
     
     

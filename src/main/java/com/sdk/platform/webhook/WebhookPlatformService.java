@@ -492,6 +492,86 @@ public class WebhookPlatformService {
     
     
 
+    public WebhookPlatformModels.SubscriberConfigResponse registerSubscriberToEventV2(WebhookPlatformModels.SubscriberConfigRequestV2 body) throws FDKServerResponseError, FDKException {
+        return this.registerSubscriberToEventV2(body, new HashMap<>());
+    }
+
+    public WebhookPlatformModels.SubscriberConfigResponse registerSubscriberToEventV2(WebhookPlatformModels.SubscriberConfigRequestV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<WebhookPlatformModels.SubscriberConfigResponse> response = null;
+            try {
+                response = webhookPlatformApiList.registerSubscriberToEventV2(this.companyId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public WebhookPlatformModels.SubscriberConfigResponse updateSubscriberV2(WebhookPlatformModels.SubscriberConfigRequestV2 body) throws FDKServerResponseError, FDKException {
+        return this.updateSubscriberV2(body, new HashMap<>());
+    }
+
+    public WebhookPlatformModels.SubscriberConfigResponse updateSubscriberV2(WebhookPlatformModels.SubscriberConfigRequestV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<WebhookPlatformModels.SubscriberConfigResponse> response = null;
+            try {
+                response = webhookPlatformApiList.updateSubscriberV2(this.companyId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
     public WebhookPlatformModels.SubscriberConfigResponse registerSubscriberToEvent(WebhookPlatformModels.SubscriberConfig body) throws FDKServerResponseError, FDKException {
         return this.registerSubscriberToEvent(body, new HashMap<>());
     }

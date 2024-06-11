@@ -90,8 +90,8 @@ interface OrderPlatformApiList {
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/jobs/{batch_id}/file")
     Call<OrderPlatformModels.JobFailedResponse> getFileByStatus(@Path("company_id") String companyId, @Path("batch_id") String batchId, @Query("status") String status, @Query("file_type") String fileType, @Query("report_type") String reportType, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/manifests/shipments")
-    Call<OrderPlatformModels.ManifestShipmentListing> getManifestShipments(@Path("company_id") String companyId, @Query("dp_ids") Integer dpIds, @Query("stores") String stores, @Query("to_date") String toDate, @Query("from_date") String fromDate, @Query("dp_name") String dpName, @Query("sales_channels") String salesChannels, @Query("search_type") String searchType, @Query("search_value") String searchValue, @Query("page_no") String pageNo, @Query("page_size") String pageSize, @HeaderMap Map<String, String> requestHeaders);
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/shipments-listing")
+    Call<OrderPlatformModels.ManifestShipmentListing> getManifestShipments(@Path("company_id") String companyId, @Query("dp_ids") String dpIds, @Query("stores") Integer stores, @Query("to_date") String toDate, @Query("from_date") String fromDate, @Query("dp_name") String dpName, @Query("sales_channels") String salesChannels, @Query("search_type") String searchType, @Query("search_value") String searchValue, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/manifests")
     Call<OrderPlatformModels.ManifestList> getManifests(@Path("company_id") String companyId, @Query("status") String status, @Query("start_date") String startDate, @Query("end_date") String endDate, @Query("search_type") String searchType, @Query("store_id") Integer storeId, @Query("search_value") String searchValue, @Query("dp_ids") String dpIds, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
@@ -102,8 +102,8 @@ interface OrderPlatformApiList {
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/manifests/{manifest_id}")
     Call<OrderPlatformModels.ManifestDetails> getManifestDetails(@Path("company_id") String companyId, @Path("manifest_id") String manifestId, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/{manifest_id}/dispatch")
-    Call<OrderPlatformModels.SuccessResponse> dispatchManifests(@Path("company_id") String companyId, @Path("manifest_id") String manifestId, @Body OrderPlatformModels.DispatchManifest payload, @HeaderMap Map<String, String> requestHeaders);
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/dispatch")
+    Call<OrderPlatformModels.SuccessResponse> dispatchManifests(@Path("company_id") String companyId, @Body OrderPlatformModels.DispatchManifest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/{manifest_id}/upload-consent")
     Call<OrderPlatformModels.SuccessResponse> uploadConsents(@Path("company_id") String companyId, @Path("manifest_id") String manifestId, @Body OrderPlatformModels.UploadConsent payload, @HeaderMap Map<String, String> requestHeaders);
@@ -128,6 +128,9 @@ interface OrderPlatformApiList {
 
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/orders/failed/logs/{log_id}")
     Call<OrderPlatformModels.FailedOrderLogDetails> failedOrderLogDetails(@Path("company_id") String companyId, @Path("log_id") String logId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/process-manifest")
+    Call<OrderPlatformModels.ManifestResponse> generateProcessManifest(@Path("company_id") String companyId, @Body OrderPlatformModels.ProcessManifestRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/order/v1.0/company/{company_id}/application/{application_id}/orders/shipments/{shipment_id}/line_number/{line_number}/reasons")
     Call<OrderPlatformModels.ShipmentBagReasons> getShipmentBagReasons(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("shipment_id") String shipmentId, @Path("line_number") Integer lineNumber, @HeaderMap Map<String, String> requestHeaders);

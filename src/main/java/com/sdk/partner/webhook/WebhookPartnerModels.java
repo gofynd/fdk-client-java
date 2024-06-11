@@ -14,31 +14,6 @@ public class WebhookPartnerModels{
 
 
 /*
-    Model: UpdateSubscriberResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateSubscriberResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
     Model: UpdateSubscriberRequest
 */
 @AllArgsConstructor
@@ -57,6 +32,31 @@ public static class UpdateSubscriberRequest{
     
     @JsonProperty("status")
     private String status;
+    
+    
+    
+}
+
+
+/*
+    Model: UpdateSubscriberResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateSubscriberResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -172,6 +172,12 @@ public static class SubscriberEventMapping{
     
     
     
+    @JsonProperty("topic")
+    private String topic;
+    
+    
+    
+    
     @JsonProperty("created_on")
     private String createdOn;
     
@@ -253,6 +259,12 @@ public static class EventConfigResponse{
     
     @JsonProperty("updated_on")
     private String updatedOn;
+    
+    
+    
+    
+    @JsonProperty("group")
+    private String group;
     
     
     
@@ -395,31 +407,6 @@ public static class InvalidEventsResponse{
 
 
 /*
-    Model: DownloadReponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DownloadReponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("file_name")
-    private String fileName;
-    
-    
-    
-}
-
-
-/*
     Model: HistoryFilters
 */
 @AllArgsConstructor
@@ -468,6 +455,12 @@ public static class HistoryFilters{
     
     @JsonProperty("subscribers")
     private List<Integer> subscribers;
+    
+    
+    
+    
+    @JsonProperty("webhook_type")
+    private List<String> webhookType;
     
     
     
@@ -1322,6 +1315,12 @@ public static class ItemSchema{
     
     @JsonProperty("webhook_url")
     private String webhookUrl;
+    
+    
+    
+    
+    @JsonProperty("provider")
+    private String provider;
     
     
     

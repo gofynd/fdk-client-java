@@ -1257,16 +1257,20 @@ public class CatalogPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public CatalogPlatformModels.BulkInventoryGet getInventoryBulkUploadHistory(Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
-        return this.getInventoryBulkUploadHistory(pageNo, pageSize, new HashMap<>());
+    public CatalogPlatformModels.BulkInventoryGet getInventoryBulkUploadHistory(Integer pageNo, Integer pageSize, String search) throws FDKServerResponseError, FDKException {
+        return this.getInventoryBulkUploadHistory(pageNo, pageSize, search, new HashMap<>());
     }
 
-    public CatalogPlatformModels.BulkInventoryGet getInventoryBulkUploadHistory(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BulkInventoryGet getInventoryBulkUploadHistory(Integer pageNo, Integer pageSize, String search, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.BulkInventoryGet> response = null;
             try {
-                response = catalogPlatformApiList.getInventoryBulkUploadHistory(this.companyId, pageNo, pageSize, requestHeaders).execute();
+                response = catalogPlatformApiList.getInventoryBulkUploadHistory(this.companyId, pageNo, pageSize, search, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1307,13 +1311,20 @@ public class CatalogPlatformService {
         
         
         
+        
+        
+        
+        
+        
+        
 
     /**
     * Summary: get paginator for getInventoryBulkUploadHistory
     * Description: fetch the next page by calling .next(...) function
     **/
     public Paginator<CatalogPlatformModels.BulkInventoryGet> getInventoryBulkUploadHistoryPagination(
-        Integer pageSize 
+        Integer pageSize ,
+        String search 
         
         ){ 
     
@@ -1329,7 +1340,8 @@ public class CatalogPlatformService {
                  paginator.getPageNo()
                 ,
                  paginator.getPageSize()
-                
+                ,
+                 search
             );
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
             paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
@@ -2015,50 +2027,6 @@ public class CatalogPlatformService {
         }
     });
     return paginator ;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    public CatalogPlatformModels.UpdatedResponse createMarketplaceOptin(String marketplace, CatalogPlatformModels.OptInPostRequest body) throws FDKServerResponseError, FDKException {
-        return this.createMarketplaceOptin(marketplace, body, new HashMap<>());
-    }
-
-    public CatalogPlatformModels.UpdatedResponse createMarketplaceOptin(String marketplace, CatalogPlatformModels.OptInPostRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.UpdatedResponse> response = null;
-            try {
-                response = catalogPlatformApiList.createMarketplaceOptin(this.companyId, marketplace, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
     }
     
     
@@ -4356,11 +4324,11 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.BulkResponse uploadBulkProducts(String department, String productType, CatalogPlatformModels.BulkJob body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BulkResponse uploadBulkProducts(String department, String productType, CatalogPlatformModels.BulkProductJob body) throws FDKServerResponseError, FDKException {
         return this.uploadBulkProducts(department, productType, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.BulkResponse uploadBulkProducts(String department, String productType, CatalogPlatformModels.BulkJob body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BulkResponse uploadBulkProducts(String department, String productType, CatalogPlatformModels.BulkProductJob body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.BulkResponse> response = null;
             try {
@@ -4825,6 +4793,50 @@ public class CatalogPlatformService {
             Response<CatalogPlatformModels.UpdateMarketplaceOptinResponse> response = null;
             try {
                 response = catalogPlatformApiList.updateMarketplaceOptin(this.companyId, marketplaceSlug, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public CatalogPlatformModels.CreateMarketplaceOptinResponse createMarketplaceOptin(String marketplaceSlug, CatalogPlatformModels.OptInPostRequest body) throws FDKServerResponseError, FDKException {
+        return this.createMarketplaceOptin(marketplaceSlug, body, new HashMap<>());
+    }
+
+    public CatalogPlatformModels.CreateMarketplaceOptinResponse createMarketplaceOptin(String marketplaceSlug, CatalogPlatformModels.OptInPostRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<CatalogPlatformModels.CreateMarketplaceOptinResponse> response = null;
+            try {
+                response = catalogPlatformApiList.createMarketplaceOptin(this.companyId, marketplaceSlug, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

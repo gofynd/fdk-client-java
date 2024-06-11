@@ -7178,6 +7178,12 @@ public static class OverrideCheckoutReq{
     
     
     
+    @JsonProperty("callback_url")
+    private String callbackUrl;
+    
+    
+    
+    
     @JsonProperty("cart_items")
     private List<OverrideCartItem> cartItems;
     
