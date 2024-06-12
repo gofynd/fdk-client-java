@@ -304,18 +304,6 @@ public static class AppliedPromotion{
     
     
     
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
 }
 
 
@@ -4807,6 +4795,18 @@ public static class PromotionOffer{
     
     @JsonProperty("promotion_group")
     private String promotionGroup;
+    
+    
+    
+    
+    @JsonProperty("promotion_name")
+    private String promotionName;
+    
+    
+    
+    
+    @JsonProperty("promotion_type")
+    private String promotionType;
     
     
     

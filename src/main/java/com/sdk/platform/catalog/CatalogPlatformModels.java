@@ -18413,7 +18413,7 @@ public static class WeightResponse1{
         
         contactUs("contact-us"), 
         
-        externalLink("external"), 
+        external("external"), 
         
         faq("faq"), 
         

@@ -14148,8 +14148,6 @@ Price Adjustments List. See example below for details
  | mrpPromotion | Boolean? |  yes  | If applied promotion is applied on product MRP or ESP |
  | promotionGroup | String? |  yes  | Promotion group for the promotion |
  | promoId | String? |  yes  | Promotion id |
- | meta | HashMap<String,Object>? |  yes  | Meta object for extra data |
- | code | String? |  yes  | Promotion code |
 
 ---
 

@@ -8,13 +8,15 @@ Get started with the Java Development SDK for Fynd Platform
 
 ## Usage
 
+
+
 1. Create a new Maven project or use an existing one. Open the project's `pom.xml` file and add the following dependency to the `<dependencies>` section:
 
 ```xml
 <dependency>
     <groupId>com.github.gofynd</groupId>
     <artifactId>fdk-client-java</artifactId>
-    <version>1.3.11-beta.9</version>
+    <version>1.4.2-beta.10</version>
 </dependency>
 ```
 
@@ -32,6 +34,8 @@ make sure to check the available version list on [jitpack](https://jitpack.io/#g
 ```
 
 3. Now you can start integrating the Java FDK Clients into your app. Below are two sample usage scenarios demonstrating how to use the `ApplicationClient` and `PlatformClient` classes.
+
+
 
 ---
 
