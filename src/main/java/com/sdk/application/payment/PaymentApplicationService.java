@@ -40,6 +40,9 @@ import com.sdk.application.*;
         relativeUrls.put("checkAndUpdatePaymentStatus","/service/application/payment/v1.0/payment/confirm/polling".substring(1));
         relativeUrls.put("getPaymentModeRoutes","/service/application/payment/v1.0/payment/options".substring(1));
         relativeUrls.put("getPosPaymentModeRoutes","/service/application/payment/v1.0/payment/options/pos".substring(1));
+        relativeUrls.put("walletLinkInitiate","/service/application/payment/v1.0/payment/options/wallet/link".substring(1));
+        relativeUrls.put("linkWallet","/service/application/payment/v1.0/payment/options/wallet/verify".substring(1));
+        relativeUrls.put("delinkWallet","/service/application/payment/v1.0/payment/options/wallet/delink".substring(1));
         relativeUrls.put("getRupifiBannerDetails","/service/application/payment/v1.0/rupifi/banner".substring(1));
         relativeUrls.put("getEpaylaterBannerDetails","/service/application/payment/v1.0/epaylater/banner".substring(1));
         relativeUrls.put("resendOrCancelPayment","/service/application/payment/v1.0/payment/resend_or_cancel".substring(1));
@@ -70,7 +73,8 @@ import com.sdk.application.*;
         relativeUrls.put("checkCredit","/service/application/payment/v1.0/check-credits/".substring(1));
         relativeUrls.put("customerOnboard","/service/application/payment/v1.0/credit-onboard/".substring(1));
         relativeUrls.put("outstandingOrderDetails","/service/application/payment/v1.0/payment/outstanding-orders/".substring(1));
-        relativeUrls.put("paidOrderDetails","/service/application/payment/v1.0/payment/paid-orders/".substring(1)); 
+        relativeUrls.put("paidOrderDetails","/service/application/payment/v1.0/payment/paid-orders/".substring(1));
+        relativeUrls.put("createPaymentOrder","/service/application/payment/v1.0/payment-orders/".substring(1)); 
 
     }
 
@@ -240,15 +244,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.PaymentModeRouteResponse getPaymentModeRoutes(Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String cardReference, String userDetails) throws IOException {
-        return this.getPaymentModeRoutes(amount, cartId, pincode, checkoutMode, refresh, cardReference, userDetails, new HashMap<>());
+    public PaymentApplicationModels.PaymentModeRouteResponse getPaymentModeRoutes(Integer amount, String cartId, String checkoutMode, Boolean refresh, String orderId, String cardReference, String userDetails, Boolean displaySplit, Boolean advancePayment, String shipmentId) throws IOException {
+        return this.getPaymentModeRoutes(amount, cartId, checkoutMode, refresh, orderId, cardReference, userDetails, displaySplit, advancePayment, shipmentId, new HashMap<>());
     }
 
-    public PaymentApplicationModels.PaymentModeRouteResponse getPaymentModeRoutes(Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String cardReference, String userDetails, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.PaymentModeRouteResponse getPaymentModeRoutes(Integer amount, String cartId, String checkoutMode, Boolean refresh, String orderId, String cardReference, String userDetails, Boolean displaySplit, Boolean advancePayment, String shipmentId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getPaymentModeRoutes");
 
-        Response<PaymentApplicationModels.PaymentModeRouteResponse> response = paymentApplicationApiList.getPaymentModeRoutes(fullUrl, amount, cartId, pincode, checkoutMode, refresh, cardReference, userDetails, requestHeaders).execute();
+        Response<PaymentApplicationModels.PaymentModeRouteResponse> response = paymentApplicationApiList.getPaymentModeRoutes(fullUrl, amount, cartId, checkoutMode, refresh, orderId, cardReference, userDetails, displaySplit, advancePayment, shipmentId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -266,6 +270,57 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("getPosPaymentModeRoutes");
 
         Response<PaymentApplicationModels.PaymentModeRouteResponse> response = paymentApplicationApiList.getPosPaymentModeRoutes(fullUrl, amount, cartId, pincode, checkoutMode, refresh, cardReference, orderType, userDetails, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public PaymentApplicationModels.WalletResponseSchema walletLinkInitiate(PaymentApplicationModels.WalletLinkRequestSchema body) throws IOException {
+        return this.walletLinkInitiate(body, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.WalletResponseSchema walletLinkInitiate(PaymentApplicationModels.WalletLinkRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("walletLinkInitiate");
+
+        Response<PaymentApplicationModels.WalletResponseSchema> response = paymentApplicationApiList.walletLinkInitiate(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public PaymentApplicationModels.WalletResponseSchema linkWallet(PaymentApplicationModels.WalletVerifyRequestSchema body) throws IOException {
+        return this.linkWallet(body, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.WalletResponseSchema linkWallet(PaymentApplicationModels.WalletVerifyRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("linkWallet");
+
+        Response<PaymentApplicationModels.WalletResponseSchema> response = paymentApplicationApiList.linkWallet(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public PaymentApplicationModels.WalletResponseSchema delinkWallet(PaymentApplicationModels.WalletDelinkRequestSchema body) throws IOException {
+        return this.delinkWallet(body, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.WalletResponseSchema delinkWallet(PaymentApplicationModels.WalletDelinkRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("delinkWallet");
+
+        Response<PaymentApplicationModels.WalletResponseSchema> response = paymentApplicationApiList.delinkWallet(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -794,6 +849,23 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("paidOrderDetails");
 
         Response<PaymentApplicationModels.PaidOrderDetailsResponse> response = paymentApplicationApiList.paidOrderDetails(fullUrl, aggregator, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public PaymentApplicationModels.PaymentOrderResponse createPaymentOrder(PaymentApplicationModels.PaymentOrderRequest body) throws IOException {
+        return this.createPaymentOrder(body, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.PaymentOrderResponse createPaymentOrder(PaymentApplicationModels.PaymentOrderRequest body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("createPaymentOrder");
+
+        Response<PaymentApplicationModels.PaymentOrderResponse> response = paymentApplicationApiList.createPaymentOrder(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

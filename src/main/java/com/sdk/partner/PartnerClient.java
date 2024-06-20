@@ -6,7 +6,13 @@ import lombok.Setter;
 
 import com.sdk.partner.filestorage.FileStoragePartnerService;
 
+import com.sdk.partner.lead.LeadPartnerService;
+
+import com.sdk.partner.logistics.LogisticsPartnerService;
+
 import com.sdk.partner.theme.ThemePartnerService;
+
+import com.sdk.partner.webhook.WebhookPartnerService;
 
 
 
@@ -19,7 +25,13 @@ public class PartnerClient {
     
     public FileStoragePartnerService fileStorage;
     
+    public LeadPartnerService lead;
+    
+    public LogisticsPartnerService logistics;
+    
     public ThemePartnerService theme;
+    
+    public WebhookPartnerService webhook;
     
 
     public PartnerClient(PartnerConfig config)   
@@ -28,7 +40,13 @@ public class PartnerClient {
         
         this.fileStorage = new FileStoragePartnerService(config);
         
+        this.lead = new LeadPartnerService(config);
+        
+        this.logistics = new LogisticsPartnerService(config);
+        
         this.theme = new ThemePartnerService(config);
+        
+        this.webhook = new WebhookPartnerService(config);
         
     }
 

@@ -48,11 +48,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.GenerateReportJson generateReport(FinancePlatformModels.GenerateReportRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.GenerateReportJson generateReport(FinancePlatformModels.GenerateReportReq body) throws FDKServerResponseError, FDKException {
         return this.generateReport(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.GenerateReportJson generateReport(FinancePlatformModels.GenerateReportRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.GenerateReportJson generateReport(FinancePlatformModels.GenerateReportReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.GenerateReportJson> response = null;
             try {
@@ -128,11 +128,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.GetEngineResponse getData(FinancePlatformModels.GetEngineRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.GetEngineResponse getData(FinancePlatformModels.GetEngineReq body) throws FDKServerResponseError, FDKException {
         return this.getData(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.GetEngineResponse getData(FinancePlatformModels.GetEngineRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.GetEngineResponse getData(FinancePlatformModels.GetEngineReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.GetEngineResponse> response = null;
             try {
@@ -168,11 +168,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.GetReasonResponse getReason(FinancePlatformModels.GetReasonRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.GetReasonResponse getReason(FinancePlatformModels.GetReasonReq body) throws FDKServerResponseError, FDKException {
         return this.getReason(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.GetReasonResponse getReason(FinancePlatformModels.GetReasonRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.GetReasonResponse getReason(FinancePlatformModels.GetReasonReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.GetReasonResponse> response = null;
             try {
@@ -208,11 +208,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.GetReportListResponse getReportList(FinancePlatformModels.GetReportListRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.GetReportListResponse getReportList(FinancePlatformModels.GetReportListReq body) throws FDKServerResponseError, FDKException {
         return this.getReportList(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.GetReportListResponse getReportList(FinancePlatformModels.GetReportListRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.GetReportListResponse getReportList(FinancePlatformModels.GetReportListReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.GetReportListResponse> response = null;
             try {
@@ -288,11 +288,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.DownloadCreditDebitNoteResponse downloadCreditDebitNote(FinancePlatformModels.DownloadCreditDebitNoteRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.DownloadCreditDebitNoteResponse downloadCreditDebitNote(FinancePlatformModels.DownloadCreditDebitNoteReq body) throws FDKServerResponseError, FDKException {
         return this.downloadCreditDebitNote(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.DownloadCreditDebitNoteResponse downloadCreditDebitNote(FinancePlatformModels.DownloadCreditDebitNoteRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.DownloadCreditDebitNoteResponse downloadCreditDebitNote(FinancePlatformModels.DownloadCreditDebitNoteReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.DownloadCreditDebitNoteResponse> response = null;
             try {
@@ -328,11 +328,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.PaymentProcessResponse paymentProcess(FinancePlatformModels.PaymentProcessRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.PaymentProcessResponse paymentProcess(FinancePlatformModels.PaymentProcessReq body) throws FDKServerResponseError, FDKException {
         return this.paymentProcess(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.PaymentProcessResponse paymentProcess(FinancePlatformModels.PaymentProcessRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.PaymentProcessResponse paymentProcess(FinancePlatformModels.PaymentProcessReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.PaymentProcessResponse> response = null;
             try {
@@ -368,11 +368,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.CreditlineDataPlatformResponse creditlineDataplatform(FinancePlatformModels.CreditlineDataPlatformRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.CreditlineDataPlatformResponse creditlineDataplatform(FinancePlatformModels.CreditlineDataPlatformReq body) throws FDKServerResponseError, FDKException {
         return this.creditlineDataplatform(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.CreditlineDataPlatformResponse creditlineDataplatform(FinancePlatformModels.CreditlineDataPlatformRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.CreditlineDataPlatformResponse creditlineDataplatform(FinancePlatformModels.CreditlineDataPlatformReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.CreditlineDataPlatformResponse> response = null;
             try {
@@ -408,11 +408,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.IsCreditlinePlatformResponse isCreditlinePlatform(FinancePlatformModels.IsCreditlinePlatformRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.IsCreditlinePlatformResponse isCreditlinePlatform(FinancePlatformModels.IsCreditlinePlatformReq body) throws FDKServerResponseError, FDKException {
         return this.isCreditlinePlatform(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.IsCreditlinePlatformResponse isCreditlinePlatform(FinancePlatformModels.IsCreditlinePlatformRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.IsCreditlinePlatformResponse isCreditlinePlatform(FinancePlatformModels.IsCreditlinePlatformReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.IsCreditlinePlatformResponse> response = null;
             try {
@@ -448,11 +448,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.InvoiceTypeResponse invoiceType(FinancePlatformModels.InvoiceTypeRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.InvoiceTypeResponse invoiceType(FinancePlatformModels.InvoiceTypeReq body) throws FDKServerResponseError, FDKException {
         return this.invoiceType(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.InvoiceTypeResponse invoiceType(FinancePlatformModels.InvoiceTypeRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.InvoiceTypeResponse invoiceType(FinancePlatformModels.InvoiceTypeReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.InvoiceTypeResponse> response = null;
             try {
@@ -488,11 +488,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.InvoiceListingResponse invoiceListing(FinancePlatformModels.InvoiceListingRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.InvoiceListingResponse invoiceListing(FinancePlatformModels.InvoiceListingReq body) throws FDKServerResponseError, FDKException {
         return this.invoiceListing(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.InvoiceListingResponse invoiceListing(FinancePlatformModels.InvoiceListingRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.InvoiceListingResponse invoiceListing(FinancePlatformModels.InvoiceListingReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.InvoiceListingResponse> response = null;
             try {
@@ -528,11 +528,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.InvoicePdfResponse invoicePDF(FinancePlatformModels.InvoicePdfRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.InvoicePdfResponse invoicePDF(FinancePlatformModels.InvoicePdfReq body) throws FDKServerResponseError, FDKException {
         return this.invoicePDF(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.InvoicePdfResponse invoicePDF(FinancePlatformModels.InvoicePdfRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.InvoicePdfResponse invoicePDF(FinancePlatformModels.InvoicePdfReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.InvoicePdfResponse> response = null;
             try {
@@ -568,11 +568,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.IsCnRefundMethodResponse isCnRefundMethod(FinancePlatformModels.IsCnRefundMethodRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.IsCnRefundMethodResponse isCnRefundMethod(FinancePlatformModels.IsCnRefundMethodReq body) throws FDKServerResponseError, FDKException {
         return this.isCnRefundMethod(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.IsCnRefundMethodResponse isCnRefundMethod(FinancePlatformModels.IsCnRefundMethodRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.IsCnRefundMethodResponse isCnRefundMethod(FinancePlatformModels.IsCnRefundMethodReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.IsCnRefundMethodResponse> response = null;
             try {
@@ -608,11 +608,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.CreateSellerCreditNoteConfigResponse createSellerCreditNoteConfig(FinancePlatformModels.CreateSellerCreditNoteConfigRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.CreateSellerCreditNoteConfigResponse createSellerCreditNoteConfig(FinancePlatformModels.CreateSellerCreditNoteConfigReq body) throws FDKServerResponseError, FDKException {
         return this.createSellerCreditNoteConfig(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.CreateSellerCreditNoteConfigResponse createSellerCreditNoteConfig(FinancePlatformModels.CreateSellerCreditNoteConfigRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.CreateSellerCreditNoteConfigResponse createSellerCreditNoteConfig(FinancePlatformModels.CreateSellerCreditNoteConfigReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.CreateSellerCreditNoteConfigResponse> response = null;
             try {
@@ -648,11 +648,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.DeleteConfigResponse deleteConfig(FinancePlatformModels.DeleteConfigRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.DeleteConfigResponse deleteConfig(FinancePlatformModels.DeleteConfigReq body) throws FDKServerResponseError, FDKException {
         return this.deleteConfig(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.DeleteConfigResponse deleteConfig(FinancePlatformModels.DeleteConfigRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.DeleteConfigResponse deleteConfig(FinancePlatformModels.DeleteConfigReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.DeleteConfigResponse> response = null;
             try {
@@ -732,11 +732,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.GetPdfUrlViewResponse getPdfUrlView(FinancePlatformModels.GetPdfUrlViewRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.GetPdfUrlViewResponse getPdfUrlView(FinancePlatformModels.GetPdfUrlViewReq body) throws FDKServerResponseError, FDKException {
         return this.getPdfUrlView(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.GetPdfUrlViewResponse getPdfUrlView(FinancePlatformModels.GetPdfUrlViewRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.GetPdfUrlViewResponse getPdfUrlView(FinancePlatformModels.GetPdfUrlViewReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.GetPdfUrlViewResponse> response = null;
             try {
@@ -772,11 +772,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.CreditNoteDetailsResponse creditNoteDetails(FinancePlatformModels.CreditNoteDetailsRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.CreditNoteDetailsResponse creditNoteDetails(FinancePlatformModels.CreditNoteDetailsReq body) throws FDKServerResponseError, FDKException {
         return this.creditNoteDetails(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.CreditNoteDetailsResponse creditNoteDetails(FinancePlatformModels.CreditNoteDetailsRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.CreditNoteDetailsResponse creditNoteDetails(FinancePlatformModels.CreditNoteDetailsReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.CreditNoteDetailsResponse> response = null;
             try {
@@ -812,11 +812,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.GetCustomerCreditBalanceResponse getCustomerCreditBalance(FinancePlatformModels.GetCustomerCreditBalanceRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.GetCustomerCreditBalanceResponse getCustomerCreditBalance(FinancePlatformModels.GetCustomerCreditBalanceReq body) throws FDKServerResponseError, FDKException {
         return this.getCustomerCreditBalance(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.GetCustomerCreditBalanceResponse getCustomerCreditBalance(FinancePlatformModels.GetCustomerCreditBalanceRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.GetCustomerCreditBalanceResponse getCustomerCreditBalance(FinancePlatformModels.GetCustomerCreditBalanceReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.GetCustomerCreditBalanceResponse> response = null;
             try {
@@ -852,11 +852,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.GetCnConfigResponse getCnConfig(FinancePlatformModels.GetCnConfigRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.GetCnConfigResponse getCnConfig(FinancePlatformModels.GetCnConfigReq body) throws FDKServerResponseError, FDKException {
         return this.getCnConfig(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.GetCnConfigResponse getCnConfig(FinancePlatformModels.GetCnConfigRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.GetCnConfigResponse getCnConfig(FinancePlatformModels.GetCnConfigReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.GetCnConfigResponse> response = null;
             try {
@@ -892,11 +892,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.GenerateReportCustomerCnResponse generateReportCustomerCn(FinancePlatformModels.GenerateReportCustomerCnRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.GenerateReportCustomerCnResponse generateReportCustomerCn(FinancePlatformModels.GenerateReportCustomerCnReq body) throws FDKServerResponseError, FDKException {
         return this.generateReportCustomerCn(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.GenerateReportCustomerCnResponse generateReportCustomerCn(FinancePlatformModels.GenerateReportCustomerCnRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.GenerateReportCustomerCnResponse generateReportCustomerCn(FinancePlatformModels.GenerateReportCustomerCnReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.GenerateReportCustomerCnResponse> response = null;
             try {
@@ -932,11 +932,11 @@ public class FinancePlatformService {
     
     
 
-    public FinancePlatformModels.DownloadReportCustomerCnResponse downloadReportCustomerCn(FinancePlatformModels.DownloadReportCustomerCnRequest body) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.DownloadReportCustomerCnResponse downloadReportCustomerCn(FinancePlatformModels.DownloadReportCustomerCnReq body) throws FDKServerResponseError, FDKException {
         return this.downloadReportCustomerCn(body, new HashMap<>());
     }
 
-    public FinancePlatformModels.DownloadReportCustomerCnResponse downloadReportCustomerCn(FinancePlatformModels.DownloadReportCustomerCnRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FinancePlatformModels.DownloadReportCustomerCnResponse downloadReportCustomerCn(FinancePlatformModels.DownloadReportCustomerCnReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<FinancePlatformModels.DownloadReportCustomerCnResponse> response = null;
             try {
@@ -989,6 +989,214 @@ public class FinancePlatformService {
             Response<FinancePlatformModels.GetReportingFiltersResponse> response = null;
             try {
                 response = financePlatformApiList.getReportingFilters(this.companyId, filterKey, affiliateId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public FinancePlatformModels.InvoicePaymentOptionsResponse invoicePaymentOptions(FinancePlatformModels.InvoicePaymentOptionsReq body) throws FDKServerResponseError, FDKException {
+        return this.invoicePaymentOptions(body, new HashMap<>());
+    }
+
+    public FinancePlatformModels.InvoicePaymentOptionsResponse invoicePaymentOptions(FinancePlatformModels.InvoicePaymentOptionsReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<FinancePlatformModels.InvoicePaymentOptionsResponse> response = null;
+            try {
+                response = financePlatformApiList.invoicePaymentOptions(this.companyId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public FinancePlatformModels.InvoicePaymentDetailsResponse invoicePaymentDetails(String invoiceNumber) throws FDKServerResponseError, FDKException {
+        return this.invoicePaymentDetails(invoiceNumber, new HashMap<>());
+    }
+
+    public FinancePlatformModels.InvoicePaymentDetailsResponse invoicePaymentDetails(String invoiceNumber, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<FinancePlatformModels.InvoicePaymentDetailsResponse> response = null;
+            try {
+                response = financePlatformApiList.invoicePaymentDetails(this.companyId, invoiceNumber, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public FinancePlatformModels.InvoiceActivityLogsResponse invoiceActivityLogs(String invoiceNumber) throws FDKServerResponseError, FDKException {
+        return this.invoiceActivityLogs(invoiceNumber, new HashMap<>());
+    }
+
+    public FinancePlatformModels.InvoiceActivityLogsResponse invoiceActivityLogs(String invoiceNumber, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<FinancePlatformModels.InvoiceActivityLogsResponse> response = null;
+            try {
+                response = financePlatformApiList.invoiceActivityLogs(this.companyId, invoiceNumber, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public FinancePlatformModels.UnlockCreditNoteResponse unlockCreditNote(FinancePlatformModels.UnlockCreditNoteReq body) throws FDKServerResponseError, FDKException {
+        return this.unlockCreditNote(body, new HashMap<>());
+    }
+
+    public FinancePlatformModels.UnlockCreditNoteResponse unlockCreditNote(FinancePlatformModels.UnlockCreditNoteReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<FinancePlatformModels.UnlockCreditNoteResponse> response = null;
+            try {
+                response = financePlatformApiList.unlockCreditNote(this.companyId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public FinancePlatformModels.OrederFreezeResponse orderFreeze() throws FDKServerResponseError, FDKException {
+        return this.orderFreeze(new HashMap<>());
+    }
+
+    public FinancePlatformModels.OrederFreezeResponse orderFreeze(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<FinancePlatformModels.OrederFreezeResponse> response = null;
+            try {
+                response = financePlatformApiList.orderFreeze(this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

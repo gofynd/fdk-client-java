@@ -34,10 +34,19 @@ interface PaymentApplicationApiList {
     Call<PaymentApplicationModels.PaymentStatusUpdateResponse> checkAndUpdatePaymentStatus(@Url String url1, @Body PaymentApplicationModels.PaymentStatusUpdateRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<PaymentApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutes(@Url String url1, @Query("amount") Integer amount, @Query("cart_id") String cartId, @Query("pincode") String pincode, @Query("checkout_mode") String checkoutMode, @Query("refresh") Boolean refresh, @Query("card_reference") String cardReference, @Query("user_details") String userDetails, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutes(@Url String url1, @Query("amount") Integer amount, @Query("cart_id") String cartId, @Query("checkout_mode") String checkoutMode, @Query("refresh") Boolean refresh, @Query("order_id") String orderId, @Query("card_reference") String cardReference, @Query("user_details") String userDetails, @Query("display_split") Boolean displaySplit, @Query("advance_payment") Boolean advancePayment, @Query("shipment_id") String shipmentId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<PaymentApplicationModels.PaymentModeRouteResponse> getPosPaymentModeRoutes(@Url String url1, @Query("amount") Integer amount, @Query("cart_id") String cartId, @Query("pincode") String pincode, @Query("checkout_mode") String checkoutMode, @Query("refresh") Boolean refresh, @Query("card_reference") String cardReference, @Query("order_type") String orderType, @Query("user_details") String userDetails, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST 
+    Call<PaymentApplicationModels.WalletResponseSchema> walletLinkInitiate(@Url String url1, @Body PaymentApplicationModels.WalletLinkRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST 
+    Call<PaymentApplicationModels.WalletResponseSchema> linkWallet(@Url String url1, @Body PaymentApplicationModels.WalletVerifyRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST 
+    Call<PaymentApplicationModels.WalletResponseSchema> delinkWallet(@Url String url1, @Body PaymentApplicationModels.WalletDelinkRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<PaymentApplicationModels.RupifiBannerResponse> getRupifiBannerDetails(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
@@ -131,4 +140,7 @@ interface PaymentApplicationApiList {
 
     @GET 
     Call<PaymentApplicationModels.PaidOrderDetailsResponse> paidOrderDetails(@Url String url1, @Query("aggregator") String aggregator, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST 
+    Call<PaymentApplicationModels.PaymentOrderResponse> createPaymentOrder(@Url String url1, @Body PaymentApplicationModels.PaymentOrderRequest payload, @HeaderMap Map<String, String> requestHeaders);
 }

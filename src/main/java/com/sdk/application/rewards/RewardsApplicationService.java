@@ -102,40 +102,6 @@ import com.sdk.application.*;
         }
         return response.body();
     }
-
-    /**
-    * Summary: get paginator for getUserPointsHistory
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<RewardsApplicationModels.PointsHistoryResponse> getUserPointsHistoryPagination(
-        
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<RewardsApplicationModels.PointsHistoryResponse> paginator = new Paginator<>(pageSize, "cursor");
-
-    paginator.setCallback(()-> {
-        try {
-            RewardsApplicationModels.PointsHistoryResponse callback = this.getUserPointsHistory(
-                
-                 paginator.getNextId()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator;
-    }
     
 
     public RewardsApplicationModels.PointsResponse getUserPoints() throws IOException {

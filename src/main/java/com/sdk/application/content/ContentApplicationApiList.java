@@ -13,7 +13,7 @@ interface ContentApplicationApiList {
     Call<ContentApplicationModels.BlogSchema> getBlog(@Url String url1, @Query("root_id") String rootId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<ContentApplicationModels.BlogGetResponse> getBlogs(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentApplicationModels.BlogGetResponse> getBlogs(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("tags") String tags, @Query("search") String search, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<ContentApplicationModels.DataLoadersSchema> getDataLoaders(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
@@ -46,6 +46,9 @@ interface ContentApplicationApiList {
     Call<ContentApplicationModels.SeoComponent> getSEOConfiguration(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
+    Call<ContentApplicationModels.SeoSchemaComponent> getSEOMarkupSchemas(@Url String url1, @Query("page_type") String pageType, @Query("active") Boolean active, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
     Call<ContentApplicationModels.SlideshowGetResponse> getSlideshows(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
@@ -62,4 +65,10 @@ interface ContentApplicationApiList {
 
     @GET 
     Call<ContentApplicationModels.PageGetResponse> getPages(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
+    Call<ContentApplicationModels.CustomObjectByIdSchema> getCustomObject(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
+    Call<ContentApplicationModels.CustomFieldsResponseByResourceIdSchema> getCustomFields(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 }

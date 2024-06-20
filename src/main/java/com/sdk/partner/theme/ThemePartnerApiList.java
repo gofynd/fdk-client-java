@@ -57,9 +57,18 @@ interface ThemePartnerApiList {
     @POST ("/service/partner/theme/v1.0/organization/{organization_id}/theme")
     Call<ThemePartnerModels.MarketplaceTheme> createNewThemeInOrganization(@Path("organization_id") String organizationId, @Query("slug") String slug, @Body ThemePartnerModels.MarketplaceTheme payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @POST ("/service/partner/theme/v1.0/organization/{organization_id}/extension-section/{extension_id}/draft")
+    Call<ThemePartnerModels.DraftExtensionSectionResponse> createExtensionSectionDraft(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Body ThemePartnerModels.DraftExtensionSectionRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/partner/theme/v1.0/organization/{organization_id}/extension-section/{extension_id}/publish")
+    Call<ThemePartnerModels.PublishExtensionSectionResponse> publishExtensionSections(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Body ThemePartnerModels.PublishExtensionSectionRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/partner/theme/v1.0/organization/{organization_id}/theme/{theme_id}/reasons")
     Call<ThemePartnerModels.ThemeRejectionReasons> getThemeRejectionReasons(@Path("organization_id") String organizationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/partner/theme/v1.0/organization/{organization_id}/theme/{theme_slug}/versions")
     Call<ThemePartnerModels.MarketplaceThemeSchema> getThemeVersions(@Path("organization_id") String organizationId, @Path("theme_slug") String themeSlug, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/partner/theme/v1.0/organization/{organization_id}/company/{company_id}/application/{application_id}")
+    Call<ThemePartnerModels.ThemesSchema> createTheme(@Path("company_id") Integer companyId, @Path("application_id") String applicationId, @Path("organization_id") String organizationId, @Body ThemePartnerModels.CreateNewTheme payload, @HeaderMap Map<String, String> requestHeaders);
 }

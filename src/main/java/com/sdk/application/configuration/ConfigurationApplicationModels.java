@@ -35,18 +35,6 @@ public static class ApplicationAboutResponse{
     
     
     
-    
-    @JsonProperty("company_info")
-    private CompanyInfo companyInfo;
-    
-    
-    
-    
-    @JsonProperty("owner_info")
-    private OwnerInfo ownerInfo;
-    
-    
-    
 }
 
 
@@ -63,6 +51,18 @@ public static class ApplicationInfo{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("company_info")
+    private CompanyInfo companyInfo;
+    
+    
+    
+    
+    @JsonProperty("owner_info")
+    private OwnerInfo ownerInfo;
     
     
     
@@ -104,7 +104,7 @@ public static class ApplicationInfo{
     
     
     @JsonProperty("meta")
-    private ApplicationMeta meta;
+    private List<ApplicationMeta> meta;
     
     
     
@@ -141,6 +141,42 @@ public static class ApplicationInfo{
     
     @JsonProperty("is_active")
     private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("mode")
+    private String mode;
+    
+    
+    
+    
+    @JsonProperty("tokens")
+    private List<TokenSchema> tokens;
+    
+    
+    
+    
+    @JsonProperty("domains")
+    private List<Domain> domains;
+    
+    
+    
+    
+    @JsonProperty("favicon")
+    private SecureUrl favicon;
+    
+    
+    
+    
+    @JsonProperty("mobile_logo")
+    private SecureUrl mobileLogo;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
     
     
     
@@ -545,8 +581,8 @@ public static class AppTokenResponse{
     
     
     
-    @JsonProperty("updated_at")
-    private String updatedAt;
+    @JsonProperty("modified_at")
+    private String modifiedAt;
     
     
     
@@ -1604,8 +1640,8 @@ public static class AppFeature{
     
     
     
-    @JsonProperty("updated_at")
-    private String updatedAt;
+    @JsonProperty("modified_at")
+    private String modifiedAt;
     
     
     
@@ -1707,6 +1743,43 @@ public static class CommonFeature{
     
     
     
+    
+    @JsonProperty("listing_page")
+    private ListingPageFeature listingPage;
+    
+    
+    
+    
+    @JsonProperty("international_shipping")
+    private InternationalShipping internationalShipping;
+    
+    
+    
+}
+
+
+/*
+    Model: InternationalShipping
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InternationalShipping{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
 }
 
 
@@ -1791,6 +1864,31 @@ public static class ListingPriceFeature{
     
     @JsonProperty("sort")
     private String sort;
+    
+    
+    
+}
+
+
+/*
+    Model: ListingPageFeature
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ListingPageFeature{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("sort_on")
+    private String sortOn;
     
     
     
@@ -2117,8 +2215,8 @@ public static class Currency{
     
     
     
-    @JsonProperty("updated_at")
-    private String updatedAt;
+    @JsonProperty("modified_at")
+    private String modifiedAt;
     
     
     
@@ -2131,6 +2229,18 @@ public static class Currency{
     
     @JsonProperty("symbol")
     private String symbol;
+    
+    
+    
+    
+    @JsonProperty("country_name")
+    private String countryName;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
     
     
     
@@ -2479,8 +2589,8 @@ public static class Application{
     
     
     
-    @JsonProperty("updated_at")
-    private String updatedAt;
+    @JsonProperty("modified_at")
+    private String modifiedAt;
     
     
     
@@ -2532,6 +2642,67 @@ public static class Application{
     
     
     
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("mode")
+    private String mode;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("tokens")
+    private List<TokenSchema> tokens;
+    
+    
+    
+}
+
+
+/*
+    Model: TokenSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TokenSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private HashMap<String,Object> createdBy;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
 }
 
 
@@ -2545,6 +2716,31 @@ public static class Application{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class NotFound{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: InvalidPayloadRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvalidPayloadRequest{
 
     
 
@@ -2860,7 +3056,7 @@ public static class ApplicationInformation{
     
     
     @JsonProperty("links")
-    private Links links;
+    private List<Links> links;
     
     
     
@@ -2878,7 +3074,7 @@ public static class ApplicationInformation{
     
     
     @JsonProperty("business_highlights")
-    private BusinessHighlights businessHighlights;
+    private List<BusinessHighlights> businessHighlights;
     
     
     
@@ -2895,8 +3091,8 @@ public static class ApplicationInformation{
     
     
     
-    @JsonProperty("updated_at")
-    private String updatedAt;
+    @JsonProperty("modified_at")
+    private String modifiedAt;
     
     
     
@@ -2927,7 +3123,7 @@ public static class InformationAddress{
     
     
     @JsonProperty("loc")
-    private String loc;
+    private InformationLoc loc;
     
     
     
@@ -2939,7 +3135,7 @@ public static class InformationAddress{
     
     
     @JsonProperty("phone")
-    private InformationPhone phone;
+    private List<InformationPhone> phone;
     
     
     
@@ -2996,6 +3192,105 @@ public static class InformationPhone{
 
 
 /*
+    Model: InformationSupportPhone
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InformationSupportPhone{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("number")
+    private String number;
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+}
+
+
+/*
+    Model: InformationSupportEmail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InformationSupportEmail{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+}
+
+
+/*
+    Model: InformationLoc
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InformationLoc{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("coordinates")
+    private List<Integer> coordinates;
+    
+    
+    
+}
+
+
+/*
     Model: InformationSupport
 */
 @AllArgsConstructor
@@ -3013,13 +3308,13 @@ public static class InformationSupport{
     
     
     @JsonProperty("phone")
-    private List<String> phone;
+    private List<InformationSupportPhone> phone;
     
     
     
     
     @JsonProperty("email")
-    private List<String> email;
+    private List<InformationSupportEmail> email;
     
     
     
@@ -3582,6 +3877,18 @@ public static class ApplicationDetail{
     
     
     
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
 }
 
 
@@ -3672,6 +3979,24 @@ public static class AppCurrencyResponse{
     
     @JsonProperty("supported_currency")
     private List<Currency> supportedCurrency;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("modified_at")
+    private String modifiedAt;
     
     
     

@@ -73,6 +73,26 @@ public class UserPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 
@@ -89,11 +109,11 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
-    public UserPlatformModels.CustomerListResponseSchema getCustomers(Object q, Integer pageSize, Integer pageNo) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.CustomerListResponseSchema getCustomers(String q, Integer pageSize, Integer pageNo) throws FDKServerResponseError, FDKException {
         return this.getCustomers(q, pageSize, pageNo, new HashMap<>());
     }
 
-    public UserPlatformModels.CustomerListResponseSchema getCustomers(Object q, Integer pageSize, Integer pageNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.CustomerListResponseSchema getCustomers(String q, Integer pageSize, Integer pageNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.CustomerListResponseSchema> response = null;
             try {
@@ -179,33 +199,6 @@ public class ApplicationClient {
             Response<UserPlatformModels.BlockUserSuccess> response = null;
             try {
             response = userPlatformApiList.blockOrUnblockUsers(this.companyId, this.applicationId, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public UserPlatformModels.ArchiveUserSuccess archiveUser(UserPlatformModels.ArchiveUserRequestSchema body) throws FDKServerResponseError, FDKException {
-        return this.archiveUser(body, new HashMap<>());
-    }
-
-    public UserPlatformModels.ArchiveUserSuccess archiveUser(UserPlatformModels.ArchiveUserRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<UserPlatformModels.ArchiveUserSuccess> response = null;
-            try {
-            response = userPlatformApiList.archiveUser(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -386,6 +379,33 @@ public class ApplicationClient {
         }    
     }
 
+    public UserPlatformModels.ArchiveUserSuccess archiveUser(UserPlatformModels.ArchiveUserRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.archiveUser(body, new HashMap<>());
+    }
+
+    public UserPlatformModels.ArchiveUserSuccess archiveUser(UserPlatformModels.ArchiveUserRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<UserPlatformModels.ArchiveUserSuccess> response = null;
+            try {
+            response = userPlatformApiList.archiveUser(this.companyId, this.applicationId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
     public UserPlatformModels.PlatformSchema getPlatformConfig() throws FDKServerResponseError, FDKException {
         return this.getPlatformConfig(new HashMap<>());
     }
@@ -440,11 +460,11 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.UserGroupResponseSchema createUserGroup(UserPlatformModels.CreateUserGroupSchema body) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserGroupResponseSchema createUserGroup(UserPlatformModels.CreateUserGroup body) throws FDKServerResponseError, FDKException {
         return this.createUserGroup(body, new HashMap<>());
     }
 
-    public UserPlatformModels.UserGroupResponseSchema createUserGroup(UserPlatformModels.CreateUserGroupSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserGroupResponseSchema createUserGroup(UserPlatformModels.CreateUserGroup body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.UserGroupResponseSchema> response = null;
             try {
@@ -467,15 +487,15 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.UserGroupListResponseSchema getUserGroups(String pageNo, String pageSize, String name, String status, Integer groupUid) throws FDKServerResponseError, FDKException {
-        return this.getUserGroups(pageNo, pageSize, name, status, groupUid, new HashMap<>());
+    public UserPlatformModels.UserGroupListResponseSchema getUserGroups(String pageNo, String pageSize, String name, String type, String status, Integer groupUid) throws FDKServerResponseError, FDKException {
+        return this.getUserGroups(pageNo, pageSize, name, type, status, groupUid, new HashMap<>());
     }
 
-    public UserPlatformModels.UserGroupListResponseSchema getUserGroups(String pageNo, String pageSize, String name, String status, Integer groupUid, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserGroupListResponseSchema getUserGroups(String pageNo, String pageSize, String name, String type, String status, Integer groupUid, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.UserGroupListResponseSchema> response = null;
             try {
-            response = userPlatformApiList.getUserGroups(this.companyId, this.applicationId, pageNo, pageSize, name, status, groupUid, requestHeaders).execute();
+            response = userPlatformApiList.getUserGroups(this.companyId, this.applicationId, pageNo, pageSize, name, type, status, groupUid, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -557,6 +577,276 @@ public class ApplicationClient {
             Response<UserPlatformModels.UserGroupResponseSchema> response = null;
             try {
             response = userPlatformApiList.updateUserGroupPartially(this.companyId, this.applicationId, groupId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public UserPlatformModels.UserAttributeDefinitionResponse createUserAttributeDefinition(UserPlatformModels.CreateUserAttributeDefinition body) throws FDKServerResponseError, FDKException {
+        return this.createUserAttributeDefinition(body, new HashMap<>());
+    }
+
+    public UserPlatformModels.UserAttributeDefinitionResponse createUserAttributeDefinition(UserPlatformModels.CreateUserAttributeDefinition body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<UserPlatformModels.UserAttributeDefinitionResponse> response = null;
+            try {
+            response = userPlatformApiList.createUserAttributeDefinition(this.companyId, this.applicationId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public Object getUserAttributeDefinitions(String excludingIds, String slug, String type, Boolean customerEditable, Boolean encrypted, Boolean pinned, Integer pinOrder, Boolean isLocked, String name, Integer pageSize, Integer pageNo) throws FDKServerResponseError, FDKException {
+        return this.getUserAttributeDefinitions(excludingIds, slug, type, customerEditable, encrypted, pinned, pinOrder, isLocked, name, pageSize, pageNo, new HashMap<>());
+    }
+
+    public Object getUserAttributeDefinitions(String excludingIds, String slug, String type, Boolean customerEditable, Boolean encrypted, Boolean pinned, Integer pinOrder, Boolean isLocked, String name, Integer pageSize, Integer pageNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<Object> response = null;
+            try {
+            response = userPlatformApiList.getUserAttributeDefinitions(this.companyId, this.applicationId, excludingIds, slug, type, customerEditable, encrypted, pinned, pinOrder, isLocked, name, pageSize, pageNo, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public UserPlatformModels.UserAttributeDefinition updateUserAttributeDefinition(String attributeDefId, UserPlatformModels.CreateUserAttributeDefinition body) throws FDKServerResponseError, FDKException {
+        return this.updateUserAttributeDefinition(attributeDefId, body, new HashMap<>());
+    }
+
+    public UserPlatformModels.UserAttributeDefinition updateUserAttributeDefinition(String attributeDefId, UserPlatformModels.CreateUserAttributeDefinition body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<UserPlatformModels.UserAttributeDefinition> response = null;
+            try {
+            response = userPlatformApiList.updateUserAttributeDefinition(attributeDefId, this.applicationId, this.companyId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public UserPlatformModels.SuccessMessageResponse deleteUserAttributeDefinitionById(String attributeDefId) throws FDKServerResponseError, FDKException {
+        return this.deleteUserAttributeDefinitionById(attributeDefId, new HashMap<>());
+    }
+
+    public UserPlatformModels.SuccessMessageResponse deleteUserAttributeDefinitionById(String attributeDefId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<UserPlatformModels.SuccessMessageResponse> response = null;
+            try {
+            response = userPlatformApiList.deleteUserAttributeDefinitionById(attributeDefId, this.companyId, this.applicationId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public UserPlatformModels.UserAttributeDefinition getUserAttributeDefinitionById(String attributeDefId) throws FDKServerResponseError, FDKException {
+        return this.getUserAttributeDefinitionById(attributeDefId, new HashMap<>());
+    }
+
+    public UserPlatformModels.UserAttributeDefinition getUserAttributeDefinitionById(String attributeDefId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<UserPlatformModels.UserAttributeDefinition> response = null;
+            try {
+            response = userPlatformApiList.getUserAttributeDefinitionById(attributeDefId, this.companyId, this.applicationId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public UserPlatformModels.UserAttributeResponse updateUserAttribute(String attributeDefId, String userId, UserPlatformModels.CreateUserAttributeRequest body) throws FDKServerResponseError, FDKException {
+        return this.updateUserAttribute(attributeDefId, userId, body, new HashMap<>());
+    }
+
+    public UserPlatformModels.UserAttributeResponse updateUserAttribute(String attributeDefId, String userId, UserPlatformModels.CreateUserAttributeRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<UserPlatformModels.UserAttributeResponse> response = null;
+            try {
+            response = userPlatformApiList.updateUserAttribute(attributeDefId, userId, this.applicationId, this.companyId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public UserPlatformModels.UserAttributeResponse getUserAttribute(String attributeDefId, String userId) throws FDKServerResponseError, FDKException {
+        return this.getUserAttribute(attributeDefId, userId, new HashMap<>());
+    }
+
+    public UserPlatformModels.UserAttributeResponse getUserAttribute(String attributeDefId, String userId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<UserPlatformModels.UserAttributeResponse> response = null;
+            try {
+            response = userPlatformApiList.getUserAttribute(attributeDefId, userId, this.applicationId, this.companyId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public UserPlatformModels.SuccessMessageResponse deleteUserAttribute(String attributeDefId, String userId) throws FDKServerResponseError, FDKException {
+        return this.deleteUserAttribute(attributeDefId, userId, new HashMap<>());
+    }
+
+    public UserPlatformModels.SuccessMessageResponse deleteUserAttribute(String attributeDefId, String userId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<UserPlatformModels.SuccessMessageResponse> response = null;
+            try {
+            response = userPlatformApiList.deleteUserAttribute(attributeDefId, userId, this.applicationId, this.companyId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public Object getUserAttributesForUser(String userId, Integer pageSize, Integer pageNo) throws FDKServerResponseError, FDKException {
+        return this.getUserAttributesForUser(userId, pageSize, pageNo, new HashMap<>());
+    }
+
+    public Object getUserAttributesForUser(String userId, Integer pageSize, Integer pageNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<Object> response = null;
+            try {
+            response = userPlatformApiList.getUserAttributesForUser(userId, this.applicationId, this.companyId, pageSize, pageNo, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public UserPlatformModels.UserAttributeResponse getUserAttributeById(String attributeId) throws FDKServerResponseError, FDKException {
+        return this.getUserAttributeById(attributeId, new HashMap<>());
+    }
+
+    public UserPlatformModels.UserAttributeResponse getUserAttributeById(String attributeId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<UserPlatformModels.UserAttributeResponse> response = null;
+            try {
+            response = userPlatformApiList.getUserAttributeById(attributeId, this.applicationId, this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

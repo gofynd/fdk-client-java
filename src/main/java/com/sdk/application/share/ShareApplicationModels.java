@@ -356,14 +356,14 @@ public static class UrlInfo{
     
     
     
-    @JsonProperty("short")
-    private String shortName;
-    
-    
-    
-    
     @JsonProperty("hash")
     private String hash;
+    
+    
+    
+    
+    @JsonProperty("short_url")
+    private String shortUrl;
     
     
     

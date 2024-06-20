@@ -200,6 +200,43 @@ public static class ContactDetails{
 
 
 /*
+    Model: CountryCurrencyInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CountryCurrencyInfo{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("symbol")
+    private String symbol;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+}
+
+
+/*
     Model: BusinessCountryInfo
 */
 @AllArgsConstructor
@@ -224,6 +261,18 @@ public static class BusinessCountryInfo{
     
     @JsonProperty("country")
     private String country;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private CountryCurrencyInfo currency;
+    
+    
+    
+    
+    @JsonProperty("timezone")
+    private String timezone;
     
     
     
@@ -340,6 +389,18 @@ public static class GetAddressSerializer{
     
     @JsonProperty("state")
     private String state;
+    
+    
+    
+    
+    @JsonProperty("state_code")
+    private String stateCode;
+    
+    
+    
+    
+    @JsonProperty("sector")
+    private String sector;
     
     
     
@@ -1083,7 +1144,7 @@ public static class GetBrandResponseSerializer{
 
 
 /*
-    Model: CreateUpdateBrandRequestSerializer
+    Model: CreateBrandRequestSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1091,7 +1152,92 @@ public static class GetBrandResponseSerializer{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateUpdateBrandRequestSerializer{
+public static class CreateBrandRequestSerializer{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("_locale_language")
+    private Object localeLanguage;
+    
+    
+    
+    
+    @JsonProperty("synonyms")
+    private List<String> synonyms;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("brand_tier")
+    private String brandTier;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("banner")
+    private BrandBannerSerializer banner;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug_key")
+    private String slugKey;
+    
+    
+    
+}
+
+
+/*
+    Model: UpdateBrandRequestSerializer
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateBrandRequestSerializer{
 
     
 
@@ -2153,6 +2299,12 @@ public static class GetLocationSerializer{
     
     
     
+    
+    @JsonProperty("auto_assign_courier_partner")
+    private Boolean autoAssignCourierPartner;
+    
+    
+    
 }
 
 
@@ -2248,6 +2400,18 @@ public static class AddressSerializer{
     
     @JsonProperty("state")
     private String state;
+    
+    
+    
+    
+    @JsonProperty("sector")
+    private String sector;
+    
+    
+    
+    
+    @JsonProperty("state_code")
+    private String stateCode;
     
     
     
@@ -2435,6 +2599,12 @@ public static class LocationSerializer{
     
     @JsonProperty("bulk_shipment")
     private Boolean bulkShipment;
+    
+    
+    
+    
+    @JsonProperty("auto_assign_courier_partner")
+    private Boolean autoAssignCourierPartner;
     
     
     

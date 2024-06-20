@@ -54,6 +54,12 @@ public static class EventConfig{
     
     
     
+    @JsonProperty("event_schema")
+    private HashMap<String,Object> eventSchema;
+    
+    
+    
+    
     @JsonProperty("version")
     private String version;
     
@@ -74,6 +80,18 @@ public static class EventConfig{
     
     @JsonProperty("created_on")
     private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("updated_on")
+    private String updatedOn;
+    
+    
+    
+    
+    @JsonProperty("group")
+    private String group;
     
     
     
@@ -142,6 +160,412 @@ public static class EventConfigBase{
     
     @JsonProperty("version")
     private String version;
+    
+    
+    
+}
+
+
+/*
+    Model: EventNotifier
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EventNotifier{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("emails")
+    private List<String> emails;
+    
+    
+    
+}
+
+
+/*
+    Model: EventSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EventSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private HashMap<String,Object> payload;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
+}
+
+
+/*
+    Model: InternalTransformEvent
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InternalTransformEvent{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("trace_id")
+    private List<String> traceId;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("version")
+    private String version;
+    
+    
+    
+    
+    @JsonProperty("created_timestamp")
+    private Double createdTimestamp;
+    
+    
+    
+}
+
+
+/*
+    Model: TransformEventData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransformEventData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("event")
+    private InternalTransformEvent event;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Double companyId;
+    
+    
+    
+    
+    @JsonProperty("contains")
+    private List<String> contains;
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private HashMap<String,Object> payload;
+    
+    
+    
+}
+
+
+/*
+    Model: TransformEventServiceMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransformEventServiceMeta{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+}
+
+
+/*
+    Model: TransformEventAssociation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransformEventAssociation{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Double companyId;
+    
+    
+    
+}
+
+
+/*
+    Model: TransformEventRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransformEventRequest{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("event_name")
+    private String eventName;
+    
+    
+    
+    
+    @JsonProperty("event_type")
+    private String eventType;
+    
+    
+    
+    
+    @JsonProperty("event_category")
+    private String eventCategory;
+    
+    
+    
+    
+    @JsonProperty("event_version")
+    private String eventVersion;
+    
+    
+    
+    
+    @JsonProperty("event")
+    private EventSchema event;
+    
+    
+    
+}
+
+
+/*
+    Model: ValidateSchemaRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidateSchemaRequest{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("event_name")
+    private String eventName;
+    
+    
+    
+    
+    @JsonProperty("event_type")
+    private String eventType;
+    
+    
+    
+    
+    @JsonProperty("event_category")
+    private String eventCategory;
+    
+    
+    
+    
+    @JsonProperty("event_version")
+    private String eventVersion;
+    
+    
+    
+    
+    @JsonProperty("event")
+    private EventSchema event;
+    
+    
+    
+    
+    @JsonProperty("event_schema")
+    private HashMap<String,Object> eventSchema;
+    
+    
+    
+}
+
+
+/*
+    Model: ValidateSchemaResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidateSchemaResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Boolean status;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: TransformEventResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransformEventResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("event_trace_id")
+    private List<String> eventTraceId;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private TransformEventData data;
+    
+    
+    
+    
+    @JsonProperty("event_name")
+    private String eventName;
+    
+    
+    
+    
+    @JsonProperty("version")
+    private String version;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Boolean status;
+    
+    
+    
+    
+    @JsonProperty("event_type")
+    private String eventType;
+    
+    
+    
+    
+    @JsonProperty("service_meta")
+    private TransformEventServiceMeta serviceMeta;
+    
+    
+    
+    
+    @JsonProperty("association")
+    private TransformEventAssociation association;
     
     
     

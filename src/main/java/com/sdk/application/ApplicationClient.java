@@ -26,8 +26,6 @@ import com.sdk.application.order.OrderApplicationService;
 
 import com.sdk.application.payment.PaymentApplicationService;
 
-import com.sdk.application.poscart.PosCartApplicationService;
-
 import com.sdk.application.rewards.RewardsApplicationService;
 
 import com.sdk.application.share.ShareApplicationService;
@@ -35,6 +33,8 @@ import com.sdk.application.share.ShareApplicationService;
 import com.sdk.application.theme.ThemeApplicationService;
 
 import com.sdk.application.user.UserApplicationService;
+
+import com.sdk.application.webhook.WebhookApplicationService;
 
 
 @Getter
@@ -66,8 +66,6 @@ public class ApplicationClient {
     
     public PaymentApplicationService payment;
     
-    public PosCartApplicationService posCart;
-    
     public RewardsApplicationService rewards;
     
     public ShareApplicationService share;
@@ -75,6 +73,8 @@ public class ApplicationClient {
     public ThemeApplicationService theme;
     
     public UserApplicationService user;
+    
+    public WebhookApplicationService webhook;
     
 
     public void setExtraHeader(String key, String value){
@@ -106,8 +106,6 @@ public class ApplicationClient {
         
         this.payment = new PaymentApplicationService(applicationConfig);
         
-        this.posCart = new PosCartApplicationService(applicationConfig);
-        
         this.rewards = new RewardsApplicationService(applicationConfig);
         
         this.share = new ShareApplicationService(applicationConfig);
@@ -115,6 +113,8 @@ public class ApplicationClient {
         this.theme = new ThemeApplicationService(applicationConfig);
         
         this.user = new UserApplicationService(applicationConfig);
+        
+        this.webhook = new WebhookApplicationService(applicationConfig);
         
     }
 }

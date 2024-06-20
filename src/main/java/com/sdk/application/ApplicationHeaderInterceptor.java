@@ -39,6 +39,6 @@ public class ApplicationHeaderInterceptor implements Interceptor {
                 .addHeader("User-Agent", applicationConfig.getUserAgent())
                 .addHeader("Accept-Language", "en-IN")
                 .addHeader("Authorization", "Bearer "+bearerToken)
-                .addHeader("x-fp-sdk-version", "1.4.2-beta.10");
+                .addHeader("x-fp-sdk-version", "1.4.8-beta.2");
     }
 }

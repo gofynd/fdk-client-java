@@ -24,32 +24,14 @@ interface ThemePlatformApiList {
     @DELETE ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/{theme_id}/{page_value}")
     Call<ThemePlatformModels.AvailablePageSchema> deletePage(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @Path("page_value") String pageValue, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/library")
-    Call<ThemePlatformModels.DummyResponse> getThemeLibrary(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/library")
-    Call<ThemePlatformModels.DummyResponse> addToThemeLibrary(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ThemePlatformModels.AddThemeRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/list/public")
-    Call<ThemePlatformModels.DummyResponse> getPublicThemes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/fonts")
     Call<ThemePlatformModels.FontsSchema> getFonts(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/{theme_id}/publish")
-    Call<ThemePlatformModels.DummyResponse> publishTheme(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
-
-    @PUT ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/{theme_id}/unpublish")
-    Call<ThemePlatformModels.DummyResponse> unpublishTheme(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
-
-    @PUT ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/{theme_id}/archive")
-    Call<ThemePlatformModels.DummyResponse> archiveTheme(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
-
-    @PUT ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/{theme_id}/unarchive")
-    Call<ThemePlatformModels.DummyResponse> unarchiveTheme(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/theme/v2.0/company/{company_id}/themes")
-    Call<List<ThemePlatformModels.CompanyThemeSchema>> getCompanyLevelThemes(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
+    Call<List<ThemePlatformModels.CompanyThemeSchema>> getCompanyLevelThemes(@Path("company_id") String companyId, @Query("search_text") String searchText, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/theme/v2.0/company/{company_id}/private_themes")
+    Call<List<ThemePlatformModels.CompanyPrivateTheme>> getCompanyLevelPrivateThemes(@Path("company_id") String companyId, @Query("search_text") String searchText, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/theme/v2.0/company/{company_id}")
     Call<ThemePlatformModels.CompanyThemeSchema> addMarketplaceThemeToCompany(@Path("company_id") String companyId, @Body ThemePlatformModels.ThemeReq payload, @HeaderMap Map<String, String> requestHeaders);
@@ -98,4 +80,7 @@ interface ThemePlatformApiList {
 
     @PUT ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}/upgrade")
     Call<ThemePlatformModels.ThemesSchema> upgradeTheme(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/extension-section")
+    Call<List<ThemePlatformModels.GetExtensionSectionRes>> getExtensionSections(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("type") String type, @Query("company_mode") String companyMode, @HeaderMap Map<String, String> requestHeaders);
 }

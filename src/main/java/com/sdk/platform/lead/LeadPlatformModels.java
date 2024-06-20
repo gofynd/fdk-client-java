@@ -14,6 +14,208 @@ public class LeadPlatformModels{
 
 
 /*
+    Model: GeneralConfigResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GeneralConfigResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("support_communication")
+    private List<SupportCommunicationSchema> supportCommunication;
+    
+    
+    
+    
+    @JsonProperty("show_communication_info")
+    private Boolean showCommunicationInfo;
+    
+    
+    
+    
+    @JsonProperty("show_support_dris")
+    private Boolean showSupportDris;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("integration")
+    private GeneralConfigIntegrationSchema integration;
+    
+    
+    
+    
+    @JsonProperty("allow_ticket_creation")
+    private Boolean allowTicketCreation;
+    
+    
+    
+    
+    @JsonProperty("show_listing")
+    private Boolean showListing;
+    
+    
+    
+    
+    @JsonProperty("available_integration")
+    private List<String> availableIntegration;
+    
+    
+    
+    
+    @JsonProperty("enable_dris")
+    private Boolean enableDris;
+    
+    
+    
+    
+    @JsonProperty("support_email")
+    private SupportSchema supportEmail;
+    
+    
+    
+    
+    @JsonProperty("support_phone")
+    private SupportSchema supportPhone;
+    
+    
+    
+    
+    @JsonProperty("support_faq")
+    private SupportSchema supportFaq;
+    
+    
+    
+}
+
+
+/*
+    Model: SupportCommunicationSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SupportCommunicationSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+}
+
+
+/*
+    Model: SupportSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SupportSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+}
+
+
+/*
+    Model: GeneralConfigIntegrationSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GeneralConfigIntegrationSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+}
+
+
+/*
     Model: TicketList
 */
 @AllArgsConstructor
@@ -412,118 +614,6 @@ public static class AgentChangePayload{
 
 
 /*
-    Model: CreateVideoRoomResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateVideoRoomResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("unique_name")
-    private String uniqueName;
-    
-    
-    
-}
-
-
-/*
-    Model: CloseVideoRoomResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CloseVideoRoomResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-}
-
-
-/*
-    Model: CreateVideoRoomPayload
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateVideoRoomPayload{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("unique_name")
-    private String uniqueName;
-    
-    
-    
-    
-    @JsonProperty("notify")
-    private List<NotifyUser> notify;
-    
-    
-    
-}
-
-
-/*
-    Model: NotifyUser
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NotifyUser{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("country_code")
-    private String countryCode;
-    
-    
-    
-    
-    @JsonProperty("phone_number")
-    private String phoneNumber;
-    
-    
-    
-}
-
-
-/*
     Model: Filter
 */
 @AllArgsConstructor
@@ -591,337 +681,6 @@ public static class TicketHistoryPayload{
     
     @JsonProperty("type")
     private HistoryTypeEnum type;
-    
-    
-    
-}
-
-
-/*
-    Model: GetTokenForVideoRoomResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetTokenForVideoRoomResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("access_token")
-    private String accessToken;
-    
-    
-    
-}
-
-
-/*
-    Model: GetParticipantsInsideVideoRoomResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetParticipantsInsideVideoRoomResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("participants")
-    private List<Participant> participants;
-    
-    
-    
-}
-
-
-/*
-    Model: Participant
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Participant{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("user")
-    private UserSchema user;
-    
-    
-    
-    
-    @JsonProperty("identity")
-    private String identity;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-}
-
-
-/*
-    Model: UserSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("user_id")
-    private String userId;
-    
-    
-    
-    
-    @JsonProperty("first_name")
-    private String firstName;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("last_name")
-    private String lastName;
-    
-    
-    
-    
-    @JsonProperty("phone_numbers")
-    private List<PhoneNumber> phoneNumbers;
-    
-    
-    
-    
-    @JsonProperty("emails")
-    private List<Email> emails;
-    
-    
-    
-    
-    @JsonProperty("gender")
-    private String gender;
-    
-    
-    
-    
-    @JsonProperty("dob")
-    private String dob;
-    
-    
-    
-    
-    @JsonProperty("active")
-    private Boolean active;
-    
-    
-    
-    
-    @JsonProperty("profile_pic_url")
-    private String profilePicUrl;
-    
-    
-    
-    
-    @JsonProperty("username")
-    private String username;
-    
-    
-    
-    
-    @JsonProperty("account_type")
-    private String accountType;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("external_id")
-    private String externalId;
-    
-    
-    
-}
-
-
-/*
-    Model: PhoneNumber
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PhoneNumber{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("active")
-    private Boolean active;
-    
-    
-    
-    
-    @JsonProperty("primary")
-    private Boolean primary;
-    
-    
-    
-    
-    @JsonProperty("verified")
-    private Boolean verified;
-    
-    
-    
-    
-    @JsonProperty("phone")
-    private String phone;
-    
-    
-    
-    
-    @JsonProperty("country_code")
-    private Integer countryCode;
-    
-    
-    
-}
-
-
-/*
-    Model: Email
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Email{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("primary")
-    private Boolean primary;
-    
-    
-    
-    
-    @JsonProperty("verified")
-    private Boolean verified;
-    
-    
-    
-    
-    @JsonProperty("email")
-    private String email;
-    
-    
-    
-    
-    @JsonProperty("active")
-    private Boolean active;
-    
-    
-    
-}
-
-
-/*
-    Model: Debug
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Debug{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("source")
-    private String source;
-    
-    
-    
-    
-    @JsonProperty("platform")
-    private String platform;
     
     
     
@@ -1150,6 +909,31 @@ public static class Priority{
     
     @JsonProperty("color")
     private String color;
+    
+    
+    
+}
+
+
+/*
+    Model: SLA
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SLA{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("resolution_time")
+    private String resolutionTime;
     
     
     
@@ -1754,6 +1538,12 @@ public static class Ticket{
     
     
     
+    @JsonProperty("sla")
+    private SLA sla;
+    
+    
+    
+    
     @JsonProperty("created_by")
     private Object createdBy;
     
@@ -1810,6 +1600,31 @@ public static class Ticket{
 }
 
 
+/*
+    Model: ErrorMessage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ErrorMessage{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
 
 
     
@@ -1856,7 +1671,9 @@ public static class Ticket{
         
         log("log"), 
         
-        comment("comment");
+        comment("comment"), 
+        
+        thread("thread");
         
 
         private String priority;

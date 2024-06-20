@@ -42,12 +42,15 @@ import com.sdk.application.*;
         relativeUrls.put("getLegalInformation","/service/application/content/v1.0/legal".substring(1));
         relativeUrls.put("getNavigations","/service/application/content/v1.0/navigations/".substring(1));
         relativeUrls.put("getSEOConfiguration","/service/application/content/v1.0/seo".substring(1));
+        relativeUrls.put("getSEOMarkupSchemas","/service/application/content/v1.0/seo/schema".substring(1));
         relativeUrls.put("getSlideshows","/service/application/content/v1.0/slideshow/".substring(1));
         relativeUrls.put("getSlideshow","/service/application/content/v1.0/slideshow/{slug}".substring(1));
         relativeUrls.put("getSupportInformation","/service/application/content/v1.0/support".substring(1));
         relativeUrls.put("getTags","/service/application/content/v1.0/tags".substring(1));
         relativeUrls.put("getPage","/service/application/content/v2.0/pages/{slug}".substring(1));
-        relativeUrls.put("getPages","/service/application/content/v2.0/pages/".substring(1)); 
+        relativeUrls.put("getPages","/service/application/content/v2.0/pages/".substring(1));
+        relativeUrls.put("getCustomObject","/service/application/content/v1.0/metaobjects/{metaobject_id}".substring(1));
+        relativeUrls.put("getCustomFields","/service/application/content/v1.0/metafields/{resource}/{resource_id}".substring(1)); 
 
     }
 
@@ -99,54 +102,20 @@ import com.sdk.application.*;
     }
     
 
-    public ContentApplicationModels.BlogGetResponse getBlogs(Integer pageNo, Integer pageSize) throws IOException {
-        return this.getBlogs(pageNo, pageSize, new HashMap<>());
+    public ContentApplicationModels.BlogGetResponse getBlogs(Integer pageNo, Integer pageSize, String tags, String search) throws IOException {
+        return this.getBlogs(pageNo, pageSize, tags, search, new HashMap<>());
     }
 
-    public ContentApplicationModels.BlogGetResponse getBlogs(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+    public ContentApplicationModels.BlogGetResponse getBlogs(Integer pageNo, Integer pageSize, String tags, String search, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getBlogs");
 
-        Response<ContentApplicationModels.BlogGetResponse> response = contentApplicationApiList.getBlogs(fullUrl, pageNo, pageSize, requestHeaders).execute();
+        Response<ContentApplicationModels.BlogGetResponse> response = contentApplicationApiList.getBlogs(fullUrl, pageNo, pageSize, tags, search, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
-    }
-
-    /**
-    * Summary: get paginator for getBlogs
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ContentApplicationModels.BlogGetResponse> getBlogsPagination(
-        
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ContentApplicationModels.BlogGetResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ContentApplicationModels.BlogGetResponse callback = this.getBlogs(
-                
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator;
     }
     
 
@@ -304,40 +273,6 @@ import com.sdk.application.*;
         }
         return response.body();
     }
-
-    /**
-    * Summary: get paginator for getNavigations
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ContentApplicationModels.NavigationGetResponse> getNavigationsPagination(
-        
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ContentApplicationModels.NavigationGetResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ContentApplicationModels.NavigationGetResponse callback = this.getNavigations(
-                
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator;
-    }
     
 
     public ContentApplicationModels.SeoComponent getSEOConfiguration() throws IOException {
@@ -349,6 +284,23 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("getSEOConfiguration");
 
         Response<ContentApplicationModels.SeoComponent> response = contentApplicationApiList.getSEOConfiguration(fullUrl, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public ContentApplicationModels.SeoSchemaComponent getSEOMarkupSchemas(String pageType, Boolean active) throws IOException {
+        return this.getSEOMarkupSchemas(pageType, active, new HashMap<>());
+    }
+
+    public ContentApplicationModels.SeoSchemaComponent getSEOMarkupSchemas(String pageType, Boolean active, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getSEOMarkupSchemas");
+
+        Response<ContentApplicationModels.SeoSchemaComponent> response = contentApplicationApiList.getSEOMarkupSchemas(fullUrl, pageType, active, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -493,39 +445,42 @@ import com.sdk.application.*;
         }
         return response.body();
     }
-
-    /**
-    * Summary: get paginator for getPages
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ContentApplicationModels.PageGetResponse> getPagesPagination(
-        
-        Integer pageSize
-        
-        ){ 
     
-    pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<ContentApplicationModels.PageGetResponse> paginator = new Paginator<>(pageSize, "number");
+    public ContentApplicationModels.CustomObjectByIdSchema getCustomObject(String metaobjectId) throws IOException {
+        return this.getCustomObject(metaobjectId, new HashMap<>());
+    }
 
-    paginator.setCallback(()-> {
-        try {
-            ContentApplicationModels.PageGetResponse callback = this.getPages(
-                
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
+    public ContentApplicationModels.CustomObjectByIdSchema getCustomObject(String metaobjectId, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getCustomObject");
+        fullUrl = fullUrl.replace("{" + "metaobject_id" + "}",metaobjectId.toString());
+
+        Response<ContentApplicationModels.CustomObjectByIdSchema> response = contentApplicationApiList.getCustomObject(fullUrl, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
-    });
-    return paginator;
+        return response.body();
+    }
+    
+
+    public ContentApplicationModels.CustomFieldsResponseByResourceIdSchema getCustomFields(String resource, String resourceId) throws IOException {
+        return this.getCustomFields(resource, resourceId, new HashMap<>());
+    }
+
+    public ContentApplicationModels.CustomFieldsResponseByResourceIdSchema getCustomFields(String resource, String resourceId, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getCustomFields");
+        fullUrl = fullUrl.replace("{" + "resource" + "}",resource.toString());
+        fullUrl = fullUrl.replace("{" + "resource_id" + "}",resourceId.toString());
+
+        Response<ContentApplicationModels.CustomFieldsResponseByResourceIdSchema> response = contentApplicationApiList.getCustomFields(fullUrl, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
     }
       
 
