@@ -2704,6 +2704,12 @@ public static class PhoneProperties{
     
     
     
+    
+    @JsonProperty("phone_type")
+    private String phoneType;
+    
+    
+    
 }
 
 

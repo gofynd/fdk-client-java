@@ -1385,12 +1385,6 @@ public static class CreateUserSessionRequestSchema{
     
     
     
-    @JsonProperty("max_age")
-    private Double maxAge;
-    
-    
-    
-    
     @JsonProperty("user_id")
     private String userId;
     

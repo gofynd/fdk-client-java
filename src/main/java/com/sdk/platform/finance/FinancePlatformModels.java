@@ -1295,6 +1295,37 @@ public static class DownloadCreditDebitNoteResponse{
 
 
 /*
+    Model: InvoiceBillingItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoiceBillingItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("invoice_number")
+    private String invoiceNumber;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+}
+
+
+/*
     Model: PaymentProcessPayload
 */
 @AllArgsConstructor
@@ -1365,8 +1396,8 @@ public static class PaymentProcessPayload{
     
     
     
-    @JsonProperty("invoice_number")
-    private String invoiceNumber;
+    @JsonProperty("invoice_billing_items")
+    private List<InvoiceBillingItem> invoiceBillingItems;
     
     
     
@@ -4084,8 +4115,8 @@ public static class InvoicePaymentOptionsPayloadData{
     
     
     
-    @JsonProperty("invoice_number")
-    private String invoiceNumber;
+    @JsonProperty("invoice_numbers")
+    private List<String> invoiceNumbers;
     
     
     
@@ -4220,8 +4251,8 @@ public static class InvoicePaymentOptionsResponseData{
     
     
     
-    @JsonProperty("currency")
-    private Currency currency;
+    @JsonProperty("invoice_number")
+    private String invoiceNumber;
     
     
     
@@ -4255,6 +4286,12 @@ public static class InvoicePaymentOptionsResponseData{
     
     
     
+    
+    @JsonProperty("currency")
+    private Currency currency;
+    
+    
+    
 }
 
 
@@ -4282,7 +4319,19 @@ public static class InvoicePaymentOptionsResponse{
     
     
     @JsonProperty("data")
-    private InvoicePaymentOptionsResponseData data;
+    private List<InvoicePaymentOptionsResponseData> data;
+    
+    
+    
+    
+    @JsonProperty("total_payable_amount")
+    private Double totalPayableAmount;
+    
+    
+    
+    
+    @JsonProperty("invoice_count")
+    private Integer invoiceCount;
     
     
     

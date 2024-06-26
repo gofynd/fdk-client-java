@@ -11548,6 +11548,12 @@ public static class ShipmentItem{
     
     
     
+    
+    @JsonProperty("is_lapa_enabled")
+    private Boolean isLapaEnabled;
+    
+    
+    
 }
 
 
@@ -14245,6 +14251,12 @@ public static class PlatformShipment{
     
     @JsonProperty("mode_of_payment")
     private String modeOfPayment;
+    
+    
+    
+    
+    @JsonProperty("is_lapa_enabled")
+    private Boolean isLapaEnabled;
     
     
     
