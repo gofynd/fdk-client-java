@@ -33,9 +33,7 @@ import com.sdk.application.*;
         relativeUrls.put("createHistory","/service/application/lead/v1.0/ticket/{id}/history".substring(1));
         relativeUrls.put("createTicket","/service/application/lead/v1.0/ticket/".substring(1));
         relativeUrls.put("getCustomForm","/service/application/lead/v1.0/form/{slug}".substring(1));
-        relativeUrls.put("submitCustomForm","/service/application/lead/v1.0/form/{slug}/submit".substring(1));
-        relativeUrls.put("getParticipantsInsideVideoRoom","/service/application/lead/v1.0/video/room/{unique_name}/participants".substring(1));
-        relativeUrls.put("getTokenForVideoRoom","/service/application/lead/v1.0/video/room/{unique_name}/token".substring(1)); 
+        relativeUrls.put("submitCustomForm","/service/application/lead/v1.0/form/{slug}/submit".substring(1)); 
 
     }
 
@@ -133,42 +131,6 @@ import com.sdk.application.*;
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
 
         Response<LeadApplicationModels.SubmitCustomFormResponse> response = leadApplicationApiList.submitCustomForm(fullUrl, body, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public LeadApplicationModels.GetParticipantsInsideVideoRoomResponse getParticipantsInsideVideoRoom(String uniqueName) throws IOException {
-        return this.getParticipantsInsideVideoRoom(uniqueName, new HashMap<>());
-    }
-
-    public LeadApplicationModels.GetParticipantsInsideVideoRoomResponse getParticipantsInsideVideoRoom(String uniqueName, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getParticipantsInsideVideoRoom");
-        fullUrl = fullUrl.replace("{" + "unique_name" + "}",uniqueName.toString());
-
-        Response<LeadApplicationModels.GetParticipantsInsideVideoRoomResponse> response = leadApplicationApiList.getParticipantsInsideVideoRoom(fullUrl, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public LeadApplicationModels.GetTokenForVideoRoomResponse getTokenForVideoRoom(String uniqueName) throws IOException {
-        return this.getTokenForVideoRoom(uniqueName, new HashMap<>());
-    }
-
-    public LeadApplicationModels.GetTokenForVideoRoomResponse getTokenForVideoRoom(String uniqueName, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getTokenForVideoRoom");
-        fullUrl = fullUrl.replace("{" + "unique_name" + "}",uniqueName.toString());
-
-        Response<LeadApplicationModels.GetTokenForVideoRoomResponse> response = leadApplicationApiList.getTokenForVideoRoom(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

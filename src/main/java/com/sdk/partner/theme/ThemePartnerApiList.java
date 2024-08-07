@@ -57,6 +57,18 @@ interface ThemePartnerApiList {
     @POST ("/service/partner/theme/v1.0/organization/{organization_id}/theme")
     Call<ThemePartnerModels.MarketplaceTheme> createNewThemeInOrganization(@Path("organization_id") String organizationId, @Query("slug") String slug, @Body ThemePartnerModels.MarketplaceTheme payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @POST ("/service/partner/theme/v1.0/organization/{organization_id}/extension-section/{extension_id}/draft")
+    Call<ThemePartnerModels.DraftExtensionSectionResponse> createExtensionSectionDraft(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Body ThemePartnerModels.DraftExtensionSectionRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/partner/theme/v1.0/organization/{organization_id}/extension-section/{extension_id}/publish")
+    Call<ThemePartnerModels.PublishExtensionSectionResponse> publishExtensionSections(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Body ThemePartnerModels.PublishExtensionSectionRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/partner/theme/v1.0/organization/{organization_id}/extension-section/{extension_section_id}/preview")
+    Call<ThemePartnerModels.ExtensionPreviewResponse> applyExtensionPreview(@Path("organization_id") String organizationId, @Path("extension_section_id") String extensionSectionId, @Body ThemePartnerModels.ExtensionPreviewRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/partner/theme/v1.0/organization/{organization_id}/extension-section/{extension_section_id}/preview")
+    Call<ThemePartnerModels.ExtensionPreviewResponse> removeExtensionPreview(@Path("organization_id") String organizationId, @Path("extension_section_id") String extensionSectionId, @Body ThemePartnerModels.ExtensionPreviewRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/partner/theme/v1.0/organization/{organization_id}/theme/{theme_id}/reasons")
     Call<ThemePartnerModels.ThemeRejectionReasons> getThemeRejectionReasons(@Path("organization_id") String organizationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
 

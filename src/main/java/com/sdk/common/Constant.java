@@ -48,6 +48,7 @@ public class Constant {
         public static final String COLLECTIONS = "collections";
         public static final String CONTACT_US = "contact-us";
         public static final String EXTERNAL = "external";
+        public static final String CUSTOM = "custom";
         public static final String FAQ = "faq";
         public static final String FRESHCHAT = "freshchat";
         public static final String HOME = "home";
@@ -174,6 +175,16 @@ public class Constant {
 	"external": {
 		"name": "External Link",
 		"link": "/external/",
+		"query": [
+			{
+				"key": "url",
+				"required": true
+			}
+		]
+	},
+	"custom": {
+		"name": "Custom theme link",
+		"link": "/c/",
 		"query": [
 			{
 				"key": "url",

@@ -2347,13 +2347,19 @@ public static class LinkStatus{
     
     
     @JsonProperty("status")
-    private Boolean status;
+    private String status;
     
     
     
     
     @JsonProperty("message")
     private String message;
+    
+    
+    
+    
+    @JsonProperty("is_payment_done")
+    private Boolean isPaymentDone;
     
     
     

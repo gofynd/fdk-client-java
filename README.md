@@ -153,3 +153,5 @@ headers.put("x-api-version", "1.0");
 ThemePlatformModels.AllAvailablePageSchema response = platformClient.application(applicationId).theme.getAllPages("<THEME_ID>", headers);
 ```
 
+
+

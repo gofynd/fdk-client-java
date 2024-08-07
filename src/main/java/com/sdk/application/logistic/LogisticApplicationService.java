@@ -35,7 +35,7 @@ import com.sdk.application.*;
         relativeUrls.put("getPincodeZones","/service/application/logistics/v1.0/pincode/zones".substring(1));
         relativeUrls.put("getOptimalLocations","/service/application/logistics/v1.0/reassign_stores".substring(1));
         relativeUrls.put("getLocations","/service/application/logistics/v1.0/locations".substring(1));
-        relativeUrls.put("getCountries","/service/application/logistics/v1.0/countries".substring(1));
+        relativeUrls.put("getCountries","/service/application/logistics/v2.0/countries".substring(1));
         relativeUrls.put("getCountry","/service/application/logistics/v1.0/countries/{country_iso_code}".substring(1));
         relativeUrls.put("getLocalities","/service/application/logistics/v1.0/localities/{locality_type}".substring(1));
         relativeUrls.put("getLocality","/service/application/logistics/v1.0/localities/{locality_type}/{locality_value}".substring(1));

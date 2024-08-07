@@ -13,7 +13,7 @@ interface ContentApplicationApiList {
     Call<ContentApplicationModels.BlogSchema> getBlog(@Url String url1, @Query("root_id") String rootId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<ContentApplicationModels.BlogGetResponse> getBlogs(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentApplicationModels.BlogGetResponse> getBlogs(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("tags") String tags, @Query("search") String search, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<ContentApplicationModels.DataLoadersSchema> getDataLoaders(@Url String url1, @HeaderMap Map<String, String> requestHeaders);

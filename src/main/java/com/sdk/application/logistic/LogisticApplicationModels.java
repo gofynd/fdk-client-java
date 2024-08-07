@@ -2127,6 +2127,12 @@ public static class Localities{
     
     
     
+    
+    @JsonProperty("localities")
+    private List<LocalityParent> localities;
+    
+    
+    
 }
 
 
@@ -2284,6 +2290,12 @@ public static class ErrorResponse{
     
     @JsonProperty("error")
     private String error;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     

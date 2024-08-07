@@ -40,9 +40,8 @@ class FileStorage {
                     size, List.of(), params);
             try {
                 FileStorageApplicationModels.StartResponse startResponse = fileStorageApplicationService.startUpload(namespace, startRequest);
-                String cdnUrl = startResponse.getCdn().getUrl();
                 String uploadUrl = startResponse.getUpload().getUrl();
-                if (StringUtils.isNotEmpty(cdnUrl) && StringUtils.isNotEmpty(uploadUrl) && Objects.nonNull(file)) {
+                if (StringUtils.isNotEmpty(uploadUrl) && Objects.nonNull(file)) {
                     String contentTypeFromResponse = StringUtils.isNotEmpty(startResponse.getContentType())
                             ? startResponse.getContentType()
                             : "";

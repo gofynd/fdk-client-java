@@ -60,24 +60,6 @@ interface LeadPlatformApiList {
     @POST ("/service/platform/lead/v1.0/company/{company_id}/application/{application_id}/form")
     Call<LeadPlatformModels.CustomForm> createCustomForm(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body LeadPlatformModels.CreateCustomFormPayload payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/lead/v1.0/company/{company_id}/video/room/{unique_name}/token")
-    Call<LeadPlatformModels.GetTokenForVideoRoomResponse> getTokenForPlatformVideoRoom(@Path("company_id") String companyId, @Path("unique_name") String uniqueName, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/lead/v1.0/company/{company_id}/application/{application_id}/video/room/{unique_name}/token")
-    Call<LeadPlatformModels.GetTokenForVideoRoomResponse> getNewTokenForVideoRoom(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("unique_name") String uniqueName, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/lead/v1.0/company/{company_id}/video/room/{unique_name}/participants")
-    Call<LeadPlatformModels.GetParticipantsInsideVideoRoomResponse> getPlatformVideoParticipants(@Path("company_id") String companyId, @Path("unique_name") String uniqueName, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/lead/v1.0/company/{company_id}/application/{application_id}/video/room/{unique_name}/participants")
-    Call<LeadPlatformModels.GetParticipantsInsideVideoRoomResponse> getNewVideoParticipants(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("unique_name") String uniqueName, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/lead/v1.0/company/{company_id}/application/{application_id}/video/room")
-    Call<LeadPlatformModels.CreateVideoRoomResponse> openVideoRoom(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body LeadPlatformModels.CreateVideoRoomPayload payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @DELETE ("/service/platform/lead/v1.0/company/{company_id}/application/{application_id}/video/room/{unique_name}")
-    Call<LeadPlatformModels.CloseVideoRoomResponse> closeVideoRoom(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("unique_name") String uniqueName, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/lead/v1.0/company/{company_id}/general-config")
-    Call<LeadPlatformModels.CloseVideoRoomResponse> getGeneralConfig(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
+    Call<LeadPlatformModels.GeneralConfigResponse> getGeneralConfig(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 }

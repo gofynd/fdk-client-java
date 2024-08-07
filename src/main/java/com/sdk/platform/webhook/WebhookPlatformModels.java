@@ -14,31 +14,6 @@ public class WebhookPlatformModels{
 
 
 /*
-    Model: Error
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Error{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("error")
-    private String error;
-    
-    
-    
-}
-
-
-/*
     Model: Event
 */
 @AllArgsConstructor
@@ -75,253 +50,6 @@ public static class Event{
     
     @JsonProperty("version")
     private String version;
-    
-    
-    
-}
-
-
-/*
-    Model: RetryEventRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RetryEventRequest{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("search_text")
-    private String searchText;
-    
-    
-    
-    
-    @JsonProperty("end_date")
-    private String endDate;
-    
-    
-    
-    
-    @JsonProperty("start_date")
-    private String startDate;
-    
-    
-    
-    
-    @JsonProperty("subscriber_ids")
-    private List<Integer> subscriberIds;
-    
-    
-    
-    
-    @JsonProperty("event")
-    private List<Event> event;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-}
-
-
-/*
-    Model: Item
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Item{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("count")
-    private Integer count;
-    
-    
-    
-}
-
-
-/*
-    Model: RetryCountResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RetryCountResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<Item> items;
-    
-    
-    
-}
-
-
-/*
-    Model: RetrySuccessResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RetrySuccessResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
-    Model: Err
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Err{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("msg")
-    private String msg;
-    
-    
-    
-    
-    @JsonProperty("param")
-    private String param;
-    
-    
-    
-    
-    @JsonProperty("location")
-    private String location;
-    
-    
-    
-}
-
-
-/*
-    Model: RetryFailureResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RetryFailureResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("err")
-    private List<Err> err;
-    
-    
-    
-}
-
-
-/*
-    Model: RetryStatusResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RetryStatusResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("total_event")
-    private Integer totalEvent;
-    
-    
-    
-    
-    @JsonProperty("success_count")
-    private Integer successCount;
-    
-    
-    
-    
-    @JsonProperty("failure_count")
-    private Integer failureCount;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
     
     
     
@@ -1242,6 +970,43 @@ public static class Association{
     
     
     
+    @JsonProperty("application_id")
+    private List<String> applicationId;
+    
+    
+    
+    
+    @JsonProperty("extension_id")
+    private String extensionId;
+    
+    
+    
+    
+    @JsonProperty("criteria")
+    private String criteria;
+    
+    
+    
+}
+
+
+/*
+    Model: AssociationResp
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AssociationResp{
+
+    
+
+    
+    
+    
+    
     @JsonProperty("company_id")
     private Integer companyId;
     
@@ -1347,7 +1112,7 @@ public static class SubscriberResponse{
     
     
     @JsonProperty("association")
-    private Association association;
+    private AssociationResp association;
     
     
     
@@ -1434,7 +1199,7 @@ public static class Events{
 
 
 /*
-    Model: SubscriberConfigRequestV2
+    Model: SubscriberConfigPostRequestV2
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1442,7 +1207,80 @@ public static class Events{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriberConfigRequestV2{
+public static class SubscriberConfigPostRequestV2{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("webhook_url")
+    private String webhookUrl;
+    
+    
+    
+    
+    @JsonProperty("provider")
+    private String provider;
+    
+    
+    
+    
+    @JsonProperty("association")
+    private Association association;
+    
+    
+    
+    
+    @JsonProperty("custom_headers")
+    private Object customHeaders;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private SubscriberStatus status;
+    
+    
+    
+    
+    @JsonProperty("email_id")
+    private String emailId;
+    
+    
+    
+    
+    @JsonProperty("auth_meta")
+    private AuthMeta authMeta;
+    
+    
+    
+    
+    @JsonProperty("events")
+    private List<Events> events;
+    
+    
+    
+}
+
+
+/*
+    Model: SubscriberConfigUpdateRequestV2
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SubscriberConfigUpdateRequestV2{
 
     
 
@@ -1513,7 +1351,7 @@ public static class SubscriberConfigRequestV2{
 
 
 /*
-    Model: SubscriberConfig
+    Model: SubscriberConfigPost
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1521,7 +1359,74 @@ public static class SubscriberConfigRequestV2{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriberConfig{
+public static class SubscriberConfigPost{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("webhook_url")
+    private String webhookUrl;
+    
+    
+    
+    
+    @JsonProperty("association")
+    private Association association;
+    
+    
+    
+    
+    @JsonProperty("custom_headers")
+    private Object customHeaders;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private SubscriberStatus status;
+    
+    
+    
+    
+    @JsonProperty("email_id")
+    private String emailId;
+    
+    
+    
+    
+    @JsonProperty("auth_meta")
+    private AuthMeta authMeta;
+    
+    
+    
+    
+    @JsonProperty("event_id")
+    private List<Integer> eventId;
+    
+    
+    
+}
+
+
+/*
+    Model: SubscriberConfigUpdate
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SubscriberConfigUpdate{
 
     
 
@@ -1633,7 +1538,7 @@ public static class SubscriberConfigResponse{
     
     
     @JsonProperty("association")
-    private Association association;
+    private AssociationResp association;
     
     
     

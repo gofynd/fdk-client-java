@@ -7,7 +7,7 @@ import java.util.*;
 interface ServiceabilityPlatformApiList {
 
     @GET ("/service/platform/logistics/v2.0/company/{company_id}/zones")
-    Call<ServiceabilityPlatformModels.ListViewResponse> getZones(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("is_active") Boolean isActive, @Query("channel_id") String channelId, @Query("q") String q, @Query("country") String country, @Query("state") String state, @Query("city") String city, @Query("pincode") String pincode, @Query("sector") String sector, @HeaderMap Map<String, String> requestHeaders);
+    Call<ServiceabilityPlatformModels.ListViewResponse> getZones(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("is_active") Boolean isActive, @Query("channel_id") String channelId, @Query("q") String q, @Query("country_iso_code") String countryIsoCode, @Query("state") String state, @Query("city") String city, @Query("pincode") String pincode, @Query("sector") String sector, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/logistics/v2.0/company/{company_id}/zones")
     Call<ServiceabilityPlatformModels.ZoneResponse> createZone(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.CreateZoneData payload, @HeaderMap Map<String, String> requestHeaders);
@@ -34,7 +34,7 @@ interface ServiceabilityPlatformApiList {
     Call<ServiceabilityPlatformModels.PincodeMopUpdateAuditHistoryResponseData> updatePincodeAuditHistory(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.PincodeMopUpdateAuditHistoryRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/logistics/v1.0/company/{company_id}/courier-partner/account")
-    Call<ServiceabilityPlatformModels.CourierAccount> createCourierPartnerAccount(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.CourierAccount payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<ServiceabilityPlatformModels.CourierAccount> createCourierPartnerAccount(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.CourierAccountRequestBody payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier-partner/account")
     Call<ServiceabilityPlatformModels.CompanyCourierPartnerAccountListResponse> getCourierPartnerAccounts(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("stage") String stage, @Query("payment_mode") String paymentMode, @Query("transport_type") String transportType, @HeaderMap Map<String, String> requestHeaders);
@@ -46,13 +46,13 @@ interface ServiceabilityPlatformApiList {
     Call<ServiceabilityPlatformModels.CourierAccountResponse> getCourierPartnerAccount(@Path("company_id") String companyId, @Path("account_id") String accountId, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/courier-partner/rules/{rule_id}")
-    Call<ServiceabilityPlatformModels.CourierPartnerRule> updateCourierRule(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("rule_id") String ruleId, @Body ServiceabilityPlatformModels.CourierPartnerRule payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<ServiceabilityPlatformModels.CourierPartnerRuleResponse> updateCourierRule(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("rule_id") String ruleId, @Body ServiceabilityPlatformModels.CourierPartnerRule payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/courier-partner/rules/{rule_id}")
-    Call<ServiceabilityPlatformModels.CourierPartnerRule> getCourierPartnerRule(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("rule_id") String ruleId, @HeaderMap Map<String, String> requestHeaders);
+    Call<ServiceabilityPlatformModels.CourierPartnerRuleResponse> getCourierPartnerRule(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("rule_id") String ruleId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/courier-partner/rules")
-    Call<ServiceabilityPlatformModels.CourierPartnerRule> createCourierPartnerRule(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.CourierPartnerRule payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<ServiceabilityPlatformModels.CourierPartnerRuleResponse> createCourierPartnerRule(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.CourierPartnerRule payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/courier-partner/rules")
     Call<ServiceabilityPlatformModels.CourierPartnerRulesListResponse> getCourierPartnerRules(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("status") String status, @HeaderMap Map<String, String> requestHeaders);

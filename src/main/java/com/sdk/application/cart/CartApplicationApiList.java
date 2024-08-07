@@ -7,16 +7,16 @@ import java.util.*;
 interface CartApplicationApiList {
 
     @GET 
-    Call<CartApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("c") Boolean c, @Query("assign_card_id") Integer assignCardId, @Query("area_code") String areaCode, @Query("buy_now") Boolean buyNow, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("c") Boolean c, @Query("assign_card_id") Integer assignCardId, @Query("area_code") String areaCode, @Query("buy_now") Boolean buyNow, @Query("order_type") String orderType, @HeaderMap Map<String, String> requestHeaders);
 
     @HEAD 
     Call<Object> getCartLastModified(@Url String url1, @Query("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<CartApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i, @Query("b") Boolean b, @Query("area_code") String areaCode, @Query("buy_now") Boolean buyNow, @Query("id") String id, @Body CartApplicationModels.AddCartRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i, @Query("b") Boolean b, @Query("area_code") String areaCode, @Query("buy_now") Boolean buyNow, @Query("id") String id, @Query("order_type") String orderType, @Body CartApplicationModels.AddCartRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT 
-    Call<CartApplicationModels.UpdateCartDetailResponse> updateCart(@Url String url1, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("area_code") String areaCode, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Body CartApplicationModels.UpdateCartRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.UpdateCartDetailResponse> updateCart(@Url String url1, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("area_code") String areaCode, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Query("order_type") String orderType, @Body CartApplicationModels.UpdateCartRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT 
     Call<CartApplicationModels.DeleteCartDetailResponse> deleteCart(@Url String url1, @Query("id") String id, @HeaderMap Map<String, String> requestHeaders);
@@ -86,6 +86,9 @@ interface CartApplicationApiList {
 
     @GET 
     Call<CartApplicationModels.LadderPriceOffers> getLadderOffers(@Url String url1, @Query("slug") String slug, @Query("store_id") String storeId, @Query("promotion_id") String promotionId, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
+    Call<CartApplicationModels.PromotionPaymentOffersResponse> getPromotionPaymentOffers(@Url String url1, @Query("id") String id, @Query("uid") Integer uid, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<CartApplicationModels.CartCheckoutResponse> checkoutCartV2(@Url String url1, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Body CartApplicationModels.CartCheckoutDetailV2Request payload, @HeaderMap Map<String, String> requestHeaders);

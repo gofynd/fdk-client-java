@@ -76,220 +76,6 @@ public static class CustomFormSubmissionPayload{
 
 
 /*
-    Model: GetTokenForVideoRoomResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetTokenForVideoRoomResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("access_token")
-    private String accessToken;
-    
-    
-    
-}
-
-
-/*
-    Model: GetParticipantsInsideVideoRoomResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetParticipantsInsideVideoRoomResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("participants")
-    private List<Participant> participants;
-    
-    
-    
-}
-
-
-/*
-    Model: Participant
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Participant{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("user")
-    private UserSchema user;
-    
-    
-    
-    
-    @JsonProperty("identity")
-    private String identity;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-}
-
-
-/*
-    Model: UserSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("user_id")
-    private String userId;
-    
-    
-    
-    
-    @JsonProperty("first_name")
-    private String firstName;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("last_name")
-    private String lastName;
-    
-    
-    
-    
-    @JsonProperty("phone_numbers")
-    private List<PhoneNumber> phoneNumbers;
-    
-    
-    
-    
-    @JsonProperty("emails")
-    private List<Email> emails;
-    
-    
-    
-    
-    @JsonProperty("gender")
-    private String gender;
-    
-    
-    
-    
-    @JsonProperty("dob")
-    private String dob;
-    
-    
-    
-    
-    @JsonProperty("active")
-    private Boolean active;
-    
-    
-    
-    
-    @JsonProperty("profile_pic_url")
-    private String profilePicUrl;
-    
-    
-    
-    
-    @JsonProperty("username")
-    private String username;
-    
-    
-    
-    
-    @JsonProperty("account_type")
-    private String accountType;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("external_id")
-    private String externalId;
-    
-    
-    
-    
-    @JsonProperty("rr_id")
-    private String rrId;
-    
-    
-    
-}
-
-
-/*
     Model: SubmitCustomFormResponse
 */
 @AllArgsConstructor
@@ -314,6 +100,92 @@ public static class SubmitCustomFormResponse{
     
     @JsonProperty("ticket")
     private Ticket ticket;
+    
+    
+    
+    
+    @JsonProperty("response")
+    private FormFieldResponse response;
+    
+    
+    
+}
+
+
+/*
+    Model: FormFieldResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FormFieldResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Double v;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("form_slug")
+    private String formSlug;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private CreatedOn createdOn;
+    
+    
+    
+    
+    @JsonProperty("response")
+    private List<FormFieldResponseValues> response;
+    
+    
+    
+}
+
+
+/*
+    Model: FormFieldResponseValues
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FormFieldResponseValues{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
     
     
     
@@ -1048,98 +920,6 @@ public static class Ticket{
     
     @JsonProperty("created_at")
     private String createdAt;
-    
-    
-    
-}
-
-
-/*
-    Model: PhoneNumber
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PhoneNumber{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("phone")
-    private String phone;
-    
-    
-    
-    
-    @JsonProperty("country_code")
-    private Integer countryCode;
-    
-    
-    
-    
-    @JsonProperty("active")
-    private Boolean active;
-    
-    
-    
-    
-    @JsonProperty("primary")
-    private Boolean primary;
-    
-    
-    
-    
-    @JsonProperty("verified")
-    private Boolean verified;
-    
-    
-    
-}
-
-
-/*
-    Model: Email
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Email{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("email")
-    private String email;
-    
-    
-    
-    
-    @JsonProperty("active")
-    private Boolean active;
-    
-    
-    
-    
-    @JsonProperty("primary")
-    private Boolean primary;
-    
-    
-    
-    
-    @JsonProperty("verified")
-    private Boolean verified;
     
     
     

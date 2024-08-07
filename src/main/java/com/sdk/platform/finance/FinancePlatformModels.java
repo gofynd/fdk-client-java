@@ -14,6 +14,43 @@ public class FinancePlatformModels{
 
 
 /*
+    Model: OrederFreezeResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrederFreezeResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("oms_freeze")
+    private Boolean omsFreeze;
+    
+    
+    
+    
+    @JsonProperty("source")
+    private String source;
+    
+    
+    
+}
+
+
+/*
     Model: GenerateReportMeta
 */
 @AllArgsConstructor
@@ -137,7 +174,7 @@ public static class GenerateReportPlatform{
 
 
 /*
-    Model: GenerateReportRequest
+    Model: GenerateReportReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -145,7 +182,7 @@ public static class GenerateReportPlatform{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GenerateReportRequest{
+public static class GenerateReportReq{
 
     
 
@@ -276,8 +313,14 @@ public static class GenerateReportJson{
     
     
     
-    @JsonProperty("items")
-    private List<List<String>> items;
+    @JsonProperty("data")
+    private Object data;
+    
+    
+    
+    
+    @JsonProperty("item_count")
+    private Integer itemCount;
     
     
     
@@ -294,20 +337,20 @@ public static class GenerateReportJson{
     
     
     
-    @JsonProperty("headers")
-    private List<String> headers;
-    
-    
-    
-    
     @JsonProperty("start_date")
     private String startDate;
     
     
     
     
-    @JsonProperty("item_count")
-    private Integer itemCount;
+    @JsonProperty("items")
+    private List<List<String>> items;
+    
+    
+    
+    
+    @JsonProperty("headers")
+    private List<String> headers;
     
     
     
@@ -331,6 +374,12 @@ public static class Error{
     
     
     
+    @JsonProperty("status")
+    private Integer status;
+    
+    
+    
+    
     @JsonProperty("reason")
     private String reason;
     
@@ -339,6 +388,104 @@ public static class Error{
     
     @JsonProperty("success")
     private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("exception")
+    private String exception;
+    
+    
+    
+    
+    @JsonProperty("info")
+    private String info;
+    
+    
+    
+    
+    @JsonProperty("request_id")
+    private String requestId;
+    
+    
+    
+    
+    @JsonProperty("stack_trace")
+    private String stackTrace;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private ErrorMeta meta;
+    
+    
+    
+}
+
+
+/*
+    Model: ErrorMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ErrorMeta{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("columns_errors")
+    private List<ErrorMetaItems> columnsErrors;
+    
+    
+    
+}
+
+
+/*
+    Model: ErrorMetaItems
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ErrorMetaItems{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("code")
+    private Integer code;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -362,14 +509,39 @@ public static class DownloadReport{
     
     
     
+    @JsonProperty("data")
+    private DownloadReportData data;
+    
+    
+    
+}
+
+
+/*
+    Model: DownloadReportData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DownloadReportData{
+
+    
+
+    
+    
+    
+    
     @JsonProperty("page")
     private Integer page;
     
     
     
     
-    @JsonProperty("pagesize")
-    private Integer pagesize;
+    @JsonProperty("page_size")
+    private Integer pageSize;
     
     
     
@@ -434,12 +606,6 @@ public static class DownloadReportItems{
     
     
     
-    
-    @JsonProperty("type_of_request")
-    private String typeOfRequest;
-    
-    
-    
 }
 
 
@@ -481,6 +647,49 @@ public static class DownloadReportList{
 
 
 /*
+    Model: GetEngineFilters
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetEngineFilters{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("config_field")
+    private String configField;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("seller_id")
+    private String sellerId;
+    
+    
+    
+}
+
+
+/*
     Model: GetEngineData
 */
 @AllArgsConstructor
@@ -497,8 +706,14 @@ public static class GetEngineData{
     
     
     
-    @JsonProperty("table_name")
-    private String tableName;
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("filters")
+    private GetEngineFilters filters;
     
     
     
@@ -509,8 +724,32 @@ public static class GetEngineData{
     
     
     
-    @JsonProperty("filters")
-    private Object filters;
+    @JsonProperty("table_name")
+    private String tableName;
+    
+    
+    
+    
+    @JsonProperty("search")
+    private Object search;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Integer page;
+    
+    
+    
+    
+    @JsonProperty("page_size")
+    private Integer pageSize;
+    
+    
+    
+    
+    @JsonProperty("order_by")
+    private String orderBy;
     
     
     
@@ -518,7 +757,7 @@ public static class GetEngineData{
 
 
 /*
-    Model: GetEngineRequest
+    Model: GetEngineReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -526,7 +765,7 @@ public static class GetEngineData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetEngineRequest{
+public static class GetEngineReq{
 
     
 
@@ -611,7 +850,7 @@ public static class GetReason{
 
 
 /*
-    Model: GetReasonRequest
+    Model: GetReasonReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -619,7 +858,7 @@ public static class GetReason{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetReasonRequest{
+public static class GetReasonReq{
 
     
 
@@ -747,7 +986,7 @@ public static class GetReportListData{
 
 
 /*
-    Model: GetReportListRequest
+    Model: GetReportListReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -755,7 +994,7 @@ public static class GetReportListData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetReportListRequest{
+public static class GetReportListReq{
 
     
 
@@ -765,31 +1004,6 @@ public static class GetReportListRequest{
     
     @JsonProperty("data")
     private GetReportListData data;
-    
-    
-    
-}
-
-
-/*
-    Model: GetAffiliate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetAffiliate{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
     
     
     
@@ -901,6 +1115,31 @@ public static class ReportItem{
 
 
 /*
+    Model: GetAffiliate
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetAffiliate{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+}
+
+
+/*
     Model: GetAffiliateResponse
 */
 @AllArgsConstructor
@@ -913,6 +1152,12 @@ public static class GetAffiliateResponse{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("reason")
+    private String reason;
     
     
     
@@ -957,7 +1202,7 @@ public static class DownloadCreditDebitNote{
 
 
 /*
-    Model: DownloadCreditDebitNoteRequest
+    Model: DownloadCreditDebitNoteReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -965,7 +1210,7 @@ public static class DownloadCreditDebitNote{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DownloadCreditDebitNoteRequest{
+public static class DownloadCreditDebitNoteReq{
 
     
 
@@ -1044,6 +1289,37 @@ public static class DownloadCreditDebitNoteResponse{
 
 
 /*
+    Model: InvoiceBillingItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoiceBillingItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("invoice_number")
+    private String invoiceNumber;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+}
+
+
+/*
     Model: PaymentProcessPayload
 */
 @AllArgsConstructor
@@ -1067,7 +1343,7 @@ public static class PaymentProcessPayload{
     
     
     @JsonProperty("amount")
-    private String amount;
+    private Double amount;
     
     
     
@@ -1085,7 +1361,7 @@ public static class PaymentProcessPayload{
     
     
     @JsonProperty("total_amount")
-    private String totalAmount;
+    private Double totalAmount;
     
     
     
@@ -1114,8 +1390,8 @@ public static class PaymentProcessPayload{
     
     
     
-    @JsonProperty("invoice_number")
-    private String invoiceNumber;
+    @JsonProperty("invoice_billing_items")
+    private List<InvoiceBillingItem> invoiceBillingItems;
     
     
     
@@ -1123,7 +1399,7 @@ public static class PaymentProcessPayload{
 
 
 /*
-    Model: PaymentProcessRequest
+    Model: PaymentProcessReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1131,7 +1407,7 @@ public static class PaymentProcessPayload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentProcessRequest{
+public static class PaymentProcessReq{
 
     
 
@@ -1225,20 +1501,20 @@ public static class CreditlineDataPlatformPayload{
     
     
     
-    @JsonProperty("end_end")
-    private String endEnd;
+    @JsonProperty("end_date")
+    private String endDate;
     
     
     
     
-    @JsonProperty("start_end")
-    private String startEnd;
+    @JsonProperty("start_date")
+    private String startDate;
     
     
     
     
-    @JsonProperty("pagesize")
-    private Integer pagesize;
+    @JsonProperty("page_size")
+    private Integer pageSize;
     
     
     
@@ -1246,7 +1522,7 @@ public static class CreditlineDataPlatformPayload{
 
 
 /*
-    Model: CreditlineDataPlatformRequest
+    Model: CreditlineDataPlatformReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1254,7 +1530,7 @@ public static class CreditlineDataPlatformPayload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreditlineDataPlatformRequest{
+public static class CreditlineDataPlatformReq{
 
     
 
@@ -1357,7 +1633,7 @@ public static class IsCreditlinePayload{
 
 
 /*
-    Model: IsCreditlinePlatformRequest
+    Model: IsCreditlinePlatformReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1365,7 +1641,7 @@ public static class IsCreditlinePayload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class IsCreditlinePlatformRequest{
+public static class IsCreditlinePlatformReq{
 
     
 
@@ -1438,7 +1714,7 @@ public static class InvoiceTypePayloadData{
 
 
 /*
-    Model: InvoiceTypeRequest
+    Model: InvoiceTypeReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1446,7 +1722,7 @@ public static class InvoiceTypePayloadData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceTypeRequest{
+public static class InvoiceTypeReq{
 
     
 
@@ -1623,7 +1899,7 @@ public static class InvoiceListingPayloadData{
 
 
 /*
-    Model: InvoiceListingRequest
+    Model: InvoiceListingReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1631,7 +1907,7 @@ public static class InvoiceListingPayloadData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceListingRequest{
+public static class InvoiceListingReq{
 
     
 
@@ -1702,7 +1978,7 @@ public static class InvoiceListingResponseItems{
     
     
     @JsonProperty("amount")
-    private String amount;
+    private Double amount;
     
     
     
@@ -1786,6 +2062,18 @@ public static class InvoiceListingResponse{
     
     
     
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("headers")
+    private List<String> headers;
+    
+    
+    
+    
     @JsonProperty("unpaid_invoice_data")
     private UnpaidInvoiceDataItems unpaidInvoiceData;
     
@@ -1838,7 +2126,7 @@ public static class InvoicePdfPayloadData{
 
 
 /*
-    Model: InvoicePdfRequest
+    Model: InvoicePdfReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1846,7 +2134,7 @@ public static class InvoicePdfPayloadData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoicePdfRequest{
+public static class InvoicePdfReq{
 
     
 
@@ -1937,7 +2225,7 @@ public static class IsCnRefundMethodData{
 
 
 /*
-    Model: IsCnRefundMethodRequest
+    Model: IsCnRefundMethodReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1945,7 +2233,7 @@ public static class IsCnRefundMethodData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class IsCnRefundMethodRequest{
+public static class IsCnRefundMethodReq{
 
     
 
@@ -2122,7 +2410,7 @@ public static class CreateSellerCreditNoteConfig{
 
 
 /*
-    Model: CreateSellerCreditNoteConfigRequest
+    Model: CreateSellerCreditNoteConfigReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2130,7 +2418,7 @@ public static class CreateSellerCreditNoteConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateSellerCreditNoteConfigRequest{
+public static class CreateSellerCreditNoteConfigReq{
 
     
 
@@ -2215,7 +2503,7 @@ public static class DeleteConfig{
 
 
 /*
-    Model: DeleteConfigRequest
+    Model: DeleteConfigReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2223,7 +2511,7 @@ public static class DeleteConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeleteConfigRequest{
+public static class DeleteConfigReq{
 
     
 
@@ -2271,7 +2559,7 @@ public static class DeleteConfigResponse{
 
 
 /*
-    Model: ChannelDisplayName
+    Model: ChannelDisplayNameItems
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2279,7 +2567,7 @@ public static class DeleteConfigResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ChannelDisplayName{
+public static class ChannelDisplayNameItems{
 
     
 
@@ -2287,8 +2575,14 @@ public static class ChannelDisplayName{
     
     
     
-    @JsonProperty("platform_pos")
-    private String platformPos;
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
     
     
     
@@ -2318,8 +2612,8 @@ public static class ChannelDisplayNameResponse{
     
     
     
-    @JsonProperty("data")
-    private ChannelDisplayName data;
+    @JsonProperty("items")
+    private List<ChannelDisplayNameItems> items;
     
     
     
@@ -2352,7 +2646,7 @@ public static class CnReferenceNumber{
 
 
 /*
-    Model: GetPdfUrlViewRequest
+    Model: GetPdfUrlViewReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2360,7 +2654,7 @@ public static class CnReferenceNumber{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetPdfUrlViewRequest{
+public static class GetPdfUrlViewReq{
 
     
 
@@ -2439,7 +2733,7 @@ public static class GetPdfUrlViewResponse{
 
 
 /*
-    Model: CreditNoteDetailsRequest
+    Model: CreditNoteDetailsReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2447,7 +2741,7 @@ public static class GetPdfUrlViewResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreditNoteDetailsRequest{
+public static class CreditNoteDetailsReq{
 
     
 
@@ -2553,6 +2847,12 @@ public static class RedemptionDetails{
     
     
     
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
     @JsonProperty("staff_id")
     private String staffId;
     
@@ -2616,6 +2916,18 @@ public static class CreditNoteDetails{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+    
+    @JsonProperty("current_amount_used")
+    private Double currentAmountUsed;
     
     
     
@@ -2739,7 +3051,7 @@ public static class GetCustomerCreditBalance{
 
 
 /*
-    Model: GetCustomerCreditBalanceRequest
+    Model: GetCustomerCreditBalanceReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2747,7 +3059,7 @@ public static class GetCustomerCreditBalance{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCustomerCreditBalanceRequest{
+public static class GetCustomerCreditBalanceReq{
 
     
 
@@ -2826,7 +3138,7 @@ public static class GetCustomerCreditBalanceResponse{
 
 
 /*
-    Model: GetCnConfigRequest
+    Model: GetCnConfigReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2834,7 +3146,7 @@ public static class GetCustomerCreditBalanceResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCnConfigRequest{
+public static class GetCnConfigReq{
 
     
 
@@ -2911,7 +3223,7 @@ public static class GetCnConfigResponseData{
     
     
     @JsonProperty("meta")
-    private GetCnConfigResponseMeta meta;
+    private Object meta;
     
     
     
@@ -3026,8 +3338,14 @@ public static class CnGenerateReportFilters{
     
     
     
-    @JsonProperty("types_of_transaction")
-    private List<String> typesOfTransaction;
+    @JsonProperty("type_of_transaction")
+    private List<String> typeOfTransaction;
+    
+    
+    
+    
+    @JsonProperty("issuance_channel")
+    private List<String> issuanceChannel;
     
     
     
@@ -3063,8 +3381,8 @@ public static class CnGenerateReport{
     
     
     
-    @JsonProperty("pagesize")
-    private Integer pagesize;
+    @JsonProperty("page_size")
+    private Integer pageSize;
     
     
     
@@ -3114,7 +3432,7 @@ public static class CnGenerateReport{
 
 
 /*
-    Model: GenerateReportCustomerCnRequest
+    Model: GenerateReportCustomerCnReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3122,7 +3440,7 @@ public static class CnGenerateReport{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GenerateReportCustomerCnRequest{
+public static class GenerateReportCustomerCnReq{
 
     
 
@@ -3218,6 +3536,18 @@ public static class GenerateReportCustomerCnResponseData{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -3351,7 +3681,7 @@ public static class CnDownloadReport{
     
     
     @JsonProperty("status")
-    private List<String> status;
+    private String status;
     
     
     
@@ -3362,8 +3692,8 @@ public static class CnDownloadReport{
     
     
     
-    @JsonProperty("pagesize")
-    private Integer pagesize;
+    @JsonProperty("page_size")
+    private Integer pageSize;
     
     
     
@@ -3371,7 +3701,7 @@ public static class CnDownloadReport{
 
 
 /*
-    Model: DownloadReportCustomerCnRequest
+    Model: DownloadReportCustomerCnReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3379,7 +3709,7 @@ public static class CnDownloadReport{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DownloadReportCustomerCnRequest{
+public static class DownloadReportCustomerCnReq{
 
     
 
@@ -3515,8 +3845,20 @@ public static class DownloadReportCustomerCnResponse{
     
     
     
-    @JsonProperty("data")
-    private List<DownloadReportResponseData> data;
+    @JsonProperty("items")
+    private List<DownloadReportResponseData> items;
+    
+    
+    
+    
+    @JsonProperty("item_count")
+    private Integer itemCount;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -3622,6 +3964,86 @@ public static class GetReportingNestedFilters{
 
 
 /*
+    Model: GetReportingFiltersReasonOptions
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetReportingFiltersReasonOptions{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("text")
+    private String text;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("placeholder_text")
+    private String placeholderText;
+    
+    
+    
+}
+
+
+/*
+    Model: GetReportingFiltersReason
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetReportingFiltersReason{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("text")
+    private String text;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("options")
+    private List<GetReportingFiltersReasonOptions> options;
+    
+    
+    
+}
+
+
+/*
     Model: GetReportingFiltersResponse
 */
 @AllArgsConstructor
@@ -3634,6 +4056,12 @@ public static class GetReportingFiltersResponse{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("reason")
+    private GetReportingFiltersReason reason;
     
     
     
@@ -3652,6 +4080,252 @@ public static class GetReportingFiltersResponse{
     
     @JsonProperty("status")
     private GetReportingFilters status;
+    
+    
+    
+}
+
+
+/*
+    Model: InvoicePaymentOptionsPayloadData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoicePaymentOptionsPayloadData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("invoice_numbers")
+    private List<String> invoiceNumbers;
+    
+    
+    
+}
+
+
+/*
+    Model: InvoicePaymentOptionsReq
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoicePaymentOptionsReq{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("data")
+    private InvoicePaymentOptionsPayloadData data;
+    
+    
+    
+}
+
+
+/*
+    Model: InvoicePaymentOptionsResponsePayableAmounts
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoicePaymentOptionsResponsePayableAmounts{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("amount_key")
+    private String amountKey;
+    
+    
+    
+    
+    @JsonProperty("header")
+    private String header;
+    
+    
+    
+}
+
+
+/*
+    Model: InvoicePaymentOptionsResponseDeductedAmounts
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoicePaymentOptionsResponseDeductedAmounts{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("header")
+    private String header;
+    
+    
+    
+    
+    @JsonProperty("amount_key")
+    private String amountKey;
+    
+    
+    
+    
+    @JsonProperty("is_payable")
+    private Boolean isPayable;
+    
+    
+    
+    
+    @JsonProperty("symbol")
+    private String symbol;
+    
+    
+    
+}
+
+
+/*
+    Model: InvoicePaymentOptionsResponseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoicePaymentOptionsResponseData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("invoice_number")
+    private String invoiceNumber;
+    
+    
+    
+    
+    @JsonProperty("invoice_type")
+    private String invoiceType;
+    
+    
+    
+    
+    @JsonProperty("display_amounts")
+    private List<InvoicePaymentOptionsResponsePayableAmounts> displayAmounts;
+    
+    
+    
+    
+    @JsonProperty("total_amount")
+    private Object totalAmount;
+    
+    
+    
+    
+    @JsonProperty("deducted_amounts")
+    private Object deductedAmounts;
+    
+    
+    
+    
+    @JsonProperty("payable_amounts")
+    private List<InvoicePaymentOptionsResponsePayableAmounts> payableAmounts;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private Currency currency;
+    
+    
+    
+}
+
+
+/*
+    Model: InvoicePaymentOptionsResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InvoicePaymentOptionsResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("reason")
+    private String reason;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<InvoicePaymentOptionsResponseData> data;
+    
+    
+    
+    
+    @JsonProperty("total_payable_amount")
+    private Double totalPayableAmount;
+    
+    
+    
+    
+    @JsonProperty("invoice_count")
+    private Integer invoiceCount;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -3770,6 +4444,12 @@ public static class InvoicePaymentDetailsResponse{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("reason")
+    private String reason;
     
     
     
@@ -3943,7 +4623,7 @@ public static class UnlockCreditNoteRequestData{
 
 
 /*
-    Model: UnlockCreditNoteRequest
+    Model: UnlockCreditNoteReq
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3951,7 +4631,7 @@ public static class UnlockCreditNoteRequestData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UnlockCreditNoteRequest{
+public static class UnlockCreditNoteReq{
 
     
 

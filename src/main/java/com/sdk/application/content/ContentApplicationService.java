@@ -102,15 +102,15 @@ import com.sdk.application.*;
     }
     
 
-    public ContentApplicationModels.BlogGetResponse getBlogs(Integer pageNo, Integer pageSize) throws IOException {
-        return this.getBlogs(pageNo, pageSize, new HashMap<>());
+    public ContentApplicationModels.BlogGetResponse getBlogs(Integer pageNo, Integer pageSize, String tags, String search) throws IOException {
+        return this.getBlogs(pageNo, pageSize, tags, search, new HashMap<>());
     }
 
-    public ContentApplicationModels.BlogGetResponse getBlogs(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+    public ContentApplicationModels.BlogGetResponse getBlogs(Integer pageNo, Integer pageSize, String tags, String search, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getBlogs");
 
-        Response<ContentApplicationModels.BlogGetResponse> response = contentApplicationApiList.getBlogs(fullUrl, pageNo, pageSize, requestHeaders).execute();
+        Response<ContentApplicationModels.BlogGetResponse> response = contentApplicationApiList.getBlogs(fullUrl, pageNo, pageSize, tags, search, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

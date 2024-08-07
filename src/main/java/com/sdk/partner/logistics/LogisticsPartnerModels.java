@@ -486,6 +486,61 @@ public static class CourierAccount{
 
 
 /*
+    Model: CourierAccountRequestBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierAccountRequestBody{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("extension_id")
+    private String extensionId;
+    
+    
+    
+    
+    @JsonProperty("account_id")
+    private String accountId;
+    
+    
+    
+    
+    @JsonProperty("scheme_id")
+    private String schemeId;
+    
+    
+    
+    
+    @JsonProperty("is_self_ship")
+    private Boolean isSelfShip;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("is_own_account")
+    private Boolean isOwnAccount;
+    
+    
+    
+}
+
+
+/*
     Model: CourierPartnerAccountFailureResponse
 */
 @AllArgsConstructor
@@ -612,6 +667,85 @@ public static class CourierAccountResponse{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CourierPartnerSchemeModel{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("extension_id")
+    private String extensionId;
+    
+    
+    
+    
+    @JsonProperty("scheme_id")
+    private String schemeId;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("weight")
+    private ArithmeticOperations weight;
+    
+    
+    
+    
+    @JsonProperty("transport_type")
+    private String transportType;
+    
+    
+    
+    
+    @JsonProperty("region")
+    private String region;
+    
+    
+    
+    
+    @JsonProperty("delivery_type")
+    private String deliveryType;
+    
+    
+    
+    
+    @JsonProperty("payment_mode")
+    private List<String> paymentMode;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("feature")
+    private CourierPartnerSchemeFeatures feature;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerSchemeRequestModel
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerSchemeRequestModel{
 
     
 

@@ -4007,16 +4007,24 @@ public class CatalogPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CatalogPlatformModels.InventoryExportJobListResponse listInventoryExport(String status, String fromDate, String toDate, String q) throws FDKServerResponseError, FDKException {
-        return this.listInventoryExport(status, fromDate, toDate, q, new HashMap<>());
+    public CatalogPlatformModels.InventoryExportJobListResponse listInventoryExport(String status, String fromDate, String toDate, String q, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+        return this.listInventoryExport(status, fromDate, toDate, q, pageNo, pageSize, new HashMap<>());
     }
 
-    public CatalogPlatformModels.InventoryExportJobListResponse listInventoryExport(String status, String fromDate, String toDate, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryExportJobListResponse listInventoryExport(String status, String fromDate, String toDate, String q, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.InventoryExportJobListResponse> response = null;
             try {
-                response = catalogPlatformApiList.listInventoryExport(this.companyId, status, fromDate, toDate, q, requestHeaders).execute();
+                response = catalogPlatformApiList.listInventoryExport(this.companyId, status, fromDate, toDate, q, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -4123,16 +4131,40 @@ public class CatalogPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CatalogPlatformModels.ProductListingResponseV2 getProducts(List<Integer> brandIds, List<Integer> categoryIds, List<Integer> itemIds, List<Integer> departmentIds, List<String> itemCode, String q, List<String> tags, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
-        return this.getProducts(brandIds, categoryIds, itemIds, departmentIds, itemCode, q, tags, pageNo, pageSize, new HashMap<>());
+    public CatalogPlatformModels.ProductListingResponseV2 getProducts(List<Integer> brandIds, List<Integer> categoryIds, List<Integer> itemIds, List<Integer> departmentIds, List<String> itemCode, String name, String slug, List<String> allIdentifiers, String q, List<String> tags, Integer pageNo, Integer pageSize, String pageType, String sortOn, String pageId) throws FDKServerResponseError, FDKException {
+        return this.getProducts(brandIds, categoryIds, itemIds, departmentIds, itemCode, name, slug, allIdentifiers, q, tags, pageNo, pageSize, pageType, sortOn, pageId, new HashMap<>());
     }
 
-    public CatalogPlatformModels.ProductListingResponseV2 getProducts(List<Integer> brandIds, List<Integer> categoryIds, List<Integer> itemIds, List<Integer> departmentIds, List<String> itemCode, String q, List<String> tags, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductListingResponseV2 getProducts(List<Integer> brandIds, List<Integer> categoryIds, List<Integer> itemIds, List<Integer> departmentIds, List<String> itemCode, String name, String slug, List<String> allIdentifiers, String q, List<String> tags, Integer pageNo, Integer pageSize, String pageType, String sortOn, String pageId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.ProductListingResponseV2> response = null;
             try {
-                response = catalogPlatformApiList.getProducts(this.companyId, brandIds, categoryIds, itemIds, departmentIds, itemCode, q, tags, pageNo, pageSize, requestHeaders).execute();
+                response = catalogPlatformApiList.getProducts(this.companyId, brandIds, categoryIds, itemIds, departmentIds, itemCode, name, slug, allIdentifiers, q, tags, pageNo, pageSize, pageType, sortOn, pageId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -4215,6 +4247,42 @@ public class CatalogPlatformService {
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
     /**
     * Summary: get paginator for getProducts
@@ -4226,15 +4294,19 @@ public class CatalogPlatformService {
         List<Integer> itemIds ,
         List<Integer> departmentIds ,
         List<String> itemCode ,
+        String name ,
+        String slug ,
+        List<String> allIdentifiers ,
         String q ,
         List<String> tags ,
-        Integer pageSize 
+        Integer pageSize ,
+        String sortOn 
         
         ){ 
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogPlatformModels.ProductListingResponseV2> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CatalogPlatformModels.ProductListingResponseV2> paginator = new Paginator<>(pageSize, "cursor");
 
     paginator.setCallback(()-> {
         try {
@@ -4246,11 +4318,19 @@ public class CatalogPlatformService {
                  itemIds,
                  departmentIds,
                  itemCode,
+                 name,
+                 slug,
+                 allIdentifiers,
                  q,
                  tags,
                  paginator.getPageNo()
                 ,
                  paginator.getPageSize()
+                ,
+                 paginator.getPageType()
+                ,
+                 sortOn,
+                 paginator.getNextId()
                 
             );
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
@@ -4379,16 +4459,24 @@ public class CatalogPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CatalogPlatformModels.ProductDownloadsResponse getProductExportJobs(String status, String fromDate, String toDate, String q) throws FDKServerResponseError, FDKException {
-        return this.getProductExportJobs(status, fromDate, toDate, q, new HashMap<>());
+    public CatalogPlatformModels.ProductDownloadsResponse getProductExportJobs(String status, String fromDate, String toDate, String q, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+        return this.getProductExportJobs(status, fromDate, toDate, q, pageNo, pageSize, new HashMap<>());
     }
 
-    public CatalogPlatformModels.ProductDownloadsResponse getProductExportJobs(String status, String fromDate, String toDate, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductDownloadsResponse getProductExportJobs(String status, String fromDate, String toDate, String q, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.ProductDownloadsResponse> response = null;
             try {
-                response = catalogPlatformApiList.getProductExportJobs(this.companyId, status, fromDate, toDate, q, requestHeaders).execute();
+                response = catalogPlatformApiList.getProductExportJobs(this.companyId, status, fromDate, toDate, q, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -5607,15 +5695,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.InventoryStockResponse getAppInventory(List<Integer> itemIds, List<Integer> storeIds, List<Integer> brandIds, List<String> sellerIdentifiers, String timestamp, Integer pageSize, String pageId) throws FDKServerResponseError, FDKException {
-        return this.getAppInventory(itemIds, storeIds, brandIds, sellerIdentifiers, timestamp, pageSize, pageId, new HashMap<>());
+    public CatalogPlatformModels.InventoryStockResponse getAppInventory(List<Integer> itemIds, List<Integer> storeIds, List<Integer> brandIds, List<String> sellerIdentifiers, String timestamp, Integer pageSize, String pageId, Integer qtyGt, Integer qtyLt, String qtyType, String fromDate, String toDate) throws FDKServerResponseError, FDKException {
+        return this.getAppInventory(itemIds, storeIds, brandIds, sellerIdentifiers, timestamp, pageSize, pageId, qtyGt, qtyLt, qtyType, fromDate, toDate, new HashMap<>());
     }
 
-    public CatalogPlatformModels.InventoryStockResponse getAppInventory(List<Integer> itemIds, List<Integer> storeIds, List<Integer> brandIds, List<String> sellerIdentifiers, String timestamp, Integer pageSize, String pageId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryStockResponse getAppInventory(List<Integer> itemIds, List<Integer> storeIds, List<Integer> brandIds, List<String> sellerIdentifiers, String timestamp, Integer pageSize, String pageId, Integer qtyGt, Integer qtyLt, String qtyType, String fromDate, String toDate, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.InventoryStockResponse> response = null;
             try {
-            response = catalogPlatformApiList.getAppInventory(this.companyId, this.applicationId, itemIds, storeIds, brandIds, sellerIdentifiers, timestamp, pageSize, pageId, requestHeaders).execute();
+            response = catalogPlatformApiList.getAppInventory(this.companyId, this.applicationId, itemIds, storeIds, brandIds, sellerIdentifiers, timestamp, pageSize, pageId, qtyGt, qtyLt, qtyType, fromDate, toDate, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

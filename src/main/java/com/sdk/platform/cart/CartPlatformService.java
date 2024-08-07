@@ -153,6 +153,10 @@ public class CartPlatformService {
     
     
     
+    
+    
+    
+    
 
 
 
@@ -466,6 +470,60 @@ public class ApplicationClient {
         }    
     }
 
+    public CartPlatformModels.PromotionOffersResponse getPromotionOffers(String slug, Integer pageSize, String promotionGroup, Integer storeId, String cartType) throws FDKServerResponseError, FDKException {
+        return this.getPromotionOffers(slug, pageSize, promotionGroup, storeId, cartType, new HashMap<>());
+    }
+
+    public CartPlatformModels.PromotionOffersResponse getPromotionOffers(String slug, Integer pageSize, String promotionGroup, Integer storeId, String cartType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<CartPlatformModels.PromotionOffersResponse> response = null;
+            try {
+            response = cartPlatformApiList.getPromotionOffers(this.companyId, this.applicationId, slug, pageSize, promotionGroup, storeId, cartType, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public CartPlatformModels.PromotionPaymentOffersResponse getPromotionPaymentOffers(String id, Integer uid) throws FDKServerResponseError, FDKException {
+        return this.getPromotionPaymentOffers(id, uid, new HashMap<>());
+    }
+
+    public CartPlatformModels.PromotionPaymentOffersResponse getPromotionPaymentOffers(String id, Integer uid, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<CartPlatformModels.PromotionPaymentOffersResponse> response = null;
+            try {
+            response = cartPlatformApiList.getPromotionPaymentOffers(this.companyId, this.applicationId, id, uid, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
     public CartPlatformModels.CartMetaConfigUpdate updateCartMetaConfig(String cartMetaId, CartPlatformModels.CartMetaConfigUpdate body) throws FDKServerResponseError, FDKException {
         return this.updateCartMetaConfig(cartMetaId, body, new HashMap<>());
     }
@@ -628,13 +686,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CartPlatformModels.PriceAdjustmentResponse getPriceAdjustments(String cartId) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.GetPriceAdjustmentResponse getPriceAdjustments(String cartId) throws FDKServerResponseError, FDKException {
         return this.getPriceAdjustments(cartId, new HashMap<>());
     }
 
-    public CartPlatformModels.PriceAdjustmentResponse getPriceAdjustments(String cartId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.GetPriceAdjustmentResponse getPriceAdjustments(String cartId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CartPlatformModels.PriceAdjustmentResponse> response = null;
+            Response<CartPlatformModels.GetPriceAdjustmentResponse> response = null;
             try {
             response = cartPlatformApiList.getPriceAdjustments(this.companyId, this.applicationId, cartId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1087,15 +1145,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CartPlatformModels.CartDetailResponse getCart(String id, String userId, Boolean i, Boolean b, Integer assignCardId, Boolean buyNow) throws FDKServerResponseError, FDKException {
-        return this.getCart(id, userId, i, b, assignCardId, buyNow, new HashMap<>());
+    public CartPlatformModels.CartDetailResponse getCart(String id, String userId, String orderType, Boolean i, Boolean b, Integer assignCardId, Boolean buyNow) throws FDKServerResponseError, FDKException {
+        return this.getCart(id, userId, orderType, i, b, assignCardId, buyNow, new HashMap<>());
     }
 
-    public CartPlatformModels.CartDetailResponse getCart(String id, String userId, Boolean i, Boolean b, Integer assignCardId, Boolean buyNow, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.CartDetailResponse getCart(String id, String userId, String orderType, Boolean i, Boolean b, Integer assignCardId, Boolean buyNow, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartDetailResponse> response = null;
             try {
-            response = cartPlatformApiList.getCart(this.companyId, this.applicationId, id, userId, i, b, assignCardId, buyNow, requestHeaders).execute();
+            response = cartPlatformApiList.getCart(this.companyId, this.applicationId, id, userId, orderType, i, b, assignCardId, buyNow, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1114,15 +1172,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CartPlatformModels.AddCartDetailResponse platformAddItems(Boolean i, Boolean b, Boolean buyNow, String id, CartPlatformModels.PlatformAddCartRequest body) throws FDKServerResponseError, FDKException {
-        return this.platformAddItems(i, b, buyNow, id, body, new HashMap<>());
+    public CartPlatformModels.AddCartDetailResponse platformAddItems(Boolean i, Boolean b, Boolean buyNow, String orderType, String id, CartPlatformModels.PlatformAddCartRequest body) throws FDKServerResponseError, FDKException {
+        return this.platformAddItems(i, b, buyNow, orderType, id, body, new HashMap<>());
     }
 
-    public CartPlatformModels.AddCartDetailResponse platformAddItems(Boolean i, Boolean b, Boolean buyNow, String id, CartPlatformModels.PlatformAddCartRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.AddCartDetailResponse platformAddItems(Boolean i, Boolean b, Boolean buyNow, String orderType, String id, CartPlatformModels.PlatformAddCartRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.AddCartDetailResponse> response = null;
             try {
-            response = cartPlatformApiList.platformAddItems(this.companyId, this.applicationId, i, b, buyNow, id, body, requestHeaders).execute();
+            response = cartPlatformApiList.platformAddItems(this.companyId, this.applicationId, i, b, buyNow, orderType, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1141,15 +1199,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CartPlatformModels.UpdateCartDetailResponse platformUpdateCart(String id, Boolean i, Boolean b, Boolean buyNow, CartPlatformModels.PlatformUpdateCartRequest body) throws FDKServerResponseError, FDKException {
-        return this.platformUpdateCart(id, i, b, buyNow, body, new HashMap<>());
+    public CartPlatformModels.UpdateCartDetailResponse platformUpdateCart(String id, Boolean i, String orderType, Boolean b, Boolean buyNow, CartPlatformModels.PlatformUpdateCartRequest body) throws FDKServerResponseError, FDKException {
+        return this.platformUpdateCart(id, i, orderType, b, buyNow, body, new HashMap<>());
     }
 
-    public CartPlatformModels.UpdateCartDetailResponse platformUpdateCart(String id, Boolean i, Boolean b, Boolean buyNow, CartPlatformModels.PlatformUpdateCartRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.UpdateCartDetailResponse platformUpdateCart(String id, Boolean i, String orderType, Boolean b, Boolean buyNow, CartPlatformModels.PlatformUpdateCartRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.UpdateCartDetailResponse> response = null;
             try {
-            response = cartPlatformApiList.platformUpdateCart(this.companyId, this.applicationId, id, i, b, buyNow, body, requestHeaders).execute();
+            response = cartPlatformApiList.platformUpdateCart(this.companyId, this.applicationId, id, i, orderType, b, buyNow, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

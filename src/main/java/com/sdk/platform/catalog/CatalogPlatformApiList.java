@@ -67,7 +67,7 @@ interface CatalogPlatformApiList {
     Call<CatalogPlatformModels.DepartmentResponse> getDepartments(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/inventory/")
-    Call<CatalogPlatformModels.InventoryStockResponse> getAppInventory(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("item_ids") List<Integer> itemIds, @Query("store_ids") List<Integer> storeIds, @Query("brand_ids") List<Integer> brandIds, @Query("seller_identifiers") List<String> sellerIdentifiers, @Query("timestamp") String timestamp, @Query("page_size") Integer pageSize, @Query("page_id") String pageId, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogPlatformModels.InventoryStockResponse> getAppInventory(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("item_ids") List<Integer> itemIds, @Query("store_ids") List<Integer> storeIds, @Query("brand_ids") List<Integer> brandIds, @Query("seller_identifiers") List<String> sellerIdentifiers, @Query("timestamp") String timestamp, @Query("page_size") Integer pageSize, @Query("page_id") String pageId, @Query("qty_gt") Integer qtyGt, @Query("qty_lt") Integer qtyLt, @Query("qty_type") String qtyType, @Query("from_date") String fromDate, @Query("to_date") String toDate, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/locations")
     Call<CatalogPlatformModels.LocationListSerializer> getAppLocations(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("store_type") String storeType, @Query("uid") List<Integer> uid, @Query("q") String q, @Query("stage") String stage, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("tags") List<String> tags, @Query("store_types") List<String> storeTypes, @HeaderMap Map<String, String> requestHeaders);
@@ -391,13 +391,13 @@ interface CatalogPlatformApiList {
     Call<CatalogPlatformModels.InventoryUpdateResponse> updateInventories(@Path("company_id") String companyId, @Body CatalogPlatformModels.InventoryRequestSchemaV2 payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v2.0/company/{company_id}/inventory/download/")
-    Call<CatalogPlatformModels.InventoryExportJobListResponse> listInventoryExport(@Path("company_id") String companyId, @Query("status") String status, @Query("from_date") String fromDate, @Query("to_date") String toDate, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogPlatformModels.InventoryExportJobListResponse> listInventoryExport(@Path("company_id") String companyId, @Query("status") String status, @Query("from_date") String fromDate, @Query("to_date") String toDate, @Query("q") String q, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/catalog/v2.0/company/{company_id}/inventory/download/")
     Call<CatalogPlatformModels.InventoryExportResponse> createInventoryExport(@Path("company_id") String companyId, @Body CatalogPlatformModels.InventoryCreateRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v2.0/company/{company_id}/products/")
-    Call<CatalogPlatformModels.ProductListingResponseV2> getProducts(@Path("company_id") String companyId, @Query("brand_ids") List<Integer> brandIds, @Query("category_ids") List<Integer> categoryIds, @Query("item_ids") List<Integer> itemIds, @Query("department_ids") List<Integer> departmentIds, @Query("item_code") List<String> itemCode, @Query("q") String q, @Query("tags") List<String> tags, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogPlatformModels.ProductListingResponseV2> getProducts(@Path("company_id") String companyId, @Query("brand_ids") List<Integer> brandIds, @Query("category_ids") List<Integer> categoryIds, @Query("item_ids") List<Integer> itemIds, @Query("department_ids") List<Integer> departmentIds, @Query("item_code") List<String> itemCode, @Query("name") String name, @Query("slug") String slug, @Query("all_identifiers") List<String> allIdentifiers, @Query("q") String q, @Query("tags") List<String> tags, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("page_type") String pageType, @Query("sort_on") String sortOn, @Query("page_id") String pageId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/catalog/v2.0/company/{company_id}/products/")
     Call<CatalogPlatformModels.SuccessResponse1> createProduct(@Path("company_id") String companyId, @Body CatalogPlatformModels.ProductCreateUpdateSchemaV2 payload, @HeaderMap Map<String, String> requestHeaders);
@@ -406,7 +406,7 @@ interface CatalogPlatformApiList {
     Call<CatalogPlatformModels.BulkResponse> uploadBulkProducts(@Path("company_id") String companyId, @Query("department") String department, @Query("product_type") String productType, @Body CatalogPlatformModels.BulkProductJob payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v2.0/company/{company_id}/products/downloads/")
-    Call<CatalogPlatformModels.ProductDownloadsResponse> getProductExportJobs(@Path("company_id") String companyId, @Query("status") String status, @Query("from_date") String fromDate, @Query("to_date") String toDate, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogPlatformModels.ProductDownloadsResponse> getProductExportJobs(@Path("company_id") String companyId, @Query("status") String status, @Query("from_date") String fromDate, @Query("to_date") String toDate, @Query("q") String q, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/catalog/v2.0/company/{company_id}/products/downloads/")
     Call<CatalogPlatformModels.ProductDownloadsResponse> createProductExportJob(@Path("company_id") String companyId, @Body CatalogPlatformModels.ProductTemplateDownloadsExport payload, @HeaderMap Map<String, String> requestHeaders);

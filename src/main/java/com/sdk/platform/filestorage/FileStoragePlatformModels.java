@@ -1082,6 +1082,12 @@ public static class CompanyDetail{
     
     
     
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
 }
 
 
@@ -2539,6 +2545,18 @@ public static class DummyTemplateDataPayload{
     
     @JsonProperty("is_self_pickup")
     private Boolean isSelfPickup;
+    
+    
+    
+    
+    @JsonProperty("shipment_meta")
+    private HashMap<String,Object> shipmentMeta;
+    
+    
+    
+    
+    @JsonProperty("order_meta")
+    private HashMap<String,Object> orderMeta;
     
     
     

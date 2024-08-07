@@ -10,8 +10,6 @@ import com.sdk.universal.configuration.ConfigurationPublicService;
 
 import com.sdk.universal.content.ContentPublicService;
 
-import com.sdk.universal.inventory.InventoryPublicService;
-
 import com.sdk.universal.partner.PartnerPublicService;
 
 import com.sdk.universal.webhook.WebhookPublicService;
@@ -30,8 +28,6 @@ public class PublicClient {
     
     public ContentPublicService content;
     
-    public InventoryPublicService inventory;
-    
     public PartnerPublicService partner;
     
     public WebhookPublicService webhook;
@@ -49,8 +45,6 @@ public class PublicClient {
         this.configuration = new ConfigurationPublicService(publicConfig);
         
         this.content = new ContentPublicService(publicConfig);
-        
-        this.inventory = new InventoryPublicService(publicConfig);
         
         this.partner = new PartnerPublicService(publicConfig);
         

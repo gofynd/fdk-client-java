@@ -44,6 +44,48 @@ public class BillingPublicService {
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
+    }
+
+    public BillingPublicModels.PlanDetails getPlanDetails(String planId) throws IOException {
+        return this.getPlanDetails(planId, new HashMap<>());
+    }
+
+    public BillingPublicModels.PlanDetails getPlanDetails(String planId, Map<String, String> requestHeaders) throws IOException {
+    
+        Response<BillingPublicModels.PlanDetails> response = billingPublicApiList.getPlanDetails(planId, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    public List<BillingPublicModels.PlanList> planList() throws IOException {
+        return this.planList(new HashMap<>());
+    }
+
+    public List<BillingPublicModels.PlanList> planList(Map<String, String> requestHeaders) throws IOException {
+    
+        Response<List<BillingPublicModels.PlanList>> response = billingPublicApiList.planList(requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    public BillingPublicModels.TenureConfigResponse getTenureConfig(String countryCode) throws IOException {
+        return this.getTenureConfig(countryCode, new HashMap<>());
+    }
+
+    public BillingPublicModels.TenureConfigResponse getTenureConfig(String countryCode, Map<String, String> requestHeaders) throws IOException {
+    
+        Response<BillingPublicModels.TenureConfigResponse> response = billingPublicApiList.getTenureConfig(countryCode, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
     }  
 
     private interface Fields {

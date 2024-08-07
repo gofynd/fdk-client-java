@@ -1682,6 +1682,12 @@ public static class Shipments{
     
     
     
+    @JsonProperty("gstin_code")
+    private String gstinCode;
+    
+    
+    
+    
     @JsonProperty("show_download_invoice")
     private Boolean showDownloadInvoice;
     
@@ -2059,6 +2065,12 @@ public static class OrderSchema{
     
     @JsonProperty("bags_for_reorder")
     private List<BagsForReorder> bagsForReorder;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
     
     
     

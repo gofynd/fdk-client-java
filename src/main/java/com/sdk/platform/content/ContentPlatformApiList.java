@@ -28,16 +28,13 @@ interface ContentPlatformApiList {
     Call<ContentPlatformModels.BlogSchema> createBlog(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.BlogRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/blogs/")
-    Call<ContentPlatformModels.BlogGetResponse> getBlogs(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentPlatformModels.BlogGetResponse> getBlogs(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("tags") String tags, @Query("q") String q, @Query("slug") String slug, @Query("title") String title, @Query("status") String status, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/blogs/{id}")
     Call<ContentPlatformModels.BlogSchema> updateBlog(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body ContentPlatformModels.BlogRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/blogs/{id}")
     Call<ContentPlatformModels.BlogSchema> deleteBlog(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/blogs/{slug}")
-    Call<ContentPlatformModels.BlogSchema> getComponentById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("slug") String slug, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/data-loader")
     Call<ContentPlatformModels.DataLoaderResponseSchema> addDataLoader(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.DataLoaderSchema payload, @HeaderMap Map<String, String> requestHeaders);

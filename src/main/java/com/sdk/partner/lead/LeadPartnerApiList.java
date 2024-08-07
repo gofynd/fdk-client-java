@@ -24,12 +24,6 @@ interface LeadPartnerApiList {
     @GET ("/service/partner/lead/v1.0/organization/{organization_id}/ticket/{id}/history")
     Call<LeadPartnerModels.TicketHistoryList> getTicketHistory(@Path("organization_id") String organizationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/partner/lead/v1.0/organization/{organization_id}/video/room/{unique_name}/token")
-    Call<LeadPartnerModels.GetTokenForVideoRoomResponse> getTokenForVideoRoom(@Path("organization_id") String organizationId, @Path("unique_name") String uniqueName, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/partner/lead/v1.0/organization/{organization_id}/video/room/{unique_name}/participants")
-    Call<LeadPartnerModels.GetParticipantsInsideVideoRoomResponse> getVideoParticipants(@Path("organization_id") String organizationId, @Path("unique_name") String uniqueName, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/partner/lead/v1.0/organization/{organization_id}/general-config")
     Call<LeadPartnerModels.GeneralConfigResponse> getGeneralConfig(@Path("organization_id") String organizationId, @HeaderMap Map<String, String> requestHeaders);
 }

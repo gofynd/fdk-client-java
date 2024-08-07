@@ -48,166 +48,6 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.RetrySuccessResponse manualRetryOfFailedEvent(WebhookPlatformModels.RetryEventRequest body) throws FDKServerResponseError, FDKException {
-        return this.manualRetryOfFailedEvent(body, new HashMap<>());
-    }
-
-    public WebhookPlatformModels.RetrySuccessResponse manualRetryOfFailedEvent(WebhookPlatformModels.RetryEventRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<WebhookPlatformModels.RetrySuccessResponse> response = null;
-            try {
-                response = webhookPlatformApiList.manualRetryOfFailedEvent(this.companyId, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    public WebhookPlatformModels.RetryCountResponse getEventCounts(WebhookPlatformModels.RetryEventRequest body) throws FDKServerResponseError, FDKException {
-        return this.getEventCounts(body, new HashMap<>());
-    }
-
-    public WebhookPlatformModels.RetryCountResponse getEventCounts(WebhookPlatformModels.RetryEventRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<WebhookPlatformModels.RetryCountResponse> response = null;
-            try {
-                response = webhookPlatformApiList.getEventCounts(this.companyId, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    public WebhookPlatformModels.RetryStatusResponse getManualRetryStatus() throws FDKServerResponseError, FDKException {
-        return this.getManualRetryStatus(new HashMap<>());
-    }
-
-    public WebhookPlatformModels.RetryStatusResponse getManualRetryStatus(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<WebhookPlatformModels.RetryStatusResponse> response = null;
-            try {
-                response = webhookPlatformApiList.getManualRetryStatus(this.companyId, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    public String manualRetryCancel() throws FDKServerResponseError, FDKException {
-        return this.manualRetryCancel(new HashMap<>());
-    }
-
-    public String manualRetryCancel(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<String> response = null;
-            try {
-                response = webhookPlatformApiList.manualRetryCancel(this.companyId, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
     public WebhookPlatformModels.DownloadReportResponse downloadDeliveryReport(WebhookPlatformModels.EventProcessRequest body) throws FDKServerResponseError, FDKException {
         return this.downloadDeliveryReport(body, new HashMap<>());
     }
@@ -492,11 +332,11 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.SubscriberConfigResponse registerSubscriberToEventV2(WebhookPlatformModels.SubscriberConfigRequestV2 body) throws FDKServerResponseError, FDKException {
+    public WebhookPlatformModels.SubscriberConfigResponse registerSubscriberToEventV2(WebhookPlatformModels.SubscriberConfigPostRequestV2 body) throws FDKServerResponseError, FDKException {
         return this.registerSubscriberToEventV2(body, new HashMap<>());
     }
 
-    public WebhookPlatformModels.SubscriberConfigResponse registerSubscriberToEventV2(WebhookPlatformModels.SubscriberConfigRequestV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public WebhookPlatformModels.SubscriberConfigResponse registerSubscriberToEventV2(WebhookPlatformModels.SubscriberConfigPostRequestV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<WebhookPlatformModels.SubscriberConfigResponse> response = null;
             try {
@@ -532,11 +372,11 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.SubscriberConfigResponse updateSubscriberV2(WebhookPlatformModels.SubscriberConfigRequestV2 body) throws FDKServerResponseError, FDKException {
+    public WebhookPlatformModels.SubscriberConfigResponse updateSubscriberV2(WebhookPlatformModels.SubscriberConfigUpdateRequestV2 body) throws FDKServerResponseError, FDKException {
         return this.updateSubscriberV2(body, new HashMap<>());
     }
 
-    public WebhookPlatformModels.SubscriberConfigResponse updateSubscriberV2(WebhookPlatformModels.SubscriberConfigRequestV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public WebhookPlatformModels.SubscriberConfigResponse updateSubscriberV2(WebhookPlatformModels.SubscriberConfigUpdateRequestV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<WebhookPlatformModels.SubscriberConfigResponse> response = null;
             try {
@@ -572,11 +412,11 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.SubscriberConfigResponse registerSubscriberToEvent(WebhookPlatformModels.SubscriberConfig body) throws FDKServerResponseError, FDKException {
+    public WebhookPlatformModels.SubscriberConfigResponse registerSubscriberToEvent(WebhookPlatformModels.SubscriberConfigPost body) throws FDKServerResponseError, FDKException {
         return this.registerSubscriberToEvent(body, new HashMap<>());
     }
 
-    public WebhookPlatformModels.SubscriberConfigResponse registerSubscriberToEvent(WebhookPlatformModels.SubscriberConfig body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public WebhookPlatformModels.SubscriberConfigResponse registerSubscriberToEvent(WebhookPlatformModels.SubscriberConfigPost body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<WebhookPlatformModels.SubscriberConfigResponse> response = null;
             try {
@@ -664,11 +504,11 @@ public class WebhookPlatformService {
     
     
 
-    public WebhookPlatformModels.SubscriberConfigResponse updateSubscriberConfig(WebhookPlatformModels.SubscriberConfig body) throws FDKServerResponseError, FDKException {
+    public WebhookPlatformModels.SubscriberConfigResponse updateSubscriberConfig(WebhookPlatformModels.SubscriberConfigUpdate body) throws FDKServerResponseError, FDKException {
         return this.updateSubscriberConfig(body, new HashMap<>());
     }
 
-    public WebhookPlatformModels.SubscriberConfigResponse updateSubscriberConfig(WebhookPlatformModels.SubscriberConfig body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public WebhookPlatformModels.SubscriberConfigResponse updateSubscriberConfig(WebhookPlatformModels.SubscriberConfigUpdate body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<WebhookPlatformModels.SubscriberConfigResponse> response = null;
             try {

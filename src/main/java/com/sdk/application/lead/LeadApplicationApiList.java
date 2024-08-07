@@ -20,10 +20,4 @@ interface LeadApplicationApiList {
 
     @POST 
     Call<LeadApplicationModels.SubmitCustomFormResponse> submitCustomForm(@Url String url1, @Body LeadApplicationModels.CustomFormSubmissionPayload payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<LeadApplicationModels.GetParticipantsInsideVideoRoomResponse> getParticipantsInsideVideoRoom(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<LeadApplicationModels.GetTokenForVideoRoomResponse> getTokenForVideoRoom(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 }

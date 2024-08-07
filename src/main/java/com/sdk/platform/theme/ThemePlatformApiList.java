@@ -80,4 +80,7 @@ interface ThemePlatformApiList {
 
     @PUT ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}/upgrade")
     Call<ThemePlatformModels.ThemesSchema> upgradeTheme(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/extension-section")
+    Call<List<ThemePlatformModels.GetExtensionSectionRes>> getExtensionSections(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("type") String type, @Query("company_mode") String companyMode, @HeaderMap Map<String, String> requestHeaders);
 }

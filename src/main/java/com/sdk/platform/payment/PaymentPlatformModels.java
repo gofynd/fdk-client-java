@@ -2591,6 +2591,12 @@ public static class SetCODForUserRequest{
     
     
     
+    @JsonProperty("business_unit")
+    private String businessUnit;
+    
+    
+    
+    
     @JsonProperty("mobileno")
     private String mobileno;
     
@@ -3584,6 +3590,12 @@ public static class LinkStatus{
     
     @JsonProperty("message")
     private String message;
+    
+    
+    
+    
+    @JsonProperty("is_payment_done")
+    private Boolean isPaymentDone;
     
     
     

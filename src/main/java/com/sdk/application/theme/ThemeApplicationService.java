@@ -67,17 +67,17 @@ import com.sdk.application.*;
     }
     
 
-    public ThemeApplicationModels.AvailablePageSchema getPage(String themeId, String pageValue, String filters, Integer company) throws IOException {
-        return this.getPage(themeId, pageValue, filters, company, new HashMap<>());
+    public ThemeApplicationModels.AvailablePageSchema getPage(String themeId, String pageValue, String filters, String sectionPreviewHash, Integer company) throws IOException {
+        return this.getPage(themeId, pageValue, filters, sectionPreviewHash, company, new HashMap<>());
     }
 
-    public ThemeApplicationModels.AvailablePageSchema getPage(String themeId, String pageValue, String filters, Integer company, Map<String, String> requestHeaders) throws IOException {
+    public ThemeApplicationModels.AvailablePageSchema getPage(String themeId, String pageValue, String filters, String sectionPreviewHash, Integer company, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getPage");
         fullUrl = fullUrl.replace("{" + "theme_id" + "}",themeId.toString());
         fullUrl = fullUrl.replace("{" + "page_value" + "}",pageValue.toString());
 
-        Response<ThemeApplicationModels.AvailablePageSchema> response = themeApplicationApiList.getPage(fullUrl, filters, company, requestHeaders).execute();
+        Response<ThemeApplicationModels.AvailablePageSchema> response = themeApplicationApiList.getPage(fullUrl, filters, sectionPreviewHash, company, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
