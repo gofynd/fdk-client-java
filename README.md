@@ -16,7 +16,7 @@ Get started with the Java Development SDK for Fynd Platform
 <dependency>
     <groupId>com.github.gofynd</groupId>
     <artifactId>fdk-client-java</artifactId>
-    <version>1.4.8-beta.3</version>
+    <version>1.4.10-beta.1</version>
 </dependency>
 ```
 
@@ -152,4 +152,6 @@ headers.put("x-api-version", "1.0");
 
 ThemePlatformModels.AllAvailablePageSchema response = platformClient.application(applicationId).theme.getAllPages("<THEME_ID>", headers);
 ```
+
+
 

@@ -1493,13 +1493,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ServiceabilityPlatformModels.CourierPartnerRule updateCourierRule(String ruleId, ServiceabilityPlatformModels.CourierPartnerRule body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.CourierPartnerRuleResponse updateCourierRule(String ruleId, ServiceabilityPlatformModels.CourierPartnerRule body) throws FDKServerResponseError, FDKException {
         return this.updateCourierRule(ruleId, body, new HashMap<>());
     }
 
-    public ServiceabilityPlatformModels.CourierPartnerRule updateCourierRule(String ruleId, ServiceabilityPlatformModels.CourierPartnerRule body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.CourierPartnerRuleResponse updateCourierRule(String ruleId, ServiceabilityPlatformModels.CourierPartnerRule body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ServiceabilityPlatformModels.CourierPartnerRule> response = null;
+            Response<ServiceabilityPlatformModels.CourierPartnerRuleResponse> response = null;
             try {
             response = serviceabilityPlatformApiList.updateCourierRule(this.companyId, this.applicationId, ruleId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1520,13 +1520,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ServiceabilityPlatformModels.CourierPartnerRule getCourierPartnerRule(String ruleId) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.CourierPartnerRuleResponse getCourierPartnerRule(String ruleId) throws FDKServerResponseError, FDKException {
         return this.getCourierPartnerRule(ruleId, new HashMap<>());
     }
 
-    public ServiceabilityPlatformModels.CourierPartnerRule getCourierPartnerRule(String ruleId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.CourierPartnerRuleResponse getCourierPartnerRule(String ruleId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ServiceabilityPlatformModels.CourierPartnerRule> response = null;
+            Response<ServiceabilityPlatformModels.CourierPartnerRuleResponse> response = null;
             try {
             response = serviceabilityPlatformApiList.getCourierPartnerRule(this.companyId, this.applicationId, ruleId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1547,13 +1547,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ServiceabilityPlatformModels.CourierPartnerRule createCourierPartnerRule(ServiceabilityPlatformModels.CourierPartnerRule body) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.CourierPartnerRuleResponse createCourierPartnerRule(ServiceabilityPlatformModels.CourierPartnerRule body) throws FDKServerResponseError, FDKException {
         return this.createCourierPartnerRule(body, new HashMap<>());
     }
 
-    public ServiceabilityPlatformModels.CourierPartnerRule createCourierPartnerRule(ServiceabilityPlatformModels.CourierPartnerRule body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.CourierPartnerRuleResponse createCourierPartnerRule(ServiceabilityPlatformModels.CourierPartnerRule body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ServiceabilityPlatformModels.CourierPartnerRule> response = null;
+            Response<ServiceabilityPlatformModels.CourierPartnerRuleResponse> response = null;
             try {
             response = serviceabilityPlatformApiList.createCourierPartnerRule(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {

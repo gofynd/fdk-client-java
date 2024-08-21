@@ -2127,6 +2127,12 @@ public static class Localities{
     
     
     
+    
+    @JsonProperty("localities")
+    private List<LocalityParent> localities;
+    
+    
+    
 }
 
 

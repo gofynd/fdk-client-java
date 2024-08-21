@@ -418,6 +418,62 @@ public static class PublishExtensionSectionRequest{
 
 
 /*
+    Model: ExtensionPreviewRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ExtensionPreviewRequest{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("section_preview_hash")
+    private String sectionPreviewHash;
+    
+    
+    
+}
+
+
+/*
+    Model: ExtensionPreviewResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ExtensionPreviewResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
     Model: PublishExtensionSectionResponse
 */
 @AllArgsConstructor
@@ -710,6 +766,18 @@ public static class Action{
                 closestMatchingNavKey = PageType.home;
             }
 
+            // if it is custom theme link url should be in query object, also we will grab our main link from this url field in convertActionToUrl
+            if (closestMatchingNavLink.equals("/c/")) {
+                ActionPage actionPage = new ActionPage();
+                actionPage.setType(closestMatchingNavKey);
+                List<String> urlValues = new ArrayList<>();
+                String baseUrl = url.split("\\?")[0];
+                urlValues.add(baseUrl);
+                query.put("url", urlValues);
+                actionPage.setQuery(query);
+                actionPage.setParams(bestMatchingLink.containsKey("params") ? (HashMap<String, List<String>>) bestMatchingLink.get("params") : new HashMap<>());
+            }
+
             ActionPage actionPage = new ActionPage();
             actionPage.setType(closestMatchingNavKey);
             actionPage.setQuery(query);
@@ -738,6 +806,10 @@ public static class Action{
                 case "page": {
                     Constant.NavigatorPage item = Constant.getNavigators(PageType.class).get(action.page.type);
                     if (item != null) {
+                        if(action.getPage().getType().toString().equals("custom")){
+                            item.setLink(action.getPage().getQuery().get("url").get(0));
+                            action.getPage().getQuery().remove("url");
+                        }
                         // Get param
                         item.setLink(Utility.generateUrlWithParams(item, action.page.params));
 //                        item.put("link", Utility.generateUrlWithParams(item, action.getPage().getParams()));
@@ -3759,6 +3831,8 @@ public static class ActionPage{
         collection("collection"), 
         
         collections("collections"), 
+        
+        custom("custom"), 
         
         contactUs("contact-us"), 
         

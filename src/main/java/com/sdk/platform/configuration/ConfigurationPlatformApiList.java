@@ -114,30 +114,6 @@ interface ConfigurationPlatformApiList {
     @POST ("/service/platform/configuration/v1.0/company/{company_id}/domain/suggestions")
     Call<ConfigurationPlatformModels.DomainSuggestionsResponse> getDomainAvailibility(@Path("company_id") String companyId, @Body ConfigurationPlatformModels.DomainSuggestionsRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/configuration/v1.0/company/{company_id}/integration/{id}")
-    Call<ConfigurationPlatformModels.Integration> getIntegrationById(@Path("company_id") String companyId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/configuration/v1.0/company/{company_id}/integration-opt-in/available")
-    Call<ConfigurationPlatformModels.GetIntegrationsOptInsResponse> getAvailableOptIns(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/configuration/v1.0/company/{company_id}/integration-opt-in/selected/{level}/{uid}")
-    Call<ConfigurationPlatformModels.GetIntegrationsOptInsResponse> getSelectedOptIns(@Path("company_id") String companyId, @Path("level") String level, @Path("uid") Integer uid, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/configuration/v1.0/company/{company_id}/integration-opt-in/configuration/{id}/{level}")
-    Call<ConfigurationPlatformModels.IntegrationConfigResponse> getIntegrationLevelConfig(@Path("company_id") String companyId, @Path("id") String id, @Path("level") String level, @Query("opted") Boolean opted, @Query("check_permission") Boolean checkPermission, @HeaderMap Map<String, String> requestHeaders);
-
-    @PUT ("/service/platform/configuration/v1.0/company/{company_id}/integration-opt-in/configuration/{id}/{level}")
-    Call<ConfigurationPlatformModels.IntegrationLevel> updateLevelIntegration(@Path("company_id") String companyId, @Path("id") String id, @Path("level") String level, @Body ConfigurationPlatformModels.UpdateIntegrationLevelRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/configuration/v1.0/company/{company_id}/integration-opt-in/configuration/{id}/{level}/{uid}")
-    Call<ConfigurationPlatformModels.IntegrationLevel> getIntegrationByLevelId(@Path("company_id") String companyId, @Path("id") String id, @Path("level") String level, @Path("uid") Integer uid, @HeaderMap Map<String, String> requestHeaders);
-
-    @PUT ("/service/platform/configuration/v1.0/company/{company_id}/integration-opt-in/configuration/{id}/{level}/{uid}")
-    Call<ConfigurationPlatformModels.IntegrationLevel> updateLevelUidIntegration(@Path("company_id") String companyId, @Path("id") String id, @Path("level") String level, @Path("uid") Integer uid, @Body ConfigurationPlatformModels.IntegrationLevel payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/configuration/v1.0/company/{company_id}/integration-opt-in/check/configuration/{id}/{level}/{uid}")
-    Call<ConfigurationPlatformModels.OptedStoreIntegration> getLevelActiveIntegrations(@Path("company_id") String companyId, @Path("id") String id, @Path("level") String level, @Path("uid") Integer uid, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/configuration/v1.0/company/{company_id}/inventory/brands-by-companies")
     Call<ConfigurationPlatformModels.BrandsByCompanyResponse> getBrandsByCompany(@Path("company_id") String companyId, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
 

@@ -4131,16 +4131,40 @@ public class CatalogPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    public CatalogPlatformModels.ProductListingResponseV2 getProducts(List<Integer> brandIds, List<Integer> categoryIds, List<Integer> itemIds, List<Integer> departmentIds, List<String> itemCode, String q, List<String> tags, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
-        return this.getProducts(brandIds, categoryIds, itemIds, departmentIds, itemCode, q, tags, pageNo, pageSize, new HashMap<>());
+    public CatalogPlatformModels.ProductListingResponseV2 getProducts(List<Integer> brandIds, List<Integer> categoryIds, List<Integer> itemIds, List<Integer> departmentIds, List<String> itemCode, String name, String slug, List<String> allIdentifiers, String q, List<String> tags, Integer pageNo, Integer pageSize, String pageType, String sortOn, String pageId) throws FDKServerResponseError, FDKException {
+        return this.getProducts(brandIds, categoryIds, itemIds, departmentIds, itemCode, name, slug, allIdentifiers, q, tags, pageNo, pageSize, pageType, sortOn, pageId, new HashMap<>());
     }
 
-    public CatalogPlatformModels.ProductListingResponseV2 getProducts(List<Integer> brandIds, List<Integer> categoryIds, List<Integer> itemIds, List<Integer> departmentIds, List<String> itemCode, String q, List<String> tags, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductListingResponseV2 getProducts(List<Integer> brandIds, List<Integer> categoryIds, List<Integer> itemIds, List<Integer> departmentIds, List<String> itemCode, String name, String slug, List<String> allIdentifiers, String q, List<String> tags, Integer pageNo, Integer pageSize, String pageType, String sortOn, String pageId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.ProductListingResponseV2> response = null;
             try {
-                response = catalogPlatformApiList.getProducts(this.companyId, brandIds, categoryIds, itemIds, departmentIds, itemCode, q, tags, pageNo, pageSize, requestHeaders).execute();
+                response = catalogPlatformApiList.getProducts(this.companyId, brandIds, categoryIds, itemIds, departmentIds, itemCode, name, slug, allIdentifiers, q, tags, pageNo, pageSize, pageType, sortOn, pageId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -4223,6 +4247,42 @@ public class CatalogPlatformService {
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
     /**
     * Summary: get paginator for getProducts
@@ -4234,15 +4294,19 @@ public class CatalogPlatformService {
         List<Integer> itemIds ,
         List<Integer> departmentIds ,
         List<String> itemCode ,
+        String name ,
+        String slug ,
+        List<String> allIdentifiers ,
         String q ,
         List<String> tags ,
-        Integer pageSize 
+        Integer pageSize ,
+        String sortOn 
         
         ){ 
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogPlatformModels.ProductListingResponseV2> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CatalogPlatformModels.ProductListingResponseV2> paginator = new Paginator<>(pageSize, "cursor");
 
     paginator.setCallback(()-> {
         try {
@@ -4254,11 +4318,19 @@ public class CatalogPlatformService {
                  itemIds,
                  departmentIds,
                  itemCode,
+                 name,
+                 slug,
+                 allIdentifiers,
                  q,
                  tags,
                  paginator.getPageNo()
                 ,
                  paginator.getPageSize()
+                ,
+                 paginator.getPageType()
+                ,
+                 sortOn,
+                 paginator.getNextId()
                 
             );
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;

@@ -132,6 +132,12 @@ interface OrderPlatformApiList {
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/process-manifest")
     Call<OrderPlatformModels.ManifestResponse> generateProcessManifest(@Path("company_id") String companyId, @Body OrderPlatformModels.ProcessManifestRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/state/manager/config")
+    Call<OrderPlatformModels.ConfigUpdatedResponse> addStateManagerConfig(@Path("company_id") String companyId, @Body OrderPlatformModels.TransitionConfigPayload payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/state/manager/config")
+    Call<Object> getStateManagerConfig(@Path("company_id") String companyId, @Query("app_id") String appId, @Query("ordering_channel") String orderingChannel, @Query("entity") String entity, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/order/v1.0/company/{company_id}/application/{application_id}/orders/shipments/{shipment_id}/line_number/{line_number}/reasons")
     Call<OrderPlatformModels.ShipmentBagReasons> getShipmentBagReasons(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("shipment_id") String shipmentId, @Path("line_number") Integer lineNumber, @HeaderMap Map<String, String> requestHeaders);
 

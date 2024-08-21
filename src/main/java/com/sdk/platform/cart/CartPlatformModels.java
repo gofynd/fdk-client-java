@@ -1931,7 +1931,7 @@ public static class Restrictions1{
     
     
     @JsonProperty("payments")
-    private Object payments;
+    private HashMap<String,PaymentModes> payments;
     
     
     

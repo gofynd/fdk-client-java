@@ -8944,6 +8944,539 @@ public static class ManifestErrorResponse{
 
 
 /*
+    Model: ConfigData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ConfigData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("acknowledged")
+    private Boolean acknowledged;
+    
+    
+    
+    
+    @JsonProperty("is_upserted")
+    private Boolean isUpserted;
+    
+    
+    
+    
+    @JsonProperty("is_inserted")
+    private Boolean isInserted;
+    
+    
+    
+}
+
+
+/*
+    Model: ConfigUpdatedResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ConfigUpdatedResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<ConfigData> data;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+}
+
+
+/*
+    Model: FlagData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FlagData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Object value;
+    
+    
+    
+    
+    @JsonProperty("filter")
+    private Object filter;
+    
+    
+    
+}
+
+
+/*
+    Model: Flags
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Flags{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("allow_partial_transition")
+    private List<FlagData> allowPartialTransition;
+    
+    
+    
+    
+    @JsonProperty("can_break_entity")
+    private List<FlagData> canBreakEntity;
+    
+    
+    
+    
+    @JsonProperty("allowed_bag_updates")
+    private List<FlagData> allowedBagUpdates;
+    
+    
+    
+    
+    @JsonProperty("allowed_bag_status_updates")
+    private List<FlagData> allowedBagStatusUpdates;
+    
+    
+    
+    
+    @JsonProperty("allowed_entity_updates")
+    private List<FlagData> allowedEntityUpdates;
+    
+    
+    
+    
+    @JsonProperty("allowed_entity_status_updates")
+    private List<FlagData> allowedEntityStatusUpdates;
+    
+    
+    
+    
+    @JsonProperty("status_update_type")
+    private List<FlagData> statusUpdateType;
+    
+    
+    
+    
+    @JsonProperty("is_bag_status_reason_allowed")
+    private List<FlagData> isBagStatusReasonAllowed;
+    
+    
+    
+    
+    @JsonProperty("is_entity_status_reason_allowed")
+    private List<FlagData> isEntityStatusReasonAllowed;
+    
+    
+    
+    
+    @JsonProperty("transition_strategy")
+    private List<FlagData> transitionStrategy;
+    
+    
+    
+}
+
+
+/*
+    Model: Filter
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Filter{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("order_type")
+    private String orderType;
+    
+    
+    
+    
+    @JsonProperty("is_partial_transition")
+    private Boolean isPartialTransition;
+    
+    
+    
+    
+    @JsonProperty("auto_trigger_dp_assignment_acf")
+    private Boolean autoTriggerDpAssignmentAcf;
+    
+    
+    
+    
+    @JsonProperty("lock_status")
+    private String lockStatus;
+    
+    
+    
+    
+    @JsonProperty("lock_after_transition")
+    private Boolean lockAfterTransition;
+    
+    
+    
+    
+    @JsonProperty("resume_tasks_after_unlock")
+    private Boolean resumeTasksAfterUnlock;
+    
+    
+    
+    
+    @JsonProperty("is_invoice_id_present")
+    private Boolean isInvoiceIdPresent;
+    
+    
+    
+    
+    @JsonProperty("is_credit_note_generated")
+    private Boolean isCreditNoteGenerated;
+    
+    
+    
+    
+    @JsonProperty("fulfill_virtual_invoice")
+    private Boolean fulfillVirtualInvoice;
+    
+    
+    
+    
+    @JsonProperty("next_status")
+    private String nextStatus;
+    
+    
+    
+    
+    @JsonProperty("is_hook_enabled")
+    private Boolean isHookEnabled;
+    
+    
+    
+    
+    @JsonProperty("pos_credit_note_check")
+    private Boolean posCreditNoteCheck;
+    
+    
+    
+    
+    @JsonProperty("order_platform")
+    private String orderPlatform;
+    
+    
+    
+    
+    @JsonProperty("refund_type")
+    private String refundType;
+    
+    
+    
+    
+    @JsonProperty("is_non_pos_platform")
+    private Boolean isNonPosPlatform;
+    
+    
+    
+    
+    @JsonProperty("is_self_ship")
+    private Boolean isSelfShip;
+    
+    
+    
+    
+    @JsonProperty("seller_country_code")
+    private String sellerCountryCode;
+    
+    
+    
+    
+    @JsonProperty("customer_country_code")
+    private String customerCountryCode;
+    
+    
+    
+    
+    @JsonProperty("is_test_order")
+    private Boolean isTestOrder;
+    
+    
+    
+    
+    @JsonProperty("task_trigger_condition")
+    private List<String> taskTriggerCondition;
+    
+    
+    
+}
+
+
+/*
+    Model: PostHook
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PostHook{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("task")
+    private String task;
+    
+    
+    
+    
+    @JsonProperty("kwargs")
+    private HashMap<String,Object> kwargs;
+    
+    
+    
+    
+    @JsonProperty("filters")
+    private Filter filters;
+    
+    
+    
+}
+
+
+/*
+    Model: PreHook
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PreHook{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("task")
+    private String task;
+    
+    
+    
+    
+    @JsonProperty("kwargs")
+    private HashMap<String,Object> kwargs;
+    
+    
+    
+    
+    @JsonProperty("filters")
+    private Filter filters;
+    
+    
+    
+}
+
+
+/*
+    Model: Config
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Config{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("from_state")
+    private String fromState;
+    
+    
+    
+    
+    @JsonProperty("to_state")
+    private String toState;
+    
+    
+    
+    
+    @JsonProperty("pre_hooks")
+    private List<PreHook> preHooks;
+    
+    
+    
+    
+    @JsonProperty("post_hooks")
+    private List<PostHook> postHooks;
+    
+    
+    
+    
+    @JsonProperty("flags")
+    private Flags flags;
+    
+    
+    
+}
+
+
+/*
+    Model: TransitionConfigCondition
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransitionConfigCondition{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    
+    
+    @JsonProperty("ordering_channel")
+    private String orderingChannel;
+    
+    
+    
+    
+    @JsonProperty("entity")
+    private String entity;
+    
+    
+    
+}
+
+
+/*
+    Model: TransitionConfigData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransitionConfigData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("conditions")
+    private TransitionConfigCondition conditions;
+    
+    
+    
+    
+    @JsonProperty("configs")
+    private List<Config> configs;
+    
+    
+    
+}
+
+
+/*
+    Model: TransitionConfigPayload
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransitionConfigPayload{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("data")
+    private TransitionConfigData data;
+    
+    
+    
+}
+
+
+/*
     Model: Page
 */
 @AllArgsConstructor
@@ -16068,79 +16601,6 @@ public static class Brand{
 
 
 /*
-    Model: Attributes
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Attributes{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("primary_material")
-    private String primaryMaterial;
-    
-    
-    
-    
-    @JsonProperty("essential")
-    private String essential;
-    
-    
-    
-    
-    @JsonProperty("marketer_name")
-    private String marketerName;
-    
-    
-    
-    
-    @JsonProperty("primary_color")
-    private String primaryColor;
-    
-    
-    
-    
-    @JsonProperty("marketer_address")
-    private String marketerAddress;
-    
-    
-    
-    
-    @JsonProperty("primary_color_hex")
-    private String primaryColorHex;
-    
-    
-    
-    
-    @JsonProperty("brand_name")
-    private String brandName;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("gender")
-    private List<String> gender;
-    
-    
-    
-}
-
-
-/*
     Model: Item
 */
 @AllArgsConstructor
@@ -16158,7 +16618,7 @@ public static class Item{
     
     
     @JsonProperty("attributes")
-    private Attributes attributes;
+    private Object attributes;
     
     
     

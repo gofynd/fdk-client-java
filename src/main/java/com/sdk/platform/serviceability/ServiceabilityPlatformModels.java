@@ -633,6 +633,12 @@ public static class ListViewItems{
     
     
     
+    @JsonProperty("store_ids")
+    private List<Integer> storeIds;
+    
+    
+    
+    
     @JsonProperty("channels")
     private List<ListViewChannels> channels;
     
@@ -3403,6 +3409,140 @@ public static class Page{
 
 
 /*
+    Model: CourierPartnerRuleCPListResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerRuleCPListResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("account_id")
+    private String accountId;
+    
+    
+    
+    
+    @JsonProperty("extension_id")
+    private String extensionId;
+    
+    
+    
+    
+    @JsonProperty("is_self_ship")
+    private Boolean isSelfShip;
+    
+    
+    
+    
+    @JsonProperty("scheme_rules")
+    private Object schemeRules;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerRuleResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerRuleResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("conditions")
+    private CourierPartnerRuleConditions conditions;
+    
+    
+    
+    
+    @JsonProperty("sort")
+    private List<String> sort;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private Object createdBy;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private Object modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("cp_list")
+    private List<CourierPartnerRuleCPListResponse> cpList;
+    
+    
+    
+}
+
+
+/*
     Model: CourierPartnerList
 */
 @AllArgsConstructor
@@ -3427,18 +3567,6 @@ public static class CourierPartnerList{
     
     @JsonProperty("account_id")
     private String accountId;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("is_self_ship")
-    private Boolean isSelfShip;
     
     
     
@@ -3794,7 +3922,7 @@ public static class CourierPartnerRulesListResponse{
     
     
     @JsonProperty("items")
-    private List<CourierPartnerRule> items;
+    private List<CourierPartnerRuleResponse> items;
     
     
     

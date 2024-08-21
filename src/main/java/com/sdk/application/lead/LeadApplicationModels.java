@@ -103,6 +103,92 @@ public static class SubmitCustomFormResponse{
     
     
     
+    
+    @JsonProperty("response")
+    private FormFieldResponse response;
+    
+    
+    
+}
+
+
+/*
+    Model: FormFieldResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FormFieldResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Double v;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("form_slug")
+    private String formSlug;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private CreatedOn createdOn;
+    
+    
+    
+    
+    @JsonProperty("response")
+    private List<FormFieldResponseValues> response;
+    
+    
+    
+}
+
+
+/*
+    Model: FormFieldResponseValues
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FormFieldResponseValues{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
 }
 
 

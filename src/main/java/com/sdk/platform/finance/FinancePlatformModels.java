@@ -606,12 +606,6 @@ public static class DownloadReportItems{
     
     
     
-    
-    @JsonProperty("type_of_request")
-    private String typeOfRequest;
-    
-    
-    
 }
 
 
@@ -1017,31 +1011,6 @@ public static class GetReportListReq{
 
 
 /*
-    Model: GetAffiliate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetAffiliate{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-}
-
-
-/*
     Model: GetReportListResponse
 */
 @AllArgsConstructor
@@ -1139,6 +1108,31 @@ public static class ReportItem{
     
     @JsonProperty("display_date")
     private String displayDate;
+    
+    
+    
+}
+
+
+/*
+    Model: GetAffiliate
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetAffiliate{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
     
     
     
@@ -3853,12 +3847,6 @@ public static class DownloadReportCustomerCnResponse{
     
     @JsonProperty("items")
     private List<DownloadReportResponseData> items;
-    
-    
-    
-    
-    @JsonProperty("data")
-    private List<DownloadReportResponseData> data;
     
     
     

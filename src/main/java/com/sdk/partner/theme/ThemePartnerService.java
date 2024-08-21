@@ -476,6 +476,94 @@ public class ThemePartnerService {
     
     
 
+    public ThemePartnerModels.ExtensionPreviewResponse applyExtensionPreview(String extensionSectionId, ThemePartnerModels.ExtensionPreviewRequest body) throws FDKServerResponseError, FDKException {
+        return this.applyExtensionPreview(extensionSectionId, body, new HashMap<>());
+    }
+
+    public ThemePartnerModels.ExtensionPreviewResponse applyExtensionPreview(String extensionSectionId, ThemePartnerModels.ExtensionPreviewRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<ThemePartnerModels.ExtensionPreviewResponse> response = null;
+            try {
+                response = themePartnerApiList.applyExtensionPreview(this.organizationId, extensionSectionId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ThemePartnerModels.ExtensionPreviewResponse removeExtensionPreview(String extensionSectionId, ThemePartnerModels.ExtensionPreviewRequest body) throws FDKServerResponseError, FDKException {
+        return this.removeExtensionPreview(extensionSectionId, body, new HashMap<>());
+    }
+
+    public ThemePartnerModels.ExtensionPreviewResponse removeExtensionPreview(String extensionSectionId, ThemePartnerModels.ExtensionPreviewRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<ThemePartnerModels.ExtensionPreviewResponse> response = null;
+            try {
+                response = themePartnerApiList.removeExtensionPreview(this.organizationId, extensionSectionId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
     public ThemePartnerModels.ThemeRejectionReasons getThemeRejectionReasons(String themeId) throws FDKServerResponseError, FDKException {
         return this.getThemeRejectionReasons(themeId, new HashMap<>());
     }

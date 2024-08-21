@@ -197,8 +197,6 @@ public class ContentPlatformService {
     
     
     
-    
-    
 
     public ContentPlatformModels.CustomObjectByIdSchema getCustomFieldTypes() throws FDKServerResponseError, FDKException {
         return this.getCustomFieldTypes(new HashMap<>());
@@ -1589,33 +1587,6 @@ public class ApplicationClient {
             Response<ContentPlatformModels.BlogSchema> response = null;
             try {
             response = contentPlatformApiList.deleteBlog(this.companyId, this.applicationId, id, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public ContentPlatformModels.BlogSchema getComponentById(String slug) throws FDKServerResponseError, FDKException {
-        return this.getComponentById(slug, new HashMap<>());
-    }
-
-    public ContentPlatformModels.BlogSchema getComponentById(String slug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.BlogSchema> response = null;
-            try {
-            response = contentPlatformApiList.getComponentById(this.companyId, this.applicationId, slug, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

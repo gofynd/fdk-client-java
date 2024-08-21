@@ -187,7 +187,10 @@ public class Utility {
         for (String link : allLinks) {
             link = trimChar(link); // -> product/:slug/add-reviews
 
-            if (Pattern.compile("^" + trimChar(link)).matcher(pathname).find()) {
+            String firstLinkMatch = trimChar(link).split("/")[0];
+            String firstPathMatch = trimChar(pathname).split("/")[0];
+            // atleast first string from path should match, if you don't add this condition then it will give link 'c' for 'collection' path name
+            if (Pattern.compile("^" + trimChar(link)).matcher(pathname).find() && (firstLinkMatch.length() == firstPathMatch.length())) {
                 bestMatch.put("value", link);
                 break;
             }
