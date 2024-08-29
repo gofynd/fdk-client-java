@@ -6,7 +6,7 @@
 
     <groupId>com.github.gofynd</groupId>
     <artifactId>fynd-client-java</artifactId>
-    <version>1.4.9</version>
+    <version>1.4.10</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -103,6 +103,12 @@
              <groupId>com.github.mrmike</groupId>
              <artifactId>ok2curl</artifactId>
              <version>0.7.0</version>
+         </dependency>
+
+         <dependency>
+             <groupId>com.google.code.gson</groupId>
+             <artifactId>gson</artifactId>
+             <version>2.11.0</version>
          </dependency>
     </dependencies>
 
