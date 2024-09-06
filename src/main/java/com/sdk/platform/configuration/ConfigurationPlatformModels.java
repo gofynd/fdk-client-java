@@ -4163,6 +4163,12 @@ public static class GoogleMap{
     
     
     
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+    
     @JsonProperty("credentials")
     private GoogleMapCredentials credentials;
     

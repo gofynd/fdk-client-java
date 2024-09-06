@@ -6340,15 +6340,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.BaseAppCategoryReturnConfigResponse getAppCategoryReturnConfig() throws FDKServerResponseError, FDKException {
-        return this.getAppCategoryReturnConfig(new HashMap<>());
+    public CatalogPlatformModels.BaseAppCategoryReturnConfigResponse getAppCategoryReturnConfig(String q, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+        return this.getAppCategoryReturnConfig(q, pageNo, pageSize, new HashMap<>());
     }
 
-    public CatalogPlatformModels.BaseAppCategoryReturnConfigResponse getAppCategoryReturnConfig(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BaseAppCategoryReturnConfigResponse getAppCategoryReturnConfig(String q, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.BaseAppCategoryReturnConfigResponse> response = null;
             try {
-            response = catalogPlatformApiList.getAppCategoryReturnConfig(this.companyId, this.applicationId, requestHeaders).execute();
+            response = catalogPlatformApiList.getAppCategoryReturnConfig(this.companyId, this.applicationId, q, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
