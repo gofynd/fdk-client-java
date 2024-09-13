@@ -37,9 +37,6 @@ public class EventV3 {
     @JsonProperty("workflow_name")
     private String workflowName;
 
-    @JsonProperty("account_id")
-    private String accountId;
-
     @JsonProperty("event_bridge_name")
     private String eventBridgeName;
 
