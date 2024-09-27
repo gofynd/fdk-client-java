@@ -96,8 +96,6 @@ public class WebhookService {
             initialize(extensionProperties);
         }
 
-        SubscriberConfigContainer subscriberResponseContainer = getSubscriberConfig(platformClient);
-        System.out.println(subscriberResponseContainer);
         boolean subscriberSyncedForAllProvider;
 
         try{
@@ -107,20 +105,14 @@ public class WebhookService {
             throw new FdkWebhookRegistrationError("Failed to sync webhook events. Reason: " + e.getMessage());
         }
 
-        subscriberResponseContainer = getSubscriberConfig(platformClient);
-
-        System.out.println(subscriberResponseContainer);
-
         if(!subscriberSyncedForAllProvider){
-            subscriberResponseContainer = getSubscriberConfig(platformClient);
+            SubscriberConfigContainer subscriberResponseContainer = getSubscriberConfig(platformClient);
             syncSubscriberConfig(subscriberResponseContainer.getRest(), "rest", platformClient, enableWebhooks);
             syncSubscriberConfig(subscriberResponseContainer.getKafka(), "kafka", platformClient, enableWebhooks);
             syncSubscriberConfig(subscriberResponseContainer.getPubSub(), "pub_sub", platformClient, enableWebhooks);
             syncSubscriberConfig(subscriberResponseContainer.getSqs(), "sqs", platformClient, enableWebhooks);
             syncSubscriberConfig(subscriberResponseContainer.getEventBridge(), "event_bridge", platformClient, enableWebhooks);
             syncSubscriberConfig(subscriberResponseContainer.getTemporal(), "temporal", platformClient, enableWebhooks);
-            subscriberResponseContainer = getSubscriberConfig(platformClient);
-            System.out.println(subscriberResponseContainer);
         }
     }
 
@@ -228,7 +220,7 @@ public class WebhookService {
         AuthMeta authMeta = new AuthMeta();
         restMap.setAuthMeta(authMeta);
         restMap.setWebhookUrl(getWebhookUrl(this.extensionProperties.getBaseUrl(), this.webhookProperties.getApiPath()));
-        restMap.getAuthMeta().setSecret(this.extensionProperties.getApiKey());
+        restMap.getAuthMeta().setSecret(this.extensionProperties.getApiSecret());
         restMap.getAuthMeta().setType(Fields.HMAC);
         EventMap kafkaMap = new EventMap();
         EventMap pubSubMap = new EventMap();
@@ -880,7 +872,7 @@ public class WebhookService {
                      .equals(Fields.EVENT_PING)) {
                 return;
             }
-//            verifySignature(signature, responseBody);
+            verifySignature(signature, responseBody);
             String eventName = event.getString(Fields.EVENT_NAME) + "/" + event.getString(Fields.EVENT_TYPE);
             String eventCategory = event.has(Fields.EVENT_CATEGORY) ? event.getString(
                     Fields.EVENT_CATEGORY) : StringUtils.EMPTY;
