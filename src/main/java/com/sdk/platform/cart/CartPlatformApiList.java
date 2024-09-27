@@ -165,9 +165,6 @@ interface CartPlatformApiList {
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/meta")
     Call<CartPlatformModels.CartMetaResponse> updateCartMeta(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Body CartPlatformModels.PlatformCartMetaRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/checkout")
-    Call<CartPlatformModels.CartCheckoutResponse> platformCheckoutCart(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Body CartPlatformModels.PlatformCartCheckoutDetailRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/available-delivery-mode")
     Call<CartPlatformModels.CartDeliveryModesResponse> getAvailableDeliveryModes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("area_code") String areaCode, @Query("id") String id, @HeaderMap Map<String, String> requestHeaders);
 

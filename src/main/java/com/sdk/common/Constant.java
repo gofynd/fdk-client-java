@@ -82,6 +82,7 @@ public class Constant {
         public static final String SHIPPING_POLICY = "shipping-policy";
         public static final String RETURN_POLICY = "return-policy";
         public static final String ORDER_STATUS = "order-status";
+        public static final String LOCATE_US = "locate-us";
         
     }
 
@@ -365,6 +366,10 @@ public class Constant {
 	"order-status": {
 		"name": "Order status",
 		"link": "/cart/order-status"
+	},
+	"locate-us": {
+		"name": "Locate us",
+		"link": "/locate-us"
 	}
 }
             """;

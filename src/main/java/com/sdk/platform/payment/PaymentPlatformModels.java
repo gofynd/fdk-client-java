@@ -2380,6 +2380,12 @@ public static class MultiTenderPaymentMeta{
     
     
     
+    
+    @JsonProperty("payment_gateway_slug")
+    private String paymentGatewaySlug;
+    
+    
+    
 }
 
 
@@ -5856,6 +5862,12 @@ public static class CartDetailsSerializer{
     
     @JsonProperty("total_quantity")
     private Integer totalQuantity;
+    
+    
+    
+    
+    @JsonProperty("custom_cart_meta")
+    private HashMap<String,Object> customCartMeta;
     
     
     

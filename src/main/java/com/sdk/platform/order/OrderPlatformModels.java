@@ -2592,6 +2592,111 @@ public static class OrderConfig{
 
 
 /*
+    Model: DPConfiguration
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DPConfiguration{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("shipping_by")
+    private String shippingBy;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("mode_of_payment")
+    private String modeOfPayment;
+    
+    
+    
+    
+    @JsonProperty("source")
+    private String source;
+    
+    
+    
+}
+
+
+/*
+    Model: CreateOrderConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateOrderConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("dp_configuration")
+    private DPConfiguration dpConfiguration;
+    
+    
+    
+    
+    @JsonProperty("integration_type")
+    private String integrationType;
+    
+    
+    
+    
+    @JsonProperty("location_reassignment")
+    private Boolean locationReassignment;
+    
+    
+    
+    
+    @JsonProperty("payment")
+    private PaymentConfig payment;
+    
+    
+    
+    
+    @JsonProperty("optimal_shipment_creation")
+    private Boolean optimalShipmentCreation;
+    
+    
+    
+}
+
+
+/*
     Model: CreateOrderPayload
 */
 @AllArgsConstructor
@@ -3676,6 +3781,30 @@ public static class OrderStatusData{
     
     
     
+    
+    @JsonProperty("text")
+    private String text;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("color_code")
+    private String colorCode;
+    
+    
+    
+    
+    @JsonProperty("expected_delivery_date")
+    private String expectedDeliveryDate;
+    
+    
+    
 }
 
 
@@ -4240,55 +4369,6 @@ public static class Shipment{
     
     @JsonProperty("gst")
     private ShipmentGstDetails gst;
-    
-    
-    
-}
-
-
-/*
-    Model: ShipmentRequestData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShipmentRequestData{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("line_items")
-    private List<LineItem> lineItems;
-    
-    
-    
-    
-    @JsonProperty("processing_dates")
-    private ProcessingDates processingDates;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private Integer priority;
-    
-    
-    
-    
-    @JsonProperty("order_type")
-    private String orderType;
     
     
     
@@ -4870,12 +4950,6 @@ public static class CreateOrderAPI{
     
     
     
-    @JsonProperty("shipment_request_data")
-    private ShipmentRequestData shipmentRequestData;
-    
-    
-    
-    
     @JsonProperty("shipping_info")
     private ShippingInfo shippingInfo;
     
@@ -4925,7 +4999,7 @@ public static class CreateOrderAPI{
     
     
     @JsonProperty("config")
-    private Object config;
+    private CreateOrderConfig config;
     
     
     
@@ -14442,6 +14516,12 @@ public static class PlatformShipment{
     
     @JsonProperty("gst_details")
     private GSTDetailsData gstDetails;
+    
+    
+    
+    
+    @JsonProperty("order_status")
+    private OrderStatusData orderStatus;
     
     
     

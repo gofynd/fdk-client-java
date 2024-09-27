@@ -16,7 +16,7 @@ Get started with the Java Development SDK for Fynd Platform
 <dependency>
     <groupId>com.github.gofynd</groupId>
     <artifactId>fdk-client-java</artifactId>
-    <version>1.4.10-beta.2</version>
+    <version>1.4.12-beta.1</version>
 </dependency>
 ```
 
@@ -55,6 +55,68 @@ make sure to check the available version list on [jitpack](https://jitpack.io/#g
     } catch (Exception e) {
         System.out.println(e.getMessage());
     }
+```
+
+---
+
+### Sample Usage - request function
+
+The request function allows you to make custom API requests with ease. It is available on both `platform` and `application` client.
+
+```java
+public Response request(String url, Map<String, String> queryParams, Map<String, String> headers, Object bodyObject, String method) throws IOException
+```
+
+#### Parameters
+
+-   `url`: A `String` representing the target URL for the HTTP request.
+-   `queryParams`: A `Map<String, String>` containing key-value pairs for the URL's query parameters.
+-   `headers`: A `Map<String, String>` representing any HTTP headers to include with the request.
+-   `bodyObject`: An `Object` representing the body of the request, typically used in POST, PUT, or PATCH requests.
+-   `method`: A `String` representing the HTTP method (e.g., "GET", "POST", "PUT", "PATCH" "DELETE").
+
+#### Return Value
+
+-   `Response`: The method returns a okhttp3 `Response` object, which encapsulates the result of the HTTP request. 
+
+#### Example
+
+```java
+
+import okhttp3.Response;
+...
+...
+...
+
+String url = "/service/platform/catalog/v1.0/company/1/products/";
+String method = "GET";
+Map<String, String> queryParams = new HashMap<>();
+queryParams.put("company_id", "1");
+queryParams.put("name", "black");
+queryParams.put("page_no", "1");
+queryParams.put("page_size", "10");
+Response response = platformClient.request(url, queryParams , null , null, method);
+
+if (response.isSuccessful()) {
+    // Handle successful response
+    String responseData = response.body().string();
+    System.out.println(responseData);
+} else {
+    // Handle request errors
+    System.err.println("Request failed with status code: " + response.code());
+}
+
+
+String urlPost = "/service/platform/logistics/v1.0/company/2/packaging-materials";
+String methodPost = "POST";
+Map<String, String> bodyMap = Map.of(
+        "name", "Pack Big",
+        "width", "24",
+        "height", "24",
+        "length", "24"
+);
+Response responsePost = platformClient.request(urlPost, null , null, bodyMap , methodPost);
+
 ```
 
 ---
