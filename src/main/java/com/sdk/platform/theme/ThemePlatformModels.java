@@ -3498,7 +3498,9 @@ public static class ActionPage{
         
         returnPolicy("return-policy"), 
         
-        orderStatus("order-status");
+        orderStatus("order-status"), 
+        
+        locateUs("locate-us");
         
 
         private String priority;

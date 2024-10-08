@@ -22,7 +22,7 @@ interface OrderPlatformApiList {
     Call<OrderPlatformModels.BaseResponse> updateAddress(@Path("company_id") String companyId, @Query("shipment_id") String shipmentId, @Query("name") String name, @Query("address") String address, @Query("address_type") String addressType, @Query("pincode") String pincode, @Query("phone") String phone, @Query("email") String email, @Query("landmark") String landmark, @Query("address_category") String addressCategory, @Query("city") String city, @Query("state") String state, @Query("country") String country, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/status-internal")
-    Call<OrderPlatformModels.UpdateShipmentStatusResponseBody> updateShipmentStatus(@Path("company_id") String companyId, @Body OrderPlatformModels.UpdateShipmentStatusRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<OrderPlatformModels.UpdateShipmentStatusResponseBody> updateShipmentStatus(@Path("company_id") String companyId, @Body OrderPlatformModels.UpdateShipmentStatusRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/roles")
     Call<OrderPlatformModels.GetActionsResponse> getRoleBasedActions(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
@@ -34,19 +34,13 @@ interface OrderPlatformApiList {
     Call<OrderPlatformModels.ShipmentHistoryResponse> postShipmentHistory(@Path("company_id") String companyId, @Body OrderPlatformModels.PostShipmentHistory payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/ninja/send-sms")
-    Call<OrderPlatformModels.OrderStatusResult> sendSmsNinja(@Path("company_id") String companyId, @Body OrderPlatformModels.SendSmsPayload payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<OrderPlatformModels.BaseResponse> sendSmsNinja(@Path("company_id") String companyId, @Body OrderPlatformModels.SendSmsPayload payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/update-packaging-dimension")
     Call<OrderPlatformModels.UpdatePackagingDimensionsResponse> updatePackagingDimensions(@Path("company_id") String companyId, @Body OrderPlatformModels.UpdatePackagingDimensionsPayload payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/create-order")
     Call<OrderPlatformModels.CreateOrderResponse> createOrder(@Path("company_id") String companyId, @Body OrderPlatformModels.CreateOrderAPI payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
-    Call<OrderPlatformModels.CreateChannelConfigData> getChannelConfig(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
-    Call<OrderPlatformModels.CreateChannelConfigResponse> createChannelConfig(@Path("company_id") String companyId, @Body OrderPlatformModels.CreateChannelConfigData payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/order-manage/v1.0/company/{company_id}/order/validation")
     Call<OrderPlatformModels.ResponseDetail> orderUpdate(@Path("company_id") String companyId, @Body OrderPlatformModels.PlatformOrderUpdate payload, @HeaderMap Map<String, String> requestHeaders);
@@ -59,9 +53,6 @@ interface OrderPlatformApiList {
 
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/allowed/state/transition")
     Call<OrderPlatformModels.RoleBaseStateTransitionMapping> getAllowedStateTransition(@Path("company_id") String companyId, @Query("ordering_channel") String orderingChannel, @Query("status") String status, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/customer-credit-balance")
-    Call<OrderPlatformModels.FetchCreditBalanceResponsePayload> fetchCreditBalanceDetail(@Path("company_id") String companyId, @Body OrderPlatformModels.FetchCreditBalanceRequestPayload payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/refund-mode-config")
     Call<OrderPlatformModels.RefundModeConfigResponsePayload> fetchRefundModeConfig(@Path("company_id") String companyId, @Body OrderPlatformModels.RefundModeConfigRequestPayload payload, @HeaderMap Map<String, String> requestHeaders);
@@ -79,7 +70,7 @@ interface OrderPlatformApiList {
     Call<OrderPlatformModels.BulkReportsDownloadResponse> downloadLanesReport(@Path("company_id") String companyId, @Body OrderPlatformModels.BulkReportsDownloadRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/jobs/state-transition")
-    Call<OrderPlatformModels.BulkStateTransistionResponse> bulkStateTransistion(@Path("company_id") String companyId, @Body OrderPlatformModels.BulkStateTransistionRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<OrderPlatformModels.BulkStateTransistionResponse> bulkStateTransistion(@Path("company_id") String companyId, @Body OrderPlatformModels.BulkStateTransistionRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/jobs")
     Call<OrderPlatformModels.BulkListingResponse> bulkListing(@Path("company_id") String companyId, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @Query("start_date") String startDate, @Query("end_date") String endDate, @Query("status") String status, @Query("bulk_action_type") String bulkActionType, @Query("search_key") String searchKey, @HeaderMap Map<String, String> requestHeaders);
@@ -93,20 +84,20 @@ interface OrderPlatformApiList {
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/shipments-listing")
     Call<OrderPlatformModels.ManifestShipmentListing> getManifestShipments(@Path("company_id") String companyId, @Query("dp_ids") String dpIds, @Query("stores") Integer stores, @Query("to_date") String toDate, @Query("from_date") String fromDate, @Query("dp_name") String dpName, @Query("sales_channels") String salesChannels, @Query("search_type") String searchType, @Query("search_value") String searchValue, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/manifests")
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/listing")
     Call<OrderPlatformModels.ManifestList> getManifests(@Path("company_id") String companyId, @Query("status") String status, @Query("start_date") String startDate, @Query("end_date") String endDate, @Query("search_type") String searchType, @Query("store_id") Integer storeId, @Query("search_value") String searchValue, @Query("dp_ids") String dpIds, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/manifests")
-    Call<OrderPlatformModels.ProcessManifestItemResponse> processManifests(@Path("company_id") String companyId, @Body OrderPlatformModels.ProcessManifest payload, @HeaderMap Map<String, String> requestHeaders);
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/process-manifest")
+    Call<OrderPlatformModels.ManifestResponse> generateProcessManifest(@Path("company_id") String companyId, @Body OrderPlatformModels.ProcessManifestRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/manifests/{manifest_id}")
-    Call<OrderPlatformModels.ManifestDetails> getManifestDetails(@Path("company_id") String companyId, @Path("manifest_id") String manifestId, @HeaderMap Map<String, String> requestHeaders);
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/details")
+    Call<OrderPlatformModels.ManifestDetails> getManifestDetails(@Path("company_id") String companyId, @Query("manifest_id") String manifestId, @Query("dp_ids") String dpIds, @Query("end_date") String endDate, @Query("start_date") String startDate, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/dispatch")
     Call<OrderPlatformModels.SuccessResponse> dispatchManifests(@Path("company_id") String companyId, @Body OrderPlatformModels.DispatchManifest payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/{manifest_id}/upload-consent")
-    Call<OrderPlatformModels.SuccessResponse> uploadConsents(@Path("company_id") String companyId, @Path("manifest_id") String manifestId, @Body OrderPlatformModels.UploadConsent payload, @HeaderMap Map<String, String> requestHeaders);
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/manifest/uploadConsent")
+    Call<OrderPlatformModels.SuccessResponse> uploadConsents(@Path("company_id") String companyId, @Body OrderPlatformModels.UploadManifestConsent payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/filter/listing")
     Call<OrderPlatformModels.ManifestFiltersResponse> getManifestfilters(@Path("company_id") String companyId, @Query("view") String view, @HeaderMap Map<String, String> requestHeaders);
@@ -124,13 +115,10 @@ interface OrderPlatformApiList {
     Call<OrderPlatformModels.FailedOrderLogs> failedOrderLogs(@Path("company_id") String companyId, @Query("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("search_type") String searchType, @Query("search_value") String searchValue, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/{invoice_type}/id/generate")
-    Call<OrderPlatformModels.GenerateInvoiceIDResponse> generateInvoiceID(@Path("company_id") String companyId, @Path("invoice_type") String invoiceType, @Body OrderPlatformModels.GenerateInvoiceIDRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<OrderPlatformModels.GenerateInvoiceIDResponse> generateInvoiceID(@Path("company_id") String companyId, @Path("invoice_type") String invoiceType, @Body OrderPlatformModels.GenerateInvoiceIDRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/orders/failed/logs/{log_id}")
     Call<OrderPlatformModels.FailedOrderLogDetails> failedOrderLogDetails(@Path("company_id") String companyId, @Path("log_id") String logId, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/process-manifest")
-    Call<OrderPlatformModels.ManifestResponse> generateProcessManifest(@Path("company_id") String companyId, @Body OrderPlatformModels.ProcessManifestRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/state/manager/config")
     Call<OrderPlatformModels.ConfigUpdatedResponse> addStateManagerConfig(@Path("company_id") String companyId, @Body OrderPlatformModels.TransitionConfigPayload payload, @HeaderMap Map<String, String> requestHeaders);
