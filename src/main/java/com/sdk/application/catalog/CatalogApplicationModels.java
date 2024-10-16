@@ -142,13 +142,13 @@ public static class ProductListingActionPage{
     
     
     @JsonProperty("query")
-    private Object query;
+    private HashMap<String,Object> query;
     
     
     
     
     @JsonProperty("params")
-    private Object params;
+    private HashMap<String,Object> params;
     
     
     
@@ -750,7 +750,7 @@ public static class ProductDetail{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -786,7 +786,7 @@ public static class ProductDetail{
     
     
     @JsonProperty("attributes")
-    private Object attributes;
+    private HashMap<String,Object> attributes;
     
     
     
@@ -866,7 +866,7 @@ public static class ProductDetail{
 
 
 /*
-    Model: ErrorResponse
+    Model: ErrorResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -874,7 +874,7 @@ public static class ProductDetail{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ErrorResponse{
+public static class ErrorResponseSchema{
 
     
 
@@ -1455,7 +1455,7 @@ public static class AttributeMetadata{
 
 
 /*
-    Model: ProductsComparisonResponse
+    Model: ProductsComparisonResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1463,7 +1463,7 @@ public static class AttributeMetadata{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductsComparisonResponse{
+public static class ProductsComparisonResponseSchema{
 
     
 
@@ -1486,7 +1486,7 @@ public static class ProductsComparisonResponse{
 
 
 /*
-    Model: ProductCompareResponse
+    Model: ProductCompareResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1494,7 +1494,7 @@ public static class ProductsComparisonResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductCompareResponse{
+public static class ProductCompareResponseSchema{
 
     
 
@@ -1529,7 +1529,7 @@ public static class ProductCompareResponse{
 
 
 /*
-    Model: ProductFrequentlyComparedSimilarResponse
+    Model: ProductFrequentlyComparedSimilarResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1537,7 +1537,7 @@ public static class ProductCompareResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductFrequentlyComparedSimilarResponse{
+public static class ProductFrequentlyComparedSimilarResponseSchema{
 
     
 
@@ -1546,7 +1546,7 @@ public static class ProductFrequentlyComparedSimilarResponse{
     
     
     @JsonProperty("similars")
-    private ProductCompareResponse similars;
+    private ProductCompareResponseSchema similars;
     
     
     
@@ -1554,7 +1554,7 @@ public static class ProductFrequentlyComparedSimilarResponse{
 
 
 /*
-    Model: ProductVariantItemResponse
+    Model: ProductVariantItemResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1562,7 +1562,7 @@ public static class ProductFrequentlyComparedSimilarResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductVariantItemResponse{
+public static class ProductVariantItemResponseSchema{
 
     
 
@@ -1639,7 +1639,7 @@ public static class ProductVariantItemResponse{
 
 
 /*
-    Model: ProductVariantResponse
+    Model: ProductVariantResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1647,7 +1647,7 @@ public static class ProductVariantItemResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductVariantResponse{
+public static class ProductVariantResponseSchema{
 
     
 
@@ -1674,7 +1674,7 @@ public static class ProductVariantResponse{
     
     
     @JsonProperty("items")
-    private List<ProductVariantItemResponse> items;
+    private List<ProductVariantItemResponseSchema> items;
     
     
     
@@ -1694,7 +1694,7 @@ public static class ProductVariantResponse{
 
 
 /*
-    Model: ProductVariantsResponse
+    Model: ProductVariantsResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1702,7 +1702,7 @@ public static class ProductVariantResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductVariantsResponse{
+public static class ProductVariantsResponseSchema{
 
     
 
@@ -1711,7 +1711,7 @@ public static class ProductVariantsResponse{
     
     
     @JsonProperty("variants")
-    private List<ProductVariantResponse> variants;
+    private List<ProductVariantResponseSchema> variants;
     
     
     
@@ -1932,7 +1932,7 @@ public static class ProductStockStatusItem{
     
     
     @JsonProperty("identifier")
-    private Object identifier;
+    private Identifier identifier;
     
     
     
@@ -1940,7 +1940,7 @@ public static class ProductStockStatusItem{
 
 
 /*
-    Model: ProductStockStatusResponse
+    Model: ProductStockStatusResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1948,7 +1948,7 @@ public static class ProductStockStatusItem{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductStockStatusResponse{
+public static class ProductStockStatusResponseSchema{
 
     
 
@@ -2057,7 +2057,7 @@ public static class ProductStockPolling{
 
 
 /*
-    Model: ProductVariantListingResponse
+    Model: ProductVariantListingResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2065,7 +2065,7 @@ public static class ProductStockPolling{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductVariantListingResponse{
+public static class ProductVariantListingResponseSchema{
 
     
 
@@ -2080,7 +2080,7 @@ public static class ProductVariantListingResponse{
     
     
     @JsonProperty("items")
-    private List<ProductVariantItemResponse> items;
+    private List<ProductVariantItemResponseSchema> items;
     
     
     
@@ -2237,7 +2237,7 @@ public static class ProductListingDetail{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -2279,13 +2279,13 @@ public static class ProductListingDetail{
     
     
     @JsonProperty("attributes")
-    private Object attributes;
+    private HashMap<String,Object> attributes;
     
     
     
     
     @JsonProperty("variants")
-    private List<ProductVariantListingResponse> variants;
+    private List<ProductVariantListingResponseSchema> variants;
     
     
     
@@ -2579,7 +2579,7 @@ public static class ProductSortOn{
 
 
 /*
-    Model: ProductListingResponse
+    Model: ProductListingResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2587,7 +2587,7 @@ public static class ProductSortOn{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductListingResponse{
+public static class ProductListingResponseSchema{
 
     
 
@@ -2726,7 +2726,7 @@ public static class BrandItem{
 
 
 /*
-    Model: BrandListingResponse
+    Model: BrandListingResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2734,7 +2734,7 @@ public static class BrandItem{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BrandListingResponse{
+public static class BrandListingResponseSchema{
 
     
 
@@ -2757,7 +2757,7 @@ public static class BrandListingResponse{
 
 
 /*
-    Model: BrandDetailResponse
+    Model: BrandDetailResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2765,7 +2765,7 @@ public static class BrandListingResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BrandDetailResponse{
+public static class BrandDetailResponseSchema{
 
     
 
@@ -2798,7 +2798,7 @@ public static class BrandDetailResponse{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -2872,13 +2872,13 @@ public static class ThirdLevelChild{
     
     
     @JsonProperty("childs")
-    private List<Object> childs;
+    private List<HashMap<String,Object>> childs;
     
     
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -2939,7 +2939,7 @@ public static class SecondLevelChild{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -3000,7 +3000,7 @@ public static class Child{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -3143,7 +3143,7 @@ public static class DepartmentIdentifier{
 
 
 /*
-    Model: CategoryListingResponse
+    Model: CategoryListingResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3151,7 +3151,7 @@ public static class DepartmentIdentifier{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CategoryListingResponse{
+public static class CategoryListingResponseSchema{
 
     
 
@@ -3174,7 +3174,7 @@ public static class CategoryListingResponse{
 
 
 /*
-    Model: CategoryMetaResponse
+    Model: CategoryMetaResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3182,7 +3182,7 @@ public static class CategoryListingResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CategoryMetaResponse{
+public static class CategoryMetaResponseSchema{
 
     
 
@@ -3209,7 +3209,7 @@ public static class CategoryMetaResponse{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -3223,7 +3223,7 @@ public static class CategoryMetaResponse{
 
 
 /*
-    Model: HomeListingResponse
+    Model: HomeListingResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3231,7 +3231,7 @@ public static class CategoryMetaResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class HomeListingResponse{
+public static class HomeListingResponseSchema{
 
     
 
@@ -3309,7 +3309,7 @@ public static class Department{
 
 
 /*
-    Model: DepartmentResponse
+    Model: DepartmentResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3317,7 +3317,7 @@ public static class Department{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DepartmentResponse{
+public static class DepartmentResponseSchema{
 
     
 
@@ -3369,7 +3369,7 @@ public static class AutocompleteItem{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -3383,7 +3383,7 @@ public static class AutocompleteItem{
 
 
 /*
-    Model: AutoCompleteResponse
+    Model: AutoCompleteResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3391,7 +3391,7 @@ public static class AutocompleteItem{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AutoCompleteResponse{
+public static class AutoCompleteResponseSchema{
 
     
 
@@ -3480,7 +3480,7 @@ public static class GetCollectionDetailNest{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -3492,13 +3492,13 @@ public static class GetCollectionDetailNest{
     
     
     @JsonProperty("cron")
-    private Object cron;
+    private HashMap<String,Object> cron;
     
     
     
     
     @JsonProperty("_schedule")
-    private Object schedule;
+    private HashMap<String,Object> schedule;
     
     
     
@@ -3522,7 +3522,7 @@ public static class GetCollectionDetailNest{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -3546,7 +3546,7 @@ public static class GetCollectionDetailNest{
     
     
     @JsonProperty("badge")
-    private Object badge;
+    private HashMap<String,Object> badge;
     
     
     
@@ -3701,7 +3701,7 @@ public static class CollectionListingFilter{
 
 
 /*
-    Model: GetCollectionListingResponse
+    Model: GetCollectionListingResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3709,7 +3709,7 @@ public static class CollectionListingFilter{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCollectionListingResponse{
+public static class GetCollectionListingResponseSchema{
 
     
 
@@ -3738,7 +3738,7 @@ public static class GetCollectionListingResponse{
 
 
 /*
-    Model: CollectionDetailResponse
+    Model: CollectionDetailResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3746,7 +3746,7 @@ public static class GetCollectionListingResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CollectionDetailResponse{
+public static class CollectionDetailResponseSchema{
 
     
 
@@ -3767,7 +3767,7 @@ public static class CollectionDetailResponse{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -3779,13 +3779,13 @@ public static class CollectionDetailResponse{
     
     
     @JsonProperty("cron")
-    private Object cron;
+    private HashMap<String,Object> cron;
     
     
     
     
     @JsonProperty("_schedule")
-    private Object schedule;
+    private HashMap<String,Object> schedule;
     
     
     
@@ -3809,7 +3809,7 @@ public static class CollectionDetailResponse{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -3833,7 +3833,7 @@ public static class CollectionDetailResponse{
     
     
     @JsonProperty("badge")
-    private Object badge;
+    private HashMap<String,Object> badge;
     
     
     
@@ -3877,7 +3877,7 @@ public static class CollectionDetailResponse{
 
 
 /*
-    Model: GetFollowListingResponse
+    Model: GetFollowListingResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3885,7 +3885,7 @@ public static class CollectionDetailResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetFollowListingResponse{
+public static class GetFollowListingResponseSchema{
 
     
 
@@ -3908,7 +3908,7 @@ public static class GetFollowListingResponse{
 
 
 /*
-    Model: FollowPostResponse
+    Model: FollowPostResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3916,7 +3916,7 @@ public static class GetFollowListingResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FollowPostResponse{
+public static class FollowPostResponseSchema{
 
     
 
@@ -3939,7 +3939,7 @@ public static class FollowPostResponse{
 
 
 /*
-    Model: FollowerCountResponse
+    Model: FollowerCountResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3947,7 +3947,7 @@ public static class FollowPostResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FollowerCountResponse{
+public static class FollowerCountResponseSchema{
 
     
 
@@ -4001,7 +4001,7 @@ public static class FollowIdsData{
 
 
 /*
-    Model: FollowIdsResponse
+    Model: FollowIdsResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4009,7 +4009,7 @@ public static class FollowIdsData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FollowIdsResponse{
+public static class FollowIdsResponseSchema{
 
     
 
@@ -4050,6 +4050,37 @@ public static class LatLong{
     
     @JsonProperty("type")
     private String type;
+    
+    
+    
+}
+
+
+/*
+    Model: StoreContact
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StoreContact{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("number")
+    private String number;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private Integer countryCode;
     
     
     
@@ -4138,11 +4169,17 @@ public static class Store{
     
     
     
+    
+    @JsonProperty("contacts")
+    private List<StoreContact> contacts;
+    
+    
+    
 }
 
 
 /*
-    Model: StoreListingResponse
+    Model: StoreListingResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4150,7 +4187,7 @@ public static class Store{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreListingResponse{
+public static class StoreListingResponseSchema{
 
     
 
@@ -4196,7 +4233,7 @@ public static class StoreDepartments{
     
     
     @JsonProperty("logo")
-    private Object logo;
+    private HashMap<String,Object> logo;
     
     
     
@@ -4296,7 +4333,7 @@ public static class SellerPhoneNumber{
 
 
 /*
-    Model: StoreManagerSerializer
+    Model: StoreManagerSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4304,7 +4341,7 @@ public static class SellerPhoneNumber{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreManagerSerializer{
+public static class StoreManagerSchema{
 
     
 
@@ -4333,7 +4370,7 @@ public static class StoreManagerSerializer{
 
 
 /*
-    Model: StoreAddressSerializer
+    Model: StoreAddressSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4341,7 +4378,7 @@ public static class StoreManagerSerializer{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreAddressSerializer{
+public static class StoreAddressSchema{
 
     
 
@@ -4441,7 +4478,7 @@ public static class AppStore{
     
     
     @JsonProperty("manager")
-    private StoreManagerSerializer manager;
+    private StoreManagerSchema manager;
     
     
     
@@ -4453,7 +4490,7 @@ public static class AppStore{
     
     
     @JsonProperty("address")
-    private StoreAddressSerializer address;
+    private StoreAddressSchema address;
     
     
     
@@ -4490,7 +4527,7 @@ public static class ApplicationStoreListing{
     
     
     @JsonProperty("filters")
-    private List<Object> filters;
+    private List<HashMap<String,Object>> filters;
     
     
     
@@ -4619,7 +4656,7 @@ public static class StoreDetails{
     
     
     @JsonProperty("manager")
-    private StoreManagerSerializer manager;
+    private StoreManagerSchema manager;
     
     
     
@@ -4637,13 +4674,13 @@ public static class StoreDetails{
     
     
     @JsonProperty("address")
-    private StoreAddressSerializer address;
+    private StoreAddressSchema address;
     
     
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -4857,7 +4894,7 @@ public static class ProductDetails{
     
     
     @JsonProperty("grouped_attributes")
-    private Object groupedAttributes;
+    private HashMap<String,Object> groupedAttributes;
     
     
     
@@ -4887,13 +4924,13 @@ public static class ProductDetails{
     
     
     @JsonProperty("media")
-    private List<Object> media;
+    private List<HashMap<String,Object>> media;
     
     
     
     
     @JsonProperty("attributes")
-    private Object attributes;
+    private HashMap<String,Object> attributes;
     
     
     
@@ -4923,7 +4960,7 @@ public static class ProductDetails{
     
     
     @JsonProperty("identifier")
-    private Object identifier;
+    private Identifier identifier;
     
     
     
@@ -5045,7 +5082,7 @@ public static class ProductGroupingModel{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -5880,6 +5917,55 @@ public static class ProductSizeSellersResponseV3{
     
     @JsonProperty("sort_on")
     private List<ProductSizeSellerFilterSchemaV3> sortOn;
+    
+    
+    
+}
+
+
+/*
+    Model: Identifier
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Identifier{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("ean")
+    private String ean;
+    
+    
+    
+    
+    @JsonProperty("sku_code")
+    private String skuCode;
+    
+    
+    
+    
+    @JsonProperty("alu")
+    private String alu;
+    
+    
+    
+    
+    @JsonProperty("upc")
+    private String upc;
+    
+    
+    
+    
+    @JsonProperty("isbn")
+    private String isbn;
     
     
     
