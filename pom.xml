@@ -6,7 +6,7 @@
 
     <groupId>com.github.gofynd</groupId>
     <artifactId>fynd-client-java</artifactId>
-    <version>1.4.12-beta.1</version>
+    <version>v1.4.15-beta.1</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

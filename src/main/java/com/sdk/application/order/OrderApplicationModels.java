@@ -880,6 +880,18 @@ public static class Item{
     
     
     
+    @JsonProperty("l2_category")
+    private List<String> l2Category;
+    
+    
+    
+    
+    @JsonProperty("l2_category_id")
+    private Double l2CategoryId;
+    
+    
+    
+    
     @JsonProperty("brand")
     private ItemBrand brand;
     
