@@ -3191,6 +3191,12 @@ public static class PriceAdjustmentUpdate{
     
     
     
+    @JsonProperty("auto_remove")
+    private Boolean autoRemove;
+    
+    
+    
+    
     @JsonProperty("meta")
     private Object meta;
     
@@ -3284,6 +3290,12 @@ public static class PriceAdjustment{
     
     @JsonProperty("article_ids")
     private List<Article> articleIds;
+    
+    
+    
+    
+    @JsonProperty("auto_remove")
+    private Boolean autoRemove;
     
     
     
@@ -3443,6 +3455,12 @@ public static class PriceAdjustmentAdd{
     
     @JsonProperty("cart_id")
     private String cartId;
+    
+    
+    
+    
+    @JsonProperty("auto_remove")
+    private Boolean autoRemove;
     
     
     

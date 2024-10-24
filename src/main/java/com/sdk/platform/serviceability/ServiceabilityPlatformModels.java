@@ -821,6 +821,37 @@ public static class ZoneProductTypes{
 
 
 /*
+    Model: ZoneMappingDetailType
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ZoneMappingDetailType{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("regions")
+    private List<ZoneMappingRegions> regions;
+    
+    
+    
+}
+
+
+/*
     Model: ZoneMappingType
 */
 @AllArgsConstructor
@@ -843,14 +874,57 @@ public static class ZoneMappingType{
     
     
     
-    @JsonProperty("pincode")
-    private List<String> pincode;
+    @JsonProperty("regions")
+    private List<String> regions;
+    
+    
+    
+}
+
+
+/*
+    Model: ZoneMappingRegions
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ZoneMappingRegions{
+
+    
+
     
     
     
     
-    @JsonProperty("state")
-    private List<String> state;
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("parent_id")
+    private List<String> parentId;
+    
+    
+    
+    
+    @JsonProperty("parent_uid")
+    private String parentUid;
+    
+    
+    
+    
+    @JsonProperty("sub_type")
+    private String subType;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private String uid;
     
     
     
@@ -930,12 +1004,6 @@ public static class UpdateZoneData{
     
     @JsonProperty("mapping")
     private List<ZoneMappingType> mapping;
-    
-    
-    
-    
-    @JsonProperty("assignment_preference")
-    private String assignmentPreference;
     
     
     
@@ -1081,12 +1149,6 @@ public static class GetZoneDataViewItems{
     
     
     
-    @JsonProperty("assignment_preference")
-    private String assignmentPreference;
-    
-    
-    
-    
     @JsonProperty("stores_count")
     private Integer storesCount;
     
@@ -1192,19 +1254,7 @@ public static class GetZoneByIdSchema{
     
     
     @JsonProperty("mapping")
-    private List<ZoneMappingType> mapping;
-    
-    
-    
-    
-    @JsonProperty("assignment_preference")
-    private String assignmentPreference;
-    
-    
-    
-    
-    @JsonProperty("stores_count")
-    private Integer storesCount;
+    private List<ZoneMappingDetailType> mapping;
     
     
     
@@ -1264,6 +1314,12 @@ public static class CreateZoneData{
     
     
     
+    @JsonProperty("product")
+    private ZoneProductTypes product;
+    
+    
+    
+    
     @JsonProperty("region_type")
     private String regionType;
     
@@ -1272,12 +1328,6 @@ public static class CreateZoneData{
     
     @JsonProperty("mapping")
     private List<ZoneMappingType> mapping;
-    
-    
-    
-    
-    @JsonProperty("assignment_preference")
-    private String assignmentPreference;
     
     
     
@@ -1407,12 +1457,6 @@ public static class Zone{
     
     @JsonProperty("store_ids")
     private List<Integer> storeIds;
-    
-    
-    
-    
-    @JsonProperty("assignment_preference")
-    private String assignmentPreference;
     
     
     
