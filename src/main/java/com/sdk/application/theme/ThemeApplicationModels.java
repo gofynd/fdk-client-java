@@ -135,7 +135,7 @@ public static class AvailablePageSectionMetaAttributes{
     
     
     @JsonProperty("attributes")
-    private Object attributes;
+    private HashMap<String,Object> attributes;
     
     
     
@@ -509,14 +509,8 @@ public static class AvailablePageSchemaSections{
     
     
     
-    @JsonProperty("source")
-    private String source;
-    
-    
-    
-    
     @JsonProperty("props")
-    private Object props;
+    private HashMap<String,Object> props;
     
     
     
@@ -528,13 +522,93 @@ public static class AvailablePageSchemaSections{
     
     
     @JsonProperty("preset")
-    private Object preset;
+    private HashMap<String,Object> preset;
     
     
     
     
     @JsonProperty("predicate")
     private AvailablePagePredicate predicate;
+    
+    
+    
+    
+    @JsonProperty("__source")
+    private SectionSource source;
+    
+    
+    
+    
+    @JsonProperty("assets")
+    private SectionAssets assets;
+    
+    
+    
+}
+
+
+/*
+    Model: SectionAssets
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SectionAssets{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("js")
+    private String js;
+    
+    
+    
+    
+    @JsonProperty("css")
+    private String css;
+    
+    
+    
+}
+
+
+/*
+    Model: SectionSource
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SectionSource{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("bundle_name")
+    private String bundleName;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
     
     
     
@@ -694,7 +768,7 @@ public static class AvailablePageRoutePredicate{
     
     
     @JsonProperty("query")
-    private Object query;
+    private HashMap<String,Object> query;
     
     
     
@@ -828,7 +902,7 @@ public static class ThemesSchema{
     
     
     @JsonProperty("styles")
-    private Object styles;
+    private HashMap<String,Object> styles;
     
     
     
@@ -1049,7 +1123,7 @@ public static class ThemeConfiguration{
     
     
     @JsonProperty("global_config")
-    private Object globalConfig;
+    private HashMap<String,Object> globalConfig;
     
     
     
@@ -1280,37 +1354,6 @@ public static class CustomProps{
     
     @JsonProperty("menu_position")
     private String menuPosition;
-    
-    
-    
-}
-
-
-/*
-    Model: GlobalConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GlobalConfig{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("statics")
-    private StaticConfig statics;
-    
-    
-    
-    
-    @JsonProperty("custom")
-    private CustomConfig custom;
     
     
     

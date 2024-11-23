@@ -171,13 +171,13 @@ public class ApplicationClient {
         }    
     }
 
-    public SharePlatformModels.ClickStatsResponse getShortLinkClickStats(String surlId) throws FDKServerResponseError, FDKException {
+    public SharePlatformModels.ClickStatsResult getShortLinkClickStats(String surlId) throws FDKServerResponseError, FDKException {
         return this.getShortLinkClickStats(surlId, new HashMap<>());
     }
 
-    public SharePlatformModels.ClickStatsResponse getShortLinkClickStats(String surlId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public SharePlatformModels.ClickStatsResult getShortLinkClickStats(String surlId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<SharePlatformModels.ClickStatsResponse> response = null;
+            Response<SharePlatformModels.ClickStatsResult> response = null;
             try {
             response = sharePlatformApiList.getShortLinkClickStats(this.companyId, this.applicationId, surlId, requestHeaders).execute();
                 if (!response.isSuccessful()) {

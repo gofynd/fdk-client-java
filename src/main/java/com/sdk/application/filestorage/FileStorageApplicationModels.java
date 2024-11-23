@@ -82,7 +82,7 @@ public static class Upload{
 
 
 /*
-    Model: StartResponse
+    Model: FileUpload
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -90,7 +90,7 @@ public static class Upload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StartResponse{
+public static class FileUpload{
 
     
 
@@ -146,12 +146,6 @@ public static class StartResponse{
     
     
     
-    @JsonProperty("cdn")
-    private CDN cdn;
-    
-    
-    
-    
     @JsonProperty("tags")
     private List<String> tags;
     
@@ -186,7 +180,7 @@ public static class Params{
 
 
 /*
-    Model: StartRequest
+    Model: FileUploadStart
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -194,7 +188,7 @@ public static class Params{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StartRequest{
+public static class FileUploadStart{
 
     
 
@@ -260,7 +254,7 @@ public static class CreatedBy{
 
 
 /*
-    Model: CompleteResponse
+    Model: FileUploadComplete
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -268,7 +262,7 @@ public static class CreatedBy{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompleteResponse{
+public static class FileUploadComplete{
 
     
 
@@ -400,7 +394,7 @@ public static class Urls{
 
 
 /*
-    Model: SignUrlResponse
+    Model: SignUrlResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -408,7 +402,7 @@ public static class Urls{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SignUrlResponse{
+public static class SignUrlResult{
 
     
 
@@ -425,7 +419,7 @@ public static class SignUrlResponse{
 
 
 /*
-    Model: SignUrlRequest
+    Model: SignUrl
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -433,7 +427,7 @@ public static class SignUrlResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SignUrlRequest{
+public static class SignUrl{
 
     
 

@@ -14,7 +14,7 @@ public class CommunicationPlatformModels{
 
 
 /*
-    Model: EventSubscriptionsBulkUpdateRequest
+    Model: EventSubscriptionsBulkUpdatePayload
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class CommunicationPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventSubscriptionsBulkUpdateRequest{
+public static class EventSubscriptionsBulkUpdatePayload{
 
     
 
@@ -39,7 +39,7 @@ public static class EventSubscriptionsBulkUpdateRequest{
 
 
 /*
-    Model: EventSubscriptionsBulkUpdateResponse
+    Model: EventSubscriptionsBulkUpdateResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -47,7 +47,7 @@ public static class EventSubscriptionsBulkUpdateRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventSubscriptionsBulkUpdateResponse{
+public static class EventSubscriptionsBulkUpdateResult{
 
     
 
@@ -1801,7 +1801,7 @@ public static class EmailTemplateReq{
     
     
     @JsonProperty("template_variables")
-    private Object templateVariables;
+    private HashMap<String,Object> templateVariables;
     
     
     
@@ -2007,7 +2007,7 @@ public static class EmailTemplate{
     
     
     @JsonProperty("template_variables")
-    private Object templateVariables;
+    private HashMap<String,Object> templateVariables;
     
     
     
@@ -2170,7 +2170,7 @@ public static class SystemEmailTemplate{
     
     
     @JsonProperty("template_variables")
-    private Object templateVariables;
+    private HashMap<String,Object> templateVariables;
     
     
     
@@ -2554,7 +2554,7 @@ public static class MetaStructure{
 
 
 /*
-    Model: EngineRequest
+    Model: EnginePayload
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2562,7 +2562,7 @@ public static class MetaStructure{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EngineRequest{
+public static class EnginePayload{
 
     
 
@@ -2585,7 +2585,7 @@ public static class EngineRequest{
 
 
 /*
-    Model: EngineResponse
+    Model: EngineResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2593,7 +2593,7 @@ public static class EngineRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EngineResponse{
+public static class EngineResult{
 
     
 
@@ -2807,7 +2807,7 @@ public static class EventSubscriptions{
 
 
 /*
-    Model: TriggerJobResponse
+    Model: TriggerJobResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2815,7 +2815,7 @@ public static class EventSubscriptions{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TriggerJobResponse{
+public static class TriggerJobResult{
 
     
 
@@ -2832,7 +2832,7 @@ public static class TriggerJobResponse{
 
 
 /*
-    Model: TriggerJobRequest
+    Model: TriggerJobPayload
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2840,7 +2840,7 @@ public static class TriggerJobResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TriggerJobRequest{
+public static class TriggerJobPayload{
 
     
 
@@ -2857,7 +2857,7 @@ public static class TriggerJobRequest{
 
 
 /*
-    Model: GlobalVariablesGetResponse
+    Model: GetGlobalVariablesResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2865,7 +2865,7 @@ public static class TriggerJobRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GlobalVariablesGetResponse{
+public static class GetGlobalVariablesResult{
 
     
 
@@ -2874,13 +2874,13 @@ public static class GlobalVariablesGetResponse{
     
     
     @JsonProperty("read_only")
-    private Object readOnly;
+    private HashMap<String,Object> readOnly;
     
     
     
     
     @JsonProperty("editable")
-    private Object editable;
+    private HashMap<String,Object> editable;
     
     
     
@@ -2888,7 +2888,7 @@ public static class GlobalVariablesGetResponse{
 
 
 /*
-    Model: GlobalVariablesPostResponse
+    Model: CreateGlobalVariablesResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2896,7 +2896,7 @@ public static class GlobalVariablesGetResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GlobalVariablesPostResponse{
+public static class CreateGlobalVariablesResult{
 
     
 
@@ -2923,7 +2923,7 @@ public static class GlobalVariablesPostResponse{
     
     
     @JsonProperty("global_variables")
-    private Object globalVariables;
+    private HashMap<String,Object> globalVariables;
     
     
     
@@ -2954,7 +2954,7 @@ public static class GlobalVariablesReq{
     
     
     @JsonProperty("global_variables")
-    private Object globalVariables;
+    private HashMap<String,Object> globalVariables;
     
     
     
@@ -4142,6 +4142,18 @@ public static class SmsProviderReq{
     
     
     
+    
+    @JsonProperty("tenant_name_1")
+    private String tenantName1;
+    
+    
+    
+    
+    @JsonProperty("tenant_name_2")
+    private String tenantName2;
+    
+    
+    
 }
 
 
@@ -4486,7 +4498,7 @@ public static class SmsTemplate{
     
     
     @JsonProperty("template_variables")
-    private Object templateVariables;
+    private HashMap<String,Object> templateVariables;
     
     
     
@@ -4607,7 +4619,7 @@ public static class SystemSmsTemplates{
     
     
     @JsonProperty("template_variables")
-    private Object templateVariables;
+    private HashMap<String,Object> templateVariables;
     
     
     
@@ -4741,7 +4753,7 @@ public static class SmsTemplateReq{
     
     
     @JsonProperty("template_variables")
-    private Object templateVariables;
+    private HashMap<String,Object> templateVariables;
     
     
     

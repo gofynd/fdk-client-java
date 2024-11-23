@@ -70,15 +70,15 @@ import com.sdk.application.*;
     }
     
 
-    public RewardsApplicationModels.CatalogueOrderResponse catalogueOrder(RewardsApplicationModels.CatalogueOrderRequest body) throws IOException {
+    public RewardsApplicationModels.CatalogueOrderDetails catalogueOrder(RewardsApplicationModels.CatalogueOrderCreation body) throws IOException {
         return this.catalogueOrder(body, new HashMap<>());
     }
 
-    public RewardsApplicationModels.CatalogueOrderResponse catalogueOrder(RewardsApplicationModels.CatalogueOrderRequest body, Map<String, String> requestHeaders) throws IOException {
+    public RewardsApplicationModels.CatalogueOrderDetails catalogueOrder(RewardsApplicationModels.CatalogueOrderCreation body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("catalogueOrder");
 
-        Response<RewardsApplicationModels.CatalogueOrderResponse> response = rewardsApplicationApiList.catalogueOrder(fullUrl, body, requestHeaders).execute();
+        Response<RewardsApplicationModels.CatalogueOrderDetails> response = rewardsApplicationApiList.catalogueOrder(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -87,15 +87,15 @@ import com.sdk.application.*;
     }
     
 
-    public RewardsApplicationModels.PointsHistoryResponse getUserPointsHistory(String pageId, Integer pageSize) throws IOException {
+    public RewardsApplicationModels.PointsHistoryDetails getUserPointsHistory(String pageId, Integer pageSize) throws IOException {
         return this.getUserPointsHistory(pageId, pageSize, new HashMap<>());
     }
 
-    public RewardsApplicationModels.PointsHistoryResponse getUserPointsHistory(String pageId, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+    public RewardsApplicationModels.PointsHistoryDetails getUserPointsHistory(String pageId, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getUserPointsHistory");
 
-        Response<RewardsApplicationModels.PointsHistoryResponse> response = rewardsApplicationApiList.getUserPointsHistory(fullUrl, pageId, pageSize, requestHeaders).execute();
+        Response<RewardsApplicationModels.PointsHistoryDetails> response = rewardsApplicationApiList.getUserPointsHistory(fullUrl, pageId, pageSize, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -104,15 +104,15 @@ import com.sdk.application.*;
     }
     
 
-    public RewardsApplicationModels.PointsResponse getUserPoints() throws IOException {
+    public RewardsApplicationModels.PointsDetails getUserPoints() throws IOException {
         return this.getUserPoints(new HashMap<>());
     }
 
-    public RewardsApplicationModels.PointsResponse getUserPoints(Map<String, String> requestHeaders) throws IOException {
+    public RewardsApplicationModels.PointsDetails getUserPoints(Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getUserPoints");
 
-        Response<RewardsApplicationModels.PointsResponse> response = rewardsApplicationApiList.getUserPoints(fullUrl, requestHeaders).execute();
+        Response<RewardsApplicationModels.PointsDetails> response = rewardsApplicationApiList.getUserPoints(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -121,15 +121,15 @@ import com.sdk.application.*;
     }
     
 
-    public RewardsApplicationModels.ReferralDetailsResponse getUserReferralDetails() throws IOException {
+    public RewardsApplicationModels.ReferralDetails getUserReferralDetails() throws IOException {
         return this.getUserReferralDetails(new HashMap<>());
     }
 
-    public RewardsApplicationModels.ReferralDetailsResponse getUserReferralDetails(Map<String, String> requestHeaders) throws IOException {
+    public RewardsApplicationModels.ReferralDetails getUserReferralDetails(Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getUserReferralDetails");
 
-        Response<RewardsApplicationModels.ReferralDetailsResponse> response = rewardsApplicationApiList.getUserReferralDetails(fullUrl, requestHeaders).execute();
+        Response<RewardsApplicationModels.ReferralDetails> response = rewardsApplicationApiList.getUserReferralDetails(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -138,15 +138,15 @@ import com.sdk.application.*;
     }
     
 
-    public RewardsApplicationModels.OrderDiscountResponse getOrderDiscount(RewardsApplicationModels.OrderDiscountRequest body) throws IOException {
+    public RewardsApplicationModels.OrderDiscountDetails getOrderDiscount(RewardsApplicationModels.RetrieveOrderDiscount body) throws IOException {
         return this.getOrderDiscount(body, new HashMap<>());
     }
 
-    public RewardsApplicationModels.OrderDiscountResponse getOrderDiscount(RewardsApplicationModels.OrderDiscountRequest body, Map<String, String> requestHeaders) throws IOException {
+    public RewardsApplicationModels.OrderDiscountDetails getOrderDiscount(RewardsApplicationModels.RetrieveOrderDiscount body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getOrderDiscount");
 
-        Response<RewardsApplicationModels.OrderDiscountResponse> response = rewardsApplicationApiList.getOrderDiscount(fullUrl, body, requestHeaders).execute();
+        Response<RewardsApplicationModels.OrderDiscountDetails> response = rewardsApplicationApiList.getOrderDiscount(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -155,15 +155,15 @@ import com.sdk.application.*;
     }
     
 
-    public RewardsApplicationModels.RedeemReferralCodeResponse redeemReferralCode(RewardsApplicationModels.RedeemReferralCodeRequest body) throws IOException {
+    public RewardsApplicationModels.RedeemReferralCodeDetails redeemReferralCode(RewardsApplicationModels.RedeemReferralCode body) throws IOException {
         return this.redeemReferralCode(body, new HashMap<>());
     }
 
-    public RewardsApplicationModels.RedeemReferralCodeResponse redeemReferralCode(RewardsApplicationModels.RedeemReferralCodeRequest body, Map<String, String> requestHeaders) throws IOException {
+    public RewardsApplicationModels.RedeemReferralCodeDetails redeemReferralCode(RewardsApplicationModels.RedeemReferralCode body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("redeemReferralCode");
 
-        Response<RewardsApplicationModels.RedeemReferralCodeResponse> response = rewardsApplicationApiList.redeemReferralCode(fullUrl, body, requestHeaders).execute();
+        Response<RewardsApplicationModels.RedeemReferralCodeDetails> response = rewardsApplicationApiList.redeemReferralCode(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
