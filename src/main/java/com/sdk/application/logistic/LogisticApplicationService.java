@@ -232,16 +232,16 @@ import com.sdk.application.*;
     }
     
 
-    public LogisticApplicationModels.GetLocalities getLocalities(String localityType, String country, String state, String city, Integer pageNo, Integer pageSize, String q) throws IOException {
-        return this.getLocalities(localityType, country, state, city, pageNo, pageSize, q, new HashMap<>());
+    public LogisticApplicationModels.GetLocalities getLocalities(String localityType, String country, String state, String city, Integer pageNo, Integer pageSize, String q, String sector) throws IOException {
+        return this.getLocalities(localityType, country, state, city, pageNo, pageSize, q, sector, new HashMap<>());
     }
 
-    public LogisticApplicationModels.GetLocalities getLocalities(String localityType, String country, String state, String city, Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws IOException {
+    public LogisticApplicationModels.GetLocalities getLocalities(String localityType, String country, String state, String city, Integer pageNo, Integer pageSize, String q, String sector, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getLocalities");
         fullUrl = fullUrl.replace("{" + "locality_type" + "}",localityType.toString());
 
-        Response<LogisticApplicationModels.GetLocalities> response = logisticApplicationApiList.getLocalities(fullUrl, country, state, city, pageNo, pageSize, q, requestHeaders).execute();
+        Response<LogisticApplicationModels.GetLocalities> response = logisticApplicationApiList.getLocalities(fullUrl, country, state, city, pageNo, pageSize, q, sector, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

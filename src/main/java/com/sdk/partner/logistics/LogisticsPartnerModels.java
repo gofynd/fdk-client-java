@@ -272,6 +272,55 @@ public static class Page{
 
 
 /*
+    Model: CourierAccountUpdateDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierAccountUpdateDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("extension_id")
+    private String extensionId;
+    
+    
+    
+    
+    @JsonProperty("scheme_id")
+    private String schemeId;
+    
+    
+    
+    
+    @JsonProperty("is_self_ship")
+    private Boolean isSelfShip;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("is_own_account")
+    private Boolean isOwnAccount;
+    
+    
+    
+}
+
+
+/*
     Model: RegionTatItemResult
 */
 @AllArgsConstructor
@@ -362,6 +411,12 @@ public static class ServiceabilityDetailsResult{
     
     
     
+    @JsonProperty("reverse_pickup")
+    private Boolean reversePickup;
+    
+    
+    
+    
     @JsonProperty("cod_limit")
     private Double codLimit;
     
@@ -425,6 +480,12 @@ public static class ServiceabilityDetails{
     
     @JsonProperty("last_mile")
     private Boolean lastMile;
+    
+    
+    
+    
+    @JsonProperty("reverse_pickup")
+    private Boolean reversePickup;
     
     
     
@@ -516,6 +577,12 @@ public static class RegionServiceabilityResult{
     
     @JsonProperty("last_mile")
     private Boolean lastMile;
+    
+    
+    
+    
+    @JsonProperty("reverse_pickup")
+    private Boolean reversePickup;
     
     
     
@@ -613,6 +680,12 @@ public static class RegionServiceabilityDetails{
     
     @JsonProperty("last_mile")
     private Boolean lastMile;
+    
+    
+    
+    
+    @JsonProperty("reverse_pickup")
+    private Boolean reversePickup;
     
     
     
@@ -1552,6 +1625,376 @@ public static class CourierPartnerSchemeFeatures{
 
 
 /*
+    Model: CourierPartnerSchemeV2Features
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerSchemeV2Features{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("doorstep_qc")
+    private Boolean doorstepQc;
+    
+    
+    
+    
+    @JsonProperty("qr")
+    private Boolean qr;
+    
+    
+    
+    
+    @JsonProperty("mps")
+    private Boolean mps;
+    
+    
+    
+    
+    @JsonProperty("ndr")
+    private Boolean ndr;
+    
+    
+    
+    
+    @JsonProperty("dangerous_goods")
+    private Boolean dangerousGoods;
+    
+    
+    
+    
+    @JsonProperty("fragile_goods")
+    private Boolean fragileGoods;
+    
+    
+    
+    
+    @JsonProperty("restricted_goods")
+    private Boolean restrictedGoods;
+    
+    
+    
+    
+    @JsonProperty("cold_storage_goods")
+    private Boolean coldStorageGoods;
+    
+    
+    
+    
+    @JsonProperty("doorstep_exchange")
+    private Boolean doorstepExchange;
+    
+    
+    
+    
+    @JsonProperty("doorstep_return")
+    private Boolean doorstepReturn;
+    
+    
+    
+    
+    @JsonProperty("product_installation")
+    private Boolean productInstallation;
+    
+    
+    
+    
+    @JsonProperty("openbox_delivery")
+    private Boolean openboxDelivery;
+    
+    
+    
+    
+    @JsonProperty("multi_pick_single_drop")
+    private Boolean multiPickSingleDrop;
+    
+    
+    
+    
+    @JsonProperty("single_pick_multi_drop")
+    private Boolean singlePickMultiDrop;
+    
+    
+    
+    
+    @JsonProperty("multi_pick_multi_drop")
+    private Boolean multiPickMultiDrop;
+    
+    
+    
+    
+    @JsonProperty("ewaybill")
+    private Boolean ewaybill;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerSchemeV2DetailsModel
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerSchemeV2DetailsModel{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("extension_id")
+    private String extensionId;
+    
+    
+    
+    
+    @JsonProperty("scheme_id")
+    private String schemeId;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("weight")
+    private ArithmeticOperations weight;
+    
+    
+    
+    
+    @JsonProperty("volumetric_weight")
+    private ArithmeticOperations volumetricWeight;
+    
+    
+    
+    
+    @JsonProperty("transport_type")
+    private String transportType;
+    
+    
+    
+    
+    @JsonProperty("region")
+    private String region;
+    
+    
+    
+    
+    @JsonProperty("delivery_type")
+    private String deliveryType;
+    
+    
+    
+    
+    @JsonProperty("payment_mode")
+    private List<String> paymentMode;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("status_updates")
+    private String statusUpdates;
+    
+    
+    
+    
+    @JsonProperty("ndr_attempts")
+    private Integer ndrAttempts;
+    
+    
+    
+    
+    @JsonProperty("qc_shipment_item_quantity")
+    private Integer qcShipmentItemQuantity;
+    
+    
+    
+    
+    @JsonProperty("non_qc_shipment_item_quantity")
+    private Integer nonQcShipmentItemQuantity;
+    
+    
+    
+    
+    @JsonProperty("feature")
+    private CourierPartnerSchemeV2Features feature;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerV2SchemeModel
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerV2SchemeModel{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("extension_id")
+    private String extensionId;
+    
+    
+    
+    
+    @JsonProperty("scheme_id")
+    private String schemeId;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private String companyId;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("weight")
+    private ArithmeticOperations weight;
+    
+    
+    
+    
+    @JsonProperty("volumetric_weight")
+    private ArithmeticOperations volumetricWeight;
+    
+    
+    
+    
+    @JsonProperty("transport_type")
+    private String transportType;
+    
+    
+    
+    
+    @JsonProperty("region")
+    private String region;
+    
+    
+    
+    
+    @JsonProperty("delivery_type")
+    private String deliveryType;
+    
+    
+    
+    
+    @JsonProperty("payment_mode")
+    private List<String> paymentMode;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("status_updates")
+    private String statusUpdates;
+    
+    
+    
+    
+    @JsonProperty("ndr_attempts")
+    private Integer ndrAttempts;
+    
+    
+    
+    
+    @JsonProperty("qc_shipment_item_quantity")
+    private Integer qcShipmentItemQuantity;
+    
+    
+    
+    
+    @JsonProperty("non_qc_shipment_item_quantity")
+    private Integer nonQcShipmentItemQuantity;
+    
+    
+    
+    
+    @JsonProperty("feature")
+    private CourierPartnerSchemeV2Features feature;
+    
+    
+    
+}
+
+
+/*
+    Model: courierPartnerSchemeV2List
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class courierPartnerSchemeV2List{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<CourierPartnerV2SchemeModel> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
     Model: ArithmeticOperations
 */
 @AllArgsConstructor
@@ -1595,7 +2038,7 @@ public static class ArithmeticOperations{
 
 
 /*
-    Model: CourierPartnerSchemeUpdateDetails
+    Model: CourierPartnerSchemeV2UpdateDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1603,7 +2046,7 @@ public static class ArithmeticOperations{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CourierPartnerSchemeUpdateDetails{
+public static class CourierPartnerSchemeV2UpdateDetails{
 
     
 
@@ -1619,6 +2062,12 @@ public static class CourierPartnerSchemeUpdateDetails{
     
     @JsonProperty("weight")
     private ArithmeticOperations weight;
+    
+    
+    
+    
+    @JsonProperty("volumetric_weight")
+    private ArithmeticOperations volumetricWeight;
     
     
     
@@ -1653,8 +2102,32 @@ public static class CourierPartnerSchemeUpdateDetails{
     
     
     
+    @JsonProperty("status_updates")
+    private String statusUpdates;
+    
+    
+    
+    
+    @JsonProperty("ndr_attempts")
+    private Integer ndrAttempts;
+    
+    
+    
+    
+    @JsonProperty("qc_shipment_item_quantity")
+    private Integer qcShipmentItemQuantity;
+    
+    
+    
+    
+    @JsonProperty("non_qc_shipment_item_quantity")
+    private Integer nonQcShipmentItemQuantity;
+    
+    
+    
+    
     @JsonProperty("feature")
-    private CourierPartnerSchemeFeatures feature;
+    private CourierPartnerSchemeV2Features feature;
     
     
     

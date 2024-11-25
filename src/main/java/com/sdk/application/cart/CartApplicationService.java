@@ -33,6 +33,7 @@ import com.sdk.application.*;
         relativeUrls.put("getCartLastModified","/service/application/cart/v1.0/detail".substring(1));
         relativeUrls.put("addItems","/service/application/cart/v1.0/detail".substring(1));
         relativeUrls.put("updateCart","/service/application/cart/v1.0/detail".substring(1));
+        relativeUrls.put("updateCartBreakup","/service/application/cart/v1.0/detail".substring(1));
         relativeUrls.put("deleteCart","/service/application/cart/v1.0/cart_archive".substring(1));
         relativeUrls.put("getItemCount","/service/application/cart/v1.0/basic".substring(1));
         relativeUrls.put("getCoupons","/service/application/cart/v1.0/coupon".substring(1));
@@ -134,6 +135,23 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("updateCart");
 
         Response<CartApplicationModels.UpdateCartDetailResult> response = cartApplicationApiList.updateCart(fullUrl, id, i, b, areaCode, buyNow, cartType, orderType, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public CartApplicationModels.UpdateCartDetailResult updateCartBreakup(String id, Boolean i, Boolean b, Boolean buyNow, String cartType, CartApplicationModels.UpdateCartBreakup body) throws IOException {
+        return this.updateCartBreakup(id, i, b, buyNow, cartType, body, new HashMap<>());
+    }
+
+    public CartApplicationModels.UpdateCartDetailResult updateCartBreakup(String id, Boolean i, Boolean b, Boolean buyNow, String cartType, CartApplicationModels.UpdateCartBreakup body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("updateCartBreakup");
+
+        Response<CartApplicationModels.UpdateCartDetailResult> response = cartApplicationApiList.updateCartBreakup(fullUrl, id, i, b, buyNow, cartType, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

@@ -182,11 +182,11 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductStockStatusResponseSchema getProductStockByIds(String itemId, String alu, String skuCode, String ean, String upc) throws IOException {
+    public CatalogApplicationModels.ProductStockStatusResponseSchema getProductStockByIds(Integer itemId, String alu, String skuCode, String ean, String upc) throws IOException {
         return this.getProductStockByIds(itemId, alu, skuCode, ean, upc, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductStockStatusResponseSchema getProductStockByIds(String itemId, String alu, String skuCode, String ean, String upc, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductStockStatusResponseSchema getProductStockByIds(Integer itemId, String alu, String skuCode, String ean, String upc, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getProductStockByIds");
 
@@ -739,11 +739,11 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.FollowerCountResponseSchema getFollowerCountById(String collectionType, String collectionId) throws IOException {
+    public CatalogApplicationModels.FollowerCountResponseSchema getFollowerCountById(String collectionType, Integer collectionId) throws IOException {
         return this.getFollowerCountById(collectionType, collectionId, new HashMap<>());
     }
 
-    public CatalogApplicationModels.FollowerCountResponseSchema getFollowerCountById(String collectionType, String collectionId, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.FollowerCountResponseSchema getFollowerCountById(String collectionType, Integer collectionId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getFollowerCountById");
         fullUrl = fullUrl.replace("{" + "collection_type" + "}",collectionType.toString());
@@ -917,11 +917,11 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductBundle getProductBundlesBySlug(String slug, String id) throws IOException {
+    public CatalogApplicationModels.ProductBundle getProductBundlesBySlug(String slug, Integer id) throws IOException {
         return this.getProductBundlesBySlug(slug, id, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductBundle getProductBundlesBySlug(String slug, String id, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductBundle getProductBundlesBySlug(String slug, Integer id, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getProductBundlesBySlug");
 

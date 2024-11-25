@@ -25,7 +25,7 @@ interface CatalogApplicationApiList {
     Call<CatalogApplicationModels.ProductVariantsResponseSchema> getProductVariantsBySlug(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CatalogApplicationModels.ProductStockStatusResponseSchema> getProductStockByIds(@Url String url1, @Query("item_id") String itemId, @Query("alu") String alu, @Query("sku_code") String skuCode, @Query("ean") String ean, @Query("upc") String upc, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogApplicationModels.ProductStockStatusResponseSchema> getProductStockByIds(@Url String url1, @Query("item_id") Integer itemId, @Query("alu") String alu, @Query("sku_code") String skuCode, @Query("ean") String ean, @Query("upc") String upc, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<CatalogApplicationModels.ProductStockPolling> getProductStockForTimeByIds(@Url String url1, @Query("timestamp") String timestamp, @Query("page_size") Integer pageSize, @Query("page_id") String pageId, @HeaderMap Map<String, String> requestHeaders);
@@ -88,7 +88,7 @@ interface CatalogApplicationApiList {
     Call<CatalogApplicationModels.StoreDetails> getLocationDetailsById(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CatalogApplicationModels.ProductBundle> getProductBundlesBySlug(@Url String url1, @Query("slug") String slug, @Query("id") String id, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogApplicationModels.ProductBundle> getProductBundlesBySlug(@Url String url1, @Query("slug") String slug, @Query("id") Integer id, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<CatalogApplicationModels.ProductSizePriceResponseV3> getProductPriceBySlug(@Url String url1, @Query("store_id") Integer storeId, @Query("moq") Integer moq, @HeaderMap Map<String, String> requestHeaders);

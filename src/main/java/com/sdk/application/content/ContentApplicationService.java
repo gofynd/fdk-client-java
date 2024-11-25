@@ -43,8 +43,6 @@ import com.sdk.application.*;
         relativeUrls.put("getNavigations","/service/application/content/v1.0/navigations".substring(1));
         relativeUrls.put("getSEOConfiguration","/service/application/content/v1.0/seo".substring(1));
         relativeUrls.put("getSEOMarkupSchemas","/service/application/content/v1.0/seo/schema".substring(1));
-        relativeUrls.put("getSlideshows","/service/application/content/v1.0/slideshow".substring(1));
-        relativeUrls.put("getSlideshow","/service/application/content/v1.0/slideshow/{slug}".substring(1));
         relativeUrls.put("getSupportInformation","/service/application/content/v1.0/support".substring(1));
         relativeUrls.put("getTags","/service/application/content/v1.0/tags".substring(1));
         relativeUrls.put("getPage","/service/application/content/v2.0/pages/{slug}".substring(1));
@@ -301,41 +299,6 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("getSEOMarkupSchemas");
 
         Response<ContentApplicationModels.SeoSchemaComponent> response = contentApplicationApiList.getSEOMarkupSchemas(fullUrl, pageType, active, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public ContentApplicationModels.SlideshowGetDetails getSlideshows(Integer pageNo, Integer pageSize) throws IOException {
-        return this.getSlideshows(pageNo, pageSize, new HashMap<>());
-    }
-
-    public ContentApplicationModels.SlideshowGetDetails getSlideshows(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getSlideshows");
-
-        Response<ContentApplicationModels.SlideshowGetDetails> response = contentApplicationApiList.getSlideshows(fullUrl, pageNo, pageSize, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public ContentApplicationModels.SlideshowSchema getSlideshow(String slug) throws IOException {
-        return this.getSlideshow(slug, new HashMap<>());
-    }
-
-    public ContentApplicationModels.SlideshowSchema getSlideshow(String slug, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getSlideshow");
-        fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
-
-        Response<ContentApplicationModels.SlideshowSchema> response = contentApplicationApiList.getSlideshow(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

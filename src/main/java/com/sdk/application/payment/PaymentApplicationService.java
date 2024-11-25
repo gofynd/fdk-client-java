@@ -74,7 +74,8 @@ import com.sdk.application.*;
         relativeUrls.put("customerOnboard","/service/application/payment/v1.0/credit-onboard/".substring(1));
         relativeUrls.put("outstandingOrderDetails","/service/application/payment/v1.0/payment/outstanding-orders/".substring(1));
         relativeUrls.put("paidOrderDetails","/service/application/payment/v1.0/payment/paid-orders/".substring(1));
-        relativeUrls.put("createPaymentOrder","/service/application/payment/v1.0/payment-orders/".substring(1)); 
+        relativeUrls.put("createPaymentOrder","/service/application/payment/v1.0/payment-orders/".substring(1));
+        relativeUrls.put("validateCustomerAndCreditSummary","/service/application/payment/v1.0/payment/validate/customer-credits-v2".substring(1)); 
 
     }
 
@@ -866,6 +867,23 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("createPaymentOrder");
 
         Response<PaymentApplicationModels.PaymentOrderDetails> response = paymentApplicationApiList.createPaymentOrder(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public PaymentApplicationModels.ValidateCustomerCreditSchema validateCustomerAndCreditSummary(PaymentApplicationModels.CustomerValidationSchema body) throws IOException {
+        return this.validateCustomerAndCreditSummary(body, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.ValidateCustomerCreditSchema validateCustomerAndCreditSummary(PaymentApplicationModels.CustomerValidationSchema body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("validateCustomerAndCreditSummary");
+
+        Response<PaymentApplicationModels.ValidateCustomerCreditSchema> response = paymentApplicationApiList.validateCustomerAndCreditSummary(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

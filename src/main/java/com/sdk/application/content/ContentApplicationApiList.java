@@ -49,12 +49,6 @@ interface ContentApplicationApiList {
     Call<ContentApplicationModels.SeoSchemaComponent> getSEOMarkupSchemas(@Url String url1, @Query("page_type") String pageType, @Query("active") Boolean active, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<ContentApplicationModels.SlideshowGetDetails> getSlideshows(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<ContentApplicationModels.SlideshowSchema> getSlideshow(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
     Call<ContentApplicationModels.Support> getSupportInformation(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 

@@ -180,21 +180,6 @@ interface ContentPlatformApiList {
     @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/seo/schema/{id}")
     Call<ContentPlatformModels.SEOSchemaMarkupTemplate> deleteSEOMarkupSchema(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/slideshows")
-    Call<ContentPlatformModels.SlideshowGetDetails> getSlideshows(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("device_platform") String devicePlatform, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/slideshows")
-    Call<ContentPlatformModels.SlideshowSchema> createSlideshow(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.SlideshowPayload payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/slideshows/{slug}")
-    Call<ContentPlatformModels.SlideshowSchema> getSlideshowBySlug(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("slug") String slug, @Query("device_platform") String devicePlatform, @HeaderMap Map<String, String> requestHeaders);
-
-    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/slideshows/{id}")
-    Call<ContentPlatformModels.SlideshowSchema> updateSlideshow(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body ContentPlatformModels.SlideshowPayload payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/slideshows/{id}")
-    Call<ContentPlatformModels.SlideshowSchema> deleteSlideshow(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/support")
     Call<ContentPlatformModels.Support> getSupportInformation(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 

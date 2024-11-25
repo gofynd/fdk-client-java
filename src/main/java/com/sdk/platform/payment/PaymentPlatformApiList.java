@@ -13,7 +13,7 @@ interface PaymentPlatformApiList {
     Call<PaymentPlatformModels.PaymentGatewayToBeReviewed> saveBrandPaymentGatewayConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.PaymentGatewayConfigCreation payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options")
-    Call<PaymentPlatformModels.PaymentOptionsDetails> getPaymentModeRoutes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("refresh") Boolean refresh, @Query("request_type") String requestType, @Query("order_id") String orderId, @Query("shipment_id") String shipmentId, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentPlatformModels.PaymentOptionsDetails> getPaymentModeRoutes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("refresh") Boolean refresh, @Query("request_type") String requestType, @Query("order_id") String orderId, @Query("shipment_id") String shipmentId, @Query("amount") Integer amount, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/payment/v1.0/company/{company_id}/payouts")
     Call<PaymentPlatformModels.PayoutsDetails> getAllPayouts(@Path("company_id") String companyId, @Query("unique_external_id") String uniqueExternalId, @HeaderMap Map<String, String> requestHeaders);

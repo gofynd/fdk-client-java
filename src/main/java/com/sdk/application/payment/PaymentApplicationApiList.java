@@ -143,4 +143,7 @@ interface PaymentApplicationApiList {
 
     @POST 
     Call<PaymentApplicationModels.PaymentOrderDetails> createPaymentOrder(@Url String url1, @Body PaymentApplicationModels.PaymentOrder payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST 
+    Call<PaymentApplicationModels.ValidateCustomerCreditSchema> validateCustomerAndCreditSummary(@Url String url1, @Body PaymentApplicationModels.CustomerValidationSchema payload, @HeaderMap Map<String, String> requestHeaders);
 }

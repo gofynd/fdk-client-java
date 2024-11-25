@@ -273,6 +273,12 @@ public static class PincodeMetaResult{
     
     
     
+    
+    @JsonProperty("deliverables")
+    private List<String> deliverables;
+    
+    
+    
 }
 
 
@@ -326,6 +332,66 @@ public static class CountryMetaResult{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("iso2")
+    private String iso2;
+    
+    
+    
+    
+    @JsonProperty("iso3")
+    private String iso3;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private CurrencyObject currency;
+    
+    
+    
+    
+    @JsonProperty("phone_code")
+    private String phoneCode;
+    
+    
+    
+    
+    @JsonProperty("parent_id")
+    private String parentId;
+    
+    
+    
+    
+    @JsonProperty("zone")
+    private String zone;
+    
+    
+    
+    
+    @JsonProperty("deliverables")
+    private List<String> deliverables;
+    
+    
+    
+    
+    @JsonProperty("hierarchy")
+    private List<CountryHierarchy> hierarchy;
+    
+    
+    
+    
+    @JsonProperty("latitude")
+    private String latitude;
+    
+    
+    
+    
+    @JsonProperty("longitude")
+    private String longitude;
     
     
     
@@ -479,6 +545,18 @@ public static class PincodeDetails{
     
     @JsonProperty("error")
     private PincodeErrorSchemaResult error;
+    
+    
+    
+    
+    @JsonProperty("request_uuid")
+    private String requestUuid;
+    
+    
+    
+    
+    @JsonProperty("stormbreaker_uuid")
+    private String stormbreakerUuid;
     
     
     
@@ -1122,7 +1200,7 @@ public static class CountryEntityResult{
     
     
     @JsonProperty("parent_id")
-    private String parentId;
+    private List<String> parentId;
     
     
     
@@ -1141,6 +1219,97 @@ public static class CountryEntityResult{
     
     @JsonProperty("uid")
     private String uid;
+    
+    
+    
+    
+    @JsonProperty("onboarding_allowed")
+    private Boolean onboardingAllowed;
+    
+    
+    
+    
+    @JsonProperty("serviceability")
+    private Object serviceability;
+    
+    
+    
+    
+    @JsonProperty("lat_long")
+    private PincodeLatLongData latLong;
+    
+    
+    
+}
+
+
+/*
+    Model: ServiceabilityModel
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ServiceabilityModel{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("lm_cod_limit")
+    private Integer lmCodLimit;
+    
+    
+    
+    
+    @JsonProperty("is_qc")
+    private Boolean isQc;
+    
+    
+    
+    
+    @JsonProperty("pickup_cutoff")
+    private String pickupCutoff;
+    
+    
+    
+    
+    @JsonProperty("route_code")
+    private String routeCode;
+    
+    
+    
+    
+    @JsonProperty("is_first_mile")
+    private Boolean isFirstMile;
+    
+    
+    
+    
+    @JsonProperty("is_reverse_pickup")
+    private Boolean isReversePickup;
+    
+    
+    
+    
+    @JsonProperty("is_return")
+    private Boolean isReturn;
+    
+    
+    
+    
+    @JsonProperty("is_installation")
+    private Boolean isInstallation;
+    
+    
+    
+    
+    @JsonProperty("is_last_mile")
+    private Boolean isLastMile;
     
     
     
@@ -1349,8 +1518,8 @@ public static class CountryHierarchy{
     
     
     
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
@@ -2110,6 +2279,24 @@ public static class Localities{
     
     
     
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
+    
+    @JsonProperty("lat_long")
+    private PincodeLatLongData latLong;
+    
+    
+    
+    
+    @JsonProperty("parent_uid")
+    private String parentUid;
+    
+    
+    
+    
     @JsonProperty("custom_meta")
     private HashMap<String,Object> customMeta;
     
@@ -2118,6 +2305,12 @@ public static class Localities{
     
     @JsonProperty("display_name")
     private String displayName;
+    
+    
+    
+    
+    @JsonProperty("serviceability")
+    private Object serviceability;
     
     
     
@@ -2173,6 +2366,24 @@ public static class LocalityParent{
     
     @JsonProperty("display_name")
     private String displayName;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
+    
+    @JsonProperty("parent_uid")
+    private String parentUid;
+    
+    
+    
+    
+    @JsonProperty("serviceability")
+    private Object serviceability;
     
     
     
@@ -2269,6 +2480,24 @@ public static class GetLocality{
     
     
     
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
+    
+    @JsonProperty("parent_uid")
+    private String parentUid;
+    
+    
+    
+    
+    @JsonProperty("serviceability")
+    private Object serviceability;
+    
+    
+    
+    
     @JsonProperty("code")
     private String code;
     
@@ -2295,6 +2524,74 @@ public static class GetLocality{
     
     @JsonProperty("localities")
     private List<LocalityParent> localities;
+    
+    
+    
+}
+
+
+/*
+    Model: Error
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Error{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: ErrorSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ErrorSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private Error error;
     
     
     

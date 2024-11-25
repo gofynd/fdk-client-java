@@ -61,17 +61,23 @@ interface LogisticsPartnerApiList {
     Call<LogisticsPartnerModels.CompanyCourierPartnerAccountListResult> getCourierPartnerAccounts(@Path("organization_id") String organizationId, @Path("company_id") Integer companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("stage") String stage, @Query("payment_mode") String paymentMode, @Query("transport_type") String transportType, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/partner/logistics/v1.0/organization/{organization_id}/company/{company_id}/courier-partner/account/{account_id}")
-    Call<LogisticsPartnerModels.CourierAccountResult> updateCourierPartnerAccount(@Path("organization_id") String organizationId, @Path("company_id") Integer companyId, @Path("account_id") String accountId, @Body LogisticsPartnerModels.CourierAccount payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<LogisticsPartnerModels.CourierAccountResult> updateCourierPartnerAccount(@Path("organization_id") String organizationId, @Path("company_id") Integer companyId, @Path("account_id") String accountId, @Body LogisticsPartnerModels.CourierAccountUpdateDetails payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/partner/logistics/v1.0/organization/{organization_id}/company/{company_id}/courier-partner/account/{account_id}")
     Call<LogisticsPartnerModels.CourierAccountResult> getCourierPartnerAccount(@Path("organization_id") String organizationId, @Path("company_id") Integer companyId, @Path("account_id") String accountId, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/partner/logistics/v1.0/organization/{organization_id}/courier-partner/scheme/")
-    Call<LogisticsPartnerModels.CourierPartnerSchemeModel> createCourierPartnerScheme(@Path("organization_id") String organizationId, @Body LogisticsPartnerModels.CourierPartnerSchemeDetailsModel payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @PUT ("/service/partner/logistics/v1.0/organization/{organization_id}/courier-partner/scheme/{scheme_id}")
-    Call<LogisticsPartnerModels.CourierPartnerSchemeUpdateDetails> updateCourierPartnerScheme(@Path("organization_id") String organizationId, @Path("scheme_id") String schemeId, @Body LogisticsPartnerModels.CourierPartnerSchemeUpdateDetails payload, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/partner/logistics/v2.0/organization/{organization_id}/countries")
     Call<LogisticsPartnerModels.GetCountries> getCountries(@Path("organization_id") String organizationId, @Query("onboarding") Boolean onboarding, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/partner/logistics/v2.0/organization/{organization_id}/courier-partner/scheme")
+    Call<LogisticsPartnerModels.CourierPartnerV2SchemeModel> createCourierPartnerScheme(@Path("organization_id") String organizationId, @Body LogisticsPartnerModels.CourierPartnerSchemeV2DetailsModel payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/partner/logistics/v2.0/organization/{organization_id}/courier-partner/scheme")
+    Call<LogisticsPartnerModels.courierPartnerSchemeV2List> getCourierPartnerSchemes(@Path("organization_id") String organizationId, @Query("scheme_type") String schemeType, @Query("payment_mode") String paymentMode, @Query("capabilities") List<String> capabilities, @Query("scheme_ids") List<String> schemeIds, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/partner/logistics/v2.0/organization/{organization_id}/courier-partner/scheme/{scheme_id}")
+    Call<LogisticsPartnerModels.CourierPartnerV2SchemeModel> updateCourierPartnerScheme(@Path("organization_id") String organizationId, @Path("scheme_id") String schemeId, @Body LogisticsPartnerModels.CourierPartnerSchemeV2UpdateDetails payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/partner/logistics/v2.0/organization/{organization_id}/courier-partner/scheme/{scheme_id}")
+    Call<LogisticsPartnerModels.CourierPartnerV2SchemeModel> getCourierPartnerScheme(@Path("organization_id") String organizationId, @Path("scheme_id") String schemeId, @HeaderMap Map<String, String> requestHeaders);
 }

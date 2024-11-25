@@ -3729,6 +3729,12 @@ public static class PriceAdjustmentUpdate{
     
     
     
+    @JsonProperty("auto_remove")
+    private Boolean autoRemove;
+    
+    
+    
+    
     @JsonProperty("meta")
     private HashMap<String,Object> meta;
     
@@ -3737,6 +3743,12 @@ public static class PriceAdjustmentUpdate{
     
     @JsonProperty("cart_id")
     private String cartId;
+    
+    
+    
+    
+    @JsonProperty("distribution_logic")
+    private DistributionLogic distributionLogic;
     
     
     
@@ -3826,6 +3838,12 @@ public static class PriceAdjustment{
     
     
     
+    @JsonProperty("auto_remove")
+    private Boolean autoRemove;
+    
+    
+    
+    
     @JsonProperty("meta")
     private HashMap<String,Object> meta;
     
@@ -3834,6 +3852,12 @@ public static class PriceAdjustment{
     
     @JsonProperty("cart_id")
     private String cartId;
+    
+    
+    
+    
+    @JsonProperty("distribution_logic")
+    private DistributionLogic distributionLogic;
     
     
     
@@ -3981,6 +4005,111 @@ public static class PriceAdjustmentAdd{
     
     @JsonProperty("cart_id")
     private String cartId;
+    
+    
+    
+    
+    @JsonProperty("auto_remove")
+    private Boolean autoRemove;
+    
+    
+    
+    
+    @JsonProperty("distribution_logic")
+    private DistributionLogic distributionLogic;
+    
+    
+    
+}
+
+
+/*
+    Model: DistributionRule
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DistributionRule{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("conditions")
+    private HashMap<String,Object> conditions;
+    
+    
+    
+}
+
+
+/*
+    Model: Distribution
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Distribution{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("logic")
+    private String logic;
+    
+    
+    
+    
+    @JsonProperty("rule")
+    private DistributionRule rule;
+    
+    
+    
+}
+
+
+/*
+    Model: DistributionLogic
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DistributionLogic{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("distribution_level")
+    private String distributionLevel;
+    
+    
+    
+    
+    @JsonProperty("distribution")
+    private Distribution distribution;
     
     
     
@@ -10117,6 +10246,18 @@ public static class PlatformCartCheckoutDetailCreation{
     
     
     
+    
+    @JsonProperty("success_callback_url")
+    private String successCallbackUrl;
+    
+    
+    
+    
+    @JsonProperty("failure_callback_url")
+    private String failureCallbackUrl;
+    
+    
+    
 }
 
 
@@ -11080,6 +11221,18 @@ public static class PlatformCartCheckoutDetailV2Creation{
     
     @JsonProperty("card_id")
     private String cardId;
+    
+    
+    
+    
+    @JsonProperty("success_callback_url")
+    private String successCallbackUrl;
+    
+    
+    
+    
+    @JsonProperty("failure_callback_url")
+    private String failureCallbackUrl;
     
     
     

@@ -1053,6 +1053,18 @@ public static class Item{
     
     
     
+    @JsonProperty("l2_category")
+    private List<String> l2Category;
+    
+    
+    
+    
+    @JsonProperty("l2_category_id")
+    private Double l2CategoryId;
+    
+    
+    
+    
     @JsonProperty("brand")
     private ItemBrand brand;
     
@@ -2184,6 +2196,37 @@ public static class BagsForReorder{
 
 
 /*
+    Model: CurrencySchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CurrencySchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("currency_code")
+    private String currencyCode;
+    
+    
+    
+    
+    @JsonProperty("currency_symbol")
+    private String currencySymbol;
+    
+    
+    
+}
+
+
+/*
     Model: OrderSchema
 */
 @AllArgsConstructor
@@ -2265,6 +2308,12 @@ public static class OrderSchema{
     
     
     
+    
+    @JsonProperty("currency")
+    private CurrencySchema currency;
+    
+    
+    
 }
 
 
@@ -2299,6 +2348,80 @@ public static class OrderStatuses{
     
     @JsonProperty("display")
     private String display;
+    
+    
+    
+}
+
+
+/*
+    Model: OrderGlobalFilterOption
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderGlobalFilterOption{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("display_text")
+    private String displayText;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("is_selected")
+    private Boolean isSelected;
+    
+    
+    
+}
+
+
+/*
+    Model: OrderGlobalFilter
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderGlobalFilter{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("display_test")
+    private String displayTest;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("options")
+    private List<OrderGlobalFilterOption> options;
     
     
     
@@ -2555,6 +2678,12 @@ public static class Track{
     
     
     
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
 }
 
 
@@ -2725,6 +2854,12 @@ public static class VerifyOtpResponseSchema{
     
     @JsonProperty("success")
     private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     

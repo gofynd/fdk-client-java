@@ -2550,6 +2550,129 @@ public static class CODdata{
 
 
 /*
+    Model: CODLimitConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CODLimitConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("storefront")
+    private Double storefront;
+    
+    
+    
+    
+    @JsonProperty("pos")
+    private Double pos;
+    
+    
+    
+}
+
+
+/*
+    Model: CODPaymentLimitConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CODPaymentLimitConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("usages")
+    private Double usages;
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private Integer userId;
+    
+    
+    
+    
+    @JsonProperty("merchant_user_id")
+    private String merchantUserId;
+    
+    
+    
+    
+    @JsonProperty("remaining_limit")
+    private Integer remainingLimit;
+    
+    
+    
+    
+    @JsonProperty("limit")
+    private CODLimitConfig limit;
+    
+    
+    
+}
+
+
+/*
+    Model: GetUserBULimitResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetUserBULimitResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("business_unit")
+    private String businessUnit;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("config")
+    private CODPaymentLimitConfig config;
+    
+    
+    
+}
+
+
+/*
     Model: GetUserCODLimitDetails
 */
 @AllArgsConstructor
@@ -2566,14 +2689,20 @@ public static class GetUserCODLimitDetails{
     
     
     
-    @JsonProperty("user_cod_data")
-    private CODdata userCodData;
+    @JsonProperty("items")
+    private List<GetUserBULimitResponseSchema> items;
     
     
     
     
     @JsonProperty("success")
     private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -5418,6 +5547,12 @@ public static class PaymentSessionCreation{
     
     @JsonProperty("checksum")
     private String checksum;
+    
+    
+    
+    
+    @JsonProperty("source")
+    private String source;
     
     
     

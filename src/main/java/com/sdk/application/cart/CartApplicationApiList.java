@@ -18,6 +18,9 @@ interface CartApplicationApiList {
     @PUT 
     Call<CartApplicationModels.UpdateCartDetailResult> updateCart(@Url String url1, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("area_code") String areaCode, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Query("order_type") String orderType, @Body CartApplicationModels.UpdateCartCreation payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @PATCH 
+    Call<CartApplicationModels.UpdateCartDetailResult> updateCartBreakup(@Url String url1, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Body CartApplicationModels.UpdateCartBreakup payload, @HeaderMap Map<String, String> requestHeaders);
+
     @PUT 
     Call<CartApplicationModels.DeleteCartDetailResult> deleteCart(@Url String url1, @Query("id") String id, @HeaderMap Map<String, String> requestHeaders);
 

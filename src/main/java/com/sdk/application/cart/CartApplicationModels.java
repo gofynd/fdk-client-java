@@ -2767,6 +2767,31 @@ public static class UpdateCartCreation{
 
 
 /*
+    Model: UpdateCartBreakup
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateCartBreakup{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("store_credit")
+    private Boolean storeCredit;
+    
+    
+    
+}
+
+
+/*
     Model: UpdateCartDetailResult
 */
 @AllArgsConstructor
@@ -4392,6 +4417,18 @@ public static class CartCheckoutDetailCreation{
     
     @JsonProperty("card_id")
     private String cardId;
+    
+    
+    
+    
+    @JsonProperty("success_callback_url")
+    private String successCallbackUrl;
+    
+    
+    
+    
+    @JsonProperty("failure_callback_url")
+    private String failureCallbackUrl;
     
     
     
@@ -6035,6 +6072,18 @@ public static class CartCheckoutDetailV2Creation{
     
     @JsonProperty("card_id")
     private String cardId;
+    
+    
+    
+    
+    @JsonProperty("success_callback_url")
+    private String successCallbackUrl;
+    
+    
+    
+    
+    @JsonProperty("failure_callback_url")
+    private String failureCallbackUrl;
     
     
     
