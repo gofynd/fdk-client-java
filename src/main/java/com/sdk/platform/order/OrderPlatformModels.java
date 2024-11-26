@@ -12880,7 +12880,7 @@ public static class Article{
     
     
     @JsonProperty("child_details")
-    private List<HashMap<String,Object>> childDetails;
+    private HashMap<String,Object> childDetails;
     
     
     
