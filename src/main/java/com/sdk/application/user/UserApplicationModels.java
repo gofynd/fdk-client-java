@@ -14,7 +14,7 @@ public class UserApplicationModels{
 
 
 /*
-    Model: UpdateUserAttributes
+    Model: UpdateUserAttributesRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class UserApplicationModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateUserAttributes{
+public static class UpdateUserAttributesRequest{
 
     
 
@@ -31,7 +31,7 @@ public static class UpdateUserAttributes{
     
     
     @JsonProperty("attributes")
-    private HashMap<String,Object> attributes;
+    private Object attributes;
     
     
     
@@ -56,7 +56,7 @@ public static class UserAttributes{
     
     
     @JsonProperty("attributes")
-    private HashMap<String,Object> attributes;
+    private Object attributes;
     
     
     
@@ -1111,7 +1111,7 @@ public static class AuthSuccess{
 
 
 /*
-    Model: UserExistsDetails
+    Model: UserExistsResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1119,7 +1119,7 @@ public static class AuthSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserExistsDetails{
+public static class UserExistsResponse{
 
     
 
@@ -1136,7 +1136,7 @@ public static class UserExistsDetails{
 
 
 /*
-    Model: SendOtp
+    Model: SendOtpResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1144,7 +1144,7 @@ public static class UserExistsDetails{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtp{
+public static class SendOtpResponse{
 
     
 
@@ -1694,7 +1694,7 @@ public static class DeleteUserSuccess{
 
 
 /*
-    Model: SendOtpSuccess
+    Model: OtpSuccess
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1702,7 +1702,7 @@ public static class DeleteUserSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtpSuccess{
+public static class OtpSuccess{
 
     
 
@@ -1976,7 +1976,7 @@ public static class APIError{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -2949,7 +2949,7 @@ public static class UserSchema{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
