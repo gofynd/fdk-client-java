@@ -7534,6 +7534,67 @@ public static class AddCartDetailResult{
     
     
     
+    
+    @JsonProperty("result")
+    private HashMap<String,Object> result;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<CartItemInfo> items;
+    
+    
+    
+}
+
+
+/*
+    Model: CartItemInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CartItemInfo{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("item_id")
+    private Integer itemId;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private String size;
+    
+    
+    
+    
+    @JsonProperty("store_id")
+    private Integer storeId;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
 }
 
 
@@ -7715,6 +7776,18 @@ public static class UpdateCartDetailResult{
     
     @JsonProperty("cart")
     private CartDetailResult cart;
+    
+    
+    
+    
+    @JsonProperty("result")
+    private HashMap<String,Object> result;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<CartItemInfo> items;
     
     
     

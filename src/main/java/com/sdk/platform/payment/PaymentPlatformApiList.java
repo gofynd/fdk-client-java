@@ -185,4 +185,7 @@ interface PaymentPlatformApiList {
 
     @PATCH ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/aggregators/{aggregator_id}/version")
     Call<PaymentPlatformModels.PlatformPaymentModeDetails> patchMerchantPaymentOptionVersion(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("aggregator_id") Integer aggregatorId, @Body PaymentPlatformModels.PatchAggregatorControl payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/validate/customer-credits")
+    Call<PaymentPlatformModels.ValidateCustomerCreditSchema> validateCustomerAndCreditSummary(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.CustomerValidationSchema payload, @HeaderMap Map<String, String> requestHeaders);
 }

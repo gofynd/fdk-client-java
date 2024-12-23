@@ -35,4 +35,7 @@ interface FileStoragePartnerApiList {
 
     @POST ("/service/partner/assets/v1.0/organization/{organization_id}/proxy/fetch")
     Call<FileStoragePartnerModels.SaveProxy> saveProxyDetails(@Path("organization_id") String organizationId, @Body FileStoragePartnerModels.ProxyFile payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/partner/assets/v1.0/organization/{organization_id}/sign-urls")
+    Call<FileStoragePartnerModels.SignUrlResult> signUrls(@Path("organization_id") String organizationId, @Body FileStoragePartnerModels.SignUrl payload, @HeaderMap Map<String, String> requestHeaders);
 }
