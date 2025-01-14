@@ -88,15 +88,15 @@ public class ServiceabilityPlatformService {
     
     
 
-    public ServiceabilityPlatformModels.ListViewResponse getZones(Integer pageNo, Integer pageSize, Boolean isActive, String channelId, String q, String countryIsoCode, String state, String city, String pincode, String sector) throws FDKServerResponseError, FDKException {
-        return this.getZones(pageNo, pageSize, isActive, channelId, q, countryIsoCode, state, city, pincode, sector, new HashMap<>());
+    public ServiceabilityPlatformModels.ListViewResponse getZones(Integer pageNo, Integer pageSize, Boolean isActive, String applicationId, String q, String countryIsoCode, String state, String city, String pincode, String sector) throws FDKServerResponseError, FDKException {
+        return this.getZones(pageNo, pageSize, isActive, applicationId, q, countryIsoCode, state, city, pincode, sector, new HashMap<>());
     }
 
-    public ServiceabilityPlatformModels.ListViewResponse getZones(Integer pageNo, Integer pageSize, Boolean isActive, String channelId, String q, String countryIsoCode, String state, String city, String pincode, String sector, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.ListViewResponse getZones(Integer pageNo, Integer pageSize, Boolean isActive, String applicationId, String q, String countryIsoCode, String state, String city, String pincode, String sector, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ServiceabilityPlatformModels.ListViewResponse> response = null;
             try {
-                response = serviceabilityPlatformApiList.getZones(this.companyId, pageNo, pageSize, isActive, channelId, q, countryIsoCode, state, city, pincode, sector, requestHeaders).execute();
+                response = serviceabilityPlatformApiList.getZones(this.companyId, pageNo, pageSize, isActive, applicationId, q, countryIsoCode, state, city, pincode, sector, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

@@ -7,7 +7,7 @@ import java.util.*;
 interface ServiceabilityPlatformApiList {
 
     @GET ("/service/platform/logistics/v2.0/company/{company_id}/zones")
-    Call<ServiceabilityPlatformModels.ListViewResponse> getZones(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("is_active") Boolean isActive, @Query("channel_id") String channelId, @Query("q") String q, @Query("country_iso_code") String countryIsoCode, @Query("state") String state, @Query("city") String city, @Query("pincode") String pincode, @Query("sector") String sector, @HeaderMap Map<String, String> requestHeaders);
+    Call<ServiceabilityPlatformModels.ListViewResponse> getZones(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("is_active") Boolean isActive, @Query("application_id") String applicationId, @Query("q") String q, @Query("country_iso_code") String countryIsoCode, @Query("state") String state, @Query("city") String city, @Query("pincode") String pincode, @Query("sector") String sector, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/logistics/v2.0/company/{company_id}/zones")
     Call<ServiceabilityPlatformModels.ZoneResponse> createZone(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.CreateZoneData payload, @HeaderMap Map<String, String> requestHeaders);
