@@ -1974,6 +1974,12 @@ public static class GetCountryFieldsAddress{
     
     
     
+    @JsonProperty("next")
+    private String next;
+    
+    
+    
+    
     @JsonProperty("slug")
     private String slug;
     

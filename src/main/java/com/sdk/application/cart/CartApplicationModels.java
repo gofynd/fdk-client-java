@@ -4334,6 +4334,37 @@ public static class StaffCheckout{
 
 
 /*
+    Model: OrderTag
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderTag{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("display_text")
+    private String displayText;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+}
+
+
+/*
     Model: CartCheckoutDetailCreation
 */
 @AllArgsConstructor
@@ -4502,6 +4533,12 @@ public static class CartCheckoutDetailCreation{
     
     @JsonProperty("failure_callback_url")
     private String failureCallbackUrl;
+    
+    
+    
+    
+    @JsonProperty("order_tags")
+    private List<OrderTag> orderTags;
     
     
     
@@ -6157,6 +6194,12 @@ public static class CartCheckoutDetailV2Creation{
     
     @JsonProperty("failure_callback_url")
     private String failureCallbackUrl;
+    
+    
+    
+    
+    @JsonProperty("order_tags")
+    private List<OrderTag> orderTags;
     
     
     
