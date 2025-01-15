@@ -14,7 +14,7 @@ public class LogisticApplicationModels{
 
 
 /*
-    Model: GetStoreResponse
+    Model: GetStoreResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class LogisticApplicationModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetStoreResponse{
+public static class GetStoreResult{
 
     
 
@@ -31,7 +31,7 @@ public static class GetStoreResponse{
     
     
     @JsonProperty("items")
-    private List<StoreItemResponse> items;
+    private List<StoreItemResult> items;
     
     
     
@@ -45,7 +45,7 @@ public static class GetStoreResponse{
 
 
 /*
-    Model: StoreItemResponse
+    Model: StoreItemResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -53,7 +53,7 @@ public static class GetStoreResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreItemResponse{
+public static class StoreItemResult{
 
     
 
@@ -112,7 +112,7 @@ public static class StoreItemResponse{
 
 
 /*
-    Model: ValidateAddressRequest
+    Model: ValidateAddressDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -120,7 +120,7 @@ public static class StoreItemResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ValidateAddressRequest{
+public static class ValidateAddressDetails{
 
     
 
@@ -203,7 +203,7 @@ public static class ValidateAddressRequest{
 
 
 /*
-    Model: PincodeParentsResponse
+    Model: PincodeParentsResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -211,7 +211,7 @@ public static class ValidateAddressRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PincodeParentsResponse{
+public static class PincodeParentsResult{
 
     
 
@@ -246,7 +246,7 @@ public static class PincodeParentsResponse{
 
 
 /*
-    Model: PincodeMetaResponse
+    Model: PincodeMetaResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -254,7 +254,7 @@ public static class PincodeParentsResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PincodeMetaResponse{
+public static class PincodeMetaResult{
 
     
 
@@ -273,11 +273,17 @@ public static class PincodeMetaResponse{
     
     
     
+    
+    @JsonProperty("deliverables")
+    private List<String> deliverables;
+    
+    
+    
 }
 
 
 /*
-    Model: PincodeErrorSchemaResponse
+    Model: PincodeErrorSchemaResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -285,7 +291,7 @@ public static class PincodeMetaResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PincodeErrorSchemaResponse{
+public static class PincodeErrorSchemaResult{
 
     
 
@@ -314,7 +320,7 @@ public static class PincodeErrorSchemaResponse{
 
 
 /*
-    Model: CountryMetaResponse
+    Model: CountryMetaResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -322,10 +328,70 @@ public static class PincodeErrorSchemaResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CountryMetaResponse{
+public static class CountryMetaResult{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("iso2")
+    private String iso2;
+    
+    
+    
+    
+    @JsonProperty("iso3")
+    private String iso3;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private CurrencyObject currency;
+    
+    
+    
+    
+    @JsonProperty("phone_code")
+    private String phoneCode;
+    
+    
+    
+    
+    @JsonProperty("parent_id")
+    private String parentId;
+    
+    
+    
+    
+    @JsonProperty("zone")
+    private String zone;
+    
+    
+    
+    
+    @JsonProperty("deliverables")
+    private List<String> deliverables;
+    
+    
+    
+    
+    @JsonProperty("hierarchy")
+    private List<CountryHierarchy> hierarchy;
+    
+    
+    
+    
+    @JsonProperty("latitude")
+    private String latitude;
+    
+    
+    
+    
+    @JsonProperty("longitude")
+    private String longitude;
     
     
     
@@ -376,7 +442,7 @@ public static class PincodeLatLongData{
 
 
 /*
-    Model: PincodeDataResponse
+    Model: PincodeDataResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -384,7 +450,7 @@ public static class PincodeLatLongData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PincodeDataResponse{
+public static class PincodeDataResult{
 
     
 
@@ -393,13 +459,13 @@ public static class PincodeDataResponse{
     
     
     @JsonProperty("parents")
-    private List<PincodeParentsResponse> parents;
+    private List<PincodeParentsResult> parents;
     
     
     
     
     @JsonProperty("meta")
-    private PincodeMetaResponse meta;
+    private PincodeMetaResult meta;
     
     
     
@@ -411,13 +477,13 @@ public static class PincodeDataResponse{
     
     
     @JsonProperty("error")
-    private PincodeErrorSchemaResponse error;
+    private PincodeErrorSchemaResult error;
     
     
     
     
     @JsonProperty("meta_code")
-    private CountryMetaResponse metaCode;
+    private CountryMetaResult metaCode;
     
     
     
@@ -449,7 +515,7 @@ public static class PincodeDataResponse{
 
 
 /*
-    Model: PincodeApiResponse
+    Model: PincodeDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -457,7 +523,7 @@ public static class PincodeDataResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PincodeApiResponse{
+public static class PincodeDetails{
 
     
 
@@ -472,13 +538,25 @@ public static class PincodeApiResponse{
     
     
     @JsonProperty("data")
-    private List<PincodeDataResponse> data;
+    private List<PincodeDataResult> data;
     
     
     
     
     @JsonProperty("error")
-    private PincodeErrorSchemaResponse error;
+    private PincodeErrorSchemaResult error;
+    
+    
+    
+    
+    @JsonProperty("request_uuid")
+    private String requestUuid;
+    
+    
+    
+    
+    @JsonProperty("stormbreaker_uuid")
+    private String stormbreakerUuid;
     
     
     
@@ -486,7 +564,7 @@ public static class PincodeApiResponse{
 
 
 /*
-    Model: TATCategoryRequest
+    Model: TATCategoryDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -494,7 +572,7 @@ public static class PincodeApiResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TATCategoryRequest{
+public static class TATCategoryDetails{
 
     
 
@@ -517,7 +595,7 @@ public static class TATCategoryRequest{
 
 
 /*
-    Model: TATArticlesRequest
+    Model: TATArticlesDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -525,7 +603,7 @@ public static class TATCategoryRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TATArticlesRequest{
+public static class TATArticlesDetails{
 
     
 
@@ -534,7 +612,7 @@ public static class TATArticlesRequest{
     
     
     @JsonProperty("category")
-    private TATCategoryRequest category;
+    private TATCategoryDetails category;
     
     
     
@@ -554,7 +632,7 @@ public static class TATArticlesRequest{
 
 
 /*
-    Model: TATLocationDetailsRequest
+    Model: TATLocationDetailsDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -562,7 +640,7 @@ public static class TATArticlesRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TATLocationDetailsRequest{
+public static class TATLocationDetailsDetails{
 
     
 
@@ -583,7 +661,7 @@ public static class TATLocationDetailsRequest{
     
     
     @JsonProperty("articles")
-    private List<TATArticlesRequest> articles;
+    private List<TATArticlesDetails> articles;
     
     
     
@@ -591,7 +669,7 @@ public static class TATLocationDetailsRequest{
 
 
 /*
-    Model: TATViewRequest
+    Model: TATViewDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -599,7 +677,7 @@ public static class TATLocationDetailsRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TATViewRequest{
+public static class TATViewDetails{
 
     
 
@@ -632,7 +710,7 @@ public static class TATViewRequest{
     
     
     @JsonProperty("location_details")
-    private List<TATLocationDetailsRequest> locationDetails;
+    private List<TATLocationDetailsDetails> locationDetails;
     
     
     
@@ -646,7 +724,7 @@ public static class TATViewRequest{
 
 
 /*
-    Model: TATErrorSchemaResponse
+    Model: TATErrorSchemaResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -654,7 +732,7 @@ public static class TATViewRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TATErrorSchemaResponse{
+public static class TATErrorSchemaResult{
 
     
 
@@ -683,7 +761,7 @@ public static class TATErrorSchemaResponse{
 
 
 /*
-    Model: TATTimestampResponse
+    Model: TATTimestampResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -691,7 +769,7 @@ public static class TATErrorSchemaResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TATTimestampResponse{
+public static class TATTimestampResult{
 
     
 
@@ -714,7 +792,7 @@ public static class TATTimestampResponse{
 
 
 /*
-    Model: TATFormattedResponse
+    Model: TATFormattedResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -722,7 +800,7 @@ public static class TATTimestampResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TATFormattedResponse{
+public static class TATFormattedResult{
 
     
 
@@ -745,7 +823,7 @@ public static class TATFormattedResponse{
 
 
 /*
-    Model: TATPromiseResponse
+    Model: TATPromiseResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -753,7 +831,7 @@ public static class TATFormattedResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TATPromiseResponse{
+public static class TATPromiseResult{
 
     
 
@@ -762,13 +840,13 @@ public static class TATPromiseResponse{
     
     
     @JsonProperty("timestamp")
-    private TATTimestampResponse timestamp;
+    private TATTimestampResult timestamp;
     
     
     
     
     @JsonProperty("formatted")
-    private TATFormattedResponse formatted;
+    private TATFormattedResult formatted;
     
     
     
@@ -776,7 +854,7 @@ public static class TATPromiseResponse{
 
 
 /*
-    Model: TATArticlesResponse
+    Model: TATArticlesResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -784,7 +862,7 @@ public static class TATPromiseResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TATArticlesResponse{
+public static class TATArticlesResult{
 
     
 
@@ -799,7 +877,7 @@ public static class TATArticlesResponse{
     
     
     @JsonProperty("error")
-    private TATErrorSchemaResponse error;
+    private TATErrorSchemaResult error;
     
     
     
@@ -811,7 +889,7 @@ public static class TATArticlesResponse{
     
     
     @JsonProperty("promise")
-    private TATPromiseResponse promise;
+    private TATPromiseResult promise;
     
     
     
@@ -823,7 +901,7 @@ public static class TATArticlesResponse{
     
     
     @JsonProperty("category")
-    private TATCategoryRequest category;
+    private TATCategoryDetails category;
     
     
     
@@ -837,7 +915,7 @@ public static class TATArticlesResponse{
 
 
 /*
-    Model: TATLocationDetailsResponse
+    Model: TATLocationDetailsResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -845,7 +923,7 @@ public static class TATArticlesResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TATLocationDetailsResponse{
+public static class TATLocationDetailsResult{
 
     
 
@@ -866,7 +944,7 @@ public static class TATLocationDetailsResponse{
     
     
     @JsonProperty("articles")
-    private List<TATArticlesResponse> articles;
+    private List<TATArticlesResult> articles;
     
     
     
@@ -874,7 +952,7 @@ public static class TATLocationDetailsResponse{
 
 
 /*
-    Model: TATViewResponse
+    Model: TATViewResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -882,7 +960,7 @@ public static class TATLocationDetailsResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TATViewResponse{
+public static class TATViewResult{
 
     
 
@@ -915,7 +993,7 @@ public static class TATViewResponse{
     
     
     @JsonProperty("error")
-    private TATErrorSchemaResponse error;
+    private TATErrorSchemaResult error;
     
     
     
@@ -957,7 +1035,7 @@ public static class TATViewResponse{
     
     
     @JsonProperty("location_details")
-    private List<TATLocationDetailsResponse> locationDetails;
+    private List<TATLocationDetailsResult> locationDetails;
     
     
     
@@ -1050,7 +1128,7 @@ public static class DP{
 
 
 /*
-    Model: LogisticsResponse
+    Model: LogisticsResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1058,7 +1136,7 @@ public static class DP{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LogisticsResponse{
+public static class LogisticsResult{
 
     
 
@@ -1067,7 +1145,7 @@ public static class LogisticsResponse{
     
     
     @JsonProperty("dp")
-    private HashMap<String,DP> dp;
+    private DP dp;
     
     
     
@@ -1075,7 +1153,7 @@ public static class LogisticsResponse{
 
 
 /*
-    Model: CountryEntityResponse
+    Model: CountryEntityResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1083,7 +1161,7 @@ public static class LogisticsResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CountryEntityResponse{
+public static class CountryEntityResult{
 
     
 
@@ -1092,13 +1170,13 @@ public static class CountryEntityResponse{
     
     
     @JsonProperty("meta")
-    private CountryMetaResponse meta;
+    private CountryMetaResult meta;
     
     
     
     
     @JsonProperty("logistics")
-    private LogisticsResponse logistics;
+    private LogisticsResult logistics;
     
     
     
@@ -1122,7 +1200,7 @@ public static class CountryEntityResponse{
     
     
     @JsonProperty("parent_id")
-    private String parentId;
+    private List<String> parentId;
     
     
     
@@ -1144,11 +1222,29 @@ public static class CountryEntityResponse{
     
     
     
+    
+    @JsonProperty("onboarding_allowed")
+    private Boolean onboardingAllowed;
+    
+    
+    
+    
+    @JsonProperty("serviceability")
+    private Object serviceability;
+    
+    
+    
+    
+    @JsonProperty("lat_long")
+    private PincodeLatLongData latLong;
+    
+    
+    
 }
 
 
 /*
-    Model: CountryListResponse
+    Model: ServiceabilityModel
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1156,7 +1252,74 @@ public static class CountryEntityResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CountryListResponse{
+public static class ServiceabilityModel{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("lm_cod_limit")
+    private Integer lmCodLimit;
+    
+    
+    
+    
+    @JsonProperty("is_qc")
+    private Boolean isQc;
+    
+    
+    
+    
+    @JsonProperty("pickup_cutoff")
+    private String pickupCutoff;
+    
+    
+    
+    
+    @JsonProperty("route_code")
+    private String routeCode;
+    
+    
+    
+    
+    @JsonProperty("is_first_mile")
+    private Boolean isFirstMile;
+    
+    
+    
+    
+    @JsonProperty("is_return")
+    private Boolean isReturn;
+    
+    
+    
+    
+    @JsonProperty("is_installation")
+    private Boolean isInstallation;
+    
+    
+    
+    
+    @JsonProperty("is_last_mile")
+    private Boolean isLastMile;
+    
+    
+    
+}
+
+
+/*
+    Model: CountryListResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CountryListResult{
 
     
 
@@ -1165,7 +1328,7 @@ public static class CountryListResponse{
     
     
     @JsonProperty("results")
-    private List<CountryEntityResponse> results;
+    private List<CountryEntityResult> results;
     
     
     
@@ -1173,7 +1336,7 @@ public static class CountryListResponse{
 
 
 /*
-    Model: GetZoneFromPincodeViewRequest
+    Model: GetZoneFromPincodeViewDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1181,7 +1344,7 @@ public static class CountryListResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetZoneFromPincodeViewRequest{
+public static class GetZoneFromPincodeViewDetails{
 
     
 
@@ -1204,7 +1367,7 @@ public static class GetZoneFromPincodeViewRequest{
 
 
 /*
-    Model: GetZoneFromPincodeViewResponse
+    Model: GetZoneFromPincodeViewResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1212,7 +1375,7 @@ public static class GetZoneFromPincodeViewRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetZoneFromPincodeViewResponse{
+public static class GetZoneFromPincodeViewResult{
 
     
 
@@ -1235,7 +1398,7 @@ public static class GetZoneFromPincodeViewResponse{
 
 
 /*
-    Model: ReAssignStoreRequest
+    Model: ReAssignStoreDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1243,7 +1406,7 @@ public static class GetZoneFromPincodeViewResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReAssignStoreRequest{
+public static class ReAssignStoreDetails{
 
     
 
@@ -1252,7 +1415,7 @@ public static class ReAssignStoreRequest{
     
     
     @JsonProperty("configuration")
-    private Object configuration;
+    private HashMap<String,Object> configuration;
     
     
     
@@ -1276,7 +1439,7 @@ public static class ReAssignStoreRequest{
     
     
     @JsonProperty("articles")
-    private List<Object> articles;
+    private List<HashMap<String,Object>> articles;
     
     
     
@@ -1284,7 +1447,7 @@ public static class ReAssignStoreRequest{
 
 
 /*
-    Model: ReAssignStoreResponse
+    Model: ReAssignStoreResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1292,7 +1455,7 @@ public static class ReAssignStoreRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReAssignStoreResponse{
+public static class ReAssignStoreResult{
 
     
 
@@ -1319,13 +1482,13 @@ public static class ReAssignStoreResponse{
     
     
     @JsonProperty("error")
-    private Object error;
+    private HashMap<String,Object> error;
     
     
     
     
     @JsonProperty("assigned_stores")
-    private List<Object> assignedStores;
+    private List<HashMap<String,Object>> assignedStores;
     
     
     
@@ -1349,8 +1512,8 @@ public static class CountryHierarchy{
     
     
     
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
@@ -2110,8 +2273,38 @@ public static class Localities{
     
     
     
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
+    
+    @JsonProperty("lat_long")
+    private PincodeLatLongData latLong;
+    
+    
+    
+    
+    @JsonProperty("parent_uid")
+    private String parentUid;
+    
+    
+    
+    
+    @JsonProperty("custom_meta")
+    private HashMap<String,Object> customMeta;
+    
+    
+    
+    
     @JsonProperty("display_name")
     private String displayName;
+    
+    
+    
+    
+    @JsonProperty("serviceability")
+    private Object serviceability;
     
     
     
@@ -2167,6 +2360,36 @@ public static class LocalityParent{
     
     @JsonProperty("display_name")
     private String displayName;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
+    
+    @JsonProperty("parent_uid")
+    private String parentUid;
+    
+    
+    
+    
+    @JsonProperty("serviceability")
+    private Object serviceability;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("custom_meta")
+    private HashMap<String,Object> customMeta;
     
     
     
@@ -2251,6 +2474,36 @@ public static class GetLocality{
     
     
     
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
+    
+    @JsonProperty("parent_uid")
+    private String parentUid;
+    
+    
+    
+    
+    @JsonProperty("serviceability")
+    private Object serviceability;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("custom_meta")
+    private HashMap<String,Object> customMeta;
+    
+    
+    
+    
     @JsonProperty("parent_ids")
     private List<String> parentIds;
     
@@ -2272,7 +2525,7 @@ public static class GetLocality{
 
 
 /*
-    Model: ErrorResponse
+    Model: Error
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2280,7 +2533,610 @@ public static class GetLocality{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ErrorResponse{
+public static class Error{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: ErrorSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ErrorSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private Error error;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentsArticles
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentsArticles{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("item_id")
+    private Integer itemId;
+    
+    
+    
+    
+    @JsonProperty("category_id")
+    private Integer categoryId;
+    
+    
+    
+    
+    @JsonProperty("brand_id")
+    private Integer brandId;
+    
+    
+    
+    
+    @JsonProperty("department_id")
+    private Integer departmentId;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentDimension
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentDimension{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("height")
+    private Double height;
+    
+    
+    
+    
+    @JsonProperty("length")
+    private Double length;
+    
+    
+    
+    
+    @JsonProperty("width")
+    private Double width;
+    
+    
+    
+}
+
+
+/*
+    Model: Shipments
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Shipments{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("location_id")
+    private Double locationId;
+    
+    
+    
+    
+    @JsonProperty("location_tags")
+    private List<String> locationTags;
+    
+    
+    
+    
+    @JsonProperty("shipment_weight")
+    private Double shipmentWeight;
+    
+    
+    
+    
+    @JsonProperty("shipment_volumetric_weight")
+    private Double shipmentVolumetricWeight;
+    
+    
+    
+    
+    @JsonProperty("shipment_cost")
+    private Double shipmentCost;
+    
+    
+    
+    
+    @JsonProperty("shipment_dimension")
+    private ShipmentDimension shipmentDimension;
+    
+    
+    
+    
+    @JsonProperty("courier_partner_schemes")
+    private List<String> courierPartnerSchemes;
+    
+    
+    
+    
+    @JsonProperty("articles")
+    private List<ShipmentsArticles> articles;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentCourierPartnerDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentCourierPartnerDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("from_location")
+    private ShipmentsCourierPartnersServiceability fromLocation;
+    
+    
+    
+    
+    @JsonProperty("to_location")
+    private ShipmentsCourierPartnersServiceability toLocation;
+    
+    
+    
+    
+    @JsonProperty("shipments")
+    private List<Shipments> shipments;
+    
+    
+    
+    
+    @JsonProperty("journey")
+    private String journey;
+    
+    
+    
+    
+    @JsonProperty("payment_mode")
+    private String paymentMode;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerPromise
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerPromise{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("min")
+    private String min;
+    
+    
+    
+    
+    @JsonProperty("max")
+    private String max;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartners
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartners{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("extension_id")
+    private String extensionId;
+    
+    
+    
+    
+    @JsonProperty("scheme_id")
+    private String schemeId;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("delivery_promise")
+    private CourierPartnerPromise deliveryPromise;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentCourierPartners
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentCourierPartners{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("courier_partners")
+    private List<CourierPartners> courierPartners;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentCourierPartnerResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentCourierPartnerResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("courier_partners")
+    private List<CourierPartners> courierPartners;
+    
+    
+    
+    
+    @JsonProperty("shipments")
+    private List<ShipmentCourierPartners> shipments;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentsCourierPartnersServiceability
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentsCourierPartnersServiceability{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private String pincode;
+    
+    
+    
+    
+    @JsonProperty("sector_code")
+    private String sectorCode;
+    
+    
+    
+    
+    @JsonProperty("state_code")
+    private String stateCode;
+    
+    
+    
+    
+    @JsonProperty("city_code")
+    private String cityCode;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+}
+
+
+/*
+    Model: ServiceabilityLocation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ServiceabilityLocation{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("longitude")
+    private String longitude;
+    
+    
+    
+    
+    @JsonProperty("latitude")
+    private String latitude;
+    
+    
+    
+}
+
+
+/*
+    Model: GetPromiseDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetPromiseDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<StorePromise> items;
+    
+    
+    
+    
+    @JsonProperty("delivery_promise")
+    private Promise deliveryPromise;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: StorePromise
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StorePromise{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("delivery_promise")
+    private Promise deliveryPromise;
+    
+    
+    
+}
+
+
+/*
+    Model: Promise
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Promise{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("min")
+    private String min;
+    
+    
+    
+    
+    @JsonProperty("max")
+    private String max;
+    
+    
+    
+}
+
+
+/*
+    Model: ErrorResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ErrorResult{
 
     
 
@@ -2290,6 +3146,62 @@ public static class ErrorResponse{
     
     @JsonProperty("error")
     private String error;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: ValidationError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidationError{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("field")
+    private String field;
+    
+    
+    
+}
+
+
+/*
+    Model: StandardError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StandardError{
+
+    
+
     
     
     
