@@ -11422,7 +11422,7 @@ public static class UserDataInfo{
     
     
     @JsonProperty("meta")
-    private String meta;
+    private HashMap<String,Object> meta;
     
     
     
