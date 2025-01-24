@@ -32,13 +32,13 @@ public class ConfigurationPublicService {
         return retrofitServiceFactory.createService(publicConfig.getDomain(),ConfigurationPublicApiList.class, interceptorList, cookieStore);
     }
 
-    public ConfigurationPublicModels.ApplicationResponseSchema searchApplication(String authorization, String query) throws IOException {
+    public ConfigurationPublicModels.ApplicationResponse searchApplication(String authorization, String query) throws IOException {
         return this.searchApplication(authorization, query, new HashMap<>());
     }
 
-    public ConfigurationPublicModels.ApplicationResponseSchema searchApplication(String authorization, String query, Map<String, String> requestHeaders) throws IOException {
+    public ConfigurationPublicModels.ApplicationResponse searchApplication(String authorization, String query, Map<String, String> requestHeaders) throws IOException {
     
-        Response<ConfigurationPublicModels.ApplicationResponseSchema> response = configurationPublicApiList.searchApplication(authorization, query, requestHeaders).execute();
+        Response<ConfigurationPublicModels.ApplicationResponse> response = configurationPublicApiList.searchApplication(authorization, query, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

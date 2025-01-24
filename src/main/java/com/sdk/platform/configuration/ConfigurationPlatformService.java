@@ -110,13 +110,13 @@ public class ConfigurationPlatformService {
     
     
 
-    public ConfigurationPlatformModels.CreateAppResponseSchema createApplication(ConfigurationPlatformModels.CreateApplicationRequestSchema body) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.CreateAppResponse createApplication(ConfigurationPlatformModels.CreateApplicationRequest body) throws FDKServerResponseError, FDKException {
         return this.createApplication(body, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.CreateAppResponseSchema createApplication(ConfigurationPlatformModels.CreateApplicationRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.CreateAppResponse createApplication(ConfigurationPlatformModels.CreateApplicationRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.CreateAppResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.CreateAppResponse> response = null;
             try {
                 response = configurationPlatformApiList.createApplication(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -162,13 +162,13 @@ public class ConfigurationPlatformService {
     
     
 
-    public ConfigurationPlatformModels.ApplicationsResponseSchema getApplications(Integer pageNo, Integer pageSize, String q) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.ApplicationsResponse getApplications(Integer pageNo, Integer pageSize, String q) throws FDKServerResponseError, FDKException {
         return this.getApplications(pageNo, pageSize, q, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.ApplicationsResponseSchema getApplications(Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.ApplicationsResponse getApplications(Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.ApplicationsResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.ApplicationsResponse> response = null;
             try {
                 response = configurationPlatformApiList.getApplications(this.companyId, pageNo, pageSize, q, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -204,13 +204,13 @@ public class ConfigurationPlatformService {
     
     
 
-    public ConfigurationPlatformModels.CurrenciesResponseSchema getCurrencies() throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.CurrenciesResponse getCurrencies() throws FDKServerResponseError, FDKException {
         return this.getCurrencies(new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.CurrenciesResponseSchema getCurrencies(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.CurrenciesResponse getCurrencies(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.CurrenciesResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.CurrenciesResponse> response = null;
             try {
                 response = configurationPlatformApiList.getCurrencies(this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -244,13 +244,13 @@ public class ConfigurationPlatformService {
     
     
 
-    public ConfigurationPlatformModels.DomainSuggestionsResponseSchema getDomainAvailibility(ConfigurationPlatformModels.DomainSuggestionsRequestSchema body) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.DomainSuggestionsResponse getDomainAvailibility(ConfigurationPlatformModels.DomainSuggestionsRequest body) throws FDKServerResponseError, FDKException {
         return this.getDomainAvailibility(body, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.DomainSuggestionsResponseSchema getDomainAvailibility(ConfigurationPlatformModels.DomainSuggestionsRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.DomainSuggestionsResponse getDomainAvailibility(ConfigurationPlatformModels.DomainSuggestionsRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.DomainSuggestionsResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.DomainSuggestionsResponse> response = null;
             try {
                 response = configurationPlatformApiList.getDomainAvailibility(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -288,13 +288,13 @@ public class ConfigurationPlatformService {
     
     
 
-    public ConfigurationPlatformModels.BrandsByCompanyResponseSchema getBrandsByCompany(String q) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.BrandsByCompanyResponse getBrandsByCompany(String q) throws FDKServerResponseError, FDKException {
         return this.getBrandsByCompany(q, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.BrandsByCompanyResponseSchema getBrandsByCompany(String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.BrandsByCompanyResponse getBrandsByCompany(String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.BrandsByCompanyResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.BrandsByCompanyResponse> response = null;
             try {
                 response = configurationPlatformApiList.getBrandsByCompany(this.companyId, q, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -336,13 +336,13 @@ public class ConfigurationPlatformService {
     
     
 
-    public ConfigurationPlatformModels.CompanyByBrandsResponseSchema getCompanyByBrands(Integer pageNo, Integer pageSize, ConfigurationPlatformModels.CompanyByBrandsRequestSchema body) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.CompanyByBrandsResponse getCompanyByBrands(Integer pageNo, Integer pageSize, ConfigurationPlatformModels.CompanyByBrandsRequest body) throws FDKServerResponseError, FDKException {
         return this.getCompanyByBrands(pageNo, pageSize, body, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.CompanyByBrandsResponseSchema getCompanyByBrands(Integer pageNo, Integer pageSize, ConfigurationPlatformModels.CompanyByBrandsRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.CompanyByBrandsResponse getCompanyByBrands(Integer pageNo, Integer pageSize, ConfigurationPlatformModels.CompanyByBrandsRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.CompanyByBrandsResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.CompanyByBrandsResponse> response = null;
             try {
                 response = configurationPlatformApiList.getCompanyByBrands(this.companyId, pageNo, pageSize, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -384,13 +384,13 @@ public class ConfigurationPlatformService {
     
     
 
-    public ConfigurationPlatformModels.StoreByBrandsResponseSchema getStoreByBrands(Integer pageNo, Integer pageSize, ConfigurationPlatformModels.StoreByBrandsRequestSchema body) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.StoreByBrandsResponse getStoreByBrands(Integer pageNo, Integer pageSize, ConfigurationPlatformModels.StoreByBrandsRequest body) throws FDKServerResponseError, FDKException {
         return this.getStoreByBrands(pageNo, pageSize, body, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.StoreByBrandsResponseSchema getStoreByBrands(Integer pageNo, Integer pageSize, ConfigurationPlatformModels.StoreByBrandsRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.StoreByBrandsResponse getStoreByBrands(Integer pageNo, Integer pageSize, ConfigurationPlatformModels.StoreByBrandsRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.StoreByBrandsResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.StoreByBrandsResponse> response = null;
             try {
                 response = configurationPlatformApiList.getStoreByBrands(this.companyId, pageNo, pageSize, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -476,13 +476,13 @@ public class ConfigurationPlatformService {
     
     
 
-    public ConfigurationPlatformModels.OptedApplicationResponseSchema getOtherSellerApplicationById(String id) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.OptedApplicationResponse getOtherSellerApplicationById(String id) throws FDKServerResponseError, FDKException {
         return this.getOtherSellerApplicationById(id, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.OptedApplicationResponseSchema getOtherSellerApplicationById(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.OptedApplicationResponse getOtherSellerApplicationById(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.OptedApplicationResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.OptedApplicationResponse> response = null;
             try {
                 response = configurationPlatformApiList.getOtherSellerApplicationById(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -520,67 +520,15 @@ public class ConfigurationPlatformService {
     
     
 
-    public ConfigurationPlatformModels.SuccessMessageResponseSchema optOutFromApplication(String id, ConfigurationPlatformModels.OptOutInventory body) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.SuccessMessageResponse optOutFromApplication(String id, ConfigurationPlatformModels.OptOutInventory body) throws FDKServerResponseError, FDKException {
         return this.optOutFromApplication(id, body, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.SuccessMessageResponseSchema optOutFromApplication(String id, ConfigurationPlatformModels.OptOutInventory body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.SuccessMessageResponse optOutFromApplication(String id, ConfigurationPlatformModels.OptOutInventory body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.SuccessMessageResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.SuccessMessageResponse> response = null;
             try {
                 response = configurationPlatformApiList.optOutFromApplication(this.companyId, id, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    public ConfigurationPlatformModels.CurrencyExchangeResponseV2 getCurrencyExchangeRates(String currencyCode, String exchangeCurrencyCode, String exchangeCountryCode) throws FDKServerResponseError, FDKException {
-        return this.getCurrencyExchangeRates(currencyCode, exchangeCurrencyCode, exchangeCountryCode, new HashMap<>());
-    }
-
-    public ConfigurationPlatformModels.CurrencyExchangeResponseV2 getCurrencyExchangeRates(String currencyCode, String exchangeCurrencyCode, String exchangeCountryCode, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.CurrencyExchangeResponseV2> response = null;
-            try {
-                response = configurationPlatformApiList.getCurrencyExchangeRates(this.companyId, currencyCode, exchangeCurrencyCode, exchangeCountryCode, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -644,11 +592,11 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.MobileAppConfiguration updateBuildConfig(String platformType, ConfigurationPlatformModels.MobileAppConfigRequestSchema body) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.MobileAppConfiguration updateBuildConfig(String platformType, ConfigurationPlatformModels.MobileAppConfigRequest body) throws FDKServerResponseError, FDKException {
         return this.updateBuildConfig(platformType, body, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.MobileAppConfiguration updateBuildConfig(String platformType, ConfigurationPlatformModels.MobileAppConfigRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.MobileAppConfiguration updateBuildConfig(String platformType, ConfigurationPlatformModels.MobileAppConfigRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ConfigurationPlatformModels.MobileAppConfiguration> response = null;
             try {
@@ -698,13 +646,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.AppFeatureResponseSchema getAppFeatures() throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.AppFeatureResponse getAppFeatures() throws FDKServerResponseError, FDKException {
         return this.getAppFeatures(new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.AppFeatureResponseSchema getAppFeatures(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.AppFeatureResponse getAppFeatures(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.AppFeatureResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.AppFeatureResponse> response = null;
             try {
             response = configurationPlatformApiList.getAppFeatures(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -725,11 +673,11 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.AppFeature updateAppFeatures(ConfigurationPlatformModels.AppFeatureRequestSchema body) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.AppFeature updateAppFeatures(ConfigurationPlatformModels.AppFeatureRequest body) throws FDKServerResponseError, FDKException {
         return this.updateAppFeatures(body, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.AppFeature updateAppFeatures(ConfigurationPlatformModels.AppFeatureRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.AppFeature updateAppFeatures(ConfigurationPlatformModels.AppFeatureRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ConfigurationPlatformModels.AppFeature> response = null;
             try {
@@ -752,11 +700,11 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.AppFeature modifyAppFeatures(ConfigurationPlatformModels.AppFeatureRequestSchema body) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.AppFeature modifyAppFeatures(ConfigurationPlatformModels.AppFeatureRequest body) throws FDKServerResponseError, FDKException {
         return this.modifyAppFeatures(body, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.AppFeature modifyAppFeatures(ConfigurationPlatformModels.AppFeatureRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.AppFeature modifyAppFeatures(ConfigurationPlatformModels.AppFeatureRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ConfigurationPlatformModels.AppFeature> response = null;
             try {
@@ -887,13 +835,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.TokenResponseSchema getAppApiTokens() throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.TokenResponse getAppApiTokens() throws FDKServerResponseError, FDKException {
         return this.getAppApiTokens(new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.TokenResponseSchema getAppApiTokens(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.TokenResponse getAppApiTokens(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.TokenResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.TokenResponse> response = null;
             try {
             response = configurationPlatformApiList.getAppApiTokens(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -914,13 +862,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.TokenResponseSchema updateAppApiTokens(ConfigurationPlatformModels.TokenResponseSchema body) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.TokenResponse updateAppApiTokens(ConfigurationPlatformModels.TokenResponse body) throws FDKServerResponseError, FDKException {
         return this.updateAppApiTokens(body, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.TokenResponseSchema updateAppApiTokens(ConfigurationPlatformModels.TokenResponseSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.TokenResponse updateAppApiTokens(ConfigurationPlatformModels.TokenResponse body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.TokenResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.TokenResponse> response = null;
             try {
             response = configurationPlatformApiList.updateAppApiTokens(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -941,13 +889,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.CompaniesResponseSchema getAppCompanies(Integer uid, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.CompaniesResponse getAppCompanies(Integer uid, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
         return this.getAppCompanies(uid, pageNo, pageSize, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.CompaniesResponseSchema getAppCompanies(Integer uid, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.CompaniesResponse getAppCompanies(Integer uid, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.CompaniesResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.CompaniesResponse> response = null;
             try {
             response = configurationPlatformApiList.getAppCompanies(this.companyId, this.applicationId, uid, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -968,13 +916,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.StoresResponseSchema getAppStores(Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.StoresResponse getAppStores(Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
         return this.getAppStores(pageNo, pageSize, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.StoresResponseSchema getAppStores(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.StoresResponse getAppStores(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.StoresResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.StoresResponse> response = null;
             try {
             response = configurationPlatformApiList.getAppStores(this.companyId, this.applicationId, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1130,13 +1078,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.AppCurrencyResponseSchema getAppSupportedCurrency() throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.AppCurrencyResponse getAppSupportedCurrency() throws FDKServerResponseError, FDKException {
         return this.getAppSupportedCurrency(new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.AppCurrencyResponseSchema getAppSupportedCurrency(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.AppCurrencyResponse getAppSupportedCurrency(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.AppCurrencyResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.AppCurrencyResponse> response = null;
             try {
             response = configurationPlatformApiList.getAppSupportedCurrency(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1157,11 +1105,11 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.OrderingStores getOrderingStoresByFilter(Integer pageNo, Integer pageSize, ConfigurationPlatformModels.FilterOrderingStoreRequestSchema body) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.OrderingStores getOrderingStoresByFilter(Integer pageNo, Integer pageSize, ConfigurationPlatformModels.FilterOrderingStoreRequest body) throws FDKServerResponseError, FDKException {
         return this.getOrderingStoresByFilter(pageNo, pageSize, body, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.OrderingStores getOrderingStoresByFilter(Integer pageNo, Integer pageSize, ConfigurationPlatformModels.FilterOrderingStoreRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.OrderingStores getOrderingStoresByFilter(Integer pageNo, Integer pageSize, ConfigurationPlatformModels.FilterOrderingStoreRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ConfigurationPlatformModels.OrderingStores> response = null;
             try {
@@ -1238,13 +1186,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.OrderingStoresResponseSchema getStaffOrderingStores(Integer pageNo, Integer pageSize, String q) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.OrderingStoresResponse getStaffOrderingStores(Integer pageNo, Integer pageSize, String q) throws FDKServerResponseError, FDKException {
         return this.getStaffOrderingStores(pageNo, pageSize, q, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.OrderingStoresResponseSchema getStaffOrderingStores(Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.OrderingStoresResponse getStaffOrderingStores(Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.OrderingStoresResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.OrderingStoresResponse> response = null;
             try {
             response = configurationPlatformApiList.getStaffOrderingStores(this.companyId, this.applicationId, pageNo, pageSize, q, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1265,13 +1213,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.SuccessMessageResponseSchema getOrderingStoreCookie(ConfigurationPlatformModels.OrderingStoreSelectRequestSchema body) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.SuccessMessageResponse getOrderingStoreCookie(ConfigurationPlatformModels.OrderingStoreSelectRequest body) throws FDKServerResponseError, FDKException {
         return this.getOrderingStoreCookie(body, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.SuccessMessageResponseSchema getOrderingStoreCookie(ConfigurationPlatformModels.OrderingStoreSelectRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.SuccessMessageResponse getOrderingStoreCookie(ConfigurationPlatformModels.OrderingStoreSelectRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.SuccessMessageResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.SuccessMessageResponse> response = null;
             try {
             response = configurationPlatformApiList.getOrderingStoreCookie(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1292,13 +1240,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.SuccessMessageResponseSchema removeOrderingStoreCookie() throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.SuccessMessageResponse removeOrderingStoreCookie() throws FDKServerResponseError, FDKException {
         return this.removeOrderingStoreCookie(new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.SuccessMessageResponseSchema removeOrderingStoreCookie(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.SuccessMessageResponse removeOrderingStoreCookie(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.SuccessMessageResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.SuccessMessageResponse> response = null;
             try {
             response = configurationPlatformApiList.removeOrderingStoreCookie(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1319,13 +1267,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.DomainsResponseSchema getDomains() throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.DomainsResponse getDomains() throws FDKServerResponseError, FDKException {
         return this.getDomains(new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.DomainsResponseSchema getDomains(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.DomainsResponse getDomains(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.DomainsResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.DomainsResponse> response = null;
             try {
             response = configurationPlatformApiList.getDomains(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1346,11 +1294,11 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.Domain addDomain(ConfigurationPlatformModels.DomainAddRequestSchema body) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.Domain addDomain(ConfigurationPlatformModels.DomainAddRequest body) throws FDKServerResponseError, FDKException {
         return this.addDomain(body, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.Domain addDomain(ConfigurationPlatformModels.DomainAddRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.Domain addDomain(ConfigurationPlatformModels.DomainAddRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ConfigurationPlatformModels.Domain> response = null;
             try {
@@ -1373,13 +1321,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.SuccessMessageResponseSchema removeDomainById(String id) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.SuccessMessageResponse removeDomainById(String id) throws FDKServerResponseError, FDKException {
         return this.removeDomainById(id, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.SuccessMessageResponseSchema removeDomainById(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.SuccessMessageResponse removeDomainById(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.SuccessMessageResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.SuccessMessageResponse> response = null;
             try {
             response = configurationPlatformApiList.removeDomainById(this.companyId, this.applicationId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1400,13 +1348,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.DomainsResponseSchema changeDomainType(ConfigurationPlatformModels.UpdateDomainTypeRequestSchema body) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.DomainsResponse changeDomainType(ConfigurationPlatformModels.UpdateDomainTypeRequest body) throws FDKServerResponseError, FDKException {
         return this.changeDomainType(body, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.DomainsResponseSchema changeDomainType(ConfigurationPlatformModels.UpdateDomainTypeRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.DomainsResponse changeDomainType(ConfigurationPlatformModels.UpdateDomainTypeRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.DomainsResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.DomainsResponse> response = null;
             try {
             response = configurationPlatformApiList.changeDomainType(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1427,13 +1375,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ConfigurationPlatformModels.DomainStatusResponseSchema getDomainStatus(ConfigurationPlatformModels.DomainStatusRequestSchema body) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.DomainStatusResponse getDomainStatus(ConfigurationPlatformModels.DomainStatusRequest body) throws FDKServerResponseError, FDKException {
         return this.getDomainStatus(body, new HashMap<>());
     }
 
-    public ConfigurationPlatformModels.DomainStatusResponseSchema getDomainStatus(ConfigurationPlatformModels.DomainStatusRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ConfigurationPlatformModels.DomainStatusResponse getDomainStatus(ConfigurationPlatformModels.DomainStatusRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ConfigurationPlatformModels.DomainStatusResponseSchema> response = null;
+            Response<ConfigurationPlatformModels.DomainStatusResponse> response = null;
             try {
             response = configurationPlatformApiList.getDomainStatus(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
