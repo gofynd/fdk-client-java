@@ -86,8 +86,8 @@ public class FileStorageApplicationService extends FileStorage {
         this.filestorageApplicationApiList = generateFileStorageApplicationApiList(this.applicationConfig.getPersistentCookieStore());
 
         
-        relativeUrls.put("startUpload","/service/application/assets/v1.0/namespaces/{namespace}/upload/start".substring(1));
-        relativeUrls.put("completeUpload","/service/application/assets/v1.0/namespaces/{namespace}/upload/complete".substring(1));
+        relativeUrls.put("startUpload","/service/application/assets/v2.0/namespaces/{namespace}/upload/start".substring(1));
+        relativeUrls.put("completeUpload","/service/application/assets/v2.0/namespaces/{namespace}/upload/complete".substring(1));
         relativeUrls.put("signUrls","/service/application/assets/v1.0/sign-urls".substring(1)); 
 
     }

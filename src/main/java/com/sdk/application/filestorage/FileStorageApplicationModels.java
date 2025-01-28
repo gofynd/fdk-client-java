@@ -146,12 +146,6 @@ public static class StartResponse{
     
     
     
-    @JsonProperty("cdn")
-    private CDN cdn;
-    
-    
-    
-    
     @JsonProperty("tags")
     private List<String> tags;
     

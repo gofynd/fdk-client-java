@@ -316,6 +316,12 @@ public static class Page{
     
     
     
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
 }
 
 
@@ -1221,6 +1227,12 @@ public static class SubscriberConfigPostRequestV2{
     
     
     
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
     @JsonProperty("webhook_url")
     private String webhookUrl;
     
@@ -1300,6 +1312,12 @@ public static class SubscriberConfigUpdateRequestV2{
     
     
     
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
     @JsonProperty("webhook_url")
     private String webhookUrl;
     
@@ -1373,6 +1391,12 @@ public static class SubscriberConfigPost{
     
     
     
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
     @JsonProperty("webhook_url")
     private String webhookUrl;
     
@@ -1442,6 +1466,12 @@ public static class SubscriberConfigUpdate{
     
     @JsonProperty("name")
     private String name;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
     
     
     

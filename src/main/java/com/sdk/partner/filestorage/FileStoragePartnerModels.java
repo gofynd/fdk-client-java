@@ -14,6 +14,210 @@ public class FileStoragePartnerModels{
 
 
 /*
+    Model: SizeConstraints
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SizeConstraints{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("max")
+    private Integer max;
+    
+    
+    
+}
+
+
+/*
+    Model: FetchProxyResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FetchProxyResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+}
+
+
+/*
+    Model: FetchProxyRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FetchProxyRequest{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Integer id;
+    
+    
+    
+    
+    @JsonProperty("customer")
+    private String customer;
+    
+    
+    
+    
+    @JsonProperty("quantity")
+    private Integer quantity;
+    
+    
+    
+    
+    @JsonProperty("price")
+    private Double price;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+}
+
+
+/*
+    Model: ProxyResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProxyResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("data")
+    private HashMap<String,Object> data;
+    
+    
+    
+    
+    @JsonProperty("support")
+    private HashMap<String,Object> support;
+    
+    
+    
+}
+
+
+/*
+    Model: NamespaceDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class NamespaceDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("namespace")
+    private String namespace;
+    
+    
+    
+    
+    @JsonProperty("valid_content_types")
+    private List<String> validContentTypes;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private SizeConstraints size;
+    
+    
+    
+    
+    @JsonProperty("file_acl")
+    private String fileAcl;
+    
+    
+    
+}
+
+
+/*
+    Model: AllNamespaceDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AllNamespaceDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<NamespaceDetails> items;
+    
+    
+    
+}
+
+
+/*
     Model: CDN
 */
 @AllArgsConstructor
@@ -142,12 +346,6 @@ public static class StartResponse{
     
     @JsonProperty("upload")
     private Upload upload;
-    
-    
-    
-    
-    @JsonProperty("cdn")
-    private CDN cdn;
     
     
     

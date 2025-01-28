@@ -14,6 +14,110 @@ public class ThemePartnerModels{
 
 
 /*
+    Model: DefaultPageSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DefaultPageSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("path")
+    private String path;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("sections")
+    private List<String> sections;
+    
+    
+    
+    
+    @JsonProperty("sections_meta")
+    private List<String> sectionsMeta;
+    
+    
+    
+    
+    @JsonProperty("text")
+    private String text;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("props")
+    private List<DefaultPageProp> props;
+    
+    
+    
+}
+
+
+/*
+    Model: DefaultPageProp
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DefaultPageProp{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("label")
+    private String label;
+    
+    
+    
+    
+    @JsonProperty("info")
+    private String info;
+    
+    
+    
+}
+
+
+/*
     Model: AvailablePageSchema
 */
 @AllArgsConstructor
@@ -101,11 +205,17 @@ public static class AvailablePageSchema{
     
     
     
+    
+    @JsonProperty("application")
+    private String application;
+    
+    
+    
 }
 
 
 /*
-    Model: DraftExtensionSectionRequest
+    Model: ExtensionBinding
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -113,7 +223,7 @@ public static class AvailablePageSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DraftExtensionSectionRequest{
+public static class ExtensionBinding{
 
     
 
@@ -123,6 +233,24 @@ public static class DraftExtensionSectionRequest{
     
     @JsonProperty("extension_id")
     private String extensionId;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     
@@ -182,8 +310,8 @@ public static class DraftExtensionSectionResponse{
     
     
     
-    @JsonProperty("sections")
-    private SectionsResponse sections;
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -490,8 +618,8 @@ public static class PublishExtensionSectionResponse{
     
     
     
-    @JsonProperty("sections")
-    private SectionsResponse sections;
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -564,8 +692,14 @@ public static class AvailablePageSeo{
     
     
     
-    @JsonProperty("breadcrumb")
-    private List<SEObreadcrumb> breadcrumb;
+    @JsonProperty("breadcrumbs")
+    private List<SEObreadcrumb> breadcrumbs;
+    
+    
+    
+    
+    @JsonProperty("canonical_url")
+    private String canonicalUrl;
     
     
     
@@ -872,6 +1006,12 @@ public static class AvailablePageSchemaSections{
     
     
     
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
     @JsonProperty("name")
     private String name;
     
@@ -908,8 +1048,45 @@ public static class AvailablePageSchemaSections{
     
     
     
-    @JsonProperty("source")
-    private String source;
+    @JsonProperty("__source")
+    private SectionSource source;
+    
+    
+    
+}
+
+
+/*
+    Model: SectionSource
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SectionSource{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("bundle_name")
+    private String bundleName;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
     
     
     
@@ -1014,7 +1191,7 @@ public static class AvailablePageRoutePredicate{
     
     
     @JsonProperty("query")
-    private Object query;
+    private HashMap<String,Object> query;
     
     
     
@@ -1167,8 +1344,8 @@ public static class MarketplaceThemeSchema{
     
     
     
-    @JsonProperty("themes")
-    private List<MarketplaceTheme> themes;
+    @JsonProperty("items")
+    private List<MarketplaceTheme> items;
     
     
     
@@ -1362,6 +1539,12 @@ public static class MarketplaceTheme{
     
     @JsonProperty("template_theme_id")
     private String templateThemeId;
+    
+    
+    
+    
+    @JsonProperty("theme_type")
+    private String themeType;
     
     
     
@@ -1933,6 +2116,12 @@ public static class BlitzkriegApiErrorSchema{
     
     
     
+    
+    @JsonProperty("level")
+    private String level;
+    
+    
+    
 }
 
 
@@ -2094,6 +2283,12 @@ public static class ThemesSchema{
     
     @JsonProperty("src")
     private String src;
+    
+    
+    
+    
+    @JsonProperty("global_sections")
+    private List<HashMap<String,Object>> globalSections;
     
     
     
@@ -3015,13 +3210,13 @@ public static class SectionItem{
     
     
     @JsonProperty("props")
-    private List<Object> props;
+    private List<HashMap<String,Object>> props;
     
     
     
     
     @JsonProperty("blocks")
-    private List<Object> blocks;
+    private List<HashMap<String,Object>> blocks;
     
     
     
@@ -3034,6 +3229,12 @@ public static class SectionItem{
     
     @JsonProperty("label")
     private String label;
+    
+    
+    
+    
+    @JsonProperty("preset")
+    private HashMap<String,Object> preset;
     
     
     
@@ -3058,7 +3259,62 @@ public static class GlobalSchema{
     
     
     @JsonProperty("props")
-    private List<Object> props;
+    private List<Prop> props;
+    
+    
+    
+}
+
+
+/*
+    Model: Prop
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Prop{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("label")
+    private String label;
+    
+    
+    
+    
+    @JsonProperty("info")
+    private String info;
     
     
     

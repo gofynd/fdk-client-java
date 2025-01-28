@@ -14,31 +14,6 @@ public class SharePlatformModels{
 
 
 /*
-    Model: ClickStatsResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ClickStatsResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("click_stats")
-    private List<ClickStatsItem> clickStats;
-    
-    
-    
-}
-
-
-/*
     Model: ClickStatsItem
 */
 @AllArgsConstructor
@@ -375,20 +350,8 @@ public static class UrlInfo{
     
     
     
-    @JsonProperty("original")
-    private String original;
-    
-    
-    
-    
     @JsonProperty("hash")
     private String hash;
-    
-    
-    
-    
-    @JsonProperty("short_url")
-    private String shortUrl;
     
     
     
@@ -589,6 +552,12 @@ public static class Page{
     
     @JsonProperty("size")
     private Integer size;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
     
     
     

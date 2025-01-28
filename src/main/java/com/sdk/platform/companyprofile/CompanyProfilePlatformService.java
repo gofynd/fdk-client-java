@@ -172,11 +172,11 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.GetBrandResponseSerializer getBrand(String brandId) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.GetBrandResponseSerializer getBrand(Integer brandId) throws FDKServerResponseError, FDKException {
         return this.getBrand(brandId, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.GetBrandResponseSerializer getBrand(String brandId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.GetBrandResponseSerializer getBrand(Integer brandId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.GetBrandResponseSerializer> response = null;
             try {
@@ -216,11 +216,11 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse editBrand(String brandId, CompanyProfilePlatformModels.UpdateBrandRequestSerializer body) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse editBrand(Integer brandId, CompanyProfilePlatformModels.CreateUpdateBrandRequestSerializer body) throws FDKServerResponseError, FDKException {
         return this.editBrand(brandId, body, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse editBrand(String brandId, CompanyProfilePlatformModels.UpdateBrandRequestSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse editBrand(Integer brandId, CompanyProfilePlatformModels.CreateUpdateBrandRequestSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {
@@ -256,11 +256,11 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createBrand(CompanyProfilePlatformModels.CreateBrandRequestSerializer body) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse createBrand(CompanyProfilePlatformModels.CreateUpdateBrandRequestSerializer body) throws FDKServerResponseError, FDKException {
         return this.createBrand(body, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createBrand(CompanyProfilePlatformModels.CreateBrandRequestSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse createBrand(CompanyProfilePlatformModels.CreateUpdateBrandRequestSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {
@@ -512,110 +512,6 @@ public class CompanyProfilePlatformService {
     }
     
     
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getLocations
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CompanyProfilePlatformModels.LocationListSerializer> getLocationsPagination(
-        String storeType ,
-        String q ,
-        String stage ,
-        Integer pageSize ,
-        List<Integer> locationIds ,
-        List<String> types ,
-        List<String> tags 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CompanyProfilePlatformModels.LocationListSerializer> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CompanyProfilePlatformModels.LocationListSerializer callback = this.getLocations(
-                
-                 
-                 storeType,
-                 q,
-                 stage,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 locationIds,
-                 types,
-                 tags
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-    
-    
     
     
     
@@ -672,11 +568,11 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.GetLocationSerializer getLocationDetail(String locationId) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.GetLocationSerializer getLocationDetail(Integer locationId) throws FDKServerResponseError, FDKException {
         return this.getLocationDetail(locationId, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.GetLocationSerializer getLocationDetail(String locationId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.GetLocationSerializer getLocationDetail(Integer locationId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.GetLocationSerializer> response = null;
             try {
@@ -716,11 +612,11 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse updateLocation(String locationId, CompanyProfilePlatformModels.LocationSerializer body) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse updateLocation(Integer locationId, CompanyProfilePlatformModels.LocationSerializer body) throws FDKServerResponseError, FDKException {
         return this.updateLocation(locationId, body, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse updateLocation(String locationId, CompanyProfilePlatformModels.LocationSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponse updateLocation(Integer locationId, CompanyProfilePlatformModels.LocationSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
             try {
