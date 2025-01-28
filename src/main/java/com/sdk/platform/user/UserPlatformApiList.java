@@ -89,4 +89,19 @@ interface UserPlatformApiList {
 
     @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_attribute/attribute/{attribute_id}")
     Call<UserPlatformModels.UserAttribute> getUserAttributeById(@Path("attribute_id") String attributeId, @Path("application_id") String applicationId, @Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/users/jobs/import")
+    Call<UserPlatformModels.BulkActionModel> bulkImportStoreFrontUsers(@Path("application_id") String applicationId, @Path("company_id") String companyId, @Body UserPlatformModels.CreateStoreFrontUsersPayload payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/users/jobs/import")
+    Call<UserPlatformModels.BulkActionPaginationSchema> getBulkImportUsersList(@Path("application_id") String applicationId, @Path("company_id") String companyId, @Query("page_no") String pageNo, @Query("page_size") String pageSize, @Query("search") String search, @Query("start_date") String startDate, @Query("end_date") String endDate, @Query("status") String status, @Query("file_format") String fileFormat, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/users/jobs/export")
+    Call<UserPlatformModels.BulkActionModel> createBulkExportUsers(@Path("application_id") String applicationId, @Path("company_id") String companyId, @Body UserPlatformModels.BulkUserExportSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/users/jobs/export")
+    Call<UserPlatformModels.BulkActionPaginationSchema> getBulkExportUsersList(@Path("application_id") String applicationId, @Path("company_id") String companyId, @Query("page_no") String pageNo, @Query("page_size") String pageSize, @Query("file_format") String fileFormat, @Query("search") String search, @Query("start_date") String startDate, @Query("end_date") String endDate, @Query("status") String status, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/users/jobs/{job_id}")
+    Call<UserPlatformModels.BulkActionModel> getUsersJobByJobId(@Path("application_id") String applicationId, @Path("company_id") String companyId, @Path("job_id") String jobId, @HeaderMap Map<String, String> requestHeaders);
 }

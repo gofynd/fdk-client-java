@@ -93,6 +93,16 @@ public class UserPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 
@@ -847,6 +857,141 @@ public class ApplicationClient {
             Response<UserPlatformModels.UserAttribute> response = null;
             try {
             response = userPlatformApiList.getUserAttributeById(attributeId, this.applicationId, this.companyId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public UserPlatformModels.BulkActionModel bulkImportStoreFrontUsers(UserPlatformModels.CreateStoreFrontUsersPayload body) throws FDKServerResponseError, FDKException {
+        return this.bulkImportStoreFrontUsers(body, new HashMap<>());
+    }
+
+    public UserPlatformModels.BulkActionModel bulkImportStoreFrontUsers(UserPlatformModels.CreateStoreFrontUsersPayload body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<UserPlatformModels.BulkActionModel> response = null;
+            try {
+            response = userPlatformApiList.bulkImportStoreFrontUsers(this.applicationId, this.companyId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public UserPlatformModels.BulkActionPaginationSchema getBulkImportUsersList(String pageNo, String pageSize, String search, String startDate, String endDate, String status, String fileFormat) throws FDKServerResponseError, FDKException {
+        return this.getBulkImportUsersList(pageNo, pageSize, search, startDate, endDate, status, fileFormat, new HashMap<>());
+    }
+
+    public UserPlatformModels.BulkActionPaginationSchema getBulkImportUsersList(String pageNo, String pageSize, String search, String startDate, String endDate, String status, String fileFormat, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<UserPlatformModels.BulkActionPaginationSchema> response = null;
+            try {
+            response = userPlatformApiList.getBulkImportUsersList(this.applicationId, this.companyId, pageNo, pageSize, search, startDate, endDate, status, fileFormat, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public UserPlatformModels.BulkActionModel createBulkExportUsers(UserPlatformModels.BulkUserExportSchema body) throws FDKServerResponseError, FDKException {
+        return this.createBulkExportUsers(body, new HashMap<>());
+    }
+
+    public UserPlatformModels.BulkActionModel createBulkExportUsers(UserPlatformModels.BulkUserExportSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<UserPlatformModels.BulkActionModel> response = null;
+            try {
+            response = userPlatformApiList.createBulkExportUsers(this.applicationId, this.companyId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public UserPlatformModels.BulkActionPaginationSchema getBulkExportUsersList(String pageNo, String pageSize, String fileFormat, String search, String startDate, String endDate, String status) throws FDKServerResponseError, FDKException {
+        return this.getBulkExportUsersList(pageNo, pageSize, fileFormat, search, startDate, endDate, status, new HashMap<>());
+    }
+
+    public UserPlatformModels.BulkActionPaginationSchema getBulkExportUsersList(String pageNo, String pageSize, String fileFormat, String search, String startDate, String endDate, String status, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<UserPlatformModels.BulkActionPaginationSchema> response = null;
+            try {
+            response = userPlatformApiList.getBulkExportUsersList(this.applicationId, this.companyId, pageNo, pageSize, fileFormat, search, startDate, endDate, status, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public UserPlatformModels.BulkActionModel getUsersJobByJobId(String jobId) throws FDKServerResponseError, FDKException {
+        return this.getUsersJobByJobId(jobId, new HashMap<>());
+    }
+
+    public UserPlatformModels.BulkActionModel getUsersJobByJobId(String jobId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<UserPlatformModels.BulkActionModel> response = null;
+            try {
+            response = userPlatformApiList.getUsersJobByJobId(this.applicationId, this.companyId, jobId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

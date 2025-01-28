@@ -1214,6 +1214,37 @@ public static class DataUpdates{
 
 
 /*
+    Model: TransitionComments
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransitionComments{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
     Model: ShipmentsRequestSchema
 */
 @AllArgsConstructor
@@ -1250,6 +1281,12 @@ public static class ShipmentsRequestSchema{
     
     @JsonProperty("data_updates")
     private DataUpdates dataUpdates;
+    
+    
+    
+    
+    @JsonProperty("transition_comments")
+    private List<TransitionComments> transitionComments;
     
     
     

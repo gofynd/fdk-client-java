@@ -489,6 +489,289 @@ public static class CreateUserAttributeDefinition{
 
 
 /*
+    Model: CreateStoreFrontUsersPayload
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateStoreFrontUsersPayload{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("absolute_url")
+    private String absoluteUrl;
+    
+    
+    
+    
+    @JsonProperty("file_format")
+    private String fileFormat;
+    
+    
+    
+    
+    @JsonProperty("relative_url")
+    private String relativeUrl;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkUserExportSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkUserExportSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("file_format")
+    private String fileFormat;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkActionModel
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkActionModel{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("file_name")
+    private String fileName;
+    
+    
+    
+    
+    @JsonProperty("file_format")
+    private String fileFormat;
+    
+    
+    
+    
+    @JsonProperty("action_type")
+    private String actionType;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private CreatedBySchema createdBy;
+    
+    
+    
+    
+    @JsonProperty("count")
+    private BulkActionCountSchema count;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("links")
+    private BulkActionLinkSchema links;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private String companyId;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+}
+
+
+/*
+    Model: CreatedBySchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreatedBySchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkActionLinkSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkActionLinkSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("file")
+    private FileLinks file;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private FileLinks error;
+    
+    
+    
+}
+
+
+/*
+    Model: FileLinks
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FileLinks{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("absolute_url")
+    private String absoluteUrl;
+    
+    
+    
+    
+    @JsonProperty("relative_url")
+    private String relativeUrl;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkActionCountSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkActionCountSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Integer success;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private Integer error;
+    
+    
+    
+}
+
+
+/*
     Model: BlockUserRequestSchema
 */
 @AllArgsConstructor
@@ -706,6 +989,37 @@ public static class CustomerListResponseSchema{
     
     @JsonProperty("items")
     private List<UserSearchSchema> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private PaginationSchema page;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkActionPaginationSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkActionPaginationSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<BulkActionModel> items;
     
     
     
