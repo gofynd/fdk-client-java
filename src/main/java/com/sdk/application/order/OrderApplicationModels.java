@@ -526,6 +526,12 @@ public static class UserInfo{
     
     
     
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
 }
 
 
@@ -634,7 +640,7 @@ public static class ShipmentPayment{
 
 
 /*
-    Model: ShipmentPaymentInfo
+    Model: PaymentInfo
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -642,7 +648,7 @@ public static class ShipmentPayment{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShipmentPaymentInfo{
+public static class PaymentInfo{
 
     
 
@@ -743,6 +749,12 @@ public static class ShipmentUserInfo{
     
     @JsonProperty("email")
     private String email;
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
     
     
     
@@ -1982,7 +1994,7 @@ public static class Bags{
     
     
     @JsonProperty("quantity")
-    private Integer quantity;
+    private Double quantity;
     
     
     
@@ -2352,7 +2364,7 @@ public static class Shipments{
     
     
     @JsonProperty("payment_info")
-    private List<ShipmentPaymentInfo> paymentInfo;
+    private List<PaymentInfo> paymentInfo;
     
     
     
@@ -2923,6 +2935,12 @@ public static class OrderSchema{
     
     @JsonProperty("external_order_id")
     private String externalOrderId;
+    
+    
+    
+    
+    @JsonProperty("payment_info")
+    private List<PaymentInfo> paymentInfo;
     
     
     

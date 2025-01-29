@@ -561,6 +561,12 @@ public static class Page{
     
     
     
+    
+    @JsonProperty("page")
+    private Integer page;
+    
+    
+    
 }
 
 

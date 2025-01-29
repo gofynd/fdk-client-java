@@ -745,15 +745,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ThemePlatformModels.ThemesSchema getAppliedTheme() throws FDKServerResponseError, FDKException {
-        return this.getAppliedTheme(new HashMap<>());
+    public ThemePlatformModels.ThemesSchema createTheme(ThemePlatformModels.CompanyThemeReqSchema body) throws FDKServerResponseError, FDKException {
+        return this.createTheme(body, new HashMap<>());
     }
 
-    public ThemePlatformModels.ThemesSchema getAppliedTheme(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ThemePlatformModels.ThemesSchema createTheme(ThemePlatformModels.CompanyThemeReqSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
-            response = themePlatformApiList.getAppliedTheme(this.companyId, this.applicationId, requestHeaders).execute();
+            response = themePlatformApiList.createTheme(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -772,15 +772,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ThemePlatformModels.ThemesSchema addThemeToApplication(ThemePlatformModels.ThemesSchema body) throws FDKServerResponseError, FDKException {
-        return this.addThemeToApplication(body, new HashMap<>());
+    public ThemePlatformModels.ThemesSchema getAppliedTheme() throws FDKServerResponseError, FDKException {
+        return this.getAppliedTheme(new HashMap<>());
     }
 
-    public ThemePlatformModels.ThemesSchema addThemeToApplication(ThemePlatformModels.ThemesSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ThemePlatformModels.ThemesSchema getAppliedTheme(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
-            response = themePlatformApiList.addThemeToApplication(this.companyId, this.applicationId, body, requestHeaders).execute();
+            response = themePlatformApiList.getAppliedTheme(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

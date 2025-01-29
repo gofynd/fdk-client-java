@@ -100,7 +100,7 @@ interface CatalogPlatformApiList {
     Call<CatalogPlatformModels.SuccessResponse1> updateAppProduct(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("item_id") Integer itemId, @Body CatalogPlatformModels.ApplicationItemMeta payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/products")
-    Call<CatalogPlatformModels.ApplicationProductListingResponse> getAppicationProducts(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("q") String q, @Query("f") String f, @Query("c") String c, @Query("filters") Boolean filters, @Query("is_dependent") Boolean isDependent, @Query("sort_on") String sortOn, @Query("page_id") String pageId, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @Query("page_type") String pageType, @Query("item_ids") List<String> itemIds, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogPlatformModels.ApplicationProductListingResponse> getApplicationProducts(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("q") String q, @Query("f") String f, @Query("c") String c, @Query("filters") Boolean filters, @Query("is_dependent") Boolean isDependent, @Query("sort_on") String sortOn, @Query("page_id") String pageId, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @Query("page_type") String pageType, @Query("item_ids") List<String> itemIds, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/products/{item_id}/inventory/{size_identifier}")
     Call<CatalogPlatformModels.InventorySellerIdentifierResponsePaginated> getDiscountedInventoryBySizeIdentifier(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("item_id") Integer itemId, @Path("size_identifier") Integer sizeIdentifier, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("location_ids") List<Integer> locationIds, @HeaderMap Map<String, String> requestHeaders);
@@ -192,32 +192,20 @@ interface CatalogPlatformApiList {
     @PATCH ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/store/{store_uid}")
     Call<CatalogPlatformModels.SuccessResponse1> updateAppLocation(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("store_uid") Integer storeUid, @Body CatalogPlatformModels.ApplicationStoreJson payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/catalog/v1.0/company/{company_id}/category")
-    Call<CatalogPlatformModels.CategoryCreateResponse> createCategories(@Path("company_id") String companyId, @Body CatalogPlatformModels.CategoryRequestBody payload, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/category")
     Call<CatalogPlatformModels.CategoryResponse> listCategories(@Path("company_id") String companyId, @Query("level") String level, @Query("department") Integer department, @Query("q") String q, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("uids") List<Integer> uids, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/category/{uid}")
     Call<CatalogPlatformModels.SingleCategoryResponse> getCategoryData(@Path("company_id") String companyId, @Path("uid") String uid, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/catalog/v1.0/company/{company_id}/category/{uid}")
-    Call<CatalogPlatformModels.CategoryUpdateResponse> updateCategory(@Path("company_id") String companyId, @Path("uid") String uid, @Body CatalogPlatformModels.CategoryRequestBody payload, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/cross-selling/{seller_app_id}/analytics/insights")
     Call<CatalogPlatformModels.CrossSellingResponse> getSellerInsights(@Path("company_id") String companyId, @Path("seller_app_id") String sellerAppId, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/catalog/v1.0/company/{company_id}/departments")
-    Call<CatalogPlatformModels.DepartmentCreateResponse> createDepartments(@Path("company_id") String companyId, @Body CatalogPlatformModels.DepartmentCreateUpdate payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/departments")
     Call<CatalogPlatformModels.DepartmentsResponse> listDepartmentsData(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("item_type") String itemType, @Query("page_size") Integer pageSize, @Query("name") String name, @Query("search") String search, @Query("is_active") Boolean isActive, @Query("uids") List<Integer> uids, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/departments/{uid}")
     Call<CatalogPlatformModels.DepartmentsResponse> getDepartmentData(@Path("company_id") String companyId, @Path("uid") String uid, @HeaderMap Map<String, String> requestHeaders);
-
-    @PUT ("/service/platform/catalog/v1.0/company/{company_id}/departments/{uid}")
-    Call<CatalogPlatformModels.DepartmentModel> updateDepartment(@Path("company_id") String companyId, @Path("uid") String uid, @Body CatalogPlatformModels.DepartmentCreateUpdate payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/downloads/configuration")
     Call<CatalogPlatformModels.ProductConfigurationDownloads> listTemplateBrandTypeValues(@Path("company_id") String companyId, @Query("filter") String filter, @Query("template_tag") String templateTag, @Query("item_type") String itemType, @HeaderMap Map<String, String> requestHeaders);
@@ -283,7 +271,7 @@ interface CatalogPlatformApiList {
     Call<CatalogPlatformModels.ProductAttributesResponse> getProductAttributes(@Path("company_id") String companyId, @Query("category") String category, @Query("filter") Boolean filter, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/product-attributes/{attribute_slug}")
-    Call<CatalogPlatformModels.GenderDetail> getGenderAttribute(@Path("company_id") String companyId, @Path("attribute_slug") String attributeSlug, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogPlatformModels.AttributeDetail> getAttribute(@Path("company_id") String companyId, @Path("attribute_slug") String attributeSlug, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/catalog/v2.0/company/{company_id}/product-bundle")
     Call<CatalogPlatformModels.GetProductBundleCreateResponse> createProductBundle(@Path("company_id") String companyId, @Body CatalogPlatformModels.ProductBundleRequest payload, @HeaderMap Map<String, String> requestHeaders);
@@ -571,7 +559,7 @@ interface CatalogPlatformApiList {
     Call<CatalogPlatformModels.CreateAppPriceFactoryProductExportJobResponse> exportProductsInPriceFactory(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CatalogPlatformModels.CreateAppPriceFactoryProductExportJobRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/owner-application/{application_id}/price-factory/{id}/poll")
-    Call<CatalogPlatformModels.CreateAppPriceFactoryProductExportJobPollResponse> pollPriceFactoryJobs(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogPlatformModels.CreateAppPriceFactoryProductExportJobPollResponse> pollPriceFactoryJobs(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Query("start_date") String startDate, @Query("end_date") String endDate, @Query("stage") List<String> stage, @Query("is_active") Boolean isActive, @Query("q") String q, @Query("type") List<String> type, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/product-prices")
     Call<CatalogPlatformModels.ProductPrices> getAppProductPrices(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("item_ids") List<Integer> itemIds, @Query("factory_type_ids") List<String> factoryTypeIds, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);

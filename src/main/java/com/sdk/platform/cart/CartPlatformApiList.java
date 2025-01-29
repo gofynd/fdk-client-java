@@ -31,13 +31,13 @@ interface CartPlatformApiList {
     Call<CartPlatformModels.PromotionsResponse> getPromotions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("q") String q, @Query("is_active") Boolean isActive, @Query("promo_group") String promoGroup, @Query("promotion_type") String promotionType, @Query("fp_panel") String fpPanel, @Query("promotion_id") String promotionId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promotion")
-    Call<CartPlatformModels.PromotionAdd> createPromotion(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CartPlatformModels.PromotionAdd payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartPlatformModels.PromotionAddResult> createPromotion(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CartPlatformModels.PromotionAdd payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promotion/{id}")
-    Call<CartPlatformModels.PromotionUpdate> getPromotionById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartPlatformModels.PromotionUpdateResult> getPromotionById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promotion/{id}")
-    Call<CartPlatformModels.PromotionUpdate> updatePromotion(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CartPlatformModels.PromotionUpdate payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartPlatformModels.PromotionUpdateResult> updatePromotion(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CartPlatformModels.PromotionUpdate payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PATCH ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/promotion/{id}")
     Call<CartPlatformModels.SuccessMessage> updatePromotionPartially(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CartPlatformModels.PromotionPartialUpdate payload, @HeaderMap Map<String, String> requestHeaders);

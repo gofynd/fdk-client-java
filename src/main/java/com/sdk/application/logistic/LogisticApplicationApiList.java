@@ -25,6 +25,9 @@ interface LogisticApplicationApiList {
     Call<LogisticApplicationModels.GetCountry> getCountry(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
+    Call<LogisticApplicationModels.GetLocalities> getLocalitiesByPrefix(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
     Call<LogisticApplicationModels.GetLocalities> getLocalities(@Url String url1, @Query("country") String country, @Query("state") String state, @Query("city") String city, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("q") String q, @Query("name") String name, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
@@ -35,4 +38,7 @@ interface LogisticApplicationApiList {
 
     @POST 
     Call<LogisticApplicationModels.GenerateShipmentsAndCourierPartnerResponse> createShipments(@Url String url1, @Body LogisticApplicationModels.GenerateShipmentsRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
+    Call<LogisticApplicationModels.GetPromiseDetails> getDeliveryPromise(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 }
