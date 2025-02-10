@@ -5702,6 +5702,30 @@ public static class CartProduct{
     
     
     
+    
+    @JsonProperty("l1_categories")
+    private List<Double> l1Categories;
+    
+    
+    
+    
+    @JsonProperty("l2_categories")
+    private List<Double> l2Categories;
+    
+    
+    
+    
+    @JsonProperty("l3_categories")
+    private List<Double> l3Categories;
+    
+    
+    
+    
+    @JsonProperty("departments")
+    private List<Double> departments;
+    
+    
+    
 }
 
 
