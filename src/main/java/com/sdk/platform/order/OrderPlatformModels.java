@@ -1469,7 +1469,7 @@ public static class ProductsReasonsFilters{
     
     
     @JsonProperty("quantity")
-    private Double quantity;
+    private Integer quantity;
     
     
     
@@ -1661,7 +1661,7 @@ public static class Products{
     
     
     @JsonProperty("quantity")
-    private Double quantity;
+    private Integer quantity;
     
     
     
@@ -1723,7 +1723,7 @@ public static class ProductsDataUpdatesFilters{
     
     
     @JsonProperty("quantity")
-    private Double quantity;
+    private Integer quantity;
     
     
     
@@ -3423,111 +3423,6 @@ public static class OrderConfig{
 
 
 /*
-    Model: DPConfiguration
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DPConfiguration{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("shipping_by")
-    private String shippingBy;
-    
-    
-    
-}
-
-
-/*
-    Model: PaymentConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentConfig{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("mode_of_payment")
-    private String modeOfPayment;
-    
-    
-    
-    
-    @JsonProperty("source")
-    private String source;
-    
-    
-    
-}
-
-
-/*
-    Model: CreateOrderConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateOrderConfig{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("dp_configuration")
-    private DPConfiguration dpConfiguration;
-    
-    
-    
-    
-    @JsonProperty("integration_type")
-    private String integrationType;
-    
-    
-    
-    
-    @JsonProperty("location_reassignment")
-    private Boolean locationReassignment;
-    
-    
-    
-    
-    @JsonProperty("payment")
-    private PaymentConfig payment;
-    
-    
-    
-    
-    @JsonProperty("optimal_shipment_creation")
-    private Boolean optimalShipmentCreation;
-    
-    
-    
-}
-
-
-/*
     Model: CreateOrderPayload
 */
 @AllArgsConstructor
@@ -4721,30 +4616,6 @@ public static class OrderStatusData{
     
     
     
-    
-    @JsonProperty("text")
-    private String text;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-    
-    @JsonProperty("color_code")
-    private String colorCode;
-    
-    
-    
-    
-    @JsonProperty("expected_delivery_date")
-    private String expectedDeliveryDate;
-    
-    
-    
 }
 
 
@@ -5051,278 +4922,6 @@ public static class Charge{
 
 
 /*
-    Model: CurrencyValueSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CurrencyValueSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("value")
-    private Double value;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private String currency;
-    
-    
-    
-}
-
-
-/*
-    Model: AmountSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AmountSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("ordering_currency")
-    private CurrencyValueSchema orderingCurrency;
-    
-    
-    
-    
-    @JsonProperty("base_currency")
-    private CurrencyValueSchema baseCurrency;
-    
-    
-    
-}
-
-
-/*
-    Model: DynamicChargeTaxSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DynamicChargeTaxSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("reporting_hsn_code")
-    private String reportingHsnCode;
-    
-    
-    
-}
-
-
-/*
-    Model: RuleConditionsSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RuleConditionsSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("article_tag")
-    private String articleTag;
-    
-    
-    
-    
-    @JsonProperty("department")
-    private List<String> department;
-    
-    
-    
-}
-
-
-/*
-    Model: RuleSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RuleSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("conditions")
-    private RuleConditionsSchema conditions;
-    
-    
-    
-}
-
-
-/*
-    Model: DistributionSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DistributionSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("logic")
-    private String logic;
-    
-    
-    
-    
-    @JsonProperty("rule")
-    private RuleSchema rule;
-    
-    
-    
-}
-
-
-/*
-    Model: DistributionLogicSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DistributionLogicSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("distribution_level")
-    private String distributionLevel;
-    
-    
-    
-    
-    @JsonProperty("distribution")
-    private DistributionSchema distribution;
-    
-    
-    
-}
-
-
-/*
-    Model: DynamicChargeSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DynamicChargeSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("amount")
-    private AmountSchema amount;
-    
-    
-    
-    
-    @JsonProperty("taxes")
-    private DynamicChargeTaxSchema taxes;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("distribution_logic")
-    private DistributionLogicSchema distributionLogic;
-    
-    
-    
-}
-
-
-/*
     Model: LineItem
 */
 @AllArgsConstructor
@@ -5371,12 +4970,6 @@ public static class LineItem{
     
     @JsonProperty("external_line_id")
     private String externalLineId;
-    
-    
-    
-    
-    @JsonProperty("dynamic_charges")
-    private List<DynamicChargeSchema> dynamicCharges;
     
     
     
@@ -5661,6 +5254,55 @@ public static class Shipment{
     
     @JsonProperty("gst")
     private ShipmentGstDetails gst;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentRequestData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentRequestData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("line_items")
+    private List<LineItem> lineItems;
+    
+    
+    
+    
+    @JsonProperty("processing_dates")
+    private ProcessingDates processingDates;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Integer priority;
+    
+    
+    
+    
+    @JsonProperty("order_type")
+    private String orderType;
     
     
     
@@ -6460,6 +6102,67 @@ public static class ConfigApplication{
 
 
 /*
+    Model: Config
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Config{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("lock_states")
+    private List<String> lockStates;
+    
+    
+    
+    
+    @JsonProperty("payment")
+    private ConfigPayment payment;
+    
+    
+    
+    
+    @JsonProperty("dp_configuration")
+    private ConfigDpConfiguration dpConfiguration;
+    
+    
+    
+    
+    @JsonProperty("location_reassignment")
+    private Boolean locationReassignment;
+    
+    
+    
+    
+    @JsonProperty("application")
+    private ConfigApplication application;
+    
+    
+    
+    
+    @JsonProperty("ordering_channel_logo")
+    private String orderingChannelLogo;
+    
+    
+    
+    
+    @JsonProperty("integration_type")
+    private String integrationType;
+    
+    
+    
+}
+
+
+/*
     Model: CreateOrderAPI
 */
 @AllArgsConstructor
@@ -6478,6 +6181,12 @@ public static class CreateOrderAPI{
     
     @JsonProperty("shipments")
     private List<Shipment> shipments;
+    
+    
+    
+    
+    @JsonProperty("shipment_request_data")
+    private ShipmentRequestData shipmentRequestData;
     
     
     
@@ -6543,7 +6252,7 @@ public static class CreateOrderAPI{
     
     
     @JsonProperty("config")
-    private CreateOrderConfig config;
+    private Config config;
     
     
     
@@ -6568,12 +6277,6 @@ public static class CreateOrderAPI{
     
     @JsonProperty("lock_after_transition")
     private Boolean lockAfterTransition;
-    
-    
-    
-    
-    @JsonProperty("dynamic_charges")
-    private List<DynamicChargeSchema> dynamicCharges;
     
     
     
@@ -9081,18 +8784,6 @@ public static class DateRange{
     
     
     
-    
-    @JsonProperty("end_date")
-    private String endDate;
-    
-    
-    
-    
-    @JsonProperty("start_date")
-    private String startDate;
-    
-    
-    
 }
 
 
@@ -9119,8 +8810,26 @@ public static class Filters{
     
     
     
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("from_date")
+    private String fromDate;
+    
+    
+    
+    
     @JsonProperty("stores")
     private Integer stores;
+    
+    
+    
+    
+    @JsonProperty("to_date")
+    private String toDate;
     
     
     
@@ -9132,7 +8841,7 @@ public static class Filters{
     
     
     @JsonProperty("dp_ids")
-    private String dpIds;
+    private Integer dpIds;
     
     
     
@@ -9145,12 +8854,6 @@ public static class Filters{
     
     @JsonProperty("selected_shipments")
     private String selectedShipments;
-    
-    
-    
-    
-    @JsonProperty("deselected_shipments")
-    private String deselectedShipments;
     
     
     
@@ -11973,705 +11676,6 @@ public static class PageInfo{
     
     @JsonProperty("page_size")
     private Integer pageSize;
-    
-    
-    
-}
-
-
-/*
-    Model: ConfigData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ConfigData{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("acknowledged")
-    private Boolean acknowledged;
-    
-    
-    
-    
-    @JsonProperty("is_upserted")
-    private Boolean isUpserted;
-    
-    
-    
-    
-    @JsonProperty("is_inserted")
-    private Boolean isInserted;
-    
-    
-    
-}
-
-
-/*
-    Model: ConfigUpdatedResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ConfigUpdatedResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("data")
-    private List<ConfigData> data;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-}
-
-
-/*
-    Model: FlagData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FlagData{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("value")
-    private Object value;
-    
-    
-    
-    
-    @JsonProperty("filter")
-    private Object filter;
-    
-    
-    
-}
-
-
-/*
-    Model: Flags
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Flags{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("allow_partial_transition")
-    private List<FlagData> allowPartialTransition;
-    
-    
-    
-    
-    @JsonProperty("can_break_entity")
-    private List<FlagData> canBreakEntity;
-    
-    
-    
-    
-    @JsonProperty("allowed_bag_updates")
-    private List<FlagData> allowedBagUpdates;
-    
-    
-    
-    
-    @JsonProperty("allowed_bag_status_updates")
-    private List<FlagData> allowedBagStatusUpdates;
-    
-    
-    
-    
-    @JsonProperty("allowed_entity_updates")
-    private List<FlagData> allowedEntityUpdates;
-    
-    
-    
-    
-    @JsonProperty("allowed_entity_status_updates")
-    private List<FlagData> allowedEntityStatusUpdates;
-    
-    
-    
-    
-    @JsonProperty("status_update_type")
-    private List<FlagData> statusUpdateType;
-    
-    
-    
-    
-    @JsonProperty("is_bag_status_reason_allowed")
-    private List<FlagData> isBagStatusReasonAllowed;
-    
-    
-    
-    
-    @JsonProperty("is_entity_status_reason_allowed")
-    private List<FlagData> isEntityStatusReasonAllowed;
-    
-    
-    
-    
-    @JsonProperty("transition_strategy")
-    private List<FlagData> transitionStrategy;
-    
-    
-    
-}
-
-
-/*
-    Model: Filter
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Filter{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("order_type")
-    private String orderType;
-    
-    
-    
-    
-    @JsonProperty("is_partial_transition")
-    private Boolean isPartialTransition;
-    
-    
-    
-    
-    @JsonProperty("auto_trigger_dp_assignment_acf")
-    private Boolean autoTriggerDpAssignmentAcf;
-    
-    
-    
-    
-    @JsonProperty("lock_status")
-    private String lockStatus;
-    
-    
-    
-    
-    @JsonProperty("lock_after_transition")
-    private Boolean lockAfterTransition;
-    
-    
-    
-    
-    @JsonProperty("resume_tasks_after_unlock")
-    private Boolean resumeTasksAfterUnlock;
-    
-    
-    
-    
-    @JsonProperty("is_invoice_id_present")
-    private Boolean isInvoiceIdPresent;
-    
-    
-    
-    
-    @JsonProperty("is_credit_note_generated")
-    private Boolean isCreditNoteGenerated;
-    
-    
-    
-    
-    @JsonProperty("fulfill_virtual_invoice")
-    private Boolean fulfillVirtualInvoice;
-    
-    
-    
-    
-    @JsonProperty("next_status")
-    private String nextStatus;
-    
-    
-    
-    
-    @JsonProperty("is_hook_enabled")
-    private Boolean isHookEnabled;
-    
-    
-    
-    
-    @JsonProperty("pos_credit_note_check")
-    private Boolean posCreditNoteCheck;
-    
-    
-    
-    
-    @JsonProperty("order_platform")
-    private String orderPlatform;
-    
-    
-    
-    
-    @JsonProperty("refund_type")
-    private String refundType;
-    
-    
-    
-    
-    @JsonProperty("is_non_pos_platform")
-    private Boolean isNonPosPlatform;
-    
-    
-    
-    
-    @JsonProperty("is_self_ship")
-    private Boolean isSelfShip;
-    
-    
-    
-    
-    @JsonProperty("seller_country_code")
-    private String sellerCountryCode;
-    
-    
-    
-    
-    @JsonProperty("customer_country_code")
-    private String customerCountryCode;
-    
-    
-    
-    
-    @JsonProperty("is_test_order")
-    private Boolean isTestOrder;
-    
-    
-    
-    
-    @JsonProperty("task_trigger_condition")
-    private List<String> taskTriggerCondition;
-    
-    
-    
-}
-
-
-/*
-    Model: PostHook
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PostHook{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("task")
-    private String task;
-    
-    
-    
-    
-    @JsonProperty("kwargs")
-    private HashMap<String,Object> kwargs;
-    
-    
-    
-    
-    @JsonProperty("filters")
-    private Filter filters;
-    
-    
-    
-}
-
-
-/*
-    Model: PreHook
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PreHook{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("task")
-    private String task;
-    
-    
-    
-    
-    @JsonProperty("kwargs")
-    private HashMap<String,Object> kwargs;
-    
-    
-    
-    
-    @JsonProperty("filters")
-    private Filter filters;
-    
-    
-    
-}
-
-
-/*
-    Model: Config
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Config{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("from_state")
-    private String fromState;
-    
-    
-    
-    
-    @JsonProperty("to_state")
-    private String toState;
-    
-    
-    
-    
-    @JsonProperty("pre_hooks")
-    private List<PreHook> preHooks;
-    
-    
-    
-    
-    @JsonProperty("post_hooks")
-    private List<PostHook> postHooks;
-    
-    
-    
-    
-    @JsonProperty("flags")
-    private Flags flags;
-    
-    
-    
-}
-
-
-/*
-    Model: TransitionConfigCondition
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TransitionConfigCondition{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("app_id")
-    private String appId;
-    
-    
-    
-    
-    @JsonProperty("ordering_channel")
-    private String orderingChannel;
-    
-    
-    
-    
-    @JsonProperty("entity")
-    private String entity;
-    
-    
-    
-}
-
-
-/*
-    Model: TransitionConfigData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TransitionConfigData{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("conditions")
-    private TransitionConfigCondition conditions;
-    
-    
-    
-    
-    @JsonProperty("configs")
-    private List<Config> configs;
-    
-    
-    
-}
-
-
-/*
-    Model: TransitionConfigPayload
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TransitionConfigPayload{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("data")
-    private TransitionConfigData data;
-    
-    
-    
-}
-
-
-/*
-    Model: ProcessManifestRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProcessManifestRequest{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("action")
-    private String action;
-    
-    
-    
-    
-    @JsonProperty("filters")
-    private Filters filters;
-    
-    
-    
-    
-    @JsonProperty("unique_id")
-    private String uniqueId;
-    
-    
-    
-}
-
-
-/*
-    Model: ManifestResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ManifestResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private ManifestItems items;
-    
-    
-    
-}
-
-
-/*
-    Model: ManifestItems
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ManifestItems{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("filters")
-    private Filters filters;
-    
-    
-    
-    
-    @JsonProperty("manifest_id")
-    private String manifestId;
-    
-    
-    
-    
-    @JsonProperty("unique_id")
-    private String uniqueId;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("dp_id")
-    private String dpId;
-    
-    
-    
-    
-    @JsonProperty("courier_partner_slug")
-    private String courierPartnerSlug;
-    
-    
-    
-    
-    @JsonProperty("action")
-    private String action;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private String createdBy;
-    
-    
-    
-    
-    @JsonProperty("user_id")
-    private String userId;
-    
-    
-    
-}
-
-
-/*
-    Model: ManifestErrorResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ManifestErrorResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("error")
-    private String error;
     
     
     
@@ -16076,12 +15080,6 @@ public static class OrderingStoreDetails{
     
     
     
-    
-    @JsonProperty("store_email")
-    private String storeEmail;
-    
-    
-    
 }
 
 
@@ -17646,7 +16644,7 @@ public static class OrderBags{
     
     
     @JsonProperty("quantity")
-    private Double quantity;
+    private Integer quantity;
     
     
     
@@ -17834,12 +16832,6 @@ public static class FulfillingStore{
     
     @JsonProperty("city")
     private String city;
-    
-    
-    
-    
-    @JsonProperty("store_email")
-    private String storeEmail;
     
     
     
@@ -18063,12 +17055,6 @@ public static class ShipmentPaymentInfoData{
     
     
     
-    
-    @JsonProperty("transaction_data")
-    private Object transactionData;
-    
-    
-    
 }
 
 
@@ -18121,12 +17107,6 @@ public static class PlatformShipment{
     
     @JsonProperty("gst_details")
     private GSTDetailsData gstDetails;
-    
-    
-    
-    
-    @JsonProperty("order_status")
-    private OrderStatusData orderStatus;
     
     
     

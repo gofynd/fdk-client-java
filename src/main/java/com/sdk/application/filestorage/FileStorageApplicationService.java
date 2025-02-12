@@ -28,7 +28,7 @@ class FileStorage {
 
     private FileStorageApplicationService fileStorageApplicationService;
 
-    public FileStorageApplicationModels.FileUploadComplete uploadMedia(String fileName, String contentType, int size,
+    public FileStorageApplicationModels.CompleteResponse uploadMedia(String fileName, String contentType, int size,
                                                                      String namespace, File file, FileStorageApplicationService fileStorageApplicationService,
                                                                      FileStorageApplicationModels.Params params) {
         this.retrofitServiceFactory = new RetrofitServiceFactory();
@@ -36,10 +36,10 @@ class FileStorage {
         AwsApiList awsApiList = generateAwsApiList();
         if (StringUtils.isNotEmpty(fileName) && StringUtils.isNotEmpty(contentType)
                 && StringUtils.isNotEmpty(namespace)) {
-            FileStorageApplicationModels.FileUploadStart startRequest = new FileStorageApplicationModels.FileUploadStart(fileName, contentType,
+            FileStorageApplicationModels.StartRequest startRequest = new FileStorageApplicationModels.StartRequest(fileName, contentType,
                     size, List.of(), params);
             try {
-                FileStorageApplicationModels.FileUpload startResponse = fileStorageApplicationService.startUpload(namespace, startRequest);
+                FileStorageApplicationModels.StartResponse startResponse = fileStorageApplicationService.startUpload(namespace, startRequest);
                 String uploadUrl = startResponse.getUpload().getUrl();
                 if (StringUtils.isNotEmpty(uploadUrl) && Objects.nonNull(file)) {
                     String contentTypeFromResponse = StringUtils.isNotEmpty(startResponse.getContentType())
@@ -105,20 +105,20 @@ public class FileStorageApplicationService extends FileStorage {
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),FileStorageApplicationApiList.class, interceptorList, cookieStore);
     }
 
-    public FileStorageApplicationModels.FileUploadComplete uploadMedia(String fileName, String contentType, int size, String namespace, File file, FileStorageApplicationModels.Params params) {
+    public FileStorageApplicationModels.CompleteResponse uploadMedia(String fileName, String contentType, int size, String namespace, File file, FileStorageApplicationModels.Params params) {
         return super.uploadMedia(fileName, contentType, size, namespace, file, this, params);
     }
 
-    public FileStorageApplicationModels.FileUpload startUpload(String namespace, FileStorageApplicationModels.FileUploadStart body) throws IOException {
+    public FileStorageApplicationModels.StartResponse startUpload(String namespace, FileStorageApplicationModels.StartRequest body) throws IOException {
         return this.startUpload(namespace, body, new HashMap<>());
     }
 
-    public FileStorageApplicationModels.FileUpload startUpload(String namespace, FileStorageApplicationModels.FileUploadStart body, Map<String, String> requestHeaders) throws IOException {
+    public FileStorageApplicationModels.StartResponse startUpload(String namespace, FileStorageApplicationModels.StartRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("startUpload");
         fullUrl = fullUrl.replace("{" + "namespace" + "}",namespace.toString());
 
-        Response<FileStorageApplicationModels.FileUpload> response = filestorageApplicationApiList.startUpload(fullUrl, body, requestHeaders).execute();
+        Response<FileStorageApplicationModels.StartResponse> response = filestorageApplicationApiList.startUpload(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -127,16 +127,16 @@ public class FileStorageApplicationService extends FileStorage {
     }
     
 
-    public FileStorageApplicationModels.FileUploadComplete completeUpload(String namespace, FileStorageApplicationModels.FileUpload body) throws IOException {
+    public FileStorageApplicationModels.CompleteResponse completeUpload(String namespace, FileStorageApplicationModels.StartResponse body) throws IOException {
         return this.completeUpload(namespace, body, new HashMap<>());
     }
 
-    public FileStorageApplicationModels.FileUploadComplete completeUpload(String namespace, FileStorageApplicationModels.FileUpload body, Map<String, String> requestHeaders) throws IOException {
+    public FileStorageApplicationModels.CompleteResponse completeUpload(String namespace, FileStorageApplicationModels.StartResponse body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("completeUpload");
         fullUrl = fullUrl.replace("{" + "namespace" + "}",namespace.toString());
 
-        Response<FileStorageApplicationModels.FileUploadComplete> response = filestorageApplicationApiList.completeUpload(fullUrl, body, requestHeaders).execute();
+        Response<FileStorageApplicationModels.CompleteResponse> response = filestorageApplicationApiList.completeUpload(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -145,15 +145,15 @@ public class FileStorageApplicationService extends FileStorage {
     }
     
 
-    public FileStorageApplicationModels.SignUrlResult signUrls(FileStorageApplicationModels.SignUrl body) throws IOException {
+    public FileStorageApplicationModels.SignUrlResponse signUrls(FileStorageApplicationModels.SignUrlRequest body) throws IOException {
         return this.signUrls(body, new HashMap<>());
     }
 
-    public FileStorageApplicationModels.SignUrlResult signUrls(FileStorageApplicationModels.SignUrl body, Map<String, String> requestHeaders) throws IOException {
+    public FileStorageApplicationModels.SignUrlResponse signUrls(FileStorageApplicationModels.SignUrlRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("signUrls");
 
-        Response<FileStorageApplicationModels.SignUrlResult> response = filestorageApplicationApiList.signUrls(fullUrl, body, requestHeaders).execute();
+        Response<FileStorageApplicationModels.SignUrlResponse> response = filestorageApplicationApiList.signUrls(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

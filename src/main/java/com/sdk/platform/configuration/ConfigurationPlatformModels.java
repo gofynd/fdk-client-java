@@ -5278,12 +5278,6 @@ public static class GoogleMap{
     
     
     
-    @JsonProperty("enabled")
-    private Boolean enabled;
-    
-    
-    
-    
     @JsonProperty("credentials")
     private GoogleMapCredentials credentials;
     
@@ -8152,12 +8146,6 @@ public static class OptedStoreAddress{
     
     @JsonProperty("state_code")
     private String stateCode;
-    
-    
-    
-    
-    @JsonProperty("landmark")
-    private String landmark;
     
     
     

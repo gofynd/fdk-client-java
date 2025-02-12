@@ -66,11 +66,11 @@ interface ThemePlatformApiList {
     @POST ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}/duplicate")
     Call<ThemePlatformModels.ThemesSchema> duplicateTheme(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}")
-    Call<ThemePlatformModels.ThemesSchema> createTheme(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ThemePlatformModels.CompanyThemeReqSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}")
     Call<ThemePlatformModels.ThemesSchema> getAppliedTheme(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}")
+    Call<ThemePlatformModels.ThemesSchema> addThemeToApplication(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ThemePlatformModels.ThemesSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}/preview")
     Call<ThemePlatformModels.ThemesSchema> getThemeForPreview(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);

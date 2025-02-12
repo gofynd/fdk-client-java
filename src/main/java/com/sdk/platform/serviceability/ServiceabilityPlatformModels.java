@@ -1976,56 +1976,8 @@ public static class Localities{
     
     
     
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
     @JsonProperty("localities")
     private List<LocalityParent> localities;
-    
-    
-    
-    
-    @JsonProperty("iso2")
-    private String iso2;
-    
-    
-    
-    
-    @JsonProperty("iso3")
-    private String iso3;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private Object currency;
-    
-    
-    
-    
-    @JsonProperty("phone_code")
-    private String phoneCode;
-    
-    
-    
-    
-    @JsonProperty("hierarchy")
-    private Object hierarchy;
-    
-    
-    
-    
-    @JsonProperty("latitude")
-    private String latitude;
-    
-    
-    
-    
-    @JsonProperty("longitude")
-    private String longitude;
     
     
     
@@ -2122,56 +2074,8 @@ public static class LocalityParent{
     
     
     
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
     @JsonProperty("parent_uid")
     private String parentUid;
-    
-    
-    
-    
-    @JsonProperty("iso2")
-    private String iso2;
-    
-    
-    
-    
-    @JsonProperty("iso3")
-    private String iso3;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private Object currency;
-    
-    
-    
-    
-    @JsonProperty("phone_code")
-    private String phoneCode;
-    
-    
-    
-    
-    @JsonProperty("hierarchy")
-    private Object hierarchy;
-    
-    
-    
-    
-    @JsonProperty("latitude")
-    private String latitude;
-    
-    
-    
-    
-    @JsonProperty("longitude")
-    private String longitude;
     
     
     
@@ -2233,12 +2137,6 @@ public static class GetLocality{
     
     @JsonProperty("type")
     private String type;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
     
     
     
@@ -3517,12 +3415,6 @@ public static class ListViewItemsV2{
     
     
     
-    @JsonProperty("access_level")
-    private String accessLevel;
-    
-    
-    
-    
     @JsonProperty("geo_areas")
     private List<GeoArea> geoAreas;
     
@@ -3543,18 +3435,6 @@ public static class ListViewItemsV2{
     
     @JsonProperty("is_active")
     private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("is_opted")
-    private Boolean isOpted;
-    
-    
-    
-    
-    @JsonProperty("is_public_opted")
-    private Boolean isPublicOpted;
     
     
     
@@ -3609,31 +3489,6 @@ public static class ListViewItemsV2{
     
     @JsonProperty("summary")
     private Summary summary;
-    
-    
-    
-}
-
-
-/*
-    Model: SummaryRegions
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SummaryRegions{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("regions")
-    private List<RegionSchema> regions;
     
     
     
@@ -4168,12 +4023,6 @@ public static class UpdateZoneDataV2{
     
     
     
-    @JsonProperty("access_level")
-    private String accessLevel;
-    
-    
-    
-    
     @JsonProperty("slug")
     private String slug;
     
@@ -4200,12 +4049,6 @@ public static class UpdateZoneDataV2{
     
     @JsonProperty("is_active")
     private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("is_opted")
-    private Boolean isOpted;
     
     
     
@@ -4265,12 +4108,6 @@ public static class ZoneUpdateSuccessResponse{
     
     
     
-    @JsonProperty("access_level")
-    private String accessLevel;
-    
-    
-    
-    
     @JsonProperty("application_id")
     private String applicationId;
     
@@ -4279,12 +4116,6 @@ public static class ZoneUpdateSuccessResponse{
     
     @JsonProperty("is_active")
     private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("is_opted")
-    private Boolean isOpted;
     
     
     
@@ -4333,18 +4164,6 @@ public static class ZoneUpdateSuccessResponse{
     
     @JsonProperty("modified_on")
     private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("summary")
-    private Summary summary;
     
     
     
@@ -4680,12 +4499,6 @@ public static class GetZoneByIdSchema{
     
     
     
-    @JsonProperty("is_opted")
-    private Boolean isOpted;
-    
-    
-    
-    
     @JsonProperty("product")
     private ProductSchema product;
     
@@ -4795,12 +4608,6 @@ public static class GetZoneByIdDetailsSchema{
     
     
     
-    @JsonProperty("is_opted")
-    private Boolean isOpted;
-    
-    
-    
-    
     @JsonProperty("product")
     private ProductDetailsSchema product;
     
@@ -4833,12 +4640,6 @@ public static class GetZoneByIdDetailsSchema{
     
     @JsonProperty("type")
     private String type;
-    
-    
-    
-    
-    @JsonProperty("access_level")
-    private String accessLevel;
     
     
     
@@ -4913,12 +4714,6 @@ public static class CreateZoneV2Data{
     
     @JsonProperty("type")
     private String type;
-    
-    
-    
-    
-    @JsonProperty("access_level")
-    private String accessLevel;
     
     
     
@@ -5224,12 +5019,6 @@ public static class ZoneResponseV2{
     
     
     
-    @JsonProperty("access_level")
-    private String accessLevel;
-    
-    
-    
-    
     @JsonProperty("application_id")
     private String applicationId;
     
@@ -5238,18 +5027,6 @@ public static class ZoneResponseV2{
     
     @JsonProperty("is_active")
     private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("is_public_opted")
-    private Boolean isPublicOpted;
-    
-    
-    
-    
-    @JsonProperty("is_opted")
-    private Boolean isOpted;
     
     
     
@@ -5304,12 +5081,6 @@ public static class ZoneResponseV2{
     
     @JsonProperty("zone_id")
     private String zoneId;
-    
-    
-    
-    
-    @JsonProperty("summary")
-    private SummaryRegions summary;
     
     
     
@@ -6741,31 +6512,6 @@ public static class ServiceabilityZoneErrorResult{
     
     @JsonProperty("error")
     private List<ServiceabilityErrorResponse> error;
-    
-    
-    
-}
-
-
-/*
-    Model: ServiceabilityZoneNonMarketplaceErrorResult
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ServiceabilityZoneNonMarketplaceErrorResult{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("error")
-    private String error;
     
     
     

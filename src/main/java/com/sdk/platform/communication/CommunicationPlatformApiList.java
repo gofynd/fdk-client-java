@@ -28,7 +28,7 @@ interface CommunicationPlatformApiList {
     Call<CommunicationPlatformModels.EventSubscriptions> getEventSubscriptions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("populate") String populate, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions")
-    Call<CommunicationPlatformModels.EventSubscription> createEventSubscriptions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.SubscriptionsObject payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse> createEventSubscriptions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.SubscriptionsObject payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions/bulkUpdate")
     Call<List<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse>> createEventSubscriptionsByBulk(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.EventSubscriptionsBulkUpdateRequest payload, @HeaderMap Map<String, String> requestHeaders);
@@ -37,7 +37,7 @@ interface CommunicationPlatformApiList {
     Call<CommunicationPlatformModels.EventSubscription> getEventSubscriptionsById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Query("populate") String populate, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions/{id}")
-    Call<CommunicationPlatformModels.EventSubscription> editEventSubscriptions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CommunicationPlatformModels.SubscriptionsObjectRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse> editEventSubscriptions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CommunicationPlatformModels.SubscriptionsObjectRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @DELETE ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions/{id}")
     Call<CommunicationPlatformModels.EventSubscription> deleteEventSubscriptionsById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);

@@ -10,7 +10,7 @@ interface ServiceabilityPlatformApiList {
     Call<ServiceabilityPlatformModels.ZoneResponseV2> createZone(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.CreateZoneV2Data payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/logistics/v2.0/company/{company_id}/application/{application_id}/zones")
-    Call<ServiceabilityPlatformModels.ListViewResponseV2> getZones(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("stage") String stage, @Query("type") String type, @Query("access_level") String accessLevel, @Query("status") String status, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @Query("is_active") Boolean isActive, @Query("q") String q, @Query("country_iso_code") String countryIsoCode, @Query("pincode") String pincode, @Query("state") String state, @Query("city") String city, @Query("sector") String sector, @HeaderMap Map<String, String> requestHeaders);
+    Call<ServiceabilityPlatformModels.ListViewResponseV2> getZones(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("stage") String stage, @Query("type") String type, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @Query("is_active") Boolean isActive, @Query("q") String q, @Query("country_iso_code") String countryIsoCode, @Query("pincode") String pincode, @Query("state") String state, @Query("city") String city, @Query("sector") String sector, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/logistics/v2.0/company/{company_id}/application/{application_id}/zones/{zone_id}")
     Call<ServiceabilityPlatformModels.GetZoneByIdSchema> getZone(@Path("company_id") String companyId, @Path("zone_id") String zoneId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
@@ -176,9 +176,6 @@ interface ServiceabilityPlatformApiList {
 
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/courier-partner/list")
     Call<ServiceabilityPlatformModels.InstallCourierPartnerResponseSchema> getInstalledCourierPartnerExtensions(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("is_installed") String isInstalled, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/logistics/v1.0/company/{company_id}/localities")
-    Call<ServiceabilityPlatformModels.GetLocalities> getLocalitiesByPrefix(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/localities/{locality_type}/{locality_value}")
     Call<ServiceabilityPlatformModels.GetLocality> getLocality(@Path("company_id") String companyId, @Path("locality_type") String localityType, @Path("locality_value") String localityValue, @Query("country") String country, @Query("state") String state, @Query("city") String city, @HeaderMap Map<String, String> requestHeaders);

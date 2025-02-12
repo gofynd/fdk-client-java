@@ -35,12 +35,10 @@ import com.sdk.application.*;
         relativeUrls.put("getGeoAreas","/service/application/logistics/v1.0/company/{company_id}/application/{application_id}/geoareas".substring(1));
         relativeUrls.put("getCountries","/service/application/logistics/v2.0/countries".substring(1));
         relativeUrls.put("getCountry","/service/application/logistics/v1.0/countries/{country_iso_code}".substring(1));
-        relativeUrls.put("getLocalitiesByPrefix","/service/application/logistics/v1.0/localities".substring(1));
         relativeUrls.put("getLocalities","/service/application/logistics/v1.0/localities/{locality_type}".substring(1));
         relativeUrls.put("getLocality","/service/application/logistics/v1.0/localities/{locality_type}/{locality_value}".substring(1));
         relativeUrls.put("validateAddress","/service/application/logistics/v1.0/country/{country_iso_code}/address/templates/{template_name}/validate".substring(1));
-        relativeUrls.put("createShipments","/service/application/logistics/v1.0/company/{company_id}/application/{application_id}/shipments".substring(1));
-        relativeUrls.put("getDeliveryPromise","/service/application/logistics/v1.0/delivery-promise".substring(1)); 
+        relativeUrls.put("createShipments","/service/application/logistics/v1.0/company/{company_id}/application/{application_id}/shipments".substring(1)); 
 
     }
 
@@ -205,62 +203,6 @@ import com.sdk.application.*;
     }
     
 
-    public LogisticApplicationModels.GetLocalities getLocalitiesByPrefix(Integer companyId, Integer pageNo, Integer pageSize, String q) throws IOException {
-        return this.getLocalitiesByPrefix(companyId, pageNo, pageSize, q, new HashMap<>());
-    }
-
-    public LogisticApplicationModels.GetLocalities getLocalitiesByPrefix(Integer companyId, Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getLocalitiesByPrefix");
-        fullUrl = fullUrl.replace("{" + "company_id" + "}",companyId.toString());
-
-        Response<LogisticApplicationModels.GetLocalities> response = logisticApplicationApiList.getLocalitiesByPrefix(fullUrl, pageNo, pageSize, q, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    /**
-    * Summary: get paginator for getLocalitiesByPrefix
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<LogisticApplicationModels.GetLocalities> getLocalitiesByPrefixPagination(
-        
-        Integer companyId,
-        Integer pageSize,
-        String q
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<LogisticApplicationModels.GetLocalities> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            LogisticApplicationModels.GetLocalities callback = this.getLocalitiesByPrefix(
-                
-                 companyId,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 q
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator;
-    }
-    
-
     public LogisticApplicationModels.GetLocalities getLocalities(String localityType, String country, String state, String city, Integer pageNo, Integer pageSize, String q, String name) throws IOException {
         return this.getLocalities(localityType, country, state, city, pageNo, pageSize, q, name, new HashMap<>());
     }
@@ -374,23 +316,6 @@ import com.sdk.application.*;
         fullUrl = fullUrl.replace("{" + "application_id" + "}",applicationId.toString());
 
         Response<LogisticApplicationModels.GenerateShipmentsAndCourierPartnerResponse> response = logisticApplicationApiList.createShipments(fullUrl, body, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public LogisticApplicationModels.GetPromiseDetails getDeliveryPromise(Integer pageNo, Integer pageSize) throws IOException {
-        return this.getDeliveryPromise(pageNo, pageSize, new HashMap<>());
-    }
-
-    public LogisticApplicationModels.GetPromiseDetails getDeliveryPromise(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getDeliveryPromise");
-
-        Response<LogisticApplicationModels.GetPromiseDetails> response = logisticApplicationApiList.getDeliveryPromise(fullUrl, pageNo, pageSize, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

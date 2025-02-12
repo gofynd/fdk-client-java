@@ -1561,12 +1561,6 @@ public static class ListViewItemsV2{
     
     
     
-    @JsonProperty("access_level")
-    private String accessLevel;
-    
-    
-    
-    
     @JsonProperty("geo_areas")
     private List<GeoArea> geoAreas;
     
@@ -1587,18 +1581,6 @@ public static class ListViewItemsV2{
     
     @JsonProperty("is_active")
     private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("is_opted")
-    private Boolean isOpted;
-    
-    
-    
-    
-    @JsonProperty("is_public_opted")
-    private Boolean isPublicOpted;
     
     
     
@@ -4448,56 +4430,8 @@ public static class Localities{
     
     
     
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
     @JsonProperty("localities")
     private List<LocalityParent> localities;
-    
-    
-    
-    
-    @JsonProperty("iso2")
-    private String iso2;
-    
-    
-    
-    
-    @JsonProperty("iso3")
-    private String iso3;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private Object currency;
-    
-    
-    
-    
-    @JsonProperty("phone_code")
-    private String phoneCode;
-    
-    
-    
-    
-    @JsonProperty("hierarchy")
-    private Object hierarchy;
-    
-    
-    
-    
-    @JsonProperty("latitude")
-    private String latitude;
-    
-    
-    
-    
-    @JsonProperty("longitude")
-    private String longitude;
     
     
     
@@ -4565,54 +4499,6 @@ public static class LocalityParent{
     
     @JsonProperty("parent_uid")
     private String parentUid;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("iso2")
-    private String iso2;
-    
-    
-    
-    
-    @JsonProperty("iso3")
-    private String iso3;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private Object currency;
-    
-    
-    
-    
-    @JsonProperty("phone_code")
-    private String phoneCode;
-    
-    
-    
-    
-    @JsonProperty("hierarchy")
-    private Object hierarchy;
-    
-    
-    
-    
-    @JsonProperty("latitude")
-    private String latitude;
-    
-    
-    
-    
-    @JsonProperty("longitude")
-    private String longitude;
     
     
     
@@ -4746,12 +4632,6 @@ public static class GetLocality{
     
     
     
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
     @JsonProperty("localities")
     private List<LocalityParent> localities;
     
@@ -4841,31 +4721,6 @@ public static class ErrorResponseV3{
     
     @JsonProperty("error")
     private ErrorObject error;
-    
-    
-    
-}
-
-
-/*
-    Model: StandardError
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StandardError{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
     
     
     
@@ -5802,86 +5657,6 @@ public static class Packaging{
     
     @JsonProperty("dimension")
     private PackagingDimension dimension;
-    
-    
-    
-}
-
-
-/*
-    Model: StorePromise
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StorePromise{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("promise")
-    private PromiseDetails promise;
-    
-    
-    
-}
-
-
-/*
-    Model: GetPromiseDetails
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetPromiseDetails{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<StorePromise> items;
-    
-    
-    
-    
-    @JsonProperty("promise")
-    private PromiseDetails promise;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
     
     
     

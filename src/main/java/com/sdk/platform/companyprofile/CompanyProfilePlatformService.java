@@ -483,20 +483,16 @@ public class CompanyProfilePlatformService {
     
     
     
-    
-    
-    
-    
 
-    public CompanyProfilePlatformModels.LocationListSerializer getLocations(String storeType, List<String> storeCodes, String q, String stage, Integer pageNo, Integer pageSize, List<Integer> locationIds, List<String> types, List<String> tags) throws FDKServerResponseError, FDKException {
-        return this.getLocations(storeType, storeCodes, q, stage, pageNo, pageSize, locationIds, types, tags, new HashMap<>());
+    public CompanyProfilePlatformModels.LocationListSerializer getLocations(String storeType, String q, String stage, Integer pageNo, Integer pageSize, List<Integer> locationIds, List<String> types, List<String> tags) throws FDKServerResponseError, FDKException {
+        return this.getLocations(storeType, q, stage, pageNo, pageSize, locationIds, types, tags, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.LocationListSerializer getLocations(String storeType, List<String> storeCodes, String q, String stage, Integer pageNo, Integer pageSize, List<Integer> locationIds, List<String> types, List<String> tags, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.LocationListSerializer getLocations(String storeType, String q, String stage, Integer pageNo, Integer pageSize, List<Integer> locationIds, List<String> types, List<String> tags, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.LocationListSerializer> response = null;
             try {
-                response = companyprofilePlatformApiList.getLocations(this.companyId, storeType, storeCodes, q, stage, pageNo, pageSize, locationIds, types, tags, requestHeaders).execute();
+                response = companyprofilePlatformApiList.getLocations(this.companyId, storeType, q, stage, pageNo, pageSize, locationIds, types, tags, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -513,118 +509,6 @@ public class CompanyProfilePlatformService {
         } else {
             return null;
         }    
-    }
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getLocations
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CompanyProfilePlatformModels.LocationListSerializer> getLocationsPagination(
-        String storeType ,
-        List<String> storeCodes ,
-        String q ,
-        String stage ,
-        Integer pageSize ,
-        List<Integer> locationIds ,
-        List<String> types ,
-        List<String> tags 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CompanyProfilePlatformModels.LocationListSerializer> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CompanyProfilePlatformModels.LocationListSerializer callback = this.getLocations(
-                
-                 
-                 storeType,
-                 storeCodes,
-                 q,
-                 stage,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 locationIds,
-                 types,
-                 tags
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
     }
     
     

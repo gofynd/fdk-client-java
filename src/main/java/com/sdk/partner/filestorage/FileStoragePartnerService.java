@@ -136,13 +136,13 @@ public class FileStoragePartnerService {
     
     
 
-    public FileStoragePartnerModels.FileUploadComplete completeUpload(String namespace, FileStoragePartnerModels.FileUpload body) throws FDKServerResponseError, FDKException {
+    public FileStoragePartnerModels.CompleteResponse completeUpload(String namespace, FileStoragePartnerModels.StartResponse body) throws FDKServerResponseError, FDKException {
         return this.completeUpload(namespace, body, new HashMap<>());
     }
 
-    public FileStoragePartnerModels.FileUploadComplete completeUpload(String namespace, FileStoragePartnerModels.FileUpload body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FileStoragePartnerModels.CompleteResponse completeUpload(String namespace, FileStoragePartnerModels.StartResponse body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<FileStoragePartnerModels.FileUploadComplete> response = null;
+            Response<FileStoragePartnerModels.CompleteResponse> response = null;
             try {
                 response = filestoragePartnerApiList.completeUpload(namespace, this.organizationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -180,13 +180,13 @@ public class FileStoragePartnerService {
     
     
 
-    public FileStoragePartnerModels.FileUpload startUpload(String namespace, FileStoragePartnerModels.FileUploadStart body) throws FDKServerResponseError, FDKException {
+    public FileStoragePartnerModels.StartResponse startUpload(String namespace, FileStoragePartnerModels.StartRequest body) throws FDKServerResponseError, FDKException {
         return this.startUpload(namespace, body, new HashMap<>());
     }
 
-    public FileStoragePartnerModels.FileUpload startUpload(String namespace, FileStoragePartnerModels.FileUploadStart body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FileStoragePartnerModels.StartResponse startUpload(String namespace, FileStoragePartnerModels.StartRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<FileStoragePartnerModels.FileUpload> response = null;
+            Response<FileStoragePartnerModels.StartResponse> response = null;
             try {
                 response = filestoragePartnerApiList.startUpload(namespace, this.organizationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -282,13 +282,13 @@ public class FileStoragePartnerService {
     
     
 
-    public FileStoragePartnerModels.FetchProxyDetails fetchProxy(String url) throws FDKServerResponseError, FDKException {
+    public FileStoragePartnerModels.ProxyResponse fetchProxy(String url) throws FDKServerResponseError, FDKException {
         return this.fetchProxy(url, new HashMap<>());
     }
 
-    public FileStoragePartnerModels.FetchProxyDetails fetchProxy(String url, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FileStoragePartnerModels.ProxyResponse fetchProxy(String url, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<FileStoragePartnerModels.FetchProxyDetails> response = null;
+            Response<FileStoragePartnerModels.ProxyResponse> response = null;
             try {
                 response = filestoragePartnerApiList.fetchProxy(this.organizationId, url, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -322,13 +322,13 @@ public class FileStoragePartnerService {
     
     
 
-    public FileStoragePartnerModels.SaveProxy saveProxyDetails(FileStoragePartnerModels.ProxyFile body) throws FDKServerResponseError, FDKException {
+    public FileStoragePartnerModels.FetchProxyResponse saveProxyDetails(FileStoragePartnerModels.FetchProxyRequest body) throws FDKServerResponseError, FDKException {
         return this.saveProxyDetails(body, new HashMap<>());
     }
 
-    public FileStoragePartnerModels.SaveProxy saveProxyDetails(FileStoragePartnerModels.ProxyFile body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public FileStoragePartnerModels.FetchProxyResponse saveProxyDetails(FileStoragePartnerModels.FetchProxyRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<FileStoragePartnerModels.SaveProxy> response = null;
+            Response<FileStoragePartnerModels.FetchProxyResponse> response = null;
             try {
                 response = filestoragePartnerApiList.saveProxyDetails(this.organizationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {

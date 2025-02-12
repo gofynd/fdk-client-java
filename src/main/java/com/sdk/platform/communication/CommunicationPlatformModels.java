@@ -1437,13 +1437,13 @@ public static class Stats{
     
     
     @JsonProperty("imported")
-    private StatsImported imported;
+    private Object imported;
     
     
     
     
     @JsonProperty("processed")
-    private StatsProcessed processed;
+    private Object processed;
     
     
     
@@ -3155,7 +3155,7 @@ public static class EventSubscriptionTemplateSms{
     
     
     @JsonProperty("template")
-    private String template;
+    private Object template;
     
     
     
@@ -3186,7 +3186,7 @@ public static class EventSubscriptionTemplateEmail{
     
     
     @JsonProperty("template")
-    private String template;
+    private Object template;
     
     
     
@@ -3335,184 +3335,6 @@ public static class EventSubscription{
 
 
 /*
-    Model: EventSubscriptionTemplateSmsObj
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventSubscriptionTemplateSmsObj{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("subscribed")
-    private Boolean subscribed;
-    
-    
-    
-    
-    @JsonProperty("template")
-    private Object template;
-    
-    
-    
-}
-
-
-/*
-    Model: EventSubscriptionTemplateEmailObj
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventSubscriptionTemplateEmailObj{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("subscribed")
-    private Boolean subscribed;
-    
-    
-    
-    
-    @JsonProperty("template")
-    private String template;
-    
-    
-    
-}
-
-
-/*
-    Model: EventSubscriptionTemplateObj
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventSubscriptionTemplateObj{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("sms")
-    private EventSubscriptionTemplateSmsObj sms;
-    
-    
-    
-    
-    @JsonProperty("email")
-    private EventSubscriptionTemplateEmailObj email;
-    
-    
-    
-    
-    @JsonProperty("pushnotification")
-    private EventSubscriptionTemplatePushnotification pushnotification;
-    
-    
-    
-}
-
-
-/*
-    Model: EventSubscriptionObj
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventSubscriptionObj{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("template")
-    private EventSubscriptionTemplateObj template;
-    
-    
-    
-    
-    @JsonProperty("is_default")
-    private Boolean isDefault;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("application")
-    private String application;
-    
-    
-    
-    
-    @JsonProperty("category")
-    private String category;
-    
-    
-    
-    
-    @JsonProperty("event")
-    private Object event;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Integer v;
-    
-    
-    
-}
-
-
-/*
     Model: EventSubscriptions
 */
 @AllArgsConstructor
@@ -3530,7 +3352,7 @@ public static class EventSubscriptions{
     
     
     @JsonProperty("items")
-    private List<EventSubscriptionObj> items;
+    private List<EventSubscription> items;
     
     
     
@@ -3906,13 +3728,13 @@ public static class JobLog{
     
     
     @JsonProperty("imported")
-    private StatsImported imported;
+    private Object imported;
     
     
     
     
     @JsonProperty("processed")
-    private StatsProcessed processed;
+    private Object processed;
     
     
     
@@ -4287,6 +4109,37 @@ public static class Logs{
 
 
 /*
+    Model: SendOtpSmsCommsTemplate
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SendOtpSmsCommsTemplate{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Object value;
+    
+    
+    
+}
+
+
+/*
     Model: SendOtpSmsCommsProvider
 */
 @AllArgsConstructor
@@ -4452,7 +4305,7 @@ public static class SendOtpCommsReqSms{
     
     
     @JsonProperty("template")
-    private HashMap<String,Object> template;
+    private SendOtpSmsCommsTemplate template;
     
     
     
@@ -5546,43 +5399,6 @@ public static class Notification{
 
 
 /*
-    Model: SystemNotificationSetting
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SystemNotificationSetting{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("sound")
-    private Boolean sound;
-    
-    
-    
-    
-    @JsonProperty("priority")
-    private String priority;
-    
-    
-    
-    
-    @JsonProperty("time_to_live")
-    private String timeToLive;
-    
-    
-    
-}
-
-
-/*
     Model: SystemNotificationUser
 */
 @AllArgsConstructor
@@ -5643,7 +5459,7 @@ public static class SystemNotification{
     
     
     @JsonProperty("settings")
-    private SystemNotificationSetting settings;
+    private SystemNotificationUser settings;
     
     
     
