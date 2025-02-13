@@ -1593,7 +1593,7 @@ public static class ProductAvailability{
     
     
     @JsonProperty("other_store_quantity")
-    private Integer otherStoreQuantity;
+    private Long otherStoreQuantity;
     
     
     
@@ -1852,6 +1852,30 @@ public static class CartProduct{
     
     @JsonProperty("attributes")
     private Object attributes;
+    
+    
+    
+    
+    @JsonProperty("l1_categories")
+    private List<Double> l1Categories;
+    
+    
+    
+    
+    @JsonProperty("l2_categories")
+    private List<Double> l2Categories;
+    
+    
+    
+    
+    @JsonProperty("l3_categories")
+    private List<Double> l3Categories;
+    
+    
+    
+    
+    @JsonProperty("departments")
+    private List<Double> departments;
     
     
     
@@ -4174,6 +4198,12 @@ public static class BulkPriceOffer{
     
     
     
+    
+    @JsonProperty("article_id")
+    private String articleId;
+    
+    
+    
 }
 
 
@@ -4494,6 +4524,37 @@ public static class Address{
 
 
 /*
+    Model: ValidationConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidationConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("address_max_limit")
+    private Integer addressMaxLimit;
+    
+    
+    
+    
+    @JsonProperty("user_address_count")
+    private Integer userAddressCount;
+    
+    
+    
+}
+
+
+/*
     Model: GetAddressesResponse
 */
 @AllArgsConstructor
@@ -4518,6 +4579,12 @@ public static class GetAddressesResponse{
     
     @JsonProperty("address")
     private List<Address> address;
+    
+    
+    
+    
+    @JsonProperty("validation_config")
+    private ValidationConfig validationConfig;
     
     
     
@@ -7308,6 +7375,12 @@ public static class LadderPriceOffer{
     
     
     
+    
+    @JsonProperty("promotion_type")
+    private String promotionType;
+    
+    
+    
 }
 
 
@@ -8101,6 +8174,12 @@ public static class AllAddressForSelectAddress{
     
     
     
+    
+    @JsonProperty("validation_config")
+    private ValidationConfig validationConfig;
+    
+    
+    
 }
 
 
@@ -8123,6 +8202,37 @@ public static class DeleteCartRequest{
     
     @JsonProperty("cart_id_list")
     private List<String> cartIdList;
+    
+    
+    
+}
+
+
+/*
+    Model: ValidationError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidationError{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("field")
+    private String field;
     
     
     

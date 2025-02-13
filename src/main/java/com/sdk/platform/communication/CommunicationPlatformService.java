@@ -589,13 +589,13 @@ public class ApplicationClient {
     return paginator ;
     }
 
-    public CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse createEventSubscriptions(CommunicationPlatformModels.SubscriptionsObject body) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EventSubscription createEventSubscriptions(CommunicationPlatformModels.SubscriptionsObject body) throws FDKServerResponseError, FDKException {
         return this.createEventSubscriptions(body, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse createEventSubscriptions(CommunicationPlatformModels.SubscriptionsObject body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EventSubscription createEventSubscriptions(CommunicationPlatformModels.SubscriptionsObject body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse> response = null;
+            Response<CommunicationPlatformModels.EventSubscription> response = null;
             try {
             response = communicationPlatformApiList.createEventSubscriptions(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -670,13 +670,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse editEventSubscriptions(String id, CommunicationPlatformModels.SubscriptionsObjectRequest body) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EventSubscription editEventSubscriptions(String id, CommunicationPlatformModels.SubscriptionsObjectRequest body) throws FDKServerResponseError, FDKException {
         return this.editEventSubscriptions(id, body, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse editEventSubscriptions(String id, CommunicationPlatformModels.SubscriptionsObjectRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EventSubscription editEventSubscriptions(String id, CommunicationPlatformModels.SubscriptionsObjectRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse> response = null;
+            Response<CommunicationPlatformModels.EventSubscription> response = null;
             try {
             response = communicationPlatformApiList.editEventSubscriptions(this.companyId, this.applicationId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {

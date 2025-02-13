@@ -61,6 +61,9 @@ interface ContentApplicationApiList {
     Call<ContentApplicationModels.PageSchema> getPage(@Url String url1, @Query("root_id") String rootId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
+    Call<ContentApplicationModels.WellKnownResponse> getWellKnownUrl(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
     Call<ContentApplicationModels.CustomObjectByIdSchema> getCustomObject(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 

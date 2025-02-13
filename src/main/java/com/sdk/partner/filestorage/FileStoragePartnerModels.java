@@ -39,7 +39,7 @@ public static class SizeConstraints{
 
 
 /*
-    Model: FetchProxyResponse
+    Model: SaveProxy
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -47,7 +47,7 @@ public static class SizeConstraints{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FetchProxyResponse{
+public static class SaveProxy{
 
     
 
@@ -56,13 +56,13 @@ public static class FetchProxyResponse{
     
     
     @JsonProperty("id")
-    private String id;
+    private Integer id;
     
     
     
     
-    @JsonProperty("created_at")
-    private String createdAt;
+    @JsonProperty("token")
+    private String token;
     
     
     
@@ -70,7 +70,7 @@ public static class FetchProxyResponse{
 
 
 /*
-    Model: FetchProxyRequest
+    Model: ProxyFileData
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -78,7 +78,38 @@ public static class FetchProxyResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FetchProxyRequest{
+public static class ProxyFileData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("password")
+    private String password;
+    
+    
+    
+}
+
+
+/*
+    Model: ProxyFile
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProxyFile{
 
     
 
@@ -110,6 +141,12 @@ public static class FetchProxyRequest{
     
     
     
+    @JsonProperty("data")
+    private ProxyFileData data;
+    
+    
+    
+    
     @JsonProperty("url")
     private String url;
     
@@ -119,7 +156,7 @@ public static class FetchProxyRequest{
 
 
 /*
-    Model: ProxyResponse
+    Model: FetchProxyDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -127,7 +164,7 @@ public static class FetchProxyRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProxyResponse{
+public static class FetchProxyDetails{
 
     
 
@@ -286,7 +323,7 @@ public static class Upload{
 
 
 /*
-    Model: StartResponse
+    Model: FileUpload
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -294,7 +331,7 @@ public static class Upload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StartResponse{
+public static class FileUpload{
 
     
 
@@ -359,7 +396,7 @@ public static class StartResponse{
 
 
 /*
-    Model: StartRequest
+    Model: FileUploadStart
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -367,7 +404,7 @@ public static class StartResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StartRequest{
+public static class FileUploadStart{
 
     
 
@@ -433,7 +470,7 @@ public static class CreatedBy{
 
 
 /*
-    Model: CompleteResponse
+    Model: FileUploadComplete
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -441,7 +478,7 @@ public static class CreatedBy{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompleteResponse{
+public static class FileUploadComplete{
 
     
 
@@ -536,7 +573,7 @@ public static class CompleteResponse{
 
 
 /*
-    Model: FailedResponse
+    Model: FailedBrowseFilesResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -544,7 +581,7 @@ public static class CompleteResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FailedResponse{
+public static class FailedBrowseFilesResult{
 
     
 

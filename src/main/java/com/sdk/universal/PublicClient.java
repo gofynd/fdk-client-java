@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-import com.sdk.universal.billing.BillingPublicService;
-
 import com.sdk.universal.configuration.ConfigurationPublicService;
 
 import com.sdk.universal.content.ContentPublicService;
@@ -22,8 +20,6 @@ public class PublicClient {
     private PublicConfig config;
 
     
-    public BillingPublicService billing;
-    
     public ConfigurationPublicService configuration;
     
     public ContentPublicService content;
@@ -39,8 +35,6 @@ public class PublicClient {
 
     public PublicClient(PublicConfig publicConfig) {
         this.config = publicConfig;
-        
-        this.billing = new BillingPublicService(publicConfig);
         
         this.configuration = new ConfigurationPublicService(publicConfig);
         

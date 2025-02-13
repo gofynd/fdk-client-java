@@ -485,13 +485,13 @@ public class ApplicationClient {
     return paginator ;
     }
 
-    public CartPlatformModels.PromotionAdd createPromotion(CartPlatformModels.PromotionAdd body) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.PromotionAddResult createPromotion(CartPlatformModels.PromotionAdd body) throws FDKServerResponseError, FDKException {
         return this.createPromotion(body, new HashMap<>());
     }
 
-    public CartPlatformModels.PromotionAdd createPromotion(CartPlatformModels.PromotionAdd body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.PromotionAddResult createPromotion(CartPlatformModels.PromotionAdd body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CartPlatformModels.PromotionAdd> response = null;
+            Response<CartPlatformModels.PromotionAddResult> response = null;
             try {
             response = cartPlatformApiList.createPromotion(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -512,13 +512,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CartPlatformModels.PromotionUpdate getPromotionById(String id) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.PromotionUpdateResult getPromotionById(String id) throws FDKServerResponseError, FDKException {
         return this.getPromotionById(id, new HashMap<>());
     }
 
-    public CartPlatformModels.PromotionUpdate getPromotionById(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.PromotionUpdateResult getPromotionById(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CartPlatformModels.PromotionUpdate> response = null;
+            Response<CartPlatformModels.PromotionUpdateResult> response = null;
             try {
             response = cartPlatformApiList.getPromotionById(this.companyId, this.applicationId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -539,13 +539,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CartPlatformModels.PromotionUpdate updatePromotion(String id, CartPlatformModels.PromotionUpdate body) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.PromotionUpdateResult updatePromotion(String id, CartPlatformModels.PromotionUpdate body) throws FDKServerResponseError, FDKException {
         return this.updatePromotion(id, body, new HashMap<>());
     }
 
-    public CartPlatformModels.PromotionUpdate updatePromotion(String id, CartPlatformModels.PromotionUpdate body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.PromotionUpdateResult updatePromotion(String id, CartPlatformModels.PromotionUpdate body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CartPlatformModels.PromotionUpdate> response = null;
+            Response<CartPlatformModels.PromotionUpdateResult> response = null;
             try {
             response = cartPlatformApiList.updatePromotion(this.companyId, this.applicationId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {

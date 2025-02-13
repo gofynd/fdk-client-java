@@ -47,6 +47,7 @@ import com.sdk.application.*;
         relativeUrls.put("getTags","/service/application/content/v1.0/tags".substring(1));
         relativeUrls.put("getPages","/service/application/content/v2.0/pages".substring(1));
         relativeUrls.put("getPage","/service/application/content/v2.0/pages/{slug}".substring(1));
+        relativeUrls.put("getWellKnownUrl","/service/application/content/v1.0/well-known/{slug}".substring(1));
         relativeUrls.put("getCustomObject","/service/application/content/v1.0/metaobjects/{id}".substring(1));
         relativeUrls.put("getCustomObjects","/service/application/content/v1.0/metaobjects".substring(1));
         relativeUrls.put("getCustomFieldDefinitions","/service/application/content/v1.0/metafields/definitions".substring(1));
@@ -371,6 +372,24 @@ import com.sdk.application.*;
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
 
         Response<ContentApplicationModels.PageSchema> response = contentApplicationApiList.getPage(fullUrl, rootId, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public ContentApplicationModels.WellKnownResponse getWellKnownUrl(String slug) throws IOException {
+        return this.getWellKnownUrl(slug, new HashMap<>());
+    }
+
+    public ContentApplicationModels.WellKnownResponse getWellKnownUrl(String slug, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getWellKnownUrl");
+        fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
+
+        Response<ContentApplicationModels.WellKnownResponse> response = contentApplicationApiList.getWellKnownUrl(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

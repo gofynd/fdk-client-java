@@ -3891,6 +3891,12 @@ public static class MultiTenderPaymentMeta{
     
     
     
+    
+    @JsonProperty("payment_gateway_slug")
+    private String paymentGatewaySlug;
+    
+    
+    
 }
 
 

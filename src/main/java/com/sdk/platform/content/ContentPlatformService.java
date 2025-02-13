@@ -4040,13 +4040,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.CustomObjectSchema createAppCustomObject(ContentPlatformModels.CustomObjectRequestSchema body) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomObjectApplicationSchema createAppCustomObject(ContentPlatformModels.CustomObjectRequestSchema body) throws FDKServerResponseError, FDKException {
         return this.createAppCustomObject(body, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomObjectSchema createAppCustomObject(ContentPlatformModels.CustomObjectRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomObjectApplicationSchema createAppCustomObject(ContentPlatformModels.CustomObjectRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.CustomObjectSchema> response = null;
+            Response<ContentPlatformModels.CustomObjectApplicationSchema> response = null;
             try {
             response = contentPlatformApiList.createAppCustomObject(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -4094,13 +4094,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.CustomObjectSchema updateAppCustomObject(String id, ContentPlatformModels.CustomObjectRequestSchema body) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomObjectApplicationSchema updateAppCustomObject(String id, ContentPlatformModels.CustomObjectRequestSchema body) throws FDKServerResponseError, FDKException {
         return this.updateAppCustomObject(id, body, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomObjectSchema updateAppCustomObject(String id, ContentPlatformModels.CustomObjectRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomObjectApplicationSchema updateAppCustomObject(String id, ContentPlatformModels.CustomObjectRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.CustomObjectSchema> response = null;
+            Response<ContentPlatformModels.CustomObjectApplicationSchema> response = null;
             try {
             response = contentPlatformApiList.updateAppCustomObject(this.companyId, this.applicationId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
