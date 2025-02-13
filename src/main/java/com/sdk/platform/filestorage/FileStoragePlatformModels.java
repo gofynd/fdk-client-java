@@ -14,7 +14,7 @@ public class FileStoragePlatformModels{
 
 
 /*
-    Model: UpdatePdfType
+    Model: UpdatePdfTypeRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class FileStoragePlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdatePdfType{
+public static class UpdatePdfTypeRequest{
 
     
 
@@ -55,7 +55,7 @@ public static class UpdatePdfType{
     
     
     @JsonProperty("schema")
-    private HashMap<String,Object> schema;
+    private Object schema;
     
     
     
@@ -75,7 +75,7 @@ public static class UpdatePdfType{
 
 
 /*
-    Model: PdfTypeByIdDetails
+    Model: PdfTypeIdResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -83,7 +83,7 @@ public static class UpdatePdfType{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PdfTypeByIdDetails{
+public static class PdfTypeIdResponse{
 
     
 
@@ -111,12 +111,6 @@ public static class PdfTypeByIdDetails{
     
     @JsonProperty("__v")
     private Integer v;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
     
     
     
@@ -197,7 +191,7 @@ public static class PdfConfigurationData{
 
 
 /*
-    Model: UpdatedDefaultTemplateById
+    Model: PdfConfigurationResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -205,7 +199,7 @@ public static class PdfConfigurationData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdatedDefaultTemplateById{
+public static class PdfConfigurationResponse{
 
     
 
@@ -277,7 +271,7 @@ public static class UpdateTemplate{
 
 
 /*
-    Model: PdfDefaultTemplateById
+    Model: PdfDefaultTemplateResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -285,7 +279,7 @@ public static class UpdateTemplate{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PdfDefaultTemplateById{
+public static class PdfDefaultTemplateResponse{
 
     
 
@@ -498,7 +492,7 @@ public static class PdfDefaultTemplateSuccess{
 
 
 /*
-    Model: FailedBrowseFilesResult
+    Model: FailedResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -506,7 +500,7 @@ public static class PdfDefaultTemplateSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FailedBrowseFilesResult{
+public static class FailedResponse{
 
     
 
@@ -591,7 +585,7 @@ public static class Upload{
 
 
 /*
-    Model: FileUpload
+    Model: StartResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -599,7 +593,7 @@ public static class Upload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FileUpload{
+public static class StartResponse{
 
     
 
@@ -664,7 +658,7 @@ public static class FileUpload{
 
 
 /*
-    Model: FileUploadStart
+    Model: StartRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -672,7 +666,7 @@ public static class FileUpload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FileUploadStart{
+public static class StartRequest{
 
     
 
@@ -738,7 +732,7 @@ public static class CreatedBy{
 
 
 /*
-    Model: FileUploadComplete
+    Model: CompleteResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -746,7 +740,7 @@ public static class CreatedBy{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FileUploadComplete{
+public static class CompleteResponse{
 
     
 
@@ -847,7 +841,7 @@ public static class FileUploadComplete{
 
 
 /*
-    Model: ProxyFileAccess
+    Model: ProxyResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -855,7 +849,7 @@ public static class FileUploadComplete{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProxyFileAccess{
+public static class ProxyResponse{
 
     
 
@@ -971,7 +965,7 @@ public static class Urls{
 
 
 /*
-    Model: SignUrlResult
+    Model: SignUrlResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -979,7 +973,7 @@ public static class Urls{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SignUrlResult{
+public static class SignUrlResponse{
 
     
 
@@ -996,7 +990,7 @@ public static class SignUrlResult{
 
 
 /*
-    Model: SignUrl
+    Model: SignUrlRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1004,7 +998,7 @@ public static class SignUrlResult{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SignUrl{
+public static class SignUrlRequest{
 
     
 
@@ -1027,7 +1021,7 @@ public static class SignUrl{
 
 
 /*
-    Model: InvoiceTypesData
+    Model: InvoiceTypesDataResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1035,7 +1029,7 @@ public static class SignUrl{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceTypesData{
+public static class InvoiceTypesDataResponse{
 
     
 
@@ -1100,7 +1094,7 @@ public static class InvoiceTypesData{
 
 
 /*
-    Model: InvoiceTypes
+    Model: InvoiceTypesResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1108,7 +1102,7 @@ public static class InvoiceTypesData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceTypes{
+public static class InvoiceTypesResponse{
 
     
 
@@ -1117,7 +1111,7 @@ public static class InvoiceTypes{
     
     
     @JsonProperty("data")
-    private List<InvoiceTypesData> data;
+    private List<InvoiceTypesDataResponse> data;
     
     
     
@@ -2794,7 +2788,7 @@ public static class Meta{
 
 
 /*
-    Model: PdfPayloadDetails
+    Model: DummyTemplateDataPayload
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2802,7 +2796,7 @@ public static class Meta{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PdfPayloadDetails{
+public static class DummyTemplateDataPayload{
 
     
 
@@ -3112,7 +3106,7 @@ public static class DummyTemplateData{
     
     
     @JsonProperty("payload")
-    private PdfPayloadDetails payload;
+    private DummyTemplateDataPayload payload;
     
     
     
@@ -3155,7 +3149,7 @@ public static class savePdfPayload{
     
     
     @JsonProperty("payload")
-    private PdfPayloadDetails payload;
+    private DummyTemplateDataPayload payload;
     
     
     
@@ -3169,7 +3163,7 @@ public static class savePdfPayload{
 
 
 /*
-    Model: MapperDetails
+    Model: DummyPayloadById
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3177,7 +3171,7 @@ public static class savePdfPayload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MapperDetails{
+public static class DummyPayloadById{
 
     
 
@@ -3198,7 +3192,7 @@ public static class MapperDetails{
     
     
     @JsonProperty("payload")
-    private PdfPayloadDetails payload;
+    private DummyTemplateDataPayload payload;
     
     
     
@@ -3218,7 +3212,7 @@ public static class MapperDetails{
 
 
 /*
-    Model: PdfDataItemsDetails
+    Model: DummyTemplateDataItems
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3226,7 +3220,7 @@ public static class MapperDetails{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PdfDataItemsDetails{
+public static class DummyTemplateDataItems{
 
     
 
@@ -3358,31 +3352,6 @@ public static class PdfConfigSuccessData{
     
     @JsonProperty("country_code")
     private String countryCode;
-    
-    
-    
-}
-
-
-/*
-    Model: DeleteMapperById
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeleteMapperById{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
     
     
     
@@ -3911,7 +3880,7 @@ public static class PaymentReceiptMeta{
     
     
     @JsonProperty("event")
-    private HashMap<String,Object> event;
+    private Object event;
     
     
     
@@ -3959,7 +3928,7 @@ public static class PaymentReceiptMeta{
     
     
     @JsonProperty("event_trace_info")
-    private HashMap<String,Object> eventTraceInfo;
+    private Object eventTraceInfo;
     
     
     

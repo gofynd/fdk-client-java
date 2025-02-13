@@ -1656,6 +1656,111 @@ public static class CredentialsSchema{
 
 
 /*
+    Model: SDKLinksResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SDKLinksResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("readmes")
+    private List<SDKLinkObjectSchema> readmes;
+    
+    
+    
+}
+
+
+/*
+    Model: SDKLinkObjectSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SDKLinkObjectSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("owner")
+    private String owner;
+    
+    
+    
+    
+    @JsonProperty("repo")
+    private String repo;
+    
+    
+    
+    
+    @JsonProperty("path")
+    private String path;
+    
+    
+    
+    
+    @JsonProperty("image")
+    private String image;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+}
+
+
+/*
+    Model: SDKbyTypeResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SDKbyTypeResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("readme_content")
+    private String readmeContent;
+    
+    
+    
+}
+
+
+/*
     Model: ContentAPIError
 */
 @AllArgsConstructor
@@ -1715,7 +1820,7 @@ public static class ContentAPIError{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     

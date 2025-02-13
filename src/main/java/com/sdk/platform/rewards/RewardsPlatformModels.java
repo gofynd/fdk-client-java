@@ -57,7 +57,7 @@ public static class E{
 
 
 /*
-    Model: ListGiveaway
+    Model: GiveawayResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -65,7 +65,7 @@ public static class E{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ListGiveaway{
+public static class GiveawayResponse{
 
     
 
@@ -372,6 +372,12 @@ public static class Page{
     
     
     
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
 }
 
 
@@ -429,7 +435,7 @@ public static class Offer{
     
     
     @JsonProperty("rule")
-    private HashMap<String,Object> rule;
+    private Object rule;
     
     
     
@@ -845,7 +851,7 @@ public static class PointsHistory{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -969,7 +975,7 @@ public static class SetConfigurationRes{
 
 
 /*
-    Model: SetConfiguration
+    Model: ConfigurationRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -977,7 +983,7 @@ public static class SetConfigurationRes{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SetConfiguration{
+public static class ConfigurationRequest{
 
     
 

@@ -112,6 +112,118 @@ public class DiscountPlatformService {
     }
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getDiscounts
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<DiscountPlatformModels.ListOrCalender> getDiscountsPagination(
+        String view ,
+        String q ,
+        Integer pageSize ,
+        Boolean archived ,
+        Integer month ,
+        Integer year ,
+        String type ,
+        List<String> appIds 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<DiscountPlatformModels.ListOrCalender> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            DiscountPlatformModels.ListOrCalender callback = this.getDiscounts(
+                
+                 
+                 view,
+                 q,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 archived,
+                 month,
+                 year,
+                 type,
+                 appIds
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     
@@ -300,13 +412,13 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.FileJobResponseSchema validateDiscountFile(String discount, DiscountPlatformModels.FileJobRequestSchema body) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.FileJobResponse validateDiscountFile(String discount, DiscountPlatformModels.FileJobRequest body) throws FDKServerResponseError, FDKException {
         return this.validateDiscountFile(discount, body, new HashMap<>());
     }
 
-    public DiscountPlatformModels.FileJobResponseSchema validateDiscountFile(String discount, DiscountPlatformModels.FileJobRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.FileJobResponse validateDiscountFile(String discount, DiscountPlatformModels.FileJobRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<DiscountPlatformModels.FileJobResponseSchema> response = null;
+            Response<DiscountPlatformModels.FileJobResponse> response = null;
             try {
                 response = discountPlatformApiList.validateDiscountFile(this.companyId, discount, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -344,13 +456,13 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.FileJobResponseSchema downloadDiscountFile(String type, DiscountPlatformModels.DownloadFileJob body) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.FileJobResponse downloadDiscountFile(String type, DiscountPlatformModels.DownloadFileJob body) throws FDKServerResponseError, FDKException {
         return this.downloadDiscountFile(type, body, new HashMap<>());
     }
 
-    public DiscountPlatformModels.FileJobResponseSchema downloadDiscountFile(String type, DiscountPlatformModels.DownloadFileJob body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.FileJobResponse downloadDiscountFile(String type, DiscountPlatformModels.DownloadFileJob body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<DiscountPlatformModels.FileJobResponseSchema> response = null;
+            Response<DiscountPlatformModels.FileJobResponse> response = null;
             try {
                 response = discountPlatformApiList.downloadDiscountFile(this.companyId, type, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -388,13 +500,13 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.FileJobResponseSchema getValidationJob(String id) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.FileJobResponse getValidationJob(String id) throws FDKServerResponseError, FDKException {
         return this.getValidationJob(id, new HashMap<>());
     }
 
-    public DiscountPlatformModels.FileJobResponseSchema getValidationJob(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.FileJobResponse getValidationJob(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<DiscountPlatformModels.FileJobResponseSchema> response = null;
+            Response<DiscountPlatformModels.FileJobResponse> response = null;
             try {
                 response = discountPlatformApiList.getValidationJob(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -432,13 +544,13 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.CancelJobResponseSchema cancelValidationJob(String id) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.CancelJobResponse cancelValidationJob(String id) throws FDKServerResponseError, FDKException {
         return this.cancelValidationJob(id, new HashMap<>());
     }
 
-    public DiscountPlatformModels.CancelJobResponseSchema cancelValidationJob(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.CancelJobResponse cancelValidationJob(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<DiscountPlatformModels.CancelJobResponseSchema> response = null;
+            Response<DiscountPlatformModels.CancelJobResponse> response = null;
             try {
                 response = discountPlatformApiList.cancelValidationJob(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -476,13 +588,13 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.FileJobResponseSchema getDownloadJob(String id) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.FileJobResponse getDownloadJob(String id) throws FDKServerResponseError, FDKException {
         return this.getDownloadJob(id, new HashMap<>());
     }
 
-    public DiscountPlatformModels.FileJobResponseSchema getDownloadJob(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.FileJobResponse getDownloadJob(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<DiscountPlatformModels.FileJobResponseSchema> response = null;
+            Response<DiscountPlatformModels.FileJobResponse> response = null;
             try {
                 response = discountPlatformApiList.getDownloadJob(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -520,13 +632,13 @@ public class DiscountPlatformService {
     
     
 
-    public DiscountPlatformModels.CancelJobResponseSchema cancelDownloadJob(String id) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.CancelJobResponse cancelDownloadJob(String id) throws FDKServerResponseError, FDKException {
         return this.cancelDownloadJob(id, new HashMap<>());
     }
 
-    public DiscountPlatformModels.CancelJobResponseSchema cancelDownloadJob(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public DiscountPlatformModels.CancelJobResponse cancelDownloadJob(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<DiscountPlatformModels.CancelJobResponseSchema> response = null;
+            Response<DiscountPlatformModels.CancelJobResponse> response = null;
             try {
                 response = discountPlatformApiList.cancelDownloadJob(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {

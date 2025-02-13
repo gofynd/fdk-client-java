@@ -39,7 +39,7 @@ public static class ClickEventBatch{
 
 
 /*
-    Model: ClickEventPayload
+    Model: ClickEventRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -47,7 +47,7 @@ public static class ClickEventBatch{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ClickEventPayload{
+public static class ClickEventRequest{
 
     
 
@@ -60,17 +60,11 @@ public static class ClickEventPayload{
     
     
     
-    
-    @JsonProperty("sent_at")
-    private String sentAt;
-    
-    
-    
 }
 
 
 /*
-    Model: ClickEventDetails
+    Model: ClickEventResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -78,7 +72,7 @@ public static class ClickEventPayload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ClickEventDetails{
+public static class ClickEventResponse{
 
     
 

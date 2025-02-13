@@ -14,7 +14,7 @@ public class UserPlatformModels{
 
 
 /*
-    Model: SuccessMessage
+    Model: SuccessMessageResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class UserPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SuccessMessage{
+public static class SuccessMessageResponse{
 
     
 
@@ -154,7 +154,7 @@ public static class UserAttributeDefinition{
 
 
 /*
-    Model: UserAttributeDefinitionDetails
+    Model: UserAttributeDefinitionResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -162,7 +162,7 @@ public static class UserAttributeDefinition{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserAttributeDefinitionDetails{
+public static class UserAttributeDefinitionResponse{
 
     
 
@@ -306,7 +306,7 @@ public static class UserAttributeDefinitionValidation{
 
 
 /*
-    Model: UserAttribute
+    Model: UserAttributeResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -314,7 +314,7 @@ public static class UserAttributeDefinitionValidation{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserAttribute{
+public static class UserAttributeResponse{
 
     
 
@@ -352,14 +352,14 @@ public static class UserAttribute{
     
     
     
-    @JsonProperty("customer_overridden")
-    private Boolean customerOverridden;
+    @JsonProperty("customer_overriden")
+    private Boolean customerOverriden;
     
     
     
     
     @JsonProperty("attribute")
-    private HashMap<String,Object> attribute;
+    private Object attribute;
     
     
     
@@ -373,7 +373,7 @@ public static class UserAttribute{
 
 
 /*
-    Model: CreateUserAttribute
+    Model: CreateUserAttributeRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -381,7 +381,7 @@ public static class UserAttribute{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateUserAttribute{
+public static class CreateUserAttributeRequest{
 
     
 
@@ -389,14 +389,14 @@ public static class CreateUserAttribute{
     
     
     
-    @JsonProperty("customer_overridden")
-    private Boolean customerOverridden;
+    @JsonProperty("customer_overriden")
+    private Boolean customerOverriden;
     
     
     
     
     @JsonProperty("attribute")
-    private HashMap<String,Object> attribute;
+    private Object attribute;
     
     
     
@@ -475,7 +475,7 @@ public static class CreateUserAttributeDefinition{
     
     
     @JsonProperty("default_value")
-    private String defaultValue;
+    private Object defaultValue;
     
     
     
@@ -902,7 +902,7 @@ public static class APIError{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -1000,7 +1000,7 @@ public static class Conditions{
     
     
     @JsonProperty("value")
-    private String value;
+    private Object value;
     
     
     
@@ -1063,6 +1063,12 @@ public static class UserGroupResponseSchema{
     
     @JsonProperty("conditions")
     private List<Conditions> conditions;
+    
+    
+    
+    
+    @JsonProperty("blacklisted_users")
+    private List<String> blacklistedUsers;
     
     
     
@@ -1208,7 +1214,7 @@ public static class ConditionsSchema{
     
     
     @JsonProperty("value")
-    private String value;
+    private Object value;
     
     
     
@@ -1258,6 +1264,12 @@ public static class CreateUserGroup{
     
     @JsonProperty("file_url")
     private String fileUrl;
+    
+    
+    
+    
+    @JsonProperty("blacklisted_users")
+    private List<String> blacklistedUsers;
     
     
     
@@ -1318,7 +1330,7 @@ public static class CreateUserRequestSchema{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -1387,6 +1399,12 @@ public static class CreateUserSessionRequestSchema{
     
     @JsonProperty("user_id")
     private String userId;
+    
+    
+    
+    
+    @JsonProperty("max_age")
+    private Double maxAge;
     
     
     
@@ -1491,6 +1509,18 @@ public static class PlatformSchema{
     
     @JsonProperty("login")
     private Login login;
+    
+    
+    
+    
+    @JsonProperty("account_lockout")
+    private AccountLockout accountLockout;
+    
+    
+    
+    
+    @JsonProperty("password_settings")
+    private PasswordSettings passwordSettings;
     
     
     
@@ -1649,6 +1679,185 @@ public static class LookAndFeel{
 
 
 /*
+    Model: PasswordConfigs
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PasswordConfigs{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("length")
+    private Double length;
+    
+    
+    
+    
+    @JsonProperty("require_special_character")
+    private Boolean requireSpecialCharacter;
+    
+    
+    
+    
+    @JsonProperty("require_number")
+    private Boolean requireNumber;
+    
+    
+    
+    
+    @JsonProperty("require_capital_character")
+    private Boolean requireCapitalCharacter;
+    
+    
+    
+}
+
+
+/*
+    Model: PasswordHistory
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PasswordHistory{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("required")
+    private Boolean required;
+    
+    
+    
+    
+    @JsonProperty("count")
+    private Double count;
+    
+    
+    
+}
+
+
+/*
+    Model: PasswordExpiry
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PasswordExpiry{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("required")
+    private Boolean required;
+    
+    
+    
+    
+    @JsonProperty("duration")
+    private Double duration;
+    
+    
+    
+}
+
+
+/*
+    Model: PasswordSettings
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PasswordSettings{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("configs")
+    private PasswordConfigs configs;
+    
+    
+    
+    
+    @JsonProperty("history")
+    private PasswordHistory history;
+    
+    
+    
+    
+    @JsonProperty("expiry")
+    private PasswordExpiry expiry;
+    
+    
+    
+}
+
+
+/*
+    Model: AccountLockout
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AccountLockout{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("enable")
+    private Boolean enable;
+    
+    
+    
+    
+    @JsonProperty("attempts")
+    private Double attempts;
+    
+    
+    
+    
+    @JsonProperty("duration")
+    private Double duration;
+    
+    
+    
+}
+
+
+/*
     Model: Login
 */
 @AllArgsConstructor
@@ -1673,6 +1882,12 @@ public static class Login{
     
     @JsonProperty("otp")
     private Boolean otp;
+    
+    
+    
+    
+    @JsonProperty("via")
+    private String via;
     
     
     
@@ -1748,6 +1963,31 @@ public static class Social{
 
 
 /*
+    Model: PlatformPassword
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PlatformPassword{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("is_required")
+    private Boolean isRequired;
+    
+    
+    
+}
+
+
+/*
     Model: RequiredFields
 */
 @AllArgsConstructor
@@ -1772,6 +2012,12 @@ public static class RequiredFields{
     
     @JsonProperty("mobile")
     private PlatformMobile mobile;
+    
+    
+    
+    
+    @JsonProperty("password")
+    private PlatformPassword password;
     
     
     
@@ -1865,6 +2111,12 @@ public static class RegisterRequiredFields{
     
     @JsonProperty("mobile")
     private RegisterRequiredFieldsMobile mobile;
+    
+    
+    
+    
+    @JsonProperty("password")
+    private PlatformPassword password;
     
     
     
@@ -1993,8 +2245,8 @@ public static class SocialTokens{
     
     
     
-    @JsonProperty("account_kit")
-    private Accountkit accountKit;
+    @JsonProperty("accountkit")
+    private Accountkit accountkit;
     
     
     
@@ -2294,6 +2546,18 @@ public static class PartialUserGroupUpdateSchema{
     
     
     
+    
+    @JsonProperty("whitelisted_users")
+    private List<String> whitelistedUsers;
+    
+    
+    
+    
+    @JsonProperty("blacklisted_users")
+    private List<String> blacklistedUsers;
+    
+    
+    
 }
 
 
@@ -2388,7 +2652,7 @@ public static class UpdateUserRequestSchema{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -2500,6 +2764,37 @@ public static class UserPhoneNumbers{
 
 
 /*
+    Model: UserPasswordHistory
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserPasswordHistory{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("salt")
+    private String salt;
+    
+    
+    
+    
+    @JsonProperty("hash")
+    private String hash;
+    
+    
+    
+}
+
+
+/*
     Model: UserSchema
 */
 @AllArgsConstructor
@@ -2528,6 +2823,18 @@ public static class UserSchema{
     
     
     
+    @JsonProperty("password_last_modified")
+    private String passwordLastModified;
+    
+    
+    
+    
+    @JsonProperty("password_history")
+    private List<UserPasswordHistory> passwordHistory;
+    
+    
+    
+    
     @JsonProperty("first_name")
     private String firstName;
     
@@ -2535,7 +2842,7 @@ public static class UserSchema{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -2662,7 +2969,7 @@ public static class UserSearchSchema{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     

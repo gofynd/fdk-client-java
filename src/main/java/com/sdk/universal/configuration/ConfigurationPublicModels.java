@@ -14,7 +14,7 @@ public class ConfigurationPublicModels{
 
 
 /*
-    Model: ApplicationResponseSchema
+    Model: ApplicationResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class ConfigurationPublicModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationResponseSchema{
+public static class ApplicationResponse{
 
     
 
@@ -380,8 +380,8 @@ public static class Application{
     
     
     
-    @JsonProperty("updated_at")
-    private String updatedAt;
+    @JsonProperty("modified_at")
+    private String modifiedAt;
     
     
     
@@ -439,28 +439,21 @@ public static class Application{
     
     
     
-}
-
-
-/*
-    Model: NotFound
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NotFound{
-
     
-
+    @JsonProperty("mode")
+    private String mode;
     
     
     
     
-    @JsonProperty("message")
-    private String message;
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("tokens")
+    private List<TokenSchema> tokens;
     
     
     
@@ -468,7 +461,7 @@ public static class NotFound{
 
 
 /*
-    Model: BadRequestSchema
+    Model: TokenSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -476,7 +469,7 @@ public static class NotFound{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BadRequestSchema{
+public static class TokenSchema{
 
     
 
@@ -484,8 +477,20 @@ public static class BadRequestSchema{
     
     
     
-    @JsonProperty("message")
-    private String message;
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private HashMap<String,Object> createdBy;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
     
     
     
@@ -700,6 +705,198 @@ public static class Locations{
     
     @JsonProperty("items")
     private List<LocationCountry> items;
+    
+    
+    
+}
+
+
+/*
+    Model: VersionApplication
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VersionApplication{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("version")
+    private String version;
+    
+    
+    
+}
+
+
+/*
+    Model: VersionDeviceOS
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VersionDeviceOS{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+}
+
+
+/*
+    Model: VersionDevice
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VersionDevice{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("os")
+    private VersionDeviceOS os;
+    
+    
+    
+}
+
+
+/*
+    Model: VersionRequest
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VersionRequest{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("application")
+    private VersionApplication application;
+    
+    
+    
+    
+    @JsonProperty("device")
+    private VersionDevice device;
+    
+    
+    
+}
+
+
+/*
+    Model: VersionUpdateDialogue
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VersionUpdateDialogue{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("interval")
+    private Integer interval;
+    
+    
+    
+}
+
+
+/*
+    Model: VersionResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VersionResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("update_dialog")
+    private VersionUpdateDialogue updateDialog;
+    
+    
+    
+    
+    @JsonProperty("is_app_blocked")
+    private Boolean isAppBlocked;
     
     
     

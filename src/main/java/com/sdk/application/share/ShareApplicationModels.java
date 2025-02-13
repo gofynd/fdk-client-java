@@ -350,20 +350,20 @@ public static class UrlInfo{
     
     
     
-    @JsonProperty("original")
-    private String original;
-    
-    
-    
-    
     @JsonProperty("hash")
     private String hash;
     
     
     
     
-    @JsonProperty("short_url")
-    private String shortUrl;
+    @JsonProperty("url_hash")
+    private String urlHash;
+    
+    
+    
+    
+    @JsonProperty("alias")
+    private String alias;
     
     
     
@@ -460,7 +460,7 @@ public static class ShortLinkRes{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
