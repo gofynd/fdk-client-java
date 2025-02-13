@@ -52,13 +52,13 @@ public class CommonPlatformService {
     
     
 
-    public CommonPlatformModels.ApplicationResponse searchApplication(String authorization, String query) throws FDKServerResponseError, FDKException {
+    public CommonPlatformModels.ApplicationResponseSchema searchApplication(String authorization, String query) throws FDKServerResponseError, FDKException {
         return this.searchApplication(authorization, query, new HashMap<>());
     }
 
-    public CommonPlatformModels.ApplicationResponse searchApplication(String authorization, String query, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommonPlatformModels.ApplicationResponseSchema searchApplication(String authorization, String query, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommonPlatformModels.ApplicationResponse> response = null;
+            Response<CommonPlatformModels.ApplicationResponseSchema> response = null;
             try {
                 response = commonPlatformApiList.searchApplication(query, requestHeaders).execute();
                 if (!response.isSuccessful()) {

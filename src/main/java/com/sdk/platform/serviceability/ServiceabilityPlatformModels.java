@@ -14,7 +14,7 @@ public class ServiceabilityPlatformModels{
 
 
 /*
-    Model: RuleConditionIntegerDetail
+    Model: UpdateZoneConfigDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,2716 +22,7 @@ public class ServiceabilityPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RuleConditionIntegerDetail{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("text")
-    private String text;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private Integer value;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private Boolean stage;
-    
-    
-    
-}
-
-
-/*
-    Model: RuleConditionStringDetail
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RuleConditionStringDetail{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("text")
-    private String text;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private Boolean stage;
-    
-    
-    
-}
-
-
-/*
-    Model: RuleResponseIntegerDetail
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RuleResponseIntegerDetail{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("includes")
-    private List<RuleConditionIntegerDetail> includes;
-    
-    
-    
-}
-
-
-/*
-    Model: RuleResponseStringDetail
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RuleResponseStringDetail{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("includes")
-    private List<RuleConditionStringDetail> includes;
-    
-    
-    
-}
-
-
-/*
-    Model: CourierPartnerRuleResponseDetailConditions
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CourierPartnerRuleResponseDetailConditions{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("forward")
-    private LocationRule forward;
-    
-    
-    
-    
-    @JsonProperty("reverse")
-    private LocationRule reverse;
-    
-    
-    
-    
-    @JsonProperty("payment_mode")
-    private StringComparisonOperations paymentMode;
-    
-    
-    
-    
-    @JsonProperty("category_ids")
-    private RuleResponseIntegerDetail categoryIds;
-    
-    
-    
-    
-    @JsonProperty("product_ids")
-    private RuleResponseIntegerDetail productIds;
-    
-    
-    
-    
-    @JsonProperty("product_tags")
-    private StringComparisonOperations productTags;
-    
-    
-    
-    
-    @JsonProperty("zone_ids")
-    private RuleResponseStringDetail zoneIds;
-    
-    
-    
-    
-    @JsonProperty("department_ids")
-    private RuleResponseIntegerDetail departmentIds;
-    
-    
-    
-    
-    @JsonProperty("brand_ids")
-    private RuleResponseIntegerDetail brandIds;
-    
-    
-    
-    
-    @JsonProperty("order_place_date")
-    private ArithmeticOperationsV2 orderPlaceDate;
-    
-    
-    
-    
-    @JsonProperty("store_ids")
-    private RuleResponseIntegerDetail storeIds;
-    
-    
-    
-    
-    @JsonProperty("store_type")
-    private StringComparisonOperations storeType;
-    
-    
-    
-    
-    @JsonProperty("store_tags")
-    private StringComparisonOperations storeTags;
-    
-    
-    
-    
-    @JsonProperty("shipment_weight")
-    private ArithmeticOperations shipmentWeight;
-    
-    
-    
-    
-    @JsonProperty("shipment_cost")
-    private ArithmeticOperations shipmentCost;
-    
-    
-    
-    
-    @JsonProperty("shipment_volumetric_weight")
-    private ArithmeticOperations shipmentVolumetricWeight;
-    
-    
-    
-    
-    @JsonProperty("company_ids")
-    private RuleResponseIntegerDetail companyIds;
-    
-    
-    
-    
-    @JsonProperty("promise_types")
-    private StringComparisonOperations promiseTypes;
-    
-    
-    
-}
-
-
-/*
-    Model: CourierPartnerRuleResponseDetailSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CourierPartnerRuleResponseDetailSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("cp_list")
-    private List<CourierPartnerList> cpList;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("conditions")
-    private CourierPartnerRuleResponseDetailConditions conditions;
-    
-    
-    
-    
-    @JsonProperty("manual_priority")
-    private List<String> manualPriority;
-    
-    
-    
-    
-    @JsonProperty("sort")
-    private List<String> sort;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("shipment_adjustment_type")
-    private String shipmentAdjustmentType;
-    
-    
-    
-}
-
-
-/*
-    Model: StoreLocationDetail
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreLocationDetail{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private String uid;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("sub_type")
-    private String subType;
-    
-    
-    
-    
-    @JsonProperty("parent_id")
-    private String parentId;
-    
-    
-    
-    
-    @JsonProperty("parent_uid")
-    private String parentUid;
-    
-    
-    
-}
-
-
-/*
-    Model: StoreRuleLocationDetailSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreRuleLocationDetailSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("includes")
-    private List<StoreLocationDetail> includes;
-    
-    
-    
-}
-
-
-/*
-    Model: StoreRuleConditionDetailSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreRuleConditionDetailSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("department_ids")
-    private RuleResponseIntegerDetail departmentIds;
-    
-    
-    
-    
-    @JsonProperty("category_ids")
-    private RuleResponseIntegerDetail categoryIds;
-    
-    
-    
-    
-    @JsonProperty("brand_ids")
-    private RuleResponseIntegerDetail brandIds;
-    
-    
-    
-    
-    @JsonProperty("to_location")
-    private StoreRuleLocationDetailSchema toLocation;
-    
-    
-    
-    
-    @JsonProperty("customer_radius")
-    private CustomerRadiusSchema customerRadius;
-    
-    
-    
-    
-    @JsonProperty("store_type")
-    private StringComparisonOperations storeType;
-    
-    
-    
-    
-    @JsonProperty("product_tags")
-    private StringComparisonOperations productTags;
-    
-    
-    
-    
-    @JsonProperty("product_ids")
-    private RuleResponseIntegerDetail productIds;
-    
-    
-    
-    
-    @JsonProperty("store_tags")
-    private StringComparisonOperations storeTags;
-    
-    
-    
-    
-    @JsonProperty("order_place_date")
-    private ArithmeticOperationsV2 orderPlaceDate;
-    
-    
-    
-    
-    @JsonProperty("zone_ids")
-    private RuleResponseStringDetail zoneIds;
-    
-    
-    
-    
-    @JsonProperty("company_ids")
-    private RuleResponseIntegerDetail companyIds;
-    
-    
-    
-}
-
-
-/*
-    Model: StoreRuleDataDetailsSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreRuleDataDetailsSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("type_based_priority")
-    private List<String> typeBasedPriority;
-    
-    
-    
-    
-    @JsonProperty("tag_based_priority")
-    private List<String> tagBasedPriority;
-    
-    
-    
-    
-    @JsonProperty("store_priority")
-    private List<StorePrioritySchema> storePriority;
-    
-    
-    
-    
-    @JsonProperty("sort")
-    private List<String> sort;
-    
-    
-    
-    
-    @JsonProperty("manual_priority")
-    private List<Integer> manualPriority;
-    
-    
-    
-    
-    @JsonProperty("conditions")
-    private StoreRuleConditionDetailSchema conditions;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("meta_sort_priority")
-    private Object metaSortPriority;
-    
-    
-    
-    
-    @JsonProperty("meta_conditions")
-    private Object metaConditions;
-    
-    
-    
-}
-
-
-/*
-    Model: OptimalLocationArticlesResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OptimalLocationArticlesResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("item_id")
-    private Integer itemId;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private String size;
-    
-    
-    
-    
-    @JsonProperty("quantity")
-    private Integer quantity;
-    
-    
-    
-    
-    @JsonProperty("group_id")
-    private String groupId;
-    
-    
-    
-    
-    @JsonProperty("is_primary_item")
-    private Boolean isPrimaryItem;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("article_assignment")
-    private ArticleAssignment articleAssignment;
-    
-    
-    
-    
-    @JsonProperty("seller_id")
-    private Integer sellerId;
-    
-    
-    
-    
-    @JsonProperty("ignore_locations")
-    private List<Integer> ignoreLocations;
-    
-    
-    
-    
-    @JsonProperty("assign_locations")
-    private List<Integer> assignLocations;
-    
-    
-    
-    
-    @JsonProperty("price_effective")
-    private Double priceEffective;
-    
-    
-    
-    
-    @JsonProperty("mto_quantity")
-    private Integer mtoQuantity;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private String uid;
-    
-    
-    
-}
-
-
-/*
-    Model: OptimalLocationAssignedStoresResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OptimalLocationAssignedStoresResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("store_id")
-    private Integer storeId;
-    
-    
-    
-    
-    @JsonProperty("articles")
-    private List<OptimalLocationArticlesResponse> articles;
-    
-    
-    
-}
-
-
-/*
-    Model: OptimalLocationsResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OptimalLocationsResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("assigned_stores")
-    private List<OptimalLocationAssignedStoresResponse> assignedStores;
-    
-    
-    
-    
-    @JsonProperty("faulty_articles")
-    private List<ErrorResponse> faultyArticles;
-    
-    
-    
-}
-
-
-/*
-    Model: ArticleAssignment
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ArticleAssignment{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("level")
-    private String level;
-    
-    
-    
-    
-    @JsonProperty("strategy")
-    private String strategy;
-    
-    
-    
-}
-
-
-/*
-    Model: OptimalLocationsArticles
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OptimalLocationsArticles{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("item_id")
-    private Integer itemId;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private String size;
-    
-    
-    
-    
-    @JsonProperty("quantity")
-    private Integer quantity;
-    
-    
-    
-    
-    @JsonProperty("group_id")
-    private String groupId;
-    
-    
-    
-    
-    @JsonProperty("is_primary_item")
-    private Boolean isPrimaryItem;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("article_assignment")
-    private ArticleAssignment articleAssignment;
-    
-    
-    
-    
-    @JsonProperty("ignore_locations")
-    private List<Integer> ignoreLocations;
-    
-    
-    
-    
-    @JsonProperty("assign_locations")
-    private List<Integer> assignLocations;
-    
-    
-    
-    
-    @JsonProperty("seller_id")
-    private Integer sellerId;
-    
-    
-    
-}
-
-
-/*
-    Model: ServiceabilityLocation
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ServiceabilityLocation{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("longitude")
-    private String longitude;
-    
-    
-    
-    
-    @JsonProperty("latitude")
-    private String latitude;
-    
-    
-    
-}
-
-
-/*
-    Model: LocationDetailsServiceability
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationDetailsServiceability{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("pincode")
-    private String pincode;
-    
-    
-    
-    
-    @JsonProperty("sector")
-    private String sector;
-    
-    
-    
-    
-    @JsonProperty("state")
-    private String state;
-    
-    
-    
-    
-    @JsonProperty("country")
-    private String country;
-    
-    
-    
-    
-    @JsonProperty("city")
-    private String city;
-    
-    
-    
-    
-    @JsonProperty("country_iso_code")
-    private String countryIsoCode;
-    
-    
-    
-    
-    @JsonProperty("location")
-    private ServiceabilityLocation location;
-    
-    
-    
-}
-
-
-/*
-    Model: OptimlLocationsRequestSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OptimlLocationsRequestSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("channel_id")
-    private String channelId;
-    
-    
-    
-    
-    @JsonProperty("channel_type")
-    private String channelType;
-    
-    
-    
-    
-    @JsonProperty("channel_identifier")
-    private String channelIdentifier;
-    
-    
-    
-    
-    @JsonProperty("to_serviceability")
-    private LocationDetailsServiceability toServiceability;
-    
-    
-    
-    
-    @JsonProperty("articles")
-    private List<OptimalLocationsArticles> articles;
-    
-    
-    
-}
-
-
-/*
-    Model: ErrorResponseV3
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ErrorResponseV3{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("error")
-    private ErrorObject error;
-    
-    
-    
-}
-
-
-/*
-    Model: ErrorObject
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ErrorObject{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
-    Model: ValidateAddressRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ValidateAddressRequest{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("address")
-    private String address;
-    
-    
-    
-    
-    @JsonProperty("address1")
-    private String address1;
-    
-    
-    
-    
-    @JsonProperty("address2")
-    private String address2;
-    
-    
-    
-    
-    @JsonProperty("area")
-    private String area;
-    
-    
-    
-    
-    @JsonProperty("landmark")
-    private String landmark;
-    
-    
-    
-    
-    @JsonProperty("pincode")
-    private String pincode;
-    
-    
-    
-    
-    @JsonProperty("sector")
-    private String sector;
-    
-    
-    
-    
-    @JsonProperty("city")
-    private String city;
-    
-    
-    
-    
-    @JsonProperty("state")
-    private String state;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("phone")
-    private String phone;
-    
-    
-    
-    
-    @JsonProperty("email")
-    private String email;
-    
-    
-    
-    
-    @JsonProperty("country_iso_code")
-    private String countryIsoCode;
-    
-    
-    
-}
-
-
-/*
-    Model: CountryObject
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CountryObject{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("iso2")
-    private String iso2;
-    
-    
-    
-    
-    @JsonProperty("iso3")
-    private String iso3;
-    
-    
-    
-    
-    @JsonProperty("timezones")
-    private List<String> timezones;
-    
-    
-    
-    
-    @JsonProperty("hierarchy")
-    private List<CountryHierarchy> hierarchy;
-    
-    
-    
-    
-    @JsonProperty("phone_code")
-    private String phoneCode;
-    
-    
-    
-    
-    @JsonProperty("latitude")
-    private String latitude;
-    
-    
-    
-    
-    @JsonProperty("longitude")
-    private String longitude;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private CurrencyObject currency;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-}
-
-
-/*
-    Model: GetCountries
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCountries{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<CountryObject> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-}
-
-
-/*
-    Model: CurrencyObject
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CurrencyObject{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("symbol")
-    private String symbol;
-    
-    
-    
-}
-
-
-/*
-    Model: CountryHierarchy
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CountryHierarchy{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-}
-
-
-/*
-    Model: GetCountry
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCountry{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("iso2")
-    private String iso2;
-    
-    
-    
-    
-    @JsonProperty("iso3")
-    private String iso3;
-    
-    
-    
-    
-    @JsonProperty("timezones")
-    private List<String> timezones;
-    
-    
-    
-    
-    @JsonProperty("hierarchy")
-    private List<CountryHierarchy> hierarchy;
-    
-    
-    
-    
-    @JsonProperty("phone_code")
-    private String phoneCode;
-    
-    
-    
-    
-    @JsonProperty("latitude")
-    private String latitude;
-    
-    
-    
-    
-    @JsonProperty("longitude")
-    private String longitude;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private CurrencyObject currency;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("fields")
-    private GetCountryFields fields;
-    
-    
-    
-}
-
-
-/*
-    Model: GetCountryFields
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCountryFields{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("address")
-    private List<GetCountryFieldsAddress> address;
-    
-    
-    
-    
-    @JsonProperty("serviceability_fields")
-    private List<String> serviceabilityFields;
-    
-    
-    
-    
-    @JsonProperty("address_template")
-    private GetCountryFieldsAddressTemplate addressTemplate;
-    
-    
-    
-}
-
-
-/*
-    Model: GetCountryFieldsAddressTemplate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCountryFieldsAddressTemplate{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("checkout_form")
-    private String checkoutForm;
-    
-    
-    
-    
-    @JsonProperty("store_os_form")
-    private String storeOsForm;
-    
-    
-    
-    
-    @JsonProperty("default_display")
-    private String defaultDisplay;
-    
-    
-    
-}
-
-
-/*
-    Model: FieldValidation
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FieldValidation{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("regex")
-    private FieldValidationRegex regex;
-    
-    
-    
-}
-
-
-/*
-    Model: FieldValidationRegex
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FieldValidationRegex{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-    
-    @JsonProperty("length")
-    private LengthValidation length;
-    
-    
-    
-}
-
-
-/*
-    Model: LengthValidation
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LengthValidation{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("min")
-    private Integer min;
-    
-    
-    
-    
-    @JsonProperty("max")
-    private Integer max;
-    
-    
-    
-}
-
-
-/*
-    Model: GetOneOrAllQuery
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetOneOrAllQuery{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("country")
-    private String country;
-    
-    
-    
-    
-    @JsonProperty("state")
-    private String state;
-    
-    
-    
-    
-    @JsonProperty("city")
-    private String city;
-    
-    
-    
-    
-    @JsonProperty("sector")
-    private String sector;
-    
-    
-    
-}
-
-
-/*
-    Model: GetOneOrAllPath
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetOneOrAllPath{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-}
-
-
-/*
-    Model: GetOneOrAllParams
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetOneOrAllParams{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("path")
-    private GetOneOrAllPath path;
-    
-    
-    
-    
-    @JsonProperty("query")
-    private GetOneOrAllQuery query;
-    
-    
-    
-}
-
-
-/*
-    Model: GetOneOrAll
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetOneOrAll{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("operation_id")
-    private String operationId;
-    
-    
-    
-    
-    @JsonProperty("params")
-    private GetOneOrAllParams params;
-    
-    
-    
-}
-
-
-/*
-    Model: GetCountryFieldsAddressValues
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCountryFieldsAddressValues{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("get_one")
-    private GetOneOrAll getOne;
-    
-    
-    
-    
-    @JsonProperty("get_all")
-    private GetOneOrAll getAll;
-    
-    
-    
-}
-
-
-/*
-    Model: GetCountryFieldsAddress
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCountryFieldsAddress{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("required")
-    private Boolean required;
-    
-    
-    
-    
-    @JsonProperty("edit")
-    private Boolean edit;
-    
-    
-    
-    
-    @JsonProperty("input")
-    private String input;
-    
-    
-    
-    
-    @JsonProperty("validation")
-    private FieldValidation validation;
-    
-    
-    
-    
-    @JsonProperty("values")
-    private GetCountryFieldsAddressValues values;
-    
-    
-    
-    
-    @JsonProperty("error_text")
-    private String errorText;
-    
-    
-    
-}
-
-
-/*
-    Model: PincodeLatLongData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PincodeLatLongData{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("coordinates")
-    private List<Double> coordinates;
-    
-    
-    
-}
-
-
-/*
-    Model: Localities
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Localities{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("parent_ids")
-    private List<String> parentIds;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("lat_long")
-    private PincodeLatLongData latLong;
-    
-    
-    
-    
-    @JsonProperty("parent_uid")
-    private String parentUid;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("localities")
-    private List<LocalityParent> localities;
-    
-    
-    
-    
-    @JsonProperty("iso2")
-    private String iso2;
-    
-    
-    
-    
-    @JsonProperty("iso3")
-    private String iso3;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private Object currency;
-    
-    
-    
-    
-    @JsonProperty("phone_code")
-    private String phoneCode;
-    
-    
-    
-    
-    @JsonProperty("hierarchy")
-    private Object hierarchy;
-    
-    
-    
-    
-    @JsonProperty("latitude")
-    private String latitude;
-    
-    
-    
-    
-    @JsonProperty("longitude")
-    private String longitude;
-    
-    
-    
-}
-
-
-/*
-    Model: GetLocalities
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetLocalities{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<Localities> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-}
-
-
-/*
-    Model: LocalityParent
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocalityParent{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("parent_ids")
-    private List<String> parentIds;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("serviceability")
-    private Object serviceability;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("parent_uid")
-    private String parentUid;
-    
-    
-    
-    
-    @JsonProperty("iso2")
-    private String iso2;
-    
-    
-    
-    
-    @JsonProperty("iso3")
-    private String iso3;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private Object currency;
-    
-    
-    
-    
-    @JsonProperty("phone_code")
-    private String phoneCode;
-    
-    
-    
-    
-    @JsonProperty("hierarchy")
-    private Object hierarchy;
-    
-    
-    
-    
-    @JsonProperty("latitude")
-    private String latitude;
-    
-    
-    
-    
-    @JsonProperty("longitude")
-    private String longitude;
-    
-    
-    
-}
-
-
-/*
-    Model: GetLocality
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetLocality{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("parent_ids")
-    private List<String> parentIds;
-    
-    
-    
-    
-    @JsonProperty("parent_uid")
-    private String parentUid;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("localities")
-    private List<LocalityParent> localities;
-    
-    
-    
-}
-
-
-/*
-    Model: ApplicationConfigPutResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationConfigPutResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("rule_ids")
-    private List<String> ruleIds;
-    
-    
-    
-    
-    @JsonProperty("sort")
-    private List<String> sort;
-    
-    
-    
-    
-    @JsonProperty("manual_priority")
-    private List<String> manualPriority;
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-}
-
-
-/*
-    Model: PromiseType
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromiseType{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("is_default")
-    private Boolean isDefault;
-    
-    
-    
-}
-
-
-/*
-    Model: BuyboxRuleConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BuyboxRuleConfig{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("store_type_priority")
-    private List<String> storeTypePriority;
-    
-    
-    
-    
-    @JsonProperty("store_tag_priority")
-    private List<String> storeTagPriority;
-    
-    
-    
-    
-    @JsonProperty("sort")
-    private List<String> sort;
-    
-    
-    
-}
-
-
-/*
-    Model: CourierPartnerConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CourierPartnerConfig{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("rule_ids")
-    private List<String> ruleIds;
-    
-    
-    
-    
-    @JsonProperty("sort")
-    private List<String> sort;
-    
-    
-    
-    
-    @JsonProperty("manual_priority")
-    private List<String> manualPriority;
-    
-    
-    
-}
-
-
-/*
-    Model: ZoneConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ZoneConfig{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("serviceability_type")
-    private String serviceabilityType;
-    
-    
-    
-    
-    @JsonProperty("active_count")
-    private Integer activeCount;
-    
-    
-    
-    
-    @JsonProperty("total_count")
-    private Integer totalCount;
-    
-    
-    
-}
-
-
-/*
-    Model: ApplicationConfigGetResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationConfigGetResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("zones")
-    private ZoneConfig zones;
-    
-    
-    
-    
-    @JsonProperty("courier_partner_config")
-    private CourierPartnerConfig courierPartnerConfig;
-    
-    
-    
-    
-    @JsonProperty("buybox_rule_config")
-    private BuyboxRuleConfig buyboxRuleConfig;
-    
-    
-    
-    
-    @JsonProperty("promise_config")
-    private PromiseConfig promiseConfig;
-    
-    
-    
-    
-    @JsonProperty("promise_types")
-    private List<PromiseType> promiseTypes;
-    
-    
-    
-}
-
-
-/*
-    Model: ApplicationConfigPutRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationConfigPutRequest{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("rule_ids")
-    private List<String> ruleIds;
-    
-    
-    
-    
-    @JsonProperty("sort")
-    private List<String> sort;
-    
-    
-    
-    
-    @JsonProperty("manual_priority")
-    private List<String> manualPriority;
-    
-    
-    
-}
-
-
-/*
-    Model: InstallCourierPartnerItemsSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InstallCourierPartnerItemsSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("base_url")
-    private String baseUrl;
-    
-    
-    
-    
-    @JsonProperty("callbacks")
-    private Object callbacks;
-    
-    
-    
-    
-    @JsonProperty("contact_email")
-    private String contactEmail;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("developed_by_name")
-    private String developedByName;
-    
-    
-    
-    
-    @JsonProperty("ext_version")
-    private String extVersion;
-    
-    
-    
-    
-    @JsonProperty("extention_type")
-    private String extentionType;
-    
-    
-    
-    
-    @JsonProperty("is_coming_soon")
-    private Boolean isComingSoon;
-    
-    
-    
-    
-    @JsonProperty("is_hidden")
-    private Boolean isHidden;
-    
-    
-    
-    
-    @JsonProperty("is_installed")
-    private Boolean isInstalled;
-    
-    
-    
-    
-    @JsonProperty("launch_type")
-    private String launchType;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private Object logo;
-    
-    
-    
-    
-    @JsonProperty("modified_at")
-    private String modifiedAt;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("organization_id")
-    private String organizationId;
-    
-    
-    
-    
-    @JsonProperty("partner")
-    private Object partner;
-    
-    
-    
-    
-    @JsonProperty("scope")
-    private List<String> scope;
-    
-    
-    
-    
-    @JsonProperty("whitelisted_urls")
-    private List<String> whitelistedUrls;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Integer v;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-}
-
-
-/*
-    Model: InstallCourierPartnerResponseSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InstallCourierPartnerResponseSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<InstallCourierPartnerItemsSchema> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-}
-
-
-/*
-    Model: UpdateZoneConfigRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateZoneConfigRequest{
+public static class UpdateZoneConfigDetails{
 
     
 
@@ -2748,7 +39,7 @@ public static class UpdateZoneConfigRequest{
 
 
 /*
-    Model: ServiceabilityErrorResponse
+    Model: ServiceabilityErrorResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2756,7 +47,7 @@ public static class UpdateZoneConfigRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ServiceabilityErrorResponse{
+public static class ServiceabilityErrorResult{
 
     
 
@@ -2822,7 +113,7 @@ public static class ApplicationServiceabilityConfig{
 
 
 /*
-    Model: ApplicationServiceabilityConfigResponse
+    Model: ApplicationServiceabilityConfigResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2830,7 +121,7 @@ public static class ApplicationServiceabilityConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationServiceabilityConfigResponse{
+public static class ApplicationServiceabilityConfigResult{
 
     
 
@@ -2839,7 +130,7 @@ public static class ApplicationServiceabilityConfigResponse{
     
     
     @JsonProperty("error")
-    private ServiceabilityErrorResponse error;
+    private ServiceabilityErrorResult error;
     
     
     
@@ -2859,7 +150,7 @@ public static class ApplicationServiceabilityConfigResponse{
 
 
 /*
-    Model: EntityRegionView_Request
+    Model: EntityRegionView_Details
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2867,7 +158,7 @@ public static class ApplicationServiceabilityConfigResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EntityRegionView_Request{
+public static class EntityRegionView_Details{
 
     
 
@@ -2976,7 +267,7 @@ public static class EntityRegionView_page{
 
 
 /*
-    Model: getAppRegionZonesResponse
+    Model: getAppRegionZonesResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2984,7 +275,7 @@ public static class EntityRegionView_page{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class getAppRegionZonesResponse{
+public static class getAppRegionZonesResult{
 
     
 
@@ -3093,7 +384,7 @@ public static class EntityRegionView_Items{
 
 
 /*
-    Model: EntityRegionView_Response
+    Model: EntityRegionView_Result
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3101,7 +392,7 @@ public static class EntityRegionView_Items{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EntityRegionView_Response{
+public static class EntityRegionView_Result{
 
     
 
@@ -3166,579 +457,6 @@ public static class ListViewSummary{
     
     @JsonProperty("total_active_zones")
     private Integer totalActiveZones;
-    
-    
-    
-}
-
-
-/*
-    Model: ProductSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("values")
-    private List<Integer> values;
-    
-    
-    
-}
-
-
-/*
-    Model: ProductDetailsSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductDetailsSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("values")
-    private List<DetailsSchema> values;
-    
-    
-    
-}
-
-
-/*
-    Model: StoresSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoresSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("values")
-    private List<Integer> values;
-    
-    
-    
-}
-
-
-/*
-    Model: StoresDetailsSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoresDetailsSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("values")
-    private List<StoreValueDetailsSchema> values;
-    
-    
-    
-}
-
-
-/*
-    Model: DetailsSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DetailsSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-}
-
-
-/*
-    Model: StoreValueDetailsSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreValueDetailsSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("text")
-    private String text;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private Integer value;
-    
-    
-    
-}
-
-
-/*
-    Model: SummarySchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SummarySchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("stores_count")
-    private Integer storesCount;
-    
-    
-    
-    
-    @JsonProperty("products_count")
-    private Integer productsCount;
-    
-    
-    
-    
-    @JsonProperty("regions")
-    private List<RegionSchema> regions;
-    
-    
-    
-}
-
-
-/*
-    Model: RegionSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RegionSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("count")
-    private Integer count;
-    
-    
-    
-}
-
-
-/*
-    Model: ServiceabilityDeleteErrorResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ServiceabilityDeleteErrorResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("error")
-    private List<ServiceabilityErrorResponse> error;
-    
-    
-    
-}
-
-
-/*
-    Model: ListViewResponseV2
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ListViewResponseV2{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<ListViewItemsV2> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private ZoneDataItem page;
-    
-    
-    
-}
-
-
-/*
-    Model: ListViewItemsV2
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ListViewItemsV2{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("zone_id")
-    private String zoneId;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("access_level")
-    private String accessLevel;
-    
-    
-    
-    
-    @JsonProperty("geo_areas")
-    private List<GeoArea> geoAreas;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("stores")
-    private ListViewProductV2 stores;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("is_opted")
-    private Boolean isOpted;
-    
-    
-    
-    
-    @JsonProperty("is_public_opted")
-    private Boolean isPublicOpted;
-    
-    
-    
-    
-    @JsonProperty("product")
-    private ListViewProductV2 product;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private String createdBy;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private String modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("summary")
-    private Summary summary;
-    
-    
-    
-}
-
-
-/*
-    Model: SummaryRegions
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SummaryRegions{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("regions")
-    private List<RegionSchema> regions;
-    
-    
-    
-}
-
-
-/*
-    Model: Summary
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Summary{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("stores_count")
-    private Integer storesCount;
-    
-    
-    
-    
-    @JsonProperty("products_count")
-    private Integer productsCount;
-    
-    
-    
-    
-    @JsonProperty("regions")
-    private List<RegionSchema> regions;
-    
-    
-    
-}
-
-
-/*
-    Model: GeoArea
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeoArea{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-}
-
-
-/*
-    Model: ListViewProductV2
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ListViewProductV2{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("values")
-    private List<String> values;
     
     
     
@@ -3915,6 +633,12 @@ public static class ListViewItems{
     
     
     
+    @JsonProperty("store_ids")
+    private List<Integer> storeIds;
+    
+    
+    
+    
     @JsonProperty("channels")
     private List<ListViewChannels> channels;
     
@@ -3924,7 +648,7 @@ public static class ListViewItems{
 
 
 /*
-    Model: ListViewResponse
+    Model: ListViewResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3932,7 +656,7 @@ public static class ListViewItems{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ListViewResponse{
+public static class ListViewResult{
 
     
 
@@ -4004,7 +728,7 @@ public static class CompanyStoreView_PageItems{
 
 
 /*
-    Model: CompanyStoreView_Response
+    Model: CompanyStoreView_Result
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4012,7 +736,7 @@ public static class CompanyStoreView_PageItems{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyStoreView_Response{
+public static class CompanyStoreView_Result{
 
     
 
@@ -4097,6 +821,37 @@ public static class ZoneProductTypes{
 
 
 /*
+    Model: ZoneMappingDetailType
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ZoneMappingDetailType{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("regions")
+    private List<ZoneMappingRegions> regions;
+    
+    
+    
+}
+
+
+/*
     Model: ZoneMappingType
 */
 @AllArgsConstructor
@@ -4119,14 +874,8 @@ public static class ZoneMappingType{
     
     
     
-    @JsonProperty("pincode")
-    private List<String> pincode;
-    
-    
-    
-    
-    @JsonProperty("state")
-    private List<String> state;
+    @JsonProperty("regions")
+    private List<String> regions;
     
     
     
@@ -4134,7 +883,7 @@ public static class ZoneMappingType{
 
 
 /*
-    Model: UpdateZoneDataV2
+    Model: ZoneMappingRegions
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4142,7 +891,7 @@ public static class ZoneMappingType{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateZoneDataV2{
+public static class ZoneMappingRegions{
 
     
 
@@ -4150,226 +899,32 @@ public static class UpdateZoneDataV2{
     
     
     
-    @JsonProperty("zone_id")
-    private String zoneId;
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
     
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("parent_id")
+    private List<String> parentId;
     
     
     
     
-    @JsonProperty("type")
-    private String type;
+    @JsonProperty("parent_uid")
+    private String parentUid;
     
     
     
     
-    @JsonProperty("access_level")
-    private String accessLevel;
+    @JsonProperty("sub_type")
+    private String subType;
     
     
     
     
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("geo_areas")
-    private List<String> geoAreas;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("is_opted")
-    private Boolean isOpted;
-    
-    
-    
-    
-    @JsonProperty("product")
-    private ProductSchema product;
-    
-    
-    
-    
-    @JsonProperty("stores")
-    private StoresSchema stores;
-    
-    
-    
-}
-
-
-/*
-    Model: ZoneUpdateSuccessResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ZoneUpdateSuccessResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("access_level")
-    private String accessLevel;
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("is_opted")
-    private Boolean isOpted;
-    
-    
-    
-    
-    @JsonProperty("geo_areas")
-    private List<String> geoAreas;
-    
-    
-    
-    
-    @JsonProperty("product")
-    private ProductSchema product;
-    
-    
-    
-    
-    @JsonProperty("stores")
-    private StoresSchema stores;
-    
-    
-    
-    
-    @JsonProperty("zone_id")
-    private String zoneId;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private String createdBy;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private String modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("summary")
-    private Summary summary;
-    
-    
-    
-}
-
-
-/*
-    Model: ZoneDeleteSuccessResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ZoneDeleteSuccessResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
+    @JsonProperty("uid")
+    private String uid;
     
     
     
@@ -4452,17 +1007,11 @@ public static class UpdateZoneData{
     
     
     
-    
-    @JsonProperty("assignment_preference")
-    private String assignmentPreference;
-    
-    
-    
 }
 
 
 /*
-    Model: ZoneUpdateRequest
+    Model: ZoneUpdateDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4470,7 +1019,7 @@ public static class UpdateZoneData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ZoneUpdateRequest{
+public static class ZoneUpdateDetails{
 
     
 
@@ -4493,7 +1042,7 @@ public static class ZoneUpdateRequest{
 
 
 /*
-    Model: ZoneSuccessResponse
+    Model: ZoneSuccessResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4501,7 +1050,7 @@ public static class ZoneUpdateRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ZoneSuccessResponse{
+public static class ZoneSuccessResult{
 
     
 
@@ -4615,7 +1164,7 @@ public static class GetZoneDataViewItems{
 
 
 /*
-    Model: GetSingleZoneDataViewResponse
+    Model: GetSingleZoneDataViewResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4623,7 +1172,7 @@ public static class GetZoneDataViewItems{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetSingleZoneDataViewResponse{
+public static class GetSingleZoneDataViewResult{
 
     
 
@@ -4674,839 +1223,50 @@ public static class GetZoneByIdSchema{
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("is_opted")
-    private Boolean isOpted;
-    
-    
-    
-    
-    @JsonProperty("product")
-    private ProductSchema product;
-    
-    
-    
-    
-    @JsonProperty("stores")
-    private StoresSchema stores;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private String createdBy;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private String modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("overlapping_file_url")
-    private String overlappingFileUrl;
-    
-    
-    
-    
-    @JsonProperty("geo_areas")
-    private List<String> geoAreas;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("overlapping_zone_names")
-    private List<String> overlappingZoneNames;
-    
-    
-    
-}
-
-
-/*
-    Model: GetZoneByIdDetailsSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetZoneByIdDetailsSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("zone_id")
-    private String zoneId;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("is_opted")
-    private Boolean isOpted;
-    
-    
-    
-    
-    @JsonProperty("product")
-    private ProductDetailsSchema product;
-    
-    
-    
-    
-    @JsonProperty("stores")
-    private StoresDetailsSchema stores;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("overlapping_file_url")
-    private String overlappingFileUrl;
-    
-    
-    
-    
-    @JsonProperty("geo_areas")
-    private List<GeoAreaDetailsSchema> geoAreas;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("access_level")
-    private String accessLevel;
-    
-    
-    
-    
-    @JsonProperty("overlapping_zone_names")
-    private List<String> overlappingZoneNames;
-    
-    
-    
-}
-
-
-/*
-    Model: GeoAreaDetailsSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeoAreaDetailsSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-}
-
-
-/*
-    Model: CreateZoneV2Data
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateZoneV2Data{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("access_level")
-    private String accessLevel;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
     @JsonProperty("company_id")
     private Integer companyId;
     
     
     
     
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("geo_areas")
-    private List<String> geoAreas;
-    
-    
-    
-    
-    @JsonProperty("stores")
-    private ZoneStores stores;
-    
-    
-    
-    
-    @JsonProperty("product")
-    private ZoneProduct product;
-    
-    
-    
-}
-
-
-/*
-    Model: ZoneBulkExport
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ZoneBulkExport{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("batch_id")
-    private String batchId;
-    
-    
-    
-}
-
-
-/*
-    Model: GetZoneBulkExport
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetZoneBulkExport{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<ZoneBulkItem> items;
-    
-    
-    
-}
-
-
-/*
-    Model: ZoneBulkItem
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ZoneBulkItem{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("batch_id")
-    private String batchId;
-    
-    
-    
-    
-    @JsonProperty("file_path")
-    private String filePath;
-    
-    
-    
-    
-    @JsonProperty("total")
-    private Integer total;
-    
-    
-    
-    
-    @JsonProperty("failed")
-    private Integer failed;
-    
-    
-    
-    
-    @JsonProperty("error_file_url")
-    private String errorFileUrl;
-    
-    
-    
-    
-    @JsonProperty("action")
-    private String action;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("updated_by")
-    private String updatedBy;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-}
-
-
-/*
-    Model: CreateBulkZoneData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateBulkZoneData{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("file_url")
-    private String fileUrl;
-    
-    
-    
-    
-    @JsonProperty("product_type")
-    private String productType;
-    
-    
-    
-}
-
-
-/*
-    Model: ZoneStores
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ZoneStores{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("values")
-    private List<Integer> values;
-    
-    
-    
-}
-
-
-/*
-    Model: ZoneProduct
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ZoneProduct{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("values")
-    private List<Integer> values;
-    
-    
-    
-}
-
-
-/*
-    Model: ZoneResponseV2
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ZoneResponseV2{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("access_level")
-    private String accessLevel;
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
     @JsonProperty("is_active")
     private Boolean isActive;
     
     
     
     
-    @JsonProperty("is_public_opted")
-    private Boolean isPublicOpted;
-    
-    
-    
-    
-    @JsonProperty("is_opted")
-    private Boolean isOpted;
-    
-    
-    
-    
-    @JsonProperty("geo_areas")
-    private List<String> geoAreas;
-    
-    
-    
-    
-    @JsonProperty("stores")
-    private ListViewProductV2 stores;
+    @JsonProperty("channels")
+    private List<GetZoneDataViewChannels> channels;
     
     
     
     
     @JsonProperty("product")
-    private ListViewProductV2 product;
+    private ZoneProductTypes product;
     
     
     
     
-    @JsonProperty("created_by")
-    private String createdBy;
+    @JsonProperty("store_ids")
+    private List<Integer> storeIds;
     
     
     
     
-    @JsonProperty("created_on")
-    private String createdOn;
+    @JsonProperty("region_type")
+    private String regionType;
     
     
     
     
-    @JsonProperty("modified_by")
-    private String modifiedBy;
+    @JsonProperty("mapping")
+    private List<ZoneMappingDetailType> mapping;
     
     
     
     
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("zone_id")
-    private String zoneId;
-    
-    
-    
-    
-    @JsonProperty("summary")
-    private SummaryRegions summary;
-    
-    
-    
-}
-
-
-/*
-    Model: CreateBulkZoneResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateBulkZoneResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("zone_id")
-    private String zoneId;
-    
-    
-    
-}
-
-
-/*
-    Model: GetBulkZoneHistory
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetBulkZoneHistory{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<BulkZoneItems> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private PageV2 page;
-    
-    
-    
-}
-
-
-/*
-    Model: BulkZoneItems
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkZoneItems{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("batch_id")
-    private String batchId;
-    
-    
-    
-    
-    @JsonProperty("entity_type")
-    private String entityType;
-    
-    
-    
-    
-    @JsonProperty("error_file_url")
-    private String errorFileUrl;
-    
-    
-    
-    
-    @JsonProperty("file_path")
-    private String filePath;
-    
-    
-    
-    
-    @JsonProperty("file_name")
-    private String fileName;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("updated_by")
-    private String updatedBy;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-}
-
-
-/*
-    Model: PageV2
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageV2{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private Double size;
-    
-    
-    
-    
-    @JsonProperty("current")
-    private Double current;
-    
-    
-    
-    
-    @JsonProperty("has_next")
-    private Boolean hasNext;
-    
-    
-    
-    
-    @JsonProperty("item_total")
-    private Double itemTotal;
-    
-    
-    
-}
-
-
-/*
-    Model: BulkCreateZoneExport
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkCreateZoneExport{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("placeholder")
-    private String placeholder;
+    @JsonProperty("stores_count")
+    private Integer storesCount;
     
     
     
@@ -5578,8 +1338,8 @@ public static class CreateZoneData{
     
     
     
-    @JsonProperty("assignment_preference")
-    private String assignmentPreference;
+    @JsonProperty("product")
+    private ZoneProductTypes product;
     
     
     
@@ -5587,7 +1347,7 @@ public static class CreateZoneData{
 
 
 /*
-    Model: ZoneResponse
+    Model: ZoneResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5595,7 +1355,7 @@ public static class CreateZoneData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ZoneResponse{
+public static class ZoneResult{
 
     
 
@@ -5624,7 +1384,7 @@ public static class ZoneResponse{
 
 
 /*
-    Model: GetZoneFromPincodeViewRequest
+    Model: GetZoneFromPincodeViewDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5632,7 +1392,7 @@ public static class ZoneResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetZoneFromPincodeViewRequest{
+public static class GetZoneFromPincodeViewDetails{
 
     
 
@@ -5712,17 +1472,11 @@ public static class Zone{
     
     
     
-    
-    @JsonProperty("assignment_preference")
-    private String assignmentPreference;
-    
-    
-    
 }
 
 
 /*
-    Model: GetZoneFromPincodeViewResponse
+    Model: GetZoneFromPincodeViewResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5730,7 +1484,7 @@ public static class Zone{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetZoneFromPincodeViewResponse{
+public static class GetZoneFromPincodeViewResult{
 
     
 
@@ -5753,7 +1507,7 @@ public static class GetZoneFromPincodeViewResponse{
 
 
 /*
-    Model: GetZoneFromApplicationIdViewResponse
+    Model: GetZoneFromApplicationIdViewResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5761,7 +1515,7 @@ public static class GetZoneFromPincodeViewResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetZoneFromApplicationIdViewResponse{
+public static class GetZoneFromApplicationIdViewResult{
 
     
 
@@ -5784,7 +1538,7 @@ public static class GetZoneFromApplicationIdViewResponse{
 
 
 /*
-    Model: ServiceabilityPageResponse
+    Model: ServiceabilityPageResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5792,7 +1546,7 @@ public static class GetZoneFromApplicationIdViewResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ServiceabilityPageResponse{
+public static class ServiceabilityPageResult{
 
     
 
@@ -5864,7 +1618,7 @@ public static class MobileNo{
 
 
 /*
-    Model: ManagerResponse
+    Model: ManagerResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5872,7 +1626,7 @@ public static class MobileNo{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ManagerResponse{
+public static class ManagerResult{
 
     
 
@@ -5901,7 +1655,7 @@ public static class ManagerResponse{
 
 
 /*
-    Model: ModifiedByResponse
+    Model: ModifiedByResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5909,7 +1663,7 @@ public static class ManagerResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ModifiedByResponse{
+public static class ModifiedByResult{
 
     
 
@@ -5932,7 +1686,7 @@ public static class ModifiedByResponse{
 
 
 /*
-    Model: IntegrationTypeResponse
+    Model: IntegrationTypeResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5940,7 +1694,7 @@ public static class ModifiedByResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class IntegrationTypeResponse{
+public static class IntegrationTypeResult{
 
     
 
@@ -5963,7 +1717,7 @@ public static class IntegrationTypeResponse{
 
 
 /*
-    Model: ProductReturnConfigResponse
+    Model: ProductReturnConfigResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5971,7 +1725,7 @@ public static class IntegrationTypeResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductReturnConfigResponse{
+public static class ProductReturnConfigResult{
 
     
 
@@ -5988,7 +1742,7 @@ public static class ProductReturnConfigResponse{
 
 
 /*
-    Model: ContactNumberResponse
+    Model: ContactNumberResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5996,7 +1750,7 @@ public static class ProductReturnConfigResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ContactNumberResponse{
+public static class ContactNumberResult{
 
     
 
@@ -6019,7 +1773,7 @@ public static class ContactNumberResponse{
 
 
 /*
-    Model: AddressResponse
+    Model: AddressResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6027,7 +1781,7 @@ public static class ContactNumberResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddressResponse{
+public static class AddressResult{
 
     
 
@@ -6092,7 +1846,7 @@ public static class AddressResponse{
 
 
 /*
-    Model: CreatedByResponse
+    Model: CreatedByResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6100,7 +1854,7 @@ public static class AddressResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreatedByResponse{
+public static class CreatedByResult{
 
     
 
@@ -6123,7 +1877,7 @@ public static class CreatedByResponse{
 
 
 /*
-    Model: EwayBillResponse
+    Model: EwayBillResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6131,7 +1885,7 @@ public static class CreatedByResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EwayBillResponse{
+public static class EwayBillResult{
 
     
 
@@ -6148,7 +1902,7 @@ public static class EwayBillResponse{
 
 
 /*
-    Model: EinvoiceResponse
+    Model: EinvoiceResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6156,7 +1910,7 @@ public static class EwayBillResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EinvoiceResponse{
+public static class EinvoiceResult{
 
     
 
@@ -6173,7 +1927,7 @@ public static class EinvoiceResponse{
 
 
 /*
-    Model: GstCredentialsResponse
+    Model: GstCredentialsResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6181,7 +1935,7 @@ public static class EinvoiceResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GstCredentialsResponse{
+public static class GstCredentialsResult{
 
     
 
@@ -6190,13 +1944,13 @@ public static class GstCredentialsResponse{
     
     
     @JsonProperty("e_waybill")
-    private EwayBillResponse eWaybill;
+    private EwayBillResult eWaybill;
     
     
     
     
     @JsonProperty("e_invoice")
-    private EinvoiceResponse eInvoice;
+    private EinvoiceResult eInvoice;
     
     
     
@@ -6204,7 +1958,7 @@ public static class GstCredentialsResponse{
 
 
 /*
-    Model: WarningsResponse
+    Model: WarningsResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6212,7 +1966,7 @@ public static class GstCredentialsResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class WarningsResponse{
+public static class WarningsResult{
 
     
 
@@ -6260,7 +2014,7 @@ public static class OpeningClosing{
 
 
 /*
-    Model: TimmingResponse
+    Model: TimmingResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6268,7 +2022,7 @@ public static class OpeningClosing{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TimmingResponse{
+public static class TimmingResult{
 
     
 
@@ -6303,7 +2057,7 @@ public static class TimmingResponse{
 
 
 /*
-    Model: DocumentsResponse
+    Model: DocumentsResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6311,7 +2065,7 @@ public static class TimmingResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DocumentsResponse{
+public static class DocumentsResult{
 
     
 
@@ -6425,7 +2179,7 @@ public static class Dp{
 
 
 /*
-    Model: LogisticsResponse
+    Model: LogisticsResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6433,7 +2187,7 @@ public static class Dp{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LogisticsResponse{
+public static class LogisticsResult{
 
     
 
@@ -6456,7 +2210,7 @@ public static class LogisticsResponse{
 
 
 /*
-    Model: ItemResponse
+    Model: ItemResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6464,7 +2218,7 @@ public static class LogisticsResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ItemResponse{
+public static class ItemResult{
 
     
 
@@ -6479,19 +2233,19 @@ public static class ItemResponse{
     
     
     @JsonProperty("manager")
-    private ManagerResponse manager;
+    private ManagerResult manager;
     
     
     
     
     @JsonProperty("modified_by")
-    private ModifiedByResponse modifiedBy;
+    private ModifiedByResult modifiedBy;
     
     
     
     
     @JsonProperty("integration_type")
-    private IntegrationTypeResponse integrationType;
+    private IntegrationTypeResult integrationType;
     
     
     
@@ -6503,19 +2257,19 @@ public static class ItemResponse{
     
     
     @JsonProperty("product_return_config")
-    private ProductReturnConfigResponse productReturnConfig;
+    private ProductReturnConfigResult productReturnConfig;
     
     
     
     
     @JsonProperty("contact_numbers")
-    private List<ContactNumberResponse> contactNumbers;
+    private List<ContactNumberResult> contactNumbers;
     
     
     
     
     @JsonProperty("verified_by")
-    private ModifiedByResponse verifiedBy;
+    private ModifiedByResult verifiedBy;
     
     
     
@@ -6527,7 +2281,7 @@ public static class ItemResponse{
     
     
     @JsonProperty("address")
-    private AddressResponse address;
+    private AddressResult address;
     
     
     
@@ -6539,13 +2293,13 @@ public static class ItemResponse{
     
     
     @JsonProperty("created_by")
-    private CreatedByResponse createdBy;
+    private CreatedByResult createdBy;
     
     
     
     
     @JsonProperty("gst_credentials")
-    private GstCredentialsResponse gstCredentials;
+    private GstCredentialsResult gstCredentials;
     
     
     
@@ -6569,7 +2323,7 @@ public static class ItemResponse{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -6581,7 +2335,7 @@ public static class ItemResponse{
     
     
     @JsonProperty("warnings")
-    private WarningsResponse warnings;
+    private WarningsResult warnings;
     
     
     
@@ -6593,13 +2347,13 @@ public static class ItemResponse{
     
     
     @JsonProperty("timing")
-    private List<TimmingResponse> timing;
+    private List<TimmingResult> timing;
     
     
     
     
     @JsonProperty("documents")
-    private List<DocumentsResponse> documents;
+    private List<DocumentsResult> documents;
     
     
     
@@ -6629,7 +2383,7 @@ public static class ItemResponse{
     
     
     @JsonProperty("logistics")
-    private LogisticsResponse logistics;
+    private LogisticsResult logistics;
     
     
     
@@ -6643,7 +2397,7 @@ public static class ItemResponse{
 
 
 /*
-    Model: GetStoresViewResponse
+    Model: GetStoresViewResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6651,7 +2405,7 @@ public static class ItemResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetStoresViewResponse{
+public static class GetStoresViewResult{
 
     
 
@@ -6660,155 +2414,13 @@ public static class GetStoresViewResponse{
     
     
     @JsonProperty("page")
-    private ServiceabilityPageResponse page;
+    private ServiceabilityPageResult page;
     
     
     
     
     @JsonProperty("items")
-    private List<ItemResponse> items;
-    
-    
-    
-}
-
-
-/*
-    Model: ReAssignStoreRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReAssignStoreRequest{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("to_pincode")
-    private String toPincode;
-    
-    
-    
-    
-    @JsonProperty("identifier")
-    private String identifier;
-    
-    
-    
-    
-    @JsonProperty("configuration")
-    private Object configuration;
-    
-    
-    
-    
-    @JsonProperty("ignored_locations")
-    private List<String> ignoredLocations;
-    
-    
-    
-    
-    @JsonProperty("articles")
-    private List<Object> articles;
-    
-    
-    
-}
-
-
-/*
-    Model: ServiceabilityZoneErrorResult
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ServiceabilityZoneErrorResult{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("error")
-    private List<ServiceabilityErrorResponse> error;
-    
-    
-    
-}
-
-
-/*
-    Model: ServiceabilityZoneNonMarketplaceErrorResult
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ServiceabilityZoneNonMarketplaceErrorResult{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("error")
-    private String error;
-    
-    
-    
-}
-
-
-/*
-    Model: ReAssignStoreResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReAssignStoreResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("to_pincode")
-    private String toPincode;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("error")
-    private Object error;
-    
-    
-    
-    
-    @JsonProperty("articles")
-    private List<Object> articles;
+    private List<ItemResult> items;
     
     
     
@@ -6853,7 +2465,7 @@ public static class PincodeMopData{
 
 
 /*
-    Model: PincodeMopUpdateResponse
+    Model: PincodeMopUpdateResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6861,7 +2473,7 @@ public static class PincodeMopData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PincodeMopUpdateResponse{
+public static class PincodeMopUpdateResult{
 
     
 
@@ -6896,7 +2508,7 @@ public static class PincodeMopUpdateResponse{
 
 
 /*
-    Model: PincodeMOPresponse
+    Model: PincodeMOPResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6904,16 +2516,10 @@ public static class PincodeMopUpdateResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PincodeMOPresponse{
+public static class PincodeMOPResult{
 
     
 
-    
-    
-    
-    
-    @JsonProperty("batch_id")
-    private String batchId;
     
     
     
@@ -6926,6 +2532,12 @@ public static class PincodeMOPresponse{
     
     @JsonProperty("status_code")
     private Integer statusCode;
+    
+    
+    
+    
+    @JsonProperty("batch_id")
+    private String batchId;
     
     
     
@@ -6949,7 +2561,7 @@ public static class PincodeMOPresponse{
     
     
     @JsonProperty("updated_pincodes")
-    private List<PincodeMopUpdateResponse> updatedPincodes;
+    private List<PincodeMopUpdateResult> updatedPincodes;
     
     
     
@@ -6974,62 +2586,19 @@ public static class CommonError{
     
     
     @JsonProperty("status_code")
-    private Integer statusCode;
+    private String statusCode;
     
     
     
     
     @JsonProperty("error")
-    private List<ErrorResponse> error;
+    private Object error;
     
     
     
     
     @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-}
-
-
-/*
-    Model: MoPCommonError
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MoPCommonError{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("batch_id")
-    private String batchId;
-    
-    
-    
-    
-    @JsonProperty("status_code")
-    private Integer statusCode;
-    
-    
-    
-    
-    @JsonProperty("error")
-    private List<ErrorResponse> error;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
+    private String success;
     
     
     
@@ -7068,7 +2637,7 @@ public static class PincodeMopBulkData{
 
 
 /*
-    Model: PincodeBulkViewResponse
+    Model: PincodeBulkViewResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -7076,7 +2645,7 @@ public static class PincodeMopBulkData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PincodeBulkViewResponse{
+public static class PincodeBulkViewResult{
 
     
 
@@ -7099,7 +2668,7 @@ public static class PincodeBulkViewResponse{
 
 
 /*
-    Model: PincodeCodStatusListingRequest
+    Model: PincodeCodStatusListingDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -7107,7 +2676,7 @@ public static class PincodeBulkViewResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PincodeCodStatusListingRequest{
+public static class PincodeCodStatusListingDetails{
 
     
 
@@ -7148,7 +2717,7 @@ public static class PincodeCodStatusListingRequest{
 
 
 /*
-    Model: PincodeCodDataSchema
+    Model: PincodeCodStatusItem
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -7156,16 +2725,10 @@ public static class PincodeCodStatusListingRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PincodeCodDataSchema{
+public static class PincodeCodStatusItem{
 
     
 
-    
-    
-    
-    
-    @JsonProperty("pincode")
-    private String pincode;
     
     
     
@@ -7175,11 +2738,17 @@ public static class PincodeCodDataSchema{
     
     
     
+    
+    @JsonProperty("pincode")
+    private String pincode;
+    
+    
+    
 }
 
 
 /*
-    Model: PincodeCodStatusListingResponse
+    Model: PincodeCodStatusListingResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -7187,7 +2756,7 @@ public static class PincodeCodDataSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PincodeCodStatusListingResponse{
+public static class PincodeCodStatusListingResult{
 
     
 
@@ -7202,7 +2771,7 @@ public static class PincodeCodStatusListingResponse{
     
     
     @JsonProperty("data")
-    private List<PincodeCodDataSchema> data;
+    private List<PincodeCodStatusListingResult> data;
     
     
     
@@ -7351,7 +2920,7 @@ public static class PincodeCodStatusListingSummary{
 
 
 /*
-    Model: PincodeMopUpdateAuditHistoryRequest
+    Model: PincodeMopUpdateAuditHistoryDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -7359,7 +2928,7 @@ public static class PincodeCodStatusListingSummary{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PincodeMopUpdateAuditHistoryRequest{
+public static class PincodeMopUpdateAuditHistoryDetails{
 
     
 
@@ -7431,7 +3000,7 @@ public static class PincodeMopUpdateAuditHistoryPaging{
 
 
 /*
-    Model: PincodeMopUpdateAuditHistoryResponse
+    Model: PincodeMopUpdateAuditHistoryResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -7439,7 +3008,7 @@ public static class PincodeMopUpdateAuditHistoryPaging{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PincodeMopUpdateAuditHistoryResponse{
+public static class PincodeMopUpdateAuditHistoryResult{
 
     
 
@@ -7498,7 +3067,7 @@ public static class PincodeMopUpdateAuditHistoryResponse{
 
 
 /*
-    Model: PincodeMopUpdateAuditHistoryResponseData
+    Model: PincodeMopUpdateAuditHistoryResultData
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -7506,7 +3075,7 @@ public static class PincodeMopUpdateAuditHistoryResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PincodeMopUpdateAuditHistoryResponseData{
+public static class PincodeMopUpdateAuditHistoryResultData{
 
     
 
@@ -7527,7 +3096,7 @@ public static class PincodeMopUpdateAuditHistoryResponseData{
     
     
     @JsonProperty("data")
-    private List<PincodeMopUpdateAuditHistoryResponse> data;
+    private List<PincodeMopUpdateAuditHistoryResult> data;
     
     
     
@@ -7688,6 +3257,55 @@ public static class SchemeRules{
 
 
 /*
+    Model: CourierAccountUpdateDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierAccountUpdateDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("extension_id")
+    private String extensionId;
+    
+    
+    
+    
+    @JsonProperty("scheme_id")
+    private String schemeId;
+    
+    
+    
+    
+    @JsonProperty("is_self_ship")
+    private Boolean isSelfShip;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("is_own_account")
+    private Boolean isOwnAccount;
+    
+    
+    
+}
+
+
+/*
     Model: CourierAccount
 */
 @AllArgsConstructor
@@ -7697,6 +3315,73 @@ public static class SchemeRules{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class CourierAccount{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("extension_id")
+    private String extensionId;
+    
+    
+    
+    
+    @JsonProperty("account_id")
+    private String accountId;
+    
+    
+    
+    
+    @JsonProperty("scheme_id")
+    private String schemeId;
+    
+    
+    
+    
+    @JsonProperty("is_self_ship")
+    private Boolean isSelfShip;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("is_own_account")
+    private Boolean isOwnAccount;
+    
+    
+    
+    
+    @JsonProperty("scheme_rules")
+    private CourierPartnerSchemeModel schemeRules;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierAccountDetailsBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierAccountDetailsBody{
 
     
 
@@ -7739,23 +3424,11 @@ public static class CourierAccount{
     
     
     
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("scheme_rules")
-    private Object schemeRules;
-    
-    
-    
 }
 
 
 /*
-    Model: BulkGeoAreaDetails
+    Model: ErrorResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -7763,433 +3436,10 @@ public static class CourierAccount{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkGeoAreaDetails{
+public static class ErrorResult{
 
     
 
-    
-    
-    
-    
-    @JsonProperty("file_url")
-    private String fileUrl;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-}
-
-
-/*
-    Model: BulkGeoAreaResult
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkGeoAreaResult{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("geoarea_id")
-    private String geoareaId;
-    
-    
-    
-}
-
-
-/*
-    Model: BulkGeoAreaGetResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkGeoAreaGetResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("batch_id")
-    private String batchId;
-    
-    
-    
-    
-    @JsonProperty("file_path")
-    private String filePath;
-    
-    
-    
-    
-    @JsonProperty("total")
-    private Integer total;
-    
-    
-    
-    
-    @JsonProperty("failed")
-    private Integer failed;
-    
-    
-    
-    
-    @JsonProperty("error_file_url")
-    private String errorFileUrl;
-    
-    
-    
-    
-    @JsonProperty("action")
-    private String action;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("updated_by")
-    private String updatedBy;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("file_url")
-    private String fileUrl;
-    
-    
-    
-}
-
-
-/*
-    Model: GeoAreaBulkCreationResult
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeoAreaBulkCreationResult{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("batch_id")
-    private String batchId;
-    
-    
-    
-}
-
-
-/*
-    Model: GeoAreaBulkExportResult
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeoAreaBulkExportResult{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("batch_id")
-    private String batchId;
-    
-    
-    
-    
-    @JsonProperty("file_path")
-    private String filePath;
-    
-    
-    
-    
-    @JsonProperty("total")
-    private Integer total;
-    
-    
-    
-    
-    @JsonProperty("failed")
-    private Integer failed;
-    
-    
-    
-    
-    @JsonProperty("error_file_url")
-    private String errorFileUrl;
-    
-    
-    
-    
-    @JsonProperty("action")
-    private String action;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("updated_by")
-    private String updatedBy;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-}
-
-
-/*
-    Model: GeoAreaRequestBody
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeoAreaRequestBody{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("areas")
-    private List<Area> areas;
-    
-    
-    
-    
-    @JsonProperty("region_type")
-    private String regionType;
-    
-    
-    
-}
-
-
-/*
-    Model: GeoAreaErrorResult
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeoAreaErrorResult{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("error")
-    private List<GeoAreaResponseDetail> error;
-    
-    
-    
-}
-
-
-/*
-    Model: ErrorResponseItem
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ErrorResponseItem{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("error_name")
-    private String errorName;
-    
-    
-    
-    
-    @JsonProperty("error_code")
-    private Integer errorCode;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-    
-    @JsonProperty("conflicting_areas")
-    private List<ConflictingArea> conflictingAreas;
-    
-    
-    
-}
-
-
-/*
-    Model: ConflictingArea
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ConflictingArea{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("geoarea_id")
-    private String geoareaId;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-}
-
-
-/*
-    Model: GeoAreaResponseDetail
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeoAreaResponseDetail{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
     
     
     
@@ -8205,121 +3455,17 @@ public static class GeoAreaResponseDetail{
     
     
     
-}
-
-
-/*
-    Model: ErrorResponseDetail
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ErrorResponseDetail{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<ErrorResponseItem> items;
-    
-    
-    
-}
-
-
-/*
-    Model: GeoAreaResponseBody
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeoAreaResponseBody{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("areas")
-    private List<Area> areas;
-    
-    
-    
-    
-    @JsonProperty("region_type")
-    private String regionType;
-    
-    
-    
     
     @JsonProperty("type")
     private String type;
     
     
     
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private String createdBy;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private String modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("geoarea_id")
-    private String geoareaId;
-    
-    
-    
 }
 
 
 /*
-    Model: GeoAreaPutResponseBody
+    Model: CourierPartnerAccountFailureResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -8327,533 +3473,7 @@ public static class GeoAreaResponseBody{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeoAreaPutResponseBody{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("geoarea_id")
-    private String geoareaId;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("areas")
-    private List<Area> areas;
-    
-    
-    
-    
-    @JsonProperty("region_type")
-    private String regionType;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private String createdBy;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private String modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("upload_type")
-    private String uploadType;
-    
-    
-    
-}
-
-
-/*
-    Model: Area
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Area{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("regions")
-    private List<String> regions;
-    
-    
-    
-    
-    @JsonProperty("country")
-    private String country;
-    
-    
-    
-}
-
-
-/*
-    Model: Region
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Region{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private String uid;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("sub_type")
-    private String subType;
-    
-    
-    
-    
-    @JsonProperty("parent_id")
-    private List<String> parentId;
-    
-    
-    
-}
-
-
-/*
-    Model: RegionV2
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RegionV2{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private String uid;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("sub_type")
-    private String subType;
-    
-    
-    
-    
-    @JsonProperty("parent_id")
-    private List<String> parentId;
-    
-    
-    
-}
-
-
-/*
-    Model: Country
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Country{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private String uid;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-}
-
-
-/*
-    Model: AreaExpanded
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AreaExpanded{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("country")
-    private Country country;
-    
-    
-    
-    
-    @JsonProperty("regions")
-    private List<Region> regions;
-    
-    
-    
-}
-
-
-/*
-    Model: AreaExpandedV2
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AreaExpandedV2{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("country")
-    private Country country;
-    
-    
-    
-    
-    @JsonProperty("regions")
-    private List<RegionV2> regions;
-    
-    
-    
-}
-
-
-/*
-    Model: GeoAreaResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeoAreaResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("geoarea_id")
-    private String geoareaId;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("region_type")
-    private String regionType;
-    
-    
-    
-    
-    @JsonProperty("areas")
-    private List<AreaExpanded> areas;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private String createdBy;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private String modifiedBy;
-    
-    
-    
-}
-
-
-/*
-    Model: GeoAreaGetResponseBody
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeoAreaGetResponseBody{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<GeoAreaItemResponse> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page2 page;
-    
-    
-    
-}
-
-
-/*
-    Model: GeoAreaItemResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeoAreaItemResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("geoarea_id")
-    private String geoareaId;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("region_type")
-    private String regionType;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("areas")
-    private List<AreaExpandedV2> areas;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private String createdBy;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private String modifiedBy;
-    
-    
-    
-}
-
-
-/*
-    Model: ErrorResponseV2
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ErrorResponseV2{
+public static class CourierPartnerAccountFailureResult{
 
     
 
@@ -8868,155 +3488,7 @@ public static class ErrorResponseV2{
     
     
     @JsonProperty("error")
-    private String error;
-    
-    
-    
-}
-
-
-/*
-    Model: ErrorResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ErrorResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("error")
-    private String error;
-    
-    
-    
-}
-
-
-/*
-    Model: PackageMaterialNotFound
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PackageMaterialNotFound{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("status_code")
-    private Integer statusCode;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-}
-
-
-/*
-    Model: PackageMaterialsErrorResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PackageMaterialsErrorResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("error")
-    private String error;
-    
-    
-    
-}
-
-
-/*
-    Model: CourierPartnerAccountFailureResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CourierPartnerAccountFailureResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("error")
-    private List<ErrorResponse> error;
+    private List<ErrorResult> error;
     
     
     
@@ -9081,17 +3553,11 @@ public static class Page{
     
     
     
-    
-    @JsonProperty("total")
-    private Integer total;
-    
-    
-    
 }
 
 
 /*
-    Model: Page2
+    Model: CourierPartnerRuleCPListResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -9099,7 +3565,7 @@ public static class Page{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Page2{
+public static class CourierPartnerRuleCPListResult{
 
     
 
@@ -9107,14 +3573,105 @@ public static class Page2{
     
     
     
-    @JsonProperty("size")
-    private Integer size;
+    @JsonProperty("account_id")
+    private String accountId;
     
     
     
     
-    @JsonProperty("item_total")
-    private Integer itemTotal;
+    @JsonProperty("extension_id")
+    private String extensionId;
+    
+    
+    
+    
+    @JsonProperty("is_self_ship")
+    private Boolean isSelfShip;
+    
+    
+    
+    
+    @JsonProperty("scheme_rules")
+    private HashMap<String,Object> schemeRules;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerRuleResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerRuleResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("conditions")
+    private CourierPartnerRuleConditions conditions;
+    
+    
+    
+    
+    @JsonProperty("sort")
+    private List<String> sort;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private HashMap<String,Object> createdBy;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private HashMap<String,Object> modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -9125,14 +3682,8 @@ public static class Page2{
     
     
     
-    @JsonProperty("current")
-    private Integer current;
-    
-    
-    
-    
-    @JsonProperty("has_next")
-    private Boolean hasNext;
+    @JsonProperty("cp_list")
+    private List<CourierPartnerRuleCPListResult> cpList;
     
     
     
@@ -9167,30 +3718,6 @@ public static class CourierPartnerList{
     
     
     
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("is_self_ship")
-    private Boolean isSelfShip;
-    
-    
-    
-    
-    @JsonProperty("scheme_rules")
-    private Object schemeRules;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
 }
 
 
@@ -9211,55 +3738,6 @@ public static class LocationRuleValues{
     
     
     
-    @JsonProperty("uid")
-    private String uid;
-    
-    
-    
-    
-    @JsonProperty("sub_type")
-    private String subType;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("parent_uid")
-    private String parentUid;
-    
-    
-    
-    
-    @JsonProperty("parent_id")
-    private List<String> parentId;
-    
-    
-    
-}
-
-
-/*
-    Model: LocationRuleValuesV2
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationRuleValuesV2{
-
-    
-
-    
-    
-    
-    
     @JsonProperty("id")
     private String id;
     
@@ -9272,20 +3750,26 @@ public static class LocationRuleValuesV2{
     
     
     
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
     @JsonProperty("display_name")
     private String displayName;
     
     
     
     
-    @JsonProperty("parent_uid")
-    private String parentUid;
-    
-    
-    
-    
     @JsonProperty("parent_id")
     private List<String> parentId;
+    
+    
+    
+    
+    @JsonProperty("parent_ids")
+    private List<String> parentIds;
     
     
     
@@ -9317,37 +3801,6 @@ public static class LocationRule{
     
     @JsonProperty("includes")
     private List<LocationRuleValues> includes;
-    
-    
-    
-}
-
-
-/*
-    Model: LocationRuleV2
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationRuleV2{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("includes")
-    private List<LocationRuleValuesV2> includes;
     
     
     
@@ -9476,7 +3929,7 @@ public static class CourierPartnerRuleConditions{
     
     
     @JsonProperty("order_place_date")
-    private ArithmeticOperationsV2 orderPlaceDate;
+    private ArithmeticOperations orderPlaceDate;
     
     
     
@@ -9513,145 +3966,6 @@ public static class CourierPartnerRuleConditions{
     
     @JsonProperty("shipment_volumetric_weight")
     private ArithmeticOperations shipmentVolumetricWeight;
-    
-    
-    
-    
-    @JsonProperty("company_ids")
-    private IntComparisonOperations companyIds;
-    
-    
-    
-    
-    @JsonProperty("promise_types")
-    private StringComparisonOperations promiseTypes;
-    
-    
-    
-}
-
-
-/*
-    Model: CourierPartnerRuleResponseConditions
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CourierPartnerRuleResponseConditions{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("forward")
-    private LocationRule forward;
-    
-    
-    
-    
-    @JsonProperty("reverse")
-    private LocationRule reverse;
-    
-    
-    
-    
-    @JsonProperty("payment_mode")
-    private StringComparisonOperations paymentMode;
-    
-    
-    
-    
-    @JsonProperty("category_ids")
-    private IntComparisonOperations categoryIds;
-    
-    
-    
-    
-    @JsonProperty("product_ids")
-    private IntComparisonOperations productIds;
-    
-    
-    
-    
-    @JsonProperty("product_tags")
-    private StringComparisonOperations productTags;
-    
-    
-    
-    
-    @JsonProperty("zone_ids")
-    private StringComparisonOperations zoneIds;
-    
-    
-    
-    
-    @JsonProperty("department_ids")
-    private IntComparisonOperations departmentIds;
-    
-    
-    
-    
-    @JsonProperty("brand_ids")
-    private IntComparisonOperations brandIds;
-    
-    
-    
-    
-    @JsonProperty("order_place_date")
-    private ArithmeticOperationsV2 orderPlaceDate;
-    
-    
-    
-    
-    @JsonProperty("store_ids")
-    private IntComparisonOperations storeIds;
-    
-    
-    
-    
-    @JsonProperty("store_type")
-    private StringComparisonOperations storeType;
-    
-    
-    
-    
-    @JsonProperty("store_tags")
-    private StringComparisonOperations storeTags;
-    
-    
-    
-    
-    @JsonProperty("shipment_weight")
-    private ArithmeticOperations shipmentWeight;
-    
-    
-    
-    
-    @JsonProperty("shipment_cost")
-    private ArithmeticOperations shipmentCost;
-    
-    
-    
-    
-    @JsonProperty("shipment_volumetric_weight")
-    private ArithmeticOperations shipmentVolumetricWeight;
-    
-    
-    
-    
-    @JsonProperty("company_ids")
-    private IntComparisonOperations companyIds;
-    
-    
-    
-    
-    @JsonProperty("promise_types")
-    private StringComparisonOperations promiseTypes;
     
     
     
@@ -9671,24 +3985,6 @@ public static class CourierPartnerRule{
 
     
 
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
     
     
     
@@ -9717,20 +4013,8 @@ public static class CourierPartnerRule{
     
     
     
-    @JsonProperty("manual_priority")
-    private List<String> manualPriority;
-    
-    
-    
-    
     @JsonProperty("sort")
     private List<String> sort;
-    
-    
-    
-    
-    @JsonProperty("shipment_adjustment_type")
-    private String shipmentAdjustmentType;
     
     
     
@@ -9744,7 +4028,7 @@ public static class CourierPartnerRule{
 
 
 /*
-    Model: CourierPartnerRuleResponse
+    Model: FailureResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -9752,159 +4036,7 @@ public static class CourierPartnerRule{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CourierPartnerRuleResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("cp_list")
-    private List<CourierPartnerList> cpList;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("conditions")
-    private CourierPartnerRuleResponseConditions conditions;
-    
-    
-    
-    
-    @JsonProperty("manual_priority")
-    private List<String> manualPriority;
-    
-    
-    
-    
-    @JsonProperty("sort")
-    private List<String> sort;
-    
-    
-    
-    
-    @JsonProperty("shipment_adjustment_type")
-    private String shipmentAdjustmentType;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-}
-
-
-/*
-    Model: CourierPartnerRuleResponseSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CourierPartnerRuleResponseSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("cp_list")
-    private List<CourierPartnerList> cpList;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("conditions")
-    private CourierPartnerRuleResponseConditions conditions;
-    
-    
-    
-    
-    @JsonProperty("manual_priority")
-    private List<String> manualPriority;
-    
-    
-    
-    
-    @JsonProperty("sort")
-    private List<String> sort;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("shipment_adjustment_type")
-    private String shipmentAdjustmentType;
-    
-    
-    
-}
-
-
-/*
-    Model: FailureResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FailureResponse{
+public static class FailureResult{
 
     
 
@@ -9919,7 +4051,7 @@ public static class FailureResponse{
     
     
     @JsonProperty("error")
-    private List<ErrorResponse> error;
+    private List<ErrorResult> error;
     
     
     
@@ -9927,7 +4059,7 @@ public static class FailureResponse{
 
 
 /*
-    Model: CourierPartnerRulesListResponse
+    Model: CourierPartnerRulesListResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -9935,7 +4067,7 @@ public static class FailureResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CourierPartnerRulesListResponse{
+public static class CourierPartnerRulesListResult{
 
     
 
@@ -9944,13 +4076,406 @@ public static class CourierPartnerRulesListResponse{
     
     
     @JsonProperty("items")
-    private List<CourierPartnerRuleResponseSchema> items;
+    private List<CourierPartnerRuleResult> items;
     
     
     
     
     @JsonProperty("page")
     private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentsArticles
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentsArticles{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("item_id")
+    private Integer itemId;
+    
+    
+    
+    
+    @JsonProperty("category_id")
+    private Integer categoryId;
+    
+    
+    
+    
+    @JsonProperty("brand_id")
+    private Integer brandId;
+    
+    
+    
+    
+    @JsonProperty("department_id")
+    private Integer departmentId;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentDimension
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentDimension{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("height")
+    private Double height;
+    
+    
+    
+    
+    @JsonProperty("length")
+    private Double length;
+    
+    
+    
+    
+    @JsonProperty("width")
+    private Double width;
+    
+    
+    
+}
+
+
+/*
+    Model: Shipments
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Shipments{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("location_id")
+    private Double locationId;
+    
+    
+    
+    
+    @JsonProperty("location_tags")
+    private List<String> locationTags;
+    
+    
+    
+    
+    @JsonProperty("shipment_weight")
+    private Double shipmentWeight;
+    
+    
+    
+    
+    @JsonProperty("shipment_volumetric_weight")
+    private Double shipmentVolumetricWeight;
+    
+    
+    
+    
+    @JsonProperty("shipment_cost")
+    private Double shipmentCost;
+    
+    
+    
+    
+    @JsonProperty("shipment_dimension")
+    private ShipmentDimension shipmentDimension;
+    
+    
+    
+    
+    @JsonProperty("courier_partner_schemes")
+    private List<String> courierPartnerSchemes;
+    
+    
+    
+    
+    @JsonProperty("articles")
+    private List<ShipmentsArticles> articles;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentCourierPartnerDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentCourierPartnerDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("from_location")
+    private ShipmentsCourierPartnersServiceability fromLocation;
+    
+    
+    
+    
+    @JsonProperty("to_location")
+    private ShipmentsCourierPartnersServiceability toLocation;
+    
+    
+    
+    
+    @JsonProperty("shipments")
+    private List<Shipments> shipments;
+    
+    
+    
+    
+    @JsonProperty("journey")
+    private String journey;
+    
+    
+    
+    
+    @JsonProperty("payment_mode")
+    private String paymentMode;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerPromise
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerPromise{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("min")
+    private String min;
+    
+    
+    
+    
+    @JsonProperty("max")
+    private String max;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartners
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartners{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("extension_id")
+    private String extensionId;
+    
+    
+    
+    
+    @JsonProperty("scheme_id")
+    private String schemeId;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("delivery_promise")
+    private CourierPartnerPromise deliveryPromise;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentCourierPartners
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentCourierPartners{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("courier_partners")
+    private List<CourierPartners> courierPartners;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentCourierPartnerResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentCourierPartnerResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("courier_partners")
+    private List<CourierPartners> courierPartners;
+    
+    
+    
+    
+    @JsonProperty("shipments")
+    private List<ShipmentCourierPartners> shipments;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentsCourierPartnersServiceability
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentsCourierPartnersServiceability{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private String pincode;
+    
+    
+    
+    
+    @JsonProperty("sector_code")
+    private String sectorCode;
+    
+    
+    
+    
+    @JsonProperty("state_code")
+    private String stateCode;
+    
+    
+    
+    
+    @JsonProperty("city_code")
+    private String cityCode;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
     
     
     
@@ -9974,8 +4499,8 @@ public static class CompanyConfig{
     
     
     
-    @JsonProperty("company_id")
-    private Integer companyId;
+    @JsonProperty("rule_ids")
+    private List<String> ruleIds;
     
     
     
@@ -9991,46 +4516,15 @@ public static class CompanyConfig{
     
     
     
-}
-
-
-/*
-    Model: StorePromiseAttributeConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StorePromiseAttributeConfig{
-
     
-
+    @JsonProperty("company_id")
+    private Integer companyId;
     
     
     
     
-    @JsonProperty("is_operational_timing_enabled")
-    private Boolean isOperationalTimingEnabled;
-    
-    
-    
-    
-    @JsonProperty("is_order_acceptance_timing_enabled")
-    private Boolean isOrderAcceptanceTimingEnabled;
-    
-    
-    
-    
-    @JsonProperty("is_average_processing_time")
-    private Boolean isAverageProcessingTime;
-    
-    
-    
-    
-    @JsonProperty("is_holiday_enabled")
-    private Boolean isHolidayEnabled;
+    @JsonProperty("application_id")
+    private String applicationId;
     
     
     
@@ -10038,7 +4532,7 @@ public static class StorePromiseAttributeConfig{
 
 
 /*
-    Model: DeliveryServiceAttributeConfig
+    Model: ZoneConfig
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10046,7 +4540,7 @@ public static class StorePromiseAttributeConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeliveryServiceAttributeConfig{
+public static class ZoneConfig{
 
     
 
@@ -10054,94 +4548,20 @@ public static class DeliveryServiceAttributeConfig{
     
     
     
-    @JsonProperty("is_pickup_cutoff_time_enabled")
-    private Boolean isPickupCutoffTimeEnabled;
+    @JsonProperty("serviceability_type")
+    private String serviceabilityType;
     
     
     
     
-    @JsonProperty("is_service_tat_enabled")
-    private Boolean isServiceTatEnabled;
+    @JsonProperty("active_count")
+    private Integer activeCount;
     
     
     
     
-    @JsonProperty("is_holiday_enabled")
-    private Boolean isHolidayEnabled;
-    
-    
-    
-}
-
-
-/*
-    Model: BufferField
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BufferField{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("unit")
-    private String unit;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private Integer value;
-    
-    
-    
-    
-    @JsonProperty("enabled")
-    private Boolean enabled;
-    
-    
-    
-}
-
-
-/*
-    Model: PromiseConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromiseConfig{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("store_attributes")
-    private StorePromiseAttributeConfig storeAttributes;
-    
-    
-    
-    
-    @JsonProperty("delivery_service_attributes")
-    private DeliveryServiceAttributeConfig deliveryServiceAttributes;
-    
-    
-    
-    
-    @JsonProperty("buffer_field")
-    private BufferField bufferField;
+    @JsonProperty("total_count")
+    private Integer totalCount;
     
     
     
@@ -10177,52 +4597,16 @@ public static class ApplicationConfig{
     
     
     
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("manual_priority")
-    private List<String> manualPriority;
-    
-    
-    
-    
     @JsonProperty("zones")
     private ZoneConfig zones;
     
     
     
-    
-    @JsonProperty("buybox_rule_config")
-    private BuyboxRuleConfig buyboxRuleConfig;
-    
-    
-    
-    
-    @JsonProperty("promise_types")
-    private List<PromiseType> promiseTypes;
-    
-    
-    
-    
-    @JsonProperty("promise_config")
-    private PromiseConfig promiseConfig;
-    
-    
-    
 }
 
 
 /*
-    Model: ApplicationConfigPatchRequest
+    Model: BulkRegionJobDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10230,69 +4614,7 @@ public static class ApplicationConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationConfigPatchRequest{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("courier_partner_config")
-    private CourierPartnerConfig courierPartnerConfig;
-    
-    
-    
-    
-    @JsonProperty("buybox_rule_config")
-    private BuyboxRuleConfig buyboxRuleConfig;
-    
-    
-    
-    
-    @JsonProperty("promise_config")
-    private PromiseConfig promiseConfig;
-    
-    
-    
-}
-
-
-/*
-    Model: ApplicationConfigPatchResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationConfigPatchResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-}
-
-
-/*
-    Model: BulkRegionJobSerializer
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkRegionJobSerializer{
+public static class BulkRegionJobDetails{
 
     
 
@@ -10327,7 +4649,7 @@ public static class BulkRegionJobSerializer{
 
 
 /*
-    Model: BulkRegionResponseItemData
+    Model: BulkRegionResultItemData
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10335,7 +4657,7 @@ public static class BulkRegionJobSerializer{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkRegionResponseItemData{
+public static class BulkRegionResultItemData{
 
     
 
@@ -10356,7 +4678,7 @@ public static class BulkRegionResponseItemData{
     
     
     @JsonProperty("failed_records")
-    private List<Object> failedRecords;
+    private List<HashMap<String,Object>> failedRecords;
     
     
     
@@ -10412,7 +4734,7 @@ public static class BulkRegionResponseItemData{
 
 
 /*
-    Model: BulkRegionResponse
+    Model: BulkRegionResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10420,7 +4742,7 @@ public static class BulkRegionResponseItemData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkRegionResponse{
+public static class BulkRegionResult{
 
     
 
@@ -10429,7 +4751,7 @@ public static class BulkRegionResponse{
     
     
     @JsonProperty("items")
-    private List<BulkRegionResponseItemData> items;
+    private List<BulkRegionResultItemData> items;
     
     
     
@@ -10443,7 +4765,7 @@ public static class BulkRegionResponse{
 
 
 /*
-    Model: SelfShipResponse
+    Model: SelfShipResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10451,7 +4773,7 @@ public static class BulkRegionResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SelfShipResponse{
+public static class SelfShipResult{
 
     
 
@@ -10491,7 +4813,7 @@ public static class ApplicationSelfShipConfig{
     
     
     @JsonProperty("self_ship")
-    private Object selfShip;
+    private SelfShipResult selfShip;
     
     
     
@@ -10499,7 +4821,7 @@ public static class ApplicationSelfShipConfig{
 
 
 /*
-    Model: ApplicationSelfShipConfigResponse
+    Model: ApplicationSelfShipConfigResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10507,7 +4829,7 @@ public static class ApplicationSelfShipConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationSelfShipConfigResponse{
+public static class ApplicationSelfShipConfigResult{
 
     
 
@@ -10516,7 +4838,7 @@ public static class ApplicationSelfShipConfigResponse{
     
     
     @JsonProperty("error")
-    private ServiceabilityErrorResponse error;
+    private ServiceabilityErrorResult error;
     
     
     
@@ -10578,18 +4900,6 @@ public static class StoreRuleConfigData{
     
     @JsonProperty("sort")
     private List<String> sort;
-    
-    
-    
-    
-    @JsonProperty("manual_priority")
-    private List<Integer> manualPriority;
-    
-    
-    
-    
-    @JsonProperty("meta_sort_priority")
-    private Object metaSortPriority;
     
     
     
@@ -10681,7 +4991,7 @@ public static class StoreRuleConditionSchema{
     
     
     @JsonProperty("to_location")
-    private LocationRuleV2 toLocation;
+    private LocationRule toLocation;
     
     
     
@@ -10717,7 +5027,7 @@ public static class StoreRuleConditionSchema{
     
     
     @JsonProperty("order_place_date")
-    private ArithmeticOperationsV2 orderPlaceDate;
+    private ArithmeticOperations orderPlaceDate;
     
     
     
@@ -10795,24 +5105,6 @@ public static class StoreRuleDataSchema{
     
     
     
-    @JsonProperty("manual_priority")
-    private List<Integer> manualPriority;
-    
-    
-    
-    
-    @JsonProperty("meta_sort_priority")
-    private Object metaSortPriority;
-    
-    
-    
-    
-    @JsonProperty("meta_conditions")
-    private Object metaConditions;
-    
-    
-    
-    
     @JsonProperty("conditions")
     private StoreRuleConditionSchema conditions;
     
@@ -10859,7 +5151,7 @@ public static class StorePrioritySchema{
 
 
 /*
-    Model: GetStoreRulesApiResponse
+    Model: GetStoreRulesApiResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10867,7 +5159,7 @@ public static class StorePrioritySchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetStoreRulesApiResponse{
+public static class GetStoreRulesApiResult{
 
     
 
@@ -10890,7 +5182,7 @@ public static class GetStoreRulesApiResponse{
 
 
 /*
-    Model: CreateStoreRuleRequestSchema
+    Model: CreateStoreRuleDetailsSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10898,7 +5190,7 @@ public static class GetStoreRulesApiResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateStoreRuleRequestSchema{
+public static class CreateStoreRuleDetailsSchema{
 
     
 
@@ -10942,12 +5234,6 @@ public static class CreateStoreRuleRequestSchema{
     
     
     
-    @JsonProperty("manual_priority")
-    private List<Integer> manualPriority;
-    
-    
-    
-    
     @JsonProperty("sort")
     private List<String> sort;
     
@@ -10957,7 +5243,7 @@ public static class CreateStoreRuleRequestSchema{
 
 
 /*
-    Model: StoreRuleResponseSchema
+    Model: StoreRuleResultSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10965,7 +5251,7 @@ public static class CreateStoreRuleRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreRuleResponseSchema{
+public static class StoreRuleResultSchema{
 
     
 
@@ -11015,12 +5301,6 @@ public static class StoreRuleResponseSchema{
     
     
     
-    @JsonProperty("manual_priority")
-    private List<Integer> manualPriority;
-    
-    
-    
-    
     @JsonProperty("conditions")
     private StoreRuleConditionSchema conditions;
     
@@ -11036,7 +5316,7 @@ public static class StoreRuleResponseSchema{
 
 
 /*
-    Model: StoreRuleUpdateResponseSchema
+    Model: StoreRuleUpdateResultSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -11044,7 +5324,7 @@ public static class StoreRuleResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreRuleUpdateResponseSchema{
+public static class StoreRuleUpdateResultSchema{
 
     
 
@@ -11090,12 +5370,6 @@ public static class StoreRuleUpdateResponseSchema{
     
     @JsonProperty("sort")
     private List<String> sort;
-    
-    
-    
-    
-    @JsonProperty("manual_priority")
-    private List<Integer> manualPriority;
     
     
     
@@ -11321,7 +5595,7 @@ public static class CourierPartnerSchemeFeatures{
 
 
 /*
-    Model: CourierAccountSchemeResponse
+    Model: CourierPartnerSchemeModel
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -11329,7 +5603,7 @@ public static class CourierPartnerSchemeFeatures{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CourierAccountSchemeResponse{
+public static class CourierPartnerSchemeModel{
 
     
 
@@ -11351,6 +5625,12 @@ public static class CourierAccountSchemeResponse{
     
     @JsonProperty("scheme_id")
     private String schemeId;
+    
+    
+    
+    
+    @JsonProperty("volumetric_weight")
+    private ArithmeticOperations volumetricWeight;
     
     
     
@@ -11400,7 +5680,7 @@ public static class CourierAccountSchemeResponse{
 
 
 /*
-    Model: CourierAccountResponse
+    Model: CourierAccountResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -11408,7 +5688,7 @@ public static class CourierAccountSchemeResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CourierAccountResponse{
+public static class CourierAccountResult{
 
     
 
@@ -11459,7 +5739,7 @@ public static class CourierAccountResponse{
     
     
     @JsonProperty("scheme_rules")
-    private CourierAccountSchemeResponse schemeRules;
+    private CourierPartnerSchemeModel schemeRules;
     
     
     
@@ -11467,7 +5747,7 @@ public static class CourierAccountResponse{
 
 
 /*
-    Model: CompanyCourierPartnerAccountListResponse
+    Model: CompanyCourierPartnerAccountListResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -11475,7 +5755,7 @@ public static class CourierAccountResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyCourierPartnerAccountListResponse{
+public static class CompanyCourierPartnerAccountListResult{
 
     
 
@@ -11484,7 +5764,7 @@ public static class CompanyCourierPartnerAccountListResponse{
     
     
     @JsonProperty("items")
-    private List<CourierAccountResponse> items;
+    private List<CourierAccountResult> items;
     
     
     
@@ -11514,24 +5794,6 @@ public static class PackageMaterial{
     
     
     
-    @JsonProperty("company_id")
-    private Double companyId;
-    
-    
-    
-    
-    @JsonProperty("item_id")
-    private Double itemId;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
     @JsonProperty("name")
     private String name;
     
@@ -11556,38 +5818,26 @@ public static class PackageMaterial{
     
     
     
+    @JsonProperty("rules")
+    private List<PackageMaterialRule> rules;
+    
+    
+    
+    
+    @JsonProperty("store_ids")
+    private List<Integer> storeIds;
+    
+    
+    
+    
     @JsonProperty("weight")
     private Double weight;
     
     
     
     
-    @JsonProperty("auto_calculate")
-    private Boolean autoCalculate;
-    
-    
-    
-    
-    @JsonProperty("max_weight")
-    private Double maxWeight;
-    
-    
-    
-    
-    @JsonProperty("package_vol_weight")
-    private Double packageVolWeight;
-    
-    
-    
-    
     @JsonProperty("error_rate")
     private Double errorRate;
-    
-    
-    
-    
-    @JsonProperty("channels")
-    private List<Channel> channels;
     
     
     
@@ -11604,32 +5854,20 @@ public static class PackageMaterial{
     
     
     
-    @JsonProperty("track_inventory")
-    private Boolean trackInventory;
-    
-    
-    
-    
-    @JsonProperty("rules")
-    private List<PackageMaterialRule> rules;
-    
-    
-    
-    
-    @JsonProperty("store_ids")
-    private List<Integer> storeIds;
-    
-    
-    
-    
-    @JsonProperty("mp_stores")
-    private List<PackageMpStores> mpStores;
-    
-    
-    
-    
     @JsonProperty("media")
     private List<String> media;
+    
+    
+    
+    
+    @JsonProperty("channels")
+    private List<Channel> channels;
+    
+    
+    
+    
+    @JsonProperty("track_inventory")
+    private Boolean trackInventory;
     
     
     
@@ -11640,8 +5878,20 @@ public static class PackageMaterial{
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
+    @JsonProperty("max_weight")
+    private Double maxWeight;
+    
+    
+    
+    
+    @JsonProperty("package_vol_weight")
+    private Double packageVolWeight;
+    
+    
+    
+    
+    @JsonProperty("auto_calculate")
+    private Boolean autoCalculate;
     
     
     
@@ -11649,7 +5899,7 @@ public static class PackageMaterial{
 
 
 /*
-    Model: PackageMaterialResponse
+    Model: PackageMaterialResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -11657,16 +5907,10 @@ public static class PackageMaterial{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PackageMaterialResponse{
+public static class PackageMaterialResult{
 
     
 
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
     
     
     
@@ -11689,6 +5933,12 @@ public static class PackageMaterialResponse{
     
     
     
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
     @JsonProperty("width")
     private Double width;
     
@@ -11761,12 +6011,6 @@ public static class PackageMaterialResponse{
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
     @JsonProperty("status")
     private String status;
     
@@ -11787,12 +6031,6 @@ public static class PackageMaterialResponse{
     
     @JsonProperty("auto_calculate")
     private Boolean autoCalculate;
-    
-    
-    
-    
-    @JsonProperty("mp_stores")
-    private List<PackageMpStores> mpStores;
     
     
     
@@ -11833,152 +6071,6 @@ public static class PackageMaterialRule{
     
     
     
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-}
-
-
-/*
-    Model: PackageMpStores
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PackageMpStores{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("app_name")
-    private String appName;
-    
-    
-    
-    
-    @JsonProperty("app_id")
-    private String appId;
-    
-    
-    
-    
-    @JsonProperty("store_ids")
-    private List<Integer> storeIds;
-    
-    
-    
-    
-    @JsonProperty("store_data")
-    private Object storeData;
-    
-    
-    
-}
-
-
-/*
-    Model: PackageRuleRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PackageRuleRequest{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("category_id")
-    private PackageRuleCategory categoryId;
-    
-    
-    
-    
-    @JsonProperty("product_id")
-    private PackageRuleProduct productId;
-    
-    
-    
-    
-    @JsonProperty("product_tag")
-    private PackageRuleProductTag productTag;
-    
-    
-    
-    
-    @JsonProperty("department_id")
-    private PackageRuleDepartmentId departmentId;
-    
-    
-    
-    
-    @JsonProperty("product_attributes")
-    private PackageRuleProductAttributes productAttributes;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
 }
 
 
@@ -12005,116 +6097,38 @@ public static class PackageRule{
     
     
     
-    @JsonProperty("id")
-    private String id;
+    @JsonProperty("company_id")
+    private Integer companyId;
     
     
     
     
-    @JsonProperty("item_id")
-    private Integer itemId;
+    @JsonProperty("type")
+    private String type;
     
     
     
     
-    @JsonProperty("width")
-    private Double width;
+    @JsonProperty("is_active")
+    private Boolean isActive;
     
     
     
     
-    @JsonProperty("height")
-    private Double height;
+    @JsonProperty("product_tag")
+    private PackageRuleProductTag productTag;
     
     
     
     
-    @JsonProperty("length")
-    private Double length;
+    @JsonProperty("product_id")
+    private PackageRuleProduct productId;
     
     
     
     
-    @JsonProperty("rules")
-    private List<PackageMaterialRule> rules;
-    
-    
-    
-    
-    @JsonProperty("store_ids")
-    private List<Integer> storeIds;
-    
-    
-    
-    
-    @JsonProperty("weight")
-    private Double weight;
-    
-    
-    
-    
-    @JsonProperty("error_rate")
-    private Double errorRate;
-    
-    
-    
-    
-    @JsonProperty("package_type")
-    private String packageType;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private String size;
-    
-    
-    
-    
-    @JsonProperty("media")
-    private List<String> media;
-    
-    
-    
-    
-    @JsonProperty("channels")
-    private List<Channel> channels;
-    
-    
-    
-    
-    @JsonProperty("track_inventory")
-    private Boolean trackInventory;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("max_weight")
-    private Double maxWeight;
-    
-    
-    
-    
-    @JsonProperty("package_vol_weight")
-    private Double packageVolWeight;
-    
-    
-    
-    
-    @JsonProperty("auto_calculate")
-    private Boolean autoCalculate;
-    
-    
-    
-    
-    @JsonProperty("mp_stores")
-    private List<PackageMpStores> mpStores;
+    @JsonProperty("category_id")
+    private PackageRuleCategory categoryId;
     
     
     
@@ -12138,14 +6152,38 @@ public static class PackageRuleResult{
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
     
     @JsonProperty("company_id")
     private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("product_tag")
+    private PackageRuleProductTag productTag;
     
     
     
@@ -12158,42 +6196,6 @@ public static class PackageRuleResult{
     
     @JsonProperty("category_id")
     private PackageRuleCategory categoryId;
-    
-    
-    
-    
-    @JsonProperty("department_id")
-    private PackageRuleDepartmentId departmentId;
-    
-    
-    
-    
-    @JsonProperty("product_tag")
-    private PackageRuleProductTag productTag;
-    
-    
-    
-    
-    @JsonProperty("product_attributes")
-    private PackageRuleProductAttributes productAttributes;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
     
     
     
@@ -12249,7 +6251,7 @@ public static class PackageMaterialRuleList{
     
     
     @JsonProperty("items")
-    private List<PackageRuleResult> items;
+    private PackageRuleResult items;
     
     
     
@@ -12280,7 +6282,7 @@ public static class PackageMaterialList{
     
     
     @JsonProperty("items")
-    private Object items;
+    private PackageMaterialResult items;
     
     
     
@@ -12369,56 +6371,6 @@ public static class PackageRuleCategory{
 
 
 /*
-    Model: PackageRuleProductAttributes
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PackageRuleProductAttributes{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("includes")
-    private List<HashMap<String,Object>> includes;
-    
-    
-    
-}
-
-
-/*
-    Model: PackageRuleDepartmentId
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PackageRuleDepartmentId{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("includes")
-    private List<Integer> includes;
-    
-    
-    
-}
-
-
-/*
     Model: PackageMaterialRuleQuantity
 */
 @AllArgsConstructor
@@ -12450,7 +6402,7 @@ public static class PackageMaterialRuleQuantity{
 
 
 /*
-    Model: RulePriorityRequest
+    Model: RulePriorityDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12458,7 +6410,7 @@ public static class PackageMaterialRuleQuantity{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RulePriorityRequest{
+public static class RulePriorityDetails{
 
     
 
@@ -12481,7 +6433,7 @@ public static class RulePriorityRequest{
 
 
 /*
-    Model: RulePriorityResponse
+    Model: RulePriorityResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12489,7 +6441,7 @@ public static class RulePriorityRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RulePriorityResponse{
+public static class RulePriorityResult{
 
     
 
@@ -12506,7 +6458,7 @@ public static class RulePriorityResponse{
 
 
 /*
-    Model: CompanySelfShip
+    Model: ArticleAssignment
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12514,7 +6466,7 @@ public static class RulePriorityResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanySelfShip{
+public static class ArticleAssignment{
 
     
 
@@ -12522,20 +6474,14 @@ public static class CompanySelfShip{
     
     
     
-    @JsonProperty("is_active")
-    private Boolean isActive;
+    @JsonProperty("level")
+    private String level;
     
     
     
     
-    @JsonProperty("tat")
-    private Double tat;
-    
-    
-    
-    
-    @JsonProperty("unit")
-    private String unit;
+    @JsonProperty("strategy")
+    private String strategy;
     
     
     
@@ -12543,7 +6489,7 @@ public static class CompanySelfShip{
 
 
 /*
-    Model: ArithmeticOperationsV2
+    Model: ServiceabilityLocation
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12551,7 +6497,7 @@ public static class CompanySelfShip{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ArithmeticOperationsV2{
+public static class ServiceabilityLocation{
 
     
 
@@ -12559,26 +6505,14 @@ public static class ArithmeticOperationsV2{
     
     
     
-    @JsonProperty("lt")
-    private String lt;
+    @JsonProperty("longitude")
+    private String longitude;
     
     
     
     
-    @JsonProperty("gt")
-    private String gt;
-    
-    
-    
-    
-    @JsonProperty("lte")
-    private String lte;
-    
-    
-    
-    
-    @JsonProperty("gte")
-    private String gte;
+    @JsonProperty("latitude")
+    private String latitude;
     
     
     
@@ -12586,7 +6520,7 @@ public static class ArithmeticOperationsV2{
 
 
 /*
-    Model: CompanyConfigurationShema
+    Model: LocationDetailsServiceability
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12594,7 +6528,7 @@ public static class ArithmeticOperationsV2{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyConfigurationShema{
+public static class LocationDetailsServiceability{
 
     
 
@@ -12602,8 +6536,337 @@ public static class CompanyConfigurationShema{
     
     
     
-    @JsonProperty("sort")
-    private List<String> sort;
+    @JsonProperty("pincode")
+    private String pincode;
+    
+    
+    
+    
+    @JsonProperty("sector")
+    private String sector;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("country_iso_code")
+    private String countryIsoCode;
+    
+    
+    
+    
+    @JsonProperty("location")
+    private ServiceabilityLocation location;
+    
+    
+    
+}
+
+
+/*
+    Model: OptimalLocationsArticles
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OptimalLocationsArticles{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("item_id")
+    private Integer itemId;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private String size;
+    
+    
+    
+    
+    @JsonProperty("quantity")
+    private Integer quantity;
+    
+    
+    
+    
+    @JsonProperty("group_id")
+    private String groupId;
+    
+    
+    
+    
+    @JsonProperty("is_primary_item")
+    private Boolean isPrimaryItem;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
+    
+    @JsonProperty("article_assignment")
+    private ArticleAssignment articleAssignment;
+    
+    
+    
+    
+    @JsonProperty("ignore_locations")
+    private List<Integer> ignoreLocations;
+    
+    
+    
+    
+    @JsonProperty("assign_locations")
+    private List<Integer> assignLocations;
+    
+    
+    
+    
+    @JsonProperty("seller_id")
+    private Integer sellerId;
+    
+    
+    
+}
+
+
+/*
+    Model: OptimlLocationsDetailsSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OptimlLocationsDetailsSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("channel_id")
+    private String channelId;
+    
+    
+    
+    
+    @JsonProperty("channel_type")
+    private String channelType;
+    
+    
+    
+    
+    @JsonProperty("channel_identifier")
+    private String channelIdentifier;
+    
+    
+    
+    
+    @JsonProperty("to_serviceability")
+    private LocationDetailsServiceability toServiceability;
+    
+    
+    
+    
+    @JsonProperty("articles")
+    private List<OptimalLocationsArticles> articles;
+    
+    
+    
+}
+
+
+/*
+    Model: OptimalLocationArticlesResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OptimalLocationArticlesResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("item_id")
+    private Integer itemId;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private String size;
+    
+    
+    
+    
+    @JsonProperty("quantity")
+    private Integer quantity;
+    
+    
+    
+    
+    @JsonProperty("group_id")
+    private String groupId;
+    
+    
+    
+    
+    @JsonProperty("is_primary_item")
+    private Boolean isPrimaryItem;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
+    
+    @JsonProperty("article_assignment")
+    private ArticleAssignment articleAssignment;
+    
+    
+    
+    
+    @JsonProperty("seller_id")
+    private Integer sellerId;
+    
+    
+    
+    
+    @JsonProperty("ignore_locations")
+    private List<Integer> ignoreLocations;
+    
+    
+    
+    
+    @JsonProperty("assign_locations")
+    private List<Integer> assignLocations;
+    
+    
+    
+    
+    @JsonProperty("price_effective")
+    private Double priceEffective;
+    
+    
+    
+    
+    @JsonProperty("mto_quantity")
+    private Integer mtoQuantity;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private String uid;
+    
+    
+    
+}
+
+
+/*
+    Model: OptimalLocationAssignedStoresResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OptimalLocationAssignedStoresResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("store_id")
+    private Integer storeId;
+    
+    
+    
+    
+    @JsonProperty("articles")
+    private List<OptimalLocationArticlesResult> articles;
+    
+    
+    
+}
+
+
+/*
+    Model: OptimalLocationsResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OptimalLocationsResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("assigned_stores")
+    private List<OptimalLocationAssignedStoresResult> assignedStores;
+    
+    
+    
+    
+    @JsonProperty("faulty_articles")
+    private List<ErrorResult> faultyArticles;
     
     
     
@@ -12635,6 +6898,31 @@ public static class ValidationError{
     
     @JsonProperty("field")
     private String field;
+    
+    
+    
+}
+
+
+/*
+    Model: StandardError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StandardError{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     

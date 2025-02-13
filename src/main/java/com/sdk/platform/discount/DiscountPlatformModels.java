@@ -79,8 +79,14 @@ public static class CreateUpdateDiscount{
     
     
     
-    @JsonProperty("app_id")
-    private String appId;
+    @JsonProperty("app_ids")
+    private List<String> appIds;
+    
+    
+    
+    
+    @JsonProperty("extension_ids")
+    private List<String> extensionIds;
     
     
     
@@ -127,8 +133,8 @@ public static class CreateUpdateDiscount{
     
     
     
-    @JsonProperty("factory_type_ids")
-    private List<String> factoryTypeIds;
+    @JsonProperty("zone_ids")
+    private List<String> zoneIds;
     
     
     
@@ -225,8 +231,8 @@ public static class DiscountJob{
     
     
     
-    @JsonProperty("app_id")
-    private String appId;
+    @JsonProperty("app_ids")
+    private List<String> appIds;
     
     
     
@@ -273,8 +279,8 @@ public static class DiscountJob{
     
     
     
-    @JsonProperty("factory_type_ids")
-    private List<String> factoryTypeIds;
+    @JsonProperty("zone_ids")
+    private List<String> zoneIds;
     
     
     
@@ -316,7 +322,7 @@ public static class DiscountJob{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -358,8 +364,8 @@ public static class FileJobBody{
     
     
     
-    @JsonProperty("app_id")
-    private String appId;
+    @JsonProperty("app_ids")
+    private List<String> appIds;
     
     
     
@@ -406,8 +412,14 @@ public static class FileJobBody{
     
     
     
-    @JsonProperty("factory_type_ids")
-    private List<String> factoryTypeIds;
+    @JsonProperty("extension_ids")
+    private List<String> extensionIds;
+    
+    
+    
+    
+    @JsonProperty("zone_ids")
+    private List<String> zoneIds;
     
     
     
@@ -449,7 +461,7 @@ public static class FileJobBody{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -522,18 +534,6 @@ public static class DiscountItems{
     
     
     
-    @JsonProperty("store_code")
-    private String storeCode;
-    
-    
-    
-    
-    @JsonProperty("price_zone")
-    private String priceZone;
-    
-    
-    
-    
     @JsonProperty("discount_type")
     private String discountType;
     
@@ -586,7 +586,7 @@ public static class BulkDiscount{
 
 
 /*
-    Model: FileJobResponse
+    Model: FileJobResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -594,7 +594,7 @@ public static class BulkDiscount{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FileJobResponse{
+public static class FileJobResponseSchema{
 
     
 
@@ -662,6 +662,18 @@ public static class FileJobResponse{
     
     
     
+    @JsonProperty("extension_ids")
+    private List<String> extensionIds;
+    
+    
+    
+    
+    @JsonProperty("zone_ids")
+    private List<String> zoneIds;
+    
+    
+    
+    
     @JsonProperty("created_on")
     private String createdOn;
     
@@ -683,7 +695,7 @@ public static class FileJobResponse{
 
 
 /*
-    Model: FileJobRequest
+    Model: FileJobRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -691,7 +703,7 @@ public static class FileJobResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FileJobRequest{
+public static class FileJobRequestSchema{
 
     
 
@@ -717,8 +729,8 @@ public static class FileJobRequest{
     
     
     
-    @JsonProperty("app_id")
-    private String appId;
+    @JsonProperty("app_ids")
+    private List<String> appIds;
     
     
     
@@ -766,7 +778,7 @@ public static class FileJobRequest{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -790,8 +802,14 @@ public static class DownloadFileJob{
     
     
     
-    @JsonProperty("app_id")
-    private String appId;
+    @JsonProperty("brand_ids")
+    private List<Integer> brandIds;
+    
+    
+    
+    
+    @JsonProperty("store_ids")
+    private List<Integer> storeIds;
     
     
     
@@ -799,7 +817,7 @@ public static class DownloadFileJob{
 
 
 /*
-    Model: CancelJobResponse
+    Model: CancelJobResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -807,7 +825,7 @@ public static class DownloadFileJob{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CancelJobResponse{
+public static class CancelJobResponseSchema{
 
     
 
@@ -878,12 +896,6 @@ public static class Page{
     
     @JsonProperty("size")
     private Integer size;
-    
-    
-    
-    
-    @JsonProperty("total")
-    private Integer total;
     
     
     
