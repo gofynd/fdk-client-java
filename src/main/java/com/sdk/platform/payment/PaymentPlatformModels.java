@@ -3259,6 +3259,12 @@ public static class Page{
     
     
     
+    
+    @JsonProperty("page_size")
+    private Integer pageSize;
+    
+    
+    
 }
 
 
@@ -7156,6 +7162,12 @@ public static class CustomerValidationSchema{
     
     
     
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
 }
 
 
@@ -7238,7 +7250,7 @@ public static class CreditAccountSummary{
     
     
     @JsonProperty("amount_on_hold")
-    private UserCreditSchema amountOnHold;
+    private List<UserCreditSchema> amountOnHold;
     
     
     

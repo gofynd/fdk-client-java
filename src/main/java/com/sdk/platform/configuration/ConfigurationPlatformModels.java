@@ -409,6 +409,12 @@ public static class AppInventoryConfig{
     
     
     
+    @JsonProperty("delivery_strategy")
+    private DeliveryStrategy deliveryStrategy;
+    
+    
+    
+    
     @JsonProperty("brand")
     private InventoryBrand brand;
     
@@ -4696,6 +4702,68 @@ public static class RegistrationPageFeature{
 
 
 /*
+    Model: BuyboxFeature
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BuyboxFeature{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("show_name")
+    private Boolean showName;
+    
+    
+    
+    
+    @JsonProperty("enable_selection")
+    private Boolean enableSelection;
+    
+    
+    
+    
+    @JsonProperty("is_seller_buybox_enabled")
+    private Boolean isSellerBuyboxEnabled;
+    
+    
+    
+}
+
+
+/*
+    Model: DeliveryStrategy
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeliveryStrategy{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+}
+
+
+/*
     Model: AppFeature
 */
 @AllArgsConstructor
@@ -4762,6 +4830,18 @@ public static class AppFeature{
     
     @JsonProperty("order")
     private OrderFeature order;
+    
+    
+    
+    
+    @JsonProperty("buybox")
+    private BuyboxFeature buybox;
+    
+    
+    
+    
+    @JsonProperty("delivery_strategy")
+    private DeliveryStrategy deliveryStrategy;
     
     
     
@@ -6126,6 +6206,12 @@ public static class Page{
     
     
     
+    
+    @JsonProperty("page_size")
+    private Integer pageSize;
+    
+    
+    
 }
 
 
@@ -7154,7 +7240,7 @@ public static class OptedStoreAddress{
     
     
     @JsonProperty("pincode")
-    private Integer pincode;
+    private String pincode;
     
     
     
@@ -7251,7 +7337,7 @@ public static class OrderingStore{
     
     
     @JsonProperty("pincode")
-    private Integer pincode;
+    private String pincode;
     
     
     

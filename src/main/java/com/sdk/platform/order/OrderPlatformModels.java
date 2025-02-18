@@ -3131,8 +3131,8 @@ public static class HistoryReason{
     
     
     
-    @JsonProperty("dislay_name")
-    private String dislayName;
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
@@ -11151,6 +11151,12 @@ public static class Page{
     
     
     
+    
+    @JsonProperty("page_size")
+    private Integer pageSize;
+    
+    
+    
 }
 
 
@@ -11689,6 +11695,12 @@ public static class Address{
     
     @JsonProperty("user_id")
     private String userId;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
     
     
     
@@ -14757,6 +14769,18 @@ public static class OrderingStoreDetails{
     
     
     
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("store_email")
+    private String storeEmail;
+    
+    
+    
 }
 
 
@@ -15658,6 +15682,12 @@ public static class OrderBagArticle{
     
     
     
+    
+    @JsonProperty("_custom_json")
+    private HashMap<String,Object> customJson;
+    
+    
+    
 }
 
 
@@ -16503,6 +16533,12 @@ public static class FulfillingStore{
     
     @JsonProperty("city")
     private String city;
+    
+    
+    
+    
+    @JsonProperty("store_email")
+    private String storeEmail;
     
     
     

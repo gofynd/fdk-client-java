@@ -1113,6 +1113,12 @@ public static class Page{
     
     
     
+    
+    @JsonProperty("page_size")
+    private Integer pageSize;
+    
+    
+    
 }
 
 
@@ -3587,6 +3593,12 @@ public static class Article{
     
     
     
+    
+    @JsonProperty("allowed_refund")
+    private Boolean allowedRefund;
+    
+    
+    
 }
 
 
@@ -5321,6 +5333,12 @@ public static class AppliedPromotion{
     
     
     
+    @JsonProperty("float_amount")
+    private String floatAmount;
+    
+    
+    
+    
     @JsonProperty("promotion_type")
     private String promotionType;
     
@@ -5613,6 +5631,43 @@ public static class ProductPriceInfo{
 
 
 /*
+    Model: ProductMaxQuantityInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductMaxQuantityInfo{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("item")
+    private Double item;
+    
+    
+    
+    
+    @JsonProperty("item_seller")
+    private Double itemSeller;
+    
+    
+    
+    
+    @JsonProperty("item_store")
+    private Double itemStore;
+    
+    
+    
+}
+
+
+/*
     Model: CartProductIdentifer
 */
 @AllArgsConstructor
@@ -5875,6 +5930,12 @@ public static class CartProductInfo{
     
     @JsonProperty("moq")
     private HashMap<String,Object> moq;
+    
+    
+    
+    
+    @JsonProperty("max_quantity")
+    private ProductMaxQuantityInfo maxQuantity;
     
     
     
@@ -9333,6 +9394,12 @@ public static class PlatformGetAddressesDetails{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("pii_masking")
+    private Boolean piiMasking;
     
     
     

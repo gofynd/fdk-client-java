@@ -91,8 +91,8 @@ interface CatalogApplicationApiList {
     Call<CatalogApplicationModels.ProductBundle> getProductBundlesBySlug(@Url String url1, @Query("slug") String slug, @Query("id") Integer id, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CatalogApplicationModels.ProductSizePriceResponseV3> getProductPriceBySlug(@Url String url1, @Query("store_id") Integer storeId, @Query("moq") Integer moq, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogApplicationModels.ProductSizePriceResponseV4> getProductPriceBySlug(@Url String url1, @Query("store_id") Integer storeId, @Query("moq") Integer moq, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CatalogApplicationModels.ProductSizeSellersResponseV3> getProductSellersBySlug(@Url String url1, @Query("strategy") String strategy, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogApplicationModels.ProductSizeSellersResponseV4> getProductSellersBySlug(@Url String url1, @Query("strategy") String strategy, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 }

@@ -37,7 +37,7 @@ public class PartnerHeaderInterceptor implements Interceptor {
                 .addHeader("Accept-Language", "en-IN")
                 .addHeader("Authorization", "Basic "+ bearerToken)
                 .addHeader("Content-Type","application/x-www-form-urlencoded")
-                .addHeader("x-fp-sdk-version", "1.6.4");
+                .addHeader("x-fp-sdk-version", "2.0.0");
     }            
 
 }

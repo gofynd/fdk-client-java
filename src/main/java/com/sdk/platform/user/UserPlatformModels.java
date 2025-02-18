@@ -2384,6 +2384,86 @@ public static class DeleteAccountConsent{
 
 
 /*
+    Model: GetUserTimeline
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetUserTimeline{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("delete_on")
+    private String deleteOn;
+    
+    
+    
+    
+    @JsonProperty("timeline")
+    private List<UserTimeline> timeline;
+    
+    
+    
+}
+
+
+/*
+    Model: UserTimeline
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserTimeline{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("date")
+    private String date;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("visible")
+    private Boolean visible;
+    
+    
+    
+    
+    @JsonProperty("sub_title")
+    private String subTitle;
+    
+    
+    
+}
+
+
+/*
     Model: Facebook
 */
 @AllArgsConstructor
@@ -3073,6 +3153,12 @@ public static class UserSearchSchema{
     
     @JsonProperty("status")
     private String status;
+    
+    
+    
+    
+    @JsonProperty("deleted_on")
+    private String deletedOn;
     
     
     

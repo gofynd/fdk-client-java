@@ -66,7 +66,7 @@ interface ConfigurationPlatformApiList {
     @GET ("/service/platform/configuration/v1.0/company/{company_id}/application/{application_id}/currency/supported")
     Call<ConfigurationPlatformModels.AppCurrencyResponseSchema> getAppSupportedCurrency(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/configuration/v1.0/company/{company_id}/application/{application_id}/ordering-store/stores/filter")
+    @POST ("/service/platform/configuration/v2.0/company/{company_id}/application/{application_id}/ordering-store/stores/filter")
     Call<ConfigurationPlatformModels.OrderingStores> getOrderingStoresByFilter(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Body ConfigurationPlatformModels.FilterOrderingStoreRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/configuration/v1.0/company/{company_id}/application/{application_id}/ordering-store")
@@ -75,7 +75,7 @@ interface ConfigurationPlatformApiList {
     @GET ("/service/platform/configuration/v1.0/company/{company_id}/application/{application_id}/ordering-store")
     Call<ConfigurationPlatformModels.OrderingStoreConfig> getOrderingStoreConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/configuration/v1.0/company/{company_id}/application/{application_id}/ordering-store/staff-stores")
+    @GET ("/service/platform/configuration/v2.0/company/{company_id}/application/{application_id}/ordering-store/staff-stores")
     Call<ConfigurationPlatformModels.OrderingStoresResponseSchema> getStaffOrderingStores(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/configuration/v1.0/company/{company_id}/application/{application_id}/ordering-store/select")
@@ -120,7 +120,7 @@ interface ConfigurationPlatformApiList {
     @POST ("/service/platform/configuration/v1.0/company/{company_id}/inventory/companies-by-brands")
     Call<ConfigurationPlatformModels.CompanyByBrandsResponseSchema> getCompanyByBrands(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Body ConfigurationPlatformModels.CompanyByBrandsRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/configuration/v1.0/company/{company_id}/inventory/stores-by-brands")
+    @POST ("/service/platform/configuration/v2.0/company/{company_id}/inventory/stores-by-brands")
     Call<ConfigurationPlatformModels.StoreByBrandsResponseSchema> getStoreByBrands(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Body ConfigurationPlatformModels.StoreByBrandsRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/configuration/v1.0/company/{company_id}/other-seller-applications")

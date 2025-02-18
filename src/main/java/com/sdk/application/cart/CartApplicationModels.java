@@ -275,6 +275,12 @@ public static class AppliedPromotion{
     
     
     
+    @JsonProperty("float_amount")
+    private String floatAmount;
+    
+    
+    
+    
     @JsonProperty("discount_rules")
     private List<DiscountRulesApp> discountRules;
     
@@ -984,6 +990,43 @@ public static class ProductPriceInfo{
 
 
 /*
+    Model: ProductMaxQuantityInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductMaxQuantityInfo{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("item")
+    private Double item;
+    
+    
+    
+    
+    @JsonProperty("item_seller")
+    private Double itemSeller;
+    
+    
+    
+    
+    @JsonProperty("item_store")
+    private Double itemStore;
+    
+    
+    
+}
+
+
+/*
     Model: ProductPricePerUnit
 */
 @AllArgsConstructor
@@ -1537,6 +1580,12 @@ public static class CartProductInfo{
     
     @JsonProperty("moq")
     private HashMap<String,Object> moq;
+    
+    
+    
+    
+    @JsonProperty("max_quantity")
+    private ProductMaxQuantityInfo maxQuantity;
     
     
     

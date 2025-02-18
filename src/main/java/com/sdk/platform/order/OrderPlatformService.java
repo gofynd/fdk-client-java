@@ -2180,6 +2180,342 @@ public class OrderPlatformService {
     }
     
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getShipments
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<OrderPlatformModels.ShipmentInternalPlatformViewResponseSchema> getShipmentsPagination(
+        String lane ,
+        String bagStatus ,
+        String statusAssigned ,
+        Boolean statusOverrideLane ,
+        Integer timeToDispatch ,
+        String searchType ,
+        String searchValue ,
+        String fromDate ,
+        String toDate ,
+        String startDate ,
+        String endDate ,
+        String statusAssignedStartDate ,
+        String statusAssignedEndDate ,
+        String dpIds ,
+        String stores ,
+        String salesChannels ,
+        Integer pageSize ,
+        Boolean fetchActiveShipment ,
+        Boolean allowInactive ,
+        Boolean excludeLockedShipments ,
+        String paymentMethods ,
+        String channelShipmentId ,
+        String channelOrderId ,
+        String customMeta ,
+        String orderingChannel ,
+        String companyAffiliateTag ,
+        Boolean myOrders ,
+        String platformUserId ,
+        String sortType ,
+        Boolean showCrossCompanyData ,
+        String tags ,
+        String customerId ,
+        String orderType ,
+        String groupEntity ,
+        Boolean enforceDateFilter ,
+        String fulfillmentType 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<OrderPlatformModels.ShipmentInternalPlatformViewResponseSchema> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            OrderPlatformModels.ShipmentInternalPlatformViewResponseSchema callback = this.getShipments(
+                
+                 
+                 lane,
+                 bagStatus,
+                 statusAssigned,
+                 statusOverrideLane,
+                 timeToDispatch,
+                 searchType,
+                 searchValue,
+                 fromDate,
+                 toDate,
+                 startDate,
+                 endDate,
+                 statusAssignedStartDate,
+                 statusAssignedEndDate,
+                 dpIds,
+                 stores,
+                 salesChannels,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 fetchActiveShipment,
+                 allowInactive,
+                 excludeLockedShipments,
+                 paymentMethods,
+                 channelShipmentId,
+                 channelOrderId,
+                 customMeta,
+                 orderingChannel,
+                 companyAffiliateTag,
+                 myOrders,
+                 platformUserId,
+                 sortType,
+                 showCrossCompanyData,
+                 tags,
+                 customerId,
+                 orderType,
+                 groupEntity,
+                 enforceDateFilter,
+                 fulfillmentType
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+    
+    
     
     
     
@@ -2545,6 +2881,254 @@ public class OrderPlatformService {
         } else {
             return null;
         }    
+    }
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    /**
+    * Summary: get paginator for getOrders
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<OrderPlatformModels.OrderListingResponseSchema> getOrdersPagination(
+        String lane ,
+        String searchType ,
+        String bagStatus ,
+        Integer timeToDispatch ,
+        String paymentMethods ,
+        String tags ,
+        String searchValue ,
+        String fromDate ,
+        String toDate ,
+        String startDate ,
+        String endDate ,
+        String dpIds ,
+        String stores ,
+        String salesChannels ,
+        Integer pageSize ,
+        Boolean isPrioritySort ,
+        String customMeta ,
+        Boolean myOrders ,
+        Boolean showCrossCompanyData ,
+        String customerId ,
+        String orderType ,
+        Boolean allowInactive ,
+        String groupEntity ,
+        Boolean enforceDateFilter ,
+        String fulfillmentType 
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<OrderPlatformModels.OrderListingResponseSchema> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            OrderPlatformModels.OrderListingResponseSchema callback = this.getOrders(
+                
+                 
+                 lane,
+                 searchType,
+                 bagStatus,
+                 timeToDispatch,
+                 paymentMethods,
+                 tags,
+                 searchValue,
+                 fromDate,
+                 toDate,
+                 startDate,
+                 endDate,
+                 dpIds,
+                 stores,
+                 salesChannels,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 isPrioritySort,
+                 customMeta,
+                 myOrders,
+                 showCrossCompanyData,
+                 customerId,
+                 orderType,
+                 allowInactive,
+                 groupEntity,
+                 enforceDateFilter,
+                 fulfillmentType
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
     }
     
     

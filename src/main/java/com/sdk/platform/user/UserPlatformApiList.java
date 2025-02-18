@@ -21,6 +21,9 @@ interface UserPlatformApiList {
     @PUT ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/undelete")
     Call<UserPlatformModels.UnDeleteUserSuccess> unDeleteUser(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body UserPlatformModels.UnDeleteUserRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/{user_id}/timeline")
+    Call<UserPlatformModels.GetUserTimeline> getUserTimeline(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("user_id") String userId, @HeaderMap Map<String, String> requestHeaders);
+
     @PUT ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/{user_id}")
     Call<UserPlatformModels.CreateUserResponseSchema> updateUser(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("user_id") String userId, @Body UserPlatformModels.UpdateUserRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 

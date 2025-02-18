@@ -1328,7 +1328,7 @@ public static class ProfileEditSuccess{
     
     
     @JsonProperty("resend_timer")
-    private Integer resendTimer;
+    private Long resendTimer;
     
     
     
@@ -1520,7 +1520,7 @@ public static class RegisterFormSuccess{
     
     
     @JsonProperty("resend_timer")
-    private Integer resendTimer;
+    private Long resendTimer;
     
     
     
@@ -1711,7 +1711,7 @@ public static class SendOtpSuccess{
     
     
     @JsonProperty("resend_timer")
-    private Integer resendTimer;
+    private Long resendTimer;
     
     
     

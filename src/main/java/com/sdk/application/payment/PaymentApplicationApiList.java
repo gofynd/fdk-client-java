@@ -7,7 +7,7 @@ import java.util.*;
 interface PaymentApplicationApiList {
 
     @GET 
-    Call<PaymentApplicationModels.AggregatorsConfigDetail> getAggregatorsConfig(@Url String url1, @Header("x-api-token") String xApiToken, @Query("refresh") Boolean refresh, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentApplicationModels.AggregatorsConfigDetail> getAggregatorsConfig(@Url String url1, @Query("refresh") Boolean refresh, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<PaymentApplicationModels.AttachCardsDetails> attachCardToCustomer(@Url String url1, @Body PaymentApplicationModels.AttachCard payload, @HeaderMap Map<String, String> requestHeaders);
@@ -134,9 +134,6 @@ interface PaymentApplicationApiList {
 
     @POST 
     Call<PaymentApplicationModels.CustomerOnboardingDetails> customerOnboard(@Url String url1, @Body PaymentApplicationModels.CustomerOnboarding payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<PaymentApplicationModels.OutstandingOrderDetails> outstandingOrderDetails(@Url String url1, @Query("aggregator") String aggregator, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<PaymentApplicationModels.PaidOrderDetails> paidOrderDetails(@Url String url1, @Query("aggregator") String aggregator, @HeaderMap Map<String, String> requestHeaders);

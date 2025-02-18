@@ -1204,7 +1204,7 @@ public static class ApplicationProductsSchema{
     
     
     @JsonProperty("verification_status")
-    private Integer verificationStatus;
+    private String verificationStatus;
     
     
     
@@ -1348,7 +1348,7 @@ public static class ApplicationProductsSchema{
     
     
     @JsonProperty("net_quantity")
-    private HashMap<String,Object> netQuantity;
+    private NetQuantitySchema netQuantity;
     
     
     
@@ -1391,6 +1391,24 @@ public static class ApplicationProductsSchema{
     
     @JsonProperty("discount_percentage")
     private Integer discountPercentage;
+    
+    
+    
+    
+    @JsonProperty("no_of_boxes")
+    private Integer noOfBoxes;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
@@ -7353,7 +7371,7 @@ public static class GetAddressSchema{
     
     
     @JsonProperty("pincode")
-    private Integer pincode;
+    private String pincode;
     
     
     
@@ -14410,6 +14428,12 @@ public static class Page{
     
     @JsonProperty("size")
     private Integer size;
+    
+    
+    
+    
+    @JsonProperty("page_size")
+    private Integer pageSize;
     
     
     
@@ -22472,6 +22496,37 @@ public static class MultiCategoriesSchema{
     
     @JsonProperty("department")
     private Integer department;
+    
+    
+    
+}
+
+
+/*
+    Model: NetQuantitySchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class NetQuantitySchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("unit")
+    private String unit;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
     
     
     

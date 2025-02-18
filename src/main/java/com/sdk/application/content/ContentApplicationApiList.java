@@ -65,4 +65,16 @@ interface ContentApplicationApiList {
 
     @GET 
     Call<ContentApplicationModels.CustomFieldsResponseByResourceIdSchema> getCustomFieldsByResourceId(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
+    Call<ContentApplicationModels.TranslateUiLabelsPage> getTranslateUILabels(@Url String url1, @Query("template") Boolean template, @Query("template_theme_id") String templateThemeId, @Query("theme_id") String themeId, @Query("locale") String locale, @Query("type") String type, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
+    Call<ContentApplicationModels.ResourceTranslations> fetchResourceTranslations(@Url String url1, @Query("resource_id") String resourceId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST 
+    Call<ContentApplicationModels.ResourceTranslations> fetchResourceTranslationsWithPayload(@Url String url1, @Query("resource_id") String resourceId, @Body ContentApplicationModels.ResourcePayload payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
+    Call<Object> getSupportedLanguages(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 }

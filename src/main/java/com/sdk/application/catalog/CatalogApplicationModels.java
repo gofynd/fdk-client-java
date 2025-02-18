@@ -1374,6 +1374,30 @@ public static class SizeChartValues{
     
     
     
+    @JsonProperty("col_7")
+    private String col7;
+    
+    
+    
+    
+    @JsonProperty("col_8")
+    private String col8;
+    
+    
+    
+    
+    @JsonProperty("col_9")
+    private String col9;
+    
+    
+    
+    
+    @JsonProperty("col_10")
+    private String col10;
+    
+    
+    
+    
     @JsonProperty("col_2")
     private String col2;
     
@@ -1483,6 +1507,30 @@ public static class ColumnHeaders{
     
     
     
+    
+    @JsonProperty("col_7")
+    private ColumnHeader col7;
+    
+    
+    
+    
+    @JsonProperty("col_8")
+    private ColumnHeader col8;
+    
+    
+    
+    
+    @JsonProperty("col_9")
+    private ColumnHeader col9;
+    
+    
+    
+    
+    @JsonProperty("col_10")
+    private ColumnHeader col10;
+    
+    
+    
 }
 
 
@@ -1541,6 +1589,12 @@ public static class SizeChart{
     
     @JsonProperty("headers")
     private ColumnHeaders headers;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
     
     
     
@@ -2467,6 +2521,12 @@ public static class Page{
     
     @JsonProperty("size")
     private Integer size;
+    
+    
+    
+    
+    @JsonProperty("page_size")
+    private Integer pageSize;
     
     
     
@@ -4850,7 +4910,7 @@ public static class Store{
     
     
     @JsonProperty("pincode")
-    private Integer pincode;
+    private String pincode;
     
     
     
@@ -5230,7 +5290,7 @@ public static class StoreAddressSchema{
     
     
     @JsonProperty("pincode")
-    private Integer pincode;
+    private String pincode;
     
     
     
@@ -6548,7 +6608,7 @@ public static class StrategyWiseListingSchemaV3{
     
     
     @JsonProperty("pincode")
-    private Integer pincode;
+    private String pincode;
     
     
     
@@ -6951,7 +7011,7 @@ public static class PromiseSchema{
 
 
 /*
-    Model: ProductSizePriceResponseV3
+    Model: ProductSizePriceResponseV4
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6959,7 +7019,7 @@ public static class PromiseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductSizePriceResponseV3{
+public static class ProductSizePriceResponseV4{
 
     
 
@@ -7082,7 +7142,7 @@ public static class ProductSizePriceResponseV3{
     
     
     @JsonProperty("pincode")
-    private Integer pincode;
+    private String pincode;
     
     
     
@@ -7269,7 +7329,7 @@ public static class ProductSellersPriceResponseV3{
     
     
     @JsonProperty("pincode")
-    private Integer pincode;
+    private String pincode;
     
     
     
@@ -7363,7 +7423,7 @@ public static class ProductSizeSellerFilterSchemaV3{
 
 
 /*
-    Model: ProductSizeSellersResponseV3
+    Model: ProductSizeSellersResponseV4
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -7371,7 +7431,7 @@ public static class ProductSizeSellerFilterSchemaV3{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductSizeSellersResponseV3{
+public static class ProductSizeSellersResponseV4{
 
     
 

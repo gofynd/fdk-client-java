@@ -69,7 +69,7 @@ interface CatalogPlatformApiList {
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/inventory/")
     Call<CatalogPlatformModels.InventoryStockResponseSchema> getAppInventory(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("item_ids") List<Integer> itemIds, @Query("store_ids") List<Integer> storeIds, @Query("brand_ids") List<Integer> brandIds, @Query("seller_identifiers") List<String> sellerIdentifiers, @Query("timestamp") String timestamp, @Query("page_size") Integer pageSize, @Query("page_id") String pageId, @Query("qty_gt") Integer qtyGt, @Query("qty_lt") Integer qtyLt, @Query("qty_type") String qtyType, @Query("from_date") String fromDate, @Query("to_date") String toDate, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/locations")
+    @GET ("/service/platform/catalog/v2.0/company/{company_id}/application/{application_id}/locations")
     Call<CatalogPlatformModels.LocationListSchema> getAppLocations(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("store_type") String storeType, @Query("uid") List<Integer> uid, @Query("q") String q, @Query("stage") String stage, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("tags") List<String> tags, @Query("store_types") List<String> storeTypes, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/product-configuration/")
@@ -237,13 +237,13 @@ interface CatalogPlatformApiList {
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/marketplaces/company-brand-details/")
     Call<CatalogPlatformModels.OptinCompanyBrandDetailsView> getCompanyBrandDetail(@Path("company_id") String companyId, @Query("is_active") Boolean isActive, @Query("q") String q, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("marketplace") String marketplace, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/marketplaces/company-details/")
+    @GET ("/service/platform/catalog/v2.0/company/{company_id}/marketplaces/company-details/")
     Call<CatalogPlatformModels.OptinCompanyDetail> getCompanyDetail(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/marketplaces/company-metrics/")
     Call<CatalogPlatformModels.OptinCompanyMetrics> getCompanyMetrics(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/marketplaces/location-details/")
+    @GET ("/service/platform/catalog/v2.0/company/{company_id}/marketplaces/location-details/")
     Call<CatalogPlatformModels.OptinStoreDetails> getStoreDetail(@Path("company_id") String companyId, @Query("q") String q, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/product-attributes/")
@@ -318,10 +318,10 @@ interface CatalogPlatformApiList {
     @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/products/{item_id}/sizes/{size}")
     Call<CatalogPlatformModels.ProductSizeDeleteResponseSchema> deleteSize(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @Path("size") String size, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/products/{item_id}/sizes/{size}")
+    @GET ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/sizes/{size}")
     Call<CatalogPlatformModels.InventoryResponsePaginated> getInventoryBySize(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @Path("size") String size, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("q") String q, @Query("sellable") Boolean sellable, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/catalog/v1.0/company/{company_id}/products/{item_id}/sizes/{size}")
+    @POST ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/sizes/{size}")
     Call<CatalogPlatformModels.SuccessResponseSchema> addInventory(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @Path("size") String size, @Body CatalogPlatformModels.InventoryRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/products/{item_id}/variants/{variant_type}")
