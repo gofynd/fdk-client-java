@@ -14,251 +14,6 @@ public class WebhookPlatformModels{
 
 
 /*
-    Model: Event
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Event{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("event_name")
-    private String eventName;
-    
-    
-    
-    
-    @JsonProperty("event_type")
-    private String eventType;
-    
-    
-    
-    
-    @JsonProperty("event_category")
-    private String eventCategory;
-    
-    
-    
-    
-    @JsonProperty("version")
-    private String version;
-    
-    
-    
-}
-
-
-/*
-    Model: EventProcessRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventProcessRequest{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("search_text")
-    private String searchText;
-    
-    
-    
-    
-    @JsonProperty("end_date")
-    private String endDate;
-    
-    
-    
-    
-    @JsonProperty("start_date")
-    private String startDate;
-    
-    
-    
-    
-    @JsonProperty("subscriber_ids")
-    private List<Integer> subscriberIds;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("event")
-    private List<Event> event;
-    
-    
-    
-}
-
-
-/*
-    Model: DownloadReportResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DownloadReportResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("file_name")
-    private String fileName;
-    
-    
-    
-}
-
-
-/*
-    Model: EventProcessReports
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventProcessReports{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("rows")
-    private List<EventProcessReportObject> rows;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-}
-
-
-/*
-    Model: EventProcessReportObject
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventProcessReportObject{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("event_name")
-    private String eventName;
-    
-    
-    
-    
-    @JsonProperty("response_code")
-    private Integer responseCode;
-    
-    
-    
-    
-    @JsonProperty("response_message")
-    private String responseMessage;
-    
-    
-    
-    
-    @JsonProperty("data")
-    private String data;
-    
-    
-    
-    
-    @JsonProperty("attempt")
-    private Integer attempt;
-    
-    
-    
-    
-    @JsonProperty("last_attempted_on")
-    private Double lastAttemptedOn;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("webhook_url")
-    private String webhookUrl;
-    
-    
-    
-    
-    @JsonProperty("response_time")
-    private Integer responseTime;
-    
-    
-    
-    
-    @JsonProperty("message_id")
-    private String messageId;
-    
-    
-    
-    
-    @JsonProperty("event_trace_id")
-    private String eventTraceId;
-    
-    
-    
-}
-
-
-/*
     Model: Page
 */
 @AllArgsConstructor
@@ -316,17 +71,11 @@ public static class Page{
     
     
     
-    
-    @JsonProperty("total")
-    private Integer total;
-    
-    
-    
 }
 
 
 /*
-    Model: PingWebhook
+    Model: BroadcasterConfig
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -334,7 +83,7 @@ public static class Page{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PingWebhook{
+public static class BroadcasterConfig{
 
     
 
@@ -342,57 +91,38 @@ public static class PingWebhook{
     
     
     
-    @JsonProperty("webhook_url")
-    private String webhookUrl;
+    @JsonProperty("topic")
+    private String topic;
     
     
     
     
-    @JsonProperty("auth_meta")
-    private Object authMeta;
+    @JsonProperty("queue")
+    private String queue;
     
     
     
     
-    @JsonProperty("custom_headers")
-    private Object customHeaders;
-    
-    
-    
-}
-
-
-/*
-    Model: PingWebhookResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PingWebhookResponse{
-
-    
-
+    @JsonProperty("event_bridge_name")
+    private String eventBridgeName;
     
     
     
     
-    @JsonProperty("status")
-    private String status;
+    @JsonProperty("workflow_name")
+    private String workflowName;
     
     
     
     
-    @JsonProperty("message")
-    private String message;
+    @JsonProperty("account_id")
+    private String accountId;
     
     
     
     
-    @JsonProperty("code")
-    private Integer code;
+    @JsonProperty("detail_type")
+    private String detailType;
     
     
     
@@ -434,8 +164,8 @@ public static class SubscriberEventMapping{
     
     
     
-    @JsonProperty("topic")
-    private String topic;
+    @JsonProperty("broadcaster_config")
+    private BroadcasterConfig broadcasterConfig;
     
     
     
@@ -471,6 +201,12 @@ public static class EventConfig{
     
     
     
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
     @JsonProperty("event_name")
     private String eventName;
     
@@ -485,6 +221,12 @@ public static class EventConfig{
     
     @JsonProperty("event_category")
     private String eventCategory;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private String modifiedBy;
     
     
     
@@ -540,7 +282,7 @@ public static class EventConfig{
 
 
 /*
-    Model: EventConfigResponse
+    Model: EventConfigResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -548,7 +290,7 @@ public static class EventConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventConfigResponse{
+public static class EventConfigResult{
 
     
 
@@ -558,401 +300,6 @@ public static class EventConfigResponse{
     
     @JsonProperty("event_configs")
     private List<EventConfig> eventConfigs;
-    
-    
-    
-}
-
-
-/*
-    Model: ReportFiltersPayload
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReportFiltersPayload{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("subscriber_ids")
-    private List<Integer> subscriberIds;
-    
-    
-    
-}
-
-
-/*
-    Model: ReportFilterResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReportFilterResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("filter_name")
-    private String filterName;
-    
-    
-    
-    
-    @JsonProperty("values")
-    private List<HashMap<String,Object>> values;
-    
-    
-    
-}
-
-
-/*
-    Model: HistoryPayload
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class HistoryPayload{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("page_no")
-    private Integer pageNo;
-    
-    
-    
-    
-    @JsonProperty("page_size")
-    private Integer pageSize;
-    
-    
-    
-}
-
-
-/*
-    Model: HistoryFilters
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class HistoryFilters{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("events")
-    private List<String> events;
-    
-    
-    
-    
-    @JsonProperty("search_text")
-    private String searchText;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("end_date")
-    private String endDate;
-    
-    
-    
-    
-    @JsonProperty("start_date")
-    private String startDate;
-    
-    
-    
-    
-    @JsonProperty("subscribers")
-    private List<Integer> subscribers;
-    
-    
-    
-    
-    @JsonProperty("webhook_type")
-    private List<String> webhookType;
-    
-    
-    
-}
-
-
-/*
-    Model: Url
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Url{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("url")
-    private String url;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-}
-
-
-/*
-    Model: CdnObject
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CdnObject{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("urls")
-    private List<Url> urls;
-    
-    
-    
-}
-
-
-/*
-    Model: UploadServiceObject
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UploadServiceObject{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("cdn")
-    private CdnObject cdn;
-    
-    
-    
-}
-
-
-/*
-    Model: HistoryAssociation
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class HistoryAssociation{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("subscriber_ids")
-    private List<Integer> subscriberIds;
-    
-    
-    
-}
-
-
-/*
-    Model: HistoryItems
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class HistoryItems{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private Integer id;
-    
-    
-    
-    
-    @JsonProperty("association")
-    private HistoryAssociation association;
-    
-    
-    
-    
-    @JsonProperty("filters")
-    private HistoryFilters filters;
-    
-    
-    
-    
-    @JsonProperty("filename")
-    private String filename;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("upload_service_response")
-    private UploadServiceObject uploadServiceResponse;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("updated_on")
-    private String updatedOn;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
-    Model: HistoryResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class HistoryResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<HistoryItems> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-}
-
-
-/*
-    Model: CancelResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CancelResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
     
     
     
@@ -1071,7 +418,7 @@ public static class AuthMeta{
 
 
 /*
-    Model: SubscriberResponse
+    Model: SubscriberDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1079,7 +426,7 @@ public static class AuthMeta{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriberResponse{
+public static class SubscriberDetails{
 
     
 
@@ -1124,7 +471,7 @@ public static class SubscriberResponse{
     
     
     @JsonProperty("custom_headers")
-    private Object customHeaders;
+    private HashMap<String,Object> customHeaders;
     
     
     
@@ -1201,6 +548,30 @@ public static class Events{
     
     
     
+    
+    @JsonProperty("queue")
+    private String queue;
+    
+    
+    
+    
+    @JsonProperty("event_bridge_name")
+    private String eventBridgeName;
+    
+    
+    
+    
+    @JsonProperty("workflow_name")
+    private String workflowName;
+    
+    
+    
+    
+    @JsonProperty("detail_type")
+    private String detailType;
+    
+    
+    
 }
 
 
@@ -1252,7 +623,7 @@ public static class SubscriberConfigPostRequestV2{
     
     
     @JsonProperty("custom_headers")
-    private Object customHeaders;
+    private HashMap<String,Object> customHeaders;
     
     
     
@@ -1337,7 +708,7 @@ public static class SubscriberConfigUpdateRequestV2{
     
     
     @JsonProperty("custom_headers")
-    private Object customHeaders;
+    private HashMap<String,Object> customHeaders;
     
     
     
@@ -1410,7 +781,7 @@ public static class SubscriberConfigPost{
     
     
     @JsonProperty("custom_headers")
-    private Object customHeaders;
+    private HashMap<String,Object> customHeaders;
     
     
     
@@ -1489,7 +860,7 @@ public static class SubscriberConfigUpdate{
     
     
     @JsonProperty("custom_headers")
-    private Object customHeaders;
+    private HashMap<String,Object> customHeaders;
     
     
     
@@ -1521,7 +892,7 @@ public static class SubscriberConfigUpdate{
 
 
 /*
-    Model: SubscriberConfigResponse
+    Model: SubscriberConfigResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1529,7 +900,7 @@ public static class SubscriberConfigUpdate{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriberConfigResponse{
+public static class SubscriberConfigResult{
 
     
 
@@ -1574,7 +945,7 @@ public static class SubscriberConfigResponse{
     
     
     @JsonProperty("custom_headers")
-    private Object customHeaders;
+    private HashMap<String,Object> customHeaders;
     
     
     
@@ -1641,13 +1012,622 @@ public static class SubscriberConfigList{
     
     
     @JsonProperty("items")
-    private List<SubscriberResponse> items;
+    private List<SubscriberDetails> items;
     
     
     
     
     @JsonProperty("page")
     private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: RestEventData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RestEventData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("event_category")
+    private String eventCategory;
+    
+    
+    
+    
+    @JsonProperty("event_name")
+    private String eventName;
+    
+    
+    
+    
+    @JsonProperty("event_type")
+    private String eventType;
+    
+    
+    
+    
+    @JsonProperty("version")
+    private Double version;
+    
+    
+    
+}
+
+
+/*
+    Model: RestConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RestConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("webhook_url")
+    private String webhookUrl;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("custom_headers")
+    private HashMap<String,Object> customHeaders;
+    
+    
+    
+    
+    @JsonProperty("auth_meta")
+    private AuthMeta authMeta;
+    
+    
+    
+    
+    @JsonProperty("events")
+    private List<RestEventData> events;
+    
+    
+    
+}
+
+
+/*
+    Model: QueueEventData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class QueueEventData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("event_category")
+    private String eventCategory;
+    
+    
+    
+    
+    @JsonProperty("event_name")
+    private String eventName;
+    
+    
+    
+    
+    @JsonProperty("event_type")
+    private String eventType;
+    
+    
+    
+    
+    @JsonProperty("version")
+    private Double version;
+    
+    
+    
+    
+    @JsonProperty("topic")
+    private String topic;
+    
+    
+    
+}
+
+
+/*
+    Model: KafkaConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class KafkaConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("events")
+    private List<QueueEventData> events;
+    
+    
+    
+}
+
+
+/*
+    Model: PubSubConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PubSubConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("events")
+    private List<QueueEventData> events;
+    
+    
+    
+}
+
+
+/*
+    Model: TemporalEventData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TemporalEventData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("event_category")
+    private String eventCategory;
+    
+    
+    
+    
+    @JsonProperty("event_name")
+    private String eventName;
+    
+    
+    
+    
+    @JsonProperty("event_type")
+    private String eventType;
+    
+    
+    
+    
+    @JsonProperty("version")
+    private Double version;
+    
+    
+    
+    
+    @JsonProperty("queue")
+    private String queue;
+    
+    
+    
+    
+    @JsonProperty("workflow_name")
+    private String workflowName;
+    
+    
+    
+}
+
+
+/*
+    Model: TemporalConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TemporalConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("events")
+    private List<TemporalEventData> events;
+    
+    
+    
+}
+
+
+/*
+    Model: SqsEventData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SqsEventData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("event_category")
+    private String eventCategory;
+    
+    
+    
+    
+    @JsonProperty("event_name")
+    private String eventName;
+    
+    
+    
+    
+    @JsonProperty("event_type")
+    private String eventType;
+    
+    
+    
+    
+    @JsonProperty("version")
+    private Double version;
+    
+    
+    
+    
+    @JsonProperty("queue")
+    private String queue;
+    
+    
+    
+}
+
+
+/*
+    Model: SqsConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SqsConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("events")
+    private List<SqsEventData> events;
+    
+    
+    
+}
+
+
+/*
+    Model: EventBridgeData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EventBridgeData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("event_category")
+    private String eventCategory;
+    
+    
+    
+    
+    @JsonProperty("event_name")
+    private String eventName;
+    
+    
+    
+    
+    @JsonProperty("event_type")
+    private String eventType;
+    
+    
+    
+    
+    @JsonProperty("version")
+    private Double version;
+    
+    
+    
+    
+    @JsonProperty("event_bridge_name")
+    private String eventBridgeName;
+    
+    
+    
+}
+
+
+/*
+    Model: EventBridgeConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EventBridgeConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("events")
+    private List<EventBridgeData> events;
+    
+    
+    
+}
+
+
+/*
+    Model: EventMapBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EventMapBody{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("rest")
+    private RestConfig rest;
+    
+    
+    
+    
+    @JsonProperty("kafka")
+    private KafkaConfig kafka;
+    
+    
+    
+    
+    @JsonProperty("pub_sub")
+    private PubSubConfig pubSub;
+    
+    
+    
+    
+    @JsonProperty("temporal")
+    private TemporalConfig temporal;
+    
+    
+    
+    
+    @JsonProperty("sqs")
+    private SqsConfig sqs;
+    
+    
+    
+    
+    @JsonProperty("event_bridge")
+    private EventBridgeConfig eventBridge;
+    
+    
+    
+}
+
+
+/*
+    Model: WebhookConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class WebhookConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("notification_email")
+    private String notificationEmail;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("association")
+    private Association association;
+    
+    
+    
+    
+    @JsonProperty("event_map")
+    private EventMapBody eventMap;
+    
+    
+    
+}
+
+
+/*
+    Model: UpsertSubscriberConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpsertSubscriberConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("webhook_config")
+    private WebhookConfig webhookConfig;
+    
+    
+    
+}
+
+
+/*
+    Model: UpsertSubscriberConfigResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpsertSubscriberConfigResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Boolean status;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     

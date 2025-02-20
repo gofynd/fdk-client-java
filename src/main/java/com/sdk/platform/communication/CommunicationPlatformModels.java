@@ -14,7 +14,7 @@ public class CommunicationPlatformModels{
 
 
 /*
-    Model: AppProvidersGlobalProviderRequestObjProvider
+    Model: EventSubscriptionsBulkUpdatePayload
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,766 +22,7 @@ public class CommunicationPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AppProvidersGlobalProviderRequestObjProvider{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("provider")
-    private String provider;
-    
-    
-    
-}
-
-
-/*
-    Model: AppProvidersGlobalProviderRequestObj
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AppProvidersGlobalProviderRequestObj{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("transaction")
-    private AppProvidersGlobalProviderRequestObjProvider transaction;
-    
-    
-    
-    
-    @JsonProperty("otp")
-    private AppProvidersGlobalProviderRequestObjProvider otp;
-    
-    
-    
-}
-
-
-/*
-    Model: AppProvidersGlobalProviderRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AppProvidersGlobalProviderRequest{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("email")
-    private AppProvidersGlobalProviderRequestObj email;
-    
-    
-    
-    
-    @JsonProperty("sms")
-    private AppProvidersGlobalProviderRequestObj sms;
-    
-    
-    
-}
-
-
-/*
-    Model: UpdateAppProvidersGlobalProviderResponseEmailSmsObj
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateAppProvidersGlobalProviderResponseEmailSmsObj{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("default_provider")
-    private String defaultProvider;
-    
-    
-    
-    
-    @JsonProperty("otp_provider")
-    private String otpProvider;
-    
-    
-    
-}
-
-
-/*
-    Model: UpdateAppProvidersGlobalProviderResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateAppProvidersGlobalProviderResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("email")
-    private UpdateAppProvidersGlobalProviderResponseEmailSmsObj email;
-    
-    
-    
-    
-    @JsonProperty("sms")
-    private UpdateAppProvidersGlobalProviderResponseEmailSmsObj sms;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-}
-
-
-/*
-    Model: DefaultEmailProvidersFromAddresses
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DefaultEmailProvidersFromAddresses{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("email")
-    private String email;
-    
-    
-    
-    
-    @JsonProperty("is_default")
-    private Boolean isDefault;
-    
-    
-    
-}
-
-
-/*
-    Model: DefaultEmailProviders
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DefaultEmailProviders{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("from_address")
-    private List<DefaultEmailProvidersFromAddresses> fromAddress;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("is_default")
-    private Boolean isDefault;
-    
-    
-    
-}
-
-
-/*
-    Model: PushtokenReq
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PushtokenReq{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("action")
-    private String action;
-    
-    
-    
-    
-    @JsonProperty("bundle_identifier")
-    private String bundleIdentifier;
-    
-    
-    
-    
-    @JsonProperty("push_token")
-    private String pushToken;
-    
-    
-    
-    
-    @JsonProperty("unique_device_id")
-    private String uniqueDeviceId;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-}
-
-
-/*
-    Model: PushtokenRes
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PushtokenRes{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("bundle_identifier")
-    private String bundleIdentifier;
-    
-    
-    
-    
-    @JsonProperty("push_token")
-    private String pushToken;
-    
-    
-    
-    
-    @JsonProperty("unique_device_id")
-    private String uniqueDeviceId;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("platform")
-    private String platform;
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("user_id")
-    private String userId;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("expired_at")
-    private String expiredAt;
-    
-    
-    
-}
-
-
-/*
-    Model: SendInstantResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendInstantResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("provider")
-    private String provider;
-    
-    
-    
-    
-    @JsonProperty("response")
-    private Boolean response;
-    
-    
-    
-}
-
-
-/*
-    Model: MetaStructure
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MetaStructure{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("job_type")
-    private String jobType;
-    
-    
-    
-    
-    @JsonProperty("action")
-    private String action;
-    
-    
-    
-    
-    @JsonProperty("trace")
-    private String trace;
-    
-    
-    
-    
-    @JsonProperty("timestamp")
-    private String timestamp;
-    
-    
-    
-}
-
-
-/*
-    Model: PayloadSmsTemplateStructure
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayloadSmsTemplateStructure{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("key")
-    private String key;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private Object value;
-    
-    
-    
-}
-
-
-/*
-    Model: PayloadSmsProviderStructure
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayloadSmsProviderStructure{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-}
-
-
-/*
-    Model: PayloadEmailTemplateStructure
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayloadEmailTemplateStructure{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("key")
-    private String key;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private Object value;
-    
-    
-    
-}
-
-
-/*
-    Model: PayloadEmailProviderStructure
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayloadEmailProviderStructure{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-}
-
-
-/*
-    Model: PayloadEmailStructure
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayloadEmailStructure{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("template")
-    private PayloadEmailTemplateStructure template;
-    
-    
-    
-    
-    @JsonProperty("provider")
-    private PayloadEmailProviderStructure provider;
-    
-    
-    
-}
-
-
-/*
-    Model: PayloadSmsStructure
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayloadSmsStructure{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("template")
-    private PayloadSmsTemplateStructure template;
-    
-    
-    
-    
-    @JsonProperty("provider")
-    private PayloadSmsProviderStructure provider;
-    
-    
-    
-}
-
-
-/*
-    Model: SendSyncData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendSyncData{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("phone_number")
-    private String phoneNumber;
-    
-    
-    
-    
-    @JsonProperty("country_code")
-    private String countryCode;
-    
-    
-    
-    
-    @JsonProperty("to")
-    private String to;
-    
-    
-    
-}
-
-
-/*
-    Model: SendSyncRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendSyncRequest{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("data")
-    private List<SendSyncData> data;
-    
-    
-    
-    
-    @JsonProperty("email")
-    private PayloadEmailStructure email;
-    
-    
-    
-    
-    @JsonProperty("sms")
-    private PayloadSmsStructure sms;
-    
-    
-    
-}
-
-
-/*
-    Model: EngineRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EngineRequest{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("payload")
-    private SendSyncRequest payload;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private MetaStructure meta;
-    
-    
-    
-}
-
-
-/*
-    Model: EngineResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EngineResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-}
-
-
-/*
-    Model: EventSubscriptionsBulkUpdateRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventSubscriptionsBulkUpdateRequest{
+public static class EventSubscriptionsBulkUpdatePayload{
 
     
 
@@ -798,7 +39,7 @@ public static class EventSubscriptionsBulkUpdateRequest{
 
 
 /*
-    Model: EventSubscriptionsBulkUpdateResponse
+    Model: EventSubscriptionsBulkUpdateResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -806,7 +47,7 @@ public static class EventSubscriptionsBulkUpdateRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventSubscriptionsBulkUpdateResponse{
+public static class EventSubscriptionsBulkUpdateResult{
 
     
 
@@ -871,43 +112,6 @@ public static class EventSubscriptionsBulkUpdateResponse{
 
 
 /*
-    Model: SubscriptionsObjectRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriptionsObjectRequest{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("event")
-    private String event;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("template")
-    private TemplateObject template;
-    
-    
-    
-}
-
-
-/*
     Model: SubscriptionsObject
 */
 @AllArgsConstructor
@@ -926,18 +130,6 @@ public static class SubscriptionsObject{
     
     @JsonProperty("_id")
     private String id;
-    
-    
-    
-    
-    @JsonProperty("event")
-    private String event;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
     
     
     
@@ -1492,24 +684,6 @@ public static class CampaignReq{
     
     
     
-    @JsonProperty("recipient_headers")
-    private RecipientHeaders recipientHeaders;
-    
-    
-    
-    
-    @JsonProperty("email")
-    private CampaignEmail email;
-    
-    
-    
-    
-    @JsonProperty("datasource")
-    private String datasource;
-    
-    
-    
-    
     @JsonProperty("description")
     private String description;
     
@@ -1726,7 +900,7 @@ public static class Campaign{
     
     
     @JsonProperty("tags")
-    private List<String> tags;
+    private List<Object> tags;
     
     
     
@@ -1818,6 +992,62 @@ public static class Campaigns{
     
     @JsonProperty("page")
     private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: BadRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BadRequestSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: NotFound
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class NotFound{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -2571,7 +1801,7 @@ public static class EmailTemplateReq{
     
     
     @JsonProperty("template_variables")
-    private Object templateVariables;
+    private HashMap<String,Object> templateVariables;
     
     
     
@@ -2657,43 +1887,6 @@ public static class TemplateAndType{
     
     @JsonProperty("template")
     private String template;
-    
-    
-    
-}
-
-
-/*
-    Model: TemplateKeys
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TemplateKeys{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("to")
-    private String to;
-    
-    
-    
-    
-    @JsonProperty("cc")
-    private String cc;
-    
-    
-    
-    
-    @JsonProperty("bcc")
-    private String bcc;
     
     
     
@@ -2795,12 +1988,6 @@ public static class EmailTemplate{
     
     
     
-    @JsonProperty("keys")
-    private TemplateKeys keys;
-    
-    
-    
-    
     @JsonProperty("html")
     private TemplateAndType html;
     
@@ -2820,7 +2007,7 @@ public static class EmailTemplate{
     
     
     @JsonProperty("template_variables")
-    private Object templateVariables;
+    private HashMap<String,Object> templateVariables;
     
     
     
@@ -2983,7 +2170,7 @@ public static class SystemEmailTemplate{
     
     
     @JsonProperty("template_variables")
-    private Object templateVariables;
+    private HashMap<String,Object> templateVariables;
     
     
     
@@ -3082,7 +2269,7 @@ public static class EmailTemplates{
 
 
 /*
-    Model: SubscribedSmsTemplates
+    Model: SystemEmailTemplates
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3090,7 +2277,7 @@ public static class EmailTemplates{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscribedSmsTemplates{
+public static class SystemEmailTemplates{
 
     
 
@@ -3099,7 +2286,7 @@ public static class SubscribedSmsTemplates{
     
     
     @JsonProperty("items")
-    private List<SmsTemplates> items;
+    private List<SystemEmailTemplate> items;
     
     
     
@@ -3107,7 +2294,7 @@ public static class SubscribedSmsTemplates{
 
 
 /*
-    Model: SubscribedEmailTemplates
+    Model: PayloadEmailTemplateStructure
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3115,7 +2302,7 @@ public static class SubscribedSmsTemplates{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscribedEmailTemplates{
+public static class PayloadEmailTemplateStructure{
 
     
 
@@ -3123,8 +2310,299 @@ public static class SubscribedEmailTemplates{
     
     
     
-    @JsonProperty("items")
-    private List<EmailTemplate> items;
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Object value;
+    
+    
+    
+}
+
+
+/*
+    Model: PayloadEmailProviderStructure
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PayloadEmailProviderStructure{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+}
+
+
+/*
+    Model: PayloadEmailStructure
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PayloadEmailStructure{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("template")
+    private PayloadEmailTemplateStructure template;
+    
+    
+    
+    
+    @JsonProperty("provider")
+    private PayloadEmailProviderStructure provider;
+    
+    
+    
+}
+
+
+/*
+    Model: PayloadSmsTemplateStructure
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PayloadSmsTemplateStructure{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Object value;
+    
+    
+    
+}
+
+
+/*
+    Model: PayloadSmsProviderStructure
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PayloadSmsProviderStructure{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+}
+
+
+/*
+    Model: PayloadSmsStructure
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PayloadSmsStructure{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("template")
+    private PayloadSmsTemplateStructure template;
+    
+    
+    
+    
+    @JsonProperty("provider")
+    private PayloadSmsProviderStructure provider;
+    
+    
+    
+}
+
+
+/*
+    Model: PayloadStructure
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PayloadStructure{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<Object> data;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private PayloadEmailStructure email;
+    
+    
+    
+    
+    @JsonProperty("sms")
+    private PayloadSmsStructure sms;
+    
+    
+    
+    
+    @JsonProperty("application")
+    private String application;
+    
+    
+    
+}
+
+
+/*
+    Model: MetaStructure
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class MetaStructure{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("job_type")
+    private String jobType;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("trace")
+    private String trace;
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
+    
+    
+    
+}
+
+
+/*
+    Model: EnginePayload
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EnginePayload{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private PayloadStructure payload;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private MetaStructure meta;
+    
+    
+    
+}
+
+
+/*
+    Model: EngineResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EngineResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -3155,7 +2633,7 @@ public static class EventSubscriptionTemplateSms{
     
     
     @JsonProperty("template")
-    private Object template;
+    private String template;
     
     
     
@@ -3186,32 +2664,7 @@ public static class EventSubscriptionTemplateEmail{
     
     
     @JsonProperty("template")
-    private Object template;
-    
-    
-    
-}
-
-
-/*
-    Model: EventSubscriptionTemplatePushnotification
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventSubscriptionTemplatePushnotification{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("subscribed")
-    private Boolean subscribed;
+    private String template;
     
     
     
@@ -3243,12 +2696,6 @@ public static class EventSubscriptionTemplate{
     
     @JsonProperty("email")
     private EventSubscriptionTemplateEmail email;
-    
-    
-    
-    
-    @JsonProperty("pushnotification")
-    private EventSubscriptionTemplatePushnotification pushnotification;
     
     
     
@@ -3296,14 +2743,8 @@ public static class EventSubscription{
     
     
     
-    @JsonProperty("category")
-    private String category;
-    
-    
-    
-    
     @JsonProperty("event")
-    private Object event;
+    private String event;
     
     
     
@@ -3366,7 +2807,7 @@ public static class EventSubscriptions{
 
 
 /*
-    Model: TriggerJobResponse
+    Model: TriggerJobResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3374,7 +2815,7 @@ public static class EventSubscriptions{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TriggerJobResponse{
+public static class TriggerJobResult{
 
     
 
@@ -3391,7 +2832,7 @@ public static class TriggerJobResponse{
 
 
 /*
-    Model: TriggerJobRequest
+    Model: TriggerJobPayload
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3399,7 +2840,7 @@ public static class TriggerJobResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TriggerJobRequest{
+public static class TriggerJobPayload{
 
     
 
@@ -3416,7 +2857,7 @@ public static class TriggerJobRequest{
 
 
 /*
-    Model: GlobalVariablesGetResponse
+    Model: GetGlobalVariablesResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3424,7 +2865,7 @@ public static class TriggerJobRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GlobalVariablesGetResponse{
+public static class GetGlobalVariablesResult{
 
     
 
@@ -3433,13 +2874,13 @@ public static class GlobalVariablesGetResponse{
     
     
     @JsonProperty("read_only")
-    private Object readOnly;
+    private HashMap<String,Object> readOnly;
     
     
     
     
     @JsonProperty("editable")
-    private Object editable;
+    private HashMap<String,Object> editable;
     
     
     
@@ -3447,7 +2888,7 @@ public static class GlobalVariablesGetResponse{
 
 
 /*
-    Model: GlobalVariablesPostResponse
+    Model: CreateGlobalVariablesResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3455,7 +2896,7 @@ public static class GlobalVariablesGetResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GlobalVariablesPostResponse{
+public static class CreateGlobalVariablesResult{
 
     
 
@@ -3482,7 +2923,7 @@ public static class GlobalVariablesPostResponse{
     
     
     @JsonProperty("global_variables")
-    private Object globalVariables;
+    private HashMap<String,Object> globalVariables;
     
     
     
@@ -3513,7 +2954,7 @@ public static class GlobalVariablesReq{
     
     
     @JsonProperty("global_variables")
-    private Object globalVariables;
+    private HashMap<String,Object> globalVariables;
     
     
     
@@ -3830,61 +3271,6 @@ public static class LogEmail{
     
     
     
-    
-    @JsonProperty("provider")
-    private String provider;
-    
-    
-    
-    
-    @JsonProperty("to")
-    private String to;
-    
-    
-    
-}
-
-
-/*
-    Model: LogSms
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LogSms{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("template")
-    private String template;
-    
-    
-    
-    
-    @JsonProperty("provider")
-    private String provider;
-    
-    
-    
-    
-    @JsonProperty("phone_number")
-    private String phoneNumber;
-    
-    
-    
-    
-    @JsonProperty("country_code")
-    private String countryCode;
-    
-    
-    
 }
 
 
@@ -3930,26 +3316,14 @@ public static class LogMeta{
     
     
     
-    @JsonProperty("identifier")
-    private String identifier;
-    
-    
-    
-    
     @JsonProperty("type")
     private String type;
     
     
     
     
-    @JsonProperty("job")
-    private String job;
-    
-    
-    
-    
-    @JsonProperty("campaign")
-    private String campaign;
+    @JsonProperty("identifier")
+    private String identifier;
     
     
     
@@ -4003,14 +3377,14 @@ public static class Log{
     
     
     
-    @JsonProperty("sms")
-    private LogSms sms;
-    
-    
-    
-    
     @JsonProperty("pushnotification")
     private LogPushnotification pushnotification;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private LogMeta meta;
     
     
     
@@ -4021,8 +3395,8 @@ public static class Log{
     
     
     
-    @JsonProperty("pod")
-    private String pod;
+    @JsonProperty("application")
+    private String application;
     
     
     
@@ -4039,14 +3413,14 @@ public static class Log{
     
     
     
-    @JsonProperty("source")
-    private String source;
-    
-    
-    
-    
     @JsonProperty("status")
     private String status;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private Object data;
     
     
     
@@ -4059,18 +3433,6 @@ public static class Log{
     
     @JsonProperty("created_at")
     private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private LogMeta meta;
-    
-    
-    
-    
-    @JsonProperty("application")
-    private String application;
     
     
     
@@ -4614,6 +3976,37 @@ public static class VerifyOtpCommsSuccessRes{
 
 
 /*
+    Model: VerifyOtpCommsErrorRes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VerifyOtpCommsErrorRes{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
     Model: SmsProviderReq
 */
 @AllArgsConstructor
@@ -4632,6 +4025,12 @@ public static class SmsProviderReq{
     
     @JsonProperty("name")
     private String name;
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
     
     
     
@@ -4743,6 +4142,18 @@ public static class SmsProviderReq{
     
     
     
+    
+    @JsonProperty("tenant_name_1")
+    private String tenantName1;
+    
+    
+    
+    
+    @JsonProperty("tenant_name_2")
+    private String tenantName2;
+    
+    
+    
 }
 
 
@@ -4759,6 +4170,30 @@ public static class SmsProvider{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+    @JsonProperty("sender_id")
+    private String senderId;
+    
+    
+    
+    
+    @JsonProperty("api_key")
+    private String apiKey;
+    
+    
+    
+    
+    @JsonProperty("expiry_date")
+    private Long expiryDate;
     
     
     
@@ -4813,12 +4248,6 @@ public static class SmsProvider{
     
     @JsonProperty("authkey")
     private String authkey;
-    
-    
-    
-    
-    @JsonProperty("entity_id")
-    private String entityId;
     
     
     
@@ -5069,7 +4498,7 @@ public static class SmsTemplate{
     
     
     @JsonProperty("template_variables")
-    private Object templateVariables;
+    private HashMap<String,Object> templateVariables;
     
     
     
@@ -5190,7 +4619,7 @@ public static class SystemSmsTemplates{
     
     
     @JsonProperty("template_variables")
-    private Object templateVariables;
+    private HashMap<String,Object> templateVariables;
     
     
     
@@ -5324,7 +4753,7 @@ public static class SmsTemplateReq{
     
     
     @JsonProperty("template_variables")
-    private Object templateVariables;
+    private HashMap<String,Object> templateVariables;
     
     
     
@@ -5579,17 +5008,11 @@ public static class Page{
     
     
     
-    
-    @JsonProperty("total")
-    private Integer total;
-    
-    
-    
 }
 
 
 /*
-    Model: BasicDelete
+    Model: GenericError
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5597,10 +5020,47 @@ public static class Page{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BasicDelete{
+public static class GenericError{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("message")
+    private Message message;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
+/*
+    Model: GenericDelete
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GenericDelete{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -5611,8 +5071,57 @@ public static class BasicDelete{
     
     
     
-    @JsonProperty("deleted_count")
-    private Integer deletedCount;
+    @JsonProperty("affected")
+    private Integer affected;
+    
+    
+    
+    
+    @JsonProperty("operation")
+    private String operation;
+    
+    
+    
+}
+
+
+/*
+    Model: Message
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Message{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("info")
+    private String info;
+    
+    
+    
+    
+    @JsonProperty("operation")
+    private String operation;
     
     
     
@@ -5707,37 +5216,6 @@ public static class OtpConfigurationExpiry{
 
 
 /*
-    Model: OtpConfigRateLimit
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OtpConfigRateLimit{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("duration")
-    private Double duration;
-    
-    
-    
-    
-    @JsonProperty("limit")
-    private Double limit;
-    
-    
-    
-}
-
-
-/*
     Model: OtpConfiguration
 */
 @AllArgsConstructor
@@ -5768,12 +5246,6 @@ public static class OtpConfiguration{
     
     @JsonProperty("expiry")
     private OtpConfigurationExpiry expiry;
-    
-    
-    
-    
-    @JsonProperty("rate_limit")
-    private OtpConfigRateLimit rateLimit;
     
     
     
