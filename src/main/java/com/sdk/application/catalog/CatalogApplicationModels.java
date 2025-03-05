@@ -1306,6 +1306,12 @@ public static class ProductDetail{
     
     
     
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
 }
 
 
@@ -3006,6 +3012,12 @@ public static class ProductListingDetail{
     
     
     
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
 }
 
 
@@ -3328,6 +3340,12 @@ public static class BrandItem{
     
     @JsonProperty("logo")
     private Media logo;
+    
+    
+    
+    
+    @JsonProperty("seo")
+    private ApplicationItemSEO seo;
     
     
     
@@ -4419,6 +4437,12 @@ public static class GetCollectionDetailNest{
     
     
     
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
 }
 
 
@@ -4613,6 +4637,12 @@ public static class CollectionDetailResponseSchema{
     
     @JsonProperty("_schedule")
     private HashMap<String,Object> schedule;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     

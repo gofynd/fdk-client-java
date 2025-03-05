@@ -221,6 +221,12 @@ public static class SEOSitemap{
     
     
     
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
     @JsonProperty("priority")
     private Double priority;
     

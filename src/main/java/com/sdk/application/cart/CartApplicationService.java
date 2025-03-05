@@ -574,15 +574,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.Promotions getPromotions(Integer pageSize, Integer pageNo, String promotionType) throws IOException {
-        return this.getPromotions(pageSize, pageNo, promotionType, new HashMap<>());
+    public CartApplicationModels.Promotions getPromotions(Integer pageSize, Integer pageNo, String promotionType, Boolean isBankOffer) throws IOException {
+        return this.getPromotions(pageSize, pageNo, promotionType, isBankOffer, new HashMap<>());
     }
 
-    public CartApplicationModels.Promotions getPromotions(Integer pageSize, Integer pageNo, String promotionType, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.Promotions getPromotions(Integer pageSize, Integer pageNo, String promotionType, Boolean isBankOffer, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getPromotions");
 
-        Response<CartApplicationModels.Promotions> response = cartApplicationApiList.getPromotions(fullUrl, pageSize, pageNo, promotionType, requestHeaders).execute();
+        Response<CartApplicationModels.Promotions> response = cartApplicationApiList.getPromotions(fullUrl, pageSize, pageNo, promotionType, isBankOffer, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

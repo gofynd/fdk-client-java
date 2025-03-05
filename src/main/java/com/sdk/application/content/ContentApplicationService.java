@@ -40,7 +40,7 @@ import com.sdk.application.*;
         relativeUrls.put("getFaqsByCategorySlug","/service/application/content/v1.0/faq/category/{slug}/faqs".substring(1));
         relativeUrls.put("getLandingPage","/service/application/content/v1.0/landing-page".substring(1));
         relativeUrls.put("getLegalInformation","/service/application/content/v1.0/legal".substring(1));
-        relativeUrls.put("getNavigations","/service/application/content/v1.0/navigations".substring(1));
+        relativeUrls.put("getNavigations","/service/application/content/v2.0/navigations".substring(1));
         relativeUrls.put("getSEOConfiguration","/service/application/content/v1.0/seo".substring(1));
         relativeUrls.put("getSEOMarkupSchemas","/service/application/content/v1.0/seo/schema".substring(1));
         relativeUrls.put("getDefaultSitemapConfig","/service/application/content/v1.0/seo/sitemap/default".substring(1));

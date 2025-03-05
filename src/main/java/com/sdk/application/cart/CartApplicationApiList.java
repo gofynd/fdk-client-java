@@ -94,5 +94,5 @@ interface CartApplicationApiList {
     Call<CartApplicationModels.CartCheckoutResult> checkoutCartV2(@Url String url1, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Body CartApplicationModels.CartCheckoutDetailV2Creation payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CartApplicationModels.Promotions> getPromotions(@Url String url1, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @Query("promotion_type") String promotionType, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.Promotions> getPromotions(@Url String url1, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @Query("promotion_type") String promotionType, @Query("is_bank_offer") Boolean isBankOffer, @HeaderMap Map<String, String> requestHeaders);
 }
