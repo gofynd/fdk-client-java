@@ -14,7 +14,7 @@ public class ConfigurationPublicModels{
 
 
 /*
-    Model: ApplicationResponseSchema
+    Model: ApplicationResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class ConfigurationPublicModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationResponseSchema{
+public static class ApplicationResponse{
 
     
 
@@ -468,7 +468,7 @@ public static class NotFound{
 
 
 /*
-    Model: BadRequestSchema
+    Model: BadRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -476,7 +476,7 @@ public static class NotFound{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BadRequestSchema{
+public static class BadRequest{
 
     
 
