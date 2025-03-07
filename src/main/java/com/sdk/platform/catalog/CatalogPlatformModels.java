@@ -15861,6 +15861,11 @@ public static class ProductSchemaV2{
     
     
     
+    @JsonProperty("article-type")
+    private String articleType;
+    
+    
+    
 }
 
 

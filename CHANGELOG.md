@@ -1,3 +1,5 @@
+# CHANGE LOG (1.4.15-beta.9) - 1.9.4
+
 # CHANGE LOG (1.4.15-beta.8) - 1.9.4
 
 ## Application Client
