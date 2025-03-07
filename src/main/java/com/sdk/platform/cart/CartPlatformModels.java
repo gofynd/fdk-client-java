@@ -5327,6 +5327,12 @@ public static class AppliedPromotion{
     
     
     
+    @JsonProperty("offer_label")
+    private String offerLabel;
+    
+    
+    
+    
     @JsonProperty("amount")
     private Double amount;
     

@@ -36,10 +36,13 @@ class FileStorage {
         AwsApiList awsApiList = generateAwsApiList();
         if (StringUtils.isNotEmpty(fileName) && StringUtils.isNotEmpty(contentType)
                 && StringUtils.isNotEmpty(namespace)) {
-            FileStorageApplicationModels.FileUploadStart startRequest = new FileStorageApplicationModels.FileUploadStart(fileName, contentType,
-                    size, List.of(), params);
+            FileStorageApplicationModels.FileUploadStart startRequest = 
+                new FileStorageApplicationModels.FileUploadStart(
+                    fileName, contentType, size, List.of(), params
+                );
             try {
-                FileStorageApplicationModels.FileUpload startResponse = fileStorageApplicationService.startUpload(namespace, startRequest);
+                FileStorageApplicationModels.FileUpload startResponse = 
+                    fileStorageApplicationService.startUpload(namespace, startRequest);
                 String uploadUrl = startResponse.getUpload().getUrl();
                 if (StringUtils.isNotEmpty(uploadUrl) && Objects.nonNull(file)) {
                     String contentTypeFromResponse = StringUtils.isNotEmpty(startResponse.getContentType())
@@ -57,8 +60,10 @@ class FileStorage {
     }
 
     private AwsApiList generateAwsApiList() {
-        return retrofitServiceFactory.createService(fileStorageApplicationService.getApplicationConfig().getDomain(),
-                AwsApiList.class, List.of());
+        return retrofitServiceFactory.createService(
+            fileStorageApplicationService.getApplicationConfig().getDomain(),
+            AwsApiList.class, List.of()
+        );
     }
 
     interface AwsApiList {

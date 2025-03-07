@@ -251,6 +251,12 @@ public static class AppliedPromotion{
     
     
     
+    @JsonProperty("offer_label")
+    private String offerLabel;
+    
+    
+    
+    
     @JsonProperty("promotion_group")
     private String promotionGroup;
     
