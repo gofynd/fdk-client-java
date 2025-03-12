@@ -2086,6 +2086,12 @@ public static class OrderSchema{
     
     
     
+    
+    @JsonProperty("custom_json")
+    private Object customJson;
+    
+    
+    
 }
 
 

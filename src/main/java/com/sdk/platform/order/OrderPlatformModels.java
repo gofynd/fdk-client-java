@@ -3756,6 +3756,12 @@ public static class CreateOrderAPI{
     
     
     
+    
+    @JsonProperty("custom_json")
+    private Object customJson;
+    
+    
+    
 }
 
 

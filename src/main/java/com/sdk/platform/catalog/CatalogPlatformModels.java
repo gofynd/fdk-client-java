@@ -15515,7 +15515,7 @@ public static class ProductSchemaV2{
     
     
     @JsonProperty("attributes")
-    private Object attributes;
+    private HashMap<String,Object> attributes;
     
     
     
