@@ -48,13 +48,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.GetCompanyProfileSerializerResponse cbsOnboardGet() throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.GetCompanyProfileSerializerResponseSchema cbsOnboardGet() throws FDKServerResponseError, FDKException {
         return this.cbsOnboardGet(new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.GetCompanyProfileSerializerResponse cbsOnboardGet(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.GetCompanyProfileSerializerResponseSchema cbsOnboardGet(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CompanyProfilePlatformModels.GetCompanyProfileSerializerResponse> response = null;
+            Response<CompanyProfilePlatformModels.GetCompanyProfileSerializerResponseSchema> response = null;
             try {
                 response = companyprofilePlatformApiList.cbsOnboardGet(this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -88,13 +88,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse updateCompany(CompanyProfilePlatformModels.UpdateCompany body) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema updateCompany(CompanyProfilePlatformModels.UpdateCompany body) throws FDKServerResponseError, FDKException {
         return this.updateCompany(body, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse updateCompany(CompanyProfilePlatformModels.UpdateCompany body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema updateCompany(CompanyProfilePlatformModels.UpdateCompany body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
+            Response<CompanyProfilePlatformModels.ProfileSuccessResponseSchema> response = null;
             try {
                 response = companyprofilePlatformApiList.updateCompany(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -128,13 +128,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.MetricsSerializer getCompanyMetrics() throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.MetricsSchema getCompanyMetrics() throws FDKServerResponseError, FDKException {
         return this.getCompanyMetrics(new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.MetricsSerializer getCompanyMetrics(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.MetricsSchema getCompanyMetrics(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CompanyProfilePlatformModels.MetricsSerializer> response = null;
+            Response<CompanyProfilePlatformModels.MetricsSchema> response = null;
             try {
                 response = companyprofilePlatformApiList.getCompanyMetrics(this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -172,13 +172,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.GetBrandResponseSerializer getBrand(String brandId) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.GetBrandResponseSchema getBrand(String brandId) throws FDKServerResponseError, FDKException {
         return this.getBrand(brandId, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.GetBrandResponseSerializer getBrand(String brandId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.GetBrandResponseSchema getBrand(String brandId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CompanyProfilePlatformModels.GetBrandResponseSerializer> response = null;
+            Response<CompanyProfilePlatformModels.GetBrandResponseSchema> response = null;
             try {
                 response = companyprofilePlatformApiList.getBrand(this.companyId, brandId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -216,13 +216,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse editBrand(String brandId, CompanyProfilePlatformModels.UpdateBrandRequestSerializer body) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema editBrand(String brandId, CompanyProfilePlatformModels.UpdateBrandRequestSchema body) throws FDKServerResponseError, FDKException {
         return this.editBrand(brandId, body, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse editBrand(String brandId, CompanyProfilePlatformModels.UpdateBrandRequestSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema editBrand(String brandId, CompanyProfilePlatformModels.UpdateBrandRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
+            Response<CompanyProfilePlatformModels.ProfileSuccessResponseSchema> response = null;
             try {
                 response = companyprofilePlatformApiList.editBrand(this.companyId, brandId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -256,13 +256,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createBrand(CompanyProfilePlatformModels.CreateBrandRequestSerializer body) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema createBrand(CompanyProfilePlatformModels.CreateBrandRequestSchema body) throws FDKServerResponseError, FDKException {
         return this.createBrand(body, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createBrand(CompanyProfilePlatformModels.CreateBrandRequestSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema createBrand(CompanyProfilePlatformModels.CreateBrandRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
+            Response<CompanyProfilePlatformModels.ProfileSuccessResponseSchema> response = null;
             try {
                 response = companyprofilePlatformApiList.createBrand(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -308,13 +308,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.CompanyBrandListSerializer getBrands(Integer pageNo, Integer pageSize, String q) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.CompanyBrandListSchema getBrands(Integer pageNo, Integer pageSize, String q) throws FDKServerResponseError, FDKException {
         return this.getBrands(pageNo, pageSize, q, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.CompanyBrandListSerializer getBrands(Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.CompanyBrandListSchema getBrands(Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CompanyProfilePlatformModels.CompanyBrandListSerializer> response = null;
+            Response<CompanyProfilePlatformModels.CompanyBrandListSchema> response = null;
             try {
                 response = companyprofilePlatformApiList.getBrands(this.companyId, pageNo, pageSize, q, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -368,7 +368,7 @@ public class CompanyProfilePlatformService {
     * Summary: get paginator for getBrands
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CompanyProfilePlatformModels.CompanyBrandListSerializer> getBrandsPagination(
+    public Paginator<CompanyProfilePlatformModels.CompanyBrandListSchema> getBrandsPagination(
         Integer pageSize ,
         String q 
         
@@ -376,11 +376,11 @@ public class CompanyProfilePlatformService {
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CompanyProfilePlatformModels.CompanyBrandListSerializer> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CompanyProfilePlatformModels.CompanyBrandListSchema> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            CompanyProfilePlatformModels.CompanyBrandListSerializer callback = this.getBrands(
+            CompanyProfilePlatformModels.CompanyBrandListSchema callback = this.getBrands(
                 
                  
                  paginator.getPageNo()
@@ -412,13 +412,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createCompanyBrandMapping(CompanyProfilePlatformModels.CompanyBrandPostRequestSerializer body) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema createCompanyBrandMapping(CompanyProfilePlatformModels.CompanyBrandPostRequestSchema body) throws FDKServerResponseError, FDKException {
         return this.createCompanyBrandMapping(body, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createCompanyBrandMapping(CompanyProfilePlatformModels.CompanyBrandPostRequestSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema createCompanyBrandMapping(CompanyProfilePlatformModels.CompanyBrandPostRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
+            Response<CompanyProfilePlatformModels.ProfileSuccessResponseSchema> response = null;
             try {
                 response = companyprofilePlatformApiList.createCompanyBrandMapping(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -484,13 +484,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.LocationListSerializer getLocations(String storeType, String q, String stage, Integer pageNo, Integer pageSize, List<Integer> locationIds, List<String> types, List<String> tags) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.LocationListSchema getLocations(String storeType, String q, String stage, Integer pageNo, Integer pageSize, List<Integer> locationIds, List<String> types, List<String> tags) throws FDKServerResponseError, FDKException {
         return this.getLocations(storeType, q, stage, pageNo, pageSize, locationIds, types, tags, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.LocationListSerializer getLocations(String storeType, String q, String stage, Integer pageNo, Integer pageSize, List<Integer> locationIds, List<String> types, List<String> tags, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.LocationListSchema getLocations(String storeType, String q, String stage, Integer pageNo, Integer pageSize, List<Integer> locationIds, List<String> types, List<String> tags, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CompanyProfilePlatformModels.LocationListSerializer> response = null;
+            Response<CompanyProfilePlatformModels.LocationListSchema> response = null;
             try {
                 response = companyprofilePlatformApiList.getLocations(this.companyId, storeType, q, stage, pageNo, pageSize, locationIds, types, tags, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -574,7 +574,7 @@ public class CompanyProfilePlatformService {
     * Summary: get paginator for getLocations
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CompanyProfilePlatformModels.LocationListSerializer> getLocationsPagination(
+    public Paginator<CompanyProfilePlatformModels.LocationListSchema> getLocationsPagination(
         String storeType ,
         String q ,
         String stage ,
@@ -587,11 +587,11 @@ public class CompanyProfilePlatformService {
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CompanyProfilePlatformModels.LocationListSerializer> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CompanyProfilePlatformModels.LocationListSchema> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            CompanyProfilePlatformModels.LocationListSerializer callback = this.getLocations(
+            CompanyProfilePlatformModels.LocationListSchema callback = this.getLocations(
                 
                  
                  storeType,
@@ -628,13 +628,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createLocation(CompanyProfilePlatformModels.LocationSerializer body) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema createLocation(CompanyProfilePlatformModels.LocationSchema body) throws FDKServerResponseError, FDKException {
         return this.createLocation(body, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createLocation(CompanyProfilePlatformModels.LocationSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema createLocation(CompanyProfilePlatformModels.LocationSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
+            Response<CompanyProfilePlatformModels.ProfileSuccessResponseSchema> response = null;
             try {
                 response = companyprofilePlatformApiList.createLocation(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -672,13 +672,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.GetLocationSerializer getLocationDetail(String locationId) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.GetLocationSchema getLocationDetail(String locationId) throws FDKServerResponseError, FDKException {
         return this.getLocationDetail(locationId, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.GetLocationSerializer getLocationDetail(String locationId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.GetLocationSchema getLocationDetail(String locationId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CompanyProfilePlatformModels.GetLocationSerializer> response = null;
+            Response<CompanyProfilePlatformModels.GetLocationSchema> response = null;
             try {
                 response = companyprofilePlatformApiList.getLocationDetail(this.companyId, locationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -716,13 +716,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse updateLocation(String locationId, CompanyProfilePlatformModels.LocationSerializer body) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema updateLocation(String locationId, CompanyProfilePlatformModels.LocationSchema body) throws FDKServerResponseError, FDKException {
         return this.updateLocation(locationId, body, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse updateLocation(String locationId, CompanyProfilePlatformModels.LocationSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema updateLocation(String locationId, CompanyProfilePlatformModels.LocationSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
+            Response<CompanyProfilePlatformModels.ProfileSuccessResponseSchema> response = null;
             try {
                 response = companyprofilePlatformApiList.updateLocation(this.companyId, locationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -756,13 +756,13 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createLocationBulk(CompanyProfilePlatformModels.BulkLocationSerializer body) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema createLocationBulk(CompanyProfilePlatformModels.BulkLocationSchema body) throws FDKServerResponseError, FDKException {
         return this.createLocationBulk(body, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponse createLocationBulk(CompanyProfilePlatformModels.BulkLocationSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema createLocationBulk(CompanyProfilePlatformModels.BulkLocationSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CompanyProfilePlatformModels.ProfileSuccessResponse> response = null;
+            Response<CompanyProfilePlatformModels.ProfileSuccessResponseSchema> response = null;
             try {
                 response = companyprofilePlatformApiList.createLocationBulk(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {

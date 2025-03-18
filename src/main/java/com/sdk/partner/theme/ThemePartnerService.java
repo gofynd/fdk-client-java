@@ -388,13 +388,13 @@ public class ThemePartnerService {
     
     
 
-    public ThemePartnerModels.DraftExtensionSectionResponse createExtensionSectionDraft(String extensionId, ThemePartnerModels.DraftExtensionSectionRequest body) throws FDKServerResponseError, FDKException {
+    public ThemePartnerModels.ExtensionSectionDraft createExtensionSectionDraft(String extensionId, ThemePartnerModels.DraftExtensionSection body) throws FDKServerResponseError, FDKException {
         return this.createExtensionSectionDraft(extensionId, body, new HashMap<>());
     }
 
-    public ThemePartnerModels.DraftExtensionSectionResponse createExtensionSectionDraft(String extensionId, ThemePartnerModels.DraftExtensionSectionRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ThemePartnerModels.ExtensionSectionDraft createExtensionSectionDraft(String extensionId, ThemePartnerModels.DraftExtensionSection body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<ThemePartnerModels.DraftExtensionSectionResponse> response = null;
+            Response<ThemePartnerModels.ExtensionSectionDraft> response = null;
             try {
                 response = themePartnerApiList.createExtensionSectionDraft(this.organizationId, extensionId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -432,13 +432,13 @@ public class ThemePartnerService {
     
     
 
-    public ThemePartnerModels.PublishExtensionSectionResponse publishExtensionSections(String extensionId, ThemePartnerModels.PublishExtensionSectionRequest body) throws FDKServerResponseError, FDKException {
+    public ThemePartnerModels.ExtensionSectionPublish publishExtensionSections(String extensionId, ThemePartnerModels.PublishExtensionSection body) throws FDKServerResponseError, FDKException {
         return this.publishExtensionSections(extensionId, body, new HashMap<>());
     }
 
-    public ThemePartnerModels.PublishExtensionSectionResponse publishExtensionSections(String extensionId, ThemePartnerModels.PublishExtensionSectionRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ThemePartnerModels.ExtensionSectionPublish publishExtensionSections(String extensionId, ThemePartnerModels.PublishExtensionSection body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<ThemePartnerModels.PublishExtensionSectionResponse> response = null;
+            Response<ThemePartnerModels.ExtensionSectionPublish> response = null;
             try {
                 response = themePartnerApiList.publishExtensionSections(this.organizationId, extensionId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -476,13 +476,13 @@ public class ThemePartnerService {
     
     
 
-    public ThemePartnerModels.ExtensionPreviewResponse applyExtensionPreview(String extensionSectionId, ThemePartnerModels.ExtensionPreviewRequest body) throws FDKServerResponseError, FDKException {
+    public ThemePartnerModels.ExtensionPreview applyExtensionPreview(String extensionSectionId, ThemePartnerModels.PreviewExtension body) throws FDKServerResponseError, FDKException {
         return this.applyExtensionPreview(extensionSectionId, body, new HashMap<>());
     }
 
-    public ThemePartnerModels.ExtensionPreviewResponse applyExtensionPreview(String extensionSectionId, ThemePartnerModels.ExtensionPreviewRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ThemePartnerModels.ExtensionPreview applyExtensionPreview(String extensionSectionId, ThemePartnerModels.PreviewExtension body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<ThemePartnerModels.ExtensionPreviewResponse> response = null;
+            Response<ThemePartnerModels.ExtensionPreview> response = null;
             try {
                 response = themePartnerApiList.applyExtensionPreview(this.organizationId, extensionSectionId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -520,13 +520,13 @@ public class ThemePartnerService {
     
     
 
-    public ThemePartnerModels.ExtensionPreviewResponse removeExtensionPreview(String extensionSectionId, ThemePartnerModels.ExtensionPreviewRequest body) throws FDKServerResponseError, FDKException {
+    public ThemePartnerModels.ExtensionPreview removeExtensionPreview(String extensionSectionId, ThemePartnerModels.PreviewExtension body) throws FDKServerResponseError, FDKException {
         return this.removeExtensionPreview(extensionSectionId, body, new HashMap<>());
     }
 
-    public ThemePartnerModels.ExtensionPreviewResponse removeExtensionPreview(String extensionSectionId, ThemePartnerModels.ExtensionPreviewRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ThemePartnerModels.ExtensionPreview removeExtensionPreview(String extensionSectionId, ThemePartnerModels.PreviewExtension body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<ThemePartnerModels.ExtensionPreviewResponse> response = null;
+            Response<ThemePartnerModels.ExtensionPreview> response = null;
             try {
                 response = themePartnerApiList.removeExtensionPreview(this.organizationId, extensionSectionId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {

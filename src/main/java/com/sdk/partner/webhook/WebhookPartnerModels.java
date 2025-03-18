@@ -14,7 +14,7 @@ public class WebhookPartnerModels{
 
 
 /*
-    Model: UpdateSubscriberRequest
+    Model: SubscriberUpdate
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class WebhookPartnerModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateSubscriberRequest{
+public static class SubscriberUpdate{
 
     
 
@@ -39,7 +39,7 @@ public static class UpdateSubscriberRequest{
 
 
 /*
-    Model: UpdateSubscriberResponse
+    Model: SubscriberUpdateResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -47,7 +47,7 @@ public static class UpdateSubscriberRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateSubscriberResponse{
+public static class SubscriberUpdateResult{
 
     
 
@@ -138,6 +138,61 @@ public static class AuthMeta{
 
 
 /*
+    Model: BroadcasterConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BroadcasterConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("topic")
+    private String topic;
+    
+    
+    
+    
+    @JsonProperty("queue")
+    private String queue;
+    
+    
+    
+    
+    @JsonProperty("event_bridge_name")
+    private String eventBridgeName;
+    
+    
+    
+    
+    @JsonProperty("workflow_name")
+    private String workflowName;
+    
+    
+    
+    
+    @JsonProperty("account_id")
+    private String accountId;
+    
+    
+    
+    
+    @JsonProperty("detail_type")
+    private String detailType;
+    
+    
+    
+}
+
+
+/*
     Model: SubscriberEventMapping
 */
 @AllArgsConstructor
@@ -172,8 +227,8 @@ public static class SubscriberEventMapping{
     
     
     
-    @JsonProperty("topic")
-    private String topic;
+    @JsonProperty("broadcaster_config")
+    private BroadcasterConfig broadcasterConfig;
     
     
     
@@ -187,7 +242,7 @@ public static class SubscriberEventMapping{
 
 
 /*
-    Model: EventConfigResponse
+    Model: EventConfigDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -195,7 +250,7 @@ public static class SubscriberEventMapping{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventConfigResponse{
+public static class EventConfigDetails{
 
     
 
@@ -278,7 +333,7 @@ public static class EventConfigResponse{
 
 
 /*
-    Model: SubscriberConfigResponse
+    Model: SubscriberConfigDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -286,7 +341,7 @@ public static class EventConfigResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriberConfigResponse{
+public static class SubscriberConfigDetails{
 
     
 
@@ -309,7 +364,7 @@ public static class SubscriberConfigResponse{
 
 
 /*
-    Model: InvalidEventsRequest
+    Model: InvalidEventsPayload
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -317,7 +372,7 @@ public static class SubscriberConfigResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvalidEventsRequest{
+public static class InvalidEventsPayload{
 
     
 
@@ -358,7 +413,7 @@ public static class InvalidEventsRequest{
 
 
 /*
-    Model: InvalidEventsResponse
+    Model: InvalidEventsResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -366,7 +421,7 @@ public static class InvalidEventsRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvalidEventsResponse{
+public static class InvalidEventsResult{
 
     
 
@@ -653,7 +708,7 @@ public static class HistoryItems{
 
 
 /*
-    Model: HistoryResponse
+    Model: HistoryResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -661,7 +716,7 @@ public static class HistoryItems{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class HistoryResponse{
+public static class HistoryResult{
 
     
 
@@ -727,7 +782,7 @@ public static class HistoryPayload{
 
 
 /*
-    Model: CancelDownloadResponse
+    Model: CancelDownloadResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -735,7 +790,7 @@ public static class HistoryPayload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CancelDownloadResponse{
+public static class CancelDownloadResult{
 
     
 
@@ -758,7 +813,7 @@ public static class CancelDownloadResponse{
 
 
 /*
-    Model: FilterReportResponse
+    Model: FilterReportResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -766,7 +821,7 @@ public static class CancelDownloadResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FilterReportResponse{
+public static class FilterReportResult{
 
     
 
@@ -789,7 +844,7 @@ public static class FilterReportResponse{
 
 
 /*
-    Model: DeliveryTsResponse
+    Model: DeliveryTsResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -797,7 +852,7 @@ public static class FilterReportResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeliveryTsResponse{
+public static class DeliveryTsResult{
 
     
 
@@ -857,7 +912,7 @@ public static class DeliveryTsSchema{
 
 
 /*
-    Model: DeliveryDetailsRequest
+    Model: DeliveryDetailsPayload
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -865,7 +920,7 @@ public static class DeliveryTsSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeliveryDetailsRequest{
+public static class DeliveryDetailsPayload{
 
     
 
@@ -961,7 +1016,7 @@ public static class EventDeliveryDetailSchema{
 
 
 /*
-    Model: DeliveryDetailsResponse
+    Model: DeliveryDetailsResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -969,7 +1024,7 @@ public static class EventDeliveryDetailSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeliveryDetailsResponse{
+public static class DeliveryDetailsResult{
 
     
 
@@ -1205,7 +1260,7 @@ public static class DeliveryEventLevelSchema{
 
 
 /*
-    Model: DeliverySummaryResponse
+    Model: ResponseTimeTs
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1213,7 +1268,81 @@ public static class DeliveryEventLevelSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeliverySummaryResponse{
+public static class ResponseTimeTs{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("avg_response_time_ts")
+    private List<AvgResponseTime> avgResponseTimeTs;
+    
+    
+    
+}
+
+
+/*
+    Model: AvgResponseTime
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AvgResponseTime{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("last_attempted_on")
+    private String lastAttemptedOn;
+    
+    
+    
+    
+    @JsonProperty("response_code")
+    private Double responseCode;
+    
+    
+    
+    
+    @JsonProperty("response_time")
+    private String responseTime;
+    
+    
+    
+    
+    @JsonProperty("attempt")
+    private Double attempt;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Double total;
+    
+    
+    
+}
+
+
+/*
+    Model: DeliverySummaryResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeliverySummaryResult{
 
     
 
@@ -1332,7 +1461,7 @@ public static class ItemSchema{
     
     
     @JsonProperty("custom_headers")
-    private Object customHeaders;
+    private HashMap<String,Object> customHeaders;
     
     
     
@@ -1374,7 +1503,7 @@ public static class ItemSchema{
     
     
     @JsonProperty("event_configs")
-    private List<EventConfigResponse> eventConfigs;
+    private List<EventConfigDetails> eventConfigs;
     
     
     

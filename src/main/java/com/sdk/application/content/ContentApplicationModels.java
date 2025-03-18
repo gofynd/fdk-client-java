@@ -143,6 +143,37 @@ public static class SeoComponent{
 
 
 /*
+    Model: ValidationError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidationError{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("field")
+    private String field;
+    
+    
+    
+}
+
+
+/*
     Model: SeoSchema
 */
 @AllArgsConstructor
@@ -173,18 +204,6 @@ public static class SeoSchema{
     
     @JsonProperty("robots_txt")
     private String robotsTxt;
-    
-    
-    
-    
-    @JsonProperty("sitemap_enabled")
-    private Boolean sitemapEnabled;
-    
-    
-    
-    
-    @JsonProperty("additonal_sitemap")
-    private String additonalSitemap;
     
     
     
@@ -536,7 +555,7 @@ public static class ScheduleStartSchema{
 
 
 /*
-    Model: BlogGetResponse
+    Model: BlogGetDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -544,7 +563,7 @@ public static class ScheduleStartSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BlogGetResponse{
+public static class BlogGetDetails{
 
     
 
@@ -726,7 +745,7 @@ public static class BlogSchema{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -1021,6 +1040,190 @@ public static class SEObreadcrumb{
     
     @JsonProperty("action")
     private Action action;
+    
+    
+    
+}
+
+
+/*
+    Model: SitemapConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SitemapConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("sitemap")
+    private String sitemap;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+}
+
+
+/*
+    Model: SitemapConfigurationList
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SitemapConfigurationList{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<SitemapConfig> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: DefaultSitemapIndividualConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DefaultSitemapIndividualConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+}
+
+
+/*
+    Model: DefaultSitemapConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DefaultSitemapConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("root")
+    private DefaultSitemapIndividualConfig root;
+    
+    
+    
+    
+    @JsonProperty("brand")
+    private DefaultSitemapIndividualConfig brand;
+    
+    
+    
+    
+    @JsonProperty("collections")
+    private DefaultSitemapIndividualConfig collections;
+    
+    
+    
+    
+    @JsonProperty("category_l1")
+    private DefaultSitemapIndividualConfig categoryL1;
+    
+    
+    
+    
+    @JsonProperty("category_l2")
+    private DefaultSitemapIndividualConfig categoryL2;
+    
+    
+    
+    
+    @JsonProperty("category_l3")
+    private DefaultSitemapIndividualConfig categoryL3;
+    
+    
+    
+    
+    @JsonProperty("pages")
+    private DefaultSitemapIndividualConfig pages;
+    
+    
+    
+    
+    @JsonProperty("blog")
+    private DefaultSitemapIndividualConfig blog;
+    
+    
+    
+    
+    @JsonProperty("section")
+    private DefaultSitemapIndividualConfig section;
+    
+    
+    
+    
+    @JsonProperty("faq")
+    private DefaultSitemapIndividualConfig faq;
+    
+    
+    
+    
+    @JsonProperty("sitemap")
+    private DefaultSitemapIndividualConfig sitemap;
     
     
     
@@ -1695,7 +1898,7 @@ public static class ContentAPIError{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -1793,7 +1996,7 @@ public static class CategorySchema{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -1915,7 +2118,7 @@ public static class FAQCategorySchema{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -2179,7 +2382,7 @@ public static class LandingPageSchema{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -2187,7 +2390,7 @@ public static class LandingPageSchema{
 
 
 /*
-    Model: NavigationGetResponse
+    Model: NavigationGetDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2195,7 +2398,7 @@ public static class LandingPageSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NavigationGetResponse{
+public static class NavigationGetDetails{
 
     
 
@@ -2334,7 +2537,7 @@ public static class NavigationSchema{
 
 
 /*
-    Model: PageGetResponse
+    Model: PageGetDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2342,7 +2545,7 @@ public static class NavigationSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageGetResponse{
+public static class PageGetDetails{
 
     
 
@@ -2448,7 +2651,7 @@ public static class PageSchema{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -2502,7 +2705,7 @@ public static class PageSchema{
     
     
     @JsonProperty("visibility")
-    private Object visibility;
+    private HashMap<String,Object> visibility;
     
     
     
@@ -2541,7 +2744,7 @@ public static class CreatedBySchema{
 
 
 /*
-    Model: SlideshowGetResponse
+    Model: SlideshowGetDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2549,7 +2752,7 @@ public static class CreatedBySchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SlideshowGetResponse{
+public static class SlideshowGetDetails{
 
     
 
@@ -2643,7 +2846,7 @@ public static class SlideshowSchema{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -2963,7 +3166,7 @@ public static class TagSchema{
     
     
     @JsonProperty("attributes")
-    private Object attributes;
+    private HashMap<String,Object> attributes;
     
     
     
@@ -3104,8 +3307,8 @@ public static class CustomObjectFieldSchema{
     
     
     
-    @JsonProperty("key")
-    private String key;
+    @JsonProperty("slug")
+    private String slug;
     
     
     
@@ -3147,7 +3350,7 @@ public static class CustomObjectByIdSchema{
     
     
     
-    @JsonProperty("_id")
+    @JsonProperty("id")
     private String id;
     
     
@@ -3239,20 +3442,14 @@ public static class CustomFieldSchema{
     
     
     
-    @JsonProperty("key")
-    private String key;
+    @JsonProperty("slug")
+    private String slug;
     
     
     
     
     @JsonProperty("resource")
     private String resource;
-    
-    
-    
-    
-    @JsonProperty("creator")
-    private String creator;
     
     
     
@@ -3311,12 +3508,6 @@ public static class CustomFieldSchema{
     
     
     
-    @JsonProperty("created_by")
-    private String createdBy;
-    
-    
-    
-    
     @JsonProperty("is_deleted")
     private Boolean isDeleted;
     
@@ -3356,6 +3547,98 @@ public static class CustomFieldsResponseByResourceIdSchema{
     
     @JsonProperty("items")
     private List<CustomFieldSchema> items;
+    
+    
+    
+}
+
+
+/*
+    Model: CustomObjectListItemSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CustomObjectListItemSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("definition_id")
+    private String definitionId;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("definition")
+    private CustomObjectListItemDefinationSchema definition;
+    
+    
+    
+    
+    @JsonProperty("references")
+    private Integer references;
+    
+    
+    
+}
+
+
+/*
+    Model: CustomObjectsSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CustomObjectsSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<CustomObjectListItemSchema> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
