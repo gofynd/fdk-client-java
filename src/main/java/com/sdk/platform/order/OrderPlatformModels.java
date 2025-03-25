@@ -3856,6 +3856,12 @@ public static class OrderDetails{
     
     
     
+    @JsonProperty("ordering_source")
+    private String orderingSource;
+    
+    
+    
+    
     @JsonProperty("meta")
     private HashMap<String,Object> meta;
     
@@ -10224,6 +10230,12 @@ public static class TransitionConfigCondition{
     
     
     
+    @JsonProperty("ordering_source")
+    private String orderingSource;
+    
+    
+    
+    
     @JsonProperty("entity")
     private String entity;
     
@@ -14119,6 +14131,12 @@ public static class ShipmentItem{
     
     
     
+    @JsonProperty("ordering_source")
+    private String orderingSource;
+    
+    
+    
+    
     @JsonProperty("shipment_id")
     private String shipmentId;
     
@@ -14431,6 +14449,12 @@ public static class OrderDetailsData{
     
     @JsonProperty("ordering_channel")
     private String orderingChannel;
+    
+    
+    
+    
+    @JsonProperty("ordering_source")
+    private String orderingSource;
     
     
     
@@ -17316,6 +17340,12 @@ public static class OrderData{
     
     @JsonProperty("ordering_channel")
     private String orderingChannel;
+    
+    
+    
+    
+    @JsonProperty("ordering_source")
+    private String orderingSource;
     
     
     

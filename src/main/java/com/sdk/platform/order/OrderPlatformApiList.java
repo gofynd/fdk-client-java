@@ -58,7 +58,7 @@ interface OrderPlatformApiList {
     Call<OrderPlatformModels.BagStateTransitionMap> getStateTransitionMap(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/allowed/state/transition")
-    Call<OrderPlatformModels.RoleBaseStateTransitionMapping> getAllowedStateTransition(@Path("company_id") String companyId, @Query("ordering_channel") String orderingChannel, @Query("status") String status, @HeaderMap Map<String, String> requestHeaders);
+    Call<OrderPlatformModels.RoleBaseStateTransitionMapping> getAllowedStateTransition(@Path("company_id") String companyId, @Query("ordering_channel") String orderingChannel, @Query("ordering_source") String orderingSource, @Query("status") String status, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/refund-mode-config")
     Call<OrderPlatformModels.RefundModeConfigResponsePayload> fetchRefundModeConfig(@Path("company_id") String companyId, @Body OrderPlatformModels.RefundModeConfigRequestPayload payload, @HeaderMap Map<String, String> requestHeaders);
@@ -130,7 +130,7 @@ interface OrderPlatformApiList {
     Call<OrderPlatformModels.ConfigUpdatedResponseSchema> addStateManagerConfig(@Path("company_id") String companyId, @Body OrderPlatformModels.TransitionConfigPayload payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/state/manager/config")
-    Call<Object> getStateManagerConfig(@Path("company_id") String companyId, @Query("app_id") String appId, @Query("ordering_channel") String orderingChannel, @Query("entity") String entity, @HeaderMap Map<String, String> requestHeaders);
+    Call<Object> getStateManagerConfig(@Path("company_id") String companyId, @Query("app_id") String appId, @Query("ordering_channel") String orderingChannel, @Query("ordering_source") String orderingSource, @Query("entity") String entity, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/application/{application_id}/rule_list")
     Call<OrderPlatformModels.RuleListResponseSchema> getRules(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body OrderPlatformModels.RuleListRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);

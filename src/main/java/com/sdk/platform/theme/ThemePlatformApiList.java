@@ -25,7 +25,7 @@ interface ThemePlatformApiList {
     Call<ThemePlatformModels.AvailablePageSchema> updatePage(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @Path("page_value") String pageValue, @Path("socket_id") String socketId, @Body ThemePlatformModels.AvailablePageSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/fonts")
-    Call<ThemePlatformModels.FontsSchema> getFonts(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+    Call<ThemePlatformModels.FontsSchema> getFonts(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("capability") String capability, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/theme/v2.0/company/{company_id}/themes")
     Call<List<ThemePlatformModels.CompanyThemeSchema>> getCompanyLevelThemes(@Path("company_id") String companyId, @Query("search_text") String searchText, @HeaderMap Map<String, String> requestHeaders);

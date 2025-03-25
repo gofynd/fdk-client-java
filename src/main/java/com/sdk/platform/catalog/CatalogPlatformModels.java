@@ -22650,7 +22650,7 @@ public static class Price1{
     
     
     @JsonProperty("currency_code")
-    private CurrencyCodeEnum currencyCode;
+    private String currencyCode;
     
     
     
@@ -22896,35 +22896,6 @@ public static class CustomMeta{
 
         private String priority;
         PageType(String priority) {
-            this.priority = priority;
-        }
-
-        @JsonValue
-        public String getPriority() {
-            return priority;
-        }
-
-    }
-
-
-    
-    /*
-        Enum: CurrencyCodeEnum
-        Used By: Catalog
-    */
-    @Getter
-    public enum CurrencyCodeEnum {
-
-        
-        inr("INR"), 
-        
-        usd("USD"), 
-        
-        eur("EUR");
-        
-
-        private String priority;
-        CurrencyCodeEnum(String priority) {
             this.priority = priority;
         }
 

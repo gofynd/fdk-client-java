@@ -11908,4 +11908,43 @@ public static class ValidationError{
 
 
 
+    
+    /*
+        Enum: OrderingSource
+        Used By: Cart
+    */
+    @Getter
+    public enum OrderingSource {
+
+        
+        storefront("storefront"), 
+        
+        storeOsPos("store_os_pos"), 
+        
+        kiosk("kiosk"), 
+        
+        scanGo("scan_go"), 
+        
+        smartTrolley("smart_trolley"), 
+        
+        marketplace("marketplace"), 
+        
+        socialCommerce("social_commerce"), 
+        
+        ondc("ondc");
+        
+
+        private String priority;
+        OrderingSource(String priority) {
+            this.priority = priority;
+        }
+
+        @JsonValue
+        public String getPriority() {
+            return priority;
+        }
+
+    }
+
+
 }

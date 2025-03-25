@@ -503,12 +503,16 @@ public class OrderPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public OrderPlatformModels.CreateOrderResponseSchema createOrder(OrderPlatformModels.CreateOrderAPI body) throws FDKServerResponseError, FDKException {
-        return this.createOrder(body, new HashMap<>());
+    public OrderPlatformModels.CreateOrderResponseSchema createOrder(String xOrderingSource, OrderPlatformModels.CreateOrderAPI body) throws FDKServerResponseError, FDKException {
+        return this.createOrder(xOrderingSource, body, new HashMap<>());
     }
 
-    public OrderPlatformModels.CreateOrderResponseSchema createOrder(OrderPlatformModels.CreateOrderAPI body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.CreateOrderResponseSchema createOrder(String xOrderingSource, OrderPlatformModels.CreateOrderAPI body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.CreateOrderResponseSchema> response = null;
             try {
@@ -751,16 +755,20 @@ public class OrderPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public OrderPlatformModels.RoleBaseStateTransitionMapping getAllowedStateTransition(String orderingChannel, String status) throws FDKServerResponseError, FDKException {
-        return this.getAllowedStateTransition(orderingChannel, status, new HashMap<>());
+    public OrderPlatformModels.RoleBaseStateTransitionMapping getAllowedStateTransition(String orderingChannel, String orderingSource, String status) throws FDKServerResponseError, FDKException {
+        return this.getAllowedStateTransition(orderingChannel, orderingSource, status, new HashMap<>());
     }
 
-    public OrderPlatformModels.RoleBaseStateTransitionMapping getAllowedStateTransition(String orderingChannel, String status, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.RoleBaseStateTransitionMapping getAllowedStateTransition(String orderingChannel, String orderingSource, String status, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.RoleBaseStateTransitionMapping> response = null;
             try {
-                response = orderPlatformApiList.getAllowedStateTransition(this.companyId, orderingChannel, status, requestHeaders).execute();
+                response = orderPlatformApiList.getAllowedStateTransition(this.companyId, orderingChannel, orderingSource, status, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1919,16 +1927,20 @@ public class OrderPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public Object getStateManagerConfig(String appId, String orderingChannel, String entity) throws FDKServerResponseError, FDKException {
-        return this.getStateManagerConfig(appId, orderingChannel, entity, new HashMap<>());
+    public Object getStateManagerConfig(String appId, String orderingChannel, String orderingSource, String entity) throws FDKServerResponseError, FDKException {
+        return this.getStateManagerConfig(appId, orderingChannel, orderingSource, entity, new HashMap<>());
     }
 
-    public Object getStateManagerConfig(String appId, String orderingChannel, String entity, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public Object getStateManagerConfig(String appId, String orderingChannel, String orderingSource, String entity, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<Object> response = null;
             try {
-                response = orderPlatformApiList.getStateManagerConfig(this.companyId, appId, orderingChannel, entity, requestHeaders).execute();
+                response = orderPlatformApiList.getStateManagerConfig(this.companyId, appId, orderingChannel, orderingSource, entity, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
