@@ -4244,11 +4244,11 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponseObject createProduct(CatalogPlatformModels.ProductCreateUpdateSchemaV2 body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponseObject createProduct(CatalogPlatformModels.ProductCreateSchemaV2 body) throws FDKServerResponseError, FDKException {
         return this.createProduct(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponseObject createProduct(CatalogPlatformModels.ProductCreateUpdateSchemaV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponseObject createProduct(CatalogPlatformModels.ProductCreateSchemaV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.SuccessResponseObject> response = null;
             try {
@@ -4440,15 +4440,15 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponseSchema deleteProduct(Integer itemId, CatalogPlatformModels.DeleteProductRequestBody body) throws FDKServerResponseError, FDKException {
-        return this.deleteProduct(itemId, body, new HashMap<>());
+    public CatalogPlatformModels.SuccessResponseSchema deleteProduct(Integer itemId) throws FDKServerResponseError, FDKException {
+        return this.deleteProduct(itemId, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponseSchema deleteProduct(Integer itemId, CatalogPlatformModels.DeleteProductRequestBody body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponseSchema deleteProduct(Integer itemId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.SuccessResponseSchema> response = null;
             try {
-                response = catalogPlatformApiList.deleteProduct(this.companyId, itemId, body, requestHeaders).execute();
+                response = catalogPlatformApiList.deleteProduct(this.companyId, itemId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -4536,11 +4536,11 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponseSchema editProduct(Integer itemId, CatalogPlatformModels.ProductCreateUpdateSchemaV2 body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponseSchema editProduct(Integer itemId, CatalogPlatformModels.ProductUpdateSchemaV2 body) throws FDKServerResponseError, FDKException {
         return this.editProduct(itemId, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponseSchema editProduct(Integer itemId, CatalogPlatformModels.ProductCreateUpdateSchemaV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponseSchema editProduct(Integer itemId, CatalogPlatformModels.ProductUpdateSchemaV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.SuccessResponseSchema> response = null;
             try {

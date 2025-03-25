@@ -391,7 +391,7 @@ interface CatalogPlatformApiList {
     Call<CatalogPlatformModels.ProductListingResponseV2> getProducts(@Path("company_id") String companyId, @Query("brand_ids") List<Integer> brandIds, @Query("category_ids") List<Integer> categoryIds, @Query("item_ids") List<Integer> itemIds, @Query("department_ids") List<Integer> departmentIds, @Query("item_code") List<String> itemCode, @Query("name") String name, @Query("slug") String slug, @Query("all_identifiers") List<String> allIdentifiers, @Query("q") String q, @Query("tags") List<String> tags, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("page_type") String pageType, @Query("sort_on") String sortOn, @Query("page_id") String pageId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/catalog/v2.0/company/{company_id}/products/")
-    Call<CatalogPlatformModels.SuccessResponseObject> createProduct(@Path("company_id") String companyId, @Body CatalogPlatformModels.ProductCreateUpdateSchemaV2 payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogPlatformModels.SuccessResponseObject> createProduct(@Path("company_id") String companyId, @Body CatalogPlatformModels.ProductCreateSchemaV2 payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/catalog/v2.0/company/{company_id}/products/bulk")
     Call<CatalogPlatformModels.BulkResponseSchema> uploadBulkProducts(@Path("company_id") String companyId, @Query("department") String department, @Query("product_type") String productType, @Body CatalogPlatformModels.BulkProductJob payload, @HeaderMap Map<String, String> requestHeaders);
@@ -403,13 +403,13 @@ interface CatalogPlatformApiList {
     Call<CatalogPlatformModels.ProductDownloadsResponseSchema> createProductExportJob(@Path("company_id") String companyId, @Body CatalogPlatformModels.ProductTemplateDownloadsExport payload, @HeaderMap Map<String, String> requestHeaders);
 
     @DELETE ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
-    Call<CatalogPlatformModels.SuccessResponseSchema> deleteProduct(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @Body CatalogPlatformModels.DeleteProductRequestBody payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogPlatformModels.SuccessResponseSchema> deleteProduct(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
     Call<CatalogPlatformModels.SingleProductResponseSchema> getProduct(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @Query("brand_uid") Integer brandUid, @Query("item_code") String itemCode, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
-    Call<CatalogPlatformModels.SuccessResponseSchema> editProduct(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @Body CatalogPlatformModels.ProductCreateUpdateSchemaV2 payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogPlatformModels.SuccessResponseSchema> editProduct(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @Body CatalogPlatformModels.ProductUpdateSchemaV2 payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/all_sizes")
     Call<CatalogPlatformModels.GetAllSizes> allSizes(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @HeaderMap Map<String, String> requestHeaders);

@@ -8397,31 +8397,6 @@ public static class TranslationSeo{
 
 
 /*
-    Model: DeletedResource
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeletedResource{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
     Model: ResourceTranslationList
 */
 @AllArgsConstructor
@@ -8693,6 +8668,37 @@ public static class StandardError{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: OperationResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OperationResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     

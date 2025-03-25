@@ -1533,16 +1533,20 @@ public class ContentPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public ContentPlatformModels.CompanyLanguage updateCompanyLanguageDefault(ContentPlatformModels.CompanyLanguageUpdate body) throws FDKServerResponseError, FDKException {
-        return this.updateCompanyLanguageDefault(body, new HashMap<>());
+    public ContentPlatformModels.CompanyLanguage updateCompanyLanguageDefault(String locale, ContentPlatformModels.CompanyLanguageUpdate body) throws FDKServerResponseError, FDKException {
+        return this.updateCompanyLanguageDefault(locale, body, new HashMap<>());
     }
 
-    public ContentPlatformModels.CompanyLanguage updateCompanyLanguageDefault(ContentPlatformModels.CompanyLanguageUpdate body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CompanyLanguage updateCompanyLanguageDefault(String locale, ContentPlatformModels.CompanyLanguageUpdate body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CompanyLanguage> response = null;
             try {
-                response = contentPlatformApiList.updateCompanyLanguageDefault(this.companyId, body, requestHeaders).execute();
+                response = contentPlatformApiList.updateCompanyLanguageDefault(this.companyId, locale, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1578,13 +1582,13 @@ public class ContentPlatformService {
     
     
 
-    public Object deleteCompanyLanguage(String locale) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.OperationResponseSchema deleteCompanyLanguage(String locale) throws FDKServerResponseError, FDKException {
         return this.deleteCompanyLanguage(locale, new HashMap<>());
     }
 
-    public Object deleteCompanyLanguage(String locale, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.OperationResponseSchema deleteCompanyLanguage(String locale, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<Object> response = null;
+            Response<ContentPlatformModels.OperationResponseSchema> response = null;
             try {
                 response = contentPlatformApiList.deleteCompanyLanguage(this.companyId, locale, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2068,13 +2072,13 @@ public class ContentPlatformService {
     
     
 
-    public ContentPlatformModels.DeletedResource deleteCompanyResourceTranslation(String id) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.OperationResponseSchema deleteCompanyResourceTranslation(String id) throws FDKServerResponseError, FDKException {
         return this.deleteCompanyResourceTranslation(id, new HashMap<>());
     }
 
-    public ContentPlatformModels.DeletedResource deleteCompanyResourceTranslation(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.OperationResponseSchema deleteCompanyResourceTranslation(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.DeletedResource> response = null;
+            Response<ContentPlatformModels.OperationResponseSchema> response = null;
             try {
                 response = contentPlatformApiList.deleteCompanyResourceTranslation(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -4850,13 +4854,13 @@ public class ApplicationClient {
         }    
     }
 
-    public Object deleteApplicationLanguage(String locale) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.OperationResponseSchema deleteApplicationLanguage(String locale) throws FDKServerResponseError, FDKException {
         return this.deleteApplicationLanguage(locale, new HashMap<>());
     }
 
-    public Object deleteApplicationLanguage(String locale, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.OperationResponseSchema deleteApplicationLanguage(String locale, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<Object> response = null;
+            Response<ContentPlatformModels.OperationResponseSchema> response = null;
             try {
             response = contentPlatformApiList.deleteApplicationLanguage(this.companyId, this.applicationId, locale, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -4985,13 +4989,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.DeletedResource deleteApplicationResourceTranslation(String id) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.OperationResponseSchema deleteApplicationResourceTranslation(String id) throws FDKServerResponseError, FDKException {
         return this.deleteApplicationResourceTranslation(id, new HashMap<>());
     }
 
-    public ContentPlatformModels.DeletedResource deleteApplicationResourceTranslation(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.OperationResponseSchema deleteApplicationResourceTranslation(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.DeletedResource> response = null;
+            Response<ContentPlatformModels.OperationResponseSchema> response = null;
             try {
             response = contentPlatformApiList.deleteApplicationResourceTranslation(this.companyId, this.applicationId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
