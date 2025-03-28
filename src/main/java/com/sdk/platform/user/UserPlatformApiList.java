@@ -60,8 +60,11 @@ interface UserPlatformApiList {
     @PATCH ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_group/{group_id}")
     Call<UserPlatformModels.UserGroupResponseSchema> updateUserGroupPartially(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("group_id") String groupId, @Body UserPlatformModels.PartialUserGroupUpdateSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_group/{group_id}/users")
+    Call<UserPlatformModels.CustomerListResponseSchema> getUsersByByGroupId(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("group_id") String groupId, @HeaderMap Map<String, String> requestHeaders);
+
     @POST ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_attribute/definition")
-    Call<UserPlatformModels.UserAttributeDefinitionDetails> createUserAttributeDefinition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body UserPlatformModels.CreateUserAttributeDefinition payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<UserPlatformModels.UserAttributeDefinitionResp> createUserAttributeDefinition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body UserPlatformModels.CreateUserAttributeDefinition payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_attribute/definition")
     Call<Object> getUserAttributeDefinitions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("excluding_ids") String excludingIds, @Query("slug") String slug, @Query("type") String type, @Query("customer_editable") Boolean customerEditable, @Query("encrypted") Boolean encrypted, @Query("pinned") Boolean pinned, @Query("pin_order") Integer pinOrder, @Query("is_locked") Boolean isLocked, @Query("name") String name, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @HeaderMap Map<String, String> requestHeaders);
@@ -76,7 +79,7 @@ interface UserPlatformApiList {
     Call<UserPlatformModels.UserAttributeDefinition> getUserAttributeDefinitionById(@Path("attribute_def_id") String attributeDefId, @Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_attribute/definition/{attribute_def_id}/user/{user_id}")
-    Call<UserPlatformModels.UserAttribute> updateUserAttribute(@Path("attribute_def_id") String attributeDefId, @Path("user_id") String userId, @Path("application_id") String applicationId, @Path("company_id") String companyId, @Body UserPlatformModels.CreateUserAttribute payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<UserPlatformModels.UserAttribute> updateUserAttribute(@Path("attribute_def_id") String attributeDefId, @Path("user_id") String userId, @Path("application_id") String applicationId, @Path("company_id") String companyId, @Body UserPlatformModels.CreateUserAttributePayload payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_attribute/definition/{attribute_def_id}/user/{user_id}")
     Call<UserPlatformModels.UserAttribute> getUserAttribute(@Path("attribute_def_id") String attributeDefId, @Path("user_id") String userId, @Path("application_id") String applicationId, @Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);

@@ -412,12 +412,6 @@ public static class UrlInfo{
     
     
     
-    @JsonProperty("original")
-    private String original;
-    
-    
-    
-    
     @JsonProperty("hash")
     private String hash;
     
@@ -632,6 +626,18 @@ public static class Page{
     
     @JsonProperty("size")
     private Integer size;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Integer page;
     
     
     

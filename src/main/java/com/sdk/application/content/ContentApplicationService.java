@@ -40,15 +40,19 @@ import com.sdk.application.*;
         relativeUrls.put("getFaqsByCategorySlug","/service/application/content/v1.0/faq/category/{slug}/faqs".substring(1));
         relativeUrls.put("getLandingPage","/service/application/content/v1.0/landing-page".substring(1));
         relativeUrls.put("getLegalInformation","/service/application/content/v1.0/legal".substring(1));
-        relativeUrls.put("getNavigations","/service/application/content/v1.0/navigations".substring(1));
+        relativeUrls.put("getNavigations","/service/application/content/v2.0/navigations".substring(1));
         relativeUrls.put("getSEOConfiguration","/service/application/content/v1.0/seo".substring(1));
         relativeUrls.put("getSEOMarkupSchemas","/service/application/content/v1.0/seo/schema".substring(1));
+        relativeUrls.put("getDefaultSitemapConfig","/service/application/content/v1.0/seo/sitemap/default".substring(1));
+        relativeUrls.put("getSitemaps","/service/application/content/v1.0/seo/sitemaps".substring(1));
+        relativeUrls.put("getSitemap","/service/application/content/v1.0/seo/sitemaps/{name}".substring(1));
         relativeUrls.put("getSupportInformation","/service/application/content/v1.0/support".substring(1));
         relativeUrls.put("getTags","/service/application/content/v1.0/tags".substring(1));
-        relativeUrls.put("getPage","/service/application/content/v2.0/pages/{slug}".substring(1));
         relativeUrls.put("getPages","/service/application/content/v2.0/pages".substring(1));
+        relativeUrls.put("getPage","/service/application/content/v2.0/pages/{slug}".substring(1));
         relativeUrls.put("getCustomObjectBySlug","/service/application/content/v2.0/customobjects/definition/{definition_slug}/entries/{slug}".substring(1));
-        relativeUrls.put("getCustomFieldsByResourceId","/service/application/content/v2.0/customfields/resource/{resource}/{resource_slug}".substring(1)); 
+        relativeUrls.put("getCustomFieldsByResourceId","/service/application/content/v2.0/customfields/resource/{resource}/{resource_slug}".substring(1));
+        relativeUrls.put("getWellKnownUrl","/service/application/content/v1.0/well-known/{slug}".substring(1)); 
 
     }
 
@@ -82,16 +86,16 @@ import com.sdk.application.*;
     }
     
 
-    public ContentApplicationModels.BlogSchema getBlog(String slug, String rootId, Boolean preview) throws IOException {
-        return this.getBlog(slug, rootId, preview, new HashMap<>());
+    public ContentApplicationModels.BlogSchema getBlog(String slug, String rootId) throws IOException {
+        return this.getBlog(slug, rootId, new HashMap<>());
     }
 
-    public ContentApplicationModels.BlogSchema getBlog(String slug, String rootId, Boolean preview, Map<String, String> requestHeaders) throws IOException {
+    public ContentApplicationModels.BlogSchema getBlog(String slug, String rootId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getBlog");
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
 
-        Response<ContentApplicationModels.BlogSchema> response = contentApplicationApiList.getBlog(fullUrl, rootId, preview, requestHeaders).execute();
+        Response<ContentApplicationModels.BlogSchema> response = contentApplicationApiList.getBlog(fullUrl, rootId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -100,15 +104,15 @@ import com.sdk.application.*;
     }
     
 
-    public ContentApplicationModels.BlogGetDetails getBlogs(Integer pageNo, Integer pageSize, String tags, String search) throws IOException {
+    public ContentApplicationModels.BlogGetResponseSchema getBlogs(Integer pageNo, Integer pageSize, String tags, String search) throws IOException {
         return this.getBlogs(pageNo, pageSize, tags, search, new HashMap<>());
     }
 
-    public ContentApplicationModels.BlogGetDetails getBlogs(Integer pageNo, Integer pageSize, String tags, String search, Map<String, String> requestHeaders) throws IOException {
+    public ContentApplicationModels.BlogGetResponseSchema getBlogs(Integer pageNo, Integer pageSize, String tags, String search, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getBlogs");
 
-        Response<ContentApplicationModels.BlogGetDetails> response = contentApplicationApiList.getBlogs(fullUrl, pageNo, pageSize, tags, search, requestHeaders).execute();
+        Response<ContentApplicationModels.BlogGetResponseSchema> response = contentApplicationApiList.getBlogs(fullUrl, pageNo, pageSize, tags, search, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -256,15 +260,15 @@ import com.sdk.application.*;
     }
     
 
-    public ContentApplicationModels.NavigationGetDetails getNavigations(Integer pageNo, Integer pageSize) throws IOException {
+    public ContentApplicationModels.NavigationGetResponseSchema getNavigations(Integer pageNo, Integer pageSize) throws IOException {
         return this.getNavigations(pageNo, pageSize, new HashMap<>());
     }
 
-    public ContentApplicationModels.NavigationGetDetails getNavigations(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+    public ContentApplicationModels.NavigationGetResponseSchema getNavigations(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getNavigations");
 
-        Response<ContentApplicationModels.NavigationGetDetails> response = contentApplicationApiList.getNavigations(fullUrl, pageNo, pageSize, requestHeaders).execute();
+        Response<ContentApplicationModels.NavigationGetResponseSchema> response = contentApplicationApiList.getNavigations(fullUrl, pageNo, pageSize, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -307,6 +311,58 @@ import com.sdk.application.*;
     }
     
 
+    public ContentApplicationModels.DefaultSitemapConfig getDefaultSitemapConfig() throws IOException {
+        return this.getDefaultSitemapConfig(new HashMap<>());
+    }
+
+    public ContentApplicationModels.DefaultSitemapConfig getDefaultSitemapConfig(Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getDefaultSitemapConfig");
+
+        Response<ContentApplicationModels.DefaultSitemapConfig> response = contentApplicationApiList.getDefaultSitemapConfig(fullUrl, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public ContentApplicationModels.SitemapConfigurationList getSitemaps(String pageNo, String pageSize, Boolean isActive, String name) throws IOException {
+        return this.getSitemaps(pageNo, pageSize, isActive, name, new HashMap<>());
+    }
+
+    public ContentApplicationModels.SitemapConfigurationList getSitemaps(String pageNo, String pageSize, Boolean isActive, String name, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getSitemaps");
+
+        Response<ContentApplicationModels.SitemapConfigurationList> response = contentApplicationApiList.getSitemaps(fullUrl, pageNo, pageSize, isActive, name, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public ContentApplicationModels.SitemapConfig getSitemap(String name) throws IOException {
+        return this.getSitemap(name, new HashMap<>());
+    }
+
+    public ContentApplicationModels.SitemapConfig getSitemap(String name, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getSitemap");
+        fullUrl = fullUrl.replace("{" + "name" + "}",name.toString());
+
+        Response<ContentApplicationModels.SitemapConfig> response = contentApplicationApiList.getSitemap(fullUrl, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
     public ContentApplicationModels.Support getSupportInformation() throws IOException {
         return this.getSupportInformation(new HashMap<>());
     }
@@ -341,6 +397,23 @@ import com.sdk.application.*;
     }
     
 
+    public ContentApplicationModels.PageGetResponseSchema getPages(Integer pageNo, Integer pageSize) throws IOException {
+        return this.getPages(pageNo, pageSize, new HashMap<>());
+    }
+
+    public ContentApplicationModels.PageGetResponseSchema getPages(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getPages");
+
+        Response<ContentApplicationModels.PageGetResponseSchema> response = contentApplicationApiList.getPages(fullUrl, pageNo, pageSize, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
     public ContentApplicationModels.PageSchema getPage(String slug, String rootId) throws IOException {
         return this.getPage(slug, rootId, new HashMap<>());
     }
@@ -351,23 +424,6 @@ import com.sdk.application.*;
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
 
         Response<ContentApplicationModels.PageSchema> response = contentApplicationApiList.getPage(fullUrl, rootId, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public ContentApplicationModels.PageGetDetails getPages(Integer pageNo, Integer pageSize) throws IOException {
-        return this.getPages(pageNo, pageSize, new HashMap<>());
-    }
-
-    public ContentApplicationModels.PageGetDetails getPages(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getPages");
-
-        Response<ContentApplicationModels.PageGetDetails> response = contentApplicationApiList.getPages(fullUrl, pageNo, pageSize, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -406,6 +462,24 @@ import com.sdk.application.*;
         fullUrl = fullUrl.replace("{" + "resource_slug" + "}",resourceSlug.toString());
 
         Response<ContentApplicationModels.CustomFieldsResponseByResourceIdSchema> response = contentApplicationApiList.getCustomFieldsByResourceId(fullUrl, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public ContentApplicationModels.WellKnownResponseSchema getWellKnownUrl(String slug) throws IOException {
+        return this.getWellKnownUrl(slug, new HashMap<>());
+    }
+
+    public ContentApplicationModels.WellKnownResponseSchema getWellKnownUrl(String slug, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getWellKnownUrl");
+        fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
+
+        Response<ContentApplicationModels.WellKnownResponseSchema> response = contentApplicationApiList.getWellKnownUrl(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
