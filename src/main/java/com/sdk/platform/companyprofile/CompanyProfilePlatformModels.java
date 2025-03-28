@@ -599,14 +599,32 @@ public static class ErrorResponseSchema{
     
     
     
+    @JsonProperty("code")
+    private Double code;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+    
     @JsonProperty("message")
     private String message;
     
     
     
     
-    @JsonProperty("error")
-    private HashMap<String,Object> error;
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Integer status;
     
     
     
@@ -614,7 +632,7 @@ public static class ErrorResponseSchema{
 
 
 /*
-    Model: CompanyRequestTaxesSchema
+    Model: CompanyTaxesSchema1
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -622,7 +640,7 @@ public static class ErrorResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyRequestTaxesSchema{
+public static class CompanyTaxesSchema1{
 
     
 
@@ -783,7 +801,7 @@ public static class UpdateCompany{
     
     
     @JsonProperty("taxes")
-    private List<CompanyRequestTaxesSchema> taxes;
+    private List<CompanyTaxesSchema1> taxes;
     
     
     
@@ -857,6 +875,12 @@ public static class ProfileSuccessResponseSchema{
     
     @JsonProperty("uid")
     private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<Object> data;
     
     
     
@@ -1132,7 +1156,7 @@ public static class GetBrandResponseSchema{
 
 
 /*
-    Model: CreateBrandRequestSchema
+    Model: CreateUpdateBrandRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1140,7 +1164,7 @@ public static class GetBrandResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateBrandRequestSchema{
+public static class CreateUpdateBrandRequestSchema{
 
     
 
@@ -1210,85 +1234,6 @@ public static class CreateBrandRequestSchema{
     
     @JsonProperty("slug_key")
     private String slugKey;
-    
-    
-    
-}
-
-
-/*
-    Model: UpdateBrandRequestSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateBrandRequestSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
-    
-    
-    
-    
-    @JsonProperty("_locale_language")
-    private HashMap<String,Object> localeLanguage;
-    
-    
-    
-    
-    @JsonProperty("synonyms")
-    private List<String> synonyms;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
-    
-    
-    
-    
-    @JsonProperty("brand_tier")
-    private String brandTier;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("banner")
-    private BrandBannerSchema banner;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
     
     
     
@@ -1634,8 +1579,8 @@ public static class Page{
     
     
     
-    @JsonProperty("page_size")
-    private Integer pageSize;
+    @JsonProperty("total")
+    private Integer total;
     
     
     
@@ -1797,6 +1742,12 @@ public static class GetCompanySchema{
     
     @JsonProperty("stage")
     private String stage;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private HashMap<String,Object> customJson;
     
     
     
