@@ -32,7 +32,9 @@ import com.sdk.application.*;
         relativeUrls.put("getAggregatorsConfig","/service/application/payment/v1.0/config/aggregators/key".substring(1));
         relativeUrls.put("attachCardToCustomer","/service/application/payment/v1.0/card/attach".substring(1));
         relativeUrls.put("getActiveCardAggregator","/service/application/payment/v1.0/card/aggregator".substring(1));
+        relativeUrls.put("updateUserCard","/service/application/payment/v1.0/card/aggregator".substring(1));
         relativeUrls.put("getActiveUserCards","/service/application/payment/v1.0/cards".substring(1));
+        relativeUrls.put("updateActiveCards","/service/application/payment/v1.0/cards".substring(1));
         relativeUrls.put("deleteUserCard","/service/application/payment/v1.0/card/remove".substring(1));
         relativeUrls.put("verifyCustomerForPayment","/service/application/payment/v1.0/payment/customer/validation".substring(1));
         relativeUrls.put("verifyAndChargePayment","/service/application/payment/v1.0/payment/confirm/charge".substring(1));
@@ -46,7 +48,7 @@ import com.sdk.application.*;
         relativeUrls.put("getRupifiBannerDetails","/service/application/payment/v1.0/rupifi/banner".substring(1));
         relativeUrls.put("getEpaylaterBannerDetails","/service/application/payment/v1.0/epaylater/banner".substring(1));
         relativeUrls.put("resendOrCancelPayment","/service/application/payment/v1.0/payment/resend_or_cancel".substring(1));
-        relativeUrls.put("renderHTML","/service/application/payment/v1.0/payment/html/render/".substring(1));
+        relativeUrls.put("renderHTML","/service/application/payment/v1.0/payment/html/render".substring(1));
         relativeUrls.put("validateVPA","/service/application/payment/v1.0/validate-vpa".substring(1));
         relativeUrls.put("cardDetails","/service/application/payment/v1.0/cards/info/{card_info}".substring(1));
         relativeUrls.put("getActiveRefundTransferModes","/service/application/payment/v1.0/refund/transfer-mode".substring(1));
@@ -54,27 +56,36 @@ import com.sdk.application.*;
         relativeUrls.put("getUserBeneficiariesDetail","/service/application/payment/v1.0/refund/user/beneficiary".substring(1));
         relativeUrls.put("verifyIfscCode","/service/application/payment/v1.0/ifsc-code/verify".substring(1));
         relativeUrls.put("getOrderBeneficiariesDetail","/service/application/payment/v1.0/refund/order/beneficiaries".substring(1));
-        relativeUrls.put("verifyOtpAndAddBeneficiaryForBank","/service/application/payment/v1.0/refund/verification/bank".substring(1));
         relativeUrls.put("addBeneficiaryDetails","/service/application/payment/v1.0/refund/account".substring(1));
+        relativeUrls.put("deleteBeneficiaryDetails","/service/application/payment/v1.0/refund/account".substring(1));
+        relativeUrls.put("verifyOtpAndAddBeneficiaryForBank","/service/application/payment/v1.0/refund/verification/bank".substring(1));
         relativeUrls.put("addRefundBankAccountUsingOTP","/service/application/payment/v1.0/refund/account/otp".substring(1));
+        relativeUrls.put("getotpOrderBeneficiariesDetail","/service/application/payment/v1.0/refund/account/otp".substring(1));
         relativeUrls.put("verifyOtpAndAddBeneficiaryForWallet","/service/application/payment/v1.0/refund/verification/wallet".substring(1));
         relativeUrls.put("updateDefaultBeneficiary","/service/application/payment/v1.0/refund/beneficiary/default".substring(1));
-        relativeUrls.put("getPaymentLink","/service/application/payment/v1.0/create-payment-link/".substring(1));
-        relativeUrls.put("createPaymentLink","/service/application/payment/v1.0/create-payment-link/".substring(1));
-        relativeUrls.put("resendPaymentLink","/service/application/payment/v1.0/resend-payment-link/".substring(1));
-        relativeUrls.put("cancelPaymentLink","/service/application/payment/v1.0/cancel-payment-link/".substring(1));
-        relativeUrls.put("getPaymentModeRoutesPaymentLink","/service/application/payment/v1.0/payment/options/link/".substring(1));
-        relativeUrls.put("pollingPaymentLink","/service/application/payment/v1.0/polling-payment-link/".substring(1));
-        relativeUrls.put("createOrderHandlerPaymentLink","/service/application/payment/v1.0/create-order/link/".substring(1));
-        relativeUrls.put("initialisePaymentPaymentLink","/service/application/payment/v1.0/payment/request/link/".substring(1));
-        relativeUrls.put("checkAndUpdatePaymentStatusPaymentLink","/service/application/payment/v1.0/payment/confirm/polling/link/".substring(1));
-        relativeUrls.put("customerCreditSummary","/service/application/payment/v1.0/payment/credit-summary/".substring(1));
-        relativeUrls.put("redirectToAggregator","/service/application/payment/v1.0/payment/redirect-to-aggregator/".substring(1));
-        relativeUrls.put("checkCredit","/service/application/payment/v1.0/check-credits/".substring(1));
-        relativeUrls.put("customerOnboard","/service/application/payment/v1.0/credit-onboard/".substring(1));
-        relativeUrls.put("outstandingOrderDetails","/service/application/payment/v1.0/payment/outstanding-orders/".substring(1));
-        relativeUrls.put("paidOrderDetails","/service/application/payment/v1.0/payment/paid-orders/".substring(1));
-        relativeUrls.put("createPaymentOrder","/service/application/payment/v1.0/payment-orders/".substring(1)); 
+        relativeUrls.put("getBenficiaryOrder","/service/application/payment/v1.0/refund/beneficiaries/orders".substring(1));
+        relativeUrls.put("getPaymentLink","/service/application/payment/v1.0/create-payment-link".substring(1));
+        relativeUrls.put("createPaymentLink","/service/application/payment/v1.0/create-payment-link".substring(1));
+        relativeUrls.put("getPaymentLinkId","/service/application/payment/v1.0/create-payment-link/{id}".substring(1));
+        relativeUrls.put("resendPaymentLink","/service/application/payment/v1.0/resend-payment-link".substring(1));
+        relativeUrls.put("getPaymentModeRoutesPaymentLink","/service/application/payment/v1.0/payment/options/link".substring(1));
+        relativeUrls.put("pollingPaymentLink","/service/application/payment/v1.0/polling-payment-link".substring(1));
+        relativeUrls.put("createOrderHandlerPaymentLink","/service/application/payment/v1.0/create-order/link".substring(1));
+        relativeUrls.put("initialisePaymentPaymentLink","/service/application/payment/v1.0/payment/request/link".substring(1));
+        relativeUrls.put("checkAndUpdatePaymentStatusPaymentLink","/service/application/payment/v1.0/payment/confirm/polling/link".substring(1));
+        relativeUrls.put("customerCreditSummary","/service/application/payment/v1.0/payment/credit-summary".substring(1));
+        relativeUrls.put("redirectToAggregator","/service/application/payment/v1.0/payment/redirect-to-aggregator".substring(1));
+        relativeUrls.put("checkCredit","/service/application/payment/v1.0/check-credits".substring(1));
+        relativeUrls.put("customerOnboard","/service/application/payment/v1.0/credit-onboard".substring(1));
+        relativeUrls.put("outstandingOrderDetails","/service/application/payment/v1.0/payment/outstanding-orders".substring(1));
+        relativeUrls.put("cancelPaymentLink","/service/application/payment/v1.0/cancel-payment-link".substring(1));
+        relativeUrls.put("paidOrderDetails","/service/application/payment/v1.0/payment/paid-orders".substring(1));
+        relativeUrls.put("createPaymentOrder","/service/application/payment/v1.0/payment-orders".substring(1));
+        relativeUrls.put("setRefundOptionforShipment","/service/application/payment/v1.0/payment/refundoptions".substring(1));
+        relativeUrls.put("getSelectedRefundOption","/service/application/payment/v1.0/payment/selected_refund_options".substring(1));
+        relativeUrls.put("getUserBeneficiariesDetailV2","/service/application/payment/v2.0/refund/user/beneficiary".substring(1));
+        relativeUrls.put("validateBeneficiaryAddress","/service/application/payment/v1.0/validate/beneficiary-address".substring(1));
+        relativeUrls.put("confirmPayment","/service/application/payment/v1.0/payment/confirm".substring(1)); 
 
     }
 
@@ -142,6 +153,23 @@ import com.sdk.application.*;
     }
     
 
+    public PaymentApplicationModels.UpdateAggregatorCardDetails updateUserCard(PaymentApplicationModels.UpdateAggregatorCardReq body) throws IOException {
+        return this.updateUserCard(body, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.UpdateAggregatorCardDetails updateUserCard(PaymentApplicationModels.UpdateAggregatorCardReq body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("updateUserCard");
+
+        Response<PaymentApplicationModels.UpdateAggregatorCardDetails> response = paymentApplicationApiList.updateUserCard(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
     public PaymentApplicationModels.ListCardsDetails getActiveUserCards(Boolean forceRefresh) throws IOException {
         return this.getActiveUserCards(forceRefresh, new HashMap<>());
     }
@@ -151,6 +179,23 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("getActiveUserCards");
 
         Response<PaymentApplicationModels.ListCardsDetails> response = paymentApplicationApiList.getActiveUserCards(fullUrl, forceRefresh, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public PaymentApplicationModels.UpdateCard updateActiveCards(PaymentApplicationModels.UpdateAggregatorCardReq body) throws IOException {
+        return this.updateActiveCards(body, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.UpdateCard updateActiveCards(PaymentApplicationModels.UpdateAggregatorCardReq body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("updateActiveCards");
+
+        Response<PaymentApplicationModels.UpdateCard> response = paymentApplicationApiList.updateActiveCards(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -517,23 +562,6 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.AddBeneficiaryViaOtpVerificationDetails verifyOtpAndAddBeneficiaryForBank(PaymentApplicationModels.AddBeneficiaryViaOtpVerification body) throws IOException {
-        return this.verifyOtpAndAddBeneficiaryForBank(body, new HashMap<>());
-    }
-
-    public PaymentApplicationModels.AddBeneficiaryViaOtpVerificationDetails verifyOtpAndAddBeneficiaryForBank(PaymentApplicationModels.AddBeneficiaryViaOtpVerification body, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("verifyOtpAndAddBeneficiaryForBank");
-
-        Response<PaymentApplicationModels.AddBeneficiaryViaOtpVerificationDetails> response = paymentApplicationApiList.verifyOtpAndAddBeneficiaryForBank(fullUrl, body, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
     public PaymentApplicationModels.RefundAccountDetails addBeneficiaryDetails(PaymentApplicationModels.AddBeneficiaryDetails body) throws IOException {
         return this.addBeneficiaryDetails(body, new HashMap<>());
     }
@@ -551,6 +579,40 @@ import com.sdk.application.*;
     }
     
 
+    public PaymentApplicationModels.DeleteRefundAccountDetails deleteBeneficiaryDetails(PaymentApplicationModels.DeleteBeneficiary body) throws IOException {
+        return this.deleteBeneficiaryDetails(body, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.DeleteRefundAccountDetails deleteBeneficiaryDetails(PaymentApplicationModels.DeleteBeneficiary body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("deleteBeneficiaryDetails");
+
+        Response<PaymentApplicationModels.DeleteRefundAccountDetails> response = paymentApplicationApiList.deleteBeneficiaryDetails(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public PaymentApplicationModels.AddBeneficiaryViaOtpVerificationDetails verifyOtpAndAddBeneficiaryForBank(PaymentApplicationModels.AddBeneficiaryViaOtpVerification body) throws IOException {
+        return this.verifyOtpAndAddBeneficiaryForBank(body, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.AddBeneficiaryViaOtpVerificationDetails verifyOtpAndAddBeneficiaryForBank(PaymentApplicationModels.AddBeneficiaryViaOtpVerification body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("verifyOtpAndAddBeneficiaryForBank");
+
+        Response<PaymentApplicationModels.AddBeneficiaryViaOtpVerificationDetails> response = paymentApplicationApiList.verifyOtpAndAddBeneficiaryForBank(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
     public PaymentApplicationModels.RefundAccountDetails addRefundBankAccountUsingOTP(PaymentApplicationModels.AddBeneficiaryDetailsOTP body) throws IOException {
         return this.addRefundBankAccountUsingOTP(body, new HashMap<>());
     }
@@ -560,6 +622,23 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("addRefundBankAccountUsingOTP");
 
         Response<PaymentApplicationModels.RefundAccountDetails> response = paymentApplicationApiList.addRefundBankAccountUsingOTP(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public PaymentApplicationModels.AddBeneficiaryDetailsOTPDetails getotpOrderBeneficiariesDetail(String orderId, String requestHash) throws IOException {
+        return this.getotpOrderBeneficiariesDetail(orderId, requestHash, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.AddBeneficiaryDetailsOTPDetails getotpOrderBeneficiariesDetail(String orderId, String requestHash, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getotpOrderBeneficiariesDetail");
+
+        Response<PaymentApplicationModels.AddBeneficiaryDetailsOTPDetails> response = paymentApplicationApiList.getotpOrderBeneficiariesDetail(fullUrl, orderId, requestHash, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -602,6 +681,23 @@ import com.sdk.application.*;
     }
     
 
+    public PaymentApplicationModels.RefundOrderBenDetails getBenficiaryOrder(PaymentApplicationModels.RefundOrderBen body) throws IOException {
+        return this.getBenficiaryOrder(body, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.RefundOrderBenDetails getBenficiaryOrder(PaymentApplicationModels.RefundOrderBen body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getBenficiaryOrder");
+
+        Response<PaymentApplicationModels.RefundOrderBenDetails> response = paymentApplicationApiList.getBenficiaryOrder(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
     public PaymentApplicationModels.GetPaymentLinkDetails getPaymentLink(String paymentLinkId) throws IOException {
         return this.getPaymentLink(paymentLinkId, new HashMap<>());
     }
@@ -636,6 +732,24 @@ import com.sdk.application.*;
     }
     
 
+    public PaymentApplicationModels.GetPaymentLinkDetails getPaymentLinkId(String id, String paymentLinkId) throws IOException {
+        return this.getPaymentLinkId(id, paymentLinkId, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.GetPaymentLinkDetails getPaymentLinkId(String id, String paymentLinkId, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getPaymentLinkId");
+        fullUrl = fullUrl.replace("{" + "id" + "}",id.toString());
+
+        Response<PaymentApplicationModels.GetPaymentLinkDetails> response = paymentApplicationApiList.getPaymentLinkId(fullUrl, paymentLinkId, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
     public PaymentApplicationModels.ResendPaymentLinkDetails resendPaymentLink(PaymentApplicationModels.CancelOrResendPaymentLink body) throws IOException {
         return this.resendPaymentLink(body, new HashMap<>());
     }
@@ -645,23 +759,6 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("resendPaymentLink");
 
         Response<PaymentApplicationModels.ResendPaymentLinkDetails> response = paymentApplicationApiList.resendPaymentLink(fullUrl, body, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public PaymentApplicationModels.CancelPaymentLinkDetails cancelPaymentLink(PaymentApplicationModels.CancelOrResendPaymentLink body) throws IOException {
-        return this.cancelPaymentLink(body, new HashMap<>());
-    }
-
-    public PaymentApplicationModels.CancelPaymentLinkDetails cancelPaymentLink(PaymentApplicationModels.CancelOrResendPaymentLink body, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("cancelPaymentLink");
-
-        Response<PaymentApplicationModels.CancelPaymentLinkDetails> response = paymentApplicationApiList.cancelPaymentLink(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -840,6 +937,23 @@ import com.sdk.application.*;
     }
     
 
+    public PaymentApplicationModels.CancelPaymentLinkDetails cancelPaymentLink(PaymentApplicationModels.CancelOrResendPaymentLink body) throws IOException {
+        return this.cancelPaymentLink(body, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.CancelPaymentLinkDetails cancelPaymentLink(PaymentApplicationModels.CancelOrResendPaymentLink body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("cancelPaymentLink");
+
+        Response<PaymentApplicationModels.CancelPaymentLinkDetails> response = paymentApplicationApiList.cancelPaymentLink(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
     public PaymentApplicationModels.PaidOrderDetails paidOrderDetails(String aggregator) throws IOException {
         return this.paidOrderDetails(aggregator, new HashMap<>());
     }
@@ -866,6 +980,91 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("createPaymentOrder");
 
         Response<PaymentApplicationModels.PaymentOrderDetails> response = paymentApplicationApiList.createPaymentOrder(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public PaymentApplicationModels.ShipmentRefundDetails setRefundOptionforShipment(PaymentApplicationModels.ShipmentRefund body) throws IOException {
+        return this.setRefundOptionforShipment(body, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.ShipmentRefundDetails setRefundOptionforShipment(PaymentApplicationModels.ShipmentRefund body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("setRefundOptionforShipment");
+
+        Response<PaymentApplicationModels.ShipmentRefundDetails> response = paymentApplicationApiList.setRefundOptionforShipment(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public PaymentApplicationModels.SelectedRefundOptionDetails getSelectedRefundOption(String shipmentId, String orderId) throws IOException {
+        return this.getSelectedRefundOption(shipmentId, orderId, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.SelectedRefundOptionDetails getSelectedRefundOption(String shipmentId, String orderId, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getSelectedRefundOption");
+
+        Response<PaymentApplicationModels.SelectedRefundOptionDetails> response = paymentApplicationApiList.getSelectedRefundOption(fullUrl, shipmentId, orderId, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public PaymentApplicationModels.OrderBeneficiaryDetailsSchemaV2 getUserBeneficiariesDetailV2(String orderId, String shipmentId, String mop) throws IOException {
+        return this.getUserBeneficiariesDetailV2(orderId, shipmentId, mop, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.OrderBeneficiaryDetailsSchemaV2 getUserBeneficiariesDetailV2(String orderId, String shipmentId, String mop, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getUserBeneficiariesDetailV2");
+
+        Response<PaymentApplicationModels.OrderBeneficiaryDetailsSchemaV2> response = paymentApplicationApiList.getUserBeneficiariesDetailV2(fullUrl, orderId, shipmentId, mop, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public PaymentApplicationModels.ValidateValidateAddressDetails validateBeneficiaryAddress(PaymentApplicationModels.ValidateValidateAddress body) throws IOException {
+        return this.validateBeneficiaryAddress(body, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.ValidateValidateAddressDetails validateBeneficiaryAddress(PaymentApplicationModels.ValidateValidateAddress body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("validateBeneficiaryAddress");
+
+        Response<PaymentApplicationModels.ValidateValidateAddressDetails> response = paymentApplicationApiList.validateBeneficiaryAddress(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public PaymentApplicationModels.PaymentConfirmationDetails confirmPayment(PaymentApplicationModels.PaymentConfirmation body) throws IOException {
+        return this.confirmPayment(body, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.PaymentConfirmationDetails confirmPayment(PaymentApplicationModels.PaymentConfirmation body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("confirmPayment");
+
+        Response<PaymentApplicationModels.PaymentConfirmationDetails> response = paymentApplicationApiList.confirmPayment(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
