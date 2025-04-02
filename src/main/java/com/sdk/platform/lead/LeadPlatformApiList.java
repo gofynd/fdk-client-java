@@ -55,5 +55,5 @@ interface LeadPlatformApiList {
     Call<LeadPlatformModels.CustomForm> createCustomForm(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body LeadPlatformModels.CreateCustomFormPayload payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/lead/v1.0/company/{company_id}/general-config")
-    Call<LeadPlatformModels.GeneralConfigResponseSchema> getGeneralConfig(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
+    Call<LeadPlatformModels.GeneralConfigResponse> getGeneralConfig(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 }

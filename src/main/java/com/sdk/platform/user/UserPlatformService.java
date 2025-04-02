@@ -624,13 +624,13 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.UserAttributeDefinitionResp createUserAttributeDefinition(UserPlatformModels.CreateUserAttributeDefinition body) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserAttributeDefinitionResponse createUserAttributeDefinition(UserPlatformModels.CreateUserAttributeDefinition body) throws FDKServerResponseError, FDKException {
         return this.createUserAttributeDefinition(body, new HashMap<>());
     }
 
-    public UserPlatformModels.UserAttributeDefinitionResp createUserAttributeDefinition(UserPlatformModels.CreateUserAttributeDefinition body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserAttributeDefinitionResponse createUserAttributeDefinition(UserPlatformModels.CreateUserAttributeDefinition body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<UserPlatformModels.UserAttributeDefinitionResp> response = null;
+            Response<UserPlatformModels.UserAttributeDefinitionResponse> response = null;
             try {
             response = userPlatformApiList.createUserAttributeDefinition(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -705,13 +705,13 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.SuccessMessage deleteUserAttributeDefinitionById(String attributeDefId) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.SuccessMessageResponse deleteUserAttributeDefinitionById(String attributeDefId) throws FDKServerResponseError, FDKException {
         return this.deleteUserAttributeDefinitionById(attributeDefId, new HashMap<>());
     }
 
-    public UserPlatformModels.SuccessMessage deleteUserAttributeDefinitionById(String attributeDefId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.SuccessMessageResponse deleteUserAttributeDefinitionById(String attributeDefId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<UserPlatformModels.SuccessMessage> response = null;
+            Response<UserPlatformModels.SuccessMessageResponse> response = null;
             try {
             response = userPlatformApiList.deleteUserAttributeDefinitionById(attributeDefId, this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -759,13 +759,13 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.UserAttribute updateUserAttribute(String attributeDefId, String userId, UserPlatformModels.CreateUserAttributePayload body) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserAttributeResponse updateUserAttribute(String attributeDefId, String userId, UserPlatformModels.CreateUserAttributeRequest body) throws FDKServerResponseError, FDKException {
         return this.updateUserAttribute(attributeDefId, userId, body, new HashMap<>());
     }
 
-    public UserPlatformModels.UserAttribute updateUserAttribute(String attributeDefId, String userId, UserPlatformModels.CreateUserAttributePayload body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserAttributeResponse updateUserAttribute(String attributeDefId, String userId, UserPlatformModels.CreateUserAttributeRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<UserPlatformModels.UserAttribute> response = null;
+            Response<UserPlatformModels.UserAttributeResponse> response = null;
             try {
             response = userPlatformApiList.updateUserAttribute(attributeDefId, userId, this.applicationId, this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -786,13 +786,13 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.UserAttribute getUserAttribute(String attributeDefId, String userId) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserAttributeResponse getUserAttribute(String attributeDefId, String userId) throws FDKServerResponseError, FDKException {
         return this.getUserAttribute(attributeDefId, userId, new HashMap<>());
     }
 
-    public UserPlatformModels.UserAttribute getUserAttribute(String attributeDefId, String userId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserAttributeResponse getUserAttribute(String attributeDefId, String userId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<UserPlatformModels.UserAttribute> response = null;
+            Response<UserPlatformModels.UserAttributeResponse> response = null;
             try {
             response = userPlatformApiList.getUserAttribute(attributeDefId, userId, this.applicationId, this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -813,13 +813,13 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.SuccessMessage deleteUserAttribute(String attributeDefId, String userId) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.SuccessMessageResponse deleteUserAttribute(String attributeDefId, String userId) throws FDKServerResponseError, FDKException {
         return this.deleteUserAttribute(attributeDefId, userId, new HashMap<>());
     }
 
-    public UserPlatformModels.SuccessMessage deleteUserAttribute(String attributeDefId, String userId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.SuccessMessageResponse deleteUserAttribute(String attributeDefId, String userId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<UserPlatformModels.SuccessMessage> response = null;
+            Response<UserPlatformModels.SuccessMessageResponse> response = null;
             try {
             response = userPlatformApiList.deleteUserAttribute(attributeDefId, userId, this.applicationId, this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -867,13 +867,13 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.UserAttribute getUserAttributeById(String attributeId) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserAttributeResponse getUserAttributeById(String attributeId) throws FDKServerResponseError, FDKException {
         return this.getUserAttributeById(attributeId, new HashMap<>());
     }
 
-    public UserPlatformModels.UserAttribute getUserAttributeById(String attributeId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserAttributeResponse getUserAttributeById(String attributeId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<UserPlatformModels.UserAttribute> response = null;
+            Response<UserPlatformModels.UserAttributeResponse> response = null;
             try {
             response = userPlatformApiList.getUserAttributeById(attributeId, this.applicationId, this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {

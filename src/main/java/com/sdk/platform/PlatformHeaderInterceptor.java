@@ -37,7 +37,7 @@ public class PlatformHeaderInterceptor implements Interceptor {
                 .addHeader("Accept-Language", "en-IN")
                 .addHeader("Authorization", "Basic "+ bearerToken)
                 .addHeader("Content-Type","application/x-www-form-urlencoded")
-                .addHeader("x-fp-sdk-version", "0.0.1111-3.beta.1");
+                .addHeader("x-fp-sdk-version", "3.1.0-beta.9");
     }            
 
 }

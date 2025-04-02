@@ -14,7 +14,7 @@ public class UserPlatformModels{
 
 
 /*
-    Model: SuccessMessage
+    Model: SuccessMessageResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class UserPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SuccessMessage{
+public static class SuccessMessageResponse{
 
     
 
@@ -154,7 +154,7 @@ public static class UserAttributeDefinition{
 
 
 /*
-    Model: UserAttributeDefinitionResp
+    Model: UserAttributeDefinitionResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -162,7 +162,7 @@ public static class UserAttributeDefinition{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserAttributeDefinitionResp{
+public static class UserAttributeDefinitionResponse{
 
     
 
@@ -306,7 +306,7 @@ public static class UserAttributeDefinitionValidation{
 
 
 /*
-    Model: UserAttribute
+    Model: UserAttributeResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -314,7 +314,7 @@ public static class UserAttributeDefinitionValidation{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserAttribute{
+public static class UserAttributeResponse{
 
     
 
@@ -359,7 +359,7 @@ public static class UserAttribute{
     
     
     @JsonProperty("attribute")
-    private HashMap<String,Object> attribute;
+    private Object attribute;
     
     
     
@@ -373,7 +373,7 @@ public static class UserAttribute{
 
 
 /*
-    Model: CreateUserAttributePayload
+    Model: CreateUserAttributeRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -381,7 +381,7 @@ public static class UserAttribute{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateUserAttributePayload{
+public static class CreateUserAttributeRequest{
 
     
 
@@ -396,7 +396,7 @@ public static class CreateUserAttributePayload{
     
     
     @JsonProperty("attribute")
-    private HashMap<String,Object> attribute;
+    private Object attribute;
     
     
     
@@ -475,7 +475,7 @@ public static class CreateUserAttributeDefinition{
     
     
     @JsonProperty("default_value")
-    private HashMap<String,Object> defaultValue;
+    private Object defaultValue;
     
     
     
@@ -902,7 +902,7 @@ public static class APIError{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -1000,7 +1000,7 @@ public static class Conditions{
     
     
     @JsonProperty("value")
-    private HashMap<String,Object> value;
+    private Object value;
     
     
     
@@ -1133,12 +1133,6 @@ public static class UserGroupResponseSchema{
     
     
     
-    @JsonProperty("tags")
-    private List<String> tags;
-    
-    
-    
-    
     @JsonProperty("created_at")
     private String createdAt;
     
@@ -1220,7 +1214,7 @@ public static class ConditionsSchema{
     
     
     @JsonProperty("value")
-    private HashMap<String,Object> value;
+    private Object value;
     
     
     
@@ -1336,7 +1330,7 @@ public static class CreateUserRequestSchema{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -2658,7 +2652,7 @@ public static class UpdateUserRequestSchema{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -2848,7 +2842,7 @@ public static class UserSchema{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -2956,24 +2950,6 @@ public static class UserSearchSchema{
     
     
     
-    @JsonProperty("__v")
-    private Double v;
-    
-    
-    
-    
-    @JsonProperty("has_old_password_hash")
-    private Boolean hasOldPasswordHash;
-    
-    
-    
-    
-    @JsonProperty("debug")
-    private DebugInfo debug;
-    
-    
-    
-    
     @JsonProperty("application_id")
     private String applicationId;
     
@@ -2993,7 +2969,7 @@ public static class UserSearchSchema{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -3090,37 +3066,6 @@ public static class UserSearchSchema{
     
     @JsonProperty("status")
     private String status;
-    
-    
-    
-}
-
-
-/*
-    Model: DebugInfo
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DebugInfo{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("source")
-    private String source;
-    
-    
-    
-    
-    @JsonProperty("platform")
-    private String platform;
     
     
     
