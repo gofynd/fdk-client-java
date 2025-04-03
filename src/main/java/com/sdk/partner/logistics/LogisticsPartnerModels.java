@@ -14,31 +14,6 @@ public class LogisticsPartnerModels{
 
 
 /*
-    Model: ErrorResponseV1
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ErrorResponseV1{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("error")
-    private String error;
-    
-    
-    
-}
-
-
-/*
     Model: BulkRegionServiceabilityTatRequest
 */
 @AllArgsConstructor
@@ -293,12 +268,6 @@ public static class Page{
     
     
     
-    
-    @JsonProperty("total")
-    private Integer total;
-    
-    
-    
 }
 
 
@@ -517,6 +486,61 @@ public static class CourierAccount{
 
 
 /*
+    Model: CourierAccountRequestBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierAccountRequestBody{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("extension_id")
+    private String extensionId;
+    
+    
+    
+    
+    @JsonProperty("account_id")
+    private String accountId;
+    
+    
+    
+    
+    @JsonProperty("scheme_id")
+    private String schemeId;
+    
+    
+    
+    
+    @JsonProperty("is_self_ship")
+    private Boolean isSelfShip;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("is_own_account")
+    private Boolean isOwnAccount;
+    
+    
+    
+}
+
+
+/*
     Model: CourierPartnerAccountFailureResponse
 */
 @AllArgsConstructor
@@ -579,7 +603,7 @@ public static class CompanyCourierPartnerAccountListResponse{
 
 
 /*
-    Model: CourierAccountSchemeResponse
+    Model: CourierAccountResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -587,7 +611,62 @@ public static class CompanyCourierPartnerAccountListResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CourierAccountSchemeResponse{
+public static class CourierAccountResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("account_id")
+    private String accountId;
+    
+    
+    
+    
+    @JsonProperty("scheme_id")
+    private String schemeId;
+    
+    
+    
+    
+    @JsonProperty("is_self_ship")
+    private Boolean isSelfShip;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("is_own_account")
+    private Boolean isOwnAccount;
+    
+    
+    
+    
+    @JsonProperty("scheme_rules")
+    private CourierPartnerSchemeModel schemeRules;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerSchemeModel
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerSchemeModel{
 
     
 
@@ -658,7 +737,7 @@ public static class CourierAccountSchemeResponse{
 
 
 /*
-    Model: CourierAccountResponse
+    Model: CourierPartnerSchemeRequestModel
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -666,74 +745,7 @@ public static class CourierAccountSchemeResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CourierAccountResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("extension_id")
-    private String extensionId;
-    
-    
-    
-    
-    @JsonProperty("account_id")
-    private String accountId;
-    
-    
-    
-    
-    @JsonProperty("scheme_id")
-    private String schemeId;
-    
-    
-    
-    
-    @JsonProperty("is_self_ship")
-    private Boolean isSelfShip;
-    
-    
-    
-    
-    @JsonProperty("stage")
-    private String stage;
-    
-    
-    
-    
-    @JsonProperty("is_own_account")
-    private Boolean isOwnAccount;
-    
-    
-    
-    
-    @JsonProperty("scheme_rules")
-    private CourierAccountSchemeResponse schemeRules;
-    
-    
-    
-}
-
-
-/*
-    Model: CourierPartnerSchemeModel
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CourierPartnerSchemeModel{
+public static class CourierPartnerSchemeRequestModel{
 
     
 
@@ -761,12 +773,6 @@ public static class CourierPartnerSchemeModel{
     
     @JsonProperty("weight")
     private ArithmeticOperations weight;
-    
-    
-    
-    
-    @JsonProperty("volumetric_weight")
-    private ArithmeticOperations volumetricWeight;
     
     
     
@@ -1008,12 +1014,6 @@ public static class CourierPartnerSchemeUpdateRequest{
     
     
     
-    @JsonProperty("volumetric_weight")
-    private ArithmeticOperations volumetricWeight;
-    
-    
-    
-    
     @JsonProperty("transport_type")
     private String transportType;
     
@@ -1053,7 +1053,7 @@ public static class CourierPartnerSchemeUpdateRequest{
 
 
 /*
-    Model: CountryHierarchy
+    Model: GetCountries
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1061,7 +1061,7 @@ public static class CourierPartnerSchemeUpdateRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CountryHierarchy{
+public static class GetCountries{
 
     
 
@@ -1069,14 +1069,14 @@ public static class CountryHierarchy{
     
     
     
-    @JsonProperty("display_name")
-    private String displayName;
+    @JsonProperty("items")
+    private List<GetCountriesItems> items;
     
     
     
     
-    @JsonProperty("slug")
-    private String slug;
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -1084,7 +1084,7 @@ public static class CountryHierarchy{
 
 
 /*
-    Model: CurrencyObject
+    Model: GetCountriesItems
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1092,44 +1092,7 @@ public static class CountryHierarchy{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CurrencyObject{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("symbol")
-    private String symbol;
-    
-    
-    
-}
-
-
-/*
-    Model: CountryObject
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CountryObject{
+public static class GetCountriesItems{
 
     
 
@@ -1145,12 +1108,6 @@ public static class CountryObject{
     
     @JsonProperty("name")
     private String name;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
     
     
     
@@ -1174,13 +1131,25 @@ public static class CountryObject{
     
     
     @JsonProperty("hierarchy")
-    private List<CountryHierarchy> hierarchy;
+    private List<HierarchyItems> hierarchy;
     
     
     
     
     @JsonProperty("phone_code")
     private String phoneCode;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
     
     
     
@@ -1197,14 +1166,8 @@ public static class CountryObject{
     
     
     
-    @JsonProperty("currency")
-    private CurrencyObject currency;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
@@ -1212,7 +1175,7 @@ public static class CountryObject{
 
 
 /*
-    Model: GetCountries
+    Model: HierarchyItems
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1220,7 +1183,7 @@ public static class CountryObject{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCountries{
+public static class HierarchyItems{
 
     
 
@@ -1228,14 +1191,14 @@ public static class GetCountries{
     
     
     
-    @JsonProperty("items")
-    private List<CountryObject> items;
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
     
-    @JsonProperty("page")
-    private Page page;
+    @JsonProperty("slug")
+    private String slug;
     
     
     

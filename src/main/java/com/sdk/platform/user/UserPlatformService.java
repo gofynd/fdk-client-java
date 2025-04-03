@@ -93,8 +93,6 @@ public class UserPlatformService {
     
     
     
-    
-    
 
 
 
@@ -579,33 +577,6 @@ public class ApplicationClient {
             Response<UserPlatformModels.UserGroupResponseSchema> response = null;
             try {
             response = userPlatformApiList.updateUserGroupPartially(this.companyId, this.applicationId, groupId, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public UserPlatformModels.CustomerListResponseSchema getUsersByByGroupId(String groupId) throws FDKServerResponseError, FDKException {
-        return this.getUsersByByGroupId(groupId, new HashMap<>());
-    }
-
-    public UserPlatformModels.CustomerListResponseSchema getUsersByByGroupId(String groupId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<UserPlatformModels.CustomerListResponseSchema> response = null;
-            try {
-            response = userPlatformApiList.getUsersByByGroupId(this.companyId, this.applicationId, groupId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

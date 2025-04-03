@@ -82,7 +82,7 @@ public static class Upload{
 
 
 /*
-    Model: FileUpload
+    Model: StartResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -90,7 +90,7 @@ public static class Upload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FileUpload{
+public static class StartResponse{
 
     
 
@@ -146,6 +146,12 @@ public static class FileUpload{
     
     
     
+    @JsonProperty("cdn")
+    private CDN cdn;
+    
+    
+    
+    
     @JsonProperty("tags")
     private List<String> tags;
     
@@ -180,7 +186,7 @@ public static class Params{
 
 
 /*
-    Model: FileUploadStart
+    Model: StartRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -188,7 +194,7 @@ public static class Params{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FileUploadStart{
+public static class StartRequest{
 
     
 
@@ -225,12 +231,6 @@ public static class FileUploadStart{
     
     
     
-    
-    @JsonProperty("enc_key")
-    private String encKey;
-    
-    
-    
 }
 
 
@@ -260,7 +260,7 @@ public static class CreatedBy{
 
 
 /*
-    Model: FileUploadComplete
+    Model: CompleteResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -268,7 +268,7 @@ public static class CreatedBy{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FileUploadComplete{
+public static class CompleteResponse{
 
     
 
@@ -400,7 +400,7 @@ public static class Urls{
 
 
 /*
-    Model: SignUrlResult
+    Model: SignUrlResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -408,7 +408,7 @@ public static class Urls{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SignUrlResult{
+public static class SignUrlResponse{
 
     
 
@@ -425,7 +425,7 @@ public static class SignUrlResult{
 
 
 /*
-    Model: EncryptionMapping
+    Model: SignUrlRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -433,38 +433,7 @@ public static class SignUrlResult{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EncryptionMapping{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("enc_url")
-    private String encUrl;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-}
-
-
-/*
-    Model: SignUrl
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SignUrl{
+public static class SignUrlRequest{
 
     
 
@@ -480,12 +449,6 @@ public static class SignUrl{
     
     @JsonProperty("urls")
     private List<String> urls;
-    
-    
-    
-    
-    @JsonProperty("enc_url_mapping")
-    private List<EncryptionMapping> encUrlMapping;
     
     
     
