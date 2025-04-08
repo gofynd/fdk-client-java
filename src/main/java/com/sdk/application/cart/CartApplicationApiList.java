@@ -66,6 +66,9 @@ interface CartApplicationApiList {
     @GET 
     Call<CartApplicationModels.CartShipmentsResponse> getShipments(@Url String url1, @Query("p") Boolean p, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("address_id") String addressId, @Query("area_code") String areaCode, @Query("order_type") String orderType, @HeaderMap Map<String, String> requestHeaders);
 
+    @POST 
+    Call<CartApplicationModels.CartCheckoutResponse> checkoutCart(@Url String url1, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Body CartApplicationModels.CartCheckoutDetailRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
     @PUT 
     Call<CartApplicationModels.CartMetaResponse> updateCartMeta(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Body CartApplicationModels.CartMetaRequest payload, @HeaderMap Map<String, String> requestHeaders);
 

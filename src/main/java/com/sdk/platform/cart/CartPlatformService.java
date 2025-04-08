@@ -161,6 +161,8 @@ public class CartPlatformService {
     
     
     
+    
+    
 
 
 
@@ -1590,6 +1592,33 @@ public class ApplicationClient {
             Response<CartPlatformModels.CartMetaResponse> response = null;
             try {
             response = cartPlatformApiList.updateCartMeta(this.companyId, this.applicationId, id, buyNow, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public CartPlatformModels.CartCheckoutResponse platformCheckoutCart(String id, CartPlatformModels.PlatformCartCheckoutDetailRequest body) throws FDKServerResponseError, FDKException {
+        return this.platformCheckoutCart(id, body, new HashMap<>());
+    }
+
+    public CartPlatformModels.CartCheckoutResponse platformCheckoutCart(String id, CartPlatformModels.PlatformCartCheckoutDetailRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<CartPlatformModels.CartCheckoutResponse> response = null;
+            try {
+            response = cartPlatformApiList.platformCheckoutCart(this.companyId, this.applicationId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

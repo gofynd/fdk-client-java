@@ -49,6 +49,7 @@ import com.sdk.application.*;
         relativeUrls.put("selectPaymentMode","/service/application/cart/v1.0/payment".substring(1));
         relativeUrls.put("validateCouponForPayment","/service/application/cart/v1.0/payment/validate/".substring(1));
         relativeUrls.put("getShipments","/service/application/cart/v1.0/shipment".substring(1));
+        relativeUrls.put("checkoutCart","/service/application/cart/v1.0/checkout".substring(1));
         relativeUrls.put("updateCartMeta","/service/application/cart/v1.0/meta".substring(1));
         relativeUrls.put("getCartShareLink","/service/application/cart/v1.0/share-cart".substring(1));
         relativeUrls.put("getCartSharedItems","/service/application/cart/v1.0/share-cart/{token}".substring(1));
@@ -408,6 +409,23 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("getShipments");
 
         Response<CartApplicationModels.CartShipmentsResponse> response = cartApplicationApiList.getShipments(fullUrl, p, id, buyNow, addressId, areaCode, orderType, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public CartApplicationModels.CartCheckoutResponse checkoutCart(Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailRequest body) throws IOException {
+        return this.checkoutCart(buyNow, cartType, body, new HashMap<>());
+    }
+
+    public CartApplicationModels.CartCheckoutResponse checkoutCart(Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailRequest body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("checkoutCart");
+
+        Response<CartApplicationModels.CartCheckoutResponse> response = cartApplicationApiList.checkoutCart(fullUrl, buyNow, cartType, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
