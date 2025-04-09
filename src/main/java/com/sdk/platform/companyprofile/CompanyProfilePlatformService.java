@@ -172,11 +172,11 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.GetBrandResponseSchema getBrand(Integer brandId) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.GetBrandResponseSchema getBrand(String brandId) throws FDKServerResponseError, FDKException {
         return this.getBrand(brandId, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.GetBrandResponseSchema getBrand(Integer brandId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.GetBrandResponseSchema getBrand(String brandId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.GetBrandResponseSchema> response = null;
             try {
@@ -216,11 +216,11 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema editBrand(Integer brandId, CompanyProfilePlatformModels.CreateUpdateBrandRequestSchema body) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema editBrand(String brandId, CompanyProfilePlatformModels.UpdateBrandRequestSchema body) throws FDKServerResponseError, FDKException {
         return this.editBrand(brandId, body, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema editBrand(Integer brandId, CompanyProfilePlatformModels.CreateUpdateBrandRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema editBrand(String brandId, CompanyProfilePlatformModels.UpdateBrandRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponseSchema> response = null;
             try {
@@ -256,11 +256,11 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema createBrand(CompanyProfilePlatformModels.CreateUpdateBrandRequestSchema body) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema createBrand(CompanyProfilePlatformModels.CreateBrandRequestSchema body) throws FDKServerResponseError, FDKException {
         return this.createBrand(body, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema createBrand(CompanyProfilePlatformModels.CreateUpdateBrandRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema createBrand(CompanyProfilePlatformModels.CreateBrandRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponseSchema> response = null;
             try {
@@ -483,20 +483,16 @@ public class CompanyProfilePlatformService {
     
     
     
-    
-    
-    
-    
 
-    public CompanyProfilePlatformModels.LocationListSchema getLocations(String storeType, List<String> storeCodes, String q, String stage, Integer pageNo, Integer pageSize, List<Integer> locationIds, List<String> types, List<String> tags) throws FDKServerResponseError, FDKException {
-        return this.getLocations(storeType, storeCodes, q, stage, pageNo, pageSize, locationIds, types, tags, new HashMap<>());
+    public CompanyProfilePlatformModels.LocationListSchema getLocations(String storeType, String q, String stage, Integer pageNo, Integer pageSize, List<Integer> locationIds, List<String> types, List<String> tags) throws FDKServerResponseError, FDKException {
+        return this.getLocations(storeType, q, stage, pageNo, pageSize, locationIds, types, tags, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.LocationListSchema getLocations(String storeType, List<String> storeCodes, String q, String stage, Integer pageNo, Integer pageSize, List<Integer> locationIds, List<String> types, List<String> tags, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.LocationListSchema getLocations(String storeType, String q, String stage, Integer pageNo, Integer pageSize, List<Integer> locationIds, List<String> types, List<String> tags, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.LocationListSchema> response = null;
             try {
-                response = companyprofilePlatformApiList.getLocations(this.companyId, storeType, storeCodes, q, stage, pageNo, pageSize, locationIds, types, tags, requestHeaders).execute();
+                response = companyprofilePlatformApiList.getLocations(this.companyId, storeType, q, stage, pageNo, pageSize, locationIds, types, tags, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -513,118 +509,6 @@ public class CompanyProfilePlatformService {
         } else {
             return null;
         }    
-    }
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-    /**
-    * Summary: get paginator for getLocations
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<CompanyProfilePlatformModels.LocationListSchema> getLocationsPagination(
-        String storeType ,
-        List<String> storeCodes ,
-        String q ,
-        String stage ,
-        Integer pageSize ,
-        List<Integer> locationIds ,
-        List<String> types ,
-        List<String> tags 
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<CompanyProfilePlatformModels.LocationListSchema> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            CompanyProfilePlatformModels.LocationListSchema callback = this.getLocations(
-                
-                 
-                 storeType,
-                 storeCodes,
-                 q,
-                 stage,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                ,
-                 locationIds,
-                 types,
-                 tags
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
     }
     
     
@@ -684,11 +568,11 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.GetLocationSchema getLocationDetail(Integer locationId) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.GetLocationSchema getLocationDetail(String locationId) throws FDKServerResponseError, FDKException {
         return this.getLocationDetail(locationId, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.GetLocationSchema getLocationDetail(Integer locationId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.GetLocationSchema getLocationDetail(String locationId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.GetLocationSchema> response = null;
             try {
@@ -728,11 +612,11 @@ public class CompanyProfilePlatformService {
     
     
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema updateLocation(Integer locationId, CompanyProfilePlatformModels.LocationSchema body) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema updateLocation(String locationId, CompanyProfilePlatformModels.LocationSchema body) throws FDKServerResponseError, FDKException {
         return this.updateLocation(locationId, body, new HashMap<>());
     }
 
-    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema updateLocation(Integer locationId, CompanyProfilePlatformModels.LocationSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CompanyProfilePlatformModels.ProfileSuccessResponseSchema updateLocation(String locationId, CompanyProfilePlatformModels.LocationSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CompanyProfilePlatformModels.ProfileSuccessResponseSchema> response = null;
             try {

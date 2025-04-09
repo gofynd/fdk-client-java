@@ -380,8 +380,8 @@ public static class Application{
     
     
     
-    @JsonProperty("modified_at")
-    private String modifiedAt;
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     
@@ -439,29 +439,11 @@ public static class Application{
     
     
     
-    
-    @JsonProperty("mode")
-    private String mode;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("tokens")
-    private List<TokenSchema> tokens;
-    
-    
-    
 }
 
 
 /*
-    Model: TokenSchema
+    Model: NotFound
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -469,7 +451,7 @@ public static class Application{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TokenSchema{
+public static class NotFound{
 
     
 
@@ -477,20 +459,33 @@ public static class TokenSchema{
     
     
     
-    @JsonProperty("token")
-    private String token;
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: BadRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BadRequestSchema{
+
+    
+
     
     
     
     
-    @JsonProperty("created_by")
-    private HashMap<String,Object> createdBy;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -705,198 +700,6 @@ public static class Locations{
     
     @JsonProperty("items")
     private List<LocationCountry> items;
-    
-    
-    
-}
-
-
-/*
-    Model: VersionApplication
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VersionApplication{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("version")
-    private String version;
-    
-    
-    
-}
-
-
-/*
-    Model: VersionDeviceOS
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VersionDeviceOS{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-}
-
-
-/*
-    Model: VersionDevice
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VersionDevice{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("os")
-    private VersionDeviceOS os;
-    
-    
-    
-}
-
-
-/*
-    Model: VersionRequestSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VersionRequestSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("application")
-    private VersionApplication application;
-    
-    
-    
-    
-    @JsonProperty("device")
-    private VersionDevice device;
-    
-    
-    
-}
-
-
-/*
-    Model: VersionUpdateDialogue
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VersionUpdateDialogue{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("interval")
-    private Integer interval;
-    
-    
-    
-}
-
-
-/*
-    Model: VersionResponseSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VersionResponseSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("update_dialog")
-    private VersionUpdateDialogue updateDialog;
-    
-    
-    
-    
-    @JsonProperty("is_app_blocked")
-    private Boolean isAppBlocked;
     
     
     

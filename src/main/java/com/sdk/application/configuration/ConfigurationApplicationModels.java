@@ -1628,12 +1628,6 @@ public static class AppFeature{
     
     
     
-    @JsonProperty("buybox")
-    private BuyboxFeature buybox;
-    
-    
-    
-    
     @JsonProperty("_id")
     private String id;
     
@@ -1660,12 +1654,6 @@ public static class AppFeature{
     
     @JsonProperty("__v")
     private Integer v;
-    
-    
-    
-    
-    @JsonProperty("pricing_strategy")
-    private PricingStrategy pricingStrategy;
     
     
     
@@ -2162,43 +2150,6 @@ public static class OrderFeature{
 
 
 /*
-    Model: BuyboxFeature
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BuyboxFeature{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("show_name")
-    private Boolean showName;
-    
-    
-    
-    
-    @JsonProperty("enable_selection")
-    private Boolean enableSelection;
-    
-    
-    
-    
-    @JsonProperty("is_seller_buybox_enabled")
-    private Boolean isSellerBuyboxEnabled;
-    
-    
-    
-}
-
-
-/*
     Model: AppFeatureResponseSchema
 */
 @AllArgsConstructor
@@ -2284,12 +2235,6 @@ public static class Currency{
     
     @JsonProperty("symbol")
     private String symbol;
-    
-    
-    
-    
-    @JsonProperty("subunit")
-    private String subunit;
     
     
     
@@ -3054,8 +2999,8 @@ public static class Page{
     
     
     
-    @JsonProperty("total")
-    private Integer total;
+    @JsonProperty("page_size")
+    private Integer pageSize;
     
     
     
@@ -4277,31 +4222,6 @@ public static class OrderingStores{
     
     @JsonProperty("__v")
     private Integer v;
-    
-    
-    
-}
-
-
-/*
-    Model: PricingStrategy
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PricingStrategy{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
     
     
     
