@@ -6098,6 +6098,12 @@ public static class ProductSizePriceServiceabilityResponse{
     
     
     
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
 }
 
 
