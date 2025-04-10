@@ -55,14 +55,8 @@ public static class SaveProxy{
     
     
     
-    @JsonProperty("id")
-    private Integer id;
-    
-    
-    
-    
-    @JsonProperty("token")
-    private String token;
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -86,14 +80,8 @@ public static class ProxyFileData{
     
     
     
-    @JsonProperty("email")
-    private String email;
-    
-    
-    
-    
-    @JsonProperty("password")
-    private String password;
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -172,14 +160,8 @@ public static class FetchProxyDetails{
     
     
     
-    @JsonProperty("data")
-    private HashMap<String,Object> data;
-    
-    
-    
-    
-    @JsonProperty("support")
-    private HashMap<String,Object> support;
+    @JsonProperty("success")
+    private Boolean success;
     
     
     

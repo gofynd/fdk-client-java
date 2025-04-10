@@ -305,6 +305,12 @@ public static class EditProfileRequestSchema{
     
     
     
+    
+    @JsonProperty("consent")
+    private Boolean consent;
+    
+    
+    
 }
 
 
@@ -757,6 +763,12 @@ public static class FormRegisterRequestSchema{
     
     @JsonProperty("register_token")
     private String registerToken;
+    
+    
+    
+    
+    @JsonProperty("consent")
+    private Boolean consent;
     
     
     
@@ -3037,6 +3049,12 @@ public static class UserSchema{
     
     
     
+    
+    @JsonProperty("consent")
+    private UserConsentSchema consent;
+    
+    
+    
 }
 
 
@@ -3126,6 +3144,62 @@ public static class Email{
     
     @JsonProperty("verified")
     private Boolean verified;
+    
+    
+    
+}
+
+
+/*
+    Model: UserConsentSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserConsentSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("privacy_policy")
+    private PrivacyPolicyConsentSchema privacyPolicy;
+    
+    
+    
+}
+
+
+/*
+    Model: PrivacyPolicyConsentSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PrivacyPolicyConsentSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Boolean value;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     

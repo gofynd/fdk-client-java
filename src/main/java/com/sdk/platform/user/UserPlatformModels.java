@@ -3017,6 +3017,12 @@ public static class UserSchema{
     
     
     
+    
+    @JsonProperty("consent")
+    private UserConsent consent;
+    
+    
+    
 }
 
 
@@ -3162,6 +3168,12 @@ public static class UserSearchSchema{
     
     
     
+    
+    @JsonProperty("consent")
+    private UserConsent consent;
+    
+    
+    
 }
 
 
@@ -3251,6 +3263,62 @@ public static class Email{
     
     @JsonProperty("verified")
     private Boolean verified;
+    
+    
+    
+}
+
+
+/*
+    Model: UserConsent
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserConsent{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("privacy_policy")
+    private PrivacyPolicyConsentSchema privacyPolicy;
+    
+    
+    
+}
+
+
+/*
+    Model: PrivacyPolicyConsentSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PrivacyPolicyConsentSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Boolean value;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     
