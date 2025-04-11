@@ -7,11 +7,11 @@ import java.util.*;
 interface FileStorageApplicationApiList {
 
     @POST 
-    Call<FileStorageApplicationModels.StartResponse> startUpload(@Url String url1, @Body FileStorageApplicationModels.StartRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<FileStorageApplicationModels.FileUpload> startUpload(@Url String url1, @Body FileStorageApplicationModels.FileUploadStart payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<FileStorageApplicationModels.CompleteResponse> completeUpload(@Url String url1, @Body FileStorageApplicationModels.StartResponse payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<FileStorageApplicationModels.FileUploadComplete> completeUpload(@Url String url1, @Body FileStorageApplicationModels.FileUpload payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<FileStorageApplicationModels.SignUrlResponse> signUrls(@Url String url1, @Body FileStorageApplicationModels.SignUrlRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<FileStorageApplicationModels.SignUrlResult> signUrls(@Url String url1, @Body FileStorageApplicationModels.SignUrl payload, @HeaderMap Map<String, String> requestHeaders);
 }

@@ -48,11 +48,11 @@ public class LogisticsPartnerService {
     
     
 
-    public LogisticsPartnerModels.BulkRegionServiceabilityTatResponseItemData sampleFileServiceability(LogisticsPartnerModels.BulkRegionServiceabilityTatRequest body) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.BulkRegionServiceabilityTatResponseItemData sampleFileServiceability(LogisticsPartnerModels.BulkRegionServiceabilityTatRequestSchema body) throws FDKServerResponseError, FDKException {
         return this.sampleFileServiceability(body, new HashMap<>());
     }
 
-    public LogisticsPartnerModels.BulkRegionServiceabilityTatResponseItemData sampleFileServiceability(LogisticsPartnerModels.BulkRegionServiceabilityTatRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.BulkRegionServiceabilityTatResponseItemData sampleFileServiceability(LogisticsPartnerModels.BulkRegionServiceabilityTatRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
             Response<LogisticsPartnerModels.BulkRegionServiceabilityTatResponseItemData> response = null;
             try {
@@ -100,13 +100,13 @@ public class LogisticsPartnerService {
     
     
 
-    public LogisticsPartnerModels.BulkRegionServiceabilityTatResponse getSampleFileServiceabilityStatus(Integer pageNo, Integer pageSize, String batchId) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.BulkRegionServiceabilityTatResponseSchema getSampleFileServiceabilityStatus(Integer pageNo, Integer pageSize, String batchId) throws FDKServerResponseError, FDKException {
         return this.getSampleFileServiceabilityStatus(pageNo, pageSize, batchId, new HashMap<>());
     }
 
-    public LogisticsPartnerModels.BulkRegionServiceabilityTatResponse getSampleFileServiceabilityStatus(Integer pageNo, Integer pageSize, String batchId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.BulkRegionServiceabilityTatResponseSchema getSampleFileServiceabilityStatus(Integer pageNo, Integer pageSize, String batchId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPartnerModels.BulkRegionServiceabilityTatResponse> response = null;
+            Response<LogisticsPartnerModels.BulkRegionServiceabilityTatResponseSchema> response = null;
             try {
                 response = logisticsPartnerApiList.getSampleFileServiceabilityStatus(this.organizationId, pageNo, pageSize, batchId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -148,11 +148,11 @@ public class LogisticsPartnerService {
     
     
 
-    public LogisticsPartnerModels.BulkRegionResponseItemData bulkTat(String extensionId, String schemeId, LogisticsPartnerModels.BulkRegionJobSerializer body) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.BulkRegionResponseItemData bulkTat(String extensionId, String schemeId, LogisticsPartnerModels.BulkRegionJobSerializerSchema body) throws FDKServerResponseError, FDKException {
         return this.bulkTat(extensionId, schemeId, body, new HashMap<>());
     }
 
-    public LogisticsPartnerModels.BulkRegionResponseItemData bulkTat(String extensionId, String schemeId, LogisticsPartnerModels.BulkRegionJobSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.BulkRegionResponseItemData bulkTat(String extensionId, String schemeId, LogisticsPartnerModels.BulkRegionJobSerializerSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
             Response<LogisticsPartnerModels.BulkRegionResponseItemData> response = null;
             try {
@@ -232,13 +232,13 @@ public class LogisticsPartnerService {
     
     
 
-    public LogisticsPartnerModels.BulkRegionResponse getBulkTat(String extensionId, String schemeId, Integer pageNo, Integer pageSize, String batchId, String action, String status, String country, String region, String startDate, String endDate) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.BulkRegionResponseSchema getBulkTat(String extensionId, String schemeId, Integer pageNo, Integer pageSize, String batchId, String action, String status, String country, String region, String startDate, String endDate) throws FDKServerResponseError, FDKException {
         return this.getBulkTat(extensionId, schemeId, pageNo, pageSize, batchId, action, status, country, region, startDate, endDate, new HashMap<>());
     }
 
-    public LogisticsPartnerModels.BulkRegionResponse getBulkTat(String extensionId, String schemeId, Integer pageNo, Integer pageSize, String batchId, String action, String status, String country, String region, String startDate, String endDate, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.BulkRegionResponseSchema getBulkTat(String extensionId, String schemeId, Integer pageNo, Integer pageSize, String batchId, String action, String status, String country, String region, String startDate, String endDate, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPartnerModels.BulkRegionResponse> response = null;
+            Response<LogisticsPartnerModels.BulkRegionResponseSchema> response = null;
             try {
                 response = logisticsPartnerApiList.getBulkTat(this.organizationId, extensionId, schemeId, pageNo, pageSize, batchId, action, status, country, region, startDate, endDate, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -280,11 +280,11 @@ public class LogisticsPartnerService {
     
     
 
-    public LogisticsPartnerModels.BulkRegionResponseItemData bulkServiceability(String extensionId, String schemeId, LogisticsPartnerModels.BulkRegionJobSerializer body) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.BulkRegionResponseItemData bulkServiceability(String extensionId, String schemeId, LogisticsPartnerModels.BulkRegionJobSerializerSchema body) throws FDKServerResponseError, FDKException {
         return this.bulkServiceability(extensionId, schemeId, body, new HashMap<>());
     }
 
-    public LogisticsPartnerModels.BulkRegionResponseItemData bulkServiceability(String extensionId, String schemeId, LogisticsPartnerModels.BulkRegionJobSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.BulkRegionResponseItemData bulkServiceability(String extensionId, String schemeId, LogisticsPartnerModels.BulkRegionJobSerializerSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
             Response<LogisticsPartnerModels.BulkRegionResponseItemData> response = null;
             try {
@@ -364,13 +364,13 @@ public class LogisticsPartnerService {
     
     
 
-    public LogisticsPartnerModels.BulkRegionResponse getBulkServiceability(String extensionId, String schemeId, Integer pageNo, Integer pageSize, String batchId, String action, String status, String country, String region, String startDate, String endDate) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.BulkRegionResponseSchema getBulkServiceability(String extensionId, String schemeId, Integer pageNo, Integer pageSize, String batchId, String action, String status, String country, String region, String startDate, String endDate) throws FDKServerResponseError, FDKException {
         return this.getBulkServiceability(extensionId, schemeId, pageNo, pageSize, batchId, action, status, country, region, startDate, endDate, new HashMap<>());
     }
 
-    public LogisticsPartnerModels.BulkRegionResponse getBulkServiceability(String extensionId, String schemeId, Integer pageNo, Integer pageSize, String batchId, String action, String status, String country, String region, String startDate, String endDate, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.BulkRegionResponseSchema getBulkServiceability(String extensionId, String schemeId, Integer pageNo, Integer pageSize, String batchId, String action, String status, String country, String region, String startDate, String endDate, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPartnerModels.BulkRegionResponse> response = null;
+            Response<LogisticsPartnerModels.BulkRegionResponseSchema> response = null;
             try {
                 response = logisticsPartnerApiList.getBulkServiceability(this.organizationId, extensionId, schemeId, pageNo, pageSize, batchId, action, status, country, region, startDate, endDate, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -408,11 +408,11 @@ public class LogisticsPartnerService {
     
     
 
-    public LogisticsPartnerModels.CourierAccount createCourierPartnerAccount(Integer companyId, LogisticsPartnerModels.CourierAccountRequestBody body) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.CourierAccount createCourierPartnerAccount(Integer companyId, LogisticsPartnerModels.CourierAccount body) throws FDKServerResponseError, FDKException {
         return this.createCourierPartnerAccount(companyId, body, new HashMap<>());
     }
 
-    public LogisticsPartnerModels.CourierAccount createCourierPartnerAccount(Integer companyId, LogisticsPartnerModels.CourierAccountRequestBody body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.CourierAccount createCourierPartnerAccount(Integer companyId, LogisticsPartnerModels.CourierAccount body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
             Response<LogisticsPartnerModels.CourierAccount> response = null;
             try {
@@ -471,16 +471,20 @@ public class LogisticsPartnerService {
     
     
     
+    
+    
+    
+    
 
-    public LogisticsPartnerModels.CompanyCourierPartnerAccountListResponse getCourierPartnerAccounts(Integer companyId, Integer pageNo, Integer pageSize, String stage, String paymentMode, String transportType) throws FDKServerResponseError, FDKException {
-        return this.getCourierPartnerAccounts(companyId, pageNo, pageSize, stage, paymentMode, transportType, new HashMap<>());
+    public LogisticsPartnerModels.CompanyCourierPartnerAccountListResponseSchema getCourierPartnerAccounts(Integer companyId, Integer pageNo, Integer pageSize, String stage, String paymentMode, String transportType, List<String> accountIds) throws FDKServerResponseError, FDKException {
+        return this.getCourierPartnerAccounts(companyId, pageNo, pageSize, stage, paymentMode, transportType, accountIds, new HashMap<>());
     }
 
-    public LogisticsPartnerModels.CompanyCourierPartnerAccountListResponse getCourierPartnerAccounts(Integer companyId, Integer pageNo, Integer pageSize, String stage, String paymentMode, String transportType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.CompanyCourierPartnerAccountListResponseSchema getCourierPartnerAccounts(Integer companyId, Integer pageNo, Integer pageSize, String stage, String paymentMode, String transportType, List<String> accountIds, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPartnerModels.CompanyCourierPartnerAccountListResponse> response = null;
+            Response<LogisticsPartnerModels.CompanyCourierPartnerAccountListResponseSchema> response = null;
             try {
-                response = logisticsPartnerApiList.getCourierPartnerAccounts(this.organizationId, companyId, pageNo, pageSize, stage, paymentMode, transportType, requestHeaders).execute();
+                response = logisticsPartnerApiList.getCourierPartnerAccounts(this.organizationId, companyId, pageNo, pageSize, stage, paymentMode, transportType, accountIds, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -520,13 +524,13 @@ public class LogisticsPartnerService {
     
     
 
-    public LogisticsPartnerModels.CourierAccountResponse updateCourierPartnerAccount(Integer companyId, String accountId, LogisticsPartnerModels.CourierAccount body) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.CourierAccount updateCourierPartnerAccount(Integer companyId, String accountId, LogisticsPartnerModels.CourierAccount body) throws FDKServerResponseError, FDKException {
         return this.updateCourierPartnerAccount(companyId, accountId, body, new HashMap<>());
     }
 
-    public LogisticsPartnerModels.CourierAccountResponse updateCourierPartnerAccount(Integer companyId, String accountId, LogisticsPartnerModels.CourierAccount body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.CourierAccount updateCourierPartnerAccount(Integer companyId, String accountId, LogisticsPartnerModels.CourierAccount body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPartnerModels.CourierAccountResponse> response = null;
+            Response<LogisticsPartnerModels.CourierAccount> response = null;
             try {
                 response = logisticsPartnerApiList.updateCourierPartnerAccount(this.organizationId, companyId, accountId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -568,13 +572,13 @@ public class LogisticsPartnerService {
     
     
 
-    public LogisticsPartnerModels.CourierAccountResponse getCourierPartnerAccount(Integer companyId, String accountId) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.CourierAccountResponseSchema getCourierPartnerAccount(Integer companyId, String accountId) throws FDKServerResponseError, FDKException {
         return this.getCourierPartnerAccount(companyId, accountId, new HashMap<>());
     }
 
-    public LogisticsPartnerModels.CourierAccountResponse getCourierPartnerAccount(Integer companyId, String accountId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.CourierAccountResponseSchema getCourierPartnerAccount(Integer companyId, String accountId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPartnerModels.CourierAccountResponse> response = null;
+            Response<LogisticsPartnerModels.CourierAccountResponseSchema> response = null;
             try {
                 response = logisticsPartnerApiList.getCourierPartnerAccount(this.organizationId, companyId, accountId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -608,11 +612,11 @@ public class LogisticsPartnerService {
     
     
 
-    public LogisticsPartnerModels.CourierPartnerSchemeModel createCourierPartnerScheme(LogisticsPartnerModels.CourierPartnerSchemeRequestModel body) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.CourierPartnerSchemeModel createCourierPartnerScheme(LogisticsPartnerModels.CourierPartnerSchemeModel body) throws FDKServerResponseError, FDKException {
         return this.createCourierPartnerScheme(body, new HashMap<>());
     }
 
-    public LogisticsPartnerModels.CourierPartnerSchemeModel createCourierPartnerScheme(LogisticsPartnerModels.CourierPartnerSchemeRequestModel body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.CourierPartnerSchemeModel createCourierPartnerScheme(LogisticsPartnerModels.CourierPartnerSchemeModel body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
             Response<LogisticsPartnerModels.CourierPartnerSchemeModel> response = null;
             try {
@@ -652,13 +656,13 @@ public class LogisticsPartnerService {
     
     
 
-    public LogisticsPartnerModels.CourierPartnerSchemeUpdateRequest updateCourierPartnerScheme(String schemeId, LogisticsPartnerModels.CourierPartnerSchemeUpdateRequest body) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.CourierPartnerSchemeUpdateRequestSchema updateCourierPartnerScheme(String schemeId, LogisticsPartnerModels.CourierPartnerSchemeUpdateRequestSchema body) throws FDKServerResponseError, FDKException {
         return this.updateCourierPartnerScheme(schemeId, body, new HashMap<>());
     }
 
-    public LogisticsPartnerModels.CourierPartnerSchemeUpdateRequest updateCourierPartnerScheme(String schemeId, LogisticsPartnerModels.CourierPartnerSchemeUpdateRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.CourierPartnerSchemeUpdateRequestSchema updateCourierPartnerScheme(String schemeId, LogisticsPartnerModels.CourierPartnerSchemeUpdateRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<LogisticsPartnerModels.CourierPartnerSchemeUpdateRequest> response = null;
+            Response<LogisticsPartnerModels.CourierPartnerSchemeUpdateRequestSchema> response = null;
             try {
                 response = logisticsPartnerApiList.updateCourierPartnerScheme(this.organizationId, schemeId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -707,16 +711,20 @@ public class LogisticsPartnerService {
     
     
     
+    
+    
+    
+    
 
-    public LogisticsPartnerModels.GetCountries getCountries(Boolean onboarding, Integer pageNo, Integer pageSize, String q) throws FDKServerResponseError, FDKException {
-        return this.getCountries(onboarding, pageNo, pageSize, q, new HashMap<>());
+    public LogisticsPartnerModels.GetCountries getCountries(Boolean onboard, Integer pageNo, Integer pageSize, String q, String hierarchy) throws FDKServerResponseError, FDKException {
+        return this.getCountries(onboard, pageNo, pageSize, q, hierarchy, new HashMap<>());
     }
 
-    public LogisticsPartnerModels.GetCountries getCountries(Boolean onboarding, Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.GetCountries getCountries(Boolean onboard, Integer pageNo, Integer pageSize, String q, String hierarchy, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
             Response<LogisticsPartnerModels.GetCountries> response = null;
             try {
-                response = logisticsPartnerApiList.getCountries(this.organizationId, onboarding, pageNo, pageSize, q, requestHeaders).execute();
+                response = logisticsPartnerApiList.getCountries(this.organizationId, onboard, pageNo, pageSize, q, hierarchy, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

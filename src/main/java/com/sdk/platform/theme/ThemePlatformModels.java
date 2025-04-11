@@ -14,6 +14,589 @@ public class ThemePlatformModels{
 
 
 /*
+    Model: MarketplaceTheme
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class MarketplaceTheme{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("payment")
+    private PaymentInfo payment;
+    
+    
+    
+    
+    @JsonProperty("contact")
+    private ContactInfo contact;
+    
+    
+    
+    
+    @JsonProperty("industry")
+    private List<String> industry;
+    
+    
+    
+    
+    @JsonProperty("is_update")
+    private Boolean isUpdate;
+    
+    
+    
+    
+    @JsonProperty("is_default")
+    private Boolean isDefault;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("tagline")
+    private String tagline;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("catalog_size")
+    private CatalogSize catalogSize;
+    
+    
+    
+    
+    @JsonProperty("images")
+    private MarketplaceThemeImages images;
+    
+    
+    
+    
+    @JsonProperty("carousel")
+    private List<CarouselItem> carousel;
+    
+    
+    
+    
+    @JsonProperty("src")
+    private String src;
+    
+    
+    
+    
+    @JsonProperty("explore")
+    private ExploreInfo explore;
+    
+    
+    
+    
+    @JsonProperty("features")
+    private List<Feature> features;
+    
+    
+    
+    
+    @JsonProperty("highlights")
+    private List<Highlight> highlights;
+    
+    
+    
+    
+    @JsonProperty("variations")
+    private List<Variation> variations;
+    
+    
+    
+    
+    @JsonProperty("documentation")
+    private Documentation documentation;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("step")
+    private Integer step;
+    
+    
+    
+    
+    @JsonProperty("comments")
+    private Comments comments;
+    
+    
+    
+    
+    @JsonProperty("release")
+    private Release release;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("organization_id")
+    private String organizationId;
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("template_theme_id")
+    private String templateThemeId;
+    
+    
+    
+    
+    @JsonProperty("theme_type")
+    private String themeType;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentInfo{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("is_paid")
+    private Boolean isPaid;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+}
+
+
+/*
+    Model: ContactInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ContactInfo{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("developer_contact")
+    private List<String> developerContact;
+    
+    
+    
+    
+    @JsonProperty("seller_contact")
+    private String sellerContact;
+    
+    
+    
+}
+
+
+/*
+    Model: CatalogSize
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CatalogSize{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("min")
+    private Integer min;
+    
+    
+    
+    
+    @JsonProperty("max")
+    private Integer max;
+    
+    
+    
+}
+
+
+/*
+    Model: MarketplaceThemeImages
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class MarketplaceThemeImages{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("desktop")
+    private String desktop;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+}
+
+
+/*
+    Model: CarouselItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CarouselItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("desktop")
+    private String desktop;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+}
+
+
+/*
+    Model: ExploreInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ExploreInfo{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+}
+
+
+/*
+    Model: Feature
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Feature{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("list")
+    private List<FeatureItem> list;
+    
+    
+    
+}
+
+
+/*
+    Model: FeatureItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FeatureItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("label")
+    private String label;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+}
+
+
+/*
+    Model: Highlight
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Highlight{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("image")
+    private String image;
+    
+    
+    
+}
+
+
+/*
+    Model: Variation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Variation{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("color")
+    private String color;
+    
+    
+    
+    
+    @JsonProperty("demo_url")
+    private String demoUrl;
+    
+    
+    
+    
+    @JsonProperty("images")
+    private MarketplaceThemeImages images;
+    
+    
+    
+}
+
+
+/*
+    Model: Documentation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Documentation{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("notes")
+    private String notes;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+}
+
+
+/*
+    Model: Comments
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Comments{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("developer_remark")
+    private String developerRemark;
+    
+    
+    
+    
+    @JsonProperty("reviewer_feedback")
+    private String reviewerFeedback;
+    
+    
+    
+}
+
+
+/*
     Model: GetExtensionSectionRes
 */
 @AllArgsConstructor
@@ -296,6 +879,92 @@ public static class CompanyThemeSchema{
 
 
 /*
+    Model: CompanyThemeReqSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CompanyThemeReqSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("marketplace_theme_id")
+    private String marketplaceThemeId;
+    
+    
+    
+}
+
+
+/*
+    Model: CompanyTheme
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CompanyTheme{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("marketplace_theme_id")
+    private String marketplaceThemeId;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private CompanyThemeMeta meta;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+}
+
+
+/*
     Model: MarketplaceThemeId
 */
 @AllArgsConstructor
@@ -543,6 +1212,12 @@ public static class AvailablePageSchema{
     
     
     
+    
+    @JsonProperty("application")
+    private String application;
+    
+    
+    
 }
 
 
@@ -564,7 +1239,7 @@ public static class AvailablePageSectionMetaAttributes{
     
     
     @JsonProperty("attributes")
-    private Object attributes;
+    private HashMap<String,Object> attributes;
     
     
     
@@ -658,6 +1333,12 @@ public static class SEOSitemap{
     
     @JsonProperty("frequency")
     private String frequency;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
@@ -889,14 +1570,20 @@ public static class AvailablePageSeo{
     
     
     
-    @JsonProperty("breadcrumb")
-    private List<SEObreadcrumb> breadcrumb;
+    @JsonProperty("breadcrumbs")
+    private List<SEObreadcrumb> breadcrumbs;
     
     
     
     
     @JsonProperty("_id")
     private String id;
+    
+    
+    
+    
+    @JsonProperty("canonical_url")
+    private String canonicalUrl;
     
     
     
@@ -920,6 +1607,12 @@ public static class AvailablePageSchemaSections{
     
     
     
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
     @JsonProperty("name")
     private String name;
     
@@ -933,7 +1626,7 @@ public static class AvailablePageSchemaSections{
     
     
     @JsonProperty("props")
-    private Object props;
+    private HashMap<String,Object> props;
     
     
     
@@ -945,7 +1638,7 @@ public static class AvailablePageSchemaSections{
     
     
     @JsonProperty("preset")
-    private Object preset;
+    private HashMap<String,Object> preset;
     
     
     
@@ -956,8 +1649,45 @@ public static class AvailablePageSchemaSections{
     
     
     
-    @JsonProperty("source")
-    private String source;
+    @JsonProperty("__source")
+    private SectionSource source;
+    
+    
+    
+}
+
+
+/*
+    Model: SectionSource
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SectionSource{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("bundle_name")
+    private String bundleName;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
     
     
     
@@ -1117,7 +1847,7 @@ public static class AvailablePageRoutePredicate{
     
     
     @JsonProperty("query")
-    private Object query;
+    private HashMap<String,Object> query;
     
     
     
@@ -1266,7 +1996,7 @@ public static class FontsSchema{
     
     
     @JsonProperty("items")
-    private FontsSchemaItems items;
+    private List<Object> items;
     
     
     
@@ -1390,6 +2120,12 @@ public static class FontsSchemaItems{
     
     @JsonProperty("kind")
     private String kind;
+    
+    
+    
+    
+    @JsonProperty("menu")
+    private String menu;
     
     
     
@@ -1523,7 +2259,7 @@ public static class ThemesSchema{
     
     
     @JsonProperty("styles")
-    private Object styles;
+    private HashMap<String,Object> styles;
     
     
     
@@ -1536,6 +2272,12 @@ public static class ThemesSchema{
     
     @JsonProperty("updated_at")
     private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("global_sections")
+    private List<Object> globalSections;
     
     
     
@@ -1569,11 +2311,17 @@ public static class ThemesSchema{
     
     
     
+    
+    @JsonProperty("applied_themes")
+    private List<Object> appliedThemes;
+    
+    
+    
 }
 
 
 /*
-    Model: ThemeUpgradableResponse
+    Model: ThemeUpgradable
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1581,7 +2329,7 @@ public static class ThemesSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ThemeUpgradableResponse{
+public static class ThemeUpgradable{
 
     
 
@@ -1596,7 +2344,7 @@ public static class ThemeUpgradableResponse{
     
     
     @JsonProperty("versions")
-    private ThemeVersions versions;
+    private HashMap<String,Object> versions;
     
     
     
@@ -1812,7 +2560,7 @@ public static class Config{
     
     
     @JsonProperty("preset")
-    private Preset preset;
+    private HashMap<String,Object> preset;
     
     
     
@@ -1843,7 +2591,7 @@ public static class ThemeConfiguration{
     
     
     @JsonProperty("global_config")
-    private Object globalConfig;
+    private HashMap<String,Object> globalConfig;
     
     
     
@@ -2053,7 +2801,7 @@ public static class ThemeConfigListPageSettingsProps{
     
     
     @JsonProperty("props")
-    private Object props;
+    private HashMap<String,Object> props;
     
     
     
@@ -2574,19 +3322,25 @@ public static class SectionItem{
     
     
     @JsonProperty("props")
-    private List<Object> props;
+    private List<HashMap<String,Object>> props;
     
     
     
     
     @JsonProperty("blocks")
-    private List<Object> blocks;
+    private List<HashMap<String,Object>> blocks;
     
     
     
     
     @JsonProperty("name")
     private String name;
+    
+    
+    
+    
+    @JsonProperty("preset")
+    private SectionPreset preset;
     
     
     
@@ -3163,7 +3917,7 @@ public static class ThemeVersions{
 
 
 /*
-    Model: DummyResponse
+    Model: DummyTheme
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3171,7 +3925,7 @@ public static class ThemeVersions{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DummyResponse{
+public static class DummyTheme{
 
     
 
@@ -3291,6 +4045,37 @@ public static class CompanyPrivateTheme{
     
     @JsonProperty("meta")
     private CompanyThemeMeta meta;
+    
+    
+    
+}
+
+
+/*
+    Model: Option
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Option{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("text")
+    private String text;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
     
     
     

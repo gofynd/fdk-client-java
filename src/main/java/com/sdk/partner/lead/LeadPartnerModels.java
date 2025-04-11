@@ -108,6 +108,12 @@ public static class Page{
     
     
     
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
 }
 
 
@@ -190,7 +196,7 @@ public static class EditTicketPayload{
     
     
     @JsonProperty("priority")
-    private PriorityEnum priority;
+    private String priority;
     
     
     
@@ -235,7 +241,7 @@ public static class AgentChangePayload{
 
 
 /*
-    Model: GeneralConfigResponse
+    Model: GeneralConfigResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -243,16 +249,34 @@ public static class AgentChangePayload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeneralConfigResponse{
+public static class GeneralConfigResponseSchema{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
     
     
     
     
     @JsonProperty("support_communication")
     private List<SupportCommunicationSchema> supportCommunication;
+    
+    
+    
+    
+    @JsonProperty("show_communication_info")
+    private Boolean showCommunicationInfo;
+    
+    
+    
+    
+    @JsonProperty("show_support_dris")
+    private Boolean showSupportDris;
     
     
     
@@ -269,8 +293,81 @@ public static class GeneralConfigResponse{
     
     
     
+    @JsonProperty("allow_ticket_creation")
+    private Boolean allowTicketCreation;
+    
+    
+    
+    
+    @JsonProperty("show_listing")
+    private Boolean showListing;
+    
+    
+    
+    
     @JsonProperty("available_integration")
     private List<String> availableIntegration;
+    
+    
+    
+    
+    @JsonProperty("enable_dris")
+    private Boolean enableDris;
+    
+    
+    
+    
+    @JsonProperty("support_email")
+    private SupportSchema supportEmail;
+    
+    
+    
+    
+    @JsonProperty("support_phone")
+    private SupportSchema supportPhone;
+    
+    
+    
+    
+    @JsonProperty("support_faq")
+    private SupportSchema supportFaq;
+    
+    
+    
+}
+
+
+/*
+    Model: SupportSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SupportSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
     
     
     
@@ -302,12 +399,6 @@ public static class SupportCommunicationSchema{
     
     @JsonProperty("title")
     private String title;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private Object value;
     
     
     
@@ -391,6 +482,12 @@ public static class Filter{
     
     
     
+    
+    @JsonProperty("all_categories")
+    private HashMap<String,Object> allCategories;
+    
+    
+    
 }
 
 
@@ -412,13 +509,13 @@ public static class TicketHistoryPayload{
     
     
     @JsonProperty("value")
-    private Object value;
+    private HashMap<String,Object> value;
     
     
     
     
     @JsonProperty("type")
-    private HistoryTypeEnum type;
+    private String type;
     
     
     
@@ -448,8 +545,8 @@ public static class TicketContext{
     
     
     
-    @JsonProperty("partner_id")
-    private String partnerId;
+    @JsonProperty("organization_id")
+    private String organizationId;
     
     
     
@@ -475,6 +572,12 @@ public static class CreatedOn{
     
     @JsonProperty("user_agent")
     private String userAgent;
+    
+    
+    
+    
+    @JsonProperty("platform")
+    private String platform;
     
     
     
@@ -579,7 +682,7 @@ public static class AddTicketPayload{
     
     
     @JsonProperty("created_by")
-    private Object createdBy;
+    private HashMap<String,Object> createdBy;
     
     
     
@@ -591,7 +694,7 @@ public static class AddTicketPayload{
     
     
     @JsonProperty("priority")
-    private PriorityEnum priority;
+    private String priority;
     
     
     
@@ -609,7 +712,7 @@ public static class AddTicketPayload{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -634,7 +737,7 @@ public static class Priority{
     
     
     @JsonProperty("key")
-    private PriorityEnum key;
+    private String key;
     
     
     
@@ -733,7 +836,7 @@ public static class FeedbackForm{
     
     
     @JsonProperty("inputs")
-    private Object inputs;
+    private HashMap<String,Object> inputs;
     
     
     
@@ -745,7 +848,7 @@ public static class FeedbackForm{
     
     
     @JsonProperty("timestamps")
-    private Object timestamps;
+    private HashMap<String,Object> timestamps;
     
     
     
@@ -782,7 +885,7 @@ public static class TicketCategory{
     
     
     @JsonProperty("sub_categories")
-    private TicketCategory subCategories;
+    private List<TicketCategory> subCategories;
     
     
     
@@ -825,7 +928,7 @@ public static class TicketHistory{
     
     
     @JsonProperty("value")
-    private Object value;
+    private HashMap<String,Object> value;
     
     
     
@@ -843,7 +946,7 @@ public static class TicketHistory{
     
     
     @JsonProperty("created_by")
-    private Object createdBy;
+    private HashMap<String,Object> createdBy;
     
     
     
@@ -862,6 +965,12 @@ public static class TicketHistory{
     
     @JsonProperty("created_at")
     private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Double v;
     
     
     
@@ -922,7 +1031,7 @@ public static class Ticket{
     
     
     @JsonProperty("source")
-    private TicketSourceEnum source;
+    private String source;
     
     
     
@@ -946,13 +1055,13 @@ public static class Ticket{
     
     
     @JsonProperty("created_by")
-    private Object createdBy;
+    private HashMap<String,Object> createdBy;
     
     
     
     
     @JsonProperty("assigned_to")
-    private Object assignedTo;
+    private HashMap<String,Object> assignedTo;
     
     
     
@@ -963,8 +1072,14 @@ public static class Ticket{
     
     
     
+    @JsonProperty("subscribers")
+    private List<String> subscribers;
+    
+    
+    
+    
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -976,7 +1091,7 @@ public static class Ticket{
     
     
     @JsonProperty("integration")
-    private Object integration;
+    private HashMap<String,Object> integration;
     
     
     
@@ -998,69 +1113,89 @@ public static class Ticket{
     
     
     
+    
+    @JsonProperty("additional_info")
+    private List<HashMap<String,Object>> additionalInfo;
+    
+    
+    
+    
+    @JsonProperty("ticket_link")
+    private String ticketLink;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Double v;
+    
+    
+    
 }
 
 
-
-
-    
-    /*
-        Enum: PriorityEnum
-        Used By: Lead
-    */
-    @Getter
-    public enum PriorityEnum {
-
-        
-        low("low"), 
-        
-        medium("medium"), 
-        
-        high("high"), 
-        
-        urgent("urgent");
-        
-
-        private String priority;
-        PriorityEnum(String priority) {
-            this.priority = priority;
-        }
-
-        @JsonValue
-        public String getPriority() {
-            return priority;
-        }
-
-    }
-
+/*
+    Model: Error4XX
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Error4XX{
 
     
-    /*
-        Enum: HistoryTypeEnum
-        Used By: Lead
-    */
-    @Getter
-    public enum HistoryTypeEnum {
 
-        
-        rating("rating"), 
-        
-        log("log"), 
-        
-        comment("comment");
-        
+    
+    
+    
+    
+    @JsonProperty("message")
+    private HashMap<String,Object> message;
+    
+    
+    
+    
+    @JsonProperty("stack")
+    private String stack;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
 
-        private String priority;
-        HistoryTypeEnum(String priority) {
-            this.priority = priority;
-        }
 
-        @JsonValue
-        public String getPriority() {
-            return priority;
-        }
+/*
+    Model: NotFoundError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class NotFoundError{
 
-    }
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
 
 
     
@@ -1093,33 +1228,6 @@ public static class Ticket{
 
         private String priority;
         TicketAssetTypeEnum(String priority) {
-            this.priority = priority;
-        }
-
-        @JsonValue
-        public String getPriority() {
-            return priority;
-        }
-
-    }
-
-
-    
-    /*
-        Enum: TicketSourceEnum
-        Used By: Lead
-    */
-    @Getter
-    public enum TicketSourceEnum {
-
-        
-        platformPanel("platform_panel"), 
-        
-        salesChannel("sales_channel");
-        
-
-        private String priority;
-        TicketSourceEnum(String priority) {
             this.priority = priority;
         }
 
