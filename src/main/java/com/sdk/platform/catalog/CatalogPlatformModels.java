@@ -15216,6 +15216,12 @@ public static class ProductListingDetail{
     
     
     
+    
+    @JsonProperty("seo")
+    private ApplicationItemSEO seo;
+    
+    
+    
 }
 
 
