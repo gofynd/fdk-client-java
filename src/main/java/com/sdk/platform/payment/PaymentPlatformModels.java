@@ -13569,6 +13569,214 @@ public static class ShipmentBeneficiaryDetailsRes{
 
 
 /*
+    Model: TransactionData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("transaction_id")
+    private String transactionId;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("aggregator_name")
+    private String aggregatorName;
+    
+    
+    
+    
+    @JsonProperty("transaction_type")
+    private TransactionTypeSchema transactionType;
+    
+    
+    
+    
+    @JsonProperty("payment_mode")
+    private String paymentMode;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("return_shipment_id")
+    private String returnShipmentId;
+    
+    
+    
+}
+
+
+/*
+    Model: OrderData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private StatusSchema status;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("paid_amount")
+    private Double paidAmount;
+    
+    
+    
+    
+    @JsonProperty("device")
+    private DeviceTypeSchema device;
+    
+    
+    
+    
+    @JsonProperty("transactions")
+    private List<TransactionData> transactions;
+    
+    
+    
+}
+
+
+/*
+    Model: PageData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PageData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("page_size")
+    private Integer pageSize;
+    
+    
+    
+    
+    @JsonProperty("current_page")
+    private Integer currentPage;
+    
+    
+    
+}
+
+
+/*
+    Model: TransactionsResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TransactionsResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("orders")
+    private HashMap<String,OrderData> orders;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private PageData page;
+    
+    
+    
+}
+
+
+/*
     Model: HttpErrorCodeAndMessage
 */
 @AllArgsConstructor
@@ -13648,6 +13856,115 @@ public static class ErrorCodeDescription{
 }
 
 
+
+
+    
+    /*
+        Enum: StatusSchema
+        Used By: Payment
+    */
+    @Getter
+    public enum StatusSchema {
+
+        
+        started("started"), 
+        
+        completed("completed"), 
+        
+        partialPaid("partial_paid"), 
+        
+        failed("failed"), 
+        
+        pending("pending"), 
+        
+        refundDone("refund_done"), 
+        
+        refundInitiated("refund_initiated"), 
+        
+        partialRefund("partial_refund"), 
+        
+        refundFailed("refund_failed"), 
+        
+        refundPending("refund_pending"), 
+        
+        refundAcknowledge("refund_acknowledge");
+        
+
+        private String priority;
+        StatusSchema(String priority) {
+            this.priority = priority;
+        }
+
+        @JsonValue
+        public String getPriority() {
+            return priority;
+        }
+
+    }
+
+
+    
+    /*
+        Enum: DeviceTypeSchema
+        Used By: Payment
+    */
+    @Getter
+    public enum DeviceTypeSchema {
+
+        
+        android("android"), 
+        
+        ios("ios"), 
+        
+        desktop("desktop"), 
+        
+        iosPos("ios-pos"), 
+        
+        androidPos("android-pos"), 
+        
+        desktopPaymentLink("desktop-payment_link");
+        
+
+        private String priority;
+        DeviceTypeSchema(String priority) {
+            this.priority = priority;
+        }
+
+        @JsonValue
+        public String getPriority() {
+            return priority;
+        }
+
+    }
+
+
+    
+    /*
+        Enum: TransactionTypeSchema
+        Used By: Payment
+    */
+    @Getter
+    public enum TransactionTypeSchema {
+
+        
+        forward("FORWARD"), 
+        
+        refund("REFUND"), 
+        
+        autoRefund("AUTO_REFUND");
+        
+
+        private String priority;
+        TransactionTypeSchema(String priority) {
+            this.priority = priority;
+        }
+
+        @JsonValue
+        public String getPriority() {
+            return priority;
+        }
+
+    }
 
 
 }

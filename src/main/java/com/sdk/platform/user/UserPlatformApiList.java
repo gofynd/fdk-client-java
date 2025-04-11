@@ -92,4 +92,10 @@ interface UserPlatformApiList {
 
     @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_attribute/attribute/{attribute_id}")
     Call<UserPlatformModels.UserAttribute> getUserAttributeById(@Path("attribute_id") String attributeId, @Path("application_id") String applicationId, @Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_attribute/bulk_update")
+    Call<UserPlatformModels.BulkOperation> bulkUpdateUserAttributes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body UserPlatformModels.BulkUpdateUserAttributesBody payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_attribute/bulk_update/per_user")
+    Call<UserPlatformModels.BulkOperation> bulkUpdatePerUserAttributes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body UserPlatformModels.BulkUpdatePerUserAttributesBody payload, @HeaderMap Map<String, String> requestHeaders);
 }
