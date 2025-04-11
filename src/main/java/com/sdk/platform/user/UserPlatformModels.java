@@ -3219,6 +3219,290 @@ public static class Email{
 }
 
 
+/*
+    Model: BulkUpdateUserAttributesBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkUpdateUserAttributesBody{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("users")
+    private List<String> users;
+    
+    
+    
+    
+    @JsonProperty("user_file_url")
+    private String userFileUrl;
+    
+    
+    
+    
+    @JsonProperty("attribute")
+    private List<BulkUpdateUserSameAttributes> attribute;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkUpdateUserSameAttributes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkUpdateUserSameAttributes{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Object value;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkUpdatePerUserAttributesBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkUpdatePerUserAttributesBody{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("user_detail_attributes")
+    private List<UserDetailAttributes> userDetailAttributes;
+    
+    
+    
+}
+
+
+/*
+    Model: UserDetailAttributes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserDetailAttributes{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("attributes")
+    private List<BulkUpdatePerUserAttributes> attributes;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkUpdatePerUserAttributes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkUpdatePerUserAttributes{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Object value;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkOperation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkOperation{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
+    
+    @JsonProperty("processed")
+    private Integer processed;
+    
+    
+    
+    
+    @JsonProperty("errors_count")
+    private Integer errorsCount;
+    
+    
+    
+    
+    @JsonProperty("errors")
+    private List<BulkOperationError> errors;
+    
+    
+    
+    
+    @JsonProperty("processing_type")
+    private String processingType;
+    
+    
+    
+    
+    @JsonProperty("error_summary")
+    private HashMap<String,Object> errorSummary;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkOperationError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkOperationError{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkOperationAsync
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkOperationAsync{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("request_id")
+    private String requestId;
+    
+    
+    
+    
+    @JsonProperty("processing_type")
+    private String processingType;
+    
+    
+    
+}
+
+
 
 
 }
