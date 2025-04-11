@@ -31,7 +31,7 @@ import com.sdk.application.*;
         
         relativeUrls.put("getTicket","/service/application/lead/v1.0/ticket/{id}".substring(1));
         relativeUrls.put("createHistory","/service/application/lead/v1.0/ticket/{id}/history".substring(1));
-        relativeUrls.put("createTicket","/service/application/lead/v1.0/ticket/".substring(1));
+        relativeUrls.put("createTicket","/service/application/lead/v1.0/ticket".substring(1));
         relativeUrls.put("getCustomForm","/service/application/lead/v1.0/form/{slug}".substring(1));
         relativeUrls.put("submitCustomForm","/service/application/lead/v1.0/form/{slug}/submit".substring(1)); 
 
@@ -121,16 +121,16 @@ import com.sdk.application.*;
     }
     
 
-    public LeadApplicationModels.SubmitCustomFormDetails submitCustomForm(String slug, LeadApplicationModels.CustomFormSubmissionPayload body) throws IOException {
+    public LeadApplicationModels.SubmitCustomFormResponseSchema submitCustomForm(String slug, LeadApplicationModels.CustomFormSubmissionPayload body) throws IOException {
         return this.submitCustomForm(slug, body, new HashMap<>());
     }
 
-    public LeadApplicationModels.SubmitCustomFormDetails submitCustomForm(String slug, LeadApplicationModels.CustomFormSubmissionPayload body, Map<String, String> requestHeaders) throws IOException {
+    public LeadApplicationModels.SubmitCustomFormResponseSchema submitCustomForm(String slug, LeadApplicationModels.CustomFormSubmissionPayload body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("submitCustomForm");
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
 
-        Response<LeadApplicationModels.SubmitCustomFormDetails> response = leadApplicationApiList.submitCustomForm(fullUrl, body, requestHeaders).execute();
+        Response<LeadApplicationModels.SubmitCustomFormResponseSchema> response = leadApplicationApiList.submitCustomForm(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

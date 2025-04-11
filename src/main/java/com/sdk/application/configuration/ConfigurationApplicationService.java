@@ -144,6 +144,42 @@ import com.sdk.application.*;
         }
         return response.body();
     }
+
+    /**
+    * Summary: get paginator for getOrderingStores
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ConfigurationApplicationModels.OrderingStores> getOrderingStoresPagination(
+        
+        Integer pageSize,
+        String q
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ConfigurationApplicationModels.OrderingStores> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ConfigurationApplicationModels.OrderingStores callback = this.getOrderingStores(
+                
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 q
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator;
+    }
     
 
     public ConfigurationApplicationModels.OrderingStore getStoreDetailById(Integer storeId) throws IOException {

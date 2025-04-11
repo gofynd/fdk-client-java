@@ -65,14 +65,16 @@ public class ThemePlatformService {
     
     
     
+    
+    
 
-    public List<ThemePlatformModels.CompanyThemeSchema> getCompanyLevelThemes(String searchText) throws FDKServerResponseError, FDKException {
+    public List<ThemePlatformModels.ThemesSchema> getCompanyLevelThemes(String searchText) throws FDKServerResponseError, FDKException {
         return this.getCompanyLevelThemes(searchText, new HashMap<>());
     }
 
-    public List<ThemePlatformModels.CompanyThemeSchema> getCompanyLevelThemes(String searchText, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public List<ThemePlatformModels.ThemesSchema> getCompanyLevelThemes(String searchText, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<List<ThemePlatformModels.CompanyThemeSchema>> response = null;
+            Response<List<ThemePlatformModels.ThemesSchema>> response = null;
             try {
                 response = themePlatformApiList.getCompanyLevelThemes(this.companyId, searchText, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -110,13 +112,13 @@ public class ThemePlatformService {
     
     
 
-    public List<ThemePlatformModels.CompanyPrivateTheme> getCompanyLevelPrivateThemes(String searchText) throws FDKServerResponseError, FDKException {
+    public List<ThemePlatformModels.ThemesSchema> getCompanyLevelPrivateThemes(String searchText) throws FDKServerResponseError, FDKException {
         return this.getCompanyLevelPrivateThemes(searchText, new HashMap<>());
     }
 
-    public List<ThemePlatformModels.CompanyPrivateTheme> getCompanyLevelPrivateThemes(String searchText, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public List<ThemePlatformModels.ThemesSchema> getCompanyLevelPrivateThemes(String searchText, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<List<ThemePlatformModels.CompanyPrivateTheme>> response = null;
+            Response<List<ThemePlatformModels.ThemesSchema>> response = null;
             try {
                 response = themePlatformApiList.getCompanyLevelPrivateThemes(this.companyId, searchText, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -150,13 +152,13 @@ public class ThemePlatformService {
     
     
 
-    public ThemePlatformModels.CompanyThemeSchema addMarketplaceThemeToCompany(ThemePlatformModels.ThemeReq body) throws FDKServerResponseError, FDKException {
+    public ThemePlatformModels.ThemesSchema addMarketplaceThemeToCompany(ThemePlatformModels.CompanyThemeReqSchema body) throws FDKServerResponseError, FDKException {
         return this.addMarketplaceThemeToCompany(body, new HashMap<>());
     }
 
-    public ThemePlatformModels.CompanyThemeSchema addMarketplaceThemeToCompany(ThemePlatformModels.ThemeReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ThemePlatformModels.ThemesSchema addMarketplaceThemeToCompany(ThemePlatformModels.CompanyThemeReqSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ThemePlatformModels.CompanyThemeSchema> response = null;
+            Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
                 response = themePlatformApiList.addMarketplaceThemeToCompany(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -194,13 +196,13 @@ public class ThemePlatformService {
     
     
 
-    public ThemePlatformModels.CompanyThemeSchema deleteCompanyTheme(String themeId) throws FDKServerResponseError, FDKException {
+    public ThemePlatformModels.ThemesSchema deleteCompanyTheme(String themeId) throws FDKServerResponseError, FDKException {
         return this.deleteCompanyTheme(themeId, new HashMap<>());
     }
 
-    public ThemePlatformModels.CompanyThemeSchema deleteCompanyTheme(String themeId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ThemePlatformModels.ThemesSchema deleteCompanyTheme(String themeId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ThemePlatformModels.CompanyThemeSchema> response = null;
+            Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
                 response = themePlatformApiList.deleteCompanyTheme(this.companyId, themeId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -250,6 +252,48 @@ public class ThemePlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ThemePlatformModels.MarketplaceTheme getDefaultMarketplaceTheme() throws FDKServerResponseError, FDKException {
+        return this.getDefaultMarketplaceTheme(new HashMap<>());
+    }
+
+    public ThemePlatformModels.MarketplaceTheme getDefaultMarketplaceTheme(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ThemePlatformModels.MarketplaceTheme> response = null;
+            try {
+                response = themePlatformApiList.getDefaultMarketplaceTheme(this.companyId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
     
     
     
@@ -431,15 +475,42 @@ public class ApplicationClient {
         }    
     }
 
-    public ThemePlatformModels.FontsSchema getFonts(String capability) throws FDKServerResponseError, FDKException {
-        return this.getFonts(capability, new HashMap<>());
+    public ThemePlatformModels.FontsSchema getFonts() throws FDKServerResponseError, FDKException {
+        return this.getFonts(new HashMap<>());
     }
 
-    public ThemePlatformModels.FontsSchema getFonts(String capability, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ThemePlatformModels.FontsSchema getFonts(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.FontsSchema> response = null;
             try {
-            response = themePlatformApiList.getFonts(this.companyId, this.applicationId, capability, requestHeaders).execute();
+            response = themePlatformApiList.getFonts(this.companyId, this.applicationId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ThemePlatformModels.FontsSchema getFontsV2() throws FDKServerResponseError, FDKException {
+        return this.getFontsV2(new HashMap<>());
+    }
+
+    public ThemePlatformModels.FontsSchema getFontsV2(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ThemePlatformModels.FontsSchema> response = null;
+            try {
+            response = themePlatformApiList.getFontsV2(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -539,11 +610,11 @@ public class ApplicationClient {
         }    
     }
 
-    public ThemePlatformModels.ThemesSchema updateTheme(String themeId, ThemePlatformModels.UpdateThemeRequestBody body) throws FDKServerResponseError, FDKException {
+    public ThemePlatformModels.ThemesSchema updateTheme(String themeId, ThemePlatformModels.ThemesSchema body) throws FDKServerResponseError, FDKException {
         return this.updateTheme(themeId, body, new HashMap<>());
     }
 
-    public ThemePlatformModels.ThemesSchema updateTheme(String themeId, ThemePlatformModels.UpdateThemeRequestBody body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ThemePlatformModels.ThemesSchema updateTheme(String themeId, ThemePlatformModels.ThemesSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
@@ -575,33 +646,6 @@ public class ApplicationClient {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
             response = themePlatformApiList.deleteTheme(this.companyId, this.applicationId, themeId, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public ThemePlatformModels.ThemesSchema addThemeToApplication(ThemePlatformModels.ThemeReq body) throws FDKServerResponseError, FDKException {
-        return this.addThemeToApplication(body, new HashMap<>());
-    }
-
-    public ThemePlatformModels.ThemesSchema addThemeToApplication(ThemePlatformModels.ThemeReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ThemePlatformModels.ThemesSchema> response = null;
-            try {
-            response = themePlatformApiList.addThemeToApplication(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -683,6 +727,33 @@ public class ApplicationClient {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
             response = themePlatformApiList.duplicateTheme(this.companyId, this.applicationId, themeId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ThemePlatformModels.ThemesSchema createTheme(ThemePlatformModels.CompanyThemeReqSchema body) throws FDKServerResponseError, FDKException {
+        return this.createTheme(body, new HashMap<>());
+    }
+
+    public ThemePlatformModels.ThemesSchema createTheme(ThemePlatformModels.CompanyThemeReqSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ThemePlatformModels.ThemesSchema> response = null;
+            try {
+            response = themePlatformApiList.createTheme(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -818,6 +889,33 @@ public class ApplicationClient {
             Response<ThemePlatformModels.ThemesSchema> response = null;
             try {
             response = themePlatformApiList.upgradeTheme(this.companyId, this.applicationId, themeId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public List<ThemePlatformModels.MarketplaceTheme> getLatestVersionOfThemeBySlug(String slugName) throws FDKServerResponseError, FDKException {
+        return this.getLatestVersionOfThemeBySlug(slugName, new HashMap<>());
+    }
+
+    public List<ThemePlatformModels.MarketplaceTheme> getLatestVersionOfThemeBySlug(String slugName, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<List<ThemePlatformModels.MarketplaceTheme>> response = null;
+            try {
+            response = themePlatformApiList.getLatestVersionOfThemeBySlug(this.applicationId, this.companyId, slugName, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
