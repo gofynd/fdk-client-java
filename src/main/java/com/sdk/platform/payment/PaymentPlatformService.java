@@ -691,6 +691,8 @@ public class PaymentPlatformService {
     
     
     
+    
+    
 
 
 
@@ -2552,6 +2554,33 @@ public class ApplicationClient {
             Response<PaymentPlatformModels.ShipmentBeneficiaryDetailsRes> response = null;
             try {
             response = paymentPlatformApiList.getShipmentBeneficiary(this.companyId, this.applicationId, shipmentId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public PaymentPlatformModels.TransactionsResponseSchema getTransactions(String userId, Integer pageSize, Integer pageNumber, String orderId, String shipmentId, String transactionId) throws FDKServerResponseError, FDKException {
+        return this.getTransactions(userId, pageSize, pageNumber, orderId, shipmentId, transactionId, new HashMap<>());
+    }
+
+    public PaymentPlatformModels.TransactionsResponseSchema getTransactions(String userId, Integer pageSize, Integer pageNumber, String orderId, String shipmentId, String transactionId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PaymentPlatformModels.TransactionsResponseSchema> response = null;
+            try {
+            response = paymentPlatformApiList.getTransactions(this.companyId, this.applicationId, userId, pageSize, pageNumber, orderId, shipmentId, transactionId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

@@ -248,4 +248,7 @@ interface PaymentPlatformApiList {
 
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/refunds/beneficiary-details/{shipment_id}")
     Call<PaymentPlatformModels.ShipmentBeneficiaryDetailsRes> getShipmentBeneficiary(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("shipment_id") String shipmentId, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/transactions")
+    Call<PaymentPlatformModels.TransactionsResponseSchema> getTransactions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("user_id") String userId, @Query("page_size") Integer pageSize, @Query("page_number") Integer pageNumber, @Query("order_id") String orderId, @Query("shipment_id") String shipmentId, @Query("transaction_id") String transactionId, @HeaderMap Map<String, String> requestHeaders);
 }

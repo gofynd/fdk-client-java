@@ -681,7 +681,7 @@ public static class AvailablePagePredicate{
     
     
     @JsonProperty("schedule")
-    private AvailablePageSchedulePredicate schedule;
+    private List<AvailablePageSchedulePredicate> schedule;
     
     
     
@@ -762,6 +762,30 @@ public static class AvailablePageUserPredicate{
     
     @JsonProperty("anonymous")
     private Boolean anonymous;
+    
+    
+    
+    
+    @JsonProperty("user_type")
+    private String userType;
+    
+    
+    
+    
+    @JsonProperty("user_groups")
+    private List<String> userGroups;
+    
+    
+    
+    
+    @JsonProperty("start")
+    private String start;
+    
+    
+    
+    
+    @JsonProperty("end")
+    private String end;
     
     
     
