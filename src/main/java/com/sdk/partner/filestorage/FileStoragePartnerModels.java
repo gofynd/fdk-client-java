@@ -441,12 +441,6 @@ public static class FileUploadStart{
     
     
     
-    
-    @JsonProperty("enc_key")
-    private String encKey;
-    
-    
-    
 }
 
 

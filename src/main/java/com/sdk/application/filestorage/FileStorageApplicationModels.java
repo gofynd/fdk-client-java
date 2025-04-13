@@ -225,12 +225,6 @@ public static class FileUploadStart{
     
     
     
-    
-    @JsonProperty("enc_key")
-    private String encKey;
-    
-    
-    
 }
 
 
@@ -425,37 +419,6 @@ public static class SignUrlResult{
 
 
 /*
-    Model: EncryptionMapping
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EncryptionMapping{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("enc_url")
-    private String encUrl;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-}
-
-
-/*
     Model: SignUrl
 */
 @AllArgsConstructor
@@ -480,12 +443,6 @@ public static class SignUrl{
     
     @JsonProperty("urls")
     private List<String> urls;
-    
-    
-    
-    
-    @JsonProperty("enc_url_mapping")
-    private List<EncryptionMapping> encUrlMapping;
     
     
     
