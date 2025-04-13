@@ -813,68 +813,6 @@ public static class FulfillingStore{
     
     
     
-    
-    @JsonProperty("custom_json")
-    private HashMap<String,Object> customJson;
-    
-    
-    
-}
-
-
-/*
-    Model: RuleConditionsSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RuleConditionsSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("article_tag")
-    private String articleTag;
-    
-    
-    
-    
-    @JsonProperty("department")
-    private List<String> department;
-    
-    
-    
-}
-
-
-/*
-    Model: RuleSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RuleSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("conditions")
-    private RuleConditionsSchema conditions;
-    
-    
-    
 }
 
 
@@ -903,12 +841,6 @@ public static class ChargeDistributionSchema{
     
     @JsonProperty("logic")
     private String logic;
-    
-    
-    
-    
-    @JsonProperty("rule")
-    private RuleSchema rule;
     
     
     
@@ -1051,24 +983,6 @@ public static class PriceAdjustmentCharge{
     
     @JsonProperty("distribution_logic")
     private ChargeDistributionLogic distributionLogic;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private HashMap<String,Object> meta;
-    
-    
-    
-    
-    @JsonProperty("is_refundable")
-    private Boolean isRefundable;
-    
-    
-    
-    
-    @JsonProperty("is_refundable_on_state")
-    private Boolean isRefundableOnState;
     
     
     
@@ -2859,12 +2773,6 @@ public static class ConversionRate{
     
     
     
-    
-    @JsonProperty("timestamp")
-    private Double timestamp;
-    
-    
-    
 }
 
 
@@ -3051,12 +2959,6 @@ public static class OrderSchema{
     
     @JsonProperty("payment_info")
     private List<PaymentInfo> paymentInfo;
-    
-    
-    
-    
-    @JsonProperty("custom_json")
-    private Object customJson;
     
     
     

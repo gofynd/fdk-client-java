@@ -2244,12 +2244,6 @@ public static class GetLocationSerializer{
     
     
     
-    
-    @JsonProperty("is_hyperlocal_active")
-    private Boolean isHyperlocalActive;
-    
-    
-    
 }
 
 
@@ -2550,12 +2544,6 @@ public static class LocationSerializer{
     
     @JsonProperty("auto_assign_courier_partner")
     private Boolean autoAssignCourierPartner;
-    
-    
-    
-    
-    @JsonProperty("is_hyperlocal_active")
-    private Boolean isHyperlocalActive;
     
     
     

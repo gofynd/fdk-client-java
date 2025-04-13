@@ -224,25 +224,4 @@ interface ServiceabilityPlatformApiList {
 
     @GET ("/service/platform/logistics/v2.0/company/{company_id}/application/{application_id}/zones/bulk/sample/{product_type}")
     Call<String> downloadZoneSampleFile(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("product_type") String productType, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/logistics/v2.0/company/{company_id}/application/{application_id}/zones/bulk/validation")
-    Call<ServiceabilityPlatformModels.ZoneBulkValidationResponse> validateBulkZone(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.ZoneBulkValidationRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/logistics/v2.0/company/{company_id}/application/{application_id}/zones/bulk/validation/{batch_id}")
-    Call<ServiceabilityPlatformModels.ZoneBulkValidationStatusResponse> getBulkZoneValidation(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("batch_id") String batchId, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/logistics/v2.0/company/{company_id}/application/{application_id}/zones/bulk/import/{batch_id}")
-    Call<ServiceabilityPlatformModels.ZoneBulkImportResponse> importBulkZone(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("batch_id") String batchId, @HeaderMap Map<String, String> requestHeaders);
-
-    @PATCH ("/service/platform/logistics/v2.0/company/{company_id}/application/{application_id}/zones/{zone_id}/conflicts")
-    Call<ServiceabilityPlatformModels.ZoneOverrideResponseSchema> overrideZoneById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("zone_id") String zoneId, @Body ServiceabilityPlatformModels.ZoneOverrideSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/logistics/v2.0/company/{company_id}/application/{application_id}/zones/{zone_id}/conflicts")
-    Call<ServiceabilityPlatformModels.ZoneOverrideStatusResponseSchema> getZoneOverrideStatus(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("zone_id") String zoneId, @HeaderMap Map<String, String> requestHeaders);
-
-    @PATCH ("/service/platform/logistics/v2.0/company/{company_id}/application/{application_id}/zones/bulk/conflicts/{batch_id}")
-    Call<ServiceabilityPlatformModels.BulkZoneOverrideResponseSchema> overrideBulkZone(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("batch_id") String batchId, @Body ServiceabilityPlatformModels.BulkZoneOverrideSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/logistics/v2.0/company/{company_id}/application/{application_id}/zones/bulk/history/{batch_id}")
-    Call<ServiceabilityPlatformModels.BulkZoneOverrideStatusSchema> getBulkZoneOverrideStatus(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("batch_id") String batchId, @HeaderMap Map<String, String> requestHeaders);
 }

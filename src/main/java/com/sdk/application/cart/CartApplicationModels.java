@@ -2208,18 +2208,6 @@ public static class CartProductInfo{
     
     
     
-    
-    @JsonProperty("journey_wise_promise")
-    private List<JourneyPromiseObject> journeyWisePromise;
-    
-    
-    
-    
-    @JsonProperty("distance")
-    private Double distance;
-    
-    
-    
 }
 
 
@@ -5062,18 +5050,6 @@ public static class ShipmentResponse{
     
     @JsonProperty("error")
     private ShipmentError error;
-    
-    
-    
-    
-    @JsonProperty("journey_wise_promise")
-    private List<JourneyPromiseObject> journeyWisePromise;
-    
-    
-    
-    
-    @JsonProperty("distance")
-    private Double distance;
     
     
     
@@ -8256,74 +8232,6 @@ public static class DeleteCartRequest{
     
     @JsonProperty("cart_id_list")
     private List<String> cartIdList;
-    
-    
-    
-}
-
-
-/*
-    Model: DeliveryPromiseObject
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeliveryPromiseObject{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("min")
-    private String min;
-    
-    
-    
-    
-    @JsonProperty("max")
-    private String max;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
-    Model: JourneyPromiseObject
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class JourneyPromiseObject{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("journey")
-    private String journey;
-    
-    
-    
-    
-    @JsonProperty("delivery_promise")
-    private DeliveryPromiseObject deliveryPromise;
     
     
     
