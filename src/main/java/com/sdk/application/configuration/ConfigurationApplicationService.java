@@ -78,15 +78,15 @@ import com.sdk.application.*;
     }
     
 
-    public ConfigurationApplicationModels.ApplicationAboutResponseSchema getOwnerInfo() throws IOException {
+    public ConfigurationApplicationModels.ApplicationAboutResponse getOwnerInfo() throws IOException {
         return this.getOwnerInfo(new HashMap<>());
     }
 
-    public ConfigurationApplicationModels.ApplicationAboutResponseSchema getOwnerInfo(Map<String, String> requestHeaders) throws IOException {
+    public ConfigurationApplicationModels.ApplicationAboutResponse getOwnerInfo(Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getOwnerInfo");
 
-        Response<ConfigurationApplicationModels.ApplicationAboutResponseSchema> response = configurationApplicationApiList.getOwnerInfo(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.ApplicationAboutResponse> response = configurationApplicationApiList.getOwnerInfo(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -112,15 +112,15 @@ import com.sdk.application.*;
     }
     
 
-    public ConfigurationApplicationModels.AppTokenResponseSchema getIntegrationTokens() throws IOException {
+    public ConfigurationApplicationModels.AppTokenResponse getIntegrationTokens() throws IOException {
         return this.getIntegrationTokens(new HashMap<>());
     }
 
-    public ConfigurationApplicationModels.AppTokenResponseSchema getIntegrationTokens(Map<String, String> requestHeaders) throws IOException {
+    public ConfigurationApplicationModels.AppTokenResponse getIntegrationTokens(Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getIntegrationTokens");
 
-        Response<ConfigurationApplicationModels.AppTokenResponseSchema> response = configurationApplicationApiList.getIntegrationTokens(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.AppTokenResponse> response = configurationApplicationApiList.getIntegrationTokens(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -200,15 +200,15 @@ import com.sdk.application.*;
     }
     
 
-    public ConfigurationApplicationModels.AppFeatureResponseSchema getFeatures() throws IOException {
+    public ConfigurationApplicationModels.AppFeatureResponse getFeatures() throws IOException {
         return this.getFeatures(new HashMap<>());
     }
 
-    public ConfigurationApplicationModels.AppFeatureResponseSchema getFeatures(Map<String, String> requestHeaders) throws IOException {
+    public ConfigurationApplicationModels.AppFeatureResponse getFeatures(Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getFeatures");
 
-        Response<ConfigurationApplicationModels.AppFeatureResponseSchema> response = configurationApplicationApiList.getFeatures(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.AppFeatureResponse> response = configurationApplicationApiList.getFeatures(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -234,15 +234,15 @@ import com.sdk.application.*;
     }
     
 
-    public ConfigurationApplicationModels.CurrenciesResponseSchema getCurrencies() throws IOException {
+    public ConfigurationApplicationModels.CurrenciesResponse getCurrencies() throws IOException {
         return this.getCurrencies(new HashMap<>());
     }
 
-    public ConfigurationApplicationModels.CurrenciesResponseSchema getCurrencies(Map<String, String> requestHeaders) throws IOException {
+    public ConfigurationApplicationModels.CurrenciesResponse getCurrencies(Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getCurrencies");
 
-        Response<ConfigurationApplicationModels.CurrenciesResponseSchema> response = configurationApplicationApiList.getCurrencies(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.CurrenciesResponse> response = configurationApplicationApiList.getCurrencies(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -269,15 +269,15 @@ import com.sdk.application.*;
     }
     
 
-    public ConfigurationApplicationModels.AppCurrencyResponseSchema getAppCurrencies() throws IOException {
+    public ConfigurationApplicationModels.AppCurrencyResponse getAppCurrencies() throws IOException {
         return this.getAppCurrencies(new HashMap<>());
     }
 
-    public ConfigurationApplicationModels.AppCurrencyResponseSchema getAppCurrencies(Map<String, String> requestHeaders) throws IOException {
+    public ConfigurationApplicationModels.AppCurrencyResponse getAppCurrencies(Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getAppCurrencies");
 
-        Response<ConfigurationApplicationModels.AppCurrencyResponseSchema> response = configurationApplicationApiList.getAppCurrencies(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.AppCurrencyResponse> response = configurationApplicationApiList.getAppCurrencies(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -286,15 +286,15 @@ import com.sdk.application.*;
     }
     
 
-    public ConfigurationApplicationModels.LanguageResponseSchema getLanguages() throws IOException {
+    public ConfigurationApplicationModels.LanguageResponse getLanguages() throws IOException {
         return this.getLanguages(new HashMap<>());
     }
 
-    public ConfigurationApplicationModels.LanguageResponseSchema getLanguages(Map<String, String> requestHeaders) throws IOException {
+    public ConfigurationApplicationModels.LanguageResponse getLanguages(Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getLanguages");
 
-        Response<ConfigurationApplicationModels.LanguageResponseSchema> response = configurationApplicationApiList.getLanguages(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.LanguageResponse> response = configurationApplicationApiList.getLanguages(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -303,15 +303,15 @@ import com.sdk.application.*;
     }
     
 
-    public ConfigurationApplicationModels.SuccessMessageResponseSchema getOrderingStoreCookie(ConfigurationApplicationModels.OrderingStoreSelectRequestSchema body) throws IOException {
+    public ConfigurationApplicationModels.SuccessMessageResponse getOrderingStoreCookie(ConfigurationApplicationModels.OrderingStoreSelectRequest body) throws IOException {
         return this.getOrderingStoreCookie(body, new HashMap<>());
     }
 
-    public ConfigurationApplicationModels.SuccessMessageResponseSchema getOrderingStoreCookie(ConfigurationApplicationModels.OrderingStoreSelectRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+    public ConfigurationApplicationModels.SuccessMessageResponse getOrderingStoreCookie(ConfigurationApplicationModels.OrderingStoreSelectRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getOrderingStoreCookie");
 
-        Response<ConfigurationApplicationModels.SuccessMessageResponseSchema> response = configurationApplicationApiList.getOrderingStoreCookie(fullUrl, body, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.SuccessMessageResponse> response = configurationApplicationApiList.getOrderingStoreCookie(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -320,15 +320,15 @@ import com.sdk.application.*;
     }
     
 
-    public ConfigurationApplicationModels.SuccessMessageResponseSchema removeOrderingStoreCookie() throws IOException {
+    public ConfigurationApplicationModels.SuccessMessageResponse removeOrderingStoreCookie() throws IOException {
         return this.removeOrderingStoreCookie(new HashMap<>());
     }
 
-    public ConfigurationApplicationModels.SuccessMessageResponseSchema removeOrderingStoreCookie(Map<String, String> requestHeaders) throws IOException {
+    public ConfigurationApplicationModels.SuccessMessageResponse removeOrderingStoreCookie(Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("removeOrderingStoreCookie");
 
-        Response<ConfigurationApplicationModels.SuccessMessageResponseSchema> response = configurationApplicationApiList.removeOrderingStoreCookie(fullUrl, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.SuccessMessageResponse> response = configurationApplicationApiList.removeOrderingStoreCookie(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -337,15 +337,15 @@ import com.sdk.application.*;
     }
     
 
-    public ConfigurationApplicationModels.AppStaffListResponseSchema getAppStaffList(Integer pageNo, Integer pageSize, Boolean orderIncent, Integer orderingStore, String user, String userName) throws IOException {
+    public ConfigurationApplicationModels.AppStaffListResponse getAppStaffList(Integer pageNo, Integer pageSize, Boolean orderIncent, Integer orderingStore, String user, String userName) throws IOException {
         return this.getAppStaffList(pageNo, pageSize, orderIncent, orderingStore, user, userName, new HashMap<>());
     }
 
-    public ConfigurationApplicationModels.AppStaffListResponseSchema getAppStaffList(Integer pageNo, Integer pageSize, Boolean orderIncent, Integer orderingStore, String user, String userName, Map<String, String> requestHeaders) throws IOException {
+    public ConfigurationApplicationModels.AppStaffListResponse getAppStaffList(Integer pageNo, Integer pageSize, Boolean orderIncent, Integer orderingStore, String user, String userName, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getAppStaffList");
 
-        Response<ConfigurationApplicationModels.AppStaffListResponseSchema> response = configurationApplicationApiList.getAppStaffList(fullUrl, pageNo, pageSize, orderIncent, orderingStore, user, userName, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.AppStaffListResponse> response = configurationApplicationApiList.getAppStaffList(fullUrl, pageNo, pageSize, orderIncent, orderingStore, user, userName, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -357,7 +357,7 @@ import com.sdk.application.*;
     * Summary: get paginator for getAppStaffList
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<ConfigurationApplicationModels.AppStaffListResponseSchema> getAppStaffListPagination(
+    public Paginator<ConfigurationApplicationModels.AppStaffListResponse> getAppStaffListPagination(
         
         Integer pageSize,
         Boolean orderIncent,
@@ -369,11 +369,11 @@ import com.sdk.application.*;
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<ConfigurationApplicationModels.AppStaffListResponseSchema> paginator = new Paginator<>(pageSize, "number");
+    Paginator<ConfigurationApplicationModels.AppStaffListResponse> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            ConfigurationApplicationModels.AppStaffListResponseSchema callback = this.getAppStaffList(
+            ConfigurationApplicationModels.AppStaffListResponse callback = this.getAppStaffList(
                 
                  paginator.getPageNo()
                 ,
@@ -396,15 +396,15 @@ import com.sdk.application.*;
     }
     
 
-    public ConfigurationApplicationModels.AppStaffResponseSchema getAppStaffs(Boolean orderIncent, Integer orderingStore, String user) throws IOException {
+    public ConfigurationApplicationModels.AppStaffResponse getAppStaffs(Boolean orderIncent, Integer orderingStore, String user) throws IOException {
         return this.getAppStaffs(orderIncent, orderingStore, user, new HashMap<>());
     }
 
-    public ConfigurationApplicationModels.AppStaffResponseSchema getAppStaffs(Boolean orderIncent, Integer orderingStore, String user, Map<String, String> requestHeaders) throws IOException {
+    public ConfigurationApplicationModels.AppStaffResponse getAppStaffs(Boolean orderIncent, Integer orderingStore, String user, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getAppStaffs");
 
-        Response<ConfigurationApplicationModels.AppStaffResponseSchema> response = configurationApplicationApiList.getAppStaffs(fullUrl, orderIncent, orderingStore, user, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.AppStaffResponse> response = configurationApplicationApiList.getAppStaffs(fullUrl, orderIncent, orderingStore, user, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

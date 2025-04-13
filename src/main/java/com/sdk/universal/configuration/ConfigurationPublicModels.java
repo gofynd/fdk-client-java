@@ -14,7 +14,7 @@ public class ConfigurationPublicModels{
 
 
 /*
-    Model: ApplicationResponseSchema
+    Model: ApplicationResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class ConfigurationPublicModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationResponseSchema{
+public static class ApplicationResponse{
 
     
 
@@ -793,7 +793,7 @@ public static class VersionDevice{
 
 
 /*
-    Model: VersionRequestSchema
+    Model: VersionRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -801,7 +801,7 @@ public static class VersionDevice{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VersionRequestSchema{
+public static class VersionRequest{
 
     
 
@@ -855,7 +855,7 @@ public static class VersionUpdateDialogue{
 
 
 /*
-    Model: VersionResponseSchema
+    Model: VersionResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -863,7 +863,7 @@ public static class VersionUpdateDialogue{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VersionResponseSchema{
+public static class VersionResponse{
 
     
 

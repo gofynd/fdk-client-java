@@ -421,15 +421,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ThemePlatformModels.AvailablePageSchema deletePage(String themeId, String pageValue) throws FDKServerResponseError, FDKException {
-        return this.deletePage(themeId, pageValue, new HashMap<>());
+    public ThemePlatformModels.AvailablePageSchema updatePage(String themeId, String pageValue, ThemePlatformModels.AvailablePageSchema body) throws FDKServerResponseError, FDKException {
+        return this.updatePage(themeId, pageValue, body, new HashMap<>());
     }
 
-    public ThemePlatformModels.AvailablePageSchema deletePage(String themeId, String pageValue, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ThemePlatformModels.AvailablePageSchema updatePage(String themeId, String pageValue, ThemePlatformModels.AvailablePageSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.AvailablePageSchema> response = null;
             try {
-            response = themePlatformApiList.deletePage(this.companyId, this.applicationId, themeId, pageValue, requestHeaders).execute();
+            response = themePlatformApiList.updatePage(this.companyId, this.applicationId, themeId, pageValue, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -448,15 +448,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ThemePlatformModels.AvailablePageSchema updatePage(String themeId, String pageValue, String socketId, ThemePlatformModels.AvailablePageSchema body) throws FDKServerResponseError, FDKException {
-        return this.updatePage(themeId, pageValue, socketId, body, new HashMap<>());
+    public ThemePlatformModels.AvailablePageSchema deletePage(String themeId, String pageValue) throws FDKServerResponseError, FDKException {
+        return this.deletePage(themeId, pageValue, new HashMap<>());
     }
 
-    public ThemePlatformModels.AvailablePageSchema updatePage(String themeId, String pageValue, String socketId, ThemePlatformModels.AvailablePageSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ThemePlatformModels.AvailablePageSchema deletePage(String themeId, String pageValue, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.AvailablePageSchema> response = null;
             try {
-            response = themePlatformApiList.updatePage(this.companyId, this.applicationId, themeId, pageValue, socketId, body, requestHeaders).execute();
+            response = themePlatformApiList.deletePage(this.companyId, this.applicationId, themeId, pageValue, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -853,13 +853,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ThemePlatformModels.ThemeUpgradable isUpgradable(String themeId) throws FDKServerResponseError, FDKException {
+    public ThemePlatformModels.ThemeUpgradableResponse isUpgradable(String themeId) throws FDKServerResponseError, FDKException {
         return this.isUpgradable(themeId, new HashMap<>());
     }
 
-    public ThemePlatformModels.ThemeUpgradable isUpgradable(String themeId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ThemePlatformModels.ThemeUpgradableResponse isUpgradable(String themeId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ThemePlatformModels.ThemeUpgradable> response = null;
+            Response<ThemePlatformModels.ThemeUpgradableResponse> response = null;
             try {
             response = themePlatformApiList.isUpgradable(this.companyId, this.applicationId, themeId, requestHeaders).execute();
                 if (!response.isSuccessful()) {

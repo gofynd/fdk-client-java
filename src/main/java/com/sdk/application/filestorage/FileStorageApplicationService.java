@@ -30,7 +30,7 @@ class FileStorage {
 
     public FileStorageApplicationModels.FileUploadComplete uploadMedia(String fileName, String contentType, int size,
                                                                      String namespace, File file, FileStorageApplicationService fileStorageApplicationService,
-                                                                     FileStorageApplicationModels.Params params) {
+                                                                     FileStorageApplicationModels.Params params, String encKey) {
         this.retrofitServiceFactory = new RetrofitServiceFactory();
         this.fileStorageApplicationService = fileStorageApplicationService;
         AwsApiList awsApiList = generateAwsApiList();
@@ -38,7 +38,7 @@ class FileStorage {
                 && StringUtils.isNotEmpty(namespace)) {
             FileStorageApplicationModels.FileUploadStart startRequest = 
                 new FileStorageApplicationModels.FileUploadStart(
-                    fileName, contentType, size, List.of(), params
+                    fileName, contentType, size, List.of(), params, encKey
                 );
             try {
                 FileStorageApplicationModels.FileUpload startResponse = 
@@ -110,8 +110,8 @@ public class FileStorageApplicationService extends FileStorage {
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),FileStorageApplicationApiList.class, interceptorList, cookieStore);
     }
 
-    public FileStorageApplicationModels.FileUploadComplete uploadMedia(String fileName, String contentType, int size, String namespace, File file, FileStorageApplicationModels.Params params) {
-        return super.uploadMedia(fileName, contentType, size, namespace, file, this, params);
+    public FileStorageApplicationModels.FileUploadComplete uploadMedia(String fileName, String contentType, int size, String namespace, File file, FileStorageApplicationModels.Params params, String encKey) {
+        return super.uploadMedia(fileName, contentType, size, namespace, file, this, params, encKey);
     }
 
     public FileStorageApplicationModels.FileUpload startUpload(String namespace, FileStorageApplicationModels.FileUploadStart body) throws IOException {

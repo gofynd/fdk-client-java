@@ -48,13 +48,13 @@ public class AuthorizationPartnerService {
     
     
 
-    public AuthorizationPartnerModels.ClientResponseSchema createOrganizationClient(AuthorizationPartnerModels.ClientData body) throws FDKServerResponseError, FDKException {
+    public AuthorizationPartnerModels.ClientResponse createOrganizationClient(AuthorizationPartnerModels.ClientData body) throws FDKServerResponseError, FDKException {
         return this.createOrganizationClient(body, new HashMap<>());
     }
 
-    public AuthorizationPartnerModels.ClientResponseSchema createOrganizationClient(AuthorizationPartnerModels.ClientData body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public AuthorizationPartnerModels.ClientResponse createOrganizationClient(AuthorizationPartnerModels.ClientData body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<AuthorizationPartnerModels.ClientResponseSchema> response = null;
+            Response<AuthorizationPartnerModels.ClientResponse> response = null;
             try {
                 response = authorizationPartnerApiList.createOrganizationClient(this.organizationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -144,13 +144,13 @@ public class AuthorizationPartnerService {
     
     
 
-    public AuthorizationPartnerModels.ClientResponseSchema getOrganizationClientById(String clientId) throws FDKServerResponseError, FDKException {
+    public AuthorizationPartnerModels.ClientResponse getOrganizationClientById(String clientId) throws FDKServerResponseError, FDKException {
         return this.getOrganizationClientById(clientId, new HashMap<>());
     }
 
-    public AuthorizationPartnerModels.ClientResponseSchema getOrganizationClientById(String clientId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public AuthorizationPartnerModels.ClientResponse getOrganizationClientById(String clientId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<AuthorizationPartnerModels.ClientResponseSchema> response = null;
+            Response<AuthorizationPartnerModels.ClientResponse> response = null;
             try {
                 response = authorizationPartnerApiList.getOrganizationClientById(this.organizationId, clientId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -188,13 +188,13 @@ public class AuthorizationPartnerService {
     
     
 
-    public AuthorizationPartnerModels.ClientResponseSchema updateOrganizationClientById(String clientId, AuthorizationPartnerModels.UpdateClient body) throws FDKServerResponseError, FDKException {
+    public AuthorizationPartnerModels.ClientResponse updateOrganizationClientById(String clientId, AuthorizationPartnerModels.UpdateClient body) throws FDKServerResponseError, FDKException {
         return this.updateOrganizationClientById(clientId, body, new HashMap<>());
     }
 
-    public AuthorizationPartnerModels.ClientResponseSchema updateOrganizationClientById(String clientId, AuthorizationPartnerModels.UpdateClient body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public AuthorizationPartnerModels.ClientResponse updateOrganizationClientById(String clientId, AuthorizationPartnerModels.UpdateClient body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<AuthorizationPartnerModels.ClientResponseSchema> response = null;
+            Response<AuthorizationPartnerModels.ClientResponse> response = null;
             try {
                 response = authorizationPartnerApiList.updateOrganizationClientById(this.organizationId, clientId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -232,13 +232,13 @@ public class AuthorizationPartnerService {
     
     
 
-    public AuthorizationPartnerModels.ClientResponseSchema deleteOrganizationOAuthClientById(String clientId) throws FDKServerResponseError, FDKException {
+    public AuthorizationPartnerModels.ClientResponse deleteOrganizationOAuthClientById(String clientId) throws FDKServerResponseError, FDKException {
         return this.deleteOrganizationOAuthClientById(clientId, new HashMap<>());
     }
 
-    public AuthorizationPartnerModels.ClientResponseSchema deleteOrganizationOAuthClientById(String clientId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public AuthorizationPartnerModels.ClientResponse deleteOrganizationOAuthClientById(String clientId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<AuthorizationPartnerModels.ClientResponseSchema> response = null;
+            Response<AuthorizationPartnerModels.ClientResponse> response = null;
             try {
                 response = authorizationPartnerApiList.deleteOrganizationOAuthClientById(this.organizationId, clientId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
