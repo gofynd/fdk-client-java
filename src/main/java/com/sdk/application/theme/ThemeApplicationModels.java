@@ -135,7 +135,7 @@ public static class AvailablePageSectionMetaAttributes{
     
     
     @JsonProperty("attributes")
-    private HashMap<String,Object> attributes;
+    private Object attributes;
     
     
     
@@ -217,12 +217,6 @@ public static class SEOSitemap{
 
     
 
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
     
     
     
@@ -515,8 +509,14 @@ public static class AvailablePageSchemaSections{
     
     
     
+    @JsonProperty("source")
+    private String source;
+    
+    
+    
+    
     @JsonProperty("props")
-    private HashMap<String,Object> props;
+    private Object props;
     
     
     
@@ -528,93 +528,13 @@ public static class AvailablePageSchemaSections{
     
     
     @JsonProperty("preset")
-    private HashMap<String,Object> preset;
+    private Object preset;
     
     
     
     
     @JsonProperty("predicate")
     private AvailablePagePredicate predicate;
-    
-    
-    
-    
-    @JsonProperty("__source")
-    private SectionSource source;
-    
-    
-    
-    
-    @JsonProperty("assets")
-    private SectionAssets assets;
-    
-    
-    
-}
-
-
-/*
-    Model: SectionAssets
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SectionAssets{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("js")
-    private String js;
-    
-    
-    
-    
-    @JsonProperty("css")
-    private String css;
-    
-    
-    
-}
-
-
-/*
-    Model: SectionSource
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SectionSource{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("bundle_name")
-    private String bundleName;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
     
     
     
@@ -774,7 +694,7 @@ public static class AvailablePageRoutePredicate{
     
     
     @JsonProperty("query")
-    private HashMap<String,Object> query;
+    private Object query;
     
     
     
@@ -908,7 +828,7 @@ public static class ThemesSchema{
     
     
     @JsonProperty("styles")
-    private HashMap<String,Object> styles;
+    private Object styles;
     
     
     
@@ -1129,7 +1049,7 @@ public static class ThemeConfiguration{
     
     
     @JsonProperty("global_config")
-    private HashMap<String,Object> globalConfig;
+    private Object globalConfig;
     
     
     
@@ -1360,6 +1280,37 @@ public static class CustomProps{
     
     @JsonProperty("menu_position")
     private String menuPosition;
+    
+    
+    
+}
+
+
+/*
+    Model: GlobalConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GlobalConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("statics")
+    private StaticConfig statics;
+    
+    
+    
+    
+    @JsonProperty("custom")
+    private CustomConfig custom;
     
     
     
