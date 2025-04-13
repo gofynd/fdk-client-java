@@ -61,19 +61,19 @@ interface ThemePartnerApiList {
     Call<ThemePartnerModels.ThemeRejectionReasons> getThemeRejectionReasons(@Path("organization_id") String organizationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/partner/theme/v1.0/organization/{organization_id}/extension-section/{extension_id}/draft")
-    Call<ThemePartnerModels.ExtensionSectionDraft> createExtensionSectionDraft(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Body ThemePartnerModels.DraftExtensionSection payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<ThemePartnerModels.DraftExtensionSectionResponse> createExtensionSectionDraft(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Body ThemePartnerModels.ExtensionBinding payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/partner/theme/v1.0/organization/{organization_id}/extension-section/{extension_id}/{bundle_name}")
-    Call<ThemePartnerModels.DraftExtensionSection> getExtensionbinding(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Path("bundle_name") String bundleName, @Query("type") String type, @HeaderMap Map<String, String> requestHeaders);
+    Call<ThemePartnerModels.ExtensionBinding> getExtensionbinding(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Path("bundle_name") String bundleName, @Query("type") String type, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/partner/theme/v1.0/organization/{organization_id}/extension-section/{extension_id}/publish")
-    Call<ThemePartnerModels.PublishExtensionSectionResponseSchema> publishExtensionSections(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Body ThemePartnerModels.PublishExtensionSection payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<ThemePartnerModels.PublishExtensionSectionResponse> publishExtensionSections(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Body ThemePartnerModels.PublishExtensionSectionRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/partner/theme/v1.0/organization/{organization_id}/extension-section/{extension_section_id}/preview")
-    Call<ThemePartnerModels.ExtensionPreview> applyExtensionPreview(@Path("organization_id") String organizationId, @Path("extension_section_id") String extensionSectionId, @Body ThemePartnerModels.PreviewExtension payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<ThemePartnerModels.ExtensionPreviewResponse> applyExtensionPreview(@Path("organization_id") String organizationId, @Path("extension_section_id") String extensionSectionId, @Body ThemePartnerModels.ExtensionPreviewRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @DELETE ("/service/partner/theme/v1.0/organization/{organization_id}/extension-section/{extension_section_id}/preview")
-    Call<ThemePartnerModels.ExtensionPreview> removeExtensionPreview(@Path("organization_id") String organizationId, @Path("extension_section_id") String extensionSectionId, @Body ThemePartnerModels.PreviewExtension payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<ThemePartnerModels.ExtensionPreviewResponse> removeExtensionPreview(@Path("organization_id") String organizationId, @Path("extension_section_id") String extensionSectionId, @Body ThemePartnerModels.ExtensionPreviewRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/partner/theme/v1.0/organization/{organization_id}/theme/{theme_slug}/versions")
     Call<ThemePartnerModels.MarketplaceThemeSchema> getThemeVersions(@Path("organization_id") String organizationId, @Path("theme_slug") String themeSlug, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @HeaderMap Map<String, String> requestHeaders);

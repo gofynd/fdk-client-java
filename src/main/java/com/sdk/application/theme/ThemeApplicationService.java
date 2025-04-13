@@ -88,15 +88,15 @@ import com.sdk.application.*;
     }
     
 
-    public ThemeApplicationModels.ThemesSchema getAppliedTheme(Boolean filters) throws IOException {
-        return this.getAppliedTheme(filters, new HashMap<>());
+    public ThemeApplicationModels.ThemesSchema getAppliedTheme() throws IOException {
+        return this.getAppliedTheme(new HashMap<>());
     }
 
-    public ThemeApplicationModels.ThemesSchema getAppliedTheme(Boolean filters, Map<String, String> requestHeaders) throws IOException {
+    public ThemeApplicationModels.ThemesSchema getAppliedTheme(Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getAppliedTheme");
 
-        Response<ThemeApplicationModels.ThemesSchema> response = themeApplicationApiList.getAppliedTheme(fullUrl, filters, requestHeaders).execute();
+        Response<ThemeApplicationModels.ThemesSchema> response = themeApplicationApiList.getAppliedTheme(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -105,16 +105,16 @@ import com.sdk.application.*;
     }
     
 
-    public ThemeApplicationModels.ThemesSchema getThemeForPreview(String themeId, Boolean filters) throws IOException {
-        return this.getThemeForPreview(themeId, filters, new HashMap<>());
+    public ThemeApplicationModels.ThemesSchema getThemeForPreview(String themeId) throws IOException {
+        return this.getThemeForPreview(themeId, new HashMap<>());
     }
 
-    public ThemeApplicationModels.ThemesSchema getThemeForPreview(String themeId, Boolean filters, Map<String, String> requestHeaders) throws IOException {
+    public ThemeApplicationModels.ThemesSchema getThemeForPreview(String themeId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getThemeForPreview");
         fullUrl = fullUrl.replace("{" + "theme_id" + "}",themeId.toString());
 
-        Response<ThemeApplicationModels.ThemesSchema> response = themeApplicationApiList.getThemeForPreview(fullUrl, filters, requestHeaders).execute();
+        Response<ThemeApplicationModels.ThemesSchema> response = themeApplicationApiList.getThemeForPreview(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

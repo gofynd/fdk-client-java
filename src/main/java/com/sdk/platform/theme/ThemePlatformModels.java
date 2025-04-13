@@ -904,7 +904,7 @@ public static class CompanyThemeReqSchema{
 
 
 /*
-    Model: CompanyTheme
+    Model: CompanyThemeResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -912,7 +912,7 @@ public static class CompanyThemeReqSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyTheme{
+public static class CompanyThemeResponse{
 
     
 
@@ -1239,7 +1239,7 @@ public static class AvailablePageSectionMetaAttributes{
     
     
     @JsonProperty("attributes")
-    private HashMap<String,Object> attributes;
+    private Object attributes;
     
     
     
@@ -1333,12 +1333,6 @@ public static class SEOSitemap{
     
     @JsonProperty("frequency")
     private String frequency;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
     
     
     
@@ -1626,7 +1620,7 @@ public static class AvailablePageSchemaSections{
     
     
     @JsonProperty("props")
-    private HashMap<String,Object> props;
+    private Object props;
     
     
     
@@ -1638,7 +1632,7 @@ public static class AvailablePageSchemaSections{
     
     
     @JsonProperty("preset")
-    private HashMap<String,Object> preset;
+    private Object preset;
     
     
     
@@ -1730,7 +1724,7 @@ public static class AvailablePagePredicate{
     
     
     @JsonProperty("schedule")
-    private List<AvailablePageSchedulePredicate> schedule;
+    private AvailablePageSchedulePredicate schedule;
     
     
     
@@ -1814,30 +1808,6 @@ public static class AvailablePageUserPredicate{
     
     
     
-    
-    @JsonProperty("user_type")
-    private String userType;
-    
-    
-    
-    
-    @JsonProperty("user_groups")
-    private List<String> userGroups;
-    
-    
-    
-    
-    @JsonProperty("start")
-    private String start;
-    
-    
-    
-    
-    @JsonProperty("end")
-    private String end;
-    
-    
-    
 }
 
 
@@ -1871,7 +1841,7 @@ public static class AvailablePageRoutePredicate{
     
     
     @JsonProperty("query")
-    private HashMap<String,Object> query;
+    private Object query;
     
     
     
@@ -2283,7 +2253,7 @@ public static class ThemesSchema{
     
     
     @JsonProperty("styles")
-    private HashMap<String,Object> styles;
+    private Object styles;
     
     
     
@@ -2335,17 +2305,11 @@ public static class ThemesSchema{
     
     
     
-    
-    @JsonProperty("applied_themes")
-    private List<Object> appliedThemes;
-    
-    
-    
 }
 
 
 /*
-    Model: ThemeUpgradable
+    Model: ThemeUpgradableResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2353,7 +2317,7 @@ public static class ThemesSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ThemeUpgradable{
+public static class ThemeUpgradableResponse{
 
     
 
@@ -2368,7 +2332,7 @@ public static class ThemeUpgradable{
     
     
     @JsonProperty("versions")
-    private HashMap<String,Object> versions;
+    private Object versions;
     
     
     
@@ -2584,7 +2548,7 @@ public static class Config{
     
     
     @JsonProperty("preset")
-    private HashMap<String,Object> preset;
+    private Object preset;
     
     
     
@@ -2615,7 +2579,7 @@ public static class ThemeConfiguration{
     
     
     @JsonProperty("global_config")
-    private HashMap<String,Object> globalConfig;
+    private Object globalConfig;
     
     
     
@@ -2825,7 +2789,7 @@ public static class ThemeConfigListPageSettingsProps{
     
     
     @JsonProperty("props")
-    private HashMap<String,Object> props;
+    private Object props;
     
     
     
@@ -3941,7 +3905,7 @@ public static class ThemeVersions{
 
 
 /*
-    Model: DummyTheme
+    Model: DummyResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3949,7 +3913,7 @@ public static class ThemeVersions{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DummyTheme{
+public static class DummyResponse{
 
     
 

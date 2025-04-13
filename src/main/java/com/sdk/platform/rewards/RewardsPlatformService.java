@@ -77,13 +77,13 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
-    public RewardsPlatformModels.ListGiveaway showGiveaways(String pageId, Integer pageSize) throws FDKServerResponseError, FDKException {
+    public RewardsPlatformModels.GiveawayResponse showGiveaways(String pageId, Integer pageSize) throws FDKServerResponseError, FDKException {
         return this.showGiveaways(pageId, pageSize, new HashMap<>());
     }
 
-    public RewardsPlatformModels.ListGiveaway showGiveaways(String pageId, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public RewardsPlatformModels.GiveawayResponse showGiveaways(String pageId, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<RewardsPlatformModels.ListGiveaway> response = null;
+            Response<RewardsPlatformModels.GiveawayResponse> response = null;
             try {
             response = rewardsPlatformApiList.showGiveaways(this.companyId, this.applicationId, pageId, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -374,11 +374,11 @@ public class ApplicationClient {
         }    
     }
 
-    public RewardsPlatformModels.SetConfigurationRes setRewardsConfiguration(RewardsPlatformModels.SetConfiguration body) throws FDKServerResponseError, FDKException {
+    public RewardsPlatformModels.SetConfigurationRes setRewardsConfiguration(RewardsPlatformModels.ConfigurationRequest body) throws FDKServerResponseError, FDKException {
         return this.setRewardsConfiguration(body, new HashMap<>());
     }
 
-    public RewardsPlatformModels.SetConfigurationRes setRewardsConfiguration(RewardsPlatformModels.SetConfiguration body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public RewardsPlatformModels.SetConfigurationRes setRewardsConfiguration(RewardsPlatformModels.ConfigurationRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<RewardsPlatformModels.SetConfigurationRes> response = null;
             try {

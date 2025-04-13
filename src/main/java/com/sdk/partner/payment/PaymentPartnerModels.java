@@ -360,7 +360,7 @@ public static class RefundTo{
 
 
 /*
-    Model: PaymentConfigDetails
+    Model: PaymentConfigResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -368,7 +368,7 @@ public static class RefundTo{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentConfigDetails{
+public static class PaymentConfigResponse{
 
     
 
@@ -433,7 +433,7 @@ public static class PaymentConfigDetails{
 
 
 /*
-    Model: PostPayoutDetails
+    Model: PostPayoutResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -441,7 +441,7 @@ public static class PaymentConfigDetails{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PostPayoutDetails{
+public static class PostPayoutResponse{
 
     
 
@@ -518,7 +518,7 @@ public static class PostPayoutDetails{
 
 
 /*
-    Model: PostPayout
+    Model: PostPayoutRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -526,7 +526,7 @@ public static class PostPayoutDetails{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PostPayout{
+public static class PostPayoutRequest{
 
     
 
@@ -775,7 +775,7 @@ public static class ErrorCodeAndDescription{
 
 
 /*
-    Model: HttpErrorCodeAndMessage
+    Model: HttpErrorCodeAndResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -783,7 +783,7 @@ public static class ErrorCodeAndDescription{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class HttpErrorCodeAndMessage{
+public static class HttpErrorCodeAndResponse{
 
     
 
@@ -806,7 +806,7 @@ public static class HttpErrorCodeAndMessage{
 
 
 /*
-    Model: PayoutDetails
+    Model: PayoutResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -814,7 +814,7 @@ public static class HttpErrorCodeAndMessage{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PayoutDetails{
+public static class PayoutResponse{
 
     
 

@@ -18,11 +18,11 @@ interface ThemePlatformApiList {
     @GET ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/{theme_id}/{page_value}")
     Call<ThemePlatformModels.AvailablePageSchema> getPage(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @Path("page_value") String pageValue, @HeaderMap Map<String, String> requestHeaders);
 
+    @PUT ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/{theme_id}/{page_value}")
+    Call<ThemePlatformModels.AvailablePageSchema> updatePage(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @Path("page_value") String pageValue, @Body ThemePlatformModels.AvailablePageSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
     @DELETE ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/{theme_id}/{page_value}")
     Call<ThemePlatformModels.AvailablePageSchema> deletePage(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @Path("page_value") String pageValue, @HeaderMap Map<String, String> requestHeaders);
-
-    @PUT ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/{theme_id}/{page_value}/{socket_id}")
-    Call<ThemePlatformModels.AvailablePageSchema> updatePage(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @Path("page_value") String pageValue, @Path("socket_id") String socketId, @Body ThemePlatformModels.AvailablePageSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/fonts")
     Call<ThemePlatformModels.FontsSchema> getFonts(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
@@ -79,7 +79,7 @@ interface ThemePlatformApiList {
     Call<Object> getThemeLastModified(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}/upgradable")
-    Call<ThemePlatformModels.ThemeUpgradable> isUpgradable(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
+    Call<ThemePlatformModels.ThemeUpgradableResponse> isUpgradable(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}/upgrade")
     Call<ThemePlatformModels.ThemesSchema> upgradeTheme(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);

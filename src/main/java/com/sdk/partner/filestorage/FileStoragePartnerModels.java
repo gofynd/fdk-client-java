@@ -441,6 +441,12 @@ public static class FileUploadStart{
     
     
     
+    
+    @JsonProperty("enc_key")
+    private String encKey;
+    
+    
+    
 }
 
 
@@ -457,12 +463,6 @@ public static class CreatedBy{
 
     
 
-    
-    
-    
-    
-    @JsonProperty("user_id")
-    private String userId;
     
     
     

@@ -102,15 +102,15 @@ import com.sdk.application.*;
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),PaymentApplicationApiList.class, interceptorList, cookieStore);
     }
 
-    public PaymentApplicationModels.AggregatorsConfigDetail getAggregatorsConfig(String xApiToken, Boolean refresh) throws IOException {
+    public PaymentApplicationModels.AggregatorsConfigDetailResponse getAggregatorsConfig(String xApiToken, Boolean refresh) throws IOException {
         return this.getAggregatorsConfig(xApiToken, refresh, new HashMap<>());
     }
 
-    public PaymentApplicationModels.AggregatorsConfigDetail getAggregatorsConfig(String xApiToken, Boolean refresh, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.AggregatorsConfigDetailResponse getAggregatorsConfig(String xApiToken, Boolean refresh, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getAggregatorsConfig");
 
-        Response<PaymentApplicationModels.AggregatorsConfigDetail> response = paymentApplicationApiList.getAggregatorsConfig(fullUrl, xApiToken, refresh, requestHeaders).execute();
+        Response<PaymentApplicationModels.AggregatorsConfigDetailResponse> response = paymentApplicationApiList.getAggregatorsConfig(fullUrl, xApiToken, refresh, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -119,15 +119,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.AttachCardsDetails attachCardToCustomer(PaymentApplicationModels.AttachCard body) throws IOException {
+    public PaymentApplicationModels.AttachCardsResponse attachCardToCustomer(PaymentApplicationModels.AttachCardRequest body) throws IOException {
         return this.attachCardToCustomer(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.AttachCardsDetails attachCardToCustomer(PaymentApplicationModels.AttachCard body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.AttachCardsResponse attachCardToCustomer(PaymentApplicationModels.AttachCardRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("attachCardToCustomer");
 
-        Response<PaymentApplicationModels.AttachCardsDetails> response = paymentApplicationApiList.attachCardToCustomer(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.AttachCardsResponse> response = paymentApplicationApiList.attachCardToCustomer(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -136,15 +136,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.ActiveCardPaymentGatewayDetails getActiveCardAggregator(Boolean refresh) throws IOException {
+    public PaymentApplicationModels.ActiveCardPaymentGatewayResponse getActiveCardAggregator(Boolean refresh) throws IOException {
         return this.getActiveCardAggregator(refresh, new HashMap<>());
     }
 
-    public PaymentApplicationModels.ActiveCardPaymentGatewayDetails getActiveCardAggregator(Boolean refresh, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.ActiveCardPaymentGatewayResponse getActiveCardAggregator(Boolean refresh, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getActiveCardAggregator");
 
-        Response<PaymentApplicationModels.ActiveCardPaymentGatewayDetails> response = paymentApplicationApiList.getActiveCardAggregator(fullUrl, refresh, requestHeaders).execute();
+        Response<PaymentApplicationModels.ActiveCardPaymentGatewayResponse> response = paymentApplicationApiList.getActiveCardAggregator(fullUrl, refresh, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -153,15 +153,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.UpdateAggregatorCardDetails updateUserCard(PaymentApplicationModels.UpdateAggregatorCardReq body) throws IOException {
+    public PaymentApplicationModels.UpdateAggregatorCardResponse updateUserCard(PaymentApplicationModels.UpdateAggregatorCardRequest body) throws IOException {
         return this.updateUserCard(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.UpdateAggregatorCardDetails updateUserCard(PaymentApplicationModels.UpdateAggregatorCardReq body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.UpdateAggregatorCardResponse updateUserCard(PaymentApplicationModels.UpdateAggregatorCardRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("updateUserCard");
 
-        Response<PaymentApplicationModels.UpdateAggregatorCardDetails> response = paymentApplicationApiList.updateUserCard(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.UpdateAggregatorCardResponse> response = paymentApplicationApiList.updateUserCard(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -170,15 +170,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.ListCardsDetails getActiveUserCards(Boolean forceRefresh) throws IOException {
+    public PaymentApplicationModels.ListCardsResponse getActiveUserCards(Boolean forceRefresh) throws IOException {
         return this.getActiveUserCards(forceRefresh, new HashMap<>());
     }
 
-    public PaymentApplicationModels.ListCardsDetails getActiveUserCards(Boolean forceRefresh, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.ListCardsResponse getActiveUserCards(Boolean forceRefresh, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getActiveUserCards");
 
-        Response<PaymentApplicationModels.ListCardsDetails> response = paymentApplicationApiList.getActiveUserCards(fullUrl, forceRefresh, requestHeaders).execute();
+        Response<PaymentApplicationModels.ListCardsResponse> response = paymentApplicationApiList.getActiveUserCards(fullUrl, forceRefresh, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -187,15 +187,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.UpdateCard updateActiveCards(PaymentApplicationModels.UpdateAggregatorCardReq body) throws IOException {
+    public PaymentApplicationModels.UpdateCardResponse updateActiveCards(PaymentApplicationModels.UpdateAggregatorCardRequest body) throws IOException {
         return this.updateActiveCards(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.UpdateCard updateActiveCards(PaymentApplicationModels.UpdateAggregatorCardReq body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.UpdateCardResponse updateActiveCards(PaymentApplicationModels.UpdateAggregatorCardRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("updateActiveCards");
 
-        Response<PaymentApplicationModels.UpdateCard> response = paymentApplicationApiList.updateActiveCards(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.UpdateCardResponse> response = paymentApplicationApiList.updateActiveCards(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -204,15 +204,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.DeleteCardsDetails deleteUserCard(PaymentApplicationModels.DeleteCard body) throws IOException {
+    public PaymentApplicationModels.DeleteCardsResponse deleteUserCard(PaymentApplicationModels.DeletehCardRequest body) throws IOException {
         return this.deleteUserCard(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.DeleteCardsDetails deleteUserCard(PaymentApplicationModels.DeleteCard body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.DeleteCardsResponse deleteUserCard(PaymentApplicationModels.DeletehCardRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("deleteUserCard");
 
-        Response<PaymentApplicationModels.DeleteCardsDetails> response = paymentApplicationApiList.deleteUserCard(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.DeleteCardsResponse> response = paymentApplicationApiList.deleteUserCard(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -221,15 +221,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.ValidateCustomerDetails verifyCustomerForPayment(PaymentApplicationModels.ValidateCustomer body) throws IOException {
+    public PaymentApplicationModels.ValidateCustomerResponse verifyCustomerForPayment(PaymentApplicationModels.ValidateCustomerRequest body) throws IOException {
         return this.verifyCustomerForPayment(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.ValidateCustomerDetails verifyCustomerForPayment(PaymentApplicationModels.ValidateCustomer body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.ValidateCustomerResponse verifyCustomerForPayment(PaymentApplicationModels.ValidateCustomerRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("verifyCustomerForPayment");
 
-        Response<PaymentApplicationModels.ValidateCustomerDetails> response = paymentApplicationApiList.verifyCustomerForPayment(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.ValidateCustomerResponse> response = paymentApplicationApiList.verifyCustomerForPayment(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -238,15 +238,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.ChargeCustomerDetails verifyAndChargePayment(PaymentApplicationModels.ChargeCustomer body) throws IOException {
+    public PaymentApplicationModels.ChargeCustomerResponse verifyAndChargePayment(PaymentApplicationModels.ChargeCustomerRequest body) throws IOException {
         return this.verifyAndChargePayment(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.ChargeCustomerDetails verifyAndChargePayment(PaymentApplicationModels.ChargeCustomer body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.ChargeCustomerResponse verifyAndChargePayment(PaymentApplicationModels.ChargeCustomerRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("verifyAndChargePayment");
 
-        Response<PaymentApplicationModels.ChargeCustomerDetails> response = paymentApplicationApiList.verifyAndChargePayment(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.ChargeCustomerResponse> response = paymentApplicationApiList.verifyAndChargePayment(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -255,15 +255,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.PaymentInitializationDetails initialisePayment(PaymentApplicationModels.PaymentInitialization body) throws IOException {
+    public PaymentApplicationModels.PaymentInitializationResponse initialisePayment(PaymentApplicationModels.PaymentInitializationRequest body) throws IOException {
         return this.initialisePayment(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.PaymentInitializationDetails initialisePayment(PaymentApplicationModels.PaymentInitialization body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.PaymentInitializationResponse initialisePayment(PaymentApplicationModels.PaymentInitializationRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("initialisePayment");
 
-        Response<PaymentApplicationModels.PaymentInitializationDetails> response = paymentApplicationApiList.initialisePayment(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.PaymentInitializationResponse> response = paymentApplicationApiList.initialisePayment(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -272,15 +272,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.PaymentStatusUpdateDetails checkAndUpdatePaymentStatus(PaymentApplicationModels.PaymentStatusUpdate body) throws IOException {
+    public PaymentApplicationModels.PaymentStatusUpdateResponse checkAndUpdatePaymentStatus(PaymentApplicationModels.PaymentStatusUpdateRequest body) throws IOException {
         return this.checkAndUpdatePaymentStatus(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.PaymentStatusUpdateDetails checkAndUpdatePaymentStatus(PaymentApplicationModels.PaymentStatusUpdate body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.PaymentStatusUpdateResponse checkAndUpdatePaymentStatus(PaymentApplicationModels.PaymentStatusUpdateRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("checkAndUpdatePaymentStatus");
 
-        Response<PaymentApplicationModels.PaymentStatusUpdateDetails> response = paymentApplicationApiList.checkAndUpdatePaymentStatus(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.PaymentStatusUpdateResponse> response = paymentApplicationApiList.checkAndUpdatePaymentStatus(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -289,15 +289,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.PaymentModeRouteDetails getPaymentModeRoutes(Integer amount, String cartId, String checkoutMode, Boolean refresh, String orderId, String cardReference, String userDetails, Boolean displaySplit, Boolean advancePayment, String shipmentId) throws IOException {
+    public PaymentApplicationModels.PaymentModeRouteResponse getPaymentModeRoutes(Integer amount, String cartId, String checkoutMode, Boolean refresh, String orderId, String cardReference, String userDetails, Boolean displaySplit, Boolean advancePayment, String shipmentId) throws IOException {
         return this.getPaymentModeRoutes(amount, cartId, checkoutMode, refresh, orderId, cardReference, userDetails, displaySplit, advancePayment, shipmentId, new HashMap<>());
     }
 
-    public PaymentApplicationModels.PaymentModeRouteDetails getPaymentModeRoutes(Integer amount, String cartId, String checkoutMode, Boolean refresh, String orderId, String cardReference, String userDetails, Boolean displaySplit, Boolean advancePayment, String shipmentId, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.PaymentModeRouteResponse getPaymentModeRoutes(Integer amount, String cartId, String checkoutMode, Boolean refresh, String orderId, String cardReference, String userDetails, Boolean displaySplit, Boolean advancePayment, String shipmentId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getPaymentModeRoutes");
 
-        Response<PaymentApplicationModels.PaymentModeRouteDetails> response = paymentApplicationApiList.getPaymentModeRoutes(fullUrl, amount, cartId, checkoutMode, refresh, orderId, cardReference, userDetails, displaySplit, advancePayment, shipmentId, requestHeaders).execute();
+        Response<PaymentApplicationModels.PaymentModeRouteResponse> response = paymentApplicationApiList.getPaymentModeRoutes(fullUrl, amount, cartId, checkoutMode, refresh, orderId, cardReference, userDetails, displaySplit, advancePayment, shipmentId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -306,15 +306,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.PaymentModeRouteDetails getPosPaymentModeRoutes(Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String cardReference, String orderType, String userDetails) throws IOException {
+    public PaymentApplicationModels.PaymentModeRouteResponse getPosPaymentModeRoutes(Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String cardReference, String orderType, String userDetails) throws IOException {
         return this.getPosPaymentModeRoutes(amount, cartId, pincode, checkoutMode, refresh, cardReference, orderType, userDetails, new HashMap<>());
     }
 
-    public PaymentApplicationModels.PaymentModeRouteDetails getPosPaymentModeRoutes(Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String cardReference, String orderType, String userDetails, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.PaymentModeRouteResponse getPosPaymentModeRoutes(Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String cardReference, String orderType, String userDetails, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getPosPaymentModeRoutes");
 
-        Response<PaymentApplicationModels.PaymentModeRouteDetails> response = paymentApplicationApiList.getPosPaymentModeRoutes(fullUrl, amount, cartId, pincode, checkoutMode, refresh, cardReference, orderType, userDetails, requestHeaders).execute();
+        Response<PaymentApplicationModels.PaymentModeRouteResponse> response = paymentApplicationApiList.getPosPaymentModeRoutes(fullUrl, amount, cartId, pincode, checkoutMode, refresh, cardReference, orderType, userDetails, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -374,15 +374,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.RupifiBannerDetails getRupifiBannerDetails() throws IOException {
+    public PaymentApplicationModels.RupifiBannerResponse getRupifiBannerDetails() throws IOException {
         return this.getRupifiBannerDetails(new HashMap<>());
     }
 
-    public PaymentApplicationModels.RupifiBannerDetails getRupifiBannerDetails(Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.RupifiBannerResponse getRupifiBannerDetails(Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getRupifiBannerDetails");
 
-        Response<PaymentApplicationModels.RupifiBannerDetails> response = paymentApplicationApiList.getRupifiBannerDetails(fullUrl, requestHeaders).execute();
+        Response<PaymentApplicationModels.RupifiBannerResponse> response = paymentApplicationApiList.getRupifiBannerDetails(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -391,15 +391,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.EpaylaterBannerDetails getEpaylaterBannerDetails() throws IOException {
+    public PaymentApplicationModels.EpaylaterBannerResponse getEpaylaterBannerDetails() throws IOException {
         return this.getEpaylaterBannerDetails(new HashMap<>());
     }
 
-    public PaymentApplicationModels.EpaylaterBannerDetails getEpaylaterBannerDetails(Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.EpaylaterBannerResponse getEpaylaterBannerDetails(Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getEpaylaterBannerDetails");
 
-        Response<PaymentApplicationModels.EpaylaterBannerDetails> response = paymentApplicationApiList.getEpaylaterBannerDetails(fullUrl, requestHeaders).execute();
+        Response<PaymentApplicationModels.EpaylaterBannerResponse> response = paymentApplicationApiList.getEpaylaterBannerDetails(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -408,15 +408,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.ResendOrCancelPaymentDetails resendOrCancelPayment(PaymentApplicationModels.ResendOrCancelPayment body) throws IOException {
+    public PaymentApplicationModels.ResendOrCancelPaymentResponse resendOrCancelPayment(PaymentApplicationModels.ResendOrCancelPaymentRequest body) throws IOException {
         return this.resendOrCancelPayment(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.ResendOrCancelPaymentDetails resendOrCancelPayment(PaymentApplicationModels.ResendOrCancelPayment body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.ResendOrCancelPaymentResponse resendOrCancelPayment(PaymentApplicationModels.ResendOrCancelPaymentRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("resendOrCancelPayment");
 
-        Response<PaymentApplicationModels.ResendOrCancelPaymentDetails> response = paymentApplicationApiList.resendOrCancelPayment(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.ResendOrCancelPaymentResponse> response = paymentApplicationApiList.resendOrCancelPayment(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -425,15 +425,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.RenderHTMLDetails renderHTML(PaymentApplicationModels.RenderHTML body) throws IOException {
+    public PaymentApplicationModels.renderHTMLResponse renderHTML(PaymentApplicationModels.renderHTMLRequest body) throws IOException {
         return this.renderHTML(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.RenderHTMLDetails renderHTML(PaymentApplicationModels.RenderHTML body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.renderHTMLResponse renderHTML(PaymentApplicationModels.renderHTMLRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("renderHTML");
 
-        Response<PaymentApplicationModels.RenderHTMLDetails> response = paymentApplicationApiList.renderHTML(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.renderHTMLResponse> response = paymentApplicationApiList.renderHTML(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -442,15 +442,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.ValidateVPADetails validateVPA(PaymentApplicationModels.ValidateVPA body) throws IOException {
+    public PaymentApplicationModels.ValidateVPAResponse validateVPA(PaymentApplicationModels.ValidateVPARequest body) throws IOException {
         return this.validateVPA(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.ValidateVPADetails validateVPA(PaymentApplicationModels.ValidateVPA body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.ValidateVPAResponse validateVPA(PaymentApplicationModels.ValidateVPARequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("validateVPA");
 
-        Response<PaymentApplicationModels.ValidateVPADetails> response = paymentApplicationApiList.validateVPA(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.ValidateVPAResponse> response = paymentApplicationApiList.validateVPA(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -459,16 +459,16 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.CardDetailsFetchedDetails cardDetails(String cardInfo, String aggregator) throws IOException {
+    public PaymentApplicationModels.CardDetailsResponse cardDetails(String cardInfo, String aggregator) throws IOException {
         return this.cardDetails(cardInfo, aggregator, new HashMap<>());
     }
 
-    public PaymentApplicationModels.CardDetailsFetchedDetails cardDetails(String cardInfo, String aggregator, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.CardDetailsResponse cardDetails(String cardInfo, String aggregator, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("cardDetails");
         fullUrl = fullUrl.replace("{" + "card_info" + "}",cardInfo.toString());
 
-        Response<PaymentApplicationModels.CardDetailsFetchedDetails> response = paymentApplicationApiList.cardDetails(fullUrl, aggregator, requestHeaders).execute();
+        Response<PaymentApplicationModels.CardDetailsResponse> response = paymentApplicationApiList.cardDetails(fullUrl, aggregator, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -477,15 +477,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.TransferModeFetchDetails getActiveRefundTransferModes() throws IOException {
+    public PaymentApplicationModels.TransferModeResponse getActiveRefundTransferModes() throws IOException {
         return this.getActiveRefundTransferModes(new HashMap<>());
     }
 
-    public PaymentApplicationModels.TransferModeFetchDetails getActiveRefundTransferModes(Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.TransferModeResponse getActiveRefundTransferModes(Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getActiveRefundTransferModes");
 
-        Response<PaymentApplicationModels.TransferModeFetchDetails> response = paymentApplicationApiList.getActiveRefundTransferModes(fullUrl, requestHeaders).execute();
+        Response<PaymentApplicationModels.TransferModeResponse> response = paymentApplicationApiList.getActiveRefundTransferModes(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -494,15 +494,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.RefundTransferModeUpdateDetails enableOrDisableRefundTransferMode(PaymentApplicationModels.UpdateRefundTransferMode body) throws IOException {
+    public PaymentApplicationModels.UpdateRefundTransferModeResponse enableOrDisableRefundTransferMode(PaymentApplicationModels.UpdateRefundTransferModeRequest body) throws IOException {
         return this.enableOrDisableRefundTransferMode(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.RefundTransferModeUpdateDetails enableOrDisableRefundTransferMode(PaymentApplicationModels.UpdateRefundTransferMode body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.UpdateRefundTransferModeResponse enableOrDisableRefundTransferMode(PaymentApplicationModels.UpdateRefundTransferModeRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("enableOrDisableRefundTransferMode");
 
-        Response<PaymentApplicationModels.RefundTransferModeUpdateDetails> response = paymentApplicationApiList.enableOrDisableRefundTransferMode(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.UpdateRefundTransferModeResponse> response = paymentApplicationApiList.enableOrDisableRefundTransferMode(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -511,15 +511,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.OrderBeneficiaryFetchDetails getUserBeneficiariesDetail(String orderId) throws IOException {
+    public PaymentApplicationModels.OrderBeneficiaryResponse getUserBeneficiariesDetail(String orderId) throws IOException {
         return this.getUserBeneficiariesDetail(orderId, new HashMap<>());
     }
 
-    public PaymentApplicationModels.OrderBeneficiaryFetchDetails getUserBeneficiariesDetail(String orderId, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.OrderBeneficiaryResponse getUserBeneficiariesDetail(String orderId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getUserBeneficiariesDetail");
 
-        Response<PaymentApplicationModels.OrderBeneficiaryFetchDetails> response = paymentApplicationApiList.getUserBeneficiariesDetail(fullUrl, orderId, requestHeaders).execute();
+        Response<PaymentApplicationModels.OrderBeneficiaryResponse> response = paymentApplicationApiList.getUserBeneficiariesDetail(fullUrl, orderId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -528,15 +528,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.IfscCodeDetails verifyIfscCode(String ifscCode) throws IOException {
+    public PaymentApplicationModels.IfscCodeResponse verifyIfscCode(String ifscCode) throws IOException {
         return this.verifyIfscCode(ifscCode, new HashMap<>());
     }
 
-    public PaymentApplicationModels.IfscCodeDetails verifyIfscCode(String ifscCode, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.IfscCodeResponse verifyIfscCode(String ifscCode, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("verifyIfscCode");
 
-        Response<PaymentApplicationModels.IfscCodeDetails> response = paymentApplicationApiList.verifyIfscCode(fullUrl, ifscCode, requestHeaders).execute();
+        Response<PaymentApplicationModels.IfscCodeResponse> response = paymentApplicationApiList.verifyIfscCode(fullUrl, ifscCode, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -545,15 +545,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.OrderBeneficiaryFetchDetails getOrderBeneficiariesDetail(String orderId) throws IOException {
+    public PaymentApplicationModels.OrderBeneficiaryResponse getOrderBeneficiariesDetail(String orderId) throws IOException {
         return this.getOrderBeneficiariesDetail(orderId, new HashMap<>());
     }
 
-    public PaymentApplicationModels.OrderBeneficiaryFetchDetails getOrderBeneficiariesDetail(String orderId, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.OrderBeneficiaryResponse getOrderBeneficiariesDetail(String orderId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getOrderBeneficiariesDetail");
 
-        Response<PaymentApplicationModels.OrderBeneficiaryFetchDetails> response = paymentApplicationApiList.getOrderBeneficiariesDetail(fullUrl, orderId, requestHeaders).execute();
+        Response<PaymentApplicationModels.OrderBeneficiaryResponse> response = paymentApplicationApiList.getOrderBeneficiariesDetail(fullUrl, orderId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -562,15 +562,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.RefundAccountDetails addBeneficiaryDetails(PaymentApplicationModels.AddBeneficiaryDetails body) throws IOException {
+    public PaymentApplicationModels.RefundAccountResponse addBeneficiaryDetails(PaymentApplicationModels.AddBeneficiaryDetailsRequest body) throws IOException {
         return this.addBeneficiaryDetails(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.RefundAccountDetails addBeneficiaryDetails(PaymentApplicationModels.AddBeneficiaryDetails body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.RefundAccountResponse addBeneficiaryDetails(PaymentApplicationModels.AddBeneficiaryDetailsRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("addBeneficiaryDetails");
 
-        Response<PaymentApplicationModels.RefundAccountDetails> response = paymentApplicationApiList.addBeneficiaryDetails(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.RefundAccountResponse> response = paymentApplicationApiList.addBeneficiaryDetails(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -579,15 +579,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.DeleteRefundAccountDetails deleteBeneficiaryDetails(PaymentApplicationModels.DeleteBeneficiary body) throws IOException {
+    public PaymentApplicationModels.DeleteRefundAccountResponse deleteBeneficiaryDetails(PaymentApplicationModels.DeleteBeneficiaryRequest body) throws IOException {
         return this.deleteBeneficiaryDetails(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.DeleteRefundAccountDetails deleteBeneficiaryDetails(PaymentApplicationModels.DeleteBeneficiary body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.DeleteRefundAccountResponse deleteBeneficiaryDetails(PaymentApplicationModels.DeleteBeneficiaryRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("deleteBeneficiaryDetails");
 
-        Response<PaymentApplicationModels.DeleteRefundAccountDetails> response = paymentApplicationApiList.deleteBeneficiaryDetails(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.DeleteRefundAccountResponse> response = paymentApplicationApiList.deleteBeneficiaryDetails(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -596,15 +596,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.AddBeneficiaryViaOtpVerificationDetails verifyOtpAndAddBeneficiaryForBank(PaymentApplicationModels.AddBeneficiaryViaOtpVerification body) throws IOException {
+    public PaymentApplicationModels.AddBeneficiaryViaOtpVerificationResponse verifyOtpAndAddBeneficiaryForBank(PaymentApplicationModels.AddBeneficiaryViaOtpVerificationRequest body) throws IOException {
         return this.verifyOtpAndAddBeneficiaryForBank(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.AddBeneficiaryViaOtpVerificationDetails verifyOtpAndAddBeneficiaryForBank(PaymentApplicationModels.AddBeneficiaryViaOtpVerification body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.AddBeneficiaryViaOtpVerificationResponse verifyOtpAndAddBeneficiaryForBank(PaymentApplicationModels.AddBeneficiaryViaOtpVerificationRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("verifyOtpAndAddBeneficiaryForBank");
 
-        Response<PaymentApplicationModels.AddBeneficiaryViaOtpVerificationDetails> response = paymentApplicationApiList.verifyOtpAndAddBeneficiaryForBank(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.AddBeneficiaryViaOtpVerificationResponse> response = paymentApplicationApiList.verifyOtpAndAddBeneficiaryForBank(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -613,15 +613,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.RefundAccountDetails addRefundBankAccountUsingOTP(PaymentApplicationModels.AddBeneficiaryDetailsOTP body) throws IOException {
+    public PaymentApplicationModels.PostAddBeneficiaryDetailsOTPResponse addRefundBankAccountUsingOTP(PaymentApplicationModels.AddBeneficiaryDetailsOTPRequest body) throws IOException {
         return this.addRefundBankAccountUsingOTP(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.RefundAccountDetails addRefundBankAccountUsingOTP(PaymentApplicationModels.AddBeneficiaryDetailsOTP body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.PostAddBeneficiaryDetailsOTPResponse addRefundBankAccountUsingOTP(PaymentApplicationModels.AddBeneficiaryDetailsOTPRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("addRefundBankAccountUsingOTP");
 
-        Response<PaymentApplicationModels.RefundAccountDetails> response = paymentApplicationApiList.addRefundBankAccountUsingOTP(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.PostAddBeneficiaryDetailsOTPResponse> response = paymentApplicationApiList.addRefundBankAccountUsingOTP(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -630,15 +630,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.AddBeneficiaryDetailsOTPDetails getotpOrderBeneficiariesDetail(String orderId, String requestHash) throws IOException {
+    public PaymentApplicationModels.AddBeneficiaryDetailsOTPResponse getotpOrderBeneficiariesDetail(String orderId, String requestHash) throws IOException {
         return this.getotpOrderBeneficiariesDetail(orderId, requestHash, new HashMap<>());
     }
 
-    public PaymentApplicationModels.AddBeneficiaryDetailsOTPDetails getotpOrderBeneficiariesDetail(String orderId, String requestHash, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.AddBeneficiaryDetailsOTPResponse getotpOrderBeneficiariesDetail(String orderId, String requestHash, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getotpOrderBeneficiariesDetail");
 
-        Response<PaymentApplicationModels.AddBeneficiaryDetailsOTPDetails> response = paymentApplicationApiList.getotpOrderBeneficiariesDetail(fullUrl, orderId, requestHash, requestHeaders).execute();
+        Response<PaymentApplicationModels.AddBeneficiaryDetailsOTPResponse> response = paymentApplicationApiList.getotpOrderBeneficiariesDetail(fullUrl, orderId, requestHash, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -647,15 +647,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.WalletOtpDetails verifyOtpAndAddBeneficiaryForWallet(PaymentApplicationModels.WalletOtp body) throws IOException {
+    public PaymentApplicationModels.WalletOtpResponse verifyOtpAndAddBeneficiaryForWallet(PaymentApplicationModels.WalletOtpRequest body) throws IOException {
         return this.verifyOtpAndAddBeneficiaryForWallet(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.WalletOtpDetails verifyOtpAndAddBeneficiaryForWallet(PaymentApplicationModels.WalletOtp body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.WalletOtpResponse verifyOtpAndAddBeneficiaryForWallet(PaymentApplicationModels.WalletOtpRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("verifyOtpAndAddBeneficiaryForWallet");
 
-        Response<PaymentApplicationModels.WalletOtpDetails> response = paymentApplicationApiList.verifyOtpAndAddBeneficiaryForWallet(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.WalletOtpResponse> response = paymentApplicationApiList.verifyOtpAndAddBeneficiaryForWallet(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -664,15 +664,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.SetDefaultBeneficiaryDetails updateDefaultBeneficiary(PaymentApplicationModels.SetDefaultBeneficiary body) throws IOException {
+    public PaymentApplicationModels.SetDefaultBeneficiaryResponse updateDefaultBeneficiary(PaymentApplicationModels.SetDefaultBeneficiaryRequest body) throws IOException {
         return this.updateDefaultBeneficiary(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.SetDefaultBeneficiaryDetails updateDefaultBeneficiary(PaymentApplicationModels.SetDefaultBeneficiary body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.SetDefaultBeneficiaryResponse updateDefaultBeneficiary(PaymentApplicationModels.SetDefaultBeneficiaryRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("updateDefaultBeneficiary");
 
-        Response<PaymentApplicationModels.SetDefaultBeneficiaryDetails> response = paymentApplicationApiList.updateDefaultBeneficiary(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.SetDefaultBeneficiaryResponse> response = paymentApplicationApiList.updateDefaultBeneficiary(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -681,15 +681,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.RefundOrderBenDetails getBenficiaryOrder(PaymentApplicationModels.RefundOrderBen body) throws IOException {
+    public PaymentApplicationModels.RefundOrderBenResponse getBenficiaryOrder(PaymentApplicationModels.RefundOrderBenRequest body) throws IOException {
         return this.getBenficiaryOrder(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.RefundOrderBenDetails getBenficiaryOrder(PaymentApplicationModels.RefundOrderBen body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.RefundOrderBenResponse getBenficiaryOrder(PaymentApplicationModels.RefundOrderBenRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getBenficiaryOrder");
 
-        Response<PaymentApplicationModels.RefundOrderBenDetails> response = paymentApplicationApiList.getBenficiaryOrder(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.RefundOrderBenResponse> response = paymentApplicationApiList.getBenficiaryOrder(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -698,15 +698,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.GetPaymentLinkDetails getPaymentLink(String paymentLinkId) throws IOException {
+    public PaymentApplicationModels.GetPaymentLinkResponse getPaymentLink(String paymentLinkId) throws IOException {
         return this.getPaymentLink(paymentLinkId, new HashMap<>());
     }
 
-    public PaymentApplicationModels.GetPaymentLinkDetails getPaymentLink(String paymentLinkId, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.GetPaymentLinkResponse getPaymentLink(String paymentLinkId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getPaymentLink");
 
-        Response<PaymentApplicationModels.GetPaymentLinkDetails> response = paymentApplicationApiList.getPaymentLink(fullUrl, paymentLinkId, requestHeaders).execute();
+        Response<PaymentApplicationModels.GetPaymentLinkResponse> response = paymentApplicationApiList.getPaymentLink(fullUrl, paymentLinkId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -715,15 +715,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.CreatePaymentLinkDetails createPaymentLink(PaymentApplicationModels.CreatePaymentLink body) throws IOException {
+    public PaymentApplicationModels.CreatePaymentLinkResponse createPaymentLink(PaymentApplicationModels.CreatePaymentLinkRequest body) throws IOException {
         return this.createPaymentLink(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.CreatePaymentLinkDetails createPaymentLink(PaymentApplicationModels.CreatePaymentLink body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.CreatePaymentLinkResponse createPaymentLink(PaymentApplicationModels.CreatePaymentLinkRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("createPaymentLink");
 
-        Response<PaymentApplicationModels.CreatePaymentLinkDetails> response = paymentApplicationApiList.createPaymentLink(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.CreatePaymentLinkResponse> response = paymentApplicationApiList.createPaymentLink(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -732,16 +732,16 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.GetPaymentLinkDetails getPaymentLinkId(String id, String paymentLinkId) throws IOException {
+    public PaymentApplicationModels.GetPaymentLinkResponse getPaymentLinkId(String id, String paymentLinkId) throws IOException {
         return this.getPaymentLinkId(id, paymentLinkId, new HashMap<>());
     }
 
-    public PaymentApplicationModels.GetPaymentLinkDetails getPaymentLinkId(String id, String paymentLinkId, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.GetPaymentLinkResponse getPaymentLinkId(String id, String paymentLinkId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getPaymentLinkId");
         fullUrl = fullUrl.replace("{" + "id" + "}",id.toString());
 
-        Response<PaymentApplicationModels.GetPaymentLinkDetails> response = paymentApplicationApiList.getPaymentLinkId(fullUrl, paymentLinkId, requestHeaders).execute();
+        Response<PaymentApplicationModels.GetPaymentLinkResponse> response = paymentApplicationApiList.getPaymentLinkId(fullUrl, paymentLinkId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -750,15 +750,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.ResendPaymentLinkDetails resendPaymentLink(PaymentApplicationModels.CancelOrResendPaymentLink body) throws IOException {
+    public PaymentApplicationModels.ResendPaymentLinkResponse resendPaymentLink(PaymentApplicationModels.CancelOrResendPaymentLinkRequest body) throws IOException {
         return this.resendPaymentLink(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.ResendPaymentLinkDetails resendPaymentLink(PaymentApplicationModels.CancelOrResendPaymentLink body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.ResendPaymentLinkResponse resendPaymentLink(PaymentApplicationModels.CancelOrResendPaymentLinkRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("resendPaymentLink");
 
-        Response<PaymentApplicationModels.ResendPaymentLinkDetails> response = paymentApplicationApiList.resendPaymentLink(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.ResendPaymentLinkResponse> response = paymentApplicationApiList.resendPaymentLink(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -767,15 +767,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.PaymentModeRouteDetails getPaymentModeRoutesPaymentLink(String paymentLinkId) throws IOException {
+    public PaymentApplicationModels.PaymentModeRouteResponse getPaymentModeRoutesPaymentLink(String paymentLinkId) throws IOException {
         return this.getPaymentModeRoutesPaymentLink(paymentLinkId, new HashMap<>());
     }
 
-    public PaymentApplicationModels.PaymentModeRouteDetails getPaymentModeRoutesPaymentLink(String paymentLinkId, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.PaymentModeRouteResponse getPaymentModeRoutesPaymentLink(String paymentLinkId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getPaymentModeRoutesPaymentLink");
 
-        Response<PaymentApplicationModels.PaymentModeRouteDetails> response = paymentApplicationApiList.getPaymentModeRoutesPaymentLink(fullUrl, paymentLinkId, requestHeaders).execute();
+        Response<PaymentApplicationModels.PaymentModeRouteResponse> response = paymentApplicationApiList.getPaymentModeRoutesPaymentLink(fullUrl, paymentLinkId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -784,15 +784,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.PollingPaymentLinkDetails pollingPaymentLink(String paymentLinkId) throws IOException {
+    public PaymentApplicationModels.PollingPaymentLinkResponse pollingPaymentLink(String paymentLinkId) throws IOException {
         return this.pollingPaymentLink(paymentLinkId, new HashMap<>());
     }
 
-    public PaymentApplicationModels.PollingPaymentLinkDetails pollingPaymentLink(String paymentLinkId, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.PollingPaymentLinkResponse pollingPaymentLink(String paymentLinkId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("pollingPaymentLink");
 
-        Response<PaymentApplicationModels.PollingPaymentLinkDetails> response = paymentApplicationApiList.pollingPaymentLink(fullUrl, paymentLinkId, requestHeaders).execute();
+        Response<PaymentApplicationModels.PollingPaymentLinkResponse> response = paymentApplicationApiList.pollingPaymentLink(fullUrl, paymentLinkId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -801,15 +801,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.CreateOrderUserDetails createOrderHandlerPaymentLink(PaymentApplicationModels.CreateOrderUser body) throws IOException {
+    public PaymentApplicationModels.CreateOrderUserResponse createOrderHandlerPaymentLink(PaymentApplicationModels.CreateOrderUserRequest body) throws IOException {
         return this.createOrderHandlerPaymentLink(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.CreateOrderUserDetails createOrderHandlerPaymentLink(PaymentApplicationModels.CreateOrderUser body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.CreateOrderUserResponse createOrderHandlerPaymentLink(PaymentApplicationModels.CreateOrderUserRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("createOrderHandlerPaymentLink");
 
-        Response<PaymentApplicationModels.CreateOrderUserDetails> response = paymentApplicationApiList.createOrderHandlerPaymentLink(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.CreateOrderUserResponse> response = paymentApplicationApiList.createOrderHandlerPaymentLink(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -818,15 +818,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.PaymentInitializationDetails initialisePaymentPaymentLink(PaymentApplicationModels.PaymentInitialization body) throws IOException {
+    public PaymentApplicationModels.PaymentInitializationResponse initialisePaymentPaymentLink(PaymentApplicationModels.PaymentInitializationRequest body) throws IOException {
         return this.initialisePaymentPaymentLink(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.PaymentInitializationDetails initialisePaymentPaymentLink(PaymentApplicationModels.PaymentInitialization body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.PaymentInitializationResponse initialisePaymentPaymentLink(PaymentApplicationModels.PaymentInitializationRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("initialisePaymentPaymentLink");
 
-        Response<PaymentApplicationModels.PaymentInitializationDetails> response = paymentApplicationApiList.initialisePaymentPaymentLink(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.PaymentInitializationResponse> response = paymentApplicationApiList.initialisePaymentPaymentLink(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -835,15 +835,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.PaymentStatusUpdateDetails checkAndUpdatePaymentStatusPaymentLink(PaymentApplicationModels.PaymentStatusUpdate body) throws IOException {
+    public PaymentApplicationModels.PaymentStatusUpdateResponse checkAndUpdatePaymentStatusPaymentLink(PaymentApplicationModels.PaymentStatusUpdateRequest body) throws IOException {
         return this.checkAndUpdatePaymentStatusPaymentLink(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.PaymentStatusUpdateDetails checkAndUpdatePaymentStatusPaymentLink(PaymentApplicationModels.PaymentStatusUpdate body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.PaymentStatusUpdateResponse checkAndUpdatePaymentStatusPaymentLink(PaymentApplicationModels.PaymentStatusUpdateRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("checkAndUpdatePaymentStatusPaymentLink");
 
-        Response<PaymentApplicationModels.PaymentStatusUpdateDetails> response = paymentApplicationApiList.checkAndUpdatePaymentStatusPaymentLink(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.PaymentStatusUpdateResponse> response = paymentApplicationApiList.checkAndUpdatePaymentStatusPaymentLink(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -852,15 +852,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.CustomerCreditSummaryDetails customerCreditSummary(String aggregator) throws IOException {
+    public PaymentApplicationModels.CustomerCreditSummaryResponse customerCreditSummary(String aggregator) throws IOException {
         return this.customerCreditSummary(aggregator, new HashMap<>());
     }
 
-    public PaymentApplicationModels.CustomerCreditSummaryDetails customerCreditSummary(String aggregator, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.CustomerCreditSummaryResponse customerCreditSummary(String aggregator, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("customerCreditSummary");
 
-        Response<PaymentApplicationModels.CustomerCreditSummaryDetails> response = paymentApplicationApiList.customerCreditSummary(fullUrl, aggregator, requestHeaders).execute();
+        Response<PaymentApplicationModels.CustomerCreditSummaryResponse> response = paymentApplicationApiList.customerCreditSummary(fullUrl, aggregator, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -869,15 +869,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.RedirectToAggregatorDetails redirectToAggregator(String source, String aggregator) throws IOException {
+    public PaymentApplicationModels.RedirectToAggregatorResponse redirectToAggregator(String source, String aggregator) throws IOException {
         return this.redirectToAggregator(source, aggregator, new HashMap<>());
     }
 
-    public PaymentApplicationModels.RedirectToAggregatorDetails redirectToAggregator(String source, String aggregator, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.RedirectToAggregatorResponse redirectToAggregator(String source, String aggregator, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("redirectToAggregator");
 
-        Response<PaymentApplicationModels.RedirectToAggregatorDetails> response = paymentApplicationApiList.redirectToAggregator(fullUrl, source, aggregator, requestHeaders).execute();
+        Response<PaymentApplicationModels.RedirectToAggregatorResponse> response = paymentApplicationApiList.redirectToAggregator(fullUrl, source, aggregator, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -886,15 +886,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.CheckCreditDetails checkCredit(String aggregator) throws IOException {
+    public PaymentApplicationModels.CheckCreditResponse checkCredit(String aggregator) throws IOException {
         return this.checkCredit(aggregator, new HashMap<>());
     }
 
-    public PaymentApplicationModels.CheckCreditDetails checkCredit(String aggregator, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.CheckCreditResponse checkCredit(String aggregator, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("checkCredit");
 
-        Response<PaymentApplicationModels.CheckCreditDetails> response = paymentApplicationApiList.checkCredit(fullUrl, aggregator, requestHeaders).execute();
+        Response<PaymentApplicationModels.CheckCreditResponse> response = paymentApplicationApiList.checkCredit(fullUrl, aggregator, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -903,15 +903,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.CustomerOnboardingDetails customerOnboard(PaymentApplicationModels.CustomerOnboarding body) throws IOException {
+    public PaymentApplicationModels.CustomerOnboardingResponse customerOnboard(PaymentApplicationModels.CustomerOnboardingRequest body) throws IOException {
         return this.customerOnboard(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.CustomerOnboardingDetails customerOnboard(PaymentApplicationModels.CustomerOnboarding body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.CustomerOnboardingResponse customerOnboard(PaymentApplicationModels.CustomerOnboardingRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("customerOnboard");
 
-        Response<PaymentApplicationModels.CustomerOnboardingDetails> response = paymentApplicationApiList.customerOnboard(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.CustomerOnboardingResponse> response = paymentApplicationApiList.customerOnboard(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -920,15 +920,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.OutstandingOrderDetails outstandingOrderDetails(String aggregator) throws IOException {
+    public PaymentApplicationModels.OutstandingOrderDetailsResponse outstandingOrderDetails(String aggregator) throws IOException {
         return this.outstandingOrderDetails(aggregator, new HashMap<>());
     }
 
-    public PaymentApplicationModels.OutstandingOrderDetails outstandingOrderDetails(String aggregator, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.OutstandingOrderDetailsResponse outstandingOrderDetails(String aggregator, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("outstandingOrderDetails");
 
-        Response<PaymentApplicationModels.OutstandingOrderDetails> response = paymentApplicationApiList.outstandingOrderDetails(fullUrl, aggregator, requestHeaders).execute();
+        Response<PaymentApplicationModels.OutstandingOrderDetailsResponse> response = paymentApplicationApiList.outstandingOrderDetails(fullUrl, aggregator, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -937,15 +937,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.CancelPaymentLinkDetails cancelPaymentLink(PaymentApplicationModels.CancelOrResendPaymentLink body) throws IOException {
+    public PaymentApplicationModels.CancelPaymentLinkResponse cancelPaymentLink(PaymentApplicationModels.CancelOrResendPaymentLinkRequest body) throws IOException {
         return this.cancelPaymentLink(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.CancelPaymentLinkDetails cancelPaymentLink(PaymentApplicationModels.CancelOrResendPaymentLink body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.CancelPaymentLinkResponse cancelPaymentLink(PaymentApplicationModels.CancelOrResendPaymentLinkRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("cancelPaymentLink");
 
-        Response<PaymentApplicationModels.CancelPaymentLinkDetails> response = paymentApplicationApiList.cancelPaymentLink(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.CancelPaymentLinkResponse> response = paymentApplicationApiList.cancelPaymentLink(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -954,15 +954,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.PaidOrderDetails paidOrderDetails(String aggregator) throws IOException {
+    public PaymentApplicationModels.PaidOrderDetailsResponse paidOrderDetails(String aggregator) throws IOException {
         return this.paidOrderDetails(aggregator, new HashMap<>());
     }
 
-    public PaymentApplicationModels.PaidOrderDetails paidOrderDetails(String aggregator, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.PaidOrderDetailsResponse paidOrderDetails(String aggregator, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("paidOrderDetails");
 
-        Response<PaymentApplicationModels.PaidOrderDetails> response = paymentApplicationApiList.paidOrderDetails(fullUrl, aggregator, requestHeaders).execute();
+        Response<PaymentApplicationModels.PaidOrderDetailsResponse> response = paymentApplicationApiList.paidOrderDetails(fullUrl, aggregator, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -971,15 +971,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.PaymentOrderDetails createPaymentOrder(PaymentApplicationModels.PaymentOrder body) throws IOException {
+    public PaymentApplicationModels.PaymentOrderResponse createPaymentOrder(PaymentApplicationModels.PaymentOrderRequest body) throws IOException {
         return this.createPaymentOrder(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.PaymentOrderDetails createPaymentOrder(PaymentApplicationModels.PaymentOrder body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.PaymentOrderResponse createPaymentOrder(PaymentApplicationModels.PaymentOrderRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("createPaymentOrder");
 
-        Response<PaymentApplicationModels.PaymentOrderDetails> response = paymentApplicationApiList.createPaymentOrder(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.PaymentOrderResponse> response = paymentApplicationApiList.createPaymentOrder(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -988,15 +988,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.ShipmentRefundDetails setRefundOptionforShipment(PaymentApplicationModels.ShipmentRefund body) throws IOException {
+    public PaymentApplicationModels.ShipmentRefundResponse setRefundOptionforShipment(PaymentApplicationModels.ShipmentRefundRequest body) throws IOException {
         return this.setRefundOptionforShipment(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.ShipmentRefundDetails setRefundOptionforShipment(PaymentApplicationModels.ShipmentRefund body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.ShipmentRefundResponse setRefundOptionforShipment(PaymentApplicationModels.ShipmentRefundRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("setRefundOptionforShipment");
 
-        Response<PaymentApplicationModels.ShipmentRefundDetails> response = paymentApplicationApiList.setRefundOptionforShipment(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.ShipmentRefundResponse> response = paymentApplicationApiList.setRefundOptionforShipment(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1005,15 +1005,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.SelectedRefundOptionDetails getSelectedRefundOption(String shipmentId, String orderId) throws IOException {
+    public PaymentApplicationModels.SelectedRefundOptionResponse getSelectedRefundOption(String shipmentId, String orderId) throws IOException {
         return this.getSelectedRefundOption(shipmentId, orderId, new HashMap<>());
     }
 
-    public PaymentApplicationModels.SelectedRefundOptionDetails getSelectedRefundOption(String shipmentId, String orderId, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.SelectedRefundOptionResponse getSelectedRefundOption(String shipmentId, String orderId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getSelectedRefundOption");
 
-        Response<PaymentApplicationModels.SelectedRefundOptionDetails> response = paymentApplicationApiList.getSelectedRefundOption(fullUrl, shipmentId, orderId, requestHeaders).execute();
+        Response<PaymentApplicationModels.SelectedRefundOptionResponse> response = paymentApplicationApiList.getSelectedRefundOption(fullUrl, shipmentId, orderId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1022,15 +1022,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.OrderBeneficiaryDetailsSchemaV2 getUserBeneficiariesDetailV2(String orderId, String shipmentId, String mop) throws IOException {
+    public PaymentApplicationModels.OrderBeneficiaryResponseSchemaV2 getUserBeneficiariesDetailV2(String orderId, String shipmentId, String mop) throws IOException {
         return this.getUserBeneficiariesDetailV2(orderId, shipmentId, mop, new HashMap<>());
     }
 
-    public PaymentApplicationModels.OrderBeneficiaryDetailsSchemaV2 getUserBeneficiariesDetailV2(String orderId, String shipmentId, String mop, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.OrderBeneficiaryResponseSchemaV2 getUserBeneficiariesDetailV2(String orderId, String shipmentId, String mop, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getUserBeneficiariesDetailV2");
 
-        Response<PaymentApplicationModels.OrderBeneficiaryDetailsSchemaV2> response = paymentApplicationApiList.getUserBeneficiariesDetailV2(fullUrl, orderId, shipmentId, mop, requestHeaders).execute();
+        Response<PaymentApplicationModels.OrderBeneficiaryResponseSchemaV2> response = paymentApplicationApiList.getUserBeneficiariesDetailV2(fullUrl, orderId, shipmentId, mop, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1039,15 +1039,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.ValidateValidateAddressDetails validateBeneficiaryAddress(PaymentApplicationModels.ValidateValidateAddress body) throws IOException {
+    public PaymentApplicationModels.ValidateValidateAddressResponse validateBeneficiaryAddress(PaymentApplicationModels.ValidateValidateAddressRequest body) throws IOException {
         return this.validateBeneficiaryAddress(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.ValidateValidateAddressDetails validateBeneficiaryAddress(PaymentApplicationModels.ValidateValidateAddress body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.ValidateValidateAddressResponse validateBeneficiaryAddress(PaymentApplicationModels.ValidateValidateAddressRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("validateBeneficiaryAddress");
 
-        Response<PaymentApplicationModels.ValidateValidateAddressDetails> response = paymentApplicationApiList.validateBeneficiaryAddress(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.ValidateValidateAddressResponse> response = paymentApplicationApiList.validateBeneficiaryAddress(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1056,15 +1056,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.PaymentConfirmationDetails confirmPayment(PaymentApplicationModels.PaymentConfirmation body) throws IOException {
+    public PaymentApplicationModels.PaymentConfirmationResponse confirmPayment(PaymentApplicationModels.PaymentConfirmationRequest body) throws IOException {
         return this.confirmPayment(body, new HashMap<>());
     }
 
-    public PaymentApplicationModels.PaymentConfirmationDetails confirmPayment(PaymentApplicationModels.PaymentConfirmation body, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.PaymentConfirmationResponse confirmPayment(PaymentApplicationModels.PaymentConfirmationRequest body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("confirmPayment");
 
-        Response<PaymentApplicationModels.PaymentConfirmationDetails> response = paymentApplicationApiList.confirmPayment(fullUrl, body, requestHeaders).execute();
+        Response<PaymentApplicationModels.PaymentConfirmationResponse> response = paymentApplicationApiList.confirmPayment(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
