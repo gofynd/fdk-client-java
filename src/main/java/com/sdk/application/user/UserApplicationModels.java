@@ -1092,7 +1092,7 @@ public static class AuthSuccess{
 
 
 /*
-    Model: UserExists
+    Model: UserExistsResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1100,7 +1100,7 @@ public static class AuthSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserExists{
+public static class UserExistsResponse{
 
     
 
@@ -1117,7 +1117,7 @@ public static class UserExists{
 
 
 /*
-    Model: SendOtp
+    Model: SendOtpResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1125,7 +1125,7 @@ public static class UserExists{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtp{
+public static class SendOtpResponse{
 
     
 
@@ -1434,12 +1434,6 @@ public static class VerifyOtpSuccess{
 
     
 
-    
-    
-    
-    
-    @JsonProperty("verify_mobile_link")
-    private Boolean verifyMobileLink;
     
     
     
@@ -1936,12 +1930,6 @@ public static class SendMobileVerifyLinkSuccess{
     
     
     
-    
-    @JsonProperty("user")
-    private UserSchema user;
-    
-    
-    
 }
 
 
@@ -2018,7 +2006,7 @@ public static class APIError{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -3224,18 +3212,6 @@ public static class UserSchema{
     
     
     
-    @JsonProperty("debug")
-    private DebugInfo debug;
-    
-    
-    
-    
-    @JsonProperty("has_old_password_hash")
-    private Boolean hasOldPasswordHash;
-    
-    
-    
-    
     @JsonProperty("application_id")
     private String applicationId;
     
@@ -3255,7 +3231,7 @@ public static class UserSchema{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -3340,37 +3316,6 @@ public static class UserSchema{
     
     @JsonProperty("rr_id")
     private String rrId;
-    
-    
-    
-}
-
-
-/*
-    Model: DebugInfo
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DebugInfo{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("source")
-    private String source;
-    
-    
-    
-    
-    @JsonProperty("platform")
-    private String platform;
     
     
     

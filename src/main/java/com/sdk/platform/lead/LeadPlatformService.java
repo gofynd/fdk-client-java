@@ -356,13 +356,13 @@ public class LeadPlatformService {
     
     
 
-    public LeadPlatformModels.GeneralConfigResponseSchema getGeneralConfig() throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.GeneralConfigResponse getGeneralConfig() throws FDKServerResponseError, FDKException {
         return this.getGeneralConfig(new HashMap<>());
     }
 
-    public LeadPlatformModels.GeneralConfigResponseSchema getGeneralConfig(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.GeneralConfigResponse getGeneralConfig(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LeadPlatformModels.GeneralConfigResponseSchema> response = null;
+            Response<LeadPlatformModels.GeneralConfigResponse> response = null;
             try {
                 response = leadPlatformApiList.getGeneralConfig(this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {

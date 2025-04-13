@@ -6,17 +6,41 @@ import java.util.*;
 
 interface CommunicationPlatformApiList {
 
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/engine/send-sync")
+    Call<CommunicationPlatformModels.SendInstantResponse> sendByCompanyCommunicationSynchronously(@Path("company_id") String companyId, @Body CommunicationPlatformModels.EngineRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/engine/send-sync")
+    Call<CommunicationPlatformModels.SendInstantResponse> sendEngineCommunicationSynchronously(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.EngineRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/engine/send-async")
+    Call<CommunicationPlatformModels.EngineResponse> senByCompanyCommunicationAsynchronously(@Path("company_id") String companyId, @Body CommunicationPlatformModels.EngineRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/engine/send-async")
-    Call<CommunicationPlatformModels.EngineRes> sendCommunicationAsynchronously(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.EngineReq payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CommunicationPlatformModels.EngineResponse> sendCommunicationAsynchronously(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.EngineRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/engine/send-instant")
-    Call<CommunicationPlatformModels.SendInstantRes> sendCommunicationSynchronously(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.EngineReq payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CommunicationPlatformModels.SendInstantResponse> sendCommunicationSynchronously(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.EngineRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/engine/send-instant")
+    Call<CommunicationPlatformModels.SendInstantResponse> sendByCompanyCommunicationInstantly(@Path("company_id") String companyId, @Body CommunicationPlatformModels.EngineRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions")
     Call<CommunicationPlatformModels.EventSubscriptions> getEventSubscriptions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("populate") String populate, @HeaderMap Map<String, String> requestHeaders);
 
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions")
+    Call<CommunicationPlatformModels.EventSubscription> createEventSubscriptions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.SubscriptionsObject payload, @HeaderMap Map<String, String> requestHeaders);
+
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions/bulkUpdate")
-    Call<List<CommunicationPlatformModels.EventSubscriptionsBulkUpdateRes>> createEventSubscriptionsByBulk(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.EventSubscriptionsBulkUpdateReq payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<List<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse>> createEventSubscriptionsByBulk(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.EventSubscriptionsBulkUpdateRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions/{id}")
+    Call<CommunicationPlatformModels.EventSubscription> getEventSubscriptionsById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Query("populate") String populate, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions/{id}")
+    Call<CommunicationPlatformModels.EventSubscription> editEventSubscriptions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CommunicationPlatformModels.SubscriptionsObjectRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions/{id}")
+    Call<CommunicationPlatformModels.EventSubscription> deleteEventSubscriptionsById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/templates")
     Call<CommunicationPlatformModels.EmailTemplates> getEmailTemplates(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("sort") String sort, @Query("query") String query, @HeaderMap Map<String, String> requestHeaders);
@@ -51,6 +75,9 @@ interface CommunicationPlatformApiList {
     @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/providers/{id}")
     Call<CommunicationPlatformModels.EmailProvider> updateEmailProviderById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CommunicationPlatformModels.EmailProviderReq payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @DELETE ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/providers/{id}")
+    Call<CommunicationPlatformModels.BasicDelete> deleteEmailProviderById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/email/default-providers")
     Call<List<CommunicationPlatformModels.DefaultEmailProviders>> getDefaultEmailProviders(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
@@ -65,6 +92,9 @@ interface CommunicationPlatformApiList {
 
     @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/providers/{id}")
     Call<CommunicationPlatformModels.SmsProvider> updateSmsProviderById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CommunicationPlatformModels.SmsProviderReq payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/providers/{id}")
+    Call<CommunicationPlatformModels.BasicDelete> deleteSmsProviderById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/default-providers")
     Call<List<CommunicationPlatformModels.DefaultSmsProviders>> getDefaultSmsProviders(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
@@ -91,19 +121,22 @@ interface CommunicationPlatformApiList {
     Call<CommunicationPlatformModels.SubscribedSmsTemplates> getSubscribedSmsTemplates(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("query") String query, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/jobs/trigger-job")
-    Call<CommunicationPlatformModels.TriggerJobRes> triggerCampaignJob(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.TriggerJobReq payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CommunicationPlatformModels.TriggerJobResponse> triggerCampaignJob(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.TriggerJobRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/jobs/jobs")
     Call<CommunicationPlatformModels.Jobs> getJobs(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("sort") String sort, @Query("query") String query, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/jobs/jobs")
+    Call<CommunicationPlatformModels.CreateJobsRes> createJobs(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.CreateJobsReq payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/jobs/logs")
     Call<CommunicationPlatformModels.JobLogs> getJobLogs(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("sort") String sort, @Query("query") String query, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/global-variables")
-    Call<CommunicationPlatformModels.GlobalVariablesGetRes> getGlobalVariables(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+    Call<CommunicationPlatformModels.GlobalVariablesGetResponse> getGlobalVariables(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/global-variables")
-    Call<CommunicationPlatformModels.GlobalVariablesPostRes> postGlobalVariables(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.GlobalVariablesReq payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CommunicationPlatformModels.GlobalVariablesPostResponse> postGlobalVariables(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.GlobalVariablesReq payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/log")
     Call<CommunicationPlatformModels.Logs> getCommunicationLogs(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("sort") String sort, @Query("query") Object query, @HeaderMap Map<String, String> requestHeaders);
@@ -117,6 +150,15 @@ interface CommunicationPlatformApiList {
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/app-provider/global-providers")
     Call<CommunicationPlatformModels.GlobalProviders> getGlobalProviders(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
+    @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/app-provider/global-providers")
+    Call<CommunicationPlatformModels.UpdateAppProvidersGlobalProviderResponse> updateAppProvidersGlobalProvider(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.AppProvidersGlobalProviderRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/datasource/dummy-data-source-meta")
+    Call<CommunicationPlatformModels.DummyDatasourcesMeta> getDummyDatasourcesMeta(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") Integer id, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/datasource/dummy-data-sources")
+    Call<List<CommunicationPlatformModels.DummyDatasources>> getDummyDatasources(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/datasources")
     Call<CommunicationPlatformModels.Audiences> getAudiences(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("sort") String sort, @Query("query") String query, @HeaderMap Map<String, String> requestHeaders);
 
@@ -125,6 +167,15 @@ interface CommunicationPlatformApiList {
 
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/datasources/{id}")
     Call<CommunicationPlatformModels.Audience> getAudienceById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/datasources/{id}")
+    Call<CommunicationPlatformModels.Audience> updateAudienceById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CommunicationPlatformModels.AudienceReq payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/datasources/{id}")
+    Call<CommunicationPlatformModels.BasicDelete> deleteAudienceById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CommunicationPlatformModels.AudienceReq payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/get-n-records")
+    Call<CommunicationPlatformModels.GetNRecordsCsvRes> getNSampleRecordsFromCsvByGet(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("count") Integer count, @Query("header") Boolean header, @Query("url") String url, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/get-n-records")
     Call<CommunicationPlatformModels.GetNRecordsCsvRes> getNSampleRecordsFromCsv(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.GetNRecordsCsvReq payload, @HeaderMap Map<String, String> requestHeaders);
@@ -140,6 +191,9 @@ interface CommunicationPlatformApiList {
 
     @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/campaigns/campaigns/{id}")
     Call<CommunicationPlatformModels.Campaign> updateCampaignById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CommunicationPlatformModels.CampaignReq payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/campaigns/campaigns/{id}")
+    Call<CommunicationPlatformModels.BasicDelete> deleteCampaignById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/campaigns/get-stats/{id}")
     Call<CommunicationPlatformModels.GetStats> getStatsOfCampaignById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
@@ -158,4 +212,7 @@ interface CommunicationPlatformApiList {
 
     @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/otp/otp-configuration")
     Call<CommunicationPlatformModels.OtpConfiguration> updateOtpConfiguration(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.OtpConfiguration payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/pn/tokens")
+    Call<CommunicationPlatformModels.PushtokenRes> createAppPushtoken(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.PushtokenReq payload, @HeaderMap Map<String, String> requestHeaders);
 }

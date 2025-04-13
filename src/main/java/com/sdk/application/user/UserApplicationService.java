@@ -206,15 +206,15 @@ import com.sdk.application.*;
     }
     
 
-    public UserApplicationModels.SendOtp loginWithOTP(String platform, UserApplicationModels.SendOtpRequestSchema body) throws IOException {
+    public UserApplicationModels.SendOtpResponse loginWithOTP(String platform, UserApplicationModels.SendOtpRequestSchema body) throws IOException {
         return this.loginWithOTP(platform, body, new HashMap<>());
     }
 
-    public UserApplicationModels.SendOtp loginWithOTP(String platform, UserApplicationModels.SendOtpRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+    public UserApplicationModels.SendOtpResponse loginWithOTP(String platform, UserApplicationModels.SendOtpRequestSchema body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("loginWithOTP");
 
-        Response<UserApplicationModels.SendOtp> response = userApplicationApiList.loginWithOTP(fullUrl, platform, body, requestHeaders).execute();
+        Response<UserApplicationModels.SendOtpResponse> response = userApplicationApiList.loginWithOTP(fullUrl, platform, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -750,15 +750,15 @@ import com.sdk.application.*;
     }
     
 
-    public UserApplicationModels.UserExists userExists(String q) throws IOException {
+    public UserApplicationModels.UserExistsResponse userExists(String q) throws IOException {
         return this.userExists(q, new HashMap<>());
     }
 
-    public UserApplicationModels.UserExists userExists(String q, Map<String, String> requestHeaders) throws IOException {
+    public UserApplicationModels.UserExistsResponse userExists(String q, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("userExists");
 
-        Response<UserApplicationModels.UserExists> response = userApplicationApiList.userExists(fullUrl, q, requestHeaders).execute();
+        Response<UserApplicationModels.UserExistsResponse> response = userApplicationApiList.userExists(fullUrl, q, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

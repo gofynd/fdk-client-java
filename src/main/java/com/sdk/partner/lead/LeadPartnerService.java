@@ -440,13 +440,13 @@ public class LeadPartnerService {
     
     
 
-    public LeadPartnerModels.GeneralConfigResponseSchema getGeneralConfig() throws FDKServerResponseError, FDKException {
+    public LeadPartnerModels.GeneralConfigResponse getGeneralConfig() throws FDKServerResponseError, FDKException {
         return this.getGeneralConfig(new HashMap<>());
     }
 
-    public LeadPartnerModels.GeneralConfigResponseSchema getGeneralConfig(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LeadPartnerModels.GeneralConfigResponse getGeneralConfig(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<LeadPartnerModels.GeneralConfigResponseSchema> response = null;
+            Response<LeadPartnerModels.GeneralConfigResponse> response = null;
             try {
                 response = leadPartnerApiList.getGeneralConfig(this.organizationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {

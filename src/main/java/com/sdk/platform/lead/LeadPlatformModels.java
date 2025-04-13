@@ -14,7 +14,7 @@ public class LeadPlatformModels{
 
 
 /*
-    Model: GeneralConfigResponseSchema
+    Model: GeneralConfigResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class LeadPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeneralConfigResponseSchema{
+public static class GeneralConfigResponse{
 
     
 
@@ -614,6 +614,37 @@ public static class AgentChangePayload{
 
 
 /*
+    Model: NotifyUser
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class NotifyUser{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("phone_number")
+    private String phoneNumber;
+    
+    
+    
+}
+
+
+/*
     Model: Filter
 */
 @AllArgsConstructor
@@ -890,7 +921,7 @@ public static class AddTicketPayload{
     
     
     @JsonProperty("created_by")
-    private HashMap<String,Object> createdBy;
+    private Object createdBy;
     
     
     
@@ -926,7 +957,7 @@ public static class AddTicketPayload{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -1032,6 +1063,56 @@ public static class Status{
     
     @JsonProperty("color")
     private String color;
+    
+    
+    
+}
+
+
+/*
+    Model: TicketFeedbackList
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TicketFeedbackList{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<TicketFeedback> items;
+    
+    
+    
+}
+
+
+/*
+    Model: TicketFeedbackPayload
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TicketFeedbackPayload{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("form_response")
+    private Object formResponse;
     
     
     
@@ -1263,7 +1344,7 @@ public static class FeedbackForm{
     
     
     @JsonProperty("inputs")
-    private HashMap<String,Object> inputs;
+    private Object inputs;
     
     
     
@@ -1275,7 +1356,7 @@ public static class FeedbackForm{
     
     
     @JsonProperty("timestamps")
-    private HashMap<String,Object> timestamps;
+    private Object timestamps;
     
     
     
@@ -1356,6 +1437,79 @@ public static class FeedbackResponseItem{
     
     @JsonProperty("key")
     private String key;
+    
+    
+    
+}
+
+
+/*
+    Model: TicketFeedback
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TicketFeedback{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("ticket_id")
+    private String ticketId;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private String companyId;
+    
+    
+    
+    
+    @JsonProperty("response")
+    private List<FeedbackResponseItem> response;
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("user")
+    private Object user;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Double v;
     
     
     
@@ -1513,13 +1667,13 @@ public static class Ticket{
     
     
     @JsonProperty("created_by")
-    private HashMap<String,Object> createdBy;
+    private Object createdBy;
     
     
     
     
     @JsonProperty("assigned_to")
-    private HashMap<String,Object> assignedTo;
+    private Object assignedTo;
     
     
     
@@ -1531,7 +1685,7 @@ public static class Ticket{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -1543,7 +1697,7 @@ public static class Ticket{
     
     
     @JsonProperty("integration")
-    private HashMap<String,Object> integration;
+    private Object integration;
     
     
     
