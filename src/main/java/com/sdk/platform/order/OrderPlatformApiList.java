@@ -144,9 +144,6 @@ interface OrderPlatformApiList {
     @PUT ("/service/platform/order-manage/v1.0/company/{company_id}/order/{order_id}")
     Call<OrderPlatformModels.OrderUpdateResponseDetail> updateOrder(@Path("company_id") String companyId, @Path("order_id") String orderId, @Body OrderPlatformModels.OrderUpdatePayload payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipments/consolidate")
-    Call<OrderPlatformModels.ConsolidateShipmentResponse> consolidateShipments(@Path("company_id") String companyId, @Body OrderPlatformModels.ConsolidateShipmentPayload payload, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/order/v1.0/company/{company_id}/application/{application_id}/orders/shipments/{shipment_id}/line_number/{line_number}/reasons")
     Call<OrderPlatformModels.ShipmentBagReasons> getShipmentBagReasons(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("shipment_id") String shipmentId, @Path("line_number") Integer lineNumber, @Query("bag_id") String bagId, @HeaderMap Map<String, String> requestHeaders);
 
