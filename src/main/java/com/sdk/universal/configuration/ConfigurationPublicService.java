@@ -32,13 +32,13 @@ public class ConfigurationPublicService {
         return retrofitServiceFactory.createService(publicConfig.getDomain(),ConfigurationPublicApiList.class, interceptorList, cookieStore);
     }
 
-    public ConfigurationPublicModels.ApplicationResponse searchApplication(String authorization, String query) throws IOException {
+    public ConfigurationPublicModels.ApplicationResponseSchema searchApplication(String authorization, String query) throws IOException {
         return this.searchApplication(authorization, query, new HashMap<>());
     }
 
-    public ConfigurationPublicModels.ApplicationResponse searchApplication(String authorization, String query, Map<String, String> requestHeaders) throws IOException {
+    public ConfigurationPublicModels.ApplicationResponseSchema searchApplication(String authorization, String query, Map<String, String> requestHeaders) throws IOException {
     
-        Response<ConfigurationPublicModels.ApplicationResponse> response = configurationPublicApiList.searchApplication(authorization, query, requestHeaders).execute();
+        Response<ConfigurationPublicModels.ApplicationResponseSchema> response = configurationPublicApiList.searchApplication(authorization, query, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -53,20 +53,6 @@ public class ConfigurationPublicService {
     public ConfigurationPublicModels.Locations getLocations(String locationType, String id, Map<String, String> requestHeaders) throws IOException {
     
         Response<ConfigurationPublicModels.Locations> response = configurationPublicApiList.getLocations(locationType, id, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    public ConfigurationPublicModels.VersionResponse checkVersionIsUpToDate(ConfigurationPublicModels.VersionRequest body) throws IOException {
-        return this.checkVersionIsUpToDate(body, new HashMap<>());
-    }
-
-    public ConfigurationPublicModels.VersionResponse checkVersionIsUpToDate(ConfigurationPublicModels.VersionRequest body, Map<String, String> requestHeaders) throws IOException {
-    
-        Response<ConfigurationPublicModels.VersionResponse> response = configurationPublicApiList.checkVersionIsUpToDate(body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

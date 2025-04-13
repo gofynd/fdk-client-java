@@ -7,7 +7,7 @@ import java.util.*;
 interface RewardsPlatformApiList {
 
     @GET ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/giveaways")
-    Call<RewardsPlatformModels.GiveawayResponse> showGiveaways(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_id") String pageId, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+    Call<RewardsPlatformModels.ListGiveaway> showGiveaways(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_id") String pageId, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/giveaways")
     Call<RewardsPlatformModels.Giveaway> saveGiveAway(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body RewardsPlatformModels.Giveaway payload, @HeaderMap Map<String, String> requestHeaders);
@@ -40,5 +40,5 @@ interface RewardsPlatformApiList {
     Call<RewardsPlatformModels.ConfigurationRes> getRewardsConfiguration(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/rewards/v1.0/company/{company_id}/application/{application_id}/configuration/")
-    Call<RewardsPlatformModels.SetConfigurationRes> setRewardsConfiguration(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body RewardsPlatformModels.ConfigurationRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<RewardsPlatformModels.SetConfigurationRes> setRewardsConfiguration(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body RewardsPlatformModels.SetConfiguration payload, @HeaderMap Map<String, String> requestHeaders);
 }
