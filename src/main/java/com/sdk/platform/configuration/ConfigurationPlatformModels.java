@@ -14,6 +14,122 @@ public class ConfigurationPlatformModels{
 
 
 /*
+    Model: CurrencyExchangeResponseV2
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CurrencyExchangeResponseV2{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("base")
+    private String base;
+    
+    
+    
+    
+    @JsonProperty("base_currency_name")
+    private String baseCurrencyName;
+    
+    
+    
+    
+    @JsonProperty("ttl_seconds")
+    private Integer ttlSeconds;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<CurrencyExchangeItem> items;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
+}
+
+
+/*
+    Model: CurrencyExchangeItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CurrencyExchangeItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("currency_code")
+    private String currencyCode;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("rate")
+    private Double rate;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("country_name")
+    private String countryName;
+    
+    
+    
+    
+    @JsonProperty("subunit")
+    private String subunit;
+    
+    
+    
+    
+    @JsonProperty("decimal_digits")
+    private Integer decimalDigits;
+    
+    
+    
+    
+    @JsonProperty("symbol")
+    private String symbol;
+    
+    
+    
+}
+
+
+/*
     Model: ApplicationInventory
 */
 @AllArgsConstructor
@@ -26,6 +142,12 @@ public static class ApplicationInventory{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("search")
+    private SearchConfig search;
     
     
     
@@ -184,6 +306,93 @@ public static class PiiMasking{
 
 
 /*
+    Model: FstIdentification
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FstIdentification{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+}
+
+
+/*
+    Model: QuerySuggestions
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class QuerySuggestions{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+    
+    @JsonProperty("max_limit")
+    private Integer maxLimit;
+    
+    
+    
+}
+
+
+/*
+    Model: SearchConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SearchConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("fst_identification")
+    private FstIdentification fstIdentification;
+    
+    
+    
+    
+    @JsonProperty("query_suggestions")
+    private QuerySuggestions querySuggestions;
+    
+    
+    
+}
+
+
+/*
     Model: AppInventoryConfig
 */
 @AllArgsConstructor
@@ -196,6 +405,12 @@ public static class AppInventoryConfig{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("delivery_strategy")
+    private DeliveryStrategy deliveryStrategy;
     
     
     
@@ -268,18 +483,6 @@ public static class AppInventoryConfig{
     
     @JsonProperty("company_id")
     private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("enable_zone_overlapping")
-    private Boolean enableZoneOverlapping;
-    
-    
-    
-    
-    @JsonProperty("sort_popular_first")
-    private Boolean sortPopularFirst;
     
     
     
@@ -1195,6 +1398,12 @@ public static class AppInventoryPartialUpdate{
     
     
     
+    @JsonProperty("search")
+    private SearchConfig search;
+    
+    
+    
+    
     @JsonProperty("reward_points")
     private RewardPointsConfig rewardPoints;
     
@@ -1265,7 +1474,7 @@ public static class BrandCompanyInfo{
 
 
 /*
-    Model: CompanyByBrandsRequest
+    Model: CompanyByBrandsRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1273,7 +1482,7 @@ public static class BrandCompanyInfo{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyByBrandsRequest{
+public static class CompanyByBrandsRequestSchema{
 
     
 
@@ -1296,7 +1505,7 @@ public static class CompanyByBrandsRequest{
 
 
 /*
-    Model: CompanyByBrandsResponse
+    Model: CompanyByBrandsResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1304,7 +1513,7 @@ public static class CompanyByBrandsRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyByBrandsResponse{
+public static class CompanyByBrandsResponseSchema{
 
     
 
@@ -1327,7 +1536,7 @@ public static class CompanyByBrandsResponse{
 
 
 /*
-    Model: StoreByBrandsRequest
+    Model: StoreByBrandsRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1335,7 +1544,7 @@ public static class CompanyByBrandsResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreByBrandsRequest{
+public static class StoreByBrandsRequestSchema{
 
     
 
@@ -1364,7 +1573,7 @@ public static class StoreByBrandsRequest{
 
 
 /*
-    Model: StoreByBrandsResponse
+    Model: StoreByBrandsResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1372,7 +1581,7 @@ public static class StoreByBrandsRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreByBrandsResponse{
+public static class StoreByBrandsResponseSchema{
 
     
 
@@ -1499,7 +1708,7 @@ public static class CompanyBrandInfo{
 
 
 /*
-    Model: BrandsByCompanyResponse
+    Model: BrandsByCompanyResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1507,7 +1716,7 @@ public static class CompanyBrandInfo{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BrandsByCompanyResponse{
+public static class BrandsByCompanyResponseSchema{
 
     
 
@@ -1524,7 +1733,7 @@ public static class BrandsByCompanyResponse{
 
 
 /*
-    Model: ValidationFailedResponse
+    Model: ValidationFailedResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1532,7 +1741,7 @@ public static class BrandsByCompanyResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ValidationFailedResponse{
+public static class ValidationFailedResponseSchema{
 
     
 
@@ -1679,7 +1888,7 @@ public static class PanCardConfig{
 
 
 /*
-    Model: CreateApplicationRequest
+    Model: CreateApplicationRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1687,7 +1896,7 @@ public static class PanCardConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateApplicationRequest{
+public static class CreateApplicationRequestSchema{
 
     
 
@@ -1716,7 +1925,7 @@ public static class CreateApplicationRequest{
 
 
 /*
-    Model: CreateAppResponse
+    Model: CreateAppResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1724,7 +1933,7 @@ public static class CreateApplicationRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateAppResponse{
+public static class CreateAppResponseSchema{
 
     
 
@@ -1747,7 +1956,7 @@ public static class CreateAppResponse{
 
 
 /*
-    Model: ApplicationsResponse
+    Model: ApplicationsResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1755,7 +1964,7 @@ public static class CreateAppResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationsResponse{
+public static class ApplicationsResponseSchema{
 
     
 
@@ -1925,7 +2134,7 @@ public static class SplashImage{
 
 
 /*
-    Model: MobileAppConfigRequest
+    Model: MobileAppConfigRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1933,7 +2142,7 @@ public static class SplashImage{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MobileAppConfigRequest{
+public static class MobileAppConfigRequestSchema{
 
     
 
@@ -2225,7 +2434,7 @@ public static class DomainAdd{
 
 
 /*
-    Model: DomainAddRequest
+    Model: DomainAddRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2233,7 +2442,7 @@ public static class DomainAdd{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DomainAddRequest{
+public static class DomainAddRequestSchema{
 
     
 
@@ -2311,7 +2520,7 @@ public static class Domain{
 
 
 /*
-    Model: DomainsResponse
+    Model: DomainsResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2319,7 +2528,7 @@ public static class Domain{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DomainsResponse{
+public static class DomainsResponseSchema{
 
     
 
@@ -2385,7 +2594,7 @@ public static class UpdateDomain{
 
 
 /*
-    Model: UpdateDomainTypeRequest
+    Model: UpdateDomainTypeRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2393,7 +2602,7 @@ public static class UpdateDomain{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateDomainTypeRequest{
+public static class UpdateDomainTypeRequestSchema{
 
     
 
@@ -2416,7 +2625,7 @@ public static class UpdateDomainTypeRequest{
 
 
 /*
-    Model: DomainStatusRequest
+    Model: DomainStatusRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2424,7 +2633,7 @@ public static class UpdateDomainTypeRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DomainStatusRequest{
+public static class DomainStatusRequestSchema{
 
     
 
@@ -2472,7 +2681,7 @@ public static class DomainStatus{
 
 
 /*
-    Model: DomainStatusResponse
+    Model: DomainStatusResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2480,7 +2689,7 @@ public static class DomainStatus{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DomainStatusResponse{
+public static class DomainStatusResponseSchema{
 
     
 
@@ -2503,7 +2712,7 @@ public static class DomainStatusResponse{
 
 
 /*
-    Model: DomainSuggestionsRequest
+    Model: DomainSuggestionsRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2511,7 +2720,7 @@ public static class DomainStatusResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DomainSuggestionsRequest{
+public static class DomainSuggestionsRequestSchema{
 
     
 
@@ -2525,8 +2734,8 @@ public static class DomainSuggestionsRequest{
     
     
     
-    @JsonProperty("custom")
-    private Boolean custom;
+    @JsonProperty("custom_domain")
+    private Boolean customDomain;
     
     
     
@@ -2583,7 +2792,7 @@ public static class DomainSuggestion{
 
 
 /*
-    Model: DomainSuggestionsResponse
+    Model: DomainSuggestionsResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2591,7 +2800,7 @@ public static class DomainSuggestion{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DomainSuggestionsResponse{
+public static class DomainSuggestionsResponseSchema{
 
     
 
@@ -2608,7 +2817,7 @@ public static class DomainSuggestionsResponse{
 
 
 /*
-    Model: SuccessMessageResponse
+    Model: SuccessMessageResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2616,7 +2825,7 @@ public static class DomainSuggestionsResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SuccessMessageResponse{
+public static class SuccessMessageResponseSchema{
 
     
 
@@ -2713,7 +2922,7 @@ public static class AppDomain{
 
 
 /*
-    Model: CompaniesResponse
+    Model: CompaniesResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2721,7 +2930,7 @@ public static class AppDomain{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompaniesResponse{
+public static class CompaniesResponseSchema{
 
     
 
@@ -2781,7 +2990,7 @@ public static class AppInventoryCompanies{
 
 
 /*
-    Model: StoresResponse
+    Model: StoresResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2789,7 +2998,7 @@ public static class AppInventoryCompanies{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoresResponse{
+public static class StoresResponseSchema{
 
     
 
@@ -2891,7 +3100,7 @@ public static class AppInventoryStores{
 
 
 /*
-    Model: FilterOrderingStoreRequest
+    Model: FilterOrderingStoreRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2899,7 +3108,7 @@ public static class AppInventoryStores{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FilterOrderingStoreRequest{
+public static class FilterOrderingStoreRequestSchema{
 
     
 
@@ -3014,7 +3223,7 @@ public static class OrderingStoreConfig{
 
 
 /*
-    Model: OrderingStoreSelectRequest
+    Model: OrderingStoreSelectRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3022,7 +3231,7 @@ public static class OrderingStoreConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderingStoreSelectRequest{
+public static class OrderingStoreSelectRequestSchema{
 
     
 
@@ -3181,7 +3390,7 @@ public static class OtherSellerApplications{
 
 
 /*
-    Model: OptedApplicationResponse
+    Model: OptedApplicationResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3189,7 +3398,7 @@ public static class OtherSellerApplications{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OptedApplicationResponse{
+public static class OptedApplicationResponseSchema{
 
     
 
@@ -3445,7 +3654,7 @@ public static class OptOutInventory{
 
 
 /*
-    Model: TokenResponse
+    Model: TokenResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3453,7 +3662,7 @@ public static class OptOutInventory{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TokenResponse{
+public static class TokenResponseSchema{
 
     
 
@@ -4380,13 +4589,13 @@ public static class LaunchPage{
     
     
     @JsonProperty("params")
-    private Object params;
+    private HashMap<String,Object> params;
     
     
     
     
     @JsonProperty("query")
-    private Object query;
+    private HashMap<String,Object> query;
     
     
     
@@ -4493,6 +4702,68 @@ public static class RegistrationPageFeature{
 
 
 /*
+    Model: BuyboxFeature
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BuyboxFeature{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("show_name")
+    private Boolean showName;
+    
+    
+    
+    
+    @JsonProperty("enable_selection")
+    private Boolean enableSelection;
+    
+    
+    
+    
+    @JsonProperty("is_seller_buybox_enabled")
+    private Boolean isSellerBuyboxEnabled;
+    
+    
+    
+}
+
+
+/*
+    Model: DeliveryStrategy
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeliveryStrategy{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+}
+
+
+/*
     Model: AppFeature
 */
 @AllArgsConstructor
@@ -4559,6 +4830,18 @@ public static class AppFeature{
     
     @JsonProperty("order")
     private OrderFeature order;
+    
+    
+    
+    
+    @JsonProperty("buybox")
+    private BuyboxFeature buybox;
+    
+    
+    
+    
+    @JsonProperty("delivery_strategy")
+    private DeliveryStrategy deliveryStrategy;
     
     
     
@@ -5060,7 +5343,7 @@ public static class OrderFeature{
 
 
 /*
-    Model: AppFeatureRequest
+    Model: AppFeatureRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5068,7 +5351,7 @@ public static class OrderFeature{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AppFeatureRequest{
+public static class AppFeatureRequestSchema{
 
     
 
@@ -5085,7 +5368,7 @@ public static class AppFeatureRequest{
 
 
 /*
-    Model: AppFeatureResponse
+    Model: AppFeatureResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5093,7 +5376,7 @@ public static class AppFeatureRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AppFeatureResponse{
+public static class AppFeatureResponseSchema{
 
     
 
@@ -5835,7 +6118,7 @@ public static class TokenSchema{
 
 
 /*
-    Model: InvalidPayloadRequest
+    Model: InvalidPayloadRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5843,7 +6126,7 @@ public static class TokenSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvalidPayloadRequest{
+public static class InvalidPayloadRequestSchema{
 
     
 
@@ -5920,6 +6203,12 @@ public static class Page{
     
     @JsonProperty("size")
     private Integer size;
+    
+    
+    
+    
+    @JsonProperty("page_size")
+    private Integer pageSize;
     
     
     
@@ -6799,7 +7088,7 @@ public static class ApplicationDetail{
 
 
 /*
-    Model: CurrenciesResponse
+    Model: CurrenciesResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6807,7 +7096,7 @@ public static class ApplicationDetail{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CurrenciesResponse{
+public static class CurrenciesResponseSchema{
 
     
 
@@ -6824,7 +7113,7 @@ public static class CurrenciesResponse{
 
 
 /*
-    Model: AppCurrencyResponse
+    Model: AppCurrencyResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6832,7 +7121,7 @@ public static class CurrenciesResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AppCurrencyResponse{
+public static class AppCurrencyResponseSchema{
 
     
 
@@ -6951,7 +7240,7 @@ public static class OptedStoreAddress{
     
     
     @JsonProperty("pincode")
-    private Integer pincode;
+    private String pincode;
     
     
     
@@ -7048,7 +7337,7 @@ public static class OrderingStore{
     
     
     @JsonProperty("pincode")
-    private Integer pincode;
+    private String pincode;
     
     
     
@@ -7135,7 +7424,7 @@ public static class OrderingStores{
 
 
 /*
-    Model: OrderingStoresResponse
+    Model: OrderingStoresResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -7143,7 +7432,7 @@ public static class OrderingStores{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderingStoresResponse{
+public static class OrderingStoresResponseSchema{
 
     
 
@@ -7159,6 +7448,62 @@ public static class OrderingStoresResponse{
     
     @JsonProperty("items")
     private List<OrderingStore> items;
+    
+    
+    
+}
+
+
+/*
+    Model: ValidationErrors
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidationErrors{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("errors")
+    private List<ValidationError> errors;
+    
+    
+    
+}
+
+
+/*
+    Model: ValidationError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidationError{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("field")
+    private String field;
     
     
     

@@ -35,8 +35,6 @@ import com.sdk.platform.discount.DiscountPlatformService;
 
 import com.sdk.platform.filestorage.FileStoragePlatformService;
 
-import com.sdk.platform.finance.FinancePlatformService;
-
 import com.sdk.platform.lead.LeadPlatformService;
 
 import com.sdk.platform.serviceability.ServiceabilityPlatformService;
@@ -90,8 +88,6 @@ public class PlatformClient {
     
     public FileStoragePlatformService fileStorage;
     
-    public FinancePlatformService finance;
-    
     public LeadPlatformService lead;
     
     public ServiceabilityPlatformService serviceability;
@@ -140,8 +136,6 @@ public class PlatformClient {
         this.discount = new DiscountPlatformService(config);
         
         this.fileStorage = new FileStoragePlatformService(config);
-        
-        this.finance = new FinancePlatformService(config);
         
         this.lead = new LeadPlatformService(config);
         
@@ -214,8 +208,6 @@ public class PlatformClient {
         
         public FileStoragePlatformService.ApplicationClient fileStorage;
         
-        public FinancePlatformService.ApplicationClient finance;
-        
         public LeadPlatformService.ApplicationClient lead;
         
         public ServiceabilityPlatformService.ApplicationClient serviceability;
@@ -263,8 +255,6 @@ public class PlatformClient {
             this.discount = new DiscountPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.fileStorage = new FileStoragePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.finance = new FinancePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.lead = new LeadPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             

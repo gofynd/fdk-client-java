@@ -46,15 +46,15 @@ import com.sdk.application.*;
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),WebhookApplicationApiList.class, interceptorList, cookieStore);
     }
 
-    public WebhookApplicationModels.ClickEventResponse saveClickEvent(WebhookApplicationModels.ClickEventRequest body) throws IOException {
+    public WebhookApplicationModels.ClickEventDetails saveClickEvent(WebhookApplicationModels.ClickEventPayload body) throws IOException {
         return this.saveClickEvent(body, new HashMap<>());
     }
 
-    public WebhookApplicationModels.ClickEventResponse saveClickEvent(WebhookApplicationModels.ClickEventRequest body, Map<String, String> requestHeaders) throws IOException {
+    public WebhookApplicationModels.ClickEventDetails saveClickEvent(WebhookApplicationModels.ClickEventPayload body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("saveClickEvent");
 
-        Response<WebhookApplicationModels.ClickEventResponse> response = webhookApplicationApiList.saveClickEvent(fullUrl, body, requestHeaders).execute();
+        Response<WebhookApplicationModels.ClickEventDetails> response = webhookApplicationApiList.saveClickEvent(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
