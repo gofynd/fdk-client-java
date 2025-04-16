@@ -143,37 +143,6 @@ public static class SeoComponent{
 
 
 /*
-    Model: ValidationError
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ValidationError{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("field")
-    private String field;
-    
-    
-    
-}
-
-
-/*
     Model: SeoSchema
 */
 @AllArgsConstructor
@@ -567,7 +536,7 @@ public static class ScheduleStartSchema{
 
 
 /*
-    Model: BlogGetDetails
+    Model: BlogGetResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -575,7 +544,7 @@ public static class ScheduleStartSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BlogGetDetails{
+public static class BlogGetResponse{
 
     
 
@@ -757,7 +726,7 @@ public static class BlogSchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -1384,6 +1353,104 @@ public static class NavigationReference{
 
 
 /*
+    Model: ConfigurationSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ConfigurationSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("sleep_time")
+    private Integer sleepTime;
+    
+    
+    
+    
+    @JsonProperty("start_on_launch")
+    private Boolean startOnLaunch;
+    
+    
+    
+    
+    @JsonProperty("duration")
+    private Integer duration;
+    
+    
+    
+    
+    @JsonProperty("slide_direction")
+    private String slideDirection;
+    
+    
+    
+}
+
+
+/*
+    Model: SlideshowMedia
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SlideshowMedia{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("bg_color")
+    private String bgColor;
+    
+    
+    
+    
+    @JsonProperty("duration")
+    private Integer duration;
+    
+    
+    
+    
+    @JsonProperty("auto_decide_duration")
+    private Boolean autoDecideDuration;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private Action action;
+    
+    
+    
+}
+
+
+/*
     Model: AnnouncementsResponseSchema
 */
 @AllArgsConstructor
@@ -1628,7 +1695,7 @@ public static class ContentAPIError{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -1726,7 +1793,7 @@ public static class CategorySchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -1848,7 +1915,7 @@ public static class FAQCategorySchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -2043,12 +2110,6 @@ public static class Page{
     
     
     
-    
-    @JsonProperty("page_size")
-    private Integer pageSize;
-    
-    
-    
 }
 
 
@@ -2118,7 +2179,7 @@ public static class LandingPageSchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -2126,7 +2187,7 @@ public static class LandingPageSchema{
 
 
 /*
-    Model: NavigationGetDetails
+    Model: NavigationGetResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2134,7 +2195,7 @@ public static class LandingPageSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NavigationGetDetails{
+public static class NavigationGetResponse{
 
     
 
@@ -2273,7 +2334,7 @@ public static class NavigationSchema{
 
 
 /*
-    Model: PageGetDetails
+    Model: PageGetResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2281,7 +2342,7 @@ public static class NavigationSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageGetDetails{
+public static class PageGetResponse{
 
     
 
@@ -2387,7 +2448,7 @@ public static class PageSchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -2441,7 +2502,7 @@ public static class PageSchema{
     
     
     @JsonProperty("visibility")
-    private HashMap<String,Object> visibility;
+    private Object visibility;
     
     
     
@@ -2473,6 +2534,116 @@ public static class CreatedBySchema{
     
     @JsonProperty("id")
     private String id;
+    
+    
+    
+}
+
+
+/*
+    Model: SlideshowGetResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SlideshowGetResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<SlideshowSchema> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: SlideshowSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SlideshowSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("date_meta")
+    private DateMeta dateMeta;
+    
+    
+    
+    
+    @JsonProperty("application")
+    private String application;
+    
+    
+    
+    
+    @JsonProperty("platform")
+    private String platform;
+    
+    
+    
+    
+    @JsonProperty("configuration")
+    private ConfigurationSchema configuration;
+    
+    
+    
+    
+    @JsonProperty("media")
+    private List<SlideshowMedia> media;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("archived")
+    private Boolean archived;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private Object customJson;
     
     
     
@@ -2792,7 +2963,7 @@ public static class TagSchema{
     
     
     @JsonProperty("attributes")
-    private HashMap<String,Object> attributes;
+    private Object attributes;
     
     
     
@@ -2933,8 +3104,8 @@ public static class CustomObjectFieldSchema{
     
     
     
-    @JsonProperty("slug")
-    private String slug;
+    @JsonProperty("key")
+    private String key;
     
     
     
@@ -2976,7 +3147,7 @@ public static class CustomObjectByIdSchema{
     
     
     
-    @JsonProperty("id")
+    @JsonProperty("_id")
     private String id;
     
     
@@ -3068,14 +3239,20 @@ public static class CustomFieldSchema{
     
     
     
-    @JsonProperty("slug")
-    private String slug;
+    @JsonProperty("key")
+    private String key;
     
     
     
     
     @JsonProperty("resource")
     private String resource;
+    
+    
+    
+    
+    @JsonProperty("creator")
+    private String creator;
     
     
     
@@ -3134,6 +3311,12 @@ public static class CustomFieldSchema{
     
     
     
+    @JsonProperty("created_by")
+    private String createdBy;
+    
+    
+    
+    
     @JsonProperty("is_deleted")
     private Boolean isDeleted;
     
@@ -3180,98 +3363,6 @@ public static class CustomFieldsResponseByResourceIdSchema{
 
 
 /*
-    Model: CustomObjectListItemSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CustomObjectListItemSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("definition_id")
-    private String definitionId;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("definition")
-    private CustomObjectListItemDefinationSchema definition;
-    
-    
-    
-    
-    @JsonProperty("references")
-    private Integer references;
-    
-    
-    
-}
-
-
-/*
-    Model: CustomObjectsSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CustomObjectsSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<CustomObjectListItemSchema> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-}
-
-
-/*
     Model: ActionPage
 */
 @AllArgsConstructor
@@ -3308,289 +3399,6 @@ public static class ActionPage{
     
     @JsonProperty("type")
     private PageType type;
-    
-    
-    
-}
-
-
-/*
-    Model: TranslateUiLabel
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TranslateUiLabel{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private String companyId;
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("template_theme_id")
-    private String templateThemeId;
-    
-    
-    
-    
-    @JsonProperty("theme_id")
-    private String themeId;
-    
-    
-    
-    
-    @JsonProperty("locale")
-    private String locale;
-    
-    
-    
-    
-    @JsonProperty("resource")
-    private HashMap<String,Object> resource;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("template")
-    private Boolean template;
-    
-    
-    
-}
-
-
-/*
-    Model: TranslateUiLabelsPage
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TranslateUiLabelsPage{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<TranslateUiLabel> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-}
-
-
-/*
-    Model: Error
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Error{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("error")
-    private String error;
-    
-    
-    
-}
-
-
-/*
-    Model: ResourceTranslations
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResourceTranslations{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("resource_id")
-    private String resourceId;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private HashMap<String,Object> value;
-    
-    
-    
-}
-
-
-/*
-    Model: StandardError
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StandardError{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
-    Model: ApplicationLanguage
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationLanguage{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private String companyId;
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("locale")
-    private String locale;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-    
-    @JsonProperty("direction")
-    private String direction;
-    
-    
-    
-    
-    @JsonProperty("is_default")
-    private Boolean isDefault;
-    
-    
-    
-    
-    @JsonProperty("published")
-    private Boolean published;
-    
-    
-    
-}
-
-
-/*
-    Model: ResourcePayload
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResourcePayload{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("payload")
-    private List<HashMap<String,Object>> payload;
     
     
     

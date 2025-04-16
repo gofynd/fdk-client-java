@@ -14,7 +14,7 @@ public class UserApplicationModels{
 
 
 /*
-    Model: UpdateUserAttributes
+    Model: UpdateUserAttributesRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class UserApplicationModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateUserAttributes{
+public static class UpdateUserAttributesRequest{
 
     
 
@@ -31,7 +31,7 @@ public static class UpdateUserAttributes{
     
     
     @JsonProperty("attributes")
-    private HashMap<String,Object> attributes;
+    private Object attributes;
     
     
     
@@ -56,7 +56,7 @@ public static class UserAttributes{
     
     
     @JsonProperty("attributes")
-    private HashMap<String,Object> attributes;
+    private Object attributes;
     
     
     
@@ -302,12 +302,6 @@ public static class EditProfileRequestSchema{
     
     @JsonProperty("register_token")
     private String registerToken;
-    
-    
-    
-    
-    @JsonProperty("consent")
-    private Boolean consent;
     
     
     
@@ -766,12 +760,6 @@ public static class FormRegisterRequestSchema{
     
     
     
-    
-    @JsonProperty("consent")
-    private Boolean consent;
-    
-    
-    
 }
 
 
@@ -1123,7 +1111,7 @@ public static class AuthSuccess{
 
 
 /*
-    Model: UserExistsDetails
+    Model: UserExistsResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1131,7 +1119,7 @@ public static class AuthSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserExistsDetails{
+public static class UserExistsResponse{
 
     
 
@@ -1148,7 +1136,7 @@ public static class UserExistsDetails{
 
 
 /*
-    Model: SendOtp
+    Model: SendOtpResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1156,7 +1144,7 @@ public static class UserExistsDetails{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtp{
+public static class SendOtpResponse{
 
     
 
@@ -1340,7 +1328,7 @@ public static class ProfileEditSuccess{
     
     
     @JsonProperty("resend_timer")
-    private Long resendTimer;
+    private Integer resendTimer;
     
     
     
@@ -1532,7 +1520,7 @@ public static class RegisterFormSuccess{
     
     
     @JsonProperty("resend_timer")
-    private Long resendTimer;
+    private Integer resendTimer;
     
     
     
@@ -1706,7 +1694,7 @@ public static class DeleteUserSuccess{
 
 
 /*
-    Model: SendOtpSuccess
+    Model: OtpSuccess
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1714,7 +1702,7 @@ public static class DeleteUserSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtpSuccess{
+public static class OtpSuccess{
 
     
 
@@ -1723,7 +1711,7 @@ public static class SendOtpSuccess{
     
     
     @JsonProperty("resend_timer")
-    private Long resendTimer;
+    private Integer resendTimer;
     
     
     
@@ -1988,7 +1976,7 @@ public static class APIError{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -2961,7 +2949,7 @@ public static class UserSchema{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -3046,12 +3034,6 @@ public static class UserSchema{
     
     @JsonProperty("rr_id")
     private String rrId;
-    
-    
-    
-    
-    @JsonProperty("consent")
-    private UserConsentSchema consent;
     
     
     
@@ -3144,62 +3126,6 @@ public static class Email{
     
     @JsonProperty("verified")
     private Boolean verified;
-    
-    
-    
-}
-
-
-/*
-    Model: UserConsentSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserConsentSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("privacy_policy")
-    private PrivacyPolicyConsentSchema privacyPolicy;
-    
-    
-    
-}
-
-
-/*
-    Model: PrivacyPolicyConsentSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PrivacyPolicyConsentSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("value")
-    private Boolean value;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
     
     
     
