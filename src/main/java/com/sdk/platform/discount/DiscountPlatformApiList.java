@@ -22,20 +22,20 @@ interface DiscountPlatformApiList {
     Call<Object> upsertDiscountItems(@Path("company_id") String companyId, @Path("id") String id, @Body DiscountPlatformModels.BulkDiscount payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/discount/v1.0/company/{company_id}/file/validation/")
-    Call<DiscountPlatformModels.FileJobResponse> validateDiscountFile(@Path("company_id") String companyId, @Query("discount") String discount, @Body DiscountPlatformModels.FileJobRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<DiscountPlatformModels.FileJobResponseSchema> validateDiscountFile(@Path("company_id") String companyId, @Query("discount") String discount, @Body DiscountPlatformModels.FileJobRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/discount/v1.0/company/{company_id}/file/{type}/download/")
-    Call<DiscountPlatformModels.FileJobResponse> downloadDiscountFile(@Path("company_id") String companyId, @Path("type") String type, @Body DiscountPlatformModels.DownloadFileJob payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<DiscountPlatformModels.FileJobResponseSchema> downloadDiscountFile(@Path("company_id") String companyId, @Path("type") String type, @Body DiscountPlatformModels.DownloadFileJob payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/discount/v1.0/company/{company_id}/file/validation/{id}/")
-    Call<DiscountPlatformModels.FileJobResponse> getValidationJob(@Path("company_id") String companyId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
+    Call<DiscountPlatformModels.FileJobResponseSchema> getValidationJob(@Path("company_id") String companyId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @DELETE ("/service/platform/discount/v1.0/company/{company_id}/file/validation/{id}/")
-    Call<DiscountPlatformModels.CancelJobResponse> cancelValidationJob(@Path("company_id") String companyId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
+    Call<DiscountPlatformModels.CancelJobResponseSchema> cancelValidationJob(@Path("company_id") String companyId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/discount/v1.0/company/{company_id}/file/download/{id}/")
-    Call<DiscountPlatformModels.FileJobResponse> getDownloadJob(@Path("company_id") String companyId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
+    Call<DiscountPlatformModels.FileJobResponseSchema> getDownloadJob(@Path("company_id") String companyId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @DELETE ("/service/platform/discount/v1.0/company/{company_id}/file/download/{id}/")
-    Call<DiscountPlatformModels.CancelJobResponse> cancelDownloadJob(@Path("company_id") String companyId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
+    Call<DiscountPlatformModels.CancelJobResponseSchema> cancelDownloadJob(@Path("company_id") String companyId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 }

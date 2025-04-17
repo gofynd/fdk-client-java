@@ -564,7 +564,7 @@ public static class AvailablePageSectionMetaAttributes{
     
     
     @JsonProperty("attributes")
-    private Object attributes;
+    private HashMap<String,Object> attributes;
     
     
     
@@ -933,7 +933,13 @@ public static class AvailablePageSchemaSections{
     
     
     @JsonProperty("props")
-    private Object props;
+    private HashMap<String,Object> props;
+    
+    
+    
+    
+    @JsonProperty("custom_css")
+    private String customCss;
     
     
     
@@ -945,7 +951,7 @@ public static class AvailablePageSchemaSections{
     
     
     @JsonProperty("preset")
-    private Object preset;
+    private HashMap<String,Object> preset;
     
     
     
@@ -956,8 +962,45 @@ public static class AvailablePageSchemaSections{
     
     
     
-    @JsonProperty("source")
-    private String source;
+    @JsonProperty("__source")
+    private SectionSource source;
+    
+    
+    
+}
+
+
+/*
+    Model: SectionSource
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SectionSource{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("bundle_name")
+    private String bundleName;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
     
     
     
@@ -1117,7 +1160,7 @@ public static class AvailablePageRoutePredicate{
     
     
     @JsonProperty("query")
-    private Object query;
+    private HashMap<String,Object> query;
     
     
     
@@ -1523,7 +1566,7 @@ public static class ThemesSchema{
     
     
     @JsonProperty("styles")
-    private Object styles;
+    private HashMap<String,Object> styles;
     
     
     
@@ -1573,7 +1616,7 @@ public static class ThemesSchema{
 
 
 /*
-    Model: ThemeUpgradableResponse
+    Model: ThemeUpgradable
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1581,7 +1624,7 @@ public static class ThemesSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ThemeUpgradableResponse{
+public static class ThemeUpgradable{
 
     
 
@@ -1843,7 +1886,7 @@ public static class ThemeConfiguration{
     
     
     @JsonProperty("global_config")
-    private Object globalConfig;
+    private HashMap<String,Object> globalConfig;
     
     
     
@@ -2053,7 +2096,7 @@ public static class ThemeConfigListPageSettingsProps{
     
     
     @JsonProperty("props")
-    private Object props;
+    private HashMap<String,Object> props;
     
     
     
@@ -2425,7 +2468,62 @@ public static class GlobalSchema{
     
     
     @JsonProperty("props")
-    private List<Object> props;
+    private List<Prop> props;
+    
+    
+    
+}
+
+
+/*
+    Model: Prop
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Prop{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("label")
+    private String label;
+    
+    
+    
+    
+    @JsonProperty("info")
+    private String info;
     
     
     
@@ -3163,7 +3261,7 @@ public static class ThemeVersions{
 
 
 /*
-    Model: DummyResponse
+    Model: DummyTheme
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3171,7 +3269,7 @@ public static class ThemeVersions{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DummyResponse{
+public static class DummyTheme{
 
     
 
