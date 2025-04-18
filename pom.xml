@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.gofynd</groupId>
-    <artifactId>fynd-client-java</artifactId>
-    <version>3.3.2</version>
+    <groupId>com.azure.gofynd</groupId>
+    <artifactId>fdk-client-java</artifactId>
+    <version>1.10.2-2</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -111,6 +111,18 @@
              <version>2.11.0</version>
          </dependency>
     </dependencies>
-
+  
+  <distributionManagement>
+        <repository>
+            <id>fdk-client-java</id>
+            <url>https://pkgs.dev.azure.com/GoFynd/JCPLibraries/_packaging/fdk-client-java/maven/v1</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </distributionManagement>
 
 </project>
