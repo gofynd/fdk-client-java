@@ -1140,6 +1140,12 @@ public static class Page{
     
     
     
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
 }
 
 
@@ -1192,6 +1198,62 @@ public static class DeliveryEventLevelSchema{
     
     @JsonProperty("total")
     private Double total;
+    
+    
+    
+    
+    @JsonProperty("response_time")
+    private Double responseTime;
+    
+    
+    
+}
+
+
+/*
+    Model: ResponseTimeTs
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ResponseTimeTs{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("avg_response_time_ts")
+    private List<AvgResponseTime> avgResponseTimeTs;
+    
+    
+    
+}
+
+
+/*
+    Model: AvgResponseTime
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AvgResponseTime{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("timestamp")
+    private String timestamp;
     
     
     

@@ -45,8 +45,6 @@ public class SharePlatformService {
     
     
     
-    
-    
 
 
 
@@ -153,33 +151,6 @@ public class ApplicationClient {
             Response<SharePlatformModels.ShortLinkRes> response = null;
             try {
             response = sharePlatformApiList.updateShortLinkById(this.companyId, this.applicationId, id, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public SharePlatformModels.ClickStatsResponse getShortLinkClickStats(String surlId) throws FDKServerResponseError, FDKException {
-        return this.getShortLinkClickStats(surlId, new HashMap<>());
-    }
-
-    public SharePlatformModels.ClickStatsResponse getShortLinkClickStats(String surlId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<SharePlatformModels.ClickStatsResponse> response = null;
-            try {
-            response = sharePlatformApiList.getShortLinkClickStats(this.companyId, this.applicationId, surlId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

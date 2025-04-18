@@ -24,10 +24,10 @@ interface ContentPlatformApiList {
     @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/announcements/{announcement_id}")
     Call<ContentPlatformModels.CreateAnnouncementSchema> deleteAnnouncement(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("announcement_id") String announcementId, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/blogs/")
+    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/blogs")
     Call<ContentPlatformModels.BlogSchema> createBlog(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.BlogRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/blogs/")
+    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/blogs")
     Call<ContentPlatformModels.BlogGetResponse> getBlogs(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("tags") String tags, @Query("q") String q, @Query("slug") String slug, @Query("title") String title, @Query("status") String status, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/blogs/{id}")
@@ -36,11 +36,17 @@ interface ContentPlatformApiList {
     @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/blogs/{id}")
     Call<ContentPlatformModels.BlogSchema> deleteBlog(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
+    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/blogs/{slug}")
+    Call<ContentPlatformModels.BlogSchema> getComponentById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("slug") String slug, @HeaderMap Map<String, String> requestHeaders);
+
     @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/data-loader")
     Call<ContentPlatformModels.DataLoaderResponseSchema> addDataLoader(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.DataLoaderSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/data-loader")
     Call<ContentPlatformModels.DataLoadersSchema> getDataLoaders(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/data-loader/api-spec")
+    Call<ContentPlatformModels.DataLoadersApiSpecSchema> getDataLoaderApiSpecs(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("data_loader") String dataLoader, @HeaderMap Map<String, String> requestHeaders);
 
     @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/data-loader/{data_loader_id}")
     Call<ContentPlatformModels.DataLoaderResponseSchema> deleteDataLoader(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("data_loader_id") String dataLoaderId, @HeaderMap Map<String, String> requestHeaders);
@@ -49,7 +55,7 @@ interface ContentPlatformApiList {
     Call<ContentPlatformModels.DataLoaderResponseSchema> editDataLoader(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("data_loader_id") String dataLoaderId, @Body ContentPlatformModels.DataLoaderSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/data-loader/service/{service_name}")
-    Call<ContentPlatformModels.DataLoaderResponseSchema> getDataLoadersByService(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("service_name") String serviceName, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentPlatformModels.DataLoaderItemsResponseSchema> getDataLoadersByService(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("service_name") String serviceName, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/data-loader/{data_loader_id}/select")
     Call<ContentPlatformModels.DataLoaderResponseSchema> selectDataLoader(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("data_loader_id") String dataLoaderId, @HeaderMap Map<String, String> requestHeaders);
@@ -70,7 +76,7 @@ interface ContentPlatformApiList {
     Call<ContentPlatformModels.CreateFaqCategorySchema> updateFaqCategory(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body ContentPlatformModels.UpdateFaqCategoryRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/faq/category/{id}")
-    Call<ContentPlatformModels.FaqSchema> deleteFaqCategory(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentPlatformModels.CreateFaqCategorySchema> deleteFaqCategory(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/faq/category/{id_or_slug}/faqs")
     Call<ContentPlatformModels.GetFaqSchema> getFaqsByCategoryIdOrSlug(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id_or_slug") String idOrSlug, @HeaderMap Map<String, String> requestHeaders);
@@ -88,12 +94,12 @@ interface ContentPlatformApiList {
     Call<ContentPlatformModels.CreateFaqResponseSchema> getFaqByIdOrSlug(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id_or_slug") String idOrSlug, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/generate-seo/{type}")
-    Call<ContentPlatformModels.GeneratedSEOContent> generateSEOTitle(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("type") ContentPlatformModels.GenerationEntityType type, @Body ContentPlatformModels.GenerateSEOContent payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentPlatformModels.GeneratedSEOContent> generateSEOTitle(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("type") String type, @Body ContentPlatformModels.GenerateSEOContent payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/landing-page/")
+    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/landing-page")
     Call<ContentPlatformModels.LandingPageGetResponse> getLandingPages(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/landing-page/")
+    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/landing-page")
     Call<ContentPlatformModels.LandingPageSchema> createLandingPage(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.LandingPageSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/landing-page/{id}")
@@ -108,10 +114,10 @@ interface ContentPlatformApiList {
     @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/legal")
     Call<ContentPlatformModels.ApplicationLegal> updateLegalInformation(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.ApplicationLegal payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/navigations/")
+    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/navigations")
     Call<ContentPlatformModels.NavigationGetResponse> getNavigations(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("device_platform") String devicePlatform, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/navigations/")
+    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/navigations")
     Call<ContentPlatformModels.NavigationSchema> createNavigation(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.NavigationRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/navigations/default")
@@ -132,7 +138,7 @@ interface ContentPlatformApiList {
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/pages/spec")
     Call<ContentPlatformModels.PageSpec> getPageSpec(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/pages/preview/")
+    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/pages/preview")
     Call<ContentPlatformModels.PageSchema> createPagePreview(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.PageRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/pages/publish/{slug}")
@@ -142,19 +148,19 @@ interface ContentPlatformApiList {
     Call<ContentPlatformModels.PageSchema> deletePage(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/path-mappings")
-    Call<ContentPlatformModels.PathMappingSchema> addPathRedirectionRules(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.PathMappingSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentPlatformModels.CreatePathMappingSchema> addPathRedirectionRules(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.PathMappingSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/path-mappings")
-    Call<ContentPlatformModels.PathMappingSchema> getPathRedirectionRules(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentPlatformModels.GetAllPathMappingSchema> getPathRedirectionRules(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/path-mappings/{path_id}")
-    Call<ContentPlatformModels.PathMappingSchema> getPathRedirectionRule(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("path_id") String pathId, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentPlatformModels.DeletPathMappingSchema> getPathRedirectionRule(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("path_id") String pathId, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/path-mappings/{path_id}")
-    Call<ContentPlatformModels.PathMappingSchema> updatePathRedirectionRules(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("path_id") String pathId, @Body ContentPlatformModels.PathMappingSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentPlatformModels.CreatePathMappingSchema> updatePathRedirectionRules(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("path_id") String pathId, @Body ContentPlatformModels.PathMappingSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/path-mappings/{path_id}")
-    Call<Object> deletePathRedirectionRules(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("path_id") String pathId, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentPlatformModels.DeletPathMappingSchema> deletePathRedirectionRules(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("path_id") String pathId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/seo")
     Call<ContentPlatformModels.SeoComponent> getSEOConfiguration(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
@@ -171,29 +177,17 @@ interface ContentPlatformApiList {
     @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/seo/schema")
     Call<ContentPlatformModels.SEOSchemaMarkupTemplate> createSEOMarkupSchema(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.SEOSchemaMarkupTemplateRequestBody payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/seo/schema/{id}")
-    Call<ContentPlatformModels.SEOSchemaMarkupTemplate> getSEOMarkupSchema(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
+    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/seo/schema/{schema_id}")
+    Call<ContentPlatformModels.SEOSchemaMarkupTemplate> getSEOMarkupSchema(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("schema_id") String schemaId, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/seo/schema/{id}")
-    Call<ContentPlatformModels.SEOSchemaMarkupTemplate> editSEOMarkupSchema(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body ContentPlatformModels.SEOSchemaMarkupTemplateRequestBody payload, @HeaderMap Map<String, String> requestHeaders);
+    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/seo/schema/{schema_id}")
+    Call<ContentPlatformModels.SEOSchemaMarkupTemplate> editSEOMarkupSchema(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("schema_id") String schemaId, @Body ContentPlatformModels.SEOSchemaMarkupTemplateRequestBody payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/seo/schema/{id}")
-    Call<ContentPlatformModels.SEOSchemaMarkupTemplate> deleteSEOMarkupSchema(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
+    @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/seo/schema/{schema_id}")
+    Call<ContentPlatformModels.SEOSchemaMarkupTemplate> deleteSEOMarkupSchema(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("schema_id") String schemaId, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/slideshows")
-    Call<ContentPlatformModels.SlideshowGetResponse> getSlideshows(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("device_platform") String devicePlatform, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/slideshows")
-    Call<ContentPlatformModels.SlideshowSchema> createSlideshow(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.SlideshowRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/slideshows/{slug}")
-    Call<ContentPlatformModels.SlideshowSchema> getSlideshowBySlug(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("slug") String slug, @Query("device_platform") String devicePlatform, @HeaderMap Map<String, String> requestHeaders);
-
-    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/slideshows/{id}")
-    Call<ContentPlatformModels.SlideshowSchema> updateSlideshow(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body ContentPlatformModels.SlideshowRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/slideshows/{id}")
-    Call<ContentPlatformModels.SlideshowSchema> deleteSlideshow(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
+    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/tags/add")
+    Call<ContentPlatformModels.TagsSchema> addInjectableTag(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.CreateTagRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/support")
     Call<ContentPlatformModels.Support> getSupportInformation(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
@@ -201,28 +195,31 @@ interface ContentPlatformApiList {
     @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/support")
     Call<ContentPlatformModels.Support> updateSupportInformation(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.Support payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/tags")
-    Call<ContentPlatformModels.TagsSchema> updateInjectableTag(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.CreateTagRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/tags")
-    Call<ContentPlatformModels.TagsSchema> getInjectableTags(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("all") Boolean all, @HeaderMap Map<String, String> requestHeaders);
-
-    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/tags/add")
-    Call<ContentPlatformModels.TagsSchema> addInjectableTag(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.CreateTagRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
     @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/tags/remove/handpicked")
     Call<ContentPlatformModels.TagDeleteSuccessResponse> removeInjectableTag(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.RemoveHandpickedSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/tags/edit/handpicked/{tag_id}")
     Call<ContentPlatformModels.TagsSchema> editInjectableTag(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("tag_id") String tagId, @Body ContentPlatformModels.UpdateHandpickedSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/tags")
+    Call<ContentPlatformModels.TagsSchema> createInjectableTag(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.CreateTagRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/tags")
+    Call<ContentPlatformModels.TagsSchema> updateInjectableTag(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.CreateTagRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/tags")
+    Call<ContentPlatformModels.TagsSchema> deleteAllInjectableTags(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/tags")
+    Call<ContentPlatformModels.TagsSchema> getInjectableTags(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/content/v2.0/company/{company_id}/application/{application_id}/blogs/{slug}")
     Call<ContentPlatformModels.BlogSchema> getBlogBySlug(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("slug") String slug, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/content/v2.0/company/{company_id}/application/{application_id}/pages/")
+    @POST ("/service/platform/content/v2.0/company/{company_id}/application/{application_id}/pages")
     Call<ContentPlatformModels.PageSchema> createPage(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.PageRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/content/v2.0/company/{company_id}/application/{application_id}/pages/")
+    @GET ("/service/platform/content/v2.0/company/{company_id}/application/{application_id}/pages")
     Call<ContentPlatformModels.PageGetResponse> getPages(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/content/v2.0/company/{company_id}/application/{application_id}/pages/{id}")
@@ -232,25 +229,25 @@ interface ContentPlatformApiList {
     Call<ContentPlatformModels.PageSchema> getPageBySlug(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("slug") String slug, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/metafields/types")
-    Call<ContentPlatformModels.CustomObjectByIdSchema> getCustomFieldTypes(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentPlatformModels.MetafieldTypesSchema> getCustomFieldTypes(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/metafields/resources")
     Call<ContentPlatformModels.ResourcesSchema> getResources(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/metafields/definitions")
-    Call<ContentPlatformModels.CustomFieldDefinitionsSchema> getCustomFieldDefinitions(@Path("company_id") String companyId, @Query("page_no") String pageNo, @Query("page_size") String pageSize, @Query("resource") String resource, @Query("type") String type, @Query("search") String search, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentPlatformModels.CustomFieldDefinitionsSchema> getCustomFieldDefinitions(@Path("company_id") String companyId, @Query("page_no") String pageNo, @Query("page_size") String pageSize, @Query("resources") String resources, @Query("types") String types, @Query("search") String search, @Query("slugs") String slugs, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/content/v1.0/company/{company_id}/metafields/definitions")
     Call<ContentPlatformModels.CustomFieldDefinitionDetailResSchema> createCustomFieldDefinition(@Path("company_id") String companyId, @Body ContentPlatformModels.CustomFieldDefinitionRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/content/v1.0/company/{company_id}/metafields/definitions/{definition_id}")
-    Call<ContentPlatformModels.CustomFieldDefinitionDetailResSchema> getCustomFieldDefinition(@Path("company_id") String companyId, @Path("definition_id") String definitionId, @HeaderMap Map<String, String> requestHeaders);
+    @GET ("/service/platform/content/v1.0/company/{company_id}/metafields/definitions/{id}")
+    Call<ContentPlatformModels.CustomFieldDefinitionDetailResSchema> getCustomFieldDefinition(@Path("company_id") String companyId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/content/v1.0/company/{company_id}/metafields/definitions/{definition_id}")
-    Call<ContentPlatformModels.CustomFieldDefinitionDetailResSchema> updateCustomFieldDefinition(@Path("company_id") String companyId, @Path("definition_id") String definitionId, @Body ContentPlatformModels.CustomFieldDefinitionRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    @PUT ("/service/platform/content/v1.0/company/{company_id}/metafields/definitions/{id}")
+    Call<ContentPlatformModels.CustomFieldDefinitionDetailResSchema> updateCustomFieldDefinition(@Path("company_id") String companyId, @Path("id") String id, @Body ContentPlatformModels.CustomFieldDefinitionRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @DELETE ("/service/platform/content/v1.0/company/{company_id}/metafields/definitions/{definition_id}")
-    Call<ContentPlatformModels.CustomDataDeleteSchema> deleteCustomFieldDefinition(@Path("company_id") String companyId, @Path("definition_id") String definitionId, @HeaderMap Map<String, String> requestHeaders);
+    @DELETE ("/service/platform/content/v1.0/company/{company_id}/metafields/definitions/{id}")
+    Call<ContentPlatformModels.CustomDataDeleteSchema> deleteCustomFieldDefinition(@Path("company_id") String companyId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/metafields/{resource}")
     Call<ContentPlatformModels.CustomFieldsResponseSchema> getCustomFields(@Path("company_id") String companyId, @Path("resource") String resource, @HeaderMap Map<String, String> requestHeaders);
@@ -258,8 +255,17 @@ interface ContentPlatformApiList {
     @GET ("/service/platform/content/v1.0/company/{company_id}/metafields/{resource}/{resource_id}")
     Call<ContentPlatformModels.CustomFieldsResponseByResourceIdSchema> getCustomFieldsByResourceId(@Path("company_id") String companyId, @Path("resource") String resource, @Path("resource_id") String resourceId, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/content/v1.0/company/{company_id}/metafields/{resource}/{resource_id}")
+    @POST ("/service/platform/content/v1.0/company/{company_id}/metafields/{resource}/{resource_id}")
     Call<ContentPlatformModels.CustomFieldsResponseByResourceIdSchema> createCustomFieldByResourceId(@Path("company_id") String companyId, @Path("resource") String resource, @Path("resource_id") String resourceId, @Body ContentPlatformModels.CustomFieldRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/content/v1.0/company/{company_id}/metafields/{resource}/{resource_id}")
+    Call<ContentPlatformModels.CustomFieldsResponseByResourceIdSchema> updateCustomFieldByResourceId(@Path("company_id") String companyId, @Path("resource") String resource, @Path("resource_id") String resourceId, @Body ContentPlatformModels.CustomFieldRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/content/v1.0/company/{company_id}/metafields/{resource}/{resource_id}")
+    Call<ContentPlatformModels.CustomFieldsDeleteSchema> deleteCustomFieldsByResourceId(@Path("company_id") String companyId, @Path("resource") String resource, @Path("resource_id") String resourceId, @Query("ids") String ids, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/content/v1.0/company/{company_id}/metafields/jobs")
+    Call<ContentPlatformModels.CustomFieldBulkEntry> getCustomFieldJobs(@Path("company_id") String companyId, @Query("page") String page, @Query("page_size") String pageSize, @Query("action_type") String actionType, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/content/v1.0/company/{company_id}/metaobjects/definitions")
     Call<ContentPlatformModels.CustomObjectDefinitionSchema> createCustomObjectDefinition(@Path("company_id") String companyId, @Body ContentPlatformModels.CustomObjectDefinitionRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
@@ -267,14 +273,14 @@ interface ContentPlatformApiList {
     @GET ("/service/platform/content/v1.0/company/{company_id}/metaobjects/definitions")
     Call<ContentPlatformModels.CustomObjectDefinitionsSchema> getCustomObjectDefinitions(@Path("company_id") String companyId, @Query("page_no") String pageNo, @Query("page_size") String pageSize, @Query("search") String search, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/content/v1.0/company/{company_id}/metaobjects/definitions/{definition_id}")
-    Call<ContentPlatformModels.CustomObjectDefinitionSchema> getCustomObjectDefinition(@Path("company_id") String companyId, @Path("definition_id") String definitionId, @HeaderMap Map<String, String> requestHeaders);
+    @GET ("/service/platform/content/v1.0/company/{company_id}/metaobjects/definitions/{id}")
+    Call<ContentPlatformModels.CustomObjectDefinitionSchema> getCustomObjectDefinition(@Path("company_id") String companyId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/content/v1.0/company/{company_id}/metaobjects/definitions/{definition_id}")
-    Call<ContentPlatformModels.CustomObjectDefinitionSchema> updateCustomObjectDefinition(@Path("company_id") String companyId, @Path("definition_id") String definitionId, @Body ContentPlatformModels.CustomObjectDefinitionUpdateRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    @PUT ("/service/platform/content/v1.0/company/{company_id}/metaobjects/definitions/{id}")
+    Call<ContentPlatformModels.CustomObjectDefinitionSchema> updateCustomObjectDefinition(@Path("company_id") String companyId, @Path("id") String id, @Body ContentPlatformModels.CustomObjectDefinitionUpdateRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @DELETE ("/service/platform/content/v1.0/company/{company_id}/metaobjects/definitions/{definition_id}")
-    Call<ContentPlatformModels.CustomObjectDefinitionDeleteResponseSchema> deleteCustomObjectDefinition(@Path("company_id") String companyId, @Path("definition_id") String definitionId, @HeaderMap Map<String, String> requestHeaders);
+    @DELETE ("/service/platform/content/v1.0/company/{company_id}/metaobjects/definitions/{id}")
+    Call<ContentPlatformModels.CustomObjectDefinitionDeleteResponseSchema> deleteCustomObjectDefinition(@Path("company_id") String companyId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/metaobjects")
     Call<ContentPlatformModels.CustomObjectsSchema> getCustomObjects(@Path("company_id") String companyId, @Query("definition_id") String definitionId, @Query("page_no") String pageNo, @Query("page_size") String pageSize, @HeaderMap Map<String, String> requestHeaders);
@@ -282,14 +288,14 @@ interface ContentPlatformApiList {
     @POST ("/service/platform/content/v1.0/company/{company_id}/metaobjects")
     Call<ContentPlatformModels.CustomObjectSchema> createCustomObject(@Path("company_id") String companyId, @Body ContentPlatformModels.CustomObjectRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/content/v1.0/company/{company_id}/metaobjects/{metaobject_id}")
-    Call<ContentPlatformModels.CustomObjectByIdSchema> getCustomObject(@Path("company_id") String companyId, @Path("metaobject_id") String metaobjectId, @HeaderMap Map<String, String> requestHeaders);
+    @GET ("/service/platform/content/v1.0/company/{company_id}/metaobjects/{id}")
+    Call<ContentPlatformModels.CustomObjectByIdSchema> getCustomObject(@Path("company_id") String companyId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
-    @DELETE ("/service/platform/content/v1.0/company/{company_id}/metaobjects/{metaobject_id}")
-    Call<ContentPlatformModels.CustomDataDeleteSchema> deleteCustomObject(@Path("company_id") String companyId, @Path("metaobject_id") String metaobjectId, @HeaderMap Map<String, String> requestHeaders);
+    @PUT ("/service/platform/content/v1.0/company/{company_id}/metaobjects/{id}")
+    Call<ContentPlatformModels.CustomObjectSchema> updateCustomObject(@Path("company_id") String companyId, @Path("id") String id, @Body ContentPlatformModels.CustomObjectRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/content/v1.0/company/{company_id}/metaobjects/{metaobject_id}")
-    Call<ContentPlatformModels.CustomObjectByIdSchema> updateCustomObject(@Path("company_id") String companyId, @Path("metaobject_id") String metaobjectId, @Body ContentPlatformModels.CustomObjectRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    @DELETE ("/service/platform/content/v1.0/company/{company_id}/metaobjects/{id}")
+    Call<ContentPlatformModels.CustomDataDeleteSchema> deleteCustomObject(@Path("company_id") String companyId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/metaobjects/jobs")
     Call<ContentPlatformModels.CustomObjectBulkEntry> getJobs(@Path("company_id") String companyId, @Query("page") String page, @Query("page_size") String pageSize, @Query("action_type") String actionType, @HeaderMap Map<String, String> requestHeaders);
@@ -304,25 +310,25 @@ interface ContentPlatformApiList {
     Call<String> sampleCustomObjectBulkEntry(@Path("company_id") String companyId, @Path("definition_id") String definitionId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/types")
-    Call<ContentPlatformModels.CustomObjectByIdSchema> getAppCustomFieldTypes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentPlatformModels.MetafieldTypesSchema> getAppCustomFieldTypes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/resources")
     Call<ContentPlatformModels.ResourcesSchema> getAppResources(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/definitions")
-    Call<ContentPlatformModels.CustomFieldDefinitionsSchema> getAppCustomFieldDefinitions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") String pageNo, @Query("page_size") String pageSize, @Query("resource") String resource, @Query("type") String type, @Query("search") String search, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentPlatformModels.ApplicationCustomFieldDefinitionsSchema> getAppCustomFieldDefinitions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") String pageNo, @Query("page_size") String pageSize, @Query("resources") String resources, @Query("types") String types, @Query("search") String search, @Query("slugs") String slugs, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/definitions")
     Call<ContentPlatformModels.CustomFieldDefinitionDetailResSchema> createAppCustomFieldDefinition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.CustomFieldDefinitionRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/definitions/{definition_id}")
-    Call<ContentPlatformModels.CustomFieldDefinitionDetailResSchema> getAppCustomFieldDefinition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("definition_id") String definitionId, @HeaderMap Map<String, String> requestHeaders);
+    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/definitions/{id}")
+    Call<ContentPlatformModels.CustomFieldDefinitionDetailResSchema> getAppCustomFieldDefinition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/definitions/{definition_id}")
-    Call<ContentPlatformModels.CustomFieldDefinitionDetailResSchema> updateAppCustomFieldDefinition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("definition_id") String definitionId, @Body ContentPlatformModels.CustomFieldDefinitionRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/definitions/{id}")
+    Call<ContentPlatformModels.CustomFieldDefinitionDetailResSchema> updateAppCustomFieldDefinition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body ContentPlatformModels.CustomFieldDefinitionRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/definitions/{definition_id}")
-    Call<ContentPlatformModels.CustomDataDeleteSchema> deleteAppCustomFieldDefinition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("definition_id") String definitionId, @HeaderMap Map<String, String> requestHeaders);
+    @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/definitions/{id}")
+    Call<ContentPlatformModels.CustomDataDeleteSchema> deleteAppCustomFieldDefinition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/{resource}")
     Call<ContentPlatformModels.CustomFieldsResponseSchema> getAppCustomFields(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("resource") String resource, @HeaderMap Map<String, String> requestHeaders);
@@ -330,8 +336,17 @@ interface ContentPlatformApiList {
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/{resource}/{resource_id}")
     Call<ContentPlatformModels.CustomFieldsResponseByResourceIdSchema> getAppCustomFieldsByResourceId(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("resource") String resource, @Path("resource_id") String resourceId, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/{resource}/{resource_id}")
+    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/{resource}/{resource_id}")
     Call<ContentPlatformModels.CustomFieldsResponseByResourceIdSchema> createAppCustomFieldByResourceId(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("resource") String resource, @Path("resource_id") String resourceId, @Body ContentPlatformModels.CustomFieldRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/{resource}/{resource_id}")
+    Call<ContentPlatformModels.CustomFieldsResponseByResourceIdSchema> updateAppCustomFieldByResourceId(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("resource") String resource, @Path("resource_id") String resourceId, @Body ContentPlatformModels.CustomFieldRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/{resource}/{resource_id}")
+    Call<ContentPlatformModels.CustomFieldsDeleteSchema> deleteAppCustomFieldsByResourceId(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("resource") String resource, @Path("resource_id") String resourceId, @Query("ids") String ids, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metafields/jobs")
+    Call<ContentPlatformModels.CustomFieldBulkEntry> getAppCustomFieldJobs(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page") String page, @Query("page_size") String pageSize, @Query("action_type") String actionType, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metaobjects/definitions")
     Call<ContentPlatformModels.CustomObjectDefinitionSchema> createAppCustomObjectDefinition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.CustomObjectDefinitionRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
@@ -339,29 +354,29 @@ interface ContentPlatformApiList {
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metaobjects/definitions")
     Call<ContentPlatformModels.CustomObjectDefinitionsSchema> getAppCustomObjectDefinitions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") String pageNo, @Query("page_size") String pageSize, @Query("search") String search, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metaobjects/definitions/{definition_id}")
-    Call<ContentPlatformModels.CustomObjectDefinitionSchema> getAppCustomObjectDefinition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("definition_id") String definitionId, @HeaderMap Map<String, String> requestHeaders);
+    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metaobjects/definitions/{id}")
+    Call<ContentPlatformModels.CustomObjectDefinitionSchema> getAppCustomObjectDefinition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metaobjects/definitions/{definition_id}")
-    Call<ContentPlatformModels.CustomObjectDefinitionSchema> updateAppCustomObjectDefinition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("definition_id") String definitionId, @Body ContentPlatformModels.CustomObjectDefinitionUpdateRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metaobjects/definitions/{id}")
+    Call<ContentPlatformModels.CustomObjectDefinitionSchema> updateAppCustomObjectDefinition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body ContentPlatformModels.CustomObjectDefinitionUpdateRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metaobjects/definitions/{definition_id}")
-    Call<ContentPlatformModels.CustomObjectDefinitionDeleteResponseSchema> deleteAppCustomObjectDefinition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("definition_id") String definitionId, @HeaderMap Map<String, String> requestHeaders);
+    @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metaobjects/definitions/{id}")
+    Call<ContentPlatformModels.CustomObjectDefinitionDeleteResponseSchema> deleteAppCustomObjectDefinition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metaobjects")
     Call<ContentPlatformModels.CustomObjectsSchema> getAppCustomObjects(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("definition_id") String definitionId, @Query("page_no") String pageNo, @Query("page_size") String pageSize, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metaobjects")
-    Call<ContentPlatformModels.CustomObjectSchema> createAppCustomObject(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.CustomObjectRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentPlatformModels.CustomObjectApplicationSchema> createAppCustomObject(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.CustomObjectRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metaobjects/{metaobject_id}")
-    Call<ContentPlatformModels.CustomObjectByIdSchema> getAppCustomObject(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("metaobject_id") String metaobjectId, @HeaderMap Map<String, String> requestHeaders);
+    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metaobjects/{id}")
+    Call<ContentPlatformModels.CustomObjectByIdSchema> getAppCustomObject(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
-    @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metaobjects/{metaobject_id}")
-    Call<ContentPlatformModels.CustomDataDeleteSchema> deleteAppCustomObject(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("metaobject_id") String metaobjectId, @HeaderMap Map<String, String> requestHeaders);
+    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metaobjects/{id}")
+    Call<ContentPlatformModels.CustomObjectApplicationSchema> updateAppCustomObject(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body ContentPlatformModels.CustomObjectRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metaobjects/{metaobject_id}")
-    Call<ContentPlatformModels.CustomObjectByIdSchema> updateAppCustomObject(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("metaobject_id") String metaobjectId, @Body ContentPlatformModels.CustomObjectRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metaobjects/{id}")
+    Call<ContentPlatformModels.CustomDataDeleteSchema> deleteAppCustomObject(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/metaobjects/jobs")
     Call<ContentPlatformModels.CustomObjectBulkEntry> getAppJobs(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page") String page, @Query("page_size") String pageSize, @Query("action_type") String actionType, @HeaderMap Map<String, String> requestHeaders);
