@@ -31,7 +31,7 @@ import com.sdk.application.*;
         
         relativeUrls.put("getTicket","/service/application/lead/v1.0/ticket/{id}".substring(1));
         relativeUrls.put("createHistory","/service/application/lead/v1.0/ticket/{id}/history".substring(1));
-        relativeUrls.put("createTicket","/service/application/lead/v1.0/ticket".substring(1));
+        relativeUrls.put("createTicket","/service/application/lead/v1.0/ticket/".substring(1));
         relativeUrls.put("getCustomForm","/service/application/lead/v1.0/form/{slug}".substring(1));
         relativeUrls.put("submitCustomForm","/service/application/lead/v1.0/form/{slug}/submit".substring(1)); 
 

@@ -17,10 +17,4 @@ interface ThemeApplicationApiList {
 
     @GET 
     Call<ThemeApplicationModels.ThemesSchema> getThemeForPreview(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<ThemeApplicationModels.ThemesSchema> getAppliedThemeV1(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<ThemeApplicationModels.ThemesSchema> getThemeForPreviewV1(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 }

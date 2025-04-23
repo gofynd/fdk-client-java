@@ -372,12 +372,6 @@ public static class Page{
     
     
     
-    
-    @JsonProperty("total")
-    private Integer total;
-    
-    
-    
 }
 
 

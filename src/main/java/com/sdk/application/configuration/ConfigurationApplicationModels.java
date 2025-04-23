@@ -1628,12 +1628,6 @@ public static class AppFeature{
     
     
     
-    @JsonProperty("buybox")
-    private BuyboxFeature buybox;
-    
-    
-    
-    
     @JsonProperty("_id")
     private String id;
     
@@ -1660,12 +1654,6 @@ public static class AppFeature{
     
     @JsonProperty("__v")
     private Integer v;
-    
-    
-    
-    
-    @JsonProperty("pricing_strategy")
-    private PricingStrategy pricingStrategy;
     
     
     
@@ -2155,43 +2143,6 @@ public static class OrderFeature{
     
     @JsonProperty("buy_again")
     private Boolean buyAgain;
-    
-    
-    
-}
-
-
-/*
-    Model: BuyboxFeature
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BuyboxFeature{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("show_name")
-    private Boolean showName;
-    
-    
-    
-    
-    @JsonProperty("enable_selection")
-    private Boolean enableSelection;
-    
-    
-    
-    
-    @JsonProperty("is_seller_buybox_enabled")
-    private Boolean isSellerBuyboxEnabled;
     
     
     
@@ -2879,7 +2830,7 @@ public static class CompanyAboutAddress{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     
@@ -3069,12 +3020,6 @@ public static class Page{
     
     @JsonProperty("size")
     private Integer size;
-    
-    
-    
-    
-    @JsonProperty("total")
-    private Integer total;
     
     
     
@@ -4137,7 +4082,7 @@ public static class OptedStoreAddress{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     
@@ -4216,7 +4161,7 @@ public static class OrderingStore{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     
@@ -4296,31 +4241,6 @@ public static class OrderingStores{
     
     @JsonProperty("__v")
     private Integer v;
-    
-    
-    
-}
-
-
-/*
-    Model: PricingStrategy
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PricingStrategy{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
     
     
     
