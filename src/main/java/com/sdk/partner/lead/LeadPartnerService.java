@@ -80,11 +80,11 @@ public class LeadPartnerService {
     
     
 
-    public LeadPartnerModels.TicketList getTickets(Boolean items, Boolean filters, String q, String status, String priority, String category, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+    public LeadPartnerModels.TicketList getTickets(Boolean items, Boolean filters, String q, String status, LeadPartnerModels.PriorityEnum priority, String category, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
         return this.getTickets(items, filters, q, status, priority, category, pageNo, pageSize, new HashMap<>());
     }
 
-    public LeadPartnerModels.TicketList getTickets(Boolean items, Boolean filters, String q, String status, String priority, String category, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LeadPartnerModels.TicketList getTickets(Boolean items, Boolean filters, String q, String status, LeadPartnerModels.PriorityEnum priority, String category, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
             Response<LeadPartnerModels.TicketList> response = null;
             try {
@@ -175,7 +175,7 @@ public class LeadPartnerService {
         Boolean filters ,
         String q ,
         String status ,
-        String priority ,
+        LeadPartnerModels.PriorityEnum priority ,
         String category ,
         Integer pageSize 
         

@@ -15,14 +15,8 @@ interface PaymentApplicationApiList {
     @GET 
     Call<PaymentApplicationModels.ActiveCardPaymentGatewayResponse> getActiveCardAggregator(@Url String url1, @Query("refresh") Boolean refresh, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST 
-    Call<PaymentApplicationModels.UpdateAggregatorCardResponse> updateUserCard(@Url String url1, @Body PaymentApplicationModels.UpdateAggregatorCardRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
     @GET 
     Call<PaymentApplicationModels.ListCardsResponse> getActiveUserCards(@Url String url1, @Query("force_refresh") Boolean forceRefresh, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<PaymentApplicationModels.UpdateCardResponse> updateActiveCards(@Url String url1, @Body PaymentApplicationModels.UpdateAggregatorCardRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<PaymentApplicationModels.DeleteCardsResponse> deleteUserCard(@Url String url1, @Body PaymentApplicationModels.DeletehCardRequest payload, @HeaderMap Map<String, String> requestHeaders);
@@ -88,19 +82,13 @@ interface PaymentApplicationApiList {
     Call<PaymentApplicationModels.OrderBeneficiaryResponse> getOrderBeneficiariesDetail(@Url String url1, @Query("order_id") String orderId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<PaymentApplicationModels.RefundAccountResponse> addBeneficiaryDetails(@Url String url1, @Body PaymentApplicationModels.AddBeneficiaryDetailsRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @PATCH 
-    Call<PaymentApplicationModels.DeleteRefundAccountResponse> deleteBeneficiaryDetails(@Url String url1, @Body PaymentApplicationModels.DeleteBeneficiaryRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
     Call<PaymentApplicationModels.AddBeneficiaryViaOtpVerificationResponse> verifyOtpAndAddBeneficiaryForBank(@Url String url1, @Body PaymentApplicationModels.AddBeneficiaryViaOtpVerificationRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<PaymentApplicationModels.PostAddBeneficiaryDetailsOTPResponse> addRefundBankAccountUsingOTP(@Url String url1, @Body PaymentApplicationModels.AddBeneficiaryDetailsOTPRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentApplicationModels.RefundAccountResponse> addBeneficiaryDetails(@Url String url1, @Body PaymentApplicationModels.AddBeneficiaryDetailsRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET 
-    Call<PaymentApplicationModels.AddBeneficiaryDetailsOTPResponse> getotpOrderBeneficiariesDetail(@Url String url1, @Query("order_id") String orderId, @Query("request_hash") String requestHash, @HeaderMap Map<String, String> requestHeaders);
+    @POST 
+    Call<PaymentApplicationModels.RefundAccountResponse> addRefundBankAccountUsingOTP(@Url String url1, @Body PaymentApplicationModels.AddBeneficiaryDetailsOTPRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<PaymentApplicationModels.WalletOtpResponse> verifyOtpAndAddBeneficiaryForWallet(@Url String url1, @Body PaymentApplicationModels.WalletOtpRequest payload, @HeaderMap Map<String, String> requestHeaders);
@@ -108,20 +96,17 @@ interface PaymentApplicationApiList {
     @POST 
     Call<PaymentApplicationModels.SetDefaultBeneficiaryResponse> updateDefaultBeneficiary(@Url String url1, @Body PaymentApplicationModels.SetDefaultBeneficiaryRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST 
-    Call<PaymentApplicationModels.RefundOrderBenResponse> getBenficiaryOrder(@Url String url1, @Body PaymentApplicationModels.RefundOrderBenRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
     @GET 
     Call<PaymentApplicationModels.GetPaymentLinkResponse> getPaymentLink(@Url String url1, @Query("payment_link_id") String paymentLinkId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<PaymentApplicationModels.CreatePaymentLinkResponse> createPaymentLink(@Url String url1, @Body PaymentApplicationModels.CreatePaymentLinkRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET 
-    Call<PaymentApplicationModels.GetPaymentLinkResponse> getPaymentLinkId(@Url String url1, @Query("payment_link_id") String paymentLinkId, @HeaderMap Map<String, String> requestHeaders);
-
     @POST 
     Call<PaymentApplicationModels.ResendPaymentLinkResponse> resendPaymentLink(@Url String url1, @Body PaymentApplicationModels.CancelOrResendPaymentLinkRequest payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST 
+    Call<PaymentApplicationModels.CancelPaymentLinkResponse> cancelPaymentLink(@Url String url1, @Body PaymentApplicationModels.CancelOrResendPaymentLinkRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<PaymentApplicationModels.PaymentModeRouteResponse> getPaymentModeRoutesPaymentLink(@Url String url1, @Query("payment_link_id") String paymentLinkId, @HeaderMap Map<String, String> requestHeaders);
@@ -153,27 +138,9 @@ interface PaymentApplicationApiList {
     @GET 
     Call<PaymentApplicationModels.OutstandingOrderDetailsResponse> outstandingOrderDetails(@Url String url1, @Query("aggregator") String aggregator, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST 
-    Call<PaymentApplicationModels.CancelPaymentLinkResponse> cancelPaymentLink(@Url String url1, @Body PaymentApplicationModels.CancelOrResendPaymentLinkRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
     @GET 
     Call<PaymentApplicationModels.PaidOrderDetailsResponse> paidOrderDetails(@Url String url1, @Query("aggregator") String aggregator, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<PaymentApplicationModels.PaymentOrderResponse> createPaymentOrder(@Url String url1, @Body PaymentApplicationModels.PaymentOrderRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<PaymentApplicationModels.ShipmentRefundResponse> setRefundOptionforShipment(@Url String url1, @Body PaymentApplicationModels.ShipmentRefundRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<PaymentApplicationModels.SelectedRefundOptionResponse> getSelectedRefundOption(@Url String url1, @Query("shipment_id") String shipmentId, @Query("order_id") String orderId, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<PaymentApplicationModels.OrderBeneficiaryResponseSchemaV2> getUserBeneficiariesDetailV2(@Url String url1, @Query("order_id") String orderId, @Query("shipment_id") String shipmentId, @Query("mop") String mop, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<PaymentApplicationModels.ValidateValidateAddressResponse> validateBeneficiaryAddress(@Url String url1, @Body PaymentApplicationModels.ValidateValidateAddressRequest payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<PaymentApplicationModels.PaymentConfirmationResponse> confirmPayment(@Url String url1, @Body PaymentApplicationModels.PaymentConfirmationRequest payload, @HeaderMap Map<String, String> requestHeaders);
 }
