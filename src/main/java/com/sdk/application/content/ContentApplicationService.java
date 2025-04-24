@@ -31,7 +31,7 @@ import com.sdk.application.*;
         
         relativeUrls.put("getAnnouncements","/service/application/content/v1.0/announcements".substring(1));
         relativeUrls.put("getBlog","/service/application/content/v1.0/blogs/{slug}".substring(1));
-        relativeUrls.put("getBlogs","/service/application/content/v1.0/blogs/".substring(1));
+        relativeUrls.put("getBlogs","/service/application/content/v1.0/blogs".substring(1));
         relativeUrls.put("getDataLoaders","/service/application/content/v1.0/data-loader".substring(1));
         relativeUrls.put("getFaqs","/service/application/content/v1.0/faq".substring(1));
         relativeUrls.put("getFaqCategories","/service/application/content/v1.0/faq/categories".substring(1));
@@ -40,17 +40,19 @@ import com.sdk.application.*;
         relativeUrls.put("getFaqsByCategorySlug","/service/application/content/v1.0/faq/category/{slug}/faqs".substring(1));
         relativeUrls.put("getLandingPage","/service/application/content/v1.0/landing-page".substring(1));
         relativeUrls.put("getLegalInformation","/service/application/content/v1.0/legal".substring(1));
-        relativeUrls.put("getNavigations","/service/application/content/v1.0/navigations/".substring(1));
+        relativeUrls.put("getNavigations","/service/application/content/v1.0/navigations".substring(1));
         relativeUrls.put("getSEOConfiguration","/service/application/content/v1.0/seo".substring(1));
         relativeUrls.put("getSEOMarkupSchemas","/service/application/content/v1.0/seo/schema".substring(1));
-        relativeUrls.put("getSlideshows","/service/application/content/v1.0/slideshow/".substring(1));
-        relativeUrls.put("getSlideshow","/service/application/content/v1.0/slideshow/{slug}".substring(1));
         relativeUrls.put("getSupportInformation","/service/application/content/v1.0/support".substring(1));
         relativeUrls.put("getTags","/service/application/content/v1.0/tags".substring(1));
         relativeUrls.put("getPage","/service/application/content/v2.0/pages/{slug}".substring(1));
-        relativeUrls.put("getPages","/service/application/content/v2.0/pages/".substring(1));
-        relativeUrls.put("getCustomObject","/service/application/content/v1.0/metaobjects/{metaobject_id}".substring(1));
-        relativeUrls.put("getCustomFields","/service/application/content/v1.0/metafields/{resource}/{resource_id}".substring(1)); 
+        relativeUrls.put("getPages","/service/application/content/v2.0/pages".substring(1));
+        relativeUrls.put("getCustomObjectBySlug","/service/application/content/v2.0/customobjects/definition/{definition_slug}/entries/{slug}".substring(1));
+        relativeUrls.put("getCustomFieldsByResourceId","/service/application/content/v2.0/customfields/resource/{resource}/{resource_slug}".substring(1));
+        relativeUrls.put("getTranslateUILabels","/service/application/content/v1.0/translate-ui-labels".substring(1));
+        relativeUrls.put("fetchResourceTranslations","/service/application/content/v1.0/resource/translations/{type}/{locale}".substring(1));
+        relativeUrls.put("fetchResourceTranslationsWithPayload","/service/application/content/v1.0/resource/translations/{type}/{locale}".substring(1));
+        relativeUrls.put("getSupportedLanguages","/service/application/content/v1.0/languages".substring(1)); 
 
     }
 
@@ -84,16 +86,16 @@ import com.sdk.application.*;
     }
     
 
-    public ContentApplicationModels.BlogSchema getBlog(String slug, String rootId) throws IOException {
-        return this.getBlog(slug, rootId, new HashMap<>());
+    public ContentApplicationModels.BlogSchema getBlog(String slug, String rootId, Boolean preview) throws IOException {
+        return this.getBlog(slug, rootId, preview, new HashMap<>());
     }
 
-    public ContentApplicationModels.BlogSchema getBlog(String slug, String rootId, Map<String, String> requestHeaders) throws IOException {
+    public ContentApplicationModels.BlogSchema getBlog(String slug, String rootId, Boolean preview, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getBlog");
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
 
-        Response<ContentApplicationModels.BlogSchema> response = contentApplicationApiList.getBlog(fullUrl, rootId, requestHeaders).execute();
+        Response<ContentApplicationModels.BlogSchema> response = contentApplicationApiList.getBlog(fullUrl, rootId, preview, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -102,15 +104,15 @@ import com.sdk.application.*;
     }
     
 
-    public ContentApplicationModels.BlogGetResponse getBlogs(Integer pageNo, Integer pageSize, String tags, String search) throws IOException {
+    public ContentApplicationModels.BlogGetDetails getBlogs(Integer pageNo, Integer pageSize, String tags, String search) throws IOException {
         return this.getBlogs(pageNo, pageSize, tags, search, new HashMap<>());
     }
 
-    public ContentApplicationModels.BlogGetResponse getBlogs(Integer pageNo, Integer pageSize, String tags, String search, Map<String, String> requestHeaders) throws IOException {
+    public ContentApplicationModels.BlogGetDetails getBlogs(Integer pageNo, Integer pageSize, String tags, String search, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getBlogs");
 
-        Response<ContentApplicationModels.BlogGetResponse> response = contentApplicationApiList.getBlogs(fullUrl, pageNo, pageSize, tags, search, requestHeaders).execute();
+        Response<ContentApplicationModels.BlogGetDetails> response = contentApplicationApiList.getBlogs(fullUrl, pageNo, pageSize, tags, search, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -258,15 +260,15 @@ import com.sdk.application.*;
     }
     
 
-    public ContentApplicationModels.NavigationGetResponse getNavigations(Integer pageNo, Integer pageSize) throws IOException {
+    public ContentApplicationModels.NavigationGetDetails getNavigations(Integer pageNo, Integer pageSize) throws IOException {
         return this.getNavigations(pageNo, pageSize, new HashMap<>());
     }
 
-    public ContentApplicationModels.NavigationGetResponse getNavigations(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+    public ContentApplicationModels.NavigationGetDetails getNavigations(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getNavigations");
 
-        Response<ContentApplicationModels.NavigationGetResponse> response = contentApplicationApiList.getNavigations(fullUrl, pageNo, pageSize, requestHeaders).execute();
+        Response<ContentApplicationModels.NavigationGetDetails> response = contentApplicationApiList.getNavigations(fullUrl, pageNo, pageSize, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -301,75 +303,6 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("getSEOMarkupSchemas");
 
         Response<ContentApplicationModels.SeoSchemaComponent> response = contentApplicationApiList.getSEOMarkupSchemas(fullUrl, pageType, active, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public ContentApplicationModels.SlideshowGetResponse getSlideshows(Integer pageNo, Integer pageSize) throws IOException {
-        return this.getSlideshows(pageNo, pageSize, new HashMap<>());
-    }
-
-    public ContentApplicationModels.SlideshowGetResponse getSlideshows(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getSlideshows");
-
-        Response<ContentApplicationModels.SlideshowGetResponse> response = contentApplicationApiList.getSlideshows(fullUrl, pageNo, pageSize, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    /**
-    * Summary: get paginator for getSlideshows
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ContentApplicationModels.SlideshowGetResponse> getSlideshowsPagination(
-        
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ContentApplicationModels.SlideshowGetResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ContentApplicationModels.SlideshowGetResponse callback = this.getSlideshows(
-                
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-                
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator;
-    }
-    
-
-    public ContentApplicationModels.SlideshowSchema getSlideshow(String slug) throws IOException {
-        return this.getSlideshow(slug, new HashMap<>());
-    }
-
-    public ContentApplicationModels.SlideshowSchema getSlideshow(String slug, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getSlideshow");
-        fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
-
-        Response<ContentApplicationModels.SlideshowSchema> response = contentApplicationApiList.getSlideshow(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -430,15 +363,15 @@ import com.sdk.application.*;
     }
     
 
-    public ContentApplicationModels.PageGetResponse getPages(Integer pageNo, Integer pageSize) throws IOException {
+    public ContentApplicationModels.PageGetDetails getPages(Integer pageNo, Integer pageSize) throws IOException {
         return this.getPages(pageNo, pageSize, new HashMap<>());
     }
 
-    public ContentApplicationModels.PageGetResponse getPages(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+    public ContentApplicationModels.PageGetDetails getPages(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getPages");
 
-        Response<ContentApplicationModels.PageGetResponse> response = contentApplicationApiList.getPages(fullUrl, pageNo, pageSize, requestHeaders).execute();
+        Response<ContentApplicationModels.PageGetDetails> response = contentApplicationApiList.getPages(fullUrl, pageNo, pageSize, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -447,16 +380,17 @@ import com.sdk.application.*;
     }
     
 
-    public ContentApplicationModels.CustomObjectByIdSchema getCustomObject(String metaobjectId) throws IOException {
-        return this.getCustomObject(metaobjectId, new HashMap<>());
+    public ContentApplicationModels.CustomObjectByIdSchema getCustomObjectBySlug(String definitionSlug, String slug) throws IOException {
+        return this.getCustomObjectBySlug(definitionSlug, slug, new HashMap<>());
     }
 
-    public ContentApplicationModels.CustomObjectByIdSchema getCustomObject(String metaobjectId, Map<String, String> requestHeaders) throws IOException {
+    public ContentApplicationModels.CustomObjectByIdSchema getCustomObjectBySlug(String definitionSlug, String slug, Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getCustomObject");
-        fullUrl = fullUrl.replace("{" + "metaobject_id" + "}",metaobjectId.toString());
+        String fullUrl = relativeUrls.get("getCustomObjectBySlug");
+        fullUrl = fullUrl.replace("{" + "definition_slug" + "}",definitionSlug.toString());
+        fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
 
-        Response<ContentApplicationModels.CustomObjectByIdSchema> response = contentApplicationApiList.getCustomObject(fullUrl, requestHeaders).execute();
+        Response<ContentApplicationModels.CustomObjectByIdSchema> response = contentApplicationApiList.getCustomObjectBySlug(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -465,17 +399,89 @@ import com.sdk.application.*;
     }
     
 
-    public ContentApplicationModels.CustomFieldsResponseByResourceIdSchema getCustomFields(String resource, String resourceId) throws IOException {
-        return this.getCustomFields(resource, resourceId, new HashMap<>());
+    public ContentApplicationModels.CustomFieldsResponseByResourceIdSchema getCustomFieldsByResourceId(String resource, String resourceSlug) throws IOException {
+        return this.getCustomFieldsByResourceId(resource, resourceSlug, new HashMap<>());
     }
 
-    public ContentApplicationModels.CustomFieldsResponseByResourceIdSchema getCustomFields(String resource, String resourceId, Map<String, String> requestHeaders) throws IOException {
+    public ContentApplicationModels.CustomFieldsResponseByResourceIdSchema getCustomFieldsByResourceId(String resource, String resourceSlug, Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getCustomFields");
+        String fullUrl = relativeUrls.get("getCustomFieldsByResourceId");
         fullUrl = fullUrl.replace("{" + "resource" + "}",resource.toString());
-        fullUrl = fullUrl.replace("{" + "resource_id" + "}",resourceId.toString());
+        fullUrl = fullUrl.replace("{" + "resource_slug" + "}",resourceSlug.toString());
 
-        Response<ContentApplicationModels.CustomFieldsResponseByResourceIdSchema> response = contentApplicationApiList.getCustomFields(fullUrl, requestHeaders).execute();
+        Response<ContentApplicationModels.CustomFieldsResponseByResourceIdSchema> response = contentApplicationApiList.getCustomFieldsByResourceId(fullUrl, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public ContentApplicationModels.TranslateUiLabelsPage getTranslateUILabels(Boolean template, String templateThemeId, String themeId, String locale, String type) throws IOException {
+        return this.getTranslateUILabels(template, templateThemeId, themeId, locale, type, new HashMap<>());
+    }
+
+    public ContentApplicationModels.TranslateUiLabelsPage getTranslateUILabels(Boolean template, String templateThemeId, String themeId, String locale, String type, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getTranslateUILabels");
+
+        Response<ContentApplicationModels.TranslateUiLabelsPage> response = contentApplicationApiList.getTranslateUILabels(fullUrl, template, templateThemeId, themeId, locale, type, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public ContentApplicationModels.ResourceTranslations fetchResourceTranslations(String type, String locale, String resourceId) throws IOException {
+        return this.fetchResourceTranslations(type, locale, resourceId, new HashMap<>());
+    }
+
+    public ContentApplicationModels.ResourceTranslations fetchResourceTranslations(String type, String locale, String resourceId, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("fetchResourceTranslations");
+        fullUrl = fullUrl.replace("{" + "type" + "}",type.toString());
+        fullUrl = fullUrl.replace("{" + "locale" + "}",locale.toString());
+
+        Response<ContentApplicationModels.ResourceTranslations> response = contentApplicationApiList.fetchResourceTranslations(fullUrl, resourceId, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public ContentApplicationModels.ResourceTranslations fetchResourceTranslationsWithPayload(String type, String locale, String resourceId, ContentApplicationModels.ResourcePayload body) throws IOException {
+        return this.fetchResourceTranslationsWithPayload(type, locale, resourceId, body, new HashMap<>());
+    }
+
+    public ContentApplicationModels.ResourceTranslations fetchResourceTranslationsWithPayload(String type, String locale, String resourceId, ContentApplicationModels.ResourcePayload body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("fetchResourceTranslationsWithPayload");
+        fullUrl = fullUrl.replace("{" + "type" + "}",type.toString());
+        fullUrl = fullUrl.replace("{" + "locale" + "}",locale.toString());
+
+        Response<ContentApplicationModels.ResourceTranslations> response = contentApplicationApiList.fetchResourceTranslationsWithPayload(fullUrl, resourceId, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public Object getSupportedLanguages() throws IOException {
+        return this.getSupportedLanguages(new HashMap<>());
+    }
+
+    public Object getSupportedLanguages(Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getSupportedLanguages");
+
+        Response<Object> response = contentApplicationApiList.getSupportedLanguages(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

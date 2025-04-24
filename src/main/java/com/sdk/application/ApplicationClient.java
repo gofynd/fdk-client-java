@@ -26,6 +26,8 @@ import com.sdk.application.content.ContentApplicationService;
 
 import com.sdk.application.filestorage.FileStorageApplicationService;
 
+import com.sdk.application.finance.FinanceApplicationService;
+
 import com.sdk.application.lead.LeadApplicationService;
 
 import com.sdk.application.logistic.LogisticApplicationService;
@@ -65,6 +67,8 @@ public class ApplicationClient {
     public ContentApplicationService content;
     
     public FileStorageApplicationService fileStorage;
+    
+    public FinanceApplicationService finance;
     
     public LeadApplicationService lead;
     
@@ -117,6 +121,8 @@ public class ApplicationClient {
         this.content = new ContentApplicationService(applicationConfig);
         
         this.fileStorage = new FileStorageApplicationService(applicationConfig);
+        
+        this.finance = new FinanceApplicationService(applicationConfig);
         
         this.lead = new LeadApplicationService(applicationConfig);
         
