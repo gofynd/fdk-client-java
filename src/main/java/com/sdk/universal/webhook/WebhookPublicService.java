@@ -32,13 +32,13 @@ public class WebhookPublicService {
         return retrofitServiceFactory.createService(publicConfig.getDomain(),WebhookPublicApiList.class, interceptorList, cookieStore);
     }
 
-    public WebhookPublicModels.EventDetails fetchAllWebhookEvents() throws IOException {
+    public WebhookPublicModels.EventConfigResponse fetchAllWebhookEvents() throws IOException {
         return this.fetchAllWebhookEvents(new HashMap<>());
     }
 
-    public WebhookPublicModels.EventDetails fetchAllWebhookEvents(Map<String, String> requestHeaders) throws IOException {
+    public WebhookPublicModels.EventConfigResponse fetchAllWebhookEvents(Map<String, String> requestHeaders) throws IOException {
     
-        Response<WebhookPublicModels.EventDetails> response = webhookPublicApiList.fetchAllWebhookEvents(requestHeaders).execute();
+        Response<WebhookPublicModels.EventConfigResponse> response = webhookPublicApiList.fetchAllWebhookEvents(requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -46,13 +46,13 @@ public class WebhookPublicService {
         return response.body();
     }
 
-    public WebhookPublicModels.EventDetails queryWebhookEventDetails(List<WebhookPublicModels.EventConfigBase> body) throws IOException {
+    public WebhookPublicModels.EventConfigResponse queryWebhookEventDetails(List<WebhookPublicModels.EventConfigBase> body) throws IOException {
         return this.queryWebhookEventDetails(body, new HashMap<>());
     }
 
-    public WebhookPublicModels.EventDetails queryWebhookEventDetails(List<WebhookPublicModels.EventConfigBase> body, Map<String, String> requestHeaders) throws IOException {
+    public WebhookPublicModels.EventConfigResponse queryWebhookEventDetails(List<WebhookPublicModels.EventConfigBase> body, Map<String, String> requestHeaders) throws IOException {
     
-        Response<WebhookPublicModels.EventDetails> response = webhookPublicApiList.queryWebhookEventDetails(body, requestHeaders).execute();
+        Response<WebhookPublicModels.EventConfigResponse> response = webhookPublicApiList.queryWebhookEventDetails(body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -74,13 +74,13 @@ public class WebhookPublicService {
         return response.body();
     }
 
-    public WebhookPublicModels.TransformEventResult testHandlerTransformation(WebhookPublicModels.TransformEventPayload body) throws IOException {
+    public WebhookPublicModels.TransformEventResponse testHandlerTransformation(WebhookPublicModels.TransformEventRequest body) throws IOException {
         return this.testHandlerTransformation(body, new HashMap<>());
     }
 
-    public WebhookPublicModels.TransformEventResult testHandlerTransformation(WebhookPublicModels.TransformEventPayload body, Map<String, String> requestHeaders) throws IOException {
+    public WebhookPublicModels.TransformEventResponse testHandlerTransformation(WebhookPublicModels.TransformEventRequest body, Map<String, String> requestHeaders) throws IOException {
     
-        Response<WebhookPublicModels.TransformEventResult> response = webhookPublicApiList.testHandlerTransformation(body, requestHeaders).execute();
+        Response<WebhookPublicModels.TransformEventResponse> response = webhookPublicApiList.testHandlerTransformation(body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -88,13 +88,13 @@ public class WebhookPublicService {
         return response.body();
     }
 
-    public WebhookPublicModels.ValidateSchemaResult validateSchema(WebhookPublicModels.ValidateSchemaPayload body) throws IOException {
+    public WebhookPublicModels.ValidateSchemaResponse validateSchema(WebhookPublicModels.ValidateSchemaRequest body) throws IOException {
         return this.validateSchema(body, new HashMap<>());
     }
 
-    public WebhookPublicModels.ValidateSchemaResult validateSchema(WebhookPublicModels.ValidateSchemaPayload body, Map<String, String> requestHeaders) throws IOException {
+    public WebhookPublicModels.ValidateSchemaResponse validateSchema(WebhookPublicModels.ValidateSchemaRequest body, Map<String, String> requestHeaders) throws IOException {
     
-        Response<WebhookPublicModels.ValidateSchemaResult> response = webhookPublicApiList.validateSchema(body, requestHeaders).execute();
+        Response<WebhookPublicModels.ValidateSchemaResponse> response = webhookPublicApiList.validateSchema(body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

@@ -14,7 +14,7 @@ public class SharePlatformModels{
 
 
 /*
-    Model: ClickStatsResult
+    Model: ClickStatsResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class SharePlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ClickStatsResult{
+public static class ClickStatsResponse{
 
     
 
@@ -429,12 +429,6 @@ public static class UrlInfo{
     
     
     
-    
-    @JsonProperty("alias")
-    private String alias;
-    
-    
-    
 }
 
 
@@ -528,7 +522,7 @@ public static class ShortLinkRes{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -632,12 +626,6 @@ public static class Page{
     
     @JsonProperty("size")
     private Integer size;
-    
-    
-    
-    
-    @JsonProperty("page_size")
-    private Integer pageSize;
     
     
     

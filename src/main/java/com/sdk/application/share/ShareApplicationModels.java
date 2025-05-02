@@ -460,7 +460,7 @@ public static class ShortLinkRes{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
