@@ -15222,6 +15222,12 @@ public static class ProductListingDetail{
     
     
     
+    
+    @JsonProperty("moq")
+    private ApplicationItemMOQ moq;
+    
+    
+    
 }
 
 

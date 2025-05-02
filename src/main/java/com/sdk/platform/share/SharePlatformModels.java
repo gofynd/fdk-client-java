@@ -355,6 +355,43 @@ public static class ShortLinkReq{
     
     
     
+    
+    @JsonProperty("meta")
+    private shortLinkReqMeta meta;
+    
+    
+    
+}
+
+
+/*
+    Model: shortLinkReqMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class shortLinkReqMeta{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("for_sms")
+    private Boolean forSms;
+    
+    
+    
+    
+    @JsonProperty("sms_header")
+    private String smsHeader;
+    
+    
+    
 }
 
 
