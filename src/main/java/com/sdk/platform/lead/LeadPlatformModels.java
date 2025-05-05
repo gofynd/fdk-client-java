@@ -14,7 +14,7 @@ public class LeadPlatformModels{
 
 
 /*
-    Model: GeneralConfigResponse
+    Model: GeneralConfigDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class LeadPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GeneralConfigResponse{
+public static class GeneralConfigDetails{
 
     
 
@@ -307,6 +307,12 @@ public static class Page{
     
     @JsonProperty("size")
     private Integer size;
+    
+    
+    
+    
+    @JsonProperty("page_size")
+    private Integer pageSize;
     
     
     
@@ -674,7 +680,7 @@ public static class TicketHistoryPayload{
     
     
     @JsonProperty("value")
-    private Object value;
+    private HashMap<String,Object> value;
     
     
     
@@ -841,7 +847,7 @@ public static class AddTicketPayload{
     
     
     @JsonProperty("created_by")
-    private Object createdBy;
+    private HashMap<String,Object> createdBy;
     
     
     
@@ -871,7 +877,7 @@ public static class AddTicketPayload{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -1020,7 +1026,7 @@ public static class TicketFeedbackPayload{
     
     
     @JsonProperty("form_response")
-    private Object formResponse;
+    private HashMap<String,Object> formResponse;
     
     
     
@@ -1228,7 +1234,7 @@ public static class FeedbackForm{
     
     
     @JsonProperty("inputs")
-    private Object inputs;
+    private HashMap<String,Object> inputs;
     
     
     
@@ -1240,7 +1246,7 @@ public static class FeedbackForm{
     
     
     @JsonProperty("timestamps")
-    private Object timestamps;
+    private HashMap<String,Object> timestamps;
     
     
     
@@ -1381,7 +1387,7 @@ public static class TicketFeedback{
     
     
     @JsonProperty("user")
-    private Object user;
+    private HashMap<String,Object> user;
     
     
     
@@ -1424,7 +1430,7 @@ public static class TicketHistory{
     
     
     @JsonProperty("value")
-    private Object value;
+    private HashMap<String,Object> value;
     
     
     
@@ -1442,7 +1448,7 @@ public static class TicketHistory{
     
     
     @JsonProperty("created_by")
-    private Object createdBy;
+    private HashMap<String,Object> createdBy;
     
     
     
@@ -1545,13 +1551,13 @@ public static class Ticket{
     
     
     @JsonProperty("created_by")
-    private Object createdBy;
+    private HashMap<String,Object> createdBy;
     
     
     
     
     @JsonProperty("assigned_to")
-    private Object assignedTo;
+    private HashMap<String,Object> assignedTo;
     
     
     
@@ -1563,7 +1569,7 @@ public static class Ticket{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -1575,7 +1581,7 @@ public static class Ticket{
     
     
     @JsonProperty("integration")
-    private Object integration;
+    private HashMap<String,Object> integration;
     
     
     
