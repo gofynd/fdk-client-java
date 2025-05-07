@@ -59,13 +59,13 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
-    public HashMap<String,Object> executeJobForProvidedParametersV2(AnalyticsPlatformModels.JobExecute body) throws FDKServerResponseError, FDKException {
+    public AnalyticsPlatformModels.JobExecutionResult executeJobForProvidedParametersV2(AnalyticsPlatformModels.JobExecute body) throws FDKServerResponseError, FDKException {
         return this.executeJobForProvidedParametersV2(body, new HashMap<>());
     }
 
-    public HashMap<String,Object> executeJobForProvidedParametersV2(AnalyticsPlatformModels.JobExecute body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public AnalyticsPlatformModels.JobExecutionResult executeJobForProvidedParametersV2(AnalyticsPlatformModels.JobExecute body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<HashMap<String,Object>> response = null;
+            Response<AnalyticsPlatformModels.JobExecutionResult> response = null;
             try {
             response = analyticsPlatformApiList.executeJobForProvidedParametersV2(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -113,13 +113,13 @@ public class ApplicationClient {
         }    
     }
 
-    public HashMap<String,Object> checkJobStatusByNameV2(String fileName) throws FDKServerResponseError, FDKException {
+    public AnalyticsPlatformModels.JobStatus checkJobStatusByNameV2(String fileName) throws FDKServerResponseError, FDKException {
         return this.checkJobStatusByNameV2(fileName, new HashMap<>());
     }
 
-    public HashMap<String,Object> checkJobStatusByNameV2(String fileName, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public AnalyticsPlatformModels.JobStatus checkJobStatusByNameV2(String fileName, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<HashMap<String,Object>> response = null;
+            Response<AnalyticsPlatformModels.JobStatus> response = null;
             try {
             response = analyticsPlatformApiList.checkJobStatusByNameV2(this.companyId, this.applicationId, fileName, requestHeaders).execute();
                 if (!response.isSuccessful()) {
