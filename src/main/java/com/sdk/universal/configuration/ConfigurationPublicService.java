@@ -58,6 +58,20 @@ public class ConfigurationPublicService {
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
+    }
+
+    public ConfigurationPublicModels.VersionResponseSchema checkVersionIsUpToDate(ConfigurationPublicModels.VersionRequestSchema body) throws IOException {
+        return this.checkVersionIsUpToDate(body, new HashMap<>());
+    }
+
+    public ConfigurationPublicModels.VersionResponseSchema checkVersionIsUpToDate(ConfigurationPublicModels.VersionRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+    
+        Response<ConfigurationPublicModels.VersionResponseSchema> response = configurationPublicApiList.checkVersionIsUpToDate(body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
     }  
 
     private interface Fields {

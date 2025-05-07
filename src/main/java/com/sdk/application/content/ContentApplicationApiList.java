@@ -10,10 +10,10 @@ interface ContentApplicationApiList {
     Call<ContentApplicationModels.AnnouncementsResponseSchema> getAnnouncements(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<ContentApplicationModels.BlogSchema> getBlog(@Url String url1, @Query("root_id") String rootId, @Query("preview") Boolean preview, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentApplicationModels.BlogSchema> getBlog(@Url String url1, @Query("root_id") String rootId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<ContentApplicationModels.BlogGetDetails> getBlogs(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("tags") String tags, @Query("search") String search, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentApplicationModels.BlogGetResponseSchema> getBlogs(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("tags") String tags, @Query("search") String search, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<ContentApplicationModels.DataLoadersSchema> getDataLoaders(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
@@ -40,7 +40,7 @@ interface ContentApplicationApiList {
     Call<ContentApplicationModels.ApplicationLegal> getLegalInformation(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<ContentApplicationModels.NavigationGetDetails> getNavigations(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentApplicationModels.NavigationGetResponseSchema> getNavigations(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<ContentApplicationModels.SeoComponent> getSEOConfiguration(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
@@ -49,16 +49,25 @@ interface ContentApplicationApiList {
     Call<ContentApplicationModels.SeoSchemaComponent> getSEOMarkupSchemas(@Url String url1, @Query("page_type") String pageType, @Query("active") Boolean active, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
+    Call<ContentApplicationModels.DefaultSitemapConfig> getDefaultSitemapConfig(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
+    Call<ContentApplicationModels.SitemapConfigurationList> getSitemaps(@Url String url1, @Query("page_no") String pageNo, @Query("page_size") String pageSize, @Query("is_active") Boolean isActive, @Query("name") String name, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
+    Call<ContentApplicationModels.SitemapConfig> getSitemap(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
     Call<ContentApplicationModels.Support> getSupportInformation(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<ContentApplicationModels.TagsSchema> getTags(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<ContentApplicationModels.PageSchema> getPage(@Url String url1, @Query("root_id") String rootId, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentApplicationModels.PageGetResponseSchema> getPages(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<ContentApplicationModels.PageGetDetails> getPages(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentApplicationModels.PageSchema> getPage(@Url String url1, @Query("root_id") String rootId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<ContentApplicationModels.CustomObjectByIdSchema> getCustomObjectBySlug(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
@@ -67,14 +76,5 @@ interface ContentApplicationApiList {
     Call<ContentApplicationModels.CustomFieldsResponseByResourceIdSchema> getCustomFieldsByResourceId(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<ContentApplicationModels.TranslateUiLabelsPage> getTranslateUILabels(@Url String url1, @Query("template") Boolean template, @Query("template_theme_id") String templateThemeId, @Query("theme_id") String themeId, @Query("locale") String locale, @Query("type") String type, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<ContentApplicationModels.ResourceTranslations> fetchResourceTranslations(@Url String url1, @Query("resource_id") String resourceId, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<ContentApplicationModels.ResourceTranslations> fetchResourceTranslationsWithPayload(@Url String url1, @Query("resource_id") String resourceId, @Body ContentApplicationModels.ResourcePayload payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<Object> getSupportedLanguages(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentApplicationModels.WellKnownResponseSchema> getWellKnownUrl(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 }

@@ -72,8 +72,8 @@ public static class Page{
     
     
     
-    @JsonProperty("page_size")
-    private Integer pageSize;
+    @JsonProperty("total")
+    private Integer total;
     
     
     
@@ -170,18 +170,6 @@ public static class SubscriberEventMapping{
     
     
     
-    @JsonProperty("filters")
-    private FilterSchema filters;
-    
-    
-    
-    
-    @JsonProperty("reducer")
-    private HashMap<String,Object> reducer;
-    
-    
-    
-    
     @JsonProperty("broadcaster_config")
     private BroadcasterConfig broadcasterConfig;
     
@@ -190,49 +178,6 @@ public static class SubscriberEventMapping{
     
     @JsonProperty("created_on")
     private String createdOn;
-    
-    
-    
-}
-
-
-/*
-    Model: FilterSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FilterSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("query")
-    private String query;
-    
-    
-    
-    
-    @JsonProperty("condition")
-    private String condition;
-    
-    
-    
-    
-    @JsonProperty("logic")
-    private String logic;
-    
-    
-    
-    
-    @JsonProperty("conditions")
-    private List<HashMap<String,Object>> conditions;
     
     
     

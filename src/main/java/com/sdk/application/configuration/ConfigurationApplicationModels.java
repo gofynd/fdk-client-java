@@ -1628,6 +1628,12 @@ public static class AppFeature{
     
     
     
+    @JsonProperty("buybox")
+    private BuyboxFeature buybox;
+    
+    
+    
+    
     @JsonProperty("_id")
     private String id;
     
@@ -1654,6 +1660,12 @@ public static class AppFeature{
     
     @JsonProperty("__v")
     private Integer v;
+    
+    
+    
+    
+    @JsonProperty("pricing_strategy")
+    private PricingStrategy pricingStrategy;
     
     
     
@@ -2150,6 +2162,43 @@ public static class OrderFeature{
 
 
 /*
+    Model: BuyboxFeature
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BuyboxFeature{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("show_name")
+    private Boolean showName;
+    
+    
+    
+    
+    @JsonProperty("enable_selection")
+    private Boolean enableSelection;
+    
+    
+    
+    
+    @JsonProperty("is_seller_buybox_enabled")
+    private Boolean isSellerBuyboxEnabled;
+    
+    
+    
+}
+
+
+/*
     Model: AppFeatureResponseSchema
 */
 @AllArgsConstructor
@@ -2239,6 +2288,12 @@ public static class Currency{
     
     
     
+    @JsonProperty("subunit")
+    private String subunit;
+    
+    
+    
+    
     @JsonProperty("country_name")
     private String countryName;
     
@@ -2296,6 +2351,12 @@ public static class Domain{
     
     @JsonProperty("name")
     private String name;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
@@ -2423,6 +2484,12 @@ public static class ApplicationRedirections{
     
     
     
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
 }
 
 
@@ -2537,6 +2604,12 @@ public static class Application{
     
     @JsonProperty("is_internal")
     private Boolean isInternal;
+    
+    
+    
+    
+    @JsonProperty("is_sis_enabled")
+    private Boolean isSisEnabled;
     
     
     
@@ -2672,6 +2745,12 @@ public static class Application{
     
     
     
+    
+    @JsonProperty("company_created_on")
+    private String companyCreatedOn;
+    
+    
+    
 }
 
 
@@ -2699,7 +2778,7 @@ public static class TokenSchema{
     
     
     @JsonProperty("created_by")
-    private HashMap<String,Object> createdBy;
+    private String createdBy;
     
     
     
@@ -2999,8 +3078,8 @@ public static class Page{
     
     
     
-    @JsonProperty("page_size")
-    private Integer pageSize;
+    @JsonProperty("total")
+    private Integer total;
     
     
     
@@ -4222,6 +4301,31 @@ public static class OrderingStores{
     
     @JsonProperty("__v")
     private Integer v;
+    
+    
+    
+}
+
+
+/*
+    Model: PricingStrategy
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PricingStrategy{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
     
     
     

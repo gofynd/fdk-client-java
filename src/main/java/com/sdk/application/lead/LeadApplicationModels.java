@@ -37,7 +37,7 @@ public static class TicketHistoryPayload{
     
     
     @JsonProperty("type")
-    private HistoryTypeEnum type;
+    private String type;
     
     
     
@@ -76,7 +76,7 @@ public static class CustomFormSubmissionPayload{
 
 
 /*
-    Model: SubmitCustomFormDetails
+    Model: SubmitCustomFormResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -84,7 +84,7 @@ public static class CustomFormSubmissionPayload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubmitCustomFormDetails{
+public static class SubmitCustomFormResponseSchema{
 
     
 
@@ -104,8 +104,14 @@ public static class SubmitCustomFormDetails{
     
     
     
+    @JsonProperty("notified_to")
+    private List<String> notifiedTo;
+    
+    
+    
+    
     @JsonProperty("response")
-    private FormFieldDetails response;
+    private FormResponseSchema response;
     
     
     
@@ -113,7 +119,7 @@ public static class SubmitCustomFormDetails{
 
 
 /*
-    Model: FormFieldDetails
+    Model: FormResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -121,22 +127,10 @@ public static class SubmitCustomFormDetails{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FormFieldDetails{
+public static class FormResponseSchema{
 
     
 
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Double v;
     
     
     
@@ -153,39 +147,44 @@ public static class FormFieldDetails{
     
     
     
+    @JsonProperty("response")
+    private List<Object> response;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private String createdBy;
+    
+    
+    
+    
     @JsonProperty("created_on")
     private CreatedOn createdOn;
     
     
     
     
-    @JsonProperty("response")
-    private List<FormFieldResponseValues> response;
-    
-    
-    
-}
-
-
-/*
-    Model: FormFieldResponseValues
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FormFieldResponseValues{
-
-    
-
+    @JsonProperty("_id")
+    private String id;
     
     
     
     
-    @JsonProperty("key")
-    private String key;
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Double v;
     
     
     
@@ -242,6 +241,12 @@ public static class CreatedOn{
     
     @JsonProperty("user_agent")
     private String userAgent;
+    
+    
+    
+    
+    @JsonProperty("platform")
+    private String platform;
     
     
     
@@ -358,7 +363,7 @@ public static class AddTicketPayload{
     
     
     @JsonProperty("priority")
-    private PriorityEnum priority;
+    private String priority;
     
     
     
@@ -407,7 +412,7 @@ public static class Priority{
     
     
     @JsonProperty("key")
-    private PriorityEnum key;
+    private String key;
     
     
     
@@ -590,12 +595,6 @@ public static class CustomForm{
     
     
     
-    @JsonProperty("priority")
-    private Priority priority;
-    
-    
-    
-    
     @JsonProperty("login_required")
     private Boolean loginRequired;
     
@@ -638,8 +637,38 @@ public static class CustomForm{
     
     
     
+    @JsonProperty("available_assignees")
+    private List<String> availableAssignees;
+    
+    
+    
+    
     @JsonProperty("_id")
     private String id;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Double v;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private String createdBy;
     
     
     
@@ -774,7 +803,7 @@ public static class TicketHistory{
     
     
     @JsonProperty("created_by")
-    private HashMap<String,Object> createdBy;
+    private String createdBy;
     
     
     
@@ -793,6 +822,12 @@ public static class TicketHistory{
     
     @JsonProperty("created_at")
     private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Double v;
     
     
     
@@ -923,71 +958,101 @@ public static class Ticket{
     
     
     
+    
+    @JsonProperty("video_room_id")
+    private String videoRoomId;
+    
+    
+    
+    
+    @JsonProperty("subscribers")
+    private List<String> subscribers;
+    
+    
+    
+    
+    @JsonProperty("additional_info")
+    private List<HashMap<String,Object>> additionalInfo;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Double v;
+    
+    
+    
+    
+    @JsonProperty("attachments")
+    private List<TicketAsset> attachments;
+    
+    
+    
 }
 
 
-
-
-    
-    /*
-        Enum: PriorityEnum
-        Used By: Lead
-    */
-    @Getter
-    public enum PriorityEnum {
-
-        
-        low("low"), 
-        
-        medium("medium"), 
-        
-        high("high"), 
-        
-        urgent("urgent");
-        
-
-        private String priority;
-        PriorityEnum(String priority) {
-            this.priority = priority;
-        }
-
-        @JsonValue
-        public String getPriority() {
-            return priority;
-        }
-
-    }
-
+/*
+    Model: NotFoundError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class NotFoundError{
 
     
-    /*
-        Enum: HistoryTypeEnum
-        Used By: Lead
-    */
-    @Getter
-    public enum HistoryTypeEnum {
 
-        
-        rating("rating"), 
-        
-        log("log"), 
-        
-        comment("comment"), 
-        
-        thread("thread");
-        
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
 
-        private String priority;
-        HistoryTypeEnum(String priority) {
-            this.priority = priority;
-        }
 
-        @JsonValue
-        public String getPriority() {
-            return priority;
-        }
+/*
+    Model: Error4XX
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Error4XX{
 
-    }
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private HashMap<String,Object> message;
+    
+    
+    
+    
+    @JsonProperty("stack")
+    private String stack;
+    
+    
+    
+    
+    @JsonProperty("sentry")
+    private String sentry;
+    
+    
+    
+}
+
+
 
 
     

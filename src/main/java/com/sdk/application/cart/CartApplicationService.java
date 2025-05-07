@@ -33,9 +33,9 @@ import com.sdk.application.*;
         relativeUrls.put("getCartLastModified","/service/application/cart/v1.0/detail".substring(1));
         relativeUrls.put("addItems","/service/application/cart/v1.0/detail".substring(1));
         relativeUrls.put("updateCart","/service/application/cart/v1.0/detail".substring(1));
-        relativeUrls.put("updateCartBreakup","/service/application/cart/v1.0/detail".substring(1));
         relativeUrls.put("deleteCart","/service/application/cart/v1.0/cart_archive".substring(1));
         relativeUrls.put("getItemCount","/service/application/cart/v1.0/basic".substring(1));
+        relativeUrls.put("getItemCountV2","/service/application/cart/v2.0/basic".substring(1));
         relativeUrls.put("getCoupons","/service/application/cart/v1.0/coupon".substring(1));
         relativeUrls.put("applyCoupon","/service/application/cart/v1.0/coupon".substring(1));
         relativeUrls.put("removeCoupon","/service/application/cart/v1.0/coupon".substring(1));
@@ -49,16 +49,18 @@ import com.sdk.application.*;
         relativeUrls.put("selectAddress","/service/application/cart/v1.0/select-address".substring(1));
         relativeUrls.put("selectPaymentMode","/service/application/cart/v1.0/payment".substring(1));
         relativeUrls.put("validateCouponForPayment","/service/application/cart/v1.0/payment/validate/".substring(1));
-        relativeUrls.put("getShipments","/service/application/cart/v1.0/shipment".substring(1));
-        relativeUrls.put("checkoutCart","/service/application/cart/v1.0/checkout".substring(1));
         relativeUrls.put("updateCartMeta","/service/application/cart/v1.0/meta".substring(1));
         relativeUrls.put("getCartShareLink","/service/application/cart/v1.0/share-cart".substring(1));
         relativeUrls.put("getCartSharedItems","/service/application/cart/v1.0/share-cart/{token}".substring(1));
         relativeUrls.put("updateCartWithSharedItems","/service/application/cart/v1.0/share-cart/{token}/{action}".substring(1));
         relativeUrls.put("getPromotionOffers","/service/application/cart/v1.0/available-promotions".substring(1));
         relativeUrls.put("getLadderOffers","/service/application/cart/v1.0/available-ladder-prices".substring(1));
-        relativeUrls.put("getPromotionPaymentOffers","/service/application/cart/v1.0/available-payment-offers".substring(1));
-        relativeUrls.put("checkoutCartV2","/service/application/cart/v2.0/checkout".substring(1)); 
+        relativeUrls.put("getShipments","/service/application/cart/v1.0/shipment".substring(1));
+        relativeUrls.put("checkoutCart","/service/application/cart/v1.0/checkout".substring(1));
+        relativeUrls.put("checkoutCartV2","/service/application/cart/v2.0/checkout".substring(1));
+        relativeUrls.put("getPaymentPromotionOffers","/service/application/cart/v1.0/available-payment-offers".substring(1));
+        relativeUrls.put("getCartMetaConfigs","/service/application/cart/v1.0/cart/configuration".substring(1));
+        relativeUrls.put("getCartMetaConfig","/service/application/cart/v1.0/cart/configuration/{cart_meta_id}".substring(1)); 
 
     }
 
@@ -75,15 +77,15 @@ import com.sdk.application.*;
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),CartApplicationApiList.class, interceptorList, cookieStore);
     }
 
-    public CartApplicationModels.CartDetailResult getCart(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, Boolean c, Integer assignCardId, String areaCode, Boolean buyNow, String orderType) throws IOException {
-        return this.getCart(xOrderingSource, id, i, b, c, assignCardId, areaCode, buyNow, orderType, new HashMap<>());
+    public CartApplicationModels.CartDetailResponseObject getCart(String id, Boolean i, Boolean b, Boolean c, Integer assignCardId, String areaCode, Boolean buyNow, String cartType, String orderType) throws IOException {
+        return this.getCart(id, i, b, c, assignCardId, areaCode, buyNow, cartType, orderType, new HashMap<>());
     }
 
-    public CartApplicationModels.CartDetailResult getCart(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, Boolean c, Integer assignCardId, String areaCode, Boolean buyNow, String orderType, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartDetailResponseObject getCart(String id, Boolean i, Boolean b, Boolean c, Integer assignCardId, String areaCode, Boolean buyNow, String cartType, String orderType, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getCart");
 
-        Response<CartApplicationModels.CartDetailResult> response = cartApplicationApiList.getCart(fullUrl, xOrderingSource, id, i, b, c, assignCardId, areaCode, buyNow, orderType, requestHeaders).execute();
+        Response<CartApplicationModels.CartDetailResponseObject> response = cartApplicationApiList.getCart(fullUrl, id, i, b, c, assignCardId, areaCode, buyNow, cartType, orderType, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -109,15 +111,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.AddCartDetailResult addItems(CartApplicationModels.OrderingSource xOrderingSource, Boolean i, Boolean b, String areaCode, Boolean buyNow, String id, String orderType, CartApplicationModels.AddCartCreation body) throws IOException {
-        return this.addItems(xOrderingSource, i, b, areaCode, buyNow, id, orderType, body, new HashMap<>());
+    public CartApplicationModels.AddCartDetailResponseObject addItems(Boolean i, Boolean b, String areaCode, Boolean buyNow, String id, String cartType, String orderType, CartApplicationModels.AddCartRequestObject body) throws IOException {
+        return this.addItems(i, b, areaCode, buyNow, id, cartType, orderType, body, new HashMap<>());
     }
 
-    public CartApplicationModels.AddCartDetailResult addItems(CartApplicationModels.OrderingSource xOrderingSource, Boolean i, Boolean b, String areaCode, Boolean buyNow, String id, String orderType, CartApplicationModels.AddCartCreation body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.AddCartDetailResponseObject addItems(Boolean i, Boolean b, String areaCode, Boolean buyNow, String id, String cartType, String orderType, CartApplicationModels.AddCartRequestObject body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("addItems");
 
-        Response<CartApplicationModels.AddCartDetailResult> response = cartApplicationApiList.addItems(fullUrl, xOrderingSource, i, b, areaCode, buyNow, id, orderType, body, requestHeaders).execute();
+        Response<CartApplicationModels.AddCartDetailResponseObject> response = cartApplicationApiList.addItems(fullUrl, i, b, areaCode, buyNow, id, cartType, orderType, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -126,15 +128,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.UpdateCartDetailResult updateCart(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, String areaCode, Boolean buyNow, String cartType, String orderType, CartApplicationModels.UpdateCartCreation body) throws IOException {
-        return this.updateCart(xOrderingSource, id, i, b, areaCode, buyNow, cartType, orderType, body, new HashMap<>());
+    public CartApplicationModels.UpdateCartDetailResponseObject updateCart(String id, Boolean i, Boolean b, String areaCode, Boolean buyNow, String cartType, String orderType, CartApplicationModels.UpdateCartRequestObject body) throws IOException {
+        return this.updateCart(id, i, b, areaCode, buyNow, cartType, orderType, body, new HashMap<>());
     }
 
-    public CartApplicationModels.UpdateCartDetailResult updateCart(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, String areaCode, Boolean buyNow, String cartType, String orderType, CartApplicationModels.UpdateCartCreation body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.UpdateCartDetailResponseObject updateCart(String id, Boolean i, Boolean b, String areaCode, Boolean buyNow, String cartType, String orderType, CartApplicationModels.UpdateCartRequestObject body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("updateCart");
 
-        Response<CartApplicationModels.UpdateCartDetailResult> response = cartApplicationApiList.updateCart(fullUrl, xOrderingSource, id, i, b, areaCode, buyNow, cartType, orderType, body, requestHeaders).execute();
+        Response<CartApplicationModels.UpdateCartDetailResponseObject> response = cartApplicationApiList.updateCart(fullUrl, id, i, b, areaCode, buyNow, cartType, orderType, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -143,32 +145,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.UpdateCartDetailResult updateCartBreakup(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, String cartType, CartApplicationModels.UpdateCartBreakup body) throws IOException {
-        return this.updateCartBreakup(xOrderingSource, id, i, b, buyNow, cartType, body, new HashMap<>());
+    public CartApplicationModels.DeleteCartDetail deleteCart(String id, String cartType, CartApplicationModels.DeleteCartRequestObject body) throws IOException {
+        return this.deleteCart(id, cartType, body, new HashMap<>());
     }
 
-    public CartApplicationModels.UpdateCartDetailResult updateCartBreakup(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, String cartType, CartApplicationModels.UpdateCartBreakup body, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("updateCartBreakup");
-
-        Response<CartApplicationModels.UpdateCartDetailResult> response = cartApplicationApiList.updateCartBreakup(fullUrl, xOrderingSource, id, i, b, buyNow, cartType, body, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public CartApplicationModels.DeleteCartDetailResult deleteCart(String id) throws IOException {
-        return this.deleteCart(id, new HashMap<>());
-    }
-
-    public CartApplicationModels.DeleteCartDetailResult deleteCart(String id, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.DeleteCartDetail deleteCart(String id, String cartType, CartApplicationModels.DeleteCartRequestObject body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("deleteCart");
 
-        Response<CartApplicationModels.DeleteCartDetailResult> response = cartApplicationApiList.deleteCart(fullUrl, id, requestHeaders).execute();
+        Response<CartApplicationModels.DeleteCartDetail> response = cartApplicationApiList.deleteCart(fullUrl, id, cartType, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -177,15 +162,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.CartItemCountResult getItemCount(String id, Boolean buyNow) throws IOException {
+    public CartApplicationModels.CartItemCount getItemCount(String id, Boolean buyNow) throws IOException {
         return this.getItemCount(id, buyNow, new HashMap<>());
     }
 
-    public CartApplicationModels.CartItemCountResult getItemCount(String id, Boolean buyNow, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartItemCount getItemCount(String id, Boolean buyNow, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getItemCount");
 
-        Response<CartApplicationModels.CartItemCountResult> response = cartApplicationApiList.getItemCount(fullUrl, id, buyNow, requestHeaders).execute();
+        Response<CartApplicationModels.CartItemCount> response = cartApplicationApiList.getItemCount(fullUrl, id, buyNow, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -194,15 +179,32 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.GetCouponResult getCoupons(String id, Boolean buyNow, String productSlug, String storeId) throws IOException {
-        return this.getCoupons(id, buyNow, productSlug, storeId, new HashMap<>());
+    public CartApplicationModels.CartItemCountResponseV2 getItemCountV2(String id, Boolean buyNow) throws IOException {
+        return this.getItemCountV2(id, buyNow, new HashMap<>());
     }
 
-    public CartApplicationModels.GetCouponResult getCoupons(String id, Boolean buyNow, String productSlug, String storeId, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartItemCountResponseV2 getItemCountV2(String id, Boolean buyNow, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getItemCountV2");
+
+        Response<CartApplicationModels.CartItemCountResponseV2> response = cartApplicationApiList.getItemCountV2(fullUrl, id, buyNow, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public CartApplicationModels.GetCouponResponseObject getCoupons(String id, Boolean buyNow, String slug, String storeId) throws IOException {
+        return this.getCoupons(id, buyNow, slug, storeId, new HashMap<>());
+    }
+
+    public CartApplicationModels.GetCouponResponseObject getCoupons(String id, Boolean buyNow, String slug, String storeId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getCoupons");
 
-        Response<CartApplicationModels.GetCouponResult> response = cartApplicationApiList.getCoupons(fullUrl, id, buyNow, productSlug, storeId, requestHeaders).execute();
+        Response<CartApplicationModels.GetCouponResponseObject> response = cartApplicationApiList.getCoupons(fullUrl, id, buyNow, slug, storeId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -211,15 +213,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.CartDetailResult applyCoupon(CartApplicationModels.OrderingSource xOrderingSource, Boolean i, Boolean b, Boolean p, String id, Boolean buyNow, String cartType, CartApplicationModels.ApplyCoupon body) throws IOException {
-        return this.applyCoupon(xOrderingSource, i, b, p, id, buyNow, cartType, body, new HashMap<>());
+    public CartApplicationModels.CartDetailResponseObject applyCoupon(Boolean i, Boolean b, Boolean p, String id, Boolean buyNow, String cartType, CartApplicationModels.ApplyCouponRequestObject body) throws IOException {
+        return this.applyCoupon(i, b, p, id, buyNow, cartType, body, new HashMap<>());
     }
 
-    public CartApplicationModels.CartDetailResult applyCoupon(CartApplicationModels.OrderingSource xOrderingSource, Boolean i, Boolean b, Boolean p, String id, Boolean buyNow, String cartType, CartApplicationModels.ApplyCoupon body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartDetailResponseObject applyCoupon(Boolean i, Boolean b, Boolean p, String id, Boolean buyNow, String cartType, CartApplicationModels.ApplyCouponRequestObject body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("applyCoupon");
 
-        Response<CartApplicationModels.CartDetailResult> response = cartApplicationApiList.applyCoupon(fullUrl, xOrderingSource, i, b, p, id, buyNow, cartType, body, requestHeaders).execute();
+        Response<CartApplicationModels.CartDetailResponseObject> response = cartApplicationApiList.applyCoupon(fullUrl, i, b, p, id, buyNow, cartType, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -228,15 +230,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.CartDetailResult removeCoupon(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean buyNow) throws IOException {
-        return this.removeCoupon(xOrderingSource, id, buyNow, new HashMap<>());
+    public CartApplicationModels.CartDetailResponseObject removeCoupon(String id, Boolean buyNow, String cartType) throws IOException {
+        return this.removeCoupon(id, buyNow, cartType, new HashMap<>());
     }
 
-    public CartApplicationModels.CartDetailResult removeCoupon(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean buyNow, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartDetailResponseObject removeCoupon(String id, Boolean buyNow, String cartType, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("removeCoupon");
 
-        Response<CartApplicationModels.CartDetailResult> response = cartApplicationApiList.removeCoupon(fullUrl, xOrderingSource, id, buyNow, requestHeaders).execute();
+        Response<CartApplicationModels.CartDetailResponseObject> response = cartApplicationApiList.removeCoupon(fullUrl, id, buyNow, cartType, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -245,15 +247,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.BulkPriceResult getBulkDiscountOffers(Integer itemId, String articleId, Integer uid, String slug) throws IOException {
-        return this.getBulkDiscountOffers(itemId, articleId, uid, slug, new HashMap<>());
+    public CartApplicationModels.BulkPriceResponseObject getBulkDiscountOffers(Integer itemId, String articleId, Integer uid, String slug, String cartType) throws IOException {
+        return this.getBulkDiscountOffers(itemId, articleId, uid, slug, cartType, new HashMap<>());
     }
 
-    public CartApplicationModels.BulkPriceResult getBulkDiscountOffers(Integer itemId, String articleId, Integer uid, String slug, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.BulkPriceResponseObject getBulkDiscountOffers(Integer itemId, String articleId, Integer uid, String slug, String cartType, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getBulkDiscountOffers");
 
-        Response<CartApplicationModels.BulkPriceResult> response = cartApplicationApiList.getBulkDiscountOffers(fullUrl, itemId, articleId, uid, slug, requestHeaders).execute();
+        Response<CartApplicationModels.BulkPriceResponseObject> response = cartApplicationApiList.getBulkDiscountOffers(fullUrl, itemId, articleId, uid, slug, cartType, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -262,15 +264,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.CartDetailResult applyRewardPoints(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, CartApplicationModels.RewardPointCreation body) throws IOException {
-        return this.applyRewardPoints(xOrderingSource, id, i, b, buyNow, body, new HashMap<>());
+    public CartApplicationModels.CartDetailResponseObject applyRewardPoints(String id, Boolean i, Boolean b, Boolean buyNow, String cartType, CartApplicationModels.RewardPointRequestObject body) throws IOException {
+        return this.applyRewardPoints(id, i, b, buyNow, cartType, body, new HashMap<>());
     }
 
-    public CartApplicationModels.CartDetailResult applyRewardPoints(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, CartApplicationModels.RewardPointCreation body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartDetailResponseObject applyRewardPoints(String id, Boolean i, Boolean b, Boolean buyNow, String cartType, CartApplicationModels.RewardPointRequestObject body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("applyRewardPoints");
 
-        Response<CartApplicationModels.CartDetailResult> response = cartApplicationApiList.applyRewardPoints(fullUrl, xOrderingSource, id, i, b, buyNow, body, requestHeaders).execute();
+        Response<CartApplicationModels.CartDetailResponseObject> response = cartApplicationApiList.applyRewardPoints(fullUrl, id, i, b, buyNow, cartType, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -279,15 +281,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.GetAddressesResult getAddresses(String cartId, Boolean buyNow, String mobileNo, String checkoutMode, String tags, Boolean isDefault) throws IOException {
-        return this.getAddresses(cartId, buyNow, mobileNo, checkoutMode, tags, isDefault, new HashMap<>());
+    public CartApplicationModels.GetAddressesResponseObject getAddresses(String cartId, Boolean buyNow, String mobileNo, String checkoutMode, String tags, Boolean isDefault, String userId) throws IOException {
+        return this.getAddresses(cartId, buyNow, mobileNo, checkoutMode, tags, isDefault, userId, new HashMap<>());
     }
 
-    public CartApplicationModels.GetAddressesResult getAddresses(String cartId, Boolean buyNow, String mobileNo, String checkoutMode, String tags, Boolean isDefault, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.GetAddressesResponseObject getAddresses(String cartId, Boolean buyNow, String mobileNo, String checkoutMode, String tags, Boolean isDefault, String userId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getAddresses");
 
-        Response<CartApplicationModels.GetAddressesResult> response = cartApplicationApiList.getAddresses(fullUrl, cartId, buyNow, mobileNo, checkoutMode, tags, isDefault, requestHeaders).execute();
+        Response<CartApplicationModels.GetAddressesResponseObject> response = cartApplicationApiList.getAddresses(fullUrl, cartId, buyNow, mobileNo, checkoutMode, tags, isDefault, userId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -296,15 +298,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.SaveAddressResult addAddress(CartApplicationModels.Address body) throws IOException {
+    public CartApplicationModels.SaveAddressResponseObject addAddress(CartApplicationModels.Address body) throws IOException {
         return this.addAddress(body, new HashMap<>());
     }
 
-    public CartApplicationModels.SaveAddressResult addAddress(CartApplicationModels.Address body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.SaveAddressResponseObject addAddress(CartApplicationModels.Address body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("addAddress");
 
-        Response<CartApplicationModels.SaveAddressResult> response = cartApplicationApiList.addAddress(fullUrl, body, requestHeaders).execute();
+        Response<CartApplicationModels.SaveAddressResponseObject> response = cartApplicationApiList.addAddress(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -313,16 +315,16 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.Address getAddressById(String id, String cartId, Boolean buyNow, String mobileNo, String checkoutMode, String tags, Boolean isDefault) throws IOException {
-        return this.getAddressById(id, cartId, buyNow, mobileNo, checkoutMode, tags, isDefault, new HashMap<>());
+    public CartApplicationModels.Address getAddressById(String id, String cartId, Boolean buyNow, String mobileNo, String checkoutMode, String tags, Boolean isDefault, String userId) throws IOException {
+        return this.getAddressById(id, cartId, buyNow, mobileNo, checkoutMode, tags, isDefault, userId, new HashMap<>());
     }
 
-    public CartApplicationModels.Address getAddressById(String id, String cartId, Boolean buyNow, String mobileNo, String checkoutMode, String tags, Boolean isDefault, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.Address getAddressById(String id, String cartId, Boolean buyNow, String mobileNo, String checkoutMode, String tags, Boolean isDefault, String userId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getAddressById");
         fullUrl = fullUrl.replace("{" + "id" + "}",id.toString());
 
-        Response<CartApplicationModels.Address> response = cartApplicationApiList.getAddressById(fullUrl, cartId, buyNow, mobileNo, checkoutMode, tags, isDefault, requestHeaders).execute();
+        Response<CartApplicationModels.Address> response = cartApplicationApiList.getAddressById(fullUrl, cartId, buyNow, mobileNo, checkoutMode, tags, isDefault, userId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -331,16 +333,16 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.UpdateAddressResult updateAddress(String id, CartApplicationModels.Address body) throws IOException {
+    public CartApplicationModels.UpdateAddress updateAddress(String id, CartApplicationModels.Address body) throws IOException {
         return this.updateAddress(id, body, new HashMap<>());
     }
 
-    public CartApplicationModels.UpdateAddressResult updateAddress(String id, CartApplicationModels.Address body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.UpdateAddress updateAddress(String id, CartApplicationModels.Address body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("updateAddress");
         fullUrl = fullUrl.replace("{" + "id" + "}",id.toString());
 
-        Response<CartApplicationModels.UpdateAddressResult> response = cartApplicationApiList.updateAddress(fullUrl, body, requestHeaders).execute();
+        Response<CartApplicationModels.UpdateAddress> response = cartApplicationApiList.updateAddress(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -349,16 +351,16 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.DeleteAddressResult removeAddress(String id) throws IOException {
+    public CartApplicationModels.DeleteAddressResponseObject removeAddress(String id) throws IOException {
         return this.removeAddress(id, new HashMap<>());
     }
 
-    public CartApplicationModels.DeleteAddressResult removeAddress(String id, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.DeleteAddressResponseObject removeAddress(String id, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("removeAddress");
         fullUrl = fullUrl.replace("{" + "id" + "}",id.toString());
 
-        Response<CartApplicationModels.DeleteAddressResult> response = cartApplicationApiList.removeAddress(fullUrl, requestHeaders).execute();
+        Response<CartApplicationModels.DeleteAddressResponseObject> response = cartApplicationApiList.removeAddress(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -367,15 +369,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.CartDetailResult selectAddress(CartApplicationModels.OrderingSource xOrderingSource, String cartId, Boolean buyNow, Boolean i, Boolean b, CartApplicationModels.SelectCartAddressCreation body) throws IOException {
-        return this.selectAddress(xOrderingSource, cartId, buyNow, i, b, body, new HashMap<>());
+    public CartApplicationModels.CartDetailResponseObject selectAddress(String cartId, Boolean buyNow, Boolean i, Boolean b, CartApplicationModels.SelectCartAddressRequestObject body) throws IOException {
+        return this.selectAddress(cartId, buyNow, i, b, body, new HashMap<>());
     }
 
-    public CartApplicationModels.CartDetailResult selectAddress(CartApplicationModels.OrderingSource xOrderingSource, String cartId, Boolean buyNow, Boolean i, Boolean b, CartApplicationModels.SelectCartAddressCreation body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartDetailResponseObject selectAddress(String cartId, Boolean buyNow, Boolean i, Boolean b, CartApplicationModels.SelectCartAddressRequestObject body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("selectAddress");
 
-        Response<CartApplicationModels.CartDetailResult> response = cartApplicationApiList.selectAddress(fullUrl, xOrderingSource, cartId, buyNow, i, b, body, requestHeaders).execute();
+        Response<CartApplicationModels.CartDetailResponseObject> response = cartApplicationApiList.selectAddress(fullUrl, cartId, buyNow, i, b, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -384,15 +386,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.CartDetailResult selectPaymentMode(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean buyNow, CartApplicationModels.UpdateCartPaymentCreation body) throws IOException {
-        return this.selectPaymentMode(xOrderingSource, id, buyNow, body, new HashMap<>());
+    public CartApplicationModels.CartDetailResponseObject selectPaymentMode(String id, Boolean buyNow, String orderType, CartApplicationModels.UpdateCartPaymentRequestObject body) throws IOException {
+        return this.selectPaymentMode(id, buyNow, orderType, body, new HashMap<>());
     }
 
-    public CartApplicationModels.CartDetailResult selectPaymentMode(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean buyNow, CartApplicationModels.UpdateCartPaymentCreation body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartDetailResponseObject selectPaymentMode(String id, Boolean buyNow, String orderType, CartApplicationModels.UpdateCartPaymentRequestObject body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("selectPaymentMode");
 
-        Response<CartApplicationModels.CartDetailResult> response = cartApplicationApiList.selectPaymentMode(fullUrl, xOrderingSource, id, buyNow, body, requestHeaders).execute();
+        Response<CartApplicationModels.CartDetailResponseObject> response = cartApplicationApiList.selectPaymentMode(fullUrl, id, buyNow, orderType, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -401,15 +403,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.PaymentCouponValidate validateCouponForPayment(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean buyNow, String addressId, String paymentMode, String paymentIdentifier, String aggregatorName, String merchantCode, String iin, String network, String type, String cardId, String cartType) throws IOException {
-        return this.validateCouponForPayment(xOrderingSource, id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode, iin, network, type, cardId, cartType, new HashMap<>());
+    public CartApplicationModels.PaymentCouponValidate validateCouponForPayment(String id, Boolean buyNow, String addressId, String paymentMode, String paymentIdentifier, String aggregatorName, String merchantCode, String iin, String network, String type, String cardId, String cartType) throws IOException {
+        return this.validateCouponForPayment(id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode, iin, network, type, cardId, cartType, new HashMap<>());
     }
 
-    public CartApplicationModels.PaymentCouponValidate validateCouponForPayment(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean buyNow, String addressId, String paymentMode, String paymentIdentifier, String aggregatorName, String merchantCode, String iin, String network, String type, String cardId, String cartType, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.PaymentCouponValidate validateCouponForPayment(String id, Boolean buyNow, String addressId, String paymentMode, String paymentIdentifier, String aggregatorName, String merchantCode, String iin, String network, String type, String cardId, String cartType, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("validateCouponForPayment");
 
-        Response<CartApplicationModels.PaymentCouponValidate> response = cartApplicationApiList.validateCouponForPayment(fullUrl, xOrderingSource, id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode, iin, network, type, cardId, cartType, requestHeaders).execute();
+        Response<CartApplicationModels.PaymentCouponValidate> response = cartApplicationApiList.validateCouponForPayment(fullUrl, id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode, iin, network, type, cardId, cartType, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -418,49 +420,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.CartShipmentsResult getShipments(Boolean p, String id, Boolean buyNow, String addressId, String areaCode, String orderType) throws IOException {
-        return this.getShipments(p, id, buyNow, addressId, areaCode, orderType, new HashMap<>());
-    }
-
-    public CartApplicationModels.CartShipmentsResult getShipments(Boolean p, String id, Boolean buyNow, String addressId, String areaCode, String orderType, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getShipments");
-
-        Response<CartApplicationModels.CartShipmentsResult> response = cartApplicationApiList.getShipments(fullUrl, p, id, buyNow, addressId, areaCode, orderType, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public CartApplicationModels.CartCheckoutResult checkoutCart(CartApplicationModels.OrderingSource xOrderingSource, Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailCreation body) throws IOException {
-        return this.checkoutCart(xOrderingSource, buyNow, cartType, body, new HashMap<>());
-    }
-
-    public CartApplicationModels.CartCheckoutResult checkoutCart(CartApplicationModels.OrderingSource xOrderingSource, Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailCreation body, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("checkoutCart");
-
-        Response<CartApplicationModels.CartCheckoutResult> response = cartApplicationApiList.checkoutCart(fullUrl, xOrderingSource, buyNow, cartType, body, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public CartApplicationModels.CartMetaResult updateCartMeta(String id, Boolean buyNow, CartApplicationModels.CartMetaCreation body) throws IOException {
+    public CartApplicationModels.CartMetaResponseObject updateCartMeta(String id, Boolean buyNow, CartApplicationModels.CartMetaRequestObject body) throws IOException {
         return this.updateCartMeta(id, buyNow, body, new HashMap<>());
     }
 
-    public CartApplicationModels.CartMetaResult updateCartMeta(String id, Boolean buyNow, CartApplicationModels.CartMetaCreation body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartMetaResponseObject updateCartMeta(String id, Boolean buyNow, CartApplicationModels.CartMetaRequestObject body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("updateCartMeta");
 
-        Response<CartApplicationModels.CartMetaResult> response = cartApplicationApiList.updateCartMeta(fullUrl, id, buyNow, body, requestHeaders).execute();
+        Response<CartApplicationModels.CartMetaResponseObject> response = cartApplicationApiList.updateCartMeta(fullUrl, id, buyNow, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -469,15 +437,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.GetShareCartLinkResult getCartShareLink(CartApplicationModels.GetShareCartLinkCreation body) throws IOException {
+    public CartApplicationModels.GetShareCartLinkResponseObject getCartShareLink(CartApplicationModels.GetShareCartLinkRequestObject body) throws IOException {
         return this.getCartShareLink(body, new HashMap<>());
     }
 
-    public CartApplicationModels.GetShareCartLinkResult getCartShareLink(CartApplicationModels.GetShareCartLinkCreation body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.GetShareCartLinkResponseObject getCartShareLink(CartApplicationModels.GetShareCartLinkRequestObject body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getCartShareLink");
 
-        Response<CartApplicationModels.GetShareCartLinkResult> response = cartApplicationApiList.getCartShareLink(fullUrl, body, requestHeaders).execute();
+        Response<CartApplicationModels.GetShareCartLinkResponseObject> response = cartApplicationApiList.getCartShareLink(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -486,16 +454,16 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.SharedCartResult getCartSharedItems(String token) throws IOException {
+    public CartApplicationModels.SharedCartResponseObject getCartSharedItems(String token) throws IOException {
         return this.getCartSharedItems(token, new HashMap<>());
     }
 
-    public CartApplicationModels.SharedCartResult getCartSharedItems(String token, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.SharedCartResponseObject getCartSharedItems(String token, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getCartSharedItems");
         fullUrl = fullUrl.replace("{" + "token" + "}",token.toString());
 
-        Response<CartApplicationModels.SharedCartResult> response = cartApplicationApiList.getCartSharedItems(fullUrl, requestHeaders).execute();
+        Response<CartApplicationModels.SharedCartResponseObject> response = cartApplicationApiList.getCartSharedItems(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -504,17 +472,17 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.SharedCartResult updateCartWithSharedItems(String token, String action) throws IOException {
-        return this.updateCartWithSharedItems(token, action, new HashMap<>());
+    public CartApplicationModels.SharedCartResponseObject updateCartWithSharedItems(String token, String action, String cartId) throws IOException {
+        return this.updateCartWithSharedItems(token, action, cartId, new HashMap<>());
     }
 
-    public CartApplicationModels.SharedCartResult updateCartWithSharedItems(String token, String action, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.SharedCartResponseObject updateCartWithSharedItems(String token, String action, String cartId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("updateCartWithSharedItems");
         fullUrl = fullUrl.replace("{" + "token" + "}",token.toString());
         fullUrl = fullUrl.replace("{" + "action" + "}",action.toString());
 
-        Response<CartApplicationModels.SharedCartResult> response = cartApplicationApiList.updateCartWithSharedItems(fullUrl, requestHeaders).execute();
+        Response<CartApplicationModels.SharedCartResponseObject> response = cartApplicationApiList.updateCartWithSharedItems(fullUrl, cartId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -523,15 +491,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.PromotionOffersResult getPromotionOffers(String slug, Integer pageSize, String promotionGroup, Integer storeId, String cartType, String promotionType, String cartId, Boolean autoApply) throws IOException {
-        return this.getPromotionOffers(slug, pageSize, promotionGroup, storeId, cartType, promotionType, cartId, autoApply, new HashMap<>());
+    public CartApplicationModels.PromotionOffersResponseObject getPromotionOffers(String slug, Integer pageSize, String promotionGroup, Integer storeId) throws IOException {
+        return this.getPromotionOffers(slug, pageSize, promotionGroup, storeId, new HashMap<>());
     }
 
-    public CartApplicationModels.PromotionOffersResult getPromotionOffers(String slug, Integer pageSize, String promotionGroup, Integer storeId, String cartType, String promotionType, String cartId, Boolean autoApply, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.PromotionOffersResponseObject getPromotionOffers(String slug, Integer pageSize, String promotionGroup, Integer storeId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getPromotionOffers");
 
-        Response<CartApplicationModels.PromotionOffersResult> response = cartApplicationApiList.getPromotionOffers(fullUrl, slug, pageSize, promotionGroup, storeId, cartType, promotionType, cartId, autoApply, requestHeaders).execute();
+        Response<CartApplicationModels.PromotionOffersResponseObject> response = cartApplicationApiList.getPromotionOffers(fullUrl, slug, pageSize, promotionGroup, storeId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -557,15 +525,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.PromotionPaymentOffersResult getPromotionPaymentOffers(String id, Integer uid) throws IOException {
-        return this.getPromotionPaymentOffers(id, uid, new HashMap<>());
+    public CartApplicationModels.CartShipments getShipments(Integer pickAtStoreUid, Integer orderingStoreId, Boolean i, Boolean p, String id, Boolean buyNow, String addressId, String areaCode, String orderType) throws IOException {
+        return this.getShipments(pickAtStoreUid, orderingStoreId, i, p, id, buyNow, addressId, areaCode, orderType, new HashMap<>());
     }
 
-    public CartApplicationModels.PromotionPaymentOffersResult getPromotionPaymentOffers(String id, Integer uid, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartShipments getShipments(Integer pickAtStoreUid, Integer orderingStoreId, Boolean i, Boolean p, String id, Boolean buyNow, String addressId, String areaCode, String orderType, Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getPromotionPaymentOffers");
+        String fullUrl = relativeUrls.get("getShipments");
 
-        Response<CartApplicationModels.PromotionPaymentOffersResult> response = cartApplicationApiList.getPromotionPaymentOffers(fullUrl, id, uid, requestHeaders).execute();
+        Response<CartApplicationModels.CartShipments> response = cartApplicationApiList.getShipments(fullUrl, pickAtStoreUid, orderingStoreId, i, p, id, buyNow, addressId, areaCode, orderType, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -574,15 +542,84 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.CartCheckoutResult checkoutCartV2(CartApplicationModels.OrderingSource xOrderingSource, Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailV2Creation body) throws IOException {
-        return this.checkoutCartV2(xOrderingSource, buyNow, cartType, body, new HashMap<>());
+    public CartApplicationModels.CartCheckoutResponseObject checkoutCart(Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailRequestObject body) throws IOException {
+        return this.checkoutCart(buyNow, cartType, body, new HashMap<>());
     }
 
-    public CartApplicationModels.CartCheckoutResult checkoutCartV2(CartApplicationModels.OrderingSource xOrderingSource, Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailV2Creation body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartCheckoutResponseObject checkoutCart(Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailRequestObject body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("checkoutCart");
+
+        Response<CartApplicationModels.CartCheckoutResponseObject> response = cartApplicationApiList.checkoutCart(fullUrl, buyNow, cartType, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public CartApplicationModels.CartCheckoutResponseObject checkoutCartV2(Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailV2RequestObject body) throws IOException {
+        return this.checkoutCartV2(buyNow, cartType, body, new HashMap<>());
+    }
+
+    public CartApplicationModels.CartCheckoutResponseObject checkoutCartV2(Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailV2RequestObject body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("checkoutCartV2");
 
-        Response<CartApplicationModels.CartCheckoutResult> response = cartApplicationApiList.checkoutCartV2(fullUrl, xOrderingSource, buyNow, cartType, body, requestHeaders).execute();
+        Response<CartApplicationModels.CartCheckoutResponseObject> response = cartApplicationApiList.checkoutCartV2(fullUrl, buyNow, cartType, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public CartApplicationModels.PromotionPaymentOffersResponseObject getPaymentPromotionOffers(String id, Integer uid) throws IOException {
+        return this.getPaymentPromotionOffers(id, uid, new HashMap<>());
+    }
+
+    public CartApplicationModels.PromotionPaymentOffersResponseObject getPaymentPromotionOffers(String id, Integer uid, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getPaymentPromotionOffers");
+
+        Response<CartApplicationModels.PromotionPaymentOffersResponseObject> response = cartApplicationApiList.getPaymentPromotionOffers(fullUrl, id, uid, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public CartApplicationModels.CartMetaConfigListResponseObject getCartMetaConfigs() throws IOException {
+        return this.getCartMetaConfigs(new HashMap<>());
+    }
+
+    public CartApplicationModels.CartMetaConfigListResponseObject getCartMetaConfigs(Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getCartMetaConfigs");
+
+        Response<CartApplicationModels.CartMetaConfigListResponseObject> response = cartApplicationApiList.getCartMetaConfigs(fullUrl, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public CartApplicationModels.CartConfigDetailResponseObject getCartMetaConfig(String cartMetaId) throws IOException {
+        return this.getCartMetaConfig(cartMetaId, new HashMap<>());
+    }
+
+    public CartApplicationModels.CartConfigDetailResponseObject getCartMetaConfig(String cartMetaId, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getCartMetaConfig");
+        fullUrl = fullUrl.replace("{" + "cart_meta_id" + "}",cartMetaId.toString());
+
+        Response<CartApplicationModels.CartConfigDetailResponseObject> response = cartApplicationApiList.getCartMetaConfig(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
