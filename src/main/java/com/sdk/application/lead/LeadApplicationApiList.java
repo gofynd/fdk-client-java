@@ -19,5 +19,5 @@ interface LeadApplicationApiList {
     Call<LeadApplicationModels.CustomForm> getCustomForm(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<LeadApplicationModels.SubmitCustomFormResponseSchema> submitCustomForm(@Url String url1, @Body LeadApplicationModels.CustomFormSubmissionPayload payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<LeadApplicationModels.SubmitCustomFormDetails> submitCustomForm(@Url String url1, @Body LeadApplicationModels.CustomFormSubmissionPayload payload, @HeaderMap Map<String, String> requestHeaders);
 }
