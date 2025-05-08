@@ -13,9 +13,6 @@ interface OrderApplicationApiList {
     Call<OrderApplicationModels.OrderById> getOrderById(@Url String url1, @Query("allow_inactive") Boolean allowInactive, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<OrderApplicationModels.OrderById> getPosOrderById(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
     Call<OrderApplicationModels.ShipmentById> getShipmentById(@Url String url1, @Query("allow_inactive") Boolean allowInactive, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
@@ -25,13 +22,13 @@ interface OrderApplicationApiList {
     Call<OrderApplicationModels.ShipmentTrack> trackShipment(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<OrderApplicationModels.CustomerDetailsResponseSchema> getCustomerDetailsByShipmentId(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+    Call<OrderApplicationModels.CustomerDetailsResponse> getCustomerDetailsByShipmentId(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<OrderApplicationModels.SendOtpToCustomerResponseSchema> sendOtpToShipmentCustomer(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+    Call<OrderApplicationModels.SendOtpToCustomerResponse> sendOtpToShipmentCustomer(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<OrderApplicationModels.VerifyOtpResponseSchema> verifyOtpShipmentCustomer(@Url String url1, @Body OrderApplicationModels.VerifyOtp payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<OrderApplicationModels.VerifyOtpResponse> verifyOtpShipmentCustomer(@Url String url1, @Body OrderApplicationModels.VerifyOtp payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<OrderApplicationModels.ShipmentBagReasons> getShipmentBagReasons(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
@@ -40,5 +37,5 @@ interface OrderApplicationApiList {
     Call<OrderApplicationModels.ShipmentReasons> getShipmentReasons(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT 
-    Call<OrderApplicationModels.ShipmentApplicationStatusResponseSchema> updateShipmentStatus(@Url String url1, @Body OrderApplicationModels.UpdateShipmentStatusRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<OrderApplicationModels.ShipmentApplicationStatusResponse> updateShipmentStatus(@Url String url1, @Body OrderApplicationModels.UpdateShipmentStatusRequest payload, @HeaderMap Map<String, String> requestHeaders);
 }

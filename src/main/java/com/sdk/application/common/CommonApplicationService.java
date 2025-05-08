@@ -47,15 +47,15 @@ import com.sdk.application.*;
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),CommonApplicationApiList.class, interceptorList, cookieStore);
     }
 
-    public CommonApplicationModels.ApplicationResponseSchema searchApplication(String authorization, String query) throws IOException {
+    public CommonApplicationModels.ApplicationResponse searchApplication(String authorization, String query) throws IOException {
         return this.searchApplication(authorization, query, new HashMap<>());
     }
 
-    public CommonApplicationModels.ApplicationResponseSchema searchApplication(String authorization, String query, Map<String, String> requestHeaders) throws IOException {
+    public CommonApplicationModels.ApplicationResponse searchApplication(String authorization, String query, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("searchApplication");
 
-        Response<CommonApplicationModels.ApplicationResponseSchema> response = commonApplicationApiList.searchApplication(fullUrl, authorization, query, requestHeaders).execute();
+        Response<CommonApplicationModels.ApplicationResponse> response = commonApplicationApiList.searchApplication(fullUrl, authorization, query, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

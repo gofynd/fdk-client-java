@@ -99,7 +99,7 @@ public static class EventConfig{
 
 
 /*
-    Model: EventDetails
+    Model: EventConfigResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -107,7 +107,7 @@ public static class EventConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventDetails{
+public static class EventConfigResponse{
 
     
 
@@ -371,7 +371,7 @@ public static class TransformEventAssociation{
 
 
 /*
-    Model: TransformEventPayload
+    Model: TransformEventRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -379,7 +379,7 @@ public static class TransformEventAssociation{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TransformEventPayload{
+public static class TransformEventRequest{
 
     
 
@@ -420,7 +420,7 @@ public static class TransformEventPayload{
 
 
 /*
-    Model: ValidateSchemaPayload
+    Model: ValidateSchemaRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -428,7 +428,7 @@ public static class TransformEventPayload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ValidateSchemaPayload{
+public static class ValidateSchemaRequest{
 
     
 
@@ -475,7 +475,7 @@ public static class ValidateSchemaPayload{
 
 
 /*
-    Model: ValidateSchemaResult
+    Model: ValidateSchemaResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -483,7 +483,7 @@ public static class ValidateSchemaPayload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ValidateSchemaResult{
+public static class ValidateSchemaResponse{
 
     
 
@@ -506,7 +506,7 @@ public static class ValidateSchemaResult{
 
 
 /*
-    Model: TransformEventResult
+    Model: TransformEventResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -514,7 +514,7 @@ public static class ValidateSchemaResult{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TransformEventResult{
+public static class TransformEventResponse{
 
     
 
