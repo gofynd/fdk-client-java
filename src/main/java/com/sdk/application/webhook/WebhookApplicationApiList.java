@@ -7,5 +7,5 @@ import java.util.*;
 interface WebhookApplicationApiList {
 
     @POST 
-    Call<WebhookApplicationModels.ClickEventDetails> saveClickEvent(@Url String url1, @Body WebhookApplicationModels.ClickEventPayload payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<WebhookApplicationModels.ClickEventResponse> saveClickEvent(@Url String url1, @Body WebhookApplicationModels.ClickEventRequest payload, @HeaderMap Map<String, String> requestHeaders);
 }

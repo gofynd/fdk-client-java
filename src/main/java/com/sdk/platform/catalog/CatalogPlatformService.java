@@ -186,13 +186,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.CategoryResponseSchema listCategories(String level, Integer department, String q, Integer pageNo, Integer pageSize, List<Integer> uids, String slug) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CategoryResponse listCategories(String level, Integer department, String q, Integer pageNo, Integer pageSize, List<Integer> uids, String slug) throws FDKServerResponseError, FDKException {
         return this.listCategories(level, department, q, pageNo, pageSize, uids, slug, new HashMap<>());
     }
 
-    public CatalogPlatformModels.CategoryResponseSchema listCategories(String level, Integer department, String q, Integer pageNo, Integer pageSize, List<Integer> uids, String slug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CategoryResponse listCategories(String level, Integer department, String q, Integer pageNo, Integer pageSize, List<Integer> uids, String slug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.CategoryResponseSchema> response = null;
+            Response<CatalogPlatformModels.CategoryResponse> response = null;
             try {
                 response = catalogPlatformApiList.listCategories(this.companyId, level, department, q, pageNo, pageSize, uids, slug, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -270,7 +270,7 @@ public class CatalogPlatformService {
     * Summary: get paginator for listCategories
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogPlatformModels.CategoryResponseSchema> listCategoriesPagination(
+    public Paginator<CatalogPlatformModels.CategoryResponse> listCategoriesPagination(
         String level ,
         Integer department ,
         String q ,
@@ -282,11 +282,11 @@ public class CatalogPlatformService {
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogPlatformModels.CategoryResponseSchema> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CatalogPlatformModels.CategoryResponse> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            CatalogPlatformModels.CategoryResponseSchema callback = this.listCategories(
+            CatalogPlatformModels.CategoryResponse callback = this.listCategories(
                 
                  
                  level,
@@ -326,13 +326,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SingleCategoryResponseSchema getCategoryData(String uid) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SingleCategoryResponse getCategoryData(String uid) throws FDKServerResponseError, FDKException {
         return this.getCategoryData(uid, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SingleCategoryResponseSchema getCategoryData(String uid, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SingleCategoryResponse getCategoryData(String uid, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SingleCategoryResponseSchema> response = null;
+            Response<CatalogPlatformModels.SingleCategoryResponse> response = null;
             try {
                 response = catalogPlatformApiList.getCategoryData(this.companyId, uid, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -370,13 +370,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.CrossSellingResponseSchema getSellerInsights(String sellerAppId) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CrossSellingResponse getSellerInsights(String sellerAppId) throws FDKServerResponseError, FDKException {
         return this.getSellerInsights(sellerAppId, new HashMap<>());
     }
 
-    public CatalogPlatformModels.CrossSellingResponseSchema getSellerInsights(String sellerAppId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CrossSellingResponse getSellerInsights(String sellerAppId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.CrossSellingResponseSchema> response = null;
+            Response<CatalogPlatformModels.CrossSellingResponse> response = null;
             try {
                 response = catalogPlatformApiList.getSellerInsights(this.companyId, sellerAppId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -438,13 +438,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.DepartmentsResponseSchema listDepartmentsData(Integer pageNo, String itemType, Integer pageSize, String name, String search, Boolean isActive, String slug) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.DepartmentsResponse listDepartmentsData(Integer pageNo, String itemType, Integer pageSize, String name, String search, Boolean isActive, String slug) throws FDKServerResponseError, FDKException {
         return this.listDepartmentsData(pageNo, itemType, pageSize, name, search, isActive, slug, new HashMap<>());
     }
 
-    public CatalogPlatformModels.DepartmentsResponseSchema listDepartmentsData(Integer pageNo, String itemType, Integer pageSize, String name, String search, Boolean isActive, String slug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.DepartmentsResponse listDepartmentsData(Integer pageNo, String itemType, Integer pageSize, String name, String search, Boolean isActive, String slug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.DepartmentsResponseSchema> response = null;
+            Response<CatalogPlatformModels.DepartmentsResponse> response = null;
             try {
                 response = catalogPlatformApiList.listDepartmentsData(this.companyId, pageNo, itemType, pageSize, name, search, isActive, slug, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -522,7 +522,7 @@ public class CatalogPlatformService {
     * Summary: get paginator for listDepartmentsData
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogPlatformModels.DepartmentsResponseSchema> listDepartmentsDataPagination(
+    public Paginator<CatalogPlatformModels.DepartmentsResponse> listDepartmentsDataPagination(
         String itemType ,
         Integer pageSize ,
         String name ,
@@ -534,11 +534,11 @@ public class CatalogPlatformService {
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogPlatformModels.DepartmentsResponseSchema> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CatalogPlatformModels.DepartmentsResponse> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            CatalogPlatformModels.DepartmentsResponseSchema callback = this.listDepartmentsData(
+            CatalogPlatformModels.DepartmentsResponse callback = this.listDepartmentsData(
                 
                  
                  paginator.getPageNo()
@@ -578,13 +578,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.DepartmentsResponseSchema getDepartmentData(String uid) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.DepartmentsResponse getDepartmentData(String uid) throws FDKServerResponseError, FDKException {
         return this.getDepartmentData(uid, new HashMap<>());
     }
 
-    public CatalogPlatformModels.DepartmentsResponseSchema getDepartmentData(String uid, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.DepartmentsResponse getDepartmentData(String uid, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.DepartmentsResponseSchema> response = null;
+            Response<CatalogPlatformModels.DepartmentsResponse> response = null;
             try {
                 response = catalogPlatformApiList.getDepartmentData(this.companyId, uid, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -670,13 +670,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.BulkHsnResponseSchema bulkHsnCode(CatalogPlatformModels.BulkHsnUpsert body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BulkHsnResponse bulkHsnCode(CatalogPlatformModels.BulkHsnUpsert body) throws FDKServerResponseError, FDKException {
         return this.bulkHsnCode(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.BulkHsnResponseSchema bulkHsnCode(CatalogPlatformModels.BulkHsnUpsert body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BulkHsnResponse bulkHsnCode(CatalogPlatformModels.BulkHsnUpsert body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.BulkHsnResponseSchema> response = null;
+            Response<CatalogPlatformModels.BulkHsnResponse> response = null;
             try {
                 response = catalogPlatformApiList.bulkHsnCode(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -866,13 +866,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.GetInventoriesResponseSchema getInventories(String itemId, String size, Integer pageNo, Integer pageSize, String pageId, String pageType, String q, Boolean sellable, List<Integer> storeIds, List<Integer> brandIds, List<String> sellerIdentifiers, Integer qtyGt, Integer qtyLt, String qtyType, String fromDate, String toDate, String sizeIdentifier) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetInventoriesResponse getInventories(String itemId, String size, Integer pageNo, Integer pageSize, String pageId, String pageType, String q, Boolean sellable, List<Integer> storeIds, List<Integer> brandIds, List<String> sellerIdentifiers, Integer qtyGt, Integer qtyLt, String qtyType, String fromDate, String toDate, String sizeIdentifier) throws FDKServerResponseError, FDKException {
         return this.getInventories(itemId, size, pageNo, pageSize, pageId, pageType, q, sellable, storeIds, brandIds, sellerIdentifiers, qtyGt, qtyLt, qtyType, fromDate, toDate, sizeIdentifier, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetInventoriesResponseSchema getInventories(String itemId, String size, Integer pageNo, Integer pageSize, String pageId, String pageType, String q, Boolean sellable, List<Integer> storeIds, List<Integer> brandIds, List<String> sellerIdentifiers, Integer qtyGt, Integer qtyLt, String qtyType, String fromDate, String toDate, String sizeIdentifier, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetInventoriesResponse getInventories(String itemId, String size, Integer pageNo, Integer pageSize, String pageId, String pageType, String q, Boolean sellable, List<Integer> storeIds, List<Integer> brandIds, List<String> sellerIdentifiers, Integer qtyGt, Integer qtyLt, String qtyType, String fromDate, String toDate, String sizeIdentifier, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetInventoriesResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetInventoriesResponse> response = null;
             try {
                 response = catalogPlatformApiList.getInventories(this.companyId, itemId, size, pageNo, pageSize, pageId, pageType, q, sellable, storeIds, brandIds, sellerIdentifiers, qtyGt, qtyLt, qtyType, fromDate, toDate, sizeIdentifier, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1010,7 +1010,7 @@ public class CatalogPlatformService {
     * Summary: get paginator for getInventories
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogPlatformModels.GetInventoriesResponseSchema> getInventoriesPagination(
+    public Paginator<CatalogPlatformModels.GetInventoriesResponse> getInventoriesPagination(
         String itemId ,
         String size ,
         Integer pageSize ,
@@ -1030,11 +1030,11 @@ public class CatalogPlatformService {
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogPlatformModels.GetInventoriesResponseSchema> paginator = new Paginator<>(pageSize, "cursor");
+    Paginator<CatalogPlatformModels.GetInventoriesResponse> paginator = new Paginator<>(pageSize, "cursor");
 
     paginator.setCallback(()-> {
         try {
-            CatalogPlatformModels.GetInventoriesResponseSchema callback = this.getInventories(
+            CatalogPlatformModels.GetInventoriesResponse callback = this.getInventories(
                 
                  
                  itemId,
@@ -1198,13 +1198,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.BulkResponseSchema createBulkInventoryJob(CatalogPlatformModels.BulkJob body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BulkResponse createBulkInventoryJob(CatalogPlatformModels.BulkJob body) throws FDKServerResponseError, FDKException {
         return this.createBulkInventoryJob(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.BulkResponseSchema createBulkInventoryJob(CatalogPlatformModels.BulkJob body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BulkResponse createBulkInventoryJob(CatalogPlatformModels.BulkJob body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.BulkResponseSchema> response = null;
+            Response<CatalogPlatformModels.BulkResponse> response = null;
             try {
                 response = catalogPlatformApiList.createBulkInventoryJob(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1242,13 +1242,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponseSchema deleteBulkInventoryJob(String batchId) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse deleteBulkInventoryJob(String batchId) throws FDKServerResponseError, FDKException {
         return this.deleteBulkInventoryJob(batchId, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponseSchema deleteBulkInventoryJob(String batchId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse deleteBulkInventoryJob(String batchId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponseSchema> response = null;
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogPlatformApiList.deleteBulkInventoryJob(this.companyId, batchId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1286,13 +1286,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponseSchema createBulkInventory(String batchId, CatalogPlatformModels.InventoryBulkRequestSchema body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse createBulkInventory(String batchId, CatalogPlatformModels.InventoryBulkRequest body) throws FDKServerResponseError, FDKException {
         return this.createBulkInventory(batchId, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponseSchema createBulkInventory(String batchId, CatalogPlatformModels.InventoryBulkRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse createBulkInventory(String batchId, CatalogPlatformModels.InventoryBulkRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponseSchema> response = null;
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogPlatformApiList.createBulkInventory(this.companyId, batchId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1366,13 +1366,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.InventoryExportResponseSchema createInventoryExportJob(CatalogPlatformModels.InventoryExportRequestSchema body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryExportResponse createInventoryExportJob(CatalogPlatformModels.InventoryExportRequest body) throws FDKServerResponseError, FDKException {
         return this.createInventoryExportJob(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.InventoryExportResponseSchema createInventoryExportJob(CatalogPlatformModels.InventoryExportRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryExportResponse createInventoryExportJob(CatalogPlatformModels.InventoryExportRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.InventoryExportResponseSchema> response = null;
+            Response<CatalogPlatformModels.InventoryExportResponse> response = null;
             try {
                 response = catalogPlatformApiList.createInventoryExportJob(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1498,13 +1498,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.InventoryValidationResponseSchema validateProductTemplateSchema(String itemType) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryValidationResponse validateProductTemplateSchema(String itemType) throws FDKServerResponseError, FDKException {
         return this.validateProductTemplateSchema(itemType, new HashMap<>());
     }
 
-    public CatalogPlatformModels.InventoryValidationResponseSchema validateProductTemplateSchema(String itemType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryValidationResponse validateProductTemplateSchema(String itemType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.InventoryValidationResponseSchema> response = null;
+            Response<CatalogPlatformModels.InventoryValidationResponse> response = null;
             try {
                 response = catalogPlatformApiList.validateProductTemplateSchema(this.companyId, itemType, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1538,13 +1538,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.StoreAssignResponseSchema getOptimalLocations(CatalogPlatformModels.AssignStore body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.StoreAssignResponse getOptimalLocations(CatalogPlatformModels.AssignStore body) throws FDKServerResponseError, FDKException {
         return this.getOptimalLocations(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.StoreAssignResponseSchema getOptimalLocations(CatalogPlatformModels.AssignStore body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.StoreAssignResponse getOptimalLocations(CatalogPlatformModels.AssignStore body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.StoreAssignResponseSchema> response = null;
+            Response<CatalogPlatformModels.StoreAssignResponse> response = null;
             try {
                 response = catalogPlatformApiList.getOptimalLocations(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1882,13 +1882,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.ProductAttributesResponseSchema getProductAttributes(String category, Boolean filter) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductAttributesResponse getProductAttributes(String category, Boolean filter) throws FDKServerResponseError, FDKException {
         return this.getProductAttributes(category, filter, new HashMap<>());
     }
 
-    public CatalogPlatformModels.ProductAttributesResponseSchema getProductAttributes(String category, Boolean filter, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductAttributesResponse getProductAttributes(String category, Boolean filter, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ProductAttributesResponseSchema> response = null;
+            Response<CatalogPlatformModels.ProductAttributesResponse> response = null;
             try {
                 response = catalogPlatformApiList.getProductAttributes(this.companyId, category, filter, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1973,24 +1973,16 @@ public class CatalogPlatformService {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
 
-    public CatalogPlatformModels.GetProductBundleListingResponseSchema getProductBundle(String q, List<String> slug, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
-        return this.getProductBundle(q, slug, pageNo, pageSize, new HashMap<>());
+    public CatalogPlatformModels.GetProductBundleListingResponse getProductBundle(String q, List<String> slug) throws FDKServerResponseError, FDKException {
+        return this.getProductBundle(q, slug, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetProductBundleListingResponseSchema getProductBundle(String q, List<String> slug, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetProductBundleListingResponse getProductBundle(String q, List<String> slug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetProductBundleListingResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetProductBundleListingResponse> response = null;
             try {
-                response = catalogPlatformApiList.getProductBundle(this.companyId, q, slug, pageNo, pageSize, requestHeaders).execute();
+                response = catalogPlatformApiList.getProductBundle(this.companyId, q, slug, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2022,13 +2014,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.GetProductBundleCreateResponseSchema createProductBundle(CatalogPlatformModels.ProductBundleRequestSchema body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetProductBundleCreateResponse createProductBundle(CatalogPlatformModels.ProductBundleRequest body) throws FDKServerResponseError, FDKException {
         return this.createProductBundle(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetProductBundleCreateResponseSchema createProductBundle(CatalogPlatformModels.ProductBundleRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetProductBundleCreateResponse createProductBundle(CatalogPlatformModels.ProductBundleRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetProductBundleCreateResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetProductBundleCreateResponse> response = null;
             try {
                 response = catalogPlatformApiList.createProductBundle(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2066,13 +2058,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.GetProductBundleResponseSchema getProductBundleDetail(String id) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetProductBundleResponse getProductBundleDetail(String id) throws FDKServerResponseError, FDKException {
         return this.getProductBundleDetail(id, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetProductBundleResponseSchema getProductBundleDetail(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetProductBundleResponse getProductBundleDetail(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetProductBundleResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetProductBundleResponse> response = null;
             try {
                 response = catalogPlatformApiList.getProductBundleDetail(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2110,13 +2102,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.GetProductBundleCreateResponseSchema updateProductBundle(String id, CatalogPlatformModels.ProductBundleUpdateRequestSchema body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetProductBundleCreateResponse updateProductBundle(String id, CatalogPlatformModels.ProductBundleUpdateRequest body) throws FDKServerResponseError, FDKException {
         return this.updateProductBundle(id, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetProductBundleCreateResponseSchema updateProductBundle(String id, CatalogPlatformModels.ProductBundleUpdateRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetProductBundleCreateResponse updateProductBundle(String id, CatalogPlatformModels.ProductBundleUpdateRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetProductBundleCreateResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetProductBundleCreateResponse> response = null;
             try {
                 response = catalogPlatformApiList.updateProductBundle(this.companyId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2158,13 +2150,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.BulkAssetResponseSchema getProductAssetsInBulk(Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BulkAssetResponse getProductAssetsInBulk(Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
         return this.getProductAssetsInBulk(pageNo, pageSize, new HashMap<>());
     }
 
-    public CatalogPlatformModels.BulkAssetResponseSchema getProductAssetsInBulk(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BulkAssetResponse getProductAssetsInBulk(Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.BulkAssetResponseSchema> response = null;
+            Response<CatalogPlatformModels.BulkAssetResponse> response = null;
             try {
                 response = catalogPlatformApiList.getProductAssetsInBulk(this.companyId, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2212,18 +2204,18 @@ public class CatalogPlatformService {
     * Summary: get paginator for getProductAssetsInBulk
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogPlatformModels.BulkAssetResponseSchema> getProductAssetsInBulkPagination(
+    public Paginator<CatalogPlatformModels.BulkAssetResponse> getProductAssetsInBulkPagination(
         Integer pageSize 
         
         ){ 
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogPlatformModels.BulkAssetResponseSchema> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CatalogPlatformModels.BulkAssetResponse> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            CatalogPlatformModels.BulkAssetResponseSchema callback = this.getProductAssetsInBulk(
+            CatalogPlatformModels.BulkAssetResponse callback = this.getProductAssetsInBulk(
                 
                  
                  paginator.getPageNo()
@@ -2254,13 +2246,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponseSchema createProductAssetsInBulk(CatalogPlatformModels.ProductBulkAssets body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse createProductAssetsInBulk(CatalogPlatformModels.ProductBulkAssets body) throws FDKServerResponseError, FDKException {
         return this.createProductAssetsInBulk(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponseSchema createProductAssetsInBulk(CatalogPlatformModels.ProductBulkAssets body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse createProductAssetsInBulk(CatalogPlatformModels.ProductBulkAssets body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponseSchema> response = null;
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogPlatformApiList.createProductAssetsInBulk(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2410,13 +2402,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.BulkResponseSchema createBulkProductUploadJob(CatalogPlatformModels.BulkJob body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BulkResponse createBulkProductUploadJob(CatalogPlatformModels.BulkJob body) throws FDKServerResponseError, FDKException {
         return this.createBulkProductUploadJob(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.BulkResponseSchema createBulkProductUploadJob(CatalogPlatformModels.BulkJob body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BulkResponse createBulkProductUploadJob(CatalogPlatformModels.BulkJob body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.BulkResponseSchema> response = null;
+            Response<CatalogPlatformModels.BulkResponse> response = null;
             try {
                 response = catalogPlatformApiList.createBulkProductUploadJob(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2454,13 +2446,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponseSchema deleteProductBulkJob(Integer batchId) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse deleteProductBulkJob(Integer batchId) throws FDKServerResponseError, FDKException {
         return this.deleteProductBulkJob(batchId, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponseSchema deleteProductBulkJob(Integer batchId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse deleteProductBulkJob(Integer batchId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponseSchema> response = null;
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogPlatformApiList.deleteProductBulkJob(this.companyId, batchId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2498,13 +2490,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponseSchema createProductsInBulk(String batchId, CatalogPlatformModels.BulkProductRequestSchema body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse createProductsInBulk(String batchId, CatalogPlatformModels.BulkProductRequest body) throws FDKServerResponseError, FDKException {
         return this.createProductsInBulk(batchId, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponseSchema createProductsInBulk(String batchId, CatalogPlatformModels.BulkProductRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse createProductsInBulk(String batchId, CatalogPlatformModels.BulkProductRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponseSchema> response = null;
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogPlatformApiList.createProductsInBulk(this.companyId, batchId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2538,13 +2530,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.ProductDownloadsResponseSchema listProductTemplateExportDetails() throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductDownloadsResponse listProductTemplateExportDetails() throws FDKServerResponseError, FDKException {
         return this.listProductTemplateExportDetails(new HashMap<>());
     }
 
-    public CatalogPlatformModels.ProductDownloadsResponseSchema listProductTemplateExportDetails(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductDownloadsResponse listProductTemplateExportDetails(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ProductDownloadsResponseSchema> response = null;
+            Response<CatalogPlatformModels.ProductDownloadsResponse> response = null;
             try {
                 response = catalogPlatformApiList.listProductTemplateExportDetails(this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2578,13 +2570,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.HSNCodesResponseSchema listHSNCodes() throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.HSNCodesResponse listHSNCodes() throws FDKServerResponseError, FDKException {
         return this.listHSNCodes(new HashMap<>());
     }
 
-    public CatalogPlatformModels.HSNCodesResponseSchema listHSNCodes(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.HSNCodesResponse listHSNCodes(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.HSNCodesResponseSchema> response = null;
+            Response<CatalogPlatformModels.HSNCodesResponse> response = null;
             try {
                 response = catalogPlatformApiList.listHSNCodes(this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2618,13 +2610,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.ProductTagsViewResponseSchema getProductTags() throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductTagsViewResponse getProductTags() throws FDKServerResponseError, FDKException {
         return this.getProductTags(new HashMap<>());
     }
 
-    public CatalogPlatformModels.ProductTagsViewResponseSchema getProductTags(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductTagsViewResponse getProductTags(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ProductTagsViewResponseSchema> response = null;
+            Response<CatalogPlatformModels.ProductTagsViewResponse> response = null;
             try {
                 response = catalogPlatformApiList.getProductTags(this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2662,13 +2654,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.TemplatesResponseSchema listProductTemplate(String department) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.TemplatesResponse listProductTemplate(String department) throws FDKServerResponseError, FDKException {
         return this.listProductTemplate(department, new HashMap<>());
     }
 
-    public CatalogPlatformModels.TemplatesResponseSchema listProductTemplate(String department, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.TemplatesResponse listProductTemplate(String department, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.TemplatesResponseSchema> response = null;
+            Response<CatalogPlatformModels.TemplatesResponse> response = null;
             try {
                 response = catalogPlatformApiList.listProductTemplate(this.companyId, department, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2710,13 +2702,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.ProdcutTemplateCategoriesResponseSchema listProductTemplateCategories(String departments, String itemType) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProdcutTemplateCategoriesResponse listProductTemplateCategories(String departments, String itemType) throws FDKServerResponseError, FDKException {
         return this.listProductTemplateCategories(departments, itemType, new HashMap<>());
     }
 
-    public CatalogPlatformModels.ProdcutTemplateCategoriesResponseSchema listProductTemplateCategories(String departments, String itemType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProdcutTemplateCategoriesResponse listProductTemplateCategories(String departments, String itemType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ProdcutTemplateCategoriesResponseSchema> response = null;
+            Response<CatalogPlatformModels.ProdcutTemplateCategoriesResponse> response = null;
             try {
                 response = catalogPlatformApiList.listProductTemplateCategories(this.companyId, departments, itemType, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2814,63 +2806,15 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.TemplatesValidationResponseSchema validateProductTemplate(String slug, String itemType, Boolean bulk) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.TemplatesValidationResponse validateProductTemplate(String slug, String itemType, Boolean bulk) throws FDKServerResponseError, FDKException {
         return this.validateProductTemplate(slug, itemType, bulk, new HashMap<>());
     }
 
-    public CatalogPlatformModels.TemplatesValidationResponseSchema validateProductTemplate(String slug, String itemType, Boolean bulk, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.TemplatesValidationResponse validateProductTemplate(String slug, String itemType, Boolean bulk, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.TemplatesValidationResponseSchema> response = null;
+            Response<CatalogPlatformModels.TemplatesValidationResponse> response = null;
             try {
                 response = catalogPlatformApiList.validateProductTemplate(this.companyId, slug, itemType, bulk, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    public CatalogPlatformModels.TemplatesGlobalValidationResponseSchema validateProductGlobalTemplate(String itemType, Boolean bulk) throws FDKServerResponseError, FDKException {
-        return this.validateProductGlobalTemplate(itemType, bulk, new HashMap<>());
-    }
-
-    public CatalogPlatformModels.TemplatesGlobalValidationResponseSchema validateProductGlobalTemplate(String itemType, Boolean bulk, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.TemplatesGlobalValidationResponseSchema> response = null;
-            try {
-                response = catalogPlatformApiList.validateProductGlobalTemplate(this.companyId, itemType, bulk, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3110,13 +3054,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.ProductListingResponseSchema getProductSize(String itemCode, Integer itemId, Integer brandUid, Integer uid) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductListingResponse getProductSize(String itemCode, Integer itemId, Integer brandUid, Integer uid) throws FDKServerResponseError, FDKException {
         return this.getProductSize(itemCode, itemId, brandUid, uid, new HashMap<>());
     }
 
-    public CatalogPlatformModels.ProductListingResponseSchema getProductSize(String itemCode, Integer itemId, Integer brandUid, Integer uid, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductListingResponse getProductSize(String itemCode, Integer itemId, Integer brandUid, Integer uid, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ProductListingResponseSchema> response = null;
+            Response<CatalogPlatformModels.ProductListingResponse> response = null;
             try {
                 response = catalogPlatformApiList.getProductSize(this.companyId, itemId, itemCode, brandUid, uid, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -3158,13 +3102,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.ProductSizeDeleteResponseSchema deleteSize(Integer itemId, String size) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductSizeDeleteResponse deleteSize(Integer itemId, String size) throws FDKServerResponseError, FDKException {
         return this.deleteSize(itemId, size, new HashMap<>());
     }
 
-    public CatalogPlatformModels.ProductSizeDeleteResponseSchema deleteSize(Integer itemId, String size, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductSizeDeleteResponse deleteSize(Integer itemId, String size, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ProductSizeDeleteResponseSchema> response = null;
+            Response<CatalogPlatformModels.ProductSizeDeleteResponse> response = null;
             try {
                 response = catalogPlatformApiList.deleteSize(this.companyId, itemId, size, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -3358,13 +3302,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponseSchema addInventory(Integer itemId, String size, CatalogPlatformModels.InventoryRequestSchema body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse addInventory(Integer itemId, String size, CatalogPlatformModels.InventoryRequest body) throws FDKServerResponseError, FDKException {
         return this.addInventory(itemId, size, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponseSchema addInventory(Integer itemId, String size, CatalogPlatformModels.InventoryRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse addInventory(Integer itemId, String size, CatalogPlatformModels.InventoryRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponseSchema> response = null;
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogPlatformApiList.addInventory(this.companyId, itemId, size, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -3414,13 +3358,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.ProductVariantsResponseSchema getVariantsOfProducts(Integer itemId, String variantType, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductVariantsResponse getVariantsOfProducts(Integer itemId, String variantType, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
         return this.getVariantsOfProducts(itemId, variantType, pageNo, pageSize, new HashMap<>());
     }
 
-    public CatalogPlatformModels.ProductVariantsResponseSchema getVariantsOfProducts(Integer itemId, String variantType, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductVariantsResponse getVariantsOfProducts(Integer itemId, String variantType, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ProductVariantsResponseSchema> response = null;
+            Response<CatalogPlatformModels.ProductVariantsResponse> response = null;
             try {
                 response = catalogPlatformApiList.getVariantsOfProducts(this.companyId, itemId, variantType, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -3480,7 +3424,7 @@ public class CatalogPlatformService {
     * Summary: get paginator for getVariantsOfProducts
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogPlatformModels.ProductVariantsResponseSchema> getVariantsOfProductsPagination(
+    public Paginator<CatalogPlatformModels.ProductVariantsResponse> getVariantsOfProductsPagination(
         Integer itemId ,
         String variantType ,
         Integer pageSize 
@@ -3489,11 +3433,11 @@ public class CatalogPlatformService {
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogPlatformModels.ProductVariantsResponseSchema> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CatalogPlatformModels.ProductVariantsResponse> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            CatalogPlatformModels.ProductVariantsResponseSchema callback = this.getVariantsOfProducts(
+            CatalogPlatformModels.ProductVariantsResponse callback = this.getVariantsOfProducts(
                 
                  
                  itemId,
@@ -3590,13 +3534,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponseSchema createSizeGuide(CatalogPlatformModels.ValidateSizeGuide body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse createSizeGuide(CatalogPlatformModels.ValidateSizeGuide body) throws FDKServerResponseError, FDKException {
         return this.createSizeGuide(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponseSchema createSizeGuide(CatalogPlatformModels.ValidateSizeGuide body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse createSizeGuide(CatalogPlatformModels.ValidateSizeGuide body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponseSchema> response = null;
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogPlatformApiList.createSizeGuide(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -3634,13 +3578,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SizeGuideResponseSchema getSizeGuide(String id) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SizeGuideResponse getSizeGuide(String id) throws FDKServerResponseError, FDKException {
         return this.getSizeGuide(id, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SizeGuideResponseSchema getSizeGuide(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SizeGuideResponse getSizeGuide(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SizeGuideResponseSchema> response = null;
+            Response<CatalogPlatformModels.SizeGuideResponse> response = null;
             try {
                 response = catalogPlatformApiList.getSizeGuide(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -3678,13 +3622,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponseSchema updateSizeGuide(String id, CatalogPlatformModels.ValidateSizeGuide body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse updateSizeGuide(String id, CatalogPlatformModels.ValidateSizeGuide body) throws FDKServerResponseError, FDKException {
         return this.updateSizeGuide(id, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponseSchema updateSizeGuide(String id, CatalogPlatformModels.ValidateSizeGuide body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse updateSizeGuide(String id, CatalogPlatformModels.ValidateSizeGuide body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponseSchema> response = null;
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogPlatformApiList.updateSizeGuide(this.companyId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -3840,13 +3784,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.InventoryUpdateResponseSchema updateInventories(CatalogPlatformModels.InventoryRequestSchemaV2 body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryUpdateResponse updateInventories(CatalogPlatformModels.InventoryRequestSchemaV2 body) throws FDKServerResponseError, FDKException {
         return this.updateInventories(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.InventoryUpdateResponseSchema updateInventories(CatalogPlatformModels.InventoryRequestSchemaV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryUpdateResponse updateInventories(CatalogPlatformModels.InventoryRequestSchemaV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.InventoryUpdateResponseSchema> response = null;
+            Response<CatalogPlatformModels.InventoryUpdateResponse> response = null;
             try {
                 response = catalogPlatformApiList.updateInventories(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -3904,13 +3848,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.InventoryExportJobListResponseSchema listInventoryExport(String status, String fromDate, String toDate, String q, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryExportJobListResponse listInventoryExport(String status, String fromDate, String toDate, String q, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
         return this.listInventoryExport(status, fromDate, toDate, q, pageNo, pageSize, new HashMap<>());
     }
 
-    public CatalogPlatformModels.InventoryExportJobListResponseSchema listInventoryExport(String status, String fromDate, String toDate, String q, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryExportJobListResponse listInventoryExport(String status, String fromDate, String toDate, String q, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.InventoryExportJobListResponseSchema> response = null;
+            Response<CatalogPlatformModels.InventoryExportJobListResponse> response = null;
             try {
                 response = catalogPlatformApiList.listInventoryExport(this.companyId, status, fromDate, toDate, q, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -3944,13 +3888,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.InventoryExportResponseSchema createInventoryExport(CatalogPlatformModels.InventoryCreateRequestSchema body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryExportResponse createInventoryExport(CatalogPlatformModels.InventoryCreateRequest body) throws FDKServerResponseError, FDKException {
         return this.createInventoryExport(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.InventoryExportResponseSchema createInventoryExport(CatalogPlatformModels.InventoryCreateRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryExportResponse createInventoryExport(CatalogPlatformModels.InventoryCreateRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.InventoryExportResponseSchema> response = null;
+            Response<CatalogPlatformModels.InventoryExportResponse> response = null;
             try {
                 response = catalogPlatformApiList.createInventoryExport(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -4292,13 +4236,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.BulkResponseSchema uploadBulkProducts(String department, String productType, CatalogPlatformModels.BulkProductJob body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BulkResponse uploadBulkProducts(String department, String productType, CatalogPlatformModels.BulkProductJob body) throws FDKServerResponseError, FDKException {
         return this.uploadBulkProducts(department, productType, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.BulkResponseSchema uploadBulkProducts(String department, String productType, CatalogPlatformModels.BulkProductJob body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BulkResponse uploadBulkProducts(String department, String productType, CatalogPlatformModels.BulkProductJob body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.BulkResponseSchema> response = null;
+            Response<CatalogPlatformModels.BulkResponse> response = null;
             try {
                 response = catalogPlatformApiList.uploadBulkProducts(this.companyId, department, productType, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -4356,13 +4300,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.ProductDownloadsResponseSchema getProductExportJobs(String status, String fromDate, String toDate, String q, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductDownloadsResponse getProductExportJobs(String status, String fromDate, String toDate, String q, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
         return this.getProductExportJobs(status, fromDate, toDate, q, pageNo, pageSize, new HashMap<>());
     }
 
-    public CatalogPlatformModels.ProductDownloadsResponseSchema getProductExportJobs(String status, String fromDate, String toDate, String q, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductDownloadsResponse getProductExportJobs(String status, String fromDate, String toDate, String q, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ProductDownloadsResponseSchema> response = null;
+            Response<CatalogPlatformModels.ProductDownloadsResponse> response = null;
             try {
                 response = catalogPlatformApiList.getProductExportJobs(this.companyId, status, fromDate, toDate, q, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -4396,13 +4340,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.ProductDownloadsResponseSchema createProductExportJob(CatalogPlatformModels.ProductTemplateDownloadsExport body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductDownloadsResponse createProductExportJob(CatalogPlatformModels.ProductTemplateDownloadsExport body) throws FDKServerResponseError, FDKException {
         return this.createProductExportJob(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.ProductDownloadsResponseSchema createProductExportJob(CatalogPlatformModels.ProductTemplateDownloadsExport body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ProductDownloadsResponse createProductExportJob(CatalogPlatformModels.ProductTemplateDownloadsExport body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ProductDownloadsResponseSchema> response = null;
+            Response<CatalogPlatformModels.ProductDownloadsResponse> response = null;
             try {
                 response = catalogPlatformApiList.createProductExportJob(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -4440,15 +4384,15 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponseSchema deleteProduct(Integer itemId, CatalogPlatformModels.DeleteProductRequestBody body) throws FDKServerResponseError, FDKException {
-        return this.deleteProduct(itemId, body, new HashMap<>());
+    public CatalogPlatformModels.SuccessResponse deleteProduct(Integer itemId) throws FDKServerResponseError, FDKException {
+        return this.deleteProduct(itemId, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponseSchema deleteProduct(Integer itemId, CatalogPlatformModels.DeleteProductRequestBody body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse deleteProduct(Integer itemId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponseSchema> response = null;
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
-                response = catalogPlatformApiList.deleteProduct(this.companyId, itemId, body, requestHeaders).execute();
+                response = catalogPlatformApiList.deleteProduct(this.companyId, itemId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -4492,13 +4436,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SingleProductResponseSchema getProduct(Integer itemId, Integer brandUid, String itemCode) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SingleProductResponse getProduct(Integer itemId, Integer brandUid, String itemCode) throws FDKServerResponseError, FDKException {
         return this.getProduct(itemId, brandUid, itemCode, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SingleProductResponseSchema getProduct(Integer itemId, Integer brandUid, String itemCode, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SingleProductResponse getProduct(Integer itemId, Integer brandUid, String itemCode, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SingleProductResponseSchema> response = null;
+            Response<CatalogPlatformModels.SingleProductResponse> response = null;
             try {
                 response = catalogPlatformApiList.getProduct(this.companyId, itemId, brandUid, itemCode, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -4536,13 +4480,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.SuccessResponseSchema editProduct(Integer itemId, CatalogPlatformModels.ProductCreateUpdateSchemaV2 body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse editProduct(Integer itemId, CatalogPlatformModels.ProductCreateUpdateSchemaV2 body) throws FDKServerResponseError, FDKException {
         return this.editProduct(itemId, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponseSchema editProduct(Integer itemId, CatalogPlatformModels.ProductCreateUpdateSchemaV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse editProduct(Integer itemId, CatalogPlatformModels.ProductCreateUpdateSchemaV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponseSchema> response = null;
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
                 response = catalogPlatformApiList.editProduct(this.companyId, itemId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -4628,13 +4572,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.InventoryUpdateResponseSchema deleteRealtimeInventory(Integer itemId, String sellerIdentifier, CatalogPlatformModels.InventoryRequestSchemaV2 body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryUpdateResponse deleteRealtimeInventory(Integer itemId, String sellerIdentifier, CatalogPlatformModels.InventoryRequestSchemaV2 body) throws FDKServerResponseError, FDKException {
         return this.deleteRealtimeInventory(itemId, sellerIdentifier, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.InventoryUpdateResponseSchema deleteRealtimeInventory(Integer itemId, String sellerIdentifier, CatalogPlatformModels.InventoryRequestSchemaV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryUpdateResponse deleteRealtimeInventory(Integer itemId, String sellerIdentifier, CatalogPlatformModels.InventoryRequestSchemaV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.InventoryUpdateResponseSchema> response = null;
+            Response<CatalogPlatformModels.InventoryUpdateResponse> response = null;
             try {
                 response = catalogPlatformApiList.deleteRealtimeInventory(this.companyId, itemId, sellerIdentifier, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -4676,13 +4620,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.InventoryUpdateResponseSchema updateRealtimeInventory(Integer itemId, String sellerIdentifier, CatalogPlatformModels.InventoryRequestSchemaV2 body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryUpdateResponse updateRealtimeInventory(Integer itemId, String sellerIdentifier, CatalogPlatformModels.InventoryRequestSchemaV2 body) throws FDKServerResponseError, FDKException {
         return this.updateRealtimeInventory(itemId, sellerIdentifier, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.InventoryUpdateResponseSchema updateRealtimeInventory(Integer itemId, String sellerIdentifier, CatalogPlatformModels.InventoryRequestSchemaV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryUpdateResponse updateRealtimeInventory(Integer itemId, String sellerIdentifier, CatalogPlatformModels.InventoryRequestSchemaV2 body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.InventoryUpdateResponseSchema> response = null;
+            Response<CatalogPlatformModels.InventoryUpdateResponse> response = null;
             try {
                 response = catalogPlatformApiList.updateRealtimeInventory(this.companyId, itemId, sellerIdentifier, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -4760,13 +4704,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.UpdateMarketplaceOptinResponseSchema updateMarketplaceOptin(String marketplaceSlug, CatalogPlatformModels.UpdateMarketplaceOptinRequestSchema body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.UpdateMarketplaceOptinResponse updateMarketplaceOptin(String marketplaceSlug, CatalogPlatformModels.UpdateMarketplaceOptinRequest body) throws FDKServerResponseError, FDKException {
         return this.updateMarketplaceOptin(marketplaceSlug, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.UpdateMarketplaceOptinResponseSchema updateMarketplaceOptin(String marketplaceSlug, CatalogPlatformModels.UpdateMarketplaceOptinRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.UpdateMarketplaceOptinResponse updateMarketplaceOptin(String marketplaceSlug, CatalogPlatformModels.UpdateMarketplaceOptinRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.UpdateMarketplaceOptinResponseSchema> response = null;
+            Response<CatalogPlatformModels.UpdateMarketplaceOptinResponse> response = null;
             try {
                 response = catalogPlatformApiList.updateMarketplaceOptin(this.companyId, marketplaceSlug, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -4804,13 +4748,13 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.CreateMarketplaceOptinResponseSchema createMarketplaceOptin(String marketplaceSlug, CatalogPlatformModels.OptInPostRequestSchema body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CreateMarketplaceOptinResponse createMarketplaceOptin(String marketplaceSlug, CatalogPlatformModels.OptInPostRequest body) throws FDKServerResponseError, FDKException {
         return this.createMarketplaceOptin(marketplaceSlug, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.CreateMarketplaceOptinResponseSchema createMarketplaceOptin(String marketplaceSlug, CatalogPlatformModels.OptInPostRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CreateMarketplaceOptinResponse createMarketplaceOptin(String marketplaceSlug, CatalogPlatformModels.OptInPostRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.CreateMarketplaceOptinResponseSchema> response = null;
+            Response<CatalogPlatformModels.CreateMarketplaceOptinResponse> response = null;
             try {
                 response = catalogPlatformApiList.createMarketplaceOptin(this.companyId, marketplaceSlug, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -4849,13 +4793,13 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
-    public CatalogPlatformModels.CatalogInsightResponseSchema getCatalogInsights(String brand) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CatalogInsightResponse getCatalogInsights(String brand) throws FDKServerResponseError, FDKException {
         return this.getCatalogInsights(brand, new HashMap<>());
     }
 
-    public CatalogPlatformModels.CatalogInsightResponseSchema getCatalogInsights(String brand, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CatalogInsightResponse getCatalogInsights(String brand, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.CatalogInsightResponseSchema> response = null;
+            Response<CatalogPlatformModels.CatalogInsightResponse> response = null;
             try {
             response = catalogPlatformApiList.getCatalogInsights(this.companyId, this.applicationId, brand, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -4966,13 +4910,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.BrandListingResponseSchema getApplicationBrands(String department, Integer pageNo, Integer pageSize, String q, List<Integer> brandId) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BrandListingResponse getApplicationBrands(String department, Integer pageNo, Integer pageSize, String q, List<Integer> brandId) throws FDKServerResponseError, FDKException {
         return this.getApplicationBrands(department, pageNo, pageSize, q, brandId, new HashMap<>());
     }
 
-    public CatalogPlatformModels.BrandListingResponseSchema getApplicationBrands(String department, Integer pageNo, Integer pageSize, String q, List<Integer> brandId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BrandListingResponse getApplicationBrands(String department, Integer pageNo, Integer pageSize, String q, List<Integer> brandId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.BrandListingResponseSchema> response = null;
+            Response<CatalogPlatformModels.BrandListingResponse> response = null;
             try {
             response = catalogPlatformApiList.getApplicationBrands(this.companyId, this.applicationId, department, pageNo, pageSize, q, brandId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -4997,7 +4941,7 @@ public class ApplicationClient {
     * Summary: get paginator for getApplicationBrands
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogPlatformModels.BrandListingResponseSchema> getApplicationBrandsPagination(
+    public Paginator<CatalogPlatformModels.BrandListingResponse> getApplicationBrandsPagination(
         String department,
         Integer pageSize,
         String q,
@@ -5007,11 +4951,11 @@ public class ApplicationClient {
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogPlatformModels.BrandListingResponseSchema> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CatalogPlatformModels.BrandListingResponse> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            CatalogPlatformModels.BrandListingResponseSchema callback = this.getApplicationBrands(
+            CatalogPlatformModels.BrandListingResponse callback = this.getApplicationBrands(
                 
                  
                  
@@ -5033,13 +4977,13 @@ public class ApplicationClient {
     return paginator ;
     }
 
-    public CatalogPlatformModels.CategoryListingResponseSchema getCategories(String department) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CategoryListingResponse getCategories(String department) throws FDKServerResponseError, FDKException {
         return this.getCategories(department, new HashMap<>());
     }
 
-    public CatalogPlatformModels.CategoryListingResponseSchema getCategories(String department, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CategoryListingResponse getCategories(String department, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.CategoryListingResponseSchema> response = null;
+            Response<CatalogPlatformModels.CategoryListingResponse> response = null;
             try {
             response = catalogPlatformApiList.getCategories(this.companyId, this.applicationId, department, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -5152,13 +5096,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetCollectionListingResponseSchema getAllCollections(String q, String scheduleStatus, String type, List<String> tags, Boolean isActive, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetCollectionListingResponse getAllCollections(String q, String scheduleStatus, String type, List<String> tags, Boolean isActive, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
         return this.getAllCollections(q, scheduleStatus, type, tags, isActive, pageNo, pageSize, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetCollectionListingResponseSchema getAllCollections(String q, String scheduleStatus, String type, List<String> tags, Boolean isActive, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetCollectionListingResponse getAllCollections(String q, String scheduleStatus, String type, List<String> tags, Boolean isActive, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetCollectionListingResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetCollectionListingResponse> response = null;
             try {
             response = catalogPlatformApiList.getAllCollections(this.companyId, this.applicationId, q, scheduleStatus, type, tags, isActive, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -5183,7 +5127,7 @@ public class ApplicationClient {
     * Summary: get paginator for getAllCollections
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogPlatformModels.GetCollectionListingResponseSchema> getAllCollectionsPagination(
+    public Paginator<CatalogPlatformModels.GetCollectionListingResponse> getAllCollectionsPagination(
         String q,
         String scheduleStatus,
         String type,
@@ -5195,11 +5139,11 @@ public class ApplicationClient {
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogPlatformModels.GetCollectionListingResponseSchema> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CatalogPlatformModels.GetCollectionListingResponse> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            CatalogPlatformModels.GetCollectionListingResponseSchema callback = this.getAllCollections(
+            CatalogPlatformModels.GetCollectionListingResponse callback = this.getAllCollections(
                 
                  
                  
@@ -5223,15 +5167,15 @@ public class ApplicationClient {
     return paginator ;
     }
 
-    public CatalogPlatformModels.CollectionCreateResponseSchema createCollection(String q, String scheduleStatus, String type, List<String> tags, Boolean isActive, Integer pageNo, Integer pageSize, CatalogPlatformModels.CreateCollection body) throws FDKServerResponseError, FDKException {
-        return this.createCollection(q, scheduleStatus, type, tags, isActive, pageNo, pageSize, body, new HashMap<>());
+    public CatalogPlatformModels.CollectionCreateResponse createCollection(CatalogPlatformModels.CreateCollection body) throws FDKServerResponseError, FDKException {
+        return this.createCollection(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.CollectionCreateResponseSchema createCollection(String q, String scheduleStatus, String type, List<String> tags, Boolean isActive, Integer pageNo, Integer pageSize, CatalogPlatformModels.CreateCollection body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CollectionCreateResponse createCollection(CatalogPlatformModels.CreateCollection body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.CollectionCreateResponseSchema> response = null;
+            Response<CatalogPlatformModels.CollectionCreateResponse> response = null;
             try {
-            response = catalogPlatformApiList.createCollection(this.companyId, this.applicationId, q, scheduleStatus, type, tags, isActive, pageNo, pageSize, body, requestHeaders).execute();
+            response = catalogPlatformApiList.createCollection(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -5250,13 +5194,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetQueryFiltersValuesResponseSchema getApplicationFilterValues(String filterKey, String c, String collectionId, Integer pageNo, Integer pageSize, String q) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetQueryFiltersValuesResponse getApplicationFilterValues(String filterKey, String c, String collectionId, Integer pageNo, Integer pageSize, String q) throws FDKServerResponseError, FDKException {
         return this.getApplicationFilterValues(filterKey, c, collectionId, pageNo, pageSize, q, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetQueryFiltersValuesResponseSchema getApplicationFilterValues(String filterKey, String c, String collectionId, Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetQueryFiltersValuesResponse getApplicationFilterValues(String filterKey, String c, String collectionId, Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetQueryFiltersValuesResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetQueryFiltersValuesResponse> response = null;
             try {
             response = catalogPlatformApiList.getApplicationFilterValues(this.companyId, this.applicationId, filterKey, c, collectionId, pageNo, pageSize, q, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -5277,13 +5221,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetQueryFiltersKeysResponseSchema getApplicationFilterKeys(String c) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetQueryFiltersKeysResponse getApplicationFilterKeys(String c) throws FDKServerResponseError, FDKException {
         return this.getApplicationFilterKeys(c, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetQueryFiltersKeysResponseSchema getApplicationFilterKeys(String c, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetQueryFiltersKeysResponse getApplicationFilterKeys(String c, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetQueryFiltersKeysResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetQueryFiltersKeysResponse> response = null;
             try {
             response = catalogPlatformApiList.getApplicationFilterKeys(this.companyId, this.applicationId, c, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -5304,13 +5248,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetQueryFiltersResponseSchema getQueryFilters() throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetQueryFiltersResponse getQueryFilters() throws FDKServerResponseError, FDKException {
         return this.getQueryFilters(new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetQueryFiltersResponseSchema getQueryFilters(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetQueryFiltersResponse getQueryFilters(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetQueryFiltersResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetQueryFiltersResponse> response = null;
             try {
             response = catalogPlatformApiList.getQueryFilters(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -5385,15 +5329,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetCollectionItemsResponseSchema getCollectionItems(String id, String sortOn, String pageId, Integer pageSize, Integer pageNo) throws FDKServerResponseError, FDKException {
-        return this.getCollectionItems(id, sortOn, pageId, pageSize, pageNo, new HashMap<>());
+    public CatalogPlatformModels.GetCollectionItemsResponse getCollectionItems(String id, String sortOn, String pageId, Integer pageSize) throws FDKServerResponseError, FDKException {
+        return this.getCollectionItems(id, sortOn, pageId, pageSize, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetCollectionItemsResponseSchema getCollectionItems(String id, String sortOn, String pageId, Integer pageSize, Integer pageNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetCollectionItemsResponse getCollectionItems(String id, String sortOn, String pageId, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetCollectionItemsResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetCollectionItemsResponse> response = null;
             try {
-            response = catalogPlatformApiList.getCollectionItems(this.companyId, this.applicationId, id, sortOn, pageId, pageSize, pageNo, requestHeaders).execute();
+            response = catalogPlatformApiList.getCollectionItems(this.companyId, this.applicationId, id, sortOn, pageId, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -5439,13 +5383,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetCollectionDetailResponseSchema getCollectionDetail(String slug) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetCollectionDetailResponse getCollectionDetail(String slug) throws FDKServerResponseError, FDKException {
         return this.getCollectionDetail(slug, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetCollectionDetailResponseSchema getCollectionDetail(String slug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetCollectionDetailResponse getCollectionDetail(String slug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetCollectionDetailResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetCollectionDetailResponse> response = null;
             try {
             response = catalogPlatformApiList.getCollectionDetail(this.companyId, this.applicationId, slug, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -5466,13 +5410,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.ApplicationDepartmentListingResponseSchema getApplicationDepartmentListing(Integer pageNo, Integer pageSize, String q) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ApplicationDepartmentListingResponse getApplicationDepartmentListing(Integer pageNo, Integer pageSize, String q) throws FDKServerResponseError, FDKException {
         return this.getApplicationDepartmentListing(pageNo, pageSize, q, new HashMap<>());
     }
 
-    public CatalogPlatformModels.ApplicationDepartmentListingResponseSchema getApplicationDepartmentListing(Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ApplicationDepartmentListingResponse getApplicationDepartmentListing(Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ApplicationDepartmentListingResponseSchema> response = null;
+            Response<CatalogPlatformModels.ApplicationDepartmentListingResponse> response = null;
             try {
             response = catalogPlatformApiList.getApplicationDepartmentListing(this.companyId, this.applicationId, pageNo, pageSize, q, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -5497,7 +5441,7 @@ public class ApplicationClient {
     * Summary: get paginator for getApplicationDepartmentListing
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogPlatformModels.ApplicationDepartmentListingResponseSchema> getApplicationDepartmentListingPagination(
+    public Paginator<CatalogPlatformModels.ApplicationDepartmentListingResponse> getApplicationDepartmentListingPagination(
         Integer pageSize,
         String q
         
@@ -5505,11 +5449,11 @@ public class ApplicationClient {
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogPlatformModels.ApplicationDepartmentListingResponseSchema> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CatalogPlatformModels.ApplicationDepartmentListingResponse> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            CatalogPlatformModels.ApplicationDepartmentListingResponseSchema callback = this.getApplicationDepartmentListing(
+            CatalogPlatformModels.ApplicationDepartmentListingResponse callback = this.getApplicationDepartmentListing(
                 
                  
                  
@@ -5529,11 +5473,11 @@ public class ApplicationClient {
     return paginator ;
     }
 
-    public CatalogPlatformModels.SuccessResponseObject updateAppDepartment(Integer departmentUid, CatalogPlatformModels.ApplicationDepartmentJson body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponseObject updateAppDepartment(String departmentUid, CatalogPlatformModels.ApplicationDepartmentJson body) throws FDKServerResponseError, FDKException {
         return this.updateAppDepartment(departmentUid, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponseObject updateAppDepartment(Integer departmentUid, CatalogPlatformModels.ApplicationDepartmentJson body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponseObject updateAppDepartment(String departmentUid, CatalogPlatformModels.ApplicationDepartmentJson body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.SuccessResponseObject> response = null;
             try {
@@ -5556,13 +5500,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.DepartmentResponseSchema getDepartments() throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.DepartmentResponse getDepartments() throws FDKServerResponseError, FDKException {
         return this.getDepartments(new HashMap<>());
     }
 
-    public CatalogPlatformModels.DepartmentResponseSchema getDepartments(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.DepartmentResponse getDepartments(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.DepartmentResponseSchema> response = null;
+            Response<CatalogPlatformModels.DepartmentResponse> response = null;
             try {
             response = catalogPlatformApiList.getDepartments(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -5583,13 +5527,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.InventoryStockResponseSchema getAppInventory(List<Integer> itemIds, List<Integer> storeIds, List<Integer> brandIds, List<String> sellerIdentifiers, String timestamp, Integer pageSize, String pageId, Integer qtyGt, Integer qtyLt, String qtyType, String fromDate, String toDate) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryStockResponse getAppInventory(List<Integer> itemIds, List<Integer> storeIds, List<Integer> brandIds, List<String> sellerIdentifiers, String timestamp, Integer pageSize, String pageId, Integer qtyGt, Integer qtyLt, String qtyType, String fromDate, String toDate) throws FDKServerResponseError, FDKException {
         return this.getAppInventory(itemIds, storeIds, brandIds, sellerIdentifiers, timestamp, pageSize, pageId, qtyGt, qtyLt, qtyType, fromDate, toDate, new HashMap<>());
     }
 
-    public CatalogPlatformModels.InventoryStockResponseSchema getAppInventory(List<Integer> itemIds, List<Integer> storeIds, List<Integer> brandIds, List<String> sellerIdentifiers, String timestamp, Integer pageSize, String pageId, Integer qtyGt, Integer qtyLt, String qtyType, String fromDate, String toDate, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventoryStockResponse getAppInventory(List<Integer> itemIds, List<Integer> storeIds, List<Integer> brandIds, List<String> sellerIdentifiers, String timestamp, Integer pageSize, String pageId, Integer qtyGt, Integer qtyLt, String qtyType, String fromDate, String toDate, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.InventoryStockResponseSchema> response = null;
+            Response<CatalogPlatformModels.InventoryStockResponse> response = null;
             try {
             response = catalogPlatformApiList.getAppInventory(this.companyId, this.applicationId, itemIds, storeIds, brandIds, sellerIdentifiers, timestamp, pageSize, pageId, qtyGt, qtyLt, qtyType, fromDate, toDate, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -5610,13 +5554,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.LocationListSchema getAppLocations(String storeType, List<Integer> uid, String q, String stage, Integer pageNo, Integer pageSize, List<String> tags, List<String> storeTypes) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.LocationListSerializer getAppLocations(String storeType, List<Integer> uid, String q, String stage, Integer pageNo, Integer pageSize, List<String> tags, List<String> storeTypes) throws FDKServerResponseError, FDKException {
         return this.getAppLocations(storeType, uid, q, stage, pageNo, pageSize, tags, storeTypes, new HashMap<>());
     }
 
-    public CatalogPlatformModels.LocationListSchema getAppLocations(String storeType, List<Integer> uid, String q, String stage, Integer pageNo, Integer pageSize, List<String> tags, List<String> storeTypes, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.LocationListSerializer getAppLocations(String storeType, List<Integer> uid, String q, String stage, Integer pageNo, Integer pageSize, List<String> tags, List<String> storeTypes, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.LocationListSchema> response = null;
+            Response<CatalogPlatformModels.LocationListSerializer> response = null;
             try {
             response = catalogPlatformApiList.getAppLocations(this.companyId, this.applicationId, storeType, uid, q, stage, pageNo, pageSize, tags, storeTypes, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -5641,7 +5585,7 @@ public class ApplicationClient {
     * Summary: get paginator for getAppLocations
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogPlatformModels.LocationListSchema> getAppLocationsPagination(
+    public Paginator<CatalogPlatformModels.LocationListSerializer> getAppLocationsPagination(
         String storeType,
         List<Integer> uid,
         String q,
@@ -5654,11 +5598,11 @@ public class ApplicationClient {
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogPlatformModels.LocationListSchema> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CatalogPlatformModels.LocationListSerializer> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            CatalogPlatformModels.LocationListSchema callback = this.getAppLocations(
+            CatalogPlatformModels.LocationListSerializer callback = this.getAppLocations(
                 
                  
                  
@@ -5818,13 +5762,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.OwnerAppItemResponseSchema getAppProduct(String itemId) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.OwnerAppItemResponse getAppProduct(String itemId) throws FDKServerResponseError, FDKException {
         return this.getAppProduct(itemId, new HashMap<>());
     }
 
-    public CatalogPlatformModels.OwnerAppItemResponseSchema getAppProduct(String itemId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.OwnerAppItemResponse getAppProduct(String itemId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.OwnerAppItemResponseSchema> response = null;
+            Response<CatalogPlatformModels.OwnerAppItemResponse> response = null;
             try {
             response = catalogPlatformApiList.getAppProduct(this.companyId, this.applicationId, itemId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -5845,11 +5789,11 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.SuccessResponseObject updateAppProduct(Integer itemId, CatalogPlatformModels.ApplicationItemMeta body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponseObject updateAppProduct(String itemId, CatalogPlatformModels.ApplicationItemMeta body) throws FDKServerResponseError, FDKException {
         return this.updateAppProduct(itemId, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponseObject updateAppProduct(Integer itemId, CatalogPlatformModels.ApplicationItemMeta body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponseObject updateAppProduct(String itemId, CatalogPlatformModels.ApplicationItemMeta body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.SuccessResponseObject> response = null;
             try {
@@ -5872,15 +5816,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.ApplicationProductListingResponseSchema getApplicationProducts(String q, String f, String c, Boolean filters, Boolean isDependent, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType, List<String> itemIds) throws FDKServerResponseError, FDKException {
-        return this.getApplicationProducts(q, f, c, filters, isDependent, sortOn, pageId, pageSize, pageNo, pageType, itemIds, new HashMap<>());
+    public CatalogPlatformModels.ApplicationProductListingResponse getAppicationProducts(String q, String f, String c, Boolean filters, Boolean isDependent, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType, List<Integer> itemIds) throws FDKServerResponseError, FDKException {
+        return this.getAppicationProducts(q, f, c, filters, isDependent, sortOn, pageId, pageSize, pageNo, pageType, itemIds, new HashMap<>());
     }
 
-    public CatalogPlatformModels.ApplicationProductListingResponseSchema getApplicationProducts(String q, String f, String c, Boolean filters, Boolean isDependent, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType, List<String> itemIds, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ApplicationProductListingResponse getAppicationProducts(String q, String f, String c, Boolean filters, Boolean isDependent, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType, List<Integer> itemIds, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ApplicationProductListingResponseSchema> response = null;
+            Response<CatalogPlatformModels.ApplicationProductListingResponse> response = null;
             try {
-            response = catalogPlatformApiList.getApplicationProducts(this.companyId, this.applicationId, q, f, c, filters, isDependent, sortOn, pageId, pageSize, pageNo, pageType, itemIds, requestHeaders).execute();
+            response = catalogPlatformApiList.getAppicationProducts(this.companyId, this.applicationId, q, f, c, filters, isDependent, sortOn, pageId, pageSize, pageNo, pageType, itemIds, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -5900,10 +5844,10 @@ public class ApplicationClient {
     }
 
     /**
-    * Summary: get paginator for getApplicationProducts
+    * Summary: get paginator for getAppicationProducts
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogPlatformModels.ApplicationProductListingResponseSchema> getApplicationProductsPagination(
+    public Paginator<CatalogPlatformModels.ApplicationProductListingResponse> getAppicationProductsPagination(
         String q,
         String f,
         String c,
@@ -5911,17 +5855,17 @@ public class ApplicationClient {
         Boolean isDependent,
         String sortOn,
         Integer pageSize,
-        List<String> itemIds
+        List<Integer> itemIds
         
         ){ 
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogPlatformModels.ApplicationProductListingResponseSchema> paginator = new Paginator<>(pageSize, "cursor");
+    Paginator<CatalogPlatformModels.ApplicationProductListingResponse> paginator = new Paginator<>(pageSize, "cursor");
 
     paginator.setCallback(()-> {
         try {
-            CatalogPlatformModels.ApplicationProductListingResponseSchema callback = this.getApplicationProducts(
+            CatalogPlatformModels.ApplicationProductListingResponse callback = this.getAppicationProducts(
                 
                  
                  
@@ -5951,15 +5895,15 @@ public class ApplicationClient {
     return paginator ;
     }
 
-    public CatalogPlatformModels.ApplicationInventorySellerIdentifierResponsePaginated getDiscountedInventoryBySizeIdentifier(Integer itemId, Integer sizeIdentifier, Integer pageNo, Integer pageSize, List<Integer> locationIds) throws FDKServerResponseError, FDKException {
-        return this.getDiscountedInventoryBySizeIdentifier(itemId, sizeIdentifier, pageNo, pageSize, locationIds, new HashMap<>());
+    public CatalogPlatformModels.InventorySellerIdentifierResponsePaginated getDiscountedInventoryBySizeIdentifier(Integer itemId, String sizeIdentifier, Integer pageNo, Integer pageSize, String q, List<Integer> locationIds) throws FDKServerResponseError, FDKException {
+        return this.getDiscountedInventoryBySizeIdentifier(itemId, sizeIdentifier, pageNo, pageSize, q, locationIds, new HashMap<>());
     }
 
-    public CatalogPlatformModels.ApplicationInventorySellerIdentifierResponsePaginated getDiscountedInventoryBySizeIdentifier(Integer itemId, Integer sizeIdentifier, Integer pageNo, Integer pageSize, List<Integer> locationIds, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.InventorySellerIdentifierResponsePaginated getDiscountedInventoryBySizeIdentifier(Integer itemId, String sizeIdentifier, Integer pageNo, Integer pageSize, String q, List<Integer> locationIds, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ApplicationInventorySellerIdentifierResponsePaginated> response = null;
+            Response<CatalogPlatformModels.InventorySellerIdentifierResponsePaginated> response = null;
             try {
-            response = catalogPlatformApiList.getDiscountedInventoryBySizeIdentifier(this.companyId, this.applicationId, itemId, sizeIdentifier, pageNo, pageSize, locationIds, requestHeaders).execute();
+            response = catalogPlatformApiList.getDiscountedInventoryBySizeIdentifier(this.companyId, this.applicationId, itemId, sizeIdentifier, pageNo, pageSize, q, locationIds, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -5982,21 +5926,22 @@ public class ApplicationClient {
     * Summary: get paginator for getDiscountedInventoryBySizeIdentifier
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogPlatformModels.ApplicationInventorySellerIdentifierResponsePaginated> getDiscountedInventoryBySizeIdentifierPagination(
+    public Paginator<CatalogPlatformModels.InventorySellerIdentifierResponsePaginated> getDiscountedInventoryBySizeIdentifierPagination(
         Integer itemId,
-        Integer sizeIdentifier,
+        String sizeIdentifier,
         Integer pageSize,
+        String q,
         List<Integer> locationIds
         
         ){ 
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogPlatformModels.ApplicationInventorySellerIdentifierResponsePaginated> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CatalogPlatformModels.InventorySellerIdentifierResponsePaginated> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            CatalogPlatformModels.ApplicationInventorySellerIdentifierResponsePaginated callback = this.getDiscountedInventoryBySizeIdentifier(
+            CatalogPlatformModels.InventorySellerIdentifierResponsePaginated callback = this.getDiscountedInventoryBySizeIdentifier(
                 
                  
                  
@@ -6006,6 +5951,7 @@ public class ApplicationClient {
                 ,
                  paginator.getPageSize()
                 ,
+                 q,
                  locationIds
             );
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
@@ -6045,13 +5991,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.RawProductListingResponseSchema getAppProducts(List<Integer> brandIds, List<Integer> categoryIds, List<Integer> departmentIds, List<String> tags, List<Integer> itemIds, Integer pageNo, Integer pageSize, String q) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.RawProductListingResponse getAppProducts(List<Integer> brandIds, List<Integer> categoryIds, List<Integer> departmentIds, List<String> tags, List<Integer> itemIds, Integer pageNo, Integer pageSize, String q) throws FDKServerResponseError, FDKException {
         return this.getAppProducts(brandIds, categoryIds, departmentIds, tags, itemIds, pageNo, pageSize, q, new HashMap<>());
     }
 
-    public CatalogPlatformModels.RawProductListingResponseSchema getAppProducts(List<Integer> brandIds, List<Integer> categoryIds, List<Integer> departmentIds, List<String> tags, List<Integer> itemIds, Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.RawProductListingResponse getAppProducts(List<Integer> brandIds, List<Integer> categoryIds, List<Integer> departmentIds, List<String> tags, List<Integer> itemIds, Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.RawProductListingResponseSchema> response = null;
+            Response<CatalogPlatformModels.RawProductListingResponse> response = null;
             try {
             response = catalogPlatformApiList.getAppProducts(this.companyId, this.applicationId, brandIds, categoryIds, departmentIds, tags, itemIds, pageNo, pageSize, q, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6076,7 +6022,7 @@ public class ApplicationClient {
     * Summary: get paginator for getAppProducts
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogPlatformModels.RawProductListingResponseSchema> getAppProductsPagination(
+    public Paginator<CatalogPlatformModels.RawProductListingResponse> getAppProductsPagination(
         List<Integer> brandIds,
         List<Integer> categoryIds,
         List<Integer> departmentIds,
@@ -6089,11 +6035,11 @@ public class ApplicationClient {
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogPlatformModels.RawProductListingResponseSchema> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CatalogPlatformModels.RawProductListingResponse> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            CatalogPlatformModels.RawProductListingResponseSchema callback = this.getAppProducts(
+            CatalogPlatformModels.RawProductListingResponse callback = this.getAppProducts(
                 
                  
                  
@@ -6118,13 +6064,13 @@ public class ApplicationClient {
     return paginator ;
     }
 
-    public CatalogPlatformModels.AppReturnConfigResponseSchema getAppReturnConfiguration() throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.AppReturnConfigResponse getAppReturnConfiguration() throws FDKServerResponseError, FDKException {
         return this.getAppReturnConfiguration(new HashMap<>());
     }
 
-    public CatalogPlatformModels.AppReturnConfigResponseSchema getAppReturnConfiguration(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.AppReturnConfigResponse getAppReturnConfiguration(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.AppReturnConfigResponseSchema> response = null;
+            Response<CatalogPlatformModels.AppReturnConfigResponse> response = null;
             try {
             response = catalogPlatformApiList.getAppReturnConfiguration(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6199,13 +6145,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.SuccessResponseSchema deleteAppCategoryReturnConfiguration(CatalogPlatformModels.DeleteAppCategoryReturnConfig body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse deleteAppCategoryReturnConfiguration(CatalogPlatformModels.DeleteAppCategoryReturnConfig body) throws FDKServerResponseError, FDKException {
         return this.deleteAppCategoryReturnConfiguration(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponseSchema deleteAppCategoryReturnConfiguration(CatalogPlatformModels.DeleteAppCategoryReturnConfig body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse deleteAppCategoryReturnConfiguration(CatalogPlatformModels.DeleteAppCategoryReturnConfig body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponseSchema> response = null;
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
             response = catalogPlatformApiList.deleteAppCategoryReturnConfiguration(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6226,13 +6172,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.BaseAppCategoryReturnConfigResponseSchema getAppCategoryReturnConfig(String q, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BaseAppCategoryReturnConfigResponse getAppCategoryReturnConfig(String q, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
         return this.getAppCategoryReturnConfig(q, pageNo, pageSize, new HashMap<>());
     }
 
-    public CatalogPlatformModels.BaseAppCategoryReturnConfigResponseSchema getAppCategoryReturnConfig(String q, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.BaseAppCategoryReturnConfigResponse getAppCategoryReturnConfig(String q, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.BaseAppCategoryReturnConfigResponseSchema> response = null;
+            Response<CatalogPlatformModels.BaseAppCategoryReturnConfigResponse> response = null;
             try {
             response = catalogPlatformApiList.getAppCategoryReturnConfig(this.companyId, this.applicationId, q, pageNo, pageSize, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6280,13 +6226,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.SuccessResponseSchema updateAppCategoryReturnConfiguration(CatalogPlatformModels.BaseAppCategoryReturnConfig body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse updateAppCategoryReturnConfiguration(CatalogPlatformModels.BaseAppCategoryReturnConfig body) throws FDKServerResponseError, FDKException {
         return this.updateAppCategoryReturnConfiguration(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponseSchema updateAppCategoryReturnConfiguration(CatalogPlatformModels.BaseAppCategoryReturnConfig body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponse updateAppCategoryReturnConfiguration(CatalogPlatformModels.BaseAppCategoryReturnConfig body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.SuccessResponseSchema> response = null;
+            Response<CatalogPlatformModels.SuccessResponse> response = null;
             try {
             response = catalogPlatformApiList.updateAppCategoryReturnConfiguration(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6307,13 +6253,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetAutocompleteWordsResponseSchema getAutocompleteConfig() throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetAutocompleteWordsResponse getAutocompleteConfig() throws FDKServerResponseError, FDKException {
         return this.getAutocompleteConfig(new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetAutocompleteWordsResponseSchema getAutocompleteConfig(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetAutocompleteWordsResponse getAutocompleteConfig(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetAutocompleteWordsResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetAutocompleteWordsResponse> response = null;
             try {
             response = catalogPlatformApiList.getAutocompleteConfig(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6334,13 +6280,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.CreateAutocompleteWordsResponseSchema createCustomAutocompleteRule(CatalogPlatformModels.CreateAutocompleteKeyword body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CreateAutocompleteWordsResponse createCustomAutocompleteRule(CatalogPlatformModels.CreateAutocompleteKeyword body) throws FDKServerResponseError, FDKException {
         return this.createCustomAutocompleteRule(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.CreateAutocompleteWordsResponseSchema createCustomAutocompleteRule(CatalogPlatformModels.CreateAutocompleteKeyword body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CreateAutocompleteWordsResponse createCustomAutocompleteRule(CatalogPlatformModels.CreateAutocompleteKeyword body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.CreateAutocompleteWordsResponseSchema> response = null;
+            Response<CatalogPlatformModels.CreateAutocompleteWordsResponse> response = null;
             try {
             response = catalogPlatformApiList.createCustomAutocompleteRule(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6361,13 +6307,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.DeleteResponseSchema deleteAutocompleteKeyword(String id) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.DeleteResponse deleteAutocompleteKeyword(String id) throws FDKServerResponseError, FDKException {
         return this.deleteAutocompleteKeyword(id, new HashMap<>());
     }
 
-    public CatalogPlatformModels.DeleteResponseSchema deleteAutocompleteKeyword(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.DeleteResponse deleteAutocompleteKeyword(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.DeleteResponseSchema> response = null;
+            Response<CatalogPlatformModels.DeleteResponse> response = null;
             try {
             response = catalogPlatformApiList.deleteAutocompleteKeyword(this.companyId, this.applicationId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6388,13 +6334,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetAutocompleteWordsResponseSchema getAutocompleteKeywordDetail(String id) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetAutocompleteWordsResponse getAutocompleteKeywordDetail(String id) throws FDKServerResponseError, FDKException {
         return this.getAutocompleteKeywordDetail(id, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetAutocompleteWordsResponseSchema getAutocompleteKeywordDetail(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetAutocompleteWordsResponse getAutocompleteKeywordDetail(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetAutocompleteWordsResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetAutocompleteWordsResponse> response = null;
             try {
             response = catalogPlatformApiList.getAutocompleteKeywordDetail(this.companyId, this.applicationId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6415,13 +6361,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetAutocompleteWordsResponseSchema updateAutocompleteKeyword(String id, CatalogPlatformModels.CreateAutocompleteKeyword body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetAutocompleteWordsResponse updateAutocompleteKeyword(String id, CatalogPlatformModels.CreateAutocompleteKeyword body) throws FDKServerResponseError, FDKException {
         return this.updateAutocompleteKeyword(id, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetAutocompleteWordsResponseSchema updateAutocompleteKeyword(String id, CatalogPlatformModels.CreateAutocompleteKeyword body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetAutocompleteWordsResponse updateAutocompleteKeyword(String id, CatalogPlatformModels.CreateAutocompleteKeyword body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetAutocompleteWordsResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetAutocompleteWordsResponse> response = null;
             try {
             response = catalogPlatformApiList.updateAutocompleteKeyword(this.companyId, this.applicationId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6442,13 +6388,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.DeleteSearchConfigurationResponseSchema deleteSearchConfiguration() throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.DeleteSearchConfigurationResponse deleteSearchConfiguration() throws FDKServerResponseError, FDKException {
         return this.deleteSearchConfiguration(new HashMap<>());
     }
 
-    public CatalogPlatformModels.DeleteSearchConfigurationResponseSchema deleteSearchConfiguration(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.DeleteSearchConfigurationResponse deleteSearchConfiguration(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.DeleteSearchConfigurationResponseSchema> response = null;
+            Response<CatalogPlatformModels.DeleteSearchConfigurationResponse> response = null;
             try {
             response = catalogPlatformApiList.deleteSearchConfiguration(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6469,13 +6415,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetSearchConfigurationResponseSchema getSearchConfiguration() throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetSearchConfigurationResponse getSearchConfiguration() throws FDKServerResponseError, FDKException {
         return this.getSearchConfiguration(new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetSearchConfigurationResponseSchema getSearchConfiguration(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetSearchConfigurationResponse getSearchConfiguration(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetSearchConfigurationResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetSearchConfigurationResponse> response = null;
             try {
             response = catalogPlatformApiList.getSearchConfiguration(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6496,13 +6442,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.CreateSearchConfigurationResponseSchema createSearchConfiguration(CatalogPlatformModels.CreateSearchConfigurationRequestSchema body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CreateSearchConfigurationResponse createSearchConfiguration(CatalogPlatformModels.CreateSearchConfigurationRequest body) throws FDKServerResponseError, FDKException {
         return this.createSearchConfiguration(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.CreateSearchConfigurationResponseSchema createSearchConfiguration(CatalogPlatformModels.CreateSearchConfigurationRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CreateSearchConfigurationResponse createSearchConfiguration(CatalogPlatformModels.CreateSearchConfigurationRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.CreateSearchConfigurationResponseSchema> response = null;
+            Response<CatalogPlatformModels.CreateSearchConfigurationResponse> response = null;
             try {
             response = catalogPlatformApiList.createSearchConfiguration(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6523,13 +6469,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.UpdateSearchConfigurationResponseSchema updateSearchConfiguration(CatalogPlatformModels.UpdateSearchConfigurationRequestSchema body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.UpdateSearchConfigurationResponse updateSearchConfiguration(CatalogPlatformModels.UpdateSearchConfigurationRequest body) throws FDKServerResponseError, FDKException {
         return this.updateSearchConfiguration(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.UpdateSearchConfigurationResponseSchema updateSearchConfiguration(CatalogPlatformModels.UpdateSearchConfigurationRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.UpdateSearchConfigurationResponse updateSearchConfiguration(CatalogPlatformModels.UpdateSearchConfigurationRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.UpdateSearchConfigurationResponseSchema> response = null;
+            Response<CatalogPlatformModels.UpdateSearchConfigurationResponse> response = null;
             try {
             response = catalogPlatformApiList.updateSearchConfiguration(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6550,13 +6496,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetSearchWordsResponseSchema getAllSearchKeyword() throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetSearchWordsResponse getAllSearchKeyword() throws FDKServerResponseError, FDKException {
         return this.getAllSearchKeyword(new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetSearchWordsResponseSchema getAllSearchKeyword(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetSearchWordsResponse getAllSearchKeyword(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetSearchWordsResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetSearchWordsResponse> response = null;
             try {
             response = catalogPlatformApiList.getAllSearchKeyword(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6604,13 +6550,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.DeleteResponseSchema deleteSearchKeywords(String id) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.DeleteResponse deleteSearchKeywords(String id) throws FDKServerResponseError, FDKException {
         return this.deleteSearchKeywords(id, new HashMap<>());
     }
 
-    public CatalogPlatformModels.DeleteResponseSchema deleteSearchKeywords(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.DeleteResponse deleteSearchKeywords(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.DeleteResponseSchema> response = null;
+            Response<CatalogPlatformModels.DeleteResponse> response = null;
             try {
             response = catalogPlatformApiList.deleteSearchKeywords(this.companyId, this.applicationId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6631,13 +6577,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetSearchWordsDetailResponseSchema getSearchKeywords(String id) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetSearchWordsDetailResponse getSearchKeywords(String id) throws FDKServerResponseError, FDKException {
         return this.getSearchKeywords(id, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetSearchWordsDetailResponseSchema getSearchKeywords(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetSearchWordsDetailResponse getSearchKeywords(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetSearchWordsDetailResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetSearchWordsDetailResponse> response = null;
             try {
             response = catalogPlatformApiList.getSearchKeywords(this.companyId, this.applicationId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6685,11 +6631,11 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.SuccessResponseObject updateAppLocation(Integer storeUid, CatalogPlatformModels.ApplicationStoreJson body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponseObject updateAppLocation(String storeUid, CatalogPlatformModels.ApplicationStoreJson body) throws FDKServerResponseError, FDKException {
         return this.updateAppLocation(storeUid, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.SuccessResponseObject updateAppLocation(Integer storeUid, CatalogPlatformModels.ApplicationStoreJson body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.SuccessResponseObject updateAppLocation(String storeUid, CatalogPlatformModels.ApplicationStoreJson body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.SuccessResponseObject> response = null;
             try {
@@ -6712,13 +6658,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.ConfigSuccessResponseSchema updateAllowSingle(CatalogPlatformModels.AllowSingleRequestSchema body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ConfigSuccessResponse updateAllowSingle(CatalogPlatformModels.AllowSingleRequest body) throws FDKServerResponseError, FDKException {
         return this.updateAllowSingle(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.ConfigSuccessResponseSchema updateAllowSingle(CatalogPlatformModels.AllowSingleRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ConfigSuccessResponse updateAllowSingle(CatalogPlatformModels.AllowSingleRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ConfigSuccessResponseSchema> response = null;
+            Response<CatalogPlatformModels.ConfigSuccessResponse> response = null;
             try {
             response = catalogPlatformApiList.updateAllowSingle(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6739,13 +6685,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.ConfigSuccessResponseSchema updateDefaultSort(CatalogPlatformModels.DefaultKeyRequestSchema body) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ConfigSuccessResponse updateDefaultSort(CatalogPlatformModels.DefaultKeyRequest body) throws FDKServerResponseError, FDKException {
         return this.updateDefaultSort(body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.ConfigSuccessResponseSchema updateDefaultSort(CatalogPlatformModels.DefaultKeyRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ConfigSuccessResponse updateDefaultSort(CatalogPlatformModels.DefaultKeyRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ConfigSuccessResponseSchema> response = null;
+            Response<CatalogPlatformModels.ConfigSuccessResponse> response = null;
             try {
             response = catalogPlatformApiList.updateDefaultSort(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6766,13 +6712,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetConfigResponseSchema getListingConfigurations(String configType, Integer pageNo, Integer pageSize, String search) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetConfigResponse getListingConfigurations(String configType, Integer pageNo, Integer pageSize, String search) throws FDKServerResponseError, FDKException {
         return this.getListingConfigurations(configType, pageNo, pageSize, search, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetConfigResponseSchema getListingConfigurations(String configType, Integer pageNo, Integer pageSize, String search, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetConfigResponse getListingConfigurations(String configType, Integer pageNo, Integer pageSize, String search, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetConfigResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetConfigResponse> response = null;
             try {
             response = catalogPlatformApiList.getListingConfigurations(this.companyId, this.applicationId, configType, pageNo, pageSize, search, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6820,13 +6766,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetConfigResponseSchema getGroupConfigurations(String configType, Integer pageNo, Integer pageSize, String search, String templateSlug) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetConfigResponse getGroupConfigurations(String configType, Integer pageNo, Integer pageSize, String search, String templateSlug) throws FDKServerResponseError, FDKException {
         return this.getGroupConfigurations(configType, pageNo, pageSize, search, templateSlug, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetConfigResponseSchema getGroupConfigurations(String configType, Integer pageNo, Integer pageSize, String search, String templateSlug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetConfigResponse getGroupConfigurations(String configType, Integer pageNo, Integer pageSize, String search, String templateSlug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetConfigResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetConfigResponse> response = null;
             try {
             response = catalogPlatformApiList.getGroupConfigurations(this.companyId, this.applicationId, configType, pageNo, pageSize, search, templateSlug, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6874,13 +6820,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.ConfigSuccessResponseSchema deleteGroupConfiguration(String configType, String groupSlug) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ConfigSuccessResponse deleteGroupConfiguration(String configType, String groupSlug) throws FDKServerResponseError, FDKException {
         return this.deleteGroupConfiguration(configType, groupSlug, new HashMap<>());
     }
 
-    public CatalogPlatformModels.ConfigSuccessResponseSchema deleteGroupConfiguration(String configType, String groupSlug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ConfigSuccessResponse deleteGroupConfiguration(String configType, String groupSlug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ConfigSuccessResponseSchema> response = null;
+            Response<CatalogPlatformModels.ConfigSuccessResponse> response = null;
             try {
             response = catalogPlatformApiList.deleteGroupConfiguration(this.companyId, this.applicationId, configType, groupSlug, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6928,13 +6874,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.ConfigSuccessResponseSchema deleteListingConfiguration(String configType, String configId) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ConfigSuccessResponse deleteListingConfiguration(String configType, String configId) throws FDKServerResponseError, FDKException {
         return this.deleteListingConfiguration(configType, configId, new HashMap<>());
     }
 
-    public CatalogPlatformModels.ConfigSuccessResponseSchema deleteListingConfiguration(String configType, String configId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.ConfigSuccessResponse deleteListingConfiguration(String configType, String configId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.ConfigSuccessResponseSchema> response = null;
+            Response<CatalogPlatformModels.ConfigSuccessResponse> response = null;
             try {
             response = catalogPlatformApiList.deleteListingConfiguration(this.companyId, this.applicationId, configType, configId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -6982,13 +6928,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetConfigMetadataResponseSchema getConfigurationMetadata(String configType, String templateSlug, Integer pageNo, Integer pageSize, String q) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetConfigMetadataResponse getConfigurationMetadata(String configType, String templateSlug, Integer pageNo, Integer pageSize, String q) throws FDKServerResponseError, FDKException {
         return this.getConfigurationMetadata(configType, templateSlug, pageNo, pageSize, q, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetConfigMetadataResponseSchema getConfigurationMetadata(String configType, String templateSlug, Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetConfigMetadataResponse getConfigurationMetadata(String configType, String templateSlug, Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetConfigMetadataResponseSchema> response = null;
+            Response<CatalogPlatformModels.GetConfigMetadataResponse> response = null;
             try {
             response = catalogPlatformApiList.getConfigurationMetadata(this.companyId, this.applicationId, configType, templateSlug, pageNo, pageSize, q, requestHeaders).execute();
                 if (!response.isSuccessful()) {

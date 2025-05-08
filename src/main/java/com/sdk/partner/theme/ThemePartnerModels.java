@@ -105,7 +105,7 @@ public static class AvailablePageSchema{
 
 
 /*
-    Model: DraftExtensionSection
+    Model: DraftExtensionSectionRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -113,7 +113,7 @@ public static class AvailablePageSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DraftExtensionSection{
+public static class DraftExtensionSectionRequest{
 
     
 
@@ -166,7 +166,7 @@ public static class DraftExtensionSection{
 
 
 /*
-    Model: ExtensionSectionDraft
+    Model: DraftExtensionSectionResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -174,7 +174,7 @@ public static class DraftExtensionSection{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ExtensionSectionDraft{
+public static class DraftExtensionSectionResponse{
 
     
 
@@ -183,7 +183,7 @@ public static class ExtensionSectionDraft{
     
     
     @JsonProperty("sections")
-    private Sections sections;
+    private SectionsResponse sections;
     
     
     
@@ -191,7 +191,7 @@ public static class ExtensionSectionDraft{
 
 
 /*
-    Model: Sections
+    Model: SectionsResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -199,7 +199,7 @@ public static class ExtensionSectionDraft{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Sections{
+public static class SectionsResponse{
 
     
 
@@ -357,7 +357,7 @@ public static class AssetsExtension{
 
 
 /*
-    Model: PublishExtensionSection
+    Model: PublishExtensionSectionRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -365,7 +365,7 @@ public static class AssetsExtension{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PublishExtensionSection{
+public static class PublishExtensionSectionRequest{
 
     
 
@@ -418,7 +418,7 @@ public static class PublishExtensionSection{
 
 
 /*
-    Model: PreviewExtension
+    Model: ExtensionPreviewRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -426,7 +426,7 @@ public static class PublishExtensionSection{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PreviewExtension{
+public static class ExtensionPreviewRequest{
 
     
 
@@ -449,7 +449,7 @@ public static class PreviewExtension{
 
 
 /*
-    Model: ExtensionPreview
+    Model: ExtensionPreviewResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -457,7 +457,7 @@ public static class PreviewExtension{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ExtensionPreview{
+public static class ExtensionPreviewResponse{
 
     
 
@@ -474,7 +474,7 @@ public static class ExtensionPreview{
 
 
 /*
-    Model: ExtensionSectionPublish
+    Model: PublishExtensionSectionResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -482,7 +482,7 @@ public static class ExtensionPreview{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ExtensionSectionPublish{
+public static class PublishExtensionSectionResponse{
 
     
 
@@ -491,7 +491,7 @@ public static class ExtensionSectionPublish{
     
     
     @JsonProperty("sections")
-    private Sections sections;
+    private SectionsResponse sections;
     
     
     
@@ -516,7 +516,7 @@ public static class AvailablePageSectionMetaAttributes{
     
     
     @JsonProperty("attributes")
-    private HashMap<String,Object> attributes;
+    private Object attributes;
     
     
     
@@ -885,7 +885,7 @@ public static class AvailablePageSchemaSections{
     
     
     @JsonProperty("props")
-    private HashMap<String,Object> props;
+    private Object props;
     
     
     
@@ -897,7 +897,7 @@ public static class AvailablePageSchemaSections{
     
     
     @JsonProperty("preset")
-    private HashMap<String,Object> preset;
+    private Object preset;
     
     
     
@@ -908,45 +908,8 @@ public static class AvailablePageSchemaSections{
     
     
     
-    @JsonProperty("__source")
-    private SectionSource source;
-    
-    
-    
-}
-
-
-/*
-    Model: SectionSource
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SectionSource{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("bundle_name")
-    private String bundleName;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
+    @JsonProperty("source")
+    private String source;
     
     
     
@@ -1051,7 +1014,7 @@ public static class AvailablePageRoutePredicate{
     
     
     @JsonProperty("query")
-    private HashMap<String,Object> query;
+    private Object query;
     
     
     
@@ -1855,7 +1818,7 @@ public static class ThemeRejectionReasons{
     
     
     @JsonProperty("rejection_reasons")
-    private RejectedMessages rejectionReasons;
+    private HashMap<String,Object> rejectionReasons;
     
     
     
@@ -1868,92 +1831,6 @@ public static class ThemeRejectionReasons{
     
     @JsonProperty("updated_at")
     private String updatedAt;
-    
-    
-    
-}
-
-
-/*
-    Model: RejectedMessages
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RejectedMessages{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("theme_file")
-    private ThemeReviewRequestMessage themeFile;
-    
-    
-    
-    
-    @JsonProperty("theme_details")
-    private ThemeReviewRequestMessage themeDetails;
-    
-    
-    
-    
-    @JsonProperty("theme_value_proposition")
-    private ThemeReviewRequestMessage themeValueProposition;
-    
-    
-    
-    
-    @JsonProperty("theme_attributes")
-    private ThemeReviewRequestMessage themeAttributes;
-    
-    
-    
-    
-    @JsonProperty("theme_variations")
-    private ThemeReviewRequestMessage themeVariations;
-    
-    
-    
-    
-    @JsonProperty("theme_docs")
-    private ThemeReviewRequestMessage themeDocs;
-    
-    
-    
-    
-    @JsonProperty("theme_review")
-    private ThemeReviewRequestMessage themeReview;
-    
-    
-    
-}
-
-
-/*
-    Model: ThemeReviewRequestMessage
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ThemeReviewRequestMessage{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
     
     
     
@@ -2174,7 +2051,7 @@ public static class ThemesSchema{
     
     
     @JsonProperty("styles")
-    private HashMap<String,Object> styles;
+    private Object styles;
     
     
     
@@ -2401,7 +2278,7 @@ public static class ThemeConfiguration{
     
     
     @JsonProperty("global_config")
-    private HashMap<String,Object> globalConfig;
+    private Object globalConfig;
     
     
     
@@ -2611,7 +2488,7 @@ public static class ThemeConfigListPageSettingsProps{
     
     
     @JsonProperty("props")
-    private HashMap<String,Object> props;
+    private Object props;
     
     
     
