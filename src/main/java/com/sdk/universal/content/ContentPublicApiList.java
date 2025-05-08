@@ -38,10 +38,4 @@ interface ContentPublicApiList {
 
     @GET ("/service/public/content/credentials/{entity_type}")
     Call<ContentPublicModels.CredentialsSchema> getCredentialsByEntity(@Path("entity_type") String entityType, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/public/content/sdk-readme")
-    Call<ContentPublicModels.SDKLinksResponseSchema> getSDKDocumentation(@HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/public/content/sdk-readme/{type}")
-    Call<ContentPublicModels.SDKbyTypeResponseSchema> getSDKDocumentationByType(@Path("type") String type, @HeaderMap Map<String, String> requestHeaders);
 }

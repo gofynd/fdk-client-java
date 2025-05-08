@@ -358,7 +358,7 @@ public static class GetAddressSchema{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     
@@ -599,26 +599,14 @@ public static class ErrorResponseSchema{
     
     
     
-    @JsonProperty("code")
-    private Double code;
-    
-    
-    
-    
-    @JsonProperty("error")
-    private String error;
-    
-    
-    
-    
     @JsonProperty("message")
     private String message;
     
     
     
     
-    @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    @JsonProperty("code")
+    private String code;
     
     
     
@@ -628,11 +616,17 @@ public static class ErrorResponseSchema{
     
     
     
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
 }
 
 
 /*
-    Model: CompanyTaxesSchema1
+    Model: CompanyTaxesSerializer1
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -640,7 +634,7 @@ public static class ErrorResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyTaxesSchema1{
+public static class CompanyTaxesSerializer1{
 
     
 
@@ -698,7 +692,7 @@ public static class CreateUpdateAddressSchema{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     
@@ -801,7 +795,7 @@ public static class UpdateCompany{
     
     
     @JsonProperty("taxes")
-    private List<CompanyTaxesSchema1> taxes;
+    private List<CompanyTaxesSerializer1> taxes;
     
     
     
@@ -875,12 +869,6 @@ public static class ProfileSuccessResponseSchema{
     
     @JsonProperty("uid")
     private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("data")
-    private List<Object> data;
     
     
     
@@ -1156,7 +1144,7 @@ public static class GetBrandResponseSchema{
 
 
 /*
-    Model: CreateUpdateBrandRequestSchema
+    Model: CreateBrandRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1164,7 +1152,7 @@ public static class GetBrandResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateUpdateBrandRequestSchema{
+public static class CreateBrandRequestSchema{
 
     
 
@@ -1234,6 +1222,85 @@ public static class CreateUpdateBrandRequestSchema{
     
     @JsonProperty("slug_key")
     private String slugKey;
+    
+    
+    
+}
+
+
+/*
+    Model: UpdateBrandRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateBrandRequestSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private HashMap<String,Object> customJson;
+    
+    
+    
+    
+    @JsonProperty("_locale_language")
+    private HashMap<String,Object> localeLanguage;
+    
+    
+    
+    
+    @JsonProperty("synonyms")
+    private List<String> synonyms;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("brand_tier")
+    private String brandTier;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("banner")
+    private BrandBannerSchema banner;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -1578,12 +1645,6 @@ public static class Page{
     
     
     
-    
-    @JsonProperty("total")
-    private Integer total;
-    
-    
-    
 }
 
 
@@ -1742,12 +1803,6 @@ public static class GetCompanySchema{
     
     @JsonProperty("stage")
     private String stage;
-    
-    
-    
-    
-    @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
     
     
     
@@ -2314,7 +2369,7 @@ public static class AddressSchema{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     

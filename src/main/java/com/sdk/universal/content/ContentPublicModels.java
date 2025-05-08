@@ -1312,6 +1312,31 @@ public static class PricingBannerSchema{
 
 
 /*
+    Model: SdkReadmeSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SdkReadmeSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("data")
+    private String data;
+    
+    
+    
+}
+
+
+/*
     Model: TagsSchema
 */
 @AllArgsConstructor
@@ -1624,111 +1649,6 @@ public static class CredentialsSchema{
     
     @JsonProperty("items")
     private List<CredentialSchema> items;
-    
-    
-    
-}
-
-
-/*
-    Model: SDKLinksResponseSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SDKLinksResponseSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("readmes")
-    private List<SDKLinkObjectSchema> readmes;
-    
-    
-    
-}
-
-
-/*
-    Model: SDKLinkObjectSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SDKLinkObjectSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("owner")
-    private String owner;
-    
-    
-    
-    
-    @JsonProperty("repo")
-    private String repo;
-    
-    
-    
-    
-    @JsonProperty("path")
-    private String path;
-    
-    
-    
-    
-    @JsonProperty("image")
-    private String image;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-}
-
-
-/*
-    Model: SDKbyTypeResponseSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SDKbyTypeResponseSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("readme_content")
-    private String readmeContent;
     
     
     

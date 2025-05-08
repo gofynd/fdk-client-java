@@ -79,8 +79,14 @@ public static class CreateUpdateDiscount{
     
     
     
-    @JsonProperty("app_id")
-    private String appId;
+    @JsonProperty("app_ids")
+    private List<String> appIds;
+    
+    
+    
+    
+    @JsonProperty("extension_ids")
+    private List<String> extensionIds;
     
     
     
@@ -127,8 +133,8 @@ public static class CreateUpdateDiscount{
     
     
     
-    @JsonProperty("factory_type_ids")
-    private List<String> factoryTypeIds;
+    @JsonProperty("zone_ids")
+    private List<String> zoneIds;
     
     
     
@@ -225,8 +231,8 @@ public static class DiscountJob{
     
     
     
-    @JsonProperty("app_id")
-    private String appId;
+    @JsonProperty("app_ids")
+    private List<String> appIds;
     
     
     
@@ -273,8 +279,8 @@ public static class DiscountJob{
     
     
     
-    @JsonProperty("factory_type_ids")
-    private List<String> factoryTypeIds;
+    @JsonProperty("zone_ids")
+    private List<String> zoneIds;
     
     
     
@@ -358,8 +364,8 @@ public static class FileJobBody{
     
     
     
-    @JsonProperty("app_id")
-    private String appId;
+    @JsonProperty("app_ids")
+    private List<String> appIds;
     
     
     
@@ -406,8 +412,14 @@ public static class FileJobBody{
     
     
     
-    @JsonProperty("factory_type_ids")
-    private List<String> factoryTypeIds;
+    @JsonProperty("extension_ids")
+    private List<String> extensionIds;
+    
+    
+    
+    
+    @JsonProperty("zone_ids")
+    private List<String> zoneIds;
     
     
     
@@ -518,18 +530,6 @@ public static class DiscountItems{
     
     @JsonProperty("seller_identifier")
     private String sellerIdentifier;
-    
-    
-    
-    
-    @JsonProperty("store_code")
-    private String storeCode;
-    
-    
-    
-    
-    @JsonProperty("price_zone")
-    private String priceZone;
     
     
     
@@ -662,6 +662,18 @@ public static class FileJobResponseSchema{
     
     
     
+    @JsonProperty("extension_ids")
+    private List<String> extensionIds;
+    
+    
+    
+    
+    @JsonProperty("zone_ids")
+    private List<String> zoneIds;
+    
+    
+    
+    
     @JsonProperty("created_on")
     private String createdOn;
     
@@ -717,8 +729,8 @@ public static class FileJobRequestSchema{
     
     
     
-    @JsonProperty("app_id")
-    private String appId;
+    @JsonProperty("app_ids")
+    private List<String> appIds;
     
     
     
@@ -790,8 +802,14 @@ public static class DownloadFileJob{
     
     
     
-    @JsonProperty("app_id")
-    private String appId;
+    @JsonProperty("brand_ids")
+    private List<Integer> brandIds;
+    
+    
+    
+    
+    @JsonProperty("store_ids")
+    private List<Integer> storeIds;
     
     
     
@@ -878,12 +896,6 @@ public static class Page{
     
     @JsonProperty("size")
     private Integer size;
-    
-    
-    
-    
-    @JsonProperty("total")
-    private Integer total;
     
     
     

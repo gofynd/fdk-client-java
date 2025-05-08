@@ -152,12 +152,6 @@ public static class ProxyFile{
     
     
     
-    
-    @JsonProperty("headers")
-    private HashMap<String,Object> headers;
-    
-    
-    
 }
 
 
@@ -447,12 +441,6 @@ public static class FileUploadStart{
     
     
     
-    
-    @JsonProperty("enc_key")
-    private String encKey;
-    
-    
-    
 }
 
 
@@ -473,14 +461,14 @@ public static class CreatedBy{
     
     
     
-    @JsonProperty("user_id")
-    private String userId;
-    
-    
-    
-    
     @JsonProperty("username")
     private String username;
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
     
     
     

@@ -29,36 +29,36 @@ import com.sdk.application.*;
         this.catalogApplicationApiList = generateCatalogApplicationApiList(this.applicationConfig.getPersistentCookieStore());
 
         
-        relativeUrls.put("getProductDetailBySlug","/service/application/catalog/v1.0/products/{slug}".substring(1));
-        relativeUrls.put("getProductSizesBySlug","/service/application/catalog/v1.0/products/{slug}/sizes".substring(1));
-        relativeUrls.put("getProductComparisonBySlugs","/service/application/catalog/v1.0/products/compare".substring(1));
-        relativeUrls.put("getSimilarComparisonProductBySlug","/service/application/catalog/v1.0/products/{slug}/similar/compare".substring(1));
-        relativeUrls.put("getComparedFrequentlyProductBySlug","/service/application/catalog/v1.0/products/{slug}/similar/compared-frequently".substring(1));
-        relativeUrls.put("getProductVariantsBySlug","/service/application/catalog/v1.0/products/{slug}/variants".substring(1));
-        relativeUrls.put("getProductStockByIds","/service/application/catalog/v1.0/products/stock-status".substring(1));
-        relativeUrls.put("getProductStockForTimeByIds","/service/application/catalog/v1.0/products/stock-status/poll".substring(1));
-        relativeUrls.put("getProducts","/service/application/catalog/v1.0/products".substring(1));
-        relativeUrls.put("getBrands","/service/application/catalog/v1.0/brands".substring(1));
-        relativeUrls.put("getBrandDetailBySlug","/service/application/catalog/v1.0/brands/{slug}".substring(1));
-        relativeUrls.put("getCategories","/service/application/catalog/v1.0/categories".substring(1));
-        relativeUrls.put("getCategoryDetailBySlug","/service/application/catalog/v1.0/categories/{slug}".substring(1));
-        relativeUrls.put("getHomeProducts","/service/application/catalog/v1.0/home/listing".substring(1));
-        relativeUrls.put("getDepartments","/service/application/catalog/v1.0/departments".substring(1));
-        relativeUrls.put("getSearchResults","/service/application/catalog/v1.0/auto-complete".substring(1));
-        relativeUrls.put("getCollections","/service/application/catalog/v1.0/collections".substring(1));
-        relativeUrls.put("getCollectionItemsBySlug","/service/application/catalog/v1.0/collections/{slug}/items".substring(1));
-        relativeUrls.put("getCollectionDetailBySlug","/service/application/catalog/v1.0/collections/{slug}".substring(1));
-        relativeUrls.put("getFollowedListing","/service/application/catalog/v1.0/follow/{collection_type}".substring(1));
-        relativeUrls.put("unfollowById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}".substring(1));
-        relativeUrls.put("followById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}".substring(1));
-        relativeUrls.put("getFollowerCountById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count".substring(1));
-        relativeUrls.put("getFollowIds","/service/application/catalog/v1.0/follow/ids".substring(1));
-        relativeUrls.put("getStores","/service/application/catalog/v2.0/locations".substring(1));
-        relativeUrls.put("getInStockLocations","/service/application/catalog/v2.0/in-stock/locations".substring(1));
-        relativeUrls.put("getLocationDetailsById","/service/application/catalog/v2.0/locations/{location_id}".substring(1));
-        relativeUrls.put("getProductBundlesBySlug","/service/application/catalog/v2.0/product-grouping".substring(1));
-        relativeUrls.put("getProductPriceBySlug","/service/application/catalog/v1.0/products/sizes/price".substring(1));
-        relativeUrls.put("getProductSellersBySlug","/service/application/catalog/v4.0/products/{slug}/sizes/{size}/sellers".substring(1)); 
+        relativeUrls.put("getProductDetailBySlug","/service/application/catalog/v1.0/products/{slug}/".substring(1));
+        relativeUrls.put("getProductSizesBySlug","/service/application/catalog/v1.0/products/{slug}/sizes/".substring(1));
+        relativeUrls.put("getProductComparisonBySlugs","/service/application/catalog/v1.0/products/compare/".substring(1));
+        relativeUrls.put("getSimilarComparisonProductBySlug","/service/application/catalog/v1.0/products/{slug}/similar/compare/".substring(1));
+        relativeUrls.put("getComparedFrequentlyProductBySlug","/service/application/catalog/v1.0/products/{slug}/similar/compared-frequently/".substring(1));
+        relativeUrls.put("getProductVariantsBySlug","/service/application/catalog/v1.0/products/{slug}/variants/".substring(1));
+        relativeUrls.put("getProductStockByIds","/service/application/catalog/v1.0/products/stock-status/".substring(1));
+        relativeUrls.put("getProductStockForTimeByIds","/service/application/catalog/v1.0/products/stock-status/poll/".substring(1));
+        relativeUrls.put("getProducts","/service/application/catalog/v1.0/products/".substring(1));
+        relativeUrls.put("getBrands","/service/application/catalog/v1.0/brands/".substring(1));
+        relativeUrls.put("getBrandDetailBySlug","/service/application/catalog/v1.0/brands/{slug}/".substring(1));
+        relativeUrls.put("getCategories","/service/application/catalog/v1.0/categories/".substring(1));
+        relativeUrls.put("getCategoryDetailBySlug","/service/application/catalog/v1.0/categories/{slug}/".substring(1));
+        relativeUrls.put("getHomeProducts","/service/application/catalog/v1.0/home/listing/".substring(1));
+        relativeUrls.put("getDepartments","/service/application/catalog/v1.0/departments/".substring(1));
+        relativeUrls.put("getSearchResults","/service/application/catalog/v1.0/auto-complete/".substring(1));
+        relativeUrls.put("getCollections","/service/application/catalog/v1.0/collections/".substring(1));
+        relativeUrls.put("getCollectionItemsBySlug","/service/application/catalog/v1.0/collections/{slug}/items/".substring(1));
+        relativeUrls.put("getCollectionDetailBySlug","/service/application/catalog/v1.0/collections/{slug}/".substring(1));
+        relativeUrls.put("getFollowedListing","/service/application/catalog/v1.0/follow/{collection_type}/".substring(1));
+        relativeUrls.put("unfollowById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
+        relativeUrls.put("followById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
+        relativeUrls.put("getFollowerCountById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/".substring(1));
+        relativeUrls.put("getFollowIds","/service/application/catalog/v1.0/follow/ids/".substring(1));
+        relativeUrls.put("getStores","/service/application/catalog/v1.0/locations/".substring(1));
+        relativeUrls.put("getInStockLocations","/service/application/catalog/v1.0/in-stock/locations/".substring(1));
+        relativeUrls.put("getLocationDetailsById","/service/application/catalog/v1.0/locations/{location_id}/".substring(1));
+        relativeUrls.put("getProductBundlesBySlug","/service/application/catalog/v1.0/product-grouping/".substring(1));
+        relativeUrls.put("getProductPriceBySlug","/service/application/catalog/v3.0/products/{slug}/sizes/{size}/price/".substring(1));
+        relativeUrls.put("getProductSellersBySlug","/service/application/catalog/v3.0/products/{slug}/sizes/{size}/sellers/".substring(1)); 
 
     }
 
@@ -917,15 +917,15 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductBundle getProductBundlesBySlug(String slug, Integer id, String size, Integer sellerId) throws IOException {
-        return this.getProductBundlesBySlug(slug, id, size, sellerId, new HashMap<>());
+    public CatalogApplicationModels.ProductBundle getProductBundlesBySlug(String slug, Integer id) throws IOException {
+        return this.getProductBundlesBySlug(slug, id, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductBundle getProductBundlesBySlug(String slug, Integer id, String size, Integer sellerId, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductBundle getProductBundlesBySlug(String slug, Integer id, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getProductBundlesBySlug");
 
-        Response<CatalogApplicationModels.ProductBundle> response = catalogApplicationApiList.getProductBundlesBySlug(fullUrl, slug, id, size, sellerId, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductBundle> response = catalogApplicationApiList.getProductBundlesBySlug(fullUrl, slug, id, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -934,15 +934,17 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductSizePriceResponseV1 getProductPriceBySlug(CatalogApplicationModels.ProductSizePriceV1RequestSchema body) throws IOException {
-        return this.getProductPriceBySlug(body, new HashMap<>());
+    public CatalogApplicationModels.ProductSizePriceResponseV3 getProductPriceBySlug(String slug, String size, Integer storeId, Integer moq) throws IOException {
+        return this.getProductPriceBySlug(slug, size, storeId, moq, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductSizePriceResponseV1 getProductPriceBySlug(CatalogApplicationModels.ProductSizePriceV1RequestSchema body, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductSizePriceResponseV3 getProductPriceBySlug(String slug, String size, Integer storeId, Integer moq, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getProductPriceBySlug");
+        fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
+        fullUrl = fullUrl.replace("{" + "size" + "}",size.toString());
 
-        Response<CatalogApplicationModels.ProductSizePriceResponseV1> response = catalogApplicationApiList.getProductPriceBySlug(fullUrl, body, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductSizePriceResponseV3> response = catalogApplicationApiList.getProductPriceBySlug(fullUrl, storeId, moq, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -951,17 +953,17 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductSizeSellersResponseV4 getProductSellersBySlug(String slug, String size, String pincode, String strategy, Integer pageNo, Integer pageSize) throws IOException {
-        return this.getProductSellersBySlug(slug, size, pincode, strategy, pageNo, pageSize, new HashMap<>());
+    public CatalogApplicationModels.ProductSizeSellersResponseV3 getProductSellersBySlug(String slug, String size, String strategy, Integer pageNo, Integer pageSize) throws IOException {
+        return this.getProductSellersBySlug(slug, size, strategy, pageNo, pageSize, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductSizeSellersResponseV4 getProductSellersBySlug(String slug, String size, String pincode, String strategy, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductSizeSellersResponseV3 getProductSellersBySlug(String slug, String size, String strategy, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getProductSellersBySlug");
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
         fullUrl = fullUrl.replace("{" + "size" + "}",size.toString());
 
-        Response<CatalogApplicationModels.ProductSizeSellersResponseV4> response = catalogApplicationApiList.getProductSellersBySlug(fullUrl, pincode, strategy, pageNo, pageSize, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductSizeSellersResponseV3> response = catalogApplicationApiList.getProductSellersBySlug(fullUrl, strategy, pageNo, pageSize, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -973,11 +975,10 @@ import com.sdk.application.*;
     * Summary: get paginator for getProductSellersBySlug
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogApplicationModels.ProductSizeSellersResponseV4> getProductSellersBySlugPagination(
+    public Paginator<CatalogApplicationModels.ProductSizeSellersResponseV3> getProductSellersBySlugPagination(
         
         String slug,
         String size,
-        String pincode,
         String strategy,
         Integer pageSize
         
@@ -985,15 +986,14 @@ import com.sdk.application.*;
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogApplicationModels.ProductSizeSellersResponseV4> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CatalogApplicationModels.ProductSizeSellersResponseV3> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            CatalogApplicationModels.ProductSizeSellersResponseV4 callback = this.getProductSellersBySlug(
+            CatalogApplicationModels.ProductSizeSellersResponseV3 callback = this.getProductSellersBySlug(
                 
                  slug,
                  size,
-                 pincode,
                  strategy,
                  paginator.getPageNo()
                 ,

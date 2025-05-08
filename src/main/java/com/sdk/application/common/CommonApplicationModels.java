@@ -326,12 +326,6 @@ public static class Application{
     
     
     
-    @JsonProperty("is_sis_enabled")
-    private Boolean isSisEnabled;
-    
-    
-    
-    
     @JsonProperty("is_active")
     private Boolean isActive;
     
