@@ -16,8 +16,8 @@ interface BillingPlatformApiList {
     Call<BillingPlatformModels.SubscriptionChargeRes> cancelSubscriptionCharge(@Path("company_id") String companyId, @Path("extension_id") String extensionId, @Path("subscription_id") String subscriptionId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/billing/v1.0/company/{company_id}/extension/{extension_id}/one_time_charge")
-    Call<BillingPlatformModels.CreateOneTimeChargeResponse> createOneTimeCharge(@Path("company_id") String companyId, @Path("extension_id") String extensionId, @Body BillingPlatformModels.CreateOneTimeCharge payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<BillingPlatformModels.CreateOneTimeChargeResponseSchemas> createOneTimeCharge(@Path("company_id") String companyId, @Path("extension_id") String extensionId, @Body BillingPlatformModels.CreateOneTimeCharge payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/billing/v1.0/company/{company_id}/extension/{extension_id}/subscription")
-    Call<BillingPlatformModels.CreateSubscriptionResponse> createSubscriptionCharge(@Path("company_id") String companyId, @Path("extension_id") String extensionId, @Body BillingPlatformModels.CreateSubscriptionCharge payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<BillingPlatformModels.CreateSubscription> createSubscriptionCharge(@Path("company_id") String companyId, @Path("extension_id") String extensionId, @Body BillingPlatformModels.CreateSubscriptionCharge payload, @HeaderMap Map<String, String> requestHeaders);
 }

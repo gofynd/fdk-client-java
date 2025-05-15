@@ -82,7 +82,7 @@ public static class Upload{
 
 
 /*
-    Model: StartResponse
+    Model: FileUpload
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -90,7 +90,7 @@ public static class Upload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StartResponse{
+public static class FileUpload{
 
     
 
@@ -146,12 +146,6 @@ public static class StartResponse{
     
     
     
-    @JsonProperty("cdn")
-    private CDN cdn;
-    
-    
-    
-    
     @JsonProperty("tags")
     private List<String> tags;
     
@@ -186,7 +180,7 @@ public static class Params{
 
 
 /*
-    Model: StartRequest
+    Model: FileUploadStart
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -194,7 +188,7 @@ public static class Params{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StartRequest{
+public static class FileUploadStart{
 
     
 
@@ -231,12 +225,6 @@ public static class StartRequest{
     
     
     
-    
-    @JsonProperty("enc_key")
-    private String encKey;
-    
-    
-    
 }
 
 
@@ -257,6 +245,12 @@ public static class CreatedBy{
     
     
     
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
     @JsonProperty("username")
     private String username;
     
@@ -266,7 +260,7 @@ public static class CreatedBy{
 
 
 /*
-    Model: CompleteResponse
+    Model: FileUploadComplete
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -274,7 +268,7 @@ public static class CreatedBy{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompleteResponse{
+public static class FileUploadComplete{
 
     
 
@@ -406,7 +400,7 @@ public static class Urls{
 
 
 /*
-    Model: SignUrlResponse
+    Model: SignUrlResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -414,7 +408,7 @@ public static class Urls{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SignUrlResponse{
+public static class SignUrlResult{
 
     
 
@@ -431,7 +425,7 @@ public static class SignUrlResponse{
 
 
 /*
-    Model: EncryptionMapping
+    Model: SignUrl
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -439,38 +433,7 @@ public static class SignUrlResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EncryptionMapping{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("enc_url")
-    private String encUrl;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-}
-
-
-/*
-    Model: SignUrlRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SignUrlRequest{
+public static class SignUrl{
 
     
 
@@ -486,12 +449,6 @@ public static class SignUrlRequest{
     
     @JsonProperty("urls")
     private List<String> urls;
-    
-    
-    
-    
-    @JsonProperty("enc_url_mapping")
-    private List<EncryptionMapping> encUrlMapping;
     
     
     

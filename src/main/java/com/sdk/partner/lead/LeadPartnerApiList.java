@@ -25,5 +25,5 @@ interface LeadPartnerApiList {
     Call<LeadPartnerModels.TicketHistoryList> getTicketHistory(@Path("organization_id") String organizationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/partner/lead/v1.0/organization/{organization_id}/general-config")
-    Call<LeadPartnerModels.GeneralConfigResponse> getGeneralConfig(@Path("organization_id") String organizationId, @HeaderMap Map<String, String> requestHeaders);
+    Call<LeadPartnerModels.GeneralConfigDetails> getGeneralConfig(@Path("organization_id") String organizationId, @HeaderMap Map<String, String> requestHeaders);
 }
