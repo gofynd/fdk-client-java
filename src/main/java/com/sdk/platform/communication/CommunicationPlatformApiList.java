@@ -136,7 +136,7 @@ interface CommunicationPlatformApiList {
     Call<CommunicationPlatformModels.SmsTemplate> createSmsTemplate(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.SmsTemplateReq payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/system-templates")
-    Call<CommunicationPlatformModels.SystemSmsTemplates> getSystemSmsTemplates(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+    Call<List<CommunicationPlatformModels.SystemSmsTemplates>> getSystemSmsTemplates(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sms/templates/{id}")
     Call<CommunicationPlatformModels.SmsTemplate> getSmsTemplateById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);

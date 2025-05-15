@@ -72,9 +72,9 @@ import com.sdk.application.*;
         relativeUrls.put("redirectToAggregator","/service/application/payment/v1.0/payment/redirect-to-aggregator/".substring(1));
         relativeUrls.put("checkCredit","/service/application/payment/v1.0/check-credits/".substring(1));
         relativeUrls.put("customerOnboard","/service/application/payment/v1.0/credit-onboard/".substring(1));
+        relativeUrls.put("outstandingOrderDetails","/service/application/payment/v1.0/payment/outstanding-orders/".substring(1));
         relativeUrls.put("paidOrderDetails","/service/application/payment/v1.0/payment/paid-orders/".substring(1));
-        relativeUrls.put("createPaymentOrder","/service/application/payment/v1.0/payment-orders/".substring(1));
-        relativeUrls.put("validateCustomerAndCreditSummary","/service/application/payment/v1.0/payment/validate/customer-credits-v2".substring(1)); 
+        relativeUrls.put("createPaymentOrder","/service/application/payment/v1.0/payment-orders/".substring(1)); 
 
     }
 
@@ -91,15 +91,15 @@ import com.sdk.application.*;
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),PaymentApplicationApiList.class, interceptorList, cookieStore);
     }
 
-    public PaymentApplicationModels.AggregatorsConfigDetail getAggregatorsConfig(Boolean refresh) throws IOException {
-        return this.getAggregatorsConfig(refresh, new HashMap<>());
+    public PaymentApplicationModels.AggregatorsConfigDetail getAggregatorsConfig(String xApiToken, Boolean refresh) throws IOException {
+        return this.getAggregatorsConfig(xApiToken, refresh, new HashMap<>());
     }
 
-    public PaymentApplicationModels.AggregatorsConfigDetail getAggregatorsConfig(Boolean refresh, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.AggregatorsConfigDetail getAggregatorsConfig(String xApiToken, Boolean refresh, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getAggregatorsConfig");
 
-        Response<PaymentApplicationModels.AggregatorsConfigDetail> response = paymentApplicationApiList.getAggregatorsConfig(fullUrl, refresh, requestHeaders).execute();
+        Response<PaymentApplicationModels.AggregatorsConfigDetail> response = paymentApplicationApiList.getAggregatorsConfig(fullUrl, xApiToken, refresh, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -789,15 +789,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.CheckCreditDetails checkCredit(String aggregator) throws IOException {
-        return this.checkCredit(aggregator, new HashMap<>());
+    public PaymentApplicationModels.CheckCreditDetails checkCredit(String aggregator, String wallet) throws IOException {
+        return this.checkCredit(aggregator, wallet, new HashMap<>());
     }
 
-    public PaymentApplicationModels.CheckCreditDetails checkCredit(String aggregator, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.CheckCreditDetails checkCredit(String aggregator, String wallet, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("checkCredit");
 
-        Response<PaymentApplicationModels.CheckCreditDetails> response = paymentApplicationApiList.checkCredit(fullUrl, aggregator, requestHeaders).execute();
+        Response<PaymentApplicationModels.CheckCreditDetails> response = paymentApplicationApiList.checkCredit(fullUrl, aggregator, wallet, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -815,6 +815,23 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("customerOnboard");
 
         Response<PaymentApplicationModels.CustomerOnboardingDetails> response = paymentApplicationApiList.customerOnboard(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public PaymentApplicationModels.OutstandingOrderDetails outstandingOrderDetails(String aggregator) throws IOException {
+        return this.outstandingOrderDetails(aggregator, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.OutstandingOrderDetails outstandingOrderDetails(String aggregator, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("outstandingOrderDetails");
+
+        Response<PaymentApplicationModels.OutstandingOrderDetails> response = paymentApplicationApiList.outstandingOrderDetails(fullUrl, aggregator, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -849,23 +866,6 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("createPaymentOrder");
 
         Response<PaymentApplicationModels.PaymentOrderDetails> response = paymentApplicationApiList.createPaymentOrder(fullUrl, body, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public PaymentApplicationModels.ValidateCustomerCreditSchema validateCustomerAndCreditSummary(PaymentApplicationModels.CustomerValidationSchema body) throws IOException {
-        return this.validateCustomerAndCreditSummary(body, new HashMap<>());
-    }
-
-    public PaymentApplicationModels.ValidateCustomerCreditSchema validateCustomerAndCreditSummary(PaymentApplicationModels.CustomerValidationSchema body, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("validateCustomerAndCreditSummary");
-
-        Response<PaymentApplicationModels.ValidateCustomerCreditSchema> response = paymentApplicationApiList.validateCustomerAndCreditSummary(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

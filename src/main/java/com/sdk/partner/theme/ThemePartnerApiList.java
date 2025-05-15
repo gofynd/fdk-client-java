@@ -24,16 +24,16 @@ interface ThemePartnerApiList {
     @DELETE ("/service/partner/theme/v1.0/organization/{organization_id}/company/{company_id}/application/{application_id}/{theme_id}/{page_value}")
     Call<ThemePartnerModels.AvailablePageSchema> deletePage(@Path("company_id") Integer companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @Path("page_value") String pageValue, @Path("organization_id") String organizationId, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/partner/theme/v1.0/organization/{organization_id}/company/{company_id}/application/{application_id}/themes")
+    @GET ("/service/partner/theme/v2.0/organization/{organization_id}/company/{company_id}/application/{application_id}/themes")
     Call<List<ThemePartnerModels.ThemesSchema>> getApplicationThemes(@Path("company_id") Integer companyId, @Path("application_id") String applicationId, @Path("organization_id") String organizationId, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/partner/theme/v1.0/organization/{organization_id}/company/{company_id}/application/{application_id}/{theme_id}")
+    @GET ("/service/partner/theme/v2.0/organization/{organization_id}/company/{company_id}/application/{application_id}/{theme_id}")
     Call<ThemePartnerModels.ThemesSchema> getThemeById(@Path("company_id") Integer companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @Path("organization_id") String organizationId, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/partner/theme/v1.0/organization/{organization_id}/company/{company_id}/application/{application_id}/{theme_id}")
+    @PUT ("/service/partner/theme/v2.0/organization/{organization_id}/company/{company_id}/application/{application_id}/{theme_id}")
     Call<ThemePartnerModels.ThemesSchema> updateTheme(@Path("company_id") Integer companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @Path("organization_id") String organizationId, @Body ThemePartnerModels.UpdateThemeRequestBody payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @DELETE ("/service/partner/theme/v1.0/organization/{organization_id}/company/{company_id}/application/{application_id}/{theme_id}")
+    @DELETE ("/service/partner/theme/v2.0/organization/{organization_id}/company/{company_id}/application/{application_id}/{theme_id}")
     Call<ThemePartnerModels.ThemesSchema> deleteTheme(@Path("company_id") Integer companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @Path("organization_id") String organizationId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/partner/theme/v1.0/organization/{organization_id}/themes")

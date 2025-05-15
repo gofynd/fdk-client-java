@@ -1396,13 +1396,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.SystemSmsTemplates getSystemSmsTemplates() throws FDKServerResponseError, FDKException {
+    public List<CommunicationPlatformModels.SystemSmsTemplates> getSystemSmsTemplates() throws FDKServerResponseError, FDKException {
         return this.getSystemSmsTemplates(new HashMap<>());
     }
 
-    public CommunicationPlatformModels.SystemSmsTemplates getSystemSmsTemplates(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public List<CommunicationPlatformModels.SystemSmsTemplates> getSystemSmsTemplates(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.SystemSmsTemplates> response = null;
+            Response<List<CommunicationPlatformModels.SystemSmsTemplates>> response = null;
             try {
             response = communicationPlatformApiList.getSystemSmsTemplates(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {

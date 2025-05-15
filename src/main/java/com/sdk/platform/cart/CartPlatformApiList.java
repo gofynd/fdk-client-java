@@ -46,7 +46,7 @@ interface CartPlatformApiList {
     Call<CartPlatformModels.ActivePromosResult> getPromosCouponConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("entity_type") String entityType, @Query("is_hidden") Boolean isHidden, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/available-promotions")
-    Call<CartPlatformModels.PromotionOffersDetails> getPromotionOffers(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("slug") String slug, @Query("page_size") Integer pageSize, @Query("promotion_group") String promotionGroup, @Query("store_id") Integer storeId, @Query("cart_type") String cartType, @Query("promotion_type") String promotionType, @Query("cart_id") String cartId, @Query("auto_apply") Boolean autoApply, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartPlatformModels.PromotionOffersDetails> getPromotionOffers(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("slug") String slug, @Query("page_size") Integer pageSize, @Query("promotion_group") String promotionGroup, @Query("store_id") Integer storeId, @Query("cart_type") String cartType, @Query("sort_by") String sortBy, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/available-payment-offers")
     Call<CartPlatformModels.PromotionPaymentOffersDetails> getPromotionPaymentOffers(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("uid") Integer uid, @HeaderMap Map<String, String> requestHeaders);

@@ -1628,12 +1628,6 @@ public static class AppFeature{
     
     
     
-    @JsonProperty("delivery_strategy")
-    private DeliveryStrategy deliveryStrategy;
-    
-    
-    
-    
     @JsonProperty("_id")
     private String id;
     
@@ -2149,31 +2143,6 @@ public static class OrderFeature{
     
     @JsonProperty("buy_again")
     private Boolean buyAgain;
-    
-    
-    
-}
-
-
-/*
-    Model: DeliveryStrategy
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeliveryStrategy{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
     
     
     
@@ -2836,7 +2805,7 @@ public static class CompanyAboutAddress{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     
@@ -3026,12 +2995,6 @@ public static class Page{
     
     @JsonProperty("size")
     private Integer size;
-    
-    
-    
-    
-    @JsonProperty("page_size")
-    private Integer pageSize;
     
     
     
@@ -4094,7 +4057,7 @@ public static class OptedStoreAddress{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     
@@ -4173,7 +4136,7 @@ public static class OrderingStore{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     

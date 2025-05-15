@@ -2633,7 +2633,7 @@ public static class EventSubscriptionTemplateSms{
     
     
     @JsonProperty("template")
-    private SmsTemplate template;
+    private String template;
     
     
     
@@ -2664,7 +2664,7 @@ public static class EventSubscriptionTemplateEmail{
     
     
     @JsonProperty("template")
-    private EmailTemplate template;
+    private String template;
     
     
     
@@ -2744,7 +2744,7 @@ public static class EventSubscription{
     
     
     @JsonProperty("event")
-    private EventSubscriptionEvents event;
+    private String event;
     
     
     
@@ -2769,123 +2769,6 @@ public static class EventSubscription{
     
     @JsonProperty("__v")
     private Integer v;
-    
-    
-    
-}
-
-
-/*
-    Model: EventSubscriptionEvents
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventSubscriptionEvents{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("category")
-    private String category;
-    
-    
-    
-    
-    @JsonProperty("event_name")
-    private String eventName;
-    
-    
-    
-    
-    @JsonProperty("group")
-    private String group;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("template")
-    private EventTemplate template;
-    
-    
-    
-}
-
-
-/*
-    Model: EventTemplate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventTemplate{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("email")
-    private EventProviderTemplates email;
-    
-    
-    
-    
-    @JsonProperty("pushnotification")
-    private EventProviderTemplates pushnotification;
-    
-    
-    
-    
-    @JsonProperty("sms")
-    private EventProviderTemplates sms;
-    
-    
-    
-}
-
-
-/*
-    Model: EventProviderTemplates
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventProviderTemplates{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("provider_type")
-    private String providerType;
-    
-    
-    
-    
-    @JsonProperty("template")
-    private String template;
     
     
     
@@ -4681,31 +4564,6 @@ public static class SystemSmsTemplates{
     
     
     
-    @JsonProperty("items")
-    private List<SystemSmsTemplate> items;
-    
-    
-    
-}
-
-
-/*
-    Model: SystemSmsTemplate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SystemSmsTemplate{
-
-    
-
-    
-    
-    
-    
     @JsonProperty("url_shorten")
     private EnabledObj urlShorten;
     
@@ -5147,12 +5005,6 @@ public static class Page{
     
     @JsonProperty("size")
     private Integer size;
-    
-    
-    
-    
-    @JsonProperty("page_size")
-    private Integer pageSize;
     
     
     

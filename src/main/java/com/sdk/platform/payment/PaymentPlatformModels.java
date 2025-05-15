@@ -683,49 +683,6 @@ public static class PaymentModeList{
     
     
     
-    
-    @JsonProperty("payment_confirmation_elements")
-    private List<PaymentConfirmationElement> paymentConfirmationElements;
-    
-    
-    
-}
-
-
-/*
-    Model: PaymentConfirmationElement
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PaymentConfirmationElement{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("is_required")
-    private Boolean isRequired;
-    
-    
-    
-    
-    @JsonProperty("display_label")
-    private String displayLabel;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
 }
 
 
@@ -3302,12 +3259,6 @@ public static class Page{
     
     
     
-    
-    @JsonProperty("page_size")
-    private Integer pageSize;
-    
-    
-    
 }
 
 
@@ -4750,12 +4701,6 @@ public static class CreatePaymentLinkCreation{
     
     
     
-    
-    @JsonProperty("send_communication")
-    private Boolean sendCommunication;
-    
-    
-    
 }
 
 
@@ -5203,104 +5148,6 @@ public static class MerchnatPaymentModeCreation{
 
 
 /*
-    Model: SkuDetails
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SkuDetails{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("identifier")
-    private String identifier;
-    
-    
-    
-    
-    @JsonProperty("sku_id")
-    private String skuId;
-    
-    
-    
-    
-    @JsonProperty("sku_name")
-    private String skuName;
-    
-    
-    
-}
-
-
-/*
-    Model: AppliedOffer
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AppliedOffer{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("is_mop")
-    private Boolean isMop;
-    
-    
-    
-    
-    @JsonProperty("offer_type")
-    private String offerType;
-    
-    
-    
-    
-    @JsonProperty("offer_id")
-    private String offerId;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("amount")
-    private Integer amount;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private HashMap<String,Object> meta;
-    
-    
-    
-    
-    @JsonProperty("sku_details")
-    private List<SkuDetails> skuDetails;
-    
-    
-    
-}
-
-
-/*
     Model: OrderDetail
 */
 @AllArgsConstructor
@@ -5349,12 +5196,6 @@ public static class OrderDetail{
     
     @JsonProperty("aggregator")
     private String aggregator;
-    
-    
-    
-    
-    @JsonProperty("applied_offers")
-    private List<AppliedOffer> appliedOffers;
     
     
     
@@ -5488,37 +5329,6 @@ public static class AddressDetail{
     
     @JsonProperty("tags")
     private List<Object> tags;
-    
-    
-    
-}
-
-
-/*
-    Model: ReasonDetail
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReasonDetail{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
     
     
     
@@ -5670,12 +5480,6 @@ public static class PaymentSessionDetail{
     
     @JsonProperty("status")
     private String status;
-    
-    
-    
-    
-    @JsonProperty("reason")
-    private ReasonDetail reason;
     
     
     
@@ -7275,190 +7079,6 @@ public static class PaymentCustomConfigResponseSchema{
     
     @JsonProperty("items")
     private List<PaymentModeCustomConfigSchema> items;
-    
-    
-    
-}
-
-
-/*
-    Model: CustomerValidationSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CustomerValidationSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("aggregator")
-    private String aggregator;
-    
-    
-    
-    
-    @JsonProperty("transaction_amount")
-    private Double transactionAmount;
-    
-    
-    
-    
-    @JsonProperty("cart_id")
-    private String cartId;
-    
-    
-    
-    
-    @JsonProperty("user_id")
-    private String userId;
-    
-    
-    
-}
-
-
-/*
-    Model: UserCreditSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserCreditSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("amount")
-    private Double amount;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private String currency;
-    
-    
-    
-    
-    @JsonProperty("unique_id")
-    private String uniqueId;
-    
-    
-    
-}
-
-
-/*
-    Model: CreditAccountSummary
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreditAccountSummary{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("account_id")
-    private String accountId;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("redeemable_balance")
-    private UserCreditSchema redeemableBalance;
-    
-    
-    
-    
-    @JsonProperty("available_balance")
-    private UserCreditSchema availableBalance;
-    
-    
-    
-    
-    @JsonProperty("amount_on_hold")
-    private List<UserCreditSchema> amountOnHold;
-    
-    
-    
-}
-
-
-/*
-    Model: ValidateCustomerCreditSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ValidateCustomerCreditSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("is_eligible")
-    private Boolean isEligible;
-    
-    
-    
-    
-    @JsonProperty("is_applied")
-    private Boolean isApplied;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("cart_id")
-    private String cartId;
-    
-    
-    
-    
-    @JsonProperty("account")
-    private CreditAccountSummary account;
     
     
     

@@ -139,43 +139,6 @@ public static class AvailablePageSectionMetaAttributes{
     
     
     
-    
-    @JsonProperty("canvas")
-    private CanvasItem canvas;
-    
-    
-    
-}
-
-
-/*
-    Model: CanvasItem
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CanvasItem{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-    
-    @JsonProperty("label")
-    private String label;
-    
-    
-    
 }
 
 
@@ -254,6 +217,12 @@ public static class SEOSitemap{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
@@ -546,20 +515,8 @@ public static class AvailablePageSchemaSections{
     
     
     
-    @JsonProperty("canvas")
-    private String canvas;
-    
-    
-    
-    
     @JsonProperty("props")
     private HashMap<String,Object> props;
-    
-    
-    
-    
-    @JsonProperty("custom_css")
-    private String customCss;
     
     
     
@@ -2364,56 +2321,7 @@ public static class GlobalSchema{
     
     
     @JsonProperty("props")
-    private List<Prop> props;
-    
-    
-    
-}
-
-
-/*
-    Model: Prop
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Prop{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("category")
-    private String category;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("label")
-    private String label;
-    
-    
-    
-    
-    @JsonProperty("info")
-    private String info;
+    private List<Object> props;
     
     
     

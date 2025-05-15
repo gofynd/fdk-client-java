@@ -7,7 +7,7 @@ import java.util.*;
 interface PaymentApplicationApiList {
 
     @GET 
-    Call<PaymentApplicationModels.AggregatorsConfigDetail> getAggregatorsConfig(@Url String url1, @Query("refresh") Boolean refresh, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentApplicationModels.AggregatorsConfigDetail> getAggregatorsConfig(@Url String url1, @Header("x-api-token") String xApiToken, @Query("refresh") Boolean refresh, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<PaymentApplicationModels.AttachCardsDetails> attachCardToCustomer(@Url String url1, @Body PaymentApplicationModels.AttachCard payload, @HeaderMap Map<String, String> requestHeaders);
@@ -130,17 +130,17 @@ interface PaymentApplicationApiList {
     Call<PaymentApplicationModels.RedirectToAggregatorDetails> redirectToAggregator(@Url String url1, @Query("source") String source, @Query("aggregator") String aggregator, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<PaymentApplicationModels.CheckCreditDetails> checkCredit(@Url String url1, @Query("aggregator") String aggregator, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentApplicationModels.CheckCreditDetails> checkCredit(@Url String url1, @Query("aggregator") String aggregator, @Query("wallet") String wallet, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<PaymentApplicationModels.CustomerOnboardingDetails> customerOnboard(@Url String url1, @Body PaymentApplicationModels.CustomerOnboarding payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
+    Call<PaymentApplicationModels.OutstandingOrderDetails> outstandingOrderDetails(@Url String url1, @Query("aggregator") String aggregator, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<PaymentApplicationModels.PaidOrderDetails> paidOrderDetails(@Url String url1, @Query("aggregator") String aggregator, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<PaymentApplicationModels.PaymentOrderDetails> createPaymentOrder(@Url String url1, @Body PaymentApplicationModels.PaymentOrder payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<PaymentApplicationModels.ValidateCustomerCreditSchema> validateCustomerAndCreditSummary(@Url String url1, @Body PaymentApplicationModels.CustomerValidationSchema payload, @HeaderMap Map<String, String> requestHeaders);
 }

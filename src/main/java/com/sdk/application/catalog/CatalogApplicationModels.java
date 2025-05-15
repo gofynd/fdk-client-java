@@ -384,6 +384,161 @@ public static class CustomMetaFields{
 
 
 /*
+    Model: Sitemap
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Sitemap{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Double priority;
+    
+    
+    
+    
+    @JsonProperty("frequency")
+    private String frequency;
+    
+    
+    
+}
+
+
+/*
+    Model: ApplicationItemSeoAction
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApplicationItemSeoAction{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("page")
+    private HashMap<String,Object> page;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+}
+
+
+/*
+    Model: ApplicationItemSeoBreadcrumbs
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApplicationItemSeoBreadcrumbs{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private ApplicationItemSeoAction action;
+    
+    
+    
+}
+
+
+/*
+    Model: ApplicationItemSeoMetaTagItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApplicationItemSeoMetaTagItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+}
+
+
+/*
+    Model: Metatags
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Metatags{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<ApplicationItemSeoMetaTagItem> items;
+    
+    
+    
+}
+
+
+/*
     Model: ApplicationItemSEO
 */
 @AllArgsConstructor
@@ -400,14 +555,38 @@ public static class ApplicationItemSEO{
     
     
     
-    @JsonProperty("title")
-    private Object title;
-    
-    
-    
-    
     @JsonProperty("description")
-    private Object description;
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("sitemap")
+    private Sitemap sitemap;
+    
+    
+    
+    
+    @JsonProperty("breadcrumbs")
+    private List<ApplicationItemSeoBreadcrumbs> breadcrumbs;
+    
+    
+    
+    
+    @JsonProperty("meta_tags")
+    private List<Metatags> metaTags;
+    
+    
+    
+    
+    @JsonProperty("canonical_url")
+    private String canonicalUrl;
     
     
     
@@ -1127,6 +1306,12 @@ public static class ProductDetail{
     
     
     
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
 }
 
 
@@ -1374,30 +1559,6 @@ public static class SizeChartValues{
     
     
     
-    @JsonProperty("col_7")
-    private String col7;
-    
-    
-    
-    
-    @JsonProperty("col_8")
-    private String col8;
-    
-    
-    
-    
-    @JsonProperty("col_9")
-    private String col9;
-    
-    
-    
-    
-    @JsonProperty("col_10")
-    private String col10;
-    
-    
-    
-    
     @JsonProperty("col_2")
     private String col2;
     
@@ -1507,30 +1668,6 @@ public static class ColumnHeaders{
     
     
     
-    
-    @JsonProperty("col_7")
-    private ColumnHeader col7;
-    
-    
-    
-    
-    @JsonProperty("col_8")
-    private ColumnHeader col8;
-    
-    
-    
-    
-    @JsonProperty("col_9")
-    private ColumnHeader col9;
-    
-    
-    
-    
-    @JsonProperty("col_10")
-    private ColumnHeader col10;
-    
-    
-    
 }
 
 
@@ -1589,12 +1726,6 @@ public static class SizeChart{
     
     @JsonProperty("headers")
     private ColumnHeaders headers;
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
     
     
     
@@ -2524,12 +2655,6 @@ public static class Page{
     
     
     
-    
-    @JsonProperty("page_size")
-    private Integer pageSize;
-    
-    
-    
 }
 
 
@@ -2692,12 +2817,6 @@ public static class ProductListingDetail{
     
     @JsonProperty("image_nature")
     private String imageNature;
-    
-    
-    
-    
-    @JsonProperty("pinned")
-    private Boolean pinned;
     
     
     
@@ -2890,6 +3009,12 @@ public static class ProductListingDetail{
     
     @JsonProperty("channel")
     private String channel;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
@@ -3219,6 +3344,12 @@ public static class BrandItem{
     
     
     
+    @JsonProperty("seo")
+    private ApplicationItemSEO seo;
+    
+    
+    
+    
     @JsonProperty("description")
     private String description;
     
@@ -3355,6 +3486,12 @@ public static class BrandDetailResponseSchema{
     
     @JsonProperty("_app")
     private HashMap<String,Object> app;
+    
+    
+    
+    
+    @JsonProperty("seo")
+    private ApplicationItemSEO seo;
     
     
     
@@ -4300,6 +4437,12 @@ public static class GetCollectionDetailNest{
     
     
     
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
 }
 
 
@@ -4494,6 +4637,12 @@ public static class CollectionDetailResponseSchema{
     
     @JsonProperty("_schedule")
     private HashMap<String,Object> schedule;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
@@ -4916,7 +5065,7 @@ public static class Store{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     
@@ -5296,7 +5445,7 @@ public static class StoreAddressSchema{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     
@@ -6614,7 +6763,7 @@ public static class StrategyWiseListingSchemaV3{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     
@@ -7017,7 +7166,7 @@ public static class PromiseSchema{
 
 
 /*
-    Model: ProductSizePriceResponseV4
+    Model: ProductSizePriceResponseV3
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -7025,7 +7174,7 @@ public static class PromiseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductSizePriceResponseV4{
+public static class ProductSizePriceResponseV3{
 
     
 
@@ -7148,7 +7297,7 @@ public static class ProductSizePriceResponseV4{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     
@@ -7197,12 +7346,6 @@ public static class ProductSizePriceResponseV4{
     
     @JsonProperty("is_serviceable")
     private Boolean isServiceable;
-    
-    
-    
-    
-    @JsonProperty("total_available_quantity")
-    private Integer totalAvailableQuantity;
     
     
     
@@ -7341,7 +7484,7 @@ public static class ProductSellersPriceResponseV3{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     
@@ -7435,7 +7578,7 @@ public static class ProductSizeSellerFilterSchemaV3{
 
 
 /*
-    Model: ProductSizeSellersResponseV4
+    Model: ProductSizeSellersResponseV3
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -7443,7 +7586,7 @@ public static class ProductSizeSellerFilterSchemaV3{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductSizeSellersResponseV4{
+public static class ProductSizeSellersResponseV3{
 
     
 

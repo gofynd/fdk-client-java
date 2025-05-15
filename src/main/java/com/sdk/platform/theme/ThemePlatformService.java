@@ -431,15 +431,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ThemePlatformModels.FontsSchema getFonts(String capability) throws FDKServerResponseError, FDKException {
-        return this.getFonts(capability, new HashMap<>());
+    public ThemePlatformModels.FontsSchema getFonts() throws FDKServerResponseError, FDKException {
+        return this.getFonts(new HashMap<>());
     }
 
-    public ThemePlatformModels.FontsSchema getFonts(String capability, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ThemePlatformModels.FontsSchema getFonts(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ThemePlatformModels.FontsSchema> response = null;
             try {
-            response = themePlatformApiList.getFonts(this.companyId, this.applicationId, capability, requestHeaders).execute();
+            response = themePlatformApiList.getFonts(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

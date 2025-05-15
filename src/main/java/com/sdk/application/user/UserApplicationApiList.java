@@ -134,16 +134,4 @@ interface UserApplicationApiList {
 
     @PATCH 
     Call<UserApplicationModels.UserAttributes> updateUserAttributes(@Url String url1, @Body UserApplicationModels.UpdateUserAttributes payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<UserApplicationModels.SendOtpSuccess> sendOTPOnPrimary(@Url String url1, @Body UserApplicationModels.SendPrimaryOTPRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<UserApplicationModels.VerifyPrimaryOTPSuccess> verifyOTPonPrimary(@Url String url1, @Body UserApplicationModels.VerifyPrimaryOTPRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<UserApplicationModels.SendOtpSuccess> sendOTPForUpdate(@Url String url1, @Body UserApplicationModels.SendOTPForUpdateRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<UserApplicationModels.VerifyOtpSuccess> verifyOTPForUpdate(@Url String url1, @Body UserApplicationModels.VerifyOTPForUpdateRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 }

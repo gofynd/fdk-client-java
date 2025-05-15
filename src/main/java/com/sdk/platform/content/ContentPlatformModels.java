@@ -374,18 +374,6 @@ public static class SeoSchema{
     
     
     
-    @JsonProperty("sitemap_enabled")
-    private Boolean sitemapEnabled;
-    
-    
-    
-    
-    @JsonProperty("additional_sitemap")
-    private String additionalSitemap;
-    
-    
-    
-    
     @JsonProperty("cannonical_enabled")
     private Boolean cannonicalEnabled;
     
@@ -1525,6 +1513,264 @@ public static class DateMeta{
 
 
 /*
+    Model: DefaultSitemapIndividualConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DefaultSitemapIndividualConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+}
+
+
+/*
+    Model: DefaultSitemapConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DefaultSitemapConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("root")
+    private DefaultSitemapIndividualConfig root;
+    
+    
+    
+    
+    @JsonProperty("brand")
+    private DefaultSitemapIndividualConfig brand;
+    
+    
+    
+    
+    @JsonProperty("collections")
+    private DefaultSitemapIndividualConfig collections;
+    
+    
+    
+    
+    @JsonProperty("category_l1")
+    private DefaultSitemapIndividualConfig categoryL1;
+    
+    
+    
+    
+    @JsonProperty("category_l2")
+    private DefaultSitemapIndividualConfig categoryL2;
+    
+    
+    
+    
+    @JsonProperty("category_l3")
+    private DefaultSitemapIndividualConfig categoryL3;
+    
+    
+    
+    
+    @JsonProperty("pages")
+    private DefaultSitemapIndividualConfig pages;
+    
+    
+    
+    
+    @JsonProperty("blog")
+    private DefaultSitemapIndividualConfig blog;
+    
+    
+    
+    
+    @JsonProperty("section")
+    private DefaultSitemapIndividualConfig section;
+    
+    
+    
+    
+    @JsonProperty("faq")
+    private DefaultSitemapIndividualConfig faq;
+    
+    
+    
+    
+    @JsonProperty("sitemap")
+    private DefaultSitemapIndividualConfig sitemap;
+    
+    
+    
+}
+
+
+/*
+    Model: SitemapConfigCreate
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SitemapConfigCreate{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("sitemap")
+    private String sitemap;
+    
+    
+    
+}
+
+
+/*
+    Model: SitemapConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SitemapConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("sitemap")
+    private String sitemap;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+}
+
+
+/*
+    Model: SitemapConfigurationList
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SitemapConfigurationList{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<SitemapConfig> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: SitemapConfigUpdate
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SitemapConfigUpdate{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("sitemap")
+    private String sitemap;
+    
+    
+    
+}
+
+
+/*
     Model: BlogPayload
 */
 @AllArgsConstructor
@@ -2125,6 +2371,104 @@ public static class CronBasedScheduleSchema{
 
 
 /*
+    Model: ConfigurationSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ConfigurationSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("sleep_time")
+    private Integer sleepTime;
+    
+    
+    
+    
+    @JsonProperty("start_on_launch")
+    private Boolean startOnLaunch;
+    
+    
+    
+    
+    @JsonProperty("duration")
+    private Integer duration;
+    
+    
+    
+    
+    @JsonProperty("slide_direction")
+    private String slideDirection;
+    
+    
+    
+}
+
+
+/*
+    Model: SlideshowMedia
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SlideshowMedia{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("bg_color")
+    private String bgColor;
+    
+    
+    
+    
+    @JsonProperty("duration")
+    private Integer duration;
+    
+    
+    
+    
+    @JsonProperty("auto_decide_duration")
+    private Boolean autoDecideDuration;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private Action action;
+    
+    
+    
+}
+
+
+/*
     Model: UpdateHandpickedSchema
 */
 @AllArgsConstructor
@@ -2174,12 +2518,6 @@ public static class HandpickedTagSchema{
     
     @JsonProperty("attributes")
     private HashMap<String,Object> attributes;
-    
-    
-    
-    
-    @JsonProperty("compatible_engines")
-    private List<String> compatibleEngines;
     
     
     
@@ -2296,12 +2634,6 @@ public static class CreateTagSchema{
     
     @JsonProperty("attributes")
     private HashMap<String,Object> attributes;
-    
-    
-    
-    
-    @JsonProperty("compatible_engines")
-    private List<String> compatibleEngines;
     
     
     
@@ -3161,12 +3493,6 @@ public static class Page{
     
     
     
-    
-    @JsonProperty("page_size")
-    private Integer pageSize;
-    
-    
-    
 }
 
 
@@ -4004,6 +4330,165 @@ public static class PageMetaSchema{
 
 
 /*
+    Model: SlideshowGetDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SlideshowGetDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<SlideshowSchema> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: SlideshowSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SlideshowSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("date_meta")
+    private DateMeta dateMeta;
+    
+    
+    
+    
+    @JsonProperty("application")
+    private String application;
+    
+    
+    
+    
+    @JsonProperty("platform")
+    private String platform;
+    
+    
+    
+    
+    @JsonProperty("configuration")
+    private ConfigurationSchema configuration;
+    
+    
+    
+    
+    @JsonProperty("media")
+    private List<SlideshowMedia> media;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("archived")
+    private Boolean archived;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private HashMap<String,Object> customJson;
+    
+    
+    
+}
+
+
+/*
+    Model: SlideshowPayload
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SlideshowPayload{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("platform")
+    private String platform;
+    
+    
+    
+    
+    @JsonProperty("configuration")
+    private ConfigurationSchema configuration;
+    
+    
+    
+    
+    @JsonProperty("media")
+    private SlideshowMedia media;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+}
+
+
+/*
     Model: Support
 */
 @AllArgsConstructor
@@ -4323,12 +4808,6 @@ public static class TagSchema{
     
     @JsonProperty("content")
     private String content;
-    
-    
-    
-    
-    @JsonProperty("compatible_engines")
-    private List<String> compatibleEngines;
     
     
     
@@ -7319,1392 +7798,6 @@ public static class ActionPage{
     
     @JsonProperty("type")
     private PageType type;
-    
-    
-    
-}
-
-
-/*
-    Model: TranslateUiLabels
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TranslateUiLabels{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private String companyId;
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("template_theme_id")
-    private String templateThemeId;
-    
-    
-    
-    
-    @JsonProperty("theme_id")
-    private String themeId;
-    
-    
-    
-    
-    @JsonProperty("locale")
-    private String locale;
-    
-    
-    
-    
-    @JsonProperty("resource")
-    private HashMap<String,Object> resource;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-}
-
-
-/*
-    Model: TranslateUiLabelsCreate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TranslateUiLabelsCreate{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("template_theme_id")
-    private String templateThemeId;
-    
-    
-    
-    
-    @JsonProperty("theme_id")
-    private String themeId;
-    
-    
-    
-    
-    @JsonProperty("locale")
-    private String locale;
-    
-    
-    
-    
-    @JsonProperty("resource")
-    private HashMap<String,Object> resource;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-}
-
-
-/*
-    Model: StaticResourceUpdate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StaticResourceUpdate{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("template_theme_id")
-    private String templateThemeId;
-    
-    
-    
-    
-    @JsonProperty("theme_id")
-    private String themeId;
-    
-    
-    
-    
-    @JsonProperty("locale")
-    private String locale;
-    
-    
-    
-    
-    @JsonProperty("resource")
-    private HashMap<String,Object> resource;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-}
-
-
-/*
-    Model: TranslateUiLabelsPage
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TranslateUiLabelsPage{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<TranslateUiLabels> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-}
-
-
-/*
-    Model: Error
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Error{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("error")
-    private String error;
-    
-    
-    
-}
-
-
-/*
-    Model: Meta
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Meta{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private String createdBy;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private String modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-}
-
-
-/*
-    Model: CompanyLanguage
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyLanguage{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private String companyId;
-    
-    
-    
-    
-    @JsonProperty("locale")
-    private String locale;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("direction")
-    private String direction;
-    
-    
-    
-    
-    @JsonProperty("is_default")
-    private Boolean isDefault;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-}
-
-
-/*
-    Model: CompanyLanguageCreate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyLanguageCreate{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("locales")
-    private List<String> locales;
-    
-    
-    
-}
-
-
-/*
-    Model: CompanyLanguageUpdate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyLanguageUpdate{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("is_default")
-    private Boolean isDefault;
-    
-    
-    
-}
-
-
-/*
-    Model: ApplicationLanguage
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationLanguage{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private String companyId;
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("locale")
-    private String locale;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("direction")
-    private String direction;
-    
-    
-    
-    
-    @JsonProperty("is_default")
-    private Boolean isDefault;
-    
-    
-    
-    
-    @JsonProperty("published")
-    private Boolean published;
-    
-    
-    
-    
-    @JsonProperty("display_name")
-    private String displayName;
-    
-    
-    
-}
-
-
-/*
-    Model: unPublishApplicationLanguage
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class unPublishApplicationLanguage{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("published")
-    private Boolean published;
-    
-    
-    
-}
-
-
-/*
-    Model: ApplicationLanguageCreate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationLanguageCreate{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("locales")
-    private List<String> locales;
-    
-    
-    
-}
-
-
-/*
-    Model: ApplicationLanguageUpdate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationLanguageUpdate{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("is_default")
-    private Boolean isDefault;
-    
-    
-    
-    
-    @JsonProperty("published")
-    private Boolean published;
-    
-    
-    
-}
-
-
-/*
-    Model: TranslatableResource
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TranslatableResource{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("schema_type")
-    private String schemaType;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private String createdBy;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private String modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-    
-    @JsonProperty("section_id")
-    private TranslatableSection sectionId;
-    
-    
-    
-}
-
-
-/*
-    Model: ResourceDefinition
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResourceDefinition{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("translatable_resource_id")
-    private String translatableResourceId;
-    
-    
-    
-    
-    @JsonProperty("json_schema")
-    private ResourceJsonSchema jsonSchema;
-    
-    
-    
-    
-    @JsonProperty("ui_schema")
-    private ResourceUISchema uiSchema;
-    
-    
-    
-    
-    @JsonProperty("bulk_details")
-    private ResourceBulkDetails bulkDetails;
-    
-    
-    
-}
-
-
-/*
-    Model: ResourceJsonSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResourceJsonSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("schema")
-    private String schema;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private ResourceJsonSchemaType type;
-    
-    
-    
-}
-
-
-/*
-    Model: ResourceJsonSchemaType
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResourceJsonSchemaType{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("author")
-    private Author author;
-    
-    
-    
-    
-    @JsonProperty("title")
-    private Title title;
-    
-    
-    
-    
-    @JsonProperty("feature_image")
-    private FeatureImage featureImage;
-    
-    
-    
-}
-
-
-/*
-    Model: ResourceUISchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResourceUISchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("author")
-    private Author author;
-    
-    
-    
-    
-    @JsonProperty("title")
-    private Title title;
-    
-    
-    
-    
-    @JsonProperty("feature_image")
-    private FeatureImage featureImage;
-    
-    
-    
-    
-    @JsonProperty("seo")
-    private Seo seo;
-    
-    
-    
-}
-
-
-/*
-    Model: ResourceBulkDetails
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResourceBulkDetails{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("fields")
-    private List<String> fields;
-    
-    
-    
-}
-
-
-/*
-    Model: Title
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Title{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("ui_widget")
-    private String uiWidget;
-    
-    
-    
-    
-    @JsonProperty("ui_description")
-    private Boolean uiDescription;
-    
-    
-    
-}
-
-
-/*
-    Model: FeatureImage
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FeatureImage{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("secure_url")
-    private String secureUrl;
-    
-    
-    
-}
-
-
-/*
-    Model: Seo
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Seo{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("title")
-    private Title title;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("canonical_url")
-    private String canonicalUrl;
-    
-    
-    
-    
-    @JsonProperty("meta_tags")
-    private List<MetaTag> metaTags;
-    
-    
-    
-}
-
-
-/*
-    Model: MetaTag
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MetaTag{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<MetaTagItem> items;
-    
-    
-    
-}
-
-
-/*
-    Model: MetaTagItem
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MetaTagItem{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("key")
-    private String key;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-}
-
-
-/*
-    Model: ResourceTranslation
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResourceTranslation{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("locale")
-    private String locale;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private TranslationValue value;
-    
-    
-    
-}
-
-
-/*
-    Model: TranslationValue
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TranslationValue{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("seo")
-    private TranslationSeo seo;
-    
-    
-    
-}
-
-
-/*
-    Model: TranslationSeo
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TranslationSeo{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("breadcrumbs")
-    private List<String> breadcrumbs;
-    
-    
-    
-    
-    @JsonProperty("meta_tags")
-    private List<String> metaTags;
-    
-    
-    
-    
-    @JsonProperty("canonical_url")
-    private String canonicalUrl;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-}
-
-
-/*
-    Model: ResourceTranslationList
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResourceTranslationList{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<ResourceTranslationCreate> items;
-    
-    
-    
-}
-
-
-/*
-    Model: ResourceTranslationCreate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResourceTranslationCreate{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("resource_id")
-    private String resourceId;
-    
-    
-    
-    
-    @JsonProperty("locale")
-    private String locale;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private TranslationValue value;
-    
-    
-    
-}
-
-
-/*
-    Model: ResourceTranslationUpdate
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResourceTranslationUpdate{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("value")
-    private TranslationValue value;
-    
-    
-    
-}
-
-
-/*
-    Model: TranslatableSection
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TranslatableSection{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("created_by")
-    private String createdBy;
-    
-    
-    
-    
-    @JsonProperty("modified_by")
-    private String modifiedBy;
-    
-    
-    
-    
-    @JsonProperty("created_on")
-    private String createdOn;
-    
-    
-    
-    
-    @JsonProperty("modified_on")
-    private String modifiedOn;
-    
-    
-    
-}
-
-
-/*
-    Model: Metrics
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Metrics{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("total")
-    private Integer total;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Integer success;
-    
-    
-    
-    
-    @JsonProperty("failed")
-    private Integer failed;
-    
-    
-    
-}
-
-
-/*
-    Model: ResourceTranslationUpsertItem
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResourceTranslationUpsertItem{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("data")
-    private ResourceTranslationCreate data;
-    
-    
-    
-}
-
-
-/*
-    Model: ResourceTranslationBulkUpsert
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ResourceTranslationBulkUpsert{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("metrics")
-    private Metrics metrics;
-    
-    
-    
-    
-    @JsonProperty("failed_items")
-    private List<ResourceTranslationUpsertItem> failedItems;
-    
-    
-    
-    
-    @JsonProperty("updated_items")
-    private List<ResourceTranslationUpsertItem> updatedItems;
-    
-    
-    
-}
-
-
-/*
-    Model: StandardError
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StandardError{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
-    Model: OperationResponseSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OperationResponseSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
     
     
     

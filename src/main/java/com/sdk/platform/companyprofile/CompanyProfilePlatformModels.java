@@ -358,7 +358,7 @@ public static class GetAddressSchema{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     
@@ -605,8 +605,20 @@ public static class ErrorResponseSchema{
     
     
     
-    @JsonProperty("error")
-    private HashMap<String,Object> error;
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Integer status;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
     
     
     
@@ -614,7 +626,7 @@ public static class ErrorResponseSchema{
 
 
 /*
-    Model: CompanyRequestTaxesSchema
+    Model: CompanyTaxesSerializer1
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -622,7 +634,7 @@ public static class ErrorResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyRequestTaxesSchema{
+public static class CompanyTaxesSerializer1{
 
     
 
@@ -680,7 +692,7 @@ public static class CreateUpdateAddressSchema{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     
@@ -783,7 +795,7 @@ public static class UpdateCompany{
     
     
     @JsonProperty("taxes")
-    private List<CompanyRequestTaxesSchema> taxes;
+    private List<CompanyTaxesSerializer1> taxes;
     
     
     
@@ -1633,12 +1645,6 @@ public static class Page{
     
     
     
-    
-    @JsonProperty("page_size")
-    private Integer pageSize;
-    
-    
-    
 }
 
 
@@ -2363,7 +2369,7 @@ public static class AddressSchema{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     

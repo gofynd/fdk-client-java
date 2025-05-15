@@ -1839,6 +1839,55 @@ public static class Address{
 
 
 /*
+    Model: CouponDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CouponDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("currency_symbol")
+    private String currencySymbol;
+    
+    
+    
+    
+    @JsonProperty("currency_code")
+    private String currencyCode;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+}
+
+
+/*
     Model: Shipments
 */
 @AllArgsConstructor
@@ -1851,6 +1900,12 @@ public static class Shipments{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("coupon_details")
+    private List<CouponDetails> couponDetails;
     
     
     
@@ -2243,6 +2298,12 @@ public static class OrderSchema{
     
     
     
+    @JsonProperty("coupon_details")
+    private List<CouponDetails> couponDetails;
+    
+    
+    
+    
     @JsonProperty("total_shipments_in_order")
     private Integer totalShipmentsInOrder;
     
@@ -2311,6 +2372,12 @@ public static class OrderSchema{
     
     @JsonProperty("currency")
     private CurrencySchema currency;
+    
+    
+    
+    
+    @JsonProperty("custom_json")
+    private HashMap<String,Object> customJson;
     
     
     

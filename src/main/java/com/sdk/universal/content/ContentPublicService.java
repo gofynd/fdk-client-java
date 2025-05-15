@@ -184,48 +184,6 @@ public class ContentPublicService {
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
         }
         return response.body();
-    }
-
-    public Object getAllLanguages() throws IOException {
-        return this.getAllLanguages(new HashMap<>());
-    }
-
-    public Object getAllLanguages(Map<String, String> requestHeaders) throws IOException {
-    
-        Response<Object> response = contentPublicApiList.getAllLanguages(requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    public ContentPublicModels.Language getLanguageByLocale(String locale) throws IOException {
-        return this.getLanguageByLocale(locale, new HashMap<>());
-    }
-
-    public ContentPublicModels.Language getLanguageByLocale(String locale, Map<String, String> requestHeaders) throws IOException {
-    
-        Response<ContentPublicModels.Language> response = contentPublicApiList.getLanguageByLocale(locale, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-
-    public Object getAllTranslatableResources() throws IOException {
-        return this.getAllTranslatableResources(new HashMap<>());
-    }
-
-    public Object getAllTranslatableResources(Map<String, String> requestHeaders) throws IOException {
-    
-        Response<Object> response = contentPublicApiList.getAllTranslatableResources(requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
     }  
 
     private interface Fields {

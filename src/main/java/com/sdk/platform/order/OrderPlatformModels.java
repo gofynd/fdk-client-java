@@ -1214,37 +1214,6 @@ public static class DataUpdates{
 
 
 /*
-    Model: TransitionComments
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TransitionComments{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("title")
-    private String title;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
     Model: ShipmentsRequestSchema
 */
 @AllArgsConstructor
@@ -1281,12 +1250,6 @@ public static class ShipmentsRequestSchema{
     
     @JsonProperty("data_updates")
     private DataUpdates dataUpdates;
-    
-    
-    
-    
-    @JsonProperty("transition_comments")
-    private List<TransitionComments> transitionComments;
     
     
     
@@ -3131,8 +3094,8 @@ public static class HistoryReason{
     
     
     
-    @JsonProperty("display_name")
-    private String displayName;
+    @JsonProperty("dislay_name")
+    private String dislayName;
     
     
     
@@ -3852,12 +3815,6 @@ public static class OrderDetails{
     
     @JsonProperty("ordering_channel")
     private String orderingChannel;
-    
-    
-    
-    
-    @JsonProperty("ordering_source")
-    private String orderingSource;
     
     
     
@@ -5578,6 +5535,12 @@ public static class CreateOrderAPI{
     
     
     
+    
+    @JsonProperty("custom_json")
+    private HashMap<String,Object> customJson;
+    
+    
+    
 }
 
 
@@ -6845,79 +6808,6 @@ public static class VerifyOtpResponseSchema{
 
 
 /*
-    Model: BulkReportsFiltersSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkReportsFiltersSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("bag_status")
-    private String bagStatus;
-    
-    
-    
-    
-    @JsonProperty("operational_status")
-    private String operationalStatus;
-    
-    
-    
-    
-    @JsonProperty("stores")
-    private String stores;
-    
-    
-    
-    
-    @JsonProperty("time_to_dispatch")
-    private String timeToDispatch;
-    
-    
-    
-    
-    @JsonProperty("payment_methods")
-    private String paymentMethods;
-    
-    
-    
-    
-    @JsonProperty("dp_ids")
-    private String dpIds;
-    
-    
-    
-    
-    @JsonProperty("sales_channels")
-    private String salesChannels;
-    
-    
-    
-    
-    @JsonProperty("tags")
-    private String tags;
-    
-    
-    
-    
-    @JsonProperty("lock_status")
-    private String lockStatus;
-    
-    
-    
-}
-
-
-/*
     Model: BulkReportsDownloadRequestSchema
 */
 @AllArgsConstructor
@@ -6990,12 +6880,6 @@ public static class BulkReportsDownloadRequestSchema{
     
     @JsonProperty("custom_filters_for_lane")
     private HashMap<String,Object> customFiltersForLane;
-    
-    
-    
-    
-    @JsonProperty("filters")
-    private BulkReportsFiltersSchema filters;
     
     
     
@@ -10230,12 +10114,6 @@ public static class TransitionConfigCondition{
     
     
     
-    @JsonProperty("ordering_source")
-    private String orderingSource;
-    
-    
-    
-    
     @JsonProperty("entity")
     private String entity;
     
@@ -11163,12 +11041,6 @@ public static class Page{
     
     
     
-    
-    @JsonProperty("page_size")
-    private Integer pageSize;
-    
-    
-    
 }
 
 
@@ -11477,7 +11349,7 @@ public static class UserDataInfo{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private String meta;
     
     
     
@@ -11707,12 +11579,6 @@ public static class Address{
     
     @JsonProperty("user_id")
     private String userId;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
     
     
     
@@ -14131,12 +13997,6 @@ public static class ShipmentItem{
     
     
     
-    @JsonProperty("ordering_source")
-    private String orderingSource;
-    
-    
-    
-    
     @JsonProperty("shipment_id")
     private String shipmentId;
     
@@ -14449,12 +14309,6 @@ public static class OrderDetailsData{
     
     @JsonProperty("ordering_channel")
     private String orderingChannel;
-    
-    
-    
-    
-    @JsonProperty("ordering_source")
-    private String orderingSource;
     
     
     
@@ -14790,18 +14644,6 @@ public static class OrderingStoreDetails{
     
     @JsonProperty("city")
     private String city;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("store_email")
-    private String storeEmail;
     
     
     
@@ -15706,12 +15548,6 @@ public static class OrderBagArticle{
     
     
     
-    
-    @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
-    
-    
-    
 }
 
 
@@ -16560,12 +16396,6 @@ public static class FulfillingStore{
     
     
     
-    
-    @JsonProperty("store_email")
-    private String storeEmail;
-    
-    
-    
 }
 
 
@@ -17340,12 +17170,6 @@ public static class OrderData{
     
     @JsonProperty("ordering_channel")
     private String orderingChannel;
-    
-    
-    
-    
-    @JsonProperty("ordering_source")
-    private String orderingSource;
     
     
     
