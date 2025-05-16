@@ -151,34 +151,34 @@ interface CommunicationPlatformApiList {
     Call<CommunicationPlatformModels.SmsTemplates> getSubscribedSmsTemplates(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("query") Object query, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/engine/send-instant")
-    Call<CommunicationPlatformModels.EngineResult> sendCommunicationSynchronously(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.EnginePayload payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CommunicationPlatformModels.EngineResponse> sendCommunicationSynchronously(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.EngineRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/engine/send-async")
-    Call<CommunicationPlatformModels.EngineResult> sendCommunicationAsynchronously(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.EnginePayload payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CommunicationPlatformModels.EngineResponse> sendCommunicationAsynchronously(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.EngineRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions")
     Call<CommunicationPlatformModels.EventSubscriptions> getEventSubscriptions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("populate") String populate, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions")
-    Call<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResult> createEventSubscriptions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.SubscriptionsObject payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse> createEventSubscriptions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.SubscriptionsObject payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions/{id}")
     Call<CommunicationPlatformModels.EventSubscription> getEventSubscriptionsById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Query("populate") String populate, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions/{id}")
-    Call<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResult> editEventSubscriptions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CommunicationPlatformModels.SubscriptionsObject payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse> editEventSubscriptions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CommunicationPlatformModels.SubscriptionsObject payload, @HeaderMap Map<String, String> requestHeaders);
 
     @DELETE ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions/{id}")
     Call<CommunicationPlatformModels.GenericDelete> deleteEventSubscriptionsById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions/bulkUpdate")
-    Call<List<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResult>> createEventSubscriptionsByBulk(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.EventSubscriptionsBulkUpdatePayload payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<List<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse>> createEventSubscriptionsByBulk(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.EventSubscriptionsBulkUpdateRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/global-variables")
-    Call<CommunicationPlatformModels.GetGlobalVariablesResult> getGlobalVariables(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+    Call<CommunicationPlatformModels.GlobalVariablesGetResponse> getGlobalVariables(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/global-variables")
-    Call<CommunicationPlatformModels.CreateGlobalVariablesResult> postGlobalVariables(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.GlobalVariablesReq payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CommunicationPlatformModels.GlobalVariablesPostResponse> postGlobalVariables(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.GlobalVariablesReq payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/jobs/jobs")
     Call<CommunicationPlatformModels.Jobs> getJobs(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("sort") Object sort, @Query("query") Object query, @HeaderMap Map<String, String> requestHeaders);
@@ -187,7 +187,7 @@ interface CommunicationPlatformApiList {
     Call<CommunicationPlatformModels.CreateJobsRes> createJobs(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.CreateJobsReq payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/jobs/trigger-job")
-    Call<CommunicationPlatformModels.TriggerJobResult> triggerCampaignJob(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.TriggerJobPayload payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CommunicationPlatformModels.TriggerJobResponse> triggerCampaignJob(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.TriggerJobRequest payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/jobs/logs")
     Call<CommunicationPlatformModels.JobLogs> getJobLogs(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("sort") Object sort, @Query("query") Object query, @HeaderMap Map<String, String> requestHeaders);
