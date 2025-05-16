@@ -14,7 +14,7 @@ public class UserPlatformModels{
 
 
 /*
-    Model: SuccessMessage
+    Model: SuccessMessageResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class UserPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SuccessMessage{
+public static class SuccessMessageResponse{
 
     
 
@@ -154,7 +154,7 @@ public static class UserAttributeDefinition{
 
 
 /*
-    Model: UserAttributeDefinitionDetails
+    Model: UserAttributeDefinitionResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -162,7 +162,7 @@ public static class UserAttributeDefinition{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserAttributeDefinitionDetails{
+public static class UserAttributeDefinitionResponse{
 
     
 
@@ -306,7 +306,7 @@ public static class UserAttributeDefinitionValidation{
 
 
 /*
-    Model: UserAttribute
+    Model: UserAttributeResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -314,7 +314,7 @@ public static class UserAttributeDefinitionValidation{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserAttribute{
+public static class UserAttributeResponse{
 
     
 
@@ -352,14 +352,14 @@ public static class UserAttribute{
     
     
     
-    @JsonProperty("customer_overridden")
-    private Boolean customerOverridden;
+    @JsonProperty("customer_overriden")
+    private Boolean customerOverriden;
     
     
     
     
     @JsonProperty("attribute")
-    private HashMap<String,Object> attribute;
+    private Object attribute;
     
     
     
@@ -373,7 +373,7 @@ public static class UserAttribute{
 
 
 /*
-    Model: CreateUserAttribute
+    Model: CreateUserAttributeRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -381,7 +381,7 @@ public static class UserAttribute{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateUserAttribute{
+public static class CreateUserAttributeRequest{
 
     
 
@@ -389,14 +389,14 @@ public static class CreateUserAttribute{
     
     
     
-    @JsonProperty("customer_overridden")
-    private Boolean customerOverridden;
+    @JsonProperty("customer_overriden")
+    private Boolean customerOverriden;
     
     
     
     
     @JsonProperty("attribute")
-    private HashMap<String,Object> attribute;
+    private Object attribute;
     
     
     
@@ -902,7 +902,7 @@ public static class APIError{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -1318,7 +1318,7 @@ public static class CreateUserRequestSchema{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -2388,7 +2388,7 @@ public static class UpdateUserRequestSchema{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -2535,7 +2535,7 @@ public static class UserSchema{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -2662,7 +2662,7 @@ public static class UserSearchSchema{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
