@@ -31,13 +31,13 @@ public static class BuyRules{
     
     
     @JsonProperty("item_criteria")
-    private Object itemCriteria;
+    private HashMap<String,Object> itemCriteria;
     
     
     
     
     @JsonProperty("cart_conditions")
-    private Object cartConditions;
+    private HashMap<String,Object> cartConditions;
     
     
     
@@ -68,19 +68,19 @@ public static class DiscountRulesApp{
     
     
     @JsonProperty("raw_offer")
-    private Object rawOffer;
+    private HashMap<String,Object> rawOffer;
     
     
     
     
     @JsonProperty("offer")
-    private Object offer;
+    private HashMap<String,Object> offer;
     
     
     
     
     @JsonProperty("item_criteria")
-    private Object itemCriteria;
+    private HashMap<String,Object> itemCriteria;
     
     
     
@@ -112,6 +112,61 @@ public static class Ownership{
     
     @JsonProperty("payable_by")
     private String payableBy;
+    
+    
+    
+}
+
+
+/*
+    Model: FreeGiftItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FreeGiftItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("item_slug")
+    private String itemSlug;
+    
+    
+    
+    
+    @JsonProperty("item_name")
+    private String itemName;
+    
+    
+    
+    
+    @JsonProperty("item_price_details")
+    private HashMap<String,Object> itemPriceDetails;
+    
+    
+    
+    
+    @JsonProperty("item_brand_name")
+    private String itemBrandName;
+    
+    
+    
+    
+    @JsonProperty("item_id")
+    private Integer itemId;
+    
+    
+    
+    
+    @JsonProperty("item_images_url")
+    private List<String> itemImagesUrl;
     
     
     
@@ -196,6 +251,12 @@ public static class AppliedPromotion{
     
     
     
+    @JsonProperty("offer_label")
+    private String offerLabel;
+    
+    
+    
+    
     @JsonProperty("promotion_group")
     private String promotionGroup;
     
@@ -257,7 +318,7 @@ public static class AppliedPromotion{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -609,7 +670,7 @@ public static class ProductArticle{
     
     
     @JsonProperty("extra_meta")
-    private Object extraMeta;
+    private HashMap<String,Object> extraMeta;
     
     
     
@@ -621,13 +682,13 @@ public static class ProductArticle{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -657,13 +718,13 @@ public static class ProductArticle{
     
     
     @JsonProperty("parent_item_identifiers")
-    private Object parentItemIdentifiers;
+    private HashMap<String,Object> parentItemIdentifiers;
     
     
     
     
     @JsonProperty("identifier")
-    private Object identifier;
+    private HashMap<String,Object> identifier;
     
     
     
@@ -675,7 +736,7 @@ public static class ProductArticle{
     
     
     @JsonProperty("cart_item_meta")
-    private Object cartItemMeta;
+    private HashMap<String,Object> cartItemMeta;
     
     
     
@@ -686,8 +747,14 @@ public static class ProductArticle{
     
     
     
+    @JsonProperty("force_new_line_item")
+    private Boolean forceNewLineItem;
+    
+    
+    
+    
     @JsonProperty("gift_card")
-    private Object giftCard;
+    private HashMap<String,Object> giftCard;
     
     
     
@@ -700,6 +767,12 @@ public static class ProductArticle{
     
     @JsonProperty("type")
     private String type;
+    
+    
+    
+    
+    @JsonProperty("item_index")
+    private Integer itemIndex;
     
     
     
@@ -811,7 +884,7 @@ public static class Charges{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -928,6 +1001,43 @@ public static class ProductPriceInfo{
     
     @JsonProperty("converted")
     private ProductPrice converted;
+    
+    
+    
+}
+
+
+/*
+    Model: ProductMaxQuantityInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductMaxQuantityInfo{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("item")
+    private Double item;
+    
+    
+    
+    
+    @JsonProperty("item_seller")
+    private Double itemSeller;
+    
+    
+    
+    
+    @JsonProperty("item_store")
+    private Double itemStore;
     
     
     
@@ -1138,6 +1248,62 @@ public static class ActionQuery{
 
 
 /*
+    Model: ProductActionParams
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductActionParams{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private List<String> slug;
+    
+    
+    
+}
+
+
+/*
+    Model: ProductActionPage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductActionPage{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("params")
+    private ProductActionParams params;
+    
+    
+    
+}
+
+
+/*
     Model: ProductAction
 */
 @AllArgsConstructor
@@ -1171,6 +1337,12 @@ public static class ProductAction{
     
     
     
+    
+    @JsonProperty("page")
+    private ProductActionPage page;
+    
+    
+    
 }
 
 
@@ -1192,7 +1364,7 @@ public static class Tags{
     
     
     @JsonProperty("tags")
-    private Object tags;
+    private HashMap<String,Object> tags;
     
     
     
@@ -1285,7 +1457,7 @@ public static class CartProduct{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -1357,7 +1529,7 @@ public static class CartProduct{
     
     
     @JsonProperty("attributes")
-    private Object attributes;
+    private HashMap<String,Object> attributes;
     
     
     
@@ -1425,7 +1597,13 @@ public static class CartProductInfo{
     
     
     @JsonProperty("moq")
-    private Object moq;
+    private HashMap<String,Object> moq;
+    
+    
+    
+    
+    @JsonProperty("max_quantity")
+    private ProductMaxQuantityInfo maxQuantity;
     
     
     
@@ -1491,13 +1669,13 @@ public static class CartProductInfo{
     
     
     @JsonProperty("bulk_offer")
-    private Object bulkOffer;
+    private HashMap<String,Object> bulkOffer;
     
     
     
     
     @JsonProperty("parent_item_identifiers")
-    private Object parentItemIdentifiers;
+    private HashMap<String,Object> parentItemIdentifiers;
     
     
     
@@ -1509,7 +1687,7 @@ public static class CartProductInfo{
     
     
     @JsonProperty("custom_order")
-    private Object customOrder;
+    private HashMap<String,Object> customOrder;
     
     
     
@@ -2139,7 +2317,7 @@ public static class CartCommonConfig{
 
 
 /*
-    Model: CartDetailResponse
+    Model: CartDetailResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2147,7 +2325,7 @@ public static class CartCommonConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartDetailResponse{
+public static class CartDetailResult{
 
     
 
@@ -2246,7 +2424,7 @@ public static class CartDetailResponse{
     
     
     @JsonProperty("notification")
-    private Object notification;
+    private HashMap<String,Object> notification;
     
     
     
@@ -2306,13 +2484,25 @@ public static class CartDetailResponse{
     
     
     @JsonProperty("pan_config")
-    private Object panConfig;
+    private HashMap<String,Object> panConfig;
     
     
     
     
     @JsonProperty("custom_cart_meta")
-    private Object customCartMeta;
+    private HashMap<String,Object> customCartMeta;
+    
+    
+    
+    
+    @JsonProperty("free_gift_selection_available")
+    private Boolean freeGiftSelectionAvailable;
+    
+    
+    
+    
+    @JsonProperty("customer_id")
+    private String customerId;
     
     
     
@@ -2337,7 +2527,7 @@ public static class AddProductCart{
     
     
     @JsonProperty("article_assignment")
-    private Object articleAssignment;
+    private HashMap<String,Object> articleAssignment;
     
     
     
@@ -2349,7 +2539,7 @@ public static class AddProductCart{
     
     
     @JsonProperty("extra_meta")
-    private Object extraMeta;
+    private HashMap<String,Object> extraMeta;
     
     
     
@@ -2361,7 +2551,13 @@ public static class AddProductCart{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
+    
+    
+    
+    
+    @JsonProperty("force_new_line_item")
+    private Boolean forceNewLineItem;
     
     
     
@@ -2415,7 +2611,7 @@ public static class AddProductCart{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -2425,17 +2621,11 @@ public static class AddProductCart{
     
     
     
-    
-    @JsonProperty("order_type")
-    private String orderType;
-    
-    
-    
 }
 
 
 /*
-    Model: AddCartRequest
+    Model: AddCartCreation
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2443,7 +2633,7 @@ public static class AddProductCart{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddCartRequest{
+public static class AddCartCreation{
 
     
 
@@ -2466,7 +2656,7 @@ public static class AddCartRequest{
 
 
 /*
-    Model: AddCartDetailResponse
+    Model: AddCartDetailResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2474,7 +2664,7 @@ public static class AddCartRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddCartDetailResponse{
+public static class AddCartDetailResult{
 
     
 
@@ -2495,13 +2685,74 @@ public static class AddCartDetailResponse{
     
     
     @JsonProperty("cart")
-    private CartDetailResponse cart;
+    private CartDetailResult cart;
     
     
     
     
     @JsonProperty("success")
     private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("result")
+    private HashMap<String,Object> result;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<CartItemInfo> items;
+    
+    
+    
+}
+
+
+/*
+    Model: CartItemInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CartItemInfo{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("item_id")
+    private Integer itemId;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private String size;
+    
+    
+    
+    
+    @JsonProperty("store_id")
+    private Integer storeId;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -2526,13 +2777,19 @@ public static class UpdateProductCart{
     
     
     @JsonProperty("extra_meta")
-    private Object extraMeta;
+    private HashMap<String,Object> extraMeta;
     
     
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
+    
+    
+    
+    
+    @JsonProperty("force_new_line_item")
+    private Boolean forceNewLineItem;
     
     
     
@@ -2568,7 +2825,7 @@ public static class UpdateProductCart{
     
     
     @JsonProperty("parent_item_identifiers")
-    private Object parentItemIdentifiers;
+    private HashMap<String,Object> parentItemIdentifiers;
     
     
     
@@ -2580,7 +2837,7 @@ public static class UpdateProductCart{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -2588,7 +2845,7 @@ public static class UpdateProductCart{
 
 
 /*
-    Model: UpdateCartRequest
+    Model: FreeGiftItemCreation
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2596,7 +2853,44 @@ public static class UpdateProductCart{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateCartRequest{
+public static class FreeGiftItemCreation{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("promotion_id")
+    private String promotionId;
+    
+    
+    
+    
+    @JsonProperty("item_id")
+    private String itemId;
+    
+    
+    
+    
+    @JsonProperty("item_size")
+    private String itemSize;
+    
+    
+    
+}
+
+
+/*
+    Model: UpdateCartCreation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateCartCreation{
 
     
 
@@ -2610,8 +2904,20 @@ public static class UpdateCartRequest{
     
     
     
+    @JsonProperty("free_gift_items")
+    private List<FreeGiftItemCreation> freeGiftItems;
+    
+    
+    
+    
     @JsonProperty("operation")
     private String operation;
+    
+    
+    
+    
+    @JsonProperty("free_gift_items_operation")
+    private String freeGiftItemsOperation;
     
     
     
@@ -2619,7 +2925,7 @@ public static class UpdateCartRequest{
 
 
 /*
-    Model: UpdateCartDetailResponse
+    Model: UpdateCartBreakup
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2627,7 +2933,32 @@ public static class UpdateCartRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateCartDetailResponse{
+public static class UpdateCartBreakup{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("store_credit")
+    private Boolean storeCredit;
+    
+    
+    
+}
+
+
+/*
+    Model: UpdateCartDetailResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateCartDetailResult{
 
     
 
@@ -2642,7 +2973,7 @@ public static class UpdateCartDetailResponse{
     
     
     @JsonProperty("cart")
-    private CartDetailResponse cart;
+    private CartDetailResult cart;
     
     
     
@@ -2652,11 +2983,23 @@ public static class UpdateCartDetailResponse{
     
     
     
+    
+    @JsonProperty("result")
+    private HashMap<String,Object> result;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<CartItemInfo> items;
+    
+    
+    
 }
 
 
 /*
-    Model: DeleteCartDetailResponse
+    Model: DeleteCartDetailResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2664,7 +3007,7 @@ public static class UpdateCartDetailResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeleteCartDetailResponse{
+public static class DeleteCartDetailResult{
 
     
 
@@ -2687,7 +3030,7 @@ public static class DeleteCartDetailResponse{
 
 
 /*
-    Model: CartItemCountResponse
+    Model: CartItemCountResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2695,7 +3038,7 @@ public static class DeleteCartDetailResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartItemCountResponse{
+public static class CartItemCountResult{
 
     
 
@@ -2705,12 +3048,6 @@ public static class CartItemCountResponse{
     
     @JsonProperty("user_cart_items_count")
     private Integer userCartItemsCount;
-    
-    
-    
-    
-    @JsonProperty("user_cart_article_count")
-    private Integer userCartArticleCount;
     
     
     
@@ -2767,6 +3104,31 @@ public static class PageCoupon{
 
 
 /*
+    Model: DiscountRules
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DiscountRules{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("discounted_price")
+    private Double discountedPrice;
+    
+    
+    
+}
+
+
+/*
     Model: Coupon
 */
 @AllArgsConstructor
@@ -2797,6 +3159,12 @@ public static class Coupon{
     
     @JsonProperty("title")
     private String title;
+    
+    
+    
+    
+    @JsonProperty("rule")
+    private List<DiscountRules> rule;
     
     
     
@@ -2894,7 +3262,7 @@ public static class Coupon{
 
 
 /*
-    Model: GetCouponResponse
+    Model: GetCouponResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2902,7 +3270,7 @@ public static class Coupon{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCouponResponse{
+public static class GetCouponResult{
 
     
 
@@ -2925,7 +3293,7 @@ public static class GetCouponResponse{
 
 
 /*
-    Model: ApplyCouponRequest
+    Model: ApplyCoupon
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2933,7 +3301,7 @@ public static class GetCouponResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplyCouponRequest{
+public static class ApplyCoupon{
 
     
 
@@ -3122,7 +3490,7 @@ public static class BulkPriceOffer{
 
 
 /*
-    Model: BulkPriceResponse
+    Model: BulkPriceResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3130,7 +3498,7 @@ public static class BulkPriceOffer{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkPriceResponse{
+public static class BulkPriceResult{
 
     
 
@@ -3147,7 +3515,7 @@ public static class BulkPriceResponse{
 
 
 /*
-    Model: RewardPointRequest
+    Model: RewardPointCreation
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3155,7 +3523,7 @@ public static class BulkPriceResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RewardPointRequest{
+public static class RewardPointCreation{
 
     
 
@@ -3274,7 +3642,7 @@ public static class Address{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -3322,7 +3690,7 @@ public static class Address{
     
     
     @JsonProperty("google_map_point")
-    private Object googleMapPoint;
+    private HashMap<String,Object> googleMapPoint;
     
     
     
@@ -3382,7 +3750,7 @@ public static class Address{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -3390,7 +3758,7 @@ public static class Address{
 
 
 /*
-    Model: GetAddressesResponse
+    Model: ValidationConfig
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3398,7 +3766,38 @@ public static class Address{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetAddressesResponse{
+public static class ValidationConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("address_max_limit")
+    private Integer addressMaxLimit;
+    
+    
+    
+    
+    @JsonProperty("user_address_count")
+    private Integer userAddressCount;
+    
+    
+    
+}
+
+
+/*
+    Model: GetAddressesResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetAddressesResult{
 
     
 
@@ -3417,11 +3816,17 @@ public static class GetAddressesResponse{
     
     
     
+    
+    @JsonProperty("validation_config")
+    private ValidationConfig validationConfig;
+    
+    
+    
 }
 
 
 /*
-    Model: SaveAddressResponse
+    Model: SaveAddressResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3429,7 +3834,7 @@ public static class GetAddressesResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SaveAddressResponse{
+public static class SaveAddressResult{
 
     
 
@@ -3458,7 +3863,7 @@ public static class SaveAddressResponse{
 
 
 /*
-    Model: UpdateAddressResponse
+    Model: UpdateAddressResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3466,7 +3871,7 @@ public static class SaveAddressResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateAddressResponse{
+public static class UpdateAddressResult{
 
     
 
@@ -3501,7 +3906,7 @@ public static class UpdateAddressResponse{
 
 
 /*
-    Model: DeleteAddressResponse
+    Model: DeleteAddressResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3509,7 +3914,7 @@ public static class UpdateAddressResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeleteAddressResponse{
+public static class DeleteAddressResult{
 
     
 
@@ -3532,7 +3937,7 @@ public static class DeleteAddressResponse{
 
 
 /*
-    Model: SelectCartAddressRequest
+    Model: SelectCartAddressCreation
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3540,7 +3945,7 @@ public static class DeleteAddressResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SelectCartAddressRequest{
+public static class SelectCartAddressCreation{
 
     
 
@@ -3569,7 +3974,7 @@ public static class SelectCartAddressRequest{
 
 
 /*
-    Model: UpdateCartPaymentRequest
+    Model: UpdateCartPaymentCreation
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3577,7 +3982,7 @@ public static class SelectCartAddressRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateCartPaymentRequest{
+public static class UpdateCartPaymentCreation{
 
     
 
@@ -3675,6 +4080,12 @@ public static class CouponValidity{
     
     
     
+    
+    @JsonProperty("error_en")
+    private String errorEn;
+    
+    
+    
 }
 
 
@@ -3716,7 +4127,7 @@ public static class PaymentCouponValidate{
 
 
 /*
-    Model: ShipmentResponse
+    Model: ShipmentResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3724,7 +4135,7 @@ public static class PaymentCouponValidate{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ShipmentResponse{
+public static class ShipmentResult{
 
     
 
@@ -3763,7 +4174,7 @@ public static class ShipmentResponse{
     
     
     @JsonProperty("dp_options")
-    private Object dpOptions;
+    private HashMap<String,Object> dpOptions;
     
     
     
@@ -3795,7 +4206,7 @@ public static class ShipmentResponse{
 
 
 /*
-    Model: CartShipmentsResponse
+    Model: CartShipmentsResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3803,7 +4214,7 @@ public static class ShipmentResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartShipmentsResponse{
+public static class CartShipmentsResult{
 
     
 
@@ -3878,7 +4289,7 @@ public static class CartShipmentsResponse{
     
     
     @JsonProperty("shipments")
-    private List<ShipmentResponse> shipments;
+    private List<ShipmentResult> shipments;
     
     
     
@@ -3926,7 +4337,44 @@ public static class CartShipmentsResponse{
     
     
     @JsonProperty("custom_cart_meta")
-    private Object customCartMeta;
+    private HashMap<String,Object> customCartMeta;
+    
+    
+    
+    
+    @JsonProperty("customer_id")
+    private String customerId;
+    
+    
+    
+}
+
+
+/*
+    Model: CartCheckoutCustomMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CartCheckoutCustomMeta{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
     
     
     
@@ -4020,7 +4468,7 @@ public static class StaffCheckout{
 
 
 /*
-    Model: CartCheckoutCustomMeta
+    Model: OrderTag
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4028,7 +4476,7 @@ public static class StaffCheckout{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartCheckoutCustomMeta{
+public static class OrderTag{
 
     
 
@@ -4036,14 +4484,14 @@ public static class CartCheckoutCustomMeta{
     
     
     
-    @JsonProperty("key")
-    private String key;
+    @JsonProperty("display_text")
+    private String displayText;
     
     
     
     
-    @JsonProperty("value")
-    private String value;
+    @JsonProperty("slug")
+    private String slug;
     
     
     
@@ -4051,7 +4499,7 @@ public static class CartCheckoutCustomMeta{
 
 
 /*
-    Model: CartCheckoutDetailRequest
+    Model: CartCheckoutDetailCreation
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4059,7 +4507,7 @@ public static class CartCheckoutCustomMeta{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartCheckoutDetailRequest{
+public static class CartCheckoutDetailCreation{
 
     
 
@@ -4207,6 +4655,24 @@ public static class CartCheckoutDetailRequest{
     
     @JsonProperty("card_id")
     private String cardId;
+    
+    
+    
+    
+    @JsonProperty("success_callback_url")
+    private String successCallbackUrl;
+    
+    
+    
+    
+    @JsonProperty("failure_callback_url")
+    private String failureCallbackUrl;
+    
+    
+    
+    
+    @JsonProperty("order_tags")
+    private List<OrderTag> orderTags;
     
     
     
@@ -4405,7 +4871,7 @@ public static class CheckCart{
     
     
     @JsonProperty("custom_cart_meta")
-    private Object customCartMeta;
+    private HashMap<String,Object> customCartMeta;
     
     
     
@@ -4413,7 +4879,7 @@ public static class CheckCart{
 
 
 /*
-    Model: CartCheckoutResponse
+    Model: CartCheckoutResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4421,7 +4887,7 @@ public static class CheckCart{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartCheckoutResponse{
+public static class CartCheckoutResult{
 
     
 
@@ -4460,7 +4926,7 @@ public static class CartCheckoutResponse{
     
     
     @JsonProperty("data")
-    private Object data;
+    private HashMap<String,Object> data;
     
     
     
@@ -4536,7 +5002,7 @@ public static class ArticleGiftDetail{
 
 
 /*
-    Model: CartMetaRequest
+    Model: CartMetaCreation
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4544,7 +5010,7 @@ public static class ArticleGiftDetail{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartMetaRequest{
+public static class CartMetaCreation{
 
     
 
@@ -4553,7 +5019,7 @@ public static class CartMetaRequest{
     
     
     @JsonProperty("delivery_slots")
-    private Object deliverySlots;
+    private HashMap<String,Object> deliverySlots;
     
     
     
@@ -4565,7 +5031,7 @@ public static class CartMetaRequest{
     
     
     @JsonProperty("pick_up_customer_details")
-    private Object pickUpCustomerDetails;
+    private HashMap<String,Object> pickUpCustomerDetails;
     
     
     
@@ -4589,7 +5055,7 @@ public static class CartMetaRequest{
     
     
     @JsonProperty("custom_cart_meta")
-    private Object customCartMeta;
+    private HashMap<String,Object> customCartMeta;
     
     
     
@@ -4597,7 +5063,7 @@ public static class CartMetaRequest{
 
 
 /*
-    Model: CartMetaResponse
+    Model: CartMetaResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4605,7 +5071,7 @@ public static class CartMetaRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartMetaResponse{
+public static class CartMetaResult{
 
     
 
@@ -4628,7 +5094,7 @@ public static class CartMetaResponse{
 
 
 /*
-    Model: CartMetaMissingResponse
+    Model: CartMetaMissingResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4636,7 +5102,7 @@ public static class CartMetaResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartMetaMissingResponse{
+public static class CartMetaMissingResult{
 
     
 
@@ -4653,7 +5119,7 @@ public static class CartMetaMissingResponse{
 
 
 /*
-    Model: GetShareCartLinkRequest
+    Model: GetShareCartLinkCreation
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4661,7 +5127,7 @@ public static class CartMetaMissingResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetShareCartLinkRequest{
+public static class GetShareCartLinkCreation{
 
     
 
@@ -4676,7 +5142,7 @@ public static class GetShareCartLinkRequest{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -4684,7 +5150,7 @@ public static class GetShareCartLinkRequest{
 
 
 /*
-    Model: GetShareCartLinkResponse
+    Model: GetShareCartLinkResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4692,7 +5158,7 @@ public static class GetShareCartLinkRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetShareCartLinkResponse{
+public static class GetShareCartLinkResult{
 
     
 
@@ -4738,7 +5204,7 @@ public static class SharedCartDetails{
     
     
     @JsonProperty("user")
-    private Object user;
+    private HashMap<String,Object> user;
     
     
     
@@ -4750,13 +5216,13 @@ public static class SharedCartDetails{
     
     
     @JsonProperty("source")
-    private Object source;
+    private HashMap<String,Object> source;
     
     
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -4895,7 +5361,7 @@ public static class SharedCart{
     
     
     @JsonProperty("custom_cart_meta")
-    private Object customCartMeta;
+    private HashMap<String,Object> customCartMeta;
     
     
     
@@ -4903,7 +5369,7 @@ public static class SharedCart{
 
 
 /*
-    Model: SharedCartResponse
+    Model: SharedCartResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4911,7 +5377,7 @@ public static class SharedCart{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SharedCartResponse{
+public static class SharedCartResult{
 
     
 
@@ -5002,6 +5468,37 @@ public static class ItemPriceDetails{
 
 
 /*
+    Model: ArticlePriceDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ArticlePriceDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("marked")
+    private Double marked;
+    
+    
+    
+    
+    @JsonProperty("effective")
+    private Double effective;
+    
+    
+    
+}
+
+
+/*
     Model: FreeGiftItems
 */
 @AllArgsConstructor
@@ -5036,6 +5533,12 @@ public static class FreeGiftItems{
     
     
     
+    @JsonProperty("article_price")
+    private ArticlePriceDetails articlePrice;
+    
+    
+    
+    
     @JsonProperty("item_brand_name")
     private String itemBrandName;
     
@@ -5044,6 +5547,18 @@ public static class FreeGiftItems{
     
     @JsonProperty("item_id")
     private Integer itemId;
+    
+    
+    
+    
+    @JsonProperty("available_sizes")
+    private List<String> availableSizes;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private String size;
     
     
     
@@ -5080,7 +5595,7 @@ public static class PromotionOffer{
     
     
     @JsonProperty("buy_rules")
-    private Object buyRules;
+    private HashMap<String,Object> buyRules;
     
     
     
@@ -5136,7 +5651,7 @@ public static class PromotionOffer{
 
 
 /*
-    Model: PromotionOffersResponse
+    Model: PromotionOffersResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5144,7 +5659,7 @@ public static class PromotionOffer{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromotionOffersResponse{
+public static class PromotionOffersResult{
 
     
 
@@ -5240,7 +5755,7 @@ public static class PromotionPaymentOffer{
 
 
 /*
-    Model: PromotionPaymentOffersResponse
+    Model: PromotionPaymentOffersResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5248,7 +5763,7 @@ public static class PromotionPaymentOffer{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PromotionPaymentOffersResponse{
+public static class PromotionPaymentOffersResult{
 
     
 
@@ -5271,7 +5786,7 @@ public static class PromotionPaymentOffersResponse{
 
 
 /*
-    Model: OperationErrorResponse
+    Model: OperationErrorResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5279,7 +5794,7 @@ public static class PromotionPaymentOffersResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OperationErrorResponse{
+public static class OperationErrorResult{
 
     
 
@@ -5423,7 +5938,7 @@ public static class LadderPriceOffer{
     
     
     @JsonProperty("buy_rules")
-    private Object buyRules;
+    private HashMap<String,Object> buyRules;
     
     
     
@@ -5631,7 +6146,7 @@ public static class PaymentMethod{
     
     
     @JsonProperty("payment_extra_identifiers")
-    private Object paymentExtraIdentifiers;
+    private HashMap<String,Object> paymentExtraIdentifiers;
     
     
     
@@ -5639,7 +6154,7 @@ public static class PaymentMethod{
 
 
 /*
-    Model: CartCheckoutDetailV2Request
+    Model: CartCheckoutDetailV2Creation
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -5647,7 +6162,7 @@ public static class PaymentMethod{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CartCheckoutDetailV2Request{
+public static class CartCheckoutDetailV2Creation{
 
     
 
@@ -5656,13 +6171,13 @@ public static class CartCheckoutDetailV2Request{
     
     
     @JsonProperty("custom_meta")
-    private Object customMeta;
+    private List<CartCheckoutCustomMeta> customMeta;
     
     
     
     
     @JsonProperty("customer_details")
-    private Object customerDetails;
+    private CustomerDetails customerDetails;
     
     
     
@@ -5722,7 +6237,7 @@ public static class CartCheckoutDetailV2Request{
     
     
     @JsonProperty("delivery_address")
-    private Object deliveryAddress;
+    private HashMap<String,Object> deliveryAddress;
     
     
     
@@ -5746,7 +6261,7 @@ public static class CartCheckoutDetailV2Request{
     
     
     @JsonProperty("extra_meta")
-    private Object extraMeta;
+    private HashMap<String,Object> extraMeta;
     
     
     
@@ -5758,13 +6273,13 @@ public static class CartCheckoutDetailV2Request{
     
     
     @JsonProperty("billing_address")
-    private Object billingAddress;
+    private HashMap<String,Object> billingAddress;
     
     
     
     
     @JsonProperty("payment_params")
-    private Object paymentParams;
+    private HashMap<String,Object> paymentParams;
     
     
     
@@ -5776,7 +6291,7 @@ public static class CartCheckoutDetailV2Request{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -5804,9 +6319,97 @@ public static class CartCheckoutDetailV2Request{
     
     
     
+    
+    @JsonProperty("success_callback_url")
+    private String successCallbackUrl;
+    
+    
+    
+    
+    @JsonProperty("failure_callback_url")
+    private String failureCallbackUrl;
+    
+    
+    
+    
+    @JsonProperty("order_tags")
+    private List<OrderTag> orderTags;
+    
+    
+    
 }
 
 
+/*
+    Model: ValidationError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ValidationError{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("field")
+    private String field;
+    
+    
+    
+}
+
+
+
+
+    
+    /*
+        Enum: OrderingSource
+        Used By: Cart
+    */
+    @Getter
+    public enum OrderingSource {
+
+        
+        storefront("storefront"), 
+        
+        storeOsPos("store_os_pos"), 
+        
+        kiosk("kiosk"), 
+        
+        scanGo("scan_go"), 
+        
+        smartTrolley("smart_trolley"), 
+        
+        marketplace("marketplace"), 
+        
+        socialCommerce("social_commerce"), 
+        
+        ondc("ondc");
+        
+
+        private String priority;
+        OrderingSource(String priority) {
+            this.priority = priority;
+        }
+
+        @JsonValue
+        public String getPriority() {
+            return priority;
+        }
+
+    }
 
 
 }

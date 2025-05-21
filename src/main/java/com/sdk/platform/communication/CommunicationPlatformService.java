@@ -1396,13 +1396,13 @@ public class ApplicationClient {
         }    
     }
 
-    public List<CommunicationPlatformModels.SystemSmsTemplates> getSystemSmsTemplates() throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.SystemSmsTemplates getSystemSmsTemplates() throws FDKServerResponseError, FDKException {
         return this.getSystemSmsTemplates(new HashMap<>());
     }
 
-    public List<CommunicationPlatformModels.SystemSmsTemplates> getSystemSmsTemplates(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.SystemSmsTemplates getSystemSmsTemplates(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<List<CommunicationPlatformModels.SystemSmsTemplates>> response = null;
+            Response<CommunicationPlatformModels.SystemSmsTemplates> response = null;
             try {
             response = communicationPlatformApiList.getSystemSmsTemplates(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1531,13 +1531,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.EngineResponse sendCommunicationSynchronously(CommunicationPlatformModels.EngineRequest body) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EngineResult sendCommunicationSynchronously(CommunicationPlatformModels.EnginePayload body) throws FDKServerResponseError, FDKException {
         return this.sendCommunicationSynchronously(body, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.EngineResponse sendCommunicationSynchronously(CommunicationPlatformModels.EngineRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EngineResult sendCommunicationSynchronously(CommunicationPlatformModels.EnginePayload body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.EngineResponse> response = null;
+            Response<CommunicationPlatformModels.EngineResult> response = null;
             try {
             response = communicationPlatformApiList.sendCommunicationSynchronously(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1558,13 +1558,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.EngineResponse sendCommunicationAsynchronously(CommunicationPlatformModels.EngineRequest body) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EngineResult sendCommunicationAsynchronously(CommunicationPlatformModels.EnginePayload body) throws FDKServerResponseError, FDKException {
         return this.sendCommunicationAsynchronously(body, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.EngineResponse sendCommunicationAsynchronously(CommunicationPlatformModels.EngineRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EngineResult sendCommunicationAsynchronously(CommunicationPlatformModels.EnginePayload body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.EngineResponse> response = null;
+            Response<CommunicationPlatformModels.EngineResult> response = null;
             try {
             response = communicationPlatformApiList.sendCommunicationAsynchronously(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1612,13 +1612,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse createEventSubscriptions(CommunicationPlatformModels.SubscriptionsObject body) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EventSubscriptionsBulkUpdateResult createEventSubscriptions(CommunicationPlatformModels.SubscriptionsObject body) throws FDKServerResponseError, FDKException {
         return this.createEventSubscriptions(body, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse createEventSubscriptions(CommunicationPlatformModels.SubscriptionsObject body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EventSubscriptionsBulkUpdateResult createEventSubscriptions(CommunicationPlatformModels.SubscriptionsObject body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse> response = null;
+            Response<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResult> response = null;
             try {
             response = communicationPlatformApiList.createEventSubscriptions(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1666,13 +1666,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse editEventSubscriptions(String id, CommunicationPlatformModels.SubscriptionsObject body) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EventSubscriptionsBulkUpdateResult editEventSubscriptions(String id, CommunicationPlatformModels.SubscriptionsObject body) throws FDKServerResponseError, FDKException {
         return this.editEventSubscriptions(id, body, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse editEventSubscriptions(String id, CommunicationPlatformModels.SubscriptionsObject body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EventSubscriptionsBulkUpdateResult editEventSubscriptions(String id, CommunicationPlatformModels.SubscriptionsObject body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse> response = null;
+            Response<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResult> response = null;
             try {
             response = communicationPlatformApiList.editEventSubscriptions(this.companyId, this.applicationId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1720,13 +1720,13 @@ public class ApplicationClient {
         }    
     }
 
-    public List<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse> createEventSubscriptionsByBulk(CommunicationPlatformModels.EventSubscriptionsBulkUpdateRequest body) throws FDKServerResponseError, FDKException {
+    public List<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResult> createEventSubscriptionsByBulk(CommunicationPlatformModels.EventSubscriptionsBulkUpdatePayload body) throws FDKServerResponseError, FDKException {
         return this.createEventSubscriptionsByBulk(body, new HashMap<>());
     }
 
-    public List<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse> createEventSubscriptionsByBulk(CommunicationPlatformModels.EventSubscriptionsBulkUpdateRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public List<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResult> createEventSubscriptionsByBulk(CommunicationPlatformModels.EventSubscriptionsBulkUpdatePayload body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<List<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResponse>> response = null;
+            Response<List<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResult>> response = null;
             try {
             response = communicationPlatformApiList.createEventSubscriptionsByBulk(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1747,13 +1747,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.GlobalVariablesGetResponse getGlobalVariables() throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.GetGlobalVariablesResult getGlobalVariables() throws FDKServerResponseError, FDKException {
         return this.getGlobalVariables(new HashMap<>());
     }
 
-    public CommunicationPlatformModels.GlobalVariablesGetResponse getGlobalVariables(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.GetGlobalVariablesResult getGlobalVariables(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.GlobalVariablesGetResponse> response = null;
+            Response<CommunicationPlatformModels.GetGlobalVariablesResult> response = null;
             try {
             response = communicationPlatformApiList.getGlobalVariables(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1774,13 +1774,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.GlobalVariablesPostResponse postGlobalVariables(CommunicationPlatformModels.GlobalVariablesReq body) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.CreateGlobalVariablesResult postGlobalVariables(CommunicationPlatformModels.GlobalVariablesReq body) throws FDKServerResponseError, FDKException {
         return this.postGlobalVariables(body, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.GlobalVariablesPostResponse postGlobalVariables(CommunicationPlatformModels.GlobalVariablesReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.CreateGlobalVariablesResult postGlobalVariables(CommunicationPlatformModels.GlobalVariablesReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.GlobalVariablesPostResponse> response = null;
+            Response<CommunicationPlatformModels.CreateGlobalVariablesResult> response = null;
             try {
             response = communicationPlatformApiList.postGlobalVariables(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1855,13 +1855,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.TriggerJobResponse triggerCampaignJob(CommunicationPlatformModels.TriggerJobRequest body) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.TriggerJobResult triggerCampaignJob(CommunicationPlatformModels.TriggerJobPayload body) throws FDKServerResponseError, FDKException {
         return this.triggerCampaignJob(body, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.TriggerJobResponse triggerCampaignJob(CommunicationPlatformModels.TriggerJobRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.TriggerJobResult triggerCampaignJob(CommunicationPlatformModels.TriggerJobPayload body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CommunicationPlatformModels.TriggerJobResponse> response = null;
+            Response<CommunicationPlatformModels.TriggerJobResult> response = null;
             try {
             response = communicationPlatformApiList.triggerCampaignJob(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {

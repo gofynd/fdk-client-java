@@ -71,7 +71,11 @@ import com.sdk.application.*;
         relativeUrls.put("deleteUser","/service/application/user/authentication/v1.0/delete".substring(1));
         relativeUrls.put("logout","/service/application/user/authentication/v1.0/logout".substring(1));
         relativeUrls.put("getUserAttributes","/service/application/user/profile/v1.0/user-attributes".substring(1));
-        relativeUrls.put("updateUserAttributes","/service/application/user/profile/v1.0/user-attributes".substring(1)); 
+        relativeUrls.put("updateUserAttributes","/service/application/user/profile/v1.0/user-attributes".substring(1));
+        relativeUrls.put("sendOTPOnPrimary","/service/application/user/profile/v2.0/{entity}/primary/otp/send".substring(1));
+        relativeUrls.put("verifyOTPonPrimary","/service/application/user/profile/v2.0/{entity}/primary/otp/verify".substring(1));
+        relativeUrls.put("sendOTPForUpdate","/service/application/user/profile/v2.0/{entity}/otp/send".substring(1));
+        relativeUrls.put("verifyOTPForUpdate","/service/application/user/profile/v2.0/{entity}/otp/verify".substring(1)); 
 
     }
 
@@ -173,15 +177,15 @@ import com.sdk.application.*;
     }
     
 
-    public UserApplicationModels.SendOtpResponse loginWithOTP(String platform, UserApplicationModels.SendOtpRequestSchema body) throws IOException {
+    public UserApplicationModels.SendOtp loginWithOTP(String platform, UserApplicationModels.SendOtpRequestSchema body) throws IOException {
         return this.loginWithOTP(platform, body, new HashMap<>());
     }
 
-    public UserApplicationModels.SendOtpResponse loginWithOTP(String platform, UserApplicationModels.SendOtpRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+    public UserApplicationModels.SendOtp loginWithOTP(String platform, UserApplicationModels.SendOtpRequestSchema body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("loginWithOTP");
 
-        Response<UserApplicationModels.SendOtpResponse> response = userApplicationApiList.loginWithOTP(fullUrl, platform, body, requestHeaders).execute();
+        Response<UserApplicationModels.SendOtp> response = userApplicationApiList.loginWithOTP(fullUrl, platform, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -394,15 +398,15 @@ import com.sdk.application.*;
     }
     
 
-    public UserApplicationModels.OtpSuccess sendOTPOnMobile(String platform, UserApplicationModels.SendMobileOtpRequestSchema body) throws IOException {
+    public UserApplicationModels.SendOtpSuccess sendOTPOnMobile(String platform, UserApplicationModels.SendMobileOtpRequestSchema body) throws IOException {
         return this.sendOTPOnMobile(platform, body, new HashMap<>());
     }
 
-    public UserApplicationModels.OtpSuccess sendOTPOnMobile(String platform, UserApplicationModels.SendMobileOtpRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+    public UserApplicationModels.SendOtpSuccess sendOTPOnMobile(String platform, UserApplicationModels.SendMobileOtpRequestSchema body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("sendOTPOnMobile");
 
-        Response<UserApplicationModels.OtpSuccess> response = userApplicationApiList.sendOTPOnMobile(fullUrl, platform, body, requestHeaders).execute();
+        Response<UserApplicationModels.SendOtpSuccess> response = userApplicationApiList.sendOTPOnMobile(fullUrl, platform, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -411,15 +415,15 @@ import com.sdk.application.*;
     }
     
 
-    public UserApplicationModels.OtpSuccess sendForgotOTPOnMobile(String platform, UserApplicationModels.SendMobileForgotOtpRequestSchema body) throws IOException {
+    public UserApplicationModels.SendOtpSuccess sendForgotOTPOnMobile(String platform, UserApplicationModels.SendMobileForgotOtpRequestSchema body) throws IOException {
         return this.sendForgotOTPOnMobile(platform, body, new HashMap<>());
     }
 
-    public UserApplicationModels.OtpSuccess sendForgotOTPOnMobile(String platform, UserApplicationModels.SendMobileForgotOtpRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+    public UserApplicationModels.SendOtpSuccess sendForgotOTPOnMobile(String platform, UserApplicationModels.SendMobileForgotOtpRequestSchema body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("sendForgotOTPOnMobile");
 
-        Response<UserApplicationModels.OtpSuccess> response = userApplicationApiList.sendForgotOTPOnMobile(fullUrl, platform, body, requestHeaders).execute();
+        Response<UserApplicationModels.SendOtpSuccess> response = userApplicationApiList.sendForgotOTPOnMobile(fullUrl, platform, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -734,15 +738,15 @@ import com.sdk.application.*;
     }
     
 
-    public UserApplicationModels.UserExistsResponse userExists(String q) throws IOException {
+    public UserApplicationModels.UserExistsDetails userExists(String q) throws IOException {
         return this.userExists(q, new HashMap<>());
     }
 
-    public UserApplicationModels.UserExistsResponse userExists(String q, Map<String, String> requestHeaders) throws IOException {
+    public UserApplicationModels.UserExistsDetails userExists(String q, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("userExists");
 
-        Response<UserApplicationModels.UserExistsResponse> response = userApplicationApiList.userExists(fullUrl, q, requestHeaders).execute();
+        Response<UserApplicationModels.UserExistsDetails> response = userApplicationApiList.userExists(fullUrl, q, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -802,15 +806,87 @@ import com.sdk.application.*;
     }
     
 
-    public UserApplicationModels.UserAttributes updateUserAttributes(UserApplicationModels.UpdateUserAttributesRequest body) throws IOException {
+    public UserApplicationModels.UserAttributes updateUserAttributes(UserApplicationModels.UpdateUserAttributes body) throws IOException {
         return this.updateUserAttributes(body, new HashMap<>());
     }
 
-    public UserApplicationModels.UserAttributes updateUserAttributes(UserApplicationModels.UpdateUserAttributesRequest body, Map<String, String> requestHeaders) throws IOException {
+    public UserApplicationModels.UserAttributes updateUserAttributes(UserApplicationModels.UpdateUserAttributes body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("updateUserAttributes");
 
         Response<UserApplicationModels.UserAttributes> response = userApplicationApiList.updateUserAttributes(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public UserApplicationModels.SendOtpSuccess sendOTPOnPrimary(String entity, UserApplicationModels.SendPrimaryOTPRequestSchema body) throws IOException {
+        return this.sendOTPOnPrimary(entity, body, new HashMap<>());
+    }
+
+    public UserApplicationModels.SendOtpSuccess sendOTPOnPrimary(String entity, UserApplicationModels.SendPrimaryOTPRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("sendOTPOnPrimary");
+        fullUrl = fullUrl.replace("{" + "entity" + "}",entity.toString());
+
+        Response<UserApplicationModels.SendOtpSuccess> response = userApplicationApiList.sendOTPOnPrimary(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public UserApplicationModels.VerifyPrimaryOTPSuccess verifyOTPonPrimary(String entity, UserApplicationModels.VerifyPrimaryOTPRequestSchema body) throws IOException {
+        return this.verifyOTPonPrimary(entity, body, new HashMap<>());
+    }
+
+    public UserApplicationModels.VerifyPrimaryOTPSuccess verifyOTPonPrimary(String entity, UserApplicationModels.VerifyPrimaryOTPRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("verifyOTPonPrimary");
+        fullUrl = fullUrl.replace("{" + "entity" + "}",entity.toString());
+
+        Response<UserApplicationModels.VerifyPrimaryOTPSuccess> response = userApplicationApiList.verifyOTPonPrimary(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public UserApplicationModels.SendOtpSuccess sendOTPForUpdate(String entity, UserApplicationModels.SendOTPForUpdateRequestSchema body) throws IOException {
+        return this.sendOTPForUpdate(entity, body, new HashMap<>());
+    }
+
+    public UserApplicationModels.SendOtpSuccess sendOTPForUpdate(String entity, UserApplicationModels.SendOTPForUpdateRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("sendOTPForUpdate");
+        fullUrl = fullUrl.replace("{" + "entity" + "}",entity.toString());
+
+        Response<UserApplicationModels.SendOtpSuccess> response = userApplicationApiList.sendOTPForUpdate(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public UserApplicationModels.VerifyOtpSuccess verifyOTPForUpdate(String entity, UserApplicationModels.VerifyOTPForUpdateRequestSchema body) throws IOException {
+        return this.verifyOTPForUpdate(entity, body, new HashMap<>());
+    }
+
+    public UserApplicationModels.VerifyOtpSuccess verifyOTPForUpdate(String entity, UserApplicationModels.VerifyOTPForUpdateRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("verifyOTPForUpdate");
+        fullUrl = fullUrl.replace("{" + "entity" + "}",entity.toString());
+
+        Response<UserApplicationModels.VerifyOtpSuccess> response = userApplicationApiList.verifyOTPForUpdate(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

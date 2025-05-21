@@ -30,38 +30,8 @@ public static class CategoryL1{
     
     
     
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("display")
-    private String display;
-    
-    
-    
-    
-    @JsonProperty("level")
-    private Double level;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
-    
-    
-    
-    
     @JsonProperty("slug")
     private String slug;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
     
     
     
@@ -97,26 +67,8 @@ public static class CategoryL2{
     
     
     
-    @JsonProperty("display")
-    private String display;
-    
-    
-    
-    
-    @JsonProperty("level")
-    private Double level;
-    
-    
-    
-    
     @JsonProperty("slug")
     private String slug;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
     
     
     
@@ -146,14 +98,14 @@ public static class CategoryCommon{
     
     
     
-    @JsonProperty("category_l1")
-    private List<CategoryL1> categoryL1;
+    @JsonProperty("categories_l1")
+    private List<CategoryL1> categoriesL1;
     
     
     
     
-    @JsonProperty("category_l2")
-    private List<CategoryL2> categoryL2;
+    @JsonProperty("categories_l2")
+    private List<CategoryL2> categoriesL2;
     
     
     
@@ -179,6 +131,37 @@ public static class ContactInfo{
     
     @JsonProperty("support")
     private Support support;
+    
+    
+    
+}
+
+
+/*
+    Model: CommingSoon
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CommingSoon{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("is_coming_soon")
+    private Boolean isComingSoon;
+    
+    
+    
+    
+    @JsonProperty("upvote_count")
+    private Double upvoteCount;
     
     
     
@@ -238,8 +221,8 @@ public static class ExtensionUsingSlug{
     
     
     
-    @JsonProperty("is_coming_soon")
-    private Boolean isComingSoon;
+    @JsonProperty("coming_soon")
+    private CommingSoon comingSoon;
     
     
     
@@ -282,12 +265,6 @@ public static class ExtensionUsingSlug{
     
     @JsonProperty("plans_url")
     private String plansUrl;
-    
-    
-    
-    
-    @JsonProperty("review_instructions")
-    private String reviewInstructions;
     
     
     
@@ -552,6 +529,18 @@ public static class Support{
     
     @JsonProperty("website_url")
     private String websiteUrl;
+    
+    
+    
+    
+    @JsonProperty("terms_of_service")
+    private String termsOfService;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
     
     
     
