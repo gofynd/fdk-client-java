@@ -14,7 +14,7 @@ public class CompanyProfilePlatformModels{
 
 
 /*
-    Model: CompanyTaxesSchema
+    Model: CompanyTaxesSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class CompanyProfilePlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyTaxesSchema{
+public static class CompanyTaxesSerializer{
 
     
 
@@ -51,7 +51,7 @@ public static class CompanyTaxesSchema{
 
 
 /*
-    Model: UserSchema
+    Model: UserSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -59,7 +59,7 @@ public static class CompanyTaxesSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserSchema{
+public static class UserSerializer{
 
     
 
@@ -329,7 +329,7 @@ public static class Document{
 
 
 /*
-    Model: GetAddressSchema
+    Model: GetAddressSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -337,7 +337,7 @@ public static class Document{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetAddressSchema{
+public static class GetAddressSerializer{
 
     
 
@@ -358,7 +358,7 @@ public static class GetAddressSchema{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     
@@ -426,7 +426,7 @@ public static class GetAddressSchema{
 
 
 /*
-    Model: GetCompanyProfileSerializerResponseSchema
+    Model: GetCompanyProfileSerializerResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -434,7 +434,7 @@ public static class GetAddressSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCompanyProfileSerializerResponseSchema{
+public static class GetCompanyProfileSerializerResponse{
 
     
 
@@ -449,7 +449,7 @@ public static class GetCompanyProfileSerializerResponseSchema{
     
     
     @JsonProperty("taxes")
-    private List<CompanyTaxesSchema> taxes;
+    private List<CompanyTaxesSerializer> taxes;
     
     
     
@@ -467,7 +467,7 @@ public static class GetCompanyProfileSerializerResponseSchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -479,7 +479,7 @@ public static class GetCompanyProfileSerializerResponseSchema{
     
     
     @JsonProperty("created_by")
-    private UserSchema createdBy;
+    private UserSerializer createdBy;
     
     
     
@@ -491,7 +491,7 @@ public static class GetCompanyProfileSerializerResponseSchema{
     
     
     @JsonProperty("warnings")
-    private HashMap<String,Object> warnings;
+    private Object warnings;
     
     
     
@@ -557,13 +557,13 @@ public static class GetCompanyProfileSerializerResponseSchema{
     
     
     @JsonProperty("addresses")
-    private List<GetAddressSchema> addresses;
+    private List<GetAddressSerializer> addresses;
     
     
     
     
     @JsonProperty("verified_by")
-    private UserSchema verifiedBy;
+    private UserSerializer verifiedBy;
     
     
     
@@ -575,7 +575,7 @@ public static class GetCompanyProfileSerializerResponseSchema{
     
     
     @JsonProperty("modified_by")
-    private UserSchema modifiedBy;
+    private UserSerializer modifiedBy;
     
     
     
@@ -583,7 +583,7 @@ public static class GetCompanyProfileSerializerResponseSchema{
 
 
 /*
-    Model: ErrorResponseSchema
+    Model: ErrorResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -591,7 +591,7 @@ public static class GetCompanyProfileSerializerResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ErrorResponseSchema{
+public static class ErrorResponse{
 
     
 
@@ -605,8 +605,20 @@ public static class ErrorResponseSchema{
     
     
     
-    @JsonProperty("error")
-    private HashMap<String,Object> error;
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private Integer status;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
     
     
     
@@ -614,7 +626,7 @@ public static class ErrorResponseSchema{
 
 
 /*
-    Model: CompanyRequestTaxesSchema
+    Model: CompanyTaxesSerializer1
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -622,7 +634,7 @@ public static class ErrorResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyRequestTaxesSchema{
+public static class CompanyTaxesSerializer1{
 
     
 
@@ -651,7 +663,7 @@ public static class CompanyRequestTaxesSchema{
 
 
 /*
-    Model: CreateUpdateAddressSchema
+    Model: CreateUpdateAddressSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -659,7 +671,7 @@ public static class CompanyRequestTaxesSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateUpdateAddressSchema{
+public static class CreateUpdateAddressSerializer{
 
     
 
@@ -680,7 +692,7 @@ public static class CreateUpdateAddressSchema{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     
@@ -765,7 +777,7 @@ public static class UpdateCompany{
     
     
     @JsonProperty("warnings")
-    private HashMap<String,Object> warnings;
+    private Object warnings;
     
     
     
@@ -777,13 +789,13 @@ public static class UpdateCompany{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
     
     @JsonProperty("taxes")
-    private List<CompanyRequestTaxesSchema> taxes;
+    private List<CompanyTaxesSerializer1> taxes;
     
     
     
@@ -807,7 +819,7 @@ public static class UpdateCompany{
     
     
     @JsonProperty("addresses")
-    private List<CreateUpdateAddressSchema> addresses;
+    private List<CreateUpdateAddressSerializer> addresses;
     
     
     
@@ -839,7 +851,7 @@ public static class UpdateCompany{
 
 
 /*
-    Model: ProfileSuccessResponseSchema
+    Model: ProfileSuccessResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -847,7 +859,7 @@ public static class UpdateCompany{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProfileSuccessResponseSchema{
+public static class ProfileSuccessResponse{
 
     
 
@@ -907,7 +919,7 @@ public static class DocumentsObj{
 
 
 /*
-    Model: MetricsSchema
+    Model: MetricsSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -915,7 +927,7 @@ public static class DocumentsObj{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MetricsSchema{
+public static class MetricsSerializer{
 
     
 
@@ -968,7 +980,7 @@ public static class MetricsSchema{
 
 
 /*
-    Model: BrandBannerSchema
+    Model: BrandBannerSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -976,7 +988,7 @@ public static class MetricsSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BrandBannerSchema{
+public static class BrandBannerSerializer{
 
     
 
@@ -999,7 +1011,7 @@ public static class BrandBannerSchema{
 
 
 /*
-    Model: GetBrandResponseSchema
+    Model: GetBrandResponseSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1007,7 +1019,7 @@ public static class BrandBannerSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetBrandResponseSchema{
+public static class GetBrandResponseSerializer{
 
     
 
@@ -1016,13 +1028,13 @@ public static class GetBrandResponseSchema{
     
     
     @JsonProperty("modified_by")
-    private UserSchema modifiedBy;
+    private UserSerializer modifiedBy;
     
     
     
     
     @JsonProperty("banner")
-    private BrandBannerSchema banner;
+    private BrandBannerSerializer banner;
     
     
     
@@ -1034,7 +1046,7 @@ public static class GetBrandResponseSchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -1046,7 +1058,7 @@ public static class GetBrandResponseSchema{
     
     
     @JsonProperty("created_by")
-    private UserSchema createdBy;
+    private UserSerializer createdBy;
     
     
     
@@ -1058,13 +1070,13 @@ public static class GetBrandResponseSchema{
     
     
     @JsonProperty("warnings")
-    private HashMap<String,Object> warnings;
+    private Object warnings;
     
     
     
     
     @JsonProperty("_locale_language")
-    private HashMap<String,Object> localeLanguage;
+    private Object localeLanguage;
     
     
     
@@ -1106,7 +1118,7 @@ public static class GetBrandResponseSchema{
     
     
     @JsonProperty("verified_by")
-    private UserSchema verifiedBy;
+    private UserSerializer verifiedBy;
     
     
     
@@ -1132,7 +1144,7 @@ public static class GetBrandResponseSchema{
 
 
 /*
-    Model: CreateBrandRequestSchema
+    Model: CreateBrandRequestSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1140,7 +1152,7 @@ public static class GetBrandResponseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateBrandRequestSchema{
+public static class CreateBrandRequestSerializer{
 
     
 
@@ -1149,13 +1161,13 @@ public static class CreateBrandRequestSchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
     
     @JsonProperty("_locale_language")
-    private HashMap<String,Object> localeLanguage;
+    private Object localeLanguage;
     
     
     
@@ -1197,7 +1209,7 @@ public static class CreateBrandRequestSchema{
     
     
     @JsonProperty("banner")
-    private BrandBannerSchema banner;
+    private BrandBannerSerializer banner;
     
     
     
@@ -1217,7 +1229,7 @@ public static class CreateBrandRequestSchema{
 
 
 /*
-    Model: UpdateBrandRequestSchema
+    Model: UpdateBrandRequestSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1225,7 +1237,7 @@ public static class CreateBrandRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateBrandRequestSchema{
+public static class UpdateBrandRequestSerializer{
 
     
 
@@ -1234,13 +1246,13 @@ public static class UpdateBrandRequestSchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
     
     @JsonProperty("_locale_language")
-    private HashMap<String,Object> localeLanguage;
+    private Object localeLanguage;
     
     
     
@@ -1282,7 +1294,7 @@ public static class UpdateBrandRequestSchema{
     
     
     @JsonProperty("banner")
-    private BrandBannerSchema banner;
+    private BrandBannerSerializer banner;
     
     
     
@@ -1358,7 +1370,7 @@ public static class CompanyDetails{
 
 
 /*
-    Model: CompanySchema
+    Model: CompanySerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1366,7 +1378,7 @@ public static class CompanyDetails{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanySchema{
+public static class CompanySerializer{
 
     
 
@@ -1381,7 +1393,7 @@ public static class CompanySchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -1393,7 +1405,7 @@ public static class CompanySchema{
     
     
     @JsonProperty("verified_by")
-    private UserSchema verifiedBy;
+    private UserSerializer verifiedBy;
     
     
     
@@ -1405,7 +1417,7 @@ public static class CompanySchema{
     
     
     @JsonProperty("created_by")
-    private UserSchema createdBy;
+    private UserSerializer createdBy;
     
     
     
@@ -1435,7 +1447,7 @@ public static class CompanySchema{
     
     
     @JsonProperty("addresses")
-    private List<GetAddressSchema> addresses;
+    private List<GetAddressSerializer> addresses;
     
     
     
@@ -1477,7 +1489,7 @@ public static class CompanySchema{
     
     
     @JsonProperty("modified_by")
-    private UserSchema modifiedBy;
+    private UserSerializer modifiedBy;
     
     
     
@@ -1485,7 +1497,7 @@ public static class CompanySchema{
 
 
 /*
-    Model: CompanyBrandSchema
+    Model: CompanyBrandSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1493,7 +1505,7 @@ public static class CompanySchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyBrandSchema{
+public static class CompanyBrandSerializer{
 
     
 
@@ -1514,7 +1526,7 @@ public static class CompanyBrandSchema{
     
     
     @JsonProperty("verified_by")
-    private UserSchema verifiedBy;
+    private UserSerializer verifiedBy;
     
     
     
@@ -1526,19 +1538,19 @@ public static class CompanyBrandSchema{
     
     
     @JsonProperty("created_by")
-    private UserSchema createdBy;
+    private UserSerializer createdBy;
     
     
     
     
     @JsonProperty("company")
-    private CompanySchema company;
+    private CompanySerializer company;
     
     
     
     
     @JsonProperty("warnings")
-    private HashMap<String,Object> warnings;
+    private Object warnings;
     
     
     
@@ -1562,13 +1574,13 @@ public static class CompanyBrandSchema{
     
     
     @JsonProperty("brand")
-    private GetBrandResponseSchema brand;
+    private GetBrandResponseSerializer brand;
     
     
     
     
     @JsonProperty("modified_by")
-    private UserSchema modifiedBy;
+    private UserSerializer modifiedBy;
     
     
     
@@ -1633,17 +1645,11 @@ public static class Page{
     
     
     
-    
-    @JsonProperty("page_size")
-    private Integer pageSize;
-    
-    
-    
 }
 
 
 /*
-    Model: CompanyBrandListSchema
+    Model: CompanyBrandListSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1651,7 +1657,7 @@ public static class Page{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyBrandListSchema{
+public static class CompanyBrandListSerializer{
 
     
 
@@ -1660,7 +1666,7 @@ public static class CompanyBrandListSchema{
     
     
     @JsonProperty("items")
-    private List<CompanyBrandSchema> items;
+    private List<CompanyBrandSerializer> items;
     
     
     
@@ -1674,7 +1680,7 @@ public static class CompanyBrandListSchema{
 
 
 /*
-    Model: CompanyBrandPostRequestSchema
+    Model: CompanyBrandPostRequestSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1682,7 +1688,7 @@ public static class CompanyBrandListSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyBrandPostRequestSchema{
+public static class CompanyBrandPostRequestSerializer{
 
     
 
@@ -1711,7 +1717,7 @@ public static class CompanyBrandPostRequestSchema{
 
 
 /*
-    Model: InvoiceCredSchema
+    Model: InvoiceCredSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1719,7 +1725,7 @@ public static class CompanyBrandPostRequestSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceCredSchema{
+public static class InvoiceCredSerializer{
 
     
 
@@ -1748,7 +1754,7 @@ public static class InvoiceCredSchema{
 
 
 /*
-    Model: InvoiceDetailsSchema
+    Model: InvoiceDetailsSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1756,7 +1762,7 @@ public static class InvoiceCredSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvoiceDetailsSchema{
+public static class InvoiceDetailsSerializer{
 
     
 
@@ -1765,13 +1771,13 @@ public static class InvoiceDetailsSchema{
     
     
     @JsonProperty("e_invoice")
-    private InvoiceCredSchema eInvoice;
+    private InvoiceCredSerializer eInvoice;
     
     
     
     
     @JsonProperty("e_waybill")
-    private InvoiceCredSchema eWaybill;
+    private InvoiceCredSerializer eWaybill;
     
     
     
@@ -1779,7 +1785,7 @@ public static class InvoiceDetailsSchema{
 
 
 /*
-    Model: GetCompanySchema
+    Model: GetCompanySerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1787,7 +1793,7 @@ public static class InvoiceDetailsSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCompanySchema{
+public static class GetCompanySerializer{
 
     
 
@@ -1808,7 +1814,7 @@ public static class GetCompanySchema{
     
     
     @JsonProperty("verified_by")
-    private UserSchema verifiedBy;
+    private UserSerializer verifiedBy;
     
     
     
@@ -1820,7 +1826,7 @@ public static class GetCompanySchema{
     
     
     @JsonProperty("created_by")
-    private UserSchema createdBy;
+    private UserSerializer createdBy;
     
     
     
@@ -1844,7 +1850,7 @@ public static class GetCompanySchema{
     
     
     @JsonProperty("addresses")
-    private List<GetAddressSchema> addresses;
+    private List<GetAddressSerializer> addresses;
     
     
     
@@ -1868,7 +1874,7 @@ public static class GetCompanySchema{
     
     
     @JsonProperty("modified_by")
-    private UserSchema modifiedBy;
+    private UserSerializer modifiedBy;
     
     
     
@@ -1876,7 +1882,7 @@ public static class GetCompanySchema{
 
 
 /*
-    Model: LocationManagerSchema
+    Model: LocationManagerSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1884,7 +1890,7 @@ public static class GetCompanySchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationManagerSchema{
+public static class LocationManagerSerializer{
 
     
 
@@ -1913,7 +1919,7 @@ public static class LocationManagerSchema{
 
 
 /*
-    Model: LocationTimingSchema
+    Model: LocationTimingSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1921,7 +1927,7 @@ public static class LocationManagerSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationTimingSchema{
+public static class LocationTimingSerializer{
 
     
 
@@ -1944,7 +1950,7 @@ public static class LocationTimingSchema{
 
 
 /*
-    Model: LocationDayWiseSchema
+    Model: LocationDayWiseSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1952,7 +1958,7 @@ public static class LocationTimingSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationDayWiseSchema{
+public static class LocationDayWiseSerializer{
 
     
 
@@ -1973,13 +1979,13 @@ public static class LocationDayWiseSchema{
     
     
     @JsonProperty("opening")
-    private LocationTimingSchema opening;
+    private LocationTimingSerializer opening;
     
     
     
     
     @JsonProperty("closing")
-    private LocationTimingSchema closing;
+    private LocationTimingSerializer closing;
     
     
     
@@ -1987,7 +1993,7 @@ public static class LocationDayWiseSchema{
 
 
 /*
-    Model: HolidayDateSchema
+    Model: HolidayDateSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1995,7 +2001,7 @@ public static class LocationDayWiseSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class HolidayDateSchema{
+public static class HolidayDateSerializer{
 
     
 
@@ -2018,7 +2024,7 @@ public static class HolidayDateSchema{
 
 
 /*
-    Model: HolidaySchemaSchema
+    Model: HolidaySchemaSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2026,7 +2032,7 @@ public static class HolidayDateSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class HolidaySchemaSchema{
+public static class HolidaySchemaSerializer{
 
     
 
@@ -2035,7 +2041,7 @@ public static class HolidaySchemaSchema{
     
     
     @JsonProperty("date")
-    private HolidayDateSchema date;
+    private HolidayDateSerializer date;
     
     
     
@@ -2055,7 +2061,7 @@ public static class HolidaySchemaSchema{
 
 
 /*
-    Model: ProductReturnConfigSchema
+    Model: ProductReturnConfigSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2063,7 +2069,7 @@ public static class HolidaySchemaSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProductReturnConfigSchema{
+public static class ProductReturnConfigSerializer{
 
     
 
@@ -2086,7 +2092,7 @@ public static class ProductReturnConfigSchema{
 
 
 /*
-    Model: GetLocationSchema
+    Model: GetLocationSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2094,7 +2100,7 @@ public static class ProductReturnConfigSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetLocationSchema{
+public static class GetLocationSerializer{
 
     
 
@@ -2121,7 +2127,7 @@ public static class GetLocationSchema{
     
     
     @JsonProperty("gst_credentials")
-    private InvoiceDetailsSchema gstCredentials;
+    private InvoiceDetailsSerializer gstCredentials;
     
     
     
@@ -2133,7 +2139,7 @@ public static class GetLocationSchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -2145,7 +2151,7 @@ public static class GetLocationSchema{
     
     
     @JsonProperty("created_by")
-    private UserSchema createdBy;
+    private UserSerializer createdBy;
     
     
     
@@ -2157,19 +2163,19 @@ public static class GetLocationSchema{
     
     
     @JsonProperty("company")
-    private GetCompanySchema company;
+    private GetCompanySerializer company;
     
     
     
     
     @JsonProperty("address")
-    private GetAddressSchema address;
+    private GetAddressSerializer address;
     
     
     
     
     @JsonProperty("warnings")
-    private HashMap<String,Object> warnings;
+    private Object warnings;
     
     
     
@@ -2181,7 +2187,7 @@ public static class GetLocationSchema{
     
     
     @JsonProperty("manager")
-    private LocationManagerSchema manager;
+    private LocationManagerSerializer manager;
     
     
     
@@ -2205,7 +2211,7 @@ public static class GetLocationSchema{
     
     
     @JsonProperty("timing")
-    private List<LocationDayWiseSchema> timing;
+    private List<LocationDayWiseSerializer> timing;
     
     
     
@@ -2229,7 +2235,7 @@ public static class GetLocationSchema{
     
     
     @JsonProperty("holiday")
-    private List<HolidaySchemaSchema> holiday;
+    private List<HolidaySchemaSerializer> holiday;
     
     
     
@@ -2241,13 +2247,13 @@ public static class GetLocationSchema{
     
     
     @JsonProperty("product_return_config")
-    private ProductReturnConfigSchema productReturnConfig;
+    private ProductReturnConfigSerializer productReturnConfig;
     
     
     
     
     @JsonProperty("verified_by")
-    private UserSchema verifiedBy;
+    private UserSerializer verifiedBy;
     
     
     
@@ -2259,7 +2265,7 @@ public static class GetLocationSchema{
     
     
     @JsonProperty("modified_by")
-    private UserSchema modifiedBy;
+    private UserSerializer modifiedBy;
     
     
     
@@ -2277,7 +2283,7 @@ public static class GetLocationSchema{
     
     
     @JsonProperty("order_acceptance_timing")
-    private List<LocationDayWiseSchema> orderAcceptanceTiming;
+    private List<LocationDayWiseSerializer> orderAcceptanceTiming;
     
     
     
@@ -2303,7 +2309,7 @@ public static class GetLocationSchema{
 
 
 /*
-    Model: LocationListSchema
+    Model: LocationListSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2311,7 +2317,7 @@ public static class GetLocationSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationListSchema{
+public static class LocationListSerializer{
 
     
 
@@ -2320,7 +2326,7 @@ public static class LocationListSchema{
     
     
     @JsonProperty("items")
-    private List<GetLocationSchema> items;
+    private List<GetLocationSerializer> items;
     
     
     
@@ -2334,7 +2340,7 @@ public static class LocationListSchema{
 
 
 /*
-    Model: AddressSchema
+    Model: AddressSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2342,7 +2348,7 @@ public static class LocationListSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddressSchema{
+public static class AddressSerializer{
 
     
 
@@ -2363,7 +2369,7 @@ public static class AddressSchema{
     
     
     @JsonProperty("pincode")
-    private String pincode;
+    private Integer pincode;
     
     
     
@@ -2431,7 +2437,7 @@ public static class AddressSchema{
 
 
 /*
-    Model: LocationSchema
+    Model: LocationSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2439,7 +2445,7 @@ public static class AddressSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationSchema{
+public static class LocationSerializer{
 
     
 
@@ -2454,7 +2460,7 @@ public static class LocationSchema{
     
     
     @JsonProperty("gst_credentials")
-    private InvoiceDetailsSchema gstCredentials;
+    private InvoiceDetailsSerializer gstCredentials;
     
     
     
@@ -2472,19 +2478,19 @@ public static class LocationSchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
     
     @JsonProperty("warnings")
-    private HashMap<String,Object> warnings;
+    private Object warnings;
     
     
     
     
     @JsonProperty("address")
-    private AddressSchema address;
+    private AddressSerializer address;
     
     
     
@@ -2502,7 +2508,7 @@ public static class LocationSchema{
     
     
     @JsonProperty("manager")
-    private LocationManagerSchema manager;
+    private LocationManagerSerializer manager;
     
     
     
@@ -2520,7 +2526,7 @@ public static class LocationSchema{
     
     
     @JsonProperty("timing")
-    private List<LocationDayWiseSchema> timing;
+    private List<LocationDayWiseSerializer> timing;
     
     
     
@@ -2544,13 +2550,13 @@ public static class LocationSchema{
     
     
     @JsonProperty("holiday")
-    private List<HolidaySchemaSchema> holiday;
+    private List<HolidaySchemaSerializer> holiday;
     
     
     
     
     @JsonProperty("product_return_config")
-    private ProductReturnConfigSchema productReturnConfig;
+    private ProductReturnConfigSerializer productReturnConfig;
     
     
     
@@ -2580,7 +2586,7 @@ public static class LocationSchema{
     
     
     @JsonProperty("order_acceptance_timing")
-    private List<LocationDayWiseSchema> orderAcceptanceTiming;
+    private List<LocationDayWiseSerializer> orderAcceptanceTiming;
     
     
     
@@ -2606,7 +2612,7 @@ public static class LocationSchema{
 
 
 /*
-    Model: BulkLocationSchema
+    Model: BulkLocationSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2614,7 +2620,7 @@ public static class LocationSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkLocationSchema{
+public static class BulkLocationSerializer{
 
     
 
@@ -2623,7 +2629,7 @@ public static class BulkLocationSchema{
     
     
     @JsonProperty("data")
-    private List<LocationSchema> data;
+    private List<LocationSerializer> data;
     
     
     

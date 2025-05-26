@@ -196,13 +196,13 @@ public class BillingPlatformService {
     
     
 
-    public BillingPlatformModels.CreateOneTimeChargeResponseSchemas createOneTimeCharge(String extensionId, BillingPlatformModels.CreateOneTimeCharge body) throws FDKServerResponseError, FDKException {
+    public BillingPlatformModels.CreateOneTimeChargeResponse createOneTimeCharge(String extensionId, BillingPlatformModels.CreateOneTimeCharge body) throws FDKServerResponseError, FDKException {
         return this.createOneTimeCharge(extensionId, body, new HashMap<>());
     }
 
-    public BillingPlatformModels.CreateOneTimeChargeResponseSchemas createOneTimeCharge(String extensionId, BillingPlatformModels.CreateOneTimeCharge body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public BillingPlatformModels.CreateOneTimeChargeResponse createOneTimeCharge(String extensionId, BillingPlatformModels.CreateOneTimeCharge body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<BillingPlatformModels.CreateOneTimeChargeResponseSchemas> response = null;
+            Response<BillingPlatformModels.CreateOneTimeChargeResponse> response = null;
             try {
                 response = billingPlatformApiList.createOneTimeCharge(this.companyId, extensionId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -240,13 +240,13 @@ public class BillingPlatformService {
     
     
 
-    public BillingPlatformModels.CreateSubscription createSubscriptionCharge(String extensionId, BillingPlatformModels.CreateSubscriptionCharge body) throws FDKServerResponseError, FDKException {
+    public BillingPlatformModels.CreateSubscriptionResponse createSubscriptionCharge(String extensionId, BillingPlatformModels.CreateSubscriptionCharge body) throws FDKServerResponseError, FDKException {
         return this.createSubscriptionCharge(extensionId, body, new HashMap<>());
     }
 
-    public BillingPlatformModels.CreateSubscription createSubscriptionCharge(String extensionId, BillingPlatformModels.CreateSubscriptionCharge body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public BillingPlatformModels.CreateSubscriptionResponse createSubscriptionCharge(String extensionId, BillingPlatformModels.CreateSubscriptionCharge body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<BillingPlatformModels.CreateSubscription> response = null;
+            Response<BillingPlatformModels.CreateSubscriptionResponse> response = null;
             try {
                 response = billingPlatformApiList.createSubscriptionCharge(this.companyId, extensionId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {

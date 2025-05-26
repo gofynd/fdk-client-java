@@ -51,7 +51,7 @@ public static class RewardsArticle{
 
 
 /*
-    Model: CatalogueOrderDetails
+    Model: CatalogueOrderResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -59,7 +59,7 @@ public static class RewardsArticle{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CatalogueOrderDetails{
+public static class CatalogueOrderResponse{
 
     
 
@@ -76,7 +76,7 @@ public static class CatalogueOrderDetails{
 
 
 /*
-    Model: CatalogueOrderCreation
+    Model: CatalogueOrderRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -84,7 +84,7 @@ public static class CatalogueOrderDetails{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CatalogueOrderCreation{
+public static class CatalogueOrderRequest{
 
     
 
@@ -101,7 +101,7 @@ public static class CatalogueOrderCreation{
 
 
 /*
-    Model: PointsDetails
+    Model: PointsResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -109,7 +109,7 @@ public static class CatalogueOrderCreation{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PointsDetails{
+public static class PointsResponse{
 
     
 
@@ -222,7 +222,7 @@ public static class Offer{
     
     
     @JsonProperty("rule")
-    private HashMap<String,Object> rule;
+    private Object rule;
     
     
     
@@ -468,7 +468,7 @@ public static class ShareMessages{
 
 
 /*
-    Model: ReferralDetails
+    Model: ReferralDetailsResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -476,7 +476,7 @@ public static class ShareMessages{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ReferralDetails{
+public static class ReferralDetailsResponse{
 
     
 
@@ -517,7 +517,7 @@ public static class ReferralDetails{
 
 
 /*
-    Model: RetrieveOrderDiscount
+    Model: OrderDiscountRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -525,7 +525,7 @@ public static class ReferralDetails{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RetrieveOrderDiscount{
+public static class OrderDiscountRequest{
 
     
 
@@ -646,7 +646,7 @@ public static class DiscountProperties{
 
 
 /*
-    Model: OrderDiscountDetails
+    Model: OrderDiscountResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -654,7 +654,7 @@ public static class DiscountProperties{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderDiscountDetails{
+public static class OrderDiscountResponse{
 
     
 
@@ -695,7 +695,7 @@ public static class OrderDiscountDetails{
 
 
 /*
-    Model: RedeemReferralCode
+    Model: RedeemReferralCodeRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -703,7 +703,7 @@ public static class OrderDiscountDetails{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RedeemReferralCode{
+public static class RedeemReferralCodeRequest{
 
     
 
@@ -726,7 +726,7 @@ public static class RedeemReferralCode{
 
 
 /*
-    Model: RedeemReferralCodeDetails
+    Model: RedeemReferralCodeResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -734,7 +734,7 @@ public static class RedeemReferralCode{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RedeemReferralCodeDetails{
+public static class RedeemReferralCodeResponse{
 
     
 
@@ -775,7 +775,7 @@ public static class RedeemReferralCodeDetails{
 
 
 /*
-    Model: PointsHistoryDetails
+    Model: PointsHistoryResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -783,7 +783,7 @@ public static class RedeemReferralCodeDetails{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PointsHistoryDetails{
+public static class PointsHistoryResponse{
 
     
 
@@ -853,7 +853,7 @@ public static class PointsHistory{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -963,12 +963,6 @@ public static class Page{
     
     @JsonProperty("size")
     private Integer size;
-    
-    
-    
-    
-    @JsonProperty("page_size")
-    private Integer pageSize;
     
     
     
