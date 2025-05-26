@@ -2886,6 +2886,278 @@ public static class Charge{
 
 
 /*
+    Model: CurrencyValueSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CurrencyValueSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+}
+
+
+/*
+    Model: ChargeAmountSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ChargeAmountSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("ordering_currency")
+    private CurrencyValueSchema orderingCurrency;
+    
+    
+    
+    
+    @JsonProperty("base_currency")
+    private CurrencyValueSchema baseCurrency;
+    
+    
+    
+}
+
+
+/*
+    Model: DynamicChargeTaxSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DynamicChargeTaxSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("reporting_hsn_code")
+    private String reportingHsnCode;
+    
+    
+    
+}
+
+
+/*
+    Model: RuleConditionsSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RuleConditionsSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("article_tag")
+    private String articleTag;
+    
+    
+    
+    
+    @JsonProperty("department")
+    private List<String> department;
+    
+    
+    
+}
+
+
+/*
+    Model: RuleSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RuleSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("conditions")
+    private RuleConditionsSchema conditions;
+    
+    
+    
+}
+
+
+/*
+    Model: DistributionSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DistributionSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("logic")
+    private String logic;
+    
+    
+    
+    
+    @JsonProperty("rule")
+    private RuleSchema rule;
+    
+    
+    
+}
+
+
+/*
+    Model: DistributionLogicSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DistributionLogicSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("distribution_level")
+    private String distributionLevel;
+    
+    
+    
+    
+    @JsonProperty("distribution")
+    private DistributionSchema distribution;
+    
+    
+    
+}
+
+
+/*
+    Model: DynamicChargeSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DynamicChargeSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private ChargeAmountSchema amount;
+    
+    
+    
+    
+    @JsonProperty("taxes")
+    private DynamicChargeTaxSchema taxes;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private Object meta;
+    
+    
+    
+    
+    @JsonProperty("distribution_logic")
+    private DistributionLogicSchema distributionLogic;
+    
+    
+    
+}
+
+
+/*
     Model: LineItem
 */
 @AllArgsConstructor
@@ -2934,6 +3206,12 @@ public static class LineItem{
     
     @JsonProperty("external_line_id")
     private String externalLineId;
+    
+    
+    
+    
+    @JsonProperty("dynamic_charges")
+    private List<DynamicChargeSchema> dynamicCharges;
     
     
     
@@ -3765,6 +4043,12 @@ public static class CreateOrderAPI{
     
     @JsonProperty("custom_json")
     private Object customJson;
+    
+    
+    
+    
+    @JsonProperty("dynamic_charges")
+    private List<DynamicChargeSchema> dynamicCharges;
     
     
     
