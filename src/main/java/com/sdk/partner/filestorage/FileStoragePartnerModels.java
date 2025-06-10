@@ -14,6 +14,229 @@ public class FileStoragePartnerModels{
 
 
 /*
+    Model: SizeConstraints
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SizeConstraints{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("max")
+    private Integer max;
+    
+    
+    
+}
+
+
+/*
+    Model: SaveProxy
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SaveProxy{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+}
+
+
+/*
+    Model: ProxyFileData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProxyFileData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+}
+
+
+/*
+    Model: ProxyFile
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProxyFile{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Integer id;
+    
+    
+    
+    
+    @JsonProperty("customer")
+    private String customer;
+    
+    
+    
+    
+    @JsonProperty("quantity")
+    private Integer quantity;
+    
+    
+    
+    
+    @JsonProperty("price")
+    private Double price;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private ProxyFileData data;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+}
+
+
+/*
+    Model: FetchProxyDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FetchProxyDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+}
+
+
+/*
+    Model: NamespaceDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class NamespaceDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("namespace")
+    private String namespace;
+    
+    
+    
+    
+    @JsonProperty("valid_content_types")
+    private List<String> validContentTypes;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private SizeConstraints size;
+    
+    
+    
+    
+    @JsonProperty("file_acl")
+    private String fileAcl;
+    
+    
+    
+}
+
+
+/*
+    Model: AllNamespaceDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AllNamespaceDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<NamespaceDetails> items;
+    
+    
+    
+}
+
+
+/*
     Model: CDN
 */
 @AllArgsConstructor
@@ -82,7 +305,7 @@ public static class Upload{
 
 
 /*
-    Model: StartResponse
+    Model: FileUpload
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -90,7 +313,7 @@ public static class Upload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StartResponse{
+public static class FileUpload{
 
     
 
@@ -146,12 +369,6 @@ public static class StartResponse{
     
     
     
-    @JsonProperty("cdn")
-    private CDN cdn;
-    
-    
-    
-    
     @JsonProperty("tags")
     private List<String> tags;
     
@@ -161,7 +378,7 @@ public static class StartResponse{
 
 
 /*
-    Model: StartRequest
+    Model: FileUploadStart
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -169,7 +386,7 @@ public static class StartResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StartRequest{
+public static class FileUploadStart{
 
     
 
@@ -206,12 +423,6 @@ public static class StartRequest{
     
     
     
-    
-    @JsonProperty("enc_key")
-    private String encKey;
-    
-    
-    
 }
 
 
@@ -241,7 +452,7 @@ public static class CreatedBy{
 
 
 /*
-    Model: CompleteResponse
+    Model: FileUploadComplete
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -249,7 +460,7 @@ public static class CreatedBy{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompleteResponse{
+public static class FileUploadComplete{
 
     
 
@@ -344,7 +555,7 @@ public static class CompleteResponse{
 
 
 /*
-    Model: FailedResponse
+    Model: FailedBrowseFilesResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -352,7 +563,7 @@ public static class CompleteResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FailedResponse{
+public static class FailedBrowseFilesResult{
 
     
 
@@ -362,6 +573,99 @@ public static class FailedResponse{
     
     @JsonProperty("message")
     private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: SignedUrl
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SignedUrl{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("signed_url")
+    private String signedUrl;
+    
+    
+    
+    
+    @JsonProperty("expiry")
+    private Integer expiry;
+    
+    
+    
+}
+
+
+/*
+    Model: SignUrlResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SignUrlResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("urls")
+    private List<SignedUrl> urls;
+    
+    
+    
+}
+
+
+/*
+    Model: SignUrl
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SignUrl{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("expiry")
+    private Integer expiry;
+    
+    
+    
+    
+    @JsonProperty("urls")
+    private List<String> urls;
     
     
     
