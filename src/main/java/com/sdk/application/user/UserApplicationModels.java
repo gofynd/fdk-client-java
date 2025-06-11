@@ -14,7 +14,7 @@ public class UserApplicationModels{
 
 
 /*
-    Model: UpdateUserAttributesRequest
+    Model: UpdateAttributesRequestPayload
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class UserApplicationModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateUserAttributesRequest{
+public static class UpdateAttributesRequestPayload{
 
     
 
@@ -31,7 +31,7 @@ public static class UpdateUserAttributesRequest{
     
     
     @JsonProperty("attributes")
-    private Object attributes;
+    private HashMap<String,Object> attributes;
     
     
     
@@ -56,7 +56,7 @@ public static class UserAttributes{
     
     
     @JsonProperty("attributes")
-    private Object attributes;
+    private HashMap<String,Object> attributes;
     
     
     
@@ -234,8 +234,8 @@ public static class EditProfileRequestSchema{
     
     
     
-    @JsonProperty("encrypt_otp")
-    private Boolean encryptOtp;
+    @JsonProperty("ci")
+    private Boolean ci;
     
     
     
@@ -442,6 +442,12 @@ public static class VerifyEmailOtpRequestSchema{
     
     
     
+    @JsonProperty("request_id")
+    private String requestId;
+    
+    
+    
+    
     @JsonProperty("action")
     private String action;
     
@@ -487,6 +493,12 @@ public static class VerifyEmailForgotOtpRequestSchema{
     
     @JsonProperty("otp")
     private String otp;
+    
+    
+    
+    
+    @JsonProperty("request_id")
+    private String requestId;
     
     
     
@@ -578,8 +590,8 @@ public static class SendMobileOtpRequestSchema{
     
     
     
-    @JsonProperty("encrypt_otp")
-    private Boolean encryptOtp;
+    @JsonProperty("ci")
+    private Boolean ci;
     
     
     
@@ -870,37 +882,6 @@ public static class SendResetPasswordEmailRequestSchema{
 
 
 /*
-    Model: SendResetPasswordMobileRequestSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendResetPasswordMobileRequestSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("country_code")
-    private String countryCode;
-    
-    
-    
-    
-    @JsonProperty("mobile")
-    private String mobile;
-    
-    
-    
-}
-
-
-/*
     Model: PasswordLoginRequestSchema
 */
 @AllArgsConstructor
@@ -948,8 +929,8 @@ public static class SendOtpRequestSchema{
     
     
     
-    @JsonProperty("encrypt_otp")
-    private Boolean encryptOtp;
+    @JsonProperty("ci")
+    private Boolean ci;
     
     
     
@@ -1233,6 +1214,37 @@ public static class SendOtpResponse{
 
 
 /*
+    Model: EmailOtp
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EmailOtp{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("request_id")
+    private String requestId;
+    
+    
+    
+    
+    @JsonProperty("resend_timer")
+    private Integer resendTimer;
+    
+    
+    
+}
+
+
+/*
     Model: ProfileEditSuccess
 */
 @AllArgsConstructor
@@ -1293,6 +1305,12 @@ public static class ProfileEditSuccess{
     
     @JsonProperty("email")
     private String email;
+    
+    
+    
+    
+    @JsonProperty("email_otp")
+    private EmailOtp emailOtp;
     
     
     
@@ -1515,6 +1533,12 @@ public static class RegisterFormSuccess{
     
     @JsonProperty("email")
     private String email;
+    
+    
+    
+    
+    @JsonProperty("email_otp")
+    private EmailOtp emailOtp;
     
     
     
@@ -1785,6 +1809,12 @@ public static class EmailOtpSuccess{
     
     @JsonProperty("resend_email_token")
     private String resendEmailToken;
+    
+    
+    
+    
+    @JsonProperty("email_otp")
+    private EmailOtp emailOtp;
     
     
     
@@ -2227,6 +2257,18 @@ public static class PlatformSchema{
     
     
     
+    @JsonProperty("account_lockout")
+    private AccountLockout accountLockout;
+    
+    
+    
+    
+    @JsonProperty("password_settings")
+    private PasswordSettings passwordSettings;
+    
+    
+    
+    
     @JsonProperty("skip_captcha")
     private Boolean skipCaptcha;
     
@@ -2381,6 +2423,185 @@ public static class LookAndFeel{
 
 
 /*
+    Model: PasswordConfigs
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PasswordConfigs{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("length")
+    private Double length;
+    
+    
+    
+    
+    @JsonProperty("require_special_character")
+    private Boolean requireSpecialCharacter;
+    
+    
+    
+    
+    @JsonProperty("require_number")
+    private Boolean requireNumber;
+    
+    
+    
+    
+    @JsonProperty("require_capital_character")
+    private Boolean requireCapitalCharacter;
+    
+    
+    
+}
+
+
+/*
+    Model: PasswordHistory
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PasswordHistory{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("required")
+    private Boolean required;
+    
+    
+    
+    
+    @JsonProperty("count")
+    private Double count;
+    
+    
+    
+}
+
+
+/*
+    Model: PasswordExpiry
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PasswordExpiry{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("required")
+    private Boolean required;
+    
+    
+    
+    
+    @JsonProperty("duration")
+    private Double duration;
+    
+    
+    
+}
+
+
+/*
+    Model: PasswordSettings
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PasswordSettings{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("configs")
+    private PasswordConfigs configs;
+    
+    
+    
+    
+    @JsonProperty("history")
+    private PasswordHistory history;
+    
+    
+    
+    
+    @JsonProperty("expiry")
+    private PasswordExpiry expiry;
+    
+    
+    
+}
+
+
+/*
+    Model: AccountLockout
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AccountLockout{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("enable")
+    private Boolean enable;
+    
+    
+    
+    
+    @JsonProperty("attempts")
+    private Double attempts;
+    
+    
+    
+    
+    @JsonProperty("duration")
+    private Double duration;
+    
+    
+    
+}
+
+
+/*
     Model: Login
 */
 @AllArgsConstructor
@@ -2405,6 +2626,12 @@ public static class Login{
     
     @JsonProperty("otp")
     private Boolean otp;
+    
+    
+    
+    
+    @JsonProperty("via")
+    private String via;
     
     
     
@@ -2507,6 +2734,12 @@ public static class RequiredFields{
     
     
     
+    
+    @JsonProperty("password")
+    private PlatformPassword password;
+    
+    
+    
 }
 
 
@@ -2573,6 +2806,31 @@ public static class PlatformMobile{
 
 
 /*
+    Model: PlatformPassword
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PlatformPassword{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("is_required")
+    private Boolean isRequired;
+    
+    
+    
+}
+
+
+/*
     Model: RegisterRequiredFields
 */
 @AllArgsConstructor
@@ -2597,6 +2855,12 @@ public static class RegisterRequiredFields{
     
     @JsonProperty("mobile")
     private RegisterRequiredFieldsMobile mobile;
+    
+    
+    
+    
+    @JsonProperty("password")
+    private PlatformPassword password;
     
     
     
@@ -2823,6 +3087,12 @@ public static class Facebook{
     
     
     
+    
+    @JsonProperty("app_secret")
+    private String appSecret;
+    
+    
+    
 }
 
 
@@ -2848,6 +3118,12 @@ public static class Accountkit{
     
     
     
+    
+    @JsonProperty("app_secret")
+    private String appSecret;
+    
+    
+    
 }
 
 
@@ -2870,6 +3146,12 @@ public static class Google{
     
     @JsonProperty("app_id")
     private String appId;
+    
+    
+    
+    
+    @JsonProperty("app_secret")
+    private String appSecret;
     
     
     

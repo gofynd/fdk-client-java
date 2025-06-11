@@ -195,16 +195,14 @@ public class ContentPlatformService {
     
     
     
-    
-    
 
-    public ContentPlatformModels.CustomObjectByIdSchema getCustomFieldTypes() throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.MetafieldTypesSchema getCustomFieldTypes() throws FDKServerResponseError, FDKException {
         return this.getCustomFieldTypes(new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomObjectByIdSchema getCustomFieldTypes(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.MetafieldTypesSchema getCustomFieldTypes(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.CustomObjectByIdSchema> response = null;
+            Response<ContentPlatformModels.MetafieldTypesSchema> response = null;
             try {
                 response = contentPlatformApiList.getCustomFieldTypes(this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -297,16 +295,20 @@ public class ContentPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public ContentPlatformModels.CustomFieldDefinitionsSchema getCustomFieldDefinitions(String pageNo, String pageSize, String resource, String type, String search) throws FDKServerResponseError, FDKException {
-        return this.getCustomFieldDefinitions(pageNo, pageSize, resource, type, search, new HashMap<>());
+    public ContentPlatformModels.CustomFieldDefinitionsSchema getCustomFieldDefinitions(String pageNo, String pageSize, String resources, String types, String search, String slugs) throws FDKServerResponseError, FDKException {
+        return this.getCustomFieldDefinitions(pageNo, pageSize, resources, types, search, slugs, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomFieldDefinitionsSchema getCustomFieldDefinitions(String pageNo, String pageSize, String resource, String type, String search, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomFieldDefinitionsSchema getCustomFieldDefinitions(String pageNo, String pageSize, String resources, String types, String search, String slugs, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomFieldDefinitionsSchema> response = null;
             try {
-                response = contentPlatformApiList.getCustomFieldDefinitions(this.companyId, pageNo, pageSize, resource, type, search, requestHeaders).execute();
+                response = contentPlatformApiList.getCustomFieldDefinitions(this.companyId, pageNo, pageSize, resources, types, search, slugs, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -382,15 +384,15 @@ public class ContentPlatformService {
     
     
 
-    public ContentPlatformModels.CustomFieldDefinitionDetailResSchema getCustomFieldDefinition(String definitionId) throws FDKServerResponseError, FDKException {
-        return this.getCustomFieldDefinition(definitionId, new HashMap<>());
+    public ContentPlatformModels.CustomFieldDefinitionDetailResSchema getCustomFieldDefinition(String id) throws FDKServerResponseError, FDKException {
+        return this.getCustomFieldDefinition(id, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomFieldDefinitionDetailResSchema getCustomFieldDefinition(String definitionId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomFieldDefinitionDetailResSchema getCustomFieldDefinition(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomFieldDefinitionDetailResSchema> response = null;
             try {
-                response = contentPlatformApiList.getCustomFieldDefinition(this.companyId, definitionId, requestHeaders).execute();
+                response = contentPlatformApiList.getCustomFieldDefinition(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -426,15 +428,15 @@ public class ContentPlatformService {
     
     
 
-    public ContentPlatformModels.CustomFieldDefinitionDetailResSchema updateCustomFieldDefinition(String definitionId, ContentPlatformModels.CustomFieldDefinitionRequestSchema body) throws FDKServerResponseError, FDKException {
-        return this.updateCustomFieldDefinition(definitionId, body, new HashMap<>());
+    public ContentPlatformModels.CustomFieldDefinitionDetailResSchema updateCustomFieldDefinition(String id, ContentPlatformModels.CustomFieldDefinitionRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.updateCustomFieldDefinition(id, body, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomFieldDefinitionDetailResSchema updateCustomFieldDefinition(String definitionId, ContentPlatformModels.CustomFieldDefinitionRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomFieldDefinitionDetailResSchema updateCustomFieldDefinition(String id, ContentPlatformModels.CustomFieldDefinitionRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomFieldDefinitionDetailResSchema> response = null;
             try {
-                response = contentPlatformApiList.updateCustomFieldDefinition(this.companyId, definitionId, body, requestHeaders).execute();
+                response = contentPlatformApiList.updateCustomFieldDefinition(this.companyId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -470,15 +472,15 @@ public class ContentPlatformService {
     
     
 
-    public ContentPlatformModels.CustomDataDeleteSchema deleteCustomFieldDefinition(String definitionId) throws FDKServerResponseError, FDKException {
-        return this.deleteCustomFieldDefinition(definitionId, new HashMap<>());
+    public ContentPlatformModels.CustomDataDeleteSchema deleteCustomFieldDefinition(String id) throws FDKServerResponseError, FDKException {
+        return this.deleteCustomFieldDefinition(id, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomDataDeleteSchema deleteCustomFieldDefinition(String definitionId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomDataDeleteSchema deleteCustomFieldDefinition(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomDataDeleteSchema> response = null;
             try {
-                response = contentPlatformApiList.deleteCustomFieldDefinition(this.companyId, definitionId, requestHeaders).execute();
+                response = contentPlatformApiList.deleteCustomFieldDefinition(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -649,6 +651,158 @@ public class ContentPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ContentPlatformModels.CustomFieldsResponseByResourceIdSchema updateCustomFieldByResourceId(String resource, String resourceId, ContentPlatformModels.CustomFieldRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.updateCustomFieldByResourceId(resource, resourceId, body, new HashMap<>());
+    }
+
+    public ContentPlatformModels.CustomFieldsResponseByResourceIdSchema updateCustomFieldByResourceId(String resource, String resourceId, ContentPlatformModels.CustomFieldRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.CustomFieldsResponseByResourceIdSchema> response = null;
+            try {
+                response = contentPlatformApiList.updateCustomFieldByResourceId(this.companyId, resource, resourceId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ContentPlatformModels.CustomFieldsDeleteSchema deleteCustomFieldsByResourceId(String resource, String resourceId, String ids) throws FDKServerResponseError, FDKException {
+        return this.deleteCustomFieldsByResourceId(resource, resourceId, ids, new HashMap<>());
+    }
+
+    public ContentPlatformModels.CustomFieldsDeleteSchema deleteCustomFieldsByResourceId(String resource, String resourceId, String ids, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.CustomFieldsDeleteSchema> response = null;
+            try {
+                response = contentPlatformApiList.deleteCustomFieldsByResourceId(this.companyId, resource, resourceId, ids, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ContentPlatformModels.CustomFieldBulkEntry getCustomFieldJobs(String page, String pageSize, String actionType) throws FDKServerResponseError, FDKException {
+        return this.getCustomFieldJobs(page, pageSize, actionType, new HashMap<>());
+    }
+
+    public ContentPlatformModels.CustomFieldBulkEntry getCustomFieldJobs(String page, String pageSize, String actionType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.CustomFieldBulkEntry> response = null;
+            try {
+                response = contentPlatformApiList.getCustomFieldJobs(this.companyId, page, pageSize, actionType, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     public ContentPlatformModels.CustomObjectDefinitionSchema createCustomObjectDefinition(ContentPlatformModels.CustomObjectDefinitionRequestSchema body) throws FDKServerResponseError, FDKException {
         return this.createCustomObjectDefinition(body, new HashMap<>());
@@ -746,15 +900,15 @@ public class ContentPlatformService {
     
     
 
-    public ContentPlatformModels.CustomObjectDefinitionSchema getCustomObjectDefinition(String definitionId) throws FDKServerResponseError, FDKException {
-        return this.getCustomObjectDefinition(definitionId, new HashMap<>());
+    public ContentPlatformModels.CustomObjectDefinitionSchema getCustomObjectDefinition(String id) throws FDKServerResponseError, FDKException {
+        return this.getCustomObjectDefinition(id, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomObjectDefinitionSchema getCustomObjectDefinition(String definitionId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomObjectDefinitionSchema getCustomObjectDefinition(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomObjectDefinitionSchema> response = null;
             try {
-                response = contentPlatformApiList.getCustomObjectDefinition(this.companyId, definitionId, requestHeaders).execute();
+                response = contentPlatformApiList.getCustomObjectDefinition(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -790,15 +944,15 @@ public class ContentPlatformService {
     
     
 
-    public ContentPlatformModels.CustomObjectDefinitionSchema updateCustomObjectDefinition(String definitionId, ContentPlatformModels.CustomObjectDefinitionUpdateRequestSchema body) throws FDKServerResponseError, FDKException {
-        return this.updateCustomObjectDefinition(definitionId, body, new HashMap<>());
+    public ContentPlatformModels.CustomObjectDefinitionSchema updateCustomObjectDefinition(String id, ContentPlatformModels.CustomObjectDefinitionUpdateRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.updateCustomObjectDefinition(id, body, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomObjectDefinitionSchema updateCustomObjectDefinition(String definitionId, ContentPlatformModels.CustomObjectDefinitionUpdateRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomObjectDefinitionSchema updateCustomObjectDefinition(String id, ContentPlatformModels.CustomObjectDefinitionUpdateRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomObjectDefinitionSchema> response = null;
             try {
-                response = contentPlatformApiList.updateCustomObjectDefinition(this.companyId, definitionId, body, requestHeaders).execute();
+                response = contentPlatformApiList.updateCustomObjectDefinition(this.companyId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -834,15 +988,15 @@ public class ContentPlatformService {
     
     
 
-    public ContentPlatformModels.CustomObjectDefinitionDeleteResponseSchema deleteCustomObjectDefinition(String definitionId) throws FDKServerResponseError, FDKException {
-        return this.deleteCustomObjectDefinition(definitionId, new HashMap<>());
+    public ContentPlatformModels.CustomObjectDefinitionDeleteResponseSchema deleteCustomObjectDefinition(String id) throws FDKServerResponseError, FDKException {
+        return this.deleteCustomObjectDefinition(id, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomObjectDefinitionDeleteResponseSchema deleteCustomObjectDefinition(String definitionId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomObjectDefinitionDeleteResponseSchema deleteCustomObjectDefinition(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomObjectDefinitionDeleteResponseSchema> response = null;
             try {
-                response = contentPlatformApiList.deleteCustomObjectDefinition(this.companyId, definitionId, requestHeaders).execute();
+                response = contentPlatformApiList.deleteCustomObjectDefinition(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -970,15 +1124,15 @@ public class ContentPlatformService {
     
     
 
-    public ContentPlatformModels.CustomObjectByIdSchema getCustomObject(String metaobjectId) throws FDKServerResponseError, FDKException {
-        return this.getCustomObject(metaobjectId, new HashMap<>());
+    public ContentPlatformModels.CustomObjectByIdSchema getCustomObject(String id) throws FDKServerResponseError, FDKException {
+        return this.getCustomObject(id, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomObjectByIdSchema getCustomObject(String metaobjectId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomObjectByIdSchema getCustomObject(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomObjectByIdSchema> response = null;
             try {
-                response = contentPlatformApiList.getCustomObject(this.companyId, metaobjectId, requestHeaders).execute();
+                response = contentPlatformApiList.getCustomObject(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1014,59 +1168,59 @@ public class ContentPlatformService {
     
     
 
-    public ContentPlatformModels.CustomDataDeleteSchema deleteCustomObject(String metaobjectId) throws FDKServerResponseError, FDKException {
-        return this.deleteCustomObject(metaobjectId, new HashMap<>());
+    public ContentPlatformModels.CustomObjectSchema updateCustomObject(String id, ContentPlatformModels.CustomObjectRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.updateCustomObject(id, body, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomDataDeleteSchema deleteCustomObject(String metaobjectId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomObjectSchema updateCustomObject(String id, ContentPlatformModels.CustomObjectRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.CustomObjectSchema> response = null;
+            try {
+                response = contentPlatformApiList.updateCustomObject(this.companyId, id, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public ContentPlatformModels.CustomDataDeleteSchema deleteCustomObject(String id) throws FDKServerResponseError, FDKException {
+        return this.deleteCustomObject(id, new HashMap<>());
+    }
+
+    public ContentPlatformModels.CustomDataDeleteSchema deleteCustomObject(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomDataDeleteSchema> response = null;
             try {
-                response = contentPlatformApiList.deleteCustomObject(this.companyId, metaobjectId, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    public ContentPlatformModels.CustomObjectByIdSchema updateCustomObject(String metaobjectId, ContentPlatformModels.CustomObjectRequestSchema body) throws FDKServerResponseError, FDKException {
-        return this.updateCustomObject(metaobjectId, body, new HashMap<>());
-    }
-
-    public ContentPlatformModels.CustomObjectByIdSchema updateCustomObject(String metaobjectId, ContentPlatformModels.CustomObjectRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.CustomObjectByIdSchema> response = null;
-            try {
-                response = contentPlatformApiList.updateCustomObject(this.companyId, metaobjectId, body, requestHeaders).execute();
+                response = contentPlatformApiList.deleteCustomObject(this.companyId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1268,6 +1422,12 @@ public class ContentPlatformService {
             return null;
         }    
     }
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1605,6 +1765,33 @@ public class ApplicationClient {
         }    
     }
 
+    public ContentPlatformModels.BlogSchema getComponentById(String slug) throws FDKServerResponseError, FDKException {
+        return this.getComponentById(slug, new HashMap<>());
+    }
+
+    public ContentPlatformModels.BlogSchema getComponentById(String slug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.BlogSchema> response = null;
+            try {
+            response = contentPlatformApiList.getComponentById(this.companyId, this.applicationId, slug, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
     public ContentPlatformModels.DataLoaderResponseSchema addDataLoader(ContentPlatformModels.DataLoaderSchema body) throws FDKServerResponseError, FDKException {
         return this.addDataLoader(body, new HashMap<>());
     }
@@ -1641,6 +1828,33 @@ public class ApplicationClient {
             Response<ContentPlatformModels.DataLoadersSchema> response = null;
             try {
             response = contentPlatformApiList.getDataLoaders(this.companyId, this.applicationId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ContentPlatformModels.DataLoadersApiSpecSchema getDataLoaderApiSpecs(String dataLoader) throws FDKServerResponseError, FDKException {
+        return this.getDataLoaderApiSpecs(dataLoader, new HashMap<>());
+    }
+
+    public ContentPlatformModels.DataLoadersApiSpecSchema getDataLoaderApiSpecs(String dataLoader, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.DataLoadersApiSpecSchema> response = null;
+            try {
+            response = contentPlatformApiList.getDataLoaderApiSpecs(this.companyId, this.applicationId, dataLoader, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1713,13 +1927,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.DataLoaderResponseSchema getDataLoadersByService(String serviceName) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.DataLoaderItemsResponseSchema getDataLoadersByService(String serviceName) throws FDKServerResponseError, FDKException {
         return this.getDataLoadersByService(serviceName, new HashMap<>());
     }
 
-    public ContentPlatformModels.DataLoaderResponseSchema getDataLoadersByService(String serviceName, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.DataLoaderItemsResponseSchema getDataLoadersByService(String serviceName, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.DataLoaderResponseSchema> response = null;
+            Response<ContentPlatformModels.DataLoaderItemsResponseSchema> response = null;
             try {
             response = contentPlatformApiList.getDataLoadersByService(this.companyId, this.applicationId, serviceName, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1902,13 +2116,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.FaqSchema deleteFaqCategory(String id) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CreateFaqCategorySchema deleteFaqCategory(String id) throws FDKServerResponseError, FDKException {
         return this.deleteFaqCategory(id, new HashMap<>());
     }
 
-    public ContentPlatformModels.FaqSchema deleteFaqCategory(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CreateFaqCategorySchema deleteFaqCategory(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.FaqSchema> response = null;
+            Response<ContentPlatformModels.CreateFaqCategorySchema> response = null;
             try {
             response = contentPlatformApiList.deleteFaqCategory(this.companyId, this.applicationId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2064,11 +2278,11 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.GeneratedSEOContent generateSEOTitle(ContentPlatformModels.GenerationEntityType type, ContentPlatformModels.GenerateSEOContent body) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.GeneratedSEOContent generateSEOTitle(String type, ContentPlatformModels.GenerateSEOContent body) throws FDKServerResponseError, FDKException {
         return this.generateSEOTitle(type, body, new HashMap<>());
     }
 
-    public ContentPlatformModels.GeneratedSEOContent generateSEOTitle(ContentPlatformModels.GenerationEntityType type, ContentPlatformModels.GenerateSEOContent body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.GeneratedSEOContent generateSEOTitle(String type, ContentPlatformModels.GenerateSEOContent body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.GeneratedSEOContent> response = null;
             try {
@@ -2550,13 +2764,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.PathMappingSchema addPathRedirectionRules(ContentPlatformModels.PathMappingSchema body) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CreatePathMappingSchema addPathRedirectionRules(ContentPlatformModels.PathMappingSchema body) throws FDKServerResponseError, FDKException {
         return this.addPathRedirectionRules(body, new HashMap<>());
     }
 
-    public ContentPlatformModels.PathMappingSchema addPathRedirectionRules(ContentPlatformModels.PathMappingSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CreatePathMappingSchema addPathRedirectionRules(ContentPlatformModels.PathMappingSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.PathMappingSchema> response = null;
+            Response<ContentPlatformModels.CreatePathMappingSchema> response = null;
             try {
             response = contentPlatformApiList.addPathRedirectionRules(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2577,13 +2791,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.PathMappingSchema getPathRedirectionRules(Integer pageSize, Integer pageNo) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.GetAllPathMappingSchema getPathRedirectionRules(Integer pageSize, Integer pageNo) throws FDKServerResponseError, FDKException {
         return this.getPathRedirectionRules(pageSize, pageNo, new HashMap<>());
     }
 
-    public ContentPlatformModels.PathMappingSchema getPathRedirectionRules(Integer pageSize, Integer pageNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.GetAllPathMappingSchema getPathRedirectionRules(Integer pageSize, Integer pageNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.PathMappingSchema> response = null;
+            Response<ContentPlatformModels.GetAllPathMappingSchema> response = null;
             try {
             response = contentPlatformApiList.getPathRedirectionRules(this.companyId, this.applicationId, pageSize, pageNo, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2604,13 +2818,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.PathMappingSchema getPathRedirectionRule(String pathId) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.DeletPathMappingSchema getPathRedirectionRule(String pathId) throws FDKServerResponseError, FDKException {
         return this.getPathRedirectionRule(pathId, new HashMap<>());
     }
 
-    public ContentPlatformModels.PathMappingSchema getPathRedirectionRule(String pathId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.DeletPathMappingSchema getPathRedirectionRule(String pathId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.PathMappingSchema> response = null;
+            Response<ContentPlatformModels.DeletPathMappingSchema> response = null;
             try {
             response = contentPlatformApiList.getPathRedirectionRule(this.companyId, this.applicationId, pathId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2631,13 +2845,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.PathMappingSchema updatePathRedirectionRules(String pathId, ContentPlatformModels.PathMappingSchema body) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CreatePathMappingSchema updatePathRedirectionRules(String pathId, ContentPlatformModels.PathMappingSchema body) throws FDKServerResponseError, FDKException {
         return this.updatePathRedirectionRules(pathId, body, new HashMap<>());
     }
 
-    public ContentPlatformModels.PathMappingSchema updatePathRedirectionRules(String pathId, ContentPlatformModels.PathMappingSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CreatePathMappingSchema updatePathRedirectionRules(String pathId, ContentPlatformModels.PathMappingSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.PathMappingSchema> response = null;
+            Response<ContentPlatformModels.CreatePathMappingSchema> response = null;
             try {
             response = contentPlatformApiList.updatePathRedirectionRules(this.companyId, this.applicationId, pathId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2658,13 +2872,13 @@ public class ApplicationClient {
         }    
     }
 
-    public Object deletePathRedirectionRules(String pathId) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.DeletPathMappingSchema deletePathRedirectionRules(String pathId) throws FDKServerResponseError, FDKException {
         return this.deletePathRedirectionRules(pathId, new HashMap<>());
     }
 
-    public Object deletePathRedirectionRules(String pathId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.DeletPathMappingSchema deletePathRedirectionRules(String pathId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<Object> response = null;
+            Response<ContentPlatformModels.DeletPathMappingSchema> response = null;
             try {
             response = contentPlatformApiList.deletePathRedirectionRules(this.companyId, this.applicationId, pathId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2820,15 +3034,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.SEOSchemaMarkupTemplate getSEOMarkupSchema(String id) throws FDKServerResponseError, FDKException {
-        return this.getSEOMarkupSchema(id, new HashMap<>());
+    public ContentPlatformModels.SEOSchemaMarkupTemplate getSEOMarkupSchema(String schemaId) throws FDKServerResponseError, FDKException {
+        return this.getSEOMarkupSchema(schemaId, new HashMap<>());
     }
 
-    public ContentPlatformModels.SEOSchemaMarkupTemplate getSEOMarkupSchema(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.SEOSchemaMarkupTemplate getSEOMarkupSchema(String schemaId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.SEOSchemaMarkupTemplate> response = null;
             try {
-            response = contentPlatformApiList.getSEOMarkupSchema(this.companyId, this.applicationId, id, requestHeaders).execute();
+            response = contentPlatformApiList.getSEOMarkupSchema(this.companyId, this.applicationId, schemaId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2847,15 +3061,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.SEOSchemaMarkupTemplate editSEOMarkupSchema(String id, ContentPlatformModels.SEOSchemaMarkupTemplateRequestBody body) throws FDKServerResponseError, FDKException {
-        return this.editSEOMarkupSchema(id, body, new HashMap<>());
+    public ContentPlatformModels.SEOSchemaMarkupTemplate editSEOMarkupSchema(String schemaId, ContentPlatformModels.SEOSchemaMarkupTemplateRequestBody body) throws FDKServerResponseError, FDKException {
+        return this.editSEOMarkupSchema(schemaId, body, new HashMap<>());
     }
 
-    public ContentPlatformModels.SEOSchemaMarkupTemplate editSEOMarkupSchema(String id, ContentPlatformModels.SEOSchemaMarkupTemplateRequestBody body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.SEOSchemaMarkupTemplate editSEOMarkupSchema(String schemaId, ContentPlatformModels.SEOSchemaMarkupTemplateRequestBody body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.SEOSchemaMarkupTemplate> response = null;
             try {
-            response = contentPlatformApiList.editSEOMarkupSchema(this.companyId, this.applicationId, id, body, requestHeaders).execute();
+            response = contentPlatformApiList.editSEOMarkupSchema(this.companyId, this.applicationId, schemaId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2874,15 +3088,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.SEOSchemaMarkupTemplate deleteSEOMarkupSchema(String id) throws FDKServerResponseError, FDKException {
-        return this.deleteSEOMarkupSchema(id, new HashMap<>());
+    public ContentPlatformModels.SEOSchemaMarkupTemplate deleteSEOMarkupSchema(String schemaId) throws FDKServerResponseError, FDKException {
+        return this.deleteSEOMarkupSchema(schemaId, new HashMap<>());
     }
 
-    public ContentPlatformModels.SEOSchemaMarkupTemplate deleteSEOMarkupSchema(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.SEOSchemaMarkupTemplate deleteSEOMarkupSchema(String schemaId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.SEOSchemaMarkupTemplate> response = null;
             try {
-            response = contentPlatformApiList.deleteSEOMarkupSchema(this.companyId, this.applicationId, id, requestHeaders).execute();
+            response = contentPlatformApiList.deleteSEOMarkupSchema(this.companyId, this.applicationId, schemaId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2901,159 +3115,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.SlideshowGetResponse getSlideshows(String devicePlatform, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
-        return this.getSlideshows(devicePlatform, pageNo, pageSize, new HashMap<>());
+    public ContentPlatformModels.TagsSchema addInjectableTag(ContentPlatformModels.CreateTagRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.addInjectableTag(body, new HashMap<>());
     }
 
-    public ContentPlatformModels.SlideshowGetResponse getSlideshows(String devicePlatform, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.TagsSchema addInjectableTag(ContentPlatformModels.CreateTagRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.SlideshowGetResponse> response = null;
+            Response<ContentPlatformModels.TagsSchema> response = null;
             try {
-            response = contentPlatformApiList.getSlideshows(this.companyId, this.applicationId, devicePlatform, pageNo, pageSize, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    /**
-    * Summary: get paginator for getSlideshows
-    * Description: fetch the next page by calling .next(...) function
-    **/
-    public Paginator<ContentPlatformModels.SlideshowGetResponse> getSlideshowsPagination(
-        String devicePlatform,
-        Integer pageSize
-        
-        ){ 
-    
-    pageSize = pageSize!=0?20:pageSize; 
-
-    Paginator<ContentPlatformModels.SlideshowGetResponse> paginator = new Paginator<>(pageSize, "number");
-
-    paginator.setCallback(()-> {
-        try {
-            ContentPlatformModels.SlideshowGetResponse callback = this.getSlideshows(
-                
-                 
-                 
-                 devicePlatform,
-                 paginator.getPageNo()
-                ,
-                 paginator.getPageSize()
-                
-            );
-            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
-            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
-            return callback;
-        }catch(Exception e) {
-            return null;
-        }
-    });
-    return paginator ;
-    }
-
-    public ContentPlatformModels.SlideshowSchema createSlideshow(ContentPlatformModels.SlideshowRequest body) throws FDKServerResponseError, FDKException {
-        return this.createSlideshow(body, new HashMap<>());
-    }
-
-    public ContentPlatformModels.SlideshowSchema createSlideshow(ContentPlatformModels.SlideshowRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.SlideshowSchema> response = null;
-            try {
-            response = contentPlatformApiList.createSlideshow(this.companyId, this.applicationId, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public ContentPlatformModels.SlideshowSchema getSlideshowBySlug(String slug, String devicePlatform) throws FDKServerResponseError, FDKException {
-        return this.getSlideshowBySlug(slug, devicePlatform, new HashMap<>());
-    }
-
-    public ContentPlatformModels.SlideshowSchema getSlideshowBySlug(String slug, String devicePlatform, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.SlideshowSchema> response = null;
-            try {
-            response = contentPlatformApiList.getSlideshowBySlug(this.companyId, this.applicationId, slug, devicePlatform, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public ContentPlatformModels.SlideshowSchema updateSlideshow(String id, ContentPlatformModels.SlideshowRequest body) throws FDKServerResponseError, FDKException {
-        return this.updateSlideshow(id, body, new HashMap<>());
-    }
-
-    public ContentPlatformModels.SlideshowSchema updateSlideshow(String id, ContentPlatformModels.SlideshowRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.SlideshowSchema> response = null;
-            try {
-            response = contentPlatformApiList.updateSlideshow(this.companyId, this.applicationId, id, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public ContentPlatformModels.SlideshowSchema deleteSlideshow(String id) throws FDKServerResponseError, FDKException {
-        return this.deleteSlideshow(id, new HashMap<>());
-    }
-
-    public ContentPlatformModels.SlideshowSchema deleteSlideshow(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.SlideshowSchema> response = null;
-            try {
-            response = contentPlatformApiList.deleteSlideshow(this.companyId, this.applicationId, id, requestHeaders).execute();
+            response = contentPlatformApiList.addInjectableTag(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3126,87 +3196,6 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.TagsSchema updateInjectableTag(ContentPlatformModels.CreateTagRequestSchema body) throws FDKServerResponseError, FDKException {
-        return this.updateInjectableTag(body, new HashMap<>());
-    }
-
-    public ContentPlatformModels.TagsSchema updateInjectableTag(ContentPlatformModels.CreateTagRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.TagsSchema> response = null;
-            try {
-            response = contentPlatformApiList.updateInjectableTag(this.companyId, this.applicationId, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public ContentPlatformModels.TagsSchema getInjectableTags(Boolean all) throws FDKServerResponseError, FDKException {
-        return this.getInjectableTags(all, new HashMap<>());
-    }
-
-    public ContentPlatformModels.TagsSchema getInjectableTags(Boolean all, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.TagsSchema> response = null;
-            try {
-            response = contentPlatformApiList.getInjectableTags(this.companyId, this.applicationId, all, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public ContentPlatformModels.TagsSchema addInjectableTag(ContentPlatformModels.CreateTagRequestSchema body) throws FDKServerResponseError, FDKException {
-        return this.addInjectableTag(body, new HashMap<>());
-    }
-
-    public ContentPlatformModels.TagsSchema addInjectableTag(ContentPlatformModels.CreateTagRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.TagsSchema> response = null;
-            try {
-            response = contentPlatformApiList.addInjectableTag(this.companyId, this.applicationId, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
     public ContentPlatformModels.TagDeleteSuccessResponse removeInjectableTag(ContentPlatformModels.RemoveHandpickedSchema body) throws FDKServerResponseError, FDKException {
         return this.removeInjectableTag(body, new HashMap<>());
     }
@@ -3243,6 +3232,114 @@ public class ApplicationClient {
             Response<ContentPlatformModels.TagsSchema> response = null;
             try {
             response = contentPlatformApiList.editInjectableTag(this.companyId, this.applicationId, tagId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ContentPlatformModels.TagsSchema createInjectableTag(ContentPlatformModels.CreateTagRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.createInjectableTag(body, new HashMap<>());
+    }
+
+    public ContentPlatformModels.TagsSchema createInjectableTag(ContentPlatformModels.CreateTagRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.TagsSchema> response = null;
+            try {
+            response = contentPlatformApiList.createInjectableTag(this.companyId, this.applicationId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ContentPlatformModels.TagsSchema updateInjectableTag(ContentPlatformModels.CreateTagRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.updateInjectableTag(body, new HashMap<>());
+    }
+
+    public ContentPlatformModels.TagsSchema updateInjectableTag(ContentPlatformModels.CreateTagRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.TagsSchema> response = null;
+            try {
+            response = contentPlatformApiList.updateInjectableTag(this.companyId, this.applicationId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ContentPlatformModels.TagsSchema deleteAllInjectableTags() throws FDKServerResponseError, FDKException {
+        return this.deleteAllInjectableTags(new HashMap<>());
+    }
+
+    public ContentPlatformModels.TagsSchema deleteAllInjectableTags(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.TagsSchema> response = null;
+            try {
+            response = contentPlatformApiList.deleteAllInjectableTags(this.companyId, this.applicationId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ContentPlatformModels.TagsSchema getInjectableTags() throws FDKServerResponseError, FDKException {
+        return this.getInjectableTags(new HashMap<>());
+    }
+
+    public ContentPlatformModels.TagsSchema getInjectableTags(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.TagsSchema> response = null;
+            try {
+            response = contentPlatformApiList.getInjectableTags(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3342,6 +3439,40 @@ public class ApplicationClient {
         }    
     }
 
+    /**
+    * Summary: get paginator for getPages
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ContentPlatformModels.PageGetResponse> getPagesPagination(
+        Integer pageSize
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ContentPlatformModels.PageGetResponse> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ContentPlatformModels.PageGetResponse callback = this.getPages(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+
     public ContentPlatformModels.PageSchema updatePage(String id, ContentPlatformModels.PageSchema body) throws FDKServerResponseError, FDKException {
         return this.updatePage(id, body, new HashMap<>());
     }
@@ -3396,13 +3527,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.CustomObjectByIdSchema getAppCustomFieldTypes() throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.MetafieldTypesSchema getAppCustomFieldTypes() throws FDKServerResponseError, FDKException {
         return this.getAppCustomFieldTypes(new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomObjectByIdSchema getAppCustomFieldTypes(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.MetafieldTypesSchema getAppCustomFieldTypes(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.CustomObjectByIdSchema> response = null;
+            Response<ContentPlatformModels.MetafieldTypesSchema> response = null;
             try {
             response = contentPlatformApiList.getAppCustomFieldTypes(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -3450,15 +3581,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.CustomFieldDefinitionsSchema getAppCustomFieldDefinitions(String pageNo, String pageSize, String resource, String type, String search) throws FDKServerResponseError, FDKException {
-        return this.getAppCustomFieldDefinitions(pageNo, pageSize, resource, type, search, new HashMap<>());
+    public ContentPlatformModels.ApplicationCustomFieldDefinitionsSchema getAppCustomFieldDefinitions(String pageNo, String pageSize, String resources, String types, String search, String slugs) throws FDKServerResponseError, FDKException {
+        return this.getAppCustomFieldDefinitions(pageNo, pageSize, resources, types, search, slugs, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomFieldDefinitionsSchema getAppCustomFieldDefinitions(String pageNo, String pageSize, String resource, String type, String search, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.ApplicationCustomFieldDefinitionsSchema getAppCustomFieldDefinitions(String pageNo, String pageSize, String resources, String types, String search, String slugs, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.CustomFieldDefinitionsSchema> response = null;
+            Response<ContentPlatformModels.ApplicationCustomFieldDefinitionsSchema> response = null;
             try {
-            response = contentPlatformApiList.getAppCustomFieldDefinitions(this.companyId, this.applicationId, pageNo, pageSize, resource, type, search, requestHeaders).execute();
+            response = contentPlatformApiList.getAppCustomFieldDefinitions(this.companyId, this.applicationId, pageNo, pageSize, resources, types, search, slugs, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3504,15 +3635,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.CustomFieldDefinitionDetailResSchema getAppCustomFieldDefinition(String definitionId) throws FDKServerResponseError, FDKException {
-        return this.getAppCustomFieldDefinition(definitionId, new HashMap<>());
+    public ContentPlatformModels.CustomFieldDefinitionDetailResSchema getAppCustomFieldDefinition(String id) throws FDKServerResponseError, FDKException {
+        return this.getAppCustomFieldDefinition(id, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomFieldDefinitionDetailResSchema getAppCustomFieldDefinition(String definitionId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomFieldDefinitionDetailResSchema getAppCustomFieldDefinition(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomFieldDefinitionDetailResSchema> response = null;
             try {
-            response = contentPlatformApiList.getAppCustomFieldDefinition(this.companyId, this.applicationId, definitionId, requestHeaders).execute();
+            response = contentPlatformApiList.getAppCustomFieldDefinition(this.companyId, this.applicationId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3531,15 +3662,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.CustomFieldDefinitionDetailResSchema updateAppCustomFieldDefinition(String definitionId, ContentPlatformModels.CustomFieldDefinitionRequestSchema body) throws FDKServerResponseError, FDKException {
-        return this.updateAppCustomFieldDefinition(definitionId, body, new HashMap<>());
+    public ContentPlatformModels.CustomFieldDefinitionDetailResSchema updateAppCustomFieldDefinition(String id, ContentPlatformModels.CustomFieldDefinitionRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.updateAppCustomFieldDefinition(id, body, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomFieldDefinitionDetailResSchema updateAppCustomFieldDefinition(String definitionId, ContentPlatformModels.CustomFieldDefinitionRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomFieldDefinitionDetailResSchema updateAppCustomFieldDefinition(String id, ContentPlatformModels.CustomFieldDefinitionRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomFieldDefinitionDetailResSchema> response = null;
             try {
-            response = contentPlatformApiList.updateAppCustomFieldDefinition(this.companyId, this.applicationId, definitionId, body, requestHeaders).execute();
+            response = contentPlatformApiList.updateAppCustomFieldDefinition(this.companyId, this.applicationId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3558,15 +3689,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.CustomDataDeleteSchema deleteAppCustomFieldDefinition(String definitionId) throws FDKServerResponseError, FDKException {
-        return this.deleteAppCustomFieldDefinition(definitionId, new HashMap<>());
+    public ContentPlatformModels.CustomDataDeleteSchema deleteAppCustomFieldDefinition(String id) throws FDKServerResponseError, FDKException {
+        return this.deleteAppCustomFieldDefinition(id, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomDataDeleteSchema deleteAppCustomFieldDefinition(String definitionId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomDataDeleteSchema deleteAppCustomFieldDefinition(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomDataDeleteSchema> response = null;
             try {
-            response = contentPlatformApiList.deleteAppCustomFieldDefinition(this.companyId, this.applicationId, definitionId, requestHeaders).execute();
+            response = contentPlatformApiList.deleteAppCustomFieldDefinition(this.companyId, this.applicationId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3666,6 +3797,87 @@ public class ApplicationClient {
         }    
     }
 
+    public ContentPlatformModels.CustomFieldsResponseByResourceIdSchema updateAppCustomFieldByResourceId(String resource, String resourceId, ContentPlatformModels.CustomFieldRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.updateAppCustomFieldByResourceId(resource, resourceId, body, new HashMap<>());
+    }
+
+    public ContentPlatformModels.CustomFieldsResponseByResourceIdSchema updateAppCustomFieldByResourceId(String resource, String resourceId, ContentPlatformModels.CustomFieldRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.CustomFieldsResponseByResourceIdSchema> response = null;
+            try {
+            response = contentPlatformApiList.updateAppCustomFieldByResourceId(this.companyId, this.applicationId, resource, resourceId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ContentPlatformModels.CustomFieldsDeleteSchema deleteAppCustomFieldsByResourceId(String resource, String resourceId, String ids) throws FDKServerResponseError, FDKException {
+        return this.deleteAppCustomFieldsByResourceId(resource, resourceId, ids, new HashMap<>());
+    }
+
+    public ContentPlatformModels.CustomFieldsDeleteSchema deleteAppCustomFieldsByResourceId(String resource, String resourceId, String ids, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.CustomFieldsDeleteSchema> response = null;
+            try {
+            response = contentPlatformApiList.deleteAppCustomFieldsByResourceId(this.companyId, this.applicationId, resource, resourceId, ids, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ContentPlatformModels.CustomFieldBulkEntry getAppCustomFieldJobs(String page, String pageSize, String actionType) throws FDKServerResponseError, FDKException {
+        return this.getAppCustomFieldJobs(page, pageSize, actionType, new HashMap<>());
+    }
+
+    public ContentPlatformModels.CustomFieldBulkEntry getAppCustomFieldJobs(String page, String pageSize, String actionType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.CustomFieldBulkEntry> response = null;
+            try {
+            response = contentPlatformApiList.getAppCustomFieldJobs(this.companyId, this.applicationId, page, pageSize, actionType, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
     public ContentPlatformModels.CustomObjectDefinitionSchema createAppCustomObjectDefinition(ContentPlatformModels.CustomObjectDefinitionRequestSchema body) throws FDKServerResponseError, FDKException {
         return this.createAppCustomObjectDefinition(body, new HashMap<>());
     }
@@ -3720,15 +3932,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.CustomObjectDefinitionSchema getAppCustomObjectDefinition(String definitionId) throws FDKServerResponseError, FDKException {
-        return this.getAppCustomObjectDefinition(definitionId, new HashMap<>());
+    public ContentPlatformModels.CustomObjectDefinitionSchema getAppCustomObjectDefinition(String id) throws FDKServerResponseError, FDKException {
+        return this.getAppCustomObjectDefinition(id, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomObjectDefinitionSchema getAppCustomObjectDefinition(String definitionId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomObjectDefinitionSchema getAppCustomObjectDefinition(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomObjectDefinitionSchema> response = null;
             try {
-            response = contentPlatformApiList.getAppCustomObjectDefinition(this.companyId, this.applicationId, definitionId, requestHeaders).execute();
+            response = contentPlatformApiList.getAppCustomObjectDefinition(this.companyId, this.applicationId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3747,15 +3959,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.CustomObjectDefinitionSchema updateAppCustomObjectDefinition(String definitionId, ContentPlatformModels.CustomObjectDefinitionUpdateRequestSchema body) throws FDKServerResponseError, FDKException {
-        return this.updateAppCustomObjectDefinition(definitionId, body, new HashMap<>());
+    public ContentPlatformModels.CustomObjectDefinitionSchema updateAppCustomObjectDefinition(String id, ContentPlatformModels.CustomObjectDefinitionUpdateRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.updateAppCustomObjectDefinition(id, body, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomObjectDefinitionSchema updateAppCustomObjectDefinition(String definitionId, ContentPlatformModels.CustomObjectDefinitionUpdateRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomObjectDefinitionSchema updateAppCustomObjectDefinition(String id, ContentPlatformModels.CustomObjectDefinitionUpdateRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomObjectDefinitionSchema> response = null;
             try {
-            response = contentPlatformApiList.updateAppCustomObjectDefinition(this.companyId, this.applicationId, definitionId, body, requestHeaders).execute();
+            response = contentPlatformApiList.updateAppCustomObjectDefinition(this.companyId, this.applicationId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3774,15 +3986,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.CustomObjectDefinitionDeleteResponseSchema deleteAppCustomObjectDefinition(String definitionId) throws FDKServerResponseError, FDKException {
-        return this.deleteAppCustomObjectDefinition(definitionId, new HashMap<>());
+    public ContentPlatformModels.CustomObjectDefinitionDeleteResponseSchema deleteAppCustomObjectDefinition(String id) throws FDKServerResponseError, FDKException {
+        return this.deleteAppCustomObjectDefinition(id, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomObjectDefinitionDeleteResponseSchema deleteAppCustomObjectDefinition(String definitionId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomObjectDefinitionDeleteResponseSchema deleteAppCustomObjectDefinition(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomObjectDefinitionDeleteResponseSchema> response = null;
             try {
-            response = contentPlatformApiList.deleteAppCustomObjectDefinition(this.companyId, this.applicationId, definitionId, requestHeaders).execute();
+            response = contentPlatformApiList.deleteAppCustomObjectDefinition(this.companyId, this.applicationId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3828,13 +4040,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.CustomObjectSchema createAppCustomObject(ContentPlatformModels.CustomObjectRequestSchema body) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomObjectApplicationSchema createAppCustomObject(ContentPlatformModels.CustomObjectRequestSchema body) throws FDKServerResponseError, FDKException {
         return this.createAppCustomObject(body, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomObjectSchema createAppCustomObject(ContentPlatformModels.CustomObjectRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomObjectApplicationSchema createAppCustomObject(ContentPlatformModels.CustomObjectRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.CustomObjectSchema> response = null;
+            Response<ContentPlatformModels.CustomObjectApplicationSchema> response = null;
             try {
             response = contentPlatformApiList.createAppCustomObject(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -3855,15 +4067,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.CustomObjectByIdSchema getAppCustomObject(String metaobjectId) throws FDKServerResponseError, FDKException {
-        return this.getAppCustomObject(metaobjectId, new HashMap<>());
+    public ContentPlatformModels.CustomObjectByIdSchema getAppCustomObject(String id) throws FDKServerResponseError, FDKException {
+        return this.getAppCustomObject(id, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomObjectByIdSchema getAppCustomObject(String metaobjectId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomObjectByIdSchema getAppCustomObject(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomObjectByIdSchema> response = null;
             try {
-            response = contentPlatformApiList.getAppCustomObject(this.companyId, this.applicationId, metaobjectId, requestHeaders).execute();
+            response = contentPlatformApiList.getAppCustomObject(this.companyId, this.applicationId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3882,42 +4094,42 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.CustomDataDeleteSchema deleteAppCustomObject(String metaobjectId) throws FDKServerResponseError, FDKException {
-        return this.deleteAppCustomObject(metaobjectId, new HashMap<>());
+    public ContentPlatformModels.CustomObjectApplicationSchema updateAppCustomObject(String id, ContentPlatformModels.CustomObjectRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.updateAppCustomObject(id, body, new HashMap<>());
     }
 
-    public ContentPlatformModels.CustomDataDeleteSchema deleteAppCustomObject(String metaobjectId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.CustomObjectApplicationSchema updateAppCustomObject(String id, ContentPlatformModels.CustomObjectRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.CustomObjectApplicationSchema> response = null;
+            try {
+            response = contentPlatformApiList.updateAppCustomObject(this.companyId, this.applicationId, id, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ContentPlatformModels.CustomDataDeleteSchema deleteAppCustomObject(String id) throws FDKServerResponseError, FDKException {
+        return this.deleteAppCustomObject(id, new HashMap<>());
+    }
+
+    public ContentPlatformModels.CustomDataDeleteSchema deleteAppCustomObject(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.CustomDataDeleteSchema> response = null;
             try {
-            response = contentPlatformApiList.deleteAppCustomObject(this.companyId, this.applicationId, metaobjectId, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public ContentPlatformModels.CustomObjectByIdSchema updateAppCustomObject(String metaobjectId, ContentPlatformModels.CustomObjectRequestSchema body) throws FDKServerResponseError, FDKException {
-        return this.updateAppCustomObject(metaobjectId, body, new HashMap<>());
-    }
-
-    public ContentPlatformModels.CustomObjectByIdSchema updateAppCustomObject(String metaobjectId, ContentPlatformModels.CustomObjectRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ContentPlatformModels.CustomObjectByIdSchema> response = null;
-            try {
-            response = contentPlatformApiList.updateAppCustomObject(this.companyId, this.applicationId, metaobjectId, body, requestHeaders).execute();
+            response = contentPlatformApiList.deleteAppCustomObject(this.companyId, this.applicationId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

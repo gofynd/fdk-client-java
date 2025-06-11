@@ -60,6 +60,58 @@ public class WebhookPartnerService {
     
     
 
+    public WebhookPartnerModels.ResponseTimeTs responseTimeSummary(String extensionId, String startDate, String endDate) throws FDKServerResponseError, FDKException {
+        return this.responseTimeSummary(extensionId, startDate, endDate, new HashMap<>());
+    }
+
+    public WebhookPartnerModels.ResponseTimeTs responseTimeSummary(String extensionId, String startDate, String endDate, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<WebhookPartnerModels.ResponseTimeTs> response = null;
+            try {
+                response = webhookPartnerApiList.responseTimeSummary(this.organizationId, extensionId, startDate, endDate, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
     public WebhookPartnerModels.DeliverySummaryResponse fetchDeliverySummary(String extensionId, String startDate, String endDate) throws FDKServerResponseError, FDKException {
         return this.fetchDeliverySummary(extensionId, startDate, endDate, new HashMap<>());
     }

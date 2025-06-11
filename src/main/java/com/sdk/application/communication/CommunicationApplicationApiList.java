@@ -12,6 +12,18 @@ interface CommunicationApplicationApiList {
     @POST 
     Call<CommunicationApplicationModels.CommunicationConsentRes> upsertCommunicationConsent(@Url String url1, @Body CommunicationApplicationModels.CommunicationConsentReq payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @GET 
+    Call<CommunicationApplicationModels.CommunicationConsent> getCurrentCommunicationConsent(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST 
+    Call<CommunicationApplicationModels.CommunicationConsentRes> upsertCurrentCommunicationConsent(@Url String url1, @Body CommunicationApplicationModels.CommunicationConsentReq payload, @HeaderMap Map<String, String> requestHeaders);
+
     @POST 
     Call<CommunicationApplicationModels.PushtokenRes> upsertAppPushtoken(@Url String url1, @Body CommunicationApplicationModels.PushtokenReq payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
+    Call<CommunicationApplicationModels.OtpConfiguration> getOtpConfiguration(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST 
+    Call<CommunicationApplicationModels.PushtokenRes> createAppPushtoken(@Url String url1, @Body CommunicationApplicationModels.PushtokenReq payload, @HeaderMap Map<String, String> requestHeaders);
 }

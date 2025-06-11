@@ -135,7 +135,7 @@ public static class RemoveProxyResponse{
     
     
     @JsonProperty("data")
-    private Object data;
+    private HashMap<String,Object> data;
     
     
     

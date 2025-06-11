@@ -358,7 +358,7 @@ public static class GetAddressSerializer{
     
     
     @JsonProperty("pincode")
-    private Integer pincode;
+    private String pincode;
     
     
     
@@ -599,26 +599,32 @@ public static class ErrorResponse{
     
     
     
+    @JsonProperty("code")
+    private Double code;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+    
     @JsonProperty("message")
     private String message;
     
     
     
     
-    @JsonProperty("code")
-    private String code;
+    @JsonProperty("meta")
+    private Object meta;
     
     
     
     
     @JsonProperty("status")
     private Integer status;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
     
     
     
@@ -692,7 +698,7 @@ public static class CreateUpdateAddressSerializer{
     
     
     @JsonProperty("pincode")
-    private Integer pincode;
+    private String pincode;
     
     
     
@@ -869,6 +875,12 @@ public static class ProfileSuccessResponse{
     
     @JsonProperty("uid")
     private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<Object> data;
     
     
     
@@ -1144,7 +1156,7 @@ public static class GetBrandResponseSerializer{
 
 
 /*
-    Model: CreateBrandRequestSerializer
+    Model: CreateUpdateBrandRequestSerializer
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1152,7 +1164,7 @@ public static class GetBrandResponseSerializer{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateBrandRequestSerializer{
+public static class CreateUpdateBrandRequestSerializer{
 
     
 
@@ -1222,85 +1234,6 @@ public static class CreateBrandRequestSerializer{
     
     @JsonProperty("slug_key")
     private String slugKey;
-    
-    
-    
-}
-
-
-/*
-    Model: UpdateBrandRequestSerializer
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateBrandRequestSerializer{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("_custom_json")
-    private Object customJson;
-    
-    
-    
-    
-    @JsonProperty("_locale_language")
-    private Object localeLanguage;
-    
-    
-    
-    
-    @JsonProperty("synonyms")
-    private List<String> synonyms;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("logo")
-    private String logo;
-    
-    
-    
-    
-    @JsonProperty("brand_tier")
-    private String brandTier;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("banner")
-    private BrandBannerSerializer banner;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
     
     
     
@@ -1642,6 +1575,12 @@ public static class Page{
     
     @JsonProperty("size")
     private Integer size;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
     
     
     
@@ -2305,6 +2244,12 @@ public static class GetLocationSerializer{
     
     
     
+    
+    @JsonProperty("is_hyperlocal_active")
+    private Boolean isHyperlocalActive;
+    
+    
+    
 }
 
 
@@ -2369,7 +2314,7 @@ public static class AddressSerializer{
     
     
     @JsonProperty("pincode")
-    private Integer pincode;
+    private String pincode;
     
     
     
@@ -2605,6 +2550,12 @@ public static class LocationSerializer{
     
     @JsonProperty("auto_assign_courier_partner")
     private Boolean autoAssignCourierPartner;
+    
+    
+    
+    
+    @JsonProperty("is_hyperlocal_active")
+    private Boolean isHyperlocalActive;
     
     
     

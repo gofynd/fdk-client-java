@@ -6,6 +6,9 @@ import java.util.*;
 
 interface WebhookPartnerApiList {
 
+    @GET ("/service/partner/webhook/v1.0/organization/{organization_id}/extension/{extension_id}/report/response_time_ts")
+    Call<WebhookPartnerModels.ResponseTimeTs> responseTimeSummary(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Query("start_date") String startDate, @Query("end_date") String endDate, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/partner/webhook/v1.0/organization/{organization_id}/extension/{extension_id}/report/delivery_summary")
     Call<WebhookPartnerModels.DeliverySummaryResponse> fetchDeliverySummary(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Query("start_date") String startDate, @Query("end_date") String endDate, @HeaderMap Map<String, String> requestHeaders);
 
