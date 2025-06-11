@@ -14,31 +14,6 @@ public class SharePlatformModels{
 
 
 /*
-    Model: ClickStatsResult
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ClickStatsResult{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("click_stats")
-    private List<ClickStatsItem> clickStats;
-    
-    
-    
-}
-
-
-/*
     Model: ClickStatsItem
 */
 @AllArgsConstructor
@@ -355,43 +330,6 @@ public static class ShortLinkReq{
     
     
     
-    
-    @JsonProperty("meta")
-    private shortLinkReqMeta meta;
-    
-    
-    
-}
-
-
-/*
-    Model: shortLinkReqMeta
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class shortLinkReqMeta{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("for_sms")
-    private Boolean forSms;
-    
-    
-    
-    
-    @JsonProperty("sms_header")
-    private String smsHeader;
-    
-    
-    
 }
 
 
@@ -412,26 +350,8 @@ public static class UrlInfo{
     
     
     
-    @JsonProperty("original")
-    private String original;
-    
-    
-    
-    
     @JsonProperty("hash")
     private String hash;
-    
-    
-    
-    
-    @JsonProperty("short_url")
-    private String shortUrl;
-    
-    
-    
-    
-    @JsonProperty("alias")
-    private String alias;
     
     
     
@@ -528,7 +448,7 @@ public static class ShortLinkRes{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
     
     
     
@@ -636,8 +556,14 @@ public static class Page{
     
     
     
-    @JsonProperty("page_size")
-    private Integer pageSize;
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Integer page;
     
     
     

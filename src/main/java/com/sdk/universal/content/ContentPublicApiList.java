@@ -15,9 +15,6 @@ interface ContentPublicApiList {
     @GET ("/service/public/content/menu/{type}")
     Call<ContentPublicModels.MenuTypeSchema> getMenuContentByType(@Path("type") String type, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/public/content/analytics-tags")
-    Call<ContentPublicModels.AnalyticsTagsSchema> getAnalyticsTags(@HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/public/content/custom-pages/{slug}")
     Call<ContentPublicModels.CustomPageBySlugSchema> getCustomPage(@Path("slug") String slug, @HeaderMap Map<String, String> requestHeaders);
 
@@ -39,12 +36,9 @@ interface ContentPublicApiList {
     @GET ("/service/public/content/credentials/{entity_type}")
     Call<ContentPublicModels.CredentialsSchema> getCredentialsByEntity(@Path("entity_type") String entityType, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/public/content/languages")
-    Call<Object> getAllLanguages(@HeaderMap Map<String, String> requestHeaders);
+    @GET ("/service/public/content/sdk-readme")
+    Call<ContentPublicModels.SDKLinksResponseSchema> getSDKDocumentation(@HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/public/content/languages/{locale}")
-    Call<ContentPublicModels.Language> getLanguageByLocale(@Path("locale") String locale, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/public/content/translatable/resources")
-    Call<Object> getAllTranslatableResources(@HeaderMap Map<String, String> requestHeaders);
+    @GET ("/service/public/content/sdk-readme/{type}")
+    Call<ContentPublicModels.SDKbyTypeResponseSchema> getSDKDocumentationByType(@Path("type") String type, @HeaderMap Map<String, String> requestHeaders);
 }

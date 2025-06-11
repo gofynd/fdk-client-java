@@ -6,6 +6,12 @@ import java.util.*;
 
 interface UserApplicationApiList {
 
+    @GET 
+    Call<UserApplicationModels.UserAttributes> getUserAttributes(@Url String url1, @Query("slug") String slug, @HeaderMap Map<String, String> requestHeaders);
+
+    @PATCH 
+    Call<UserApplicationModels.UserAttributes> updateUserAttributes(@Url String url1, @Body UserApplicationModels.UpdateAttributesRequestPayload payload, @HeaderMap Map<String, String> requestHeaders);
+
     @POST 
     Call<UserApplicationModels.AuthSuccess> loginWithFacebook(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.OAuthRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
@@ -22,16 +28,13 @@ interface UserApplicationApiList {
     Call<UserApplicationModels.AuthSuccess> loginWithAppleIOS(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.OAuthRequestAppleSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<UserApplicationModels.SendOtp> loginWithOTP(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendOtpRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<UserApplicationModels.SendOtpResponse> loginWithOTP(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendOtpRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<UserApplicationModels.LoginSuccess> loginWithEmailAndPassword(@Url String url1, @Body UserApplicationModels.PasswordLoginRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<UserApplicationModels.ResetPasswordSuccess> sendResetPasswordEmail(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendResetPasswordEmailRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<Object> sendResetPasswordMobile(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendResetPasswordMobileRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<UserApplicationModels.ResetPasswordSuccess> sendResetToken(@Url String url1, @Body UserApplicationModels.CodeRequestBodySchema payload, @HeaderMap Map<String, String> requestHeaders);
@@ -61,10 +64,10 @@ interface UserApplicationApiList {
     Call<UserApplicationModels.VerifyEmailSuccess> updatePassword(@Url String url1, @Body UserApplicationModels.UpdatePasswordRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<UserApplicationModels.SendOtpSuccess> sendOTPOnMobile(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendMobileOtpRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<UserApplicationModels.OtpSuccess> sendOTPOnMobile(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendMobileOtpRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<UserApplicationModels.SendOtpSuccess> sendForgotOTPOnMobile(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendMobileForgotOtpRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<UserApplicationModels.OtpSuccess> sendForgotOTPOnMobile(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendMobileForgotOtpRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<UserApplicationModels.VerifyOtpSuccess> verifyMobileOTP(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.VerifyOtpRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
@@ -121,29 +124,11 @@ interface UserApplicationApiList {
     Call<UserApplicationModels.SendEmailVerifyLinkSuccess> sendVerificationLinkToEmail(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.EditEmailRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<UserApplicationModels.UserExistsDetails> userExists(@Url String url1, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
+    Call<UserApplicationModels.UserExistsResponse> userExists(@Url String url1, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<UserApplicationModels.DeleteUserSuccess> deleteUser(@Url String url1, @Body UserApplicationModels.DeleteApplicationUserRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<UserApplicationModels.LogoutSuccess> logout(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<UserApplicationModels.UserAttributes> getUserAttributes(@Url String url1, @Query("slug") String slug, @HeaderMap Map<String, String> requestHeaders);
-
-    @PATCH 
-    Call<UserApplicationModels.UserAttributes> updateUserAttributes(@Url String url1, @Body UserApplicationModels.UpdateUserAttributes payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<UserApplicationModels.SendOtpSuccess> sendOTPOnPrimary(@Url String url1, @Body UserApplicationModels.SendPrimaryOTPRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<UserApplicationModels.VerifyPrimaryOTPSuccess> verifyOTPonPrimary(@Url String url1, @Body UserApplicationModels.VerifyPrimaryOTPRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<UserApplicationModels.SendOtpSuccess> sendOTPForUpdate(@Url String url1, @Body UserApplicationModels.SendOTPForUpdateRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<UserApplicationModels.VerifyOtpSuccess> verifyOTPForUpdate(@Url String url1, @Body UserApplicationModels.VerifyOTPForUpdateRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 }

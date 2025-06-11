@@ -80,11 +80,11 @@ public class LeadPlatformService {
     
     
 
-    public LeadPlatformModels.TicketList getPlatformTickets(Boolean items, Boolean filters, String q, String status, LeadPlatformModels.PriorityEnum priority, String category, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.TicketList getPlatformTickets(Boolean items, Boolean filters, String q, String status, String priority, String category, Integer pageNo, Integer pageSize) throws FDKServerResponseError, FDKException {
         return this.getPlatformTickets(items, filters, q, status, priority, category, pageNo, pageSize, new HashMap<>());
     }
 
-    public LeadPlatformModels.TicketList getPlatformTickets(Boolean items, Boolean filters, String q, String status, LeadPlatformModels.PriorityEnum priority, String category, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.TicketList getPlatformTickets(Boolean items, Boolean filters, String q, String status, String priority, String category, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LeadPlatformModels.TicketList> response = null;
             try {
@@ -345,40 +345,6 @@ public class LeadPlatformService {
     
     
     
-
-    public LeadPlatformModels.TicketFeedbackList getFeedbacks(String id) throws FDKServerResponseError, FDKException {
-        return this.getFeedbacks(id, new HashMap<>());
-    }
-
-    public LeadPlatformModels.TicketFeedbackList getFeedbacks(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LeadPlatformModels.TicketFeedbackList> response = null;
-            try {
-                response = leadPlatformApiList.getFeedbacks(this.companyId, id, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -390,67 +356,13 @@ public class LeadPlatformService {
     
     
 
-    public LeadPlatformModels.TicketFeedback submitFeedback(String id, LeadPlatformModels.TicketFeedbackPayload body) throws FDKServerResponseError, FDKException {
-        return this.submitFeedback(id, body, new HashMap<>());
-    }
-
-    public LeadPlatformModels.TicketFeedback submitFeedback(String id, LeadPlatformModels.TicketFeedbackPayload body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LeadPlatformModels.TicketFeedback> response = null;
-            try {
-                response = leadPlatformApiList.submitFeedback(this.companyId, id, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                    throw new FDKServerResponseError(response.code(),
-                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    public LeadPlatformModels.GeneralConfigDetails getGeneralConfig() throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.GeneralConfigResponse getGeneralConfig() throws FDKServerResponseError, FDKException {
         return this.getGeneralConfig(new HashMap<>());
     }
 
-    public LeadPlatformModels.GeneralConfigDetails getGeneralConfig(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.GeneralConfigResponse getGeneralConfig(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<LeadPlatformModels.GeneralConfigDetails> response = null;
+            Response<LeadPlatformModels.GeneralConfigResponse> response = null;
             try {
                 response = leadPlatformApiList.getGeneralConfig(this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -489,15 +401,15 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
-    public LeadPlatformModels.TicketList getNewTickets(Boolean items, Boolean filters, String q, String status, LeadPlatformModels.PriorityEnum priority, String category) throws FDKServerResponseError, FDKException {
-        return this.getNewTickets(items, filters, q, status, priority, category, new HashMap<>());
+    public LeadPlatformModels.TicketList getTickets(Boolean items, Boolean filters, String q, String status, String priority, String category) throws FDKServerResponseError, FDKException {
+        return this.getTickets(items, filters, q, status, priority, category, new HashMap<>());
     }
 
-    public LeadPlatformModels.TicketList getNewTickets(Boolean items, Boolean filters, String q, String status, LeadPlatformModels.PriorityEnum priority, String category, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.TicketList getTickets(Boolean items, Boolean filters, String q, String status, String priority, String category, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LeadPlatformModels.TicketList> response = null;
             try {
-            response = leadPlatformApiList.getNewTickets(this.companyId, this.applicationId, items, filters, q, status, priority, category, requestHeaders).execute();
+            response = leadPlatformApiList.getTickets(this.companyId, this.applicationId, items, filters, q, status, priority, category, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -516,15 +428,15 @@ public class ApplicationClient {
         }    
     }
 
-    public LeadPlatformModels.Ticket getNewTicket(String id) throws FDKServerResponseError, FDKException {
-        return this.getNewTicket(id, new HashMap<>());
+    public LeadPlatformModels.Ticket getTicket(String id) throws FDKServerResponseError, FDKException {
+        return this.getTicket(id, new HashMap<>());
     }
 
-    public LeadPlatformModels.Ticket getNewTicket(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.Ticket getTicket(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LeadPlatformModels.Ticket> response = null;
             try {
-            response = leadPlatformApiList.getNewTicket(this.companyId, this.applicationId, id, requestHeaders).execute();
+            response = leadPlatformApiList.getTicket(this.companyId, this.applicationId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -543,15 +455,15 @@ public class ApplicationClient {
         }    
     }
 
-    public LeadPlatformModels.Ticket editNewTicket(String id, LeadPlatformModels.EditTicketPayload body) throws FDKServerResponseError, FDKException {
-        return this.editNewTicket(id, body, new HashMap<>());
+    public LeadPlatformModels.Ticket editTicket(String id, LeadPlatformModels.EditTicketPayload body) throws FDKServerResponseError, FDKException {
+        return this.editTicket(id, body, new HashMap<>());
     }
 
-    public LeadPlatformModels.Ticket editNewTicket(String id, LeadPlatformModels.EditTicketPayload body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.Ticket editTicket(String id, LeadPlatformModels.EditTicketPayload body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LeadPlatformModels.Ticket> response = null;
             try {
-            response = leadPlatformApiList.editNewTicket(this.companyId, this.applicationId, id, body, requestHeaders).execute();
+            response = leadPlatformApiList.editTicket(this.companyId, this.applicationId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -597,15 +509,15 @@ public class ApplicationClient {
         }    
     }
 
-    public LeadPlatformModels.TicketHistoryList getNewTicketHistory(String id) throws FDKServerResponseError, FDKException {
-        return this.getNewTicketHistory(id, new HashMap<>());
+    public LeadPlatformModels.TicketHistoryList getTicketHistory(String id) throws FDKServerResponseError, FDKException {
+        return this.getTicketHistory(id, new HashMap<>());
     }
 
-    public LeadPlatformModels.TicketHistoryList getNewTicketHistory(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LeadPlatformModels.TicketHistoryList getTicketHistory(String id, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<LeadPlatformModels.TicketHistoryList> response = null;
             try {
-            response = leadPlatformApiList.getNewTicketHistory(this.companyId, this.applicationId, id, requestHeaders).execute();
+            response = leadPlatformApiList.getTicketHistory(this.companyId, this.applicationId, id, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
