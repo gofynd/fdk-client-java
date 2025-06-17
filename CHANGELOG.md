@@ -1,4 +1,4 @@
-# CHANGE LOG (1.10.3-2) - 1.10.3
+# CHANGE LOG (1.10.3-3) - 1.10.3
 
 ## Application Client
 
@@ -3818,6 +3818,7 @@
 
 - ##### What's Deprecated
 	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>pincode</code> of schema <code>PlatformAddress</code> in request body
+	- [Breaking] [Deleted] properties <code>customJson.metaData</code>, <code>customJson.metaDataInt</code> in request body
 	- [Deleted] Value format from <code>date-time</code> from property <code>expireAt</code> of schema <code>PlatformAddress</code> in request body
 
 
@@ -3825,6 +3826,7 @@
 
 - ##### What's Deprecated
 	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>address[].pincode</code> of schema <code>PlatformAddress</code> in response with status code 200
+	- [Breaking] [Deleted] properties <code>address[].customJson.metaData</code>, <code>address[].customJson.metaDataInt</code> in response with status code 200
 	- [Deleted] Value format from <code>date-time</code> from property <code>address[].expireAt</code> of schema <code>PlatformAddress</code> in response with status code 200
 
 
@@ -3832,6 +3834,7 @@
 
 - ##### What's Deprecated
 	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>pincode</code> of schema <code>PlatformAddress</code> in response with status code 200
+	- [Breaking] [Deleted] properties <code>customJson.metaData</code>, <code>customJson.metaDataInt</code> in response with status code 200
 	- [Deleted] Value format from <code>date-time</code> from property <code>expireAt</code> of schema <code>PlatformAddress</code> in response with status code 200
 
 
@@ -3839,6 +3842,7 @@
 
 - ##### What's Deprecated
 	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>pincode</code> of schema <code>PlatformAddress</code> in request body
+	- [Breaking] [Deleted] properties <code>customJson.metaData</code>, <code>customJson.metaDataInt</code> in request body
 	- [Deleted] Value format from <code>date-time</code> from property <code>expireAt</code> of schema <code>PlatformAddress</code> in request body
 	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>addressId</code> of schema <code>UpdateAddressResult</code> in response with status code 200
 	- [Deleted] Type from <code>number</code> from property <code>addressId</code> of schema <code>UpdateAddressResult</code> in response with status code 200
@@ -3862,6 +3866,7 @@
 	- [Breaking] [Deleted] property <code>appliedPromoDetails[].floatAmount</code> of schema <code>AppliedPromotion</code> in response with status code 200
 	- [Deleted] Possible values from <code>percentage,amount,fixed_price,bogo,contract_price,shipping_price,ladder_price,bundle_price_percentage,bundle_price_amount,bundle_amount_percentage,custom,free_gift_items,free_non_sellable_items,external_price_adjustment_discount</code> from property <code>appliedPromoDetails[].promotionType</code> of schema <code>AppliedPromotion</code> in response with status code 200
 	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>address.address[].pincode</code> of schema <code>PlatformAddress</code> in response with status code 400
+	- [Breaking] [Deleted] properties <code>address.address[].customJson.metaData</code>, <code>address.address[].customJson.metaDataInt</code> in response with status code 400
 	- [Deleted] Value format from <code>date-time</code> from property <code>address.address[].expireAt</code> of schema <code>PlatformAddress</code> in response with status code 400
 
 - ##### What's Changed
@@ -8685,6 +8690,15 @@
 	- [Added] Possible nullable value <code>true</code> to property <code>exception</code> of schema <code>FailedOrderLogDetails</code> in response with status code 200
 	- [Added] Possible nullable value <code>true</code> to property <code>errorTrace</code> of schema <code>FailedOrderLogDetails</code> in response with status code 200
 	- [Added] Response with status 500
+
+
+#### getQuestions
+
+- ##### What's New
+	- [Added] property <code>items[].question_type</code> of schema <code></code> in response with status code 200
+	- [Added] property <code>items[].parameter_type</code> of schema <code></code> in response with status code 200
+	- [Added] property <code>items[].json_path</code> of schema <code></code> in response with status code 200
+	- [Added] property <code>items[].static_value</code> of schema <code></code> in response with status code 200
 
 
 #### getRuleLaneConfig

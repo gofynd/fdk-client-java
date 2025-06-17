@@ -11324,7 +11324,7 @@ public static class PlatformAddress{
     
     
     @JsonProperty("_custom_json")
-    private AddressCustomJson customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -11361,37 +11361,6 @@ public static class PlatformAddress{
     
     @JsonProperty("store_name")
     private String storeName;
-    
-    
-    
-}
-
-
-/*
-    Model: AddressCustomJson
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddressCustomJson{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("meta_data")
-    private String metaData;
-    
-    
-    
-    
-    @JsonProperty("meta_data_int")
-    private Double metaDataInt;
     
     
     
